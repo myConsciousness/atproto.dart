@@ -8,31 +8,25 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GraphGetKnownFollowersInputImpl _$$GraphGetKnownFollowersInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$GraphGetKnownFollowersInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$GraphGetKnownFollowersInputImpl(
-          actor: $checkedConvert('actor', (v) => v as String),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
-          cursor: $checkedConvert('cursor', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_GraphGetKnownFollowersInput _$GraphGetKnownFollowersInputFromJson(Map json) =>
+    $checkedCreate('_GraphGetKnownFollowersInput', json, ($checkedConvert) {
+      final val = _GraphGetKnownFollowersInput(
+        actor: $checkedConvert('actor', (v) => v as String),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        cursor: $checkedConvert('cursor', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$GraphGetKnownFollowersInputImplToJson(
-        _$GraphGetKnownFollowersInputImpl instance) =>
-    <String, dynamic>{
-      'actor': instance.actor,
-      'limit': instance.limit,
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$GraphGetKnownFollowersInputToJson(
+  _GraphGetKnownFollowersInput instance,
+) => <String, dynamic>{
+  'actor': instance.actor,
+  'limit': instance.limit,
+  'cursor': instance.cursor,
+  r'$unknown': instance.$unknown,
+};

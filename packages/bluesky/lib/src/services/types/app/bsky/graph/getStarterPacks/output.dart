@@ -23,13 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class GraphGetStarterPacksOutput with _$GraphGetStarterPacksOutput {
-  static const knownProps = <String>[
-    'starterPacks',
-  ];
+  static const knownProps = <String>['starterPacks'];
 
   const factory GraphGetStarterPacksOutput({
     @StarterPackViewBasicConverter()
     required List<StarterPackViewBasic> starterPacks,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphGetStarterPacksOutput;
 
@@ -37,20 +36,19 @@ abstract class GraphGetStarterPacksOutput with _$GraphGetStarterPacksOutput {
       _$GraphGetStarterPacksOutputFromJson(json);
 }
 
-final class GraphGetStarterPacksOutputConverter extends LexObjectConverter<
-    GraphGetStarterPacksOutput, Map<String, dynamic>> {
+final class GraphGetStarterPacksOutputConverter
+    extends
+        LexObjectConverter<GraphGetStarterPacksOutput, Map<String, dynamic>> {
   const GraphGetStarterPacksOutputConverter();
 
   @override
   GraphGetStarterPacksOutput fromJson(Map<String, dynamic> json) {
-    return GraphGetStarterPacksOutput.fromJson(translate(
-      json,
-      GraphGetStarterPacksOutput.knownProps,
-    ));
+    return GraphGetStarterPacksOutput.fromJson(
+      translate(json, GraphGetStarterPacksOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphGetStarterPacksOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(GraphGetStarterPacksOutput object) =>
+      untranslate(object.toJson());
 }

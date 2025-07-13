@@ -8,39 +8,40 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GraphGetListOutputImpl _$$GraphGetListOutputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$GraphGetListOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$GraphGetListOutputImpl(
-          cursor: $checkedConvert('cursor', (v) => v as String?),
-          list: $checkedConvert(
-              'list',
-              (v) => const ListViewConverter()
-                  .fromJson(v as Map<String, dynamic>)),
-          items: $checkedConvert(
-              'items',
-              (v) => (v as List<dynamic>)
-                  .map((e) => const ListItemViewConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
+_GraphGetListOutput _$GraphGetListOutputFromJson(Map json) => $checkedCreate(
+  '_GraphGetListOutput',
+  json,
+  ($checkedConvert) {
+    final val = _GraphGetListOutput(
+      cursor: $checkedConvert('cursor', (v) => v as String?),
+      list: $checkedConvert(
+        'list',
+        (v) => const ListViewConverter().fromJson(v as Map<String, dynamic>),
+      ),
+      items: $checkedConvert(
+        'items',
+        (v) => (v as List<dynamic>)
+            .map(
+              (e) => const ListItemViewConverter().fromJson(
+                e as Map<String, dynamic>,
+              ),
+            )
+            .toList(),
+      ),
+      $unknown: $checkedConvert(
+        r'$unknown',
+        (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+      ),
     );
+    return val;
+  },
+);
 
-Map<String, dynamic> _$$GraphGetListOutputImplToJson(
-        _$GraphGetListOutputImpl instance) =>
-    <String, dynamic>{
-      'cursor': instance.cursor,
-      'list': const ListViewConverter().toJson(instance.list),
-      'items':
-          instance.items.map(const ListItemViewConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$GraphGetListOutputToJson(
+  _GraphGetListOutput instance,
+) => <String, dynamic>{
+  'cursor': instance.cursor,
+  'list': const ListViewConverter().toJson(instance.list),
+  'items': instance.items.map(const ListItemViewConverter().toJson).toList(),
+  r'$unknown': instance.$unknown,
+};

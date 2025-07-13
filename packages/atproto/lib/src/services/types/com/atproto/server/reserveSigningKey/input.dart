@@ -21,13 +21,12 @@ part 'input.g.dart';
 @freezed
 abstract class ServerReserveSigningKeyInput
     with _$ServerReserveSigningKeyInput {
-  static const knownProps = <String>[
-    'did',
-  ];
+  static const knownProps = <String>['did'];
 
   const factory ServerReserveSigningKeyInput({
     /// The DID to reserve a key for.
     String? did,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerReserveSigningKeyInput;
 
@@ -35,21 +34,19 @@ abstract class ServerReserveSigningKeyInput
       _$ServerReserveSigningKeyInputFromJson(json);
 }
 
-final class ServerReserveSigningKeyInputConverter extends LexObjectConverter<
-    ServerReserveSigningKeyInput, Map<String, dynamic>> {
+final class ServerReserveSigningKeyInputConverter
+    extends
+        LexObjectConverter<ServerReserveSigningKeyInput, Map<String, dynamic>> {
   const ServerReserveSigningKeyInputConverter();
 
   @override
   ServerReserveSigningKeyInput fromJson(Map<String, dynamic> json) {
-    return ServerReserveSigningKeyInput.fromJson(translate(
-      json,
-      ServerReserveSigningKeyInput.knownProps,
-    ));
+    return ServerReserveSigningKeyInput.fromJson(
+      translate(json, ServerReserveSigningKeyInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ServerReserveSigningKeyInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

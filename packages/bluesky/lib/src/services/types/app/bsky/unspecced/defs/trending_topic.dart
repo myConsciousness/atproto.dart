@@ -36,6 +36,7 @@ abstract class TrendingTopic with _$TrendingTopic {
     String? displayName,
     String? description,
     required String link,
+
     Map<String, dynamic>? $unknown,
   }) = _TrendingTopic;
 
@@ -54,14 +55,10 @@ final class TrendingTopicConverter
 
   @override
   TrendingTopic fromJson(Map<String, dynamic> json) {
-    return TrendingTopic.fromJson(translate(
-      json,
-      TrendingTopic.knownProps,
-    ));
+    return TrendingTopic.fromJson(translate(json, TrendingTopic.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(TrendingTopic object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(TrendingTopic object) =>
+      untranslate(object.toJson());
 }

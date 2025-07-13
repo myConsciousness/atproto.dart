@@ -23,12 +23,11 @@ part 'output.g.dart';
 
 @freezed
 abstract class ConvoRemoveReactionOutput with _$ConvoRemoveReactionOutput {
-  static const knownProps = <String>[
-    'message',
-  ];
+  static const knownProps = <String>['message'];
 
   const factory ConvoRemoveReactionOutput({
     @MessageViewConverter() required MessageView message,
+
     Map<String, dynamic>? $unknown,
   }) = _ConvoRemoveReactionOutput;
 
@@ -36,20 +35,19 @@ abstract class ConvoRemoveReactionOutput with _$ConvoRemoveReactionOutput {
       _$ConvoRemoveReactionOutputFromJson(json);
 }
 
-final class ConvoRemoveReactionOutputConverter extends LexObjectConverter<
-    ConvoRemoveReactionOutput, Map<String, dynamic>> {
+final class ConvoRemoveReactionOutputConverter
+    extends
+        LexObjectConverter<ConvoRemoveReactionOutput, Map<String, dynamic>> {
   const ConvoRemoveReactionOutputConverter();
 
   @override
   ConvoRemoveReactionOutput fromJson(Map<String, dynamic> json) {
-    return ConvoRemoveReactionOutput.fromJson(translate(
-      json,
-      ConvoRemoveReactionOutput.knownProps,
-    ));
+    return ConvoRemoveReactionOutput.fromJson(
+      translate(json, ConvoRemoveReactionOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoRemoveReactionOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ConvoRemoveReactionOutput object) =>
+      untranslate(object.toJson());
 }

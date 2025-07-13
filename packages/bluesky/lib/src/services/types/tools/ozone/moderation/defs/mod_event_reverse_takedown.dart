@@ -24,15 +24,14 @@ part 'mod_event_reverse_takedown.g.dart';
 /// Revert take down action on a subject
 @freezed
 abstract class ModEventReverseTakedown with _$ModEventReverseTakedown {
-  static const knownProps = <String>[
-    'comment',
-  ];
+  static const knownProps = <String>['comment'];
 
   const factory ModEventReverseTakedown({
     @Default(toolsOzoneModerationDefsModEventReverseTakedown) String $type,
 
     /// Describe reasoning behind the reversal.
     String? comment,
+
     Map<String, dynamic>? $unknown,
   }) = _ModEventReverseTakedown;
 
@@ -51,14 +50,12 @@ final class ModEventReverseTakedownConverter
 
   @override
   ModEventReverseTakedown fromJson(Map<String, dynamic> json) {
-    return ModEventReverseTakedown.fromJson(translate(
-      json,
-      ModEventReverseTakedown.knownProps,
-    ));
+    return ModEventReverseTakedown.fromJson(
+      translate(json, ModEventReverseTakedown.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ModEventReverseTakedown object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ModEventReverseTakedown object) =>
+      untranslate(object.toJson());
 }

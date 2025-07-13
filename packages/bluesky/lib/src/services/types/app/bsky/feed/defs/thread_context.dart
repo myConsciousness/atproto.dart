@@ -24,13 +24,12 @@ part 'thread_context.g.dart';
 /// Metadata about this post within the context of the thread it is in.
 @freezed
 abstract class ThreadContext with _$ThreadContext {
-  static const knownProps = <String>[
-    'rootAuthorLike',
-  ];
+  static const knownProps = <String>['rootAuthorLike'];
 
   const factory ThreadContext({
     @Default(appBskyFeedDefsThreadContext) String $type,
     String? rootAuthorLike,
+
     Map<String, dynamic>? $unknown,
   }) = _ThreadContext;
 
@@ -49,14 +48,10 @@ final class ThreadContextConverter
 
   @override
   ThreadContext fromJson(Map<String, dynamic> json) {
-    return ThreadContext.fromJson(translate(
-      json,
-      ThreadContext.knownProps,
-    ));
+    return ThreadContext.fromJson(translate(json, ThreadContext.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ThreadContext object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ThreadContext object) =>
+      untranslate(object.toJson());
 }

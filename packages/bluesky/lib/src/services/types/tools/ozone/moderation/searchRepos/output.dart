@@ -23,14 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class ModerationSearchReposOutput with _$ModerationSearchReposOutput {
-  static const knownProps = <String>[
-    'cursor',
-    'repos',
-  ];
+  static const knownProps = <String>['cursor', 'repos'];
 
   const factory ModerationSearchReposOutput({
     String? cursor,
     @RepoViewConverter() required List<RepoView> repos,
+
     Map<String, dynamic>? $unknown,
   }) = _ModerationSearchReposOutput;
 
@@ -38,21 +36,19 @@ abstract class ModerationSearchReposOutput with _$ModerationSearchReposOutput {
       _$ModerationSearchReposOutputFromJson(json);
 }
 
-final class ModerationSearchReposOutputConverter extends LexObjectConverter<
-    ModerationSearchReposOutput, Map<String, dynamic>> {
+final class ModerationSearchReposOutputConverter
+    extends
+        LexObjectConverter<ModerationSearchReposOutput, Map<String, dynamic>> {
   const ModerationSearchReposOutputConverter();
 
   @override
   ModerationSearchReposOutput fromJson(Map<String, dynamic> json) {
-    return ModerationSearchReposOutput.fromJson(translate(
-      json,
-      ModerationSearchReposOutput.knownProps,
-    ));
+    return ModerationSearchReposOutput.fromJson(
+      translate(json, ModerationSearchReposOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ModerationSearchReposOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

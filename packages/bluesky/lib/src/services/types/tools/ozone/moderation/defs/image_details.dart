@@ -23,15 +23,13 @@ part 'image_details.g.dart';
 
 @freezed
 abstract class ImageDetails with _$ImageDetails {
-  static const knownProps = <String>[
-    'width',
-    'height',
-  ];
+  static const knownProps = <String>['width', 'height'];
 
   const factory ImageDetails({
     @Default(toolsOzoneModerationDefsImageDetails) String $type,
     required int width,
     required int height,
+
     Map<String, dynamic>? $unknown,
   }) = _ImageDetails;
 
@@ -50,14 +48,10 @@ final class ImageDetailsConverter
 
   @override
   ImageDetails fromJson(Map<String, dynamic> json) {
-    return ImageDetails.fromJson(translate(
-      json,
-      ImageDetails.knownProps,
-    ));
+    return ImageDetails.fromJson(translate(json, ImageDetails.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ImageDetails object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ImageDetails object) =>
+      untranslate(object.toJson());
 }

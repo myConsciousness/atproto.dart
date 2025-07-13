@@ -24,12 +24,7 @@ part 'reason_repost.g.dart';
 
 @freezed
 abstract class ReasonRepost with _$ReasonRepost {
-  static const knownProps = <String>[
-    'by',
-    'uri',
-    'cid',
-    'indexedAt',
-  ];
+  static const knownProps = <String>['by', 'uri', 'cid', 'indexedAt'];
 
   const factory ReasonRepost({
     @Default(appBskyFeedDefsReasonRepost) String $type,
@@ -37,6 +32,7 @@ abstract class ReasonRepost with _$ReasonRepost {
     String? uri,
     String? cid,
     required DateTime indexedAt,
+
     Map<String, dynamic>? $unknown,
   }) = _ReasonRepost;
 
@@ -55,14 +51,10 @@ final class ReasonRepostConverter
 
   @override
   ReasonRepost fromJson(Map<String, dynamic> json) {
-    return ReasonRepost.fromJson(translate(
-      json,
-      ReasonRepost.knownProps,
-    ));
+    return ReasonRepost.fromJson(translate(json, ReasonRepost.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ReasonRepost object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ReasonRepost object) =>
+      untranslate(object.toJson());
 }

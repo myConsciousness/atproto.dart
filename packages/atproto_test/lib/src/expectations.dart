@@ -6,28 +6,18 @@ import 'package:test/test.dart';
 import 'mocks/values.dart';
 import 'service_runner.dart';
 
-typedef ServiceCallback<S, D> = Future<core.XRPCResponse<D>> Function(
-  MockValues m,
-  S s,
-);
-typedef SubscriptionCallback<S, D>
-    = Future<core.XRPCResponse<core.Subscription<D>>> Function(
-  MockValues m,
-  S s,
-);
-typedef BulkCallback<S> = Future<core.XRPCResponse<core.EmptyData>> Function(
-  MockValues m,
-  S s,
-);
+typedef ServiceCallback<S, D> =
+    Future<core.XRPCResponse<D>> Function(MockValues m, S s);
+typedef SubscriptionCallback<S, D> =
+    Future<core.XRPCResponse<core.Subscription<D>>> Function(MockValues m, S s);
+typedef BulkCallback<S> =
+    Future<core.XRPCResponse<core.EmptyData>> Function(MockValues m, S s);
 
 const _mockValues = MockValues();
 
 /// Checks if [fn] throws [core.HttpException].
 void expectHttpException(Function fn) {
-  expect(
-    () async => await fn.call(),
-    throwsA(isA<core.HttpException>()),
-  );
+  expect(() async => await fn.call(), throwsA(isA<core.HttpException>()));
 }
 
 /// Checks if [fn] throws [core.UnauthorizedException].
@@ -71,10 +61,7 @@ void testService<S, D>(
 
 void _test<S, D>(
   final ServiceRunner runner,
-  final Future<core.XRPCResponse> Function(
-    MockValues m,
-    S s,
-  ) endpoint,
+  final Future<core.XRPCResponse> Function(MockValues m, S s) endpoint,
   final String lexiconId,
   final String? label, {
   final List<int>? bytes,

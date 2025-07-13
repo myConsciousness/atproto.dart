@@ -8,28 +8,28 @@ part of 'identity_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$IdentityInfoImpl _$$IdentityInfoImplFromJson(Map json) => $checkedCreate(
-      r'_$IdentityInfoImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$IdentityInfoImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? comAtprotoIdentityDefsIdentityInfo),
-          did: $checkedConvert('did', (v) => v as String),
-          handle: $checkedConvert('handle', (v) => v as String),
-          didDoc: $checkedConvert(
-              'didDoc', (v) => Map<String, dynamic>.from(v as Map)),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_IdentityInfo _$IdentityInfoFromJson(Map json) =>
+    $checkedCreate('_IdentityInfo', json, ($checkedConvert) {
+      final val = _IdentityInfo(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? comAtprotoIdentityDefsIdentityInfo,
+        ),
+        did: $checkedConvert('did', (v) => v as String),
+        handle: $checkedConvert('handle', (v) => v as String),
+        didDoc: $checkedConvert(
+          'didDoc',
+          (v) => Map<String, dynamic>.from(v as Map),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$IdentityInfoImplToJson(_$IdentityInfoImpl instance) =>
+Map<String, dynamic> _$IdentityInfoToJson(_IdentityInfo instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'did': instance.did,

@@ -12,7 +12,8 @@ part of 'lex_token.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LexToken _$LexTokenFromJson(Map<String, dynamic> json) {
   return _LexToken.fromJson(json);
@@ -55,20 +56,20 @@ class _$LexTokenCopyWithImpl<$Res, $Val extends LexToken>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? type = null,
-    Object? description = freezed,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  $Res call({Object? type = null, Object? description = freezed}) {
+    return _then(
+      _value.copyWith(
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -76,8 +77,9 @@ class _$LexTokenCopyWithImpl<$Res, $Val extends LexToken>
 abstract class _$$LexTokenImplCopyWith<$Res>
     implements $LexTokenCopyWith<$Res> {
   factory _$$LexTokenImplCopyWith(
-          _$LexTokenImpl value, $Res Function(_$LexTokenImpl) then) =
-      __$$LexTokenImplCopyWithImpl<$Res>;
+    _$LexTokenImpl value,
+    $Res Function(_$LexTokenImpl) then,
+  ) = __$$LexTokenImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type, String? description});
@@ -88,27 +90,27 @@ class __$$LexTokenImplCopyWithImpl<$Res>
     extends _$LexTokenCopyWithImpl<$Res, _$LexTokenImpl>
     implements _$$LexTokenImplCopyWith<$Res> {
   __$$LexTokenImplCopyWithImpl(
-      _$LexTokenImpl _value, $Res Function(_$LexTokenImpl) _then)
-      : super(_value, _then);
+    _$LexTokenImpl _value,
+    $Res Function(_$LexTokenImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexToken
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? type = null,
-    Object? description = freezed,
-  }) {
-    return _then(_$LexTokenImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+  $Res call({Object? type = null, Object? description = freezed}) {
+    return _then(
+      _$LexTokenImpl(
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
@@ -156,9 +158,7 @@ class _$LexTokenImpl implements _LexToken {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LexTokenImplToJson(
-      this,
-    );
+    return _$$LexTokenImplToJson(this);
   }
 }
 

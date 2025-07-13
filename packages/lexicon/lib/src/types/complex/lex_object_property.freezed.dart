@@ -12,7 +12,8 @@ part of 'lex_object_property.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$LexObjectProperty {
@@ -24,8 +25,7 @@ mixin _$LexObjectProperty {
     required TResult Function(LexArray data) array,
     required TResult Function(LexBlob data) blob,
     required TResult Function(LexPrimitive data) primitive,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(LexRefVariant data)? refVariant,
@@ -33,8 +33,7 @@ mixin _$LexObjectProperty {
     TResult? Function(LexArray data)? array,
     TResult? Function(LexBlob data)? blob,
     TResult? Function(LexPrimitive data)? primitive,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(LexRefVariant data)? refVariant,
@@ -43,8 +42,7 @@ mixin _$LexObjectProperty {
     TResult Function(LexBlob data)? blob,
     TResult Function(LexPrimitive data)? primitive,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ULexObjectPropertyRefVariant value) refVariant,
@@ -52,8 +50,7 @@ mixin _$LexObjectProperty {
     required TResult Function(ULexObjectPropertyArray value) array,
     required TResult Function(ULexObjectPropertyBlob value) blob,
     required TResult Function(ULexObjectPropertyPrimitive value) primitive,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ULexObjectPropertyRefVariant value)? refVariant,
@@ -61,8 +58,7 @@ mixin _$LexObjectProperty {
     TResult? Function(ULexObjectPropertyArray value)? array,
     TResult? Function(ULexObjectPropertyBlob value)? blob,
     TResult? Function(ULexObjectPropertyPrimitive value)? primitive,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ULexObjectPropertyRefVariant value)? refVariant,
@@ -71,15 +67,15 @@ mixin _$LexObjectProperty {
     TResult Function(ULexObjectPropertyBlob value)? blob,
     TResult Function(ULexObjectPropertyPrimitive value)? primitive,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $LexObjectPropertyCopyWith<$Res> {
   factory $LexObjectPropertyCopyWith(
-          LexObjectProperty value, $Res Function(LexObjectProperty) then) =
-      _$LexObjectPropertyCopyWithImpl<$Res, LexObjectProperty>;
+    LexObjectProperty value,
+    $Res Function(LexObjectProperty) then,
+  ) = _$LexObjectPropertyCopyWithImpl<$Res, LexObjectProperty>;
 }
 
 /// @nodoc
@@ -99,9 +95,9 @@ class _$LexObjectPropertyCopyWithImpl<$Res, $Val extends LexObjectProperty>
 /// @nodoc
 abstract class _$$ULexObjectPropertyRefVariantImplCopyWith<$Res> {
   factory _$$ULexObjectPropertyRefVariantImplCopyWith(
-          _$ULexObjectPropertyRefVariantImpl value,
-          $Res Function(_$ULexObjectPropertyRefVariantImpl) then) =
-      __$$ULexObjectPropertyRefVariantImplCopyWithImpl<$Res>;
+    _$ULexObjectPropertyRefVariantImpl value,
+    $Res Function(_$ULexObjectPropertyRefVariantImpl) then,
+  ) = __$$ULexObjectPropertyRefVariantImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexRefVariant data});
 
@@ -110,27 +106,30 @@ abstract class _$$ULexObjectPropertyRefVariantImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ULexObjectPropertyRefVariantImplCopyWithImpl<$Res>
-    extends _$LexObjectPropertyCopyWithImpl<$Res,
-        _$ULexObjectPropertyRefVariantImpl>
+    extends
+        _$LexObjectPropertyCopyWithImpl<
+          $Res,
+          _$ULexObjectPropertyRefVariantImpl
+        >
     implements _$$ULexObjectPropertyRefVariantImplCopyWith<$Res> {
   __$$ULexObjectPropertyRefVariantImplCopyWithImpl(
-      _$ULexObjectPropertyRefVariantImpl _value,
-      $Res Function(_$ULexObjectPropertyRefVariantImpl) _then)
-      : super(_value, _then);
+    _$ULexObjectPropertyRefVariantImpl _value,
+    $Res Function(_$ULexObjectPropertyRefVariantImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexObjectProperty
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexObjectPropertyRefVariantImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexRefVariant,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexObjectPropertyRefVariantImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexRefVariant,
+      ),
+    );
   }
 
   /// Create a copy of LexObjectProperty
@@ -174,9 +173,12 @@ class _$ULexObjectPropertyRefVariantImpl extends ULexObjectPropertyRefVariant {
   @override
   @pragma('vm:prefer-inline')
   _$$ULexObjectPropertyRefVariantImplCopyWith<
-          _$ULexObjectPropertyRefVariantImpl>
-      get copyWith => __$$ULexObjectPropertyRefVariantImplCopyWithImpl<
-          _$ULexObjectPropertyRefVariantImpl>(this, _$identity);
+    _$ULexObjectPropertyRefVariantImpl
+  >
+  get copyWith =>
+      __$$ULexObjectPropertyRefVariantImplCopyWithImpl<
+        _$ULexObjectPropertyRefVariantImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -260,8 +262,9 @@ class _$ULexObjectPropertyRefVariantImpl extends ULexObjectPropertyRefVariant {
 }
 
 abstract class ULexObjectPropertyRefVariant extends LexObjectProperty {
-  const factory ULexObjectPropertyRefVariant(
-      {required final LexRefVariant data}) = _$ULexObjectPropertyRefVariantImpl;
+  const factory ULexObjectPropertyRefVariant({
+    required final LexRefVariant data,
+  }) = _$ULexObjectPropertyRefVariantImpl;
   const ULexObjectPropertyRefVariant._() : super._();
 
   @override
@@ -271,16 +274,17 @@ abstract class ULexObjectPropertyRefVariant extends LexObjectProperty {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexObjectPropertyRefVariantImplCopyWith<
-          _$ULexObjectPropertyRefVariantImpl>
-      get copyWith => throw _privateConstructorUsedError;
+    _$ULexObjectPropertyRefVariantImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$ULexObjectPropertyIpldImplCopyWith<$Res> {
   factory _$$ULexObjectPropertyIpldImplCopyWith(
-          _$ULexObjectPropertyIpldImpl value,
-          $Res Function(_$ULexObjectPropertyIpldImpl) then) =
-      __$$ULexObjectPropertyIpldImplCopyWithImpl<$Res>;
+    _$ULexObjectPropertyIpldImpl value,
+    $Res Function(_$ULexObjectPropertyIpldImpl) then,
+  ) = __$$ULexObjectPropertyIpldImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexIpld data});
 
@@ -292,23 +296,23 @@ class __$$ULexObjectPropertyIpldImplCopyWithImpl<$Res>
     extends _$LexObjectPropertyCopyWithImpl<$Res, _$ULexObjectPropertyIpldImpl>
     implements _$$ULexObjectPropertyIpldImplCopyWith<$Res> {
   __$$ULexObjectPropertyIpldImplCopyWithImpl(
-      _$ULexObjectPropertyIpldImpl _value,
-      $Res Function(_$ULexObjectPropertyIpldImpl) _then)
-      : super(_value, _then);
+    _$ULexObjectPropertyIpldImpl _value,
+    $Res Function(_$ULexObjectPropertyIpldImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexObjectProperty
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexObjectPropertyIpldImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexIpld,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexObjectPropertyIpldImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexIpld,
+      ),
+    );
   }
 
   /// Create a copy of LexObjectProperty
@@ -352,8 +356,11 @@ class _$ULexObjectPropertyIpldImpl extends ULexObjectPropertyIpld {
   @override
   @pragma('vm:prefer-inline')
   _$$ULexObjectPropertyIpldImplCopyWith<_$ULexObjectPropertyIpldImpl>
-      get copyWith => __$$ULexObjectPropertyIpldImplCopyWithImpl<
-          _$ULexObjectPropertyIpldImpl>(this, _$identity);
+  get copyWith =>
+      __$$ULexObjectPropertyIpldImplCopyWithImpl<_$ULexObjectPropertyIpldImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -448,15 +455,15 @@ abstract class ULexObjectPropertyIpld extends LexObjectProperty {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexObjectPropertyIpldImplCopyWith<_$ULexObjectPropertyIpldImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$ULexObjectPropertyArrayImplCopyWith<$Res> {
   factory _$$ULexObjectPropertyArrayImplCopyWith(
-          _$ULexObjectPropertyArrayImpl value,
-          $Res Function(_$ULexObjectPropertyArrayImpl) then) =
-      __$$ULexObjectPropertyArrayImplCopyWithImpl<$Res>;
+    _$ULexObjectPropertyArrayImpl value,
+    $Res Function(_$ULexObjectPropertyArrayImpl) then,
+  ) = __$$ULexObjectPropertyArrayImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexArray data});
 
@@ -468,23 +475,23 @@ class __$$ULexObjectPropertyArrayImplCopyWithImpl<$Res>
     extends _$LexObjectPropertyCopyWithImpl<$Res, _$ULexObjectPropertyArrayImpl>
     implements _$$ULexObjectPropertyArrayImplCopyWith<$Res> {
   __$$ULexObjectPropertyArrayImplCopyWithImpl(
-      _$ULexObjectPropertyArrayImpl _value,
-      $Res Function(_$ULexObjectPropertyArrayImpl) _then)
-      : super(_value, _then);
+    _$ULexObjectPropertyArrayImpl _value,
+    $Res Function(_$ULexObjectPropertyArrayImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexObjectProperty
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexObjectPropertyArrayImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexArray,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexObjectPropertyArrayImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexArray,
+      ),
+    );
   }
 
   /// Create a copy of LexObjectProperty
@@ -528,8 +535,10 @@ class _$ULexObjectPropertyArrayImpl extends ULexObjectPropertyArray {
   @override
   @pragma('vm:prefer-inline')
   _$$ULexObjectPropertyArrayImplCopyWith<_$ULexObjectPropertyArrayImpl>
-      get copyWith => __$$ULexObjectPropertyArrayImplCopyWithImpl<
-          _$ULexObjectPropertyArrayImpl>(this, _$identity);
+  get copyWith =>
+      __$$ULexObjectPropertyArrayImplCopyWithImpl<
+        _$ULexObjectPropertyArrayImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -624,15 +633,15 @@ abstract class ULexObjectPropertyArray extends LexObjectProperty {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexObjectPropertyArrayImplCopyWith<_$ULexObjectPropertyArrayImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$ULexObjectPropertyBlobImplCopyWith<$Res> {
   factory _$$ULexObjectPropertyBlobImplCopyWith(
-          _$ULexObjectPropertyBlobImpl value,
-          $Res Function(_$ULexObjectPropertyBlobImpl) then) =
-      __$$ULexObjectPropertyBlobImplCopyWithImpl<$Res>;
+    _$ULexObjectPropertyBlobImpl value,
+    $Res Function(_$ULexObjectPropertyBlobImpl) then,
+  ) = __$$ULexObjectPropertyBlobImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexBlob data});
 
@@ -644,23 +653,23 @@ class __$$ULexObjectPropertyBlobImplCopyWithImpl<$Res>
     extends _$LexObjectPropertyCopyWithImpl<$Res, _$ULexObjectPropertyBlobImpl>
     implements _$$ULexObjectPropertyBlobImplCopyWith<$Res> {
   __$$ULexObjectPropertyBlobImplCopyWithImpl(
-      _$ULexObjectPropertyBlobImpl _value,
-      $Res Function(_$ULexObjectPropertyBlobImpl) _then)
-      : super(_value, _then);
+    _$ULexObjectPropertyBlobImpl _value,
+    $Res Function(_$ULexObjectPropertyBlobImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexObjectProperty
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexObjectPropertyBlobImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexBlob,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexObjectPropertyBlobImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexBlob,
+      ),
+    );
   }
 
   /// Create a copy of LexObjectProperty
@@ -704,8 +713,11 @@ class _$ULexObjectPropertyBlobImpl extends ULexObjectPropertyBlob {
   @override
   @pragma('vm:prefer-inline')
   _$$ULexObjectPropertyBlobImplCopyWith<_$ULexObjectPropertyBlobImpl>
-      get copyWith => __$$ULexObjectPropertyBlobImplCopyWithImpl<
-          _$ULexObjectPropertyBlobImpl>(this, _$identity);
+  get copyWith =>
+      __$$ULexObjectPropertyBlobImplCopyWithImpl<_$ULexObjectPropertyBlobImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -800,15 +812,15 @@ abstract class ULexObjectPropertyBlob extends LexObjectProperty {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexObjectPropertyBlobImplCopyWith<_$ULexObjectPropertyBlobImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$ULexObjectPropertyPrimitiveImplCopyWith<$Res> {
   factory _$$ULexObjectPropertyPrimitiveImplCopyWith(
-          _$ULexObjectPropertyPrimitiveImpl value,
-          $Res Function(_$ULexObjectPropertyPrimitiveImpl) then) =
-      __$$ULexObjectPropertyPrimitiveImplCopyWithImpl<$Res>;
+    _$ULexObjectPropertyPrimitiveImpl value,
+    $Res Function(_$ULexObjectPropertyPrimitiveImpl) then,
+  ) = __$$ULexObjectPropertyPrimitiveImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexPrimitive data});
 
@@ -817,27 +829,27 @@ abstract class _$$ULexObjectPropertyPrimitiveImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ULexObjectPropertyPrimitiveImplCopyWithImpl<$Res>
-    extends _$LexObjectPropertyCopyWithImpl<$Res,
-        _$ULexObjectPropertyPrimitiveImpl>
+    extends
+        _$LexObjectPropertyCopyWithImpl<$Res, _$ULexObjectPropertyPrimitiveImpl>
     implements _$$ULexObjectPropertyPrimitiveImplCopyWith<$Res> {
   __$$ULexObjectPropertyPrimitiveImplCopyWithImpl(
-      _$ULexObjectPropertyPrimitiveImpl _value,
-      $Res Function(_$ULexObjectPropertyPrimitiveImpl) _then)
-      : super(_value, _then);
+    _$ULexObjectPropertyPrimitiveImpl _value,
+    $Res Function(_$ULexObjectPropertyPrimitiveImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexObjectProperty
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexObjectPropertyPrimitiveImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexPrimitive,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexObjectPropertyPrimitiveImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexPrimitive,
+      ),
+    );
   }
 
   /// Create a copy of LexObjectProperty
@@ -881,8 +893,10 @@ class _$ULexObjectPropertyPrimitiveImpl extends ULexObjectPropertyPrimitive {
   @override
   @pragma('vm:prefer-inline')
   _$$ULexObjectPropertyPrimitiveImplCopyWith<_$ULexObjectPropertyPrimitiveImpl>
-      get copyWith => __$$ULexObjectPropertyPrimitiveImplCopyWithImpl<
-          _$ULexObjectPropertyPrimitiveImpl>(this, _$identity);
+  get copyWith =>
+      __$$ULexObjectPropertyPrimitiveImplCopyWithImpl<
+        _$ULexObjectPropertyPrimitiveImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -966,8 +980,9 @@ class _$ULexObjectPropertyPrimitiveImpl extends ULexObjectPropertyPrimitive {
 }
 
 abstract class ULexObjectPropertyPrimitive extends LexObjectProperty {
-  const factory ULexObjectPropertyPrimitive(
-      {required final LexPrimitive data}) = _$ULexObjectPropertyPrimitiveImpl;
+  const factory ULexObjectPropertyPrimitive({
+    required final LexPrimitive data,
+  }) = _$ULexObjectPropertyPrimitiveImpl;
   const ULexObjectPropertyPrimitive._() : super._();
 
   @override
@@ -977,5 +992,5 @@ abstract class ULexObjectPropertyPrimitive extends LexObjectProperty {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexObjectPropertyPrimitiveImplCopyWith<_$ULexObjectPropertyPrimitiveImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

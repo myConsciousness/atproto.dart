@@ -25,12 +25,7 @@ part 'log_remove_reaction.g.dart';
 
 @freezed
 abstract class LogRemoveReaction with _$LogRemoveReaction {
-  static const knownProps = <String>[
-    'rev',
-    'convoId',
-    'message',
-    'reaction',
-  ];
+  static const knownProps = <String>['rev', 'convoId', 'message', 'reaction'];
 
   const factory LogRemoveReaction({
     @Default(chatBskyConvoDefsLogRemoveReaction) String $type,
@@ -39,6 +34,7 @@ abstract class LogRemoveReaction with _$LogRemoveReaction {
     @ULogRemoveReactionMessageConverter()
     required ULogRemoveReactionMessage message,
     @ReactionViewConverter() required ReactionView reaction,
+
     Map<String, dynamic>? $unknown,
   }) = _LogRemoveReaction;
 
@@ -57,14 +53,12 @@ final class LogRemoveReactionConverter
 
   @override
   LogRemoveReaction fromJson(Map<String, dynamic> json) {
-    return LogRemoveReaction.fromJson(translate(
-      json,
-      LogRemoveReaction.knownProps,
-    ));
+    return LogRemoveReaction.fromJson(
+      translate(json, LogRemoveReaction.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(LogRemoveReaction object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(LogRemoveReaction object) =>
+      untranslate(object.toJson());
 }

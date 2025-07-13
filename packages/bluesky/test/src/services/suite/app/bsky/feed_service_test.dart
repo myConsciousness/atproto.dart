@@ -35,10 +35,7 @@ void main() {
     id: appBskyFeedPost,
   );
 
-  testFeed<Feed>(
-    (m, s) => s.getTimeline(),
-    id: appBskyFeedGetTimeline,
-  );
+  testFeed<Feed>((m, s) => s.getTimeline(), id: appBskyFeedGetTimeline);
 
   testFeed<atp.StrongRef>(
     (m, s) => s.like(cid: m.cid, uri: m.uri),
@@ -81,18 +78,12 @@ void main() {
     id: appBskyFeedGetPostThread,
   );
 
-  testFeed<Posts>(
-    (m, s) => s.getPosts(uris: [m.uri]),
-    id: appBskyFeedGetPosts,
-  );
+  testFeed<Posts>((m, s) => s.getPosts(uris: [m.uri]), id: appBskyFeedGetPosts);
 
   testFeed<atp.StrongRef>(
     (m, s) => s.generator(did: m.did, displayName: m.displayName),
     bulk: (m, s) => s.generatorInBulk([
-      GeneratorParam(
-        did: m.did,
-        displayName: m.displayName,
-      )
+      GeneratorParam(did: m.did, displayName: m.displayName),
     ]),
     id: appBskyFeedGenerator,
   );

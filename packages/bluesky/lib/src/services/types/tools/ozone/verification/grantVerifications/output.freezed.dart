@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,257 +9,295 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-VerificationGrantVerificationsOutput
-    _$VerificationGrantVerificationsOutputFromJson(Map<String, dynamic> json) {
-  return _VerificationGrantVerificationsOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$VerificationGrantVerificationsOutput {
-  @VerificationViewConverter()
-  List<VerificationView> get verifications =>
-      throw _privateConstructorUsedError;
-  @GrantErrorConverter()
-  List<GrantError> get failedVerifications =>
-      throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+@VerificationViewConverter() List<VerificationView> get verifications;@GrantErrorConverter() List<GrantError> get failedVerifications; Map<String, dynamic>? get $unknown;
+/// Create a copy of VerificationGrantVerificationsOutput
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$VerificationGrantVerificationsOutputCopyWith<VerificationGrantVerificationsOutput> get copyWith => _$VerificationGrantVerificationsOutputCopyWithImpl<VerificationGrantVerificationsOutput>(this as VerificationGrantVerificationsOutput, _$identity);
 
   /// Serializes this VerificationGrantVerificationsOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of VerificationGrantVerificationsOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $VerificationGrantVerificationsOutputCopyWith<
-          VerificationGrantVerificationsOutput>
-      get copyWith => throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is VerificationGrantVerificationsOutput&&const DeepCollectionEquality().equals(other.verifications, verifications)&&const DeepCollectionEquality().equals(other.failedVerifications, failedVerifications)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(verifications),const DeepCollectionEquality().hash(failedVerifications),const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'VerificationGrantVerificationsOutput(verifications: $verifications, failedVerifications: $failedVerifications, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $VerificationGrantVerificationsOutputCopyWith<$Res> {
-  factory $VerificationGrantVerificationsOutputCopyWith(
-          VerificationGrantVerificationsOutput value,
-          $Res Function(VerificationGrantVerificationsOutput) then) =
-      _$VerificationGrantVerificationsOutputCopyWithImpl<$Res,
-          VerificationGrantVerificationsOutput>;
-  @useResult
-  $Res call(
-      {@VerificationViewConverter() List<VerificationView> verifications,
-      @GrantErrorConverter() List<GrantError> failedVerifications,
-      Map<String, dynamic>? $unknown});
-}
+abstract mixin class $VerificationGrantVerificationsOutputCopyWith<$Res>  {
+  factory $VerificationGrantVerificationsOutputCopyWith(VerificationGrantVerificationsOutput value, $Res Function(VerificationGrantVerificationsOutput) _then) = _$VerificationGrantVerificationsOutputCopyWithImpl;
+@useResult
+$Res call({
+@VerificationViewConverter() List<VerificationView> verifications,@GrantErrorConverter() List<GrantError> failedVerifications, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$VerificationGrantVerificationsOutputCopyWithImpl<$Res,
-        $Val extends VerificationGrantVerificationsOutput>
+class _$VerificationGrantVerificationsOutputCopyWithImpl<$Res>
     implements $VerificationGrantVerificationsOutputCopyWith<$Res> {
-  _$VerificationGrantVerificationsOutputCopyWithImpl(this._value, this._then);
+  _$VerificationGrantVerificationsOutputCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final VerificationGrantVerificationsOutput _self;
+  final $Res Function(VerificationGrantVerificationsOutput) _then;
 
-  /// Create a copy of VerificationGrantVerificationsOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? verifications = null,
-    Object? failedVerifications = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      verifications: null == verifications
-          ? _value.verifications
-          : verifications // ignore: cast_nullable_to_non_nullable
-              as List<VerificationView>,
-      failedVerifications: null == failedVerifications
-          ? _value.failedVerifications
-          : failedVerifications // ignore: cast_nullable_to_non_nullable
-              as List<GrantError>,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of VerificationGrantVerificationsOutput
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? verifications = null,Object? failedVerifications = null,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+verifications: null == verifications ? _self.verifications : verifications // ignore: cast_nullable_to_non_nullable
+as List<VerificationView>,failedVerifications: null == failedVerifications ? _self.failedVerifications : failedVerifications // ignore: cast_nullable_to_non_nullable
+as List<GrantError>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$VerificationGrantVerificationsOutputImplCopyWith<$Res>
-    implements $VerificationGrantVerificationsOutputCopyWith<$Res> {
-  factory _$$VerificationGrantVerificationsOutputImplCopyWith(
-          _$VerificationGrantVerificationsOutputImpl value,
-          $Res Function(_$VerificationGrantVerificationsOutputImpl) then) =
-      __$$VerificationGrantVerificationsOutputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@VerificationViewConverter() List<VerificationView> verifications,
-      @GrantErrorConverter() List<GrantError> failedVerifications,
-      Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$VerificationGrantVerificationsOutputImplCopyWithImpl<$Res>
-    extends _$VerificationGrantVerificationsOutputCopyWithImpl<$Res,
-        _$VerificationGrantVerificationsOutputImpl>
-    implements _$$VerificationGrantVerificationsOutputImplCopyWith<$Res> {
-  __$$VerificationGrantVerificationsOutputImplCopyWithImpl(
-      _$VerificationGrantVerificationsOutputImpl _value,
-      $Res Function(_$VerificationGrantVerificationsOutputImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of VerificationGrantVerificationsOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? verifications = null,
-    Object? failedVerifications = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$VerificationGrantVerificationsOutputImpl(
-      verifications: null == verifications
-          ? _value._verifications
-          : verifications // ignore: cast_nullable_to_non_nullable
-              as List<VerificationView>,
-      failedVerifications: null == failedVerifications
-          ? _value._failedVerifications
-          : failedVerifications // ignore: cast_nullable_to_non_nullable
-              as List<GrantError>,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [VerificationGrantVerificationsOutput].
+extension VerificationGrantVerificationsOutputPatterns on VerificationGrantVerificationsOutput {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _VerificationGrantVerificationsOutput value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _VerificationGrantVerificationsOutput() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _VerificationGrantVerificationsOutput value)  $default,){
+final _that = this;
+switch (_that) {
+case _VerificationGrantVerificationsOutput():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _VerificationGrantVerificationsOutput value)?  $default,){
+final _that = this;
+switch (_that) {
+case _VerificationGrantVerificationsOutput() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@VerificationViewConverter()  List<VerificationView> verifications, @GrantErrorConverter()  List<GrantError> failedVerifications,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _VerificationGrantVerificationsOutput() when $default != null:
+return $default(_that.verifications,_that.failedVerifications,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@VerificationViewConverter()  List<VerificationView> verifications, @GrantErrorConverter()  List<GrantError> failedVerifications,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _VerificationGrantVerificationsOutput():
+return $default(_that.verifications,_that.failedVerifications,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@VerificationViewConverter()  List<VerificationView> verifications, @GrantErrorConverter()  List<GrantError> failedVerifications,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _VerificationGrantVerificationsOutput() when $default != null:
+return $default(_that.verifications,_that.failedVerifications,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$VerificationGrantVerificationsOutputImpl
-    implements _VerificationGrantVerificationsOutput {
-  const _$VerificationGrantVerificationsOutputImpl(
-      {@VerificationViewConverter()
-      required final List<VerificationView> verifications,
-      @GrantErrorConverter()
-      required final List<GrantError> failedVerifications,
-      final Map<String, dynamic>? $unknown})
-      : _verifications = verifications,
-        _failedVerifications = failedVerifications,
-        _$unknown = $unknown;
 
-  factory _$VerificationGrantVerificationsOutputImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$VerificationGrantVerificationsOutputImplFromJson(json);
+class _VerificationGrantVerificationsOutput implements VerificationGrantVerificationsOutput {
+  const _VerificationGrantVerificationsOutput({@VerificationViewConverter() required final  List<VerificationView> verifications, @GrantErrorConverter() required final  List<GrantError> failedVerifications, final  Map<String, dynamic>? $unknown}): _verifications = verifications,_failedVerifications = failedVerifications,_$unknown = $unknown;
+  factory _VerificationGrantVerificationsOutput.fromJson(Map<String, dynamic> json) => _$VerificationGrantVerificationsOutputFromJson(json);
 
-  final List<VerificationView> _verifications;
-  @override
-  @VerificationViewConverter()
-  List<VerificationView> get verifications {
-    if (_verifications is EqualUnmodifiableListView) return _verifications;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_verifications);
-  }
-
-  final List<GrantError> _failedVerifications;
-  @override
-  @GrantErrorConverter()
-  List<GrantError> get failedVerifications {
-    if (_failedVerifications is EqualUnmodifiableListView)
-      return _failedVerifications;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_failedVerifications);
-  }
-
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'VerificationGrantVerificationsOutput(verifications: $verifications, failedVerifications: $failedVerifications, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$VerificationGrantVerificationsOutputImpl &&
-            const DeepCollectionEquality()
-                .equals(other._verifications, _verifications) &&
-            const DeepCollectionEquality()
-                .equals(other._failedVerifications, _failedVerifications) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_verifications),
-      const DeepCollectionEquality().hash(_failedVerifications),
-      const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of VerificationGrantVerificationsOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$VerificationGrantVerificationsOutputImplCopyWith<
-          _$VerificationGrantVerificationsOutputImpl>
-      get copyWith => __$$VerificationGrantVerificationsOutputImplCopyWithImpl<
-          _$VerificationGrantVerificationsOutputImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$VerificationGrantVerificationsOutputImplToJson(
-      this,
-    );
-  }
+ final  List<VerificationView> _verifications;
+@override@VerificationViewConverter() List<VerificationView> get verifications {
+  if (_verifications is EqualUnmodifiableListView) return _verifications;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_verifications);
 }
 
-abstract class _VerificationGrantVerificationsOutput
-    implements VerificationGrantVerificationsOutput {
-  const factory _VerificationGrantVerificationsOutput(
-          {@VerificationViewConverter()
-          required final List<VerificationView> verifications,
-          @GrantErrorConverter()
-          required final List<GrantError> failedVerifications,
-          final Map<String, dynamic>? $unknown}) =
-      _$VerificationGrantVerificationsOutputImpl;
-
-  factory _VerificationGrantVerificationsOutput.fromJson(
-          Map<String, dynamic> json) =
-      _$VerificationGrantVerificationsOutputImpl.fromJson;
-
-  @override
-  @VerificationViewConverter()
-  List<VerificationView> get verifications;
-  @override
-  @GrantErrorConverter()
-  List<GrantError> get failedVerifications;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of VerificationGrantVerificationsOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$VerificationGrantVerificationsOutputImplCopyWith<
-          _$VerificationGrantVerificationsOutputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+ final  List<GrantError> _failedVerifications;
+@override@GrantErrorConverter() List<GrantError> get failedVerifications {
+  if (_failedVerifications is EqualUnmodifiableListView) return _failedVerifications;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_failedVerifications);
 }
+
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
+}
+
+
+/// Create a copy of VerificationGrantVerificationsOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$VerificationGrantVerificationsOutputCopyWith<_VerificationGrantVerificationsOutput> get copyWith => __$VerificationGrantVerificationsOutputCopyWithImpl<_VerificationGrantVerificationsOutput>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$VerificationGrantVerificationsOutputToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _VerificationGrantVerificationsOutput&&const DeepCollectionEquality().equals(other._verifications, _verifications)&&const DeepCollectionEquality().equals(other._failedVerifications, _failedVerifications)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_verifications),const DeepCollectionEquality().hash(_failedVerifications),const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'VerificationGrantVerificationsOutput(verifications: $verifications, failedVerifications: $failedVerifications, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$VerificationGrantVerificationsOutputCopyWith<$Res> implements $VerificationGrantVerificationsOutputCopyWith<$Res> {
+  factory _$VerificationGrantVerificationsOutputCopyWith(_VerificationGrantVerificationsOutput value, $Res Function(_VerificationGrantVerificationsOutput) _then) = __$VerificationGrantVerificationsOutputCopyWithImpl;
+@override @useResult
+$Res call({
+@VerificationViewConverter() List<VerificationView> verifications,@GrantErrorConverter() List<GrantError> failedVerifications, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$VerificationGrantVerificationsOutputCopyWithImpl<$Res>
+    implements _$VerificationGrantVerificationsOutputCopyWith<$Res> {
+  __$VerificationGrantVerificationsOutputCopyWithImpl(this._self, this._then);
+
+  final _VerificationGrantVerificationsOutput _self;
+  final $Res Function(_VerificationGrantVerificationsOutput) _then;
+
+/// Create a copy of VerificationGrantVerificationsOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? verifications = null,Object? failedVerifications = null,Object? $unknown = freezed,}) {
+  return _then(_VerificationGrantVerificationsOutput(
+verifications: null == verifications ? _self._verifications : verifications // ignore: cast_nullable_to_non_nullable
+as List<VerificationView>,failedVerifications: null == failedVerifications ? _self._failedVerifications : failedVerifications // ignore: cast_nullable_to_non_nullable
+as List<GrantError>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

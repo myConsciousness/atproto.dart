@@ -8,26 +8,18 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$VideoGetJobStatusInputImpl _$$VideoGetJobStatusInputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$VideoGetJobStatusInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$VideoGetJobStatusInputImpl(
-          jobId: $checkedConvert('jobId', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_VideoGetJobStatusInput _$VideoGetJobStatusInputFromJson(Map json) =>
+    $checkedCreate('_VideoGetJobStatusInput', json, ($checkedConvert) {
+      final val = _VideoGetJobStatusInput(
+        jobId: $checkedConvert('jobId', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$VideoGetJobStatusInputImplToJson(
-        _$VideoGetJobStatusInputImpl instance) =>
-    <String, dynamic>{
-      'jobId': instance.jobId,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$VideoGetJobStatusInputToJson(
+  _VideoGetJobStatusInput instance,
+) => <String, dynamic>{'jobId': instance.jobId, r'$unknown': instance.$unknown};

@@ -24,12 +24,7 @@ part 'deleted_message_view.g.dart';
 
 @freezed
 abstract class DeletedMessageView with _$DeletedMessageView {
-  static const knownProps = <String>[
-    'id',
-    'rev',
-    'sender',
-    'sentAt',
-  ];
+  static const knownProps = <String>['id', 'rev', 'sender', 'sentAt'];
 
   const factory DeletedMessageView({
     @Default(chatBskyConvoDefsDeletedMessageView) String $type,
@@ -37,6 +32,7 @@ abstract class DeletedMessageView with _$DeletedMessageView {
     required String rev,
     @MessageViewSenderConverter() required MessageViewSender sender,
     required DateTime sentAt,
+
     Map<String, dynamic>? $unknown,
   }) = _DeletedMessageView;
 
@@ -55,14 +51,12 @@ final class DeletedMessageViewConverter
 
   @override
   DeletedMessageView fromJson(Map<String, dynamic> json) {
-    return DeletedMessageView.fromJson(translate(
-      json,
-      DeletedMessageView.knownProps,
-    ));
+    return DeletedMessageView.fromJson(
+      translate(json, DeletedMessageView.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(DeletedMessageView object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(DeletedMessageView object) =>
+      untranslate(object.toJson());
 }

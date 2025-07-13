@@ -80,6 +80,7 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
     List<String>? policies,
     List<String>? modTool,
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _ModerationQueryEventsInput;
 
@@ -87,20 +88,19 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
       _$ModerationQueryEventsInputFromJson(json);
 }
 
-final class ModerationQueryEventsInputConverter extends LexObjectConverter<
-    ModerationQueryEventsInput, Map<String, dynamic>> {
+final class ModerationQueryEventsInputConverter
+    extends
+        LexObjectConverter<ModerationQueryEventsInput, Map<String, dynamic>> {
   const ModerationQueryEventsInputConverter();
 
   @override
   ModerationQueryEventsInput fromJson(Map<String, dynamic> json) {
-    return ModerationQueryEventsInput.fromJson(translate(
-      json,
-      ModerationQueryEventsInput.knownProps,
-    ));
+    return ModerationQueryEventsInput.fromJson(
+      translate(json, ModerationQueryEventsInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ModerationQueryEventsInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ModerationQueryEventsInput object) =>
+      untranslate(object.toJson());
 }

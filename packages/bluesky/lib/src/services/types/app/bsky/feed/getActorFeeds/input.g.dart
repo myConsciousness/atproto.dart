@@ -8,30 +8,25 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedGetActorFeedsInputImpl _$$FeedGetActorFeedsInputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$FeedGetActorFeedsInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$FeedGetActorFeedsInputImpl(
-          actor: $checkedConvert('actor', (v) => v as String),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
-          cursor: $checkedConvert('cursor', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_FeedGetActorFeedsInput _$FeedGetActorFeedsInputFromJson(Map json) =>
+    $checkedCreate('_FeedGetActorFeedsInput', json, ($checkedConvert) {
+      final val = _FeedGetActorFeedsInput(
+        actor: $checkedConvert('actor', (v) => v as String),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        cursor: $checkedConvert('cursor', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$FeedGetActorFeedsInputImplToJson(
-        _$FeedGetActorFeedsInputImpl instance) =>
-    <String, dynamic>{
-      'actor': instance.actor,
-      'limit': instance.limit,
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$FeedGetActorFeedsInputToJson(
+  _FeedGetActorFeedsInput instance,
+) => <String, dynamic>{
+  'actor': instance.actor,
+  'limit': instance.limit,
+  'cursor': instance.cursor,
+  r'$unknown': instance.$unknown,
+};

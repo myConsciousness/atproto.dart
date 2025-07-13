@@ -24,16 +24,13 @@ part 'output.g.dart';
 @freezed
 abstract class GraphGetKnownFollowersOutput
     with _$GraphGetKnownFollowersOutput {
-  static const knownProps = <String>[
-    'subject',
-    'cursor',
-    'followers',
-  ];
+  static const knownProps = <String>['subject', 'cursor', 'followers'];
 
   const factory GraphGetKnownFollowersOutput({
     @ProfileViewConverter() required ProfileView subject,
     String? cursor,
     @ProfileViewConverter() required List<ProfileView> followers,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphGetKnownFollowersOutput;
 
@@ -41,21 +38,19 @@ abstract class GraphGetKnownFollowersOutput
       _$GraphGetKnownFollowersOutputFromJson(json);
 }
 
-final class GraphGetKnownFollowersOutputConverter extends LexObjectConverter<
-    GraphGetKnownFollowersOutput, Map<String, dynamic>> {
+final class GraphGetKnownFollowersOutputConverter
+    extends
+        LexObjectConverter<GraphGetKnownFollowersOutput, Map<String, dynamic>> {
   const GraphGetKnownFollowersOutputConverter();
 
   @override
   GraphGetKnownFollowersOutput fromJson(Map<String, dynamic> json) {
-    return GraphGetKnownFollowersOutput.fromJson(translate(
-      json,
-      GraphGetKnownFollowersOutput.knownProps,
-    ));
+    return GraphGetKnownFollowersOutput.fromJson(
+      translate(json, GraphGetKnownFollowersOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(GraphGetKnownFollowersOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

@@ -24,36 +24,35 @@ part 'output.g.dart';
 @freezed
 abstract class ServerGetAccountInviteCodesOutput
     with _$ServerGetAccountInviteCodesOutput {
-  static const knownProps = <String>[
-    'codes',
-  ];
+  static const knownProps = <String>['codes'];
 
   const factory ServerGetAccountInviteCodesOutput({
     @InviteCodeConverter() required List<InviteCode> codes,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerGetAccountInviteCodesOutput;
 
   factory ServerGetAccountInviteCodesOutput.fromJson(
-          Map<String, Object?> json) =>
-      _$ServerGetAccountInviteCodesOutputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$ServerGetAccountInviteCodesOutputFromJson(json);
 }
 
 final class ServerGetAccountInviteCodesOutputConverter
-    extends LexObjectConverter<ServerGetAccountInviteCodesOutput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          ServerGetAccountInviteCodesOutput,
+          Map<String, dynamic>
+        > {
   const ServerGetAccountInviteCodesOutputConverter();
 
   @override
   ServerGetAccountInviteCodesOutput fromJson(Map<String, dynamic> json) {
-    return ServerGetAccountInviteCodesOutput.fromJson(translate(
-      json,
-      ServerGetAccountInviteCodesOutput.knownProps,
-    ));
+    return ServerGetAccountInviteCodesOutput.fromJson(
+      translate(json, ServerGetAccountInviteCodesOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ServerGetAccountInviteCodesOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

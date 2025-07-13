@@ -8,27 +8,23 @@ part of 'skeleton_search_post.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SkeletonSearchPostImpl _$$SkeletonSearchPostImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$SkeletonSearchPostImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SkeletonSearchPostImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? appBskyUnspeccedDefsSkeletonSearchPost),
-          uri: $checkedConvert('uri', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_SkeletonSearchPost _$SkeletonSearchPostFromJson(Map json) =>
+    $checkedCreate('_SkeletonSearchPost', json, ($checkedConvert) {
+      final val = _SkeletonSearchPost(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyUnspeccedDefsSkeletonSearchPost,
+        ),
+        uri: $checkedConvert('uri', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$SkeletonSearchPostImplToJson(
-        _$SkeletonSearchPostImpl instance) =>
+Map<String, dynamic> _$SkeletonSearchPostToJson(_SkeletonSearchPost instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'uri': instance.uri,

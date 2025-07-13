@@ -23,13 +23,12 @@ part 'feed_item.g.dart';
 
 @freezed
 abstract class FeedItem with _$FeedItem {
-  static const knownProps = <String>[
-    'uri',
-  ];
+  static const knownProps = <String>['uri'];
 
   const factory FeedItem({
     @Default(appBskyGraphStarterpackFeedItem) String $type,
     required String uri,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedItem;
 
@@ -48,14 +47,9 @@ final class FeedItemConverter
 
   @override
   FeedItem fromJson(Map<String, dynamic> json) {
-    return FeedItem.fromJson(translate(
-      json,
-      FeedItem.knownProps,
-    ));
+    return FeedItem.fromJson(translate(json, FeedItem.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedItem object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(FeedItem object) => untranslate(object.toJson());
 }

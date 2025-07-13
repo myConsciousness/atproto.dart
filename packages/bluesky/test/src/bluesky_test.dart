@@ -35,56 +35,66 @@ void main() {
   });
 
   test('.actor', () {
-    final service = Bluesky.fromSession(Session(
-      did: 'aaaa',
-      handle: 'shinyakato.dev',
-      accessJwt: 'test',
-      refreshJwt: 'test',
-    )).actor;
+    final service = Bluesky.fromSession(
+      Session(
+        did: 'aaaa',
+        handle: 'shinyakato.dev',
+        accessJwt: 'test',
+        refreshJwt: 'test',
+      ),
+    ).actor;
 
     expect(service, isA<ActorService>());
   });
 
   test('.feed', () {
-    final service = Bluesky.fromSession(Session(
-      did: 'aaaa',
-      handle: 'shinyakato.dev',
-      accessJwt: 'test',
-      refreshJwt: 'test',
-    )).feed;
+    final service = Bluesky.fromSession(
+      Session(
+        did: 'aaaa',
+        handle: 'shinyakato.dev',
+        accessJwt: 'test',
+        refreshJwt: 'test',
+      ),
+    ).feed;
 
     expect(service, isA<FeedService>());
   });
 
   test('.notification', () {
-    final service = Bluesky.fromSession(Session(
-      did: 'aaaa',
-      handle: 'shinyakato.dev',
-      accessJwt: 'test',
-      refreshJwt: 'test',
-    )).notification;
+    final service = Bluesky.fromSession(
+      Session(
+        did: 'aaaa',
+        handle: 'shinyakato.dev',
+        accessJwt: 'test',
+        refreshJwt: 'test',
+      ),
+    ).notification;
 
     expect(service, isA<NotificationService>());
   });
 
   test('.graph', () {
-    final service = Bluesky.fromSession(Session(
-      did: 'aaaa',
-      handle: 'shinyakato.dev',
-      accessJwt: 'test',
-      refreshJwt: 'test',
-    )).graph;
+    final service = Bluesky.fromSession(
+      Session(
+        did: 'aaaa',
+        handle: 'shinyakato.dev',
+        accessJwt: 'test',
+        refreshJwt: 'test',
+      ),
+    ).graph;
 
     expect(service, isA<GraphService>());
   });
 
   test('.unspecced', () {
-    final service = Bluesky.fromSession(Session(
-      did: 'aaaa',
-      handle: 'shinyakato.dev',
-      accessJwt: 'test',
-      refreshJwt: 'test',
-    )).unspecced;
+    final service = Bluesky.fromSession(
+      Session(
+        did: 'aaaa',
+        handle: 'shinyakato.dev',
+        accessJwt: 'test',
+        refreshJwt: 'test',
+      ),
+    ).unspecced;
 
     expect(service, isA<UnspeccedService>());
   });

@@ -28,13 +28,8 @@ class MuteCommand extends ProcedureCommand {
   final String invocation = 'bsky mute [actor]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'graph.bsky.app',
-        'muteActor',
-      );
+  xrpc.NSID get methodId => xrpc.NSID.create('graph.bsky.app', 'muteActor');
 
   @override
-  FutureOr<Map<String, dynamic>>? get body => {
-        'actor': argResults!['actor'],
-      };
+  FutureOr<Map<String, dynamic>>? get body => {'actor': argResults!['actor']};
 }

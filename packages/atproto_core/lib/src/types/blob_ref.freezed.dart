@@ -12,7 +12,8 @@ part of 'blob_ref.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 BlobRef _$BlobRefFromJson(Map<String, dynamic> json) {
   return _BlobRef.fromJson(json);
@@ -54,23 +55,25 @@ class _$BlobRefCopyWithImpl<$Res, $Val extends BlobRef>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? link = null,
-  }) {
-    return _then(_value.copyWith(
-      link: null == link
-          ? _value.link
-          : link // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? link = null}) {
+    return _then(
+      _value.copyWith(
+            link: null == link
+                ? _value.link
+                : link // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$BlobRefImplCopyWith<$Res> implements $BlobRefCopyWith<$Res> {
   factory _$$BlobRefImplCopyWith(
-          _$BlobRefImpl value, $Res Function(_$BlobRefImpl) then) =
-      __$$BlobRefImplCopyWithImpl<$Res>;
+    _$BlobRefImpl value,
+    $Res Function(_$BlobRefImpl) then,
+  ) = __$$BlobRefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: '\$link') String link});
@@ -81,22 +84,23 @@ class __$$BlobRefImplCopyWithImpl<$Res>
     extends _$BlobRefCopyWithImpl<$Res, _$BlobRefImpl>
     implements _$$BlobRefImplCopyWith<$Res> {
   __$$BlobRefImplCopyWithImpl(
-      _$BlobRefImpl _value, $Res Function(_$BlobRefImpl) _then)
-      : super(_value, _then);
+    _$BlobRefImpl _value,
+    $Res Function(_$BlobRefImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of BlobRef
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? link = null,
-  }) {
-    return _then(_$BlobRefImpl(
-      link: null == link
-          ? _value.link
-          : link // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? link = null}) {
+    return _then(
+      _$BlobRefImpl(
+        link: null == link
+            ? _value.link
+            : link // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -139,15 +143,14 @@ class _$BlobRefImpl implements _BlobRef {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BlobRefImplToJson(
-      this,
-    );
+    return _$$BlobRefImplToJson(this);
   }
 }
 
 abstract class _BlobRef implements BlobRef {
-  const factory _BlobRef(
-      {@JsonKey(name: '\$link') required final String link}) = _$BlobRefImpl;
+  const factory _BlobRef({
+    @JsonKey(name: '\$link') required final String link,
+  }) = _$BlobRefImpl;
 
   factory _BlobRef.fromJson(Map<String, dynamic> json) = _$BlobRefImpl.fromJson;
 

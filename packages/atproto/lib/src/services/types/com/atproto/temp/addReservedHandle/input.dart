@@ -20,12 +20,11 @@ part 'input.g.dart';
 
 @freezed
 abstract class TempAddReservedHandleInput with _$TempAddReservedHandleInput {
-  static const knownProps = <String>[
-    'handle',
-  ];
+  static const knownProps = <String>['handle'];
 
   const factory TempAddReservedHandleInput({
     required String handle,
+
     Map<String, dynamic>? $unknown,
   }) = _TempAddReservedHandleInput;
 
@@ -33,20 +32,19 @@ abstract class TempAddReservedHandleInput with _$TempAddReservedHandleInput {
       _$TempAddReservedHandleInputFromJson(json);
 }
 
-final class TempAddReservedHandleInputConverter extends LexObjectConverter<
-    TempAddReservedHandleInput, Map<String, dynamic>> {
+final class TempAddReservedHandleInputConverter
+    extends
+        LexObjectConverter<TempAddReservedHandleInput, Map<String, dynamic>> {
   const TempAddReservedHandleInputConverter();
 
   @override
   TempAddReservedHandleInput fromJson(Map<String, dynamic> json) {
-    return TempAddReservedHandleInput.fromJson(translate(
-      json,
-      TempAddReservedHandleInput.knownProps,
-    ));
+    return TempAddReservedHandleInput.fromJson(
+      translate(json, TempAddReservedHandleInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(TempAddReservedHandleInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(TempAddReservedHandleInput object) =>
+      untranslate(object.toJson());
 }

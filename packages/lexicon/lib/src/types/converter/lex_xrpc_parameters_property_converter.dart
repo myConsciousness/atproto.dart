@@ -22,27 +22,19 @@ final class LexXrpcParametersPropertyConverter
     switch (type) {
       case 'string':
         return LexXrpcParametersProperty.primitive(
-          data: LexPrimitive.string(
-            data: LexString.fromJson(json),
-          ),
+          data: LexPrimitive.string(data: LexString.fromJson(json)),
         );
       case 'integer':
         return LexXrpcParametersProperty.primitive(
-          data: LexPrimitive.integer(
-            data: LexInteger.fromJson(json),
-          ),
+          data: LexPrimitive.integer(data: LexInteger.fromJson(json)),
         );
       case 'boolean':
         return LexXrpcParametersProperty.primitive(
-          data: LexPrimitive.boolean(
-            data: LexBoolean.fromJson(json),
-          ),
+          data: LexPrimitive.boolean(data: LexBoolean.fromJson(json)),
         );
       case 'unknown':
         return LexXrpcParametersProperty.primitive(
-          data: LexPrimitive.unknown(
-            data: LexUnknown.fromJson(json),
-          ),
+          data: LexPrimitive.unknown(data: LexUnknown.fromJson(json)),
         );
       case 'array':
         return LexXrpcParametersProperty.primitiveArray(
@@ -56,12 +48,12 @@ final class LexXrpcParametersPropertyConverter
 
   @override
   Map<String, dynamic> toJson(LexXrpcParametersProperty object) => object.when(
-        primitiveArray: (data) => data.toJson(),
-        primitive: (data) => data.when(
-          boolean: (data) => data.toJson(),
-          integer: (data) => data.toJson(),
-          string: (data) => data.toJson(),
-          unknown: (data) => data.toJson(),
-        ),
-      );
+    primitiveArray: (data) => data.toJson(),
+    primitive: (data) => data.when(
+      boolean: (data) => data.toJson(),
+      integer: (data) => data.toJson(),
+      string: (data) => data.toJson(),
+      unknown: (data) => data.toJson(),
+    ),
+  );
 }

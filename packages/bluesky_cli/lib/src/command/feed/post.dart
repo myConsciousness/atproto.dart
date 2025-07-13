@@ -65,10 +65,7 @@ class PostCommand extends CreateRecordCommand {
       'bsky post [text] [reply] [images] [langs] [labels] [tags] [created-at]';
 
   @override
-  xrpc.NSID get collection => xrpc.NSID.create(
-        'feed.bsky.app',
-        'post',
-      );
+  xrpc.NSID get collection => xrpc.NSID.create('feed.bsky.app', 'post');
 
   @override
   FutureOr<Map<String, dynamic>> get record async {
@@ -85,28 +82,17 @@ class PostCommand extends CreateRecordCommand {
       final post = await _getPost(AtUri.parse(argResults!['reply']));
 
       record['reply'] = {
-        'root': {
-          'uri': post['uri'],
-          'cid': post['cid'],
-        },
-        'parent': {
-          'uri': post['uri'],
-          'cid': post['cid'],
-        },
+        'root': {'uri': post['uri'], 'cid': post['cid']},
+        'parent': {'uri': post['uri'], 'cid': post['cid']},
       };
     }
 
     final images = await _uploadImages();
     if (images.isNotEmpty) {
-      record['embed'] = {
-        r'$type': 'app.bsky.embed.images',
-        'images': images,
-      };
+      record['embed'] = {r'$type': 'app.bsky.embed.images', 'images': images};
     } else {
       if (text.isEmpty) {
-        throw ArgumentError(
-          'text must not be empty when embed is null.',
-        );
+        throw ArgumentError('text must not be empty when embed is null.');
       }
     }
 
@@ -159,12 +145,7 @@ class PostCommand extends CreateRecordCommand {
       r'$type': 'com.atproto.label.defs#selfLabels',
       'values': labels
           .split(',')
-          .map(
-            (e) => {
-              r'$type': 'com.atproto.label.defs#selfLabel',
-              'val': e,
-            },
-          )
+          .map((e) => {r'$type': 'com.atproto.label.defs#selfLabel', 'val': e})
           .toList(),
     };
   }
@@ -180,29 +161,19 @@ class PostCommand extends CreateRecordCommand {
 
       final blob = jsonDecode(uploaded.data);
 
-      images.add({
-        'alt': '',
-        'image': blob['blob'],
-      });
+      images.add({'alt': '', 'image': blob['blob']});
     }
 
     return images;
   }
 
-  Future<Map<String, dynamic>> _getPost(
-    final AtUri uri,
-  ) async {
+  Future<Map<String, dynamic>> _getPost(final AtUri uri) async {
     final response = await xrpc.query<Map<String, dynamic>>(
-      xrpc.NSID.create(
-        'feed.bsky.app',
-        'getPosts',
-      ),
+      xrpc.NSID.create('feed.bsky.app', 'getPosts'),
       parameters: {
         'uris': [uri],
       },
-      headers: {
-        'Authorization': 'Bearer ${await accessJwt}',
-      },
+      headers: {'Authorization': 'Bearer ${await accessJwt}'},
     );
 
     return response.data['posts'].first;

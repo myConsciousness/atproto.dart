@@ -43,77 +43,57 @@ final class NotificationService {
     required String appId,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.post(
-        ns.appBskyNotificationRegisterPush,
-        headers: {
-          'Content-type': 'application/json',
-          ...?$headers,
-        },
-        body: {
-          'serviceDid': serviceDid,
-          'token': token,
-          'platform': platform,
-          'appId': appId,
-          ...?$unknown,
-        },
-      );
+  }) async => await _ctx.post(
+    ns.appBskyNotificationRegisterPush,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {
+      'serviceDid': serviceDid,
+      'token': token,
+      'platform': platform,
+      'appId': appId,
+      ...?$unknown,
+    },
+  );
 
   /// Set notification-related preferences for an account. Requires auth.
   Future<XRPCResponse<EmptyData>> putPreferences({
     required bool priority,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.post(
-        ns.appBskyNotificationPutPreferences,
-        headers: {
-          'Content-type': 'application/json',
-          ...?$headers,
-        },
-        body: {
-          'priority': priority,
-          ...?$unknown,
-        },
-      );
+  }) async => await _ctx.post(
+    ns.appBskyNotificationPutPreferences,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {'priority': priority, ...?$unknown},
+  );
 
   /// Puts an activity subscription entry. The key should be omitted for creation and provided for updates. Requires auth.
   Future<XRPCResponse<NotificationPutActivitySubscriptionOutput>>
-      putActivitySubscription({
+  putActivitySubscription({
     required String subject,
     required ActivitySubscription activitySubscription,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-          await _ctx.post(
-            ns.appBskyNotificationPutActivitySubscription,
-            headers: {
-              'Content-type': 'application/json',
-              ...?$headers,
-            },
-            body: {
-              'subject': subject,
-              'activitySubscription': activitySubscription.toJson(),
-              ...?$unknown,
-            },
-            to: const NotificationPutActivitySubscriptionOutputConverter()
-                .fromJson,
-          );
+  }) async => await _ctx.post(
+    ns.appBskyNotificationPutActivitySubscription,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {
+      'subject': subject,
+      'activitySubscription': activitySubscription.toJson(),
+      ...?$unknown,
+    },
+    to: const NotificationPutActivitySubscriptionOutputConverter().fromJson,
+  );
   Future<XRPCResponse<RepoCreateRecordOutput>> declaration({
     required String allowSubscriptions,
     String? $rey,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.repo.createRecord(
-        repo: _ctx.$repo,
-        collection: ids.appBskyNotificationDeclaration,
-        rkey: $rey,
-        record: {
-          'allowSubscriptions': allowSubscriptions,
-          ...?$unknown,
-        },
-      );
+  }) async => await _ctx.repo.createRecord(
+    repo: _ctx.$repo,
+    collection: ids.appBskyNotificationDeclaration,
+    rkey: $rey,
+    record: {'allowSubscriptions': allowSubscriptions, ...?$unknown},
+  );
 
   /// Set notification-related preferences for an account. Requires auth.
   Future<XRPCResponse<NotificationPutPreferencesV2Output>> putPreferencesV2({
@@ -132,85 +112,68 @@ final class NotificationService {
     Preference? verified,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.post(
-        ns.appBskyNotificationPutPreferencesV2,
-        headers: {
-          'Content-type': 'application/json',
-          ...?$headers,
-        },
-        body: {
-          if (chat != null) 'chat': chat.toJson(),
-          if (follow != null) 'follow': follow.toJson(),
-          if (like != null) 'like': like.toJson(),
-          if (likeViaRepost != null) 'likeViaRepost': likeViaRepost.toJson(),
-          if (mention != null) 'mention': mention.toJson(),
-          if (quote != null) 'quote': quote.toJson(),
-          if (reply != null) 'reply': reply.toJson(),
-          if (repost != null) 'repost': repost.toJson(),
-          if (repostViaRepost != null)
-            'repostViaRepost': repostViaRepost.toJson(),
-          if (starterpackJoined != null)
-            'starterpackJoined': starterpackJoined.toJson(),
-          if (subscribedPost != null) 'subscribedPost': subscribedPost.toJson(),
-          if (unverified != null) 'unverified': unverified.toJson(),
-          if (verified != null) 'verified': verified.toJson(),
-          ...?$unknown,
-        },
-        to: const NotificationPutPreferencesV2OutputConverter().fromJson,
-      );
+  }) async => await _ctx.post(
+    ns.appBskyNotificationPutPreferencesV2,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {
+      if (chat != null) 'chat': chat.toJson(),
+      if (follow != null) 'follow': follow.toJson(),
+      if (like != null) 'like': like.toJson(),
+      if (likeViaRepost != null) 'likeViaRepost': likeViaRepost.toJson(),
+      if (mention != null) 'mention': mention.toJson(),
+      if (quote != null) 'quote': quote.toJson(),
+      if (reply != null) 'reply': reply.toJson(),
+      if (repost != null) 'repost': repost.toJson(),
+      if (repostViaRepost != null) 'repostViaRepost': repostViaRepost.toJson(),
+      if (starterpackJoined != null)
+        'starterpackJoined': starterpackJoined.toJson(),
+      if (subscribedPost != null) 'subscribedPost': subscribedPost.toJson(),
+      if (unverified != null) 'unverified': unverified.toJson(),
+      if (verified != null) 'verified': verified.toJson(),
+      ...?$unknown,
+    },
+    to: const NotificationPutPreferencesV2OutputConverter().fromJson,
+  );
 
   /// Notify server that the requesting account has seen notifications. Requires auth.
   Future<XRPCResponse<EmptyData>> updateSeen({
     required DateTime seenAt,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.post(
-        ns.appBskyNotificationUpdateSeen,
-        headers: {
-          'Content-type': 'application/json',
-          ...?$headers,
-        },
-        body: {
-          'seenAt': seenAt,
-          ...?$unknown,
-        },
-      );
+  }) async => await _ctx.post(
+    ns.appBskyNotificationUpdateSeen,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {'seenAt': seenAt, ...?$unknown},
+  );
 
   /// Enumerate all accounts to which the requesting account is subscribed to receive notifications for. Requires auth.
   Future<XRPCResponse<NotificationListActivitySubscriptionsOutput>>
-      listActivitySubscriptions({
+  listActivitySubscriptions({
     int? limit,
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-          await _ctx.get(
-            ns.appBskyNotificationListActivitySubscriptions,
-            headers: $headers,
-            parameters: {
-              if (limit != null) 'limit': limit,
-              if (cursor != null) 'cursor': cursor,
-              ...?$unknown,
-            },
-            to: const NotificationListActivitySubscriptionsOutputConverter()
-                .fromJson,
-          );
+  }) async => await _ctx.get(
+    ns.appBskyNotificationListActivitySubscriptions,
+    headers: $headers,
+    parameters: {
+      if (limit != null) 'limit': limit,
+      if (cursor != null) 'cursor': cursor,
+      ...?$unknown,
+    },
+    to: const NotificationListActivitySubscriptionsOutputConverter().fromJson,
+  );
 
   /// Get notification-related preferences for an account. Requires auth.
   Future<XRPCResponse<NotificationGetPreferencesOutput>> getPreferences({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyNotificationGetPreferences,
-        headers: $headers,
-        parameters: {
-          ...?$unknown,
-        },
-        to: const NotificationGetPreferencesOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.appBskyNotificationGetPreferences,
+    headers: $headers,
+    parameters: {...?$unknown},
+    to: const NotificationGetPreferencesOutputConverter().fromJson,
+  );
 
   /// Enumerate notifications for the requesting account. Requires auth.
   Future<XRPCResponse<NotificationListNotificationsOutput>> listNotifications({
@@ -221,20 +184,19 @@ final class NotificationService {
     DateTime? seenAt,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyNotificationListNotifications,
-        headers: $headers,
-        parameters: {
-          if (reasons != null) 'reasons': reasons,
-          if (limit != null) 'limit': limit,
-          if (priority != null) 'priority': priority,
-          if (cursor != null) 'cursor': cursor,
-          if (seenAt != null) 'seenAt': seenAt,
-          ...?$unknown,
-        },
-        to: const NotificationListNotificationsOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.appBskyNotificationListNotifications,
+    headers: $headers,
+    parameters: {
+      if (reasons != null) 'reasons': reasons,
+      if (limit != null) 'limit': limit,
+      if (priority != null) 'priority': priority,
+      if (cursor != null) 'cursor': cursor,
+      if (seenAt != null) 'seenAt': seenAt,
+      ...?$unknown,
+    },
+    to: const NotificationListNotificationsOutputConverter().fromJson,
+  );
 
   /// Count the number of unread notifications for the requesting account. Requires auth.
   Future<XRPCResponse<NotificationGetUnreadCountOutput>> getUnreadCount({
@@ -242,15 +204,14 @@ final class NotificationService {
     DateTime? seenAt,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyNotificationGetUnreadCount,
-        headers: $headers,
-        parameters: {
-          if (priority != null) 'priority': priority,
-          if (seenAt != null) 'seenAt': seenAt,
-          ...?$unknown,
-        },
-        to: const NotificationGetUnreadCountOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.appBskyNotificationGetUnreadCount,
+    headers: $headers,
+    parameters: {
+      if (priority != null) 'priority': priority,
+      if (seenAt != null) 'seenAt': seenAt,
+      ...?$unknown,
+    },
+    to: const NotificationGetUnreadCountOutputConverter().fromJson,
+  );
 }

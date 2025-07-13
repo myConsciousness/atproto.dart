@@ -23,15 +23,13 @@ part 'log_leave_convo.g.dart';
 
 @freezed
 abstract class LogLeaveConvo with _$LogLeaveConvo {
-  static const knownProps = <String>[
-    'rev',
-    'convoId',
-  ];
+  static const knownProps = <String>['rev', 'convoId'];
 
   const factory LogLeaveConvo({
     @Default(chatBskyConvoDefsLogLeaveConvo) String $type,
     required String rev,
     required String convoId,
+
     Map<String, dynamic>? $unknown,
   }) = _LogLeaveConvo;
 
@@ -50,14 +48,10 @@ final class LogLeaveConvoConverter
 
   @override
   LogLeaveConvo fromJson(Map<String, dynamic> json) {
-    return LogLeaveConvo.fromJson(translate(
-      json,
-      LogLeaveConvo.knownProps,
-    ));
+    return LogLeaveConvo.fromJson(translate(json, LogLeaveConvo.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(LogLeaveConvo object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(LogLeaveConvo object) =>
+      untranslate(object.toJson());
 }

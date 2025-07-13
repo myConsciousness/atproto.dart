@@ -8,17 +8,14 @@ part of 'lex_token.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LexTokenImpl _$$LexTokenImplFromJson(Map json) => $checkedCreate(
-      r'_$LexTokenImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$LexTokenImpl(
-          type: $checkedConvert('type', (v) => v as String? ?? 'token'),
-          description: $checkedConvert('description', (v) => v as String?),
-        );
-        return val;
-      },
-    );
+_$LexTokenImpl _$$LexTokenImplFromJson(Map json) =>
+    $checkedCreate(r'_$LexTokenImpl', json, ($checkedConvert) {
+      final val = _$LexTokenImpl(
+        type: $checkedConvert('type', (v) => v as String? ?? 'token'),
+        description: $checkedConvert('description', (v) => v as String?),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$$LexTokenImplToJson(_$LexTokenImpl instance) =>
     <String, dynamic>{

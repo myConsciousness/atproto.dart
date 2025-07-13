@@ -44,6 +44,7 @@ abstract class RecordView with _$RecordView {
     required DateTime indexedAt,
     @ModerationConverter() required Moderation moderation,
     @RepoViewConverter() required RepoView repo,
+
     Map<String, dynamic>? $unknown,
   }) = _RecordView;
 
@@ -62,14 +63,10 @@ final class RecordViewConverter
 
   @override
   RecordView fromJson(Map<String, dynamic> json) {
-    return RecordView.fromJson(translate(
-      json,
-      RecordView.knownProps,
-    ));
+    return RecordView.fromJson(translate(json, RecordView.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(RecordView object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RecordView object) =>
+      untranslate(object.toJson());
 }

@@ -8,34 +8,32 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GraphGetListMutesOutputImpl _$$GraphGetListMutesOutputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$GraphGetListMutesOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$GraphGetListMutesOutputImpl(
-          cursor: $checkedConvert('cursor', (v) => v as String?),
-          lists: $checkedConvert(
-              'lists',
-              (v) => (v as List<dynamic>)
-                  .map((e) => const ListViewConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_GraphGetListMutesOutput _$GraphGetListMutesOutputFromJson(Map json) =>
+    $checkedCreate('_GraphGetListMutesOutput', json, ($checkedConvert) {
+      final val = _GraphGetListMutesOutput(
+        cursor: $checkedConvert('cursor', (v) => v as String?),
+        lists: $checkedConvert(
+          'lists',
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) => const ListViewConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$GraphGetListMutesOutputImplToJson(
-        _$GraphGetListMutesOutputImpl instance) =>
-    <String, dynamic>{
-      'cursor': instance.cursor,
-      'lists': instance.lists.map(const ListViewConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$GraphGetListMutesOutputToJson(
+  _GraphGetListMutesOutput instance,
+) => <String, dynamic>{
+  'cursor': instance.cursor,
+  'lists': instance.lists.map(const ListViewConverter().toJson).toList(),
+  r'$unknown': instance.$unknown,
+};

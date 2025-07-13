@@ -20,12 +20,11 @@ part 'input.g.dart';
 
 @freezed
 abstract class UnspeccedGetTrendsInput with _$UnspeccedGetTrendsInput {
-  static const knownProps = <String>[
-    'limit',
-  ];
+  static const knownProps = <String>['limit'];
 
   const factory UnspeccedGetTrendsInput({
     int? limit,
+
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetTrendsInput;
 
@@ -39,14 +38,12 @@ final class UnspeccedGetTrendsInputConverter
 
   @override
   UnspeccedGetTrendsInput fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetTrendsInput.fromJson(translate(
-      json,
-      UnspeccedGetTrendsInput.knownProps,
-    ));
+    return UnspeccedGetTrendsInput.fromJson(
+      translate(json, UnspeccedGetTrendsInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(UnspeccedGetTrendsInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(UnspeccedGetTrendsInput object) =>
+      untranslate(object.toJson());
 }

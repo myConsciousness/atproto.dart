@@ -21,17 +21,14 @@ part 'input.g.dart';
 @freezed
 abstract class GraphSearchStarterPacksInput
     with _$GraphSearchStarterPacksInput {
-  static const knownProps = <String>[
-    'q',
-    'limit',
-    'cursor',
-  ];
+  static const knownProps = <String>['q', 'limit', 'cursor'];
 
   const factory GraphSearchStarterPacksInput({
     /// Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
     required String q,
     int? limit,
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphSearchStarterPacksInput;
 
@@ -39,21 +36,19 @@ abstract class GraphSearchStarterPacksInput
       _$GraphSearchStarterPacksInputFromJson(json);
 }
 
-final class GraphSearchStarterPacksInputConverter extends LexObjectConverter<
-    GraphSearchStarterPacksInput, Map<String, dynamic>> {
+final class GraphSearchStarterPacksInputConverter
+    extends
+        LexObjectConverter<GraphSearchStarterPacksInput, Map<String, dynamic>> {
   const GraphSearchStarterPacksInputConverter();
 
   @override
   GraphSearchStarterPacksInput fromJson(Map<String, dynamic> json) {
-    return GraphSearchStarterPacksInput.fromJson(translate(
-      json,
-      GraphSearchStarterPacksInput.knownProps,
-    ));
+    return GraphSearchStarterPacksInput.fromJson(
+      translate(json, GraphSearchStarterPacksInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(GraphSearchStarterPacksInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

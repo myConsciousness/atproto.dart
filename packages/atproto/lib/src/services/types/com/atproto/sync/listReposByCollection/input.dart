@@ -21,11 +21,7 @@ part 'input.g.dart';
 @freezed
 abstract class SyncListReposByCollectionInput
     with _$SyncListReposByCollectionInput {
-  static const knownProps = <String>[
-    'collection',
-    'limit',
-    'cursor',
-  ];
+  static const knownProps = <String>['collection', 'limit', 'cursor'];
 
   const factory SyncListReposByCollectionInput({
     required String collection,
@@ -33,6 +29,7 @@ abstract class SyncListReposByCollectionInput
     /// Maximum size of response set. Recommend setting a large maximum (1000+) when enumerating large DID lists.
     int? limit,
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _SyncListReposByCollectionInput;
 
@@ -40,21 +37,22 @@ abstract class SyncListReposByCollectionInput
       _$SyncListReposByCollectionInputFromJson(json);
 }
 
-final class SyncListReposByCollectionInputConverter extends LexObjectConverter<
-    SyncListReposByCollectionInput, Map<String, dynamic>> {
+final class SyncListReposByCollectionInputConverter
+    extends
+        LexObjectConverter<
+          SyncListReposByCollectionInput,
+          Map<String, dynamic>
+        > {
   const SyncListReposByCollectionInputConverter();
 
   @override
   SyncListReposByCollectionInput fromJson(Map<String, dynamic> json) {
-    return SyncListReposByCollectionInput.fromJson(translate(
-      json,
-      SyncListReposByCollectionInput.knownProps,
-    ));
+    return SyncListReposByCollectionInput.fromJson(
+      translate(json, SyncListReposByCollectionInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(SyncListReposByCollectionInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

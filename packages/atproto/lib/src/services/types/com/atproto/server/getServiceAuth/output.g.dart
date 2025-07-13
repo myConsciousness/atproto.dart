@@ -8,27 +8,18 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ServerGetServiceAuthOutputImpl _$$ServerGetServiceAuthOutputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$ServerGetServiceAuthOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ServerGetServiceAuthOutputImpl(
-          token: $checkedConvert('token', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ServerGetServiceAuthOutput _$ServerGetServiceAuthOutputFromJson(Map json) =>
+    $checkedCreate('_ServerGetServiceAuthOutput', json, ($checkedConvert) {
+      final val = _ServerGetServiceAuthOutput(
+        token: $checkedConvert('token', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ServerGetServiceAuthOutputImplToJson(
-        _$ServerGetServiceAuthOutputImpl instance) =>
-    <String, dynamic>{
-      'token': instance.token,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ServerGetServiceAuthOutputToJson(
+  _ServerGetServiceAuthOutput instance,
+) => <String, dynamic>{'token': instance.token, r'$unknown': instance.$unknown};

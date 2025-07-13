@@ -18,15 +18,15 @@ abstract class QueryCommand extends BskyCommand {
 
   @override
   Future<void> run() async => await Bsky(
-        logger,
-        action: () async => await xrpc.query<String>(
-          methodId,
-          service: service,
-          headers: {'Authorization': 'Bearer ${await accessJwt}'},
-          parameters: parameters,
-        ),
-        pretty: globalResults!['pretty'],
-        showStatus: globalResults!['status'],
-        showRequest: globalResults!['request'],
-      ).run();
+    logger,
+    action: () async => await xrpc.query<String>(
+      methodId,
+      service: service,
+      headers: {'Authorization': 'Bearer ${await accessJwt}'},
+      parameters: parameters,
+    ),
+    pretty: globalResults!['pretty'],
+    showStatus: globalResults!['status'],
+    showRequest: globalResults!['request'],
+  ).run();
 }

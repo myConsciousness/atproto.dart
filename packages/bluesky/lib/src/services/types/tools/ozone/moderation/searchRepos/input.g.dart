@@ -8,31 +8,25 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ModerationSearchReposInputImpl _$$ModerationSearchReposInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$ModerationSearchReposInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ModerationSearchReposInputImpl(
-          q: $checkedConvert('q', (v) => v as String?),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
-          cursor: $checkedConvert('cursor', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ModerationSearchReposInput _$ModerationSearchReposInputFromJson(Map json) =>
+    $checkedCreate('_ModerationSearchReposInput', json, ($checkedConvert) {
+      final val = _ModerationSearchReposInput(
+        q: $checkedConvert('q', (v) => v as String?),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        cursor: $checkedConvert('cursor', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ModerationSearchReposInputImplToJson(
-        _$ModerationSearchReposInputImpl instance) =>
-    <String, dynamic>{
-      'q': instance.q,
-      'limit': instance.limit,
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ModerationSearchReposInputToJson(
+  _ModerationSearchReposInput instance,
+) => <String, dynamic>{
+  'q': instance.q,
+  'limit': instance.limit,
+  'cursor': instance.cursor,
+  r'$unknown': instance.$unknown,
+};

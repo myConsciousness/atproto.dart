@@ -8,28 +8,24 @@ part of 'threat_signature.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ThreatSignatureImpl _$$ThreatSignatureImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ThreatSignatureImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ThreatSignatureImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? comAtprotoAdminDefsThreatSignature),
-          property: $checkedConvert('property', (v) => v as String),
-          value: $checkedConvert('value', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ThreatSignature _$ThreatSignatureFromJson(Map json) =>
+    $checkedCreate('_ThreatSignature', json, ($checkedConvert) {
+      final val = _ThreatSignature(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? comAtprotoAdminDefsThreatSignature,
+        ),
+        property: $checkedConvert('property', (v) => v as String),
+        value: $checkedConvert('value', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ThreatSignatureImplToJson(
-        _$ThreatSignatureImpl instance) =>
+Map<String, dynamic> _$ThreatSignatureToJson(_ThreatSignature instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'property': instance.property,

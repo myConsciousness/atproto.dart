@@ -8,27 +8,24 @@ part of 'list_rule.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ListRuleImpl _$$ListRuleImplFromJson(Map json) => $checkedCreate(
-      r'_$ListRuleImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ListRuleImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyFeedThreadgateListRule),
-          list: $checkedConvert('list', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ListRule _$ListRuleFromJson(Map json) =>
+    $checkedCreate('_ListRule', json, ($checkedConvert) {
+      final val = _ListRule(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyFeedThreadgateListRule,
+        ),
+        list: $checkedConvert('list', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ListRuleImplToJson(_$ListRuleImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'list': instance.list,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ListRuleToJson(_ListRule instance) => <String, dynamic>{
+  r'$type': instance.$type,
+  'list': instance.list,
+  r'$unknown': instance.$unknown,
+};

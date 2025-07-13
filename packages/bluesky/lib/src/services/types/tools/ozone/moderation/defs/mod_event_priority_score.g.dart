@@ -8,34 +8,28 @@ part of 'mod_event_priority_score.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ModEventPriorityScoreImpl _$$ModEventPriorityScoreImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ModEventPriorityScoreImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ModEventPriorityScoreImpl(
-          $type: $checkedConvert(
-              r'$type',
-              (v) =>
-                  v as String? ??
-                  toolsOzoneModerationDefsModEventPriorityScore),
-          comment: $checkedConvert('comment', (v) => v as String?),
-          score: $checkedConvert('score', (v) => (v as num).toInt()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ModEventPriorityScore _$ModEventPriorityScoreFromJson(Map json) =>
+    $checkedCreate('_ModEventPriorityScore', json, ($checkedConvert) {
+      final val = _ModEventPriorityScore(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? toolsOzoneModerationDefsModEventPriorityScore,
+        ),
+        comment: $checkedConvert('comment', (v) => v as String?),
+        score: $checkedConvert('score', (v) => (v as num).toInt()),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ModEventPriorityScoreImplToJson(
-        _$ModEventPriorityScoreImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'comment': instance.comment,
-      'score': instance.score,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ModEventPriorityScoreToJson(
+  _ModEventPriorityScore instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'comment': instance.comment,
+  'score': instance.score,
+  r'$unknown': instance.$unknown,
+};

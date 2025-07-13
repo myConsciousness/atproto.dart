@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,306 +9,352 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-AdminGetSubjectStatusOutput _$AdminGetSubjectStatusOutputFromJson(
-    Map<String, dynamic> json) {
-  return _AdminGetSubjectStatusOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$AdminGetSubjectStatusOutput {
-  @UAdminGetSubjectStatusSubjectConverter()
-  UAdminGetSubjectStatusSubject get subject =>
-      throw _privateConstructorUsedError;
-  @StatusAttrConverter()
-  StatusAttr? get takedown => throw _privateConstructorUsedError;
-  @StatusAttrConverter()
-  StatusAttr? get deactivated => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+@UAdminGetSubjectStatusSubjectConverter() UAdminGetSubjectStatusSubject get subject;@StatusAttrConverter() StatusAttr? get takedown;@StatusAttrConverter() StatusAttr? get deactivated; Map<String, dynamic>? get $unknown;
+/// Create a copy of AdminGetSubjectStatusOutput
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AdminGetSubjectStatusOutputCopyWith<AdminGetSubjectStatusOutput> get copyWith => _$AdminGetSubjectStatusOutputCopyWithImpl<AdminGetSubjectStatusOutput>(this as AdminGetSubjectStatusOutput, _$identity);
 
   /// Serializes this AdminGetSubjectStatusOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of AdminGetSubjectStatusOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $AdminGetSubjectStatusOutputCopyWith<AdminGetSubjectStatusOutput>
-      get copyWith => throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AdminGetSubjectStatusOutput&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.takedown, takedown) || other.takedown == takedown)&&(identical(other.deactivated, deactivated) || other.deactivated == deactivated)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,subject,takedown,deactivated,const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'AdminGetSubjectStatusOutput(subject: $subject, takedown: $takedown, deactivated: $deactivated, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AdminGetSubjectStatusOutputCopyWith<$Res> {
-  factory $AdminGetSubjectStatusOutputCopyWith(
-          AdminGetSubjectStatusOutput value,
-          $Res Function(AdminGetSubjectStatusOutput) then) =
-      _$AdminGetSubjectStatusOutputCopyWithImpl<$Res,
-          AdminGetSubjectStatusOutput>;
-  @useResult
-  $Res call(
-      {@UAdminGetSubjectStatusSubjectConverter()
-      UAdminGetSubjectStatusSubject subject,
-      @StatusAttrConverter() StatusAttr? takedown,
-      @StatusAttrConverter() StatusAttr? deactivated,
-      Map<String, dynamic>? $unknown});
+abstract mixin class $AdminGetSubjectStatusOutputCopyWith<$Res>  {
+  factory $AdminGetSubjectStatusOutputCopyWith(AdminGetSubjectStatusOutput value, $Res Function(AdminGetSubjectStatusOutput) _then) = _$AdminGetSubjectStatusOutputCopyWithImpl;
+@useResult
+$Res call({
+@UAdminGetSubjectStatusSubjectConverter() UAdminGetSubjectStatusSubject subject,@StatusAttrConverter() StatusAttr? takedown,@StatusAttrConverter() StatusAttr? deactivated, Map<String, dynamic>? $unknown
+});
 
-  $UAdminGetSubjectStatusSubjectCopyWith<$Res> get subject;
-  $StatusAttrCopyWith<$Res>? get takedown;
-  $StatusAttrCopyWith<$Res>? get deactivated;
+
+$UAdminGetSubjectStatusSubjectCopyWith<$Res> get subject;$StatusAttrCopyWith<$Res>? get takedown;$StatusAttrCopyWith<$Res>? get deactivated;
+
 }
-
 /// @nodoc
-class _$AdminGetSubjectStatusOutputCopyWithImpl<$Res,
-        $Val extends AdminGetSubjectStatusOutput>
+class _$AdminGetSubjectStatusOutputCopyWithImpl<$Res>
     implements $AdminGetSubjectStatusOutputCopyWith<$Res> {
-  _$AdminGetSubjectStatusOutputCopyWithImpl(this._value, this._then);
+  _$AdminGetSubjectStatusOutputCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AdminGetSubjectStatusOutput _self;
+  final $Res Function(AdminGetSubjectStatusOutput) _then;
 
-  /// Create a copy of AdminGetSubjectStatusOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? subject = null,
-    Object? takedown = freezed,
-    Object? deactivated = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      subject: null == subject
-          ? _value.subject
-          : subject // ignore: cast_nullable_to_non_nullable
-              as UAdminGetSubjectStatusSubject,
-      takedown: freezed == takedown
-          ? _value.takedown
-          : takedown // ignore: cast_nullable_to_non_nullable
-              as StatusAttr?,
-      deactivated: freezed == deactivated
-          ? _value.deactivated
-          : deactivated // ignore: cast_nullable_to_non_nullable
-              as StatusAttr?,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
+/// Create a copy of AdminGetSubjectStatusOutput
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? subject = null,Object? takedown = freezed,Object? deactivated = freezed,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
+as UAdminGetSubjectStatusSubject,takedown: freezed == takedown ? _self.takedown : takedown // ignore: cast_nullable_to_non_nullable
+as StatusAttr?,deactivated: freezed == deactivated ? _self.deactivated : deactivated // ignore: cast_nullable_to_non_nullable
+as StatusAttr?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+/// Create a copy of AdminGetSubjectStatusOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UAdminGetSubjectStatusSubjectCopyWith<$Res> get subject {
+  
+  return $UAdminGetSubjectStatusSubjectCopyWith<$Res>(_self.subject, (value) {
+    return _then(_self.copyWith(subject: value));
+  });
+}/// Create a copy of AdminGetSubjectStatusOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$StatusAttrCopyWith<$Res>? get takedown {
+    if (_self.takedown == null) {
+    return null;
   }
 
-  /// Create a copy of AdminGetSubjectStatusOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $UAdminGetSubjectStatusSubjectCopyWith<$Res> get subject {
-    return $UAdminGetSubjectStatusSubjectCopyWith<$Res>(_value.subject,
-        (value) {
-      return _then(_value.copyWith(subject: value) as $Val);
-    });
+  return $StatusAttrCopyWith<$Res>(_self.takedown!, (value) {
+    return _then(_self.copyWith(takedown: value));
+  });
+}/// Create a copy of AdminGetSubjectStatusOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$StatusAttrCopyWith<$Res>? get deactivated {
+    if (_self.deactivated == null) {
+    return null;
   }
 
-  /// Create a copy of AdminGetSubjectStatusOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $StatusAttrCopyWith<$Res>? get takedown {
-    if (_value.takedown == null) {
-      return null;
-    }
-
-    return $StatusAttrCopyWith<$Res>(_value.takedown!, (value) {
-      return _then(_value.copyWith(takedown: value) as $Val);
-    });
-  }
-
-  /// Create a copy of AdminGetSubjectStatusOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $StatusAttrCopyWith<$Res>? get deactivated {
-    if (_value.deactivated == null) {
-      return null;
-    }
-
-    return $StatusAttrCopyWith<$Res>(_value.deactivated!, (value) {
-      return _then(_value.copyWith(deactivated: value) as $Val);
-    });
-  }
+  return $StatusAttrCopyWith<$Res>(_self.deactivated!, (value) {
+    return _then(_self.copyWith(deactivated: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$AdminGetSubjectStatusOutputImplCopyWith<$Res>
-    implements $AdminGetSubjectStatusOutputCopyWith<$Res> {
-  factory _$$AdminGetSubjectStatusOutputImplCopyWith(
-          _$AdminGetSubjectStatusOutputImpl value,
-          $Res Function(_$AdminGetSubjectStatusOutputImpl) then) =
-      __$$AdminGetSubjectStatusOutputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@UAdminGetSubjectStatusSubjectConverter()
-      UAdminGetSubjectStatusSubject subject,
-      @StatusAttrConverter() StatusAttr? takedown,
-      @StatusAttrConverter() StatusAttr? deactivated,
-      Map<String, dynamic>? $unknown});
 
-  @override
-  $UAdminGetSubjectStatusSubjectCopyWith<$Res> get subject;
-  @override
-  $StatusAttrCopyWith<$Res>? get takedown;
-  @override
-  $StatusAttrCopyWith<$Res>? get deactivated;
+/// Adds pattern-matching-related methods to [AdminGetSubjectStatusOutput].
+extension AdminGetSubjectStatusOutputPatterns on AdminGetSubjectStatusOutput {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _AdminGetSubjectStatusOutput value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _AdminGetSubjectStatusOutput() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _AdminGetSubjectStatusOutput value)  $default,){
+final _that = this;
+switch (_that) {
+case _AdminGetSubjectStatusOutput():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _AdminGetSubjectStatusOutput value)?  $default,){
+final _that = this;
+switch (_that) {
+case _AdminGetSubjectStatusOutput() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@UAdminGetSubjectStatusSubjectConverter()  UAdminGetSubjectStatusSubject subject, @StatusAttrConverter()  StatusAttr? takedown, @StatusAttrConverter()  StatusAttr? deactivated,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _AdminGetSubjectStatusOutput() when $default != null:
+return $default(_that.subject,_that.takedown,_that.deactivated,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@UAdminGetSubjectStatusSubjectConverter()  UAdminGetSubjectStatusSubject subject, @StatusAttrConverter()  StatusAttr? takedown, @StatusAttrConverter()  StatusAttr? deactivated,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _AdminGetSubjectStatusOutput():
+return $default(_that.subject,_that.takedown,_that.deactivated,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@UAdminGetSubjectStatusSubjectConverter()  UAdminGetSubjectStatusSubject subject, @StatusAttrConverter()  StatusAttr? takedown, @StatusAttrConverter()  StatusAttr? deactivated,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _AdminGetSubjectStatusOutput() when $default != null:
+return $default(_that.subject,_that.takedown,_that.deactivated,_that.$unknown);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-class __$$AdminGetSubjectStatusOutputImplCopyWithImpl<$Res>
-    extends _$AdminGetSubjectStatusOutputCopyWithImpl<$Res,
-        _$AdminGetSubjectStatusOutputImpl>
-    implements _$$AdminGetSubjectStatusOutputImplCopyWith<$Res> {
-  __$$AdminGetSubjectStatusOutputImplCopyWithImpl(
-      _$AdminGetSubjectStatusOutputImpl _value,
-      $Res Function(_$AdminGetSubjectStatusOutputImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AdminGetSubjectStatusOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? subject = null,
-    Object? takedown = freezed,
-    Object? deactivated = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$AdminGetSubjectStatusOutputImpl(
-      subject: null == subject
-          ? _value.subject
-          : subject // ignore: cast_nullable_to_non_nullable
-              as UAdminGetSubjectStatusSubject,
-      takedown: freezed == takedown
-          ? _value.takedown
-          : takedown // ignore: cast_nullable_to_non_nullable
-              as StatusAttr?,
-      deactivated: freezed == deactivated
-          ? _value.deactivated
-          : deactivated // ignore: cast_nullable_to_non_nullable
-              as StatusAttr?,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$AdminGetSubjectStatusOutputImpl
-    implements _AdminGetSubjectStatusOutput {
-  const _$AdminGetSubjectStatusOutputImpl(
-      {@UAdminGetSubjectStatusSubjectConverter() required this.subject,
-      @StatusAttrConverter() this.takedown,
-      @StatusAttrConverter() this.deactivated,
-      final Map<String, dynamic>? $unknown})
-      : _$unknown = $unknown;
 
-  factory _$AdminGetSubjectStatusOutputImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$AdminGetSubjectStatusOutputImplFromJson(json);
+class _AdminGetSubjectStatusOutput implements AdminGetSubjectStatusOutput {
+  const _AdminGetSubjectStatusOutput({@UAdminGetSubjectStatusSubjectConverter() required this.subject, @StatusAttrConverter() this.takedown, @StatusAttrConverter() this.deactivated, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  factory _AdminGetSubjectStatusOutput.fromJson(Map<String, dynamic> json) => _$AdminGetSubjectStatusOutputFromJson(json);
 
-  @override
-  @UAdminGetSubjectStatusSubjectConverter()
-  final UAdminGetSubjectStatusSubject subject;
-  @override
-  @StatusAttrConverter()
-  final StatusAttr? takedown;
-  @override
-  @StatusAttrConverter()
-  final StatusAttr? deactivated;
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'AdminGetSubjectStatusOutput(subject: $subject, takedown: $takedown, deactivated: $deactivated, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AdminGetSubjectStatusOutputImpl &&
-            (identical(other.subject, subject) || other.subject == subject) &&
-            (identical(other.takedown, takedown) ||
-                other.takedown == takedown) &&
-            (identical(other.deactivated, deactivated) ||
-                other.deactivated == deactivated) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, subject, takedown, deactivated,
-      const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of AdminGetSubjectStatusOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AdminGetSubjectStatusOutputImplCopyWith<_$AdminGetSubjectStatusOutputImpl>
-      get copyWith => __$$AdminGetSubjectStatusOutputImplCopyWithImpl<
-          _$AdminGetSubjectStatusOutputImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AdminGetSubjectStatusOutputImplToJson(
-      this,
-    );
-  }
+@override@UAdminGetSubjectStatusSubjectConverter() final  UAdminGetSubjectStatusSubject subject;
+@override@StatusAttrConverter() final  StatusAttr? takedown;
+@override@StatusAttrConverter() final  StatusAttr? deactivated;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
 
-abstract class _AdminGetSubjectStatusOutput
-    implements AdminGetSubjectStatusOutput {
-  const factory _AdminGetSubjectStatusOutput(
-          {@UAdminGetSubjectStatusSubjectConverter()
-          required final UAdminGetSubjectStatusSubject subject,
-          @StatusAttrConverter() final StatusAttr? takedown,
-          @StatusAttrConverter() final StatusAttr? deactivated,
-          final Map<String, dynamic>? $unknown}) =
-      _$AdminGetSubjectStatusOutputImpl;
 
-  factory _AdminGetSubjectStatusOutput.fromJson(Map<String, dynamic> json) =
-      _$AdminGetSubjectStatusOutputImpl.fromJson;
+/// Create a copy of AdminGetSubjectStatusOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AdminGetSubjectStatusOutputCopyWith<_AdminGetSubjectStatusOutput> get copyWith => __$AdminGetSubjectStatusOutputCopyWithImpl<_AdminGetSubjectStatusOutput>(this, _$identity);
 
-  @override
-  @UAdminGetSubjectStatusSubjectConverter()
-  UAdminGetSubjectStatusSubject get subject;
-  @override
-  @StatusAttrConverter()
-  StatusAttr? get takedown;
-  @override
-  @StatusAttrConverter()
-  StatusAttr? get deactivated;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of AdminGetSubjectStatusOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AdminGetSubjectStatusOutputImplCopyWith<_$AdminGetSubjectStatusOutputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$AdminGetSubjectStatusOutputToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AdminGetSubjectStatusOutput&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.takedown, takedown) || other.takedown == takedown)&&(identical(other.deactivated, deactivated) || other.deactivated == deactivated)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,subject,takedown,deactivated,const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'AdminGetSubjectStatusOutput(subject: $subject, takedown: $takedown, deactivated: $deactivated, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AdminGetSubjectStatusOutputCopyWith<$Res> implements $AdminGetSubjectStatusOutputCopyWith<$Res> {
+  factory _$AdminGetSubjectStatusOutputCopyWith(_AdminGetSubjectStatusOutput value, $Res Function(_AdminGetSubjectStatusOutput) _then) = __$AdminGetSubjectStatusOutputCopyWithImpl;
+@override @useResult
+$Res call({
+@UAdminGetSubjectStatusSubjectConverter() UAdminGetSubjectStatusSubject subject,@StatusAttrConverter() StatusAttr? takedown,@StatusAttrConverter() StatusAttr? deactivated, Map<String, dynamic>? $unknown
+});
+
+
+@override $UAdminGetSubjectStatusSubjectCopyWith<$Res> get subject;@override $StatusAttrCopyWith<$Res>? get takedown;@override $StatusAttrCopyWith<$Res>? get deactivated;
+
+}
+/// @nodoc
+class __$AdminGetSubjectStatusOutputCopyWithImpl<$Res>
+    implements _$AdminGetSubjectStatusOutputCopyWith<$Res> {
+  __$AdminGetSubjectStatusOutputCopyWithImpl(this._self, this._then);
+
+  final _AdminGetSubjectStatusOutput _self;
+  final $Res Function(_AdminGetSubjectStatusOutput) _then;
+
+/// Create a copy of AdminGetSubjectStatusOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? subject = null,Object? takedown = freezed,Object? deactivated = freezed,Object? $unknown = freezed,}) {
+  return _then(_AdminGetSubjectStatusOutput(
+subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
+as UAdminGetSubjectStatusSubject,takedown: freezed == takedown ? _self.takedown : takedown // ignore: cast_nullable_to_non_nullable
+as StatusAttr?,deactivated: freezed == deactivated ? _self.deactivated : deactivated // ignore: cast_nullable_to_non_nullable
+as StatusAttr?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+/// Create a copy of AdminGetSubjectStatusOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UAdminGetSubjectStatusSubjectCopyWith<$Res> get subject {
+  
+  return $UAdminGetSubjectStatusSubjectCopyWith<$Res>(_self.subject, (value) {
+    return _then(_self.copyWith(subject: value));
+  });
+}/// Create a copy of AdminGetSubjectStatusOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$StatusAttrCopyWith<$Res>? get takedown {
+    if (_self.takedown == null) {
+    return null;
+  }
+
+  return $StatusAttrCopyWith<$Res>(_self.takedown!, (value) {
+    return _then(_self.copyWith(takedown: value));
+  });
+}/// Create a copy of AdminGetSubjectStatusOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$StatusAttrCopyWith<$Res>? get deactivated {
+    if (_self.deactivated == null) {
+    return null;
+  }
+
+  return $StatusAttrCopyWith<$Res>(_self.deactivated!, (value) {
+    return _then(_self.copyWith(deactivated: value));
+  });
+}
+}
+
+// dart format on

@@ -44,7 +44,5 @@ final class UVerificationViewSubjectProfileConverter
 
   @override
   Map<String, dynamic> toJson(UVerificationViewSubjectProfile object) =>
-      object.when(
-        unknown: (data) => data,
-      );
+      object.when(unknown: (data) => data);
 }

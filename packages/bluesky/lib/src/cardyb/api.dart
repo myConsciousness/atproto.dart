@@ -9,11 +9,10 @@ Future<core.Response<LinkPreview>> getLinkPreview(
   final Uri url, {
   String service = core.defaultLinkPreviewService,
   core.GetClient? mockedGetClient,
-}) async =>
-    await _$EmbedService(
-      service: service,
-      mockedGetClient: mockedGetClient,
-    ).getLinkPreview(url);
+}) async => await _$EmbedService(
+  service: service,
+  mockedGetClient: mockedGetClient,
+).getLinkPreview(url);
 
 sealed class _EmbedService {
   Future<core.Response<LinkPreview>> getLinkPreview(final Uri url);
@@ -21,18 +20,13 @@ sealed class _EmbedService {
 
 final class _$EmbedService extends core.BaseHttpService
     implements _EmbedService {
-  _$EmbedService({
-    required super.service,
-    super.mockedGetClient,
-  });
+  _$EmbedService({required super.service, super.mockedGetClient});
 
   @override
   Future<core.Response<LinkPreview>> getLinkPreview(final Uri url) async =>
       await super.get(
         '/v1/extract',
-        parameters: {
-          'url': url.toString(),
-        },
+        parameters: {'url': url.toString()},
         to: LinkPreview.fromJson,
       );
 }

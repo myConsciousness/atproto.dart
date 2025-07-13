@@ -36,6 +36,7 @@ abstract class AdminSendEmailInput with _$AdminSendEmailInput {
 
     /// Additional comment by the sender that won't be used in the email itself but helpful to provide more context for moderators/reviewers
     String? comment,
+
     Map<String, dynamic>? $unknown,
   }) = _AdminSendEmailInput;
 
@@ -49,14 +50,12 @@ final class AdminSendEmailInputConverter
 
   @override
   AdminSendEmailInput fromJson(Map<String, dynamic> json) {
-    return AdminSendEmailInput.fromJson(translate(
-      json,
-      AdminSendEmailInput.knownProps,
-    ));
+    return AdminSendEmailInput.fromJson(
+      translate(json, AdminSendEmailInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(AdminSendEmailInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(AdminSendEmailInput object) =>
+      untranslate(object.toJson());
 }

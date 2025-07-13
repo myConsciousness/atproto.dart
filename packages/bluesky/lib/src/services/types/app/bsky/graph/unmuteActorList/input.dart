@@ -20,12 +20,11 @@ part 'input.g.dart';
 
 @freezed
 abstract class GraphUnmuteActorListInput with _$GraphUnmuteActorListInput {
-  static const knownProps = <String>[
-    'list',
-  ];
+  static const knownProps = <String>['list'];
 
   const factory GraphUnmuteActorListInput({
     required String list,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphUnmuteActorListInput;
 
@@ -33,20 +32,19 @@ abstract class GraphUnmuteActorListInput with _$GraphUnmuteActorListInput {
       _$GraphUnmuteActorListInputFromJson(json);
 }
 
-final class GraphUnmuteActorListInputConverter extends LexObjectConverter<
-    GraphUnmuteActorListInput, Map<String, dynamic>> {
+final class GraphUnmuteActorListInputConverter
+    extends
+        LexObjectConverter<GraphUnmuteActorListInput, Map<String, dynamic>> {
   const GraphUnmuteActorListInputConverter();
 
   @override
   GraphUnmuteActorListInput fromJson(Map<String, dynamic> json) {
-    return GraphUnmuteActorListInput.fromJson(translate(
-      json,
-      GraphUnmuteActorListInput.knownProps,
-    ));
+    return GraphUnmuteActorListInput.fromJson(
+      translate(json, GraphUnmuteActorListInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphUnmuteActorListInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(GraphUnmuteActorListInput object) =>
+      untranslate(object.toJson());
 }

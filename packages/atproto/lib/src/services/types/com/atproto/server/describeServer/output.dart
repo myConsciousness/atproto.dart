@@ -47,6 +47,7 @@ abstract class ServerDescribeServerOutput with _$ServerDescribeServerOutput {
     /// Contact information
     @ContactConverter() Contact? contact,
     required String did,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerDescribeServerOutput;
 
@@ -54,20 +55,19 @@ abstract class ServerDescribeServerOutput with _$ServerDescribeServerOutput {
       _$ServerDescribeServerOutputFromJson(json);
 }
 
-final class ServerDescribeServerOutputConverter extends LexObjectConverter<
-    ServerDescribeServerOutput, Map<String, dynamic>> {
+final class ServerDescribeServerOutputConverter
+    extends
+        LexObjectConverter<ServerDescribeServerOutput, Map<String, dynamic>> {
   const ServerDescribeServerOutputConverter();
 
   @override
   ServerDescribeServerOutput fromJson(Map<String, dynamic> json) {
-    return ServerDescribeServerOutput.fromJson(translate(
-      json,
-      ServerDescribeServerOutput.knownProps,
-    ));
+    return ServerDescribeServerOutput.fromJson(
+      translate(json, ServerDescribeServerOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ServerDescribeServerOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ServerDescribeServerOutput object) =>
+      untranslate(object.toJson());
 }

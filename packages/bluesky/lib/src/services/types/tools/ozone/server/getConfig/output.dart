@@ -42,6 +42,7 @@ abstract class ServerGetConfigOutput with _$ServerGetConfigOutput {
 
     /// The did of the verifier used for verification.
     String? verifierDid,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerGetConfigOutput;
 
@@ -55,14 +56,12 @@ final class ServerGetConfigOutputConverter
 
   @override
   ServerGetConfigOutput fromJson(Map<String, dynamic> json) {
-    return ServerGetConfigOutput.fromJson(translate(
-      json,
-      ServerGetConfigOutput.knownProps,
-    ));
+    return ServerGetConfigOutput.fromJson(
+      translate(json, ServerGetConfigOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ServerGetConfigOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ServerGetConfigOutput object) =>
+      untranslate(object.toJson());
 }

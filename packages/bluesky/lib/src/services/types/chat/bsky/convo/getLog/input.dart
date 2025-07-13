@@ -20,12 +20,11 @@ part 'input.g.dart';
 
 @freezed
 abstract class ConvoGetLogInput with _$ConvoGetLogInput {
-  static const knownProps = <String>[
-    'cursor',
-  ];
+  static const knownProps = <String>['cursor'];
 
   const factory ConvoGetLogInput({
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _ConvoGetLogInput;
 
@@ -39,14 +38,12 @@ final class ConvoGetLogInputConverter
 
   @override
   ConvoGetLogInput fromJson(Map<String, dynamic> json) {
-    return ConvoGetLogInput.fromJson(translate(
-      json,
-      ConvoGetLogInput.knownProps,
-    ));
+    return ConvoGetLogInput.fromJson(
+      translate(json, ConvoGetLogInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoGetLogInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ConvoGetLogInput object) =>
+      untranslate(object.toJson());
 }

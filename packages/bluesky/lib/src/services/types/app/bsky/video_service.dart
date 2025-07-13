@@ -34,45 +34,34 @@ final class VideoService {
     Uint8List bytes, {
     Map<String, String>? $headers,
     Map<String, String>? $parameters,
-  }) async =>
-      await _ctx.post(
-        ns.appBskyVideoUploadVideo,
-        headers: {
-          'Content-type': 'video/mp4',
-          ...?$headers,
-        },
-        parameters: $parameters,
-        body: bytes,
-        to: const VideoUploadVideoOutputConverter().fromJson,
-      );
+  }) async => await _ctx.post(
+    ns.appBskyVideoUploadVideo,
+    headers: {'Content-type': 'video/mp4', ...?$headers},
+    parameters: $parameters,
+    body: bytes,
+    to: const VideoUploadVideoOutputConverter().fromJson,
+  );
 
   /// Get status details for a video processing job.
   Future<XRPCResponse<VideoGetJobStatusOutput>> getJobStatus({
     required String jobId,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyVideoGetJobStatus,
-        headers: $headers,
-        parameters: {
-          'jobId': jobId,
-          ...?$unknown,
-        },
-        to: const VideoGetJobStatusOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.appBskyVideoGetJobStatus,
+    headers: $headers,
+    parameters: {'jobId': jobId, ...?$unknown},
+    to: const VideoGetJobStatusOutputConverter().fromJson,
+  );
 
   /// Get video upload limits for the authenticated user.
   Future<XRPCResponse<VideoGetUploadLimitsOutput>> getUploadLimits({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyVideoGetUploadLimits,
-        headers: $headers,
-        parameters: {
-          ...?$unknown,
-        },
-        to: const VideoGetUploadLimitsOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.appBskyVideoGetUploadLimits,
+    headers: $headers,
+    parameters: {...?$unknown},
+    to: const VideoGetUploadLimitsOutputConverter().fromJson,
+  );
 }

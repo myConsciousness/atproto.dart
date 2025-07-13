@@ -8,35 +8,30 @@ part of 'filterable_preference.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FilterablePreferenceImpl _$$FilterablePreferenceImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$FilterablePreferenceImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$FilterablePreferenceImpl(
-          $type: $checkedConvert(
-              r'$type',
-              (v) =>
-                  v as String? ?? appBskyNotificationDefsFilterablePreference),
-          include: $checkedConvert('include', (v) => v as String),
-          list: $checkedConvert('list', (v) => v as bool),
-          push: $checkedConvert('push', (v) => v as bool),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_FilterablePreference _$FilterablePreferenceFromJson(Map json) =>
+    $checkedCreate('_FilterablePreference', json, ($checkedConvert) {
+      final val = _FilterablePreference(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyNotificationDefsFilterablePreference,
+        ),
+        include: $checkedConvert('include', (v) => v as String),
+        list: $checkedConvert('list', (v) => v as bool),
+        push: $checkedConvert('push', (v) => v as bool),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$FilterablePreferenceImplToJson(
-        _$FilterablePreferenceImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'include': instance.include,
-      'list': instance.list,
-      'push': instance.push,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$FilterablePreferenceToJson(
+  _FilterablePreference instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'include': instance.include,
+  'list': instance.list,
+  'push': instance.push,
+  r'$unknown': instance.$unknown,
+};

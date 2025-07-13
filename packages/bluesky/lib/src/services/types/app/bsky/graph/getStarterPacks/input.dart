@@ -20,12 +20,11 @@ part 'input.g.dart';
 
 @freezed
 abstract class GraphGetStarterPacksInput with _$GraphGetStarterPacksInput {
-  static const knownProps = <String>[
-    'uris',
-  ];
+  static const knownProps = <String>['uris'];
 
   const factory GraphGetStarterPacksInput({
     required List<String> uris,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphGetStarterPacksInput;
 
@@ -33,20 +32,19 @@ abstract class GraphGetStarterPacksInput with _$GraphGetStarterPacksInput {
       _$GraphGetStarterPacksInputFromJson(json);
 }
 
-final class GraphGetStarterPacksInputConverter extends LexObjectConverter<
-    GraphGetStarterPacksInput, Map<String, dynamic>> {
+final class GraphGetStarterPacksInputConverter
+    extends
+        LexObjectConverter<GraphGetStarterPacksInput, Map<String, dynamic>> {
   const GraphGetStarterPacksInputConverter();
 
   @override
   GraphGetStarterPacksInput fromJson(Map<String, dynamic> json) {
-    return GraphGetStarterPacksInput.fromJson(translate(
-      json,
-      GraphGetStarterPacksInput.knownProps,
-    ));
+    return GraphGetStarterPacksInput.fromJson(
+      translate(json, GraphGetStarterPacksInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphGetStarterPacksInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(GraphGetStarterPacksInput object) =>
+      untranslate(object.toJson());
 }

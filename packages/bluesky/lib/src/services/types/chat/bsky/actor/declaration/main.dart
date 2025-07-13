@@ -23,13 +23,12 @@ part 'main.g.dart';
 
 @freezed
 abstract class ActorDeclarationRecord with _$ActorDeclarationRecord {
-  static const knownProps = <String>[
-    'allowIncoming',
-  ];
+  static const knownProps = <String>['allowIncoming'];
 
   const factory ActorDeclarationRecord({
     @Default(chatBskyActorDeclaration) String $type,
     required String allowIncoming,
+
     Map<String, dynamic>? $unknown,
   }) = _ActorDeclarationRecord;
 
@@ -48,14 +47,12 @@ final class ActorDeclarationRecordConverter
 
   @override
   ActorDeclarationRecord fromJson(Map<String, dynamic> json) {
-    return ActorDeclarationRecord.fromJson(translate(
-      json,
-      ActorDeclarationRecord.knownProps,
-    ));
+    return ActorDeclarationRecord.fromJson(
+      translate(json, ActorDeclarationRecord.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ActorDeclarationRecord object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ActorDeclarationRecord object) =>
+      untranslate(object.toJson());
 }

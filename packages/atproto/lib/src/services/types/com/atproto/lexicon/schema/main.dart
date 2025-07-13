@@ -23,15 +23,14 @@ part 'main.g.dart';
 
 @freezed
 abstract class LexiconSchemaRecord with _$LexiconSchemaRecord {
-  static const knownProps = <String>[
-    'lexicon',
-  ];
+  static const knownProps = <String>['lexicon'];
 
   const factory LexiconSchemaRecord({
     @Default(comAtprotoLexiconSchema) String $type,
 
     /// Indicates the 'version' of the Lexicon language. Must be '1' for the current atproto/Lexicon schema system.
     required int lexicon,
+
     Map<String, dynamic>? $unknown,
   }) = _LexiconSchemaRecord;
 
@@ -50,14 +49,12 @@ final class LexiconSchemaRecordConverter
 
   @override
   LexiconSchemaRecord fromJson(Map<String, dynamic> json) {
-    return LexiconSchemaRecord.fromJson(translate(
-      json,
-      LexiconSchemaRecord.knownProps,
-    ));
+    return LexiconSchemaRecord.fromJson(
+      translate(json, LexiconSchemaRecord.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(LexiconSchemaRecord object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(LexiconSchemaRecord object) =>
+      untranslate(object.toJson());
 }

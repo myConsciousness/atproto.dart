@@ -20,11 +20,7 @@ part 'input.g.dart';
 
 @freezed
 abstract class FeedGetPostThreadInput with _$FeedGetPostThreadInput {
-  static const knownProps = <String>[
-    'uri',
-    'depth',
-    'parentHeight',
-  ];
+  static const knownProps = <String>['uri', 'depth', 'parentHeight'];
 
   const factory FeedGetPostThreadInput({
     /// Reference (AT-URI) to post record.
@@ -35,6 +31,7 @@ abstract class FeedGetPostThreadInput with _$FeedGetPostThreadInput {
 
     /// How many levels of parent (and grandparent, etc) post to include.
     int? parentHeight,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedGetPostThreadInput;
 
@@ -48,14 +45,12 @@ final class FeedGetPostThreadInputConverter
 
   @override
   FeedGetPostThreadInput fromJson(Map<String, dynamic> json) {
-    return FeedGetPostThreadInput.fromJson(translate(
-      json,
-      FeedGetPostThreadInput.knownProps,
-    ));
+    return FeedGetPostThreadInput.fromJson(
+      translate(json, FeedGetPostThreadInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetPostThreadInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(FeedGetPostThreadInput object) =>
+      untranslate(object.toJson());
 }

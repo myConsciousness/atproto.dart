@@ -9,51 +9,55 @@ part of 'lex_xrpc_subscription.dart';
 // **************************************************************************
 
 _$LexXrpcSubscriptionImpl _$$LexXrpcSubscriptionImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$LexXrpcSubscriptionImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$LexXrpcSubscriptionImpl(
-          type: $checkedConvert('type', (v) => v as String? ?? 'subscription'),
-          description: $checkedConvert('description', (v) => v as String?),
-          parameters: $checkedConvert(
-              'parameters',
-              (v) => v == null
-                  ? null
-                  : LexXrpcParameters.fromJson(
-                      Map<String, Object?>.from(v as Map))),
-          message: $checkedConvert(
-              'message',
-              (v) => v == null
-                  ? null
-                  : LexXrpcSubscriptionMessage.fromJson(
-                      Map<String, Object?>.from(v as Map))),
-          infos: $checkedConvert(
-              'infos',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => LexXrpcError.fromJson(
-                      Map<String, Object?>.from(e as Map)))
-                  .toList()),
-          errors: $checkedConvert(
-              'errors',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => LexXrpcError.fromJson(
-                      Map<String, Object?>.from(e as Map)))
-                  .toList()),
-        );
-        return val;
-      },
-    );
+    $checkedCreate(r'_$LexXrpcSubscriptionImpl', json, ($checkedConvert) {
+      final val = _$LexXrpcSubscriptionImpl(
+        type: $checkedConvert('type', (v) => v as String? ?? 'subscription'),
+        description: $checkedConvert('description', (v) => v as String?),
+        parameters: $checkedConvert(
+          'parameters',
+          (v) => v == null
+              ? null
+              : LexXrpcParameters.fromJson(Map<String, Object?>.from(v as Map)),
+        ),
+        message: $checkedConvert(
+          'message',
+          (v) => v == null
+              ? null
+              : LexXrpcSubscriptionMessage.fromJson(
+                  Map<String, Object?>.from(v as Map),
+                ),
+        ),
+        infos: $checkedConvert(
+          'infos',
+          (v) => (v as List<dynamic>?)
+              ?.map(
+                (e) =>
+                    LexXrpcError.fromJson(Map<String, Object?>.from(e as Map)),
+              )
+              .toList(),
+        ),
+        errors: $checkedConvert(
+          'errors',
+          (v) => (v as List<dynamic>?)
+              ?.map(
+                (e) =>
+                    LexXrpcError.fromJson(Map<String, Object?>.from(e as Map)),
+              )
+              .toList(),
+        ),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$$LexXrpcSubscriptionImplToJson(
-        _$LexXrpcSubscriptionImpl instance) =>
-    <String, dynamic>{
-      'type': instance.type,
-      if (instance.description case final value?) 'description': value,
-      if (instance.parameters?.toJson() case final value?) 'parameters': value,
-      if (instance.message?.toJson() case final value?) 'message': value,
-      if (instance.infos?.map((e) => e.toJson()).toList() case final value?)
-        'infos': value,
-      if (instance.errors?.map((e) => e.toJson()).toList() case final value?)
-        'errors': value,
-    };
+  _$LexXrpcSubscriptionImpl instance,
+) => <String, dynamic>{
+  'type': instance.type,
+  if (instance.description case final value?) 'description': value,
+  if (instance.parameters?.toJson() case final value?) 'parameters': value,
+  if (instance.message?.toJson() case final value?) 'message': value,
+  if (instance.infos?.map((e) => e.toJson()).toList() case final value?)
+    'infos': value,
+  if (instance.errors?.map((e) => e.toJson()).toList() case final value?)
+    'errors': value,
+};

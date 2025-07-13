@@ -8,20 +8,19 @@ part of 'list_purpose.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ListPurposeImpl _$$ListPurposeImplFromJson(Map json) => $checkedCreate(
-      r'_$ListPurposeImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ListPurposeImpl(
-          knownValue: $checkedConvert('knownValue',
-              (v) => $enumDecodeNullable(_$KnownListPurposeEnumMap, v)),
-          unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
-        );
-        return val;
-      },
-    );
+_ListPurpose _$ListPurposeFromJson(Map json) =>
+    $checkedCreate('_ListPurpose', json, ($checkedConvert) {
+      final val = _ListPurpose(
+        knownValue: $checkedConvert(
+          'knownValue',
+          (v) => $enumDecodeNullable(_$KnownListPurposeEnumMap, v),
+        ),
+        unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ListPurposeImplToJson(_$ListPurposeImpl instance) =>
+Map<String, dynamic> _$ListPurposeToJson(_ListPurpose instance) =>
     <String, dynamic>{
       'knownValue': _$KnownListPurposeEnumMap[instance.knownValue],
       'unknownValue': instance.unknownValue,

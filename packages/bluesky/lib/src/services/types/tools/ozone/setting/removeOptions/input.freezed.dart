@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,219 +9,289 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SettingRemoveOptionsInput _$SettingRemoveOptionsInputFromJson(
-    Map<String, dynamic> json) {
-  return _SettingRemoveOptionsInput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SettingRemoveOptionsInput {
-  List<String> get keys => throw _privateConstructorUsedError;
-  String get scope => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+ List<String> get keys; String get scope; Map<String, dynamic>? get $unknown;
+/// Create a copy of SettingRemoveOptionsInput
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SettingRemoveOptionsInputCopyWith<SettingRemoveOptionsInput> get copyWith => _$SettingRemoveOptionsInputCopyWithImpl<SettingRemoveOptionsInput>(this as SettingRemoveOptionsInput, _$identity);
 
   /// Serializes this SettingRemoveOptionsInput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of SettingRemoveOptionsInput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $SettingRemoveOptionsInputCopyWith<SettingRemoveOptionsInput> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SettingRemoveOptionsInput&&const DeepCollectionEquality().equals(other.keys, keys)&&(identical(other.scope, scope) || other.scope == scope)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(keys),scope,const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'SettingRemoveOptionsInput(keys: $keys, scope: $scope, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SettingRemoveOptionsInputCopyWith<$Res> {
-  factory $SettingRemoveOptionsInputCopyWith(SettingRemoveOptionsInput value,
-          $Res Function(SettingRemoveOptionsInput) then) =
-      _$SettingRemoveOptionsInputCopyWithImpl<$Res, SettingRemoveOptionsInput>;
-  @useResult
-  $Res call({List<String> keys, String scope, Map<String, dynamic>? $unknown});
-}
+abstract mixin class $SettingRemoveOptionsInputCopyWith<$Res>  {
+  factory $SettingRemoveOptionsInputCopyWith(SettingRemoveOptionsInput value, $Res Function(SettingRemoveOptionsInput) _then) = _$SettingRemoveOptionsInputCopyWithImpl;
+@useResult
+$Res call({
+ List<String> keys, String scope, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$SettingRemoveOptionsInputCopyWithImpl<$Res,
-        $Val extends SettingRemoveOptionsInput>
+class _$SettingRemoveOptionsInputCopyWithImpl<$Res>
     implements $SettingRemoveOptionsInputCopyWith<$Res> {
-  _$SettingRemoveOptionsInputCopyWithImpl(this._value, this._then);
+  _$SettingRemoveOptionsInputCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SettingRemoveOptionsInput _self;
+  final $Res Function(SettingRemoveOptionsInput) _then;
 
-  /// Create a copy of SettingRemoveOptionsInput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? keys = null,
-    Object? scope = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      keys: null == keys
-          ? _value.keys
-          : keys // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      scope: null == scope
-          ? _value.scope
-          : scope // ignore: cast_nullable_to_non_nullable
-              as String,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of SettingRemoveOptionsInput
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? keys = null,Object? scope = null,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+keys: null == keys ? _self.keys : keys // ignore: cast_nullable_to_non_nullable
+as List<String>,scope: null == scope ? _self.scope : scope // ignore: cast_nullable_to_non_nullable
+as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SettingRemoveOptionsInputImplCopyWith<$Res>
-    implements $SettingRemoveOptionsInputCopyWith<$Res> {
-  factory _$$SettingRemoveOptionsInputImplCopyWith(
-          _$SettingRemoveOptionsInputImpl value,
-          $Res Function(_$SettingRemoveOptionsInputImpl) then) =
-      __$$SettingRemoveOptionsInputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<String> keys, String scope, Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$SettingRemoveOptionsInputImplCopyWithImpl<$Res>
-    extends _$SettingRemoveOptionsInputCopyWithImpl<$Res,
-        _$SettingRemoveOptionsInputImpl>
-    implements _$$SettingRemoveOptionsInputImplCopyWith<$Res> {
-  __$$SettingRemoveOptionsInputImplCopyWithImpl(
-      _$SettingRemoveOptionsInputImpl _value,
-      $Res Function(_$SettingRemoveOptionsInputImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of SettingRemoveOptionsInput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? keys = null,
-    Object? scope = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$SettingRemoveOptionsInputImpl(
-      keys: null == keys
-          ? _value._keys
-          : keys // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      scope: null == scope
-          ? _value.scope
-          : scope // ignore: cast_nullable_to_non_nullable
-              as String,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [SettingRemoveOptionsInput].
+extension SettingRemoveOptionsInputPatterns on SettingRemoveOptionsInput {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SettingRemoveOptionsInput value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _SettingRemoveOptionsInput() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SettingRemoveOptionsInput value)  $default,){
+final _that = this;
+switch (_that) {
+case _SettingRemoveOptionsInput():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SettingRemoveOptionsInput value)?  $default,){
+final _that = this;
+switch (_that) {
+case _SettingRemoveOptionsInput() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> keys,  String scope,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _SettingRemoveOptionsInput() when $default != null:
+return $default(_that.keys,_that.scope,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> keys,  String scope,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _SettingRemoveOptionsInput():
+return $default(_that.keys,_that.scope,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> keys,  String scope,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _SettingRemoveOptionsInput() when $default != null:
+return $default(_that.keys,_that.scope,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$SettingRemoveOptionsInputImpl implements _SettingRemoveOptionsInput {
-  const _$SettingRemoveOptionsInputImpl(
-      {required final List<String> keys,
-      required this.scope,
-      final Map<String, dynamic>? $unknown})
-      : _keys = keys,
-        _$unknown = $unknown;
 
-  factory _$SettingRemoveOptionsInputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SettingRemoveOptionsInputImplFromJson(json);
+class _SettingRemoveOptionsInput implements SettingRemoveOptionsInput {
+  const _SettingRemoveOptionsInput({required final  List<String> keys, required this.scope, final  Map<String, dynamic>? $unknown}): _keys = keys,_$unknown = $unknown;
+  factory _SettingRemoveOptionsInput.fromJson(Map<String, dynamic> json) => _$SettingRemoveOptionsInputFromJson(json);
 
-  final List<String> _keys;
-  @override
-  List<String> get keys {
-    if (_keys is EqualUnmodifiableListView) return _keys;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_keys);
-  }
-
-  @override
-  final String scope;
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'SettingRemoveOptionsInput(keys: $keys, scope: $scope, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SettingRemoveOptionsInputImpl &&
-            const DeepCollectionEquality().equals(other._keys, _keys) &&
-            (identical(other.scope, scope) || other.scope == scope) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_keys),
-      scope,
-      const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of SettingRemoveOptionsInput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SettingRemoveOptionsInputImplCopyWith<_$SettingRemoveOptionsInputImpl>
-      get copyWith => __$$SettingRemoveOptionsInputImplCopyWithImpl<
-          _$SettingRemoveOptionsInputImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SettingRemoveOptionsInputImplToJson(
-      this,
-    );
-  }
+ final  List<String> _keys;
+@override List<String> get keys {
+  if (_keys is EqualUnmodifiableListView) return _keys;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_keys);
 }
 
-abstract class _SettingRemoveOptionsInput implements SettingRemoveOptionsInput {
-  const factory _SettingRemoveOptionsInput(
-      {required final List<String> keys,
-      required final String scope,
-      final Map<String, dynamic>? $unknown}) = _$SettingRemoveOptionsInputImpl;
-
-  factory _SettingRemoveOptionsInput.fromJson(Map<String, dynamic> json) =
-      _$SettingRemoveOptionsInputImpl.fromJson;
-
-  @override
-  List<String> get keys;
-  @override
-  String get scope;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of SettingRemoveOptionsInput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SettingRemoveOptionsInputImplCopyWith<_$SettingRemoveOptionsInputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override final  String scope;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
+
+
+/// Create a copy of SettingRemoveOptionsInput
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SettingRemoveOptionsInputCopyWith<_SettingRemoveOptionsInput> get copyWith => __$SettingRemoveOptionsInputCopyWithImpl<_SettingRemoveOptionsInput>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$SettingRemoveOptionsInputToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SettingRemoveOptionsInput&&const DeepCollectionEquality().equals(other._keys, _keys)&&(identical(other.scope, scope) || other.scope == scope)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_keys),scope,const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'SettingRemoveOptionsInput(keys: $keys, scope: $scope, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SettingRemoveOptionsInputCopyWith<$Res> implements $SettingRemoveOptionsInputCopyWith<$Res> {
+  factory _$SettingRemoveOptionsInputCopyWith(_SettingRemoveOptionsInput value, $Res Function(_SettingRemoveOptionsInput) _then) = __$SettingRemoveOptionsInputCopyWithImpl;
+@override @useResult
+$Res call({
+ List<String> keys, String scope, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$SettingRemoveOptionsInputCopyWithImpl<$Res>
+    implements _$SettingRemoveOptionsInputCopyWith<$Res> {
+  __$SettingRemoveOptionsInputCopyWithImpl(this._self, this._then);
+
+  final _SettingRemoveOptionsInput _self;
+  final $Res Function(_SettingRemoveOptionsInput) _then;
+
+/// Create a copy of SettingRemoveOptionsInput
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? keys = null,Object? scope = null,Object? $unknown = freezed,}) {
+  return _then(_SettingRemoveOptionsInput(
+keys: null == keys ? _self._keys : keys // ignore: cast_nullable_to_non_nullable
+as List<String>,scope: null == scope ? _self.scope : scope // ignore: cast_nullable_to_non_nullable
+as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

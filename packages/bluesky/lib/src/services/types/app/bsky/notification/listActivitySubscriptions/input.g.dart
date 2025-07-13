@@ -8,29 +8,26 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$NotificationListActivitySubscriptionsInputImpl
-    _$$NotificationListActivitySubscriptionsInputImplFromJson(Map json) =>
-        $checkedCreate(
-          r'_$NotificationListActivitySubscriptionsInputImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$NotificationListActivitySubscriptionsInputImpl(
-              limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
-              cursor: $checkedConvert('cursor', (v) => v as String?),
-              $unknown: $checkedConvert(
-                  r'$unknown',
-                  (v) => (v as Map?)?.map(
-                        (k, e) => MapEntry(k as String, e),
-                      )),
-            );
-            return val;
-          },
-        );
+_NotificationListActivitySubscriptionsInput
+_$NotificationListActivitySubscriptionsInputFromJson(Map json) =>
+    $checkedCreate('_NotificationListActivitySubscriptionsInput', json, (
+      $checkedConvert,
+    ) {
+      final val = _NotificationListActivitySubscriptionsInput(
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        cursor: $checkedConvert('cursor', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$NotificationListActivitySubscriptionsInputImplToJson(
-        _$NotificationListActivitySubscriptionsInputImpl instance) =>
-    <String, dynamic>{
-      'limit': instance.limit,
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$NotificationListActivitySubscriptionsInputToJson(
+  _NotificationListActivitySubscriptionsInput instance,
+) => <String, dynamic>{
+  'limit': instance.limit,
+  'cursor': instance.cursor,
+  r'$unknown': instance.$unknown,
+};

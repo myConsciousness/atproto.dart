@@ -24,17 +24,14 @@ part 'blocked_post.g.dart';
 
 @freezed
 abstract class BlockedPost with _$BlockedPost {
-  static const knownProps = <String>[
-    'uri',
-    'blocked',
-    'author',
-  ];
+  static const knownProps = <String>['uri', 'blocked', 'author'];
 
   const factory BlockedPost({
     @Default(appBskyFeedDefsBlockedPost) String $type,
     required String uri,
     required bool blocked,
     @BlockedAuthorConverter() required BlockedAuthor author,
+
     Map<String, dynamic>? $unknown,
   }) = _BlockedPost;
 
@@ -53,14 +50,10 @@ final class BlockedPostConverter
 
   @override
   BlockedPost fromJson(Map<String, dynamic> json) {
-    return BlockedPost.fromJson(translate(
-      json,
-      BlockedPost.knownProps,
-    ));
+    return BlockedPost.fromJson(translate(json, BlockedPost.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(BlockedPost object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(BlockedPost object) =>
+      untranslate(object.toJson());
 }

@@ -23,13 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class LabelerGetServicesOutput with _$LabelerGetServicesOutput {
-  static const knownProps = <String>[
-    'views',
-  ];
+  static const knownProps = <String>['views'];
 
   const factory LabelerGetServicesOutput({
     @ULabelerGetServicesViewsConverter()
     required List<ULabelerGetServicesViews> views,
+
     Map<String, dynamic>? $unknown,
   }) = _LabelerGetServicesOutput;
 
@@ -43,14 +42,12 @@ final class LabelerGetServicesOutputConverter
 
   @override
   LabelerGetServicesOutput fromJson(Map<String, dynamic> json) {
-    return LabelerGetServicesOutput.fromJson(translate(
-      json,
-      LabelerGetServicesOutput.knownProps,
-    ));
+    return LabelerGetServicesOutput.fromJson(
+      translate(json, LabelerGetServicesOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(LabelerGetServicesOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(LabelerGetServicesOutput object) =>
+      untranslate(object.toJson());
 }

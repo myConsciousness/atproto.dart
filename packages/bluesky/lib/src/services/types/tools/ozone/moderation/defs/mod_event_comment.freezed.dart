@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,237 +9,288 @@ part of 'mod_event_comment.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ModEventComment _$ModEventCommentFromJson(Map<String, dynamic> json) {
-  return _ModEventComment.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ModEventComment {
-  String get $type => throw _privateConstructorUsedError;
-  String? get comment => throw _privateConstructorUsedError;
 
-  /// Make the comment persistent on the subject
-  bool? get sticky => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+ String get $type; String? get comment;/// Make the comment persistent on the subject
+ bool? get sticky; Map<String, dynamic>? get $unknown;
+/// Create a copy of ModEventComment
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ModEventCommentCopyWith<ModEventComment> get copyWith => _$ModEventCommentCopyWithImpl<ModEventComment>(this as ModEventComment, _$identity);
 
   /// Serializes this ModEventComment to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of ModEventComment
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ModEventCommentCopyWith<ModEventComment> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModEventComment&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.sticky, sticky) || other.sticky == sticky)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,comment,sticky,const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'ModEventComment(\$type: ${$type}, comment: $comment, sticky: $sticky, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ModEventCommentCopyWith<$Res> {
-  factory $ModEventCommentCopyWith(
-          ModEventComment value, $Res Function(ModEventComment) then) =
-      _$ModEventCommentCopyWithImpl<$Res, ModEventComment>;
-  @useResult
-  $Res call(
-      {String $type,
-      String? comment,
-      bool? sticky,
-      Map<String, dynamic>? $unknown});
-}
+abstract mixin class $ModEventCommentCopyWith<$Res>  {
+  factory $ModEventCommentCopyWith(ModEventComment value, $Res Function(ModEventComment) _then) = _$ModEventCommentCopyWithImpl;
+@useResult
+$Res call({
+ String $type, String? comment, bool? sticky, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$ModEventCommentCopyWithImpl<$Res, $Val extends ModEventComment>
+class _$ModEventCommentCopyWithImpl<$Res>
     implements $ModEventCommentCopyWith<$Res> {
-  _$ModEventCommentCopyWithImpl(this._value, this._then);
+  _$ModEventCommentCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ModEventComment _self;
+  final $Res Function(ModEventComment) _then;
 
-  /// Create a copy of ModEventComment
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? comment = freezed,
-    Object? sticky = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      comment: freezed == comment
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
-              as String?,
-      sticky: freezed == sticky
-          ? _value.sticky
-          : sticky // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of ModEventComment
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? comment = freezed,Object? sticky = freezed,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
+as String?,sticky: freezed == sticky ? _self.sticky : sticky // ignore: cast_nullable_to_non_nullable
+as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ModEventCommentImplCopyWith<$Res>
-    implements $ModEventCommentCopyWith<$Res> {
-  factory _$$ModEventCommentImplCopyWith(_$ModEventCommentImpl value,
-          $Res Function(_$ModEventCommentImpl) then) =
-      __$$ModEventCommentImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String $type,
-      String? comment,
-      bool? sticky,
-      Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$ModEventCommentImplCopyWithImpl<$Res>
-    extends _$ModEventCommentCopyWithImpl<$Res, _$ModEventCommentImpl>
-    implements _$$ModEventCommentImplCopyWith<$Res> {
-  __$$ModEventCommentImplCopyWithImpl(
-      _$ModEventCommentImpl _value, $Res Function(_$ModEventCommentImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of ModEventComment
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? comment = freezed,
-    Object? sticky = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$ModEventCommentImpl(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      comment: freezed == comment
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
-              as String?,
-      sticky: freezed == sticky
-          ? _value.sticky
-          : sticky // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [ModEventComment].
+extension ModEventCommentPatterns on ModEventComment {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ModEventComment value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ModEventComment() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ModEventComment value)  $default,){
+final _that = this;
+switch (_that) {
+case _ModEventComment():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ModEventComment value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ModEventComment() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  bool? sticky,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ModEventComment() when $default != null:
+return $default(_that.$type,_that.comment,_that.sticky,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  bool? sticky,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _ModEventComment():
+return $default(_that.$type,_that.comment,_that.sticky,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  bool? sticky,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _ModEventComment() when $default != null:
+return $default(_that.$type,_that.comment,_that.sticky,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ModEventCommentImpl implements _ModEventComment {
-  const _$ModEventCommentImpl(
-      {this.$type = toolsOzoneModerationDefsModEventComment,
-      this.comment,
-      this.sticky,
-      final Map<String, dynamic>? $unknown})
-      : _$unknown = $unknown;
 
-  factory _$ModEventCommentImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ModEventCommentImplFromJson(json);
+class _ModEventComment implements ModEventComment {
+  const _ModEventComment({this.$type = toolsOzoneModerationDefsModEventComment, this.comment, this.sticky, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  factory _ModEventComment.fromJson(Map<String, dynamic> json) => _$ModEventCommentFromJson(json);
 
-  @override
-  @JsonKey()
-  final String $type;
-  @override
-  final String? comment;
-
-  /// Make the comment persistent on the subject
-  @override
-  final bool? sticky;
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'ModEventComment(\$type: ${$type}, comment: $comment, sticky: $sticky, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ModEventCommentImpl &&
-            (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.comment, comment) || other.comment == comment) &&
-            (identical(other.sticky, sticky) || other.sticky == sticky) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, $type, comment, sticky,
-      const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of ModEventComment
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ModEventCommentImplCopyWith<_$ModEventCommentImpl> get copyWith =>
-      __$$ModEventCommentImplCopyWithImpl<_$ModEventCommentImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ModEventCommentImplToJson(
-      this,
-    );
-  }
+@override@JsonKey() final  String $type;
+@override final  String? comment;
+/// Make the comment persistent on the subject
+@override final  bool? sticky;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
 
-abstract class _ModEventComment implements ModEventComment {
-  const factory _ModEventComment(
-      {final String $type,
-      final String? comment,
-      final bool? sticky,
-      final Map<String, dynamic>? $unknown}) = _$ModEventCommentImpl;
 
-  factory _ModEventComment.fromJson(Map<String, dynamic> json) =
-      _$ModEventCommentImpl.fromJson;
+/// Create a copy of ModEventComment
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ModEventCommentCopyWith<_ModEventComment> get copyWith => __$ModEventCommentCopyWithImpl<_ModEventComment>(this, _$identity);
 
-  @override
-  String get $type;
-  @override
-  String? get comment;
-
-  /// Make the comment persistent on the subject
-  @override
-  bool? get sticky;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of ModEventComment
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ModEventCommentImplCopyWith<_$ModEventCommentImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$ModEventCommentToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModEventComment&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.sticky, sticky) || other.sticky == sticky)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,comment,sticky,const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'ModEventComment(\$type: ${$type}, comment: $comment, sticky: $sticky, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ModEventCommentCopyWith<$Res> implements $ModEventCommentCopyWith<$Res> {
+  factory _$ModEventCommentCopyWith(_ModEventComment value, $Res Function(_ModEventComment) _then) = __$ModEventCommentCopyWithImpl;
+@override @useResult
+$Res call({
+ String $type, String? comment, bool? sticky, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$ModEventCommentCopyWithImpl<$Res>
+    implements _$ModEventCommentCopyWith<$Res> {
+  __$ModEventCommentCopyWithImpl(this._self, this._then);
+
+  final _ModEventComment _self;
+  final $Res Function(_ModEventComment) _then;
+
+/// Create a copy of ModEventComment
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? comment = freezed,Object? sticky = freezed,Object? $unknown = freezed,}) {
+  return _then(_ModEventComment(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
+as String?,sticky: freezed == sticky ? _self.sticky : sticky // ignore: cast_nullable_to_non_nullable
+as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

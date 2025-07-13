@@ -8,34 +8,32 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedGetActorLikesOutputImpl _$$FeedGetActorLikesOutputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$FeedGetActorLikesOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$FeedGetActorLikesOutputImpl(
-          cursor: $checkedConvert('cursor', (v) => v as String?),
-          feed: $checkedConvert(
-              'feed',
-              (v) => (v as List<dynamic>)
-                  .map((e) => const FeedViewPostConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_FeedGetActorLikesOutput _$FeedGetActorLikesOutputFromJson(Map json) =>
+    $checkedCreate('_FeedGetActorLikesOutput', json, ($checkedConvert) {
+      final val = _FeedGetActorLikesOutput(
+        cursor: $checkedConvert('cursor', (v) => v as String?),
+        feed: $checkedConvert(
+          'feed',
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) => const FeedViewPostConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$FeedGetActorLikesOutputImplToJson(
-        _$FeedGetActorLikesOutputImpl instance) =>
-    <String, dynamic>{
-      'cursor': instance.cursor,
-      'feed': instance.feed.map(const FeedViewPostConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$FeedGetActorLikesOutputToJson(
+  _FeedGetActorLikesOutput instance,
+) => <String, dynamic>{
+  'cursor': instance.cursor,
+  'feed': instance.feed.map(const FeedViewPostConverter().toJson).toList(),
+  r'$unknown': instance.$unknown,
+};

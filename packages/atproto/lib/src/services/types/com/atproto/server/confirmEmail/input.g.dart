@@ -8,29 +8,23 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ServerConfirmEmailInputImpl _$$ServerConfirmEmailInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$ServerConfirmEmailInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ServerConfirmEmailInputImpl(
-          email: $checkedConvert('email', (v) => v as String),
-          token: $checkedConvert('token', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ServerConfirmEmailInput _$ServerConfirmEmailInputFromJson(Map json) =>
+    $checkedCreate('_ServerConfirmEmailInput', json, ($checkedConvert) {
+      final val = _ServerConfirmEmailInput(
+        email: $checkedConvert('email', (v) => v as String),
+        token: $checkedConvert('token', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ServerConfirmEmailInputImplToJson(
-        _$ServerConfirmEmailInputImpl instance) =>
-    <String, dynamic>{
-      'email': instance.email,
-      'token': instance.token,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ServerConfirmEmailInputToJson(
+  _ServerConfirmEmailInput instance,
+) => <String, dynamic>{
+  'email': instance.email,
+  'token': instance.token,
+  r'$unknown': instance.$unknown,
+};

@@ -8,28 +8,26 @@ part of 'interaction.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$InteractionImpl _$$InteractionImplFromJson(Map json) => $checkedCreate(
-      r'_$InteractionImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$InteractionImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyFeedDefsInteraction),
-          item: $checkedConvert('item', (v) => v as String?),
-          event: $checkedConvert('event', (v) => v as String?),
-          feedContext: $checkedConvert('feedContext', (v) => v as String?),
-          reqId: $checkedConvert('reqId', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_Interaction _$InteractionFromJson(Map json) =>
+    $checkedCreate('_Interaction', json, ($checkedConvert) {
+      final val = _Interaction(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyFeedDefsInteraction,
+        ),
+        item: $checkedConvert('item', (v) => v as String?),
+        event: $checkedConvert('event', (v) => v as String?),
+        feedContext: $checkedConvert('feedContext', (v) => v as String?),
+        reqId: $checkedConvert('reqId', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$InteractionImplToJson(_$InteractionImpl instance) =>
+Map<String, dynamic> _$InteractionToJson(_Interaction instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'item': instance.item,

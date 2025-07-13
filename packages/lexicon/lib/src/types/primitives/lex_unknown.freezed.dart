@@ -12,7 +12,8 @@ part of 'lex_unknown.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LexUnknown _$LexUnknownFromJson(Map<String, dynamic> json) {
   return _LexUnknown.fromJson(json);
@@ -36,8 +37,9 @@ mixin _$LexUnknown {
 /// @nodoc
 abstract class $LexUnknownCopyWith<$Res> {
   factory $LexUnknownCopyWith(
-          LexUnknown value, $Res Function(LexUnknown) then) =
-      _$LexUnknownCopyWithImpl<$Res, LexUnknown>;
+    LexUnknown value,
+    $Res Function(LexUnknown) then,
+  ) = _$LexUnknownCopyWithImpl<$Res, LexUnknown>;
   @useResult
   $Res call({String type, String? description});
 }
@@ -56,20 +58,20 @@ class _$LexUnknownCopyWithImpl<$Res, $Val extends LexUnknown>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? type = null,
-    Object? description = freezed,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  $Res call({Object? type = null, Object? description = freezed}) {
+    return _then(
+      _value.copyWith(
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -77,8 +79,9 @@ class _$LexUnknownCopyWithImpl<$Res, $Val extends LexUnknown>
 abstract class _$$LexUnknownImplCopyWith<$Res>
     implements $LexUnknownCopyWith<$Res> {
   factory _$$LexUnknownImplCopyWith(
-          _$LexUnknownImpl value, $Res Function(_$LexUnknownImpl) then) =
-      __$$LexUnknownImplCopyWithImpl<$Res>;
+    _$LexUnknownImpl value,
+    $Res Function(_$LexUnknownImpl) then,
+  ) = __$$LexUnknownImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type, String? description});
@@ -89,27 +92,27 @@ class __$$LexUnknownImplCopyWithImpl<$Res>
     extends _$LexUnknownCopyWithImpl<$Res, _$LexUnknownImpl>
     implements _$$LexUnknownImplCopyWith<$Res> {
   __$$LexUnknownImplCopyWithImpl(
-      _$LexUnknownImpl _value, $Res Function(_$LexUnknownImpl) _then)
-      : super(_value, _then);
+    _$LexUnknownImpl _value,
+    $Res Function(_$LexUnknownImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexUnknown
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? type = null,
-    Object? description = freezed,
-  }) {
-    return _then(_$LexUnknownImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+  $Res call({Object? type = null, Object? description = freezed}) {
+    return _then(
+      _$LexUnknownImpl(
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
@@ -157,9 +160,7 @@ class _$LexUnknownImpl implements _LexUnknown {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LexUnknownImplToJson(
-      this,
-    );
+    return _$$LexUnknownImplToJson(this);
   }
 }
 

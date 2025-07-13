@@ -46,6 +46,7 @@ abstract class SubjectView with _$SubjectView {
     @RepoViewDetailConverter() RepoViewDetail? repo,
     @USubjectViewProfileConverter() USubjectViewProfile? profile,
     @RecordViewDetailConverter() RecordViewDetail? record,
+
     Map<String, dynamic>? $unknown,
   }) = _SubjectView;
 
@@ -64,14 +65,10 @@ final class SubjectViewConverter
 
   @override
   SubjectView fromJson(Map<String, dynamic> json) {
-    return SubjectView.fromJson(translate(
-      json,
-      SubjectView.knownProps,
-    ));
+    return SubjectView.fromJson(translate(json, SubjectView.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(SubjectView object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SubjectView object) =>
+      untranslate(object.toJson());
 }

@@ -23,13 +23,12 @@ part 'mod_event_escalate.g.dart';
 
 @freezed
 abstract class ModEventEscalate with _$ModEventEscalate {
-  static const knownProps = <String>[
-    'comment',
-  ];
+  static const knownProps = <String>['comment'];
 
   const factory ModEventEscalate({
     @Default(toolsOzoneModerationDefsModEventEscalate) String $type,
     String? comment,
+
     Map<String, dynamic>? $unknown,
   }) = _ModEventEscalate;
 
@@ -48,14 +47,12 @@ final class ModEventEscalateConverter
 
   @override
   ModEventEscalate fromJson(Map<String, dynamic> json) {
-    return ModEventEscalate.fromJson(translate(
-      json,
-      ModEventEscalate.knownProps,
-    ));
+    return ModEventEscalate.fromJson(
+      translate(json, ModEventEscalate.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ModEventEscalate object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ModEventEscalate object) =>
+      untranslate(object.toJson());
 }

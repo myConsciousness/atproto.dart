@@ -12,7 +12,8 @@ part of 'lex_record.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LexRecord _$LexRecordFromJson(Map<String, dynamic> json) {
   return _LexRecord.fromJson(json);
@@ -65,24 +66,27 @@ class _$LexRecordCopyWithImpl<$Res, $Val extends LexRecord>
     Object? key = freezed,
     Object? record = null,
   }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      key: freezed == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as String?,
-      record: null == record
-          ? _value.record
-          : record // ignore: cast_nullable_to_non_nullable
-              as LexObject,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            key: freezed == key
+                ? _value.key
+                : key // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            record: null == record
+                ? _value.record
+                : record // ignore: cast_nullable_to_non_nullable
+                      as LexObject,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of LexRecord
@@ -100,8 +104,9 @@ class _$LexRecordCopyWithImpl<$Res, $Val extends LexRecord>
 abstract class _$$LexRecordImplCopyWith<$Res>
     implements $LexRecordCopyWith<$Res> {
   factory _$$LexRecordImplCopyWith(
-          _$LexRecordImpl value, $Res Function(_$LexRecordImpl) then) =
-      __$$LexRecordImplCopyWithImpl<$Res>;
+    _$LexRecordImpl value,
+    $Res Function(_$LexRecordImpl) then,
+  ) = __$$LexRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type, String? description, String? key, LexObject record});
@@ -115,8 +120,9 @@ class __$$LexRecordImplCopyWithImpl<$Res>
     extends _$LexRecordCopyWithImpl<$Res, _$LexRecordImpl>
     implements _$$LexRecordImplCopyWith<$Res> {
   __$$LexRecordImplCopyWithImpl(
-      _$LexRecordImpl _value, $Res Function(_$LexRecordImpl) _then)
-      : super(_value, _then);
+    _$LexRecordImpl _value,
+    $Res Function(_$LexRecordImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexRecord
   /// with the given fields replaced by the non-null parameter values.
@@ -128,24 +134,26 @@ class __$$LexRecordImplCopyWithImpl<$Res>
     Object? key = freezed,
     Object? record = null,
   }) {
-    return _then(_$LexRecordImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      key: freezed == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as String?,
-      record: null == record
-          ? _value.record
-          : record // ignore: cast_nullable_to_non_nullable
-              as LexObject,
-    ));
+    return _then(
+      _$LexRecordImpl(
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        key: freezed == key
+            ? _value.key
+            : key // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        record: null == record
+            ? _value.record
+            : record // ignore: cast_nullable_to_non_nullable
+                  as LexObject,
+      ),
+    );
   }
 }
 
@@ -153,8 +161,12 @@ class __$$LexRecordImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$LexRecordImpl implements _LexRecord {
-  const _$LexRecordImpl(
-      {this.type = 'record', this.description, this.key, required this.record});
+  const _$LexRecordImpl({
+    this.type = 'record',
+    this.description,
+    this.key,
+    required this.record,
+  });
 
   factory _$LexRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$LexRecordImplFromJson(json);
@@ -200,18 +212,17 @@ class _$LexRecordImpl implements _LexRecord {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LexRecordImplToJson(
-      this,
-    );
+    return _$$LexRecordImplToJson(this);
   }
 }
 
 abstract class _LexRecord implements LexRecord {
-  const factory _LexRecord(
-      {final String type,
-      final String? description,
-      final String? key,
-      required final LexObject record}) = _$LexRecordImpl;
+  const factory _LexRecord({
+    final String type,
+    final String? description,
+    final String? key,
+    required final LexObject record,
+  }) = _$LexRecordImpl;
 
   factory _LexRecord.fromJson(Map<String, dynamic> json) =
       _$LexRecordImpl.fromJson;

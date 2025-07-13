@@ -26,16 +26,14 @@ part 'main.g.dart';
 /// Annotation of a sub-string within rich text.
 @freezed
 abstract class RichtextFacet with _$RichtextFacet {
-  static const knownProps = <String>[
-    'index',
-    'features',
-  ];
+  static const knownProps = <String>['index', 'features'];
 
   const factory RichtextFacet({
     @Default(appBskyRichtextFacet) String $type,
     @RichtextFacetByteSliceConverter() required RichtextFacetByteSlice index,
     @URichtextFacetFeaturesConverter()
     required List<URichtextFacetFeatures> features,
+
     Map<String, dynamic>? $unknown,
   }) = _RichtextFacet;
 
@@ -55,14 +53,10 @@ final class RichtextFacetConverter
 
   @override
   RichtextFacet fromJson(Map<String, dynamic> json) {
-    return RichtextFacet.fromJson(translate(
-      json,
-      RichtextFacet.knownProps,
-    ));
+    return RichtextFacet.fromJson(translate(json, RichtextFacet.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(RichtextFacet object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RichtextFacet object) =>
+      untranslate(object.toJson());
 }

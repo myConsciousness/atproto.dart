@@ -8,36 +8,32 @@ part of 'like.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LikeImpl _$$LikeImplFromJson(Map json) => $checkedCreate(
-      r'_$LikeImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$LikeImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyFeedGetLikesLike),
-          indexedAt:
-              $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
-          createdAt:
-              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
-          actor: $checkedConvert(
-              'actor',
-              (v) => const ProfileViewConverter()
-                  .fromJson(v as Map<String, dynamic>)),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_Like _$LikeFromJson(Map json) => $checkedCreate('_Like', json, (
+  $checkedConvert,
+) {
+  final val = _Like(
+    $type: $checkedConvert(
+      r'$type',
+      (v) => v as String? ?? appBskyFeedGetLikesLike,
+    ),
+    indexedAt: $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
+    createdAt: $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+    actor: $checkedConvert(
+      'actor',
+      (v) => const ProfileViewConverter().fromJson(v as Map<String, dynamic>),
+    ),
+    $unknown: $checkedConvert(
+      r'$unknown',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
+  );
+  return val;
+});
 
-Map<String, dynamic> _$$LikeImplToJson(_$LikeImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'indexedAt': instance.indexedAt.toIso8601String(),
-      'createdAt': instance.createdAt.toIso8601String(),
-      'actor': const ProfileViewConverter().toJson(instance.actor),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$LikeToJson(_Like instance) => <String, dynamic>{
+  r'$type': instance.$type,
+  'indexedAt': instance.indexedAt.toIso8601String(),
+  'createdAt': instance.createdAt.toIso8601String(),
+  'actor': const ProfileViewConverter().toJson(instance.actor),
+  r'$unknown': instance.$unknown,
+};

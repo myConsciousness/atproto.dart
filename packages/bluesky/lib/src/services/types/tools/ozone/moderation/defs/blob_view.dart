@@ -42,6 +42,7 @@ abstract class BlobView with _$BlobView {
     required DateTime createdAt,
     @UBlobViewDetailsConverter() UBlobViewDetails? details,
     @ModerationConverter() Moderation? moderation,
+
     Map<String, dynamic>? $unknown,
   }) = _BlobView;
 
@@ -60,14 +61,9 @@ final class BlobViewConverter
 
   @override
   BlobView fromJson(Map<String, dynamic> json) {
-    return BlobView.fromJson(translate(
-      json,
-      BlobView.knownProps,
-    ));
+    return BlobView.fromJson(translate(json, BlobView.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(BlobView object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(BlobView object) => untranslate(object.toJson());
 }

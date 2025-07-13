@@ -30,10 +30,7 @@ void main() {
   );
 
   testRepo<Records>(
-    (m, s) => s.listRecords(
-      repo: m.actor,
-      collection: m.collection,
-    ),
+    (m, s) => s.listRecords(repo: m.actor, collection: m.collection),
     id: comAtprotoRepoListRecords,
   );
 
@@ -48,9 +45,11 @@ void main() {
   );
 
   testRepo<BlobData>(
-    (m, s) => s.uploadBlob(File(
-      'test/src/services/suite/com/atproto/repo/dash.png',
-    ).readAsBytesSync()),
+    (m, s) => s.uploadBlob(
+      File(
+        'test/src/services/suite/com/atproto/repo/dash.png',
+      ).readAsBytesSync(),
+    ),
     id: comAtprotoRepoUploadBlob,
   );
 
@@ -60,36 +59,30 @@ void main() {
   );
 
   testRepo<core.EmptyData>(
-    (m, s) => s.applyWrites(actions: [
-      BatchAction.create(
-        data: CreateAction(
-          collection: m.collection,
-          record: {},
+    (m, s) => s.applyWrites(
+      actions: [
+        BatchAction.create(
+          data: CreateAction(collection: m.collection, record: {}),
         ),
-      ),
-    ]),
+      ],
+    ),
     id: comAtprotoRepoApplyWrites,
   );
 
   testRepo<core.EmptyData>(
-    (m, s) => s.createRecordInBulk(actions: [
-      CreateAction(
-        collection: m.collection,
-        record: {},
-      ),
-    ]),
+    (m, s) => s.createRecordInBulk(
+      actions: [CreateAction(collection: m.collection, record: {})],
+    ),
     id: comAtprotoRepoApplyWrites,
     label: 'Create',
   );
 
   testRepo<core.EmptyData>(
-    (m, s) => s.updateRecordInBulk(actions: [
-      UpdateAction(
-        collection: m.collection,
-        rkey: m.uri.rkey,
-        record: {},
-      ),
-    ]),
+    (m, s) => s.updateRecordInBulk(
+      actions: [
+        UpdateAction(collection: m.collection, rkey: m.uri.rkey, record: {}),
+      ],
+    ),
     id: comAtprotoRepoApplyWrites,
     label: 'Update',
   );

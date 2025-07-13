@@ -23,12 +23,11 @@ part 'output.g.dart';
 
 @freezed
 abstract class SettingUpsertOptionOutput with _$SettingUpsertOptionOutput {
-  static const knownProps = <String>[
-    'option',
-  ];
+  static const knownProps = <String>['option'];
 
   const factory SettingUpsertOptionOutput({
     @OptionConverter() required Option option,
+
     Map<String, dynamic>? $unknown,
   }) = _SettingUpsertOptionOutput;
 
@@ -36,20 +35,19 @@ abstract class SettingUpsertOptionOutput with _$SettingUpsertOptionOutput {
       _$SettingUpsertOptionOutputFromJson(json);
 }
 
-final class SettingUpsertOptionOutputConverter extends LexObjectConverter<
-    SettingUpsertOptionOutput, Map<String, dynamic>> {
+final class SettingUpsertOptionOutputConverter
+    extends
+        LexObjectConverter<SettingUpsertOptionOutput, Map<String, dynamic>> {
   const SettingUpsertOptionOutputConverter();
 
   @override
   SettingUpsertOptionOutput fromJson(Map<String, dynamic> json) {
-    return SettingUpsertOptionOutput.fromJson(translate(
-      json,
-      SettingUpsertOptionOutput.knownProps,
-    ));
+    return SettingUpsertOptionOutput.fromJson(
+      translate(json, SettingUpsertOptionOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SettingUpsertOptionOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SettingUpsertOptionOutput object) =>
+      untranslate(object.toJson());
 }

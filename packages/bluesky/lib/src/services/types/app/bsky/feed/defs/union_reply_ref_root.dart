@@ -25,19 +25,15 @@ part 'union_reply_ref_root.freezed.dart';
 class UReplyRefRoot with _$UReplyRefRoot {
   const UReplyRefRoot._();
 
-  const factory UReplyRefRoot.postView({
-    required PostView data,
-  }) = UReplyRefRootPostView;
-  const factory UReplyRefRoot.notFoundPost({
-    required NotFoundPost data,
-  }) = UReplyRefRootNotFoundPost;
-  const factory UReplyRefRoot.blockedPost({
-    required BlockedPost data,
-  }) = UReplyRefRootBlockedPost;
+  const factory UReplyRefRoot.postView({required PostView data}) =
+      UReplyRefRootPostView;
+  const factory UReplyRefRoot.notFoundPost({required NotFoundPost data}) =
+      UReplyRefRootNotFoundPost;
+  const factory UReplyRefRoot.blockedPost({required BlockedPost data}) =
+      UReplyRefRootBlockedPost;
 
-  const factory UReplyRefRoot.unknown({
-    required Map<String, dynamic> data,
-  }) = UReplyRefRootUnknown;
+  const factory UReplyRefRoot.unknown({required Map<String, dynamic> data}) =
+      UReplyRefRootUnknown;
 
   Map<String, dynamic> toJson() => const UReplyRefRootConverter().toJson(this);
 }
@@ -73,9 +69,10 @@ final class UReplyRefRootConverter
 
   @override
   Map<String, dynamic> toJson(UReplyRefRoot object) => object.when(
-        postView: (data) => const PostViewConverter().toJson(data),
-        notFoundPost: (data) => const NotFoundPostConverter().toJson(data),
-        blockedPost: (data) => const BlockedPostConverter().toJson(data),
-        unknown: (data) => data,
-      );
+    postView: (data) => const PostViewConverter().toJson(data),
+    notFoundPost: (data) => const NotFoundPostConverter().toJson(data),
+    blockedPost: (data) => const BlockedPostConverter().toJson(data),
+
+    unknown: (data) => data,
+  );
 }

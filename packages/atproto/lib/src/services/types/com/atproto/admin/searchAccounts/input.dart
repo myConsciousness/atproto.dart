@@ -20,16 +20,13 @@ part 'input.g.dart';
 
 @freezed
 abstract class AdminSearchAccountsInput with _$AdminSearchAccountsInput {
-  static const knownProps = <String>[
-    'email',
-    'cursor',
-    'limit',
-  ];
+  static const knownProps = <String>['email', 'cursor', 'limit'];
 
   const factory AdminSearchAccountsInput({
     String? email,
     String? cursor,
     int? limit,
+
     Map<String, dynamic>? $unknown,
   }) = _AdminSearchAccountsInput;
 
@@ -43,14 +40,12 @@ final class AdminSearchAccountsInputConverter
 
   @override
   AdminSearchAccountsInput fromJson(Map<String, dynamic> json) {
-    return AdminSearchAccountsInput.fromJson(translate(
-      json,
-      AdminSearchAccountsInput.knownProps,
-    ));
+    return AdminSearchAccountsInput.fromJson(
+      translate(json, AdminSearchAccountsInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(AdminSearchAccountsInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(AdminSearchAccountsInput object) =>
+      untranslate(object.toJson());
 }

@@ -43,16 +43,12 @@ abstract class HostStatusConverter
 
   @override
   HostStatus fromJson(Map<String, dynamic> json) {
-    return HostStatus.fromJson(translate(
-      json,
-      HostStatus.knownProps,
-    ));
+    return HostStatus.fromJson(translate(json, HostStatus.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(HostStatus object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(HostStatus object) =>
+      untranslate(object.toJson());
 }
 
 enum KnownHostStatus implements Serializable {
@@ -65,8 +61,7 @@ enum KnownHostStatus implements Serializable {
   @JsonValue('throttled')
   throttled('throttled'),
   @JsonValue('banned')
-  banned('banned'),
-  ;
+  banned('banned');
 
   @override
   final String value;

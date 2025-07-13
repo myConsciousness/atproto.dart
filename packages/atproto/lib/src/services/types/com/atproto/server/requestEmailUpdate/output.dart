@@ -21,12 +21,11 @@ part 'output.g.dart';
 @freezed
 abstract class ServerRequestEmailUpdateOutput
     with _$ServerRequestEmailUpdateOutput {
-  static const knownProps = <String>[
-    'tokenRequired',
-  ];
+  static const knownProps = <String>['tokenRequired'];
 
   const factory ServerRequestEmailUpdateOutput({
     required bool tokenRequired,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerRequestEmailUpdateOutput;
 
@@ -34,21 +33,22 @@ abstract class ServerRequestEmailUpdateOutput
       _$ServerRequestEmailUpdateOutputFromJson(json);
 }
 
-final class ServerRequestEmailUpdateOutputConverter extends LexObjectConverter<
-    ServerRequestEmailUpdateOutput, Map<String, dynamic>> {
+final class ServerRequestEmailUpdateOutputConverter
+    extends
+        LexObjectConverter<
+          ServerRequestEmailUpdateOutput,
+          Map<String, dynamic>
+        > {
   const ServerRequestEmailUpdateOutputConverter();
 
   @override
   ServerRequestEmailUpdateOutput fromJson(Map<String, dynamic> json) {
-    return ServerRequestEmailUpdateOutput.fromJson(translate(
-      json,
-      ServerRequestEmailUpdateOutput.knownProps,
-    ));
+    return ServerRequestEmailUpdateOutput.fromJson(
+      translate(json, ServerRequestEmailUpdateOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ServerRequestEmailUpdateOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,252 +9,289 @@ part of 'app_password.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-AppPassword _$AppPasswordFromJson(Map<String, dynamic> json) {
-  return _AppPassword.fromJson(json);
-}
 
 /// @nodoc
 mixin _$AppPassword {
-  String get $type => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  bool? get privileged => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+ String get $type; String get name; DateTime get createdAt; bool? get privileged; Map<String, dynamic>? get $unknown;
+/// Create a copy of AppPassword
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AppPasswordCopyWith<AppPassword> get copyWith => _$AppPasswordCopyWithImpl<AppPassword>(this as AppPassword, _$identity);
 
   /// Serializes this AppPassword to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of AppPassword
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $AppPasswordCopyWith<AppPassword> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppPassword&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.name, name) || other.name == name)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.privileged, privileged) || other.privileged == privileged)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,name,createdAt,privileged,const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'AppPassword(\$type: ${$type}, name: $name, createdAt: $createdAt, privileged: $privileged, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AppPasswordCopyWith<$Res> {
-  factory $AppPasswordCopyWith(
-          AppPassword value, $Res Function(AppPassword) then) =
-      _$AppPasswordCopyWithImpl<$Res, AppPassword>;
-  @useResult
-  $Res call(
-      {String $type,
-      String name,
-      DateTime createdAt,
-      bool? privileged,
-      Map<String, dynamic>? $unknown});
-}
+abstract mixin class $AppPasswordCopyWith<$Res>  {
+  factory $AppPasswordCopyWith(AppPassword value, $Res Function(AppPassword) _then) = _$AppPasswordCopyWithImpl;
+@useResult
+$Res call({
+ String $type, String name, DateTime createdAt, bool? privileged, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$AppPasswordCopyWithImpl<$Res, $Val extends AppPassword>
+class _$AppPasswordCopyWithImpl<$Res>
     implements $AppPasswordCopyWith<$Res> {
-  _$AppPasswordCopyWithImpl(this._value, this._then);
+  _$AppPasswordCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AppPassword _self;
+  final $Res Function(AppPassword) _then;
 
-  /// Create a copy of AppPassword
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? name = null,
-    Object? createdAt = null,
-    Object? privileged = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      privileged: freezed == privileged
-          ? _value.privileged
-          : privileged // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of AppPassword
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? name = null,Object? createdAt = null,Object? privileged = freezed,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,privileged: freezed == privileged ? _self.privileged : privileged // ignore: cast_nullable_to_non_nullable
+as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$AppPasswordImplCopyWith<$Res>
-    implements $AppPasswordCopyWith<$Res> {
-  factory _$$AppPasswordImplCopyWith(
-          _$AppPasswordImpl value, $Res Function(_$AppPasswordImpl) then) =
-      __$$AppPasswordImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String $type,
-      String name,
-      DateTime createdAt,
-      bool? privileged,
-      Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$AppPasswordImplCopyWithImpl<$Res>
-    extends _$AppPasswordCopyWithImpl<$Res, _$AppPasswordImpl>
-    implements _$$AppPasswordImplCopyWith<$Res> {
-  __$$AppPasswordImplCopyWithImpl(
-      _$AppPasswordImpl _value, $Res Function(_$AppPasswordImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of AppPassword
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? name = null,
-    Object? createdAt = null,
-    Object? privileged = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$AppPasswordImpl(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      privileged: freezed == privileged
-          ? _value.privileged
-          : privileged // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [AppPassword].
+extension AppPasswordPatterns on AppPassword {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _AppPassword value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _AppPassword() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _AppPassword value)  $default,){
+final _that = this;
+switch (_that) {
+case _AppPassword():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _AppPassword value)?  $default,){
+final _that = this;
+switch (_that) {
+case _AppPassword() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String name,  DateTime createdAt,  bool? privileged,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _AppPassword() when $default != null:
+return $default(_that.$type,_that.name,_that.createdAt,_that.privileged,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String name,  DateTime createdAt,  bool? privileged,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _AppPassword():
+return $default(_that.$type,_that.name,_that.createdAt,_that.privileged,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String name,  DateTime createdAt,  bool? privileged,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _AppPassword() when $default != null:
+return $default(_that.$type,_that.name,_that.createdAt,_that.privileged,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$AppPasswordImpl implements _AppPassword {
-  const _$AppPasswordImpl(
-      {this.$type = comAtprotoServerListAppPasswordsAppPassword,
-      required this.name,
-      required this.createdAt,
-      this.privileged,
-      final Map<String, dynamic>? $unknown})
-      : _$unknown = $unknown;
 
-  factory _$AppPasswordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AppPasswordImplFromJson(json);
+class _AppPassword implements AppPassword {
+  const _AppPassword({this.$type = comAtprotoServerListAppPasswordsAppPassword, required this.name, required this.createdAt, this.privileged, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  factory _AppPassword.fromJson(Map<String, dynamic> json) => _$AppPasswordFromJson(json);
 
-  @override
-  @JsonKey()
-  final String $type;
-  @override
-  final String name;
-  @override
-  final DateTime createdAt;
-  @override
-  final bool? privileged;
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'AppPassword(\$type: ${$type}, name: $name, createdAt: $createdAt, privileged: $privileged, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AppPasswordImpl &&
-            (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.privileged, privileged) ||
-                other.privileged == privileged) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, $type, name, createdAt,
-      privileged, const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of AppPassword
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AppPasswordImplCopyWith<_$AppPasswordImpl> get copyWith =>
-      __$$AppPasswordImplCopyWithImpl<_$AppPasswordImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AppPasswordImplToJson(
-      this,
-    );
-  }
+@override@JsonKey() final  String $type;
+@override final  String name;
+@override final  DateTime createdAt;
+@override final  bool? privileged;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
 
-abstract class _AppPassword implements AppPassword {
-  const factory _AppPassword(
-      {final String $type,
-      required final String name,
-      required final DateTime createdAt,
-      final bool? privileged,
-      final Map<String, dynamic>? $unknown}) = _$AppPasswordImpl;
 
-  factory _AppPassword.fromJson(Map<String, dynamic> json) =
-      _$AppPasswordImpl.fromJson;
+/// Create a copy of AppPassword
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AppPasswordCopyWith<_AppPassword> get copyWith => __$AppPasswordCopyWithImpl<_AppPassword>(this, _$identity);
 
-  @override
-  String get $type;
-  @override
-  String get name;
-  @override
-  DateTime get createdAt;
-  @override
-  bool? get privileged;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of AppPassword
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AppPasswordImplCopyWith<_$AppPasswordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$AppPasswordToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppPassword&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.name, name) || other.name == name)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.privileged, privileged) || other.privileged == privileged)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,name,createdAt,privileged,const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'AppPassword(\$type: ${$type}, name: $name, createdAt: $createdAt, privileged: $privileged, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AppPasswordCopyWith<$Res> implements $AppPasswordCopyWith<$Res> {
+  factory _$AppPasswordCopyWith(_AppPassword value, $Res Function(_AppPassword) _then) = __$AppPasswordCopyWithImpl;
+@override @useResult
+$Res call({
+ String $type, String name, DateTime createdAt, bool? privileged, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$AppPasswordCopyWithImpl<$Res>
+    implements _$AppPasswordCopyWith<$Res> {
+  __$AppPasswordCopyWithImpl(this._self, this._then);
+
+  final _AppPassword _self;
+  final $Res Function(_AppPassword) _then;
+
+/// Create a copy of AppPassword
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? name = null,Object? createdAt = null,Object? privileged = freezed,Object? $unknown = freezed,}) {
+  return _then(_AppPassword(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,privileged: freezed == privileged ? _self.privileged : privileged // ignore: cast_nullable_to_non_nullable
+as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

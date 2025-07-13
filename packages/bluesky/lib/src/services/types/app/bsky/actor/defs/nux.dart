@@ -24,12 +24,7 @@ part 'nux.g.dart';
 /// A new user experiences (NUX) storage object
 @freezed
 abstract class Nux with _$Nux {
-  static const knownProps = <String>[
-    'id',
-    'completed',
-    'data',
-    'expiresAt',
-  ];
+  static const knownProps = <String>['id', 'completed', 'data', 'expiresAt'];
 
   const factory Nux({
     @Default(appBskyActorDefsNux) String $type,
@@ -41,6 +36,7 @@ abstract class Nux with _$Nux {
 
     /// The date and time at which the NUX will expire and should be considered completed.
     DateTime? expiresAt,
+
     Map<String, dynamic>? $unknown,
   }) = _Nux;
 
@@ -57,14 +53,9 @@ final class NuxConverter extends LexObjectConverter<Nux, Map<String, dynamic>> {
 
   @override
   Nux fromJson(Map<String, dynamic> json) {
-    return Nux.fromJson(translate(
-      json,
-      Nux.knownProps,
-    ));
+    return Nux.fromJson(translate(json, Nux.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(Nux object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(Nux object) => untranslate(object.toJson());
 }

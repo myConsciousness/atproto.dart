@@ -8,32 +8,33 @@ part of 'known_followers.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$KnownFollowersImpl _$$KnownFollowersImplFromJson(Map json) => $checkedCreate(
-      r'_$KnownFollowersImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$KnownFollowersImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyActorDefsKnownFollowers),
-          count: $checkedConvert('count', (v) => (v as num).toInt()),
-          followers: $checkedConvert(
-              'followers',
-              (v) => (v as List<dynamic>)
-                  .map((e) => const ProfileViewBasicConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_KnownFollowers _$KnownFollowersFromJson(Map json) =>
+    $checkedCreate('_KnownFollowers', json, ($checkedConvert) {
+      final val = _KnownFollowers(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyActorDefsKnownFollowers,
+        ),
+        count: $checkedConvert('count', (v) => (v as num).toInt()),
+        followers: $checkedConvert(
+          'followers',
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) => const ProfileViewBasicConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$KnownFollowersImplToJson(
-        _$KnownFollowersImpl instance) =>
+Map<String, dynamic> _$KnownFollowersToJson(_KnownFollowers instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'count': instance.count,

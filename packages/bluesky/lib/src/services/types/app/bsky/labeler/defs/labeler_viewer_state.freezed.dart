@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,205 +9,283 @@ part of 'labeler_viewer_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LabelerViewerState _$LabelerViewerStateFromJson(Map<String, dynamic> json) {
-  return _LabelerViewerState.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LabelerViewerState {
-  String get $type => throw _privateConstructorUsedError;
-  String? get like => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+ String get $type; String? get like; Map<String, dynamic>? get $unknown;
+/// Create a copy of LabelerViewerState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$LabelerViewerStateCopyWith<LabelerViewerState> get copyWith => _$LabelerViewerStateCopyWithImpl<LabelerViewerState>(this as LabelerViewerState, _$identity);
 
   /// Serializes this LabelerViewerState to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of LabelerViewerState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $LabelerViewerStateCopyWith<LabelerViewerState> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LabelerViewerState&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.like, like) || other.like == like)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,like,const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'LabelerViewerState(\$type: ${$type}, like: $like, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $LabelerViewerStateCopyWith<$Res> {
-  factory $LabelerViewerStateCopyWith(
-          LabelerViewerState value, $Res Function(LabelerViewerState) then) =
-      _$LabelerViewerStateCopyWithImpl<$Res, LabelerViewerState>;
-  @useResult
-  $Res call({String $type, String? like, Map<String, dynamic>? $unknown});
-}
+abstract mixin class $LabelerViewerStateCopyWith<$Res>  {
+  factory $LabelerViewerStateCopyWith(LabelerViewerState value, $Res Function(LabelerViewerState) _then) = _$LabelerViewerStateCopyWithImpl;
+@useResult
+$Res call({
+ String $type, String? like, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$LabelerViewerStateCopyWithImpl<$Res, $Val extends LabelerViewerState>
+class _$LabelerViewerStateCopyWithImpl<$Res>
     implements $LabelerViewerStateCopyWith<$Res> {
-  _$LabelerViewerStateCopyWithImpl(this._value, this._then);
+  _$LabelerViewerStateCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final LabelerViewerState _self;
+  final $Res Function(LabelerViewerState) _then;
 
-  /// Create a copy of LabelerViewerState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? like = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      like: freezed == like
-          ? _value.like
-          : like // ignore: cast_nullable_to_non_nullable
-              as String?,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of LabelerViewerState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? like = freezed,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,like: freezed == like ? _self.like : like // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$LabelerViewerStateImplCopyWith<$Res>
-    implements $LabelerViewerStateCopyWith<$Res> {
-  factory _$$LabelerViewerStateImplCopyWith(_$LabelerViewerStateImpl value,
-          $Res Function(_$LabelerViewerStateImpl) then) =
-      __$$LabelerViewerStateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String $type, String? like, Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$LabelerViewerStateImplCopyWithImpl<$Res>
-    extends _$LabelerViewerStateCopyWithImpl<$Res, _$LabelerViewerStateImpl>
-    implements _$$LabelerViewerStateImplCopyWith<$Res> {
-  __$$LabelerViewerStateImplCopyWithImpl(_$LabelerViewerStateImpl _value,
-      $Res Function(_$LabelerViewerStateImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of LabelerViewerState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? like = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$LabelerViewerStateImpl(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      like: freezed == like
-          ? _value.like
-          : like // ignore: cast_nullable_to_non_nullable
-              as String?,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [LabelerViewerState].
+extension LabelerViewerStatePatterns on LabelerViewerState {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _LabelerViewerState value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _LabelerViewerState() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _LabelerViewerState value)  $default,){
+final _that = this;
+switch (_that) {
+case _LabelerViewerState():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _LabelerViewerState value)?  $default,){
+final _that = this;
+switch (_that) {
+case _LabelerViewerState() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? like,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _LabelerViewerState() when $default != null:
+return $default(_that.$type,_that.like,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? like,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _LabelerViewerState():
+return $default(_that.$type,_that.like,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? like,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _LabelerViewerState() when $default != null:
+return $default(_that.$type,_that.like,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$LabelerViewerStateImpl implements _LabelerViewerState {
-  const _$LabelerViewerStateImpl(
-      {this.$type = appBskyLabelerDefsLabelerViewerState,
-      this.like,
-      final Map<String, dynamic>? $unknown})
-      : _$unknown = $unknown;
 
-  factory _$LabelerViewerStateImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LabelerViewerStateImplFromJson(json);
+class _LabelerViewerState implements LabelerViewerState {
+  const _LabelerViewerState({this.$type = appBskyLabelerDefsLabelerViewerState, this.like, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  factory _LabelerViewerState.fromJson(Map<String, dynamic> json) => _$LabelerViewerStateFromJson(json);
 
-  @override
-  @JsonKey()
-  final String $type;
-  @override
-  final String? like;
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'LabelerViewerState(\$type: ${$type}, like: $like, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LabelerViewerStateImpl &&
-            (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.like, like) || other.like == like) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, $type, like, const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of LabelerViewerState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LabelerViewerStateImplCopyWith<_$LabelerViewerStateImpl> get copyWith =>
-      __$$LabelerViewerStateImplCopyWithImpl<_$LabelerViewerStateImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LabelerViewerStateImplToJson(
-      this,
-    );
-  }
+@override@JsonKey() final  String $type;
+@override final  String? like;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
 
-abstract class _LabelerViewerState implements LabelerViewerState {
-  const factory _LabelerViewerState(
-      {final String $type,
-      final String? like,
-      final Map<String, dynamic>? $unknown}) = _$LabelerViewerStateImpl;
 
-  factory _LabelerViewerState.fromJson(Map<String, dynamic> json) =
-      _$LabelerViewerStateImpl.fromJson;
+/// Create a copy of LabelerViewerState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$LabelerViewerStateCopyWith<_LabelerViewerState> get copyWith => __$LabelerViewerStateCopyWithImpl<_LabelerViewerState>(this, _$identity);
 
-  @override
-  String get $type;
-  @override
-  String? get like;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of LabelerViewerState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LabelerViewerStateImplCopyWith<_$LabelerViewerStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$LabelerViewerStateToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LabelerViewerState&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.like, like) || other.like == like)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,like,const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'LabelerViewerState(\$type: ${$type}, like: $like, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$LabelerViewerStateCopyWith<$Res> implements $LabelerViewerStateCopyWith<$Res> {
+  factory _$LabelerViewerStateCopyWith(_LabelerViewerState value, $Res Function(_LabelerViewerState) _then) = __$LabelerViewerStateCopyWithImpl;
+@override @useResult
+$Res call({
+ String $type, String? like, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$LabelerViewerStateCopyWithImpl<$Res>
+    implements _$LabelerViewerStateCopyWith<$Res> {
+  __$LabelerViewerStateCopyWithImpl(this._self, this._then);
+
+  final _LabelerViewerState _self;
+  final $Res Function(_LabelerViewerState) _then;
+
+/// Create a copy of LabelerViewerState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? like = freezed,Object? $unknown = freezed,}) {
+  return _then(_LabelerViewerState(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,like: freezed == like ? _self.like : like // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

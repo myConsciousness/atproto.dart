@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,202 +9,282 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-IdentityResolveIdentityInput _$IdentityResolveIdentityInputFromJson(
-    Map<String, dynamic> json) {
-  return _IdentityResolveIdentityInput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$IdentityResolveIdentityInput {
-  /// Handle or DID to resolve.
-  String get identifier => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+/// Handle or DID to resolve.
+ String get identifier; Map<String, dynamic>? get $unknown;
+/// Create a copy of IdentityResolveIdentityInput
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$IdentityResolveIdentityInputCopyWith<IdentityResolveIdentityInput> get copyWith => _$IdentityResolveIdentityInputCopyWithImpl<IdentityResolveIdentityInput>(this as IdentityResolveIdentityInput, _$identity);
 
   /// Serializes this IdentityResolveIdentityInput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of IdentityResolveIdentityInput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $IdentityResolveIdentityInputCopyWith<IdentityResolveIdentityInput>
-      get copyWith => throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is IdentityResolveIdentityInput&&(identical(other.identifier, identifier) || other.identifier == identifier)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,identifier,const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'IdentityResolveIdentityInput(identifier: $identifier, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $IdentityResolveIdentityInputCopyWith<$Res> {
-  factory $IdentityResolveIdentityInputCopyWith(
-          IdentityResolveIdentityInput value,
-          $Res Function(IdentityResolveIdentityInput) then) =
-      _$IdentityResolveIdentityInputCopyWithImpl<$Res,
-          IdentityResolveIdentityInput>;
-  @useResult
-  $Res call({String identifier, Map<String, dynamic>? $unknown});
-}
+abstract mixin class $IdentityResolveIdentityInputCopyWith<$Res>  {
+  factory $IdentityResolveIdentityInputCopyWith(IdentityResolveIdentityInput value, $Res Function(IdentityResolveIdentityInput) _then) = _$IdentityResolveIdentityInputCopyWithImpl;
+@useResult
+$Res call({
+ String identifier, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$IdentityResolveIdentityInputCopyWithImpl<$Res,
-        $Val extends IdentityResolveIdentityInput>
+class _$IdentityResolveIdentityInputCopyWithImpl<$Res>
     implements $IdentityResolveIdentityInputCopyWith<$Res> {
-  _$IdentityResolveIdentityInputCopyWithImpl(this._value, this._then);
+  _$IdentityResolveIdentityInputCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final IdentityResolveIdentityInput _self;
+  final $Res Function(IdentityResolveIdentityInput) _then;
 
-  /// Create a copy of IdentityResolveIdentityInput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? identifier = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      identifier: null == identifier
-          ? _value.identifier
-          : identifier // ignore: cast_nullable_to_non_nullable
-              as String,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of IdentityResolveIdentityInput
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? identifier = null,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+identifier: null == identifier ? _self.identifier : identifier // ignore: cast_nullable_to_non_nullable
+as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$IdentityResolveIdentityInputImplCopyWith<$Res>
-    implements $IdentityResolveIdentityInputCopyWith<$Res> {
-  factory _$$IdentityResolveIdentityInputImplCopyWith(
-          _$IdentityResolveIdentityInputImpl value,
-          $Res Function(_$IdentityResolveIdentityInputImpl) then) =
-      __$$IdentityResolveIdentityInputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String identifier, Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$IdentityResolveIdentityInputImplCopyWithImpl<$Res>
-    extends _$IdentityResolveIdentityInputCopyWithImpl<$Res,
-        _$IdentityResolveIdentityInputImpl>
-    implements _$$IdentityResolveIdentityInputImplCopyWith<$Res> {
-  __$$IdentityResolveIdentityInputImplCopyWithImpl(
-      _$IdentityResolveIdentityInputImpl _value,
-      $Res Function(_$IdentityResolveIdentityInputImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of IdentityResolveIdentityInput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? identifier = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$IdentityResolveIdentityInputImpl(
-      identifier: null == identifier
-          ? _value.identifier
-          : identifier // ignore: cast_nullable_to_non_nullable
-              as String,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [IdentityResolveIdentityInput].
+extension IdentityResolveIdentityInputPatterns on IdentityResolveIdentityInput {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _IdentityResolveIdentityInput value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _IdentityResolveIdentityInput() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _IdentityResolveIdentityInput value)  $default,){
+final _that = this;
+switch (_that) {
+case _IdentityResolveIdentityInput():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _IdentityResolveIdentityInput value)?  $default,){
+final _that = this;
+switch (_that) {
+case _IdentityResolveIdentityInput() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String identifier,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _IdentityResolveIdentityInput() when $default != null:
+return $default(_that.identifier,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String identifier,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _IdentityResolveIdentityInput():
+return $default(_that.identifier,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String identifier,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _IdentityResolveIdentityInput() when $default != null:
+return $default(_that.identifier,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$IdentityResolveIdentityInputImpl
-    implements _IdentityResolveIdentityInput {
-  const _$IdentityResolveIdentityInputImpl(
-      {required this.identifier, final Map<String, dynamic>? $unknown})
-      : _$unknown = $unknown;
 
-  factory _$IdentityResolveIdentityInputImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$IdentityResolveIdentityInputImplFromJson(json);
+class _IdentityResolveIdentityInput implements IdentityResolveIdentityInput {
+  const _IdentityResolveIdentityInput({required this.identifier, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  factory _IdentityResolveIdentityInput.fromJson(Map<String, dynamic> json) => _$IdentityResolveIdentityInputFromJson(json);
 
-  /// Handle or DID to resolve.
-  @override
-  final String identifier;
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'IdentityResolveIdentityInput(identifier: $identifier, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$IdentityResolveIdentityInputImpl &&
-            (identical(other.identifier, identifier) ||
-                other.identifier == identifier) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, identifier, const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of IdentityResolveIdentityInput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$IdentityResolveIdentityInputImplCopyWith<
-          _$IdentityResolveIdentityInputImpl>
-      get copyWith => __$$IdentityResolveIdentityInputImplCopyWithImpl<
-          _$IdentityResolveIdentityInputImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$IdentityResolveIdentityInputImplToJson(
-      this,
-    );
-  }
+/// Handle or DID to resolve.
+@override final  String identifier;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
 
-abstract class _IdentityResolveIdentityInput
-    implements IdentityResolveIdentityInput {
-  const factory _IdentityResolveIdentityInput(
-          {required final String identifier,
-          final Map<String, dynamic>? $unknown}) =
-      _$IdentityResolveIdentityInputImpl;
 
-  factory _IdentityResolveIdentityInput.fromJson(Map<String, dynamic> json) =
-      _$IdentityResolveIdentityInputImpl.fromJson;
+/// Create a copy of IdentityResolveIdentityInput
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$IdentityResolveIdentityInputCopyWith<_IdentityResolveIdentityInput> get copyWith => __$IdentityResolveIdentityInputCopyWithImpl<_IdentityResolveIdentityInput>(this, _$identity);
 
-  /// Handle or DID to resolve.
-  @override
-  String get identifier;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of IdentityResolveIdentityInput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$IdentityResolveIdentityInputImplCopyWith<
-          _$IdentityResolveIdentityInputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$IdentityResolveIdentityInputToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _IdentityResolveIdentityInput&&(identical(other.identifier, identifier) || other.identifier == identifier)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,identifier,const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'IdentityResolveIdentityInput(identifier: $identifier, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$IdentityResolveIdentityInputCopyWith<$Res> implements $IdentityResolveIdentityInputCopyWith<$Res> {
+  factory _$IdentityResolveIdentityInputCopyWith(_IdentityResolveIdentityInput value, $Res Function(_IdentityResolveIdentityInput) _then) = __$IdentityResolveIdentityInputCopyWithImpl;
+@override @useResult
+$Res call({
+ String identifier, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$IdentityResolveIdentityInputCopyWithImpl<$Res>
+    implements _$IdentityResolveIdentityInputCopyWith<$Res> {
+  __$IdentityResolveIdentityInputCopyWithImpl(this._self, this._then);
+
+  final _IdentityResolveIdentityInput _self;
+  final $Res Function(_IdentityResolveIdentityInput) _then;
+
+/// Create a copy of IdentityResolveIdentityInput
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? identifier = null,Object? $unknown = freezed,}) {
+  return _then(_IdentityResolveIdentityInput(
+identifier: null == identifier ? _self.identifier : identifier // ignore: cast_nullable_to_non_nullable
+as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

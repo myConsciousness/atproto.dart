@@ -20,14 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class GraphGetListMutesInput with _$GraphGetListMutesInput {
-  static const knownProps = <String>[
-    'limit',
-    'cursor',
-  ];
+  static const knownProps = <String>['limit', 'cursor'];
 
   const factory GraphGetListMutesInput({
     int? limit,
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphGetListMutesInput;
 
@@ -41,14 +39,12 @@ final class GraphGetListMutesInputConverter
 
   @override
   GraphGetListMutesInput fromJson(Map<String, dynamic> json) {
-    return GraphGetListMutesInput.fromJson(translate(
-      json,
-      GraphGetListMutesInput.knownProps,
-    ));
+    return GraphGetListMutesInput.fromJson(
+      translate(json, GraphGetListMutesInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphGetListMutesInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(GraphGetListMutesInput object) =>
+      untranslate(object.toJson());
 }

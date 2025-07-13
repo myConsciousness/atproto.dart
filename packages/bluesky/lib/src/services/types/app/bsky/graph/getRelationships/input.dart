@@ -20,15 +20,13 @@ part 'input.g.dart';
 
 @freezed
 abstract class GraphGetRelationshipsInput with _$GraphGetRelationshipsInput {
-  static const knownProps = <String>[
-    'actor',
-    'others',
-  ];
+  static const knownProps = <String>['actor', 'others'];
 
   const factory GraphGetRelationshipsInput({
     /// Primary account requesting relationships for.
     required String actor,
     List<String>? others,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphGetRelationshipsInput;
 
@@ -36,20 +34,19 @@ abstract class GraphGetRelationshipsInput with _$GraphGetRelationshipsInput {
       _$GraphGetRelationshipsInputFromJson(json);
 }
 
-final class GraphGetRelationshipsInputConverter extends LexObjectConverter<
-    GraphGetRelationshipsInput, Map<String, dynamic>> {
+final class GraphGetRelationshipsInputConverter
+    extends
+        LexObjectConverter<GraphGetRelationshipsInput, Map<String, dynamic>> {
   const GraphGetRelationshipsInputConverter();
 
   @override
   GraphGetRelationshipsInput fromJson(Map<String, dynamic> json) {
-    return GraphGetRelationshipsInput.fromJson(translate(
-      json,
-      GraphGetRelationshipsInput.knownProps,
-    ));
+    return GraphGetRelationshipsInput.fromJson(
+      translate(json, GraphGetRelationshipsInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphGetRelationshipsInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(GraphGetRelationshipsInput object) =>
+      untranslate(object.toJson());
 }

@@ -28,6 +28,7 @@ abstract class MentionRule with _$MentionRule {
 
   const factory MentionRule({
     @Default(appBskyFeedThreadgateMentionRule) String $type,
+
     Map<String, dynamic>? $unknown,
   }) = _MentionRule;
 
@@ -46,14 +47,10 @@ final class MentionRuleConverter
 
   @override
   MentionRule fromJson(Map<String, dynamic> json) {
-    return MentionRule.fromJson(translate(
-      json,
-      MentionRule.knownProps,
-    ));
+    return MentionRule.fromJson(translate(json, MentionRule.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(MentionRule object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(MentionRule object) =>
+      untranslate(object.toJson());
 }

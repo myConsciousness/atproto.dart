@@ -8,36 +8,31 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SafelinkRemoveRuleInputImpl _$$SafelinkRemoveRuleInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$SafelinkRemoveRuleInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SafelinkRemoveRuleInputImpl(
-          url: $checkedConvert('url', (v) => v as String),
-          pattern: $checkedConvert(
-              'pattern',
-              (v) => const PatternTypeConverter()
-                  .fromJson(v as Map<String, dynamic>)),
-          comment: $checkedConvert('comment', (v) => v as String?),
-          createdBy: $checkedConvert('createdBy', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_SafelinkRemoveRuleInput _$SafelinkRemoveRuleInputFromJson(Map json) =>
+    $checkedCreate('_SafelinkRemoveRuleInput', json, ($checkedConvert) {
+      final val = _SafelinkRemoveRuleInput(
+        url: $checkedConvert('url', (v) => v as String),
+        pattern: $checkedConvert(
+          'pattern',
+          (v) =>
+              const PatternTypeConverter().fromJson(v as Map<String, dynamic>),
+        ),
+        comment: $checkedConvert('comment', (v) => v as String?),
+        createdBy: $checkedConvert('createdBy', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$SafelinkRemoveRuleInputImplToJson(
-        _$SafelinkRemoveRuleInputImpl instance) =>
-    <String, dynamic>{
-      'url': instance.url,
-      'pattern': const PatternTypeConverter().toJson(instance.pattern),
-      'comment': instance.comment,
-      'createdBy': instance.createdBy,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$SafelinkRemoveRuleInputToJson(
+  _SafelinkRemoveRuleInput instance,
+) => <String, dynamic>{
+  'url': instance.url,
+  'pattern': const PatternTypeConverter().toJson(instance.pattern),
+  'comment': instance.comment,
+  'createdBy': instance.createdBy,
+  r'$unknown': instance.$unknown,
+};

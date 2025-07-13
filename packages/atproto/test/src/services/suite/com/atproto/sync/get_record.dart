@@ -4976,5 +4976,5 @@ const getRecordBytes = [
   22,
   97,
   108,
-  246
+  246,
 ];

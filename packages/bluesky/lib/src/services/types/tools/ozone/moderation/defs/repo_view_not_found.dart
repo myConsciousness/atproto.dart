@@ -23,13 +23,12 @@ part 'repo_view_not_found.g.dart';
 
 @freezed
 abstract class RepoViewNotFound with _$RepoViewNotFound {
-  static const knownProps = <String>[
-    'did',
-  ];
+  static const knownProps = <String>['did'];
 
   const factory RepoViewNotFound({
     @Default(toolsOzoneModerationDefsRepoViewNotFound) String $type,
     required String did,
+
     Map<String, dynamic>? $unknown,
   }) = _RepoViewNotFound;
 
@@ -48,14 +47,12 @@ final class RepoViewNotFoundConverter
 
   @override
   RepoViewNotFound fromJson(Map<String, dynamic> json) {
-    return RepoViewNotFound.fromJson(translate(
-      json,
-      RepoViewNotFound.knownProps,
-    ));
+    return RepoViewNotFound.fromJson(
+      translate(json, RepoViewNotFound.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(RepoViewNotFound object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RepoViewNotFound object) =>
+      untranslate(object.toJson());
 }

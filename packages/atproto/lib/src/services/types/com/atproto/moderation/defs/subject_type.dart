@@ -20,11 +20,7 @@ part 'subject_type.g.dart';
 
 @freezed
 abstract class SubjectType with _$SubjectType {
-  static const knownProps = <String>[
-    'account',
-    'record',
-    'chat',
-  ];
+  static const knownProps = <String>['account', 'record', 'chat'];
 
   const factory SubjectType({
     KnownSubjectType? knownValue,
@@ -41,16 +37,12 @@ abstract class SubjectTypeConverter
 
   @override
   SubjectType fromJson(Map<String, dynamic> json) {
-    return SubjectType.fromJson(translate(
-      json,
-      SubjectType.knownProps,
-    ));
+    return SubjectType.fromJson(translate(json, SubjectType.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(SubjectType object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SubjectType object) =>
+      untranslate(object.toJson());
 }
 
 enum KnownSubjectType implements Serializable {
@@ -59,8 +51,7 @@ enum KnownSubjectType implements Serializable {
   @JsonValue('record')
   record('record'),
   @JsonValue('chat')
-  chat('chat'),
-  ;
+  chat('chat');
 
   @override
   final String value;

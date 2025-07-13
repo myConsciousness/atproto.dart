@@ -24,17 +24,14 @@ part 'view_blocked.g.dart';
 
 @freezed
 abstract class EmbedRecordViewBlocked with _$EmbedRecordViewBlocked {
-  static const knownProps = <String>[
-    'uri',
-    'blocked',
-    'author',
-  ];
+  static const knownProps = <String>['uri', 'blocked', 'author'];
 
   const factory EmbedRecordViewBlocked({
     @Default(appBskyEmbedRecordViewBlocked) String $type,
     required String uri,
     required bool blocked,
     @BlockedAuthorConverter() required BlockedAuthor author,
+
     Map<String, dynamic>? $unknown,
   }) = _EmbedRecordViewBlocked;
 
@@ -53,14 +50,12 @@ final class EmbedRecordViewBlockedConverter
 
   @override
   EmbedRecordViewBlocked fromJson(Map<String, dynamic> json) {
-    return EmbedRecordViewBlocked.fromJson(translate(
-      json,
-      EmbedRecordViewBlocked.knownProps,
-    ));
+    return EmbedRecordViewBlocked.fromJson(
+      translate(json, EmbedRecordViewBlocked.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedRecordViewBlocked object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(EmbedRecordViewBlocked object) =>
+      untranslate(object.toJson());
 }

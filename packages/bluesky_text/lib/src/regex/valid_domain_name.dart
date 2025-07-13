@@ -1,7 +1,8 @@
 // Project imports:
 import 'valid_domain_chars.dart';
 
-const validDomainName = '(?:(?:'
+const validDomainName =
+    '(?:(?:'
     '$validDomainChars'
     '(?:-|'
     '$validDomainChars'

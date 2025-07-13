@@ -46,6 +46,7 @@ abstract class GraphStarterpackRecord with _$GraphStarterpackRecord {
     required String list,
     @FeedItemConverter() List<FeedItem>? feeds,
     required DateTime createdAt,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphStarterpackRecord;
 
@@ -64,14 +65,12 @@ final class GraphStarterpackRecordConverter
 
   @override
   GraphStarterpackRecord fromJson(Map<String, dynamic> json) {
-    return GraphStarterpackRecord.fromJson(translate(
-      json,
-      GraphStarterpackRecord.knownProps,
-    ));
+    return GraphStarterpackRecord.fromJson(
+      translate(json, GraphStarterpackRecord.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphStarterpackRecord object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(GraphStarterpackRecord object) =>
+      untranslate(object.toJson());
 }

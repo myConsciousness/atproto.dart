@@ -8,53 +8,57 @@ part of 'view_image.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EmbedImagesViewImageImpl _$$EmbedImagesViewImageImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$EmbedImagesViewImageImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$EmbedImagesViewImageImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyEmbedImagesViewImage),
-          thumb: $checkedConvert(
-              'thumb', (v) => const AtUriConverter().fromJson(v as String)),
-          fullsize: $checkedConvert(
-              'fullsize', (v) => const AtUriConverter().fromJson(v as String)),
-          alt: $checkedConvert('alt', (v) => v as String),
-          aspectRatio: $checkedConvert(
-              'aspectRatio',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, AspectRatio>(
-                  v, const AspectRatioConverter().fromJson)),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_EmbedImagesViewImage _$EmbedImagesViewImageFromJson(Map json) =>
+    $checkedCreate('_EmbedImagesViewImage', json, ($checkedConvert) {
+      final val = _EmbedImagesViewImage(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyEmbedImagesViewImage,
+        ),
+        thumb: $checkedConvert(
+          'thumb',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
+        fullsize: $checkedConvert(
+          'fullsize',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
+        alt: $checkedConvert('alt', (v) => v as String),
+        aspectRatio: $checkedConvert(
+          'aspectRatio',
+          (v) => _$JsonConverterFromJson<Map<String, dynamic>, AspectRatio>(
+            v,
+            const AspectRatioConverter().fromJson,
+          ),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$EmbedImagesViewImageImplToJson(
-        _$EmbedImagesViewImageImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'thumb': const AtUriConverter().toJson(instance.thumb),
-      'fullsize': const AtUriConverter().toJson(instance.fullsize),
-      'alt': instance.alt,
-      'aspectRatio': _$JsonConverterToJson<Map<String, dynamic>, AspectRatio>(
-          instance.aspectRatio, const AspectRatioConverter().toJson),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$EmbedImagesViewImageToJson(
+  _EmbedImagesViewImage instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'thumb': const AtUriConverter().toJson(instance.thumb),
+  'fullsize': const AtUriConverter().toJson(instance.fullsize),
+  'alt': instance.alt,
+  'aspectRatio': _$JsonConverterToJson<Map<String, dynamic>, AspectRatio>(
+    instance.aspectRatio,
+    const AspectRatioConverter().toJson,
+  ),
+  r'$unknown': instance.$unknown,
+};
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,
   Value? Function(Json json) fromJson,
-) =>
-    json == null ? null : fromJson(json as Json);
+) => json == null ? null : fromJson(json as Json);
 
 Json? _$JsonConverterToJson<Json, Value>(
   Value? value,
   Json? Function(Value value) toJson,
-) =>
-    value == null ? null : toJson(value);
+) => value == null ? null : toJson(value);

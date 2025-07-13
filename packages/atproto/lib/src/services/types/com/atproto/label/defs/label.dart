@@ -63,6 +63,7 @@ abstract class Label with _$Label {
     /// Timestamp at which this label expires (no longer applies).
     DateTime? exp,
     Map<String, dynamic>? sig,
+
     Map<String, dynamic>? $unknown,
   }) = _Label;
 
@@ -80,14 +81,9 @@ final class LabelConverter
 
   @override
   Label fromJson(Map<String, dynamic> json) {
-    return Label.fromJson(translate(
-      json,
-      Label.knownProps,
-    ));
+    return Label.fromJson(translate(json, Label.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(Label object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(Label object) => untranslate(object.toJson());
 }

@@ -27,14 +27,10 @@ final class LexArrayItemConverter
 
       case 'bytes':
       case 'cid-link':
-        return LexArrayItem.ipld(
-          data: const LexIpldConverter().fromJson(json),
-        );
+        return LexArrayItem.ipld(data: const LexIpldConverter().fromJson(json));
 
       case 'blob':
-        return LexArrayItem.blob(
-          data: LexBlob.fromJson(json),
-        );
+        return LexArrayItem.blob(data: LexBlob.fromJson(json));
 
       case 'ref':
       case 'union':
@@ -49,9 +45,9 @@ final class LexArrayItemConverter
 
   @override
   Map<String, dynamic> toJson(LexArrayItem object) => object.when(
-        primitive: (data) => data.toJson(),
-        ipld: (data) => data.toJson(),
-        blob: (data) => data.toJson(),
-        refVariant: (data) => data.toJson(),
-      );
+    primitive: (data) => data.toJson(),
+    ipld: (data) => data.toJson(),
+    blob: (data) => data.toJson(),
+    refVariant: (data) => data.toJson(),
+  );
 }

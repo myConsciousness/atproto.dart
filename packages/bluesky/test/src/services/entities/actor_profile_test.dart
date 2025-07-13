@@ -17,10 +17,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: true,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: true, isBlockedBy: false),
       );
 
       expect(actorProfile.isMuted, isTrue);
@@ -33,10 +30,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actorProfile.isMuted, isFalse);
@@ -51,10 +45,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: true,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: true, isBlockedBy: false),
       );
 
       expect(actorProfile.isNotMuted, isFalse);
@@ -67,10 +58,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actorProfile.isNotMuted, isTrue);
@@ -85,10 +73,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: true,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: true),
       );
 
       expect(actorProfile.isBlockedBy, isTrue);
@@ -101,10 +86,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actorProfile.isBlockedBy, isFalse);
@@ -119,10 +101,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: true,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: true),
       );
 
       expect(actorProfile.isNotBlockedBy, isFalse);
@@ -135,10 +114,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actorProfile.isNotBlockedBy, isTrue);
@@ -178,10 +154,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actorProfile.isMutedByList, isFalse);
@@ -221,10 +194,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actorProfile.isNotMutedByList, isTrue);
@@ -264,10 +234,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actorProfile.isBlockingByList, isFalse);
@@ -307,10 +274,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actorProfile.isNotBlockingByList, isTrue);
@@ -344,10 +308,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actorProfile.isBlocking, isFalse);
@@ -381,10 +342,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actorProfile.isNotBlocking, isTrue);
@@ -418,10 +376,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actorProfile.isFollowing, isFalse);
@@ -455,10 +410,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actorProfile.isNotFollowing, isTrue);
@@ -492,10 +444,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actorProfile.isFollowedBy, isFalse);
@@ -529,10 +478,7 @@ void main() {
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actorProfile.isNotFollowedBy, isTrue);

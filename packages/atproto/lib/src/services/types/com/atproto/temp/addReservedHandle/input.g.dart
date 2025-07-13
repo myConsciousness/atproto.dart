@@ -8,27 +8,21 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TempAddReservedHandleInputImpl _$$TempAddReservedHandleInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$TempAddReservedHandleInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$TempAddReservedHandleInputImpl(
-          handle: $checkedConvert('handle', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_TempAddReservedHandleInput _$TempAddReservedHandleInputFromJson(Map json) =>
+    $checkedCreate('_TempAddReservedHandleInput', json, ($checkedConvert) {
+      final val = _TempAddReservedHandleInput(
+        handle: $checkedConvert('handle', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$TempAddReservedHandleInputImplToJson(
-        _$TempAddReservedHandleInputImpl instance) =>
-    <String, dynamic>{
-      'handle': instance.handle,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$TempAddReservedHandleInputToJson(
+  _TempAddReservedHandleInput instance,
+) => <String, dynamic>{
+  'handle': instance.handle,
+  r'$unknown': instance.$unknown,
+};

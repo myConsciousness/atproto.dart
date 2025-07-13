@@ -18,15 +18,13 @@ abstract class CreateRecordCommand extends ProcedureCommand {
   FutureOr<Map<String, dynamic>> get record;
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'repo.atproto.com',
-        'createRecord',
-      );
+  xrpc.NSID get methodId =>
+      xrpc.NSID.create('repo.atproto.com', 'createRecord');
 
   @override
   FutureOr<Map<String, dynamic>>? get body async => {
-        'repo': await did,
-        'collection': collection.toString(),
-        'record': await record,
-      };
+    'repo': await did,
+    'collection': collection.toString(),
+    'record': await record,
+  };
 }

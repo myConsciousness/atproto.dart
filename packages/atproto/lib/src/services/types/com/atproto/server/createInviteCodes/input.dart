@@ -21,16 +21,13 @@ part 'input.g.dart';
 @freezed
 abstract class ServerCreateInviteCodesInput
     with _$ServerCreateInviteCodesInput {
-  static const knownProps = <String>[
-    'codeCount',
-    'useCount',
-    'forAccounts',
-  ];
+  static const knownProps = <String>['codeCount', 'useCount', 'forAccounts'];
 
   const factory ServerCreateInviteCodesInput({
     required int codeCount,
     required int useCount,
     List<String>? forAccounts,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerCreateInviteCodesInput;
 
@@ -38,21 +35,19 @@ abstract class ServerCreateInviteCodesInput
       _$ServerCreateInviteCodesInputFromJson(json);
 }
 
-final class ServerCreateInviteCodesInputConverter extends LexObjectConverter<
-    ServerCreateInviteCodesInput, Map<String, dynamic>> {
+final class ServerCreateInviteCodesInputConverter
+    extends
+        LexObjectConverter<ServerCreateInviteCodesInput, Map<String, dynamic>> {
   const ServerCreateInviteCodesInputConverter();
 
   @override
   ServerCreateInviteCodesInput fromJson(Map<String, dynamic> json) {
-    return ServerCreateInviteCodesInput.fromJson(translate(
-      json,
-      ServerCreateInviteCodesInput.knownProps,
-    ));
+    return ServerCreateInviteCodesInput.fromJson(
+      translate(json, ServerCreateInviteCodesInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ServerCreateInviteCodesInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

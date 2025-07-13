@@ -21,13 +21,12 @@ part 'input.g.dart';
 @freezed
 abstract class IdentityResolveIdentityInput
     with _$IdentityResolveIdentityInput {
-  static const knownProps = <String>[
-    'identifier',
-  ];
+  static const knownProps = <String>['identifier'];
 
   const factory IdentityResolveIdentityInput({
     /// Handle or DID to resolve.
     required String identifier,
+
     Map<String, dynamic>? $unknown,
   }) = _IdentityResolveIdentityInput;
 
@@ -35,21 +34,19 @@ abstract class IdentityResolveIdentityInput
       _$IdentityResolveIdentityInputFromJson(json);
 }
 
-final class IdentityResolveIdentityInputConverter extends LexObjectConverter<
-    IdentityResolveIdentityInput, Map<String, dynamic>> {
+final class IdentityResolveIdentityInputConverter
+    extends
+        LexObjectConverter<IdentityResolveIdentityInput, Map<String, dynamic>> {
   const IdentityResolveIdentityInputConverter();
 
   @override
   IdentityResolveIdentityInput fromJson(Map<String, dynamic> json) {
-    return IdentityResolveIdentityInput.fromJson(translate(
-      json,
-      IdentityResolveIdentityInput.knownProps,
-    ));
+    return IdentityResolveIdentityInput.fromJson(
+      translate(json, IdentityResolveIdentityInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(IdentityResolveIdentityInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

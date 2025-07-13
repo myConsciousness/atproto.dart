@@ -8,38 +8,38 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UnspeccedGetPostThreadV2InputImpl
-    _$$UnspeccedGetPostThreadV2InputImplFromJson(Map json) => $checkedCreate(
-          r'_$UnspeccedGetPostThreadV2InputImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$UnspeccedGetPostThreadV2InputImpl(
-              anchor: $checkedConvert('anchor', (v) => v as String),
-              above: $checkedConvert('above', (v) => v as bool?),
-              below: $checkedConvert('below', (v) => (v as num?)?.toInt()),
-              branchingFactor: $checkedConvert(
-                  'branchingFactor', (v) => (v as num?)?.toInt()),
-              prioritizeFollowedUsers:
-                  $checkedConvert('prioritizeFollowedUsers', (v) => v as bool?),
-              sort: $checkedConvert('sort', (v) => v as String?),
-              $unknown: $checkedConvert(
-                  r'$unknown',
-                  (v) => (v as Map?)?.map(
-                        (k, e) => MapEntry(k as String, e),
-                      )),
-            );
-            return val;
-          },
-        );
+_UnspeccedGetPostThreadV2Input _$UnspeccedGetPostThreadV2InputFromJson(
+  Map json,
+) => $checkedCreate('_UnspeccedGetPostThreadV2Input', json, ($checkedConvert) {
+  final val = _UnspeccedGetPostThreadV2Input(
+    anchor: $checkedConvert('anchor', (v) => v as String),
+    above: $checkedConvert('above', (v) => v as bool?),
+    below: $checkedConvert('below', (v) => (v as num?)?.toInt()),
+    branchingFactor: $checkedConvert(
+      'branchingFactor',
+      (v) => (v as num?)?.toInt(),
+    ),
+    prioritizeFollowedUsers: $checkedConvert(
+      'prioritizeFollowedUsers',
+      (v) => v as bool?,
+    ),
+    sort: $checkedConvert('sort', (v) => v as String?),
+    $unknown: $checkedConvert(
+      r'$unknown',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
+  );
+  return val;
+});
 
-Map<String, dynamic> _$$UnspeccedGetPostThreadV2InputImplToJson(
-        _$UnspeccedGetPostThreadV2InputImpl instance) =>
-    <String, dynamic>{
-      'anchor': instance.anchor,
-      'above': instance.above,
-      'below': instance.below,
-      'branchingFactor': instance.branchingFactor,
-      'prioritizeFollowedUsers': instance.prioritizeFollowedUsers,
-      'sort': instance.sort,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$UnspeccedGetPostThreadV2InputToJson(
+  _UnspeccedGetPostThreadV2Input instance,
+) => <String, dynamic>{
+  'anchor': instance.anchor,
+  'above': instance.above,
+  'below': instance.below,
+  'branchingFactor': instance.branchingFactor,
+  'prioritizeFollowedUsers': instance.prioritizeFollowedUsers,
+  'sort': instance.sort,
+  r'$unknown': instance.$unknown,
+};

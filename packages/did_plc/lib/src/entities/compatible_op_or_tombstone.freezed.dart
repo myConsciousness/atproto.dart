@@ -12,7 +12,8 @@ part of 'compatible_op_or_tombstone.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$CompatibleOpOrTombstone {
@@ -23,16 +24,14 @@ mixin _$CompatibleOpOrTombstone {
     required TResult Function(Tombstone data) tombstone,
     required TResult Function(CreateOperationV1 data) createOpV1,
     required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Operation data)? op,
     TResult? Function(Tombstone data)? tombstone,
     TResult? Function(CreateOperationV1 data)? createOpV1,
     TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Operation data)? op,
@@ -40,49 +39,48 @@ mixin _$CompatibleOpOrTombstone {
     TResult Function(CreateOperationV1 data)? createOpV1,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UCompatibleOpOrTombstoneOp value) op,
     required TResult Function(UCompatibleOpOrTombstoneTombstone value)
-        tombstone,
+    tombstone,
     required TResult Function(UCompatibleOpOrTombstoneCreateOperationV1 value)
-        createOpV1,
+    createOpV1,
     required TResult Function(UCompatibleOpOrTombstoneUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UCompatibleOpOrTombstoneOp value)? op,
     TResult? Function(UCompatibleOpOrTombstoneTombstone value)? tombstone,
     TResult? Function(UCompatibleOpOrTombstoneCreateOperationV1 value)?
-        createOpV1,
+    createOpV1,
     TResult? Function(UCompatibleOpOrTombstoneUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UCompatibleOpOrTombstoneOp value)? op,
     TResult Function(UCompatibleOpOrTombstoneTombstone value)? tombstone,
     TResult Function(UCompatibleOpOrTombstoneCreateOperationV1 value)?
-        createOpV1,
+    createOpV1,
     TResult Function(UCompatibleOpOrTombstoneUnknown value)? unknown,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CompatibleOpOrTombstoneCopyWith<$Res> {
-  factory $CompatibleOpOrTombstoneCopyWith(CompatibleOpOrTombstone value,
-          $Res Function(CompatibleOpOrTombstone) then) =
-      _$CompatibleOpOrTombstoneCopyWithImpl<$Res, CompatibleOpOrTombstone>;
+  factory $CompatibleOpOrTombstoneCopyWith(
+    CompatibleOpOrTombstone value,
+    $Res Function(CompatibleOpOrTombstone) then,
+  ) = _$CompatibleOpOrTombstoneCopyWithImpl<$Res, CompatibleOpOrTombstone>;
 }
 
 /// @nodoc
-class _$CompatibleOpOrTombstoneCopyWithImpl<$Res,
-        $Val extends CompatibleOpOrTombstone>
+class _$CompatibleOpOrTombstoneCopyWithImpl<
+  $Res,
+  $Val extends CompatibleOpOrTombstone
+>
     implements $CompatibleOpOrTombstoneCopyWith<$Res> {
   _$CompatibleOpOrTombstoneCopyWithImpl(this._value, this._then);
 
@@ -98,9 +96,9 @@ class _$CompatibleOpOrTombstoneCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$UCompatibleOpOrTombstoneOpImplCopyWith<$Res> {
   factory _$$UCompatibleOpOrTombstoneOpImplCopyWith(
-          _$UCompatibleOpOrTombstoneOpImpl value,
-          $Res Function(_$UCompatibleOpOrTombstoneOpImpl) then) =
-      __$$UCompatibleOpOrTombstoneOpImplCopyWithImpl<$Res>;
+    _$UCompatibleOpOrTombstoneOpImpl value,
+    $Res Function(_$UCompatibleOpOrTombstoneOpImpl) then,
+  ) = __$$UCompatibleOpOrTombstoneOpImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Operation data});
 
@@ -109,27 +107,30 @@ abstract class _$$UCompatibleOpOrTombstoneOpImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UCompatibleOpOrTombstoneOpImplCopyWithImpl<$Res>
-    extends _$CompatibleOpOrTombstoneCopyWithImpl<$Res,
-        _$UCompatibleOpOrTombstoneOpImpl>
+    extends
+        _$CompatibleOpOrTombstoneCopyWithImpl<
+          $Res,
+          _$UCompatibleOpOrTombstoneOpImpl
+        >
     implements _$$UCompatibleOpOrTombstoneOpImplCopyWith<$Res> {
   __$$UCompatibleOpOrTombstoneOpImplCopyWithImpl(
-      _$UCompatibleOpOrTombstoneOpImpl _value,
-      $Res Function(_$UCompatibleOpOrTombstoneOpImpl) _then)
-      : super(_value, _then);
+    _$UCompatibleOpOrTombstoneOpImpl _value,
+    $Res Function(_$UCompatibleOpOrTombstoneOpImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of CompatibleOpOrTombstone
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UCompatibleOpOrTombstoneOpImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Operation,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$UCompatibleOpOrTombstoneOpImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as Operation,
+      ),
+    );
   }
 
   /// Create a copy of CompatibleOpOrTombstone
@@ -173,8 +174,10 @@ class _$UCompatibleOpOrTombstoneOpImpl extends UCompatibleOpOrTombstoneOp {
   @override
   @pragma('vm:prefer-inline')
   _$$UCompatibleOpOrTombstoneOpImplCopyWith<_$UCompatibleOpOrTombstoneOpImpl>
-      get copyWith => __$$UCompatibleOpOrTombstoneOpImplCopyWithImpl<
-          _$UCompatibleOpOrTombstoneOpImpl>(this, _$identity);
+  get copyWith =>
+      __$$UCompatibleOpOrTombstoneOpImplCopyWithImpl<
+        _$UCompatibleOpOrTombstoneOpImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -218,9 +221,9 @@ class _$UCompatibleOpOrTombstoneOpImpl extends UCompatibleOpOrTombstoneOp {
   TResult map<TResult extends Object?>({
     required TResult Function(UCompatibleOpOrTombstoneOp value) op,
     required TResult Function(UCompatibleOpOrTombstoneTombstone value)
-        tombstone,
+    tombstone,
     required TResult Function(UCompatibleOpOrTombstoneCreateOperationV1 value)
-        createOpV1,
+    createOpV1,
     required TResult Function(UCompatibleOpOrTombstoneUnknown value) unknown,
   }) {
     return op(this);
@@ -232,7 +235,7 @@ class _$UCompatibleOpOrTombstoneOpImpl extends UCompatibleOpOrTombstoneOp {
     TResult? Function(UCompatibleOpOrTombstoneOp value)? op,
     TResult? Function(UCompatibleOpOrTombstoneTombstone value)? tombstone,
     TResult? Function(UCompatibleOpOrTombstoneCreateOperationV1 value)?
-        createOpV1,
+    createOpV1,
     TResult? Function(UCompatibleOpOrTombstoneUnknown value)? unknown,
   }) {
     return op?.call(this);
@@ -244,7 +247,7 @@ class _$UCompatibleOpOrTombstoneOpImpl extends UCompatibleOpOrTombstoneOp {
     TResult Function(UCompatibleOpOrTombstoneOp value)? op,
     TResult Function(UCompatibleOpOrTombstoneTombstone value)? tombstone,
     TResult Function(UCompatibleOpOrTombstoneCreateOperationV1 value)?
-        createOpV1,
+    createOpV1,
     TResult Function(UCompatibleOpOrTombstoneUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -267,15 +270,15 @@ abstract class UCompatibleOpOrTombstoneOp extends CompatibleOpOrTombstone {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UCompatibleOpOrTombstoneOpImplCopyWith<_$UCompatibleOpOrTombstoneOpImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$UCompatibleOpOrTombstoneTombstoneImplCopyWith<$Res> {
   factory _$$UCompatibleOpOrTombstoneTombstoneImplCopyWith(
-          _$UCompatibleOpOrTombstoneTombstoneImpl value,
-          $Res Function(_$UCompatibleOpOrTombstoneTombstoneImpl) then) =
-      __$$UCompatibleOpOrTombstoneTombstoneImplCopyWithImpl<$Res>;
+    _$UCompatibleOpOrTombstoneTombstoneImpl value,
+    $Res Function(_$UCompatibleOpOrTombstoneTombstoneImpl) then,
+  ) = __$$UCompatibleOpOrTombstoneTombstoneImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Tombstone data});
 
@@ -284,27 +287,30 @@ abstract class _$$UCompatibleOpOrTombstoneTombstoneImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UCompatibleOpOrTombstoneTombstoneImplCopyWithImpl<$Res>
-    extends _$CompatibleOpOrTombstoneCopyWithImpl<$Res,
-        _$UCompatibleOpOrTombstoneTombstoneImpl>
+    extends
+        _$CompatibleOpOrTombstoneCopyWithImpl<
+          $Res,
+          _$UCompatibleOpOrTombstoneTombstoneImpl
+        >
     implements _$$UCompatibleOpOrTombstoneTombstoneImplCopyWith<$Res> {
   __$$UCompatibleOpOrTombstoneTombstoneImplCopyWithImpl(
-      _$UCompatibleOpOrTombstoneTombstoneImpl _value,
-      $Res Function(_$UCompatibleOpOrTombstoneTombstoneImpl) _then)
-      : super(_value, _then);
+    _$UCompatibleOpOrTombstoneTombstoneImpl _value,
+    $Res Function(_$UCompatibleOpOrTombstoneTombstoneImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of CompatibleOpOrTombstone
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UCompatibleOpOrTombstoneTombstoneImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Tombstone,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$UCompatibleOpOrTombstoneTombstoneImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as Tombstone,
+      ),
+    );
   }
 
   /// Create a copy of CompatibleOpOrTombstone
@@ -323,7 +329,7 @@ class __$$UCompatibleOpOrTombstoneTombstoneImplCopyWithImpl<$Res>
 class _$UCompatibleOpOrTombstoneTombstoneImpl
     extends UCompatibleOpOrTombstoneTombstone {
   const _$UCompatibleOpOrTombstoneTombstoneImpl({required this.data})
-      : super._();
+    : super._();
 
   @override
   final Tombstone data;
@@ -350,9 +356,12 @@ class _$UCompatibleOpOrTombstoneTombstoneImpl
   @override
   @pragma('vm:prefer-inline')
   _$$UCompatibleOpOrTombstoneTombstoneImplCopyWith<
-          _$UCompatibleOpOrTombstoneTombstoneImpl>
-      get copyWith => __$$UCompatibleOpOrTombstoneTombstoneImplCopyWithImpl<
-          _$UCompatibleOpOrTombstoneTombstoneImpl>(this, _$identity);
+    _$UCompatibleOpOrTombstoneTombstoneImpl
+  >
+  get copyWith =>
+      __$$UCompatibleOpOrTombstoneTombstoneImplCopyWithImpl<
+        _$UCompatibleOpOrTombstoneTombstoneImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -396,9 +405,9 @@ class _$UCompatibleOpOrTombstoneTombstoneImpl
   TResult map<TResult extends Object?>({
     required TResult Function(UCompatibleOpOrTombstoneOp value) op,
     required TResult Function(UCompatibleOpOrTombstoneTombstone value)
-        tombstone,
+    tombstone,
     required TResult Function(UCompatibleOpOrTombstoneCreateOperationV1 value)
-        createOpV1,
+    createOpV1,
     required TResult Function(UCompatibleOpOrTombstoneUnknown value) unknown,
   }) {
     return tombstone(this);
@@ -410,7 +419,7 @@ class _$UCompatibleOpOrTombstoneTombstoneImpl
     TResult? Function(UCompatibleOpOrTombstoneOp value)? op,
     TResult? Function(UCompatibleOpOrTombstoneTombstone value)? tombstone,
     TResult? Function(UCompatibleOpOrTombstoneCreateOperationV1 value)?
-        createOpV1,
+    createOpV1,
     TResult? Function(UCompatibleOpOrTombstoneUnknown value)? unknown,
   }) {
     return tombstone?.call(this);
@@ -422,7 +431,7 @@ class _$UCompatibleOpOrTombstoneTombstoneImpl
     TResult Function(UCompatibleOpOrTombstoneOp value)? op,
     TResult Function(UCompatibleOpOrTombstoneTombstone value)? tombstone,
     TResult Function(UCompatibleOpOrTombstoneCreateOperationV1 value)?
-        createOpV1,
+    createOpV1,
     TResult Function(UCompatibleOpOrTombstoneUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -435,9 +444,9 @@ class _$UCompatibleOpOrTombstoneTombstoneImpl
 
 abstract class UCompatibleOpOrTombstoneTombstone
     extends CompatibleOpOrTombstone {
-  const factory UCompatibleOpOrTombstoneTombstone(
-          {required final Tombstone data}) =
-      _$UCompatibleOpOrTombstoneTombstoneImpl;
+  const factory UCompatibleOpOrTombstoneTombstone({
+    required final Tombstone data,
+  }) = _$UCompatibleOpOrTombstoneTombstoneImpl;
   const UCompatibleOpOrTombstoneTombstone._() : super._();
 
   @override
@@ -447,16 +456,17 @@ abstract class UCompatibleOpOrTombstoneTombstone
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UCompatibleOpOrTombstoneTombstoneImplCopyWith<
-          _$UCompatibleOpOrTombstoneTombstoneImpl>
-      get copyWith => throw _privateConstructorUsedError;
+    _$UCompatibleOpOrTombstoneTombstoneImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$UCompatibleOpOrTombstoneCreateOperationV1ImplCopyWith<$Res> {
   factory _$$UCompatibleOpOrTombstoneCreateOperationV1ImplCopyWith(
-          _$UCompatibleOpOrTombstoneCreateOperationV1Impl value,
-          $Res Function(_$UCompatibleOpOrTombstoneCreateOperationV1Impl) then) =
-      __$$UCompatibleOpOrTombstoneCreateOperationV1ImplCopyWithImpl<$Res>;
+    _$UCompatibleOpOrTombstoneCreateOperationV1Impl value,
+    $Res Function(_$UCompatibleOpOrTombstoneCreateOperationV1Impl) then,
+  ) = __$$UCompatibleOpOrTombstoneCreateOperationV1ImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CreateOperationV1 data});
 
@@ -465,27 +475,30 @@ abstract class _$$UCompatibleOpOrTombstoneCreateOperationV1ImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UCompatibleOpOrTombstoneCreateOperationV1ImplCopyWithImpl<$Res>
-    extends _$CompatibleOpOrTombstoneCopyWithImpl<$Res,
-        _$UCompatibleOpOrTombstoneCreateOperationV1Impl>
+    extends
+        _$CompatibleOpOrTombstoneCopyWithImpl<
+          $Res,
+          _$UCompatibleOpOrTombstoneCreateOperationV1Impl
+        >
     implements _$$UCompatibleOpOrTombstoneCreateOperationV1ImplCopyWith<$Res> {
   __$$UCompatibleOpOrTombstoneCreateOperationV1ImplCopyWithImpl(
-      _$UCompatibleOpOrTombstoneCreateOperationV1Impl _value,
-      $Res Function(_$UCompatibleOpOrTombstoneCreateOperationV1Impl) _then)
-      : super(_value, _then);
+    _$UCompatibleOpOrTombstoneCreateOperationV1Impl _value,
+    $Res Function(_$UCompatibleOpOrTombstoneCreateOperationV1Impl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of CompatibleOpOrTombstone
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UCompatibleOpOrTombstoneCreateOperationV1Impl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as CreateOperationV1,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$UCompatibleOpOrTombstoneCreateOperationV1Impl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as CreateOperationV1,
+      ),
+    );
   }
 
   /// Create a copy of CompatibleOpOrTombstone
@@ -504,7 +517,7 @@ class __$$UCompatibleOpOrTombstoneCreateOperationV1ImplCopyWithImpl<$Res>
 class _$UCompatibleOpOrTombstoneCreateOperationV1Impl
     extends UCompatibleOpOrTombstoneCreateOperationV1 {
   const _$UCompatibleOpOrTombstoneCreateOperationV1Impl({required this.data})
-      : super._();
+    : super._();
 
   @override
   final CreateOperationV1 data;
@@ -531,11 +544,12 @@ class _$UCompatibleOpOrTombstoneCreateOperationV1Impl
   @override
   @pragma('vm:prefer-inline')
   _$$UCompatibleOpOrTombstoneCreateOperationV1ImplCopyWith<
-          _$UCompatibleOpOrTombstoneCreateOperationV1Impl>
-      get copyWith =>
-          __$$UCompatibleOpOrTombstoneCreateOperationV1ImplCopyWithImpl<
-                  _$UCompatibleOpOrTombstoneCreateOperationV1Impl>(
-              this, _$identity);
+    _$UCompatibleOpOrTombstoneCreateOperationV1Impl
+  >
+  get copyWith =>
+      __$$UCompatibleOpOrTombstoneCreateOperationV1ImplCopyWithImpl<
+        _$UCompatibleOpOrTombstoneCreateOperationV1Impl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -579,9 +593,9 @@ class _$UCompatibleOpOrTombstoneCreateOperationV1Impl
   TResult map<TResult extends Object?>({
     required TResult Function(UCompatibleOpOrTombstoneOp value) op,
     required TResult Function(UCompatibleOpOrTombstoneTombstone value)
-        tombstone,
+    tombstone,
     required TResult Function(UCompatibleOpOrTombstoneCreateOperationV1 value)
-        createOpV1,
+    createOpV1,
     required TResult Function(UCompatibleOpOrTombstoneUnknown value) unknown,
   }) {
     return createOpV1(this);
@@ -593,7 +607,7 @@ class _$UCompatibleOpOrTombstoneCreateOperationV1Impl
     TResult? Function(UCompatibleOpOrTombstoneOp value)? op,
     TResult? Function(UCompatibleOpOrTombstoneTombstone value)? tombstone,
     TResult? Function(UCompatibleOpOrTombstoneCreateOperationV1 value)?
-        createOpV1,
+    createOpV1,
     TResult? Function(UCompatibleOpOrTombstoneUnknown value)? unknown,
   }) {
     return createOpV1?.call(this);
@@ -605,7 +619,7 @@ class _$UCompatibleOpOrTombstoneCreateOperationV1Impl
     TResult Function(UCompatibleOpOrTombstoneOp value)? op,
     TResult Function(UCompatibleOpOrTombstoneTombstone value)? tombstone,
     TResult Function(UCompatibleOpOrTombstoneCreateOperationV1 value)?
-        createOpV1,
+    createOpV1,
     TResult Function(UCompatibleOpOrTombstoneUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -618,9 +632,9 @@ class _$UCompatibleOpOrTombstoneCreateOperationV1Impl
 
 abstract class UCompatibleOpOrTombstoneCreateOperationV1
     extends CompatibleOpOrTombstone {
-  const factory UCompatibleOpOrTombstoneCreateOperationV1(
-          {required final CreateOperationV1 data}) =
-      _$UCompatibleOpOrTombstoneCreateOperationV1Impl;
+  const factory UCompatibleOpOrTombstoneCreateOperationV1({
+    required final CreateOperationV1 data,
+  }) = _$UCompatibleOpOrTombstoneCreateOperationV1Impl;
   const UCompatibleOpOrTombstoneCreateOperationV1._() : super._();
 
   @override
@@ -630,43 +644,47 @@ abstract class UCompatibleOpOrTombstoneCreateOperationV1
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UCompatibleOpOrTombstoneCreateOperationV1ImplCopyWith<
-          _$UCompatibleOpOrTombstoneCreateOperationV1Impl>
-      get copyWith => throw _privateConstructorUsedError;
+    _$UCompatibleOpOrTombstoneCreateOperationV1Impl
+  >
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$UCompatibleOpOrTombstoneUnknownImplCopyWith<$Res> {
   factory _$$UCompatibleOpOrTombstoneUnknownImplCopyWith(
-          _$UCompatibleOpOrTombstoneUnknownImpl value,
-          $Res Function(_$UCompatibleOpOrTombstoneUnknownImpl) then) =
-      __$$UCompatibleOpOrTombstoneUnknownImplCopyWithImpl<$Res>;
+    _$UCompatibleOpOrTombstoneUnknownImpl value,
+    $Res Function(_$UCompatibleOpOrTombstoneUnknownImpl) then,
+  ) = __$$UCompatibleOpOrTombstoneUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
 class __$$UCompatibleOpOrTombstoneUnknownImplCopyWithImpl<$Res>
-    extends _$CompatibleOpOrTombstoneCopyWithImpl<$Res,
-        _$UCompatibleOpOrTombstoneUnknownImpl>
+    extends
+        _$CompatibleOpOrTombstoneCopyWithImpl<
+          $Res,
+          _$UCompatibleOpOrTombstoneUnknownImpl
+        >
     implements _$$UCompatibleOpOrTombstoneUnknownImplCopyWith<$Res> {
   __$$UCompatibleOpOrTombstoneUnknownImplCopyWithImpl(
-      _$UCompatibleOpOrTombstoneUnknownImpl _value,
-      $Res Function(_$UCompatibleOpOrTombstoneUnknownImpl) _then)
-      : super(_value, _then);
+    _$UCompatibleOpOrTombstoneUnknownImpl _value,
+    $Res Function(_$UCompatibleOpOrTombstoneUnknownImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of CompatibleOpOrTombstone
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UCompatibleOpOrTombstoneUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$UCompatibleOpOrTombstoneUnknownImpl(
+        data: null == data
+            ? _value._data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as Map<String, dynamic>,
+      ),
+    );
   }
 }
 
@@ -674,10 +692,10 @@ class __$$UCompatibleOpOrTombstoneUnknownImplCopyWithImpl<$Res>
 
 class _$UCompatibleOpOrTombstoneUnknownImpl
     extends UCompatibleOpOrTombstoneUnknown {
-  const _$UCompatibleOpOrTombstoneUnknownImpl(
-      {required final Map<String, dynamic> data})
-      : _data = data,
-        super._();
+  const _$UCompatibleOpOrTombstoneUnknownImpl({
+    required final Map<String, dynamic> data,
+  }) : _data = data,
+       super._();
 
   final Map<String, dynamic> _data;
   @override
@@ -710,9 +728,12 @@ class _$UCompatibleOpOrTombstoneUnknownImpl
   @override
   @pragma('vm:prefer-inline')
   _$$UCompatibleOpOrTombstoneUnknownImplCopyWith<
-          _$UCompatibleOpOrTombstoneUnknownImpl>
-      get copyWith => __$$UCompatibleOpOrTombstoneUnknownImplCopyWithImpl<
-          _$UCompatibleOpOrTombstoneUnknownImpl>(this, _$identity);
+    _$UCompatibleOpOrTombstoneUnknownImpl
+  >
+  get copyWith =>
+      __$$UCompatibleOpOrTombstoneUnknownImplCopyWithImpl<
+        _$UCompatibleOpOrTombstoneUnknownImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -756,9 +777,9 @@ class _$UCompatibleOpOrTombstoneUnknownImpl
   TResult map<TResult extends Object?>({
     required TResult Function(UCompatibleOpOrTombstoneOp value) op,
     required TResult Function(UCompatibleOpOrTombstoneTombstone value)
-        tombstone,
+    tombstone,
     required TResult Function(UCompatibleOpOrTombstoneCreateOperationV1 value)
-        createOpV1,
+    createOpV1,
     required TResult Function(UCompatibleOpOrTombstoneUnknown value) unknown,
   }) {
     return unknown(this);
@@ -770,7 +791,7 @@ class _$UCompatibleOpOrTombstoneUnknownImpl
     TResult? Function(UCompatibleOpOrTombstoneOp value)? op,
     TResult? Function(UCompatibleOpOrTombstoneTombstone value)? tombstone,
     TResult? Function(UCompatibleOpOrTombstoneCreateOperationV1 value)?
-        createOpV1,
+    createOpV1,
     TResult? Function(UCompatibleOpOrTombstoneUnknown value)? unknown,
   }) {
     return unknown?.call(this);
@@ -782,7 +803,7 @@ class _$UCompatibleOpOrTombstoneUnknownImpl
     TResult Function(UCompatibleOpOrTombstoneOp value)? op,
     TResult Function(UCompatibleOpOrTombstoneTombstone value)? tombstone,
     TResult Function(UCompatibleOpOrTombstoneCreateOperationV1 value)?
-        createOpV1,
+    createOpV1,
     TResult Function(UCompatibleOpOrTombstoneUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -794,9 +815,9 @@ class _$UCompatibleOpOrTombstoneUnknownImpl
 }
 
 abstract class UCompatibleOpOrTombstoneUnknown extends CompatibleOpOrTombstone {
-  const factory UCompatibleOpOrTombstoneUnknown(
-          {required final Map<String, dynamic> data}) =
-      _$UCompatibleOpOrTombstoneUnknownImpl;
+  const factory UCompatibleOpOrTombstoneUnknown({
+    required final Map<String, dynamic> data,
+  }) = _$UCompatibleOpOrTombstoneUnknownImpl;
   const UCompatibleOpOrTombstoneUnknown._() : super._();
 
   @override
@@ -806,6 +827,7 @@ abstract class UCompatibleOpOrTombstoneUnknown extends CompatibleOpOrTombstone {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UCompatibleOpOrTombstoneUnknownImplCopyWith<
-          _$UCompatibleOpOrTombstoneUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
+    _$UCompatibleOpOrTombstoneUnknownImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
 }

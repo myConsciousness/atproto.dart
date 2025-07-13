@@ -15,10 +15,7 @@ String encodePrivateKey(ECPrivateKey privateKey) {
 
 ECPrivateKey decodePrivateKey(String encodedKey) {
   final d = base64Url.decode(encodedKey);
-  final privateKey = ECPrivateKey(
-    _decodeBigInt(d),
-    ECCurve_secp256r1(),
-  );
+  final privateKey = ECPrivateKey(_decodeBigInt(d), ECCurve_secp256r1());
 
   return privateKey;
 }

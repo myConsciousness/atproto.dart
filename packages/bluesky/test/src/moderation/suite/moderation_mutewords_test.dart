@@ -656,10 +656,7 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(
-              value: 'idkwhatthiswouldbe',
-              targets: ['content'],
-            ),
+            MutedWord(value: 'idkwhatthiswouldbe', targets: ['content']),
           ],
           text: text.value,
           facets: facets.map(Facet.fromJson).toList(),
@@ -678,10 +675,7 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(
-              value: 'context(iykyk)',
-              targets: ['content'],
-            ),
+            MutedWord(value: 'context(iykyk)', targets: ['content']),
           ],
           text: text.value,
           facets: facets.map(Facet.fromJson).toList(),
@@ -832,10 +826,7 @@ void main() {
         ModerationSubjectPost.postView(
           data: postView(
             record: post(text: 'Mute words!'),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
           ),
         ),
         ModerationOpts(
@@ -845,10 +836,7 @@ void main() {
             labels: {},
             labelers: const [],
             mutedWords: const [
-              MutedWord(
-                value: 'words',
-                targets: ['content'],
-              ),
+              MutedWord(value: 'words', targets: ['content']),
             ],
             hiddenPosts: const [],
           ),
@@ -863,10 +851,7 @@ void main() {
         ModerationSubjectPost.postView(
           data: postView(
             record: post(text: 'Mute words!'),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
           ),
         ),
         ModerationOpts(
@@ -876,10 +861,7 @@ void main() {
             labels: {},
             labelers: const [],
             mutedWords: const [
-              MutedWord(
-                value: 'words',
-                targets: ['content'],
-              ),
+              MutedWord(value: 'words', targets: ['content']),
             ],
             hiddenPosts: const [],
           ),
@@ -900,10 +882,7 @@ void main() {
               text: text.value,
               facets: facets.map(Facet.fromJson).toList(),
             ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
           ),
         ),
         ModerationOpts(
@@ -913,10 +892,7 @@ void main() {
             labels: {},
             labelers: const [],
             mutedWords: const [
-              MutedWord(
-                value: 'words',
-                targets: ['tags'],
-              ),
+              MutedWord(value: 'words', targets: ['tags']),
             ],
             hiddenPosts: const [],
           ),

@@ -8,29 +8,27 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl
-    _$$UnspeccedGetSuggestedStarterPacksSkeletonOutputImplFromJson(Map json) =>
-        $checkedCreate(
-          r'_$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl(
-              starterPacks: $checkedConvert('starterPacks',
-                  (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-              $unknown: $checkedConvert(
-                  r'$unknown',
-                  (v) => (v as Map?)?.map(
-                        (k, e) => MapEntry(k as String, e),
-                      )),
-            );
-            return val;
-          },
-        );
+_UnspeccedGetSuggestedStarterPacksSkeletonOutput
+_$UnspeccedGetSuggestedStarterPacksSkeletonOutputFromJson(Map json) =>
+    $checkedCreate('_UnspeccedGetSuggestedStarterPacksSkeletonOutput', json, (
+      $checkedConvert,
+    ) {
+      final val = _UnspeccedGetSuggestedStarterPacksSkeletonOutput(
+        starterPacks: $checkedConvert(
+          'starterPacks',
+          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic>
-    _$$UnspeccedGetSuggestedStarterPacksSkeletonOutputImplToJson(
-            _$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl instance) =>
-        <String, dynamic>{
-          'starterPacks': instance.starterPacks,
-          r'$unknown': instance.$unknown,
-        };
+Map<String, dynamic> _$UnspeccedGetSuggestedStarterPacksSkeletonOutputToJson(
+  _UnspeccedGetSuggestedStarterPacksSkeletonOutput instance,
+) => <String, dynamic>{
+  'starterPacks': instance.starterPacks,
+  r'$unknown': instance.$unknown,
+};

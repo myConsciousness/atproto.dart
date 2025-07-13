@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,185 +9,280 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SyncGetHeadOutput _$SyncGetHeadOutputFromJson(Map<String, dynamic> json) {
-  return _SyncGetHeadOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SyncGetHeadOutput {
-  String get root => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+ String get root; Map<String, dynamic>? get $unknown;
+/// Create a copy of SyncGetHeadOutput
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SyncGetHeadOutputCopyWith<SyncGetHeadOutput> get copyWith => _$SyncGetHeadOutputCopyWithImpl<SyncGetHeadOutput>(this as SyncGetHeadOutput, _$identity);
 
   /// Serializes this SyncGetHeadOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of SyncGetHeadOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $SyncGetHeadOutputCopyWith<SyncGetHeadOutput> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SyncGetHeadOutput&&(identical(other.root, root) || other.root == root)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,root,const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'SyncGetHeadOutput(root: $root, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SyncGetHeadOutputCopyWith<$Res> {
-  factory $SyncGetHeadOutputCopyWith(
-          SyncGetHeadOutput value, $Res Function(SyncGetHeadOutput) then) =
-      _$SyncGetHeadOutputCopyWithImpl<$Res, SyncGetHeadOutput>;
-  @useResult
-  $Res call({String root, Map<String, dynamic>? $unknown});
-}
+abstract mixin class $SyncGetHeadOutputCopyWith<$Res>  {
+  factory $SyncGetHeadOutputCopyWith(SyncGetHeadOutput value, $Res Function(SyncGetHeadOutput) _then) = _$SyncGetHeadOutputCopyWithImpl;
+@useResult
+$Res call({
+ String root, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$SyncGetHeadOutputCopyWithImpl<$Res, $Val extends SyncGetHeadOutput>
+class _$SyncGetHeadOutputCopyWithImpl<$Res>
     implements $SyncGetHeadOutputCopyWith<$Res> {
-  _$SyncGetHeadOutputCopyWithImpl(this._value, this._then);
+  _$SyncGetHeadOutputCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SyncGetHeadOutput _self;
+  final $Res Function(SyncGetHeadOutput) _then;
 
-  /// Create a copy of SyncGetHeadOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? root = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      root: null == root
-          ? _value.root
-          : root // ignore: cast_nullable_to_non_nullable
-              as String,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of SyncGetHeadOutput
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? root = null,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+root: null == root ? _self.root : root // ignore: cast_nullable_to_non_nullable
+as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SyncGetHeadOutputImplCopyWith<$Res>
-    implements $SyncGetHeadOutputCopyWith<$Res> {
-  factory _$$SyncGetHeadOutputImplCopyWith(_$SyncGetHeadOutputImpl value,
-          $Res Function(_$SyncGetHeadOutputImpl) then) =
-      __$$SyncGetHeadOutputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String root, Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$SyncGetHeadOutputImplCopyWithImpl<$Res>
-    extends _$SyncGetHeadOutputCopyWithImpl<$Res, _$SyncGetHeadOutputImpl>
-    implements _$$SyncGetHeadOutputImplCopyWith<$Res> {
-  __$$SyncGetHeadOutputImplCopyWithImpl(_$SyncGetHeadOutputImpl _value,
-      $Res Function(_$SyncGetHeadOutputImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of SyncGetHeadOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? root = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$SyncGetHeadOutputImpl(
-      root: null == root
-          ? _value.root
-          : root // ignore: cast_nullable_to_non_nullable
-              as String,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [SyncGetHeadOutput].
+extension SyncGetHeadOutputPatterns on SyncGetHeadOutput {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SyncGetHeadOutput value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _SyncGetHeadOutput() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SyncGetHeadOutput value)  $default,){
+final _that = this;
+switch (_that) {
+case _SyncGetHeadOutput():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SyncGetHeadOutput value)?  $default,){
+final _that = this;
+switch (_that) {
+case _SyncGetHeadOutput() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String root,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _SyncGetHeadOutput() when $default != null:
+return $default(_that.root,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String root,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _SyncGetHeadOutput():
+return $default(_that.root,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String root,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _SyncGetHeadOutput() when $default != null:
+return $default(_that.root,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$SyncGetHeadOutputImpl implements _SyncGetHeadOutput {
-  const _$SyncGetHeadOutputImpl(
-      {required this.root, final Map<String, dynamic>? $unknown})
-      : _$unknown = $unknown;
 
-  factory _$SyncGetHeadOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SyncGetHeadOutputImplFromJson(json);
+class _SyncGetHeadOutput implements SyncGetHeadOutput {
+  const _SyncGetHeadOutput({required this.root, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  factory _SyncGetHeadOutput.fromJson(Map<String, dynamic> json) => _$SyncGetHeadOutputFromJson(json);
 
-  @override
-  final String root;
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'SyncGetHeadOutput(root: $root, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SyncGetHeadOutputImpl &&
-            (identical(other.root, root) || other.root == root) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, root, const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of SyncGetHeadOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SyncGetHeadOutputImplCopyWith<_$SyncGetHeadOutputImpl> get copyWith =>
-      __$$SyncGetHeadOutputImplCopyWithImpl<_$SyncGetHeadOutputImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SyncGetHeadOutputImplToJson(
-      this,
-    );
-  }
+@override final  String root;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
 
-abstract class _SyncGetHeadOutput implements SyncGetHeadOutput {
-  const factory _SyncGetHeadOutput(
-      {required final String root,
-      final Map<String, dynamic>? $unknown}) = _$SyncGetHeadOutputImpl;
 
-  factory _SyncGetHeadOutput.fromJson(Map<String, dynamic> json) =
-      _$SyncGetHeadOutputImpl.fromJson;
+/// Create a copy of SyncGetHeadOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SyncGetHeadOutputCopyWith<_SyncGetHeadOutput> get copyWith => __$SyncGetHeadOutputCopyWithImpl<_SyncGetHeadOutput>(this, _$identity);
 
-  @override
-  String get root;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of SyncGetHeadOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SyncGetHeadOutputImplCopyWith<_$SyncGetHeadOutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$SyncGetHeadOutputToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SyncGetHeadOutput&&(identical(other.root, root) || other.root == root)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,root,const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'SyncGetHeadOutput(root: $root, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SyncGetHeadOutputCopyWith<$Res> implements $SyncGetHeadOutputCopyWith<$Res> {
+  factory _$SyncGetHeadOutputCopyWith(_SyncGetHeadOutput value, $Res Function(_SyncGetHeadOutput) _then) = __$SyncGetHeadOutputCopyWithImpl;
+@override @useResult
+$Res call({
+ String root, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$SyncGetHeadOutputCopyWithImpl<$Res>
+    implements _$SyncGetHeadOutputCopyWith<$Res> {
+  __$SyncGetHeadOutputCopyWithImpl(this._self, this._then);
+
+  final _SyncGetHeadOutput _self;
+  final $Res Function(_SyncGetHeadOutput) _then;
+
+/// Create a copy of SyncGetHeadOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? root = null,Object? $unknown = freezed,}) {
+  return _then(_SyncGetHeadOutput(
+root: null == root ? _self.root : root // ignore: cast_nullable_to_non_nullable
+as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -8,31 +8,31 @@ part of 'viewer_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ViewerStateImpl _$$ViewerStateImplFromJson(Map json) => $checkedCreate(
-      r'_$ViewerStateImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ViewerStateImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyFeedDefsViewerState),
-          repost: $checkedConvert('repost', (v) => v as String?),
-          like: $checkedConvert('like', (v) => v as String?),
-          threadMuted: $checkedConvert('threadMuted', (v) => v as bool?),
-          replyDisabled: $checkedConvert('replyDisabled', (v) => v as bool?),
-          embeddingDisabled:
-              $checkedConvert('embeddingDisabled', (v) => v as bool?),
-          pinned: $checkedConvert('pinned', (v) => v as bool?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ViewerState _$ViewerStateFromJson(Map json) =>
+    $checkedCreate('_ViewerState', json, ($checkedConvert) {
+      final val = _ViewerState(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyFeedDefsViewerState,
+        ),
+        repost: $checkedConvert('repost', (v) => v as String?),
+        like: $checkedConvert('like', (v) => v as String?),
+        threadMuted: $checkedConvert('threadMuted', (v) => v as bool?),
+        replyDisabled: $checkedConvert('replyDisabled', (v) => v as bool?),
+        embeddingDisabled: $checkedConvert(
+          'embeddingDisabled',
+          (v) => v as bool?,
+        ),
+        pinned: $checkedConvert('pinned', (v) => v as bool?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ViewerStateImplToJson(_$ViewerStateImpl instance) =>
+Map<String, dynamic> _$ViewerStateToJson(_ViewerState instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'repost': instance.repost,

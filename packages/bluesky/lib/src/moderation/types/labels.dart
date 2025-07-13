@@ -1,8 +1,4 @@
-enum LabelTarget {
-  account,
-  profile,
-  content,
-}
+enum LabelTarget { account, profile, content }
 
 enum LabelPreference {
   ignore,

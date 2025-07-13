@@ -8,33 +8,26 @@ part of 'skeleton_search_starter_pack.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SkeletonSearchStarterPackImpl _$$SkeletonSearchStarterPackImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$SkeletonSearchStarterPackImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SkeletonSearchStarterPackImpl(
-          $type: $checkedConvert(
-              r'$type',
-              (v) =>
-                  v as String? ??
-                  appBskyUnspeccedDefsSkeletonSearchStarterPack),
-          uri: $checkedConvert('uri', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_SkeletonSearchStarterPack _$SkeletonSearchStarterPackFromJson(Map json) =>
+    $checkedCreate('_SkeletonSearchStarterPack', json, ($checkedConvert) {
+      final val = _SkeletonSearchStarterPack(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyUnspeccedDefsSkeletonSearchStarterPack,
+        ),
+        uri: $checkedConvert('uri', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$SkeletonSearchStarterPackImplToJson(
-        _$SkeletonSearchStarterPackImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'uri': instance.uri,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$SkeletonSearchStarterPackToJson(
+  _SkeletonSearchStarterPack instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'uri': instance.uri,
+  r'$unknown': instance.$unknown,
+};

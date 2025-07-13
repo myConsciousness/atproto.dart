@@ -23,17 +23,14 @@ part 'update_result.g.dart';
 
 @freezed
 abstract class UpdateResult with _$UpdateResult {
-  static const knownProps = <String>[
-    'uri',
-    'cid',
-    'validationStatus',
-  ];
+  static const knownProps = <String>['uri', 'cid', 'validationStatus'];
 
   const factory UpdateResult({
     @Default(comAtprotoRepoApplyWritesUpdateResult) String $type,
     required String uri,
     required String cid,
     String? validationStatus,
+
     Map<String, dynamic>? $unknown,
   }) = _UpdateResult;
 
@@ -52,14 +49,10 @@ final class UpdateResultConverter
 
   @override
   UpdateResult fromJson(Map<String, dynamic> json) {
-    return UpdateResult.fromJson(translate(
-      json,
-      UpdateResult.knownProps,
-    ));
+    return UpdateResult.fromJson(translate(json, UpdateResult.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(UpdateResult object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(UpdateResult object) =>
+      untranslate(object.toJson());
 }

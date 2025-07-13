@@ -12,7 +12,8 @@ part of 'operation.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Operation _$OperationFromJson(Map<String, dynamic> json) {
   return _Operation.fromJson(json);
@@ -44,14 +45,15 @@ abstract class $OperationCopyWith<$Res> {
   factory $OperationCopyWith(Operation value, $Res Function(Operation) then) =
       _$OperationCopyWithImpl<$Res, Operation>;
   @useResult
-  $Res call(
-      {String sig,
-      String type,
-      Map<String, dynamic> services,
-      List<String> alsoKnownAs,
-      List<String> rotationKeys,
-      Map<String, dynamic> verificationMethods,
-      String? prev});
+  $Res call({
+    String sig,
+    String type,
+    Map<String, dynamic> services,
+    List<String> alsoKnownAs,
+    List<String> rotationKeys,
+    Map<String, dynamic> verificationMethods,
+    String? prev,
+  });
 }
 
 /// @nodoc
@@ -77,36 +79,39 @@ class _$OperationCopyWithImpl<$Res, $Val extends Operation>
     Object? verificationMethods = null,
     Object? prev = freezed,
   }) {
-    return _then(_value.copyWith(
-      sig: null == sig
-          ? _value.sig
-          : sig // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      services: null == services
-          ? _value.services
-          : services // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      alsoKnownAs: null == alsoKnownAs
-          ? _value.alsoKnownAs
-          : alsoKnownAs // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      rotationKeys: null == rotationKeys
-          ? _value.rotationKeys
-          : rotationKeys // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      verificationMethods: null == verificationMethods
-          ? _value.verificationMethods
-          : verificationMethods // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      prev: freezed == prev
-          ? _value.prev
-          : prev // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            sig: null == sig
+                ? _value.sig
+                : sig // ignore: cast_nullable_to_non_nullable
+                      as String,
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+            services: null == services
+                ? _value.services
+                : services // ignore: cast_nullable_to_non_nullable
+                      as Map<String, dynamic>,
+            alsoKnownAs: null == alsoKnownAs
+                ? _value.alsoKnownAs
+                : alsoKnownAs // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
+            rotationKeys: null == rotationKeys
+                ? _value.rotationKeys
+                : rotationKeys // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
+            verificationMethods: null == verificationMethods
+                ? _value.verificationMethods
+                : verificationMethods // ignore: cast_nullable_to_non_nullable
+                      as Map<String, dynamic>,
+            prev: freezed == prev
+                ? _value.prev
+                : prev // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -114,18 +119,20 @@ class _$OperationCopyWithImpl<$Res, $Val extends Operation>
 abstract class _$$OperationImplCopyWith<$Res>
     implements $OperationCopyWith<$Res> {
   factory _$$OperationImplCopyWith(
-          _$OperationImpl value, $Res Function(_$OperationImpl) then) =
-      __$$OperationImplCopyWithImpl<$Res>;
+    _$OperationImpl value,
+    $Res Function(_$OperationImpl) then,
+  ) = __$$OperationImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String sig,
-      String type,
-      Map<String, dynamic> services,
-      List<String> alsoKnownAs,
-      List<String> rotationKeys,
-      Map<String, dynamic> verificationMethods,
-      String? prev});
+  $Res call({
+    String sig,
+    String type,
+    Map<String, dynamic> services,
+    List<String> alsoKnownAs,
+    List<String> rotationKeys,
+    Map<String, dynamic> verificationMethods,
+    String? prev,
+  });
 }
 
 /// @nodoc
@@ -133,8 +140,9 @@ class __$$OperationImplCopyWithImpl<$Res>
     extends _$OperationCopyWithImpl<$Res, _$OperationImpl>
     implements _$$OperationImplCopyWith<$Res> {
   __$$OperationImplCopyWithImpl(
-      _$OperationImpl _value, $Res Function(_$OperationImpl) _then)
-      : super(_value, _then);
+    _$OperationImpl _value,
+    $Res Function(_$OperationImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of Operation
   /// with the given fields replaced by the non-null parameter values.
@@ -149,36 +157,38 @@ class __$$OperationImplCopyWithImpl<$Res>
     Object? verificationMethods = null,
     Object? prev = freezed,
   }) {
-    return _then(_$OperationImpl(
-      sig: null == sig
-          ? _value.sig
-          : sig // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      services: null == services
-          ? _value._services
-          : services // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      alsoKnownAs: null == alsoKnownAs
-          ? _value._alsoKnownAs
-          : alsoKnownAs // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      rotationKeys: null == rotationKeys
-          ? _value._rotationKeys
-          : rotationKeys // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      verificationMethods: null == verificationMethods
-          ? _value._verificationMethods
-          : verificationMethods // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      prev: freezed == prev
-          ? _value.prev
-          : prev // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$OperationImpl(
+        sig: null == sig
+            ? _value.sig
+            : sig // ignore: cast_nullable_to_non_nullable
+                  as String,
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+        services: null == services
+            ? _value._services
+            : services // ignore: cast_nullable_to_non_nullable
+                  as Map<String, dynamic>,
+        alsoKnownAs: null == alsoKnownAs
+            ? _value._alsoKnownAs
+            : alsoKnownAs // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
+        rotationKeys: null == rotationKeys
+            ? _value._rotationKeys
+            : rotationKeys // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
+        verificationMethods: null == verificationMethods
+            ? _value._verificationMethods
+            : verificationMethods // ignore: cast_nullable_to_non_nullable
+                  as Map<String, dynamic>,
+        prev: freezed == prev
+            ? _value.prev
+            : prev // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
@@ -186,18 +196,18 @@ class __$$OperationImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$OperationImpl implements _Operation {
-  const _$OperationImpl(
-      {required this.sig,
-      this.type = 'plc_operation',
-      required final Map<String, dynamic> services,
-      required final List<String> alsoKnownAs,
-      required final List<String> rotationKeys,
-      required final Map<String, dynamic> verificationMethods,
-      this.prev})
-      : _services = services,
-        _alsoKnownAs = alsoKnownAs,
-        _rotationKeys = rotationKeys,
-        _verificationMethods = verificationMethods;
+  const _$OperationImpl({
+    required this.sig,
+    this.type = 'plc_operation',
+    required final Map<String, dynamic> services,
+    required final List<String> alsoKnownAs,
+    required final List<String> rotationKeys,
+    required final Map<String, dynamic> verificationMethods,
+    this.prev,
+  }) : _services = services,
+       _alsoKnownAs = alsoKnownAs,
+       _rotationKeys = rotationKeys,
+       _verificationMethods = verificationMethods;
 
   factory _$OperationImpl.fromJson(Map<String, dynamic> json) =>
       _$$OperationImplFromJson(json);
@@ -256,26 +266,33 @@ class _$OperationImpl implements _Operation {
             (identical(other.sig, sig) || other.sig == sig) &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._services, _services) &&
-            const DeepCollectionEquality()
-                .equals(other._alsoKnownAs, _alsoKnownAs) &&
-            const DeepCollectionEquality()
-                .equals(other._rotationKeys, _rotationKeys) &&
-            const DeepCollectionEquality()
-                .equals(other._verificationMethods, _verificationMethods) &&
+            const DeepCollectionEquality().equals(
+              other._alsoKnownAs,
+              _alsoKnownAs,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._rotationKeys,
+              _rotationKeys,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._verificationMethods,
+              _verificationMethods,
+            ) &&
             (identical(other.prev, prev) || other.prev == prev));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      sig,
-      type,
-      const DeepCollectionEquality().hash(_services),
-      const DeepCollectionEquality().hash(_alsoKnownAs),
-      const DeepCollectionEquality().hash(_rotationKeys),
-      const DeepCollectionEquality().hash(_verificationMethods),
-      prev);
+    runtimeType,
+    sig,
+    type,
+    const DeepCollectionEquality().hash(_services),
+    const DeepCollectionEquality().hash(_alsoKnownAs),
+    const DeepCollectionEquality().hash(_rotationKeys),
+    const DeepCollectionEquality().hash(_verificationMethods),
+    prev,
+  );
 
   /// Create a copy of Operation
   /// with the given fields replaced by the non-null parameter values.
@@ -287,21 +304,20 @@ class _$OperationImpl implements _Operation {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OperationImplToJson(
-      this,
-    );
+    return _$$OperationImplToJson(this);
   }
 }
 
 abstract class _Operation implements Operation {
-  const factory _Operation(
-      {required final String sig,
-      final String type,
-      required final Map<String, dynamic> services,
-      required final List<String> alsoKnownAs,
-      required final List<String> rotationKeys,
-      required final Map<String, dynamic> verificationMethods,
-      final String? prev}) = _$OperationImpl;
+  const factory _Operation({
+    required final String sig,
+    final String type,
+    required final Map<String, dynamic> services,
+    required final List<String> alsoKnownAs,
+    required final List<String> rotationKeys,
+    required final Map<String, dynamic> verificationMethods,
+    final String? prev,
+  }) = _$OperationImpl;
 
   factory _Operation.fromJson(Map<String, dynamic> json) =
       _$OperationImpl.fromJson;

@@ -52,6 +52,7 @@ abstract class FeedViewPref with _$FeedViewPref {
 
     /// Hide quote posts in the feed.
     bool? hideQuotePosts,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedViewPref;
 
@@ -70,14 +71,10 @@ final class FeedViewPrefConverter
 
   @override
   FeedViewPref fromJson(Map<String, dynamic> json) {
-    return FeedViewPref.fromJson(translate(
-      json,
-      FeedViewPref.knownProps,
-    ));
+    return FeedViewPref.fromJson(translate(json, FeedViewPref.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedViewPref object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(FeedViewPref object) =>
+      untranslate(object.toJson());
 }

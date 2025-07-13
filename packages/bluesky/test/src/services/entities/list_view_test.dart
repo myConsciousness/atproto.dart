@@ -22,14 +22,9 @@ void main() {
         createdBy: Actor(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: true,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: true, isBlockedBy: false),
         ),
-        viewer: ListViewer(
-          isMuted: true,
-        ),
+        viewer: ListViewer(isMuted: true),
         indexedAt: DateTime.now(),
       );
 
@@ -47,14 +42,9 @@ void main() {
         createdBy: Actor(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: true,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: true, isBlockedBy: false),
         ),
-        viewer: ListViewer(
-          isMuted: false,
-        ),
+        viewer: ListViewer(isMuted: false),
         indexedAt: DateTime.now(),
       );
 
@@ -74,14 +64,9 @@ void main() {
         createdBy: Actor(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: true,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: true, isBlockedBy: false),
         ),
-        viewer: ListViewer(
-          isMuted: true,
-        ),
+        viewer: ListViewer(isMuted: true),
         indexedAt: DateTime.now(),
       );
 
@@ -99,14 +84,9 @@ void main() {
         createdBy: Actor(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: true,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: true, isBlockedBy: false),
         ),
-        viewer: ListViewer(
-          isMuted: false,
-        ),
+        viewer: ListViewer(isMuted: false),
         indexedAt: DateTime.now(),
       );
 
@@ -126,10 +106,7 @@ void main() {
         createdBy: Actor(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: true,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: true, isBlockedBy: false),
         ),
         viewer: ListViewer(
           isMuted: true,
@@ -154,14 +131,9 @@ void main() {
         createdBy: Actor(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: true,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: true, isBlockedBy: false),
         ),
-        viewer: ListViewer(
-          isMuted: false,
-        ),
+        viewer: ListViewer(isMuted: false),
         indexedAt: DateTime.now(),
       );
 
@@ -181,10 +153,7 @@ void main() {
         createdBy: Actor(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: true,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: true, isBlockedBy: false),
         ),
         viewer: ListViewer(
           isMuted: true,
@@ -209,14 +178,9 @@ void main() {
         createdBy: Actor(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: true,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: true, isBlockedBy: false),
         ),
-        viewer: ListViewer(
-          isMuted: false,
-        ),
+        viewer: ListViewer(isMuted: false),
         indexedAt: DateTime.now(),
       );
 
@@ -235,14 +199,9 @@ void main() {
       createdBy: Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: true,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: true, isBlockedBy: false),
       ),
-      viewer: ListViewer(
-        isMuted: false,
-      ),
+      viewer: ListViewer(isMuted: false),
       indexedAt: DateTime.now(),
     );
 
@@ -263,14 +222,9 @@ void main() {
       createdBy: Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: true,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: true, isBlockedBy: false),
       ),
-      viewer: ListViewer(
-        isMuted: false,
-      ),
+      viewer: ListViewer(isMuted: false),
       indexedAt: DateTime.now(),
     );
 

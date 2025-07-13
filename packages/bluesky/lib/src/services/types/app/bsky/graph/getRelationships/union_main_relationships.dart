@@ -42,8 +42,10 @@ class UGraphGetRelationshipsRelationships
 
 final class UGraphGetRelationshipsRelationshipsConverter
     implements
-        JsonConverter<UGraphGetRelationshipsRelationships,
-            Map<String, dynamic>> {
+        JsonConverter<
+          UGraphGetRelationshipsRelationships,
+          Map<String, dynamic>
+        > {
   const UGraphGetRelationshipsRelationshipsConverter();
 
   @override
@@ -71,6 +73,7 @@ final class UGraphGetRelationshipsRelationshipsConverter
       object.when(
         relationship: (data) => const RelationshipConverter().toJson(data),
         notFoundActor: (data) => const NotFoundActorConverter().toJson(data),
+
         unknown: (data) => data,
       );
 }

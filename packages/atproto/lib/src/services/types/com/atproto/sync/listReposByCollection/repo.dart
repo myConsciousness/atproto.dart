@@ -23,13 +23,12 @@ part 'repo.g.dart';
 
 @freezed
 abstract class Repo with _$Repo {
-  static const knownProps = <String>[
-    'did',
-  ];
+  static const knownProps = <String>['did'];
 
   const factory Repo({
     @Default(comAtprotoSyncListReposByCollectionRepo) String $type,
     required String did,
+
     Map<String, dynamic>? $unknown,
   }) = _Repo;
 
@@ -47,14 +46,9 @@ final class RepoConverter
 
   @override
   Repo fromJson(Map<String, dynamic> json) {
-    return Repo.fromJson(translate(
-      json,
-      Repo.knownProps,
-    ));
+    return Repo.fromJson(translate(json, Repo.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(Repo object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(Repo object) => untranslate(object.toJson());
 }

@@ -12,7 +12,8 @@ part of 'instance.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Instance _$InstanceFromJson(Map<String, dynamic> json) {
   return _Instance.fromJson(json);
@@ -54,15 +55,16 @@ class _$InstanceCopyWithImpl<$Res, $Val extends Instance>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? version = null,
-  }) {
-    return _then(_value.copyWith(
-      version: null == version
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? version = null}) {
+    return _then(
+      _value.copyWith(
+            version: null == version
+                ? _value.version
+                : version // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -70,8 +72,9 @@ class _$InstanceCopyWithImpl<$Res, $Val extends Instance>
 abstract class _$$InstanceImplCopyWith<$Res>
     implements $InstanceCopyWith<$Res> {
   factory _$$InstanceImplCopyWith(
-          _$InstanceImpl value, $Res Function(_$InstanceImpl) then) =
-      __$$InstanceImplCopyWithImpl<$Res>;
+    _$InstanceImpl value,
+    $Res Function(_$InstanceImpl) then,
+  ) = __$$InstanceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String version});
@@ -82,22 +85,23 @@ class __$$InstanceImplCopyWithImpl<$Res>
     extends _$InstanceCopyWithImpl<$Res, _$InstanceImpl>
     implements _$$InstanceImplCopyWith<$Res> {
   __$$InstanceImplCopyWithImpl(
-      _$InstanceImpl _value, $Res Function(_$InstanceImpl) _then)
-      : super(_value, _then);
+    _$InstanceImpl _value,
+    $Res Function(_$InstanceImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of Instance
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? version = null,
-  }) {
-    return _then(_$InstanceImpl(
-      version: null == version
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? version = null}) {
+    return _then(
+      _$InstanceImpl(
+        version: null == version
+            ? _value.version
+            : version // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -140,9 +144,7 @@ class _$InstanceImpl implements _Instance {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$InstanceImplToJson(
-      this,
-    );
+    return _$$InstanceImplToJson(this);
   }
 }
 

@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,620 +9,400 @@ part of 'union_verification_view_issuer_repo.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$UVerificationViewIssuerRepo {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoViewDetail data) repoViewDetail,
-    required TResult Function(RepoViewNotFound data) repoViewNotFound,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoViewDetail data)? repoViewDetail,
-    TResult? Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoViewDetail data)? repoViewDetail,
-    TResult Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UVerificationViewIssuerRepoRepoViewDetail value)
-        repoViewDetail,
-    required TResult Function(UVerificationViewIssuerRepoRepoViewNotFound value)
-        repoViewNotFound,
-    required TResult Function(UVerificationViewIssuerRepoUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UVerificationViewIssuerRepoRepoViewDetail value)?
-        repoViewDetail,
-    TResult? Function(UVerificationViewIssuerRepoRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult? Function(UVerificationViewIssuerRepoUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UVerificationViewIssuerRepoRepoViewDetail value)?
-        repoViewDetail,
-    TResult Function(UVerificationViewIssuerRepoRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult Function(UVerificationViewIssuerRepoUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+
+ Object get data;
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UVerificationViewIssuerRepo&&const DeepCollectionEquality().equals(other.data, data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'UVerificationViewIssuerRepo(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UVerificationViewIssuerRepoCopyWith<$Res> {
-  factory $UVerificationViewIssuerRepoCopyWith(
-          UVerificationViewIssuerRepo value,
-          $Res Function(UVerificationViewIssuerRepo) then) =
-      _$UVerificationViewIssuerRepoCopyWithImpl<$Res,
-          UVerificationViewIssuerRepo>;
+class $UVerificationViewIssuerRepoCopyWith<$Res>  {
+$UVerificationViewIssuerRepoCopyWith(UVerificationViewIssuerRepo _, $Res Function(UVerificationViewIssuerRepo) __);
 }
 
-/// @nodoc
-class _$UVerificationViewIssuerRepoCopyWithImpl<$Res,
-        $Val extends UVerificationViewIssuerRepo>
-    implements $UVerificationViewIssuerRepoCopyWith<$Res> {
-  _$UVerificationViewIssuerRepoCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// Adds pattern-matching-related methods to [UVerificationViewIssuerRepo].
+extension UVerificationViewIssuerRepoPatterns on UVerificationViewIssuerRepo {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  /// Create a copy of UVerificationViewIssuerRepo
-  /// with the given fields replaced by the non-null parameter values.
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UVerificationViewIssuerRepoRepoViewDetail value)?  repoViewDetail,TResult Function( UVerificationViewIssuerRepoRepoViewNotFound value)?  repoViewNotFound,TResult Function( UVerificationViewIssuerRepoUnknown value)?  unknown,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case UVerificationViewIssuerRepoRepoViewDetail() when repoViewDetail != null:
+return repoViewDetail(_that);case UVerificationViewIssuerRepoRepoViewNotFound() when repoViewNotFound != null:
+return repoViewNotFound(_that);case UVerificationViewIssuerRepoUnknown() when unknown != null:
+return unknown(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UVerificationViewIssuerRepoRepoViewDetail value)  repoViewDetail,required TResult Function( UVerificationViewIssuerRepoRepoViewNotFound value)  repoViewNotFound,required TResult Function( UVerificationViewIssuerRepoUnknown value)  unknown,}){
+final _that = this;
+switch (_that) {
+case UVerificationViewIssuerRepoRepoViewDetail():
+return repoViewDetail(_that);case UVerificationViewIssuerRepoRepoViewNotFound():
+return repoViewNotFound(_that);case UVerificationViewIssuerRepoUnknown():
+return unknown(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UVerificationViewIssuerRepoRepoViewDetail value)?  repoViewDetail,TResult? Function( UVerificationViewIssuerRepoRepoViewNotFound value)?  repoViewNotFound,TResult? Function( UVerificationViewIssuerRepoUnknown value)?  unknown,}){
+final _that = this;
+switch (_that) {
+case UVerificationViewIssuerRepoRepoViewDetail() when repoViewDetail != null:
+return repoViewDetail(_that);case UVerificationViewIssuerRepoRepoViewNotFound() when repoViewNotFound != null:
+return repoViewNotFound(_that);case UVerificationViewIssuerRepoUnknown() when unknown != null:
+return unknown(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( RepoViewDetail data)?  repoViewDetail,TResult Function( RepoViewNotFound data)?  repoViewNotFound,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case UVerificationViewIssuerRepoRepoViewDetail() when repoViewDetail != null:
+return repoViewDetail(_that.data);case UVerificationViewIssuerRepoRepoViewNotFound() when repoViewNotFound != null:
+return repoViewNotFound(_that.data);case UVerificationViewIssuerRepoUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( RepoViewDetail data)  repoViewDetail,required TResult Function( RepoViewNotFound data)  repoViewNotFound,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+switch (_that) {
+case UVerificationViewIssuerRepoRepoViewDetail():
+return repoViewDetail(_that.data);case UVerificationViewIssuerRepoRepoViewNotFound():
+return repoViewNotFound(_that.data);case UVerificationViewIssuerRepoUnknown():
+return unknown(_that.data);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( RepoViewDetail data)?  repoViewDetail,TResult? Function( RepoViewNotFound data)?  repoViewNotFound,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+switch (_that) {
+case UVerificationViewIssuerRepoRepoViewDetail() when repoViewDetail != null:
+return repoViewDetail(_that.data);case UVerificationViewIssuerRepoRepoViewNotFound() when repoViewNotFound != null:
+return repoViewNotFound(_that.data);case UVerificationViewIssuerRepoUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-abstract class _$$UVerificationViewIssuerRepoRepoViewDetailImplCopyWith<$Res> {
-  factory _$$UVerificationViewIssuerRepoRepoViewDetailImplCopyWith(
-          _$UVerificationViewIssuerRepoRepoViewDetailImpl value,
-          $Res Function(_$UVerificationViewIssuerRepoRepoViewDetailImpl) then) =
-      __$$UVerificationViewIssuerRepoRepoViewDetailImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({RepoViewDetail data});
-
-  $RepoViewDetailCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$UVerificationViewIssuerRepoRepoViewDetailImplCopyWithImpl<$Res>
-    extends _$UVerificationViewIssuerRepoCopyWithImpl<$Res,
-        _$UVerificationViewIssuerRepoRepoViewDetailImpl>
-    implements _$$UVerificationViewIssuerRepoRepoViewDetailImplCopyWith<$Res> {
-  __$$UVerificationViewIssuerRepoRepoViewDetailImplCopyWithImpl(
-      _$UVerificationViewIssuerRepoRepoViewDetailImpl _value,
-      $Res Function(_$UVerificationViewIssuerRepoRepoViewDetailImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UVerificationViewIssuerRepo
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UVerificationViewIssuerRepoRepoViewDetailImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as RepoViewDetail,
-    ));
-  }
-
-  /// Create a copy of UVerificationViewIssuerRepo
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RepoViewDetailCopyWith<$Res> get data {
-    return $RepoViewDetailCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$UVerificationViewIssuerRepoRepoViewDetailImpl
-    extends UVerificationViewIssuerRepoRepoViewDetail {
-  const _$UVerificationViewIssuerRepoRepoViewDetailImpl({required this.data})
-      : super._();
-
-  @override
-  final RepoViewDetail data;
-
-  @override
-  String toString() {
-    return 'UVerificationViewIssuerRepo.repoViewDetail(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UVerificationViewIssuerRepoRepoViewDetailImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of UVerificationViewIssuerRepo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UVerificationViewIssuerRepoRepoViewDetailImplCopyWith<
-          _$UVerificationViewIssuerRepoRepoViewDetailImpl>
-      get copyWith =>
-          __$$UVerificationViewIssuerRepoRepoViewDetailImplCopyWithImpl<
-                  _$UVerificationViewIssuerRepoRepoViewDetailImpl>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoViewDetail data) repoViewDetail,
-    required TResult Function(RepoViewNotFound data) repoViewNotFound,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return repoViewDetail(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoViewDetail data)? repoViewDetail,
-    TResult? Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return repoViewDetail?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoViewDetail data)? repoViewDetail,
-    TResult Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (repoViewDetail != null) {
-      return repoViewDetail(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UVerificationViewIssuerRepoRepoViewDetail value)
-        repoViewDetail,
-    required TResult Function(UVerificationViewIssuerRepoRepoViewNotFound value)
-        repoViewNotFound,
-    required TResult Function(UVerificationViewIssuerRepoUnknown value) unknown,
-  }) {
-    return repoViewDetail(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UVerificationViewIssuerRepoRepoViewDetail value)?
-        repoViewDetail,
-    TResult? Function(UVerificationViewIssuerRepoRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult? Function(UVerificationViewIssuerRepoUnknown value)? unknown,
-  }) {
-    return repoViewDetail?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UVerificationViewIssuerRepoRepoViewDetail value)?
-        repoViewDetail,
-    TResult Function(UVerificationViewIssuerRepoRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult Function(UVerificationViewIssuerRepoUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (repoViewDetail != null) {
-      return repoViewDetail(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UVerificationViewIssuerRepoRepoViewDetail
-    extends UVerificationViewIssuerRepo {
-  const factory UVerificationViewIssuerRepoRepoViewDetail(
-          {required final RepoViewDetail data}) =
-      _$UVerificationViewIssuerRepoRepoViewDetailImpl;
-  const UVerificationViewIssuerRepoRepoViewDetail._() : super._();
-
-  @override
-  RepoViewDetail get data;
-
-  /// Create a copy of UVerificationViewIssuerRepo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UVerificationViewIssuerRepoRepoViewDetailImplCopyWith<
-          _$UVerificationViewIssuerRepoRepoViewDetailImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UVerificationViewIssuerRepoRepoViewNotFoundImplCopyWith<
-    $Res> {
-  factory _$$UVerificationViewIssuerRepoRepoViewNotFoundImplCopyWith(
-          _$UVerificationViewIssuerRepoRepoViewNotFoundImpl value,
-          $Res Function(_$UVerificationViewIssuerRepoRepoViewNotFoundImpl)
-              then) =
-      __$$UVerificationViewIssuerRepoRepoViewNotFoundImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({RepoViewNotFound data});
-
-  $RepoViewNotFoundCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$UVerificationViewIssuerRepoRepoViewNotFoundImplCopyWithImpl<$Res>
-    extends _$UVerificationViewIssuerRepoCopyWithImpl<$Res,
-        _$UVerificationViewIssuerRepoRepoViewNotFoundImpl>
-    implements
-        _$$UVerificationViewIssuerRepoRepoViewNotFoundImplCopyWith<$Res> {
-  __$$UVerificationViewIssuerRepoRepoViewNotFoundImplCopyWithImpl(
-      _$UVerificationViewIssuerRepoRepoViewNotFoundImpl _value,
-      $Res Function(_$UVerificationViewIssuerRepoRepoViewNotFoundImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UVerificationViewIssuerRepo
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UVerificationViewIssuerRepoRepoViewNotFoundImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as RepoViewNotFound,
-    ));
-  }
-
-  /// Create a copy of UVerificationViewIssuerRepo
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RepoViewNotFoundCopyWith<$Res> get data {
-    return $RepoViewNotFoundCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
 }
 
 /// @nodoc
 
-class _$UVerificationViewIssuerRepoRepoViewNotFoundImpl
-    extends UVerificationViewIssuerRepoRepoViewNotFound {
-  const _$UVerificationViewIssuerRepoRepoViewNotFoundImpl({required this.data})
-      : super._();
 
-  @override
-  final RepoViewNotFound data;
+class UVerificationViewIssuerRepoRepoViewDetail extends UVerificationViewIssuerRepo {
+  const UVerificationViewIssuerRepoRepoViewDetail({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UVerificationViewIssuerRepo.repoViewNotFound(data: $data)';
-  }
+@override final  RepoViewDetail data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UVerificationViewIssuerRepoRepoViewNotFoundImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UVerificationViewIssuerRepo
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UVerificationViewIssuerRepoRepoViewDetailCopyWith<UVerificationViewIssuerRepoRepoViewDetail> get copyWith => _$UVerificationViewIssuerRepoRepoViewDetailCopyWithImpl<UVerificationViewIssuerRepoRepoViewDetail>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UVerificationViewIssuerRepo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UVerificationViewIssuerRepoRepoViewNotFoundImplCopyWith<
-          _$UVerificationViewIssuerRepoRepoViewNotFoundImpl>
-      get copyWith =>
-          __$$UVerificationViewIssuerRepoRepoViewNotFoundImplCopyWithImpl<
-                  _$UVerificationViewIssuerRepoRepoViewNotFoundImpl>(
-              this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoViewDetail data) repoViewDetail,
-    required TResult Function(RepoViewNotFound data) repoViewNotFound,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return repoViewNotFound(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoViewDetail data)? repoViewDetail,
-    TResult? Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return repoViewNotFound?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoViewDetail data)? repoViewDetail,
-    TResult Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (repoViewNotFound != null) {
-      return repoViewNotFound(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UVerificationViewIssuerRepoRepoViewDetail value)
-        repoViewDetail,
-    required TResult Function(UVerificationViewIssuerRepoRepoViewNotFound value)
-        repoViewNotFound,
-    required TResult Function(UVerificationViewIssuerRepoUnknown value) unknown,
-  }) {
-    return repoViewNotFound(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UVerificationViewIssuerRepoRepoViewDetail value)?
-        repoViewDetail,
-    TResult? Function(UVerificationViewIssuerRepoRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult? Function(UVerificationViewIssuerRepoUnknown value)? unknown,
-  }) {
-    return repoViewNotFound?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UVerificationViewIssuerRepoRepoViewDetail value)?
-        repoViewDetail,
-    TResult Function(UVerificationViewIssuerRepoRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult Function(UVerificationViewIssuerRepoUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (repoViewNotFound != null) {
-      return repoViewNotFound(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UVerificationViewIssuerRepoRepoViewDetail&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UVerificationViewIssuerRepoRepoViewNotFound
-    extends UVerificationViewIssuerRepo {
-  const factory UVerificationViewIssuerRepoRepoViewNotFound(
-          {required final RepoViewNotFound data}) =
-      _$UVerificationViewIssuerRepoRepoViewNotFoundImpl;
-  const UVerificationViewIssuerRepoRepoViewNotFound._() : super._();
 
-  @override
-  RepoViewNotFound get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UVerificationViewIssuerRepo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UVerificationViewIssuerRepoRepoViewNotFoundImplCopyWith<
-          _$UVerificationViewIssuerRepoRepoViewNotFoundImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UVerificationViewIssuerRepo.repoViewDetail(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UVerificationViewIssuerRepoUnknownImplCopyWith<$Res> {
-  factory _$$UVerificationViewIssuerRepoUnknownImplCopyWith(
-          _$UVerificationViewIssuerRepoUnknownImpl value,
-          $Res Function(_$UVerificationViewIssuerRepoUnknownImpl) then) =
-      __$$UVerificationViewIssuerRepoUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
+abstract mixin class $UVerificationViewIssuerRepoRepoViewDetailCopyWith<$Res> implements $UVerificationViewIssuerRepoCopyWith<$Res> {
+  factory $UVerificationViewIssuerRepoRepoViewDetailCopyWith(UVerificationViewIssuerRepoRepoViewDetail value, $Res Function(UVerificationViewIssuerRepoRepoViewDetail) _then) = _$UVerificationViewIssuerRepoRepoViewDetailCopyWithImpl;
+@useResult
+$Res call({
+ RepoViewDetail data
+});
+
+
+$RepoViewDetailCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UVerificationViewIssuerRepoRepoViewDetailCopyWithImpl<$Res>
+    implements $UVerificationViewIssuerRepoRepoViewDetailCopyWith<$Res> {
+  _$UVerificationViewIssuerRepoRepoViewDetailCopyWithImpl(this._self, this._then);
+
+  final UVerificationViewIssuerRepoRepoViewDetail _self;
+  final $Res Function(UVerificationViewIssuerRepoRepoViewDetail) _then;
+
+/// Create a copy of UVerificationViewIssuerRepo
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UVerificationViewIssuerRepoRepoViewDetail(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as RepoViewDetail,
+  ));
 }
 
-/// @nodoc
-class __$$UVerificationViewIssuerRepoUnknownImplCopyWithImpl<$Res>
-    extends _$UVerificationViewIssuerRepoCopyWithImpl<$Res,
-        _$UVerificationViewIssuerRepoUnknownImpl>
-    implements _$$UVerificationViewIssuerRepoUnknownImplCopyWith<$Res> {
-  __$$UVerificationViewIssuerRepoUnknownImplCopyWithImpl(
-      _$UVerificationViewIssuerRepoUnknownImpl _value,
-      $Res Function(_$UVerificationViewIssuerRepoUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UVerificationViewIssuerRepo
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UVerificationViewIssuerRepoUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
+/// Create a copy of UVerificationViewIssuerRepo
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RepoViewDetailCopyWith<$Res> get data {
+  
+  return $RepoViewDetailCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UVerificationViewIssuerRepoUnknownImpl
-    extends UVerificationViewIssuerRepoUnknown {
-  const _$UVerificationViewIssuerRepoUnknownImpl(
-      {required final Map<String, dynamic> data})
-      : _data = data,
-        super._();
 
-  final Map<String, dynamic> _data;
-  @override
-  Map<String, dynamic> get data {
-    if (_data is EqualUnmodifiableMapView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_data);
-  }
+class UVerificationViewIssuerRepoRepoViewNotFound extends UVerificationViewIssuerRepo {
+  const UVerificationViewIssuerRepoRepoViewNotFound({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UVerificationViewIssuerRepo.unknown(data: $data)';
-  }
+@override final  RepoViewNotFound data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UVerificationViewIssuerRepoUnknownImpl &&
-            const DeepCollectionEquality().equals(other._data, _data));
-  }
+/// Create a copy of UVerificationViewIssuerRepo
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UVerificationViewIssuerRepoRepoViewNotFoundCopyWith<UVerificationViewIssuerRepoRepoViewNotFound> get copyWith => _$UVerificationViewIssuerRepoRepoViewNotFoundCopyWithImpl<UVerificationViewIssuerRepoRepoViewNotFound>(this, _$identity);
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  /// Create a copy of UVerificationViewIssuerRepo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UVerificationViewIssuerRepoUnknownImplCopyWith<
-          _$UVerificationViewIssuerRepoUnknownImpl>
-      get copyWith => __$$UVerificationViewIssuerRepoUnknownImplCopyWithImpl<
-          _$UVerificationViewIssuerRepoUnknownImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoViewDetail data) repoViewDetail,
-    required TResult Function(RepoViewNotFound data) repoViewNotFound,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoViewDetail data)? repoViewDetail,
-    TResult? Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoViewDetail data)? repoViewDetail,
-    TResult Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UVerificationViewIssuerRepoRepoViewDetail value)
-        repoViewDetail,
-    required TResult Function(UVerificationViewIssuerRepoRepoViewNotFound value)
-        repoViewNotFound,
-    required TResult Function(UVerificationViewIssuerRepoUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UVerificationViewIssuerRepoRepoViewDetail value)?
-        repoViewDetail,
-    TResult? Function(UVerificationViewIssuerRepoRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult? Function(UVerificationViewIssuerRepoUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UVerificationViewIssuerRepoRepoViewDetail value)?
-        repoViewDetail,
-    TResult Function(UVerificationViewIssuerRepoRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult Function(UVerificationViewIssuerRepoUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UVerificationViewIssuerRepoRepoViewNotFound&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UVerificationViewIssuerRepoUnknown
-    extends UVerificationViewIssuerRepo {
-  const factory UVerificationViewIssuerRepoUnknown(
-          {required final Map<String, dynamic> data}) =
-      _$UVerificationViewIssuerRepoUnknownImpl;
-  const UVerificationViewIssuerRepoUnknown._() : super._();
 
-  @override
-  Map<String, dynamic> get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UVerificationViewIssuerRepo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UVerificationViewIssuerRepoUnknownImplCopyWith<
-          _$UVerificationViewIssuerRepoUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UVerificationViewIssuerRepo.repoViewNotFound(data: $data)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class $UVerificationViewIssuerRepoRepoViewNotFoundCopyWith<$Res> implements $UVerificationViewIssuerRepoCopyWith<$Res> {
+  factory $UVerificationViewIssuerRepoRepoViewNotFoundCopyWith(UVerificationViewIssuerRepoRepoViewNotFound value, $Res Function(UVerificationViewIssuerRepoRepoViewNotFound) _then) = _$UVerificationViewIssuerRepoRepoViewNotFoundCopyWithImpl;
+@useResult
+$Res call({
+ RepoViewNotFound data
+});
+
+
+$RepoViewNotFoundCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UVerificationViewIssuerRepoRepoViewNotFoundCopyWithImpl<$Res>
+    implements $UVerificationViewIssuerRepoRepoViewNotFoundCopyWith<$Res> {
+  _$UVerificationViewIssuerRepoRepoViewNotFoundCopyWithImpl(this._self, this._then);
+
+  final UVerificationViewIssuerRepoRepoViewNotFound _self;
+  final $Res Function(UVerificationViewIssuerRepoRepoViewNotFound) _then;
+
+/// Create a copy of UVerificationViewIssuerRepo
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UVerificationViewIssuerRepoRepoViewNotFound(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as RepoViewNotFound,
+  ));
+}
+
+/// Create a copy of UVerificationViewIssuerRepo
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RepoViewNotFoundCopyWith<$Res> get data {
+  
+  return $RepoViewNotFoundCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+
+
+class UVerificationViewIssuerRepoUnknown extends UVerificationViewIssuerRepo {
+  const UVerificationViewIssuerRepoUnknown({required final  Map<String, dynamic> data}): _data = data,super._();
+  
+
+ final  Map<String, dynamic> _data;
+@override Map<String, dynamic> get data {
+  if (_data is EqualUnmodifiableMapView) return _data;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_data);
+}
+
+
+/// Create a copy of UVerificationViewIssuerRepo
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UVerificationViewIssuerRepoUnknownCopyWith<UVerificationViewIssuerRepoUnknown> get copyWith => _$UVerificationViewIssuerRepoUnknownCopyWithImpl<UVerificationViewIssuerRepoUnknown>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UVerificationViewIssuerRepoUnknown&&const DeepCollectionEquality().equals(other._data, _data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_data));
+
+@override
+String toString() {
+  return 'UVerificationViewIssuerRepo.unknown(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UVerificationViewIssuerRepoUnknownCopyWith<$Res> implements $UVerificationViewIssuerRepoCopyWith<$Res> {
+  factory $UVerificationViewIssuerRepoUnknownCopyWith(UVerificationViewIssuerRepoUnknown value, $Res Function(UVerificationViewIssuerRepoUnknown) _then) = _$UVerificationViewIssuerRepoUnknownCopyWithImpl;
+@useResult
+$Res call({
+ Map<String, dynamic> data
+});
+
+
+
+
+}
+/// @nodoc
+class _$UVerificationViewIssuerRepoUnknownCopyWithImpl<$Res>
+    implements $UVerificationViewIssuerRepoUnknownCopyWith<$Res> {
+  _$UVerificationViewIssuerRepoUnknownCopyWithImpl(this._self, this._then);
+
+  final UVerificationViewIssuerRepoUnknown _self;
+  final $Res Function(UVerificationViewIssuerRepoUnknown) _then;
+
+/// Create a copy of UVerificationViewIssuerRepo
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UVerificationViewIssuerRepoUnknown(
+data: null == data ? _self._data : data // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,
+  ));
+}
+
+
+}
+
+// dart format on

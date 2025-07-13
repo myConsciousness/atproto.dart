@@ -8,29 +8,26 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SetDeleteValuesInputImpl _$$SetDeleteValuesInputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$SetDeleteValuesInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SetDeleteValuesInputImpl(
-          name: $checkedConvert('name', (v) => v as String),
-          values: $checkedConvert('values',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_SetDeleteValuesInput _$SetDeleteValuesInputFromJson(Map json) =>
+    $checkedCreate('_SetDeleteValuesInput', json, ($checkedConvert) {
+      final val = _SetDeleteValuesInput(
+        name: $checkedConvert('name', (v) => v as String),
+        values: $checkedConvert(
+          'values',
+          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$SetDeleteValuesInputImplToJson(
-        _$SetDeleteValuesInputImpl instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'values': instance.values,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$SetDeleteValuesInputToJson(
+  _SetDeleteValuesInput instance,
+) => <String, dynamic>{
+  'name': instance.name,
+  'values': instance.values,
+  r'$unknown': instance.$unknown,
+};

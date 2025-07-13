@@ -18,21 +18,13 @@ final class LexPrimitiveConverter
 
     switch (type) {
       case 'string':
-        return LexPrimitive.string(
-          data: LexString.fromJson(json),
-        );
+        return LexPrimitive.string(data: LexString.fromJson(json));
       case 'integer':
-        return LexPrimitive.integer(
-          data: LexInteger.fromJson(json),
-        );
+        return LexPrimitive.integer(data: LexInteger.fromJson(json));
       case 'boolean':
-        return LexPrimitive.boolean(
-          data: LexBoolean.fromJson(json),
-        );
+        return LexPrimitive.boolean(data: LexBoolean.fromJson(json));
       case 'unknown':
-        return LexPrimitive.unknown(
-          data: LexUnknown.fromJson(json),
-        );
+        return LexPrimitive.unknown(data: LexUnknown.fromJson(json));
 
       default:
         throw UnsupportedError('Unsupported type [$type]');
@@ -41,9 +33,9 @@ final class LexPrimitiveConverter
 
   @override
   Map<String, dynamic> toJson(LexPrimitive object) => object.when(
-        boolean: (data) => data.toJson(),
-        integer: (data) => data.toJson(),
-        string: (data) => data.toJson(),
-        unknown: (data) => data.toJson(),
-      );
+    boolean: (data) => data.toJson(),
+    integer: (data) => data.toJson(),
+    string: (data) => data.toJson(),
+    unknown: (data) => data.toJson(),
+  );
 }

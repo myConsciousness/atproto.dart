@@ -39,6 +39,7 @@ abstract class EmbedVideoView with _$EmbedVideoView {
     @AtUriConverter() AtUri? thumbnail,
     String? alt,
     @AspectRatioConverter() AspectRatio? aspectRatio,
+
     Map<String, dynamic>? $unknown,
   }) = _EmbedVideoView;
 
@@ -57,14 +58,10 @@ final class EmbedVideoViewConverter
 
   @override
   EmbedVideoView fromJson(Map<String, dynamic> json) {
-    return EmbedVideoView.fromJson(translate(
-      json,
-      EmbedVideoView.knownProps,
-    ));
+    return EmbedVideoView.fromJson(translate(json, EmbedVideoView.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedVideoView object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(EmbedVideoView object) =>
+      untranslate(object.toJson());
 }

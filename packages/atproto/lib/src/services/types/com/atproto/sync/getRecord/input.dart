@@ -20,11 +20,7 @@ part 'input.g.dart';
 
 @freezed
 abstract class SyncGetRecordInput with _$SyncGetRecordInput {
-  static const knownProps = <String>[
-    'did',
-    'collection',
-    'rkey',
-  ];
+  static const knownProps = <String>['did', 'collection', 'rkey'];
 
   const factory SyncGetRecordInput({
     /// The DID of the repo.
@@ -33,6 +29,7 @@ abstract class SyncGetRecordInput with _$SyncGetRecordInput {
 
     /// Record Key
     required String rkey,
+
     Map<String, dynamic>? $unknown,
   }) = _SyncGetRecordInput;
 
@@ -46,14 +43,12 @@ final class SyncGetRecordInputConverter
 
   @override
   SyncGetRecordInput fromJson(Map<String, dynamic> json) {
-    return SyncGetRecordInput.fromJson(translate(
-      json,
-      SyncGetRecordInput.knownProps,
-    ));
+    return SyncGetRecordInput.fromJson(
+      translate(json, SyncGetRecordInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SyncGetRecordInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SyncGetRecordInput object) =>
+      untranslate(object.toJson());
 }

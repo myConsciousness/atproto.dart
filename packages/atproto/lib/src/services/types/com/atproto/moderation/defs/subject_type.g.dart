@@ -8,20 +8,19 @@ part of 'subject_type.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SubjectTypeImpl _$$SubjectTypeImplFromJson(Map json) => $checkedCreate(
-      r'_$SubjectTypeImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SubjectTypeImpl(
-          knownValue: $checkedConvert('knownValue',
-              (v) => $enumDecodeNullable(_$KnownSubjectTypeEnumMap, v)),
-          unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
-        );
-        return val;
-      },
-    );
+_SubjectType _$SubjectTypeFromJson(Map json) =>
+    $checkedCreate('_SubjectType', json, ($checkedConvert) {
+      final val = _SubjectType(
+        knownValue: $checkedConvert(
+          'knownValue',
+          (v) => $enumDecodeNullable(_$KnownSubjectTypeEnumMap, v),
+        ),
+        unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$SubjectTypeImplToJson(_$SubjectTypeImpl instance) =>
+Map<String, dynamic> _$SubjectTypeToJson(_SubjectType instance) =>
     <String, dynamic>{
       'knownValue': _$KnownSubjectTypeEnumMap[instance.knownValue],
       'unknownValue': instance.unknownValue,

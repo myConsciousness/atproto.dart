@@ -23,13 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class ModerationGetReposOutput with _$ModerationGetReposOutput {
-  static const knownProps = <String>[
-    'repos',
-  ];
+  static const knownProps = <String>['repos'];
 
   const factory ModerationGetReposOutput({
     @UModerationGetReposReposConverter()
     required List<UModerationGetReposRepos> repos,
+
     Map<String, dynamic>? $unknown,
   }) = _ModerationGetReposOutput;
 
@@ -43,14 +42,12 @@ final class ModerationGetReposOutputConverter
 
   @override
   ModerationGetReposOutput fromJson(Map<String, dynamic> json) {
-    return ModerationGetReposOutput.fromJson(translate(
-      json,
-      ModerationGetReposOutput.knownProps,
-    ));
+    return ModerationGetReposOutput.fromJson(
+      translate(json, ModerationGetReposOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ModerationGetReposOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ModerationGetReposOutput object) =>
+      untranslate(object.toJson());
 }

@@ -8,45 +8,46 @@ part of 'blocked_author.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BlockedAuthorImpl _$$BlockedAuthorImplFromJson(Map json) => $checkedCreate(
-      r'_$BlockedAuthorImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$BlockedAuthorImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyFeedDefsBlockedAuthor),
-          did: $checkedConvert('did', (v) => v as String),
-          viewer: $checkedConvert(
-              'viewer',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, ViewerState>(
-                  v, const ViewerStateConverter().fromJson)),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_BlockedAuthor _$BlockedAuthorFromJson(Map json) =>
+    $checkedCreate('_BlockedAuthor', json, ($checkedConvert) {
+      final val = _BlockedAuthor(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyFeedDefsBlockedAuthor,
+        ),
+        did: $checkedConvert('did', (v) => v as String),
+        viewer: $checkedConvert(
+          'viewer',
+          (v) => _$JsonConverterFromJson<Map<String, dynamic>, ViewerState>(
+            v,
+            const ViewerStateConverter().fromJson,
+          ),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$BlockedAuthorImplToJson(_$BlockedAuthorImpl instance) =>
+Map<String, dynamic> _$BlockedAuthorToJson(_BlockedAuthor instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'did': instance.did,
       'viewer': _$JsonConverterToJson<Map<String, dynamic>, ViewerState>(
-          instance.viewer, const ViewerStateConverter().toJson),
+        instance.viewer,
+        const ViewerStateConverter().toJson,
+      ),
       r'$unknown': instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,
   Value? Function(Json json) fromJson,
-) =>
-    json == null ? null : fromJson(json as Json);
+) => json == null ? null : fromJson(json as Json);
 
 Json? _$JsonConverterToJson<Json, Value>(
   Value? value,
   Json? Function(Value value) toJson,
-) =>
-    value == null ? null : toJson(value);
+) => value == null ? null : toJson(value);

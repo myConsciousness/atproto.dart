@@ -20,11 +20,7 @@ part 'action_type.g.dart';
 
 @freezed
 abstract class ActionType with _$ActionType {
-  static const knownProps = <String>[
-    'block',
-    'warn',
-    'whitelist',
-  ];
+  static const knownProps = <String>['block', 'warn', 'whitelist'];
 
   const factory ActionType({
     KnownActionType? knownValue,
@@ -41,16 +37,12 @@ abstract class ActionTypeConverter
 
   @override
   ActionType fromJson(Map<String, dynamic> json) {
-    return ActionType.fromJson(translate(
-      json,
-      ActionType.knownProps,
-    ));
+    return ActionType.fromJson(translate(json, ActionType.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ActionType object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ActionType object) =>
+      untranslate(object.toJson());
 }
 
 enum KnownActionType implements Serializable {
@@ -59,8 +51,7 @@ enum KnownActionType implements Serializable {
   @JsonValue('warn')
   warn('warn'),
   @JsonValue('whitelist')
-  whitelist('whitelist'),
-  ;
+  whitelist('whitelist');
 
   @override
   final String value;

@@ -23,15 +23,13 @@ part 'threat_signature.g.dart';
 
 @freezed
 abstract class ThreatSignature with _$ThreatSignature {
-  static const knownProps = <String>[
-    'property',
-    'value',
-  ];
+  static const knownProps = <String>['property', 'value'];
 
   const factory ThreatSignature({
     @Default(comAtprotoAdminDefsThreatSignature) String $type,
     required String property,
     required String value,
+
     Map<String, dynamic>? $unknown,
   }) = _ThreatSignature;
 
@@ -50,14 +48,12 @@ final class ThreatSignatureConverter
 
   @override
   ThreatSignature fromJson(Map<String, dynamic> json) {
-    return ThreatSignature.fromJson(translate(
-      json,
-      ThreatSignature.knownProps,
-    ));
+    return ThreatSignature.fromJson(
+      translate(json, ThreatSignature.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ThreatSignature object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ThreatSignature object) =>
+      untranslate(object.toJson());
 }

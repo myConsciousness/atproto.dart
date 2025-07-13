@@ -23,15 +23,13 @@ part 'preference.g.dart';
 
 @freezed
 abstract class Preference with _$Preference {
-  static const knownProps = <String>[
-    'list',
-    'push',
-  ];
+  static const knownProps = <String>['list', 'push'];
 
   const factory Preference({
     @Default(appBskyNotificationDefsPreference) String $type,
     required bool list,
     required bool push,
+
     Map<String, dynamic>? $unknown,
   }) = _Preference;
 
@@ -50,14 +48,10 @@ final class PreferenceConverter
 
   @override
   Preference fromJson(Map<String, dynamic> json) {
-    return Preference.fromJson(translate(
-      json,
-      Preference.knownProps,
-    ));
+    return Preference.fromJson(translate(json, Preference.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(Preference object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(Preference object) =>
+      untranslate(object.toJson());
 }

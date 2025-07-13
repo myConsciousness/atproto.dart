@@ -8,28 +8,26 @@ part of 'link.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RichtextFacetLinkImpl _$$RichtextFacetLinkImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$RichtextFacetLinkImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$RichtextFacetLinkImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyRichtextFacetLink),
-          uri: $checkedConvert(
-              'uri', (v) => const AtUriConverter().fromJson(v as String)),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_RichtextFacetLink _$RichtextFacetLinkFromJson(Map json) =>
+    $checkedCreate('_RichtextFacetLink', json, ($checkedConvert) {
+      final val = _RichtextFacetLink(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyRichtextFacetLink,
+        ),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$RichtextFacetLinkImplToJson(
-        _$RichtextFacetLinkImpl instance) =>
+Map<String, dynamic> _$RichtextFacetLinkToJson(_RichtextFacetLink instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'uri': const AtUriConverter().toJson(instance.uri),

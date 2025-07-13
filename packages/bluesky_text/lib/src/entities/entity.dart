@@ -10,7 +10,7 @@ part 'entity.freezed.dart';
 part 'entity.g.dart';
 
 @freezed
-class Entity with _$Entity implements Facetable {
+abstract class Entity with _$Entity implements Facetable {
   // ignore: unused_element
   const Entity._();
 
@@ -23,24 +23,16 @@ class Entity with _$Entity implements Facetable {
   factory Entity.fromJson(Map<String, Object?> json) => _$EntityFromJson(json);
 
   /// Returns the facet representation of this entity as JSON.
-  Future<Map<String, dynamic>> toFacet({
-    String? service,
-  }) async {
+  Future<Map<String, dynamic>> toFacet({String? service}) async {
     final facet = <String, dynamic>{
-      'index': {
-        'byteStart': indices.start,
-        'byteEnd': indices.end,
-      },
-      'features': []
+      'index': {'byteStart': indices.start, 'byteEnd': indices.end},
+      'features': [],
     };
 
     switch (type) {
       case EntityType.handle:
         try {
-          final did = await api.findDID(
-            handle: value,
-            service: service,
-          );
+          final did = await api.findDID(handle: value, service: service);
 
           facet['features'].add({
             '\$type': 'app.bsky.richtext.facet#mention',
@@ -85,9 +77,4 @@ class Entity with _$Entity implements Facetable {
   bool get isTag => type == EntityType.tag;
 }
 
-enum EntityType {
-  handle,
-  link,
-  markdownLink,
-  tag,
-}
+enum EntityType { handle, link, markdownLink, tag }

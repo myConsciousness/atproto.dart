@@ -15,9 +15,7 @@ void main() {
         ),
         cid: 'aaaaa',
         name: 'test',
-        viewer: ListViewer(
-          isMuted: true,
-        ),
+        viewer: ListViewer(isMuted: true),
         indexedAt: DateTime.now(),
       );
 
@@ -31,9 +29,7 @@ void main() {
         ),
         cid: 'aaaaa',
         name: 'test',
-        viewer: ListViewer(
-          isMuted: false,
-        ),
+        viewer: ListViewer(isMuted: false),
         indexedAt: DateTime.now(),
       );
 
@@ -49,9 +45,7 @@ void main() {
         ),
         cid: 'aaaaa',
         name: 'test',
-        viewer: ListViewer(
-          isMuted: true,
-        ),
+        viewer: ListViewer(isMuted: true),
         indexedAt: DateTime.now(),
       );
 
@@ -65,9 +59,7 @@ void main() {
         ),
         cid: 'aaaaa',
         name: 'test',
-        viewer: ListViewer(
-          isMuted: false,
-        ),
+        viewer: ListViewer(isMuted: false),
         indexedAt: DateTime.now(),
       );
 
@@ -102,9 +94,7 @@ void main() {
         ),
         cid: 'aaaaa',
         name: 'test',
-        viewer: ListViewer(
-          isMuted: false,
-        ),
+        viewer: ListViewer(isMuted: false),
         indexedAt: DateTime.now(),
       );
 
@@ -139,9 +129,7 @@ void main() {
         ),
         cid: 'aaaaa',
         name: 'test',
-        viewer: ListViewer(
-          isMuted: false,
-        ),
+        viewer: ListViewer(isMuted: false),
         indexedAt: DateTime.now(),
       );
 

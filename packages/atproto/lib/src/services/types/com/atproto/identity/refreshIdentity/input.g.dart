@@ -8,27 +8,22 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$IdentityRefreshIdentityInputImpl _$$IdentityRefreshIdentityInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$IdentityRefreshIdentityInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$IdentityRefreshIdentityInputImpl(
-          identifier: $checkedConvert('identifier', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_IdentityRefreshIdentityInput _$IdentityRefreshIdentityInputFromJson(
+  Map json,
+) => $checkedCreate('_IdentityRefreshIdentityInput', json, ($checkedConvert) {
+  final val = _IdentityRefreshIdentityInput(
+    identifier: $checkedConvert('identifier', (v) => v as String),
+    $unknown: $checkedConvert(
+      r'$unknown',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
+  );
+  return val;
+});
 
-Map<String, dynamic> _$$IdentityRefreshIdentityInputImplToJson(
-        _$IdentityRefreshIdentityInputImpl instance) =>
-    <String, dynamic>{
-      'identifier': instance.identifier,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$IdentityRefreshIdentityInputToJson(
+  _IdentityRefreshIdentityInput instance,
+) => <String, dynamic>{
+  'identifier': instance.identifier,
+  r'$unknown': instance.$unknown,
+};

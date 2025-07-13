@@ -23,15 +23,13 @@ part 'not_found_post.g.dart';
 
 @freezed
 abstract class NotFoundPost with _$NotFoundPost {
-  static const knownProps = <String>[
-    'uri',
-    'notFound',
-  ];
+  static const knownProps = <String>['uri', 'notFound'];
 
   const factory NotFoundPost({
     @Default(appBskyFeedDefsNotFoundPost) String $type,
     required String uri,
     required bool notFound,
+
     Map<String, dynamic>? $unknown,
   }) = _NotFoundPost;
 
@@ -50,14 +48,10 @@ final class NotFoundPostConverter
 
   @override
   NotFoundPost fromJson(Map<String, dynamic> json) {
-    return NotFoundPost.fromJson(translate(
-      json,
-      NotFoundPost.knownProps,
-    ));
+    return NotFoundPost.fromJson(translate(json, NotFoundPost.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(NotFoundPost object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(NotFoundPost object) =>
+      untranslate(object.toJson());
 }

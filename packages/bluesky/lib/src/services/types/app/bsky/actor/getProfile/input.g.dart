@@ -8,26 +8,18 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorGetProfileInputImpl _$$ActorGetProfileInputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ActorGetProfileInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ActorGetProfileInputImpl(
-          actor: $checkedConvert('actor', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ActorGetProfileInput _$ActorGetProfileInputFromJson(Map json) =>
+    $checkedCreate('_ActorGetProfileInput', json, ($checkedConvert) {
+      final val = _ActorGetProfileInput(
+        actor: $checkedConvert('actor', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ActorGetProfileInputImplToJson(
-        _$ActorGetProfileInputImpl instance) =>
-    <String, dynamic>{
-      'actor': instance.actor,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ActorGetProfileInputToJson(
+  _ActorGetProfileInput instance,
+) => <String, dynamic>{'actor': instance.actor, r'$unknown': instance.$unknown};

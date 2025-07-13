@@ -25,13 +25,12 @@ part 'self_labels.g.dart';
 /// Metadata tags on an atproto record, published by the author within the record.
 @freezed
 abstract class SelfLabels with _$SelfLabels {
-  static const knownProps = <String>[
-    'values',
-  ];
+  static const knownProps = <String>['values'];
 
   const factory SelfLabels({
     @Default(comAtprotoLabelDefsSelfLabels) String $type,
     @SelfLabelConverter() required List<SelfLabel> values,
+
     Map<String, dynamic>? $unknown,
   }) = _SelfLabels;
 
@@ -50,14 +49,10 @@ final class SelfLabelsConverter
 
   @override
   SelfLabels fromJson(Map<String, dynamic> json) {
-    return SelfLabels.fromJson(translate(
-      json,
-      SelfLabels.knownProps,
-    ));
+    return SelfLabels.fromJson(translate(json, SelfLabels.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(SelfLabels object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SelfLabels object) =>
+      untranslate(object.toJson());
 }

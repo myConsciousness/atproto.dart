@@ -23,11 +23,7 @@ part 'output.g.dart';
 
 @freezed
 abstract class ActorGetSuggestionsOutput with _$ActorGetSuggestionsOutput {
-  static const knownProps = <String>[
-    'cursor',
-    'actors',
-    'recId',
-  ];
+  static const knownProps = <String>['cursor', 'actors', 'recId'];
 
   const factory ActorGetSuggestionsOutput({
     String? cursor,
@@ -35,6 +31,7 @@ abstract class ActorGetSuggestionsOutput with _$ActorGetSuggestionsOutput {
 
     /// Snowflake for this recommendation, use when submitting recommendation events.
     int? recId,
+
     Map<String, dynamic>? $unknown,
   }) = _ActorGetSuggestionsOutput;
 
@@ -42,20 +39,19 @@ abstract class ActorGetSuggestionsOutput with _$ActorGetSuggestionsOutput {
       _$ActorGetSuggestionsOutputFromJson(json);
 }
 
-final class ActorGetSuggestionsOutputConverter extends LexObjectConverter<
-    ActorGetSuggestionsOutput, Map<String, dynamic>> {
+final class ActorGetSuggestionsOutputConverter
+    extends
+        LexObjectConverter<ActorGetSuggestionsOutput, Map<String, dynamic>> {
   const ActorGetSuggestionsOutputConverter();
 
   @override
   ActorGetSuggestionsOutput fromJson(Map<String, dynamic> json) {
-    return ActorGetSuggestionsOutput.fromJson(translate(
-      json,
-      ActorGetSuggestionsOutput.knownProps,
-    ));
+    return ActorGetSuggestionsOutput.fromJson(
+      translate(json, ActorGetSuggestionsOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ActorGetSuggestionsOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ActorGetSuggestionsOutput object) =>
+      untranslate(object.toJson());
 }

@@ -8,26 +8,26 @@ part of 'interests_pref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$InterestsPrefImpl _$$InterestsPrefImplFromJson(Map json) => $checkedCreate(
-      r'_$InterestsPrefImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$InterestsPrefImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyActorDefsInterestsPref),
-          tags: $checkedConvert('tags',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_InterestsPref _$InterestsPrefFromJson(Map json) =>
+    $checkedCreate('_InterestsPref', json, ($checkedConvert) {
+      final val = _InterestsPref(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyActorDefsInterestsPref,
+        ),
+        tags: $checkedConvert(
+          'tags',
+          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$InterestsPrefImplToJson(_$InterestsPrefImpl instance) =>
+Map<String, dynamic> _$InterestsPrefToJson(_InterestsPref instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'tags': instance.tags,

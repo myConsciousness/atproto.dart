@@ -8,20 +8,19 @@ part of 'lex_blob.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LexBlobImpl _$$LexBlobImplFromJson(Map json) => $checkedCreate(
-      r'_$LexBlobImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$LexBlobImpl(
-          type: $checkedConvert('type', (v) => v as String? ?? 'blob'),
-          description: $checkedConvert('description', (v) => v as String?),
-          accept: $checkedConvert('accept',
-              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
-          maxSize: $checkedConvert('maxSize', (v) => (v as num?)?.toInt()),
-        );
-        return val;
-      },
-    );
+_$LexBlobImpl _$$LexBlobImplFromJson(Map json) =>
+    $checkedCreate(r'_$LexBlobImpl', json, ($checkedConvert) {
+      final val = _$LexBlobImpl(
+        type: $checkedConvert('type', (v) => v as String? ?? 'blob'),
+        description: $checkedConvert('description', (v) => v as String?),
+        accept: $checkedConvert(
+          'accept',
+          (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+        ),
+        maxSize: $checkedConvert('maxSize', (v) => (v as num?)?.toInt()),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$$LexBlobImplToJson(_$LexBlobImpl instance) =>
     <String, dynamic>{

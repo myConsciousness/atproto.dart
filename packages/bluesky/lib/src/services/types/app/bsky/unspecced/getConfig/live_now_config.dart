@@ -23,15 +23,13 @@ part 'live_now_config.g.dart';
 
 @freezed
 abstract class LiveNowConfig with _$LiveNowConfig {
-  static const knownProps = <String>[
-    'did',
-    'domains',
-  ];
+  static const knownProps = <String>['did', 'domains'];
 
   const factory LiveNowConfig({
     @Default(appBskyUnspeccedGetConfigLiveNowConfig) String $type,
     required String did,
     required List<String> domains,
+
     Map<String, dynamic>? $unknown,
   }) = _LiveNowConfig;
 
@@ -50,14 +48,10 @@ final class LiveNowConfigConverter
 
   @override
   LiveNowConfig fromJson(Map<String, dynamic> json) {
-    return LiveNowConfig.fromJson(translate(
-      json,
-      LiveNowConfig.knownProps,
-    ));
+    return LiveNowConfig.fromJson(translate(json, LiveNowConfig.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(LiveNowConfig object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(LiveNowConfig object) =>
+      untranslate(object.toJson());
 }

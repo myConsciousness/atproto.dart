@@ -8,28 +8,27 @@ part of 'thread_view_pref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ThreadViewPrefImpl _$$ThreadViewPrefImplFromJson(Map json) => $checkedCreate(
-      r'_$ThreadViewPrefImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ThreadViewPrefImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyActorDefsThreadViewPref),
-          sort: $checkedConvert('sort', (v) => v as String?),
-          prioritizeFollowedUsers:
-              $checkedConvert('prioritizeFollowedUsers', (v) => v as bool?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ThreadViewPref _$ThreadViewPrefFromJson(Map json) =>
+    $checkedCreate('_ThreadViewPref', json, ($checkedConvert) {
+      final val = _ThreadViewPref(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyActorDefsThreadViewPref,
+        ),
+        sort: $checkedConvert('sort', (v) => v as String?),
+        prioritizeFollowedUsers: $checkedConvert(
+          'prioritizeFollowedUsers',
+          (v) => v as bool?,
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ThreadViewPrefImplToJson(
-        _$ThreadViewPrefImpl instance) =>
+Map<String, dynamic> _$ThreadViewPrefToJson(_ThreadViewPref instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'sort': instance.sort,

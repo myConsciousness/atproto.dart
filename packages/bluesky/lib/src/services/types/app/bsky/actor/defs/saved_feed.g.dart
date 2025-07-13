@@ -8,28 +8,26 @@ part of 'saved_feed.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SavedFeedImpl _$$SavedFeedImplFromJson(Map json) => $checkedCreate(
-      r'_$SavedFeedImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SavedFeedImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyActorDefsSavedFeed),
-          id: $checkedConvert('id', (v) => v as String),
-          type: $checkedConvert('type', (v) => v as String),
-          value: $checkedConvert('value', (v) => v as String),
-          pinned: $checkedConvert('pinned', (v) => v as bool),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_SavedFeed _$SavedFeedFromJson(Map json) =>
+    $checkedCreate('_SavedFeed', json, ($checkedConvert) {
+      final val = _SavedFeed(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyActorDefsSavedFeed,
+        ),
+        id: $checkedConvert('id', (v) => v as String),
+        type: $checkedConvert('type', (v) => v as String),
+        value: $checkedConvert('value', (v) => v as String),
+        pinned: $checkedConvert('pinned', (v) => v as bool),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$SavedFeedImplToJson(_$SavedFeedImpl instance) =>
+Map<String, dynamic> _$SavedFeedToJson(_SavedFeed instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'id': instance.id,

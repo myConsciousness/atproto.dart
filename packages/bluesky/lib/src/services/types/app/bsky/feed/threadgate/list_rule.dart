@@ -24,13 +24,12 @@ part 'list_rule.g.dart';
 /// Allow replies from actors on a list.
 @freezed
 abstract class ListRule with _$ListRule {
-  static const knownProps = <String>[
-    'list',
-  ];
+  static const knownProps = <String>['list'];
 
   const factory ListRule({
     @Default(appBskyFeedThreadgateListRule) String $type,
     required String list,
+
     Map<String, dynamic>? $unknown,
   }) = _ListRule;
 
@@ -49,14 +48,9 @@ final class ListRuleConverter
 
   @override
   ListRule fromJson(Map<String, dynamic> json) {
-    return ListRule.fromJson(translate(
-      json,
-      ListRule.knownProps,
-    ));
+    return ListRule.fromJson(translate(json, ListRule.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ListRule object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ListRule object) => untranslate(object.toJson());
 }

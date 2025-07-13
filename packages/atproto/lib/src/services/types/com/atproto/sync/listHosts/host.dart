@@ -41,6 +41,7 @@ abstract class Host with _$Host {
     int? seq,
     int? accountCount,
     @HostStatusConverter() HostStatus? status,
+
     Map<String, dynamic>? $unknown,
   }) = _Host;
 
@@ -58,14 +59,9 @@ final class HostConverter
 
   @override
   Host fromJson(Map<String, dynamic> json) {
-    return Host.fromJson(translate(
-      json,
-      Host.knownProps,
-    ));
+    return Host.fromJson(translate(json, Host.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(Host object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(Host object) => untranslate(object.toJson());
 }

@@ -18,11 +18,7 @@ void main() {
 
       final notification = GroupedNotification(
         uris: [
-          AtUri.make(
-            'shinyakato.dev',
-            'app.bsky.feed.like',
-            '3k6lgygp3op25',
-          ),
+          AtUri.make('shinyakato.dev', 'app.bsky.feed.like', '3k6lgygp3op25'),
         ],
         authors: [],
         reason: GroupedNotificationReason.like,
@@ -44,11 +40,7 @@ void main() {
 
       final notification = GroupedNotification(
         uris: [
-          AtUri.make(
-            'shinyakato.dev',
-            'app.bsky.feed.like',
-            '3k6lgygp3op25',
-          ),
+          AtUri.make('shinyakato.dev', 'app.bsky.feed.like', '3k6lgygp3op25'),
         ],
         authors: [],
         reason: GroupedNotificationReason.customFeedLike,
@@ -70,11 +62,7 @@ void main() {
 
       final notification = GroupedNotification(
         uris: [
-          AtUri.make(
-            'shinyakato.dev',
-            'app.bsky.feed.like',
-            '3k6lgygp3op25',
-          ),
+          AtUri.make('shinyakato.dev', 'app.bsky.feed.like', '3k6lgygp3op25'),
         ],
         authors: [],
         reason: GroupedNotificationReason.repost,
@@ -96,11 +84,7 @@ void main() {
 
       final notification = GroupedNotification(
         uris: [
-          AtUri.make(
-            'shinyakato.dev',
-            'app.bsky.feed.like',
-            '3k6lgygp3op25',
-          ),
+          AtUri.make('shinyakato.dev', 'app.bsky.feed.like', '3k6lgygp3op25'),
         ],
         authors: [],
         reason: GroupedNotificationReason.repost,
@@ -123,11 +107,7 @@ void main() {
       final notification = GroupedNotification(
         uris: [
           postUri,
-          AtUri.make(
-            'shinyakato.dev',
-            'app.bsky.feed.like',
-            '3k6lgygp3op25',
-          ),
+          AtUri.make('shinyakato.dev', 'app.bsky.feed.like', '3k6lgygp3op25'),
         ],
         authors: [],
         reason: GroupedNotificationReason.reply,
@@ -149,11 +129,7 @@ void main() {
       final notification = GroupedNotification(
         uris: [
           postUri,
-          AtUri.make(
-            'shinyakato.dev',
-            'app.bsky.feed.like',
-            '3k6lgygp3op25',
-          ),
+          AtUri.make('shinyakato.dev', 'app.bsky.feed.like', '3k6lgygp3op25'),
         ],
         authors: [],
         reason: GroupedNotificationReason.quote,
@@ -175,11 +151,7 @@ void main() {
       final notification = GroupedNotification(
         uris: [
           postUri,
-          AtUri.make(
-            'shinyakato.dev',
-            'app.bsky.feed.like',
-            '3k6lgygp3op25',
-          ),
+          AtUri.make('shinyakato.dev', 'app.bsky.feed.like', '3k6lgygp3op25'),
         ],
         authors: [],
         reason: GroupedNotificationReason.mention,
@@ -201,11 +173,7 @@ void main() {
       final notification = GroupedNotification(
         uris: [
           postUri,
-          AtUri.make(
-            'shinyakato.dev',
-            'app.bsky.feed.like',
-            '3k6lgygp3op25',
-          ),
+          AtUri.make('shinyakato.dev', 'app.bsky.feed.like', '3k6lgygp3op25'),
         ],
         authors: [],
         reason: GroupedNotificationReason.follow,

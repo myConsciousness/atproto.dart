@@ -23,11 +23,7 @@ part 'content_label_pref.g.dart';
 
 @freezed
 abstract class ContentLabelPref with _$ContentLabelPref {
-  static const knownProps = <String>[
-    'labelerDid',
-    'label',
-    'visibility',
-  ];
+  static const knownProps = <String>['labelerDid', 'label', 'visibility'];
 
   const factory ContentLabelPref({
     @Default(appBskyActorDefsContentLabelPref) String $type,
@@ -36,6 +32,7 @@ abstract class ContentLabelPref with _$ContentLabelPref {
     String? labelerDid,
     required String label,
     required String visibility,
+
     Map<String, dynamic>? $unknown,
   }) = _ContentLabelPref;
 
@@ -54,14 +51,12 @@ final class ContentLabelPrefConverter
 
   @override
   ContentLabelPref fromJson(Map<String, dynamic> json) {
-    return ContentLabelPref.fromJson(translate(
-      json,
-      ContentLabelPref.knownProps,
-    ));
+    return ContentLabelPref.fromJson(
+      translate(json, ContentLabelPref.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ContentLabelPref object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ContentLabelPref object) =>
+      untranslate(object.toJson());
 }

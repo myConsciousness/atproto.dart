@@ -21,12 +21,11 @@ part 'input.g.dart';
 @freezed
 abstract class SignatureFindCorrelationInput
     with _$SignatureFindCorrelationInput {
-  static const knownProps = <String>[
-    'dids',
-  ];
+  static const knownProps = <String>['dids'];
 
   const factory SignatureFindCorrelationInput({
     required List<String> dids,
+
     Map<String, dynamic>? $unknown,
   }) = _SignatureFindCorrelationInput;
 
@@ -34,21 +33,22 @@ abstract class SignatureFindCorrelationInput
       _$SignatureFindCorrelationInputFromJson(json);
 }
 
-final class SignatureFindCorrelationInputConverter extends LexObjectConverter<
-    SignatureFindCorrelationInput, Map<String, dynamic>> {
+final class SignatureFindCorrelationInputConverter
+    extends
+        LexObjectConverter<
+          SignatureFindCorrelationInput,
+          Map<String, dynamic>
+        > {
   const SignatureFindCorrelationInputConverter();
 
   @override
   SignatureFindCorrelationInput fromJson(Map<String, dynamic> json) {
-    return SignatureFindCorrelationInput.fromJson(translate(
-      json,
-      SignatureFindCorrelationInput.knownProps,
-    ));
+    return SignatureFindCorrelationInput.fromJson(
+      translate(json, SignatureFindCorrelationInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(SignatureFindCorrelationInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

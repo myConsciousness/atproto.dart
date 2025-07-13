@@ -17,21 +17,17 @@ class LexPrimitive with _$LexPrimitive {
   // ignore: unused_element
   const LexPrimitive._();
 
-  const factory LexPrimitive.boolean({
-    required LexBoolean data,
-  }) = ULexPrimitiveBoolean;
+  const factory LexPrimitive.boolean({required LexBoolean data}) =
+      ULexPrimitiveBoolean;
 
-  const factory LexPrimitive.integer({
-    required LexInteger data,
-  }) = ULexPrimitiveInteger;
+  const factory LexPrimitive.integer({required LexInteger data}) =
+      ULexPrimitiveInteger;
 
-  const factory LexPrimitive.string({
-    required LexString data,
-  }) = ULexPrimitiveString;
+  const factory LexPrimitive.string({required LexString data}) =
+      ULexPrimitiveString;
 
-  const factory LexPrimitive.unknown({
-    required LexUnknown data,
-  }) = ULexPrimitiveUnknown;
+  const factory LexPrimitive.unknown({required LexUnknown data}) =
+      ULexPrimitiveUnknown;
 
   Map<String, dynamic> toJson() => const LexPrimitiveConverter().toJson(this);
 }

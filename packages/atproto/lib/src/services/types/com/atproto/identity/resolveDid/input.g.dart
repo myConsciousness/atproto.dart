@@ -8,27 +8,18 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$IdentityResolveDidInputImpl _$$IdentityResolveDidInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$IdentityResolveDidInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$IdentityResolveDidInputImpl(
-          did: $checkedConvert('did', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_IdentityResolveDidInput _$IdentityResolveDidInputFromJson(Map json) =>
+    $checkedCreate('_IdentityResolveDidInput', json, ($checkedConvert) {
+      final val = _IdentityResolveDidInput(
+        did: $checkedConvert('did', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$IdentityResolveDidInputImplToJson(
-        _$IdentityResolveDidInputImpl instance) =>
-    <String, dynamic>{
-      'did': instance.did,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$IdentityResolveDidInputToJson(
+  _IdentityResolveDidInput instance,
+) => <String, dynamic>{'did': instance.did, r'$unknown': instance.$unknown};

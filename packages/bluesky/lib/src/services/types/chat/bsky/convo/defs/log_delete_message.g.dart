@@ -8,37 +8,35 @@ part of 'log_delete_message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LogDeleteMessageImpl _$$LogDeleteMessageImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$LogDeleteMessageImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$LogDeleteMessageImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? chatBskyConvoDefsLogDeleteMessage),
-          rev: $checkedConvert('rev', (v) => v as String),
-          convoId: $checkedConvert('convoId', (v) => v as String),
-          message: $checkedConvert(
-              'message',
-              (v) => const ULogDeleteMessageMessageConverter()
-                  .fromJson(v as Map<String, dynamic>)),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_LogDeleteMessage _$LogDeleteMessageFromJson(Map json) =>
+    $checkedCreate('_LogDeleteMessage', json, ($checkedConvert) {
+      final val = _LogDeleteMessage(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? chatBskyConvoDefsLogDeleteMessage,
+        ),
+        rev: $checkedConvert('rev', (v) => v as String),
+        convoId: $checkedConvert('convoId', (v) => v as String),
+        message: $checkedConvert(
+          'message',
+          (v) => const ULogDeleteMessageMessageConverter().fromJson(
+            v as Map<String, dynamic>,
+          ),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$LogDeleteMessageImplToJson(
-        _$LogDeleteMessageImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'rev': instance.rev,
-      'convoId': instance.convoId,
-      'message':
-          const ULogDeleteMessageMessageConverter().toJson(instance.message),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$LogDeleteMessageToJson(
+  _LogDeleteMessage instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'rev': instance.rev,
+  'convoId': instance.convoId,
+  'message': const ULogDeleteMessageMessageConverter().toJson(instance.message),
+  r'$unknown': instance.$unknown,
+};

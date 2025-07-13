@@ -8,28 +8,25 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UnspeccedGetSuggestedUsersInputImpl
-    _$$UnspeccedGetSuggestedUsersInputImplFromJson(Map json) => $checkedCreate(
-          r'_$UnspeccedGetSuggestedUsersInputImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$UnspeccedGetSuggestedUsersInputImpl(
-              category: $checkedConvert('category', (v) => v as String?),
-              limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
-              $unknown: $checkedConvert(
-                  r'$unknown',
-                  (v) => (v as Map?)?.map(
-                        (k, e) => MapEntry(k as String, e),
-                      )),
-            );
-            return val;
-          },
-        );
+_UnspeccedGetSuggestedUsersInput _$UnspeccedGetSuggestedUsersInputFromJson(
+  Map json,
+) =>
+    $checkedCreate('_UnspeccedGetSuggestedUsersInput', json, ($checkedConvert) {
+      final val = _UnspeccedGetSuggestedUsersInput(
+        category: $checkedConvert('category', (v) => v as String?),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$UnspeccedGetSuggestedUsersInputImplToJson(
-        _$UnspeccedGetSuggestedUsersInputImpl instance) =>
-    <String, dynamic>{
-      'category': instance.category,
-      'limit': instance.limit,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$UnspeccedGetSuggestedUsersInputToJson(
+  _UnspeccedGetSuggestedUsersInput instance,
+) => <String, dynamic>{
+  'category': instance.category,
+  'limit': instance.limit,
+  r'$unknown': instance.$unknown,
+};

@@ -9,9 +9,7 @@ class Entities extends UnmodifiableListView<Entity> {
   Entities(super.source);
 
   /// Returns the collection of facet.
-  Future<List<Map<String, dynamic>>> toFacets({
-    String? service,
-  }) async {
+  Future<List<Map<String, dynamic>>> toFacets({String? service}) async {
     final facets = await Future.wait(
       map((entity) => entity.toFacet(service: service)),
     );

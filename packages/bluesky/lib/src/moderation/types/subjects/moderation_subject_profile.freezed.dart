@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,619 +9,407 @@ part of 'moderation_subject_profile.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$ModerationSubjectProfile {
-  InvalidType get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ActorBasic data) profileViewBasic,
-    required TResult Function(Actor data) profileView,
-    required TResult Function(ActorProfile data) profileViewDetailed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ActorBasic data)? profileViewBasic,
-    TResult? Function(Actor data)? profileView,
-    TResult? Function(ActorProfile data)? profileViewDetailed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ActorBasic data)? profileViewBasic,
-    TResult Function(Actor data)? profileView,
-    TResult Function(ActorProfile data)? profileViewDetailed,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationSubjectProfileProfileViewBasic value)
-        profileViewBasic,
-    required TResult Function(UModerationSubjectProfileProfileView value)
-        profileView,
-    required TResult Function(
-            UModerationSubjectProfileProfileViewDetailed value)
-        profileViewDetailed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationSubjectProfileProfileViewBasic value)?
-        profileViewBasic,
-    TResult? Function(UModerationSubjectProfileProfileView value)? profileView,
-    TResult? Function(UModerationSubjectProfileProfileViewDetailed value)?
-        profileViewDetailed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationSubjectProfileProfileViewBasic value)?
-        profileViewBasic,
-    TResult Function(UModerationSubjectProfileProfileView value)? profileView,
-    TResult Function(UModerationSubjectProfileProfileViewDetailed value)?
-        profileViewDetailed,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
-  /// Create a copy of ModerationSubjectProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ModerationSubjectProfileCopyWith<ModerationSubjectProfile> get copyWith =>
-      throw _privateConstructorUsedError;
+ InvalidType get data;
+/// Create a copy of ModerationSubjectProfile
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ModerationSubjectProfileCopyWith<ModerationSubjectProfile> get copyWith => _$ModerationSubjectProfileCopyWithImpl<ModerationSubjectProfile>(this as ModerationSubjectProfile, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationSubjectProfile&&const DeepCollectionEquality().equals(other.data, data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'ModerationSubjectProfile(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ModerationSubjectProfileCopyWith<$Res> {
-  factory $ModerationSubjectProfileCopyWith(ModerationSubjectProfile value,
-          $Res Function(ModerationSubjectProfile) then) =
-      _$ModerationSubjectProfileCopyWithImpl<$Res, ModerationSubjectProfile>;
-  @useResult
-  $Res call({InvalidType data});
-}
+abstract mixin class $ModerationSubjectProfileCopyWith<$Res>  {
+  factory $ModerationSubjectProfileCopyWith(ModerationSubjectProfile value, $Res Function(ModerationSubjectProfile) _then) = _$ModerationSubjectProfileCopyWithImpl;
+@useResult
+$Res call({
+ InvalidType data
+});
 
+
+
+
+}
 /// @nodoc
-class _$ModerationSubjectProfileCopyWithImpl<$Res,
-        $Val extends ModerationSubjectProfile>
+class _$ModerationSubjectProfileCopyWithImpl<$Res>
     implements $ModerationSubjectProfileCopyWith<$Res> {
-  _$ModerationSubjectProfileCopyWithImpl(this._value, this._then);
+  _$ModerationSubjectProfileCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ModerationSubjectProfile _self;
+  final $Res Function(ModerationSubjectProfile) _then;
 
-  /// Create a copy of ModerationSubjectProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = freezed,
-  }) {
-    return _then(_value.copyWith(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as InvalidType,
-    ) as $Val);
-  }
+/// Create a copy of ModerationSubjectProfile
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? data = freezed,}) {
+  return _then(_self.copyWith(
+data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as InvalidType,
+  ));
 }
 
-/// @nodoc
-abstract class _$$UModerationSubjectProfileProfileViewBasicImplCopyWith<$Res>
-    implements $ModerationSubjectProfileCopyWith<$Res> {
-  factory _$$UModerationSubjectProfileProfileViewBasicImplCopyWith(
-          _$UModerationSubjectProfileProfileViewBasicImpl value,
-          $Res Function(_$UModerationSubjectProfileProfileViewBasicImpl) then) =
-      __$$UModerationSubjectProfileProfileViewBasicImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({ActorBasic data});
 }
 
-/// @nodoc
-class __$$UModerationSubjectProfileProfileViewBasicImplCopyWithImpl<$Res>
-    extends _$ModerationSubjectProfileCopyWithImpl<$Res,
-        _$UModerationSubjectProfileProfileViewBasicImpl>
-    implements _$$UModerationSubjectProfileProfileViewBasicImplCopyWith<$Res> {
-  __$$UModerationSubjectProfileProfileViewBasicImplCopyWithImpl(
-      _$UModerationSubjectProfileProfileViewBasicImpl _value,
-      $Res Function(_$UModerationSubjectProfileProfileViewBasicImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of ModerationSubjectProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = freezed,
-  }) {
-    return _then(_$UModerationSubjectProfileProfileViewBasicImpl(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ActorBasic,
-    ));
-  }
+/// Adds pattern-matching-related methods to [ModerationSubjectProfile].
+extension ModerationSubjectProfilePatterns on ModerationSubjectProfile {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UModerationSubjectProfileProfileViewBasic value)?  profileViewBasic,TResult Function( UModerationSubjectProfileProfileView value)?  profileView,TResult Function( UModerationSubjectProfileProfileViewDetailed value)?  profileViewDetailed,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case UModerationSubjectProfileProfileViewBasic() when profileViewBasic != null:
+return profileViewBasic(_that);case UModerationSubjectProfileProfileView() when profileView != null:
+return profileView(_that);case UModerationSubjectProfileProfileViewDetailed() when profileViewDetailed != null:
+return profileViewDetailed(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UModerationSubjectProfileProfileViewBasic value)  profileViewBasic,required TResult Function( UModerationSubjectProfileProfileView value)  profileView,required TResult Function( UModerationSubjectProfileProfileViewDetailed value)  profileViewDetailed,}){
+final _that = this;
+switch (_that) {
+case UModerationSubjectProfileProfileViewBasic():
+return profileViewBasic(_that);case UModerationSubjectProfileProfileView():
+return profileView(_that);case UModerationSubjectProfileProfileViewDetailed():
+return profileViewDetailed(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UModerationSubjectProfileProfileViewBasic value)?  profileViewBasic,TResult? Function( UModerationSubjectProfileProfileView value)?  profileView,TResult? Function( UModerationSubjectProfileProfileViewDetailed value)?  profileViewDetailed,}){
+final _that = this;
+switch (_that) {
+case UModerationSubjectProfileProfileViewBasic() when profileViewBasic != null:
+return profileViewBasic(_that);case UModerationSubjectProfileProfileView() when profileView != null:
+return profileView(_that);case UModerationSubjectProfileProfileViewDetailed() when profileViewDetailed != null:
+return profileViewDetailed(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( ActorBasic data)?  profileViewBasic,TResult Function( Actor data)?  profileView,TResult Function( ActorProfile data)?  profileViewDetailed,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case UModerationSubjectProfileProfileViewBasic() when profileViewBasic != null:
+return profileViewBasic(_that.data);case UModerationSubjectProfileProfileView() when profileView != null:
+return profileView(_that.data);case UModerationSubjectProfileProfileViewDetailed() when profileViewDetailed != null:
+return profileViewDetailed(_that.data);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( ActorBasic data)  profileViewBasic,required TResult Function( Actor data)  profileView,required TResult Function( ActorProfile data)  profileViewDetailed,}) {final _that = this;
+switch (_that) {
+case UModerationSubjectProfileProfileViewBasic():
+return profileViewBasic(_that.data);case UModerationSubjectProfileProfileView():
+return profileView(_that.data);case UModerationSubjectProfileProfileViewDetailed():
+return profileViewDetailed(_that.data);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( ActorBasic data)?  profileViewBasic,TResult? Function( Actor data)?  profileView,TResult? Function( ActorProfile data)?  profileViewDetailed,}) {final _that = this;
+switch (_that) {
+case UModerationSubjectProfileProfileViewBasic() when profileViewBasic != null:
+return profileViewBasic(_that.data);case UModerationSubjectProfileProfileView() when profileView != null:
+return profileView(_that.data);case UModerationSubjectProfileProfileViewDetailed() when profileViewDetailed != null:
+return profileViewDetailed(_that.data);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-
-class _$UModerationSubjectProfileProfileViewBasicImpl
-    implements UModerationSubjectProfileProfileViewBasic {
-  const _$UModerationSubjectProfileProfileViewBasicImpl({required this.data});
-
-  @override
-  final ActorBasic data;
-
-  @override
-  String toString() {
-    return 'ModerationSubjectProfile.profileViewBasic(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationSubjectProfileProfileViewBasicImpl &&
-            const DeepCollectionEquality().equals(other.data, data));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
-
-  /// Create a copy of ModerationSubjectProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationSubjectProfileProfileViewBasicImplCopyWith<
-          _$UModerationSubjectProfileProfileViewBasicImpl>
-      get copyWith =>
-          __$$UModerationSubjectProfileProfileViewBasicImplCopyWithImpl<
-                  _$UModerationSubjectProfileProfileViewBasicImpl>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ActorBasic data) profileViewBasic,
-    required TResult Function(Actor data) profileView,
-    required TResult Function(ActorProfile data) profileViewDetailed,
-  }) {
-    return profileViewBasic(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ActorBasic data)? profileViewBasic,
-    TResult? Function(Actor data)? profileView,
-    TResult? Function(ActorProfile data)? profileViewDetailed,
-  }) {
-    return profileViewBasic?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ActorBasic data)? profileViewBasic,
-    TResult Function(Actor data)? profileView,
-    TResult Function(ActorProfile data)? profileViewDetailed,
-    required TResult orElse(),
-  }) {
-    if (profileViewBasic != null) {
-      return profileViewBasic(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationSubjectProfileProfileViewBasic value)
-        profileViewBasic,
-    required TResult Function(UModerationSubjectProfileProfileView value)
-        profileView,
-    required TResult Function(
-            UModerationSubjectProfileProfileViewDetailed value)
-        profileViewDetailed,
-  }) {
-    return profileViewBasic(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationSubjectProfileProfileViewBasic value)?
-        profileViewBasic,
-    TResult? Function(UModerationSubjectProfileProfileView value)? profileView,
-    TResult? Function(UModerationSubjectProfileProfileViewDetailed value)?
-        profileViewDetailed,
-  }) {
-    return profileViewBasic?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationSubjectProfileProfileViewBasic value)?
-        profileViewBasic,
-    TResult Function(UModerationSubjectProfileProfileView value)? profileView,
-    TResult Function(UModerationSubjectProfileProfileViewDetailed value)?
-        profileViewDetailed,
-    required TResult orElse(),
-  }) {
-    if (profileViewBasic != null) {
-      return profileViewBasic(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UModerationSubjectProfileProfileViewBasic
-    implements ModerationSubjectProfile {
-  const factory UModerationSubjectProfileProfileViewBasic(
-          {required final ActorBasic data}) =
-      _$UModerationSubjectProfileProfileViewBasicImpl;
-
-  @override
-  ActorBasic get data;
-
-  /// Create a copy of ModerationSubjectProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationSubjectProfileProfileViewBasicImplCopyWith<
-          _$UModerationSubjectProfileProfileViewBasicImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UModerationSubjectProfileProfileViewImplCopyWith<$Res>
-    implements $ModerationSubjectProfileCopyWith<$Res> {
-  factory _$$UModerationSubjectProfileProfileViewImplCopyWith(
-          _$UModerationSubjectProfileProfileViewImpl value,
-          $Res Function(_$UModerationSubjectProfileProfileViewImpl) then) =
-      __$$UModerationSubjectProfileProfileViewImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Actor data});
-}
-
-/// @nodoc
-class __$$UModerationSubjectProfileProfileViewImplCopyWithImpl<$Res>
-    extends _$ModerationSubjectProfileCopyWithImpl<$Res,
-        _$UModerationSubjectProfileProfileViewImpl>
-    implements _$$UModerationSubjectProfileProfileViewImplCopyWith<$Res> {
-  __$$UModerationSubjectProfileProfileViewImplCopyWithImpl(
-      _$UModerationSubjectProfileProfileViewImpl _value,
-      $Res Function(_$UModerationSubjectProfileProfileViewImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ModerationSubjectProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = freezed,
-  }) {
-    return _then(_$UModerationSubjectProfileProfileViewImpl(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Actor,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$UModerationSubjectProfileProfileViewImpl
-    implements UModerationSubjectProfileProfileView {
-  const _$UModerationSubjectProfileProfileViewImpl({required this.data});
 
-  @override
-  final Actor data;
+class UModerationSubjectProfileProfileViewBasic implements ModerationSubjectProfile {
+  const UModerationSubjectProfileProfileViewBasic({required this.data});
+  
 
-  @override
-  String toString() {
-    return 'ModerationSubjectProfile.profileView(data: $data)';
-  }
+@override final  ActorBasic data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationSubjectProfileProfileViewImpl &&
-            const DeepCollectionEquality().equals(other.data, data));
-  }
+/// Create a copy of ModerationSubjectProfile
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationSubjectProfileProfileViewBasicCopyWith<UModerationSubjectProfileProfileViewBasic> get copyWith => _$UModerationSubjectProfileProfileViewBasicCopyWithImpl<UModerationSubjectProfileProfileViewBasic>(this, _$identity);
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
-  /// Create a copy of ModerationSubjectProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationSubjectProfileProfileViewImplCopyWith<
-          _$UModerationSubjectProfileProfileViewImpl>
-      get copyWith => __$$UModerationSubjectProfileProfileViewImplCopyWithImpl<
-          _$UModerationSubjectProfileProfileViewImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ActorBasic data) profileViewBasic,
-    required TResult Function(Actor data) profileView,
-    required TResult Function(ActorProfile data) profileViewDetailed,
-  }) {
-    return profileView(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ActorBasic data)? profileViewBasic,
-    TResult? Function(Actor data)? profileView,
-    TResult? Function(ActorProfile data)? profileViewDetailed,
-  }) {
-    return profileView?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ActorBasic data)? profileViewBasic,
-    TResult Function(Actor data)? profileView,
-    TResult Function(ActorProfile data)? profileViewDetailed,
-    required TResult orElse(),
-  }) {
-    if (profileView != null) {
-      return profileView(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationSubjectProfileProfileViewBasic value)
-        profileViewBasic,
-    required TResult Function(UModerationSubjectProfileProfileView value)
-        profileView,
-    required TResult Function(
-            UModerationSubjectProfileProfileViewDetailed value)
-        profileViewDetailed,
-  }) {
-    return profileView(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationSubjectProfileProfileViewBasic value)?
-        profileViewBasic,
-    TResult? Function(UModerationSubjectProfileProfileView value)? profileView,
-    TResult? Function(UModerationSubjectProfileProfileViewDetailed value)?
-        profileViewDetailed,
-  }) {
-    return profileView?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationSubjectProfileProfileViewBasic value)?
-        profileViewBasic,
-    TResult Function(UModerationSubjectProfileProfileView value)? profileView,
-    TResult Function(UModerationSubjectProfileProfileViewDetailed value)?
-        profileViewDetailed,
-    required TResult orElse(),
-  }) {
-    if (profileView != null) {
-      return profileView(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectProfileProfileViewBasic&&const DeepCollectionEquality().equals(other.data, data));
 }
 
-abstract class UModerationSubjectProfileProfileView
-    implements ModerationSubjectProfile {
-  const factory UModerationSubjectProfileProfileView(
-      {required final Actor data}) = _$UModerationSubjectProfileProfileViewImpl;
 
-  @override
-  Actor get data;
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
 
-  /// Create a copy of ModerationSubjectProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationSubjectProfileProfileViewImplCopyWith<
-          _$UModerationSubjectProfileProfileViewImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'ModerationSubjectProfile.profileViewBasic(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationSubjectProfileProfileViewDetailedImplCopyWith<$Res>
-    implements $ModerationSubjectProfileCopyWith<$Res> {
-  factory _$$UModerationSubjectProfileProfileViewDetailedImplCopyWith(
-          _$UModerationSubjectProfileProfileViewDetailedImpl value,
-          $Res Function(_$UModerationSubjectProfileProfileViewDetailedImpl)
-              then) =
-      __$$UModerationSubjectProfileProfileViewDetailedImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({ActorProfile data});
+abstract mixin class $UModerationSubjectProfileProfileViewBasicCopyWith<$Res> implements $ModerationSubjectProfileCopyWith<$Res> {
+  factory $UModerationSubjectProfileProfileViewBasicCopyWith(UModerationSubjectProfileProfileViewBasic value, $Res Function(UModerationSubjectProfileProfileViewBasic) _then) = _$UModerationSubjectProfileProfileViewBasicCopyWithImpl;
+@override @useResult
+$Res call({
+ ActorBasic data
+});
+
+
+
+
+}
+/// @nodoc
+class _$UModerationSubjectProfileProfileViewBasicCopyWithImpl<$Res>
+    implements $UModerationSubjectProfileProfileViewBasicCopyWith<$Res> {
+  _$UModerationSubjectProfileProfileViewBasicCopyWithImpl(this._self, this._then);
+
+  final UModerationSubjectProfileProfileViewBasic _self;
+  final $Res Function(UModerationSubjectProfileProfileViewBasic) _then;
+
+/// Create a copy of ModerationSubjectProfile
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,}) {
+  return _then(UModerationSubjectProfileProfileViewBasic(
+data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ActorBasic,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationSubjectProfileProfileViewDetailedImplCopyWithImpl<$Res>
-    extends _$ModerationSubjectProfileCopyWithImpl<$Res,
-        _$UModerationSubjectProfileProfileViewDetailedImpl>
-    implements
-        _$$UModerationSubjectProfileProfileViewDetailedImplCopyWith<$Res> {
-  __$$UModerationSubjectProfileProfileViewDetailedImplCopyWithImpl(
-      _$UModerationSubjectProfileProfileViewDetailedImpl _value,
-      $Res Function(_$UModerationSubjectProfileProfileViewDetailedImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of ModerationSubjectProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = freezed,
-  }) {
-    return _then(_$UModerationSubjectProfileProfileViewDetailedImpl(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ActorProfile,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$UModerationSubjectProfileProfileViewDetailedImpl
-    implements UModerationSubjectProfileProfileViewDetailed {
-  const _$UModerationSubjectProfileProfileViewDetailedImpl(
-      {required this.data});
 
-  @override
-  final ActorProfile data;
+class UModerationSubjectProfileProfileView implements ModerationSubjectProfile {
+  const UModerationSubjectProfileProfileView({required this.data});
+  
 
-  @override
-  String toString() {
-    return 'ModerationSubjectProfile.profileViewDetailed(data: $data)';
-  }
+@override final  Actor data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationSubjectProfileProfileViewDetailedImpl &&
-            const DeepCollectionEquality().equals(other.data, data));
-  }
+/// Create a copy of ModerationSubjectProfile
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationSubjectProfileProfileViewCopyWith<UModerationSubjectProfileProfileView> get copyWith => _$UModerationSubjectProfileProfileViewCopyWithImpl<UModerationSubjectProfileProfileView>(this, _$identity);
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
-  /// Create a copy of ModerationSubjectProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationSubjectProfileProfileViewDetailedImplCopyWith<
-          _$UModerationSubjectProfileProfileViewDetailedImpl>
-      get copyWith =>
-          __$$UModerationSubjectProfileProfileViewDetailedImplCopyWithImpl<
-                  _$UModerationSubjectProfileProfileViewDetailedImpl>(
-              this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ActorBasic data) profileViewBasic,
-    required TResult Function(Actor data) profileView,
-    required TResult Function(ActorProfile data) profileViewDetailed,
-  }) {
-    return profileViewDetailed(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ActorBasic data)? profileViewBasic,
-    TResult? Function(Actor data)? profileView,
-    TResult? Function(ActorProfile data)? profileViewDetailed,
-  }) {
-    return profileViewDetailed?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ActorBasic data)? profileViewBasic,
-    TResult Function(Actor data)? profileView,
-    TResult Function(ActorProfile data)? profileViewDetailed,
-    required TResult orElse(),
-  }) {
-    if (profileViewDetailed != null) {
-      return profileViewDetailed(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationSubjectProfileProfileViewBasic value)
-        profileViewBasic,
-    required TResult Function(UModerationSubjectProfileProfileView value)
-        profileView,
-    required TResult Function(
-            UModerationSubjectProfileProfileViewDetailed value)
-        profileViewDetailed,
-  }) {
-    return profileViewDetailed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationSubjectProfileProfileViewBasic value)?
-        profileViewBasic,
-    TResult? Function(UModerationSubjectProfileProfileView value)? profileView,
-    TResult? Function(UModerationSubjectProfileProfileViewDetailed value)?
-        profileViewDetailed,
-  }) {
-    return profileViewDetailed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationSubjectProfileProfileViewBasic value)?
-        profileViewBasic,
-    TResult Function(UModerationSubjectProfileProfileView value)? profileView,
-    TResult Function(UModerationSubjectProfileProfileViewDetailed value)?
-        profileViewDetailed,
-    required TResult orElse(),
-  }) {
-    if (profileViewDetailed != null) {
-      return profileViewDetailed(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectProfileProfileView&&const DeepCollectionEquality().equals(other.data, data));
 }
 
-abstract class UModerationSubjectProfileProfileViewDetailed
-    implements ModerationSubjectProfile {
-  const factory UModerationSubjectProfileProfileViewDetailed(
-          {required final ActorProfile data}) =
-      _$UModerationSubjectProfileProfileViewDetailedImpl;
 
-  @override
-  ActorProfile get data;
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
 
-  /// Create a copy of ModerationSubjectProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationSubjectProfileProfileViewDetailedImplCopyWith<
-          _$UModerationSubjectProfileProfileViewDetailedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'ModerationSubjectProfile.profileView(data: $data)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class $UModerationSubjectProfileProfileViewCopyWith<$Res> implements $ModerationSubjectProfileCopyWith<$Res> {
+  factory $UModerationSubjectProfileProfileViewCopyWith(UModerationSubjectProfileProfileView value, $Res Function(UModerationSubjectProfileProfileView) _then) = _$UModerationSubjectProfileProfileViewCopyWithImpl;
+@override @useResult
+$Res call({
+ Actor data
+});
+
+
+
+
+}
+/// @nodoc
+class _$UModerationSubjectProfileProfileViewCopyWithImpl<$Res>
+    implements $UModerationSubjectProfileProfileViewCopyWith<$Res> {
+  _$UModerationSubjectProfileProfileViewCopyWithImpl(this._self, this._then);
+
+  final UModerationSubjectProfileProfileView _self;
+  final $Res Function(UModerationSubjectProfileProfileView) _then;
+
+/// Create a copy of ModerationSubjectProfile
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,}) {
+  return _then(UModerationSubjectProfileProfileView(
+data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as Actor,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class UModerationSubjectProfileProfileViewDetailed implements ModerationSubjectProfile {
+  const UModerationSubjectProfileProfileViewDetailed({required this.data});
+  
+
+@override final  ActorProfile data;
+
+/// Create a copy of ModerationSubjectProfile
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationSubjectProfileProfileViewDetailedCopyWith<UModerationSubjectProfileProfileViewDetailed> get copyWith => _$UModerationSubjectProfileProfileViewDetailedCopyWithImpl<UModerationSubjectProfileProfileViewDetailed>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectProfileProfileViewDetailed&&const DeepCollectionEquality().equals(other.data, data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'ModerationSubjectProfile.profileViewDetailed(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UModerationSubjectProfileProfileViewDetailedCopyWith<$Res> implements $ModerationSubjectProfileCopyWith<$Res> {
+  factory $UModerationSubjectProfileProfileViewDetailedCopyWith(UModerationSubjectProfileProfileViewDetailed value, $Res Function(UModerationSubjectProfileProfileViewDetailed) _then) = _$UModerationSubjectProfileProfileViewDetailedCopyWithImpl;
+@override @useResult
+$Res call({
+ ActorProfile data
+});
+
+
+
+
+}
+/// @nodoc
+class _$UModerationSubjectProfileProfileViewDetailedCopyWithImpl<$Res>
+    implements $UModerationSubjectProfileProfileViewDetailedCopyWith<$Res> {
+  _$UModerationSubjectProfileProfileViewDetailedCopyWithImpl(this._self, this._then);
+
+  final UModerationSubjectProfileProfileViewDetailed _self;
+  final $Res Function(UModerationSubjectProfileProfileViewDetailed) _then;
+
+/// Create a copy of ModerationSubjectProfile
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,}) {
+  return _then(UModerationSubjectProfileProfileViewDetailed(
+data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ActorProfile,
+  ));
+}
+
+
+}
+
+// dart format on

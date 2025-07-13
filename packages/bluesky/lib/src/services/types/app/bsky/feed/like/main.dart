@@ -24,17 +24,14 @@ part 'main.g.dart';
 
 @freezed
 abstract class FeedLikeRecord with _$FeedLikeRecord {
-  static const knownProps = <String>[
-    'subject',
-    'createdAt',
-    'via',
-  ];
+  static const knownProps = <String>['subject', 'createdAt', 'via'];
 
   const factory FeedLikeRecord({
     @Default(appBskyFeedLike) String $type,
     @RepoStrongRefConverter() required RepoStrongRef subject,
     required DateTime createdAt,
     @RepoStrongRefConverter() RepoStrongRef? via,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedLikeRecord;
 
@@ -53,14 +50,10 @@ final class FeedLikeRecordConverter
 
   @override
   FeedLikeRecord fromJson(Map<String, dynamic> json) {
-    return FeedLikeRecord.fromJson(translate(
-      json,
-      FeedLikeRecord.knownProps,
-    ));
+    return FeedLikeRecord.fromJson(translate(json, FeedLikeRecord.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedLikeRecord object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(FeedLikeRecord object) =>
+      untranslate(object.toJson());
 }

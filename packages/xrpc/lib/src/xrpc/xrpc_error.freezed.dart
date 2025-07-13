@@ -12,7 +12,8 @@ part of 'xrpc_error.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 XRPCError _$XRPCErrorFromJson(Map<String, dynamic> json) {
   return _XRPCError.fromJson(json);
@@ -55,20 +56,20 @@ class _$XRPCErrorCopyWithImpl<$Res, $Val extends XRPCError>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? error = null,
-    Object? message = freezed,
-  }) {
-    return _then(_value.copyWith(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  $Res call({Object? error = null, Object? message = freezed}) {
+    return _then(
+      _value.copyWith(
+            error: null == error
+                ? _value.error
+                : error // ignore: cast_nullable_to_non_nullable
+                      as String,
+            message: freezed == message
+                ? _value.message
+                : message // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -76,8 +77,9 @@ class _$XRPCErrorCopyWithImpl<$Res, $Val extends XRPCError>
 abstract class _$$XRPCErrorImplCopyWith<$Res>
     implements $XRPCErrorCopyWith<$Res> {
   factory _$$XRPCErrorImplCopyWith(
-          _$XRPCErrorImpl value, $Res Function(_$XRPCErrorImpl) then) =
-      __$$XRPCErrorImplCopyWithImpl<$Res>;
+    _$XRPCErrorImpl value,
+    $Res Function(_$XRPCErrorImpl) then,
+  ) = __$$XRPCErrorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String error, String? message});
@@ -88,27 +90,27 @@ class __$$XRPCErrorImplCopyWithImpl<$Res>
     extends _$XRPCErrorCopyWithImpl<$Res, _$XRPCErrorImpl>
     implements _$$XRPCErrorImplCopyWith<$Res> {
   __$$XRPCErrorImplCopyWithImpl(
-      _$XRPCErrorImpl _value, $Res Function(_$XRPCErrorImpl) _then)
-      : super(_value, _then);
+    _$XRPCErrorImpl _value,
+    $Res Function(_$XRPCErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of XRPCError
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? error = null,
-    Object? message = freezed,
-  }) {
-    return _then(_$XRPCErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+  $Res call({Object? error = null, Object? message = freezed}) {
+    return _then(
+      _$XRPCErrorImpl(
+        error: null == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                  as String,
+        message: freezed == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
@@ -153,15 +155,15 @@ class _$XRPCErrorImpl implements _XRPCError {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$XRPCErrorImplToJson(
-      this,
-    );
+    return _$$XRPCErrorImplToJson(this);
   }
 }
 
 abstract class _XRPCError implements XRPCError {
-  const factory _XRPCError(
-      {required final String error, final String? message}) = _$XRPCErrorImpl;
+  const factory _XRPCError({
+    required final String error,
+    final String? message,
+  }) = _$XRPCErrorImpl;
 
   factory _XRPCError.fromJson(Map<String, dynamic> json) =
       _$XRPCErrorImpl.fromJson;

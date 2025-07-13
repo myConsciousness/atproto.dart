@@ -12,7 +12,8 @@ part of 'lex_ref_variant.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$LexRefVariant {
@@ -21,47 +22,42 @@ mixin _$LexRefVariant {
   TResult when<TResult extends Object?>({
     required TResult Function(LexRef data) ref,
     required TResult Function(LexRefUnion data) refUnion,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(LexRef data)? ref,
     TResult? Function(LexRefUnion data)? refUnion,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(LexRef data)? ref,
     TResult Function(LexRefUnion data)? refUnion,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ULexRefVariantRef value) ref,
     required TResult Function(ULexRefVariantRefUnion value) refUnion,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ULexRefVariantRef value)? ref,
     TResult? Function(ULexRefVariantRefUnion value)? refUnion,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ULexRefVariantRef value)? ref,
     TResult Function(ULexRefVariantRefUnion value)? refUnion,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $LexRefVariantCopyWith<$Res> {
   factory $LexRefVariantCopyWith(
-          LexRefVariant value, $Res Function(LexRefVariant) then) =
-      _$LexRefVariantCopyWithImpl<$Res, LexRefVariant>;
+    LexRefVariant value,
+    $Res Function(LexRefVariant) then,
+  ) = _$LexRefVariantCopyWithImpl<$Res, LexRefVariant>;
 }
 
 /// @nodoc
@@ -80,9 +76,10 @@ class _$LexRefVariantCopyWithImpl<$Res, $Val extends LexRefVariant>
 
 /// @nodoc
 abstract class _$$ULexRefVariantRefImplCopyWith<$Res> {
-  factory _$$ULexRefVariantRefImplCopyWith(_$ULexRefVariantRefImpl value,
-          $Res Function(_$ULexRefVariantRefImpl) then) =
-      __$$ULexRefVariantRefImplCopyWithImpl<$Res>;
+  factory _$$ULexRefVariantRefImplCopyWith(
+    _$ULexRefVariantRefImpl value,
+    $Res Function(_$ULexRefVariantRefImpl) then,
+  ) = __$$ULexRefVariantRefImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexRef data});
 
@@ -93,23 +90,24 @@ abstract class _$$ULexRefVariantRefImplCopyWith<$Res> {
 class __$$ULexRefVariantRefImplCopyWithImpl<$Res>
     extends _$LexRefVariantCopyWithImpl<$Res, _$ULexRefVariantRefImpl>
     implements _$$ULexRefVariantRefImplCopyWith<$Res> {
-  __$$ULexRefVariantRefImplCopyWithImpl(_$ULexRefVariantRefImpl _value,
-      $Res Function(_$ULexRefVariantRefImpl) _then)
-      : super(_value, _then);
+  __$$ULexRefVariantRefImplCopyWithImpl(
+    _$ULexRefVariantRefImpl _value,
+    $Res Function(_$ULexRefVariantRefImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexRefVariant
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexRefVariantRefImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexRef,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexRefVariantRefImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexRef,
+      ),
+    );
   }
 
   /// Create a copy of LexRefVariant
@@ -154,7 +152,9 @@ class _$ULexRefVariantRefImpl extends ULexRefVariantRef {
   @pragma('vm:prefer-inline')
   _$$ULexRefVariantRefImplCopyWith<_$ULexRefVariantRefImpl> get copyWith =>
       __$$ULexRefVariantRefImplCopyWithImpl<_$ULexRefVariantRefImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -237,9 +237,9 @@ abstract class ULexRefVariantRef extends LexRefVariant {
 /// @nodoc
 abstract class _$$ULexRefVariantRefUnionImplCopyWith<$Res> {
   factory _$$ULexRefVariantRefUnionImplCopyWith(
-          _$ULexRefVariantRefUnionImpl value,
-          $Res Function(_$ULexRefVariantRefUnionImpl) then) =
-      __$$ULexRefVariantRefUnionImplCopyWithImpl<$Res>;
+    _$ULexRefVariantRefUnionImpl value,
+    $Res Function(_$ULexRefVariantRefUnionImpl) then,
+  ) = __$$ULexRefVariantRefUnionImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexRefUnion data});
 
@@ -251,23 +251,23 @@ class __$$ULexRefVariantRefUnionImplCopyWithImpl<$Res>
     extends _$LexRefVariantCopyWithImpl<$Res, _$ULexRefVariantRefUnionImpl>
     implements _$$ULexRefVariantRefUnionImplCopyWith<$Res> {
   __$$ULexRefVariantRefUnionImplCopyWithImpl(
-      _$ULexRefVariantRefUnionImpl _value,
-      $Res Function(_$ULexRefVariantRefUnionImpl) _then)
-      : super(_value, _then);
+    _$ULexRefVariantRefUnionImpl _value,
+    $Res Function(_$ULexRefVariantRefUnionImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexRefVariant
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexRefVariantRefUnionImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexRefUnion,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexRefVariantRefUnionImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexRefUnion,
+      ),
+    );
   }
 
   /// Create a copy of LexRefVariant
@@ -311,8 +311,11 @@ class _$ULexRefVariantRefUnionImpl extends ULexRefVariantRefUnion {
   @override
   @pragma('vm:prefer-inline')
   _$$ULexRefVariantRefUnionImplCopyWith<_$ULexRefVariantRefUnionImpl>
-      get copyWith => __$$ULexRefVariantRefUnionImplCopyWithImpl<
-          _$ULexRefVariantRefUnionImpl>(this, _$identity);
+  get copyWith =>
+      __$$ULexRefVariantRefUnionImplCopyWithImpl<_$ULexRefVariantRefUnionImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -389,5 +392,5 @@ abstract class ULexRefVariantRefUnion extends LexRefVariant {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexRefVariantRefUnionImplCopyWith<_$ULexRefVariantRefUnionImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

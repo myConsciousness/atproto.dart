@@ -25,17 +25,14 @@ part 'input.g.dart';
 @freezed
 abstract class AdminUpdateSubjectStatusInput
     with _$AdminUpdateSubjectStatusInput {
-  static const knownProps = <String>[
-    'subject',
-    'takedown',
-    'deactivated',
-  ];
+  static const knownProps = <String>['subject', 'takedown', 'deactivated'];
 
   const factory AdminUpdateSubjectStatusInput({
     @UAdminUpdateSubjectStatusSubjectConverter()
     required UAdminUpdateSubjectStatusSubject subject,
     @StatusAttrConverter() StatusAttr? takedown,
     @StatusAttrConverter() StatusAttr? deactivated,
+
     Map<String, dynamic>? $unknown,
   }) = _AdminUpdateSubjectStatusInput;
 
@@ -43,21 +40,22 @@ abstract class AdminUpdateSubjectStatusInput
       _$AdminUpdateSubjectStatusInputFromJson(json);
 }
 
-final class AdminUpdateSubjectStatusInputConverter extends LexObjectConverter<
-    AdminUpdateSubjectStatusInput, Map<String, dynamic>> {
+final class AdminUpdateSubjectStatusInputConverter
+    extends
+        LexObjectConverter<
+          AdminUpdateSubjectStatusInput,
+          Map<String, dynamic>
+        > {
   const AdminUpdateSubjectStatusInputConverter();
 
   @override
   AdminUpdateSubjectStatusInput fromJson(Map<String, dynamic> json) {
-    return AdminUpdateSubjectStatusInput.fromJson(translate(
-      json,
-      AdminUpdateSubjectStatusInput.knownProps,
-    ));
+    return AdminUpdateSubjectStatusInput.fromJson(
+      translate(json, AdminUpdateSubjectStatusInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(AdminUpdateSubjectStatusInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

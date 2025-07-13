@@ -8,40 +8,46 @@ part of 'records_stats.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RecordsStatsImpl _$$RecordsStatsImplFromJson(Map json) => $checkedCreate(
-      r'_$RecordsStatsImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$RecordsStatsImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? toolsOzoneModerationDefsRecordsStats),
-          totalReports:
-              $checkedConvert('totalReports', (v) => (v as num?)?.toInt()),
-          reportedCount:
-              $checkedConvert('reportedCount', (v) => (v as num?)?.toInt()),
-          escalatedCount:
-              $checkedConvert('escalatedCount', (v) => (v as num?)?.toInt()),
-          appealedCount:
-              $checkedConvert('appealedCount', (v) => (v as num?)?.toInt()),
-          subjectCount:
-              $checkedConvert('subjectCount', (v) => (v as num?)?.toInt()),
-          pendingCount:
-              $checkedConvert('pendingCount', (v) => (v as num?)?.toInt()),
-          processedCount:
-              $checkedConvert('processedCount', (v) => (v as num?)?.toInt()),
-          takendownCount:
-              $checkedConvert('takendownCount', (v) => (v as num?)?.toInt()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_RecordsStats _$RecordsStatsFromJson(
+  Map json,
+) => $checkedCreate('_RecordsStats', json, ($checkedConvert) {
+  final val = _RecordsStats(
+    $type: $checkedConvert(
+      r'$type',
+      (v) => v as String? ?? toolsOzoneModerationDefsRecordsStats,
+    ),
+    totalReports: $checkedConvert('totalReports', (v) => (v as num?)?.toInt()),
+    reportedCount: $checkedConvert(
+      'reportedCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    escalatedCount: $checkedConvert(
+      'escalatedCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    appealedCount: $checkedConvert(
+      'appealedCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    subjectCount: $checkedConvert('subjectCount', (v) => (v as num?)?.toInt()),
+    pendingCount: $checkedConvert('pendingCount', (v) => (v as num?)?.toInt()),
+    processedCount: $checkedConvert(
+      'processedCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    takendownCount: $checkedConvert(
+      'takendownCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    $unknown: $checkedConvert(
+      r'$unknown',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
+  );
+  return val;
+});
 
-Map<String, dynamic> _$$RecordsStatsImplToJson(_$RecordsStatsImpl instance) =>
+Map<String, dynamic> _$RecordsStatsToJson(_RecordsStats instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'totalReports': instance.totalReports,

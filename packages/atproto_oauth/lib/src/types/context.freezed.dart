@@ -12,7 +12,8 @@ part of 'context.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$OAuthContext {
@@ -30,8 +31,9 @@ mixin _$OAuthContext {
 /// @nodoc
 abstract class $OAuthContextCopyWith<$Res> {
   factory $OAuthContextCopyWith(
-          OAuthContext value, $Res Function(OAuthContext) then) =
-      _$OAuthContextCopyWithImpl<$Res, OAuthContext>;
+    OAuthContext value,
+    $Res Function(OAuthContext) then,
+  ) = _$OAuthContextCopyWithImpl<$Res, OAuthContext>;
   @useResult
   $Res call({String codeVerifier, String state, String dpopNonce});
 }
@@ -55,20 +57,23 @@ class _$OAuthContextCopyWithImpl<$Res, $Val extends OAuthContext>
     Object? state = null,
     Object? dpopNonce = null,
   }) {
-    return _then(_value.copyWith(
-      codeVerifier: null == codeVerifier
-          ? _value.codeVerifier
-          : codeVerifier // ignore: cast_nullable_to_non_nullable
-              as String,
-      state: null == state
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as String,
-      dpopNonce: null == dpopNonce
-          ? _value.dpopNonce
-          : dpopNonce // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            codeVerifier: null == codeVerifier
+                ? _value.codeVerifier
+                : codeVerifier // ignore: cast_nullable_to_non_nullable
+                      as String,
+            state: null == state
+                ? _value.state
+                : state // ignore: cast_nullable_to_non_nullable
+                      as String,
+            dpopNonce: null == dpopNonce
+                ? _value.dpopNonce
+                : dpopNonce // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -76,8 +81,9 @@ class _$OAuthContextCopyWithImpl<$Res, $Val extends OAuthContext>
 abstract class _$$OAuthContextImplCopyWith<$Res>
     implements $OAuthContextCopyWith<$Res> {
   factory _$$OAuthContextImplCopyWith(
-          _$OAuthContextImpl value, $Res Function(_$OAuthContextImpl) then) =
-      __$$OAuthContextImplCopyWithImpl<$Res>;
+    _$OAuthContextImpl value,
+    $Res Function(_$OAuthContextImpl) then,
+  ) = __$$OAuthContextImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String codeVerifier, String state, String dpopNonce});
@@ -88,8 +94,9 @@ class __$$OAuthContextImplCopyWithImpl<$Res>
     extends _$OAuthContextCopyWithImpl<$Res, _$OAuthContextImpl>
     implements _$$OAuthContextImplCopyWith<$Res> {
   __$$OAuthContextImplCopyWithImpl(
-      _$OAuthContextImpl _value, $Res Function(_$OAuthContextImpl) _then)
-      : super(_value, _then);
+    _$OAuthContextImpl _value,
+    $Res Function(_$OAuthContextImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of OAuthContext
   /// with the given fields replaced by the non-null parameter values.
@@ -100,20 +107,22 @@ class __$$OAuthContextImplCopyWithImpl<$Res>
     Object? state = null,
     Object? dpopNonce = null,
   }) {
-    return _then(_$OAuthContextImpl(
-      codeVerifier: null == codeVerifier
-          ? _value.codeVerifier
-          : codeVerifier // ignore: cast_nullable_to_non_nullable
-              as String,
-      state: null == state
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as String,
-      dpopNonce: null == dpopNonce
-          ? _value.dpopNonce
-          : dpopNonce // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$OAuthContextImpl(
+        codeVerifier: null == codeVerifier
+            ? _value.codeVerifier
+            : codeVerifier // ignore: cast_nullable_to_non_nullable
+                  as String,
+        state: null == state
+            ? _value.state
+            : state // ignore: cast_nullable_to_non_nullable
+                  as String,
+        dpopNonce: null == dpopNonce
+            ? _value.dpopNonce
+            : dpopNonce // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -121,10 +130,11 @@ class __$$OAuthContextImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$OAuthContextImpl implements _OAuthContext {
-  const _$OAuthContextImpl(
-      {required this.codeVerifier,
-      required this.state,
-      required this.dpopNonce});
+  const _$OAuthContextImpl({
+    required this.codeVerifier,
+    required this.state,
+    required this.dpopNonce,
+  });
 
   @override
   final String codeVerifier;
@@ -163,10 +173,11 @@ class _$OAuthContextImpl implements _OAuthContext {
 }
 
 abstract class _OAuthContext implements OAuthContext {
-  const factory _OAuthContext(
-      {required final String codeVerifier,
-      required final String state,
-      required final String dpopNonce}) = _$OAuthContextImpl;
+  const factory _OAuthContext({
+    required final String codeVerifier,
+    required final String state,
+    required final String dpopNonce,
+  }) = _$OAuthContextImpl;
 
   @override
   String get codeVerifier;

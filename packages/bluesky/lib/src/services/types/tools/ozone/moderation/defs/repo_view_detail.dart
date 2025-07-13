@@ -60,6 +60,7 @@ abstract class RepoViewDetail with _$RepoViewDetail {
     DateTime? emailConfirmedAt,
     DateTime? deactivatedAt,
     @ThreatSignatureConverter() List<ThreatSignature>? threatSignatures,
+
     Map<String, dynamic>? $unknown,
   }) = _RepoViewDetail;
 
@@ -78,14 +79,10 @@ final class RepoViewDetailConverter
 
   @override
   RepoViewDetail fromJson(Map<String, dynamic> json) {
-    return RepoViewDetail.fromJson(translate(
-      json,
-      RepoViewDetail.knownProps,
-    ));
+    return RepoViewDetail.fromJson(translate(json, RepoViewDetail.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(RepoViewDetail object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RepoViewDetail object) =>
+      untranslate(object.toJson());
 }

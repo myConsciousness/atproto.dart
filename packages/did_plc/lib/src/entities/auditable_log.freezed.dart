@@ -12,7 +12,8 @@ part of 'auditable_log.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 AuditableLog _$AuditableLogFromJson(Map<String, dynamic> json) {
   return _AuditableLog.fromJson(json);
@@ -35,8 +36,9 @@ mixin _$AuditableLog {
 /// @nodoc
 abstract class $AuditableLogCopyWith<$Res> {
   factory $AuditableLogCopyWith(
-          AuditableLog value, $Res Function(AuditableLog) then) =
-      _$AuditableLogCopyWithImpl<$Res, AuditableLog>;
+    AuditableLog value,
+    $Res Function(AuditableLog) then,
+  ) = _$AuditableLogCopyWithImpl<$Res, AuditableLog>;
   @useResult
   $Res call({List<ExportedOperation> log});
 }
@@ -55,15 +57,16 @@ class _$AuditableLogCopyWithImpl<$Res, $Val extends AuditableLog>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? log = null,
-  }) {
-    return _then(_value.copyWith(
-      log: null == log
-          ? _value.log
-          : log // ignore: cast_nullable_to_non_nullable
-              as List<ExportedOperation>,
-    ) as $Val);
+  $Res call({Object? log = null}) {
+    return _then(
+      _value.copyWith(
+            log: null == log
+                ? _value.log
+                : log // ignore: cast_nullable_to_non_nullable
+                      as List<ExportedOperation>,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -71,8 +74,9 @@ class _$AuditableLogCopyWithImpl<$Res, $Val extends AuditableLog>
 abstract class _$$AuditableLogImplCopyWith<$Res>
     implements $AuditableLogCopyWith<$Res> {
   factory _$$AuditableLogImplCopyWith(
-          _$AuditableLogImpl value, $Res Function(_$AuditableLogImpl) then) =
-      __$$AuditableLogImplCopyWithImpl<$Res>;
+    _$AuditableLogImpl value,
+    $Res Function(_$AuditableLogImpl) then,
+  ) = __$$AuditableLogImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<ExportedOperation> log});
@@ -83,22 +87,23 @@ class __$$AuditableLogImplCopyWithImpl<$Res>
     extends _$AuditableLogCopyWithImpl<$Res, _$AuditableLogImpl>
     implements _$$AuditableLogImplCopyWith<$Res> {
   __$$AuditableLogImplCopyWithImpl(
-      _$AuditableLogImpl _value, $Res Function(_$AuditableLogImpl) _then)
-      : super(_value, _then);
+    _$AuditableLogImpl _value,
+    $Res Function(_$AuditableLogImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuditableLog
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? log = null,
-  }) {
-    return _then(_$AuditableLogImpl(
-      log: null == log
-          ? _value._log
-          : log // ignore: cast_nullable_to_non_nullable
-              as List<ExportedOperation>,
-    ));
+  $Res call({Object? log = null}) {
+    return _then(
+      _$AuditableLogImpl(
+        log: null == log
+            ? _value._log
+            : log // ignore: cast_nullable_to_non_nullable
+                  as List<ExportedOperation>,
+      ),
+    );
   }
 }
 
@@ -107,7 +112,7 @@ class __$$AuditableLogImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$AuditableLogImpl implements _AuditableLog {
   const _$AuditableLogImpl({required final List<ExportedOperation> log})
-      : _log = log;
+    : _log = log;
 
   factory _$AuditableLogImpl.fromJson(Map<String, dynamic> json) =>
       _$$AuditableLogImplFromJson(json);
@@ -148,9 +153,7 @@ class _$AuditableLogImpl implements _AuditableLog {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AuditableLogImplToJson(
-      this,
-    );
+    return _$$AuditableLogImplToJson(this);
   }
 }
 

@@ -12,7 +12,8 @@ part of 'exported_operation.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 ExportedOperation _$ExportedOperationFromJson(Map<String, dynamic> json) {
   return _ExportedOperation.fromJson(json);
@@ -41,15 +42,17 @@ mixin _$ExportedOperation {
 /// @nodoc
 abstract class $ExportedOperationCopyWith<$Res> {
   factory $ExportedOperationCopyWith(
-          ExportedOperation value, $Res Function(ExportedOperation) then) =
-      _$ExportedOperationCopyWithImpl<$Res, ExportedOperation>;
+    ExportedOperation value,
+    $Res Function(ExportedOperation) then,
+  ) = _$ExportedOperationCopyWithImpl<$Res, ExportedOperation>;
   @useResult
-  $Res call(
-      {String did,
-      String cid,
-      @compatibleOpOrTombstoneConverter CompatibleOpOrTombstone operation,
-      @JsonKey(name: 'nullified') bool isNullified,
-      DateTime createdAt});
+  $Res call({
+    String did,
+    String cid,
+    @compatibleOpOrTombstoneConverter CompatibleOpOrTombstone operation,
+    @JsonKey(name: 'nullified') bool isNullified,
+    DateTime createdAt,
+  });
 
   $CompatibleOpOrTombstoneCopyWith<$Res> get operation;
 }
@@ -75,28 +78,31 @@ class _$ExportedOperationCopyWithImpl<$Res, $Val extends ExportedOperation>
     Object? isNullified = null,
     Object? createdAt = null,
   }) {
-    return _then(_value.copyWith(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
-      operation: null == operation
-          ? _value.operation
-          : operation // ignore: cast_nullable_to_non_nullable
-              as CompatibleOpOrTombstone,
-      isNullified: null == isNullified
-          ? _value.isNullified
-          : isNullified // ignore: cast_nullable_to_non_nullable
-              as bool,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            did: null == did
+                ? _value.did
+                : did // ignore: cast_nullable_to_non_nullable
+                      as String,
+            cid: null == cid
+                ? _value.cid
+                : cid // ignore: cast_nullable_to_non_nullable
+                      as String,
+            operation: null == operation
+                ? _value.operation
+                : operation // ignore: cast_nullable_to_non_nullable
+                      as CompatibleOpOrTombstone,
+            isNullified: null == isNullified
+                ? _value.isNullified
+                : isNullified // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            createdAt: null == createdAt
+                ? _value.createdAt
+                : createdAt // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of ExportedOperation
@@ -113,17 +119,19 @@ class _$ExportedOperationCopyWithImpl<$Res, $Val extends ExportedOperation>
 /// @nodoc
 abstract class _$$ExportedOperationImplCopyWith<$Res>
     implements $ExportedOperationCopyWith<$Res> {
-  factory _$$ExportedOperationImplCopyWith(_$ExportedOperationImpl value,
-          $Res Function(_$ExportedOperationImpl) then) =
-      __$$ExportedOperationImplCopyWithImpl<$Res>;
+  factory _$$ExportedOperationImplCopyWith(
+    _$ExportedOperationImpl value,
+    $Res Function(_$ExportedOperationImpl) then,
+  ) = __$$ExportedOperationImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String did,
-      String cid,
-      @compatibleOpOrTombstoneConverter CompatibleOpOrTombstone operation,
-      @JsonKey(name: 'nullified') bool isNullified,
-      DateTime createdAt});
+  $Res call({
+    String did,
+    String cid,
+    @compatibleOpOrTombstoneConverter CompatibleOpOrTombstone operation,
+    @JsonKey(name: 'nullified') bool isNullified,
+    DateTime createdAt,
+  });
 
   @override
   $CompatibleOpOrTombstoneCopyWith<$Res> get operation;
@@ -133,9 +141,10 @@ abstract class _$$ExportedOperationImplCopyWith<$Res>
 class __$$ExportedOperationImplCopyWithImpl<$Res>
     extends _$ExportedOperationCopyWithImpl<$Res, _$ExportedOperationImpl>
     implements _$$ExportedOperationImplCopyWith<$Res> {
-  __$$ExportedOperationImplCopyWithImpl(_$ExportedOperationImpl _value,
-      $Res Function(_$ExportedOperationImpl) _then)
-      : super(_value, _then);
+  __$$ExportedOperationImplCopyWithImpl(
+    _$ExportedOperationImpl _value,
+    $Res Function(_$ExportedOperationImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ExportedOperation
   /// with the given fields replaced by the non-null parameter values.
@@ -148,28 +157,30 @@ class __$$ExportedOperationImplCopyWithImpl<$Res>
     Object? isNullified = null,
     Object? createdAt = null,
   }) {
-    return _then(_$ExportedOperationImpl(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
-      operation: null == operation
-          ? _value.operation
-          : operation // ignore: cast_nullable_to_non_nullable
-              as CompatibleOpOrTombstone,
-      isNullified: null == isNullified
-          ? _value.isNullified
-          : isNullified // ignore: cast_nullable_to_non_nullable
-              as bool,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
+    return _then(
+      _$ExportedOperationImpl(
+        did: null == did
+            ? _value.did
+            : did // ignore: cast_nullable_to_non_nullable
+                  as String,
+        cid: null == cid
+            ? _value.cid
+            : cid // ignore: cast_nullable_to_non_nullable
+                  as String,
+        operation: null == operation
+            ? _value.operation
+            : operation // ignore: cast_nullable_to_non_nullable
+                  as CompatibleOpOrTombstone,
+        isNullified: null == isNullified
+            ? _value.isNullified
+            : isNullified // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        createdAt: null == createdAt
+            ? _value.createdAt
+            : createdAt // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+      ),
+    );
   }
 }
 
@@ -177,12 +188,13 @@ class __$$ExportedOperationImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$ExportedOperationImpl implements _ExportedOperation {
-  const _$ExportedOperationImpl(
-      {required this.did,
-      required this.cid,
-      @compatibleOpOrTombstoneConverter required this.operation,
-      @JsonKey(name: 'nullified') required this.isNullified,
-      required this.createdAt});
+  const _$ExportedOperationImpl({
+    required this.did,
+    required this.cid,
+    @compatibleOpOrTombstoneConverter required this.operation,
+    @JsonKey(name: 'nullified') required this.isNullified,
+    required this.createdAt,
+  });
 
   factory _$ExportedOperationImpl.fromJson(Map<String, dynamic> json) =>
       _$$ExportedOperationImplFromJson(json);
@@ -232,24 +244,25 @@ class _$ExportedOperationImpl implements _ExportedOperation {
   @pragma('vm:prefer-inline')
   _$$ExportedOperationImplCopyWith<_$ExportedOperationImpl> get copyWith =>
       __$$ExportedOperationImplCopyWithImpl<_$ExportedOperationImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ExportedOperationImplToJson(
-      this,
-    );
+    return _$$ExportedOperationImplToJson(this);
   }
 }
 
 abstract class _ExportedOperation implements ExportedOperation {
-  const factory _ExportedOperation(
-      {required final String did,
-      required final String cid,
-      @compatibleOpOrTombstoneConverter
-      required final CompatibleOpOrTombstone operation,
-      @JsonKey(name: 'nullified') required final bool isNullified,
-      required final DateTime createdAt}) = _$ExportedOperationImpl;
+  const factory _ExportedOperation({
+    required final String did,
+    required final String cid,
+    @compatibleOpOrTombstoneConverter
+    required final CompatibleOpOrTombstone operation,
+    @JsonKey(name: 'nullified') required final bool isNullified,
+    required final DateTime createdAt,
+  }) = _$ExportedOperationImpl;
 
   factory _ExportedOperation.fromJson(Map<String, dynamic> json) =
       _$ExportedOperationImpl.fromJson;

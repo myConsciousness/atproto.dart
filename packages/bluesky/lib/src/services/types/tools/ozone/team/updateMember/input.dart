@@ -20,16 +20,13 @@ part 'input.g.dart';
 
 @freezed
 abstract class TeamUpdateMemberInput with _$TeamUpdateMemberInput {
-  static const knownProps = <String>[
-    'did',
-    'disabled',
-    'role',
-  ];
+  static const knownProps = <String>['did', 'disabled', 'role'];
 
   const factory TeamUpdateMemberInput({
     required String did,
     bool? disabled,
     String? role,
+
     Map<String, dynamic>? $unknown,
   }) = _TeamUpdateMemberInput;
 
@@ -43,14 +40,12 @@ final class TeamUpdateMemberInputConverter
 
   @override
   TeamUpdateMemberInput fromJson(Map<String, dynamic> json) {
-    return TeamUpdateMemberInput.fromJson(translate(
-      json,
-      TeamUpdateMemberInput.knownProps,
-    ));
+    return TeamUpdateMemberInput.fromJson(
+      translate(json, TeamUpdateMemberInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(TeamUpdateMemberInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(TeamUpdateMemberInput object) =>
+      untranslate(object.toJson());
 }

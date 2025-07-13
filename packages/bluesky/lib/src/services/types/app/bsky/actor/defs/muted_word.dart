@@ -46,6 +46,7 @@ abstract class MutedWord with _$MutedWord {
 
     /// The date and time at which the muted word will expire and no longer be applied.
     DateTime? expiresAt,
+
     Map<String, dynamic>? $unknown,
   }) = _MutedWord;
 
@@ -64,14 +65,9 @@ final class MutedWordConverter
 
   @override
   MutedWord fromJson(Map<String, dynamic> json) {
-    return MutedWord.fromJson(translate(
-      json,
-      MutedWord.knownProps,
-    ));
+    return MutedWord.fromJson(translate(json, MutedWord.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(MutedWord object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(MutedWord object) => untranslate(object.toJson());
 }

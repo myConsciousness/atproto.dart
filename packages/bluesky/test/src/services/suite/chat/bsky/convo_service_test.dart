@@ -8,10 +8,8 @@ import 'service_suite.dart';
 
 void main() {
   testConvo<DeletedMessageView>(
-    (m, s) => s.deleteMessageForSelf(
-      convoId: m.convoId,
-      messageId: m.messageId,
-    ),
+    (m, s) =>
+        s.deleteMessageForSelf(convoId: m.convoId, messageId: m.messageId),
     id: chatBskyConvoDeleteMessageForSelf,
   );
 
@@ -59,12 +57,14 @@ void main() {
   );
 
   testConvo<SendMessageBatchOutput>(
-    (m, s) => s.sendMessageBatch(items: [
-      BatchItem(
-        convoId: m.convoId,
-        message: MessageInput(text: m.text),
-      )
-    ]),
+    (m, s) => s.sendMessageBatch(
+      items: [
+        BatchItem(
+          convoId: m.convoId,
+          message: MessageInput(text: m.text),
+        ),
+      ],
+    ),
     id: chatBskyConvoSendMessageBatch,
   );
 

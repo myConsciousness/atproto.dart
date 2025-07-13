@@ -8,26 +8,24 @@ part of 'preference.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PreferenceImpl _$$PreferenceImplFromJson(Map json) => $checkedCreate(
-      r'_$PreferenceImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$PreferenceImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? appBskyNotificationDefsPreference),
-          list: $checkedConvert('list', (v) => v as bool),
-          push: $checkedConvert('push', (v) => v as bool),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_Preference _$PreferenceFromJson(Map json) =>
+    $checkedCreate('_Preference', json, ($checkedConvert) {
+      final val = _Preference(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyNotificationDefsPreference,
+        ),
+        list: $checkedConvert('list', (v) => v as bool),
+        push: $checkedConvert('push', (v) => v as bool),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$PreferenceImplToJson(_$PreferenceImpl instance) =>
+Map<String, dynamic> _$PreferenceToJson(_Preference instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'list': instance.list,

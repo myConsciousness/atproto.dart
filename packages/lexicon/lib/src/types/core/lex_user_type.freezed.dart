@@ -12,7 +12,8 @@ part of 'lex_user_type.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$LexUserType {
@@ -33,8 +34,7 @@ mixin _$LexUserType {
     required TResult Function(LexBytes data) bytes,
     required TResult Function(LexCidLink data) cidLink,
     required TResult Function(LexUnknown data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(LexRecord data)? record,
@@ -51,8 +51,7 @@ mixin _$LexUserType {
     TResult? Function(LexBytes data)? bytes,
     TResult? Function(LexCidLink data)? cidLink,
     TResult? Function(LexUnknown data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(LexRecord data)? record,
@@ -70,15 +69,14 @@ mixin _$LexUserType {
     TResult Function(LexCidLink data)? cidLink,
     TResult Function(LexUnknown data)? unknown,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ULexUserTypeRecord value) record,
     required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
     required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
     required TResult Function(ULexUserTypeXrpcSubscription value)
-        xrpcSubscription,
+    xrpcSubscription,
     required TResult Function(ULexUserTypeBlob value) blob,
     required TResult Function(ULexUserTypeArray value) array,
     required TResult Function(ULexUserTypeToken value) token,
@@ -89,8 +87,7 @@ mixin _$LexUserType {
     required TResult Function(ULexUserTypeBytes value) bytes,
     required TResult Function(ULexUserTypeCidLink value) cidLink,
     required TResult Function(ULexUserTypeUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ULexUserTypeRecord value)? record,
@@ -107,8 +104,7 @@ mixin _$LexUserType {
     TResult? Function(ULexUserTypeBytes value)? bytes,
     TResult? Function(ULexUserTypeCidLink value)? cidLink,
     TResult? Function(ULexUserTypeUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ULexUserTypeRecord value)? record,
@@ -126,15 +122,15 @@ mixin _$LexUserType {
     TResult Function(ULexUserTypeCidLink value)? cidLink,
     TResult Function(ULexUserTypeUnknown value)? unknown,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $LexUserTypeCopyWith<$Res> {
   factory $LexUserTypeCopyWith(
-          LexUserType value, $Res Function(LexUserType) then) =
-      _$LexUserTypeCopyWithImpl<$Res, LexUserType>;
+    LexUserType value,
+    $Res Function(LexUserType) then,
+  ) = _$LexUserTypeCopyWithImpl<$Res, LexUserType>;
 }
 
 /// @nodoc
@@ -153,9 +149,10 @@ class _$LexUserTypeCopyWithImpl<$Res, $Val extends LexUserType>
 
 /// @nodoc
 abstract class _$$ULexUserTypeRecordImplCopyWith<$Res> {
-  factory _$$ULexUserTypeRecordImplCopyWith(_$ULexUserTypeRecordImpl value,
-          $Res Function(_$ULexUserTypeRecordImpl) then) =
-      __$$ULexUserTypeRecordImplCopyWithImpl<$Res>;
+  factory _$$ULexUserTypeRecordImplCopyWith(
+    _$ULexUserTypeRecordImpl value,
+    $Res Function(_$ULexUserTypeRecordImpl) then,
+  ) = __$$ULexUserTypeRecordImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexRecord data});
 
@@ -166,23 +163,24 @@ abstract class _$$ULexUserTypeRecordImplCopyWith<$Res> {
 class __$$ULexUserTypeRecordImplCopyWithImpl<$Res>
     extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeRecordImpl>
     implements _$$ULexUserTypeRecordImplCopyWith<$Res> {
-  __$$ULexUserTypeRecordImplCopyWithImpl(_$ULexUserTypeRecordImpl _value,
-      $Res Function(_$ULexUserTypeRecordImpl) _then)
-      : super(_value, _then);
+  __$$ULexUserTypeRecordImplCopyWithImpl(
+    _$ULexUserTypeRecordImpl _value,
+    $Res Function(_$ULexUserTypeRecordImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexUserType
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexUserTypeRecordImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexRecord,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexUserTypeRecordImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexRecord,
+      ),
+    );
   }
 
   /// Create a copy of LexUserType
@@ -227,7 +225,9 @@ class _$ULexUserTypeRecordImpl extends ULexUserTypeRecord {
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeRecordImplCopyWith<_$ULexUserTypeRecordImpl> get copyWith =>
       __$$ULexUserTypeRecordImplCopyWithImpl<_$ULexUserTypeRecordImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -303,7 +303,7 @@ class _$ULexUserTypeRecordImpl extends ULexUserTypeRecord {
     required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
     required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
     required TResult Function(ULexUserTypeXrpcSubscription value)
-        xrpcSubscription,
+    xrpcSubscription,
     required TResult Function(ULexUserTypeBlob value) blob,
     required TResult Function(ULexUserTypeArray value) array,
     required TResult Function(ULexUserTypeToken value) token,
@@ -383,9 +383,9 @@ abstract class ULexUserTypeRecord extends LexUserType {
 /// @nodoc
 abstract class _$$ULexUserTypeXrpcQueryImplCopyWith<$Res> {
   factory _$$ULexUserTypeXrpcQueryImplCopyWith(
-          _$ULexUserTypeXrpcQueryImpl value,
-          $Res Function(_$ULexUserTypeXrpcQueryImpl) then) =
-      __$$ULexUserTypeXrpcQueryImplCopyWithImpl<$Res>;
+    _$ULexUserTypeXrpcQueryImpl value,
+    $Res Function(_$ULexUserTypeXrpcQueryImpl) then,
+  ) = __$$ULexUserTypeXrpcQueryImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexXrpcQuery data});
 
@@ -396,23 +396,24 @@ abstract class _$$ULexUserTypeXrpcQueryImplCopyWith<$Res> {
 class __$$ULexUserTypeXrpcQueryImplCopyWithImpl<$Res>
     extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeXrpcQueryImpl>
     implements _$$ULexUserTypeXrpcQueryImplCopyWith<$Res> {
-  __$$ULexUserTypeXrpcQueryImplCopyWithImpl(_$ULexUserTypeXrpcQueryImpl _value,
-      $Res Function(_$ULexUserTypeXrpcQueryImpl) _then)
-      : super(_value, _then);
+  __$$ULexUserTypeXrpcQueryImplCopyWithImpl(
+    _$ULexUserTypeXrpcQueryImpl _value,
+    $Res Function(_$ULexUserTypeXrpcQueryImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexUserType
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexUserTypeXrpcQueryImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexXrpcQuery,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexUserTypeXrpcQueryImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexXrpcQuery,
+      ),
+    );
   }
 
   /// Create a copy of LexUserType
@@ -456,8 +457,11 @@ class _$ULexUserTypeXrpcQueryImpl extends ULexUserTypeXrpcQuery {
   @override
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeXrpcQueryImplCopyWith<_$ULexUserTypeXrpcQueryImpl>
-      get copyWith => __$$ULexUserTypeXrpcQueryImplCopyWithImpl<
-          _$ULexUserTypeXrpcQueryImpl>(this, _$identity);
+  get copyWith =>
+      __$$ULexUserTypeXrpcQueryImplCopyWithImpl<_$ULexUserTypeXrpcQueryImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -533,7 +537,7 @@ class _$ULexUserTypeXrpcQueryImpl extends ULexUserTypeXrpcQuery {
     required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
     required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
     required TResult Function(ULexUserTypeXrpcSubscription value)
-        xrpcSubscription,
+    xrpcSubscription,
     required TResult Function(ULexUserTypeBlob value) blob,
     required TResult Function(ULexUserTypeArray value) array,
     required TResult Function(ULexUserTypeToken value) token,
@@ -607,15 +611,15 @@ abstract class ULexUserTypeXrpcQuery extends LexUserType {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexUserTypeXrpcQueryImplCopyWith<_$ULexUserTypeXrpcQueryImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$ULexUserTypeXrpcProcedureImplCopyWith<$Res> {
   factory _$$ULexUserTypeXrpcProcedureImplCopyWith(
-          _$ULexUserTypeXrpcProcedureImpl value,
-          $Res Function(_$ULexUserTypeXrpcProcedureImpl) then) =
-      __$$ULexUserTypeXrpcProcedureImplCopyWithImpl<$Res>;
+    _$ULexUserTypeXrpcProcedureImpl value,
+    $Res Function(_$ULexUserTypeXrpcProcedureImpl) then,
+  ) = __$$ULexUserTypeXrpcProcedureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexXrpcProcedure data});
 
@@ -627,23 +631,23 @@ class __$$ULexUserTypeXrpcProcedureImplCopyWithImpl<$Res>
     extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeXrpcProcedureImpl>
     implements _$$ULexUserTypeXrpcProcedureImplCopyWith<$Res> {
   __$$ULexUserTypeXrpcProcedureImplCopyWithImpl(
-      _$ULexUserTypeXrpcProcedureImpl _value,
-      $Res Function(_$ULexUserTypeXrpcProcedureImpl) _then)
-      : super(_value, _then);
+    _$ULexUserTypeXrpcProcedureImpl _value,
+    $Res Function(_$ULexUserTypeXrpcProcedureImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexUserType
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexUserTypeXrpcProcedureImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexXrpcProcedure,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexUserTypeXrpcProcedureImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexXrpcProcedure,
+      ),
+    );
   }
 
   /// Create a copy of LexUserType
@@ -687,8 +691,10 @@ class _$ULexUserTypeXrpcProcedureImpl extends ULexUserTypeXrpcProcedure {
   @override
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeXrpcProcedureImplCopyWith<_$ULexUserTypeXrpcProcedureImpl>
-      get copyWith => __$$ULexUserTypeXrpcProcedureImplCopyWithImpl<
-          _$ULexUserTypeXrpcProcedureImpl>(this, _$identity);
+  get copyWith =>
+      __$$ULexUserTypeXrpcProcedureImplCopyWithImpl<
+        _$ULexUserTypeXrpcProcedureImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -764,7 +770,7 @@ class _$ULexUserTypeXrpcProcedureImpl extends ULexUserTypeXrpcProcedure {
     required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
     required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
     required TResult Function(ULexUserTypeXrpcSubscription value)
-        xrpcSubscription,
+    xrpcSubscription,
     required TResult Function(ULexUserTypeBlob value) blob,
     required TResult Function(ULexUserTypeArray value) array,
     required TResult Function(ULexUserTypeToken value) token,
@@ -827,8 +833,9 @@ class _$ULexUserTypeXrpcProcedureImpl extends ULexUserTypeXrpcProcedure {
 }
 
 abstract class ULexUserTypeXrpcProcedure extends LexUserType {
-  const factory ULexUserTypeXrpcProcedure(
-      {required final LexXrpcProcedure data}) = _$ULexUserTypeXrpcProcedureImpl;
+  const factory ULexUserTypeXrpcProcedure({
+    required final LexXrpcProcedure data,
+  }) = _$ULexUserTypeXrpcProcedureImpl;
   const ULexUserTypeXrpcProcedure._() : super._();
 
   @override
@@ -838,15 +845,15 @@ abstract class ULexUserTypeXrpcProcedure extends LexUserType {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexUserTypeXrpcProcedureImplCopyWith<_$ULexUserTypeXrpcProcedureImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$ULexUserTypeXrpcSubscriptionImplCopyWith<$Res> {
   factory _$$ULexUserTypeXrpcSubscriptionImplCopyWith(
-          _$ULexUserTypeXrpcSubscriptionImpl value,
-          $Res Function(_$ULexUserTypeXrpcSubscriptionImpl) then) =
-      __$$ULexUserTypeXrpcSubscriptionImplCopyWithImpl<$Res>;
+    _$ULexUserTypeXrpcSubscriptionImpl value,
+    $Res Function(_$ULexUserTypeXrpcSubscriptionImpl) then,
+  ) = __$$ULexUserTypeXrpcSubscriptionImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexXrpcSubscription data});
 
@@ -858,23 +865,23 @@ class __$$ULexUserTypeXrpcSubscriptionImplCopyWithImpl<$Res>
     extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeXrpcSubscriptionImpl>
     implements _$$ULexUserTypeXrpcSubscriptionImplCopyWith<$Res> {
   __$$ULexUserTypeXrpcSubscriptionImplCopyWithImpl(
-      _$ULexUserTypeXrpcSubscriptionImpl _value,
-      $Res Function(_$ULexUserTypeXrpcSubscriptionImpl) _then)
-      : super(_value, _then);
+    _$ULexUserTypeXrpcSubscriptionImpl _value,
+    $Res Function(_$ULexUserTypeXrpcSubscriptionImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexUserType
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexUserTypeXrpcSubscriptionImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexXrpcSubscription,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexUserTypeXrpcSubscriptionImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexXrpcSubscription,
+      ),
+    );
   }
 
   /// Create a copy of LexUserType
@@ -918,9 +925,12 @@ class _$ULexUserTypeXrpcSubscriptionImpl extends ULexUserTypeXrpcSubscription {
   @override
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeXrpcSubscriptionImplCopyWith<
-          _$ULexUserTypeXrpcSubscriptionImpl>
-      get copyWith => __$$ULexUserTypeXrpcSubscriptionImplCopyWithImpl<
-          _$ULexUserTypeXrpcSubscriptionImpl>(this, _$identity);
+    _$ULexUserTypeXrpcSubscriptionImpl
+  >
+  get copyWith =>
+      __$$ULexUserTypeXrpcSubscriptionImplCopyWithImpl<
+        _$ULexUserTypeXrpcSubscriptionImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -996,7 +1006,7 @@ class _$ULexUserTypeXrpcSubscriptionImpl extends ULexUserTypeXrpcSubscription {
     required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
     required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
     required TResult Function(ULexUserTypeXrpcSubscription value)
-        xrpcSubscription,
+    xrpcSubscription,
     required TResult Function(ULexUserTypeBlob value) blob,
     required TResult Function(ULexUserTypeArray value) array,
     required TResult Function(ULexUserTypeToken value) token,
@@ -1059,9 +1069,9 @@ class _$ULexUserTypeXrpcSubscriptionImpl extends ULexUserTypeXrpcSubscription {
 }
 
 abstract class ULexUserTypeXrpcSubscription extends LexUserType {
-  const factory ULexUserTypeXrpcSubscription(
-          {required final LexXrpcSubscription data}) =
-      _$ULexUserTypeXrpcSubscriptionImpl;
+  const factory ULexUserTypeXrpcSubscription({
+    required final LexXrpcSubscription data,
+  }) = _$ULexUserTypeXrpcSubscriptionImpl;
   const ULexUserTypeXrpcSubscription._() : super._();
 
   @override
@@ -1071,15 +1081,17 @@ abstract class ULexUserTypeXrpcSubscription extends LexUserType {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexUserTypeXrpcSubscriptionImplCopyWith<
-          _$ULexUserTypeXrpcSubscriptionImpl>
-      get copyWith => throw _privateConstructorUsedError;
+    _$ULexUserTypeXrpcSubscriptionImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$ULexUserTypeBlobImplCopyWith<$Res> {
-  factory _$$ULexUserTypeBlobImplCopyWith(_$ULexUserTypeBlobImpl value,
-          $Res Function(_$ULexUserTypeBlobImpl) then) =
-      __$$ULexUserTypeBlobImplCopyWithImpl<$Res>;
+  factory _$$ULexUserTypeBlobImplCopyWith(
+    _$ULexUserTypeBlobImpl value,
+    $Res Function(_$ULexUserTypeBlobImpl) then,
+  ) = __$$ULexUserTypeBlobImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexBlob data});
 
@@ -1090,23 +1102,24 @@ abstract class _$$ULexUserTypeBlobImplCopyWith<$Res> {
 class __$$ULexUserTypeBlobImplCopyWithImpl<$Res>
     extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeBlobImpl>
     implements _$$ULexUserTypeBlobImplCopyWith<$Res> {
-  __$$ULexUserTypeBlobImplCopyWithImpl(_$ULexUserTypeBlobImpl _value,
-      $Res Function(_$ULexUserTypeBlobImpl) _then)
-      : super(_value, _then);
+  __$$ULexUserTypeBlobImplCopyWithImpl(
+    _$ULexUserTypeBlobImpl _value,
+    $Res Function(_$ULexUserTypeBlobImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexUserType
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexUserTypeBlobImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexBlob,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexUserTypeBlobImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexBlob,
+      ),
+    );
   }
 
   /// Create a copy of LexUserType
@@ -1151,7 +1164,9 @@ class _$ULexUserTypeBlobImpl extends ULexUserTypeBlob {
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeBlobImplCopyWith<_$ULexUserTypeBlobImpl> get copyWith =>
       __$$ULexUserTypeBlobImplCopyWithImpl<_$ULexUserTypeBlobImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -1227,7 +1242,7 @@ class _$ULexUserTypeBlobImpl extends ULexUserTypeBlob {
     required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
     required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
     required TResult Function(ULexUserTypeXrpcSubscription value)
-        xrpcSubscription,
+    xrpcSubscription,
     required TResult Function(ULexUserTypeBlob value) blob,
     required TResult Function(ULexUserTypeArray value) array,
     required TResult Function(ULexUserTypeToken value) token,
@@ -1306,9 +1321,10 @@ abstract class ULexUserTypeBlob extends LexUserType {
 
 /// @nodoc
 abstract class _$$ULexUserTypeArrayImplCopyWith<$Res> {
-  factory _$$ULexUserTypeArrayImplCopyWith(_$ULexUserTypeArrayImpl value,
-          $Res Function(_$ULexUserTypeArrayImpl) then) =
-      __$$ULexUserTypeArrayImplCopyWithImpl<$Res>;
+  factory _$$ULexUserTypeArrayImplCopyWith(
+    _$ULexUserTypeArrayImpl value,
+    $Res Function(_$ULexUserTypeArrayImpl) then,
+  ) = __$$ULexUserTypeArrayImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexArray data});
 
@@ -1319,23 +1335,24 @@ abstract class _$$ULexUserTypeArrayImplCopyWith<$Res> {
 class __$$ULexUserTypeArrayImplCopyWithImpl<$Res>
     extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeArrayImpl>
     implements _$$ULexUserTypeArrayImplCopyWith<$Res> {
-  __$$ULexUserTypeArrayImplCopyWithImpl(_$ULexUserTypeArrayImpl _value,
-      $Res Function(_$ULexUserTypeArrayImpl) _then)
-      : super(_value, _then);
+  __$$ULexUserTypeArrayImplCopyWithImpl(
+    _$ULexUserTypeArrayImpl _value,
+    $Res Function(_$ULexUserTypeArrayImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexUserType
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexUserTypeArrayImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexArray,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexUserTypeArrayImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexArray,
+      ),
+    );
   }
 
   /// Create a copy of LexUserType
@@ -1380,7 +1397,9 @@ class _$ULexUserTypeArrayImpl extends ULexUserTypeArray {
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeArrayImplCopyWith<_$ULexUserTypeArrayImpl> get copyWith =>
       __$$ULexUserTypeArrayImplCopyWithImpl<_$ULexUserTypeArrayImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -1456,7 +1475,7 @@ class _$ULexUserTypeArrayImpl extends ULexUserTypeArray {
     required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
     required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
     required TResult Function(ULexUserTypeXrpcSubscription value)
-        xrpcSubscription,
+    xrpcSubscription,
     required TResult Function(ULexUserTypeBlob value) blob,
     required TResult Function(ULexUserTypeArray value) array,
     required TResult Function(ULexUserTypeToken value) token,
@@ -1535,9 +1554,10 @@ abstract class ULexUserTypeArray extends LexUserType {
 
 /// @nodoc
 abstract class _$$ULexUserTypeTokenImplCopyWith<$Res> {
-  factory _$$ULexUserTypeTokenImplCopyWith(_$ULexUserTypeTokenImpl value,
-          $Res Function(_$ULexUserTypeTokenImpl) then) =
-      __$$ULexUserTypeTokenImplCopyWithImpl<$Res>;
+  factory _$$ULexUserTypeTokenImplCopyWith(
+    _$ULexUserTypeTokenImpl value,
+    $Res Function(_$ULexUserTypeTokenImpl) then,
+  ) = __$$ULexUserTypeTokenImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexToken data});
 
@@ -1548,23 +1568,24 @@ abstract class _$$ULexUserTypeTokenImplCopyWith<$Res> {
 class __$$ULexUserTypeTokenImplCopyWithImpl<$Res>
     extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeTokenImpl>
     implements _$$ULexUserTypeTokenImplCopyWith<$Res> {
-  __$$ULexUserTypeTokenImplCopyWithImpl(_$ULexUserTypeTokenImpl _value,
-      $Res Function(_$ULexUserTypeTokenImpl) _then)
-      : super(_value, _then);
+  __$$ULexUserTypeTokenImplCopyWithImpl(
+    _$ULexUserTypeTokenImpl _value,
+    $Res Function(_$ULexUserTypeTokenImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexUserType
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexUserTypeTokenImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexToken,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexUserTypeTokenImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexToken,
+      ),
+    );
   }
 
   /// Create a copy of LexUserType
@@ -1609,7 +1630,9 @@ class _$ULexUserTypeTokenImpl extends ULexUserTypeToken {
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeTokenImplCopyWith<_$ULexUserTypeTokenImpl> get copyWith =>
       __$$ULexUserTypeTokenImplCopyWithImpl<_$ULexUserTypeTokenImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -1685,7 +1708,7 @@ class _$ULexUserTypeTokenImpl extends ULexUserTypeToken {
     required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
     required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
     required TResult Function(ULexUserTypeXrpcSubscription value)
-        xrpcSubscription,
+    xrpcSubscription,
     required TResult Function(ULexUserTypeBlob value) blob,
     required TResult Function(ULexUserTypeArray value) array,
     required TResult Function(ULexUserTypeToken value) token,
@@ -1764,9 +1787,10 @@ abstract class ULexUserTypeToken extends LexUserType {
 
 /// @nodoc
 abstract class _$$ULexUserTypeObjectImplCopyWith<$Res> {
-  factory _$$ULexUserTypeObjectImplCopyWith(_$ULexUserTypeObjectImpl value,
-          $Res Function(_$ULexUserTypeObjectImpl) then) =
-      __$$ULexUserTypeObjectImplCopyWithImpl<$Res>;
+  factory _$$ULexUserTypeObjectImplCopyWith(
+    _$ULexUserTypeObjectImpl value,
+    $Res Function(_$ULexUserTypeObjectImpl) then,
+  ) = __$$ULexUserTypeObjectImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexObject data});
 
@@ -1777,23 +1801,24 @@ abstract class _$$ULexUserTypeObjectImplCopyWith<$Res> {
 class __$$ULexUserTypeObjectImplCopyWithImpl<$Res>
     extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeObjectImpl>
     implements _$$ULexUserTypeObjectImplCopyWith<$Res> {
-  __$$ULexUserTypeObjectImplCopyWithImpl(_$ULexUserTypeObjectImpl _value,
-      $Res Function(_$ULexUserTypeObjectImpl) _then)
-      : super(_value, _then);
+  __$$ULexUserTypeObjectImplCopyWithImpl(
+    _$ULexUserTypeObjectImpl _value,
+    $Res Function(_$ULexUserTypeObjectImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexUserType
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexUserTypeObjectImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexObject,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexUserTypeObjectImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexObject,
+      ),
+    );
   }
 
   /// Create a copy of LexUserType
@@ -1838,7 +1863,9 @@ class _$ULexUserTypeObjectImpl extends ULexUserTypeObject {
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeObjectImplCopyWith<_$ULexUserTypeObjectImpl> get copyWith =>
       __$$ULexUserTypeObjectImplCopyWithImpl<_$ULexUserTypeObjectImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -1914,7 +1941,7 @@ class _$ULexUserTypeObjectImpl extends ULexUserTypeObject {
     required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
     required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
     required TResult Function(ULexUserTypeXrpcSubscription value)
-        xrpcSubscription,
+    xrpcSubscription,
     required TResult Function(ULexUserTypeBlob value) blob,
     required TResult Function(ULexUserTypeArray value) array,
     required TResult Function(ULexUserTypeToken value) token,
@@ -1993,9 +2020,10 @@ abstract class ULexUserTypeObject extends LexUserType {
 
 /// @nodoc
 abstract class _$$ULexUserTypeBooleanImplCopyWith<$Res> {
-  factory _$$ULexUserTypeBooleanImplCopyWith(_$ULexUserTypeBooleanImpl value,
-          $Res Function(_$ULexUserTypeBooleanImpl) then) =
-      __$$ULexUserTypeBooleanImplCopyWithImpl<$Res>;
+  factory _$$ULexUserTypeBooleanImplCopyWith(
+    _$ULexUserTypeBooleanImpl value,
+    $Res Function(_$ULexUserTypeBooleanImpl) then,
+  ) = __$$ULexUserTypeBooleanImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexBoolean data});
 
@@ -2006,23 +2034,24 @@ abstract class _$$ULexUserTypeBooleanImplCopyWith<$Res> {
 class __$$ULexUserTypeBooleanImplCopyWithImpl<$Res>
     extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeBooleanImpl>
     implements _$$ULexUserTypeBooleanImplCopyWith<$Res> {
-  __$$ULexUserTypeBooleanImplCopyWithImpl(_$ULexUserTypeBooleanImpl _value,
-      $Res Function(_$ULexUserTypeBooleanImpl) _then)
-      : super(_value, _then);
+  __$$ULexUserTypeBooleanImplCopyWithImpl(
+    _$ULexUserTypeBooleanImpl _value,
+    $Res Function(_$ULexUserTypeBooleanImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexUserType
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexUserTypeBooleanImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexBoolean,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexUserTypeBooleanImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexBoolean,
+      ),
+    );
   }
 
   /// Create a copy of LexUserType
@@ -2067,7 +2096,9 @@ class _$ULexUserTypeBooleanImpl extends ULexUserTypeBoolean {
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeBooleanImplCopyWith<_$ULexUserTypeBooleanImpl> get copyWith =>
       __$$ULexUserTypeBooleanImplCopyWithImpl<_$ULexUserTypeBooleanImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -2143,7 +2174,7 @@ class _$ULexUserTypeBooleanImpl extends ULexUserTypeBoolean {
     required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
     required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
     required TResult Function(ULexUserTypeXrpcSubscription value)
-        xrpcSubscription,
+    xrpcSubscription,
     required TResult Function(ULexUserTypeBlob value) blob,
     required TResult Function(ULexUserTypeArray value) array,
     required TResult Function(ULexUserTypeToken value) token,
@@ -2222,9 +2253,10 @@ abstract class ULexUserTypeBoolean extends LexUserType {
 
 /// @nodoc
 abstract class _$$ULexUserTypeIntegerImplCopyWith<$Res> {
-  factory _$$ULexUserTypeIntegerImplCopyWith(_$ULexUserTypeIntegerImpl value,
-          $Res Function(_$ULexUserTypeIntegerImpl) then) =
-      __$$ULexUserTypeIntegerImplCopyWithImpl<$Res>;
+  factory _$$ULexUserTypeIntegerImplCopyWith(
+    _$ULexUserTypeIntegerImpl value,
+    $Res Function(_$ULexUserTypeIntegerImpl) then,
+  ) = __$$ULexUserTypeIntegerImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexInteger data});
 
@@ -2235,23 +2267,24 @@ abstract class _$$ULexUserTypeIntegerImplCopyWith<$Res> {
 class __$$ULexUserTypeIntegerImplCopyWithImpl<$Res>
     extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeIntegerImpl>
     implements _$$ULexUserTypeIntegerImplCopyWith<$Res> {
-  __$$ULexUserTypeIntegerImplCopyWithImpl(_$ULexUserTypeIntegerImpl _value,
-      $Res Function(_$ULexUserTypeIntegerImpl) _then)
-      : super(_value, _then);
+  __$$ULexUserTypeIntegerImplCopyWithImpl(
+    _$ULexUserTypeIntegerImpl _value,
+    $Res Function(_$ULexUserTypeIntegerImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexUserType
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexUserTypeIntegerImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexInteger,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexUserTypeIntegerImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexInteger,
+      ),
+    );
   }
 
   /// Create a copy of LexUserType
@@ -2296,7 +2329,9 @@ class _$ULexUserTypeIntegerImpl extends ULexUserTypeInteger {
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeIntegerImplCopyWith<_$ULexUserTypeIntegerImpl> get copyWith =>
       __$$ULexUserTypeIntegerImplCopyWithImpl<_$ULexUserTypeIntegerImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -2372,7 +2407,7 @@ class _$ULexUserTypeIntegerImpl extends ULexUserTypeInteger {
     required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
     required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
     required TResult Function(ULexUserTypeXrpcSubscription value)
-        xrpcSubscription,
+    xrpcSubscription,
     required TResult Function(ULexUserTypeBlob value) blob,
     required TResult Function(ULexUserTypeArray value) array,
     required TResult Function(ULexUserTypeToken value) token,
@@ -2451,9 +2486,10 @@ abstract class ULexUserTypeInteger extends LexUserType {
 
 /// @nodoc
 abstract class _$$ULexUserTypeStringImplCopyWith<$Res> {
-  factory _$$ULexUserTypeStringImplCopyWith(_$ULexUserTypeStringImpl value,
-          $Res Function(_$ULexUserTypeStringImpl) then) =
-      __$$ULexUserTypeStringImplCopyWithImpl<$Res>;
+  factory _$$ULexUserTypeStringImplCopyWith(
+    _$ULexUserTypeStringImpl value,
+    $Res Function(_$ULexUserTypeStringImpl) then,
+  ) = __$$ULexUserTypeStringImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexString data});
 
@@ -2464,23 +2500,24 @@ abstract class _$$ULexUserTypeStringImplCopyWith<$Res> {
 class __$$ULexUserTypeStringImplCopyWithImpl<$Res>
     extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeStringImpl>
     implements _$$ULexUserTypeStringImplCopyWith<$Res> {
-  __$$ULexUserTypeStringImplCopyWithImpl(_$ULexUserTypeStringImpl _value,
-      $Res Function(_$ULexUserTypeStringImpl) _then)
-      : super(_value, _then);
+  __$$ULexUserTypeStringImplCopyWithImpl(
+    _$ULexUserTypeStringImpl _value,
+    $Res Function(_$ULexUserTypeStringImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexUserType
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexUserTypeStringImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexString,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexUserTypeStringImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexString,
+      ),
+    );
   }
 
   /// Create a copy of LexUserType
@@ -2525,7 +2562,9 @@ class _$ULexUserTypeStringImpl extends ULexUserTypeString {
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeStringImplCopyWith<_$ULexUserTypeStringImpl> get copyWith =>
       __$$ULexUserTypeStringImplCopyWithImpl<_$ULexUserTypeStringImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -2601,7 +2640,7 @@ class _$ULexUserTypeStringImpl extends ULexUserTypeString {
     required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
     required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
     required TResult Function(ULexUserTypeXrpcSubscription value)
-        xrpcSubscription,
+    xrpcSubscription,
     required TResult Function(ULexUserTypeBlob value) blob,
     required TResult Function(ULexUserTypeArray value) array,
     required TResult Function(ULexUserTypeToken value) token,
@@ -2680,9 +2719,10 @@ abstract class ULexUserTypeString extends LexUserType {
 
 /// @nodoc
 abstract class _$$ULexUserTypeBytesImplCopyWith<$Res> {
-  factory _$$ULexUserTypeBytesImplCopyWith(_$ULexUserTypeBytesImpl value,
-          $Res Function(_$ULexUserTypeBytesImpl) then) =
-      __$$ULexUserTypeBytesImplCopyWithImpl<$Res>;
+  factory _$$ULexUserTypeBytesImplCopyWith(
+    _$ULexUserTypeBytesImpl value,
+    $Res Function(_$ULexUserTypeBytesImpl) then,
+  ) = __$$ULexUserTypeBytesImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexBytes data});
 
@@ -2693,23 +2733,24 @@ abstract class _$$ULexUserTypeBytesImplCopyWith<$Res> {
 class __$$ULexUserTypeBytesImplCopyWithImpl<$Res>
     extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeBytesImpl>
     implements _$$ULexUserTypeBytesImplCopyWith<$Res> {
-  __$$ULexUserTypeBytesImplCopyWithImpl(_$ULexUserTypeBytesImpl _value,
-      $Res Function(_$ULexUserTypeBytesImpl) _then)
-      : super(_value, _then);
+  __$$ULexUserTypeBytesImplCopyWithImpl(
+    _$ULexUserTypeBytesImpl _value,
+    $Res Function(_$ULexUserTypeBytesImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexUserType
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexUserTypeBytesImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexBytes,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexUserTypeBytesImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexBytes,
+      ),
+    );
   }
 
   /// Create a copy of LexUserType
@@ -2754,7 +2795,9 @@ class _$ULexUserTypeBytesImpl extends ULexUserTypeBytes {
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeBytesImplCopyWith<_$ULexUserTypeBytesImpl> get copyWith =>
       __$$ULexUserTypeBytesImplCopyWithImpl<_$ULexUserTypeBytesImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -2830,7 +2873,7 @@ class _$ULexUserTypeBytesImpl extends ULexUserTypeBytes {
     required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
     required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
     required TResult Function(ULexUserTypeXrpcSubscription value)
-        xrpcSubscription,
+    xrpcSubscription,
     required TResult Function(ULexUserTypeBlob value) blob,
     required TResult Function(ULexUserTypeArray value) array,
     required TResult Function(ULexUserTypeToken value) token,
@@ -2909,9 +2952,10 @@ abstract class ULexUserTypeBytes extends LexUserType {
 
 /// @nodoc
 abstract class _$$ULexUserTypeCidLinkImplCopyWith<$Res> {
-  factory _$$ULexUserTypeCidLinkImplCopyWith(_$ULexUserTypeCidLinkImpl value,
-          $Res Function(_$ULexUserTypeCidLinkImpl) then) =
-      __$$ULexUserTypeCidLinkImplCopyWithImpl<$Res>;
+  factory _$$ULexUserTypeCidLinkImplCopyWith(
+    _$ULexUserTypeCidLinkImpl value,
+    $Res Function(_$ULexUserTypeCidLinkImpl) then,
+  ) = __$$ULexUserTypeCidLinkImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexCidLink data});
 
@@ -2922,23 +2966,24 @@ abstract class _$$ULexUserTypeCidLinkImplCopyWith<$Res> {
 class __$$ULexUserTypeCidLinkImplCopyWithImpl<$Res>
     extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeCidLinkImpl>
     implements _$$ULexUserTypeCidLinkImplCopyWith<$Res> {
-  __$$ULexUserTypeCidLinkImplCopyWithImpl(_$ULexUserTypeCidLinkImpl _value,
-      $Res Function(_$ULexUserTypeCidLinkImpl) _then)
-      : super(_value, _then);
+  __$$ULexUserTypeCidLinkImplCopyWithImpl(
+    _$ULexUserTypeCidLinkImpl _value,
+    $Res Function(_$ULexUserTypeCidLinkImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexUserType
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexUserTypeCidLinkImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexCidLink,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexUserTypeCidLinkImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexCidLink,
+      ),
+    );
   }
 
   /// Create a copy of LexUserType
@@ -2983,7 +3028,9 @@ class _$ULexUserTypeCidLinkImpl extends ULexUserTypeCidLink {
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeCidLinkImplCopyWith<_$ULexUserTypeCidLinkImpl> get copyWith =>
       __$$ULexUserTypeCidLinkImplCopyWithImpl<_$ULexUserTypeCidLinkImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -3059,7 +3106,7 @@ class _$ULexUserTypeCidLinkImpl extends ULexUserTypeCidLink {
     required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
     required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
     required TResult Function(ULexUserTypeXrpcSubscription value)
-        xrpcSubscription,
+    xrpcSubscription,
     required TResult Function(ULexUserTypeBlob value) blob,
     required TResult Function(ULexUserTypeArray value) array,
     required TResult Function(ULexUserTypeToken value) token,
@@ -3138,9 +3185,10 @@ abstract class ULexUserTypeCidLink extends LexUserType {
 
 /// @nodoc
 abstract class _$$ULexUserTypeUnknownImplCopyWith<$Res> {
-  factory _$$ULexUserTypeUnknownImplCopyWith(_$ULexUserTypeUnknownImpl value,
-          $Res Function(_$ULexUserTypeUnknownImpl) then) =
-      __$$ULexUserTypeUnknownImplCopyWithImpl<$Res>;
+  factory _$$ULexUserTypeUnknownImplCopyWith(
+    _$ULexUserTypeUnknownImpl value,
+    $Res Function(_$ULexUserTypeUnknownImpl) then,
+  ) = __$$ULexUserTypeUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexUnknown data});
 
@@ -3151,23 +3199,24 @@ abstract class _$$ULexUserTypeUnknownImplCopyWith<$Res> {
 class __$$ULexUserTypeUnknownImplCopyWithImpl<$Res>
     extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeUnknownImpl>
     implements _$$ULexUserTypeUnknownImplCopyWith<$Res> {
-  __$$ULexUserTypeUnknownImplCopyWithImpl(_$ULexUserTypeUnknownImpl _value,
-      $Res Function(_$ULexUserTypeUnknownImpl) _then)
-      : super(_value, _then);
+  __$$ULexUserTypeUnknownImplCopyWithImpl(
+    _$ULexUserTypeUnknownImpl _value,
+    $Res Function(_$ULexUserTypeUnknownImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexUserType
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexUserTypeUnknownImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexUnknown,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexUserTypeUnknownImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexUnknown,
+      ),
+    );
   }
 
   /// Create a copy of LexUserType
@@ -3212,7 +3261,9 @@ class _$ULexUserTypeUnknownImpl extends ULexUserTypeUnknown {
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeUnknownImplCopyWith<_$ULexUserTypeUnknownImpl> get copyWith =>
       __$$ULexUserTypeUnknownImplCopyWithImpl<_$ULexUserTypeUnknownImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -3288,7 +3339,7 @@ class _$ULexUserTypeUnknownImpl extends ULexUserTypeUnknown {
     required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
     required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
     required TResult Function(ULexUserTypeXrpcSubscription value)
-        xrpcSubscription,
+    xrpcSubscription,
     required TResult Function(ULexUserTypeBlob value) blob,
     required TResult Function(ULexUserTypeArray value) array,
     required TResult Function(ULexUserTypeToken value) token,

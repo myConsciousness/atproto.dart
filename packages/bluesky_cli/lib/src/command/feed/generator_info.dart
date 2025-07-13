@@ -19,10 +19,8 @@ class GeneratorInfoCommand extends QueryCommand {
   final String invocation = 'bsky generator-info';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'feed.bsky.app',
-        'describeFeedGenerator',
-      );
+  xrpc.NSID get methodId =>
+      xrpc.NSID.create('feed.bsky.app', 'describeFeedGenerator');
 
   @override
   Map<String, dynamic>? get parameters => null;

@@ -20,14 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class RepoListMissingBlobsInput with _$RepoListMissingBlobsInput {
-  static const knownProps = <String>[
-    'limit',
-    'cursor',
-  ];
+  static const knownProps = <String>['limit', 'cursor'];
 
   const factory RepoListMissingBlobsInput({
     int? limit,
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _RepoListMissingBlobsInput;
 
@@ -35,20 +33,19 @@ abstract class RepoListMissingBlobsInput with _$RepoListMissingBlobsInput {
       _$RepoListMissingBlobsInputFromJson(json);
 }
 
-final class RepoListMissingBlobsInputConverter extends LexObjectConverter<
-    RepoListMissingBlobsInput, Map<String, dynamic>> {
+final class RepoListMissingBlobsInputConverter
+    extends
+        LexObjectConverter<RepoListMissingBlobsInput, Map<String, dynamic>> {
   const RepoListMissingBlobsInputConverter();
 
   @override
   RepoListMissingBlobsInput fromJson(Map<String, dynamic> json) {
-    return RepoListMissingBlobsInput.fromJson(translate(
-      json,
-      RepoListMissingBlobsInput.knownProps,
-    ));
+    return RepoListMissingBlobsInput.fromJson(
+      translate(json, RepoListMissingBlobsInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(RepoListMissingBlobsInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RepoListMissingBlobsInput object) =>
+      untranslate(object.toJson());
 }

@@ -21,12 +21,11 @@ part 'input.g.dart';
 @freezed
 abstract class IdentitySubmitPlcOperationInput
     with _$IdentitySubmitPlcOperationInput {
-  static const knownProps = <String>[
-    'operation',
-  ];
+  static const knownProps = <String>['operation'];
 
   const factory IdentitySubmitPlcOperationInput({
     required Map<String, dynamic> operation,
+
     Map<String, dynamic>? $unknown,
   }) = _IdentitySubmitPlcOperationInput;
 
@@ -34,21 +33,22 @@ abstract class IdentitySubmitPlcOperationInput
       _$IdentitySubmitPlcOperationInputFromJson(json);
 }
 
-final class IdentitySubmitPlcOperationInputConverter extends LexObjectConverter<
-    IdentitySubmitPlcOperationInput, Map<String, dynamic>> {
+final class IdentitySubmitPlcOperationInputConverter
+    extends
+        LexObjectConverter<
+          IdentitySubmitPlcOperationInput,
+          Map<String, dynamic>
+        > {
   const IdentitySubmitPlcOperationInputConverter();
 
   @override
   IdentitySubmitPlcOperationInput fromJson(Map<String, dynamic> json) {
-    return IdentitySubmitPlcOperationInput.fromJson(translate(
-      json,
-      IdentitySubmitPlcOperationInput.knownProps,
-    ));
+    return IdentitySubmitPlcOperationInput.fromJson(
+      translate(json, IdentitySubmitPlcOperationInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(IdentitySubmitPlcOperationInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

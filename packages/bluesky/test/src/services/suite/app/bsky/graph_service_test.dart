@@ -45,15 +45,9 @@ void main() {
     id: appBskyGraphUnmuteActor,
   );
 
-  testGraph<Mutes>(
-    (m, s) => s.getMutes(),
-    id: appBskyGraphGetMutes,
-  );
+  testGraph<Mutes>((m, s) => s.getMutes(), id: appBskyGraphGetMutes);
 
-  testGraph<Blocks>(
-    (m, s) => s.getBlocks(),
-    id: appBskyGraphGetBlocks,
-  );
+  testGraph<Blocks>((m, s) => s.getBlocks(), id: appBskyGraphGetBlocks);
 
   testGraph<atp.StrongRef>(
     (m, s) => s.block(did: m.did),
@@ -64,10 +58,7 @@ void main() {
   testGraph<atp.StrongRef>(
     (m, s) => s.list(purpose: appBskyGraphDefsModlist, name: m.name),
     bulk: (m, s) => s.listInBulk([
-      ListParam(
-        purpose: appBskyGraphDefsModlist,
-        name: m.name,
-      )
+      ListParam(purpose: appBskyGraphDefsModlist, name: m.name),
     ]),
     id: appBskyGraphList,
   );
@@ -89,10 +80,7 @@ void main() {
     id: appBskyGraphGetLists,
   );
 
-  testGraph<Lists>(
-    (m, s) => s.getListBlocks(),
-    id: appBskyGraphGetListBlocks,
-  );
+  testGraph<Lists>((m, s) => s.getListBlocks(), id: appBskyGraphGetListBlocks);
 
   testGraph<ListItems>(
     (m, s) => s.getList(list: m.uri),
@@ -101,19 +89,12 @@ void main() {
 
   testGraph<atp.StrongRef>(
     (m, s) => s.listitem(subject: m.did, list: m.uri),
-    bulk: (m, s) => s.listitemInBulk([
-      ListItemParam(
-        subject: m.did,
-        list: m.uri,
-      )
-    ]),
+    bulk: (m, s) =>
+        s.listitemInBulk([ListItemParam(subject: m.did, list: m.uri)]),
     id: appBskyGraphListitem,
   );
 
-  testGraph<Lists>(
-    (m, s) => s.getListMutes(),
-    id: appBskyGraphGetListMutes,
-  );
+  testGraph<Lists>((m, s) => s.getListMutes(), id: appBskyGraphGetListMutes);
 
   testGraph<core.EmptyData>(
     (m, s) => s.muteActorList(list: m.uri),

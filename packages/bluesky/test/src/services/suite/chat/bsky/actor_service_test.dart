@@ -9,9 +9,7 @@ import 'service_suite.dart';
 
 void main() {
   testActor<atp.StrongRef>(
-    (m, s) => s.declaration(
-      allowIncoming: DeclarationAllowIncoming.following,
-    ),
+    (m, s) => s.declaration(allowIncoming: DeclarationAllowIncoming.following),
     id: chatBskyActorDeclaration,
   );
 

@@ -23,13 +23,12 @@ part 'interests_pref.g.dart';
 
 @freezed
 abstract class InterestsPref with _$InterestsPref {
-  static const knownProps = <String>[
-    'tags',
-  ];
+  static const knownProps = <String>['tags'];
 
   const factory InterestsPref({
     @Default(appBskyActorDefsInterestsPref) String $type,
     required List<String> tags,
+
     Map<String, dynamic>? $unknown,
   }) = _InterestsPref;
 
@@ -48,14 +47,10 @@ final class InterestsPrefConverter
 
   @override
   InterestsPref fromJson(Map<String, dynamic> json) {
-    return InterestsPref.fromJson(translate(
-      json,
-      InterestsPref.knownProps,
-    ));
+    return InterestsPref.fromJson(translate(json, InterestsPref.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(InterestsPref object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(InterestsPref object) =>
+      untranslate(object.toJson());
 }

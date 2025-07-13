@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,362 +9,346 @@ part of 'blob_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-BlobView _$BlobViewFromJson(Map<String, dynamic> json) {
-  return _BlobView.fromJson(json);
-}
 
 /// @nodoc
 mixin _$BlobView {
-  String get $type => throw _privateConstructorUsedError;
-  String get cid => throw _privateConstructorUsedError;
-  String get mimeType => throw _privateConstructorUsedError;
-  int get size => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  @UBlobViewDetailsConverter()
-  UBlobViewDetails? get details => throw _privateConstructorUsedError;
-  @ModerationConverter()
-  Moderation? get moderation => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+ String get $type; String get cid; String get mimeType; int get size; DateTime get createdAt;@UBlobViewDetailsConverter() UBlobViewDetails? get details;@ModerationConverter() Moderation? get moderation; Map<String, dynamic>? get $unknown;
+/// Create a copy of BlobView
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$BlobViewCopyWith<BlobView> get copyWith => _$BlobViewCopyWithImpl<BlobView>(this as BlobView, _$identity);
 
   /// Serializes this BlobView to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of BlobView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $BlobViewCopyWith<BlobView> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BlobView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.cid, cid) || other.cid == cid)&&(identical(other.mimeType, mimeType) || other.mimeType == mimeType)&&(identical(other.size, size) || other.size == size)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.details, details) || other.details == details)&&(identical(other.moderation, moderation) || other.moderation == moderation)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,cid,mimeType,size,createdAt,details,moderation,const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'BlobView(\$type: ${$type}, cid: $cid, mimeType: $mimeType, size: $size, createdAt: $createdAt, details: $details, moderation: $moderation, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $BlobViewCopyWith<$Res> {
-  factory $BlobViewCopyWith(BlobView value, $Res Function(BlobView) then) =
-      _$BlobViewCopyWithImpl<$Res, BlobView>;
-  @useResult
-  $Res call(
-      {String $type,
-      String cid,
-      String mimeType,
-      int size,
-      DateTime createdAt,
-      @UBlobViewDetailsConverter() UBlobViewDetails? details,
-      @ModerationConverter() Moderation? moderation,
-      Map<String, dynamic>? $unknown});
+abstract mixin class $BlobViewCopyWith<$Res>  {
+  factory $BlobViewCopyWith(BlobView value, $Res Function(BlobView) _then) = _$BlobViewCopyWithImpl;
+@useResult
+$Res call({
+ String $type, String cid, String mimeType, int size, DateTime createdAt,@UBlobViewDetailsConverter() UBlobViewDetails? details,@ModerationConverter() Moderation? moderation, Map<String, dynamic>? $unknown
+});
 
-  $UBlobViewDetailsCopyWith<$Res>? get details;
-  $ModerationCopyWith<$Res>? get moderation;
+
+$UBlobViewDetailsCopyWith<$Res>? get details;$ModerationCopyWith<$Res>? get moderation;
+
 }
-
 /// @nodoc
-class _$BlobViewCopyWithImpl<$Res, $Val extends BlobView>
+class _$BlobViewCopyWithImpl<$Res>
     implements $BlobViewCopyWith<$Res> {
-  _$BlobViewCopyWithImpl(this._value, this._then);
+  _$BlobViewCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final BlobView _self;
+  final $Res Function(BlobView) _then;
 
-  /// Create a copy of BlobView
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? cid = null,
-    Object? mimeType = null,
-    Object? size = null,
-    Object? createdAt = null,
-    Object? details = freezed,
-    Object? moderation = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
-      mimeType: null == mimeType
-          ? _value.mimeType
-          : mimeType // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      details: freezed == details
-          ? _value.details
-          : details // ignore: cast_nullable_to_non_nullable
-              as UBlobViewDetails?,
-      moderation: freezed == moderation
-          ? _value.moderation
-          : moderation // ignore: cast_nullable_to_non_nullable
-              as Moderation?,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
+/// Create a copy of BlobView
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? cid = null,Object? mimeType = null,Object? size = null,Object? createdAt = null,Object? details = freezed,Object? moderation = freezed,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as String,mimeType: null == mimeType ? _self.mimeType : mimeType // ignore: cast_nullable_to_non_nullable
+as String,size: null == size ? _self.size : size // ignore: cast_nullable_to_non_nullable
+as int,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,details: freezed == details ? _self.details : details // ignore: cast_nullable_to_non_nullable
+as UBlobViewDetails?,moderation: freezed == moderation ? _self.moderation : moderation // ignore: cast_nullable_to_non_nullable
+as Moderation?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+/// Create a copy of BlobView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UBlobViewDetailsCopyWith<$Res>? get details {
+    if (_self.details == null) {
+    return null;
   }
 
-  /// Create a copy of BlobView
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $UBlobViewDetailsCopyWith<$Res>? get details {
-    if (_value.details == null) {
-      return null;
-    }
-
-    return $UBlobViewDetailsCopyWith<$Res>(_value.details!, (value) {
-      return _then(_value.copyWith(details: value) as $Val);
-    });
+  return $UBlobViewDetailsCopyWith<$Res>(_self.details!, (value) {
+    return _then(_self.copyWith(details: value));
+  });
+}/// Create a copy of BlobView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModerationCopyWith<$Res>? get moderation {
+    if (_self.moderation == null) {
+    return null;
   }
 
-  /// Create a copy of BlobView
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModerationCopyWith<$Res>? get moderation {
-    if (_value.moderation == null) {
-      return null;
-    }
-
-    return $ModerationCopyWith<$Res>(_value.moderation!, (value) {
-      return _then(_value.copyWith(moderation: value) as $Val);
-    });
-  }
+  return $ModerationCopyWith<$Res>(_self.moderation!, (value) {
+    return _then(_self.copyWith(moderation: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$BlobViewImplCopyWith<$Res>
-    implements $BlobViewCopyWith<$Res> {
-  factory _$$BlobViewImplCopyWith(
-          _$BlobViewImpl value, $Res Function(_$BlobViewImpl) then) =
-      __$$BlobViewImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String $type,
-      String cid,
-      String mimeType,
-      int size,
-      DateTime createdAt,
-      @UBlobViewDetailsConverter() UBlobViewDetails? details,
-      @ModerationConverter() Moderation? moderation,
-      Map<String, dynamic>? $unknown});
 
-  @override
-  $UBlobViewDetailsCopyWith<$Res>? get details;
-  @override
-  $ModerationCopyWith<$Res>? get moderation;
+/// Adds pattern-matching-related methods to [BlobView].
+extension BlobViewPatterns on BlobView {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _BlobView value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _BlobView() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _BlobView value)  $default,){
+final _that = this;
+switch (_that) {
+case _BlobView():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _BlobView value)?  $default,){
+final _that = this;
+switch (_that) {
+case _BlobView() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String cid,  String mimeType,  int size,  DateTime createdAt, @UBlobViewDetailsConverter()  UBlobViewDetails? details, @ModerationConverter()  Moderation? moderation,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _BlobView() when $default != null:
+return $default(_that.$type,_that.cid,_that.mimeType,_that.size,_that.createdAt,_that.details,_that.moderation,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String cid,  String mimeType,  int size,  DateTime createdAt, @UBlobViewDetailsConverter()  UBlobViewDetails? details, @ModerationConverter()  Moderation? moderation,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _BlobView():
+return $default(_that.$type,_that.cid,_that.mimeType,_that.size,_that.createdAt,_that.details,_that.moderation,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String cid,  String mimeType,  int size,  DateTime createdAt, @UBlobViewDetailsConverter()  UBlobViewDetails? details, @ModerationConverter()  Moderation? moderation,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _BlobView() when $default != null:
+return $default(_that.$type,_that.cid,_that.mimeType,_that.size,_that.createdAt,_that.details,_that.moderation,_that.$unknown);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-class __$$BlobViewImplCopyWithImpl<$Res>
-    extends _$BlobViewCopyWithImpl<$Res, _$BlobViewImpl>
-    implements _$$BlobViewImplCopyWith<$Res> {
-  __$$BlobViewImplCopyWithImpl(
-      _$BlobViewImpl _value, $Res Function(_$BlobViewImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of BlobView
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? cid = null,
-    Object? mimeType = null,
-    Object? size = null,
-    Object? createdAt = null,
-    Object? details = freezed,
-    Object? moderation = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$BlobViewImpl(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
-      mimeType: null == mimeType
-          ? _value.mimeType
-          : mimeType // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      details: freezed == details
-          ? _value.details
-          : details // ignore: cast_nullable_to_non_nullable
-              as UBlobViewDetails?,
-      moderation: freezed == moderation
-          ? _value.moderation
-          : moderation // ignore: cast_nullable_to_non_nullable
-              as Moderation?,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$BlobViewImpl implements _BlobView {
-  const _$BlobViewImpl(
-      {this.$type = toolsOzoneModerationDefsBlobView,
-      required this.cid,
-      required this.mimeType,
-      required this.size,
-      required this.createdAt,
-      @UBlobViewDetailsConverter() this.details,
-      @ModerationConverter() this.moderation,
-      final Map<String, dynamic>? $unknown})
-      : _$unknown = $unknown;
 
-  factory _$BlobViewImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BlobViewImplFromJson(json);
+class _BlobView implements BlobView {
+  const _BlobView({this.$type = toolsOzoneModerationDefsBlobView, required this.cid, required this.mimeType, required this.size, required this.createdAt, @UBlobViewDetailsConverter() this.details, @ModerationConverter() this.moderation, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  factory _BlobView.fromJson(Map<String, dynamic> json) => _$BlobViewFromJson(json);
 
-  @override
-  @JsonKey()
-  final String $type;
-  @override
-  final String cid;
-  @override
-  final String mimeType;
-  @override
-  final int size;
-  @override
-  final DateTime createdAt;
-  @override
-  @UBlobViewDetailsConverter()
-  final UBlobViewDetails? details;
-  @override
-  @ModerationConverter()
-  final Moderation? moderation;
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'BlobView(\$type: ${$type}, cid: $cid, mimeType: $mimeType, size: $size, createdAt: $createdAt, details: $details, moderation: $moderation, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$BlobViewImpl &&
-            (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.cid, cid) || other.cid == cid) &&
-            (identical(other.mimeType, mimeType) ||
-                other.mimeType == mimeType) &&
-            (identical(other.size, size) || other.size == size) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.details, details) || other.details == details) &&
-            (identical(other.moderation, moderation) ||
-                other.moderation == moderation) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      $type,
-      cid,
-      mimeType,
-      size,
-      createdAt,
-      details,
-      moderation,
-      const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of BlobView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$BlobViewImplCopyWith<_$BlobViewImpl> get copyWith =>
-      __$$BlobViewImplCopyWithImpl<_$BlobViewImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BlobViewImplToJson(
-      this,
-    );
-  }
+@override@JsonKey() final  String $type;
+@override final  String cid;
+@override final  String mimeType;
+@override final  int size;
+@override final  DateTime createdAt;
+@override@UBlobViewDetailsConverter() final  UBlobViewDetails? details;
+@override@ModerationConverter() final  Moderation? moderation;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
 
-abstract class _BlobView implements BlobView {
-  const factory _BlobView(
-      {final String $type,
-      required final String cid,
-      required final String mimeType,
-      required final int size,
-      required final DateTime createdAt,
-      @UBlobViewDetailsConverter() final UBlobViewDetails? details,
-      @ModerationConverter() final Moderation? moderation,
-      final Map<String, dynamic>? $unknown}) = _$BlobViewImpl;
 
-  factory _BlobView.fromJson(Map<String, dynamic> json) =
-      _$BlobViewImpl.fromJson;
+/// Create a copy of BlobView
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$BlobViewCopyWith<_BlobView> get copyWith => __$BlobViewCopyWithImpl<_BlobView>(this, _$identity);
 
-  @override
-  String get $type;
-  @override
-  String get cid;
-  @override
-  String get mimeType;
-  @override
-  int get size;
-  @override
-  DateTime get createdAt;
-  @override
-  @UBlobViewDetailsConverter()
-  UBlobViewDetails? get details;
-  @override
-  @ModerationConverter()
-  Moderation? get moderation;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of BlobView
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BlobViewImplCopyWith<_$BlobViewImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$BlobViewToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BlobView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.cid, cid) || other.cid == cid)&&(identical(other.mimeType, mimeType) || other.mimeType == mimeType)&&(identical(other.size, size) || other.size == size)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.details, details) || other.details == details)&&(identical(other.moderation, moderation) || other.moderation == moderation)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,cid,mimeType,size,createdAt,details,moderation,const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'BlobView(\$type: ${$type}, cid: $cid, mimeType: $mimeType, size: $size, createdAt: $createdAt, details: $details, moderation: $moderation, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$BlobViewCopyWith<$Res> implements $BlobViewCopyWith<$Res> {
+  factory _$BlobViewCopyWith(_BlobView value, $Res Function(_BlobView) _then) = __$BlobViewCopyWithImpl;
+@override @useResult
+$Res call({
+ String $type, String cid, String mimeType, int size, DateTime createdAt,@UBlobViewDetailsConverter() UBlobViewDetails? details,@ModerationConverter() Moderation? moderation, Map<String, dynamic>? $unknown
+});
+
+
+@override $UBlobViewDetailsCopyWith<$Res>? get details;@override $ModerationCopyWith<$Res>? get moderation;
+
+}
+/// @nodoc
+class __$BlobViewCopyWithImpl<$Res>
+    implements _$BlobViewCopyWith<$Res> {
+  __$BlobViewCopyWithImpl(this._self, this._then);
+
+  final _BlobView _self;
+  final $Res Function(_BlobView) _then;
+
+/// Create a copy of BlobView
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? cid = null,Object? mimeType = null,Object? size = null,Object? createdAt = null,Object? details = freezed,Object? moderation = freezed,Object? $unknown = freezed,}) {
+  return _then(_BlobView(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as String,mimeType: null == mimeType ? _self.mimeType : mimeType // ignore: cast_nullable_to_non_nullable
+as String,size: null == size ? _self.size : size // ignore: cast_nullable_to_non_nullable
+as int,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,details: freezed == details ? _self.details : details // ignore: cast_nullable_to_non_nullable
+as UBlobViewDetails?,moderation: freezed == moderation ? _self.moderation : moderation // ignore: cast_nullable_to_non_nullable
+as Moderation?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+/// Create a copy of BlobView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UBlobViewDetailsCopyWith<$Res>? get details {
+    if (_self.details == null) {
+    return null;
+  }
+
+  return $UBlobViewDetailsCopyWith<$Res>(_self.details!, (value) {
+    return _then(_self.copyWith(details: value));
+  });
+}/// Create a copy of BlobView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModerationCopyWith<$Res>? get moderation {
+    if (_self.moderation == null) {
+    return null;
+  }
+
+  return $ModerationCopyWith<$Res>(_self.moderation!, (value) {
+    return _then(_self.copyWith(moderation: value));
+  });
+}
+}
+
+// dart format on

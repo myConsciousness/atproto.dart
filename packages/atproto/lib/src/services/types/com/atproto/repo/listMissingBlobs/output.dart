@@ -23,14 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class RepoListMissingBlobsOutput with _$RepoListMissingBlobsOutput {
-  static const knownProps = <String>[
-    'cursor',
-    'blobs',
-  ];
+  static const knownProps = <String>['cursor', 'blobs'];
 
   const factory RepoListMissingBlobsOutput({
     String? cursor,
     @RecordBlobConverter() required List<RecordBlob> blobs,
+
     Map<String, dynamic>? $unknown,
   }) = _RepoListMissingBlobsOutput;
 
@@ -38,20 +36,19 @@ abstract class RepoListMissingBlobsOutput with _$RepoListMissingBlobsOutput {
       _$RepoListMissingBlobsOutputFromJson(json);
 }
 
-final class RepoListMissingBlobsOutputConverter extends LexObjectConverter<
-    RepoListMissingBlobsOutput, Map<String, dynamic>> {
+final class RepoListMissingBlobsOutputConverter
+    extends
+        LexObjectConverter<RepoListMissingBlobsOutput, Map<String, dynamic>> {
   const RepoListMissingBlobsOutputConverter();
 
   @override
   RepoListMissingBlobsOutput fromJson(Map<String, dynamic> json) {
-    return RepoListMissingBlobsOutput.fromJson(translate(
-      json,
-      RepoListMissingBlobsOutput.knownProps,
-    ));
+    return RepoListMissingBlobsOutput.fromJson(
+      translate(json, RepoListMissingBlobsOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(RepoListMissingBlobsOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RepoListMissingBlobsOutput object) =>
+      untranslate(object.toJson());
 }

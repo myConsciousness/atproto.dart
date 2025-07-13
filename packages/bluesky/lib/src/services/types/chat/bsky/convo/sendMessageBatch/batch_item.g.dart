@@ -8,29 +8,28 @@ part of 'batch_item.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BatchItemImpl _$$BatchItemImplFromJson(Map json) => $checkedCreate(
-      r'_$BatchItemImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$BatchItemImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? chatBskyConvoSendMessageBatchBatchItem),
-          convoId: $checkedConvert('convoId', (v) => v as String),
-          message: $checkedConvert(
-              'message',
-              (v) => const MessageInputConverter()
-                  .fromJson(v as Map<String, dynamic>)),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_BatchItem _$BatchItemFromJson(Map json) =>
+    $checkedCreate('_BatchItem', json, ($checkedConvert) {
+      final val = _BatchItem(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? chatBskyConvoSendMessageBatchBatchItem,
+        ),
+        convoId: $checkedConvert('convoId', (v) => v as String),
+        message: $checkedConvert(
+          'message',
+          (v) =>
+              const MessageInputConverter().fromJson(v as Map<String, dynamic>),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$BatchItemImplToJson(_$BatchItemImpl instance) =>
+Map<String, dynamic> _$BatchItemToJson(_BatchItem instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'convoId': instance.convoId,

@@ -15,10 +15,7 @@ void main() {
       final actual = LexiconDoc.fromJson(lexicon);
 
       expect(
-        util.equals(
-          actual.toJson(),
-          jsonDecode(jsonEncode(lexicon)),
-        ),
+        util.equals(actual.toJson(), jsonDecode(jsonEncode(lexicon))),
         isTrue,
       );
     });

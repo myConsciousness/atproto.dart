@@ -7,10 +7,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 final class MockValues {
   const MockValues();
 
-  core.NSID get collection => core.NSID.create(
-        'test.atproto.com',
-        'com.bsky.dummy.defs',
-      );
+  core.NSID get collection =>
+      core.NSID.create('test.atproto.com', 'com.bsky.dummy.defs');
 
   String get email => 'info@shinyakato.dev';
   String get password => 'fake';
@@ -22,9 +20,8 @@ final class MockValues {
   String get name => 'fake';
 
   String get cid => 'fake';
-  core.AtUri get uri => core.AtUri.parse(
-        'at://did:web:bob/app.bsky.social.test/fake',
-      );
+  core.AtUri get uri =>
+      core.AtUri.parse('at://did:web:bob/app.bsky.social.test/fake');
 
   String get text => 'Hello!';
   String get query => 'test';

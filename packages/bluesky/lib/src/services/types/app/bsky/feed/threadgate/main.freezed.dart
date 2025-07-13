@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,308 +9,310 @@ part of 'main.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-FeedThreadgateRecord _$FeedThreadgateRecordFromJson(Map<String, dynamic> json) {
-  return _FeedThreadgateRecord.fromJson(json);
-}
 
 /// @nodoc
 mixin _$FeedThreadgateRecord {
-  String get $type => throw _privateConstructorUsedError;
 
-  /// Reference (AT-URI) to the post record.
-  String get post => throw _privateConstructorUsedError;
-  @UFeedThreadgateAllowConverter()
-  List<UFeedThreadgateAllow>? get allow => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  List<String>? get hiddenReplies => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+ String get $type;/// Reference (AT-URI) to the post record.
+ String get post;@UFeedThreadgateAllowConverter() List<UFeedThreadgateAllow>? get allow; DateTime get createdAt; List<String>? get hiddenReplies; Map<String, dynamic>? get $unknown;
+/// Create a copy of FeedThreadgateRecord
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$FeedThreadgateRecordCopyWith<FeedThreadgateRecord> get copyWith => _$FeedThreadgateRecordCopyWithImpl<FeedThreadgateRecord>(this as FeedThreadgateRecord, _$identity);
 
   /// Serializes this FeedThreadgateRecord to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of FeedThreadgateRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $FeedThreadgateRecordCopyWith<FeedThreadgateRecord> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FeedThreadgateRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.post, post) || other.post == post)&&const DeepCollectionEquality().equals(other.allow, allow)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other.hiddenReplies, hiddenReplies)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,post,const DeepCollectionEquality().hash(allow),createdAt,const DeepCollectionEquality().hash(hiddenReplies),const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'FeedThreadgateRecord(\$type: ${$type}, post: $post, allow: $allow, createdAt: $createdAt, hiddenReplies: $hiddenReplies, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $FeedThreadgateRecordCopyWith<$Res> {
-  factory $FeedThreadgateRecordCopyWith(FeedThreadgateRecord value,
-          $Res Function(FeedThreadgateRecord) then) =
-      _$FeedThreadgateRecordCopyWithImpl<$Res, FeedThreadgateRecord>;
-  @useResult
-  $Res call(
-      {String $type,
-      String post,
-      @UFeedThreadgateAllowConverter() List<UFeedThreadgateAllow>? allow,
-      DateTime createdAt,
-      List<String>? hiddenReplies,
-      Map<String, dynamic>? $unknown});
-}
+abstract mixin class $FeedThreadgateRecordCopyWith<$Res>  {
+  factory $FeedThreadgateRecordCopyWith(FeedThreadgateRecord value, $Res Function(FeedThreadgateRecord) _then) = _$FeedThreadgateRecordCopyWithImpl;
+@useResult
+$Res call({
+ String $type, String post,@UFeedThreadgateAllowConverter() List<UFeedThreadgateAllow>? allow, DateTime createdAt, List<String>? hiddenReplies, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$FeedThreadgateRecordCopyWithImpl<$Res,
-        $Val extends FeedThreadgateRecord>
+class _$FeedThreadgateRecordCopyWithImpl<$Res>
     implements $FeedThreadgateRecordCopyWith<$Res> {
-  _$FeedThreadgateRecordCopyWithImpl(this._value, this._then);
+  _$FeedThreadgateRecordCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final FeedThreadgateRecord _self;
+  final $Res Function(FeedThreadgateRecord) _then;
 
-  /// Create a copy of FeedThreadgateRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? post = null,
-    Object? allow = freezed,
-    Object? createdAt = null,
-    Object? hiddenReplies = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      post: null == post
-          ? _value.post
-          : post // ignore: cast_nullable_to_non_nullable
-              as String,
-      allow: freezed == allow
-          ? _value.allow
-          : allow // ignore: cast_nullable_to_non_nullable
-              as List<UFeedThreadgateAllow>?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      hiddenReplies: freezed == hiddenReplies
-          ? _value.hiddenReplies
-          : hiddenReplies // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of FeedThreadgateRecord
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? post = null,Object? allow = freezed,Object? createdAt = null,Object? hiddenReplies = freezed,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,post: null == post ? _self.post : post // ignore: cast_nullable_to_non_nullable
+as String,allow: freezed == allow ? _self.allow : allow // ignore: cast_nullable_to_non_nullable
+as List<UFeedThreadgateAllow>?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,hiddenReplies: freezed == hiddenReplies ? _self.hiddenReplies : hiddenReplies // ignore: cast_nullable_to_non_nullable
+as List<String>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$FeedThreadgateRecordImplCopyWith<$Res>
-    implements $FeedThreadgateRecordCopyWith<$Res> {
-  factory _$$FeedThreadgateRecordImplCopyWith(_$FeedThreadgateRecordImpl value,
-          $Res Function(_$FeedThreadgateRecordImpl) then) =
-      __$$FeedThreadgateRecordImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String $type,
-      String post,
-      @UFeedThreadgateAllowConverter() List<UFeedThreadgateAllow>? allow,
-      DateTime createdAt,
-      List<String>? hiddenReplies,
-      Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$FeedThreadgateRecordImplCopyWithImpl<$Res>
-    extends _$FeedThreadgateRecordCopyWithImpl<$Res, _$FeedThreadgateRecordImpl>
-    implements _$$FeedThreadgateRecordImplCopyWith<$Res> {
-  __$$FeedThreadgateRecordImplCopyWithImpl(_$FeedThreadgateRecordImpl _value,
-      $Res Function(_$FeedThreadgateRecordImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of FeedThreadgateRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? post = null,
-    Object? allow = freezed,
-    Object? createdAt = null,
-    Object? hiddenReplies = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$FeedThreadgateRecordImpl(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      post: null == post
-          ? _value.post
-          : post // ignore: cast_nullable_to_non_nullable
-              as String,
-      allow: freezed == allow
-          ? _value._allow
-          : allow // ignore: cast_nullable_to_non_nullable
-              as List<UFeedThreadgateAllow>?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      hiddenReplies: freezed == hiddenReplies
-          ? _value._hiddenReplies
-          : hiddenReplies // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [FeedThreadgateRecord].
+extension FeedThreadgateRecordPatterns on FeedThreadgateRecord {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _FeedThreadgateRecord value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _FeedThreadgateRecord() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _FeedThreadgateRecord value)  $default,){
+final _that = this;
+switch (_that) {
+case _FeedThreadgateRecord():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _FeedThreadgateRecord value)?  $default,){
+final _that = this;
+switch (_that) {
+case _FeedThreadgateRecord() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String post, @UFeedThreadgateAllowConverter()  List<UFeedThreadgateAllow>? allow,  DateTime createdAt,  List<String>? hiddenReplies,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _FeedThreadgateRecord() when $default != null:
+return $default(_that.$type,_that.post,_that.allow,_that.createdAt,_that.hiddenReplies,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String post, @UFeedThreadgateAllowConverter()  List<UFeedThreadgateAllow>? allow,  DateTime createdAt,  List<String>? hiddenReplies,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _FeedThreadgateRecord():
+return $default(_that.$type,_that.post,_that.allow,_that.createdAt,_that.hiddenReplies,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String post, @UFeedThreadgateAllowConverter()  List<UFeedThreadgateAllow>? allow,  DateTime createdAt,  List<String>? hiddenReplies,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _FeedThreadgateRecord() when $default != null:
+return $default(_that.$type,_that.post,_that.allow,_that.createdAt,_that.hiddenReplies,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$FeedThreadgateRecordImpl implements _FeedThreadgateRecord {
-  const _$FeedThreadgateRecordImpl(
-      {this.$type = appBskyFeedThreadgate,
-      required this.post,
-      @UFeedThreadgateAllowConverter() final List<UFeedThreadgateAllow>? allow,
-      required this.createdAt,
-      final List<String>? hiddenReplies,
-      final Map<String, dynamic>? $unknown})
-      : _allow = allow,
-        _hiddenReplies = hiddenReplies,
-        _$unknown = $unknown;
 
-  factory _$FeedThreadgateRecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedThreadgateRecordImplFromJson(json);
+class _FeedThreadgateRecord implements FeedThreadgateRecord {
+  const _FeedThreadgateRecord({this.$type = appBskyFeedThreadgate, required this.post, @UFeedThreadgateAllowConverter() final  List<UFeedThreadgateAllow>? allow, required this.createdAt, final  List<String>? hiddenReplies, final  Map<String, dynamic>? $unknown}): _allow = allow,_hiddenReplies = hiddenReplies,_$unknown = $unknown;
+  factory _FeedThreadgateRecord.fromJson(Map<String, dynamic> json) => _$FeedThreadgateRecordFromJson(json);
 
-  @override
-  @JsonKey()
-  final String $type;
-
-  /// Reference (AT-URI) to the post record.
-  @override
-  final String post;
-  final List<UFeedThreadgateAllow>? _allow;
-  @override
-  @UFeedThreadgateAllowConverter()
-  List<UFeedThreadgateAllow>? get allow {
-    final value = _allow;
-    if (value == null) return null;
-    if (_allow is EqualUnmodifiableListView) return _allow;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  final DateTime createdAt;
-  final List<String>? _hiddenReplies;
-  @override
-  List<String>? get hiddenReplies {
-    final value = _hiddenReplies;
-    if (value == null) return null;
-    if (_hiddenReplies is EqualUnmodifiableListView) return _hiddenReplies;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'FeedThreadgateRecord(\$type: ${$type}, post: $post, allow: $allow, createdAt: $createdAt, hiddenReplies: $hiddenReplies, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FeedThreadgateRecordImpl &&
-            (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.post, post) || other.post == post) &&
-            const DeepCollectionEquality().equals(other._allow, _allow) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            const DeepCollectionEquality()
-                .equals(other._hiddenReplies, _hiddenReplies) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      $type,
-      post,
-      const DeepCollectionEquality().hash(_allow),
-      createdAt,
-      const DeepCollectionEquality().hash(_hiddenReplies),
-      const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of FeedThreadgateRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FeedThreadgateRecordImplCopyWith<_$FeedThreadgateRecordImpl>
-      get copyWith =>
-          __$$FeedThreadgateRecordImplCopyWithImpl<_$FeedThreadgateRecordImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FeedThreadgateRecordImplToJson(
-      this,
-    );
-  }
+@override@JsonKey() final  String $type;
+/// Reference (AT-URI) to the post record.
+@override final  String post;
+ final  List<UFeedThreadgateAllow>? _allow;
+@override@UFeedThreadgateAllowConverter() List<UFeedThreadgateAllow>? get allow {
+  final value = _allow;
+  if (value == null) return null;
+  if (_allow is EqualUnmodifiableListView) return _allow;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
 }
 
-abstract class _FeedThreadgateRecord implements FeedThreadgateRecord {
-  const factory _FeedThreadgateRecord(
-      {final String $type,
-      required final String post,
-      @UFeedThreadgateAllowConverter() final List<UFeedThreadgateAllow>? allow,
-      required final DateTime createdAt,
-      final List<String>? hiddenReplies,
-      final Map<String, dynamic>? $unknown}) = _$FeedThreadgateRecordImpl;
-
-  factory _FeedThreadgateRecord.fromJson(Map<String, dynamic> json) =
-      _$FeedThreadgateRecordImpl.fromJson;
-
-  @override
-  String get $type;
-
-  /// Reference (AT-URI) to the post record.
-  @override
-  String get post;
-  @override
-  @UFeedThreadgateAllowConverter()
-  List<UFeedThreadgateAllow>? get allow;
-  @override
-  DateTime get createdAt;
-  @override
-  List<String>? get hiddenReplies;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of FeedThreadgateRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FeedThreadgateRecordImplCopyWith<_$FeedThreadgateRecordImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override final  DateTime createdAt;
+ final  List<String>? _hiddenReplies;
+@override List<String>? get hiddenReplies {
+  final value = _hiddenReplies;
+  if (value == null) return null;
+  if (_hiddenReplies is EqualUnmodifiableListView) return _hiddenReplies;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
 }
+
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
+}
+
+
+/// Create a copy of FeedThreadgateRecord
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$FeedThreadgateRecordCopyWith<_FeedThreadgateRecord> get copyWith => __$FeedThreadgateRecordCopyWithImpl<_FeedThreadgateRecord>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$FeedThreadgateRecordToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FeedThreadgateRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.post, post) || other.post == post)&&const DeepCollectionEquality().equals(other._allow, _allow)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other._hiddenReplies, _hiddenReplies)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,post,const DeepCollectionEquality().hash(_allow),createdAt,const DeepCollectionEquality().hash(_hiddenReplies),const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'FeedThreadgateRecord(\$type: ${$type}, post: $post, allow: $allow, createdAt: $createdAt, hiddenReplies: $hiddenReplies, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$FeedThreadgateRecordCopyWith<$Res> implements $FeedThreadgateRecordCopyWith<$Res> {
+  factory _$FeedThreadgateRecordCopyWith(_FeedThreadgateRecord value, $Res Function(_FeedThreadgateRecord) _then) = __$FeedThreadgateRecordCopyWithImpl;
+@override @useResult
+$Res call({
+ String $type, String post,@UFeedThreadgateAllowConverter() List<UFeedThreadgateAllow>? allow, DateTime createdAt, List<String>? hiddenReplies, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$FeedThreadgateRecordCopyWithImpl<$Res>
+    implements _$FeedThreadgateRecordCopyWith<$Res> {
+  __$FeedThreadgateRecordCopyWithImpl(this._self, this._then);
+
+  final _FeedThreadgateRecord _self;
+  final $Res Function(_FeedThreadgateRecord) _then;
+
+/// Create a copy of FeedThreadgateRecord
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? post = null,Object? allow = freezed,Object? createdAt = null,Object? hiddenReplies = freezed,Object? $unknown = freezed,}) {
+  return _then(_FeedThreadgateRecord(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,post: null == post ? _self.post : post // ignore: cast_nullable_to_non_nullable
+as String,allow: freezed == allow ? _self._allow : allow // ignore: cast_nullable_to_non_nullable
+as List<UFeedThreadgateAllow>?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,hiddenReplies: freezed == hiddenReplies ? _self._hiddenReplies : hiddenReplies // ignore: cast_nullable_to_non_nullable
+as List<String>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

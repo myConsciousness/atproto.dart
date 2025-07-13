@@ -8,80 +8,86 @@ part of 'repo_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RepoViewImpl _$$RepoViewImplFromJson(Map json) => $checkedCreate(
-      r'_$RepoViewImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$RepoViewImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? toolsOzoneModerationDefsRepoView),
-          did: $checkedConvert('did', (v) => v as String),
-          handle: $checkedConvert('handle', (v) => v as String),
-          email: $checkedConvert('email', (v) => v as String?),
-          relatedRecords: $checkedConvert(
-              'relatedRecords',
-              (v) => (v as List<dynamic>)
-                  .map((e) => Map<String, dynamic>.from(e as Map))
-                  .toList()),
-          indexedAt:
-              $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
-          moderation: $checkedConvert(
-              'moderation',
-              (v) => const ModerationConverter()
-                  .fromJson(v as Map<String, dynamic>)),
-          invitedBy: $checkedConvert(
-              'invitedBy',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, InviteCode>(
-                  v, const InviteCodeConverter().fromJson)),
-          invitesDisabled:
-              $checkedConvert('invitesDisabled', (v) => v as bool?),
-          inviteNote: $checkedConvert('inviteNote', (v) => v as String?),
-          deactivatedAt: $checkedConvert('deactivatedAt',
-              (v) => v == null ? null : DateTime.parse(v as String)),
-          threatSignatures: $checkedConvert(
-              'threatSignatures',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => const ThreatSignatureConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
-
-Map<String, dynamic> _$$RepoViewImplToJson(_$RepoViewImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'did': instance.did,
-      'handle': instance.handle,
-      'email': instance.email,
-      'relatedRecords': instance.relatedRecords,
-      'indexedAt': instance.indexedAt.toIso8601String(),
-      'moderation': const ModerationConverter().toJson(instance.moderation),
-      'invitedBy': _$JsonConverterToJson<Map<String, dynamic>, InviteCode>(
-          instance.invitedBy, const InviteCodeConverter().toJson),
-      'invitesDisabled': instance.invitesDisabled,
-      'inviteNote': instance.inviteNote,
-      'deactivatedAt': instance.deactivatedAt?.toIso8601String(),
-      'threatSignatures': instance.threatSignatures
-          ?.map(const ThreatSignatureConverter().toJson)
+_RepoView _$RepoViewFromJson(Map json) => $checkedCreate('_RepoView', json, (
+  $checkedConvert,
+) {
+  final val = _RepoView(
+    $type: $checkedConvert(
+      r'$type',
+      (v) => v as String? ?? toolsOzoneModerationDefsRepoView,
+    ),
+    did: $checkedConvert('did', (v) => v as String),
+    handle: $checkedConvert('handle', (v) => v as String),
+    email: $checkedConvert('email', (v) => v as String?),
+    relatedRecords: $checkedConvert(
+      'relatedRecords',
+      (v) => (v as List<dynamic>)
+          .map((e) => Map<String, dynamic>.from(e as Map))
           .toList(),
-      r'$unknown': instance.$unknown,
-    };
+    ),
+    indexedAt: $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
+    moderation: $checkedConvert(
+      'moderation',
+      (v) => const ModerationConverter().fromJson(v as Map<String, dynamic>),
+    ),
+    invitedBy: $checkedConvert(
+      'invitedBy',
+      (v) => _$JsonConverterFromJson<Map<String, dynamic>, InviteCode>(
+        v,
+        const InviteCodeConverter().fromJson,
+      ),
+    ),
+    invitesDisabled: $checkedConvert('invitesDisabled', (v) => v as bool?),
+    inviteNote: $checkedConvert('inviteNote', (v) => v as String?),
+    deactivatedAt: $checkedConvert(
+      'deactivatedAt',
+      (v) => v == null ? null : DateTime.parse(v as String),
+    ),
+    threatSignatures: $checkedConvert(
+      'threatSignatures',
+      (v) => (v as List<dynamic>?)
+          ?.map(
+            (e) => const ThreatSignatureConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
+    ),
+    $unknown: $checkedConvert(
+      r'$unknown',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
+  );
+  return val;
+});
+
+Map<String, dynamic> _$RepoViewToJson(_RepoView instance) => <String, dynamic>{
+  r'$type': instance.$type,
+  'did': instance.did,
+  'handle': instance.handle,
+  'email': instance.email,
+  'relatedRecords': instance.relatedRecords,
+  'indexedAt': instance.indexedAt.toIso8601String(),
+  'moderation': const ModerationConverter().toJson(instance.moderation),
+  'invitedBy': _$JsonConverterToJson<Map<String, dynamic>, InviteCode>(
+    instance.invitedBy,
+    const InviteCodeConverter().toJson,
+  ),
+  'invitesDisabled': instance.invitesDisabled,
+  'inviteNote': instance.inviteNote,
+  'deactivatedAt': instance.deactivatedAt?.toIso8601String(),
+  'threatSignatures': instance.threatSignatures
+      ?.map(const ThreatSignatureConverter().toJson)
+      .toList(),
+  r'$unknown': instance.$unknown,
+};
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,
   Value? Function(Json json) fromJson,
-) =>
-    json == null ? null : fromJson(json as Json);
+) => json == null ? null : fromJson(json as Json);
 
 Json? _$JsonConverterToJson<Json, Value>(
   Value? value,
   Json? Function(Value value) toJson,
-) =>
-    value == null ? null : toJson(value);
+) => value == null ? null : toJson(value);

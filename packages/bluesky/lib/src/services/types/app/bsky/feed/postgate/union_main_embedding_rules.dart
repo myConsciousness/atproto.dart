@@ -59,6 +59,7 @@ final class UFeedPostgateEmbeddingRulesConverter
   Map<String, dynamic> toJson(UFeedPostgateEmbeddingRules object) =>
       object.when(
         disableRule: (data) => const DisableRuleConverter().toJson(data),
+
         unknown: (data) => data,
       );
 }

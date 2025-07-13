@@ -8,30 +8,28 @@ part of 'app_password.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AppPasswordImpl _$$AppPasswordImplFromJson(Map json) => $checkedCreate(
-      r'_$AppPasswordImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$AppPasswordImpl(
-          $type: $checkedConvert(
-              r'$type',
-              (v) =>
-                  v as String? ?? comAtprotoServerListAppPasswordsAppPassword),
-          name: $checkedConvert('name', (v) => v as String),
-          createdAt:
-              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
-          privileged: $checkedConvert('privileged', (v) => v as bool?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_AppPassword _$AppPasswordFromJson(Map json) =>
+    $checkedCreate('_AppPassword', json, ($checkedConvert) {
+      final val = _AppPassword(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? comAtprotoServerListAppPasswordsAppPassword,
+        ),
+        name: $checkedConvert('name', (v) => v as String),
+        createdAt: $checkedConvert(
+          'createdAt',
+          (v) => DateTime.parse(v as String),
+        ),
+        privileged: $checkedConvert('privileged', (v) => v as bool?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$AppPasswordImplToJson(_$AppPasswordImpl instance) =>
+Map<String, dynamic> _$AppPasswordToJson(_AppPassword instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'name': instance.name,

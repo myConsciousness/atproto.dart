@@ -44,6 +44,7 @@ abstract class GraphVerificationRecord with _$GraphVerificationRecord {
 
     /// Date of when the verification was created.
     required DateTime createdAt,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphVerificationRecord;
 
@@ -62,14 +63,12 @@ final class GraphVerificationRecordConverter
 
   @override
   GraphVerificationRecord fromJson(Map<String, dynamic> json) {
-    return GraphVerificationRecord.fromJson(translate(
-      json,
-      GraphVerificationRecord.knownProps,
-    ));
+    return GraphVerificationRecord.fromJson(
+      translate(json, GraphVerificationRecord.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphVerificationRecord object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(GraphVerificationRecord object) =>
+      untranslate(object.toJson());
 }

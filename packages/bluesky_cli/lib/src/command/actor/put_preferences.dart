@@ -29,13 +29,10 @@ class PutPreferences extends ProcedureCommand {
   final String invocation = 'bsky put-preferences [preferences]';
 
   @override
-  NSID get methodId => NSID.create(
-        'actor.bsky.app',
-        'putPreferences',
-      );
+  NSID get methodId => NSID.create('actor.bsky.app', 'putPreferences');
 
   @override
   FutureOr<Map<String, dynamic>>? get body => {
-        'preferences': jsonDecode(argResults!['preferences']),
-      };
+    'preferences': jsonDecode(argResults!['preferences']),
+  };
 }

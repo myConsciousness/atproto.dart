@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,1064 +9,562 @@ part of 'union_mod_event_view_detail_subject.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$UModEventViewDetailSubject {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoView data) repoView,
-    required TResult Function(RepoViewNotFound data) repoViewNotFound,
-    required TResult Function(RecordView data) recordView,
-    required TResult Function(RecordViewNotFound data) recordViewNotFound,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoView data)? repoView,
-    TResult? Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult? Function(RecordView data)? recordView,
-    TResult? Function(RecordViewNotFound data)? recordViewNotFound,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoView data)? repoView,
-    TResult Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult Function(RecordView data)? recordView,
-    TResult Function(RecordViewNotFound data)? recordViewNotFound,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModEventViewDetailSubjectRepoView value)
-        repoView,
-    required TResult Function(UModEventViewDetailSubjectRepoViewNotFound value)
-        repoViewNotFound,
-    required TResult Function(UModEventViewDetailSubjectRecordView value)
-        recordView,
-    required TResult Function(
-            UModEventViewDetailSubjectRecordViewNotFound value)
-        recordViewNotFound,
-    required TResult Function(UModEventViewDetailSubjectUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModEventViewDetailSubjectRepoView value)? repoView,
-    TResult? Function(UModEventViewDetailSubjectRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult? Function(UModEventViewDetailSubjectRecordView value)? recordView,
-    TResult? Function(UModEventViewDetailSubjectRecordViewNotFound value)?
-        recordViewNotFound,
-    TResult? Function(UModEventViewDetailSubjectUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModEventViewDetailSubjectRepoView value)? repoView,
-    TResult Function(UModEventViewDetailSubjectRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult Function(UModEventViewDetailSubjectRecordView value)? recordView,
-    TResult Function(UModEventViewDetailSubjectRecordViewNotFound value)?
-        recordViewNotFound,
-    TResult Function(UModEventViewDetailSubjectUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+
+ Object get data;
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModEventViewDetailSubject&&const DeepCollectionEquality().equals(other.data, data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'UModEventViewDetailSubject(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UModEventViewDetailSubjectCopyWith<$Res> {
-  factory $UModEventViewDetailSubjectCopyWith(UModEventViewDetailSubject value,
-          $Res Function(UModEventViewDetailSubject) then) =
-      _$UModEventViewDetailSubjectCopyWithImpl<$Res,
-          UModEventViewDetailSubject>;
+class $UModEventViewDetailSubjectCopyWith<$Res>  {
+$UModEventViewDetailSubjectCopyWith(UModEventViewDetailSubject _, $Res Function(UModEventViewDetailSubject) __);
 }
 
-/// @nodoc
-class _$UModEventViewDetailSubjectCopyWithImpl<$Res,
-        $Val extends UModEventViewDetailSubject>
-    implements $UModEventViewDetailSubjectCopyWith<$Res> {
-  _$UModEventViewDetailSubjectCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// Adds pattern-matching-related methods to [UModEventViewDetailSubject].
+extension UModEventViewDetailSubjectPatterns on UModEventViewDetailSubject {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UModEventViewDetailSubjectRepoView value)?  repoView,TResult Function( UModEventViewDetailSubjectRepoViewNotFound value)?  repoViewNotFound,TResult Function( UModEventViewDetailSubjectRecordView value)?  recordView,TResult Function( UModEventViewDetailSubjectRecordViewNotFound value)?  recordViewNotFound,TResult Function( UModEventViewDetailSubjectUnknown value)?  unknown,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case UModEventViewDetailSubjectRepoView() when repoView != null:
+return repoView(_that);case UModEventViewDetailSubjectRepoViewNotFound() when repoViewNotFound != null:
+return repoViewNotFound(_that);case UModEventViewDetailSubjectRecordView() when recordView != null:
+return recordView(_that);case UModEventViewDetailSubjectRecordViewNotFound() when recordViewNotFound != null:
+return recordViewNotFound(_that);case UModEventViewDetailSubjectUnknown() when unknown != null:
+return unknown(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UModEventViewDetailSubjectRepoView value)  repoView,required TResult Function( UModEventViewDetailSubjectRepoViewNotFound value)  repoViewNotFound,required TResult Function( UModEventViewDetailSubjectRecordView value)  recordView,required TResult Function( UModEventViewDetailSubjectRecordViewNotFound value)  recordViewNotFound,required TResult Function( UModEventViewDetailSubjectUnknown value)  unknown,}){
+final _that = this;
+switch (_that) {
+case UModEventViewDetailSubjectRepoView():
+return repoView(_that);case UModEventViewDetailSubjectRepoViewNotFound():
+return repoViewNotFound(_that);case UModEventViewDetailSubjectRecordView():
+return recordView(_that);case UModEventViewDetailSubjectRecordViewNotFound():
+return recordViewNotFound(_that);case UModEventViewDetailSubjectUnknown():
+return unknown(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UModEventViewDetailSubjectRepoView value)?  repoView,TResult? Function( UModEventViewDetailSubjectRepoViewNotFound value)?  repoViewNotFound,TResult? Function( UModEventViewDetailSubjectRecordView value)?  recordView,TResult? Function( UModEventViewDetailSubjectRecordViewNotFound value)?  recordViewNotFound,TResult? Function( UModEventViewDetailSubjectUnknown value)?  unknown,}){
+final _that = this;
+switch (_that) {
+case UModEventViewDetailSubjectRepoView() when repoView != null:
+return repoView(_that);case UModEventViewDetailSubjectRepoViewNotFound() when repoViewNotFound != null:
+return repoViewNotFound(_that);case UModEventViewDetailSubjectRecordView() when recordView != null:
+return recordView(_that);case UModEventViewDetailSubjectRecordViewNotFound() when recordViewNotFound != null:
+return recordViewNotFound(_that);case UModEventViewDetailSubjectUnknown() when unknown != null:
+return unknown(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( RepoView data)?  repoView,TResult Function( RepoViewNotFound data)?  repoViewNotFound,TResult Function( RecordView data)?  recordView,TResult Function( RecordViewNotFound data)?  recordViewNotFound,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case UModEventViewDetailSubjectRepoView() when repoView != null:
+return repoView(_that.data);case UModEventViewDetailSubjectRepoViewNotFound() when repoViewNotFound != null:
+return repoViewNotFound(_that.data);case UModEventViewDetailSubjectRecordView() when recordView != null:
+return recordView(_that.data);case UModEventViewDetailSubjectRecordViewNotFound() when recordViewNotFound != null:
+return recordViewNotFound(_that.data);case UModEventViewDetailSubjectUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( RepoView data)  repoView,required TResult Function( RepoViewNotFound data)  repoViewNotFound,required TResult Function( RecordView data)  recordView,required TResult Function( RecordViewNotFound data)  recordViewNotFound,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+switch (_that) {
+case UModEventViewDetailSubjectRepoView():
+return repoView(_that.data);case UModEventViewDetailSubjectRepoViewNotFound():
+return repoViewNotFound(_that.data);case UModEventViewDetailSubjectRecordView():
+return recordView(_that.data);case UModEventViewDetailSubjectRecordViewNotFound():
+return recordViewNotFound(_that.data);case UModEventViewDetailSubjectUnknown():
+return unknown(_that.data);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( RepoView data)?  repoView,TResult? Function( RepoViewNotFound data)?  repoViewNotFound,TResult? Function( RecordView data)?  recordView,TResult? Function( RecordViewNotFound data)?  recordViewNotFound,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+switch (_that) {
+case UModEventViewDetailSubjectRepoView() when repoView != null:
+return repoView(_that.data);case UModEventViewDetailSubjectRepoViewNotFound() when repoViewNotFound != null:
+return repoViewNotFound(_that.data);case UModEventViewDetailSubjectRecordView() when recordView != null:
+return recordView(_that.data);case UModEventViewDetailSubjectRecordViewNotFound() when recordViewNotFound != null:
+return recordViewNotFound(_that.data);case UModEventViewDetailSubjectUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-abstract class _$$UModEventViewDetailSubjectRepoViewImplCopyWith<$Res> {
-  factory _$$UModEventViewDetailSubjectRepoViewImplCopyWith(
-          _$UModEventViewDetailSubjectRepoViewImpl value,
-          $Res Function(_$UModEventViewDetailSubjectRepoViewImpl) then) =
-      __$$UModEventViewDetailSubjectRepoViewImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({RepoView data});
-
-  $RepoViewCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$UModEventViewDetailSubjectRepoViewImplCopyWithImpl<$Res>
-    extends _$UModEventViewDetailSubjectCopyWithImpl<$Res,
-        _$UModEventViewDetailSubjectRepoViewImpl>
-    implements _$$UModEventViewDetailSubjectRepoViewImplCopyWith<$Res> {
-  __$$UModEventViewDetailSubjectRepoViewImplCopyWithImpl(
-      _$UModEventViewDetailSubjectRepoViewImpl _value,
-      $Res Function(_$UModEventViewDetailSubjectRepoViewImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModEventViewDetailSubjectRepoViewImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as RepoView,
-    ));
-  }
-
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RepoViewCopyWith<$Res> get data {
-    return $RepoViewCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$UModEventViewDetailSubjectRepoViewImpl
-    extends UModEventViewDetailSubjectRepoView {
-  const _$UModEventViewDetailSubjectRepoViewImpl({required this.data})
-      : super._();
-
-  @override
-  final RepoView data;
-
-  @override
-  String toString() {
-    return 'UModEventViewDetailSubject.repoView(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModEventViewDetailSubjectRepoViewImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModEventViewDetailSubjectRepoViewImplCopyWith<
-          _$UModEventViewDetailSubjectRepoViewImpl>
-      get copyWith => __$$UModEventViewDetailSubjectRepoViewImplCopyWithImpl<
-          _$UModEventViewDetailSubjectRepoViewImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoView data) repoView,
-    required TResult Function(RepoViewNotFound data) repoViewNotFound,
-    required TResult Function(RecordView data) recordView,
-    required TResult Function(RecordViewNotFound data) recordViewNotFound,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return repoView(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoView data)? repoView,
-    TResult? Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult? Function(RecordView data)? recordView,
-    TResult? Function(RecordViewNotFound data)? recordViewNotFound,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return repoView?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoView data)? repoView,
-    TResult Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult Function(RecordView data)? recordView,
-    TResult Function(RecordViewNotFound data)? recordViewNotFound,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (repoView != null) {
-      return repoView(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModEventViewDetailSubjectRepoView value)
-        repoView,
-    required TResult Function(UModEventViewDetailSubjectRepoViewNotFound value)
-        repoViewNotFound,
-    required TResult Function(UModEventViewDetailSubjectRecordView value)
-        recordView,
-    required TResult Function(
-            UModEventViewDetailSubjectRecordViewNotFound value)
-        recordViewNotFound,
-    required TResult Function(UModEventViewDetailSubjectUnknown value) unknown,
-  }) {
-    return repoView(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModEventViewDetailSubjectRepoView value)? repoView,
-    TResult? Function(UModEventViewDetailSubjectRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult? Function(UModEventViewDetailSubjectRecordView value)? recordView,
-    TResult? Function(UModEventViewDetailSubjectRecordViewNotFound value)?
-        recordViewNotFound,
-    TResult? Function(UModEventViewDetailSubjectUnknown value)? unknown,
-  }) {
-    return repoView?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModEventViewDetailSubjectRepoView value)? repoView,
-    TResult Function(UModEventViewDetailSubjectRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult Function(UModEventViewDetailSubjectRecordView value)? recordView,
-    TResult Function(UModEventViewDetailSubjectRecordViewNotFound value)?
-        recordViewNotFound,
-    TResult Function(UModEventViewDetailSubjectUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (repoView != null) {
-      return repoView(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UModEventViewDetailSubjectRepoView
-    extends UModEventViewDetailSubject {
-  const factory UModEventViewDetailSubjectRepoView(
-          {required final RepoView data}) =
-      _$UModEventViewDetailSubjectRepoViewImpl;
-  const UModEventViewDetailSubjectRepoView._() : super._();
-
-  @override
-  RepoView get data;
-
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModEventViewDetailSubjectRepoViewImplCopyWith<
-          _$UModEventViewDetailSubjectRepoViewImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UModEventViewDetailSubjectRepoViewNotFoundImplCopyWith<$Res> {
-  factory _$$UModEventViewDetailSubjectRepoViewNotFoundImplCopyWith(
-          _$UModEventViewDetailSubjectRepoViewNotFoundImpl value,
-          $Res Function(_$UModEventViewDetailSubjectRepoViewNotFoundImpl)
-              then) =
-      __$$UModEventViewDetailSubjectRepoViewNotFoundImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({RepoViewNotFound data});
-
-  $RepoViewNotFoundCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$UModEventViewDetailSubjectRepoViewNotFoundImplCopyWithImpl<$Res>
-    extends _$UModEventViewDetailSubjectCopyWithImpl<$Res,
-        _$UModEventViewDetailSubjectRepoViewNotFoundImpl>
-    implements _$$UModEventViewDetailSubjectRepoViewNotFoundImplCopyWith<$Res> {
-  __$$UModEventViewDetailSubjectRepoViewNotFoundImplCopyWithImpl(
-      _$UModEventViewDetailSubjectRepoViewNotFoundImpl _value,
-      $Res Function(_$UModEventViewDetailSubjectRepoViewNotFoundImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModEventViewDetailSubjectRepoViewNotFoundImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as RepoViewNotFound,
-    ));
-  }
-
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RepoViewNotFoundCopyWith<$Res> get data {
-    return $RepoViewNotFoundCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
 }
 
 /// @nodoc
 
-class _$UModEventViewDetailSubjectRepoViewNotFoundImpl
-    extends UModEventViewDetailSubjectRepoViewNotFound {
-  const _$UModEventViewDetailSubjectRepoViewNotFoundImpl({required this.data})
-      : super._();
 
-  @override
-  final RepoViewNotFound data;
+class UModEventViewDetailSubjectRepoView extends UModEventViewDetailSubject {
+  const UModEventViewDetailSubjectRepoView({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModEventViewDetailSubject.repoViewNotFound(data: $data)';
-  }
+@override final  RepoView data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModEventViewDetailSubjectRepoViewNotFoundImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModEventViewDetailSubject
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModEventViewDetailSubjectRepoViewCopyWith<UModEventViewDetailSubjectRepoView> get copyWith => _$UModEventViewDetailSubjectRepoViewCopyWithImpl<UModEventViewDetailSubjectRepoView>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModEventViewDetailSubjectRepoViewNotFoundImplCopyWith<
-          _$UModEventViewDetailSubjectRepoViewNotFoundImpl>
-      get copyWith =>
-          __$$UModEventViewDetailSubjectRepoViewNotFoundImplCopyWithImpl<
-                  _$UModEventViewDetailSubjectRepoViewNotFoundImpl>(
-              this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoView data) repoView,
-    required TResult Function(RepoViewNotFound data) repoViewNotFound,
-    required TResult Function(RecordView data) recordView,
-    required TResult Function(RecordViewNotFound data) recordViewNotFound,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return repoViewNotFound(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoView data)? repoView,
-    TResult? Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult? Function(RecordView data)? recordView,
-    TResult? Function(RecordViewNotFound data)? recordViewNotFound,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return repoViewNotFound?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoView data)? repoView,
-    TResult Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult Function(RecordView data)? recordView,
-    TResult Function(RecordViewNotFound data)? recordViewNotFound,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (repoViewNotFound != null) {
-      return repoViewNotFound(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModEventViewDetailSubjectRepoView value)
-        repoView,
-    required TResult Function(UModEventViewDetailSubjectRepoViewNotFound value)
-        repoViewNotFound,
-    required TResult Function(UModEventViewDetailSubjectRecordView value)
-        recordView,
-    required TResult Function(
-            UModEventViewDetailSubjectRecordViewNotFound value)
-        recordViewNotFound,
-    required TResult Function(UModEventViewDetailSubjectUnknown value) unknown,
-  }) {
-    return repoViewNotFound(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModEventViewDetailSubjectRepoView value)? repoView,
-    TResult? Function(UModEventViewDetailSubjectRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult? Function(UModEventViewDetailSubjectRecordView value)? recordView,
-    TResult? Function(UModEventViewDetailSubjectRecordViewNotFound value)?
-        recordViewNotFound,
-    TResult? Function(UModEventViewDetailSubjectUnknown value)? unknown,
-  }) {
-    return repoViewNotFound?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModEventViewDetailSubjectRepoView value)? repoView,
-    TResult Function(UModEventViewDetailSubjectRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult Function(UModEventViewDetailSubjectRecordView value)? recordView,
-    TResult Function(UModEventViewDetailSubjectRecordViewNotFound value)?
-        recordViewNotFound,
-    TResult Function(UModEventViewDetailSubjectUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (repoViewNotFound != null) {
-      return repoViewNotFound(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModEventViewDetailSubjectRepoView&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModEventViewDetailSubjectRepoViewNotFound
-    extends UModEventViewDetailSubject {
-  const factory UModEventViewDetailSubjectRepoViewNotFound(
-          {required final RepoViewNotFound data}) =
-      _$UModEventViewDetailSubjectRepoViewNotFoundImpl;
-  const UModEventViewDetailSubjectRepoViewNotFound._() : super._();
 
-  @override
-  RepoViewNotFound get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModEventViewDetailSubjectRepoViewNotFoundImplCopyWith<
-          _$UModEventViewDetailSubjectRepoViewNotFoundImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModEventViewDetailSubject.repoView(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModEventViewDetailSubjectRecordViewImplCopyWith<$Res> {
-  factory _$$UModEventViewDetailSubjectRecordViewImplCopyWith(
-          _$UModEventViewDetailSubjectRecordViewImpl value,
-          $Res Function(_$UModEventViewDetailSubjectRecordViewImpl) then) =
-      __$$UModEventViewDetailSubjectRecordViewImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({RecordView data});
+abstract mixin class $UModEventViewDetailSubjectRepoViewCopyWith<$Res> implements $UModEventViewDetailSubjectCopyWith<$Res> {
+  factory $UModEventViewDetailSubjectRepoViewCopyWith(UModEventViewDetailSubjectRepoView value, $Res Function(UModEventViewDetailSubjectRepoView) _then) = _$UModEventViewDetailSubjectRepoViewCopyWithImpl;
+@useResult
+$Res call({
+ RepoView data
+});
 
-  $RecordViewCopyWith<$Res> get data;
+
+$RepoViewCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModEventViewDetailSubjectRepoViewCopyWithImpl<$Res>
+    implements $UModEventViewDetailSubjectRepoViewCopyWith<$Res> {
+  _$UModEventViewDetailSubjectRepoViewCopyWithImpl(this._self, this._then);
+
+  final UModEventViewDetailSubjectRepoView _self;
+  final $Res Function(UModEventViewDetailSubjectRepoView) _then;
+
+/// Create a copy of UModEventViewDetailSubject
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModEventViewDetailSubjectRepoView(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as RepoView,
+  ));
 }
 
-/// @nodoc
-class __$$UModEventViewDetailSubjectRecordViewImplCopyWithImpl<$Res>
-    extends _$UModEventViewDetailSubjectCopyWithImpl<$Res,
-        _$UModEventViewDetailSubjectRecordViewImpl>
-    implements _$$UModEventViewDetailSubjectRecordViewImplCopyWith<$Res> {
-  __$$UModEventViewDetailSubjectRecordViewImplCopyWithImpl(
-      _$UModEventViewDetailSubjectRecordViewImpl _value,
-      $Res Function(_$UModEventViewDetailSubjectRecordViewImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModEventViewDetailSubjectRecordViewImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as RecordView,
-    ));
-  }
-
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RecordViewCopyWith<$Res> get data {
-    return $RecordViewCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModEventViewDetailSubject
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RepoViewCopyWith<$Res> get data {
+  
+  return $RepoViewCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModEventViewDetailSubjectRecordViewImpl
-    extends UModEventViewDetailSubjectRecordView {
-  const _$UModEventViewDetailSubjectRecordViewImpl({required this.data})
-      : super._();
 
-  @override
-  final RecordView data;
+class UModEventViewDetailSubjectRepoViewNotFound extends UModEventViewDetailSubject {
+  const UModEventViewDetailSubjectRepoViewNotFound({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModEventViewDetailSubject.recordView(data: $data)';
-  }
+@override final  RepoViewNotFound data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModEventViewDetailSubjectRecordViewImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModEventViewDetailSubject
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModEventViewDetailSubjectRepoViewNotFoundCopyWith<UModEventViewDetailSubjectRepoViewNotFound> get copyWith => _$UModEventViewDetailSubjectRepoViewNotFoundCopyWithImpl<UModEventViewDetailSubjectRepoViewNotFound>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModEventViewDetailSubjectRecordViewImplCopyWith<
-          _$UModEventViewDetailSubjectRecordViewImpl>
-      get copyWith => __$$UModEventViewDetailSubjectRecordViewImplCopyWithImpl<
-          _$UModEventViewDetailSubjectRecordViewImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoView data) repoView,
-    required TResult Function(RepoViewNotFound data) repoViewNotFound,
-    required TResult Function(RecordView data) recordView,
-    required TResult Function(RecordViewNotFound data) recordViewNotFound,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return recordView(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoView data)? repoView,
-    TResult? Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult? Function(RecordView data)? recordView,
-    TResult? Function(RecordViewNotFound data)? recordViewNotFound,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return recordView?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoView data)? repoView,
-    TResult Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult Function(RecordView data)? recordView,
-    TResult Function(RecordViewNotFound data)? recordViewNotFound,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (recordView != null) {
-      return recordView(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModEventViewDetailSubjectRepoView value)
-        repoView,
-    required TResult Function(UModEventViewDetailSubjectRepoViewNotFound value)
-        repoViewNotFound,
-    required TResult Function(UModEventViewDetailSubjectRecordView value)
-        recordView,
-    required TResult Function(
-            UModEventViewDetailSubjectRecordViewNotFound value)
-        recordViewNotFound,
-    required TResult Function(UModEventViewDetailSubjectUnknown value) unknown,
-  }) {
-    return recordView(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModEventViewDetailSubjectRepoView value)? repoView,
-    TResult? Function(UModEventViewDetailSubjectRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult? Function(UModEventViewDetailSubjectRecordView value)? recordView,
-    TResult? Function(UModEventViewDetailSubjectRecordViewNotFound value)?
-        recordViewNotFound,
-    TResult? Function(UModEventViewDetailSubjectUnknown value)? unknown,
-  }) {
-    return recordView?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModEventViewDetailSubjectRepoView value)? repoView,
-    TResult Function(UModEventViewDetailSubjectRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult Function(UModEventViewDetailSubjectRecordView value)? recordView,
-    TResult Function(UModEventViewDetailSubjectRecordViewNotFound value)?
-        recordViewNotFound,
-    TResult Function(UModEventViewDetailSubjectUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (recordView != null) {
-      return recordView(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModEventViewDetailSubjectRepoViewNotFound&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModEventViewDetailSubjectRecordView
-    extends UModEventViewDetailSubject {
-  const factory UModEventViewDetailSubjectRecordView(
-          {required final RecordView data}) =
-      _$UModEventViewDetailSubjectRecordViewImpl;
-  const UModEventViewDetailSubjectRecordView._() : super._();
 
-  @override
-  RecordView get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModEventViewDetailSubjectRecordViewImplCopyWith<
-          _$UModEventViewDetailSubjectRecordViewImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModEventViewDetailSubject.repoViewNotFound(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModEventViewDetailSubjectRecordViewNotFoundImplCopyWith<
-    $Res> {
-  factory _$$UModEventViewDetailSubjectRecordViewNotFoundImplCopyWith(
-          _$UModEventViewDetailSubjectRecordViewNotFoundImpl value,
-          $Res Function(_$UModEventViewDetailSubjectRecordViewNotFoundImpl)
-              then) =
-      __$$UModEventViewDetailSubjectRecordViewNotFoundImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({RecordViewNotFound data});
+abstract mixin class $UModEventViewDetailSubjectRepoViewNotFoundCopyWith<$Res> implements $UModEventViewDetailSubjectCopyWith<$Res> {
+  factory $UModEventViewDetailSubjectRepoViewNotFoundCopyWith(UModEventViewDetailSubjectRepoViewNotFound value, $Res Function(UModEventViewDetailSubjectRepoViewNotFound) _then) = _$UModEventViewDetailSubjectRepoViewNotFoundCopyWithImpl;
+@useResult
+$Res call({
+ RepoViewNotFound data
+});
 
-  $RecordViewNotFoundCopyWith<$Res> get data;
+
+$RepoViewNotFoundCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModEventViewDetailSubjectRepoViewNotFoundCopyWithImpl<$Res>
+    implements $UModEventViewDetailSubjectRepoViewNotFoundCopyWith<$Res> {
+  _$UModEventViewDetailSubjectRepoViewNotFoundCopyWithImpl(this._self, this._then);
+
+  final UModEventViewDetailSubjectRepoViewNotFound _self;
+  final $Res Function(UModEventViewDetailSubjectRepoViewNotFound) _then;
+
+/// Create a copy of UModEventViewDetailSubject
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModEventViewDetailSubjectRepoViewNotFound(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as RepoViewNotFound,
+  ));
 }
 
-/// @nodoc
-class __$$UModEventViewDetailSubjectRecordViewNotFoundImplCopyWithImpl<$Res>
-    extends _$UModEventViewDetailSubjectCopyWithImpl<$Res,
-        _$UModEventViewDetailSubjectRecordViewNotFoundImpl>
-    implements
-        _$$UModEventViewDetailSubjectRecordViewNotFoundImplCopyWith<$Res> {
-  __$$UModEventViewDetailSubjectRecordViewNotFoundImplCopyWithImpl(
-      _$UModEventViewDetailSubjectRecordViewNotFoundImpl _value,
-      $Res Function(_$UModEventViewDetailSubjectRecordViewNotFoundImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModEventViewDetailSubjectRecordViewNotFoundImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as RecordViewNotFound,
-    ));
-  }
-
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RecordViewNotFoundCopyWith<$Res> get data {
-    return $RecordViewNotFoundCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModEventViewDetailSubject
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RepoViewNotFoundCopyWith<$Res> get data {
+  
+  return $RepoViewNotFoundCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModEventViewDetailSubjectRecordViewNotFoundImpl
-    extends UModEventViewDetailSubjectRecordViewNotFound {
-  const _$UModEventViewDetailSubjectRecordViewNotFoundImpl({required this.data})
-      : super._();
 
-  @override
-  final RecordViewNotFound data;
+class UModEventViewDetailSubjectRecordView extends UModEventViewDetailSubject {
+  const UModEventViewDetailSubjectRecordView({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModEventViewDetailSubject.recordViewNotFound(data: $data)';
-  }
+@override final  RecordView data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModEventViewDetailSubjectRecordViewNotFoundImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModEventViewDetailSubject
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModEventViewDetailSubjectRecordViewCopyWith<UModEventViewDetailSubjectRecordView> get copyWith => _$UModEventViewDetailSubjectRecordViewCopyWithImpl<UModEventViewDetailSubjectRecordView>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModEventViewDetailSubjectRecordViewNotFoundImplCopyWith<
-          _$UModEventViewDetailSubjectRecordViewNotFoundImpl>
-      get copyWith =>
-          __$$UModEventViewDetailSubjectRecordViewNotFoundImplCopyWithImpl<
-                  _$UModEventViewDetailSubjectRecordViewNotFoundImpl>(
-              this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoView data) repoView,
-    required TResult Function(RepoViewNotFound data) repoViewNotFound,
-    required TResult Function(RecordView data) recordView,
-    required TResult Function(RecordViewNotFound data) recordViewNotFound,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return recordViewNotFound(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoView data)? repoView,
-    TResult? Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult? Function(RecordView data)? recordView,
-    TResult? Function(RecordViewNotFound data)? recordViewNotFound,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return recordViewNotFound?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoView data)? repoView,
-    TResult Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult Function(RecordView data)? recordView,
-    TResult Function(RecordViewNotFound data)? recordViewNotFound,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (recordViewNotFound != null) {
-      return recordViewNotFound(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModEventViewDetailSubjectRepoView value)
-        repoView,
-    required TResult Function(UModEventViewDetailSubjectRepoViewNotFound value)
-        repoViewNotFound,
-    required TResult Function(UModEventViewDetailSubjectRecordView value)
-        recordView,
-    required TResult Function(
-            UModEventViewDetailSubjectRecordViewNotFound value)
-        recordViewNotFound,
-    required TResult Function(UModEventViewDetailSubjectUnknown value) unknown,
-  }) {
-    return recordViewNotFound(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModEventViewDetailSubjectRepoView value)? repoView,
-    TResult? Function(UModEventViewDetailSubjectRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult? Function(UModEventViewDetailSubjectRecordView value)? recordView,
-    TResult? Function(UModEventViewDetailSubjectRecordViewNotFound value)?
-        recordViewNotFound,
-    TResult? Function(UModEventViewDetailSubjectUnknown value)? unknown,
-  }) {
-    return recordViewNotFound?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModEventViewDetailSubjectRepoView value)? repoView,
-    TResult Function(UModEventViewDetailSubjectRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult Function(UModEventViewDetailSubjectRecordView value)? recordView,
-    TResult Function(UModEventViewDetailSubjectRecordViewNotFound value)?
-        recordViewNotFound,
-    TResult Function(UModEventViewDetailSubjectUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (recordViewNotFound != null) {
-      return recordViewNotFound(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModEventViewDetailSubjectRecordView&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModEventViewDetailSubjectRecordViewNotFound
-    extends UModEventViewDetailSubject {
-  const factory UModEventViewDetailSubjectRecordViewNotFound(
-          {required final RecordViewNotFound data}) =
-      _$UModEventViewDetailSubjectRecordViewNotFoundImpl;
-  const UModEventViewDetailSubjectRecordViewNotFound._() : super._();
 
-  @override
-  RecordViewNotFound get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModEventViewDetailSubjectRecordViewNotFoundImplCopyWith<
-          _$UModEventViewDetailSubjectRecordViewNotFoundImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModEventViewDetailSubject.recordView(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModEventViewDetailSubjectUnknownImplCopyWith<$Res> {
-  factory _$$UModEventViewDetailSubjectUnknownImplCopyWith(
-          _$UModEventViewDetailSubjectUnknownImpl value,
-          $Res Function(_$UModEventViewDetailSubjectUnknownImpl) then) =
-      __$$UModEventViewDetailSubjectUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
+abstract mixin class $UModEventViewDetailSubjectRecordViewCopyWith<$Res> implements $UModEventViewDetailSubjectCopyWith<$Res> {
+  factory $UModEventViewDetailSubjectRecordViewCopyWith(UModEventViewDetailSubjectRecordView value, $Res Function(UModEventViewDetailSubjectRecordView) _then) = _$UModEventViewDetailSubjectRecordViewCopyWithImpl;
+@useResult
+$Res call({
+ RecordView data
+});
+
+
+$RecordViewCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModEventViewDetailSubjectRecordViewCopyWithImpl<$Res>
+    implements $UModEventViewDetailSubjectRecordViewCopyWith<$Res> {
+  _$UModEventViewDetailSubjectRecordViewCopyWithImpl(this._self, this._then);
+
+  final UModEventViewDetailSubjectRecordView _self;
+  final $Res Function(UModEventViewDetailSubjectRecordView) _then;
+
+/// Create a copy of UModEventViewDetailSubject
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModEventViewDetailSubjectRecordView(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as RecordView,
+  ));
 }
 
-/// @nodoc
-class __$$UModEventViewDetailSubjectUnknownImplCopyWithImpl<$Res>
-    extends _$UModEventViewDetailSubjectCopyWithImpl<$Res,
-        _$UModEventViewDetailSubjectUnknownImpl>
-    implements _$$UModEventViewDetailSubjectUnknownImplCopyWith<$Res> {
-  __$$UModEventViewDetailSubjectUnknownImplCopyWithImpl(
-      _$UModEventViewDetailSubjectUnknownImpl _value,
-      $Res Function(_$UModEventViewDetailSubjectUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModEventViewDetailSubjectUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
+/// Create a copy of UModEventViewDetailSubject
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RecordViewCopyWith<$Res> get data {
+  
+  return $RecordViewCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModEventViewDetailSubjectUnknownImpl
-    extends UModEventViewDetailSubjectUnknown {
-  const _$UModEventViewDetailSubjectUnknownImpl(
-      {required final Map<String, dynamic> data})
-      : _data = data,
-        super._();
 
-  final Map<String, dynamic> _data;
-  @override
-  Map<String, dynamic> get data {
-    if (_data is EqualUnmodifiableMapView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_data);
-  }
+class UModEventViewDetailSubjectRecordViewNotFound extends UModEventViewDetailSubject {
+  const UModEventViewDetailSubjectRecordViewNotFound({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModEventViewDetailSubject.unknown(data: $data)';
-  }
+@override final  RecordViewNotFound data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModEventViewDetailSubjectUnknownImpl &&
-            const DeepCollectionEquality().equals(other._data, _data));
-  }
+/// Create a copy of UModEventViewDetailSubject
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModEventViewDetailSubjectRecordViewNotFoundCopyWith<UModEventViewDetailSubjectRecordViewNotFound> get copyWith => _$UModEventViewDetailSubjectRecordViewNotFoundCopyWithImpl<UModEventViewDetailSubjectRecordViewNotFound>(this, _$identity);
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModEventViewDetailSubjectUnknownImplCopyWith<
-          _$UModEventViewDetailSubjectUnknownImpl>
-      get copyWith => __$$UModEventViewDetailSubjectUnknownImplCopyWithImpl<
-          _$UModEventViewDetailSubjectUnknownImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoView data) repoView,
-    required TResult Function(RepoViewNotFound data) repoViewNotFound,
-    required TResult Function(RecordView data) recordView,
-    required TResult Function(RecordViewNotFound data) recordViewNotFound,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoView data)? repoView,
-    TResult? Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult? Function(RecordView data)? recordView,
-    TResult? Function(RecordViewNotFound data)? recordViewNotFound,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoView data)? repoView,
-    TResult Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult Function(RecordView data)? recordView,
-    TResult Function(RecordViewNotFound data)? recordViewNotFound,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModEventViewDetailSubjectRepoView value)
-        repoView,
-    required TResult Function(UModEventViewDetailSubjectRepoViewNotFound value)
-        repoViewNotFound,
-    required TResult Function(UModEventViewDetailSubjectRecordView value)
-        recordView,
-    required TResult Function(
-            UModEventViewDetailSubjectRecordViewNotFound value)
-        recordViewNotFound,
-    required TResult Function(UModEventViewDetailSubjectUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModEventViewDetailSubjectRepoView value)? repoView,
-    TResult? Function(UModEventViewDetailSubjectRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult? Function(UModEventViewDetailSubjectRecordView value)? recordView,
-    TResult? Function(UModEventViewDetailSubjectRecordViewNotFound value)?
-        recordViewNotFound,
-    TResult? Function(UModEventViewDetailSubjectUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModEventViewDetailSubjectRepoView value)? repoView,
-    TResult Function(UModEventViewDetailSubjectRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult Function(UModEventViewDetailSubjectRecordView value)? recordView,
-    TResult Function(UModEventViewDetailSubjectRecordViewNotFound value)?
-        recordViewNotFound,
-    TResult Function(UModEventViewDetailSubjectUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModEventViewDetailSubjectRecordViewNotFound&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModEventViewDetailSubjectUnknown
-    extends UModEventViewDetailSubject {
-  const factory UModEventViewDetailSubjectUnknown(
-          {required final Map<String, dynamic> data}) =
-      _$UModEventViewDetailSubjectUnknownImpl;
-  const UModEventViewDetailSubjectUnknown._() : super._();
 
-  @override
-  Map<String, dynamic> get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModEventViewDetailSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModEventViewDetailSubjectUnknownImplCopyWith<
-          _$UModEventViewDetailSubjectUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModEventViewDetailSubject.recordViewNotFound(data: $data)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class $UModEventViewDetailSubjectRecordViewNotFoundCopyWith<$Res> implements $UModEventViewDetailSubjectCopyWith<$Res> {
+  factory $UModEventViewDetailSubjectRecordViewNotFoundCopyWith(UModEventViewDetailSubjectRecordViewNotFound value, $Res Function(UModEventViewDetailSubjectRecordViewNotFound) _then) = _$UModEventViewDetailSubjectRecordViewNotFoundCopyWithImpl;
+@useResult
+$Res call({
+ RecordViewNotFound data
+});
+
+
+$RecordViewNotFoundCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModEventViewDetailSubjectRecordViewNotFoundCopyWithImpl<$Res>
+    implements $UModEventViewDetailSubjectRecordViewNotFoundCopyWith<$Res> {
+  _$UModEventViewDetailSubjectRecordViewNotFoundCopyWithImpl(this._self, this._then);
+
+  final UModEventViewDetailSubjectRecordViewNotFound _self;
+  final $Res Function(UModEventViewDetailSubjectRecordViewNotFound) _then;
+
+/// Create a copy of UModEventViewDetailSubject
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModEventViewDetailSubjectRecordViewNotFound(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as RecordViewNotFound,
+  ));
+}
+
+/// Create a copy of UModEventViewDetailSubject
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RecordViewNotFoundCopyWith<$Res> get data {
+  
+  return $RecordViewNotFoundCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+
+
+class UModEventViewDetailSubjectUnknown extends UModEventViewDetailSubject {
+  const UModEventViewDetailSubjectUnknown({required final  Map<String, dynamic> data}): _data = data,super._();
+  
+
+ final  Map<String, dynamic> _data;
+@override Map<String, dynamic> get data {
+  if (_data is EqualUnmodifiableMapView) return _data;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_data);
+}
+
+
+/// Create a copy of UModEventViewDetailSubject
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModEventViewDetailSubjectUnknownCopyWith<UModEventViewDetailSubjectUnknown> get copyWith => _$UModEventViewDetailSubjectUnknownCopyWithImpl<UModEventViewDetailSubjectUnknown>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModEventViewDetailSubjectUnknown&&const DeepCollectionEquality().equals(other._data, _data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_data));
+
+@override
+String toString() {
+  return 'UModEventViewDetailSubject.unknown(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UModEventViewDetailSubjectUnknownCopyWith<$Res> implements $UModEventViewDetailSubjectCopyWith<$Res> {
+  factory $UModEventViewDetailSubjectUnknownCopyWith(UModEventViewDetailSubjectUnknown value, $Res Function(UModEventViewDetailSubjectUnknown) _then) = _$UModEventViewDetailSubjectUnknownCopyWithImpl;
+@useResult
+$Res call({
+ Map<String, dynamic> data
+});
+
+
+
+
+}
+/// @nodoc
+class _$UModEventViewDetailSubjectUnknownCopyWithImpl<$Res>
+    implements $UModEventViewDetailSubjectUnknownCopyWith<$Res> {
+  _$UModEventViewDetailSubjectUnknownCopyWithImpl(this._self, this._then);
+
+  final UModEventViewDetailSubjectUnknown _self;
+  final $Res Function(UModEventViewDetailSubjectUnknown) _then;
+
+/// Create a copy of UModEventViewDetailSubject
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModEventViewDetailSubjectUnknown(
+data: null == data ? _self._data : data // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,
+  ));
+}
+
+
+}
+
+// dart format on

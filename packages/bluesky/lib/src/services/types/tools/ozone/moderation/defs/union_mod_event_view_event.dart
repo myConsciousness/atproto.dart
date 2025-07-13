@@ -62,9 +62,8 @@ class UModEventViewEvent with _$UModEventViewEvent {
   const factory UModEventViewEvent.modEventEscalate({
     required ModEventEscalate data,
   }) = UModEventViewEventModEventEscalate;
-  const factory UModEventViewEvent.modEventMute({
-    required ModEventMute data,
-  }) = UModEventViewEventModEventMute;
+  const factory UModEventViewEvent.modEventMute({required ModEventMute data}) =
+      UModEventViewEventModEventMute;
   const factory UModEventViewEvent.modEventUnmute({
     required ModEventUnmute data,
   }) = UModEventViewEventModEventUnmute;
@@ -83,18 +82,15 @@ class UModEventViewEvent with _$UModEventViewEvent {
   const factory UModEventViewEvent.modEventDivert({
     required ModEventDivert data,
   }) = UModEventViewEventModEventDivert;
-  const factory UModEventViewEvent.modEventTag({
-    required ModEventTag data,
-  }) = UModEventViewEventModEventTag;
-  const factory UModEventViewEvent.accountEvent({
-    required AccountEvent data,
-  }) = UModEventViewEventAccountEvent;
+  const factory UModEventViewEvent.modEventTag({required ModEventTag data}) =
+      UModEventViewEventModEventTag;
+  const factory UModEventViewEvent.accountEvent({required AccountEvent data}) =
+      UModEventViewEventAccountEvent;
   const factory UModEventViewEvent.identityEvent({
     required IdentityEvent data,
   }) = UModEventViewEventIdentityEvent;
-  const factory UModEventViewEvent.recordEvent({
-    required RecordEvent data,
-  }) = UModEventViewEventRecordEvent;
+  const factory UModEventViewEvent.recordEvent({required RecordEvent data}) =
+      UModEventViewEventRecordEvent;
   const factory UModEventViewEvent.modEventPriorityScore({
     required ModEventPriorityScore data,
   }) = UModEventViewEventModEventPriorityScore;
@@ -218,34 +214,32 @@ final class UModEventViewEventConverter
 
   @override
   Map<String, dynamic> toJson(UModEventViewEvent object) => object.when(
-        modEventTakedown: (data) =>
-            const ModEventTakedownConverter().toJson(data),
-        modEventReverseTakedown: (data) =>
-            const ModEventReverseTakedownConverter().toJson(data),
-        modEventComment: (data) =>
-            const ModEventCommentConverter().toJson(data),
-        modEventReport: (data) => const ModEventReportConverter().toJson(data),
-        modEventLabel: (data) => const ModEventLabelConverter().toJson(data),
-        modEventAcknowledge: (data) =>
-            const ModEventAcknowledgeConverter().toJson(data),
-        modEventEscalate: (data) =>
-            const ModEventEscalateConverter().toJson(data),
-        modEventMute: (data) => const ModEventMuteConverter().toJson(data),
-        modEventUnmute: (data) => const ModEventUnmuteConverter().toJson(data),
-        modEventMuteReporter: (data) =>
-            const ModEventMuteReporterConverter().toJson(data),
-        modEventUnmuteReporter: (data) =>
-            const ModEventUnmuteReporterConverter().toJson(data),
-        modEventEmail: (data) => const ModEventEmailConverter().toJson(data),
-        modEventResolveAppeal: (data) =>
-            const ModEventResolveAppealConverter().toJson(data),
-        modEventDivert: (data) => const ModEventDivertConverter().toJson(data),
-        modEventTag: (data) => const ModEventTagConverter().toJson(data),
-        accountEvent: (data) => const AccountEventConverter().toJson(data),
-        identityEvent: (data) => const IdentityEventConverter().toJson(data),
-        recordEvent: (data) => const RecordEventConverter().toJson(data),
-        modEventPriorityScore: (data) =>
-            const ModEventPriorityScoreConverter().toJson(data),
-        unknown: (data) => data,
-      );
+    modEventTakedown: (data) => const ModEventTakedownConverter().toJson(data),
+    modEventReverseTakedown: (data) =>
+        const ModEventReverseTakedownConverter().toJson(data),
+    modEventComment: (data) => const ModEventCommentConverter().toJson(data),
+    modEventReport: (data) => const ModEventReportConverter().toJson(data),
+    modEventLabel: (data) => const ModEventLabelConverter().toJson(data),
+    modEventAcknowledge: (data) =>
+        const ModEventAcknowledgeConverter().toJson(data),
+    modEventEscalate: (data) => const ModEventEscalateConverter().toJson(data),
+    modEventMute: (data) => const ModEventMuteConverter().toJson(data),
+    modEventUnmute: (data) => const ModEventUnmuteConverter().toJson(data),
+    modEventMuteReporter: (data) =>
+        const ModEventMuteReporterConverter().toJson(data),
+    modEventUnmuteReporter: (data) =>
+        const ModEventUnmuteReporterConverter().toJson(data),
+    modEventEmail: (data) => const ModEventEmailConverter().toJson(data),
+    modEventResolveAppeal: (data) =>
+        const ModEventResolveAppealConverter().toJson(data),
+    modEventDivert: (data) => const ModEventDivertConverter().toJson(data),
+    modEventTag: (data) => const ModEventTagConverter().toJson(data),
+    accountEvent: (data) => const AccountEventConverter().toJson(data),
+    identityEvent: (data) => const IdentityEventConverter().toJson(data),
+    recordEvent: (data) => const RecordEventConverter().toJson(data),
+    modEventPriorityScore: (data) =>
+        const ModEventPriorityScoreConverter().toJson(data),
+
+    unknown: (data) => data,
+  );
 }

@@ -21,10 +21,7 @@ part 'input.g.dart';
 @freezed
 abstract class VerificationRevokeVerificationsInput
     with _$VerificationRevokeVerificationsInput {
-  static const knownProps = <String>[
-    'uris',
-    'revokeReason',
-  ];
+  static const knownProps = <String>['uris', 'revokeReason'];
 
   const factory VerificationRevokeVerificationsInput({
     /// The AT-URI of the verification record to revoke.
@@ -32,30 +29,31 @@ abstract class VerificationRevokeVerificationsInput
 
     /// Reason for revoking the verification. This is optional and can be omitted if not needed.
     String? revokeReason,
+
     Map<String, dynamic>? $unknown,
   }) = _VerificationRevokeVerificationsInput;
 
   factory VerificationRevokeVerificationsInput.fromJson(
-          Map<String, Object?> json) =>
-      _$VerificationRevokeVerificationsInputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$VerificationRevokeVerificationsInputFromJson(json);
 }
 
 final class VerificationRevokeVerificationsInputConverter
-    extends LexObjectConverter<VerificationRevokeVerificationsInput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          VerificationRevokeVerificationsInput,
+          Map<String, dynamic>
+        > {
   const VerificationRevokeVerificationsInputConverter();
 
   @override
   VerificationRevokeVerificationsInput fromJson(Map<String, dynamic> json) {
-    return VerificationRevokeVerificationsInput.fromJson(translate(
-      json,
-      VerificationRevokeVerificationsInput.knownProps,
-    ));
+    return VerificationRevokeVerificationsInput.fromJson(
+      translate(json, VerificationRevokeVerificationsInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(VerificationRevokeVerificationsInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

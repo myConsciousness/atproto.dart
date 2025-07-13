@@ -20,14 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class LabelerGetServicesInput with _$LabelerGetServicesInput {
-  static const knownProps = <String>[
-    'dids',
-    'detailed',
-  ];
+  static const knownProps = <String>['dids', 'detailed'];
 
   const factory LabelerGetServicesInput({
     required List<String> dids,
     bool? detailed,
+
     Map<String, dynamic>? $unknown,
   }) = _LabelerGetServicesInput;
 
@@ -41,14 +39,12 @@ final class LabelerGetServicesInputConverter
 
   @override
   LabelerGetServicesInput fromJson(Map<String, dynamic> json) {
-    return LabelerGetServicesInput.fromJson(translate(
-      json,
-      LabelerGetServicesInput.knownProps,
-    ));
+    return LabelerGetServicesInput.fromJson(
+      translate(json, LabelerGetServicesInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(LabelerGetServicesInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(LabelerGetServicesInput object) =>
+      untranslate(object.toJson());
 }

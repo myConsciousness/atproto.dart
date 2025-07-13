@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,207 +9,283 @@ part of 'generator_viewer_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GeneratorViewerState _$GeneratorViewerStateFromJson(Map<String, dynamic> json) {
-  return _GeneratorViewerState.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GeneratorViewerState {
-  String get $type => throw _privateConstructorUsedError;
-  String? get like => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+ String get $type; String? get like; Map<String, dynamic>? get $unknown;
+/// Create a copy of GeneratorViewerState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$GeneratorViewerStateCopyWith<GeneratorViewerState> get copyWith => _$GeneratorViewerStateCopyWithImpl<GeneratorViewerState>(this as GeneratorViewerState, _$identity);
 
   /// Serializes this GeneratorViewerState to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of GeneratorViewerState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $GeneratorViewerStateCopyWith<GeneratorViewerState> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GeneratorViewerState&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.like, like) || other.like == like)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,like,const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'GeneratorViewerState(\$type: ${$type}, like: $like, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $GeneratorViewerStateCopyWith<$Res> {
-  factory $GeneratorViewerStateCopyWith(GeneratorViewerState value,
-          $Res Function(GeneratorViewerState) then) =
-      _$GeneratorViewerStateCopyWithImpl<$Res, GeneratorViewerState>;
-  @useResult
-  $Res call({String $type, String? like, Map<String, dynamic>? $unknown});
-}
+abstract mixin class $GeneratorViewerStateCopyWith<$Res>  {
+  factory $GeneratorViewerStateCopyWith(GeneratorViewerState value, $Res Function(GeneratorViewerState) _then) = _$GeneratorViewerStateCopyWithImpl;
+@useResult
+$Res call({
+ String $type, String? like, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$GeneratorViewerStateCopyWithImpl<$Res,
-        $Val extends GeneratorViewerState>
+class _$GeneratorViewerStateCopyWithImpl<$Res>
     implements $GeneratorViewerStateCopyWith<$Res> {
-  _$GeneratorViewerStateCopyWithImpl(this._value, this._then);
+  _$GeneratorViewerStateCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final GeneratorViewerState _self;
+  final $Res Function(GeneratorViewerState) _then;
 
-  /// Create a copy of GeneratorViewerState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? like = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      like: freezed == like
-          ? _value.like
-          : like // ignore: cast_nullable_to_non_nullable
-              as String?,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of GeneratorViewerState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? like = freezed,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,like: freezed == like ? _self.like : like // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$GeneratorViewerStateImplCopyWith<$Res>
-    implements $GeneratorViewerStateCopyWith<$Res> {
-  factory _$$GeneratorViewerStateImplCopyWith(_$GeneratorViewerStateImpl value,
-          $Res Function(_$GeneratorViewerStateImpl) then) =
-      __$$GeneratorViewerStateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String $type, String? like, Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$GeneratorViewerStateImplCopyWithImpl<$Res>
-    extends _$GeneratorViewerStateCopyWithImpl<$Res, _$GeneratorViewerStateImpl>
-    implements _$$GeneratorViewerStateImplCopyWith<$Res> {
-  __$$GeneratorViewerStateImplCopyWithImpl(_$GeneratorViewerStateImpl _value,
-      $Res Function(_$GeneratorViewerStateImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of GeneratorViewerState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? like = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$GeneratorViewerStateImpl(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      like: freezed == like
-          ? _value.like
-          : like // ignore: cast_nullable_to_non_nullable
-              as String?,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [GeneratorViewerState].
+extension GeneratorViewerStatePatterns on GeneratorViewerState {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _GeneratorViewerState value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _GeneratorViewerState() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _GeneratorViewerState value)  $default,){
+final _that = this;
+switch (_that) {
+case _GeneratorViewerState():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _GeneratorViewerState value)?  $default,){
+final _that = this;
+switch (_that) {
+case _GeneratorViewerState() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? like,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _GeneratorViewerState() when $default != null:
+return $default(_that.$type,_that.like,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? like,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _GeneratorViewerState():
+return $default(_that.$type,_that.like,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? like,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _GeneratorViewerState() when $default != null:
+return $default(_that.$type,_that.like,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$GeneratorViewerStateImpl implements _GeneratorViewerState {
-  const _$GeneratorViewerStateImpl(
-      {this.$type = appBskyFeedDefsGeneratorViewerState,
-      this.like,
-      final Map<String, dynamic>? $unknown})
-      : _$unknown = $unknown;
 
-  factory _$GeneratorViewerStateImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GeneratorViewerStateImplFromJson(json);
+class _GeneratorViewerState implements GeneratorViewerState {
+  const _GeneratorViewerState({this.$type = appBskyFeedDefsGeneratorViewerState, this.like, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  factory _GeneratorViewerState.fromJson(Map<String, dynamic> json) => _$GeneratorViewerStateFromJson(json);
 
-  @override
-  @JsonKey()
-  final String $type;
-  @override
-  final String? like;
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'GeneratorViewerState(\$type: ${$type}, like: $like, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GeneratorViewerStateImpl &&
-            (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.like, like) || other.like == like) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, $type, like, const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of GeneratorViewerState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GeneratorViewerStateImplCopyWith<_$GeneratorViewerStateImpl>
-      get copyWith =>
-          __$$GeneratorViewerStateImplCopyWithImpl<_$GeneratorViewerStateImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GeneratorViewerStateImplToJson(
-      this,
-    );
-  }
+@override@JsonKey() final  String $type;
+@override final  String? like;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
 
-abstract class _GeneratorViewerState implements GeneratorViewerState {
-  const factory _GeneratorViewerState(
-      {final String $type,
-      final String? like,
-      final Map<String, dynamic>? $unknown}) = _$GeneratorViewerStateImpl;
 
-  factory _GeneratorViewerState.fromJson(Map<String, dynamic> json) =
-      _$GeneratorViewerStateImpl.fromJson;
+/// Create a copy of GeneratorViewerState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$GeneratorViewerStateCopyWith<_GeneratorViewerState> get copyWith => __$GeneratorViewerStateCopyWithImpl<_GeneratorViewerState>(this, _$identity);
 
-  @override
-  String get $type;
-  @override
-  String? get like;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of GeneratorViewerState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GeneratorViewerStateImplCopyWith<_$GeneratorViewerStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$GeneratorViewerStateToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GeneratorViewerState&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.like, like) || other.like == like)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,like,const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'GeneratorViewerState(\$type: ${$type}, like: $like, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$GeneratorViewerStateCopyWith<$Res> implements $GeneratorViewerStateCopyWith<$Res> {
+  factory _$GeneratorViewerStateCopyWith(_GeneratorViewerState value, $Res Function(_GeneratorViewerState) _then) = __$GeneratorViewerStateCopyWithImpl;
+@override @useResult
+$Res call({
+ String $type, String? like, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$GeneratorViewerStateCopyWithImpl<$Res>
+    implements _$GeneratorViewerStateCopyWith<$Res> {
+  __$GeneratorViewerStateCopyWithImpl(this._self, this._then);
+
+  final _GeneratorViewerState _self;
+  final $Res Function(_GeneratorViewerState) _then;
+
+/// Create a copy of GeneratorViewerState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? like = freezed,Object? $unknown = freezed,}) {
+  return _then(_GeneratorViewerState(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,like: freezed == like ? _self.like : like // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

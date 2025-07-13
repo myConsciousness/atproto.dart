@@ -12,7 +12,8 @@ part of 'lex_xrpc_body.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LexXrpcBody _$LexXrpcBodyFromJson(Map<String, dynamic> json) {
   return _LexXrpcBody.fromJson(json);
@@ -38,13 +39,15 @@ mixin _$LexXrpcBody {
 /// @nodoc
 abstract class $LexXrpcBodyCopyWith<$Res> {
   factory $LexXrpcBodyCopyWith(
-          LexXrpcBody value, $Res Function(LexXrpcBody) then) =
-      _$LexXrpcBodyCopyWithImpl<$Res, LexXrpcBody>;
+    LexXrpcBody value,
+    $Res Function(LexXrpcBody) then,
+  ) = _$LexXrpcBodyCopyWithImpl<$Res, LexXrpcBody>;
   @useResult
-  $Res call(
-      {String? description,
-      String encoding,
-      @LexXrpcSchemaConverter() LexXrpcSchema? schema});
+  $Res call({
+    String? description,
+    String encoding,
+    @LexXrpcSchemaConverter() LexXrpcSchema? schema,
+  });
 
   $LexXrpcSchemaCopyWith<$Res>? get schema;
 }
@@ -68,20 +71,23 @@ class _$LexXrpcBodyCopyWithImpl<$Res, $Val extends LexXrpcBody>
     Object? encoding = null,
     Object? schema = freezed,
   }) {
-    return _then(_value.copyWith(
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      encoding: null == encoding
-          ? _value.encoding
-          : encoding // ignore: cast_nullable_to_non_nullable
-              as String,
-      schema: freezed == schema
-          ? _value.schema
-          : schema // ignore: cast_nullable_to_non_nullable
-              as LexXrpcSchema?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            encoding: null == encoding
+                ? _value.encoding
+                : encoding // ignore: cast_nullable_to_non_nullable
+                      as String,
+            schema: freezed == schema
+                ? _value.schema
+                : schema // ignore: cast_nullable_to_non_nullable
+                      as LexXrpcSchema?,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of LexXrpcBody
@@ -103,14 +109,16 @@ class _$LexXrpcBodyCopyWithImpl<$Res, $Val extends LexXrpcBody>
 abstract class _$$LexXrpcBodyImplCopyWith<$Res>
     implements $LexXrpcBodyCopyWith<$Res> {
   factory _$$LexXrpcBodyImplCopyWith(
-          _$LexXrpcBodyImpl value, $Res Function(_$LexXrpcBodyImpl) then) =
-      __$$LexXrpcBodyImplCopyWithImpl<$Res>;
+    _$LexXrpcBodyImpl value,
+    $Res Function(_$LexXrpcBodyImpl) then,
+  ) = __$$LexXrpcBodyImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String? description,
-      String encoding,
-      @LexXrpcSchemaConverter() LexXrpcSchema? schema});
+  $Res call({
+    String? description,
+    String encoding,
+    @LexXrpcSchemaConverter() LexXrpcSchema? schema,
+  });
 
   @override
   $LexXrpcSchemaCopyWith<$Res>? get schema;
@@ -121,8 +129,9 @@ class __$$LexXrpcBodyImplCopyWithImpl<$Res>
     extends _$LexXrpcBodyCopyWithImpl<$Res, _$LexXrpcBodyImpl>
     implements _$$LexXrpcBodyImplCopyWith<$Res> {
   __$$LexXrpcBodyImplCopyWithImpl(
-      _$LexXrpcBodyImpl _value, $Res Function(_$LexXrpcBodyImpl) _then)
-      : super(_value, _then);
+    _$LexXrpcBodyImpl _value,
+    $Res Function(_$LexXrpcBodyImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexXrpcBody
   /// with the given fields replaced by the non-null parameter values.
@@ -133,20 +142,22 @@ class __$$LexXrpcBodyImplCopyWithImpl<$Res>
     Object? encoding = null,
     Object? schema = freezed,
   }) {
-    return _then(_$LexXrpcBodyImpl(
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      encoding: null == encoding
-          ? _value.encoding
-          : encoding // ignore: cast_nullable_to_non_nullable
-              as String,
-      schema: freezed == schema
-          ? _value.schema
-          : schema // ignore: cast_nullable_to_non_nullable
-              as LexXrpcSchema?,
-    ));
+    return _then(
+      _$LexXrpcBodyImpl(
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        encoding: null == encoding
+            ? _value.encoding
+            : encoding // ignore: cast_nullable_to_non_nullable
+                  as String,
+        schema: freezed == schema
+            ? _value.schema
+            : schema // ignore: cast_nullable_to_non_nullable
+                  as LexXrpcSchema?,
+      ),
+    );
   }
 }
 
@@ -154,10 +165,11 @@ class __$$LexXrpcBodyImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$LexXrpcBodyImpl implements _LexXrpcBody {
-  const _$LexXrpcBodyImpl(
-      {this.description,
-      required this.encoding,
-      @LexXrpcSchemaConverter() this.schema});
+  const _$LexXrpcBodyImpl({
+    this.description,
+    required this.encoding,
+    @LexXrpcSchemaConverter() this.schema,
+  });
 
   factory _$LexXrpcBodyImpl.fromJson(Map<String, dynamic> json) =>
       _$$LexXrpcBodyImplFromJson(json);
@@ -201,18 +213,16 @@ class _$LexXrpcBodyImpl implements _LexXrpcBody {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LexXrpcBodyImplToJson(
-      this,
-    );
+    return _$$LexXrpcBodyImplToJson(this);
   }
 }
 
 abstract class _LexXrpcBody implements LexXrpcBody {
-  const factory _LexXrpcBody(
-          {final String? description,
-          required final String encoding,
-          @LexXrpcSchemaConverter() final LexXrpcSchema? schema}) =
-      _$LexXrpcBodyImpl;
+  const factory _LexXrpcBody({
+    final String? description,
+    required final String encoding,
+    @LexXrpcSchemaConverter() final LexXrpcSchema? schema,
+  }) = _$LexXrpcBodyImpl;
 
   factory _LexXrpcBody.fromJson(Map<String, dynamic> json) =
       _$LexXrpcBodyImpl.fromJson;

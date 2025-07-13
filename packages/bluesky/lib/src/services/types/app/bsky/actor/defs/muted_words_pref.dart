@@ -24,13 +24,12 @@ part 'muted_words_pref.g.dart';
 
 @freezed
 abstract class MutedWordsPref with _$MutedWordsPref {
-  static const knownProps = <String>[
-    'items',
-  ];
+  static const knownProps = <String>['items'];
 
   const factory MutedWordsPref({
     @Default(appBskyActorDefsMutedWordsPref) String $type,
     @MutedWordConverter() required List<MutedWord> items,
+
     Map<String, dynamic>? $unknown,
   }) = _MutedWordsPref;
 
@@ -49,14 +48,10 @@ final class MutedWordsPrefConverter
 
   @override
   MutedWordsPref fromJson(Map<String, dynamic> json) {
-    return MutedWordsPref.fromJson(translate(
-      json,
-      MutedWordsPref.knownProps,
-    ));
+    return MutedWordsPref.fromJson(translate(json, MutedWordsPref.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(MutedWordsPref object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(MutedWordsPref object) =>
+      untranslate(object.toJson());
 }

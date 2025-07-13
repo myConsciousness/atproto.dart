@@ -20,10 +20,7 @@ part 'muted_word_target.g.dart';
 
 @freezed
 abstract class MutedWordTarget with _$MutedWordTarget {
-  static const knownProps = <String>[
-    'content',
-    'tag',
-  ];
+  static const knownProps = <String>['content', 'tag'];
 
   const factory MutedWordTarget({
     KnownMutedWordTarget? knownValue,
@@ -40,24 +37,21 @@ abstract class MutedWordTargetConverter
 
   @override
   MutedWordTarget fromJson(Map<String, dynamic> json) {
-    return MutedWordTarget.fromJson(translate(
-      json,
-      MutedWordTarget.knownProps,
-    ));
+    return MutedWordTarget.fromJson(
+      translate(json, MutedWordTarget.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(MutedWordTarget object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(MutedWordTarget object) =>
+      untranslate(object.toJson());
 }
 
 enum KnownMutedWordTarget implements Serializable {
   @JsonValue('content')
   content('content'),
   @JsonValue('tag')
-  tag('tag'),
-  ;
+  tag('tag');
 
   @override
   final String value;

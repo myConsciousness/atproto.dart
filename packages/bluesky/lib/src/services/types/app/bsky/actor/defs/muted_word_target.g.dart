@@ -8,22 +8,19 @@ part of 'muted_word_target.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MutedWordTargetImpl _$$MutedWordTargetImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$MutedWordTargetImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$MutedWordTargetImpl(
-          knownValue: $checkedConvert('knownValue',
-              (v) => $enumDecodeNullable(_$KnownMutedWordTargetEnumMap, v)),
-          unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
-        );
-        return val;
-      },
-    );
+_MutedWordTarget _$MutedWordTargetFromJson(Map json) =>
+    $checkedCreate('_MutedWordTarget', json, ($checkedConvert) {
+      final val = _MutedWordTarget(
+        knownValue: $checkedConvert(
+          'knownValue',
+          (v) => $enumDecodeNullable(_$KnownMutedWordTargetEnumMap, v),
+        ),
+        unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$MutedWordTargetImplToJson(
-        _$MutedWordTargetImpl instance) =>
+Map<String, dynamic> _$MutedWordTargetToJson(_MutedWordTarget instance) =>
     <String, dynamic>{
       'knownValue': _$KnownMutedWordTargetEnumMap[instance.knownValue],
       'unknownValue': instance.unknownValue,

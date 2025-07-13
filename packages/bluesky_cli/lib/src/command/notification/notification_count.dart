@@ -20,10 +20,8 @@ class NotificationCountCommand extends QueryCommand {
   final String invocation = 'bsky notification-count';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'notification.bsky.app',
-        'getUnreadCount',
-      );
+  xrpc.NSID get methodId =>
+      xrpc.NSID.create('notification.bsky.app', 'getUnreadCount');
 
   @override
   Map<String, dynamic>? get parameters => null;

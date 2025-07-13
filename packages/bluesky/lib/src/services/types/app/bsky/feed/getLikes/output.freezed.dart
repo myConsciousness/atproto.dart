@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,265 +9,295 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-FeedGetLikesOutput _$FeedGetLikesOutputFromJson(Map<String, dynamic> json) {
-  return _FeedGetLikesOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$FeedGetLikesOutput {
-  String get uri => throw _privateConstructorUsedError;
-  String? get cid => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-  @LikeConverter()
-  List<Like> get likes => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+ String get uri; String? get cid; String? get cursor;@LikeConverter() List<Like> get likes; Map<String, dynamic>? get $unknown;
+/// Create a copy of FeedGetLikesOutput
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$FeedGetLikesOutputCopyWith<FeedGetLikesOutput> get copyWith => _$FeedGetLikesOutputCopyWithImpl<FeedGetLikesOutput>(this as FeedGetLikesOutput, _$identity);
 
   /// Serializes this FeedGetLikesOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of FeedGetLikesOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $FeedGetLikesOutputCopyWith<FeedGetLikesOutput> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FeedGetLikesOutput&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.cid, cid) || other.cid == cid)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.likes, likes)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,uri,cid,cursor,const DeepCollectionEquality().hash(likes),const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'FeedGetLikesOutput(uri: $uri, cid: $cid, cursor: $cursor, likes: $likes, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $FeedGetLikesOutputCopyWith<$Res> {
-  factory $FeedGetLikesOutputCopyWith(
-          FeedGetLikesOutput value, $Res Function(FeedGetLikesOutput) then) =
-      _$FeedGetLikesOutputCopyWithImpl<$Res, FeedGetLikesOutput>;
-  @useResult
-  $Res call(
-      {String uri,
-      String? cid,
-      String? cursor,
-      @LikeConverter() List<Like> likes,
-      Map<String, dynamic>? $unknown});
-}
+abstract mixin class $FeedGetLikesOutputCopyWith<$Res>  {
+  factory $FeedGetLikesOutputCopyWith(FeedGetLikesOutput value, $Res Function(FeedGetLikesOutput) _then) = _$FeedGetLikesOutputCopyWithImpl;
+@useResult
+$Res call({
+ String uri, String? cid, String? cursor,@LikeConverter() List<Like> likes, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$FeedGetLikesOutputCopyWithImpl<$Res, $Val extends FeedGetLikesOutput>
+class _$FeedGetLikesOutputCopyWithImpl<$Res>
     implements $FeedGetLikesOutputCopyWith<$Res> {
-  _$FeedGetLikesOutputCopyWithImpl(this._value, this._then);
+  _$FeedGetLikesOutputCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final FeedGetLikesOutput _self;
+  final $Res Function(FeedGetLikesOutput) _then;
 
-  /// Create a copy of FeedGetLikesOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? uri = null,
-    Object? cid = freezed,
-    Object? cursor = freezed,
-    Object? likes = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as String,
-      cid: freezed == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      likes: null == likes
-          ? _value.likes
-          : likes // ignore: cast_nullable_to_non_nullable
-              as List<Like>,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of FeedGetLikesOutput
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? uri = null,Object? cid = freezed,Object? cursor = freezed,Object? likes = null,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
+as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as String?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String?,likes: null == likes ? _self.likes : likes // ignore: cast_nullable_to_non_nullable
+as List<Like>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$FeedGetLikesOutputImplCopyWith<$Res>
-    implements $FeedGetLikesOutputCopyWith<$Res> {
-  factory _$$FeedGetLikesOutputImplCopyWith(_$FeedGetLikesOutputImpl value,
-          $Res Function(_$FeedGetLikesOutputImpl) then) =
-      __$$FeedGetLikesOutputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String uri,
-      String? cid,
-      String? cursor,
-      @LikeConverter() List<Like> likes,
-      Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$FeedGetLikesOutputImplCopyWithImpl<$Res>
-    extends _$FeedGetLikesOutputCopyWithImpl<$Res, _$FeedGetLikesOutputImpl>
-    implements _$$FeedGetLikesOutputImplCopyWith<$Res> {
-  __$$FeedGetLikesOutputImplCopyWithImpl(_$FeedGetLikesOutputImpl _value,
-      $Res Function(_$FeedGetLikesOutputImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of FeedGetLikesOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? uri = null,
-    Object? cid = freezed,
-    Object? cursor = freezed,
-    Object? likes = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$FeedGetLikesOutputImpl(
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as String,
-      cid: freezed == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      likes: null == likes
-          ? _value._likes
-          : likes // ignore: cast_nullable_to_non_nullable
-              as List<Like>,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [FeedGetLikesOutput].
+extension FeedGetLikesOutputPatterns on FeedGetLikesOutput {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _FeedGetLikesOutput value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _FeedGetLikesOutput() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _FeedGetLikesOutput value)  $default,){
+final _that = this;
+switch (_that) {
+case _FeedGetLikesOutput():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _FeedGetLikesOutput value)?  $default,){
+final _that = this;
+switch (_that) {
+case _FeedGetLikesOutput() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uri,  String? cid,  String? cursor, @LikeConverter()  List<Like> likes,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _FeedGetLikesOutput() when $default != null:
+return $default(_that.uri,_that.cid,_that.cursor,_that.likes,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uri,  String? cid,  String? cursor, @LikeConverter()  List<Like> likes,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _FeedGetLikesOutput():
+return $default(_that.uri,_that.cid,_that.cursor,_that.likes,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uri,  String? cid,  String? cursor, @LikeConverter()  List<Like> likes,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _FeedGetLikesOutput() when $default != null:
+return $default(_that.uri,_that.cid,_that.cursor,_that.likes,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$FeedGetLikesOutputImpl implements _FeedGetLikesOutput {
-  const _$FeedGetLikesOutputImpl(
-      {required this.uri,
-      this.cid,
-      this.cursor,
-      @LikeConverter() required final List<Like> likes,
-      final Map<String, dynamic>? $unknown})
-      : _likes = likes,
-        _$unknown = $unknown;
 
-  factory _$FeedGetLikesOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedGetLikesOutputImplFromJson(json);
+class _FeedGetLikesOutput implements FeedGetLikesOutput {
+  const _FeedGetLikesOutput({required this.uri, this.cid, this.cursor, @LikeConverter() required final  List<Like> likes, final  Map<String, dynamic>? $unknown}): _likes = likes,_$unknown = $unknown;
+  factory _FeedGetLikesOutput.fromJson(Map<String, dynamic> json) => _$FeedGetLikesOutputFromJson(json);
 
-  @override
-  final String uri;
-  @override
-  final String? cid;
-  @override
-  final String? cursor;
-  final List<Like> _likes;
-  @override
-  @LikeConverter()
-  List<Like> get likes {
-    if (_likes is EqualUnmodifiableListView) return _likes;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_likes);
-  }
-
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'FeedGetLikesOutput(uri: $uri, cid: $cid, cursor: $cursor, likes: $likes, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FeedGetLikesOutputImpl &&
-            (identical(other.uri, uri) || other.uri == uri) &&
-            (identical(other.cid, cid) || other.cid == cid) &&
-            (identical(other.cursor, cursor) || other.cursor == cursor) &&
-            const DeepCollectionEquality().equals(other._likes, _likes) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      uri,
-      cid,
-      cursor,
-      const DeepCollectionEquality().hash(_likes),
-      const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of FeedGetLikesOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FeedGetLikesOutputImplCopyWith<_$FeedGetLikesOutputImpl> get copyWith =>
-      __$$FeedGetLikesOutputImplCopyWithImpl<_$FeedGetLikesOutputImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FeedGetLikesOutputImplToJson(
-      this,
-    );
-  }
+@override final  String uri;
+@override final  String? cid;
+@override final  String? cursor;
+ final  List<Like> _likes;
+@override@LikeConverter() List<Like> get likes {
+  if (_likes is EqualUnmodifiableListView) return _likes;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_likes);
 }
 
-abstract class _FeedGetLikesOutput implements FeedGetLikesOutput {
-  const factory _FeedGetLikesOutput(
-      {required final String uri,
-      final String? cid,
-      final String? cursor,
-      @LikeConverter() required final List<Like> likes,
-      final Map<String, dynamic>? $unknown}) = _$FeedGetLikesOutputImpl;
-
-  factory _FeedGetLikesOutput.fromJson(Map<String, dynamic> json) =
-      _$FeedGetLikesOutputImpl.fromJson;
-
-  @override
-  String get uri;
-  @override
-  String? get cid;
-  @override
-  String? get cursor;
-  @override
-  @LikeConverter()
-  List<Like> get likes;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of FeedGetLikesOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FeedGetLikesOutputImplCopyWith<_$FeedGetLikesOutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
+
+
+/// Create a copy of FeedGetLikesOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$FeedGetLikesOutputCopyWith<_FeedGetLikesOutput> get copyWith => __$FeedGetLikesOutputCopyWithImpl<_FeedGetLikesOutput>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$FeedGetLikesOutputToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FeedGetLikesOutput&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.cid, cid) || other.cid == cid)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._likes, _likes)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,uri,cid,cursor,const DeepCollectionEquality().hash(_likes),const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'FeedGetLikesOutput(uri: $uri, cid: $cid, cursor: $cursor, likes: $likes, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$FeedGetLikesOutputCopyWith<$Res> implements $FeedGetLikesOutputCopyWith<$Res> {
+  factory _$FeedGetLikesOutputCopyWith(_FeedGetLikesOutput value, $Res Function(_FeedGetLikesOutput) _then) = __$FeedGetLikesOutputCopyWithImpl;
+@override @useResult
+$Res call({
+ String uri, String? cid, String? cursor,@LikeConverter() List<Like> likes, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$FeedGetLikesOutputCopyWithImpl<$Res>
+    implements _$FeedGetLikesOutputCopyWith<$Res> {
+  __$FeedGetLikesOutputCopyWithImpl(this._self, this._then);
+
+  final _FeedGetLikesOutput _self;
+  final $Res Function(_FeedGetLikesOutput) _then;
+
+/// Create a copy of FeedGetLikesOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? uri = null,Object? cid = freezed,Object? cursor = freezed,Object? likes = null,Object? $unknown = freezed,}) {
+  return _then(_FeedGetLikesOutput(
+uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
+as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as String?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String?,likes: null == likes ? _self._likes : likes // ignore: cast_nullable_to_non_nullable
+as List<Like>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

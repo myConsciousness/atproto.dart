@@ -36,6 +36,7 @@ abstract class ServerCreateAccountOutput with _$ServerCreateAccountOutput {
     /// The DID of the new account.
     required String did,
     Map<String, dynamic>? didDoc,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerCreateAccountOutput;
 
@@ -43,20 +44,19 @@ abstract class ServerCreateAccountOutput with _$ServerCreateAccountOutput {
       _$ServerCreateAccountOutputFromJson(json);
 }
 
-final class ServerCreateAccountOutputConverter extends LexObjectConverter<
-    ServerCreateAccountOutput, Map<String, dynamic>> {
+final class ServerCreateAccountOutputConverter
+    extends
+        LexObjectConverter<ServerCreateAccountOutput, Map<String, dynamic>> {
   const ServerCreateAccountOutputConverter();
 
   @override
   ServerCreateAccountOutput fromJson(Map<String, dynamic> json) {
-    return ServerCreateAccountOutput.fromJson(translate(
-      json,
-      ServerCreateAccountOutput.knownProps,
-    ));
+    return ServerCreateAccountOutput.fromJson(
+      translate(json, ServerCreateAccountOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ServerCreateAccountOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ServerCreateAccountOutput object) =>
+      untranslate(object.toJson());
 }

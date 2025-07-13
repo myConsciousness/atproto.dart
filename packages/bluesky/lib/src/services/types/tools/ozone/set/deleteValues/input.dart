@@ -20,15 +20,13 @@ part 'input.g.dart';
 
 @freezed
 abstract class SetDeleteValuesInput with _$SetDeleteValuesInput {
-  static const knownProps = <String>[
-    'name',
-    'values',
-  ];
+  static const knownProps = <String>['name', 'values'];
 
   const factory SetDeleteValuesInput({
     /// Name of the set to delete values from
     required String name,
     required List<String> values,
+
     Map<String, dynamic>? $unknown,
   }) = _SetDeleteValuesInput;
 
@@ -42,14 +40,12 @@ final class SetDeleteValuesInputConverter
 
   @override
   SetDeleteValuesInput fromJson(Map<String, dynamic> json) {
-    return SetDeleteValuesInput.fromJson(translate(
-      json,
-      SetDeleteValuesInput.knownProps,
-    ));
+    return SetDeleteValuesInput.fromJson(
+      translate(json, SetDeleteValuesInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SetDeleteValuesInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SetDeleteValuesInput object) =>
+      untranslate(object.toJson());
 }

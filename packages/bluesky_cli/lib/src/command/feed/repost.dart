@@ -10,11 +10,7 @@ class RepostCommand extends CreateRecordCommand {
   /// Returns the new instance of [RepostCommand].
   RepostCommand() {
     argParser
-      ..addOption(
-        'cid',
-        help: 'Content ID for the post.',
-        defaultsTo: null,
-      )
+      ..addOption('cid', help: 'Content ID for the post.', defaultsTo: null)
       ..addOption(
         'uri',
         help: 'AT Uri of the post to be reposted.',
@@ -37,17 +33,14 @@ class RepostCommand extends CreateRecordCommand {
   final String invocation = 'bsky repost [cid] [uri] [created-at]';
 
   @override
-  xrpc.NSID get collection => xrpc.NSID.create(
-        'feed.bsky.app',
-        'repost',
-      );
+  xrpc.NSID get collection => xrpc.NSID.create('feed.bsky.app', 'repost');
 
   @override
   Map<String, dynamic> get record => {
-        'subject': {
-          'cid': argResults!['cid'],
-          'uri': AtUri.parse(argResults!['uri']).toString(),
-        },
-        'createdAt': argResults!['created-at'],
-      };
+    'subject': {
+      'cid': argResults!['cid'],
+      'uri': AtUri.parse(argResults!['uri']).toString(),
+    },
+    'createdAt': argResults!['created-at'],
+  };
 }

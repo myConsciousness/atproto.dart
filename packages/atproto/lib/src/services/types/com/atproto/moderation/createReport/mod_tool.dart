@@ -24,10 +24,7 @@ part 'mod_tool.g.dart';
 /// Moderation tool information for tracing the source of the action
 @freezed
 abstract class ModTool with _$ModTool {
-  static const knownProps = <String>[
-    'name',
-    'meta',
-  ];
+  static const knownProps = <String>['name', 'meta'];
 
   const factory ModTool({
     @Default(comAtprotoModerationCreateReportModTool) String $type,
@@ -35,6 +32,7 @@ abstract class ModTool with _$ModTool {
     /// Name/identifier of the source (e.g., 'bsky-app/android', 'bsky-web/chrome')
     required String name,
     Map<String, dynamic>? meta,
+
     Map<String, dynamic>? $unknown,
   }) = _ModTool;
 
@@ -53,14 +51,9 @@ final class ModToolConverter
 
   @override
   ModTool fromJson(Map<String, dynamic> json) {
-    return ModTool.fromJson(translate(
-      json,
-      ModTool.knownProps,
-    ));
+    return ModTool.fromJson(translate(json, ModTool.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ModTool object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ModTool object) => untranslate(object.toJson());
 }

@@ -20,14 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class FeedGetSuggestedFeedsInput with _$FeedGetSuggestedFeedsInput {
-  static const knownProps = <String>[
-    'limit',
-    'cursor',
-  ];
+  static const knownProps = <String>['limit', 'cursor'];
 
   const factory FeedGetSuggestedFeedsInput({
     int? limit,
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedGetSuggestedFeedsInput;
 
@@ -35,20 +33,19 @@ abstract class FeedGetSuggestedFeedsInput with _$FeedGetSuggestedFeedsInput {
       _$FeedGetSuggestedFeedsInputFromJson(json);
 }
 
-final class FeedGetSuggestedFeedsInputConverter extends LexObjectConverter<
-    FeedGetSuggestedFeedsInput, Map<String, dynamic>> {
+final class FeedGetSuggestedFeedsInputConverter
+    extends
+        LexObjectConverter<FeedGetSuggestedFeedsInput, Map<String, dynamic>> {
   const FeedGetSuggestedFeedsInputConverter();
 
   @override
   FeedGetSuggestedFeedsInput fromJson(Map<String, dynamic> json) {
-    return FeedGetSuggestedFeedsInput.fromJson(translate(
-      json,
-      FeedGetSuggestedFeedsInput.knownProps,
-    ));
+    return FeedGetSuggestedFeedsInput.fromJson(
+      translate(json, FeedGetSuggestedFeedsInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetSuggestedFeedsInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(FeedGetSuggestedFeedsInput object) =>
+      untranslate(object.toJson());
 }

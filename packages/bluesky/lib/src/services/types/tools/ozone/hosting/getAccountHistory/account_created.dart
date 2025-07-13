@@ -23,15 +23,13 @@ part 'account_created.g.dart';
 
 @freezed
 abstract class AccountCreated with _$AccountCreated {
-  static const knownProps = <String>[
-    'email',
-    'handle',
-  ];
+  static const knownProps = <String>['email', 'handle'];
 
   const factory AccountCreated({
     @Default(toolsOzoneHostingGetAccountHistoryAccountCreated) String $type,
     String? email,
     String? handle,
+
     Map<String, dynamic>? $unknown,
   }) = _AccountCreated;
 
@@ -50,14 +48,10 @@ final class AccountCreatedConverter
 
   @override
   AccountCreated fromJson(Map<String, dynamic> json) {
-    return AccountCreated.fromJson(translate(
-      json,
-      AccountCreated.knownProps,
-    ));
+    return AccountCreated.fromJson(translate(json, AccountCreated.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(AccountCreated object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(AccountCreated object) =>
+      untranslate(object.toJson());
 }

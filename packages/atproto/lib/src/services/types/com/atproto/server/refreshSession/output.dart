@@ -40,6 +40,7 @@ abstract class ServerRefreshSessionOutput with _$ServerRefreshSessionOutput {
 
     /// Hosting status of the account. If not specified, then assume 'active'.
     String? status,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerRefreshSessionOutput;
 
@@ -47,20 +48,19 @@ abstract class ServerRefreshSessionOutput with _$ServerRefreshSessionOutput {
       _$ServerRefreshSessionOutputFromJson(json);
 }
 
-final class ServerRefreshSessionOutputConverter extends LexObjectConverter<
-    ServerRefreshSessionOutput, Map<String, dynamic>> {
+final class ServerRefreshSessionOutputConverter
+    extends
+        LexObjectConverter<ServerRefreshSessionOutput, Map<String, dynamic>> {
   const ServerRefreshSessionOutputConverter();
 
   @override
   ServerRefreshSessionOutput fromJson(Map<String, dynamic> json) {
-    return ServerRefreshSessionOutput.fromJson(translate(
-      json,
-      ServerRefreshSessionOutput.knownProps,
-    ));
+    return ServerRefreshSessionOutput.fromJson(
+      translate(json, ServerRefreshSessionOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ServerRefreshSessionOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ServerRefreshSessionOutput object) =>
+      untranslate(object.toJson());
 }

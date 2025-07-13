@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,6924 +9,1777 @@ part of 'union_main_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$UModerationEmitEventEvent {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+
+ Object get data;
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEvent&&const DeepCollectionEquality().equals(other.data, data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'UModerationEmitEventEvent(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UModerationEmitEventEventCopyWith<$Res> {
-  factory $UModerationEmitEventEventCopyWith(UModerationEmitEventEvent value,
-          $Res Function(UModerationEmitEventEvent) then) =
-      _$UModerationEmitEventEventCopyWithImpl<$Res, UModerationEmitEventEvent>;
+class $UModerationEmitEventEventCopyWith<$Res>  {
+$UModerationEmitEventEventCopyWith(UModerationEmitEventEvent _, $Res Function(UModerationEmitEventEvent) __);
 }
 
-/// @nodoc
-class _$UModerationEmitEventEventCopyWithImpl<$Res,
-        $Val extends UModerationEmitEventEvent>
-    implements $UModerationEmitEventEventCopyWith<$Res> {
-  _$UModerationEmitEventEventCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// Adds pattern-matching-related methods to [UModerationEmitEventEvent].
+extension UModerationEmitEventEventPatterns on UModerationEmitEventEvent {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UModerationEmitEventEventModEventTakedown value)?  modEventTakedown,TResult Function( UModerationEmitEventEventModEventAcknowledge value)?  modEventAcknowledge,TResult Function( UModerationEmitEventEventModEventEscalate value)?  modEventEscalate,TResult Function( UModerationEmitEventEventModEventComment value)?  modEventComment,TResult Function( UModerationEmitEventEventModEventLabel value)?  modEventLabel,TResult Function( UModerationEmitEventEventModEventReport value)?  modEventReport,TResult Function( UModerationEmitEventEventModEventMute value)?  modEventMute,TResult Function( UModerationEmitEventEventModEventUnmute value)?  modEventUnmute,TResult Function( UModerationEmitEventEventModEventMuteReporter value)?  modEventMuteReporter,TResult Function( UModerationEmitEventEventModEventUnmuteReporter value)?  modEventUnmuteReporter,TResult Function( UModerationEmitEventEventModEventReverseTakedown value)?  modEventReverseTakedown,TResult Function( UModerationEmitEventEventModEventResolveAppeal value)?  modEventResolveAppeal,TResult Function( UModerationEmitEventEventModEventEmail value)?  modEventEmail,TResult Function( UModerationEmitEventEventModEventDivert value)?  modEventDivert,TResult Function( UModerationEmitEventEventModEventTag value)?  modEventTag,TResult Function( UModerationEmitEventEventAccountEvent value)?  accountEvent,TResult Function( UModerationEmitEventEventIdentityEvent value)?  identityEvent,TResult Function( UModerationEmitEventEventRecordEvent value)?  recordEvent,TResult Function( UModerationEmitEventEventModEventPriorityScore value)?  modEventPriorityScore,TResult Function( UModerationEmitEventEventUnknown value)?  unknown,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case UModerationEmitEventEventModEventTakedown() when modEventTakedown != null:
+return modEventTakedown(_that);case UModerationEmitEventEventModEventAcknowledge() when modEventAcknowledge != null:
+return modEventAcknowledge(_that);case UModerationEmitEventEventModEventEscalate() when modEventEscalate != null:
+return modEventEscalate(_that);case UModerationEmitEventEventModEventComment() when modEventComment != null:
+return modEventComment(_that);case UModerationEmitEventEventModEventLabel() when modEventLabel != null:
+return modEventLabel(_that);case UModerationEmitEventEventModEventReport() when modEventReport != null:
+return modEventReport(_that);case UModerationEmitEventEventModEventMute() when modEventMute != null:
+return modEventMute(_that);case UModerationEmitEventEventModEventUnmute() when modEventUnmute != null:
+return modEventUnmute(_that);case UModerationEmitEventEventModEventMuteReporter() when modEventMuteReporter != null:
+return modEventMuteReporter(_that);case UModerationEmitEventEventModEventUnmuteReporter() when modEventUnmuteReporter != null:
+return modEventUnmuteReporter(_that);case UModerationEmitEventEventModEventReverseTakedown() when modEventReverseTakedown != null:
+return modEventReverseTakedown(_that);case UModerationEmitEventEventModEventResolveAppeal() when modEventResolveAppeal != null:
+return modEventResolveAppeal(_that);case UModerationEmitEventEventModEventEmail() when modEventEmail != null:
+return modEventEmail(_that);case UModerationEmitEventEventModEventDivert() when modEventDivert != null:
+return modEventDivert(_that);case UModerationEmitEventEventModEventTag() when modEventTag != null:
+return modEventTag(_that);case UModerationEmitEventEventAccountEvent() when accountEvent != null:
+return accountEvent(_that);case UModerationEmitEventEventIdentityEvent() when identityEvent != null:
+return identityEvent(_that);case UModerationEmitEventEventRecordEvent() when recordEvent != null:
+return recordEvent(_that);case UModerationEmitEventEventModEventPriorityScore() when modEventPriorityScore != null:
+return modEventPriorityScore(_that);case UModerationEmitEventEventUnknown() when unknown != null:
+return unknown(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UModerationEmitEventEventModEventTakedown value)  modEventTakedown,required TResult Function( UModerationEmitEventEventModEventAcknowledge value)  modEventAcknowledge,required TResult Function( UModerationEmitEventEventModEventEscalate value)  modEventEscalate,required TResult Function( UModerationEmitEventEventModEventComment value)  modEventComment,required TResult Function( UModerationEmitEventEventModEventLabel value)  modEventLabel,required TResult Function( UModerationEmitEventEventModEventReport value)  modEventReport,required TResult Function( UModerationEmitEventEventModEventMute value)  modEventMute,required TResult Function( UModerationEmitEventEventModEventUnmute value)  modEventUnmute,required TResult Function( UModerationEmitEventEventModEventMuteReporter value)  modEventMuteReporter,required TResult Function( UModerationEmitEventEventModEventUnmuteReporter value)  modEventUnmuteReporter,required TResult Function( UModerationEmitEventEventModEventReverseTakedown value)  modEventReverseTakedown,required TResult Function( UModerationEmitEventEventModEventResolveAppeal value)  modEventResolveAppeal,required TResult Function( UModerationEmitEventEventModEventEmail value)  modEventEmail,required TResult Function( UModerationEmitEventEventModEventDivert value)  modEventDivert,required TResult Function( UModerationEmitEventEventModEventTag value)  modEventTag,required TResult Function( UModerationEmitEventEventAccountEvent value)  accountEvent,required TResult Function( UModerationEmitEventEventIdentityEvent value)  identityEvent,required TResult Function( UModerationEmitEventEventRecordEvent value)  recordEvent,required TResult Function( UModerationEmitEventEventModEventPriorityScore value)  modEventPriorityScore,required TResult Function( UModerationEmitEventEventUnknown value)  unknown,}){
+final _that = this;
+switch (_that) {
+case UModerationEmitEventEventModEventTakedown():
+return modEventTakedown(_that);case UModerationEmitEventEventModEventAcknowledge():
+return modEventAcknowledge(_that);case UModerationEmitEventEventModEventEscalate():
+return modEventEscalate(_that);case UModerationEmitEventEventModEventComment():
+return modEventComment(_that);case UModerationEmitEventEventModEventLabel():
+return modEventLabel(_that);case UModerationEmitEventEventModEventReport():
+return modEventReport(_that);case UModerationEmitEventEventModEventMute():
+return modEventMute(_that);case UModerationEmitEventEventModEventUnmute():
+return modEventUnmute(_that);case UModerationEmitEventEventModEventMuteReporter():
+return modEventMuteReporter(_that);case UModerationEmitEventEventModEventUnmuteReporter():
+return modEventUnmuteReporter(_that);case UModerationEmitEventEventModEventReverseTakedown():
+return modEventReverseTakedown(_that);case UModerationEmitEventEventModEventResolveAppeal():
+return modEventResolveAppeal(_that);case UModerationEmitEventEventModEventEmail():
+return modEventEmail(_that);case UModerationEmitEventEventModEventDivert():
+return modEventDivert(_that);case UModerationEmitEventEventModEventTag():
+return modEventTag(_that);case UModerationEmitEventEventAccountEvent():
+return accountEvent(_that);case UModerationEmitEventEventIdentityEvent():
+return identityEvent(_that);case UModerationEmitEventEventRecordEvent():
+return recordEvent(_that);case UModerationEmitEventEventModEventPriorityScore():
+return modEventPriorityScore(_that);case UModerationEmitEventEventUnknown():
+return unknown(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UModerationEmitEventEventModEventTakedown value)?  modEventTakedown,TResult? Function( UModerationEmitEventEventModEventAcknowledge value)?  modEventAcknowledge,TResult? Function( UModerationEmitEventEventModEventEscalate value)?  modEventEscalate,TResult? Function( UModerationEmitEventEventModEventComment value)?  modEventComment,TResult? Function( UModerationEmitEventEventModEventLabel value)?  modEventLabel,TResult? Function( UModerationEmitEventEventModEventReport value)?  modEventReport,TResult? Function( UModerationEmitEventEventModEventMute value)?  modEventMute,TResult? Function( UModerationEmitEventEventModEventUnmute value)?  modEventUnmute,TResult? Function( UModerationEmitEventEventModEventMuteReporter value)?  modEventMuteReporter,TResult? Function( UModerationEmitEventEventModEventUnmuteReporter value)?  modEventUnmuteReporter,TResult? Function( UModerationEmitEventEventModEventReverseTakedown value)?  modEventReverseTakedown,TResult? Function( UModerationEmitEventEventModEventResolveAppeal value)?  modEventResolveAppeal,TResult? Function( UModerationEmitEventEventModEventEmail value)?  modEventEmail,TResult? Function( UModerationEmitEventEventModEventDivert value)?  modEventDivert,TResult? Function( UModerationEmitEventEventModEventTag value)?  modEventTag,TResult? Function( UModerationEmitEventEventAccountEvent value)?  accountEvent,TResult? Function( UModerationEmitEventEventIdentityEvent value)?  identityEvent,TResult? Function( UModerationEmitEventEventRecordEvent value)?  recordEvent,TResult? Function( UModerationEmitEventEventModEventPriorityScore value)?  modEventPriorityScore,TResult? Function( UModerationEmitEventEventUnknown value)?  unknown,}){
+final _that = this;
+switch (_that) {
+case UModerationEmitEventEventModEventTakedown() when modEventTakedown != null:
+return modEventTakedown(_that);case UModerationEmitEventEventModEventAcknowledge() when modEventAcknowledge != null:
+return modEventAcknowledge(_that);case UModerationEmitEventEventModEventEscalate() when modEventEscalate != null:
+return modEventEscalate(_that);case UModerationEmitEventEventModEventComment() when modEventComment != null:
+return modEventComment(_that);case UModerationEmitEventEventModEventLabel() when modEventLabel != null:
+return modEventLabel(_that);case UModerationEmitEventEventModEventReport() when modEventReport != null:
+return modEventReport(_that);case UModerationEmitEventEventModEventMute() when modEventMute != null:
+return modEventMute(_that);case UModerationEmitEventEventModEventUnmute() when modEventUnmute != null:
+return modEventUnmute(_that);case UModerationEmitEventEventModEventMuteReporter() when modEventMuteReporter != null:
+return modEventMuteReporter(_that);case UModerationEmitEventEventModEventUnmuteReporter() when modEventUnmuteReporter != null:
+return modEventUnmuteReporter(_that);case UModerationEmitEventEventModEventReverseTakedown() when modEventReverseTakedown != null:
+return modEventReverseTakedown(_that);case UModerationEmitEventEventModEventResolveAppeal() when modEventResolveAppeal != null:
+return modEventResolveAppeal(_that);case UModerationEmitEventEventModEventEmail() when modEventEmail != null:
+return modEventEmail(_that);case UModerationEmitEventEventModEventDivert() when modEventDivert != null:
+return modEventDivert(_that);case UModerationEmitEventEventModEventTag() when modEventTag != null:
+return modEventTag(_that);case UModerationEmitEventEventAccountEvent() when accountEvent != null:
+return accountEvent(_that);case UModerationEmitEventEventIdentityEvent() when identityEvent != null:
+return identityEvent(_that);case UModerationEmitEventEventRecordEvent() when recordEvent != null:
+return recordEvent(_that);case UModerationEmitEventEventModEventPriorityScore() when modEventPriorityScore != null:
+return modEventPriorityScore(_that);case UModerationEmitEventEventUnknown() when unknown != null:
+return unknown(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( ModEventTakedown data)?  modEventTakedown,TResult Function( ModEventAcknowledge data)?  modEventAcknowledge,TResult Function( ModEventEscalate data)?  modEventEscalate,TResult Function( ModEventComment data)?  modEventComment,TResult Function( ModEventLabel data)?  modEventLabel,TResult Function( ModEventReport data)?  modEventReport,TResult Function( ModEventMute data)?  modEventMute,TResult Function( ModEventUnmute data)?  modEventUnmute,TResult Function( ModEventMuteReporter data)?  modEventMuteReporter,TResult Function( ModEventUnmuteReporter data)?  modEventUnmuteReporter,TResult Function( ModEventReverseTakedown data)?  modEventReverseTakedown,TResult Function( ModEventResolveAppeal data)?  modEventResolveAppeal,TResult Function( ModEventEmail data)?  modEventEmail,TResult Function( ModEventDivert data)?  modEventDivert,TResult Function( ModEventTag data)?  modEventTag,TResult Function( AccountEvent data)?  accountEvent,TResult Function( IdentityEvent data)?  identityEvent,TResult Function( RecordEvent data)?  recordEvent,TResult Function( ModEventPriorityScore data)?  modEventPriorityScore,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case UModerationEmitEventEventModEventTakedown() when modEventTakedown != null:
+return modEventTakedown(_that.data);case UModerationEmitEventEventModEventAcknowledge() when modEventAcknowledge != null:
+return modEventAcknowledge(_that.data);case UModerationEmitEventEventModEventEscalate() when modEventEscalate != null:
+return modEventEscalate(_that.data);case UModerationEmitEventEventModEventComment() when modEventComment != null:
+return modEventComment(_that.data);case UModerationEmitEventEventModEventLabel() when modEventLabel != null:
+return modEventLabel(_that.data);case UModerationEmitEventEventModEventReport() when modEventReport != null:
+return modEventReport(_that.data);case UModerationEmitEventEventModEventMute() when modEventMute != null:
+return modEventMute(_that.data);case UModerationEmitEventEventModEventUnmute() when modEventUnmute != null:
+return modEventUnmute(_that.data);case UModerationEmitEventEventModEventMuteReporter() when modEventMuteReporter != null:
+return modEventMuteReporter(_that.data);case UModerationEmitEventEventModEventUnmuteReporter() when modEventUnmuteReporter != null:
+return modEventUnmuteReporter(_that.data);case UModerationEmitEventEventModEventReverseTakedown() when modEventReverseTakedown != null:
+return modEventReverseTakedown(_that.data);case UModerationEmitEventEventModEventResolveAppeal() when modEventResolveAppeal != null:
+return modEventResolveAppeal(_that.data);case UModerationEmitEventEventModEventEmail() when modEventEmail != null:
+return modEventEmail(_that.data);case UModerationEmitEventEventModEventDivert() when modEventDivert != null:
+return modEventDivert(_that.data);case UModerationEmitEventEventModEventTag() when modEventTag != null:
+return modEventTag(_that.data);case UModerationEmitEventEventAccountEvent() when accountEvent != null:
+return accountEvent(_that.data);case UModerationEmitEventEventIdentityEvent() when identityEvent != null:
+return identityEvent(_that.data);case UModerationEmitEventEventRecordEvent() when recordEvent != null:
+return recordEvent(_that.data);case UModerationEmitEventEventModEventPriorityScore() when modEventPriorityScore != null:
+return modEventPriorityScore(_that.data);case UModerationEmitEventEventUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( ModEventTakedown data)  modEventTakedown,required TResult Function( ModEventAcknowledge data)  modEventAcknowledge,required TResult Function( ModEventEscalate data)  modEventEscalate,required TResult Function( ModEventComment data)  modEventComment,required TResult Function( ModEventLabel data)  modEventLabel,required TResult Function( ModEventReport data)  modEventReport,required TResult Function( ModEventMute data)  modEventMute,required TResult Function( ModEventUnmute data)  modEventUnmute,required TResult Function( ModEventMuteReporter data)  modEventMuteReporter,required TResult Function( ModEventUnmuteReporter data)  modEventUnmuteReporter,required TResult Function( ModEventReverseTakedown data)  modEventReverseTakedown,required TResult Function( ModEventResolveAppeal data)  modEventResolveAppeal,required TResult Function( ModEventEmail data)  modEventEmail,required TResult Function( ModEventDivert data)  modEventDivert,required TResult Function( ModEventTag data)  modEventTag,required TResult Function( AccountEvent data)  accountEvent,required TResult Function( IdentityEvent data)  identityEvent,required TResult Function( RecordEvent data)  recordEvent,required TResult Function( ModEventPriorityScore data)  modEventPriorityScore,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+switch (_that) {
+case UModerationEmitEventEventModEventTakedown():
+return modEventTakedown(_that.data);case UModerationEmitEventEventModEventAcknowledge():
+return modEventAcknowledge(_that.data);case UModerationEmitEventEventModEventEscalate():
+return modEventEscalate(_that.data);case UModerationEmitEventEventModEventComment():
+return modEventComment(_that.data);case UModerationEmitEventEventModEventLabel():
+return modEventLabel(_that.data);case UModerationEmitEventEventModEventReport():
+return modEventReport(_that.data);case UModerationEmitEventEventModEventMute():
+return modEventMute(_that.data);case UModerationEmitEventEventModEventUnmute():
+return modEventUnmute(_that.data);case UModerationEmitEventEventModEventMuteReporter():
+return modEventMuteReporter(_that.data);case UModerationEmitEventEventModEventUnmuteReporter():
+return modEventUnmuteReporter(_that.data);case UModerationEmitEventEventModEventReverseTakedown():
+return modEventReverseTakedown(_that.data);case UModerationEmitEventEventModEventResolveAppeal():
+return modEventResolveAppeal(_that.data);case UModerationEmitEventEventModEventEmail():
+return modEventEmail(_that.data);case UModerationEmitEventEventModEventDivert():
+return modEventDivert(_that.data);case UModerationEmitEventEventModEventTag():
+return modEventTag(_that.data);case UModerationEmitEventEventAccountEvent():
+return accountEvent(_that.data);case UModerationEmitEventEventIdentityEvent():
+return identityEvent(_that.data);case UModerationEmitEventEventRecordEvent():
+return recordEvent(_that.data);case UModerationEmitEventEventModEventPriorityScore():
+return modEventPriorityScore(_that.data);case UModerationEmitEventEventUnknown():
+return unknown(_that.data);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( ModEventTakedown data)?  modEventTakedown,TResult? Function( ModEventAcknowledge data)?  modEventAcknowledge,TResult? Function( ModEventEscalate data)?  modEventEscalate,TResult? Function( ModEventComment data)?  modEventComment,TResult? Function( ModEventLabel data)?  modEventLabel,TResult? Function( ModEventReport data)?  modEventReport,TResult? Function( ModEventMute data)?  modEventMute,TResult? Function( ModEventUnmute data)?  modEventUnmute,TResult? Function( ModEventMuteReporter data)?  modEventMuteReporter,TResult? Function( ModEventUnmuteReporter data)?  modEventUnmuteReporter,TResult? Function( ModEventReverseTakedown data)?  modEventReverseTakedown,TResult? Function( ModEventResolveAppeal data)?  modEventResolveAppeal,TResult? Function( ModEventEmail data)?  modEventEmail,TResult? Function( ModEventDivert data)?  modEventDivert,TResult? Function( ModEventTag data)?  modEventTag,TResult? Function( AccountEvent data)?  accountEvent,TResult? Function( IdentityEvent data)?  identityEvent,TResult? Function( RecordEvent data)?  recordEvent,TResult? Function( ModEventPriorityScore data)?  modEventPriorityScore,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+switch (_that) {
+case UModerationEmitEventEventModEventTakedown() when modEventTakedown != null:
+return modEventTakedown(_that.data);case UModerationEmitEventEventModEventAcknowledge() when modEventAcknowledge != null:
+return modEventAcknowledge(_that.data);case UModerationEmitEventEventModEventEscalate() when modEventEscalate != null:
+return modEventEscalate(_that.data);case UModerationEmitEventEventModEventComment() when modEventComment != null:
+return modEventComment(_that.data);case UModerationEmitEventEventModEventLabel() when modEventLabel != null:
+return modEventLabel(_that.data);case UModerationEmitEventEventModEventReport() when modEventReport != null:
+return modEventReport(_that.data);case UModerationEmitEventEventModEventMute() when modEventMute != null:
+return modEventMute(_that.data);case UModerationEmitEventEventModEventUnmute() when modEventUnmute != null:
+return modEventUnmute(_that.data);case UModerationEmitEventEventModEventMuteReporter() when modEventMuteReporter != null:
+return modEventMuteReporter(_that.data);case UModerationEmitEventEventModEventUnmuteReporter() when modEventUnmuteReporter != null:
+return modEventUnmuteReporter(_that.data);case UModerationEmitEventEventModEventReverseTakedown() when modEventReverseTakedown != null:
+return modEventReverseTakedown(_that.data);case UModerationEmitEventEventModEventResolveAppeal() when modEventResolveAppeal != null:
+return modEventResolveAppeal(_that.data);case UModerationEmitEventEventModEventEmail() when modEventEmail != null:
+return modEventEmail(_that.data);case UModerationEmitEventEventModEventDivert() when modEventDivert != null:
+return modEventDivert(_that.data);case UModerationEmitEventEventModEventTag() when modEventTag != null:
+return modEventTag(_that.data);case UModerationEmitEventEventAccountEvent() when accountEvent != null:
+return accountEvent(_that.data);case UModerationEmitEventEventIdentityEvent() when identityEvent != null:
+return identityEvent(_that.data);case UModerationEmitEventEventRecordEvent() when recordEvent != null:
+return recordEvent(_that.data);case UModerationEmitEventEventModEventPriorityScore() when modEventPriorityScore != null:
+return modEventPriorityScore(_that.data);case UModerationEmitEventEventUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-abstract class _$$UModerationEmitEventEventModEventTakedownImplCopyWith<$Res> {
-  factory _$$UModerationEmitEventEventModEventTakedownImplCopyWith(
-          _$UModerationEmitEventEventModEventTakedownImpl value,
-          $Res Function(_$UModerationEmitEventEventModEventTakedownImpl) then) =
-      __$$UModerationEmitEventEventModEventTakedownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ModEventTakedown data});
-
-  $ModEventTakedownCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$UModerationEmitEventEventModEventTakedownImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventModEventTakedownImpl>
-    implements _$$UModerationEmitEventEventModEventTakedownImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventModEventTakedownImplCopyWithImpl(
-      _$UModerationEmitEventEventModEventTakedownImpl _value,
-      $Res Function(_$UModerationEmitEventEventModEventTakedownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventModEventTakedownImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ModEventTakedown,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModEventTakedownCopyWith<$Res> get data {
-    return $ModEventTakedownCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventModEventTakedownImpl
-    extends UModerationEmitEventEventModEventTakedown {
-  const _$UModerationEmitEventEventModEventTakedownImpl({required this.data})
-      : super._();
 
-  @override
-  final ModEventTakedown data;
+class UModerationEmitEventEventModEventTakedown extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventModEventTakedown({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.modEventTakedown(data: $data)';
-  }
+@override final  ModEventTakedown data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventModEventTakedownImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventModEventTakedownCopyWith<UModerationEmitEventEventModEventTakedown> get copyWith => _$UModerationEmitEventEventModEventTakedownCopyWithImpl<UModerationEmitEventEventModEventTakedown>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventModEventTakedownImplCopyWith<
-          _$UModerationEmitEventEventModEventTakedownImpl>
-      get copyWith =>
-          __$$UModerationEmitEventEventModEventTakedownImplCopyWithImpl<
-                  _$UModerationEmitEventEventModEventTakedownImpl>(
-              this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return modEventTakedown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return modEventTakedown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventTakedown != null) {
-      return modEventTakedown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return modEventTakedown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return modEventTakedown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventTakedown != null) {
-      return modEventTakedown(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventModEventTakedown&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventModEventTakedown
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventModEventTakedown(
-          {required final ModEventTakedown data}) =
-      _$UModerationEmitEventEventModEventTakedownImpl;
-  const UModerationEmitEventEventModEventTakedown._() : super._();
 
-  @override
-  ModEventTakedown get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventModEventTakedownImplCopyWith<
-          _$UModerationEmitEventEventModEventTakedownImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.modEventTakedown(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventModEventAcknowledgeImplCopyWith<
-    $Res> {
-  factory _$$UModerationEmitEventEventModEventAcknowledgeImplCopyWith(
-          _$UModerationEmitEventEventModEventAcknowledgeImpl value,
-          $Res Function(_$UModerationEmitEventEventModEventAcknowledgeImpl)
-              then) =
-      __$$UModerationEmitEventEventModEventAcknowledgeImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ModEventAcknowledge data});
+abstract mixin class $UModerationEmitEventEventModEventTakedownCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventModEventTakedownCopyWith(UModerationEmitEventEventModEventTakedown value, $Res Function(UModerationEmitEventEventModEventTakedown) _then) = _$UModerationEmitEventEventModEventTakedownCopyWithImpl;
+@useResult
+$Res call({
+ ModEventTakedown data
+});
 
-  $ModEventAcknowledgeCopyWith<$Res> get data;
+
+$ModEventTakedownCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventModEventTakedownCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventModEventTakedownCopyWith<$Res> {
+  _$UModerationEmitEventEventModEventTakedownCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventModEventTakedown _self;
+  final $Res Function(UModerationEmitEventEventModEventTakedown) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventModEventTakedown(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ModEventTakedown,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventModEventAcknowledgeImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventModEventAcknowledgeImpl>
-    implements
-        _$$UModerationEmitEventEventModEventAcknowledgeImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventModEventAcknowledgeImplCopyWithImpl(
-      _$UModerationEmitEventEventModEventAcknowledgeImpl _value,
-      $Res Function(_$UModerationEmitEventEventModEventAcknowledgeImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventModEventAcknowledgeImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ModEventAcknowledge,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModEventAcknowledgeCopyWith<$Res> get data {
-    return $ModEventAcknowledgeCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModEventTakedownCopyWith<$Res> get data {
+  
+  return $ModEventTakedownCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventModEventAcknowledgeImpl
-    extends UModerationEmitEventEventModEventAcknowledge {
-  const _$UModerationEmitEventEventModEventAcknowledgeImpl({required this.data})
-      : super._();
 
-  @override
-  final ModEventAcknowledge data;
+class UModerationEmitEventEventModEventAcknowledge extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventModEventAcknowledge({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.modEventAcknowledge(data: $data)';
-  }
+@override final  ModEventAcknowledge data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventModEventAcknowledgeImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventModEventAcknowledgeCopyWith<UModerationEmitEventEventModEventAcknowledge> get copyWith => _$UModerationEmitEventEventModEventAcknowledgeCopyWithImpl<UModerationEmitEventEventModEventAcknowledge>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventModEventAcknowledgeImplCopyWith<
-          _$UModerationEmitEventEventModEventAcknowledgeImpl>
-      get copyWith =>
-          __$$UModerationEmitEventEventModEventAcknowledgeImplCopyWithImpl<
-                  _$UModerationEmitEventEventModEventAcknowledgeImpl>(
-              this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return modEventAcknowledge(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return modEventAcknowledge?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventAcknowledge != null) {
-      return modEventAcknowledge(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return modEventAcknowledge(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return modEventAcknowledge?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventAcknowledge != null) {
-      return modEventAcknowledge(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventModEventAcknowledge&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventModEventAcknowledge
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventModEventAcknowledge(
-          {required final ModEventAcknowledge data}) =
-      _$UModerationEmitEventEventModEventAcknowledgeImpl;
-  const UModerationEmitEventEventModEventAcknowledge._() : super._();
 
-  @override
-  ModEventAcknowledge get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventModEventAcknowledgeImplCopyWith<
-          _$UModerationEmitEventEventModEventAcknowledgeImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.modEventAcknowledge(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventModEventEscalateImplCopyWith<$Res> {
-  factory _$$UModerationEmitEventEventModEventEscalateImplCopyWith(
-          _$UModerationEmitEventEventModEventEscalateImpl value,
-          $Res Function(_$UModerationEmitEventEventModEventEscalateImpl) then) =
-      __$$UModerationEmitEventEventModEventEscalateImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ModEventEscalate data});
+abstract mixin class $UModerationEmitEventEventModEventAcknowledgeCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventModEventAcknowledgeCopyWith(UModerationEmitEventEventModEventAcknowledge value, $Res Function(UModerationEmitEventEventModEventAcknowledge) _then) = _$UModerationEmitEventEventModEventAcknowledgeCopyWithImpl;
+@useResult
+$Res call({
+ ModEventAcknowledge data
+});
 
-  $ModEventEscalateCopyWith<$Res> get data;
+
+$ModEventAcknowledgeCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventModEventAcknowledgeCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventModEventAcknowledgeCopyWith<$Res> {
+  _$UModerationEmitEventEventModEventAcknowledgeCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventModEventAcknowledge _self;
+  final $Res Function(UModerationEmitEventEventModEventAcknowledge) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventModEventAcknowledge(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ModEventAcknowledge,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventModEventEscalateImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventModEventEscalateImpl>
-    implements _$$UModerationEmitEventEventModEventEscalateImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventModEventEscalateImplCopyWithImpl(
-      _$UModerationEmitEventEventModEventEscalateImpl _value,
-      $Res Function(_$UModerationEmitEventEventModEventEscalateImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventModEventEscalateImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ModEventEscalate,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModEventEscalateCopyWith<$Res> get data {
-    return $ModEventEscalateCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModEventAcknowledgeCopyWith<$Res> get data {
+  
+  return $ModEventAcknowledgeCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventModEventEscalateImpl
-    extends UModerationEmitEventEventModEventEscalate {
-  const _$UModerationEmitEventEventModEventEscalateImpl({required this.data})
-      : super._();
 
-  @override
-  final ModEventEscalate data;
+class UModerationEmitEventEventModEventEscalate extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventModEventEscalate({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.modEventEscalate(data: $data)';
-  }
+@override final  ModEventEscalate data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventModEventEscalateImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventModEventEscalateCopyWith<UModerationEmitEventEventModEventEscalate> get copyWith => _$UModerationEmitEventEventModEventEscalateCopyWithImpl<UModerationEmitEventEventModEventEscalate>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventModEventEscalateImplCopyWith<
-          _$UModerationEmitEventEventModEventEscalateImpl>
-      get copyWith =>
-          __$$UModerationEmitEventEventModEventEscalateImplCopyWithImpl<
-                  _$UModerationEmitEventEventModEventEscalateImpl>(
-              this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return modEventEscalate(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return modEventEscalate?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventEscalate != null) {
-      return modEventEscalate(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return modEventEscalate(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return modEventEscalate?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventEscalate != null) {
-      return modEventEscalate(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventModEventEscalate&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventModEventEscalate
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventModEventEscalate(
-          {required final ModEventEscalate data}) =
-      _$UModerationEmitEventEventModEventEscalateImpl;
-  const UModerationEmitEventEventModEventEscalate._() : super._();
 
-  @override
-  ModEventEscalate get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventModEventEscalateImplCopyWith<
-          _$UModerationEmitEventEventModEventEscalateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.modEventEscalate(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventModEventCommentImplCopyWith<$Res> {
-  factory _$$UModerationEmitEventEventModEventCommentImplCopyWith(
-          _$UModerationEmitEventEventModEventCommentImpl value,
-          $Res Function(_$UModerationEmitEventEventModEventCommentImpl) then) =
-      __$$UModerationEmitEventEventModEventCommentImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ModEventComment data});
+abstract mixin class $UModerationEmitEventEventModEventEscalateCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventModEventEscalateCopyWith(UModerationEmitEventEventModEventEscalate value, $Res Function(UModerationEmitEventEventModEventEscalate) _then) = _$UModerationEmitEventEventModEventEscalateCopyWithImpl;
+@useResult
+$Res call({
+ ModEventEscalate data
+});
 
-  $ModEventCommentCopyWith<$Res> get data;
+
+$ModEventEscalateCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventModEventEscalateCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventModEventEscalateCopyWith<$Res> {
+  _$UModerationEmitEventEventModEventEscalateCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventModEventEscalate _self;
+  final $Res Function(UModerationEmitEventEventModEventEscalate) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventModEventEscalate(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ModEventEscalate,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventModEventCommentImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventModEventCommentImpl>
-    implements _$$UModerationEmitEventEventModEventCommentImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventModEventCommentImplCopyWithImpl(
-      _$UModerationEmitEventEventModEventCommentImpl _value,
-      $Res Function(_$UModerationEmitEventEventModEventCommentImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventModEventCommentImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ModEventComment,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModEventCommentCopyWith<$Res> get data {
-    return $ModEventCommentCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModEventEscalateCopyWith<$Res> get data {
+  
+  return $ModEventEscalateCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventModEventCommentImpl
-    extends UModerationEmitEventEventModEventComment {
-  const _$UModerationEmitEventEventModEventCommentImpl({required this.data})
-      : super._();
 
-  @override
-  final ModEventComment data;
+class UModerationEmitEventEventModEventComment extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventModEventComment({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.modEventComment(data: $data)';
-  }
+@override final  ModEventComment data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventModEventCommentImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventModEventCommentCopyWith<UModerationEmitEventEventModEventComment> get copyWith => _$UModerationEmitEventEventModEventCommentCopyWithImpl<UModerationEmitEventEventModEventComment>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventModEventCommentImplCopyWith<
-          _$UModerationEmitEventEventModEventCommentImpl>
-      get copyWith =>
-          __$$UModerationEmitEventEventModEventCommentImplCopyWithImpl<
-              _$UModerationEmitEventEventModEventCommentImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return modEventComment(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return modEventComment?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventComment != null) {
-      return modEventComment(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return modEventComment(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return modEventComment?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventComment != null) {
-      return modEventComment(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventModEventComment&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventModEventComment
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventModEventComment(
-          {required final ModEventComment data}) =
-      _$UModerationEmitEventEventModEventCommentImpl;
-  const UModerationEmitEventEventModEventComment._() : super._();
 
-  @override
-  ModEventComment get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventModEventCommentImplCopyWith<
-          _$UModerationEmitEventEventModEventCommentImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.modEventComment(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventModEventLabelImplCopyWith<$Res> {
-  factory _$$UModerationEmitEventEventModEventLabelImplCopyWith(
-          _$UModerationEmitEventEventModEventLabelImpl value,
-          $Res Function(_$UModerationEmitEventEventModEventLabelImpl) then) =
-      __$$UModerationEmitEventEventModEventLabelImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ModEventLabel data});
+abstract mixin class $UModerationEmitEventEventModEventCommentCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventModEventCommentCopyWith(UModerationEmitEventEventModEventComment value, $Res Function(UModerationEmitEventEventModEventComment) _then) = _$UModerationEmitEventEventModEventCommentCopyWithImpl;
+@useResult
+$Res call({
+ ModEventComment data
+});
 
-  $ModEventLabelCopyWith<$Res> get data;
+
+$ModEventCommentCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventModEventCommentCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventModEventCommentCopyWith<$Res> {
+  _$UModerationEmitEventEventModEventCommentCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventModEventComment _self;
+  final $Res Function(UModerationEmitEventEventModEventComment) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventModEventComment(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ModEventComment,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventModEventLabelImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventModEventLabelImpl>
-    implements _$$UModerationEmitEventEventModEventLabelImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventModEventLabelImplCopyWithImpl(
-      _$UModerationEmitEventEventModEventLabelImpl _value,
-      $Res Function(_$UModerationEmitEventEventModEventLabelImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventModEventLabelImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ModEventLabel,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModEventLabelCopyWith<$Res> get data {
-    return $ModEventLabelCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModEventCommentCopyWith<$Res> get data {
+  
+  return $ModEventCommentCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventModEventLabelImpl
-    extends UModerationEmitEventEventModEventLabel {
-  const _$UModerationEmitEventEventModEventLabelImpl({required this.data})
-      : super._();
 
-  @override
-  final ModEventLabel data;
+class UModerationEmitEventEventModEventLabel extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventModEventLabel({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.modEventLabel(data: $data)';
-  }
+@override final  ModEventLabel data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventModEventLabelImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventModEventLabelCopyWith<UModerationEmitEventEventModEventLabel> get copyWith => _$UModerationEmitEventEventModEventLabelCopyWithImpl<UModerationEmitEventEventModEventLabel>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventModEventLabelImplCopyWith<
-          _$UModerationEmitEventEventModEventLabelImpl>
-      get copyWith =>
-          __$$UModerationEmitEventEventModEventLabelImplCopyWithImpl<
-              _$UModerationEmitEventEventModEventLabelImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return modEventLabel(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return modEventLabel?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventLabel != null) {
-      return modEventLabel(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return modEventLabel(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return modEventLabel?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventLabel != null) {
-      return modEventLabel(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventModEventLabel&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventModEventLabel
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventModEventLabel(
-          {required final ModEventLabel data}) =
-      _$UModerationEmitEventEventModEventLabelImpl;
-  const UModerationEmitEventEventModEventLabel._() : super._();
 
-  @override
-  ModEventLabel get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventModEventLabelImplCopyWith<
-          _$UModerationEmitEventEventModEventLabelImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.modEventLabel(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventModEventReportImplCopyWith<$Res> {
-  factory _$$UModerationEmitEventEventModEventReportImplCopyWith(
-          _$UModerationEmitEventEventModEventReportImpl value,
-          $Res Function(_$UModerationEmitEventEventModEventReportImpl) then) =
-      __$$UModerationEmitEventEventModEventReportImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ModEventReport data});
+abstract mixin class $UModerationEmitEventEventModEventLabelCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventModEventLabelCopyWith(UModerationEmitEventEventModEventLabel value, $Res Function(UModerationEmitEventEventModEventLabel) _then) = _$UModerationEmitEventEventModEventLabelCopyWithImpl;
+@useResult
+$Res call({
+ ModEventLabel data
+});
 
-  $ModEventReportCopyWith<$Res> get data;
+
+$ModEventLabelCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventModEventLabelCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventModEventLabelCopyWith<$Res> {
+  _$UModerationEmitEventEventModEventLabelCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventModEventLabel _self;
+  final $Res Function(UModerationEmitEventEventModEventLabel) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventModEventLabel(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ModEventLabel,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventModEventReportImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventModEventReportImpl>
-    implements _$$UModerationEmitEventEventModEventReportImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventModEventReportImplCopyWithImpl(
-      _$UModerationEmitEventEventModEventReportImpl _value,
-      $Res Function(_$UModerationEmitEventEventModEventReportImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventModEventReportImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ModEventReport,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModEventReportCopyWith<$Res> get data {
-    return $ModEventReportCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModEventLabelCopyWith<$Res> get data {
+  
+  return $ModEventLabelCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventModEventReportImpl
-    extends UModerationEmitEventEventModEventReport {
-  const _$UModerationEmitEventEventModEventReportImpl({required this.data})
-      : super._();
 
-  @override
-  final ModEventReport data;
+class UModerationEmitEventEventModEventReport extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventModEventReport({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.modEventReport(data: $data)';
-  }
+@override final  ModEventReport data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventModEventReportImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventModEventReportCopyWith<UModerationEmitEventEventModEventReport> get copyWith => _$UModerationEmitEventEventModEventReportCopyWithImpl<UModerationEmitEventEventModEventReport>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventModEventReportImplCopyWith<
-          _$UModerationEmitEventEventModEventReportImpl>
-      get copyWith =>
-          __$$UModerationEmitEventEventModEventReportImplCopyWithImpl<
-              _$UModerationEmitEventEventModEventReportImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return modEventReport(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return modEventReport?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventReport != null) {
-      return modEventReport(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return modEventReport(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return modEventReport?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventReport != null) {
-      return modEventReport(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventModEventReport&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventModEventReport
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventModEventReport(
-          {required final ModEventReport data}) =
-      _$UModerationEmitEventEventModEventReportImpl;
-  const UModerationEmitEventEventModEventReport._() : super._();
 
-  @override
-  ModEventReport get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventModEventReportImplCopyWith<
-          _$UModerationEmitEventEventModEventReportImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.modEventReport(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventModEventMuteImplCopyWith<$Res> {
-  factory _$$UModerationEmitEventEventModEventMuteImplCopyWith(
-          _$UModerationEmitEventEventModEventMuteImpl value,
-          $Res Function(_$UModerationEmitEventEventModEventMuteImpl) then) =
-      __$$UModerationEmitEventEventModEventMuteImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ModEventMute data});
+abstract mixin class $UModerationEmitEventEventModEventReportCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventModEventReportCopyWith(UModerationEmitEventEventModEventReport value, $Res Function(UModerationEmitEventEventModEventReport) _then) = _$UModerationEmitEventEventModEventReportCopyWithImpl;
+@useResult
+$Res call({
+ ModEventReport data
+});
 
-  $ModEventMuteCopyWith<$Res> get data;
+
+$ModEventReportCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventModEventReportCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventModEventReportCopyWith<$Res> {
+  _$UModerationEmitEventEventModEventReportCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventModEventReport _self;
+  final $Res Function(UModerationEmitEventEventModEventReport) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventModEventReport(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ModEventReport,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventModEventMuteImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventModEventMuteImpl>
-    implements _$$UModerationEmitEventEventModEventMuteImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventModEventMuteImplCopyWithImpl(
-      _$UModerationEmitEventEventModEventMuteImpl _value,
-      $Res Function(_$UModerationEmitEventEventModEventMuteImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventModEventMuteImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ModEventMute,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModEventMuteCopyWith<$Res> get data {
-    return $ModEventMuteCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModEventReportCopyWith<$Res> get data {
+  
+  return $ModEventReportCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventModEventMuteImpl
-    extends UModerationEmitEventEventModEventMute {
-  const _$UModerationEmitEventEventModEventMuteImpl({required this.data})
-      : super._();
 
-  @override
-  final ModEventMute data;
+class UModerationEmitEventEventModEventMute extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventModEventMute({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.modEventMute(data: $data)';
-  }
+@override final  ModEventMute data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventModEventMuteImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventModEventMuteCopyWith<UModerationEmitEventEventModEventMute> get copyWith => _$UModerationEmitEventEventModEventMuteCopyWithImpl<UModerationEmitEventEventModEventMute>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventModEventMuteImplCopyWith<
-          _$UModerationEmitEventEventModEventMuteImpl>
-      get copyWith => __$$UModerationEmitEventEventModEventMuteImplCopyWithImpl<
-          _$UModerationEmitEventEventModEventMuteImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return modEventMute(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return modEventMute?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventMute != null) {
-      return modEventMute(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return modEventMute(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return modEventMute?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventMute != null) {
-      return modEventMute(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventModEventMute&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventModEventMute
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventModEventMute(
-          {required final ModEventMute data}) =
-      _$UModerationEmitEventEventModEventMuteImpl;
-  const UModerationEmitEventEventModEventMute._() : super._();
 
-  @override
-  ModEventMute get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventModEventMuteImplCopyWith<
-          _$UModerationEmitEventEventModEventMuteImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.modEventMute(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventModEventUnmuteImplCopyWith<$Res> {
-  factory _$$UModerationEmitEventEventModEventUnmuteImplCopyWith(
-          _$UModerationEmitEventEventModEventUnmuteImpl value,
-          $Res Function(_$UModerationEmitEventEventModEventUnmuteImpl) then) =
-      __$$UModerationEmitEventEventModEventUnmuteImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ModEventUnmute data});
+abstract mixin class $UModerationEmitEventEventModEventMuteCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventModEventMuteCopyWith(UModerationEmitEventEventModEventMute value, $Res Function(UModerationEmitEventEventModEventMute) _then) = _$UModerationEmitEventEventModEventMuteCopyWithImpl;
+@useResult
+$Res call({
+ ModEventMute data
+});
 
-  $ModEventUnmuteCopyWith<$Res> get data;
+
+$ModEventMuteCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventModEventMuteCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventModEventMuteCopyWith<$Res> {
+  _$UModerationEmitEventEventModEventMuteCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventModEventMute _self;
+  final $Res Function(UModerationEmitEventEventModEventMute) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventModEventMute(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ModEventMute,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventModEventUnmuteImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventModEventUnmuteImpl>
-    implements _$$UModerationEmitEventEventModEventUnmuteImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventModEventUnmuteImplCopyWithImpl(
-      _$UModerationEmitEventEventModEventUnmuteImpl _value,
-      $Res Function(_$UModerationEmitEventEventModEventUnmuteImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventModEventUnmuteImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ModEventUnmute,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModEventUnmuteCopyWith<$Res> get data {
-    return $ModEventUnmuteCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModEventMuteCopyWith<$Res> get data {
+  
+  return $ModEventMuteCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventModEventUnmuteImpl
-    extends UModerationEmitEventEventModEventUnmute {
-  const _$UModerationEmitEventEventModEventUnmuteImpl({required this.data})
-      : super._();
 
-  @override
-  final ModEventUnmute data;
+class UModerationEmitEventEventModEventUnmute extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventModEventUnmute({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.modEventUnmute(data: $data)';
-  }
+@override final  ModEventUnmute data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventModEventUnmuteImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventModEventUnmuteCopyWith<UModerationEmitEventEventModEventUnmute> get copyWith => _$UModerationEmitEventEventModEventUnmuteCopyWithImpl<UModerationEmitEventEventModEventUnmute>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventModEventUnmuteImplCopyWith<
-          _$UModerationEmitEventEventModEventUnmuteImpl>
-      get copyWith =>
-          __$$UModerationEmitEventEventModEventUnmuteImplCopyWithImpl<
-              _$UModerationEmitEventEventModEventUnmuteImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return modEventUnmute(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return modEventUnmute?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventUnmute != null) {
-      return modEventUnmute(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return modEventUnmute(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return modEventUnmute?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventUnmute != null) {
-      return modEventUnmute(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventModEventUnmute&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventModEventUnmute
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventModEventUnmute(
-          {required final ModEventUnmute data}) =
-      _$UModerationEmitEventEventModEventUnmuteImpl;
-  const UModerationEmitEventEventModEventUnmute._() : super._();
 
-  @override
-  ModEventUnmute get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventModEventUnmuteImplCopyWith<
-          _$UModerationEmitEventEventModEventUnmuteImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.modEventUnmute(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventModEventMuteReporterImplCopyWith<
-    $Res> {
-  factory _$$UModerationEmitEventEventModEventMuteReporterImplCopyWith(
-          _$UModerationEmitEventEventModEventMuteReporterImpl value,
-          $Res Function(_$UModerationEmitEventEventModEventMuteReporterImpl)
-              then) =
-      __$$UModerationEmitEventEventModEventMuteReporterImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ModEventMuteReporter data});
+abstract mixin class $UModerationEmitEventEventModEventUnmuteCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventModEventUnmuteCopyWith(UModerationEmitEventEventModEventUnmute value, $Res Function(UModerationEmitEventEventModEventUnmute) _then) = _$UModerationEmitEventEventModEventUnmuteCopyWithImpl;
+@useResult
+$Res call({
+ ModEventUnmute data
+});
 
-  $ModEventMuteReporterCopyWith<$Res> get data;
+
+$ModEventUnmuteCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventModEventUnmuteCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventModEventUnmuteCopyWith<$Res> {
+  _$UModerationEmitEventEventModEventUnmuteCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventModEventUnmute _self;
+  final $Res Function(UModerationEmitEventEventModEventUnmute) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventModEventUnmute(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ModEventUnmute,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventModEventMuteReporterImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventModEventMuteReporterImpl>
-    implements
-        _$$UModerationEmitEventEventModEventMuteReporterImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventModEventMuteReporterImplCopyWithImpl(
-      _$UModerationEmitEventEventModEventMuteReporterImpl _value,
-      $Res Function(_$UModerationEmitEventEventModEventMuteReporterImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventModEventMuteReporterImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ModEventMuteReporter,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModEventMuteReporterCopyWith<$Res> get data {
-    return $ModEventMuteReporterCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModEventUnmuteCopyWith<$Res> get data {
+  
+  return $ModEventUnmuteCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventModEventMuteReporterImpl
-    extends UModerationEmitEventEventModEventMuteReporter {
-  const _$UModerationEmitEventEventModEventMuteReporterImpl(
-      {required this.data})
-      : super._();
 
-  @override
-  final ModEventMuteReporter data;
+class UModerationEmitEventEventModEventMuteReporter extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventModEventMuteReporter({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.modEventMuteReporter(data: $data)';
-  }
+@override final  ModEventMuteReporter data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventModEventMuteReporterImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventModEventMuteReporterCopyWith<UModerationEmitEventEventModEventMuteReporter> get copyWith => _$UModerationEmitEventEventModEventMuteReporterCopyWithImpl<UModerationEmitEventEventModEventMuteReporter>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventModEventMuteReporterImplCopyWith<
-          _$UModerationEmitEventEventModEventMuteReporterImpl>
-      get copyWith =>
-          __$$UModerationEmitEventEventModEventMuteReporterImplCopyWithImpl<
-                  _$UModerationEmitEventEventModEventMuteReporterImpl>(
-              this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return modEventMuteReporter(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return modEventMuteReporter?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventMuteReporter != null) {
-      return modEventMuteReporter(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return modEventMuteReporter(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return modEventMuteReporter?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventMuteReporter != null) {
-      return modEventMuteReporter(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventModEventMuteReporter&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventModEventMuteReporter
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventModEventMuteReporter(
-          {required final ModEventMuteReporter data}) =
-      _$UModerationEmitEventEventModEventMuteReporterImpl;
-  const UModerationEmitEventEventModEventMuteReporter._() : super._();
 
-  @override
-  ModEventMuteReporter get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventModEventMuteReporterImplCopyWith<
-          _$UModerationEmitEventEventModEventMuteReporterImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.modEventMuteReporter(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventModEventUnmuteReporterImplCopyWith<
-    $Res> {
-  factory _$$UModerationEmitEventEventModEventUnmuteReporterImplCopyWith(
-          _$UModerationEmitEventEventModEventUnmuteReporterImpl value,
-          $Res Function(_$UModerationEmitEventEventModEventUnmuteReporterImpl)
-              then) =
-      __$$UModerationEmitEventEventModEventUnmuteReporterImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ModEventUnmuteReporter data});
+abstract mixin class $UModerationEmitEventEventModEventMuteReporterCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventModEventMuteReporterCopyWith(UModerationEmitEventEventModEventMuteReporter value, $Res Function(UModerationEmitEventEventModEventMuteReporter) _then) = _$UModerationEmitEventEventModEventMuteReporterCopyWithImpl;
+@useResult
+$Res call({
+ ModEventMuteReporter data
+});
 
-  $ModEventUnmuteReporterCopyWith<$Res> get data;
+
+$ModEventMuteReporterCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventModEventMuteReporterCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventModEventMuteReporterCopyWith<$Res> {
+  _$UModerationEmitEventEventModEventMuteReporterCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventModEventMuteReporter _self;
+  final $Res Function(UModerationEmitEventEventModEventMuteReporter) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventModEventMuteReporter(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ModEventMuteReporter,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventModEventUnmuteReporterImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventModEventUnmuteReporterImpl>
-    implements
-        _$$UModerationEmitEventEventModEventUnmuteReporterImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventModEventUnmuteReporterImplCopyWithImpl(
-      _$UModerationEmitEventEventModEventUnmuteReporterImpl _value,
-      $Res Function(_$UModerationEmitEventEventModEventUnmuteReporterImpl)
-          _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventModEventUnmuteReporterImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ModEventUnmuteReporter,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModEventUnmuteReporterCopyWith<$Res> get data {
-    return $ModEventUnmuteReporterCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModEventMuteReporterCopyWith<$Res> get data {
+  
+  return $ModEventMuteReporterCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventModEventUnmuteReporterImpl
-    extends UModerationEmitEventEventModEventUnmuteReporter {
-  const _$UModerationEmitEventEventModEventUnmuteReporterImpl(
-      {required this.data})
-      : super._();
 
-  @override
-  final ModEventUnmuteReporter data;
+class UModerationEmitEventEventModEventUnmuteReporter extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventModEventUnmuteReporter({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.modEventUnmuteReporter(data: $data)';
-  }
+@override final  ModEventUnmuteReporter data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventModEventUnmuteReporterImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventModEventUnmuteReporterCopyWith<UModerationEmitEventEventModEventUnmuteReporter> get copyWith => _$UModerationEmitEventEventModEventUnmuteReporterCopyWithImpl<UModerationEmitEventEventModEventUnmuteReporter>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventModEventUnmuteReporterImplCopyWith<
-          _$UModerationEmitEventEventModEventUnmuteReporterImpl>
-      get copyWith =>
-          __$$UModerationEmitEventEventModEventUnmuteReporterImplCopyWithImpl<
-                  _$UModerationEmitEventEventModEventUnmuteReporterImpl>(
-              this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return modEventUnmuteReporter(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return modEventUnmuteReporter?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventUnmuteReporter != null) {
-      return modEventUnmuteReporter(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return modEventUnmuteReporter(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return modEventUnmuteReporter?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventUnmuteReporter != null) {
-      return modEventUnmuteReporter(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventModEventUnmuteReporter&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventModEventUnmuteReporter
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventModEventUnmuteReporter(
-          {required final ModEventUnmuteReporter data}) =
-      _$UModerationEmitEventEventModEventUnmuteReporterImpl;
-  const UModerationEmitEventEventModEventUnmuteReporter._() : super._();
 
-  @override
-  ModEventUnmuteReporter get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventModEventUnmuteReporterImplCopyWith<
-          _$UModerationEmitEventEventModEventUnmuteReporterImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.modEventUnmuteReporter(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventModEventReverseTakedownImplCopyWith<
-    $Res> {
-  factory _$$UModerationEmitEventEventModEventReverseTakedownImplCopyWith(
-          _$UModerationEmitEventEventModEventReverseTakedownImpl value,
-          $Res Function(_$UModerationEmitEventEventModEventReverseTakedownImpl)
-              then) =
-      __$$UModerationEmitEventEventModEventReverseTakedownImplCopyWithImpl<
-          $Res>;
-  @useResult
-  $Res call({ModEventReverseTakedown data});
+abstract mixin class $UModerationEmitEventEventModEventUnmuteReporterCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventModEventUnmuteReporterCopyWith(UModerationEmitEventEventModEventUnmuteReporter value, $Res Function(UModerationEmitEventEventModEventUnmuteReporter) _then) = _$UModerationEmitEventEventModEventUnmuteReporterCopyWithImpl;
+@useResult
+$Res call({
+ ModEventUnmuteReporter data
+});
 
-  $ModEventReverseTakedownCopyWith<$Res> get data;
+
+$ModEventUnmuteReporterCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventModEventUnmuteReporterCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventModEventUnmuteReporterCopyWith<$Res> {
+  _$UModerationEmitEventEventModEventUnmuteReporterCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventModEventUnmuteReporter _self;
+  final $Res Function(UModerationEmitEventEventModEventUnmuteReporter) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventModEventUnmuteReporter(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ModEventUnmuteReporter,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventModEventReverseTakedownImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventModEventReverseTakedownImpl>
-    implements
-        _$$UModerationEmitEventEventModEventReverseTakedownImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventModEventReverseTakedownImplCopyWithImpl(
-      _$UModerationEmitEventEventModEventReverseTakedownImpl _value,
-      $Res Function(_$UModerationEmitEventEventModEventReverseTakedownImpl)
-          _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventModEventReverseTakedownImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ModEventReverseTakedown,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModEventReverseTakedownCopyWith<$Res> get data {
-    return $ModEventReverseTakedownCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModEventUnmuteReporterCopyWith<$Res> get data {
+  
+  return $ModEventUnmuteReporterCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventModEventReverseTakedownImpl
-    extends UModerationEmitEventEventModEventReverseTakedown {
-  const _$UModerationEmitEventEventModEventReverseTakedownImpl(
-      {required this.data})
-      : super._();
 
-  @override
-  final ModEventReverseTakedown data;
+class UModerationEmitEventEventModEventReverseTakedown extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventModEventReverseTakedown({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.modEventReverseTakedown(data: $data)';
-  }
+@override final  ModEventReverseTakedown data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventModEventReverseTakedownImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventModEventReverseTakedownCopyWith<UModerationEmitEventEventModEventReverseTakedown> get copyWith => _$UModerationEmitEventEventModEventReverseTakedownCopyWithImpl<UModerationEmitEventEventModEventReverseTakedown>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventModEventReverseTakedownImplCopyWith<
-          _$UModerationEmitEventEventModEventReverseTakedownImpl>
-      get copyWith =>
-          __$$UModerationEmitEventEventModEventReverseTakedownImplCopyWithImpl<
-                  _$UModerationEmitEventEventModEventReverseTakedownImpl>(
-              this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return modEventReverseTakedown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return modEventReverseTakedown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventReverseTakedown != null) {
-      return modEventReverseTakedown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return modEventReverseTakedown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return modEventReverseTakedown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventReverseTakedown != null) {
-      return modEventReverseTakedown(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventModEventReverseTakedown&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventModEventReverseTakedown
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventModEventReverseTakedown(
-          {required final ModEventReverseTakedown data}) =
-      _$UModerationEmitEventEventModEventReverseTakedownImpl;
-  const UModerationEmitEventEventModEventReverseTakedown._() : super._();
 
-  @override
-  ModEventReverseTakedown get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventModEventReverseTakedownImplCopyWith<
-          _$UModerationEmitEventEventModEventReverseTakedownImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.modEventReverseTakedown(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventModEventResolveAppealImplCopyWith<
-    $Res> {
-  factory _$$UModerationEmitEventEventModEventResolveAppealImplCopyWith(
-          _$UModerationEmitEventEventModEventResolveAppealImpl value,
-          $Res Function(_$UModerationEmitEventEventModEventResolveAppealImpl)
-              then) =
-      __$$UModerationEmitEventEventModEventResolveAppealImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ModEventResolveAppeal data});
+abstract mixin class $UModerationEmitEventEventModEventReverseTakedownCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventModEventReverseTakedownCopyWith(UModerationEmitEventEventModEventReverseTakedown value, $Res Function(UModerationEmitEventEventModEventReverseTakedown) _then) = _$UModerationEmitEventEventModEventReverseTakedownCopyWithImpl;
+@useResult
+$Res call({
+ ModEventReverseTakedown data
+});
 
-  $ModEventResolveAppealCopyWith<$Res> get data;
+
+$ModEventReverseTakedownCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventModEventReverseTakedownCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventModEventReverseTakedownCopyWith<$Res> {
+  _$UModerationEmitEventEventModEventReverseTakedownCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventModEventReverseTakedown _self;
+  final $Res Function(UModerationEmitEventEventModEventReverseTakedown) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventModEventReverseTakedown(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ModEventReverseTakedown,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventModEventResolveAppealImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventModEventResolveAppealImpl>
-    implements
-        _$$UModerationEmitEventEventModEventResolveAppealImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventModEventResolveAppealImplCopyWithImpl(
-      _$UModerationEmitEventEventModEventResolveAppealImpl _value,
-      $Res Function(_$UModerationEmitEventEventModEventResolveAppealImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventModEventResolveAppealImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ModEventResolveAppeal,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModEventResolveAppealCopyWith<$Res> get data {
-    return $ModEventResolveAppealCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModEventReverseTakedownCopyWith<$Res> get data {
+  
+  return $ModEventReverseTakedownCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventModEventResolveAppealImpl
-    extends UModerationEmitEventEventModEventResolveAppeal {
-  const _$UModerationEmitEventEventModEventResolveAppealImpl(
-      {required this.data})
-      : super._();
 
-  @override
-  final ModEventResolveAppeal data;
+class UModerationEmitEventEventModEventResolveAppeal extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventModEventResolveAppeal({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.modEventResolveAppeal(data: $data)';
-  }
+@override final  ModEventResolveAppeal data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventModEventResolveAppealImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventModEventResolveAppealCopyWith<UModerationEmitEventEventModEventResolveAppeal> get copyWith => _$UModerationEmitEventEventModEventResolveAppealCopyWithImpl<UModerationEmitEventEventModEventResolveAppeal>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventModEventResolveAppealImplCopyWith<
-          _$UModerationEmitEventEventModEventResolveAppealImpl>
-      get copyWith =>
-          __$$UModerationEmitEventEventModEventResolveAppealImplCopyWithImpl<
-                  _$UModerationEmitEventEventModEventResolveAppealImpl>(
-              this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return modEventResolveAppeal(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return modEventResolveAppeal?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventResolveAppeal != null) {
-      return modEventResolveAppeal(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return modEventResolveAppeal(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return modEventResolveAppeal?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventResolveAppeal != null) {
-      return modEventResolveAppeal(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventModEventResolveAppeal&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventModEventResolveAppeal
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventModEventResolveAppeal(
-          {required final ModEventResolveAppeal data}) =
-      _$UModerationEmitEventEventModEventResolveAppealImpl;
-  const UModerationEmitEventEventModEventResolveAppeal._() : super._();
 
-  @override
-  ModEventResolveAppeal get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventModEventResolveAppealImplCopyWith<
-          _$UModerationEmitEventEventModEventResolveAppealImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.modEventResolveAppeal(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventModEventEmailImplCopyWith<$Res> {
-  factory _$$UModerationEmitEventEventModEventEmailImplCopyWith(
-          _$UModerationEmitEventEventModEventEmailImpl value,
-          $Res Function(_$UModerationEmitEventEventModEventEmailImpl) then) =
-      __$$UModerationEmitEventEventModEventEmailImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ModEventEmail data});
+abstract mixin class $UModerationEmitEventEventModEventResolveAppealCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventModEventResolveAppealCopyWith(UModerationEmitEventEventModEventResolveAppeal value, $Res Function(UModerationEmitEventEventModEventResolveAppeal) _then) = _$UModerationEmitEventEventModEventResolveAppealCopyWithImpl;
+@useResult
+$Res call({
+ ModEventResolveAppeal data
+});
 
-  $ModEventEmailCopyWith<$Res> get data;
+
+$ModEventResolveAppealCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventModEventResolveAppealCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventModEventResolveAppealCopyWith<$Res> {
+  _$UModerationEmitEventEventModEventResolveAppealCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventModEventResolveAppeal _self;
+  final $Res Function(UModerationEmitEventEventModEventResolveAppeal) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventModEventResolveAppeal(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ModEventResolveAppeal,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventModEventEmailImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventModEventEmailImpl>
-    implements _$$UModerationEmitEventEventModEventEmailImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventModEventEmailImplCopyWithImpl(
-      _$UModerationEmitEventEventModEventEmailImpl _value,
-      $Res Function(_$UModerationEmitEventEventModEventEmailImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventModEventEmailImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ModEventEmail,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModEventEmailCopyWith<$Res> get data {
-    return $ModEventEmailCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModEventResolveAppealCopyWith<$Res> get data {
+  
+  return $ModEventResolveAppealCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventModEventEmailImpl
-    extends UModerationEmitEventEventModEventEmail {
-  const _$UModerationEmitEventEventModEventEmailImpl({required this.data})
-      : super._();
 
-  @override
-  final ModEventEmail data;
+class UModerationEmitEventEventModEventEmail extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventModEventEmail({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.modEventEmail(data: $data)';
-  }
+@override final  ModEventEmail data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventModEventEmailImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventModEventEmailCopyWith<UModerationEmitEventEventModEventEmail> get copyWith => _$UModerationEmitEventEventModEventEmailCopyWithImpl<UModerationEmitEventEventModEventEmail>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventModEventEmailImplCopyWith<
-          _$UModerationEmitEventEventModEventEmailImpl>
-      get copyWith =>
-          __$$UModerationEmitEventEventModEventEmailImplCopyWithImpl<
-              _$UModerationEmitEventEventModEventEmailImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return modEventEmail(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return modEventEmail?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventEmail != null) {
-      return modEventEmail(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return modEventEmail(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return modEventEmail?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventEmail != null) {
-      return modEventEmail(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventModEventEmail&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventModEventEmail
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventModEventEmail(
-          {required final ModEventEmail data}) =
-      _$UModerationEmitEventEventModEventEmailImpl;
-  const UModerationEmitEventEventModEventEmail._() : super._();
 
-  @override
-  ModEventEmail get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventModEventEmailImplCopyWith<
-          _$UModerationEmitEventEventModEventEmailImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.modEventEmail(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventModEventDivertImplCopyWith<$Res> {
-  factory _$$UModerationEmitEventEventModEventDivertImplCopyWith(
-          _$UModerationEmitEventEventModEventDivertImpl value,
-          $Res Function(_$UModerationEmitEventEventModEventDivertImpl) then) =
-      __$$UModerationEmitEventEventModEventDivertImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ModEventDivert data});
+abstract mixin class $UModerationEmitEventEventModEventEmailCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventModEventEmailCopyWith(UModerationEmitEventEventModEventEmail value, $Res Function(UModerationEmitEventEventModEventEmail) _then) = _$UModerationEmitEventEventModEventEmailCopyWithImpl;
+@useResult
+$Res call({
+ ModEventEmail data
+});
 
-  $ModEventDivertCopyWith<$Res> get data;
+
+$ModEventEmailCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventModEventEmailCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventModEventEmailCopyWith<$Res> {
+  _$UModerationEmitEventEventModEventEmailCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventModEventEmail _self;
+  final $Res Function(UModerationEmitEventEventModEventEmail) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventModEventEmail(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ModEventEmail,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventModEventDivertImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventModEventDivertImpl>
-    implements _$$UModerationEmitEventEventModEventDivertImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventModEventDivertImplCopyWithImpl(
-      _$UModerationEmitEventEventModEventDivertImpl _value,
-      $Res Function(_$UModerationEmitEventEventModEventDivertImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventModEventDivertImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ModEventDivert,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModEventDivertCopyWith<$Res> get data {
-    return $ModEventDivertCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModEventEmailCopyWith<$Res> get data {
+  
+  return $ModEventEmailCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventModEventDivertImpl
-    extends UModerationEmitEventEventModEventDivert {
-  const _$UModerationEmitEventEventModEventDivertImpl({required this.data})
-      : super._();
 
-  @override
-  final ModEventDivert data;
+class UModerationEmitEventEventModEventDivert extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventModEventDivert({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.modEventDivert(data: $data)';
-  }
+@override final  ModEventDivert data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventModEventDivertImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventModEventDivertCopyWith<UModerationEmitEventEventModEventDivert> get copyWith => _$UModerationEmitEventEventModEventDivertCopyWithImpl<UModerationEmitEventEventModEventDivert>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventModEventDivertImplCopyWith<
-          _$UModerationEmitEventEventModEventDivertImpl>
-      get copyWith =>
-          __$$UModerationEmitEventEventModEventDivertImplCopyWithImpl<
-              _$UModerationEmitEventEventModEventDivertImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return modEventDivert(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return modEventDivert?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventDivert != null) {
-      return modEventDivert(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return modEventDivert(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return modEventDivert?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventDivert != null) {
-      return modEventDivert(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventModEventDivert&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventModEventDivert
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventModEventDivert(
-          {required final ModEventDivert data}) =
-      _$UModerationEmitEventEventModEventDivertImpl;
-  const UModerationEmitEventEventModEventDivert._() : super._();
 
-  @override
-  ModEventDivert get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventModEventDivertImplCopyWith<
-          _$UModerationEmitEventEventModEventDivertImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.modEventDivert(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventModEventTagImplCopyWith<$Res> {
-  factory _$$UModerationEmitEventEventModEventTagImplCopyWith(
-          _$UModerationEmitEventEventModEventTagImpl value,
-          $Res Function(_$UModerationEmitEventEventModEventTagImpl) then) =
-      __$$UModerationEmitEventEventModEventTagImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ModEventTag data});
+abstract mixin class $UModerationEmitEventEventModEventDivertCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventModEventDivertCopyWith(UModerationEmitEventEventModEventDivert value, $Res Function(UModerationEmitEventEventModEventDivert) _then) = _$UModerationEmitEventEventModEventDivertCopyWithImpl;
+@useResult
+$Res call({
+ ModEventDivert data
+});
 
-  $ModEventTagCopyWith<$Res> get data;
+
+$ModEventDivertCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventModEventDivertCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventModEventDivertCopyWith<$Res> {
+  _$UModerationEmitEventEventModEventDivertCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventModEventDivert _self;
+  final $Res Function(UModerationEmitEventEventModEventDivert) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventModEventDivert(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ModEventDivert,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventModEventTagImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventModEventTagImpl>
-    implements _$$UModerationEmitEventEventModEventTagImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventModEventTagImplCopyWithImpl(
-      _$UModerationEmitEventEventModEventTagImpl _value,
-      $Res Function(_$UModerationEmitEventEventModEventTagImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventModEventTagImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ModEventTag,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModEventTagCopyWith<$Res> get data {
-    return $ModEventTagCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModEventDivertCopyWith<$Res> get data {
+  
+  return $ModEventDivertCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventModEventTagImpl
-    extends UModerationEmitEventEventModEventTag {
-  const _$UModerationEmitEventEventModEventTagImpl({required this.data})
-      : super._();
 
-  @override
-  final ModEventTag data;
+class UModerationEmitEventEventModEventTag extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventModEventTag({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.modEventTag(data: $data)';
-  }
+@override final  ModEventTag data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventModEventTagImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventModEventTagCopyWith<UModerationEmitEventEventModEventTag> get copyWith => _$UModerationEmitEventEventModEventTagCopyWithImpl<UModerationEmitEventEventModEventTag>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventModEventTagImplCopyWith<
-          _$UModerationEmitEventEventModEventTagImpl>
-      get copyWith => __$$UModerationEmitEventEventModEventTagImplCopyWithImpl<
-          _$UModerationEmitEventEventModEventTagImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return modEventTag(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return modEventTag?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventTag != null) {
-      return modEventTag(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return modEventTag(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return modEventTag?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventTag != null) {
-      return modEventTag(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventModEventTag&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventModEventTag
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventModEventTag(
-          {required final ModEventTag data}) =
-      _$UModerationEmitEventEventModEventTagImpl;
-  const UModerationEmitEventEventModEventTag._() : super._();
 
-  @override
-  ModEventTag get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventModEventTagImplCopyWith<
-          _$UModerationEmitEventEventModEventTagImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.modEventTag(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventAccountEventImplCopyWith<$Res> {
-  factory _$$UModerationEmitEventEventAccountEventImplCopyWith(
-          _$UModerationEmitEventEventAccountEventImpl value,
-          $Res Function(_$UModerationEmitEventEventAccountEventImpl) then) =
-      __$$UModerationEmitEventEventAccountEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({AccountEvent data});
+abstract mixin class $UModerationEmitEventEventModEventTagCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventModEventTagCopyWith(UModerationEmitEventEventModEventTag value, $Res Function(UModerationEmitEventEventModEventTag) _then) = _$UModerationEmitEventEventModEventTagCopyWithImpl;
+@useResult
+$Res call({
+ ModEventTag data
+});
 
-  $AccountEventCopyWith<$Res> get data;
+
+$ModEventTagCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventModEventTagCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventModEventTagCopyWith<$Res> {
+  _$UModerationEmitEventEventModEventTagCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventModEventTag _self;
+  final $Res Function(UModerationEmitEventEventModEventTag) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventModEventTag(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ModEventTag,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventAccountEventImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventAccountEventImpl>
-    implements _$$UModerationEmitEventEventAccountEventImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventAccountEventImplCopyWithImpl(
-      _$UModerationEmitEventEventAccountEventImpl _value,
-      $Res Function(_$UModerationEmitEventEventAccountEventImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventAccountEventImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as AccountEvent,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AccountEventCopyWith<$Res> get data {
-    return $AccountEventCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModEventTagCopyWith<$Res> get data {
+  
+  return $ModEventTagCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventAccountEventImpl
-    extends UModerationEmitEventEventAccountEvent {
-  const _$UModerationEmitEventEventAccountEventImpl({required this.data})
-      : super._();
 
-  @override
-  final AccountEvent data;
+class UModerationEmitEventEventAccountEvent extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventAccountEvent({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.accountEvent(data: $data)';
-  }
+@override final  AccountEvent data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventAccountEventImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventAccountEventCopyWith<UModerationEmitEventEventAccountEvent> get copyWith => _$UModerationEmitEventEventAccountEventCopyWithImpl<UModerationEmitEventEventAccountEvent>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventAccountEventImplCopyWith<
-          _$UModerationEmitEventEventAccountEventImpl>
-      get copyWith => __$$UModerationEmitEventEventAccountEventImplCopyWithImpl<
-          _$UModerationEmitEventEventAccountEventImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return accountEvent(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return accountEvent?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (accountEvent != null) {
-      return accountEvent(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return accountEvent(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return accountEvent?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (accountEvent != null) {
-      return accountEvent(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventAccountEvent&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventAccountEvent
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventAccountEvent(
-          {required final AccountEvent data}) =
-      _$UModerationEmitEventEventAccountEventImpl;
-  const UModerationEmitEventEventAccountEvent._() : super._();
 
-  @override
-  AccountEvent get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventAccountEventImplCopyWith<
-          _$UModerationEmitEventEventAccountEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.accountEvent(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventIdentityEventImplCopyWith<$Res> {
-  factory _$$UModerationEmitEventEventIdentityEventImplCopyWith(
-          _$UModerationEmitEventEventIdentityEventImpl value,
-          $Res Function(_$UModerationEmitEventEventIdentityEventImpl) then) =
-      __$$UModerationEmitEventEventIdentityEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({IdentityEvent data});
+abstract mixin class $UModerationEmitEventEventAccountEventCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventAccountEventCopyWith(UModerationEmitEventEventAccountEvent value, $Res Function(UModerationEmitEventEventAccountEvent) _then) = _$UModerationEmitEventEventAccountEventCopyWithImpl;
+@useResult
+$Res call({
+ AccountEvent data
+});
 
-  $IdentityEventCopyWith<$Res> get data;
+
+$AccountEventCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventAccountEventCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventAccountEventCopyWith<$Res> {
+  _$UModerationEmitEventEventAccountEventCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventAccountEvent _self;
+  final $Res Function(UModerationEmitEventEventAccountEvent) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventAccountEvent(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as AccountEvent,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventIdentityEventImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventIdentityEventImpl>
-    implements _$$UModerationEmitEventEventIdentityEventImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventIdentityEventImplCopyWithImpl(
-      _$UModerationEmitEventEventIdentityEventImpl _value,
-      $Res Function(_$UModerationEmitEventEventIdentityEventImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventIdentityEventImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as IdentityEvent,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $IdentityEventCopyWith<$Res> get data {
-    return $IdentityEventCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AccountEventCopyWith<$Res> get data {
+  
+  return $AccountEventCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventIdentityEventImpl
-    extends UModerationEmitEventEventIdentityEvent {
-  const _$UModerationEmitEventEventIdentityEventImpl({required this.data})
-      : super._();
 
-  @override
-  final IdentityEvent data;
+class UModerationEmitEventEventIdentityEvent extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventIdentityEvent({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.identityEvent(data: $data)';
-  }
+@override final  IdentityEvent data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventIdentityEventImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventIdentityEventCopyWith<UModerationEmitEventEventIdentityEvent> get copyWith => _$UModerationEmitEventEventIdentityEventCopyWithImpl<UModerationEmitEventEventIdentityEvent>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventIdentityEventImplCopyWith<
-          _$UModerationEmitEventEventIdentityEventImpl>
-      get copyWith =>
-          __$$UModerationEmitEventEventIdentityEventImplCopyWithImpl<
-              _$UModerationEmitEventEventIdentityEventImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return identityEvent(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return identityEvent?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (identityEvent != null) {
-      return identityEvent(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return identityEvent(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return identityEvent?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (identityEvent != null) {
-      return identityEvent(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventIdentityEvent&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventIdentityEvent
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventIdentityEvent(
-          {required final IdentityEvent data}) =
-      _$UModerationEmitEventEventIdentityEventImpl;
-  const UModerationEmitEventEventIdentityEvent._() : super._();
 
-  @override
-  IdentityEvent get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventIdentityEventImplCopyWith<
-          _$UModerationEmitEventEventIdentityEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.identityEvent(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventRecordEventImplCopyWith<$Res> {
-  factory _$$UModerationEmitEventEventRecordEventImplCopyWith(
-          _$UModerationEmitEventEventRecordEventImpl value,
-          $Res Function(_$UModerationEmitEventEventRecordEventImpl) then) =
-      __$$UModerationEmitEventEventRecordEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({RecordEvent data});
+abstract mixin class $UModerationEmitEventEventIdentityEventCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventIdentityEventCopyWith(UModerationEmitEventEventIdentityEvent value, $Res Function(UModerationEmitEventEventIdentityEvent) _then) = _$UModerationEmitEventEventIdentityEventCopyWithImpl;
+@useResult
+$Res call({
+ IdentityEvent data
+});
 
-  $RecordEventCopyWith<$Res> get data;
+
+$IdentityEventCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventIdentityEventCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventIdentityEventCopyWith<$Res> {
+  _$UModerationEmitEventEventIdentityEventCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventIdentityEvent _self;
+  final $Res Function(UModerationEmitEventEventIdentityEvent) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventIdentityEvent(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as IdentityEvent,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventRecordEventImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventRecordEventImpl>
-    implements _$$UModerationEmitEventEventRecordEventImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventRecordEventImplCopyWithImpl(
-      _$UModerationEmitEventEventRecordEventImpl _value,
-      $Res Function(_$UModerationEmitEventEventRecordEventImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventRecordEventImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as RecordEvent,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RecordEventCopyWith<$Res> get data {
-    return $RecordEventCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$IdentityEventCopyWith<$Res> get data {
+  
+  return $IdentityEventCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventRecordEventImpl
-    extends UModerationEmitEventEventRecordEvent {
-  const _$UModerationEmitEventEventRecordEventImpl({required this.data})
-      : super._();
 
-  @override
-  final RecordEvent data;
+class UModerationEmitEventEventRecordEvent extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventRecordEvent({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.recordEvent(data: $data)';
-  }
+@override final  RecordEvent data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventRecordEventImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventRecordEventCopyWith<UModerationEmitEventEventRecordEvent> get copyWith => _$UModerationEmitEventEventRecordEventCopyWithImpl<UModerationEmitEventEventRecordEvent>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventRecordEventImplCopyWith<
-          _$UModerationEmitEventEventRecordEventImpl>
-      get copyWith => __$$UModerationEmitEventEventRecordEventImplCopyWithImpl<
-          _$UModerationEmitEventEventRecordEventImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return recordEvent(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return recordEvent?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (recordEvent != null) {
-      return recordEvent(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return recordEvent(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return recordEvent?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (recordEvent != null) {
-      return recordEvent(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventRecordEvent&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventRecordEvent
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventRecordEvent(
-          {required final RecordEvent data}) =
-      _$UModerationEmitEventEventRecordEventImpl;
-  const UModerationEmitEventEventRecordEvent._() : super._();
 
-  @override
-  RecordEvent get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventRecordEventImplCopyWith<
-          _$UModerationEmitEventEventRecordEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.recordEvent(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventModEventPriorityScoreImplCopyWith<
-    $Res> {
-  factory _$$UModerationEmitEventEventModEventPriorityScoreImplCopyWith(
-          _$UModerationEmitEventEventModEventPriorityScoreImpl value,
-          $Res Function(_$UModerationEmitEventEventModEventPriorityScoreImpl)
-              then) =
-      __$$UModerationEmitEventEventModEventPriorityScoreImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ModEventPriorityScore data});
+abstract mixin class $UModerationEmitEventEventRecordEventCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventRecordEventCopyWith(UModerationEmitEventEventRecordEvent value, $Res Function(UModerationEmitEventEventRecordEvent) _then) = _$UModerationEmitEventEventRecordEventCopyWithImpl;
+@useResult
+$Res call({
+ RecordEvent data
+});
 
-  $ModEventPriorityScoreCopyWith<$Res> get data;
+
+$RecordEventCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventRecordEventCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventRecordEventCopyWith<$Res> {
+  _$UModerationEmitEventEventRecordEventCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventRecordEvent _self;
+  final $Res Function(UModerationEmitEventEventRecordEvent) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventRecordEvent(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as RecordEvent,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventModEventPriorityScoreImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventModEventPriorityScoreImpl>
-    implements
-        _$$UModerationEmitEventEventModEventPriorityScoreImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventModEventPriorityScoreImplCopyWithImpl(
-      _$UModerationEmitEventEventModEventPriorityScoreImpl _value,
-      $Res Function(_$UModerationEmitEventEventModEventPriorityScoreImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventModEventPriorityScoreImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ModEventPriorityScore,
-    ));
-  }
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModEventPriorityScoreCopyWith<$Res> get data {
-    return $ModEventPriorityScoreCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RecordEventCopyWith<$Res> get data {
+  
+  return $RecordEventCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventModEventPriorityScoreImpl
-    extends UModerationEmitEventEventModEventPriorityScore {
-  const _$UModerationEmitEventEventModEventPriorityScoreImpl(
-      {required this.data})
-      : super._();
 
-  @override
-  final ModEventPriorityScore data;
+class UModerationEmitEventEventModEventPriorityScore extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventModEventPriorityScore({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.modEventPriorityScore(data: $data)';
-  }
+@override final  ModEventPriorityScore data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventModEventPriorityScoreImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventModEventPriorityScoreCopyWith<UModerationEmitEventEventModEventPriorityScore> get copyWith => _$UModerationEmitEventEventModEventPriorityScoreCopyWithImpl<UModerationEmitEventEventModEventPriorityScore>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventModEventPriorityScoreImplCopyWith<
-          _$UModerationEmitEventEventModEventPriorityScoreImpl>
-      get copyWith =>
-          __$$UModerationEmitEventEventModEventPriorityScoreImplCopyWithImpl<
-                  _$UModerationEmitEventEventModEventPriorityScoreImpl>(
-              this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return modEventPriorityScore(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return modEventPriorityScore?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventPriorityScore != null) {
-      return modEventPriorityScore(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return modEventPriorityScore(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return modEventPriorityScore?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (modEventPriorityScore != null) {
-      return modEventPriorityScore(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventModEventPriorityScore&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationEmitEventEventModEventPriorityScore
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventModEventPriorityScore(
-          {required final ModEventPriorityScore data}) =
-      _$UModerationEmitEventEventModEventPriorityScoreImpl;
-  const UModerationEmitEventEventModEventPriorityScore._() : super._();
 
-  @override
-  ModEventPriorityScore get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventModEventPriorityScoreImplCopyWith<
-          _$UModerationEmitEventEventModEventPriorityScoreImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.modEventPriorityScore(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationEmitEventEventUnknownImplCopyWith<$Res> {
-  factory _$$UModerationEmitEventEventUnknownImplCopyWith(
-          _$UModerationEmitEventEventUnknownImpl value,
-          $Res Function(_$UModerationEmitEventEventUnknownImpl) then) =
-      __$$UModerationEmitEventEventUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
+abstract mixin class $UModerationEmitEventEventModEventPriorityScoreCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventModEventPriorityScoreCopyWith(UModerationEmitEventEventModEventPriorityScore value, $Res Function(UModerationEmitEventEventModEventPriorityScore) _then) = _$UModerationEmitEventEventModEventPriorityScoreCopyWithImpl;
+@useResult
+$Res call({
+ ModEventPriorityScore data
+});
+
+
+$ModEventPriorityScoreCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventModEventPriorityScoreCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventModEventPriorityScoreCopyWith<$Res> {
+  _$UModerationEmitEventEventModEventPriorityScoreCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventModEventPriorityScore _self;
+  final $Res Function(UModerationEmitEventEventModEventPriorityScore) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventModEventPriorityScore(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ModEventPriorityScore,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationEmitEventEventUnknownImplCopyWithImpl<$Res>
-    extends _$UModerationEmitEventEventCopyWithImpl<$Res,
-        _$UModerationEmitEventEventUnknownImpl>
-    implements _$$UModerationEmitEventEventUnknownImplCopyWith<$Res> {
-  __$$UModerationEmitEventEventUnknownImplCopyWithImpl(
-      _$UModerationEmitEventEventUnknownImpl _value,
-      $Res Function(_$UModerationEmitEventEventUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationEmitEventEventUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModEventPriorityScoreCopyWith<$Res> get data {
+  
+  return $ModEventPriorityScoreCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationEmitEventEventUnknownImpl
-    extends UModerationEmitEventEventUnknown {
-  const _$UModerationEmitEventEventUnknownImpl(
-      {required final Map<String, dynamic> data})
-      : _data = data,
-        super._();
 
-  final Map<String, dynamic> _data;
-  @override
-  Map<String, dynamic> get data {
-    if (_data is EqualUnmodifiableMapView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_data);
-  }
+class UModerationEmitEventEventUnknown extends UModerationEmitEventEvent {
+  const UModerationEmitEventEventUnknown({required final  Map<String, dynamic> data}): _data = data,super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationEmitEventEvent.unknown(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationEmitEventEventUnknownImpl &&
-            const DeepCollectionEquality().equals(other._data, _data));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
-
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationEmitEventEventUnknownImplCopyWith<
-          _$UModerationEmitEventEventUnknownImpl>
-      get copyWith => __$$UModerationEmitEventEventUnknownImplCopyWithImpl<
-          _$UModerationEmitEventEventUnknownImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModEventTakedown data) modEventTakedown,
-    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
-    required TResult Function(ModEventEscalate data) modEventEscalate,
-    required TResult Function(ModEventComment data) modEventComment,
-    required TResult Function(ModEventLabel data) modEventLabel,
-    required TResult Function(ModEventReport data) modEventReport,
-    required TResult Function(ModEventMute data) modEventMute,
-    required TResult Function(ModEventUnmute data) modEventUnmute,
-    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
-    required TResult Function(ModEventUnmuteReporter data)
-        modEventUnmuteReporter,
-    required TResult Function(ModEventReverseTakedown data)
-        modEventReverseTakedown,
-    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
-    required TResult Function(ModEventEmail data) modEventEmail,
-    required TResult Function(ModEventDivert data) modEventDivert,
-    required TResult Function(ModEventTag data) modEventTag,
-    required TResult Function(AccountEvent data) accountEvent,
-    required TResult Function(IdentityEvent data) identityEvent,
-    required TResult Function(RecordEvent data) recordEvent,
-    required TResult Function(ModEventPriorityScore data) modEventPriorityScore,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModEventTakedown data)? modEventTakedown,
-    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult? Function(ModEventEscalate data)? modEventEscalate,
-    TResult? Function(ModEventComment data)? modEventComment,
-    TResult? Function(ModEventLabel data)? modEventLabel,
-    TResult? Function(ModEventReport data)? modEventReport,
-    TResult? Function(ModEventMute data)? modEventMute,
-    TResult? Function(ModEventUnmute data)? modEventUnmute,
-    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult? Function(ModEventEmail data)? modEventEmail,
-    TResult? Function(ModEventDivert data)? modEventDivert,
-    TResult? Function(ModEventTag data)? modEventTag,
-    TResult? Function(AccountEvent data)? accountEvent,
-    TResult? Function(IdentityEvent data)? identityEvent,
-    TResult? Function(RecordEvent data)? recordEvent,
-    TResult? Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModEventTakedown data)? modEventTakedown,
-    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
-    TResult Function(ModEventEscalate data)? modEventEscalate,
-    TResult Function(ModEventComment data)? modEventComment,
-    TResult Function(ModEventLabel data)? modEventLabel,
-    TResult Function(ModEventReport data)? modEventReport,
-    TResult Function(ModEventMute data)? modEventMute,
-    TResult Function(ModEventUnmute data)? modEventUnmute,
-    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
-    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
-    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
-    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
-    TResult Function(ModEventEmail data)? modEventEmail,
-    TResult Function(ModEventDivert data)? modEventDivert,
-    TResult Function(ModEventTag data)? modEventTag,
-    TResult Function(AccountEvent data)? accountEvent,
-    TResult Function(IdentityEvent data)? identityEvent,
-    TResult Function(RecordEvent data)? recordEvent,
-    TResult Function(ModEventPriorityScore data)? modEventPriorityScore,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationEmitEventEventModEventTakedown value)
-        modEventTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventAcknowledge value)
-        modEventAcknowledge,
-    required TResult Function(UModerationEmitEventEventModEventEscalate value)
-        modEventEscalate,
-    required TResult Function(UModerationEmitEventEventModEventComment value)
-        modEventComment,
-    required TResult Function(UModerationEmitEventEventModEventLabel value)
-        modEventLabel,
-    required TResult Function(UModerationEmitEventEventModEventReport value)
-        modEventReport,
-    required TResult Function(UModerationEmitEventEventModEventMute value)
-        modEventMute,
-    required TResult Function(UModerationEmitEventEventModEventUnmute value)
-        modEventUnmute,
-    required TResult Function(
-            UModerationEmitEventEventModEventMuteReporter value)
-        modEventMuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventUnmuteReporter value)
-        modEventUnmuteReporter,
-    required TResult Function(
-            UModerationEmitEventEventModEventReverseTakedown value)
-        modEventReverseTakedown,
-    required TResult Function(
-            UModerationEmitEventEventModEventResolveAppeal value)
-        modEventResolveAppeal,
-    required TResult Function(UModerationEmitEventEventModEventEmail value)
-        modEventEmail,
-    required TResult Function(UModerationEmitEventEventModEventDivert value)
-        modEventDivert,
-    required TResult Function(UModerationEmitEventEventModEventTag value)
-        modEventTag,
-    required TResult Function(UModerationEmitEventEventAccountEvent value)
-        accountEvent,
-    required TResult Function(UModerationEmitEventEventIdentityEvent value)
-        identityEvent,
-    required TResult Function(UModerationEmitEventEventRecordEvent value)
-        recordEvent,
-    required TResult Function(
-            UModerationEmitEventEventModEventPriorityScore value)
-        modEventPriorityScore,
-    required TResult Function(UModerationEmitEventEventUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult? Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult? Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult? Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult? Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult? Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult? Function(UModerationEmitEventEventModEventMute value)?
-        modEventMute,
-    TResult? Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult? Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult? Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult? Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult? Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult? Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult? Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult? Function(UModerationEmitEventEventAccountEvent value)?
-        accountEvent,
-    TResult? Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult? Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult? Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult? Function(UModerationEmitEventEventUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationEmitEventEventModEventTakedown value)?
-        modEventTakedown,
-    TResult Function(UModerationEmitEventEventModEventAcknowledge value)?
-        modEventAcknowledge,
-    TResult Function(UModerationEmitEventEventModEventEscalate value)?
-        modEventEscalate,
-    TResult Function(UModerationEmitEventEventModEventComment value)?
-        modEventComment,
-    TResult Function(UModerationEmitEventEventModEventLabel value)?
-        modEventLabel,
-    TResult Function(UModerationEmitEventEventModEventReport value)?
-        modEventReport,
-    TResult Function(UModerationEmitEventEventModEventMute value)? modEventMute,
-    TResult Function(UModerationEmitEventEventModEventUnmute value)?
-        modEventUnmute,
-    TResult Function(UModerationEmitEventEventModEventMuteReporter value)?
-        modEventMuteReporter,
-    TResult Function(UModerationEmitEventEventModEventUnmuteReporter value)?
-        modEventUnmuteReporter,
-    TResult Function(UModerationEmitEventEventModEventReverseTakedown value)?
-        modEventReverseTakedown,
-    TResult Function(UModerationEmitEventEventModEventResolveAppeal value)?
-        modEventResolveAppeal,
-    TResult Function(UModerationEmitEventEventModEventEmail value)?
-        modEventEmail,
-    TResult Function(UModerationEmitEventEventModEventDivert value)?
-        modEventDivert,
-    TResult Function(UModerationEmitEventEventModEventTag value)? modEventTag,
-    TResult Function(UModerationEmitEventEventAccountEvent value)? accountEvent,
-    TResult Function(UModerationEmitEventEventIdentityEvent value)?
-        identityEvent,
-    TResult Function(UModerationEmitEventEventRecordEvent value)? recordEvent,
-    TResult Function(UModerationEmitEventEventModEventPriorityScore value)?
-        modEventPriorityScore,
-    TResult Function(UModerationEmitEventEventUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
-  }
+ final  Map<String, dynamic> _data;
+@override Map<String, dynamic> get data {
+  if (_data is EqualUnmodifiableMapView) return _data;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_data);
 }
 
-abstract class UModerationEmitEventEventUnknown
-    extends UModerationEmitEventEvent {
-  const factory UModerationEmitEventEventUnknown(
-          {required final Map<String, dynamic> data}) =
-      _$UModerationEmitEventEventUnknownImpl;
-  const UModerationEmitEventEventUnknown._() : super._();
 
-  @override
-  Map<String, dynamic> get data;
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationEmitEventEventUnknownCopyWith<UModerationEmitEventEventUnknown> get copyWith => _$UModerationEmitEventEventUnknownCopyWithImpl<UModerationEmitEventEventUnknown>(this, _$identity);
 
-  /// Create a copy of UModerationEmitEventEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationEmitEventEventUnknownImplCopyWith<
-          _$UModerationEmitEventEventUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationEmitEventEventUnknown&&const DeepCollectionEquality().equals(other._data, _data));
 }
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_data));
+
+@override
+String toString() {
+  return 'UModerationEmitEventEvent.unknown(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UModerationEmitEventEventUnknownCopyWith<$Res> implements $UModerationEmitEventEventCopyWith<$Res> {
+  factory $UModerationEmitEventEventUnknownCopyWith(UModerationEmitEventEventUnknown value, $Res Function(UModerationEmitEventEventUnknown) _then) = _$UModerationEmitEventEventUnknownCopyWithImpl;
+@useResult
+$Res call({
+ Map<String, dynamic> data
+});
+
+
+
+
+}
+/// @nodoc
+class _$UModerationEmitEventEventUnknownCopyWithImpl<$Res>
+    implements $UModerationEmitEventEventUnknownCopyWith<$Res> {
+  _$UModerationEmitEventEventUnknownCopyWithImpl(this._self, this._then);
+
+  final UModerationEmitEventEventUnknown _self;
+  final $Res Function(UModerationEmitEventEventUnknown) _then;
+
+/// Create a copy of UModerationEmitEventEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationEmitEventEventUnknown(
+data: null == data ? _self._data : data // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,
+  ));
+}
+
+
+}
+
+// dart format on

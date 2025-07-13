@@ -8,30 +8,30 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UnspeccedGetPostThreadOtherV2InputImpl
-    _$$UnspeccedGetPostThreadOtherV2InputImplFromJson(Map json) =>
-        $checkedCreate(
-          r'_$UnspeccedGetPostThreadOtherV2InputImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$UnspeccedGetPostThreadOtherV2InputImpl(
-              anchor: $checkedConvert('anchor', (v) => v as String),
-              prioritizeFollowedUsers:
-                  $checkedConvert('prioritizeFollowedUsers', (v) => v as bool?),
-              $unknown: $checkedConvert(
-                  r'$unknown',
-                  (v) => (v as Map?)?.map(
-                        (k, e) => MapEntry(k as String, e),
-                      )),
-            );
-            return val;
-          },
-        );
+_UnspeccedGetPostThreadOtherV2Input
+_$UnspeccedGetPostThreadOtherV2InputFromJson(Map json) => $checkedCreate(
+  '_UnspeccedGetPostThreadOtherV2Input',
+  json,
+  ($checkedConvert) {
+    final val = _UnspeccedGetPostThreadOtherV2Input(
+      anchor: $checkedConvert('anchor', (v) => v as String),
+      prioritizeFollowedUsers: $checkedConvert(
+        'prioritizeFollowedUsers',
+        (v) => v as bool?,
+      ),
+      $unknown: $checkedConvert(
+        r'$unknown',
+        (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+      ),
+    );
+    return val;
+  },
+);
 
-Map<String, dynamic> _$$UnspeccedGetPostThreadOtherV2InputImplToJson(
-        _$UnspeccedGetPostThreadOtherV2InputImpl instance) =>
-    <String, dynamic>{
-      'anchor': instance.anchor,
-      'prioritizeFollowedUsers': instance.prioritizeFollowedUsers,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$UnspeccedGetPostThreadOtherV2InputToJson(
+  _UnspeccedGetPostThreadOtherV2Input instance,
+) => <String, dynamic>{
+  'anchor': instance.anchor,
+  'prioritizeFollowedUsers': instance.prioritizeFollowedUsers,
+  r'$unknown': instance.$unknown,
+};

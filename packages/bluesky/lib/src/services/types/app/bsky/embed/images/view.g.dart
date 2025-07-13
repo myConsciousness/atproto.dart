@@ -8,32 +8,32 @@ part of 'view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EmbedImagesViewImpl _$$EmbedImagesViewImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$EmbedImagesViewImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$EmbedImagesViewImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyEmbedImagesView),
-          images: $checkedConvert(
-              'images',
-              (v) => (v as List<dynamic>)
-                  .map((e) => const EmbedImagesViewImageConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_EmbedImagesView _$EmbedImagesViewFromJson(Map json) =>
+    $checkedCreate('_EmbedImagesView', json, ($checkedConvert) {
+      final val = _EmbedImagesView(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyEmbedImagesView,
+        ),
+        images: $checkedConvert(
+          'images',
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) => const EmbedImagesViewImageConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$EmbedImagesViewImplToJson(
-        _$EmbedImagesViewImpl instance) =>
+Map<String, dynamic> _$EmbedImagesViewToJson(_EmbedImagesView instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'images': instance.images

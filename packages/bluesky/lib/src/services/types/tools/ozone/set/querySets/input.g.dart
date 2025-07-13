@@ -8,29 +8,23 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SetQuerySetsInputImpl _$$SetQuerySetsInputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$SetQuerySetsInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SetQuerySetsInputImpl(
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
-          cursor: $checkedConvert('cursor', (v) => v as String?),
-          namePrefix: $checkedConvert('namePrefix', (v) => v as String?),
-          sortBy: $checkedConvert('sortBy', (v) => v as String?),
-          sortDirection: $checkedConvert('sortDirection', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_SetQuerySetsInput _$SetQuerySetsInputFromJson(Map json) =>
+    $checkedCreate('_SetQuerySetsInput', json, ($checkedConvert) {
+      final val = _SetQuerySetsInput(
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        cursor: $checkedConvert('cursor', (v) => v as String?),
+        namePrefix: $checkedConvert('namePrefix', (v) => v as String?),
+        sortBy: $checkedConvert('sortBy', (v) => v as String?),
+        sortDirection: $checkedConvert('sortDirection', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$SetQuerySetsInputImplToJson(
-        _$SetQuerySetsInputImpl instance) =>
+Map<String, dynamic> _$SetQuerySetsInputToJson(_SetQuerySetsInput instance) =>
     <String, dynamic>{
       'limit': instance.limit,
       'cursor': instance.cursor,

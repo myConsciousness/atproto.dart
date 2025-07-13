@@ -8,26 +8,18 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SyncGetRepoStatusInputImpl _$$SyncGetRepoStatusInputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$SyncGetRepoStatusInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SyncGetRepoStatusInputImpl(
-          did: $checkedConvert('did', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_SyncGetRepoStatusInput _$SyncGetRepoStatusInputFromJson(Map json) =>
+    $checkedCreate('_SyncGetRepoStatusInput', json, ($checkedConvert) {
+      final val = _SyncGetRepoStatusInput(
+        did: $checkedConvert('did', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$SyncGetRepoStatusInputImplToJson(
-        _$SyncGetRepoStatusInputImpl instance) =>
-    <String, dynamic>{
-      'did': instance.did,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$SyncGetRepoStatusInputToJson(
+  _SyncGetRepoStatusInput instance,
+) => <String, dynamic>{'did': instance.did, r'$unknown': instance.$unknown};

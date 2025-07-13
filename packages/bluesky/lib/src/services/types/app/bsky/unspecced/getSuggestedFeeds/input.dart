@@ -21,12 +21,11 @@ part 'input.g.dart';
 @freezed
 abstract class UnspeccedGetSuggestedFeedsInput
     with _$UnspeccedGetSuggestedFeedsInput {
-  static const knownProps = <String>[
-    'limit',
-  ];
+  static const knownProps = <String>['limit'];
 
   const factory UnspeccedGetSuggestedFeedsInput({
     int? limit,
+
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestedFeedsInput;
 
@@ -34,21 +33,22 @@ abstract class UnspeccedGetSuggestedFeedsInput
       _$UnspeccedGetSuggestedFeedsInputFromJson(json);
 }
 
-final class UnspeccedGetSuggestedFeedsInputConverter extends LexObjectConverter<
-    UnspeccedGetSuggestedFeedsInput, Map<String, dynamic>> {
+final class UnspeccedGetSuggestedFeedsInputConverter
+    extends
+        LexObjectConverter<
+          UnspeccedGetSuggestedFeedsInput,
+          Map<String, dynamic>
+        > {
   const UnspeccedGetSuggestedFeedsInputConverter();
 
   @override
   UnspeccedGetSuggestedFeedsInput fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetSuggestedFeedsInput.fromJson(translate(
-      json,
-      UnspeccedGetSuggestedFeedsInput.knownProps,
-    ));
+    return UnspeccedGetSuggestedFeedsInput.fromJson(
+      translate(json, UnspeccedGetSuggestedFeedsInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetSuggestedFeedsInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

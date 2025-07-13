@@ -12,7 +12,8 @@ part of 'create_operation_v1.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 CreateOperationV1 _$CreateOperationV1FromJson(Map<String, dynamic> json) {
   return _CreateOperationV1.fromJson(json);
@@ -41,17 +42,19 @@ mixin _$CreateOperationV1 {
 /// @nodoc
 abstract class $CreateOperationV1CopyWith<$Res> {
   factory $CreateOperationV1CopyWith(
-          CreateOperationV1 value, $Res Function(CreateOperationV1) then) =
-      _$CreateOperationV1CopyWithImpl<$Res, CreateOperationV1>;
+    CreateOperationV1 value,
+    $Res Function(CreateOperationV1) then,
+  ) = _$CreateOperationV1CopyWithImpl<$Res, CreateOperationV1>;
   @useResult
-  $Res call(
-      {String sig,
-      String type,
-      String signingKey,
-      String recoveryKey,
-      String handle,
-      String service,
-      String? prev});
+  $Res call({
+    String sig,
+    String type,
+    String signingKey,
+    String recoveryKey,
+    String handle,
+    String service,
+    String? prev,
+  });
 }
 
 /// @nodoc
@@ -77,64 +80,70 @@ class _$CreateOperationV1CopyWithImpl<$Res, $Val extends CreateOperationV1>
     Object? service = null,
     Object? prev = freezed,
   }) {
-    return _then(_value.copyWith(
-      sig: null == sig
-          ? _value.sig
-          : sig // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      signingKey: null == signingKey
-          ? _value.signingKey
-          : signingKey // ignore: cast_nullable_to_non_nullable
-              as String,
-      recoveryKey: null == recoveryKey
-          ? _value.recoveryKey
-          : recoveryKey // ignore: cast_nullable_to_non_nullable
-              as String,
-      handle: null == handle
-          ? _value.handle
-          : handle // ignore: cast_nullable_to_non_nullable
-              as String,
-      service: null == service
-          ? _value.service
-          : service // ignore: cast_nullable_to_non_nullable
-              as String,
-      prev: freezed == prev
-          ? _value.prev
-          : prev // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            sig: null == sig
+                ? _value.sig
+                : sig // ignore: cast_nullable_to_non_nullable
+                      as String,
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+            signingKey: null == signingKey
+                ? _value.signingKey
+                : signingKey // ignore: cast_nullable_to_non_nullable
+                      as String,
+            recoveryKey: null == recoveryKey
+                ? _value.recoveryKey
+                : recoveryKey // ignore: cast_nullable_to_non_nullable
+                      as String,
+            handle: null == handle
+                ? _value.handle
+                : handle // ignore: cast_nullable_to_non_nullable
+                      as String,
+            service: null == service
+                ? _value.service
+                : service // ignore: cast_nullable_to_non_nullable
+                      as String,
+            prev: freezed == prev
+                ? _value.prev
+                : prev // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$CreateOperationV1ImplCopyWith<$Res>
     implements $CreateOperationV1CopyWith<$Res> {
-  factory _$$CreateOperationV1ImplCopyWith(_$CreateOperationV1Impl value,
-          $Res Function(_$CreateOperationV1Impl) then) =
-      __$$CreateOperationV1ImplCopyWithImpl<$Res>;
+  factory _$$CreateOperationV1ImplCopyWith(
+    _$CreateOperationV1Impl value,
+    $Res Function(_$CreateOperationV1Impl) then,
+  ) = __$$CreateOperationV1ImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String sig,
-      String type,
-      String signingKey,
-      String recoveryKey,
-      String handle,
-      String service,
-      String? prev});
+  $Res call({
+    String sig,
+    String type,
+    String signingKey,
+    String recoveryKey,
+    String handle,
+    String service,
+    String? prev,
+  });
 }
 
 /// @nodoc
 class __$$CreateOperationV1ImplCopyWithImpl<$Res>
     extends _$CreateOperationV1CopyWithImpl<$Res, _$CreateOperationV1Impl>
     implements _$$CreateOperationV1ImplCopyWith<$Res> {
-  __$$CreateOperationV1ImplCopyWithImpl(_$CreateOperationV1Impl _value,
-      $Res Function(_$CreateOperationV1Impl) _then)
-      : super(_value, _then);
+  __$$CreateOperationV1ImplCopyWithImpl(
+    _$CreateOperationV1Impl _value,
+    $Res Function(_$CreateOperationV1Impl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of CreateOperationV1
   /// with the given fields replaced by the non-null parameter values.
@@ -149,36 +158,38 @@ class __$$CreateOperationV1ImplCopyWithImpl<$Res>
     Object? service = null,
     Object? prev = freezed,
   }) {
-    return _then(_$CreateOperationV1Impl(
-      sig: null == sig
-          ? _value.sig
-          : sig // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      signingKey: null == signingKey
-          ? _value.signingKey
-          : signingKey // ignore: cast_nullable_to_non_nullable
-              as String,
-      recoveryKey: null == recoveryKey
-          ? _value.recoveryKey
-          : recoveryKey // ignore: cast_nullable_to_non_nullable
-              as String,
-      handle: null == handle
-          ? _value.handle
-          : handle // ignore: cast_nullable_to_non_nullable
-              as String,
-      service: null == service
-          ? _value.service
-          : service // ignore: cast_nullable_to_non_nullable
-              as String,
-      prev: freezed == prev
-          ? _value.prev
-          : prev // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$CreateOperationV1Impl(
+        sig: null == sig
+            ? _value.sig
+            : sig // ignore: cast_nullable_to_non_nullable
+                  as String,
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+        signingKey: null == signingKey
+            ? _value.signingKey
+            : signingKey // ignore: cast_nullable_to_non_nullable
+                  as String,
+        recoveryKey: null == recoveryKey
+            ? _value.recoveryKey
+            : recoveryKey // ignore: cast_nullable_to_non_nullable
+                  as String,
+        handle: null == handle
+            ? _value.handle
+            : handle // ignore: cast_nullable_to_non_nullable
+                  as String,
+        service: null == service
+            ? _value.service
+            : service // ignore: cast_nullable_to_non_nullable
+                  as String,
+        prev: freezed == prev
+            ? _value.prev
+            : prev // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
@@ -186,14 +197,15 @@ class __$$CreateOperationV1ImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$CreateOperationV1Impl implements _CreateOperationV1 {
-  const _$CreateOperationV1Impl(
-      {required this.sig,
-      this.type = 'create',
-      required this.signingKey,
-      required this.recoveryKey,
-      required this.handle,
-      required this.service,
-      this.prev});
+  const _$CreateOperationV1Impl({
+    required this.sig,
+    this.type = 'create',
+    required this.signingKey,
+    required this.recoveryKey,
+    required this.handle,
+    required this.service,
+    this.prev,
+  });
 
   factory _$CreateOperationV1Impl.fromJson(Map<String, dynamic> json) =>
       _$$CreateOperationV1ImplFromJson(json);
@@ -238,7 +250,15 @@ class _$CreateOperationV1Impl implements _CreateOperationV1 {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, sig, type, signingKey, recoveryKey, handle, service, prev);
+    runtimeType,
+    sig,
+    type,
+    signingKey,
+    recoveryKey,
+    handle,
+    service,
+    prev,
+  );
 
   /// Create a copy of CreateOperationV1
   /// with the given fields replaced by the non-null parameter values.
@@ -247,25 +267,26 @@ class _$CreateOperationV1Impl implements _CreateOperationV1 {
   @pragma('vm:prefer-inline')
   _$$CreateOperationV1ImplCopyWith<_$CreateOperationV1Impl> get copyWith =>
       __$$CreateOperationV1ImplCopyWithImpl<_$CreateOperationV1Impl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CreateOperationV1ImplToJson(
-      this,
-    );
+    return _$$CreateOperationV1ImplToJson(this);
   }
 }
 
 abstract class _CreateOperationV1 implements CreateOperationV1 {
-  const factory _CreateOperationV1(
-      {required final String sig,
-      final String type,
-      required final String signingKey,
-      required final String recoveryKey,
-      required final String handle,
-      required final String service,
-      final String? prev}) = _$CreateOperationV1Impl;
+  const factory _CreateOperationV1({
+    required final String sig,
+    final String type,
+    required final String signingKey,
+    required final String recoveryKey,
+    required final String handle,
+    required final String service,
+    final String? prev,
+  }) = _$CreateOperationV1Impl;
 
   factory _CreateOperationV1.fromJson(Map<String, dynamic> json) =
       _$CreateOperationV1Impl.fromJson;

@@ -26,18 +26,15 @@ class PostsCommand extends QueryCommand {
   final String invocation = 'bsky posts [uris]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'feed.bsky.app',
-        'getPosts',
-      );
+  xrpc.NSID get methodId => xrpc.NSID.create('feed.bsky.app', 'getPosts');
 
   @override
   Map<String, dynamic>? get parameters => {
-        'uris': (argResults!['uris'] as String)
-            .split(',')
-            //! Validate AT Uri.
-            .map(AtUri.parse)
-            .map((e) => e.toString())
-            .toList(),
-      };
+    'uris': (argResults!['uris'] as String)
+        .split(',')
+        //! Validate AT Uri.
+        .map(AtUri.parse)
+        .map((e) => e.toString())
+        .toList(),
+  };
 }

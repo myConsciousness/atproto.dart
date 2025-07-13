@@ -20,13 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class SyncGetLatestCommitInput with _$SyncGetLatestCommitInput {
-  static const knownProps = <String>[
-    'did',
-  ];
+  static const knownProps = <String>['did'];
 
   const factory SyncGetLatestCommitInput({
     /// The DID of the repo.
     required String did,
+
     Map<String, dynamic>? $unknown,
   }) = _SyncGetLatestCommitInput;
 
@@ -40,14 +39,12 @@ final class SyncGetLatestCommitInputConverter
 
   @override
   SyncGetLatestCommitInput fromJson(Map<String, dynamic> json) {
-    return SyncGetLatestCommitInput.fromJson(translate(
-      json,
-      SyncGetLatestCommitInput.knownProps,
-    ));
+    return SyncGetLatestCommitInput.fromJson(
+      translate(json, SyncGetLatestCommitInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SyncGetLatestCommitInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SyncGetLatestCommitInput object) =>
+      untranslate(object.toJson());
 }

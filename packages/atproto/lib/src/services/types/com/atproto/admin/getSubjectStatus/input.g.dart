@@ -8,31 +8,25 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AdminGetSubjectStatusInputImpl _$$AdminGetSubjectStatusInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$AdminGetSubjectStatusInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$AdminGetSubjectStatusInputImpl(
-          did: $checkedConvert('did', (v) => v as String?),
-          uri: $checkedConvert('uri', (v) => v as String?),
-          blob: $checkedConvert('blob', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_AdminGetSubjectStatusInput _$AdminGetSubjectStatusInputFromJson(Map json) =>
+    $checkedCreate('_AdminGetSubjectStatusInput', json, ($checkedConvert) {
+      final val = _AdminGetSubjectStatusInput(
+        did: $checkedConvert('did', (v) => v as String?),
+        uri: $checkedConvert('uri', (v) => v as String?),
+        blob: $checkedConvert('blob', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$AdminGetSubjectStatusInputImplToJson(
-        _$AdminGetSubjectStatusInputImpl instance) =>
-    <String, dynamic>{
-      'did': instance.did,
-      'uri': instance.uri,
-      'blob': instance.blob,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$AdminGetSubjectStatusInputToJson(
+  _AdminGetSubjectStatusInput instance,
+) => <String, dynamic>{
+  'did': instance.did,
+  'uri': instance.uri,
+  'blob': instance.blob,
+  r'$unknown': instance.$unknown,
+};

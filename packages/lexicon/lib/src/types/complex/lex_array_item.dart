@@ -17,21 +17,15 @@ class LexArrayItem with _$LexArrayItem {
   // ignore: unused_element
   const LexArrayItem._();
 
-  const factory LexArrayItem.primitive({
-    required LexPrimitive data,
-  }) = ULexArrayItemPrimitive;
+  const factory LexArrayItem.primitive({required LexPrimitive data}) =
+      ULexArrayItemPrimitive;
 
-  const factory LexArrayItem.ipld({
-    required LexIpld data,
-  }) = ULexArrayItemIpld;
+  const factory LexArrayItem.ipld({required LexIpld data}) = ULexArrayItemIpld;
 
-  const factory LexArrayItem.blob({
-    required LexBlob data,
-  }) = ULexArrayItemBlob;
+  const factory LexArrayItem.blob({required LexBlob data}) = ULexArrayItemBlob;
 
-  const factory LexArrayItem.refVariant({
-    required LexRefVariant data,
-  }) = ULexArrayRefVariant;
+  const factory LexArrayItem.refVariant({required LexRefVariant data}) =
+      ULexArrayRefVariant;
 
   Map<String, dynamic> toJson() => const LexArrayItemConverter().toJson(this);
 }

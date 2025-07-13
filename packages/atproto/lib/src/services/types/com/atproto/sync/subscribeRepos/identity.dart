@@ -24,12 +24,7 @@ part 'identity.g.dart';
 /// Represents a change to an account's identity. Could be an updated handle, signing key, or pds hosting endpoint. Serves as a prod to all downstream services to refresh their identity cache.
 @freezed
 abstract class Identity with _$Identity {
-  static const knownProps = <String>[
-    'seq',
-    'did',
-    'time',
-    'handle',
-  ];
+  static const knownProps = <String>['seq', 'did', 'time', 'handle'];
 
   const factory Identity({
     @Default(comAtprotoSyncSubscribeReposIdentity) String $type,
@@ -39,6 +34,7 @@ abstract class Identity with _$Identity {
 
     /// The current handle for the account, or 'handle.invalid' if validation fails. This field is optional, might have been validated or passed-through from an upstream source. Semantics and behaviors for PDS vs Relay may evolve in the future; see atproto specs for more details.
     String? handle,
+
     Map<String, dynamic>? $unknown,
   }) = _Identity;
 
@@ -57,14 +53,9 @@ final class IdentityConverter
 
   @override
   Identity fromJson(Map<String, dynamic> json) {
-    return Identity.fromJson(translate(
-      json,
-      Identity.knownProps,
-    ));
+    return Identity.fromJson(translate(json, Identity.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(Identity object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(Identity object) => untranslate(object.toJson());
 }

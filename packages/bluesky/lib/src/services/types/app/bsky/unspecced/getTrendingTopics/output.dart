@@ -24,38 +24,36 @@ part 'output.g.dart';
 @freezed
 abstract class UnspeccedGetTrendingTopicsOutput
     with _$UnspeccedGetTrendingTopicsOutput {
-  static const knownProps = <String>[
-    'topics',
-    'suggested',
-  ];
+  static const knownProps = <String>['topics', 'suggested'];
 
   const factory UnspeccedGetTrendingTopicsOutput({
     @TrendingTopicConverter() required List<TrendingTopic> topics,
     @TrendingTopicConverter() required List<TrendingTopic> suggested,
+
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetTrendingTopicsOutput;
 
   factory UnspeccedGetTrendingTopicsOutput.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedGetTrendingTopicsOutputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$UnspeccedGetTrendingTopicsOutputFromJson(json);
 }
 
 final class UnspeccedGetTrendingTopicsOutputConverter
-    extends LexObjectConverter<UnspeccedGetTrendingTopicsOutput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          UnspeccedGetTrendingTopicsOutput,
+          Map<String, dynamic>
+        > {
   const UnspeccedGetTrendingTopicsOutputConverter();
 
   @override
   UnspeccedGetTrendingTopicsOutput fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetTrendingTopicsOutput.fromJson(translate(
-      json,
-      UnspeccedGetTrendingTopicsOutput.knownProps,
-    ));
+    return UnspeccedGetTrendingTopicsOutput.fromJson(
+      translate(json, UnspeccedGetTrendingTopicsOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetTrendingTopicsOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

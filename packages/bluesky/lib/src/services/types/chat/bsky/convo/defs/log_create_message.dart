@@ -24,11 +24,7 @@ part 'log_create_message.g.dart';
 
 @freezed
 abstract class LogCreateMessage with _$LogCreateMessage {
-  static const knownProps = <String>[
-    'rev',
-    'convoId',
-    'message',
-  ];
+  static const knownProps = <String>['rev', 'convoId', 'message'];
 
   const factory LogCreateMessage({
     @Default(chatBskyConvoDefsLogCreateMessage) String $type,
@@ -36,6 +32,7 @@ abstract class LogCreateMessage with _$LogCreateMessage {
     required String convoId,
     @ULogCreateMessageMessageConverter()
     required ULogCreateMessageMessage message,
+
     Map<String, dynamic>? $unknown,
   }) = _LogCreateMessage;
 
@@ -54,14 +51,12 @@ final class LogCreateMessageConverter
 
   @override
   LogCreateMessage fromJson(Map<String, dynamic> json) {
-    return LogCreateMessage.fromJson(translate(
-      json,
-      LogCreateMessage.knownProps,
-    ));
+    return LogCreateMessage.fromJson(
+      translate(json, LogCreateMessage.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(LogCreateMessage object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(LogCreateMessage object) =>
+      untranslate(object.toJson());
 }

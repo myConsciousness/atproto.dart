@@ -12,7 +12,8 @@ part of 'lex_primitive_array.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LexPrimitiveArray _$LexPrimitiveArrayFromJson(Map<String, dynamic> json) {
   return _LexPrimitiveArray.fromJson(json);
@@ -40,15 +41,17 @@ mixin _$LexPrimitiveArray {
 /// @nodoc
 abstract class $LexPrimitiveArrayCopyWith<$Res> {
   factory $LexPrimitiveArrayCopyWith(
-          LexPrimitiveArray value, $Res Function(LexPrimitiveArray) then) =
-      _$LexPrimitiveArrayCopyWithImpl<$Res, LexPrimitiveArray>;
+    LexPrimitiveArray value,
+    $Res Function(LexPrimitiveArray) then,
+  ) = _$LexPrimitiveArrayCopyWithImpl<$Res, LexPrimitiveArray>;
   @useResult
-  $Res call(
-      {String type,
-      String? description,
-      @LexPrimitiveConverter() LexPrimitive items,
-      int? minLength,
-      int? maxLength});
+  $Res call({
+    String type,
+    String? description,
+    @LexPrimitiveConverter() LexPrimitive items,
+    int? minLength,
+    int? maxLength,
+  });
 
   $LexPrimitiveCopyWith<$Res> get items;
 }
@@ -74,28 +77,31 @@ class _$LexPrimitiveArrayCopyWithImpl<$Res, $Val extends LexPrimitiveArray>
     Object? minLength = freezed,
     Object? maxLength = freezed,
   }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      items: null == items
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
-              as LexPrimitive,
-      minLength: freezed == minLength
-          ? _value.minLength
-          : minLength // ignore: cast_nullable_to_non_nullable
-              as int?,
-      maxLength: freezed == maxLength
-          ? _value.maxLength
-          : maxLength // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            items: null == items
+                ? _value.items
+                : items // ignore: cast_nullable_to_non_nullable
+                      as LexPrimitive,
+            minLength: freezed == minLength
+                ? _value.minLength
+                : minLength // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            maxLength: freezed == maxLength
+                ? _value.maxLength
+                : maxLength // ignore: cast_nullable_to_non_nullable
+                      as int?,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of LexPrimitiveArray
@@ -112,17 +118,19 @@ class _$LexPrimitiveArrayCopyWithImpl<$Res, $Val extends LexPrimitiveArray>
 /// @nodoc
 abstract class _$$LexPrimitiveArrayImplCopyWith<$Res>
     implements $LexPrimitiveArrayCopyWith<$Res> {
-  factory _$$LexPrimitiveArrayImplCopyWith(_$LexPrimitiveArrayImpl value,
-          $Res Function(_$LexPrimitiveArrayImpl) then) =
-      __$$LexPrimitiveArrayImplCopyWithImpl<$Res>;
+  factory _$$LexPrimitiveArrayImplCopyWith(
+    _$LexPrimitiveArrayImpl value,
+    $Res Function(_$LexPrimitiveArrayImpl) then,
+  ) = __$$LexPrimitiveArrayImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String type,
-      String? description,
-      @LexPrimitiveConverter() LexPrimitive items,
-      int? minLength,
-      int? maxLength});
+  $Res call({
+    String type,
+    String? description,
+    @LexPrimitiveConverter() LexPrimitive items,
+    int? minLength,
+    int? maxLength,
+  });
 
   @override
   $LexPrimitiveCopyWith<$Res> get items;
@@ -132,9 +140,10 @@ abstract class _$$LexPrimitiveArrayImplCopyWith<$Res>
 class __$$LexPrimitiveArrayImplCopyWithImpl<$Res>
     extends _$LexPrimitiveArrayCopyWithImpl<$Res, _$LexPrimitiveArrayImpl>
     implements _$$LexPrimitiveArrayImplCopyWith<$Res> {
-  __$$LexPrimitiveArrayImplCopyWithImpl(_$LexPrimitiveArrayImpl _value,
-      $Res Function(_$LexPrimitiveArrayImpl) _then)
-      : super(_value, _then);
+  __$$LexPrimitiveArrayImplCopyWithImpl(
+    _$LexPrimitiveArrayImpl _value,
+    $Res Function(_$LexPrimitiveArrayImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexPrimitiveArray
   /// with the given fields replaced by the non-null parameter values.
@@ -147,28 +156,30 @@ class __$$LexPrimitiveArrayImplCopyWithImpl<$Res>
     Object? minLength = freezed,
     Object? maxLength = freezed,
   }) {
-    return _then(_$LexPrimitiveArrayImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      items: null == items
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
-              as LexPrimitive,
-      minLength: freezed == minLength
-          ? _value.minLength
-          : minLength // ignore: cast_nullable_to_non_nullable
-              as int?,
-      maxLength: freezed == maxLength
-          ? _value.maxLength
-          : maxLength // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
+    return _then(
+      _$LexPrimitiveArrayImpl(
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        items: null == items
+            ? _value.items
+            : items // ignore: cast_nullable_to_non_nullable
+                  as LexPrimitive,
+        minLength: freezed == minLength
+            ? _value.minLength
+            : minLength // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        maxLength: freezed == maxLength
+            ? _value.maxLength
+            : maxLength // ignore: cast_nullable_to_non_nullable
+                  as int?,
+      ),
+    );
   }
 }
 
@@ -176,12 +187,13 @@ class __$$LexPrimitiveArrayImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$LexPrimitiveArrayImpl implements _LexPrimitiveArray {
-  const _$LexPrimitiveArrayImpl(
-      {this.type = 'array',
-      this.description,
-      @LexPrimitiveConverter() required this.items,
-      this.minLength,
-      this.maxLength});
+  const _$LexPrimitiveArrayImpl({
+    this.type = 'array',
+    this.description,
+    @LexPrimitiveConverter() required this.items,
+    this.minLength,
+    this.maxLength,
+  });
 
   factory _$LexPrimitiveArrayImpl.fromJson(Map<String, dynamic> json) =>
       _$$LexPrimitiveArrayImplFromJson(json);
@@ -231,23 +243,24 @@ class _$LexPrimitiveArrayImpl implements _LexPrimitiveArray {
   @pragma('vm:prefer-inline')
   _$$LexPrimitiveArrayImplCopyWith<_$LexPrimitiveArrayImpl> get copyWith =>
       __$$LexPrimitiveArrayImplCopyWithImpl<_$LexPrimitiveArrayImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LexPrimitiveArrayImplToJson(
-      this,
-    );
+    return _$$LexPrimitiveArrayImplToJson(this);
   }
 }
 
 abstract class _LexPrimitiveArray implements LexPrimitiveArray {
-  const factory _LexPrimitiveArray(
-      {final String type,
-      final String? description,
-      @LexPrimitiveConverter() required final LexPrimitive items,
-      final int? minLength,
-      final int? maxLength}) = _$LexPrimitiveArrayImpl;
+  const factory _LexPrimitiveArray({
+    final String type,
+    final String? description,
+    @LexPrimitiveConverter() required final LexPrimitive items,
+    final int? minLength,
+    final int? maxLength,
+  }) = _$LexPrimitiveArrayImpl;
 
   factory _LexPrimitiveArray.fromJson(Map<String, dynamic> json) =
       _$LexPrimitiveArrayImpl.fromJson;

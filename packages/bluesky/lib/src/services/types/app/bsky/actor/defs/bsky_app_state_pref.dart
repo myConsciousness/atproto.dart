@@ -37,6 +37,7 @@ abstract class BskyAppStatePref with _$BskyAppStatePref {
     @BskyAppProgressGuideConverter() BskyAppProgressGuide? activeProgressGuide,
     List<String>? queuedNudges,
     @NuxConverter() List<Nux>? nuxs,
+
     Map<String, dynamic>? $unknown,
   }) = _BskyAppStatePref;
 
@@ -55,14 +56,12 @@ final class BskyAppStatePrefConverter
 
   @override
   BskyAppStatePref fromJson(Map<String, dynamic> json) {
-    return BskyAppStatePref.fromJson(translate(
-      json,
-      BskyAppStatePref.knownProps,
-    ));
+    return BskyAppStatePref.fromJson(
+      translate(json, BskyAppStatePref.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(BskyAppStatePref object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(BskyAppStatePref object) =>
+      untranslate(object.toJson());
 }

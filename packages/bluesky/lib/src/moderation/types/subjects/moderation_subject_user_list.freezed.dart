@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,415 +9,335 @@ part of 'moderation_subject_user_list.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$ModerationSubjectUserList {
-  InvalidType get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ListViewBasic data) listViewBasic,
-    required TResult Function(ListView data) listView,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ListViewBasic data)? listViewBasic,
-    TResult? Function(ListView data)? listView,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ListViewBasic data)? listViewBasic,
-    TResult Function(ListView data)? listView,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationSubjectUserListListViewBasic value)
-        listViewBasic,
-    required TResult Function(UModerationSubjectUserListListView value)
-        listView,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationSubjectUserListListViewBasic value)?
-        listViewBasic,
-    TResult? Function(UModerationSubjectUserListListView value)? listView,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationSubjectUserListListViewBasic value)?
-        listViewBasic,
-    TResult Function(UModerationSubjectUserListListView value)? listView,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
-  /// Create a copy of ModerationSubjectUserList
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ModerationSubjectUserListCopyWith<ModerationSubjectUserList> get copyWith =>
-      throw _privateConstructorUsedError;
+ InvalidType get data;
+/// Create a copy of ModerationSubjectUserList
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ModerationSubjectUserListCopyWith<ModerationSubjectUserList> get copyWith => _$ModerationSubjectUserListCopyWithImpl<ModerationSubjectUserList>(this as ModerationSubjectUserList, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationSubjectUserList&&const DeepCollectionEquality().equals(other.data, data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'ModerationSubjectUserList(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ModerationSubjectUserListCopyWith<$Res> {
-  factory $ModerationSubjectUserListCopyWith(ModerationSubjectUserList value,
-          $Res Function(ModerationSubjectUserList) then) =
-      _$ModerationSubjectUserListCopyWithImpl<$Res, ModerationSubjectUserList>;
-  @useResult
-  $Res call({InvalidType data});
-}
+abstract mixin class $ModerationSubjectUserListCopyWith<$Res>  {
+  factory $ModerationSubjectUserListCopyWith(ModerationSubjectUserList value, $Res Function(ModerationSubjectUserList) _then) = _$ModerationSubjectUserListCopyWithImpl;
+@useResult
+$Res call({
+ InvalidType data
+});
 
+
+
+
+}
 /// @nodoc
-class _$ModerationSubjectUserListCopyWithImpl<$Res,
-        $Val extends ModerationSubjectUserList>
+class _$ModerationSubjectUserListCopyWithImpl<$Res>
     implements $ModerationSubjectUserListCopyWith<$Res> {
-  _$ModerationSubjectUserListCopyWithImpl(this._value, this._then);
+  _$ModerationSubjectUserListCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ModerationSubjectUserList _self;
+  final $Res Function(ModerationSubjectUserList) _then;
 
-  /// Create a copy of ModerationSubjectUserList
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = freezed,
-  }) {
-    return _then(_value.copyWith(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as InvalidType,
-    ) as $Val);
-  }
+/// Create a copy of ModerationSubjectUserList
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? data = freezed,}) {
+  return _then(_self.copyWith(
+data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as InvalidType,
+  ));
 }
 
-/// @nodoc
-abstract class _$$UModerationSubjectUserListListViewBasicImplCopyWith<$Res>
-    implements $ModerationSubjectUserListCopyWith<$Res> {
-  factory _$$UModerationSubjectUserListListViewBasicImplCopyWith(
-          _$UModerationSubjectUserListListViewBasicImpl value,
-          $Res Function(_$UModerationSubjectUserListListViewBasicImpl) then) =
-      __$$UModerationSubjectUserListListViewBasicImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({ListViewBasic data});
 }
 
-/// @nodoc
-class __$$UModerationSubjectUserListListViewBasicImplCopyWithImpl<$Res>
-    extends _$ModerationSubjectUserListCopyWithImpl<$Res,
-        _$UModerationSubjectUserListListViewBasicImpl>
-    implements _$$UModerationSubjectUserListListViewBasicImplCopyWith<$Res> {
-  __$$UModerationSubjectUserListListViewBasicImplCopyWithImpl(
-      _$UModerationSubjectUserListListViewBasicImpl _value,
-      $Res Function(_$UModerationSubjectUserListListViewBasicImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of ModerationSubjectUserList
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = freezed,
-  }) {
-    return _then(_$UModerationSubjectUserListListViewBasicImpl(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ListViewBasic,
-    ));
-  }
+/// Adds pattern-matching-related methods to [ModerationSubjectUserList].
+extension ModerationSubjectUserListPatterns on ModerationSubjectUserList {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UModerationSubjectUserListListViewBasic value)?  listViewBasic,TResult Function( UModerationSubjectUserListListView value)?  listView,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case UModerationSubjectUserListListViewBasic() when listViewBasic != null:
+return listViewBasic(_that);case UModerationSubjectUserListListView() when listView != null:
+return listView(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UModerationSubjectUserListListViewBasic value)  listViewBasic,required TResult Function( UModerationSubjectUserListListView value)  listView,}){
+final _that = this;
+switch (_that) {
+case UModerationSubjectUserListListViewBasic():
+return listViewBasic(_that);case UModerationSubjectUserListListView():
+return listView(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UModerationSubjectUserListListViewBasic value)?  listViewBasic,TResult? Function( UModerationSubjectUserListListView value)?  listView,}){
+final _that = this;
+switch (_that) {
+case UModerationSubjectUserListListViewBasic() when listViewBasic != null:
+return listViewBasic(_that);case UModerationSubjectUserListListView() when listView != null:
+return listView(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( ListViewBasic data)?  listViewBasic,TResult Function( ListView data)?  listView,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case UModerationSubjectUserListListViewBasic() when listViewBasic != null:
+return listViewBasic(_that.data);case UModerationSubjectUserListListView() when listView != null:
+return listView(_that.data);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( ListViewBasic data)  listViewBasic,required TResult Function( ListView data)  listView,}) {final _that = this;
+switch (_that) {
+case UModerationSubjectUserListListViewBasic():
+return listViewBasic(_that.data);case UModerationSubjectUserListListView():
+return listView(_that.data);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( ListViewBasic data)?  listViewBasic,TResult? Function( ListView data)?  listView,}) {final _that = this;
+switch (_that) {
+case UModerationSubjectUserListListViewBasic() when listViewBasic != null:
+return listViewBasic(_that.data);case UModerationSubjectUserListListView() when listView != null:
+return listView(_that.data);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-
-class _$UModerationSubjectUserListListViewBasicImpl
-    implements UModerationSubjectUserListListViewBasic {
-  const _$UModerationSubjectUserListListViewBasicImpl({required this.data});
-
-  @override
-  final ListViewBasic data;
-
-  @override
-  String toString() {
-    return 'ModerationSubjectUserList.listViewBasic(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationSubjectUserListListViewBasicImpl &&
-            const DeepCollectionEquality().equals(other.data, data));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
-
-  /// Create a copy of ModerationSubjectUserList
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationSubjectUserListListViewBasicImplCopyWith<
-          _$UModerationSubjectUserListListViewBasicImpl>
-      get copyWith =>
-          __$$UModerationSubjectUserListListViewBasicImplCopyWithImpl<
-              _$UModerationSubjectUserListListViewBasicImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ListViewBasic data) listViewBasic,
-    required TResult Function(ListView data) listView,
-  }) {
-    return listViewBasic(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ListViewBasic data)? listViewBasic,
-    TResult? Function(ListView data)? listView,
-  }) {
-    return listViewBasic?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ListViewBasic data)? listViewBasic,
-    TResult Function(ListView data)? listView,
-    required TResult orElse(),
-  }) {
-    if (listViewBasic != null) {
-      return listViewBasic(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationSubjectUserListListViewBasic value)
-        listViewBasic,
-    required TResult Function(UModerationSubjectUserListListView value)
-        listView,
-  }) {
-    return listViewBasic(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationSubjectUserListListViewBasic value)?
-        listViewBasic,
-    TResult? Function(UModerationSubjectUserListListView value)? listView,
-  }) {
-    return listViewBasic?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationSubjectUserListListViewBasic value)?
-        listViewBasic,
-    TResult Function(UModerationSubjectUserListListView value)? listView,
-    required TResult orElse(),
-  }) {
-    if (listViewBasic != null) {
-      return listViewBasic(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UModerationSubjectUserListListViewBasic
-    implements ModerationSubjectUserList {
-  const factory UModerationSubjectUserListListViewBasic(
-          {required final ListViewBasic data}) =
-      _$UModerationSubjectUserListListViewBasicImpl;
-
-  @override
-  ListViewBasic get data;
-
-  /// Create a copy of ModerationSubjectUserList
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationSubjectUserListListViewBasicImplCopyWith<
-          _$UModerationSubjectUserListListViewBasicImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UModerationSubjectUserListListViewImplCopyWith<$Res>
-    implements $ModerationSubjectUserListCopyWith<$Res> {
-  factory _$$UModerationSubjectUserListListViewImplCopyWith(
-          _$UModerationSubjectUserListListViewImpl value,
-          $Res Function(_$UModerationSubjectUserListListViewImpl) then) =
-      __$$UModerationSubjectUserListListViewImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({ListView data});
-}
-
-/// @nodoc
-class __$$UModerationSubjectUserListListViewImplCopyWithImpl<$Res>
-    extends _$ModerationSubjectUserListCopyWithImpl<$Res,
-        _$UModerationSubjectUserListListViewImpl>
-    implements _$$UModerationSubjectUserListListViewImplCopyWith<$Res> {
-  __$$UModerationSubjectUserListListViewImplCopyWithImpl(
-      _$UModerationSubjectUserListListViewImpl _value,
-      $Res Function(_$UModerationSubjectUserListListViewImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ModerationSubjectUserList
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = freezed,
-  }) {
-    return _then(_$UModerationSubjectUserListListViewImpl(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ListView,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$UModerationSubjectUserListListViewImpl
-    implements UModerationSubjectUserListListView {
-  const _$UModerationSubjectUserListListViewImpl({required this.data});
 
-  @override
-  final ListView data;
+class UModerationSubjectUserListListViewBasic implements ModerationSubjectUserList {
+  const UModerationSubjectUserListListViewBasic({required this.data});
+  
 
-  @override
-  String toString() {
-    return 'ModerationSubjectUserList.listView(data: $data)';
-  }
+@override final  ListViewBasic data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationSubjectUserListListViewImpl &&
-            const DeepCollectionEquality().equals(other.data, data));
-  }
+/// Create a copy of ModerationSubjectUserList
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationSubjectUserListListViewBasicCopyWith<UModerationSubjectUserListListViewBasic> get copyWith => _$UModerationSubjectUserListListViewBasicCopyWithImpl<UModerationSubjectUserListListViewBasic>(this, _$identity);
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
-  /// Create a copy of ModerationSubjectUserList
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationSubjectUserListListViewImplCopyWith<
-          _$UModerationSubjectUserListListViewImpl>
-      get copyWith => __$$UModerationSubjectUserListListViewImplCopyWithImpl<
-          _$UModerationSubjectUserListListViewImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ListViewBasic data) listViewBasic,
-    required TResult Function(ListView data) listView,
-  }) {
-    return listView(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ListViewBasic data)? listViewBasic,
-    TResult? Function(ListView data)? listView,
-  }) {
-    return listView?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ListViewBasic data)? listViewBasic,
-    TResult Function(ListView data)? listView,
-    required TResult orElse(),
-  }) {
-    if (listView != null) {
-      return listView(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationSubjectUserListListViewBasic value)
-        listViewBasic,
-    required TResult Function(UModerationSubjectUserListListView value)
-        listView,
-  }) {
-    return listView(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationSubjectUserListListViewBasic value)?
-        listViewBasic,
-    TResult? Function(UModerationSubjectUserListListView value)? listView,
-  }) {
-    return listView?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationSubjectUserListListViewBasic value)?
-        listViewBasic,
-    TResult Function(UModerationSubjectUserListListView value)? listView,
-    required TResult orElse(),
-  }) {
-    if (listView != null) {
-      return listView(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectUserListListViewBasic&&const DeepCollectionEquality().equals(other.data, data));
 }
 
-abstract class UModerationSubjectUserListListView
-    implements ModerationSubjectUserList {
-  const factory UModerationSubjectUserListListView(
-          {required final ListView data}) =
-      _$UModerationSubjectUserListListViewImpl;
 
-  @override
-  ListView get data;
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
 
-  /// Create a copy of ModerationSubjectUserList
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationSubjectUserListListViewImplCopyWith<
-          _$UModerationSubjectUserListListViewImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'ModerationSubjectUserList.listViewBasic(data: $data)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class $UModerationSubjectUserListListViewBasicCopyWith<$Res> implements $ModerationSubjectUserListCopyWith<$Res> {
+  factory $UModerationSubjectUserListListViewBasicCopyWith(UModerationSubjectUserListListViewBasic value, $Res Function(UModerationSubjectUserListListViewBasic) _then) = _$UModerationSubjectUserListListViewBasicCopyWithImpl;
+@override @useResult
+$Res call({
+ ListViewBasic data
+});
+
+
+
+
+}
+/// @nodoc
+class _$UModerationSubjectUserListListViewBasicCopyWithImpl<$Res>
+    implements $UModerationSubjectUserListListViewBasicCopyWith<$Res> {
+  _$UModerationSubjectUserListListViewBasicCopyWithImpl(this._self, this._then);
+
+  final UModerationSubjectUserListListViewBasic _self;
+  final $Res Function(UModerationSubjectUserListListViewBasic) _then;
+
+/// Create a copy of ModerationSubjectUserList
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,}) {
+  return _then(UModerationSubjectUserListListViewBasic(
+data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ListViewBasic,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class UModerationSubjectUserListListView implements ModerationSubjectUserList {
+  const UModerationSubjectUserListListView({required this.data});
+  
+
+@override final  ListView data;
+
+/// Create a copy of ModerationSubjectUserList
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationSubjectUserListListViewCopyWith<UModerationSubjectUserListListView> get copyWith => _$UModerationSubjectUserListListViewCopyWithImpl<UModerationSubjectUserListListView>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectUserListListView&&const DeepCollectionEquality().equals(other.data, data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'ModerationSubjectUserList.listView(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UModerationSubjectUserListListViewCopyWith<$Res> implements $ModerationSubjectUserListCopyWith<$Res> {
+  factory $UModerationSubjectUserListListViewCopyWith(UModerationSubjectUserListListView value, $Res Function(UModerationSubjectUserListListView) _then) = _$UModerationSubjectUserListListViewCopyWithImpl;
+@override @useResult
+$Res call({
+ ListView data
+});
+
+
+
+
+}
+/// @nodoc
+class _$UModerationSubjectUserListListViewCopyWithImpl<$Res>
+    implements $UModerationSubjectUserListListViewCopyWith<$Res> {
+  _$UModerationSubjectUserListListViewCopyWithImpl(this._self, this._then);
+
+  final UModerationSubjectUserListListView _self;
+  final $Res Function(UModerationSubjectUserListListView) _then;
+
+/// Create a copy of ModerationSubjectUserList
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,}) {
+  return _then(UModerationSubjectUserListListView(
+data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ListView,
+  ));
+}
+
+
+}
+
+// dart format on

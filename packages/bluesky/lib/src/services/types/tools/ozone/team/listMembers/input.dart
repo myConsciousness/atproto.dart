@@ -34,6 +34,7 @@ abstract class TeamListMembersInput with _$TeamListMembersInput {
     List<String>? roles,
     int? limit,
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _TeamListMembersInput;
 
@@ -47,14 +48,12 @@ final class TeamListMembersInputConverter
 
   @override
   TeamListMembersInput fromJson(Map<String, dynamic> json) {
-    return TeamListMembersInput.fromJson(translate(
-      json,
-      TeamListMembersInput.knownProps,
-    ));
+    return TeamListMembersInput.fromJson(
+      translate(json, TeamListMembersInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(TeamListMembersInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(TeamListMembersInput object) =>
+      untranslate(object.toJson());
 }

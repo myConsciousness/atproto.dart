@@ -40,6 +40,7 @@ abstract class VerificationState with _$VerificationState {
 
     /// The user's status as a trusted verifier.
     required String trustedVerifierStatus,
+
     Map<String, dynamic>? $unknown,
   }) = _VerificationState;
 
@@ -58,14 +59,12 @@ final class VerificationStateConverter
 
   @override
   VerificationState fromJson(Map<String, dynamic> json) {
-    return VerificationState.fromJson(translate(
-      json,
-      VerificationState.knownProps,
-    ));
+    return VerificationState.fromJson(
+      translate(json, VerificationState.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(VerificationState object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(VerificationState object) =>
+      untranslate(object.toJson());
 }

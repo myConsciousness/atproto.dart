@@ -20,17 +20,14 @@ part 'input.g.dart';
 
 @freezed
 abstract class ActorSearchActorsInput with _$ActorSearchActorsInput {
-  static const knownProps = <String>[
-    'q',
-    'limit',
-    'cursor',
-  ];
+  static const knownProps = <String>['q', 'limit', 'cursor'];
 
   const factory ActorSearchActorsInput({
     /// Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
     String? q,
     int? limit,
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _ActorSearchActorsInput;
 
@@ -44,14 +41,12 @@ final class ActorSearchActorsInputConverter
 
   @override
   ActorSearchActorsInput fromJson(Map<String, dynamic> json) {
-    return ActorSearchActorsInput.fromJson(translate(
-      json,
-      ActorSearchActorsInput.knownProps,
-    ));
+    return ActorSearchActorsInput.fromJson(
+      translate(json, ActorSearchActorsInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ActorSearchActorsInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ActorSearchActorsInput object) =>
+      untranslate(object.toJson());
 }

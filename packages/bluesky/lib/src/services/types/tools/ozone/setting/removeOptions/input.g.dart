@@ -8,30 +8,26 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SettingRemoveOptionsInputImpl _$$SettingRemoveOptionsInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$SettingRemoveOptionsInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SettingRemoveOptionsInputImpl(
-          keys: $checkedConvert('keys',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-          scope: $checkedConvert('scope', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_SettingRemoveOptionsInput _$SettingRemoveOptionsInputFromJson(Map json) =>
+    $checkedCreate('_SettingRemoveOptionsInput', json, ($checkedConvert) {
+      final val = _SettingRemoveOptionsInput(
+        keys: $checkedConvert(
+          'keys',
+          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+        ),
+        scope: $checkedConvert('scope', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$SettingRemoveOptionsInputImplToJson(
-        _$SettingRemoveOptionsInputImpl instance) =>
-    <String, dynamic>{
-      'keys': instance.keys,
-      'scope': instance.scope,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$SettingRemoveOptionsInputToJson(
+  _SettingRemoveOptionsInput instance,
+) => <String, dynamic>{
+  'keys': instance.keys,
+  'scope': instance.scope,
+  r'$unknown': instance.$unknown,
+};

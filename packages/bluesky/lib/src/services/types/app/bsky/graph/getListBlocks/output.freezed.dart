@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,228 +9,289 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GraphGetListBlocksOutput _$GraphGetListBlocksOutputFromJson(
-    Map<String, dynamic> json) {
-  return _GraphGetListBlocksOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GraphGetListBlocksOutput {
-  String? get cursor => throw _privateConstructorUsedError;
-  @ListViewConverter()
-  List<ListView> get lists => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+ String? get cursor;@ListViewConverter() List<ListView> get lists; Map<String, dynamic>? get $unknown;
+/// Create a copy of GraphGetListBlocksOutput
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$GraphGetListBlocksOutputCopyWith<GraphGetListBlocksOutput> get copyWith => _$GraphGetListBlocksOutputCopyWithImpl<GraphGetListBlocksOutput>(this as GraphGetListBlocksOutput, _$identity);
 
   /// Serializes this GraphGetListBlocksOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of GraphGetListBlocksOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $GraphGetListBlocksOutputCopyWith<GraphGetListBlocksOutput> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GraphGetListBlocksOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.lists, lists)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(lists),const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'GraphGetListBlocksOutput(cursor: $cursor, lists: $lists, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $GraphGetListBlocksOutputCopyWith<$Res> {
-  factory $GraphGetListBlocksOutputCopyWith(GraphGetListBlocksOutput value,
-          $Res Function(GraphGetListBlocksOutput) then) =
-      _$GraphGetListBlocksOutputCopyWithImpl<$Res, GraphGetListBlocksOutput>;
-  @useResult
-  $Res call(
-      {String? cursor,
-      @ListViewConverter() List<ListView> lists,
-      Map<String, dynamic>? $unknown});
-}
+abstract mixin class $GraphGetListBlocksOutputCopyWith<$Res>  {
+  factory $GraphGetListBlocksOutputCopyWith(GraphGetListBlocksOutput value, $Res Function(GraphGetListBlocksOutput) _then) = _$GraphGetListBlocksOutputCopyWithImpl;
+@useResult
+$Res call({
+ String? cursor,@ListViewConverter() List<ListView> lists, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$GraphGetListBlocksOutputCopyWithImpl<$Res,
-        $Val extends GraphGetListBlocksOutput>
+class _$GraphGetListBlocksOutputCopyWithImpl<$Res>
     implements $GraphGetListBlocksOutputCopyWith<$Res> {
-  _$GraphGetListBlocksOutputCopyWithImpl(this._value, this._then);
+  _$GraphGetListBlocksOutputCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final GraphGetListBlocksOutput _self;
+  final $Res Function(GraphGetListBlocksOutput) _then;
 
-  /// Create a copy of GraphGetListBlocksOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cursor = freezed,
-    Object? lists = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lists: null == lists
-          ? _value.lists
-          : lists // ignore: cast_nullable_to_non_nullable
-              as List<ListView>,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of GraphGetListBlocksOutput
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? lists = null,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String?,lists: null == lists ? _self.lists : lists // ignore: cast_nullable_to_non_nullable
+as List<ListView>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$GraphGetListBlocksOutputImplCopyWith<$Res>
-    implements $GraphGetListBlocksOutputCopyWith<$Res> {
-  factory _$$GraphGetListBlocksOutputImplCopyWith(
-          _$GraphGetListBlocksOutputImpl value,
-          $Res Function(_$GraphGetListBlocksOutputImpl) then) =
-      __$$GraphGetListBlocksOutputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String? cursor,
-      @ListViewConverter() List<ListView> lists,
-      Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$GraphGetListBlocksOutputImplCopyWithImpl<$Res>
-    extends _$GraphGetListBlocksOutputCopyWithImpl<$Res,
-        _$GraphGetListBlocksOutputImpl>
-    implements _$$GraphGetListBlocksOutputImplCopyWith<$Res> {
-  __$$GraphGetListBlocksOutputImplCopyWithImpl(
-      _$GraphGetListBlocksOutputImpl _value,
-      $Res Function(_$GraphGetListBlocksOutputImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of GraphGetListBlocksOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cursor = freezed,
-    Object? lists = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$GraphGetListBlocksOutputImpl(
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lists: null == lists
-          ? _value._lists
-          : lists // ignore: cast_nullable_to_non_nullable
-              as List<ListView>,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [GraphGetListBlocksOutput].
+extension GraphGetListBlocksOutputPatterns on GraphGetListBlocksOutput {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _GraphGetListBlocksOutput value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _GraphGetListBlocksOutput() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _GraphGetListBlocksOutput value)  $default,){
+final _that = this;
+switch (_that) {
+case _GraphGetListBlocksOutput():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _GraphGetListBlocksOutput value)?  $default,){
+final _that = this;
+switch (_that) {
+case _GraphGetListBlocksOutput() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor, @ListViewConverter()  List<ListView> lists,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _GraphGetListBlocksOutput() when $default != null:
+return $default(_that.cursor,_that.lists,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor, @ListViewConverter()  List<ListView> lists,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _GraphGetListBlocksOutput():
+return $default(_that.cursor,_that.lists,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor, @ListViewConverter()  List<ListView> lists,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _GraphGetListBlocksOutput() when $default != null:
+return $default(_that.cursor,_that.lists,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$GraphGetListBlocksOutputImpl implements _GraphGetListBlocksOutput {
-  const _$GraphGetListBlocksOutputImpl(
-      {this.cursor,
-      @ListViewConverter() required final List<ListView> lists,
-      final Map<String, dynamic>? $unknown})
-      : _lists = lists,
-        _$unknown = $unknown;
 
-  factory _$GraphGetListBlocksOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GraphGetListBlocksOutputImplFromJson(json);
+class _GraphGetListBlocksOutput implements GraphGetListBlocksOutput {
+  const _GraphGetListBlocksOutput({this.cursor, @ListViewConverter() required final  List<ListView> lists, final  Map<String, dynamic>? $unknown}): _lists = lists,_$unknown = $unknown;
+  factory _GraphGetListBlocksOutput.fromJson(Map<String, dynamic> json) => _$GraphGetListBlocksOutputFromJson(json);
 
-  @override
-  final String? cursor;
-  final List<ListView> _lists;
-  @override
-  @ListViewConverter()
-  List<ListView> get lists {
-    if (_lists is EqualUnmodifiableListView) return _lists;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_lists);
-  }
-
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'GraphGetListBlocksOutput(cursor: $cursor, lists: $lists, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GraphGetListBlocksOutputImpl &&
-            (identical(other.cursor, cursor) || other.cursor == cursor) &&
-            const DeepCollectionEquality().equals(other._lists, _lists) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      cursor,
-      const DeepCollectionEquality().hash(_lists),
-      const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of GraphGetListBlocksOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GraphGetListBlocksOutputImplCopyWith<_$GraphGetListBlocksOutputImpl>
-      get copyWith => __$$GraphGetListBlocksOutputImplCopyWithImpl<
-          _$GraphGetListBlocksOutputImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GraphGetListBlocksOutputImplToJson(
-      this,
-    );
-  }
+@override final  String? cursor;
+ final  List<ListView> _lists;
+@override@ListViewConverter() List<ListView> get lists {
+  if (_lists is EqualUnmodifiableListView) return _lists;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_lists);
 }
 
-abstract class _GraphGetListBlocksOutput implements GraphGetListBlocksOutput {
-  const factory _GraphGetListBlocksOutput(
-      {final String? cursor,
-      @ListViewConverter() required final List<ListView> lists,
-      final Map<String, dynamic>? $unknown}) = _$GraphGetListBlocksOutputImpl;
-
-  factory _GraphGetListBlocksOutput.fromJson(Map<String, dynamic> json) =
-      _$GraphGetListBlocksOutputImpl.fromJson;
-
-  @override
-  String? get cursor;
-  @override
-  @ListViewConverter()
-  List<ListView> get lists;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of GraphGetListBlocksOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GraphGetListBlocksOutputImplCopyWith<_$GraphGetListBlocksOutputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
+
+
+/// Create a copy of GraphGetListBlocksOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$GraphGetListBlocksOutputCopyWith<_GraphGetListBlocksOutput> get copyWith => __$GraphGetListBlocksOutputCopyWithImpl<_GraphGetListBlocksOutput>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$GraphGetListBlocksOutputToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GraphGetListBlocksOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._lists, _lists)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(_lists),const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'GraphGetListBlocksOutput(cursor: $cursor, lists: $lists, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$GraphGetListBlocksOutputCopyWith<$Res> implements $GraphGetListBlocksOutputCopyWith<$Res> {
+  factory _$GraphGetListBlocksOutputCopyWith(_GraphGetListBlocksOutput value, $Res Function(_GraphGetListBlocksOutput) _then) = __$GraphGetListBlocksOutputCopyWithImpl;
+@override @useResult
+$Res call({
+ String? cursor,@ListViewConverter() List<ListView> lists, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$GraphGetListBlocksOutputCopyWithImpl<$Res>
+    implements _$GraphGetListBlocksOutputCopyWith<$Res> {
+  __$GraphGetListBlocksOutputCopyWithImpl(this._self, this._then);
+
+  final _GraphGetListBlocksOutput _self;
+  final $Res Function(_GraphGetListBlocksOutput) _then;
+
+/// Create a copy of GraphGetListBlocksOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? lists = null,Object? $unknown = freezed,}) {
+  return _then(_GraphGetListBlocksOutput(
+cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String?,lists: null == lists ? _self._lists : lists // ignore: cast_nullable_to_non_nullable
+as List<ListView>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

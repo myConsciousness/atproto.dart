@@ -94,6 +94,7 @@ abstract class SubjectStatusView with _$SubjectStatusView {
 
     /// Statistics related to the record subjects authored by the subject's account
     @RecordsStatsConverter() RecordsStats? recordsStats,
+
     Map<String, dynamic>? $unknown,
   }) = _SubjectStatusView;
 
@@ -112,14 +113,12 @@ final class SubjectStatusViewConverter
 
   @override
   SubjectStatusView fromJson(Map<String, dynamic> json) {
-    return SubjectStatusView.fromJson(translate(
-      json,
-      SubjectStatusView.knownProps,
-    ));
+    return SubjectStatusView.fromJson(
+      translate(json, SubjectStatusView.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SubjectStatusView object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SubjectStatusView object) =>
+      untranslate(object.toJson());
 }

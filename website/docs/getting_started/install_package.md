@@ -41,14 +41,14 @@ description: A sample application.
 version: 1.0.0
 
 environment:
-  sdk: ^3.3.0
+  sdk: ^3.8.0
 
 dependencies:
   bluesky: ^0.18.6
 
 dev_dependencies:
   lints: ^2.0.0
-  test: ^1.21.0
+  test: ^1.26.2
 ```
 
 You can now use the **[bluesky](https://pub.dev/packages/bluesky)** package in your **[Dart](https://dart.dev)** or **[Flutter](https://flutter.dev)** app.

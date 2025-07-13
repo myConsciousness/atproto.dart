@@ -45,16 +45,12 @@ abstract class ReasonTypeConverter
 
   @override
   ReasonType fromJson(Map<String, dynamic> json) {
-    return ReasonType.fromJson(translate(
-      json,
-      ReasonType.knownProps,
-    ));
+    return ReasonType.fromJson(translate(json, ReasonType.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ReasonType object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ReasonType object) =>
+      untranslate(object.toJson());
 }
 
 enum KnownReasonType implements Serializable {
@@ -71,8 +67,7 @@ enum KnownReasonType implements Serializable {
   @JsonValue('com.atproto.moderation.defs#reasonOther')
   reasonOther('com.atproto.moderation.defs#reasonOther'),
   @JsonValue('com.atproto.moderation.defs#reasonAppeal')
-  reasonAppeal('com.atproto.moderation.defs#reasonAppeal'),
-  ;
+  reasonAppeal('com.atproto.moderation.defs#reasonAppeal');
 
   @override
   final String value;

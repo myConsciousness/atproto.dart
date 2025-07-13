@@ -20,14 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class GraphGetListBlocksInput with _$GraphGetListBlocksInput {
-  static const knownProps = <String>[
-    'limit',
-    'cursor',
-  ];
+  static const knownProps = <String>['limit', 'cursor'];
 
   const factory GraphGetListBlocksInput({
     int? limit,
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphGetListBlocksInput;
 
@@ -41,14 +39,12 @@ final class GraphGetListBlocksInputConverter
 
   @override
   GraphGetListBlocksInput fromJson(Map<String, dynamic> json) {
-    return GraphGetListBlocksInput.fromJson(translate(
-      json,
-      GraphGetListBlocksInput.knownProps,
-    ));
+    return GraphGetListBlocksInput.fromJson(
+      translate(json, GraphGetListBlocksInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphGetListBlocksInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(GraphGetListBlocksInput object) =>
+      untranslate(object.toJson());
 }

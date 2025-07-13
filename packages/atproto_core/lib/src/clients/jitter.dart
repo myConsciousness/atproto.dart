@@ -1,9 +1,6 @@
 final class Jitter {
   /// Returns the new instance of [Jitter].
-  Jitter({
-    this.minInSeconds = 0,
-    required this.maxInSeconds,
-  }) {
+  Jitter({this.minInSeconds = 0, required this.maxInSeconds}) {
     if (minInSeconds < 0) {
       throw ArgumentError.value(
         minInSeconds,
@@ -21,9 +18,7 @@ final class Jitter {
     }
 
     if (maxInSeconds < minInSeconds) {
-      throw ArgumentError(
-        'minInSeconds must not be greater than maxInSeconds',
-      );
+      throw ArgumentError('minInSeconds must not be greater than maxInSeconds');
     }
   }
 

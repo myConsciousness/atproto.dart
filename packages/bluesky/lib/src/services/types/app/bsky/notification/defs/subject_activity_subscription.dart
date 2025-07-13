@@ -25,16 +25,14 @@ part 'subject_activity_subscription.g.dart';
 /// Object used to store activity subscription data in stash.
 @freezed
 abstract class SubjectActivitySubscription with _$SubjectActivitySubscription {
-  static const knownProps = <String>[
-    'subject',
-    'activitySubscription',
-  ];
+  static const knownProps = <String>['subject', 'activitySubscription'];
 
   const factory SubjectActivitySubscription({
     @Default(appBskyNotificationDefsSubjectActivitySubscription) String $type,
     required String subject,
     @ActivitySubscriptionConverter()
     required ActivitySubscription activitySubscription,
+
     Map<String, dynamic>? $unknown,
   }) = _SubjectActivitySubscription;
 
@@ -48,21 +46,19 @@ abstract class SubjectActivitySubscription with _$SubjectActivitySubscription {
   }
 }
 
-final class SubjectActivitySubscriptionConverter extends LexObjectConverter<
-    SubjectActivitySubscription, Map<String, dynamic>> {
+final class SubjectActivitySubscriptionConverter
+    extends
+        LexObjectConverter<SubjectActivitySubscription, Map<String, dynamic>> {
   const SubjectActivitySubscriptionConverter();
 
   @override
   SubjectActivitySubscription fromJson(Map<String, dynamic> json) {
-    return SubjectActivitySubscription.fromJson(translate(
-      json,
-      SubjectActivitySubscription.knownProps,
-    ));
+    return SubjectActivitySubscription.fromJson(
+      translate(json, SubjectActivitySubscription.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(SubjectActivitySubscription object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

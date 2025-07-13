@@ -8,27 +8,19 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ServerCreateInviteCodeOutputImpl _$$ServerCreateInviteCodeOutputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$ServerCreateInviteCodeOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ServerCreateInviteCodeOutputImpl(
-          code: $checkedConvert('code', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ServerCreateInviteCodeOutput _$ServerCreateInviteCodeOutputFromJson(
+  Map json,
+) => $checkedCreate('_ServerCreateInviteCodeOutput', json, ($checkedConvert) {
+  final val = _ServerCreateInviteCodeOutput(
+    code: $checkedConvert('code', (v) => v as String),
+    $unknown: $checkedConvert(
+      r'$unknown',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
+  );
+  return val;
+});
 
-Map<String, dynamic> _$$ServerCreateInviteCodeOutputImplToJson(
-        _$ServerCreateInviteCodeOutputImpl instance) =>
-    <String, dynamic>{
-      'code': instance.code,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ServerCreateInviteCodeOutputToJson(
+  _ServerCreateInviteCodeOutput instance,
+) => <String, dynamic>{'code': instance.code, r'$unknown': instance.$unknown};

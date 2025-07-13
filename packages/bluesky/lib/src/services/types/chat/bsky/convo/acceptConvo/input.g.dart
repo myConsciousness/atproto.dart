@@ -8,26 +8,21 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConvoAcceptConvoInputImpl _$$ConvoAcceptConvoInputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ConvoAcceptConvoInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ConvoAcceptConvoInputImpl(
-          convoId: $checkedConvert('convoId', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ConvoAcceptConvoInput _$ConvoAcceptConvoInputFromJson(Map json) =>
+    $checkedCreate('_ConvoAcceptConvoInput', json, ($checkedConvert) {
+      final val = _ConvoAcceptConvoInput(
+        convoId: $checkedConvert('convoId', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ConvoAcceptConvoInputImplToJson(
-        _$ConvoAcceptConvoInputImpl instance) =>
-    <String, dynamic>{
-      'convoId': instance.convoId,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ConvoAcceptConvoInputToJson(
+  _ConvoAcceptConvoInput instance,
+) => <String, dynamic>{
+  'convoId': instance.convoId,
+  r'$unknown': instance.$unknown,
+};

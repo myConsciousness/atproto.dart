@@ -13,17 +13,11 @@ void main() {
   group('.isReposted', () {
     test('when reposted', () {
       final post = Post(
-        record: PostRecord(
-          text: 'test',
-          createdAt: DateTime.now(),
-        ),
+        record: PostRecord(text: 'test', createdAt: DateTime.now()),
         author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: false,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: false, isBlockedBy: false),
         ),
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
@@ -45,17 +39,11 @@ void main() {
 
     test('when not reposted', () {
       final post = Post(
-        record: PostRecord(
-          text: 'test',
-          createdAt: DateTime.now(),
-        ),
+        record: PostRecord(text: 'test', createdAt: DateTime.now()),
         author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: false,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: false, isBlockedBy: false),
         ),
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
@@ -75,17 +63,11 @@ void main() {
   group('.isNotReposted', () {
     test('when reposted', () {
       final post = Post(
-        record: PostRecord(
-          text: 'test',
-          createdAt: DateTime.now(),
-        ),
+        record: PostRecord(text: 'test', createdAt: DateTime.now()),
         author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: false,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: false, isBlockedBy: false),
         ),
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
@@ -107,17 +89,11 @@ void main() {
 
     test('when not reposted', () {
       final post = Post(
-        record: PostRecord(
-          text: 'test',
-          createdAt: DateTime.now(),
-        ),
+        record: PostRecord(text: 'test', createdAt: DateTime.now()),
         author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: false,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: false, isBlockedBy: false),
         ),
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
@@ -137,17 +113,11 @@ void main() {
   group('.isLiked', () {
     test('when liked', () {
       final post = Post(
-        record: PostRecord(
-          text: 'test',
-          createdAt: DateTime.now(),
-        ),
+        record: PostRecord(text: 'test', createdAt: DateTime.now()),
         author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: false,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: false, isBlockedBy: false),
         ),
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
@@ -169,17 +139,11 @@ void main() {
 
     test('when not liked', () {
       final post = Post(
-        record: PostRecord(
-          text: 'test',
-          createdAt: DateTime.now(),
-        ),
+        record: PostRecord(text: 'test', createdAt: DateTime.now()),
         author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: false,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: false, isBlockedBy: false),
         ),
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
@@ -199,17 +163,11 @@ void main() {
   group('.isNotLiked', () {
     test('when liked', () {
       final post = Post(
-        record: PostRecord(
-          text: 'test',
-          createdAt: DateTime.now(),
-        ),
+        record: PostRecord(text: 'test', createdAt: DateTime.now()),
         author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: false,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: false, isBlockedBy: false),
         ),
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
@@ -231,17 +189,11 @@ void main() {
 
     test('when not liked', () {
       final post = Post(
-        record: PostRecord(
-          text: 'test',
-          createdAt: DateTime.now(),
-        ),
+        record: PostRecord(text: 'test', createdAt: DateTime.now()),
         author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: false,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: false, isBlockedBy: false),
         ),
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
@@ -261,17 +213,11 @@ void main() {
   group('.isReplyDisabled', () {
     test('when disabled', () {
       final post = Post(
-        record: PostRecord(
-          text: 'test',
-          createdAt: DateTime.now(),
-        ),
+        record: PostRecord(text: 'test', createdAt: DateTime.now()),
         author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: false,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: false, isBlockedBy: false),
         ),
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
@@ -280,9 +226,7 @@ void main() {
         replyCount: 0,
         repostCount: 0,
         likeCount: 0,
-        viewer: PostViewer(
-          isReplyDisabled: true,
-        ),
+        viewer: PostViewer(isReplyDisabled: true),
         indexedAt: DateTime.now(),
       );
 
@@ -291,17 +235,11 @@ void main() {
 
     test('when not disabled', () {
       final post = Post(
-        record: PostRecord(
-          text: 'test',
-          createdAt: DateTime.now(),
-        ),
+        record: PostRecord(text: 'test', createdAt: DateTime.now()),
         author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: false,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: false, isBlockedBy: false),
         ),
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
@@ -321,17 +259,11 @@ void main() {
   group('.isNotReplyDisabled', () {
     test('when disabled', () {
       final post = Post(
-        record: PostRecord(
-          text: 'test',
-          createdAt: DateTime.now(),
-        ),
+        record: PostRecord(text: 'test', createdAt: DateTime.now()),
         author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: false,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: false, isBlockedBy: false),
         ),
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
@@ -340,9 +272,7 @@ void main() {
         replyCount: 0,
         repostCount: 0,
         likeCount: 0,
-        viewer: PostViewer(
-          isReplyDisabled: true,
-        ),
+        viewer: PostViewer(isReplyDisabled: true),
         indexedAt: DateTime.now(),
       );
 
@@ -351,17 +281,11 @@ void main() {
 
     test('when not disabled', () {
       final post = Post(
-        record: PostRecord(
-          text: 'test',
-          createdAt: DateTime.now(),
-        ),
+        record: PostRecord(text: 'test', createdAt: DateTime.now()),
         author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorViewer(
-            isMuted: false,
-            isBlockedBy: false,
-          ),
+          viewer: ActorViewer(isMuted: false, isBlockedBy: false),
         ),
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',

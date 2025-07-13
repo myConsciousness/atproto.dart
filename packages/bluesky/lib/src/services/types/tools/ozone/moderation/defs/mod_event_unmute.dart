@@ -24,15 +24,14 @@ part 'mod_event_unmute.g.dart';
 /// Unmute action on a subject
 @freezed
 abstract class ModEventUnmute with _$ModEventUnmute {
-  static const knownProps = <String>[
-    'comment',
-  ];
+  static const knownProps = <String>['comment'];
 
   const factory ModEventUnmute({
     @Default(toolsOzoneModerationDefsModEventUnmute) String $type,
 
     /// Describe reasoning behind the reversal.
     String? comment,
+
     Map<String, dynamic>? $unknown,
   }) = _ModEventUnmute;
 
@@ -51,14 +50,10 @@ final class ModEventUnmuteConverter
 
   @override
   ModEventUnmute fromJson(Map<String, dynamic> json) {
-    return ModEventUnmute.fromJson(translate(
-      json,
-      ModEventUnmute.knownProps,
-    ));
+    return ModEventUnmute.fromJson(translate(json, ModEventUnmute.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ModEventUnmute object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ModEventUnmute object) =>
+      untranslate(object.toJson());
 }

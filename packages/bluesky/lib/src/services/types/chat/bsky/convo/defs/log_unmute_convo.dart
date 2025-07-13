@@ -23,15 +23,13 @@ part 'log_unmute_convo.g.dart';
 
 @freezed
 abstract class LogUnmuteConvo with _$LogUnmuteConvo {
-  static const knownProps = <String>[
-    'rev',
-    'convoId',
-  ];
+  static const knownProps = <String>['rev', 'convoId'];
 
   const factory LogUnmuteConvo({
     @Default(chatBskyConvoDefsLogUnmuteConvo) String $type,
     required String rev,
     required String convoId,
+
     Map<String, dynamic>? $unknown,
   }) = _LogUnmuteConvo;
 
@@ -50,14 +48,10 @@ final class LogUnmuteConvoConverter
 
   @override
   LogUnmuteConvo fromJson(Map<String, dynamic> json) {
-    return LogUnmuteConvo.fromJson(translate(
-      json,
-      LogUnmuteConvo.knownProps,
-    ));
+    return LogUnmuteConvo.fromJson(translate(json, LogUnmuteConvo.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(LogUnmuteConvo object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(LogUnmuteConvo object) =>
+      untranslate(object.toJson());
 }

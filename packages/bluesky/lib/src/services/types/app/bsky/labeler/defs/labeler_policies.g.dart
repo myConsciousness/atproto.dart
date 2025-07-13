@@ -8,42 +8,47 @@ part of 'labeler_policies.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LabelerPoliciesImpl _$$LabelerPoliciesImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$LabelerPoliciesImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$LabelerPoliciesImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? appBskyLabelerDefsLabelerPolicies),
-          labelValues: $checkedConvert(
-              'labelValues',
-              (v) => (v as List<dynamic>)
-                  .map((e) => const LabelValueConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          labelValueDefinitions: $checkedConvert(
-              'labelValueDefinitions',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => const LabelValueDefinitionConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_LabelerPolicies _$LabelerPoliciesFromJson(Map json) =>
+    $checkedCreate('_LabelerPolicies', json, ($checkedConvert) {
+      final val = _LabelerPolicies(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyLabelerDefsLabelerPolicies,
+        ),
+        labelValues: $checkedConvert(
+          'labelValues',
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) => const LabelValueConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
+        labelValueDefinitions: $checkedConvert(
+          'labelValueDefinitions',
+          (v) => (v as List<dynamic>?)
+              ?.map(
+                (e) => const LabelValueDefinitionConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$LabelerPoliciesImplToJson(
-        _$LabelerPoliciesImpl instance) =>
+Map<String, dynamic> _$LabelerPoliciesToJson(_LabelerPolicies instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'labelValues':
-          instance.labelValues.map(const LabelValueConverter().toJson).toList(),
+      'labelValues': instance.labelValues
+          .map(const LabelValueConverter().toJson)
+          .toList(),
       'labelValueDefinitions': instance.labelValueDefinitions
           ?.map(const LabelValueDefinitionConverter().toJson)
           .toList(),

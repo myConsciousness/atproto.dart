@@ -51,16 +51,11 @@ final class _Formatter implements Formatter {
 
     final formatted = _format(
       text.value,
-      _orderByIndicesStart(
-        [...markdownLinks, ...links],
-      ),
+      _orderByIndicesStart([...markdownLinks, ...links]),
       linkConfig ?? const LinkConfig(),
     );
 
-    final replacements = Replacements(
-      text.value,
-      formatted.$2,
-    );
+    final replacements = Replacements(text.value, formatted.$2);
 
     return (
       BlueskyText(
@@ -83,34 +78,28 @@ final class _Formatter implements Formatter {
     int lastEnd = 0;
     final bytes = utf8.encode(value);
     for (final entity in entities) {
-      final before = utf8.decode(
-        bytes.sublist(
-          lastEnd,
-          entity.indices.start,
-        ),
-      );
+      final before = utf8.decode(bytes.sublist(lastEnd, entity.indices.start));
 
       String after = utf8.decode(
-        bytes.sublist(
-          entity.indices.start,
-          entity.indices.end,
-        ),
+        bytes.sublist(entity.indices.start, entity.indices.end),
       );
 
       buffer.write(before);
 
       final start = buffer.length;
       if (entity is MarkdownLinkEntity) {
-        replacements.add(Replacement(
-          entity.text,
-          !entity.url.startsWith('http')
-              ? '$httpsPrefix${entity.url}'
-              : entity.url,
-          start,
-          start + entity.text.length,
-          entity,
-          const [ReplacementFactor.markdownLink],
-        ));
+        replacements.add(
+          Replacement(
+            entity.text,
+            !entity.url.startsWith('http')
+                ? '$httpsPrefix${entity.url}'
+                : entity.url,
+            start,
+            start + entity.text.length,
+            entity,
+            const [ReplacementFactor.markdownLink],
+          ),
+        );
 
         buffer.write(entity.text);
       } else {
@@ -120,14 +109,16 @@ final class _Formatter implements Formatter {
           after = '$httpsPrefix$after';
         }
 
-        replacements.add(Replacement(
-          shortenedLink,
-          after,
-          start,
-          start + shortenedLink.length,
-          factors.isNotEmpty ? entity : null,
-          factors,
-        ));
+        replacements.add(
+          Replacement(
+            shortenedLink,
+            after,
+            start,
+            start + shortenedLink.length,
+            factors.isNotEmpty ? entity : null,
+            factors,
+          ),
+        );
 
         buffer.write(shortenedLink);
       }
@@ -141,7 +132,9 @@ final class _Formatter implements Formatter {
   }
 
   (String, List<ReplacementFactor>) _toShortLink(
-      final String source, final LinkConfig linkConfig) {
+    final String source,
+    final LinkConfig linkConfig,
+  ) {
     final match = validUrlRegex.firstMatch(source)!;
     final protocol = match.protocol;
     final domain = getFirstValidDomain(match.domain);
@@ -157,9 +150,11 @@ final class _Formatter implements Formatter {
 
       if (protocol.isNotEmpty) {
         //* Only if actually shortened.
-        factors.add(protocol == httpsPrefix
-            ? ReplacementFactor.linkHttpsProtocol
-            : ReplacementFactor.linkHttpProtocol);
+        factors.add(
+          protocol == httpsPrefix
+              ? ReplacementFactor.linkHttpsProtocol
+              : ReplacementFactor.linkHttpProtocol,
+        );
       }
     } else {
       domainPart = '$protocol$domain$portNumber';
@@ -192,9 +187,6 @@ final class _Formatter implements Formatter {
   List<Facetable> _orderByIndicesStart(final List<Facetable> entities) {
     if (entities.isEmpty) return const [];
 
-    return entities
-      ..sort(
-        (a, b) => a.indices.start.compareTo(b.indices.start),
-      );
+    return entities..sort((a, b) => a.indices.start.compareTo(b.indices.start));
   }
 }

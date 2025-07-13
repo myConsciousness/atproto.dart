@@ -8,32 +8,28 @@ part of 'view_not_found.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EmbedRecordViewNotFoundImpl _$$EmbedRecordViewNotFoundImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$EmbedRecordViewNotFoundImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$EmbedRecordViewNotFoundImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyEmbedRecordViewNotFound),
-          uri: $checkedConvert('uri', (v) => v as String),
-          notFound: $checkedConvert('notFound', (v) => v as bool),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_EmbedRecordViewNotFound _$EmbedRecordViewNotFoundFromJson(Map json) =>
+    $checkedCreate('_EmbedRecordViewNotFound', json, ($checkedConvert) {
+      final val = _EmbedRecordViewNotFound(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyEmbedRecordViewNotFound,
+        ),
+        uri: $checkedConvert('uri', (v) => v as String),
+        notFound: $checkedConvert('notFound', (v) => v as bool),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$EmbedRecordViewNotFoundImplToJson(
-        _$EmbedRecordViewNotFoundImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'uri': instance.uri,
-      'notFound': instance.notFound,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$EmbedRecordViewNotFoundToJson(
+  _EmbedRecordViewNotFound instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'uri': instance.uri,
+  'notFound': instance.notFound,
+  r'$unknown': instance.$unknown,
+};

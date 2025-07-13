@@ -8,10 +8,7 @@ import 'package:xrpc/src/utils.dart';
 void main() {
   group('.removeNullValues', () {
     test('simple map', () {
-      final actual = removeNullValues({
-        'test': 'aaaa',
-        'test2': null,
-      });
+      final actual = removeNullValues({'test': 'aaaa', 'test2': null});
 
       expect(actual, {'test': 'aaaa'});
     });
@@ -19,17 +16,12 @@ void main() {
     test('nested map', () {
       final actual = removeNullValues({
         'test': 'aaaa',
-        'test2': {
-          'test': 'aaaa',
-          'test2': null,
-        },
+        'test2': {'test': 'aaaa', 'test2': null},
       });
 
       expect(actual, {
         'test': 'aaaa',
-        'test2': {
-          'test': 'aaaa',
-        }
+        'test2': {'test': 'aaaa'},
       });
     });
 
@@ -37,10 +29,7 @@ void main() {
       final actual = removeNullValues({
         'test': 'aaaa',
         'test2': [
-          {
-            'test': 'aaaa',
-            'test2': null,
-          },
+          {'test': 'aaaa', 'test2': null},
           null,
         ],
       });
@@ -48,9 +37,7 @@ void main() {
       expect(actual, {
         'test': 'aaaa',
         'test2': [
-          {
-            'test': 'aaaa',
-          }
+          {'test': 'aaaa'},
         ],
       });
     });
@@ -85,11 +72,11 @@ void main() {
 
     test('list', () {
       final actual = convertParameters({
-        'test': [1, 2, 3]
+        'test': [1, 2, 3],
       });
 
       expect(actual, {
-        'test': ['1', '2', '3']
+        'test': ['1', '2', '3'],
       });
     });
   });

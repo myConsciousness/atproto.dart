@@ -43,6 +43,7 @@ abstract class Member with _$Member {
     DateTime? updatedAt,
     String? lastUpdatedBy,
     required String role,
+
     Map<String, dynamic>? $unknown,
   }) = _Member;
 
@@ -60,14 +61,9 @@ final class MemberConverter
 
   @override
   Member fromJson(Map<String, dynamic> json) {
-    return Member.fromJson(translate(
-      json,
-      Member.knownProps,
-    ));
+    return Member.fromJson(translate(json, Member.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(Member object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(Member object) => untranslate(object.toJson());
 }

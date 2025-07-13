@@ -24,12 +24,7 @@ part 'verification_view.g.dart';
 /// An individual verification for an associated subject.
 @freezed
 abstract class VerificationView with _$VerificationView {
-  static const knownProps = <String>[
-    'issuer',
-    'uri',
-    'isValid',
-    'createdAt',
-  ];
+  static const knownProps = <String>['issuer', 'uri', 'isValid', 'createdAt'];
 
   const factory VerificationView({
     @Default(appBskyActorDefsVerificationView) String $type,
@@ -45,6 +40,7 @@ abstract class VerificationView with _$VerificationView {
 
     /// Timestamp when the verification was created.
     required DateTime createdAt,
+
     Map<String, dynamic>? $unknown,
   }) = _VerificationView;
 
@@ -63,14 +59,12 @@ final class VerificationViewConverter
 
   @override
   VerificationView fromJson(Map<String, dynamic> json) {
-    return VerificationView.fromJson(translate(
-      json,
-      VerificationView.knownProps,
-    ));
+    return VerificationView.fromJson(
+      translate(json, VerificationView.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(VerificationView object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(VerificationView object) =>
+      untranslate(object.toJson());
 }

@@ -43,6 +43,7 @@ abstract class LabelerServiceRecord with _$LabelerServiceRecord {
     @ReasonTypeConverter() List<ReasonType>? reasonTypes,
     @SubjectTypeConverter() List<SubjectType>? subjectTypes,
     List<String>? subjectCollections,
+
     Map<String, dynamic>? $unknown,
   }) = _LabelerServiceRecord;
 
@@ -61,14 +62,12 @@ final class LabelerServiceRecordConverter
 
   @override
   LabelerServiceRecord fromJson(Map<String, dynamic> json) {
-    return LabelerServiceRecord.fromJson(translate(
-      json,
-      LabelerServiceRecord.knownProps,
-    ));
+    return LabelerServiceRecord.fromJson(
+      translate(json, LabelerServiceRecord.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(LabelerServiceRecord object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(LabelerServiceRecord object) =>
+      untranslate(object.toJson());
 }

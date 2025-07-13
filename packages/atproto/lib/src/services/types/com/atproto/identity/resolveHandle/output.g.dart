@@ -8,27 +8,18 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$IdentityResolveHandleOutputImpl _$$IdentityResolveHandleOutputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$IdentityResolveHandleOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$IdentityResolveHandleOutputImpl(
-          did: $checkedConvert('did', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_IdentityResolveHandleOutput _$IdentityResolveHandleOutputFromJson(Map json) =>
+    $checkedCreate('_IdentityResolveHandleOutput', json, ($checkedConvert) {
+      final val = _IdentityResolveHandleOutput(
+        did: $checkedConvert('did', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$IdentityResolveHandleOutputImplToJson(
-        _$IdentityResolveHandleOutputImpl instance) =>
-    <String, dynamic>{
-      'did': instance.did,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$IdentityResolveHandleOutputToJson(
+  _IdentityResolveHandleOutput instance,
+) => <String, dynamic>{'did': instance.did, r'$unknown': instance.$unknown};

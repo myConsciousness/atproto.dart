@@ -23,13 +23,12 @@ part 'labeler_viewer_state.g.dart';
 
 @freezed
 abstract class LabelerViewerState with _$LabelerViewerState {
-  static const knownProps = <String>[
-    'like',
-  ];
+  static const knownProps = <String>['like'];
 
   const factory LabelerViewerState({
     @Default(appBskyLabelerDefsLabelerViewerState) String $type,
     String? like,
+
     Map<String, dynamic>? $unknown,
   }) = _LabelerViewerState;
 
@@ -48,14 +47,12 @@ final class LabelerViewerStateConverter
 
   @override
   LabelerViewerState fromJson(Map<String, dynamic> json) {
-    return LabelerViewerState.fromJson(translate(
-      json,
-      LabelerViewerState.knownProps,
-    ));
+    return LabelerViewerState.fromJson(
+      translate(json, LabelerViewerState.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(LabelerViewerState object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(LabelerViewerState object) =>
+      untranslate(object.toJson());
 }

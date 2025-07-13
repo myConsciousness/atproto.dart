@@ -8,46 +8,43 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SafelinkUpdateRuleInputImpl _$$SafelinkUpdateRuleInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$SafelinkUpdateRuleInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SafelinkUpdateRuleInputImpl(
-          url: $checkedConvert('url', (v) => v as String),
-          pattern: $checkedConvert(
-              'pattern',
-              (v) => const PatternTypeConverter()
-                  .fromJson(v as Map<String, dynamic>)),
-          action: $checkedConvert(
-              'action',
-              (v) => const ActionTypeConverter()
-                  .fromJson(v as Map<String, dynamic>)),
-          reason: $checkedConvert(
-              'reason',
-              (v) => const ReasonTypeConverter()
-                  .fromJson(v as Map<String, dynamic>)),
-          comment: $checkedConvert('comment', (v) => v as String?),
-          createdBy: $checkedConvert('createdBy', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_SafelinkUpdateRuleInput _$SafelinkUpdateRuleInputFromJson(Map json) =>
+    $checkedCreate('_SafelinkUpdateRuleInput', json, ($checkedConvert) {
+      final val = _SafelinkUpdateRuleInput(
+        url: $checkedConvert('url', (v) => v as String),
+        pattern: $checkedConvert(
+          'pattern',
+          (v) =>
+              const PatternTypeConverter().fromJson(v as Map<String, dynamic>),
+        ),
+        action: $checkedConvert(
+          'action',
+          (v) =>
+              const ActionTypeConverter().fromJson(v as Map<String, dynamic>),
+        ),
+        reason: $checkedConvert(
+          'reason',
+          (v) =>
+              const ReasonTypeConverter().fromJson(v as Map<String, dynamic>),
+        ),
+        comment: $checkedConvert('comment', (v) => v as String?),
+        createdBy: $checkedConvert('createdBy', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$SafelinkUpdateRuleInputImplToJson(
-        _$SafelinkUpdateRuleInputImpl instance) =>
-    <String, dynamic>{
-      'url': instance.url,
-      'pattern': const PatternTypeConverter().toJson(instance.pattern),
-      'action': const ActionTypeConverter().toJson(instance.action),
-      'reason': const ReasonTypeConverter().toJson(instance.reason),
-      'comment': instance.comment,
-      'createdBy': instance.createdBy,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$SafelinkUpdateRuleInputToJson(
+  _SafelinkUpdateRuleInput instance,
+) => <String, dynamic>{
+  'url': instance.url,
+  'pattern': const PatternTypeConverter().toJson(instance.pattern),
+  'action': const ActionTypeConverter().toJson(instance.action),
+  'reason': const ReasonTypeConverter().toJson(instance.reason),
+  'comment': instance.comment,
+  'createdBy': instance.createdBy,
+  r'$unknown': instance.$unknown,
+};

@@ -27,6 +27,7 @@ abstract class SkeletonReasonPin with _$SkeletonReasonPin {
 
   const factory SkeletonReasonPin({
     @Default(appBskyFeedDefsSkeletonReasonPin) String $type,
+
     Map<String, dynamic>? $unknown,
   }) = _SkeletonReasonPin;
 
@@ -45,14 +46,12 @@ final class SkeletonReasonPinConverter
 
   @override
   SkeletonReasonPin fromJson(Map<String, dynamic> json) {
-    return SkeletonReasonPin.fromJson(translate(
-      json,
-      SkeletonReasonPin.knownProps,
-    ));
+    return SkeletonReasonPin.fromJson(
+      translate(json, SkeletonReasonPin.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SkeletonReasonPin object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SkeletonReasonPin object) =>
+      untranslate(object.toJson());
 }

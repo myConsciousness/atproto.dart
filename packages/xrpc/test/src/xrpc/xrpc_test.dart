@@ -121,10 +121,7 @@ void main() {
     test('simple case', () async {
       final response = await query(
         NSID.create('test.com', 'get'),
-        parameters: {
-          'test': 'test',
-          'test2': 10,
-        },
+        parameters: {'test': 'test', 'test2': 10},
         to: EmptyData.fromJson,
         getClient: (url, {headers}) async => Response(
           '{}',
@@ -141,10 +138,7 @@ void main() {
     test('"to" parameter is missing', () async {
       final response = await query<EmptyData>(
         NSID.create('test.com', 'get'),
-        parameters: {
-          'test': 'test',
-          'test2': 10,
-        },
+        parameters: {'test': 'test', 'test2': 10},
         getClient: (url, {headers}) async => Response(
           '{}',
           200,
@@ -160,10 +154,7 @@ void main() {
     test('T is String', () async {
       final response = await query<String>(
         NSID.create('test.com', 'get'),
-        parameters: {
-          'test': 'test',
-          'test2': 10,
-        },
+        parameters: {'test': 'test', 'test2': 10},
         getClient: (url, {headers}) async => Response(
           '{"test": "test"}',
           200,
@@ -180,10 +171,7 @@ void main() {
     test('T is Map<String, dynamic>', () async {
       final response = await query<Map<String, dynamic>>(
         NSID.create('test.com', 'get'),
-        parameters: {
-          'test': 'test',
-          'test2': 10,
-        },
+        parameters: {'test': 'test', 'test2': 10},
         getClient: (url, {headers}) async => Response(
           '{"test": "test"}',
           200,
@@ -200,10 +188,7 @@ void main() {
     test('T is Uint8List', () async {
       final response = await query<Uint8List>(
         NSID.create('test.com', 'get'),
-        parameters: {
-          'test': 'test',
-          'test2': 10,
-        },
+        parameters: {'test': 'test', 'test2': 10},
         getClient: (url, {headers}) async => Response(
           '{"test": "test"}',
           200,
@@ -433,10 +418,7 @@ void main() {
   group('.subscribe', () {
     test('connect 1 minute', () async {
       final subscription = subscribe(
-        NSID.create(
-          'sync.atproto.com',
-          'subscribeRepos',
-        ),
+        NSID.create('sync.atproto.com', 'subscribeRepos'),
       );
 
       expect(subscription, isA<XRPCResponse<Subscription>>());

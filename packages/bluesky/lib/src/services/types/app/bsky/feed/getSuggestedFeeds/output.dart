@@ -23,14 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class FeedGetSuggestedFeedsOutput with _$FeedGetSuggestedFeedsOutput {
-  static const knownProps = <String>[
-    'cursor',
-    'feeds',
-  ];
+  static const knownProps = <String>['cursor', 'feeds'];
 
   const factory FeedGetSuggestedFeedsOutput({
     String? cursor,
     @GeneratorViewConverter() required List<GeneratorView> feeds,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedGetSuggestedFeedsOutput;
 
@@ -38,21 +36,19 @@ abstract class FeedGetSuggestedFeedsOutput with _$FeedGetSuggestedFeedsOutput {
       _$FeedGetSuggestedFeedsOutputFromJson(json);
 }
 
-final class FeedGetSuggestedFeedsOutputConverter extends LexObjectConverter<
-    FeedGetSuggestedFeedsOutput, Map<String, dynamic>> {
+final class FeedGetSuggestedFeedsOutputConverter
+    extends
+        LexObjectConverter<FeedGetSuggestedFeedsOutput, Map<String, dynamic>> {
   const FeedGetSuggestedFeedsOutputConverter();
 
   @override
   FeedGetSuggestedFeedsOutput fromJson(Map<String, dynamic> json) {
-    return FeedGetSuggestedFeedsOutput.fromJson(translate(
-      json,
-      FeedGetSuggestedFeedsOutput.knownProps,
-    ));
+    return FeedGetSuggestedFeedsOutput.fromJson(
+      translate(json, FeedGetSuggestedFeedsOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(FeedGetSuggestedFeedsOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

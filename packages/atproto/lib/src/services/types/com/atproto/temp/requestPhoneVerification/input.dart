@@ -21,36 +21,35 @@ part 'input.g.dart';
 @freezed
 abstract class TempRequestPhoneVerificationInput
     with _$TempRequestPhoneVerificationInput {
-  static const knownProps = <String>[
-    'phoneNumber',
-  ];
+  static const knownProps = <String>['phoneNumber'];
 
   const factory TempRequestPhoneVerificationInput({
     required String phoneNumber,
+
     Map<String, dynamic>? $unknown,
   }) = _TempRequestPhoneVerificationInput;
 
   factory TempRequestPhoneVerificationInput.fromJson(
-          Map<String, Object?> json) =>
-      _$TempRequestPhoneVerificationInputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$TempRequestPhoneVerificationInputFromJson(json);
 }
 
 final class TempRequestPhoneVerificationInputConverter
-    extends LexObjectConverter<TempRequestPhoneVerificationInput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          TempRequestPhoneVerificationInput,
+          Map<String, dynamic>
+        > {
   const TempRequestPhoneVerificationInputConverter();
 
   @override
   TempRequestPhoneVerificationInput fromJson(Map<String, dynamic> json) {
-    return TempRequestPhoneVerificationInput.fromJson(translate(
-      json,
-      TempRequestPhoneVerificationInput.knownProps,
-    ));
+    return TempRequestPhoneVerificationInput.fromJson(
+      translate(json, TempRequestPhoneVerificationInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(TempRequestPhoneVerificationInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

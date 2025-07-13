@@ -34,8 +34,8 @@ InterpretedLabelValueDefinition getInterpretedLabelValueDefinition({
   final alertOrInform = severity == ModerationBehavior.alert.name
       ? ModerationBehavior.alert
       : severity == ModerationBehavior.inform.name
-          ? ModerationBehavior.inform
-          : ModerationBehavior.none;
+      ? ModerationBehavior.inform
+      : ModerationBehavior.none;
 
   if (blurs == 'content') {
     // target=account, blurs=content
@@ -43,8 +43,9 @@ InterpretedLabelValueDefinition getInterpretedLabelValueDefinition({
     accountBehavior[ModerationBehaviorContext.profileView] = alertOrInform;
     accountBehavior[ModerationBehaviorContext.contentList] =
         ModerationBehavior.blur;
-    accountBehavior[ModerationBehaviorContext.contentView] =
-        adultOnly ? ModerationBehavior.blur : alertOrInform;
+    accountBehavior[ModerationBehaviorContext.contentView] = adultOnly
+        ? ModerationBehavior.blur
+        : alertOrInform;
 
     // target=profile, blurs=content
     profileBehavior[ModerationBehaviorContext.profileList] = alertOrInform;
@@ -53,8 +54,9 @@ InterpretedLabelValueDefinition getInterpretedLabelValueDefinition({
     // target=content, blurs=content
     contentBehavior[ModerationBehaviorContext.contentList] =
         ModerationBehavior.blur;
-    contentBehavior[ModerationBehaviorContext.contentView] =
-        adultOnly ? ModerationBehavior.blur : alertOrInform;
+    contentBehavior[ModerationBehaviorContext.contentView] = adultOnly
+        ? ModerationBehavior.blur
+        : alertOrInform;
   } else if (blurs == 'media') {
     // target=account, blurs=media
     accountBehavior[ModerationBehaviorContext.profileList] = alertOrInform;
@@ -110,22 +112,25 @@ List<InterpretedLabelValueDefinition> getInterpretedLabelValueDefinitions(
   final LabelerViewDetailed labelerView,
 ) {
   return labelerView.policies.labelValueDefinitions
-          ?.map((e) => getInterpretedLabelValueDefinition(
-                identifier: e.identifier,
-                defaultSetting: LabelPreference.valueOf(e.defaultSetting) ??
-                    LabelPreference.warn,
-                severity: e.severity,
-                blurs: e.blurs,
-                adultOnly: e.adultOnly,
-                definedBy: labelerView.creator.did,
-              ))
+          ?.map(
+            (e) => getInterpretedLabelValueDefinition(
+              identifier: e.identifier,
+              defaultSetting:
+                  LabelPreference.valueOf(e.defaultSetting) ??
+                  LabelPreference.warn,
+              severity: e.severity,
+              blurs: e.blurs,
+              adultOnly: e.adultOnly,
+              definedBy: labelerView.creator.did,
+            ),
+          )
           .toList() ??
       const [];
 }
 
 extension LabelerServiceExtension on LabelerService {
   Future<Map<String, List<InterpretedLabelValueDefinition>>>
-      getLabelDefinitions(final ModerationPrefs prefs) async {
+  getLabelDefinitions(final ModerationPrefs prefs) async {
     final dids = <String>{
       _kBskyLabelerDid, // need when they don't have LabelersPref in their pref
       ...prefs.labelers.map((e) => e.did),
@@ -167,9 +172,11 @@ extension PreferencesExtension on Preferences {
           adultContentEnabled = preference.data.isEnabled;
           break;
         case UPreferenceLabelersPref():
-          labelers.addAll(preference.data.labelers.map(
-            (e) => {'did': e.did, 'labels': <String, LabelPreference>{}},
-          ));
+          labelers.addAll(
+            preference.data.labelers.map(
+              (e) => {'did': e.did, 'labels': <String, LabelPreference>{}},
+            ),
+          );
           break;
         case UPreferenceMutedWords():
           mutedWords.addAll(preference.data.items);
@@ -187,8 +194,9 @@ extension PreferencesExtension on Preferences {
       final pref = _getModerationLabelPreference(labelPref.visibility);
 
       if (labelPref.labelerDid != null && labelers.isNotEmpty) {
-        final labeler =
-            labelers.where((e) => e['did'] == labelPref.labelerDid).firstOrNull;
+        final labeler = labelers
+            .where((e) => e['did'] == labelPref.labelerDid)
+            .firstOrNull;
 
         if (labeler != null && labeler.isNotEmpty) {
           labeler['labels'][labelPref.label] = pref;
@@ -204,18 +212,18 @@ extension PreferencesExtension on Preferences {
         ...kDefaultLabelSettings.map((k, v) => MapEntry(k.value, v)),
         ...labels,
       },
-      labelers: [
-        ...appLabelers
-            .map((e) => {'did': e, 'labels': <String, LabelPreference>{}}),
-        ...labelers,
-      ]
-          .map(
-            (e) => ModerationPrefsLabeler(
-              did: e['did'],
-              labels: e['labels'],
-            ),
-          )
-          .toList(),
+      labelers:
+          [
+                ...appLabelers.map(
+                  (e) => {'did': e, 'labels': <String, LabelPreference>{}},
+                ),
+                ...labelers,
+              ]
+              .map(
+                (e) =>
+                    ModerationPrefsLabeler(did: e['did'], labels: e['labels']),
+              )
+              .toList(),
       mutedWords: mutedWords,
       hiddenPosts: hiddenPosts,
     );
@@ -255,11 +263,14 @@ Map<String, String> getLabelerHeaders(final ModerationPrefs? prefs) {
 
   return _getLabelerHeaders([
     _kBskyLabelerDid,
-    ...prefs.labelers.map((e) => e.did).where((e) => e.startsWith('did:'))
+    ...prefs.labelers.map((e) => e.did).where((e) => e.startsWith('did:')),
   ]);
 }
 
 Map<String, String> _getLabelerHeaders(final List<String> dids) => {
-      'atproto-accept-labelers':
-          dids.toSet().take(10).map((str) => '$str;redact').join(', '),
-    };
+  'atproto-accept-labelers': dids
+      .toSet()
+      .take(10)
+      .map((str) => '$str;redact')
+      .join(', '),
+};

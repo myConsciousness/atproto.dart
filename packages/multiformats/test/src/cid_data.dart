@@ -35,7 +35,7 @@ const bytesCidDagPb = [
   136,
   10,
   62,
-  117
+  117,
 ];
 
 const bytesCidDagCbor = [
@@ -74,5 +74,5 @@ const bytesCidDagCbor = [
   136,
   10,
   62,
-  117
+  117,
 ];

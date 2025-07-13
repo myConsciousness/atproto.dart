@@ -24,9 +24,8 @@ part 'union_convo_view_last_message.freezed.dart';
 class UConvoViewLastMessage with _$UConvoViewLastMessage {
   const UConvoViewLastMessage._();
 
-  const factory UConvoViewLastMessage.messageView({
-    required MessageView data,
-  }) = UConvoViewLastMessageMessageView;
+  const factory UConvoViewLastMessage.messageView({required MessageView data}) =
+      UConvoViewLastMessageMessageView;
   const factory UConvoViewLastMessage.deletedMessageView({
     required DeletedMessageView data,
   }) = UConvoViewLastMessageDeletedMessageView;
@@ -65,9 +64,10 @@ final class UConvoViewLastMessageConverter
 
   @override
   Map<String, dynamic> toJson(UConvoViewLastMessage object) => object.when(
-        messageView: (data) => const MessageViewConverter().toJson(data),
-        deletedMessageView: (data) =>
-            const DeletedMessageViewConverter().toJson(data),
-        unknown: (data) => data,
-      );
+    messageView: (data) => const MessageViewConverter().toJson(data),
+    deletedMessageView: (data) =>
+        const DeletedMessageViewConverter().toJson(data),
+
+    unknown: (data) => data,
+  );
 }

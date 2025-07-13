@@ -23,15 +23,13 @@ part 'main.g.dart';
 
 @freezed
 abstract class GraphFollowRecord with _$GraphFollowRecord {
-  static const knownProps = <String>[
-    'subject',
-    'createdAt',
-  ];
+  static const knownProps = <String>['subject', 'createdAt'];
 
   const factory GraphFollowRecord({
     @Default(appBskyGraphFollow) String $type,
     required String subject,
     required DateTime createdAt,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphFollowRecord;
 
@@ -50,14 +48,12 @@ final class GraphFollowRecordConverter
 
   @override
   GraphFollowRecord fromJson(Map<String, dynamic> json) {
-    return GraphFollowRecord.fromJson(translate(
-      json,
-      GraphFollowRecord.knownProps,
-    ));
+    return GraphFollowRecord.fromJson(
+      translate(json, GraphFollowRecord.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphFollowRecord object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(GraphFollowRecord object) =>
+      untranslate(object.toJson());
 }

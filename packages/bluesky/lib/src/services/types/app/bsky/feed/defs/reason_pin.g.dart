@@ -8,25 +8,20 @@ part of 'reason_pin.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ReasonPinImpl _$$ReasonPinImplFromJson(Map json) => $checkedCreate(
-      r'_$ReasonPinImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ReasonPinImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyFeedDefsReasonPin),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ReasonPin _$ReasonPinFromJson(Map json) =>
+    $checkedCreate('_ReasonPin', json, ($checkedConvert) {
+      final val = _ReasonPin(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyFeedDefsReasonPin,
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ReasonPinImplToJson(_$ReasonPinImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ReasonPinToJson(_ReasonPin instance) =>
+    <String, dynamic>{r'$type': instance.$type, r'$unknown': instance.$unknown};

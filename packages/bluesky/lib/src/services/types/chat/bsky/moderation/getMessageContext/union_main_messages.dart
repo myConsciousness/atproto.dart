@@ -42,8 +42,10 @@ class UModerationGetMessageContextMessages
 
 final class UModerationGetMessageContextMessagesConverter
     implements
-        JsonConverter<UModerationGetMessageContextMessages,
-            Map<String, dynamic>> {
+        JsonConverter<
+          UModerationGetMessageContextMessages,
+          Map<String, dynamic>
+        > {
   const UModerationGetMessageContextMessagesConverter();
 
   @override
@@ -72,6 +74,7 @@ final class UModerationGetMessageContextMessagesConverter
         messageView: (data) => const MessageViewConverter().toJson(data),
         deletedMessageView: (data) =>
             const DeletedMessageViewConverter().toJson(data),
+
         unknown: (data) => data,
       );
 }

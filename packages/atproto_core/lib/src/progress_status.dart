@@ -12,9 +12,9 @@ final class ProgressStatusEvent {
   /// Creates a new instance of [ProgressStatusEvent] given the total byte size
   /// and the number of already processed bytes.
   const ProgressStatusEvent(this.totalBytes, this.processedBytes)
-      : assert(totalBytes >= 0),
-        assert(processedBytes >= 0),
-        assert(processedBytes < totalBytes);
+    : assert(totalBytes >= 0),
+      assert(processedBytes >= 0),
+      assert(processedBytes < totalBytes);
 
   /// Represents the total byte size of the data.
   final int totalBytes;

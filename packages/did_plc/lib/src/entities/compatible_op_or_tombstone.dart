@@ -16,13 +16,11 @@ class CompatibleOpOrTombstone with _$CompatibleOpOrTombstone {
   // ignore: unused_element
   const CompatibleOpOrTombstone._();
 
-  const factory CompatibleOpOrTombstone.op({
-    required Operation data,
-  }) = UCompatibleOpOrTombstoneOp;
+  const factory CompatibleOpOrTombstone.op({required Operation data}) =
+      UCompatibleOpOrTombstoneOp;
 
-  const factory CompatibleOpOrTombstone.tombstone({
-    required Tombstone data,
-  }) = UCompatibleOpOrTombstoneTombstone;
+  const factory CompatibleOpOrTombstone.tombstone({required Tombstone data}) =
+      UCompatibleOpOrTombstoneTombstone;
 
   const factory CompatibleOpOrTombstone.createOpV1({
     required CreateOperationV1 data,

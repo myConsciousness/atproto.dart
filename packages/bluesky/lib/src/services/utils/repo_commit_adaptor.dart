@@ -8,10 +8,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:
 import '../../ids.g.dart' as ids;
-import '../entities/adaptor/repo_commit_create.dart';
-import '../entities/adaptor/repo_commit_delete.dart';
-import '../entities/adaptor/repo_commit_update.dart';
-import '../entities/converter/post_record_converter.dart';
 import '../extensions/at_uri.dart';
 import '../types/app/bsky/actor/profile/main.dart';
 import '../types/app/bsky/feed/generator/main.dart';
@@ -25,16 +21,19 @@ import '../types/app/bsky/graph/list/main.dart';
 import '../types/app/bsky/graph/listblock/main.dart';
 import '../types/app/bsky/graph/listitem/main.dart';
 import '../types/app/bsky/labeler/service/main.dart';
+import 'repo_commit_create.dart';
+import 'repo_commit_delete.dart';
+import 'repo_commit_update.dart';
 
 // Project imports:
 
 /// Action on create records.
-typedef RepoCommitOnCreate<T> = FutureOr<void> Function(
-    RepoCommitCreate<T> data);
+typedef RepoCommitOnCreate<T> =
+    FutureOr<void> Function(RepoCommitCreate<T> data);
 
 /// Action on update records.
-typedef RepoCommitOnUpdate<T> = FutureOr<void> Function(
-    RepoCommitUpdate<T> data);
+typedef RepoCommitOnUpdate<T> =
+    FutureOr<void> Function(RepoCommitUpdate<T> data);
 
 /// Action on delete records.
 typedef RepoCommitOnDelete = FutureOr<void> Function(RepoCommitDelete data);
@@ -68,32 +67,32 @@ final class RepoCommitAdaptor {
     final RepoCommitOnDelete? onDeleteBlockList,
     final RepoCommitOnDelete? onDeleteLabelerService,
     final RepoCommitOnDelete? onDeleteUnknown,
-  })  : _onCreatePost = onCreatePost,
-        _onCreateRepost = onCreateRepost,
-        _onCreateLike = onCreateLike,
-        _onCreateGenerator = onCreateGenerator,
-        _onCreateThreadgate = onCreateThreadgate,
-        _onCreateFollow = onCreateFollow,
-        _onCreateBlock = onCreateBlock,
-        _onCreateList = onCreateList,
-        _onCreateListItem = onCreateListItem,
-        _onCreateBlockList = onCreateBlockList,
-        _onCreateLabelerService = onCreateLabelerService,
-        _onCreateUnknown = onCreateUnknown,
-        _onUpdateProfile = onUpdateProfile,
-        _onUpdateUnknown = onUpdateUnknown,
-        _onDeletePost = onDeletePost,
-        _onDeleteRepost = onDeleteRepost,
-        _onDeleteLike = onDeleteLike,
-        _onDeleteGenerator = onDeleteGenerator,
-        _onDeleteThreadgate = onDeleteThreadgate,
-        _onDeleteFollow = onDeleteFollow,
-        _onDeleteBlock = onDeleteBlock,
-        _onDeleteList = onDeleteList,
-        _onDeleteListItem = onDeleteListItem,
-        _onDeleteBlockList = onDeleteBlockList,
-        _onDeleteLabelerService = onDeleteLabelerService,
-        _onDeleteUnknown = onDeleteUnknown;
+  }) : _onCreatePost = onCreatePost,
+       _onCreateRepost = onCreateRepost,
+       _onCreateLike = onCreateLike,
+       _onCreateGenerator = onCreateGenerator,
+       _onCreateThreadgate = onCreateThreadgate,
+       _onCreateFollow = onCreateFollow,
+       _onCreateBlock = onCreateBlock,
+       _onCreateList = onCreateList,
+       _onCreateListItem = onCreateListItem,
+       _onCreateBlockList = onCreateBlockList,
+       _onCreateLabelerService = onCreateLabelerService,
+       _onCreateUnknown = onCreateUnknown,
+       _onUpdateProfile = onUpdateProfile,
+       _onUpdateUnknown = onUpdateUnknown,
+       _onDeletePost = onDeletePost,
+       _onDeleteRepost = onDeleteRepost,
+       _onDeleteLike = onDeleteLike,
+       _onDeleteGenerator = onDeleteGenerator,
+       _onDeleteThreadgate = onDeleteThreadgate,
+       _onDeleteFollow = onDeleteFollow,
+       _onDeleteBlock = onDeleteBlock,
+       _onDeleteList = onDeleteList,
+       _onDeleteListItem = onDeleteListItem,
+       _onDeleteBlockList = onDeleteBlockList,
+       _onDeleteLabelerService = onDeleteLabelerService,
+       _onDeleteUnknown = onDeleteUnknown;
 
   final RepoCommitOnCreate<FeedPostRecord>? _onCreatePost;
   final RepoCommitOnCreate<FeedRepostRecord>? _onCreateRepost;
@@ -128,13 +127,13 @@ final class RepoCommitAdaptor {
   FutureOr<void> execute(final Commit data) async {
     for (final op in data.ops) {
       switch (op.action) {
-        case RepoAction.create:
+        case 'create':
           await _onCreate(data, op);
           break;
-        case RepoAction.update:
+        case 'update':
           await _onUpdate(data, op);
           break;
-        case RepoAction.delete:
+        case 'delete':
           await _onDelete(data, op);
           break;
       }
@@ -142,16 +141,11 @@ final class RepoCommitAdaptor {
   }
 
   /// Performs action on create.
-  Future<void> _onCreate(
-    final Commit data,
-    final RepoOp op,
-  ) async {
+  Future<void> _onCreate(final Commit data, final RepoOp op) async {
     if (op.uri.isFeedPost && _isFeedPost(op.record!)) {
       await _onCreatePost?.call(
         RepoCommitCreate<PostRecord>(
-          record: postRecordConverter.fromJson(
-            op.record!,
-          ),
+          record: postRecordConverter.fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
           author: data.did,
@@ -161,9 +155,7 @@ final class RepoCommitAdaptor {
     } else if (op.uri.isFeedRepost && _isFeedRepost(op.record!)) {
       await _onCreateRepost?.call(
         RepoCommitCreate<RepostRecord>(
-          record: RepostRecord.fromJson(
-            op.record!,
-          ),
+          record: RepostRecord.fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
           author: data.did,
@@ -173,9 +165,7 @@ final class RepoCommitAdaptor {
     } else if (op.uri.isFeedLike && _isFeedLike(op.record!)) {
       await _onCreateLike?.call(
         RepoCommitCreate<LikeRecord>(
-          record: LikeRecord.fromJson(
-            op.record!,
-          ),
+          record: LikeRecord.fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
           author: data.did,
@@ -185,9 +175,7 @@ final class RepoCommitAdaptor {
     } else if (op.uri.isFeedGenerator && _isFeedGenerator(op.record!)) {
       await _onCreateGenerator?.call(
         RepoCommitCreate<GeneratorRecord>(
-          record: GeneratorRecord.fromJson(
-            op.record!,
-          ),
+          record: GeneratorRecord.fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
           author: data.did,
@@ -197,9 +185,7 @@ final class RepoCommitAdaptor {
     } else if (op.uri.isFeedThreadgate && _isFeedThreadgate(op.record!)) {
       await _onCreateThreadgate?.call(
         RepoCommitCreate<ThreadgateRecord>(
-          record: ThreadgateRecord.fromJson(
-            op.record!,
-          ),
+          record: ThreadgateRecord.fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
           author: data.did,
@@ -219,9 +205,7 @@ final class RepoCommitAdaptor {
     } else if (op.uri.isGraphBlock && _isGraphBlock(op.record!)) {
       await _onCreateBlock?.call(
         RepoCommitCreate<BlockRecord>(
-          record: BlockRecord.fromJson(
-            op.record!,
-          ),
+          record: BlockRecord.fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
           author: data.did,
@@ -231,9 +215,7 @@ final class RepoCommitAdaptor {
     } else if (op.uri.isGraphList && _isGraphList(op.record!)) {
       await _onCreateList?.call(
         RepoCommitCreate<ListRecord>(
-          record: ListRecord.fromJson(
-            op.record!,
-          ),
+          record: ListRecord.fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
           author: data.did,
@@ -243,9 +225,7 @@ final class RepoCommitAdaptor {
     } else if (op.uri.isGraphListItem && _isGraphListItem(op.record!)) {
       await _onCreateListItem?.call(
         RepoCommitCreate<ListItemRecord>(
-          record: ListItemRecord.fromJson(
-            op.record!,
-          ),
+          record: ListItemRecord.fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
           author: data.did,
@@ -255,9 +235,7 @@ final class RepoCommitAdaptor {
     } else if (op.uri.isGraphBlockList && _isGraphBlockList(op.record!)) {
       await _onCreateBlockList?.call(
         RepoCommitCreate<BlockListRecord>(
-          record: BlockListRecord.fromJson(
-            op.record!,
-          ),
+          record: BlockListRecord.fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
           author: data.did,
@@ -267,9 +245,7 @@ final class RepoCommitAdaptor {
     } else if (op.uri.isLabelerService && _isLabelerService(op.record!)) {
       await _onCreateLabelerService?.call(
         RepoCommitCreate<LabelerServiceRecord>(
-          record: LabelerServiceRecord.fromJson(
-            op.record!,
-          ),
+          record: LabelerServiceRecord.fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
           author: data.did,
@@ -290,10 +266,7 @@ final class RepoCommitAdaptor {
   }
 
   /// Performs actions on update.
-  Future<void> _onUpdate(
-    final Commit data,
-    final RepoOp op,
-  ) async {
+  Future<void> _onUpdate(final Commit data, final RepoOp op) async {
     if (op.uri.isActorProfile && _isActorProfile(op.record!)) {
       await _onUpdateProfile?.call(
         RepoCommitUpdate<ProfileRecord>(
@@ -320,10 +293,7 @@ final class RepoCommitAdaptor {
   }
 
   /// Performs actions on delete.
-  Future<void> _onDelete(
-    final Commit data,
-    final RepoOp op,
-  ) async {
+  Future<void> _onDelete(final Commit data, final RepoOp op) async {
     if (op.uri.isFeedPost) {
       await _onDeletePost?.call(
         RepoCommitDelete(

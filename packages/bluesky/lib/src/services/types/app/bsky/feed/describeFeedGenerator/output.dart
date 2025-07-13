@@ -25,16 +25,13 @@ part 'output.g.dart';
 @freezed
 abstract class FeedDescribeFeedGeneratorOutput
     with _$FeedDescribeFeedGeneratorOutput {
-  static const knownProps = <String>[
-    'did',
-    'feeds',
-    'links',
-  ];
+  static const knownProps = <String>['did', 'feeds', 'links'];
 
   const factory FeedDescribeFeedGeneratorOutput({
     required String did,
     @FeedConverter() required List<Feed> feeds,
     @LinksConverter() Links? links,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedDescribeFeedGeneratorOutput;
 
@@ -42,21 +39,22 @@ abstract class FeedDescribeFeedGeneratorOutput
       _$FeedDescribeFeedGeneratorOutputFromJson(json);
 }
 
-final class FeedDescribeFeedGeneratorOutputConverter extends LexObjectConverter<
-    FeedDescribeFeedGeneratorOutput, Map<String, dynamic>> {
+final class FeedDescribeFeedGeneratorOutputConverter
+    extends
+        LexObjectConverter<
+          FeedDescribeFeedGeneratorOutput,
+          Map<String, dynamic>
+        > {
   const FeedDescribeFeedGeneratorOutputConverter();
 
   @override
   FeedDescribeFeedGeneratorOutput fromJson(Map<String, dynamic> json) {
-    return FeedDescribeFeedGeneratorOutput.fromJson(translate(
-      json,
-      FeedDescribeFeedGeneratorOutput.knownProps,
-    ));
+    return FeedDescribeFeedGeneratorOutput.fromJson(
+      translate(json, FeedDescribeFeedGeneratorOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(FeedDescribeFeedGeneratorOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

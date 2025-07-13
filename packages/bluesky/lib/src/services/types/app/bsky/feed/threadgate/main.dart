@@ -39,6 +39,7 @@ abstract class FeedThreadgateRecord with _$FeedThreadgateRecord {
     @UFeedThreadgateAllowConverter() List<UFeedThreadgateAllow>? allow,
     required DateTime createdAt,
     List<String>? hiddenReplies,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedThreadgateRecord;
 
@@ -57,14 +58,12 @@ final class FeedThreadgateRecordConverter
 
   @override
   FeedThreadgateRecord fromJson(Map<String, dynamic> json) {
-    return FeedThreadgateRecord.fromJson(translate(
-      json,
-      FeedThreadgateRecord.knownProps,
-    ));
+    return FeedThreadgateRecord.fromJson(
+      translate(json, FeedThreadgateRecord.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(FeedThreadgateRecord object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(FeedThreadgateRecord object) =>
+      untranslate(object.toJson());
 }

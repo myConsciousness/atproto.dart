@@ -23,15 +23,13 @@ part 'account_codes.g.dart';
 
 @freezed
 abstract class AccountCodes with _$AccountCodes {
-  static const knownProps = <String>[
-    'account',
-    'codes',
-  ];
+  static const knownProps = <String>['account', 'codes'];
 
   const factory AccountCodes({
     @Default(comAtprotoServerCreateInviteCodesAccountCodes) String $type,
     required String account,
     required List<String> codes,
+
     Map<String, dynamic>? $unknown,
   }) = _AccountCodes;
 
@@ -50,14 +48,10 @@ final class AccountCodesConverter
 
   @override
   AccountCodes fromJson(Map<String, dynamic> json) {
-    return AccountCodes.fromJson(translate(
-      json,
-      AccountCodes.knownProps,
-    ));
+    return AccountCodes.fromJson(translate(json, AccountCodes.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(AccountCodes object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(AccountCodes object) =>
+      untranslate(object.toJson());
 }

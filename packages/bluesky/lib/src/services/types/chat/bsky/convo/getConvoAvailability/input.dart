@@ -21,12 +21,11 @@ part 'input.g.dart';
 @freezed
 abstract class ConvoGetConvoAvailabilityInput
     with _$ConvoGetConvoAvailabilityInput {
-  static const knownProps = <String>[
-    'members',
-  ];
+  static const knownProps = <String>['members'];
 
   const factory ConvoGetConvoAvailabilityInput({
     required List<String> members,
+
     Map<String, dynamic>? $unknown,
   }) = _ConvoGetConvoAvailabilityInput;
 
@@ -34,21 +33,22 @@ abstract class ConvoGetConvoAvailabilityInput
       _$ConvoGetConvoAvailabilityInputFromJson(json);
 }
 
-final class ConvoGetConvoAvailabilityInputConverter extends LexObjectConverter<
-    ConvoGetConvoAvailabilityInput, Map<String, dynamic>> {
+final class ConvoGetConvoAvailabilityInputConverter
+    extends
+        LexObjectConverter<
+          ConvoGetConvoAvailabilityInput,
+          Map<String, dynamic>
+        > {
   const ConvoGetConvoAvailabilityInputConverter();
 
   @override
   ConvoGetConvoAvailabilityInput fromJson(Map<String, dynamic> json) {
-    return ConvoGetConvoAvailabilityInput.fromJson(translate(
-      json,
-      ConvoGetConvoAvailabilityInput.knownProps,
-    ));
+    return ConvoGetConvoAvailabilityInput.fromJson(
+      translate(json, ConvoGetConvoAvailabilityInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ConvoGetConvoAvailabilityInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

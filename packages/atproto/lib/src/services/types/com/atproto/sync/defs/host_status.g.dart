@@ -8,20 +8,19 @@ part of 'host_status.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$HostStatusImpl _$$HostStatusImplFromJson(Map json) => $checkedCreate(
-      r'_$HostStatusImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$HostStatusImpl(
-          knownValue: $checkedConvert('knownValue',
-              (v) => $enumDecodeNullable(_$KnownHostStatusEnumMap, v)),
-          unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
-        );
-        return val;
-      },
-    );
+_HostStatus _$HostStatusFromJson(Map json) =>
+    $checkedCreate('_HostStatus', json, ($checkedConvert) {
+      final val = _HostStatus(
+        knownValue: $checkedConvert(
+          'knownValue',
+          (v) => $enumDecodeNullable(_$KnownHostStatusEnumMap, v),
+        ),
+        unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$HostStatusImplToJson(_$HostStatusImpl instance) =>
+Map<String, dynamic> _$HostStatusToJson(_HostStatus instance) =>
     <String, dynamic>{
       'knownValue': _$KnownHostStatusEnumMap[instance.knownValue],
       'unknownValue': instance.unknownValue,

@@ -7,9 +7,7 @@ Map<String, dynamic> convertCidLinks(final Map<String, dynamic> map) {
       convertCidLinks(value);
     } else if (value is List<dynamic>) {
       if (key == 'ref' && value.every((element) => element is int)) {
-        map[key] = {
-          r'$link': core.CID.fromList(value.cast<int>()).toString(),
-        };
+        map[key] = {r'$link': core.CID.fromList(value.cast<int>()).toString()};
       } else {
         for (final element in value) {
           if (element is Map<String, dynamic>) {

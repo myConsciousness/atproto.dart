@@ -8,31 +8,31 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SetQuerySetsOutputImpl _$$SetQuerySetsOutputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$SetQuerySetsOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SetQuerySetsOutputImpl(
-          sets: $checkedConvert(
-              'sets',
-              (v) => (v as List<dynamic>)
-                  .map((e) => const SetViewConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          cursor: $checkedConvert('cursor', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
+_SetQuerySetsOutput _$SetQuerySetsOutputFromJson(Map json) => $checkedCreate(
+  '_SetQuerySetsOutput',
+  json,
+  ($checkedConvert) {
+    final val = _SetQuerySetsOutput(
+      sets: $checkedConvert(
+        'sets',
+        (v) => (v as List<dynamic>)
+            .map(
+              (e) =>
+                  const SetViewConverter().fromJson(e as Map<String, dynamic>),
+            )
+            .toList(),
+      ),
+      cursor: $checkedConvert('cursor', (v) => v as String?),
+      $unknown: $checkedConvert(
+        r'$unknown',
+        (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+      ),
     );
+    return val;
+  },
+);
 
-Map<String, dynamic> _$$SetQuerySetsOutputImplToJson(
-        _$SetQuerySetsOutputImpl instance) =>
+Map<String, dynamic> _$SetQuerySetsOutputToJson(_SetQuerySetsOutput instance) =>
     <String, dynamic>{
       'sets': instance.sets.map(const SetViewConverter().toJson).toList(),
       'cursor': instance.cursor,

@@ -21,40 +21,37 @@ part 'input.g.dart';
 @freezed
 abstract class UnspeccedGetPopularFeedGeneratorsInput
     with _$UnspeccedGetPopularFeedGeneratorsInput {
-  static const knownProps = <String>[
-    'limit',
-    'cursor',
-    'query',
-  ];
+  static const knownProps = <String>['limit', 'cursor', 'query'];
 
   const factory UnspeccedGetPopularFeedGeneratorsInput({
     int? limit,
     String? cursor,
     String? query,
+
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetPopularFeedGeneratorsInput;
 
   factory UnspeccedGetPopularFeedGeneratorsInput.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedGetPopularFeedGeneratorsInputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$UnspeccedGetPopularFeedGeneratorsInputFromJson(json);
 }
 
 final class UnspeccedGetPopularFeedGeneratorsInputConverter
-    extends LexObjectConverter<UnspeccedGetPopularFeedGeneratorsInput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          UnspeccedGetPopularFeedGeneratorsInput,
+          Map<String, dynamic>
+        > {
   const UnspeccedGetPopularFeedGeneratorsInputConverter();
 
   @override
   UnspeccedGetPopularFeedGeneratorsInput fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetPopularFeedGeneratorsInput.fromJson(translate(
-      json,
-      UnspeccedGetPopularFeedGeneratorsInput.knownProps,
-    ));
+    return UnspeccedGetPopularFeedGeneratorsInput.fromJson(
+      translate(json, UnspeccedGetPopularFeedGeneratorsInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetPopularFeedGeneratorsInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

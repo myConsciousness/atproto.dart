@@ -24,36 +24,35 @@ part 'output.g.dart';
 @freezed
 abstract class UnspeccedGetPostThreadOtherV2Output
     with _$UnspeccedGetPostThreadOtherV2Output {
-  static const knownProps = <String>[
-    'thread',
-  ];
+  static const knownProps = <String>['thread'];
 
   const factory UnspeccedGetPostThreadOtherV2Output({
     @ThreadItemConverter() required List<ThreadItem> thread,
+
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetPostThreadOtherV2Output;
 
   factory UnspeccedGetPostThreadOtherV2Output.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedGetPostThreadOtherV2OutputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$UnspeccedGetPostThreadOtherV2OutputFromJson(json);
 }
 
 final class UnspeccedGetPostThreadOtherV2OutputConverter
-    extends LexObjectConverter<UnspeccedGetPostThreadOtherV2Output,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          UnspeccedGetPostThreadOtherV2Output,
+          Map<String, dynamic>
+        > {
   const UnspeccedGetPostThreadOtherV2OutputConverter();
 
   @override
   UnspeccedGetPostThreadOtherV2Output fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetPostThreadOtherV2Output.fromJson(translate(
-      json,
-      UnspeccedGetPostThreadOtherV2Output.knownProps,
-    ));
+    return UnspeccedGetPostThreadOtherV2Output.fromJson(
+      translate(json, UnspeccedGetPostThreadOtherV2Output.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetPostThreadOtherV2Output object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

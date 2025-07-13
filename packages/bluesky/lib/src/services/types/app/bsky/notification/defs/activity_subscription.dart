@@ -23,15 +23,13 @@ part 'activity_subscription.g.dart';
 
 @freezed
 abstract class ActivitySubscription with _$ActivitySubscription {
-  static const knownProps = <String>[
-    'post',
-    'reply',
-  ];
+  static const knownProps = <String>['post', 'reply'];
 
   const factory ActivitySubscription({
     @Default(appBskyNotificationDefsActivitySubscription) String $type,
     required bool post,
     required bool reply,
+
     Map<String, dynamic>? $unknown,
   }) = _ActivitySubscription;
 
@@ -50,14 +48,12 @@ final class ActivitySubscriptionConverter
 
   @override
   ActivitySubscription fromJson(Map<String, dynamic> json) {
-    return ActivitySubscription.fromJson(translate(
-      json,
-      ActivitySubscription.knownProps,
-    ));
+    return ActivitySubscription.fromJson(
+      translate(json, ActivitySubscription.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ActivitySubscription object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ActivitySubscription object) =>
+      untranslate(object.toJson());
 }

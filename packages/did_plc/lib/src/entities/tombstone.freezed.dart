@@ -12,7 +12,8 @@ part of 'tombstone.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Tombstone _$TombstoneFromJson(Map<String, dynamic> json) {
   return _Tombstone.fromJson(json);
@@ -56,25 +57,24 @@ class _$TombstoneCopyWithImpl<$Res, $Val extends Tombstone>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? sig = null,
-    Object? type = null,
-    Object? prev = null,
-  }) {
-    return _then(_value.copyWith(
-      sig: null == sig
-          ? _value.sig
-          : sig // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      prev: null == prev
-          ? _value.prev
-          : prev // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? sig = null, Object? type = null, Object? prev = null}) {
+    return _then(
+      _value.copyWith(
+            sig: null == sig
+                ? _value.sig
+                : sig // ignore: cast_nullable_to_non_nullable
+                      as String,
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+            prev: null == prev
+                ? _value.prev
+                : prev // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -82,8 +82,9 @@ class _$TombstoneCopyWithImpl<$Res, $Val extends Tombstone>
 abstract class _$$TombstoneImplCopyWith<$Res>
     implements $TombstoneCopyWith<$Res> {
   factory _$$TombstoneImplCopyWith(
-          _$TombstoneImpl value, $Res Function(_$TombstoneImpl) then) =
-      __$$TombstoneImplCopyWithImpl<$Res>;
+    _$TombstoneImpl value,
+    $Res Function(_$TombstoneImpl) then,
+  ) = __$$TombstoneImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String sig, String type, String prev});
@@ -94,32 +95,31 @@ class __$$TombstoneImplCopyWithImpl<$Res>
     extends _$TombstoneCopyWithImpl<$Res, _$TombstoneImpl>
     implements _$$TombstoneImplCopyWith<$Res> {
   __$$TombstoneImplCopyWithImpl(
-      _$TombstoneImpl _value, $Res Function(_$TombstoneImpl) _then)
-      : super(_value, _then);
+    _$TombstoneImpl _value,
+    $Res Function(_$TombstoneImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of Tombstone
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? sig = null,
-    Object? type = null,
-    Object? prev = null,
-  }) {
-    return _then(_$TombstoneImpl(
-      sig: null == sig
-          ? _value.sig
-          : sig // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      prev: null == prev
-          ? _value.prev
-          : prev // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? sig = null, Object? type = null, Object? prev = null}) {
+    return _then(
+      _$TombstoneImpl(
+        sig: null == sig
+            ? _value.sig
+            : sig // ignore: cast_nullable_to_non_nullable
+                  as String,
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+        prev: null == prev
+            ? _value.prev
+            : prev // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -127,8 +127,11 @@ class __$$TombstoneImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$TombstoneImpl implements _Tombstone {
-  const _$TombstoneImpl(
-      {required this.sig, this.type = 'plc_tombstone', required this.prev});
+  const _$TombstoneImpl({
+    required this.sig,
+    this.type = 'plc_tombstone',
+    required this.prev,
+  });
 
   factory _$TombstoneImpl.fromJson(Map<String, dynamic> json) =>
       _$$TombstoneImplFromJson(json);
@@ -170,17 +173,16 @@ class _$TombstoneImpl implements _Tombstone {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TombstoneImplToJson(
-      this,
-    );
+    return _$$TombstoneImplToJson(this);
   }
 }
 
 abstract class _Tombstone implements Tombstone {
-  const factory _Tombstone(
-      {required final String sig,
-      final String type,
-      required final String prev}) = _$TombstoneImpl;
+  const factory _Tombstone({
+    required final String sig,
+    final String type,
+    required final String prev,
+  }) = _$TombstoneImpl;
 
   factory _Tombstone.fromJson(Map<String, dynamic> json) =
       _$TombstoneImpl.fromJson;

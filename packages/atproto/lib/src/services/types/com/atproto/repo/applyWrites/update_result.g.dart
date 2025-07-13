@@ -8,28 +8,28 @@ part of 'update_result.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UpdateResultImpl _$$UpdateResultImplFromJson(Map json) => $checkedCreate(
-      r'_$UpdateResultImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$UpdateResultImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? comAtprotoRepoApplyWritesUpdateResult),
-          uri: $checkedConvert('uri', (v) => v as String),
-          cid: $checkedConvert('cid', (v) => v as String),
-          validationStatus:
-              $checkedConvert('validationStatus', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_UpdateResult _$UpdateResultFromJson(Map json) =>
+    $checkedCreate('_UpdateResult', json, ($checkedConvert) {
+      final val = _UpdateResult(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? comAtprotoRepoApplyWritesUpdateResult,
+        ),
+        uri: $checkedConvert('uri', (v) => v as String),
+        cid: $checkedConvert('cid', (v) => v as String),
+        validationStatus: $checkedConvert(
+          'validationStatus',
+          (v) => v as String?,
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$UpdateResultImplToJson(_$UpdateResultImpl instance) =>
+Map<String, dynamic> _$UpdateResultToJson(_UpdateResult instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'uri': instance.uri,

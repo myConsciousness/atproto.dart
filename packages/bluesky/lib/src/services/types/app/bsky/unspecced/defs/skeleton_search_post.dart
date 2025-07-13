@@ -23,13 +23,12 @@ part 'skeleton_search_post.g.dart';
 
 @freezed
 abstract class SkeletonSearchPost with _$SkeletonSearchPost {
-  static const knownProps = <String>[
-    'uri',
-  ];
+  static const knownProps = <String>['uri'];
 
   const factory SkeletonSearchPost({
     @Default(appBskyUnspeccedDefsSkeletonSearchPost) String $type,
     required String uri,
+
     Map<String, dynamic>? $unknown,
   }) = _SkeletonSearchPost;
 
@@ -48,14 +47,12 @@ final class SkeletonSearchPostConverter
 
   @override
   SkeletonSearchPost fromJson(Map<String, dynamic> json) {
-    return SkeletonSearchPost.fromJson(translate(
-      json,
-      SkeletonSearchPost.knownProps,
-    ));
+    return SkeletonSearchPost.fromJson(
+      translate(json, SkeletonSearchPost.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SkeletonSearchPost object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SkeletonSearchPost object) =>
+      untranslate(object.toJson());
 }

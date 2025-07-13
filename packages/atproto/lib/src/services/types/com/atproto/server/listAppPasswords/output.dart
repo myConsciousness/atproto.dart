@@ -24,12 +24,11 @@ part 'output.g.dart';
 @freezed
 abstract class ServerListAppPasswordsOutput
     with _$ServerListAppPasswordsOutput {
-  static const knownProps = <String>[
-    'passwords',
-  ];
+  static const knownProps = <String>['passwords'];
 
   const factory ServerListAppPasswordsOutput({
     @AppPasswordConverter() required List<AppPassword> passwords,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerListAppPasswordsOutput;
 
@@ -37,21 +36,19 @@ abstract class ServerListAppPasswordsOutput
       _$ServerListAppPasswordsOutputFromJson(json);
 }
 
-final class ServerListAppPasswordsOutputConverter extends LexObjectConverter<
-    ServerListAppPasswordsOutput, Map<String, dynamic>> {
+final class ServerListAppPasswordsOutputConverter
+    extends
+        LexObjectConverter<ServerListAppPasswordsOutput, Map<String, dynamic>> {
   const ServerListAppPasswordsOutputConverter();
 
   @override
   ServerListAppPasswordsOutput fromJson(Map<String, dynamic> json) {
-    return ServerListAppPasswordsOutput.fromJson(translate(
-      json,
-      ServerListAppPasswordsOutput.knownProps,
-    ));
+    return ServerListAppPasswordsOutput.fromJson(
+      translate(json, ServerListAppPasswordsOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ServerListAppPasswordsOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

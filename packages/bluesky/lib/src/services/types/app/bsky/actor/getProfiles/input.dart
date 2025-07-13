@@ -20,12 +20,11 @@ part 'input.g.dart';
 
 @freezed
 abstract class ActorGetProfilesInput with _$ActorGetProfilesInput {
-  static const knownProps = <String>[
-    'actors',
-  ];
+  static const knownProps = <String>['actors'];
 
   const factory ActorGetProfilesInput({
     required List<String> actors,
+
     Map<String, dynamic>? $unknown,
   }) = _ActorGetProfilesInput;
 
@@ -39,14 +38,12 @@ final class ActorGetProfilesInputConverter
 
   @override
   ActorGetProfilesInput fromJson(Map<String, dynamic> json) {
-    return ActorGetProfilesInput.fromJson(translate(
-      json,
-      ActorGetProfilesInput.knownProps,
-    ));
+    return ActorGetProfilesInput.fromJson(
+      translate(json, ActorGetProfilesInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ActorGetProfilesInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ActorGetProfilesInput object) =>
+      untranslate(object.toJson());
 }

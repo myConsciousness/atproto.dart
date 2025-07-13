@@ -69,6 +69,7 @@ final class UModerationCreateReportSubjectConverter
       object.when(
         repoRef: (data) => const RepoRefConverter().toJson(data),
         repoStrongRef: (data) => const RepoStrongRefConverter().toJson(data),
+
         unknown: (data) => data,
       );
 }

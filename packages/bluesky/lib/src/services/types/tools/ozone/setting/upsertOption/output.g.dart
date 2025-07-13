@@ -8,30 +8,24 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SettingUpsertOptionOutputImpl _$$SettingUpsertOptionOutputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$SettingUpsertOptionOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SettingUpsertOptionOutputImpl(
-          option: $checkedConvert(
-              'option',
-              (v) =>
-                  const OptionConverter().fromJson(v as Map<String, dynamic>)),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_SettingUpsertOptionOutput _$SettingUpsertOptionOutputFromJson(Map json) =>
+    $checkedCreate('_SettingUpsertOptionOutput', json, ($checkedConvert) {
+      final val = _SettingUpsertOptionOutput(
+        option: $checkedConvert(
+          'option',
+          (v) => const OptionConverter().fromJson(v as Map<String, dynamic>),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$SettingUpsertOptionOutputImplToJson(
-        _$SettingUpsertOptionOutputImpl instance) =>
-    <String, dynamic>{
-      'option': const OptionConverter().toJson(instance.option),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$SettingUpsertOptionOutputToJson(
+  _SettingUpsertOptionOutput instance,
+) => <String, dynamic>{
+  'option': const OptionConverter().toJson(instance.option),
+  r'$unknown': instance.$unknown,
+};

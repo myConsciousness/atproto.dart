@@ -78,10 +78,7 @@ Future<OAuthClientMetadata> getClientMetadata(final String clientId) async {
 }
 
 final class OAuthClient {
-  const OAuthClient(
-    this.metadata, {
-    this.service = 'bsky.social',
-  });
+  const OAuthClient(this.metadata, {this.service = 'bsky.social'});
 
   /// Client metadata to be used during authentication.
   final OAuthClientMetadata metadata;
@@ -149,19 +146,15 @@ final class OAuthClient {
     }
 
     return (
-      Uri.https(
-        service,
-        '/oauth/authorize',
-        {
-          'client_id': metadata.clientId,
-          'request_uri': jsonDecode(response.body)['request_uri']!,
-        },
-      ),
+      Uri.https(service, '/oauth/authorize', {
+        'client_id': metadata.clientId,
+        'request_uri': jsonDecode(response.body)['request_uri']!,
+      }),
       OAuthContext(
         codeVerifier: codeVerifier,
         state: state,
         dpopNonce: response.headers['dpop-nonce']!,
-      )
+      ),
     );
   }
 
@@ -243,9 +236,7 @@ final class OAuthClient {
 
     final response = await http.post(
       endpoint,
-      headers: {
-        'DPoP': dPoPHeader,
-      },
+      headers: {'DPoP': dPoPHeader},
       body: {
         'client_id': metadata.clientId,
         'grant_type': 'authorization_code',
@@ -276,8 +267,9 @@ final class OAuthClient {
       refreshToken: body['refresh_token'],
       tokenType: body['token_type'],
       scope: body['scope'],
-      expiresAt:
-          DateTime.now().toUtc().add(Duration(seconds: body['expires_in'])),
+      expiresAt: DateTime.now().toUtc().add(
+        Duration(seconds: body['expires_in']),
+      ),
       sub: body['sub'],
       $dPoPNonce: response.headers['dpop-nonce']!,
       $publicKey: publicKey,
@@ -341,9 +333,7 @@ final class OAuthClient {
 
     final response = await http.post(
       endpoint,
-      headers: {
-        'DPoP': dPoPHeader,
-      },
+      headers: {'DPoP': dPoPHeader},
       body: {
         'client_id': metadata.clientId,
         'grant_type': 'refresh_token',
@@ -370,8 +360,9 @@ final class OAuthClient {
       refreshToken: body['refresh_token'],
       tokenType: body['token_type'],
       scope: body['scope'],
-      expiresAt:
-          DateTime.now().toUtc().add(Duration(seconds: body['expires_in'])),
+      expiresAt: DateTime.now().toUtc().add(
+        Duration(seconds: body['expires_in']),
+      ),
       sub: body['sub'],
       $dPoPNonce: response.headers['dpop-nonce']!,
       $publicKey: session.$publicKey,

@@ -20,16 +20,10 @@ part 'event_type.g.dart';
 
 @freezed
 abstract class EventType with _$EventType {
-  static const knownProps = <String>[
-    'addRule',
-    'updateRule',
-    'removeRule',
-  ];
+  static const knownProps = <String>['addRule', 'updateRule', 'removeRule'];
 
-  const factory EventType({
-    KnownEventType? knownValue,
-    String? unknownValue,
-  }) = _EventType;
+  const factory EventType({KnownEventType? knownValue, String? unknownValue}) =
+      _EventType;
 
   factory EventType.fromJson(Map<String, Object?> json) =>
       _$EventTypeFromJson(json);
@@ -41,16 +35,11 @@ abstract class EventTypeConverter
 
   @override
   EventType fromJson(Map<String, dynamic> json) {
-    return EventType.fromJson(translate(
-      json,
-      EventType.knownProps,
-    ));
+    return EventType.fromJson(translate(json, EventType.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(EventType object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(EventType object) => untranslate(object.toJson());
 }
 
 enum KnownEventType implements Serializable {
@@ -59,8 +48,7 @@ enum KnownEventType implements Serializable {
   @JsonValue('updateRule')
   updateRule('updateRule'),
   @JsonValue('removeRule')
-  removeRule('removeRule'),
-  ;
+  removeRule('removeRule');
 
   @override
   final String value;

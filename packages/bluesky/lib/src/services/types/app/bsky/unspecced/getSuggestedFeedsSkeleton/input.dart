@@ -21,39 +21,37 @@ part 'input.g.dart';
 @freezed
 abstract class UnspeccedGetSuggestedFeedsSkeletonInput
     with _$UnspeccedGetSuggestedFeedsSkeletonInput {
-  static const knownProps = <String>[
-    'viewer',
-    'limit',
-  ];
+  static const knownProps = <String>['viewer', 'limit'];
 
   const factory UnspeccedGetSuggestedFeedsSkeletonInput({
     /// DID of the account making the request (not included for public/unauthenticated queries).
     String? viewer,
     int? limit,
+
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestedFeedsSkeletonInput;
 
   factory UnspeccedGetSuggestedFeedsSkeletonInput.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedGetSuggestedFeedsSkeletonInputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$UnspeccedGetSuggestedFeedsSkeletonInputFromJson(json);
 }
 
 final class UnspeccedGetSuggestedFeedsSkeletonInputConverter
-    extends LexObjectConverter<UnspeccedGetSuggestedFeedsSkeletonInput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          UnspeccedGetSuggestedFeedsSkeletonInput,
+          Map<String, dynamic>
+        > {
   const UnspeccedGetSuggestedFeedsSkeletonInputConverter();
 
   @override
   UnspeccedGetSuggestedFeedsSkeletonInput fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetSuggestedFeedsSkeletonInput.fromJson(translate(
-      json,
-      UnspeccedGetSuggestedFeedsSkeletonInput.knownProps,
-    ));
+    return UnspeccedGetSuggestedFeedsSkeletonInput.fromJson(
+      translate(json, UnspeccedGetSuggestedFeedsSkeletonInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetSuggestedFeedsSkeletonInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

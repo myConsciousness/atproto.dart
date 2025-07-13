@@ -40,30 +40,31 @@ abstract class UnspeccedGetSuggestionsSkeletonOutput
 
     /// Snowflake for this recommendation, use when submitting recommendation events.
     int? recId,
+
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestionsSkeletonOutput;
 
   factory UnspeccedGetSuggestionsSkeletonOutput.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedGetSuggestionsSkeletonOutputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$UnspeccedGetSuggestionsSkeletonOutputFromJson(json);
 }
 
 final class UnspeccedGetSuggestionsSkeletonOutputConverter
-    extends LexObjectConverter<UnspeccedGetSuggestionsSkeletonOutput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          UnspeccedGetSuggestionsSkeletonOutput,
+          Map<String, dynamic>
+        > {
   const UnspeccedGetSuggestionsSkeletonOutputConverter();
 
   @override
   UnspeccedGetSuggestionsSkeletonOutput fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetSuggestionsSkeletonOutput.fromJson(translate(
-      json,
-      UnspeccedGetSuggestionsSkeletonOutput.knownProps,
-    ));
+    return UnspeccedGetSuggestionsSkeletonOutput.fromJson(
+      translate(json, UnspeccedGetSuggestionsSkeletonOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetSuggestionsSkeletonOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

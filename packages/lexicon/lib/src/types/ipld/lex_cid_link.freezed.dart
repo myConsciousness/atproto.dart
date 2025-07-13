@@ -12,7 +12,8 @@ part of 'lex_cid_link.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LexCidLink _$LexCidLinkFromJson(Map<String, dynamic> json) {
   return _LexCidLink.fromJson(json);
@@ -36,8 +37,9 @@ mixin _$LexCidLink {
 /// @nodoc
 abstract class $LexCidLinkCopyWith<$Res> {
   factory $LexCidLinkCopyWith(
-          LexCidLink value, $Res Function(LexCidLink) then) =
-      _$LexCidLinkCopyWithImpl<$Res, LexCidLink>;
+    LexCidLink value,
+    $Res Function(LexCidLink) then,
+  ) = _$LexCidLinkCopyWithImpl<$Res, LexCidLink>;
   @useResult
   $Res call({String type, String? description});
 }
@@ -56,20 +58,20 @@ class _$LexCidLinkCopyWithImpl<$Res, $Val extends LexCidLink>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? type = null,
-    Object? description = freezed,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  $Res call({Object? type = null, Object? description = freezed}) {
+    return _then(
+      _value.copyWith(
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -77,8 +79,9 @@ class _$LexCidLinkCopyWithImpl<$Res, $Val extends LexCidLink>
 abstract class _$$LexCidLinkImplCopyWith<$Res>
     implements $LexCidLinkCopyWith<$Res> {
   factory _$$LexCidLinkImplCopyWith(
-          _$LexCidLinkImpl value, $Res Function(_$LexCidLinkImpl) then) =
-      __$$LexCidLinkImplCopyWithImpl<$Res>;
+    _$LexCidLinkImpl value,
+    $Res Function(_$LexCidLinkImpl) then,
+  ) = __$$LexCidLinkImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type, String? description});
@@ -89,27 +92,27 @@ class __$$LexCidLinkImplCopyWithImpl<$Res>
     extends _$LexCidLinkCopyWithImpl<$Res, _$LexCidLinkImpl>
     implements _$$LexCidLinkImplCopyWith<$Res> {
   __$$LexCidLinkImplCopyWithImpl(
-      _$LexCidLinkImpl _value, $Res Function(_$LexCidLinkImpl) _then)
-      : super(_value, _then);
+    _$LexCidLinkImpl _value,
+    $Res Function(_$LexCidLinkImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexCidLink
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? type = null,
-    Object? description = freezed,
-  }) {
-    return _then(_$LexCidLinkImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+  $Res call({Object? type = null, Object? description = freezed}) {
+    return _then(
+      _$LexCidLinkImpl(
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
@@ -157,9 +160,7 @@ class _$LexCidLinkImpl implements _LexCidLink {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LexCidLinkImplToJson(
-      this,
-    );
+    return _$$LexCidLinkImplToJson(this);
   }
 }
 

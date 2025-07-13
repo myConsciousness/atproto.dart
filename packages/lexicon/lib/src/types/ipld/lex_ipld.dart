@@ -15,13 +15,9 @@ class LexIpld with _$LexIpld {
   // ignore: unused_element
   const LexIpld._();
 
-  const factory LexIpld.bytes({
-    required LexBytes data,
-  }) = ULexIpldBytes;
+  const factory LexIpld.bytes({required LexBytes data}) = ULexIpldBytes;
 
-  const factory LexIpld.cidLink({
-    required LexCidLink data,
-  }) = ULexIpldCidLink;
+  const factory LexIpld.cidLink({required LexCidLink data}) = ULexIpldCidLink;
 
   Map<String, dynamic> toJson() => const LexIpldConverter().toJson(this);
 }

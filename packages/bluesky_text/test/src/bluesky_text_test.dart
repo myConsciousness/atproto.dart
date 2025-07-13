@@ -119,8 +119,9 @@ void main() {
     });
 
     test('case3', () {
-      final text =
-          BlueskyText('😳 @test.bsky.social 😳😳😳 @test2.bsky.social');
+      final text = BlueskyText(
+        '😳 @test.bsky.social 😳😳😳 @test2.bsky.social',
+      );
       final handles = text.handles;
 
       expect(handles.length, 2);
@@ -213,17 +214,11 @@ void main() {
     });
 
     test('case12', () {
-      expect(
-        () => BlueskyText('a' * 300).handles,
-        returnsNormally,
-      );
+      expect(() => BlueskyText('a' * 300).handles, returnsNormally);
     });
 
     test('case13', () {
-      expect(
-        () => BlueskyText('😳' * 300).handles,
-        returnsNormally,
-      );
+      expect(() => BlueskyText('😳' * 300).handles, returnsNormally);
     });
 
     test('case14', () {
@@ -418,24 +413,15 @@ void main() {
     });
 
     test('case12', () {
-      expect(
-        () => BlueskyText('a' * 300).links,
-        returnsNormally,
-      );
+      expect(() => BlueskyText('a' * 300).links, returnsNormally);
     });
 
     test('case13', () {
-      expect(
-        () => BlueskyText('😳' * 300).links,
-        returnsNormally,
-      );
+      expect(() => BlueskyText('😳' * 300).links, returnsNormally);
     });
 
     test('case14', () {
-      expect(
-        BlueskyText('tbh').links,
-        [],
-      );
+      expect(BlueskyText('tbh').links, []);
     });
 
     test('case15', () {
@@ -530,12 +516,15 @@ void main() {
 
     test('case23', () {
       final text = BlueskyText(
-          'テストhttps://atprotodart.com:8080/test/test2?test=valueあいうえお');
+        'テストhttps://atprotodart.com:8080/test/test2?test=valueあいうえお',
+      );
       final links = text.links;
 
       expect(links.length, 1);
-      expect(links.first.value,
-          'https://atprotodart.com:8080/test/test2?test=value');
+      expect(
+        links.first.value,
+        'https://atprotodart.com:8080/test/test2?test=value',
+      );
       expect(links.first.indices.start, 9);
       expect(links.first.indices.end, 59);
     });
@@ -577,31 +566,39 @@ void main() {
 
       expect(links.length, 1);
       expect(
-          links.first.value, 'https://wikipedia.com/Primer_(film)/S(dfd346)/');
+        links.first.value,
+        'https://wikipedia.com/Primer_(film)/S(dfd346)/',
+      );
       expect(links.first.indices.start, 0);
       expect(links.first.indices.end, 38);
     });
 
     test('case29', () {
-      final text =
-          BlueskyText('wikipedia.com/track/We_Up_(Album_Version_(Edited))/');
+      final text = BlueskyText(
+        'wikipedia.com/track/We_Up_(Album_Version_(Edited))/',
+      );
       final links = text.links;
 
       expect(links.length, 1);
-      expect(links.first.value,
-          'https://wikipedia.com/track/We_Up_(Album_Version_(Edited))/');
+      expect(
+        links.first.value,
+        'https://wikipedia.com/track/We_Up_(Album_Version_(Edited))/',
+      );
       expect(links.first.indices.start, 0);
       expect(links.first.indices.end, 51);
     });
 
     test('case29', () {
-      final text =
-          BlueskyText('wikipedia.com//track/We_Up_(Album_Version_(Edited))/');
+      final text = BlueskyText(
+        'wikipedia.com//track/We_Up_(Album_Version_(Edited))/',
+      );
       final links = text.links;
 
       expect(links.length, 1);
-      expect(links.first.value,
-          'https://wikipedia.com//track/We_Up_(Album_Version_(Edited))/'); //* No problem
+      expect(
+        links.first.value,
+        'https://wikipedia.com//track/We_Up_(Album_Version_(Edited))/',
+      ); //* No problem
       expect(links.first.indices.start, 0);
       expect(links.first.indices.end, 52);
     });
@@ -611,8 +608,10 @@ void main() {
       final links = text.links;
 
       expect(links.length, 1);
-      expect(links.first.value,
-          'https://wikipedia.com//track/We_Up_'); //* Not formatted.
+      expect(
+        links.first.value,
+        'https://wikipedia.com//track/We_Up_',
+      ); //* Not formatted.
       expect(links.first.indices.start, 0);
       expect(links.first.indices.end, 27);
     });
@@ -692,25 +691,30 @@ example8.com はいいぞ
 
     test('case34', () {
       final text = BlueskyText(
-          '''I use @deck.blue, which lets you add inline links using Markdown! So that
+        '''I use @deck.blue, which lets you add inline links using Markdown! So that
 
 [example link](link url here)
 
 becomes
 
-[example link](https://www.picserver.org/assets/library/2020-10-31/originals/example1.jpg)''');
+[example link](https://www.picserver.org/assets/library/2020-10-31/originals/example1.jpg)''',
+      );
 
       final links = text.links;
       expect(links.length, 1);
-      expect(links.first.value,
-          'https://www.picserver.org/assets/library/2020-10-31/originals/example1.jpg');
+      expect(
+        links.first.value,
+        'https://www.picserver.org/assets/library/2020-10-31/originals/example1.jpg',
+      );
       expect(links.first.indices.start, 116);
       expect(links.first.indices.end, 128);
 
       final formatted = text.format().links;
       expect(formatted.length, 1);
-      expect(formatted.first.value,
-          'https://www.picserver.org/assets/library/2020-10-31/originals/example1.jpg');
+      expect(
+        formatted.first.value,
+        'https://www.picserver.org/assets/library/2020-10-31/originals/example1.jpg',
+      );
       expect(formatted.first.indices.start, 115);
       expect(formatted.first.indices.end, 127);
     });
@@ -729,7 +733,9 @@ becomes
       final facets = await tags.toFacets();
 
       expect(
-          facets.first['features'][0][r'$type'], 'app.bsky.richtext.facet#tag');
+        facets.first['features'][0][r'$type'],
+        'app.bsky.richtext.facet#tag',
+      );
       expect(facets.first['features'][0]['tag'], 'test');
     });
 
@@ -1127,24 +1133,15 @@ github.com/videah/SkyBridge
     });
 
     test('case7', () {
-      expect(
-        () => BlueskyText('a' * 300).entities,
-        returnsNormally,
-      );
+      expect(() => BlueskyText('a' * 300).entities, returnsNormally);
     });
 
     test('case8', () {
-      expect(
-        () => BlueskyText('😳' * 300).entities,
-        returnsNormally,
-      );
+      expect(() => BlueskyText('😳' * 300).entities, returnsNormally);
     });
 
     test('case9', () {
-      expect(
-        BlueskyText('tbh').entities,
-        [],
-      );
+      expect(BlueskyText('tbh').entities, []);
     });
 
     test('case10', () {
@@ -1156,8 +1153,10 @@ github.com/videah/SkyBridge
 
       expect(entities.length, 1);
       expect(entities.first.isLink, isTrue);
-      expect(entities.first.value,
-          'https://github.com/jakobo/codedrift/discussions/115');
+      expect(
+        entities.first.value,
+        'https://github.com/jakobo/codedrift/discussions/115',
+      );
       expect(entities.first.indices.start, 0);
       expect(entities.first.indices.end, 51);
     });
@@ -1292,9 +1291,7 @@ github.com/videah/SkyBridge
     test('case1', () {
       final text = BlueskyText(
         '@shinyakato.dev https://test.com',
-        linkConfig: LinkConfig(
-          excludeProtocol: true,
-        ),
+        linkConfig: LinkConfig(excludeProtocol: true),
       ).format();
 
       expect(text.value, '@shinyakato.dev test.com');
@@ -1310,9 +1307,7 @@ github.com/videah/SkyBridge
     });
 
     test('case2', () {
-      final text = BlueskyText(
-        '@shinyakato.dev https://test.com',
-      ).format();
+      final text = BlueskyText('@shinyakato.dev https://test.com').format();
 
       expect(text.value, '@shinyakato.dev https://test.com');
       expect(text.length, 32);
@@ -1328,11 +1323,9 @@ github.com/videah/SkyBridge
 
     test('case3', () {
       final text = BlueskyText(
-          '@shinyakato.dev https://www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/',
-          linkConfig: LinkConfig(
-            excludeProtocol: true,
-            enableShortening: true,
-          )).format();
+        '@shinyakato.dev https://www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/',
+        linkConfig: LinkConfig(excludeProtocol: true, enableShortening: true),
+      ).format();
 
       expect(text.value, '@shinyakato.dev www.nikkei.com/article/DGXZ...');
       expect(text.length, 46);
@@ -1343,17 +1336,17 @@ github.com/videah/SkyBridge
       expect(entities.first.type, EntityType.handle);
       expect(entities.first.value, 'shinyakato.dev');
       expect(entities[1].type, EntityType.link);
-      expect(entities[1].value,
-          'https://www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/');
+      expect(
+        entities[1].value,
+        'https://www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/',
+      );
     });
 
     test('case4', () {
       final text = BlueskyText(
-          '@shinyakato.dev www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/',
-          linkConfig: LinkConfig(
-            excludeProtocol: true,
-            enableShortening: true,
-          )).format();
+        '@shinyakato.dev www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/',
+        linkConfig: LinkConfig(excludeProtocol: true, enableShortening: true),
+      ).format();
 
       expect(text.value, '@shinyakato.dev www.nikkei.com/article/DGXZ...');
       expect(text.length, 46);
@@ -1364,17 +1357,17 @@ github.com/videah/SkyBridge
       expect(entities.first.type, EntityType.handle);
       expect(entities.first.value, 'shinyakato.dev');
       expect(entities[1].type, EntityType.link);
-      expect(entities[1].value,
-          'https://www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/');
+      expect(
+        entities[1].value,
+        'https://www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/',
+      );
     });
 
     test('case5', () {
       final text = BlueskyText(
-          '@shinyakato.dev www.nikkei.com/article/DGX?QOGN20CZ30Q3A920C2000000/',
-          linkConfig: LinkConfig(
-            excludeProtocol: true,
-            enableShortening: true,
-          )).format();
+        '@shinyakato.dev www.nikkei.com/article/DGX?QOGN20CZ30Q3A920C2000000/',
+        linkConfig: LinkConfig(excludeProtocol: true, enableShortening: true),
+      ).format();
 
       expect(text.value, '@shinyakato.dev www.nikkei.com/article/DGX...');
       expect(text.length, 45);
@@ -1385,20 +1378,22 @@ github.com/videah/SkyBridge
       expect(entities.first.type, EntityType.handle);
       expect(entities.first.value, 'shinyakato.dev');
       expect(entities[1].type, EntityType.link);
-      expect(entities[1].value,
-          'https://www.nikkei.com/article/DGX?QOGN20CZ30Q3A920C2000000/');
+      expect(
+        entities[1].value,
+        'https://www.nikkei.com/article/DGX?QOGN20CZ30Q3A920C2000000/',
+      );
     });
 
     test('case6', () {
       final text = BlueskyText(
-          '@shinyakato.dev www.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com/article/DGX?QOGN20CZ30Q3A920C2000000/',
-          linkConfig: LinkConfig(
-            excludeProtocol: true,
-            enableShortening: true,
-          )).format();
+        '@shinyakato.dev www.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com/article/DGX?QOGN20CZ30Q3A920C2000000/',
+        linkConfig: LinkConfig(excludeProtocol: true, enableShortening: true),
+      ).format();
 
-      expect(text.value,
-          '@shinyakato.dev www.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com/article/DGX...');
+      expect(
+        text.value,
+        '@shinyakato.dev www.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com/article/DGX...',
+      );
       expect(text.length, 81);
 
       final entities = text.entities;
@@ -1407,8 +1402,10 @@ github.com/videah/SkyBridge
       expect(entities.first.type, EntityType.handle);
       expect(entities.first.value, 'shinyakato.dev');
       expect(entities[1].type, EntityType.link);
-      expect(entities[1].value,
-          'https://www.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com/article/DGX?QOGN20CZ30Q3A920C2000000/');
+      expect(
+        entities[1].value,
+        'https://www.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com/article/DGX?QOGN20CZ30Q3A920C2000000/',
+      );
     });
 
     test('case7', () {
@@ -1507,9 +1504,7 @@ github.com/videah/SkyBridge
     });
 
     test('case12', () {
-      final text = BlueskyText(
-        'https://deck.blue/page',
-      ).format();
+      final text = BlueskyText('https://deck.blue/page').format();
 
       expect(text.value, 'https://deck.blue/page');
 
@@ -1520,9 +1515,7 @@ github.com/videah/SkyBridge
     });
 
     test('case13', () {
-      final text = BlueskyText(
-        'https://deck.blue/page/',
-      ).format();
+      final text = BlueskyText('https://deck.blue/page/').format();
 
       expect(text.value, 'https://deck.blue/page/');
 
@@ -1560,7 +1553,7 @@ github.com/videah/SkyBridge
         'www.foo.com/foo/path-with-period./',
         'www.foo.org.za/foo/bar/688.1',
         'www.foo.com/bar-path/some.stm?param1=foo;param2=P1|0||P2|0',
-        'foo.com/bar/123/foo_&_bar/'
+        'foo.com/bar/123/foo_&_bar/',
       ];
 
       final expectedUrls = [
@@ -1572,7 +1565,7 @@ github.com/videah/SkyBridge
         'https://www.foo.com/foo/path-with-period./',
         'https://www.foo.org.za/foo/bar/688.1',
         'https://www.foo.com/bar-path/some.stm?param1=foo;param2=P1|0||P2|0',
-        'https://foo.com/bar/123/foo_&_bar/'
+        'https://foo.com/bar/123/foo_&_bar/',
       ];
 
       for (int i = 0; i < urls.length; i++) {
@@ -1591,7 +1584,7 @@ github.com/videah/SkyBridge
         'www.foo.com/foo/path-with-period./',
         'www.foo.org.za/foo/bar/688.1',
         'www.foo.com/bar-path/some.stm?param1=foo;param2=P1|0||P2|0',
-        'foo.com/bar/123/foo_&_bar/'
+        'foo.com/bar/123/foo_&_bar/',
       ];
 
       final expectedUrls = [
@@ -1603,16 +1596,13 @@ github.com/videah/SkyBridge
         'https://www.foo.com/foo/path-with-period./',
         'https://www.foo.org.za/foo/bar/688.1',
         'https://www.foo.com/bar-path/some.stm?param1=foo;param2=P1|0||P2|0',
-        'https://foo.com/bar/123/foo_&_bar/'
+        'https://foo.com/bar/123/foo_&_bar/',
       ];
 
       for (int i = 0; i < urls.length; i++) {
         final text = BlueskyText(
           urls[i],
-          linkConfig: LinkConfig(
-            excludeProtocol: true,
-            enableShortening: true,
-          ),
+          linkConfig: LinkConfig(excludeProtocol: true, enableShortening: true),
         );
 
         expect(text.entities.first.value, expectedUrls[i]);
@@ -1674,8 +1664,9 @@ github.com/videah/SkyBridge
     });
 
     test('case4', () {
-      final text =
-          BlueskyText('あああああ[test テスト](https://example.com)test').format();
+      final text = BlueskyText(
+        'あああああ[test テスト](https://example.com)test',
+      ).format();
 
       expect(text.value, 'あああああtest テストtest');
 
@@ -1734,8 +1725,9 @@ github.com/videah/SkyBridge
     });
 
     test('case9', () {
-      final text =
-          BlueskyText('[test](https://example.com) atprotodart.com').format();
+      final text = BlueskyText(
+        '[test](https://example.com) atprotodart.com',
+      ).format();
 
       expect(text.value, 'test atprotodart.com');
 
@@ -1751,9 +1743,9 @@ github.com/videah/SkyBridge
     });
 
     test('case10', () {
-      final text =
-          BlueskyText('[test](https://example.com)https://atprotodart.com')
-              .format();
+      final text = BlueskyText(
+        '[test](https://example.com)https://atprotodart.com',
+      ).format();
 
       expect(text.value, 'testhttps://atprotodart.com');
 
@@ -1770,8 +1762,8 @@ github.com/videah/SkyBridge
 
     test('case11', () {
       final text = BlueskyText(
-              'https://atprotodart.dev[test](https://example.com)https://atprotodart.com')
-          .format();
+        'https://atprotodart.dev[test](https://example.com)https://atprotodart.com',
+      ).format();
 
       expect(text.value, 'https://atprotodart.devtesthttps://atprotodart.com');
 
@@ -1804,10 +1796,7 @@ github.com/videah/SkyBridge
         '[test](ftp://user:pass@ftp.example.txt)',
       ).format();
 
-      expect(
-        text.value,
-        '[test](ftp://user:pass@ftp.example.txt)',
-      );
+      expect(text.value, '[test](ftp://user:pass@ftp.example.txt)');
 
       final entities = text.entities;
 
@@ -1831,10 +1820,7 @@ github.com/videah/SkyBridge
     });
 
     test('case15', () {
-      final text = BlueskyText(
-        '[テスト](deck.blue)',
-        enableMarkdown: false,
-      );
+      final text = BlueskyText('[テスト](deck.blue)', enableMarkdown: false);
 
       final entities = text.entities;
 
@@ -1993,8 +1979,10 @@ github.com/videah/SkyBridge
 
       expect(entities.length, 1);
       expect(entities.first.type, EntityType.markdownLink);
-      expect(entities.first.value,
-          'https://wikipedia.com//track/We_Up_(Album_Version_(Edited))');
+      expect(
+        entities.first.value,
+        'https://wikipedia.com//track/We_Up_(Album_Version_(Edited))',
+      );
       expect(entities.first.indices.start, 1);
       expect(entities.first.indices.end, 5);
     });

@@ -3,7 +3,7 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../constants/grouped_notification_reason.dart';
-import '../entities/grouped_notification.dart';
+import '../utils/grouped_notification.dart';
 
 extension GroupedNotificationExtension on GroupedNotification {
   /// Returns the post url related to this notification.

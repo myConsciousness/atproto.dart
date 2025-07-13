@@ -12,7 +12,8 @@ part of 'jwt.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Jwt _$JwtFromJson(Map<String, dynamic> json) {
   return _Jwt.fromJson(json);
@@ -46,16 +47,17 @@ abstract class $JwtCopyWith<$Res> {
   factory $JwtCopyWith(Jwt value, $Res Function(Jwt) then) =
       _$JwtCopyWithImpl<$Res, Jwt>;
   @useResult
-  $Res call(
-      {String aud,
-      String sub,
-      String? jti,
-      Map<String, dynamic>? cnf,
-      String? clientId,
-      String scope,
-      String? iss,
-      @dateTimeConverter DateTime exp,
-      @dateTimeConverter DateTime iat});
+  $Res call({
+    String aud,
+    String sub,
+    String? jti,
+    Map<String, dynamic>? cnf,
+    String? clientId,
+    String scope,
+    String? iss,
+    @dateTimeConverter DateTime exp,
+    @dateTimeConverter DateTime iat,
+  });
 }
 
 /// @nodoc
@@ -82,44 +84,47 @@ class _$JwtCopyWithImpl<$Res, $Val extends Jwt> implements $JwtCopyWith<$Res> {
     Object? exp = null,
     Object? iat = null,
   }) {
-    return _then(_value.copyWith(
-      aud: null == aud
-          ? _value.aud
-          : aud // ignore: cast_nullable_to_non_nullable
-              as String,
-      sub: null == sub
-          ? _value.sub
-          : sub // ignore: cast_nullable_to_non_nullable
-              as String,
-      jti: freezed == jti
-          ? _value.jti
-          : jti // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cnf: freezed == cnf
-          ? _value.cnf
-          : cnf // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      clientId: freezed == clientId
-          ? _value.clientId
-          : clientId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      scope: null == scope
-          ? _value.scope
-          : scope // ignore: cast_nullable_to_non_nullable
-              as String,
-      iss: freezed == iss
-          ? _value.iss
-          : iss // ignore: cast_nullable_to_non_nullable
-              as String?,
-      exp: null == exp
-          ? _value.exp
-          : exp // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      iat: null == iat
-          ? _value.iat
-          : iat // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            aud: null == aud
+                ? _value.aud
+                : aud // ignore: cast_nullable_to_non_nullable
+                      as String,
+            sub: null == sub
+                ? _value.sub
+                : sub // ignore: cast_nullable_to_non_nullable
+                      as String,
+            jti: freezed == jti
+                ? _value.jti
+                : jti // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            cnf: freezed == cnf
+                ? _value.cnf
+                : cnf // ignore: cast_nullable_to_non_nullable
+                      as Map<String, dynamic>?,
+            clientId: freezed == clientId
+                ? _value.clientId
+                : clientId // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            scope: null == scope
+                ? _value.scope
+                : scope // ignore: cast_nullable_to_non_nullable
+                      as String,
+            iss: freezed == iss
+                ? _value.iss
+                : iss // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            exp: null == exp
+                ? _value.exp
+                : exp // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
+            iat: null == iat
+                ? _value.iat
+                : iat // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -129,23 +134,24 @@ abstract class _$$JwtImplCopyWith<$Res> implements $JwtCopyWith<$Res> {
       __$$JwtImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String aud,
-      String sub,
-      String? jti,
-      Map<String, dynamic>? cnf,
-      String? clientId,
-      String scope,
-      String? iss,
-      @dateTimeConverter DateTime exp,
-      @dateTimeConverter DateTime iat});
+  $Res call({
+    String aud,
+    String sub,
+    String? jti,
+    Map<String, dynamic>? cnf,
+    String? clientId,
+    String scope,
+    String? iss,
+    @dateTimeConverter DateTime exp,
+    @dateTimeConverter DateTime iat,
+  });
 }
 
 /// @nodoc
 class __$$JwtImplCopyWithImpl<$Res> extends _$JwtCopyWithImpl<$Res, _$JwtImpl>
     implements _$$JwtImplCopyWith<$Res> {
   __$$JwtImplCopyWithImpl(_$JwtImpl _value, $Res Function(_$JwtImpl) _then)
-      : super(_value, _then);
+    : super(_value, _then);
 
   /// Create a copy of Jwt
   /// with the given fields replaced by the non-null parameter values.
@@ -162,44 +168,46 @@ class __$$JwtImplCopyWithImpl<$Res> extends _$JwtCopyWithImpl<$Res, _$JwtImpl>
     Object? exp = null,
     Object? iat = null,
   }) {
-    return _then(_$JwtImpl(
-      aud: null == aud
-          ? _value.aud
-          : aud // ignore: cast_nullable_to_non_nullable
-              as String,
-      sub: null == sub
-          ? _value.sub
-          : sub // ignore: cast_nullable_to_non_nullable
-              as String,
-      jti: freezed == jti
-          ? _value.jti
-          : jti // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cnf: freezed == cnf
-          ? _value._cnf
-          : cnf // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      clientId: freezed == clientId
-          ? _value.clientId
-          : clientId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      scope: null == scope
-          ? _value.scope
-          : scope // ignore: cast_nullable_to_non_nullable
-              as String,
-      iss: freezed == iss
-          ? _value.iss
-          : iss // ignore: cast_nullable_to_non_nullable
-              as String?,
-      exp: null == exp
-          ? _value.exp
-          : exp // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      iat: null == iat
-          ? _value.iat
-          : iat // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
+    return _then(
+      _$JwtImpl(
+        aud: null == aud
+            ? _value.aud
+            : aud // ignore: cast_nullable_to_non_nullable
+                  as String,
+        sub: null == sub
+            ? _value.sub
+            : sub // ignore: cast_nullable_to_non_nullable
+                  as String,
+        jti: freezed == jti
+            ? _value.jti
+            : jti // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        cnf: freezed == cnf
+            ? _value._cnf
+            : cnf // ignore: cast_nullable_to_non_nullable
+                  as Map<String, dynamic>?,
+        clientId: freezed == clientId
+            ? _value.clientId
+            : clientId // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        scope: null == scope
+            ? _value.scope
+            : scope // ignore: cast_nullable_to_non_nullable
+                  as String,
+        iss: freezed == iss
+            ? _value.iss
+            : iss // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        exp: null == exp
+            ? _value.exp
+            : exp // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+        iat: null == iat
+            ? _value.iat
+            : iat // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+      ),
+    );
   }
 }
 
@@ -207,17 +215,17 @@ class __$$JwtImplCopyWithImpl<$Res> extends _$JwtCopyWithImpl<$Res, _$JwtImpl>
 
 @JsonSerializable(includeIfNull: false, fieldRename: FieldRename.snake)
 class _$JwtImpl implements _Jwt {
-  const _$JwtImpl(
-      {required this.aud,
-      required this.sub,
-      this.jti,
-      final Map<String, dynamic>? cnf,
-      this.clientId,
-      required this.scope,
-      this.iss,
-      @dateTimeConverter required this.exp,
-      @dateTimeConverter required this.iat})
-      : _cnf = cnf;
+  const _$JwtImpl({
+    required this.aud,
+    required this.sub,
+    this.jti,
+    final Map<String, dynamic>? cnf,
+    this.clientId,
+    required this.scope,
+    this.iss,
+    @dateTimeConverter required this.exp,
+    @dateTimeConverter required this.iat,
+  }) : _cnf = cnf;
 
   factory _$JwtImpl.fromJson(Map<String, dynamic> json) =>
       _$$JwtImplFromJson(json);
@@ -276,16 +284,17 @@ class _$JwtImpl implements _Jwt {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      aud,
-      sub,
-      jti,
-      const DeepCollectionEquality().hash(_cnf),
-      clientId,
-      scope,
-      iss,
-      exp,
-      iat);
+    runtimeType,
+    aud,
+    sub,
+    jti,
+    const DeepCollectionEquality().hash(_cnf),
+    clientId,
+    scope,
+    iss,
+    exp,
+    iat,
+  );
 
   /// Create a copy of Jwt
   /// with the given fields replaced by the non-null parameter values.
@@ -297,23 +306,22 @@ class _$JwtImpl implements _Jwt {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$JwtImplToJson(
-      this,
-    );
+    return _$$JwtImplToJson(this);
   }
 }
 
 abstract class _Jwt implements Jwt {
-  const factory _Jwt(
-      {required final String aud,
-      required final String sub,
-      final String? jti,
-      final Map<String, dynamic>? cnf,
-      final String? clientId,
-      required final String scope,
-      final String? iss,
-      @dateTimeConverter required final DateTime exp,
-      @dateTimeConverter required final DateTime iat}) = _$JwtImpl;
+  const factory _Jwt({
+    required final String aud,
+    required final String sub,
+    final String? jti,
+    final Map<String, dynamic>? cnf,
+    final String? clientId,
+    required final String scope,
+    final String? iss,
+    @dateTimeConverter required final DateTime exp,
+    @dateTimeConverter required final DateTime iat,
+  }) = _$JwtImpl;
 
   factory _Jwt.fromJson(Map<String, dynamic> json) = _$JwtImpl.fromJson;
 

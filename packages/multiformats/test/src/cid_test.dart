@@ -80,8 +80,14 @@ void main() {
 
     test('case3', () {
       final cid1 = CID.fromList(bytesCidDagPb);
-      final cid2 =
-          CID.fromList([1, 85, 18, 32, 9, ...bytesCidDagPb.sublist(5)]);
+      final cid2 = CID.fromList([
+        1,
+        85,
+        18,
+        32,
+        9,
+        ...bytesCidDagPb.sublist(5),
+      ]);
 
       expect(cid1 == cid2, isFalse);
     });
@@ -91,22 +97,21 @@ void main() {
     test('CID v1 should be encoded in base32 format', () {
       expect(
         () => CID.parse(
-            'afkreicks4diafps5lz5hjf5lflqbxkhevgdty4k66inqtw4brjyqcr6oub'),
+          'afkreicks4diafps5lz5hjf5lflqbxkhevgdty4k66inqtw4brjyqcr6oub',
+        ),
         throwsA(isA<InvalidCidError>()),
       );
     });
 
     test('Informal length of bytes', () {
-      expect(
-        () => CID.parse('b'),
-        throwsA(isA<InvalidCidError>()),
-      );
+      expect(() => CID.parse('b'), throwsA(isA<InvalidCidError>()));
     });
 
     test('Should be CID v1', () {
       expect(
         () => CID.parse(
-            'babkreifzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5e'),
+          'babkreifzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5e',
+        ),
         throwsA(isA<InvalidCidError>()),
       );
     });
@@ -114,7 +119,8 @@ void main() {
     test('Should be DAG-PG format', () {
       expect(
         () => CID.parse(
-            'bafkbeifzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5e'),
+          'bafkbeifzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5e',
+        ),
         throwsA(isA<InvalidCidError>()),
       );
     });
@@ -122,7 +128,8 @@ void main() {
     test('Multihash should be SHA-256', () {
       expect(
         () => CID.parse(
-            'bafkrgifzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5e'),
+          'bafkrgifzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5e',
+        ),
         throwsA(isA<InvalidCidError>()),
       );
     });
@@ -130,7 +137,8 @@ void main() {
     test('Length of SHA-256 hash should be 32 case1', () {
       expect(
         () => CID.parse(
-            'bafkreinzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5e'),
+          'bafkreinzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5e',
+        ),
         throwsA(isA<InvalidCidError>()),
       );
     });
@@ -138,7 +146,8 @@ void main() {
     test('Length of SHA-256 hash should be 32 case2', () {
       expect(
         () => CID.parse(
-            'afkreifzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5eaq'),
+          'afkreifzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5eaq',
+        ),
         throwsA(isA<InvalidCidError>()),
       );
     });

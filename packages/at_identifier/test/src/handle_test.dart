@@ -12,7 +12,9 @@ void main() {
 
     void expectInvalid(final String handle) {
       expect(
-          () => ensureValidHandle(handle), throwsA(isA<InvalidHandleError>()));
+        () => ensureValidHandle(handle),
+        throwsA(isA<InvalidHandleError>()),
+      );
     }
 
     test('allows valid handles', () {

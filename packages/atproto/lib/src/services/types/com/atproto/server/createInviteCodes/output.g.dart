@@ -8,32 +8,31 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ServerCreateInviteCodesOutputImpl
-    _$$ServerCreateInviteCodesOutputImplFromJson(Map json) => $checkedCreate(
-          r'_$ServerCreateInviteCodesOutputImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$ServerCreateInviteCodesOutputImpl(
-              codes: $checkedConvert(
-                  'codes',
-                  (v) => (v as List<dynamic>)
-                      .map((e) => const AccountCodesConverter()
-                          .fromJson(e as Map<String, dynamic>))
-                      .toList()),
-              $unknown: $checkedConvert(
-                  r'$unknown',
-                  (v) => (v as Map?)?.map(
-                        (k, e) => MapEntry(k as String, e),
-                      )),
-            );
-            return val;
-          },
-        );
+_ServerCreateInviteCodesOutput _$ServerCreateInviteCodesOutputFromJson(
+  Map json,
+) => $checkedCreate('_ServerCreateInviteCodesOutput', json, ($checkedConvert) {
+  final val = _ServerCreateInviteCodesOutput(
+    codes: $checkedConvert(
+      'codes',
+      (v) => (v as List<dynamic>)
+          .map(
+            (e) => const AccountCodesConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
+    ),
+    $unknown: $checkedConvert(
+      r'$unknown',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
+  );
+  return val;
+});
 
-Map<String, dynamic> _$$ServerCreateInviteCodesOutputImplToJson(
-        _$ServerCreateInviteCodesOutputImpl instance) =>
-    <String, dynamic>{
-      'codes':
-          instance.codes.map(const AccountCodesConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ServerCreateInviteCodesOutputToJson(
+  _ServerCreateInviteCodesOutput instance,
+) => <String, dynamic>{
+  'codes': instance.codes.map(const AccountCodesConverter().toJson).toList(),
+  r'$unknown': instance.$unknown,
+};

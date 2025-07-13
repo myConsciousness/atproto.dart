@@ -71,6 +71,7 @@ abstract class ProfileViewDetailed with _$ProfileViewDetailed {
     @RepoStrongRefConverter() RepoStrongRef? pinnedPost,
     @VerificationStateConverter() VerificationState? verification,
     @StatusViewConverter() StatusView? status,
+
     Map<String, dynamic>? $unknown,
   }) = _ProfileViewDetailed;
 
@@ -89,14 +90,12 @@ final class ProfileViewDetailedConverter
 
   @override
   ProfileViewDetailed fromJson(Map<String, dynamic> json) {
-    return ProfileViewDetailed.fromJson(translate(
-      json,
-      ProfileViewDetailed.knownProps,
-    ));
+    return ProfileViewDetailed.fromJson(
+      translate(json, ProfileViewDetailed.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ProfileViewDetailed object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ProfileViewDetailed object) =>
+      untranslate(object.toJson());
 }

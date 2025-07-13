@@ -23,15 +23,13 @@ part 'log_begin_convo.g.dart';
 
 @freezed
 abstract class LogBeginConvo with _$LogBeginConvo {
-  static const knownProps = <String>[
-    'rev',
-    'convoId',
-  ];
+  static const knownProps = <String>['rev', 'convoId'];
 
   const factory LogBeginConvo({
     @Default(chatBskyConvoDefsLogBeginConvo) String $type,
     required String rev,
     required String convoId,
+
     Map<String, dynamic>? $unknown,
   }) = _LogBeginConvo;
 
@@ -50,14 +48,10 @@ final class LogBeginConvoConverter
 
   @override
   LogBeginConvo fromJson(Map<String, dynamic> json) {
-    return LogBeginConvo.fromJson(translate(
-      json,
-      LogBeginConvo.knownProps,
-    ));
+    return LogBeginConvo.fromJson(translate(json, LogBeginConvo.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(LogBeginConvo object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(LogBeginConvo object) =>
+      untranslate(object.toJson());
 }

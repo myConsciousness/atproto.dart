@@ -42,36 +42,29 @@ class UPreferences with _$UPreferences {
   const factory UPreferences.contentLabelPref({
     required ContentLabelPref data,
   }) = UPreferencesContentLabelPref;
-  const factory UPreferences.savedFeedsPref({
-    required SavedFeedsPref data,
-  }) = UPreferencesSavedFeedsPref;
+  const factory UPreferences.savedFeedsPref({required SavedFeedsPref data}) =
+      UPreferencesSavedFeedsPref;
   const factory UPreferences.savedFeedsPrefV2({
     required SavedFeedsPrefV2 data,
   }) = UPreferencesSavedFeedsPrefV2;
   const factory UPreferences.personalDetailsPref({
     required PersonalDetailsPref data,
   }) = UPreferencesPersonalDetailsPref;
-  const factory UPreferences.feedViewPref({
-    required FeedViewPref data,
-  }) = UPreferencesFeedViewPref;
-  const factory UPreferences.threadViewPref({
-    required ThreadViewPref data,
-  }) = UPreferencesThreadViewPref;
-  const factory UPreferences.interestsPref({
-    required InterestsPref data,
-  }) = UPreferencesInterestsPref;
-  const factory UPreferences.mutedWordsPref({
-    required MutedWordsPref data,
-  }) = UPreferencesMutedWordsPref;
-  const factory UPreferences.hiddenPostsPref({
-    required HiddenPostsPref data,
-  }) = UPreferencesHiddenPostsPref;
+  const factory UPreferences.feedViewPref({required FeedViewPref data}) =
+      UPreferencesFeedViewPref;
+  const factory UPreferences.threadViewPref({required ThreadViewPref data}) =
+      UPreferencesThreadViewPref;
+  const factory UPreferences.interestsPref({required InterestsPref data}) =
+      UPreferencesInterestsPref;
+  const factory UPreferences.mutedWordsPref({required MutedWordsPref data}) =
+      UPreferencesMutedWordsPref;
+  const factory UPreferences.hiddenPostsPref({required HiddenPostsPref data}) =
+      UPreferencesHiddenPostsPref;
   const factory UPreferences.bskyAppStatePref({
     required BskyAppStatePref data,
   }) = UPreferencesBskyAppStatePref;
-  const factory UPreferences.labelersPref({
-    required LabelersPref data,
-  }) = UPreferencesLabelersPref;
+  const factory UPreferences.labelersPref({required LabelersPref data}) =
+      UPreferencesLabelersPref;
   const factory UPreferences.postInteractionSettingsPref({
     required PostInteractionSettingsPref data,
   }) = UPreferencesPostInteractionSettingsPref;
@@ -79,9 +72,8 @@ class UPreferences with _$UPreferences {
     required VerificationPrefs data,
   }) = UPreferencesVerificationPrefs;
 
-  const factory UPreferences.unknown({
-    required Map<String, dynamic> data,
-  }) = UPreferencesUnknown;
+  const factory UPreferences.unknown({required Map<String, dynamic> data}) =
+      UPreferencesUnknown;
 
   Map<String, dynamic> toJson() => const UPreferencesConverter().toJson(this);
 }
@@ -172,28 +164,24 @@ final class UPreferencesConverter
 
   @override
   Map<String, dynamic> toJson(UPreferences object) => object.when(
-        adultContentPref: (data) =>
-            const AdultContentPrefConverter().toJson(data),
-        contentLabelPref: (data) =>
-            const ContentLabelPrefConverter().toJson(data),
-        savedFeedsPref: (data) => const SavedFeedsPrefConverter().toJson(data),
-        savedFeedsPrefV2: (data) =>
-            const SavedFeedsPrefV2Converter().toJson(data),
-        personalDetailsPref: (data) =>
-            const PersonalDetailsPrefConverter().toJson(data),
-        feedViewPref: (data) => const FeedViewPrefConverter().toJson(data),
-        threadViewPref: (data) => const ThreadViewPrefConverter().toJson(data),
-        interestsPref: (data) => const InterestsPrefConverter().toJson(data),
-        mutedWordsPref: (data) => const MutedWordsPrefConverter().toJson(data),
-        hiddenPostsPref: (data) =>
-            const HiddenPostsPrefConverter().toJson(data),
-        bskyAppStatePref: (data) =>
-            const BskyAppStatePrefConverter().toJson(data),
-        labelersPref: (data) => const LabelersPrefConverter().toJson(data),
-        postInteractionSettingsPref: (data) =>
-            const PostInteractionSettingsPrefConverter().toJson(data),
-        verificationPrefs: (data) =>
-            const VerificationPrefsConverter().toJson(data),
-        unknown: (data) => data,
-      );
+    adultContentPref: (data) => const AdultContentPrefConverter().toJson(data),
+    contentLabelPref: (data) => const ContentLabelPrefConverter().toJson(data),
+    savedFeedsPref: (data) => const SavedFeedsPrefConverter().toJson(data),
+    savedFeedsPrefV2: (data) => const SavedFeedsPrefV2Converter().toJson(data),
+    personalDetailsPref: (data) =>
+        const PersonalDetailsPrefConverter().toJson(data),
+    feedViewPref: (data) => const FeedViewPrefConverter().toJson(data),
+    threadViewPref: (data) => const ThreadViewPrefConverter().toJson(data),
+    interestsPref: (data) => const InterestsPrefConverter().toJson(data),
+    mutedWordsPref: (data) => const MutedWordsPrefConverter().toJson(data),
+    hiddenPostsPref: (data) => const HiddenPostsPrefConverter().toJson(data),
+    bskyAppStatePref: (data) => const BskyAppStatePrefConverter().toJson(data),
+    labelersPref: (data) => const LabelersPrefConverter().toJson(data),
+    postInteractionSettingsPref: (data) =>
+        const PostInteractionSettingsPrefConverter().toJson(data),
+    verificationPrefs: (data) =>
+        const VerificationPrefsConverter().toJson(data),
+
+    unknown: (data) => data,
+  );
 }

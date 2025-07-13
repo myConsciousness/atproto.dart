@@ -20,18 +20,14 @@ part 'input.g.dart';
 
 @freezed
 abstract class ConvoListConvosInput with _$ConvoListConvosInput {
-  static const knownProps = <String>[
-    'limit',
-    'cursor',
-    'readState',
-    'status',
-  ];
+  static const knownProps = <String>['limit', 'cursor', 'readState', 'status'];
 
   const factory ConvoListConvosInput({
     int? limit,
     String? cursor,
     String? readState,
     String? status,
+
     Map<String, dynamic>? $unknown,
   }) = _ConvoListConvosInput;
 
@@ -45,14 +41,12 @@ final class ConvoListConvosInputConverter
 
   @override
   ConvoListConvosInput fromJson(Map<String, dynamic> json) {
-    return ConvoListConvosInput.fromJson(translate(
-      json,
-      ConvoListConvosInput.knownProps,
-    ));
+    return ConvoListConvosInput.fromJson(
+      translate(json, ConvoListConvosInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoListConvosInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ConvoListConvosInput object) =>
+      untranslate(object.toJson());
 }

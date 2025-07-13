@@ -65,9 +65,10 @@ final class ULogDeleteMessageMessageConverter
 
   @override
   Map<String, dynamic> toJson(ULogDeleteMessageMessage object) => object.when(
-        messageView: (data) => const MessageViewConverter().toJson(data),
-        deletedMessageView: (data) =>
-            const DeletedMessageViewConverter().toJson(data),
-        unknown: (data) => data,
-      );
+    messageView: (data) => const MessageViewConverter().toJson(data),
+    deletedMessageView: (data) =>
+        const DeletedMessageViewConverter().toJson(data),
+
+    unknown: (data) => data,
+  );
 }

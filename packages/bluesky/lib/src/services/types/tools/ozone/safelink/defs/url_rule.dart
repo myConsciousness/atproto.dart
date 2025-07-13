@@ -58,6 +58,7 @@ abstract class UrlRule with _$UrlRule {
 
     /// Timestamp when the rule was last updated
     required DateTime updatedAt,
+
     Map<String, dynamic>? $unknown,
   }) = _UrlRule;
 
@@ -76,14 +77,9 @@ final class UrlRuleConverter
 
   @override
   UrlRule fromJson(Map<String, dynamic> json) {
-    return UrlRule.fromJson(translate(
-      json,
-      UrlRule.knownProps,
-    ));
+    return UrlRule.fromJson(translate(json, UrlRule.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(UrlRule object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(UrlRule object) => untranslate(object.toJson());
 }

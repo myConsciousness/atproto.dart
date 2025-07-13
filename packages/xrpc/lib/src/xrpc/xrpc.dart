@@ -144,21 +144,23 @@ Future<XRPCResponse<T>> query<T>(
   final type.HeaderBuilder? headerBuilder,
   final type.GetClient? getClient,
 }) async {
-  final endpoint = util.getUriFactory(protocol).call(
+  final endpoint = util
+      .getUriFactory(protocol)
+      .call(
         service ?? defaultService,
         '/xrpc/$methodId',
-        util.convertParameters(
-          util.removeNullValues(parameters) ?? {},
-        ),
+        util.convertParameters(util.removeNullValues(parameters) ?? {}),
       );
 
   return _buildResponse<T>(
     checkStatus(
       await (getClient ?? http.get)
-          .call(endpoint,
-              headers: headerBuilder != null
-                  ? headerBuilder(headers ?? const {}, endpoint, 'GET')
-                  : headers)
+          .call(
+            endpoint,
+            headers: headerBuilder != null
+                ? headerBuilder(headers ?? const {}, endpoint, 'GET')
+                : headers,
+          )
           .timeout(timeout),
     ),
     to,
@@ -284,12 +286,12 @@ Future<XRPCResponse<T>> procedure<T>(
   final type.HeaderBuilder? headerBuilder,
   final type.PostClient? postClient,
 }) async {
-  final endpoint = util.getUriFactory(protocol).call(
+  final endpoint = util
+      .getUriFactory(protocol)
+      .call(
         service ?? defaultService,
         '/xrpc/$methodId',
-        util.convertParameters(
-          util.removeNullValues(parameters) ?? {},
-        ),
+        util.convertParameters(util.removeNullValues(parameters) ?? {}),
       );
 
   return _buildResponse<T>(
@@ -326,30 +328,26 @@ XRPCResponse<Subscription<T>> subscribe<T>(
 
   final controller = StreamController<T>();
 
-  channel.stream.listen((event) {
-    final data = adaptor != null ? adaptor.call(event) : event;
+  channel.stream.listen(
+    (event) {
+      final data = adaptor != null ? adaptor.call(event) : event;
 
-    controller.sink.add(
-      to != null ? to.call(data) : jsonEncode(data) as T,
-    );
-  }, onError: (_) async {
-    await channel.sink.close();
-  }, onDone: () async {
-    await channel.sink.close();
-  });
+      controller.sink.add(to != null ? to.call(data) : jsonEncode(data) as T);
+    },
+    onError: (_) async {
+      await channel.sink.close();
+    },
+    onDone: () async {
+      await channel.sink.close();
+    },
+  );
 
   return XRPCResponse<Subscription<T>>(
     headers: {},
     status: HttpStatus.ok,
-    request: XRPCRequest(
-      method: HttpMethod.get,
-      url: uri,
-    ),
+    request: XRPCRequest(method: HttpMethod.get, url: uri),
     rateLimit: RateLimit.unlimited(),
-    data: Subscription(
-      channel: channel,
-      controller: controller,
-    ),
+    data: Subscription(channel: channel, controller: controller),
   );
 }
 
@@ -366,33 +364,23 @@ http.Response checkStatus(final http.Response response) {
   }
 
   if (statusCode == 401) {
-    throw UnauthorizedException(
-      _buildErrorResponse(response),
-    );
+    throw UnauthorizedException(_buildErrorResponse(response));
   }
 
   if (statusCode == 429) {
-    throw RateLimitExceededException(
-      _buildErrorResponse(response),
-    );
+    throw RateLimitExceededException(_buildErrorResponse(response));
   }
 
   if (statusCode >= 400 && statusCode < 500) {
-    throw InvalidRequestException(
-      _buildErrorResponse(response),
-    );
+    throw InvalidRequestException(_buildErrorResponse(response));
   }
 
   if ((statusCode >= 100 && statusCode < 200) ||
       (statusCode >= 300 && statusCode < 400)) {
-    throw XRPCNotSupportedException(
-      _buildErrorResponse(response),
-    );
+    throw XRPCNotSupportedException(_buildErrorResponse(response));
   }
 
-  throw InternalServerErrorException(
-    _buildErrorResponse(response),
-  );
+  throw InternalServerErrorException(_buildErrorResponse(response));
 }
 
 /// Returns the response object.
@@ -400,24 +388,20 @@ XRPCResponse<T> _buildResponse<T>(
   final http.Response response,
   final type.ResponseDataBuilder<T>? to, [
   final type.ResponseDataAdaptor? adaptor,
-]) =>
-    XRPCResponse(
-      headers: response.headers,
-      status: HttpStatus.valueOf(response.statusCode),
-      request: XRPCRequest(
-        method: HttpMethod.valueOf(response.request!.method),
-        url: response.request!.url,
-      ),
-      rateLimit: RateLimit.fromHeaders(response.headers),
-      data: util.getData(response, to, adaptor),
-    );
+]) => XRPCResponse(
+  headers: response.headers,
+  status: HttpStatus.valueOf(response.statusCode),
+  request: XRPCRequest(
+    method: HttpMethod.valueOf(response.request!.method),
+    url: response.request!.url,
+  ),
+  rateLimit: RateLimit.fromHeaders(response.headers),
+  data: util.getData(response, to, adaptor),
+);
 
 /// Returns the error response.
 XRPCResponse<XRPCError> _buildErrorResponse(final http.Response response) =>
-    _buildResponse(
-      response,
-      XRPCError.fromJson,
-    );
+    _buildResponse(response, XRPCError.fromJson);
 
 Uri _buildWsUri(
   final nsid.NSID methodId,
@@ -448,9 +432,8 @@ Map<String, String> _appendContentType(
   final dynamic body,
 ) {
   if (body is Uint8List) {
-    return {
-      'Content-Type': lookupMimeType('', headerBytes: body) ?? '*/*',
-    }..addAll(headers ?? {});
+    return {'Content-Type': lookupMimeType('', headerBytes: body) ?? '*/*'}
+      ..addAll(headers ?? {});
   }
 
   return {'Content-type': 'application/json'}..addAll(headers ?? {});

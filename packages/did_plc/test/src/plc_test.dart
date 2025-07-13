@@ -33,7 +33,7 @@ void main() {
     expect(data.context, [
       'https://www.w3.org/ns/did/v1',
       'https://w3id.org/security/multikey/v1',
-      'https://w3id.org/security/suites/secp256k1-2019/v1'
+      'https://w3id.org/security/suites/secp256k1-2019/v1',
     ]);
     expect(data.id, 'did:plc:iijrtk7ocored6zuziwmqq3c');
     expect(data.alsoKnownAs, ['at://shinyakato.dev']);
@@ -42,8 +42,10 @@ void main() {
     expect(verificationMethod.id, 'did:plc:iijrtk7ocored6zuziwmqq3c#atproto');
     expect(verificationMethod.type, 'Multikey');
     expect(verificationMethod.controller, 'did:plc:iijrtk7ocored6zuziwmqq3c');
-    expect(verificationMethod.publicKeyMultibase,
-        'zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF');
+    expect(
+      verificationMethod.publicKeyMultibase,
+      'zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF',
+    );
 
     final service = data.service.first;
     expect(service.id, '#atproto_pds');
@@ -67,18 +69,18 @@ void main() {
     final data = response.data;
     expect(data.did, 'did:plc:iijrtk7ocored6zuziwmqq3c');
     expect(data.verificationMethods, {
-      'atproto': 'did:key:zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF'
+      'atproto': 'did:key:zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF',
     });
     expect(data.rotationKeys, [
       'did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg',
-      'did:key:zQ3shpKnbdPx3g3CmPf5cRVTPe1HtSwVn5ish3wSnDPQCbLJK'
+      'did:key:zQ3shpKnbdPx3g3CmPf5cRVTPe1HtSwVn5ish3wSnDPQCbLJK',
     ]);
     expect(data.alsoKnownAs, ['at://shinyakato.dev']);
     expect(data.services, {
       'atproto_pds': {
         'type': 'AtprotoPersonalDataServer',
-        'endpoint': 'https://bsky.social'
-      }
+        'endpoint': 'https://bsky.social',
+      },
     });
   });
 
@@ -99,24 +101,28 @@ void main() {
     expect(data.log.length, 5);
 
     final log = data.log.last.whenOrNull(op: (data) => data)!;
-    expect(log.sig,
-        'rH2by5P2J-YyS27JZfbqvkYLTaVX_ZGKYm820fW4GFARr8N_Zzhf_hyeT0NkC0qpphVGZuqWaKt2n9sHLiGMbg');
-    expect(log.prev,
-        'bafyreib7l5z5gpxj6lnorf6k3xcwoijiozmnn3ysm2vjgo76yktsq2fnpu');
+    expect(
+      log.sig,
+      'rH2by5P2J-YyS27JZfbqvkYLTaVX_ZGKYm820fW4GFARr8N_Zzhf_hyeT0NkC0qpphVGZuqWaKt2n9sHLiGMbg',
+    );
+    expect(
+      log.prev,
+      'bafyreib7l5z5gpxj6lnorf6k3xcwoijiozmnn3ysm2vjgo76yktsq2fnpu',
+    );
     expect(log.type, 'plc_operation');
     expect(log.services, {
       'atproto_pds': {
         'type': 'AtprotoPersonalDataServer',
-        'endpoint': 'https://bsky.social'
-      }
+        'endpoint': 'https://bsky.social',
+      },
     });
     expect(log.alsoKnownAs, ['at://shinyakato.dev']);
     expect(log.rotationKeys, [
       'did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg',
-      'did:key:zQ3shpKnbdPx3g3CmPf5cRVTPe1HtSwVn5ish3wSnDPQCbLJK'
+      'did:key:zQ3shpKnbdPx3g3CmPf5cRVTPe1HtSwVn5ish3wSnDPQCbLJK',
     ]);
     expect(log.verificationMethods, {
-      'atproto': 'did:key:zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF'
+      'atproto': 'did:key:zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF',
     });
   });
 
@@ -138,30 +144,36 @@ void main() {
 
     final exportedOp = data.log.last;
     expect(exportedOp.did, 'did:plc:iijrtk7ocored6zuziwmqq3c');
-    expect(exportedOp.cid,
-        'bafyreigvwhhxz7raxu4jfd5pktza4zz3j4cqh35lng25a7uf4bbcu23iae');
+    expect(
+      exportedOp.cid,
+      'bafyreigvwhhxz7raxu4jfd5pktza4zz3j4cqh35lng25a7uf4bbcu23iae',
+    );
     expect(exportedOp.isNullified, isFalse);
     expect(exportedOp.createdAt.toIso8601String(), '2023-03-09T23:37:45.973Z');
 
     final op = exportedOp.operation.whenOrNull(op: (data) => data)!;
-    expect(op.sig,
-        'rH2by5P2J-YyS27JZfbqvkYLTaVX_ZGKYm820fW4GFARr8N_Zzhf_hyeT0NkC0qpphVGZuqWaKt2n9sHLiGMbg');
     expect(
-        op.prev, 'bafyreib7l5z5gpxj6lnorf6k3xcwoijiozmnn3ysm2vjgo76yktsq2fnpu');
+      op.sig,
+      'rH2by5P2J-YyS27JZfbqvkYLTaVX_ZGKYm820fW4GFARr8N_Zzhf_hyeT0NkC0qpphVGZuqWaKt2n9sHLiGMbg',
+    );
+    expect(
+      op.prev,
+      'bafyreib7l5z5gpxj6lnorf6k3xcwoijiozmnn3ysm2vjgo76yktsq2fnpu',
+    );
     expect(op.type, 'plc_operation');
     expect(op.services, {
       'atproto_pds': {
         'type': 'AtprotoPersonalDataServer',
-        'endpoint': 'https://bsky.social'
-      }
+        'endpoint': 'https://bsky.social',
+      },
     });
     expect(op.alsoKnownAs, ['at://shinyakato.dev']);
     expect(op.rotationKeys, [
       'did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg',
-      'did:key:zQ3shpKnbdPx3g3CmPf5cRVTPe1HtSwVn5ish3wSnDPQCbLJK'
+      'did:key:zQ3shpKnbdPx3g3CmPf5cRVTPe1HtSwVn5ish3wSnDPQCbLJK',
     ]);
     expect(op.verificationMethods, {
-      'atproto': 'did:key:zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF'
+      'atproto': 'did:key:zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF',
     });
   });
 
@@ -179,24 +191,28 @@ void main() {
     expect(response, isA<core.Response<CompatibleOpOrTombstone>>());
 
     final op = response.data.whenOrNull(op: (data) => data)!;
-    expect(op.sig,
-        'rH2by5P2J-YyS27JZfbqvkYLTaVX_ZGKYm820fW4GFARr8N_Zzhf_hyeT0NkC0qpphVGZuqWaKt2n9sHLiGMbg');
     expect(
-        op.prev, 'bafyreib7l5z5gpxj6lnorf6k3xcwoijiozmnn3ysm2vjgo76yktsq2fnpu');
+      op.sig,
+      'rH2by5P2J-YyS27JZfbqvkYLTaVX_ZGKYm820fW4GFARr8N_Zzhf_hyeT0NkC0qpphVGZuqWaKt2n9sHLiGMbg',
+    );
+    expect(
+      op.prev,
+      'bafyreib7l5z5gpxj6lnorf6k3xcwoijiozmnn3ysm2vjgo76yktsq2fnpu',
+    );
     expect(op.type, 'plc_operation');
     expect(op.services, {
       'atproto_pds': {
         'type': 'AtprotoPersonalDataServer',
-        'endpoint': 'https://bsky.social'
-      }
+        'endpoint': 'https://bsky.social',
+      },
     });
     expect(op.alsoKnownAs, ['at://shinyakato.dev']);
     expect(op.rotationKeys, [
       'did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg',
-      'did:key:zQ3shpKnbdPx3g3CmPf5cRVTPe1HtSwVn5ish3wSnDPQCbLJK'
+      'did:key:zQ3shpKnbdPx3g3CmPf5cRVTPe1HtSwVn5ish3wSnDPQCbLJK',
     ]);
     expect(op.verificationMethods, {
-      'atproto': 'did:key:zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF'
+      'atproto': 'did:key:zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF',
     });
   });
 

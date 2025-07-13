@@ -30,29 +30,26 @@ class ModerationCause with _$ModerationCause {
     required ModerationCauseBlockOther data,
   }) = UModerationCauseBlockOther;
 
-  const factory ModerationCause.label({
-    required ModerationCauseLabel data,
-  }) = UModerationCauseLabel;
+  const factory ModerationCause.label({required ModerationCauseLabel data}) =
+      UModerationCauseLabel;
 
-  const factory ModerationCause.muted({
-    required ModerationCauseMuted data,
-  }) = UModerationCauseMuted;
+  const factory ModerationCause.muted({required ModerationCauseMuted data}) =
+      UModerationCauseMuted;
 
   const factory ModerationCause.muteWord({
     required ModerationCauseMuteWord data,
   }) = UModerationCauseMuteWord;
 
-  const factory ModerationCause.hidden({
-    required ModerationCauseHidden data,
-  }) = UModerationCauseHidden;
+  const factory ModerationCause.hidden({required ModerationCauseHidden data}) =
+      UModerationCauseHidden;
 
   bool get downgraded => when(
-        blocking: (data) => data.downgraded,
-        blockedBy: (data) => data.downgraded,
-        blockOther: (data) => data.downgraded,
-        label: (data) => data.downgraded,
-        muted: (data) => data.downgraded,
-        muteWord: (data) => data.downgraded,
-        hidden: (data) => data.downgraded,
-      );
+    blocking: (data) => data.downgraded,
+    blockedBy: (data) => data.downgraded,
+    blockOther: (data) => data.downgraded,
+    label: (data) => data.downgraded,
+    muted: (data) => data.downgraded,
+    muteWord: (data) => data.downgraded,
+    hidden: (data) => data.downgraded,
+  );
 }

@@ -21,16 +21,14 @@ part 'input.g.dart';
 @freezed
 abstract class AdminEnableAccountInvitesInput
     with _$AdminEnableAccountInvitesInput {
-  static const knownProps = <String>[
-    'account',
-    'note',
-  ];
+  static const knownProps = <String>['account', 'note'];
 
   const factory AdminEnableAccountInvitesInput({
     required String account,
 
     /// Optional reason for enabled invites.
     String? note,
+
     Map<String, dynamic>? $unknown,
   }) = _AdminEnableAccountInvitesInput;
 
@@ -38,21 +36,22 @@ abstract class AdminEnableAccountInvitesInput
       _$AdminEnableAccountInvitesInputFromJson(json);
 }
 
-final class AdminEnableAccountInvitesInputConverter extends LexObjectConverter<
-    AdminEnableAccountInvitesInput, Map<String, dynamic>> {
+final class AdminEnableAccountInvitesInputConverter
+    extends
+        LexObjectConverter<
+          AdminEnableAccountInvitesInput,
+          Map<String, dynamic>
+        > {
   const AdminEnableAccountInvitesInputConverter();
 
   @override
   AdminEnableAccountInvitesInput fromJson(Map<String, dynamic> json) {
-    return AdminEnableAccountInvitesInput.fromJson(translate(
-      json,
-      AdminEnableAccountInvitesInput.knownProps,
-    ));
+    return AdminEnableAccountInvitesInput.fromJson(
+      translate(json, AdminEnableAccountInvitesInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(AdminEnableAccountInvitesInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

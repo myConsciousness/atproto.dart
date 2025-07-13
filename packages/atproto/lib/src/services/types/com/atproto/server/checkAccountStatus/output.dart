@@ -43,6 +43,7 @@ abstract class ServerCheckAccountStatusOutput
     required int privateStateValues,
     required int expectedBlobs,
     required int importedBlobs,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerCheckAccountStatusOutput;
 
@@ -50,21 +51,22 @@ abstract class ServerCheckAccountStatusOutput
       _$ServerCheckAccountStatusOutputFromJson(json);
 }
 
-final class ServerCheckAccountStatusOutputConverter extends LexObjectConverter<
-    ServerCheckAccountStatusOutput, Map<String, dynamic>> {
+final class ServerCheckAccountStatusOutputConverter
+    extends
+        LexObjectConverter<
+          ServerCheckAccountStatusOutput,
+          Map<String, dynamic>
+        > {
   const ServerCheckAccountStatusOutputConverter();
 
   @override
   ServerCheckAccountStatusOutput fromJson(Map<String, dynamic> json) {
-    return ServerCheckAccountStatusOutput.fromJson(translate(
-      json,
-      ServerCheckAccountStatusOutput.knownProps,
-    ));
+    return ServerCheckAccountStatusOutput.fromJson(
+      translate(json, ServerCheckAccountStatusOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ServerCheckAccountStatusOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

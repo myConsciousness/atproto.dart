@@ -23,12 +23,11 @@ part 'output.g.dart';
 
 @freezed
 abstract class RepoDeleteRecordOutput with _$RepoDeleteRecordOutput {
-  static const knownProps = <String>[
-    'commit',
-  ];
+  static const knownProps = <String>['commit'];
 
   const factory RepoDeleteRecordOutput({
     @CommitMetaConverter() CommitMeta? commit,
+
     Map<String, dynamic>? $unknown,
   }) = _RepoDeleteRecordOutput;
 
@@ -42,14 +41,12 @@ final class RepoDeleteRecordOutputConverter
 
   @override
   RepoDeleteRecordOutput fromJson(Map<String, dynamic> json) {
-    return RepoDeleteRecordOutput.fromJson(translate(
-      json,
-      RepoDeleteRecordOutput.knownProps,
-    ));
+    return RepoDeleteRecordOutput.fromJson(
+      translate(json, RepoDeleteRecordOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(RepoDeleteRecordOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RepoDeleteRecordOutput object) =>
+      untranslate(object.toJson());
 }

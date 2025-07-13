@@ -20,14 +20,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class SyncGetLatestCommitOutput with _$SyncGetLatestCommitOutput {
-  static const knownProps = <String>[
-    'cid',
-    'rev',
-  ];
+  static const knownProps = <String>['cid', 'rev'];
 
   const factory SyncGetLatestCommitOutput({
     required String cid,
     required String rev,
+
     Map<String, dynamic>? $unknown,
   }) = _SyncGetLatestCommitOutput;
 
@@ -35,20 +33,19 @@ abstract class SyncGetLatestCommitOutput with _$SyncGetLatestCommitOutput {
       _$SyncGetLatestCommitOutputFromJson(json);
 }
 
-final class SyncGetLatestCommitOutputConverter extends LexObjectConverter<
-    SyncGetLatestCommitOutput, Map<String, dynamic>> {
+final class SyncGetLatestCommitOutputConverter
+    extends
+        LexObjectConverter<SyncGetLatestCommitOutput, Map<String, dynamic>> {
   const SyncGetLatestCommitOutputConverter();
 
   @override
   SyncGetLatestCommitOutput fromJson(Map<String, dynamic> json) {
-    return SyncGetLatestCommitOutput.fromJson(translate(
-      json,
-      SyncGetLatestCommitOutput.knownProps,
-    ));
+    return SyncGetLatestCommitOutput.fromJson(
+      translate(json, SyncGetLatestCommitOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SyncGetLatestCommitOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SyncGetLatestCommitOutput object) =>
+      untranslate(object.toJson());
 }

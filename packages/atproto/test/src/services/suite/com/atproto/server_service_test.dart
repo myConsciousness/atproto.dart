@@ -24,11 +24,8 @@ void main() {
   );
 
   testServer<CreateAccountOutput>(
-    (m, s) => s.createAccount(
-      handle: m.actor,
-      email: m.email,
-      password: m.password,
-    ),
+    (m, s) =>
+        s.createAccount(handle: m.actor, email: m.email, password: m.password),
     id: comAtprotoServerCreateAccount,
   );
 
@@ -38,10 +35,7 @@ void main() {
   );
 
   testServer<core.EmptyData>(
-    (m, s) => s.deleteAccount(
-      password: m.password,
-      token: m.token,
-    ),
+    (m, s) => s.deleteAccount(password: m.password, token: m.token),
     id: comAtprotoServerDeleteAccount,
   );
 
@@ -66,18 +60,12 @@ void main() {
   );
 
   testServer<core.EmptyData>(
-    (m, s) => s.resetPassword(
-      password: m.password,
-      token: m.token,
-    ),
+    (m, s) => s.resetPassword(password: m.password, token: m.token),
     id: comAtprotoServerResetPassword,
   );
 
   testServer<AppPassword>(
-    (m, s) => s.createAppPassword(
-      name: m.name,
-      privileged: true,
-    ),
+    (m, s) => s.createAppPassword(name: m.name, privileged: true),
     id: comAtprotoServerCreateAppPassword,
   );
 
@@ -107,19 +95,13 @@ void main() {
   );
 
   testServer<core.EmptyData>(
-    (m, s) => s.confirmEmail(
-      email: m.email,
-      token: m.token,
-    ),
+    (m, s) => s.confirmEmail(email: m.email, token: m.token),
     id: comAtprotoServerConfirmEmail,
   );
 
   testServer<core.EmptyData>(
-    (m, s) => s.updateEmail(
-      email: m.email,
-      emailAuthFactor: true,
-      token: m.token,
-    ),
+    (m, s) =>
+        s.updateEmail(email: m.email, emailAuthFactor: true, token: m.token),
     id: comAtprotoServerUpdateEmail,
   );
 

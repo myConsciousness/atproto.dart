@@ -72,30 +72,31 @@ abstract class UnspeccedSearchPostsSkeletonInput
 
     /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedSearchPostsSkeletonInput;
 
   factory UnspeccedSearchPostsSkeletonInput.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedSearchPostsSkeletonInputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$UnspeccedSearchPostsSkeletonInputFromJson(json);
 }
 
 final class UnspeccedSearchPostsSkeletonInputConverter
-    extends LexObjectConverter<UnspeccedSearchPostsSkeletonInput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          UnspeccedSearchPostsSkeletonInput,
+          Map<String, dynamic>
+        > {
   const UnspeccedSearchPostsSkeletonInputConverter();
 
   @override
   UnspeccedSearchPostsSkeletonInput fromJson(Map<String, dynamic> json) {
-    return UnspeccedSearchPostsSkeletonInput.fromJson(translate(
-      json,
-      UnspeccedSearchPostsSkeletonInput.knownProps,
-    ));
+    return UnspeccedSearchPostsSkeletonInput.fromJson(
+      translate(json, UnspeccedSearchPostsSkeletonInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedSearchPostsSkeletonInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

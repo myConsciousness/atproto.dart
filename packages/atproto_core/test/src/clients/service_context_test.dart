@@ -35,7 +35,7 @@ void main() {
             '@context': [
               'https://www.w3.org/ns/did/v1',
               'https://w3id.org/security/multikey/v1',
-              'https://w3id.org/security/suites/secp256k1-2019/v1'
+              'https://w3id.org/security/suites/secp256k1-2019/v1',
             ],
             'id': 'did:plc:iijrtk7ocored6zuziwmqq3c',
             'alsoKnownAs': ['at://shinyakato.dev'],
@@ -45,23 +45,21 @@ void main() {
                 'type': 'Multikey',
                 'controller': 'did:plc:iijrtk7ocored6zuziwmqq3c',
                 'publicKeyMultibase':
-                    'zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF'
-              }
+                    'zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF',
+              },
             ],
             'service': [
               {
                 'id': '#atproto_pds',
                 'type': 'AtprotoPersonalDataServer',
-                'serviceEndpoint': 'https://porcini.us-east.host.bsky.network'
-              }
-            ]
+                'serviceEndpoint': 'https://porcini.us-east.host.bsky.network',
+              },
+            ],
           },
         ),
       );
 
-      expect(context.headers, const <String, String>{
-        'atproto-test': '1234',
-      });
+      expect(context.headers, const <String, String>{'atproto-test': '1234'});
     });
   });
 
@@ -89,7 +87,7 @@ void main() {
             '@context': [
               'https://www.w3.org/ns/did/v1',
               'https://w3id.org/security/multikey/v1',
-              'https://w3id.org/security/suites/secp256k1-2019/v1'
+              'https://w3id.org/security/suites/secp256k1-2019/v1',
             ],
             'id': 'did:plc:iijrtk7ocored6zuziwmqq3c',
             'alsoKnownAs': ['at://shinyakato.dev'],
@@ -99,16 +97,16 @@ void main() {
                 'type': 'Multikey',
                 'controller': 'did:plc:iijrtk7ocored6zuziwmqq3c',
                 'publicKeyMultibase':
-                    'zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF'
-              }
+                    'zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF',
+              },
             ],
             'service': [
               {
                 'id': '#atproto_pds',
                 'type': 'AtprotoPersonalDataServer',
-                'serviceEndpoint': 'https://porcini.us-east.host.bsky.network'
-              }
-            ]
+                'serviceEndpoint': 'https://porcini.us-east.host.bsky.network',
+              },
+            ],
           },
         ),
       );
@@ -128,7 +126,7 @@ void main() {
             '@context': [
               'https://www.w3.org/ns/did/v1',
               'https://w3id.org/security/multikey/v1',
-              'https://w3id.org/security/suites/secp256k1-2019/v1'
+              'https://w3id.org/security/suites/secp256k1-2019/v1',
             ],
             'id': 'did:plc:iijrtk7ocored6zuziwmqq3c',
             'alsoKnownAs': ['at://shinyakato.dev'],
@@ -138,16 +136,16 @@ void main() {
                 'type': 'Multikey',
                 'controller': 'did:plc:iijrtk7ocored6zuziwmqq3c',
                 'publicKeyMultibase':
-                    'zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF'
-              }
+                    'zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF',
+              },
             ],
             'service': [
               {
                 'id': '#atproto_pds',
                 'type': 'AtprotoPersonalDataServer',
-                'serviceEndpoint': 'https://porcini.us-east.host.bsky.network'
-              }
-            ]
+                'serviceEndpoint': 'https://porcini.us-east.host.bsky.network',
+              },
+            ],
           },
         ),
       );

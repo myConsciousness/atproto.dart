@@ -21,12 +21,7 @@ part 'input.g.dart';
 @freezed
 abstract class ModerationGetMessageContextInput
     with _$ModerationGetMessageContextInput {
-  static const knownProps = <String>[
-    'convoId',
-    'messageId',
-    'before',
-    'after',
-  ];
+  static const knownProps = <String>['convoId', 'messageId', 'before', 'after'];
 
   const factory ModerationGetMessageContextInput({
     /// Conversation that the message is from. NOTE: this field will eventually be required.
@@ -34,30 +29,31 @@ abstract class ModerationGetMessageContextInput
     required String messageId,
     int? before,
     int? after,
+
     Map<String, dynamic>? $unknown,
   }) = _ModerationGetMessageContextInput;
 
   factory ModerationGetMessageContextInput.fromJson(
-          Map<String, Object?> json) =>
-      _$ModerationGetMessageContextInputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$ModerationGetMessageContextInputFromJson(json);
 }
 
 final class ModerationGetMessageContextInputConverter
-    extends LexObjectConverter<ModerationGetMessageContextInput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          ModerationGetMessageContextInput,
+          Map<String, dynamic>
+        > {
   const ModerationGetMessageContextInputConverter();
 
   @override
   ModerationGetMessageContextInput fromJson(Map<String, dynamic> json) {
-    return ModerationGetMessageContextInput.fromJson(translate(
-      json,
-      ModerationGetMessageContextInput.knownProps,
-    ));
+    return ModerationGetMessageContextInput.fromJson(
+      translate(json, ModerationGetMessageContextInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ModerationGetMessageContextInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

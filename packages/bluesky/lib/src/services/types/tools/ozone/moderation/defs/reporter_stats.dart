@@ -62,6 +62,7 @@ abstract class ReporterStats with _$ReporterStats {
 
     /// The total number of records labeled as a result of the user's reports.
     required int labeledRecordCount,
+
     Map<String, dynamic>? $unknown,
   }) = _ReporterStats;
 
@@ -80,14 +81,10 @@ final class ReporterStatsConverter
 
   @override
   ReporterStats fromJson(Map<String, dynamic> json) {
-    return ReporterStats.fromJson(translate(
-      json,
-      ReporterStats.knownProps,
-    ));
+    return ReporterStats.fromJson(translate(json, ReporterStats.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ReporterStats object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ReporterStats object) =>
+      untranslate(object.toJson());
 }

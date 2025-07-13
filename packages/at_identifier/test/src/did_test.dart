@@ -33,7 +33,8 @@ void main() {
       expectValid('did:method:_');
       expectValid('did:method::.');
       expectValid(
-          'did:onion:2gzyxa5ihm7nsggfxnu52rck2vv4rvmdlkiu3zzui5du4xyclen53wid');
+        'did:onion:2gzyxa5ihm7nsggfxnu52rck2vv4rvmdlkiu3zzui5du4xyclen53wid',
+      );
     });
 
     test('invalid DIDs', () {

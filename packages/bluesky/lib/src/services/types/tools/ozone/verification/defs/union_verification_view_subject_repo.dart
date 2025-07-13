@@ -70,6 +70,7 @@ final class UVerificationViewSubjectRepoConverter
         repoViewDetail: (data) => const RepoViewDetailConverter().toJson(data),
         repoViewNotFound: (data) =>
             const RepoViewNotFoundConverter().toJson(data),
+
         unknown: (data) => data,
       );
 }

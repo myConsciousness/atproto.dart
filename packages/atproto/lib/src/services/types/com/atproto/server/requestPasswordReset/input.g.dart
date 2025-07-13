@@ -8,26 +8,20 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ServerRequestPasswordResetInputImpl
-    _$$ServerRequestPasswordResetInputImplFromJson(Map json) => $checkedCreate(
-          r'_$ServerRequestPasswordResetInputImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$ServerRequestPasswordResetInputImpl(
-              email: $checkedConvert('email', (v) => v as String),
-              $unknown: $checkedConvert(
-                  r'$unknown',
-                  (v) => (v as Map?)?.map(
-                        (k, e) => MapEntry(k as String, e),
-                      )),
-            );
-            return val;
-          },
-        );
+_ServerRequestPasswordResetInput _$ServerRequestPasswordResetInputFromJson(
+  Map json,
+) =>
+    $checkedCreate('_ServerRequestPasswordResetInput', json, ($checkedConvert) {
+      final val = _ServerRequestPasswordResetInput(
+        email: $checkedConvert('email', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ServerRequestPasswordResetInputImplToJson(
-        _$ServerRequestPasswordResetInputImpl instance) =>
-    <String, dynamic>{
-      'email': instance.email,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ServerRequestPasswordResetInputToJson(
+  _ServerRequestPasswordResetInput instance,
+) => <String, dynamic>{'email': instance.email, r'$unknown': instance.$unknown};

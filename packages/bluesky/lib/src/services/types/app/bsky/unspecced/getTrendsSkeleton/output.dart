@@ -24,36 +24,35 @@ part 'output.g.dart';
 @freezed
 abstract class UnspeccedGetTrendsSkeletonOutput
     with _$UnspeccedGetTrendsSkeletonOutput {
-  static const knownProps = <String>[
-    'trends',
-  ];
+  static const knownProps = <String>['trends'];
 
   const factory UnspeccedGetTrendsSkeletonOutput({
     @SkeletonTrendConverter() required List<SkeletonTrend> trends,
+
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetTrendsSkeletonOutput;
 
   factory UnspeccedGetTrendsSkeletonOutput.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedGetTrendsSkeletonOutputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$UnspeccedGetTrendsSkeletonOutputFromJson(json);
 }
 
 final class UnspeccedGetTrendsSkeletonOutputConverter
-    extends LexObjectConverter<UnspeccedGetTrendsSkeletonOutput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          UnspeccedGetTrendsSkeletonOutput,
+          Map<String, dynamic>
+        > {
   const UnspeccedGetTrendsSkeletonOutputConverter();
 
   @override
   UnspeccedGetTrendsSkeletonOutput fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetTrendsSkeletonOutput.fromJson(translate(
-      json,
-      UnspeccedGetTrendsSkeletonOutput.knownProps,
-    ));
+    return UnspeccedGetTrendsSkeletonOutput.fromJson(
+      translate(json, UnspeccedGetTrendsSkeletonOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetTrendsSkeletonOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

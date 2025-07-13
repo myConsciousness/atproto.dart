@@ -23,14 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class FeedGetActorFeedsOutput with _$FeedGetActorFeedsOutput {
-  static const knownProps = <String>[
-    'cursor',
-    'feeds',
-  ];
+  static const knownProps = <String>['cursor', 'feeds'];
 
   const factory FeedGetActorFeedsOutput({
     String? cursor,
     @GeneratorViewConverter() required List<GeneratorView> feeds,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedGetActorFeedsOutput;
 
@@ -44,14 +42,12 @@ final class FeedGetActorFeedsOutputConverter
 
   @override
   FeedGetActorFeedsOutput fromJson(Map<String, dynamic> json) {
-    return FeedGetActorFeedsOutput.fromJson(translate(
-      json,
-      FeedGetActorFeedsOutput.knownProps,
-    ));
+    return FeedGetActorFeedsOutput.fromJson(
+      translate(json, FeedGetActorFeedsOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetActorFeedsOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(FeedGetActorFeedsOutput object) =>
+      untranslate(object.toJson());
 }

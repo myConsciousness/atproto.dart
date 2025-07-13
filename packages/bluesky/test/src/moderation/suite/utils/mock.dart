@@ -17,10 +17,7 @@ import 'package:bluesky/src/services/entities/post_viewer.dart';
 
 const _kFakeCid = 'bafyreiclp443lavogvhj3d2ob2cxbfuscni2k5jk7bebjzg7khl3esabwq';
 
-PostRecord post({
-  required String text,
-  List<Facet>? facets,
-}) {
+PostRecord post({required String text, List<Facet>? facets}) {
   return PostRecord(
     text: text,
     facets: facets,
@@ -73,11 +70,7 @@ ListViewBasic listViewBasic({required String name}) {
   );
 }
 
-Label label({
-  required String uri,
-  required String val,
-  String? src,
-}) {
+Label label({required String uri, required String val, String? src}) {
   return Label(
     src: src ?? 'did:plc:fake-labeler',
     uri: uri,

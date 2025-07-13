@@ -23,15 +23,13 @@ part 'sig_detail.g.dart';
 
 @freezed
 abstract class SigDetail with _$SigDetail {
-  static const knownProps = <String>[
-    'property',
-    'value',
-  ];
+  static const knownProps = <String>['property', 'value'];
 
   const factory SigDetail({
     @Default(toolsOzoneSignatureDefsSigDetail) String $type,
     required String property,
     required String value,
+
     Map<String, dynamic>? $unknown,
   }) = _SigDetail;
 
@@ -50,14 +48,9 @@ final class SigDetailConverter
 
   @override
   SigDetail fromJson(Map<String, dynamic> json) {
-    return SigDetail.fromJson(translate(
-      json,
-      SigDetail.knownProps,
-    ));
+    return SigDetail.fromJson(translate(json, SigDetail.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(SigDetail object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SigDetail object) => untranslate(object.toJson());
 }

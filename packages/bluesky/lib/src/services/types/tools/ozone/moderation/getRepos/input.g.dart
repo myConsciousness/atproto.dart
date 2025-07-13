@@ -8,28 +8,21 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ModerationGetReposInputImpl _$$ModerationGetReposInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$ModerationGetReposInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ModerationGetReposInputImpl(
-          dids: $checkedConvert('dids',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ModerationGetReposInput _$ModerationGetReposInputFromJson(Map json) =>
+    $checkedCreate('_ModerationGetReposInput', json, ($checkedConvert) {
+      final val = _ModerationGetReposInput(
+        dids: $checkedConvert(
+          'dids',
+          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ModerationGetReposInputImplToJson(
-        _$ModerationGetReposInputImpl instance) =>
-    <String, dynamic>{
-      'dids': instance.dids,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ModerationGetReposInputToJson(
+  _ModerationGetReposInput instance,
+) => <String, dynamic>{'dids': instance.dids, r'$unknown': instance.$unknown};

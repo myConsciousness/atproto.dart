@@ -23,12 +23,11 @@ part 'input.g.dart';
 
 @freezed
 abstract class FeedSendInteractionsInput with _$FeedSendInteractionsInput {
-  static const knownProps = <String>[
-    'interactions',
-  ];
+  static const knownProps = <String>['interactions'];
 
   const factory FeedSendInteractionsInput({
     @InteractionConverter() required List<Interaction> interactions,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedSendInteractionsInput;
 
@@ -36,20 +35,19 @@ abstract class FeedSendInteractionsInput with _$FeedSendInteractionsInput {
       _$FeedSendInteractionsInputFromJson(json);
 }
 
-final class FeedSendInteractionsInputConverter extends LexObjectConverter<
-    FeedSendInteractionsInput, Map<String, dynamic>> {
+final class FeedSendInteractionsInputConverter
+    extends
+        LexObjectConverter<FeedSendInteractionsInput, Map<String, dynamic>> {
   const FeedSendInteractionsInputConverter();
 
   @override
   FeedSendInteractionsInput fromJson(Map<String, dynamic> json) {
-    return FeedSendInteractionsInput.fromJson(translate(
-      json,
-      FeedSendInteractionsInput.knownProps,
-    ));
+    return FeedSendInteractionsInput.fromJson(
+      translate(json, FeedSendInteractionsInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(FeedSendInteractionsInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(FeedSendInteractionsInput object) =>
+      untranslate(object.toJson());
 }

@@ -20,12 +20,11 @@ part 'input.g.dart';
 
 @freezed
 abstract class AdminDeleteAccountInput with _$AdminDeleteAccountInput {
-  static const knownProps = <String>[
-    'did',
-  ];
+  static const knownProps = <String>['did'];
 
   const factory AdminDeleteAccountInput({
     required String did,
+
     Map<String, dynamic>? $unknown,
   }) = _AdminDeleteAccountInput;
 
@@ -39,14 +38,12 @@ final class AdminDeleteAccountInputConverter
 
   @override
   AdminDeleteAccountInput fromJson(Map<String, dynamic> json) {
-    return AdminDeleteAccountInput.fromJson(translate(
-      json,
-      AdminDeleteAccountInput.knownProps,
-    ));
+    return AdminDeleteAccountInput.fromJson(
+      translate(json, AdminDeleteAccountInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(AdminDeleteAccountInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(AdminDeleteAccountInput object) =>
+      untranslate(object.toJson());
 }

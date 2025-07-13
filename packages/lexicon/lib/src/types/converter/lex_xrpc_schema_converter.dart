@@ -18,20 +18,14 @@ final class LexXrpcSchemaConverter
 
     switch (type) {
       case 'object':
-        return LexXrpcSchema.object(
-          data: LexObject.fromJson(json),
-        );
+        return LexXrpcSchema.object(data: LexObject.fromJson(json));
       case 'ref':
         return LexXrpcSchema.refVariant(
-          data: LexRefVariant.ref(
-            data: LexRef.fromJson(json),
-          ),
+          data: LexRefVariant.ref(data: LexRef.fromJson(json)),
         );
       case 'union':
         return LexXrpcSchema.refVariant(
-          data: LexRefVariant.refUnion(
-            data: LexRefUnion.fromJson(json),
-          ),
+          data: LexRefVariant.refUnion(data: LexRefUnion.fromJson(json)),
         );
       default:
         throw UnsupportedError('Unsupported type [$type]');
@@ -40,10 +34,10 @@ final class LexXrpcSchemaConverter
 
   @override
   Map<String, dynamic> toJson(LexXrpcSchema object) => object.when(
-        refVariant: (data) => data.when(
-          ref: (data) => data.toJson(),
-          refUnion: (data) => data.toJson(),
-        ),
-        object: (data) => data.toJson(),
-      );
+    refVariant: (data) => data.when(
+      ref: (data) => data.toJson(),
+      refUnion: (data) => data.toJson(),
+    ),
+    object: (data) => data.toJson(),
+  );
 }

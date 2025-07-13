@@ -14,7 +14,7 @@ void main() {
           type: EntityType.handle,
           value: 'shinyakato.dev',
           indices: ByteIndices(start: 0, end: 0),
-        )
+        ),
       ]);
 
       final facets = await entities.toFacets();
@@ -25,10 +25,10 @@ void main() {
           'features': [
             {
               '\$type': 'app.bsky.richtext.facet#mention',
-              'did': 'did:plc:iijrtk7ocored6zuziwmqq3c'
-            }
-          ]
-        }
+              'did': 'did:plc:iijrtk7ocored6zuziwmqq3c',
+            },
+          ],
+        },
       ]);
     });
 
@@ -38,7 +38,7 @@ void main() {
           type: EntityType.handle,
           value: 'a.bsky.social',
           indices: ByteIndices(start: 0, end: 0),
-        )
+        ),
       ]);
 
       final facets = await entities.toFacets();

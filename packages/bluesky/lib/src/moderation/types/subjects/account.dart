@@ -51,8 +51,10 @@ List<Label> _filterAccountLabels(final List<Label>? labels) {
   }
 
   return labels
-      .where((e) =>
-          !e.uri.endsWith('/app.bsky.actor.profile/self') ||
-          e.value == '!no-unauthenticated')
+      .where(
+        (e) =>
+            !e.uri.endsWith('/app.bsky.actor.profile/self') ||
+            e.value == '!no-unauthenticated',
+      )
       .toList();
 }

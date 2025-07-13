@@ -21,9 +21,9 @@ void main() {
         'features': [
           {
             '\$type': 'app.bsky.richtext.facet#mention',
-            'did': 'did:plc:iijrtk7ocored6zuziwmqq3c'
-          }
-        ]
+            'did': 'did:plc:iijrtk7ocored6zuziwmqq3c',
+          },
+        ],
       });
     });
 
@@ -65,9 +65,9 @@ void main() {
         'features': [
           {
             '\$type': 'app.bsky.richtext.facet#link',
-            'uri': 'https://shinyakato.dev'
-          }
-        ]
+            'uri': 'https://shinyakato.dev',
+          },
+        ],
       });
     });
 
@@ -85,9 +85,9 @@ void main() {
         'features': [
           {
             '\$type': 'app.bsky.richtext.facet#mention',
-            'did': 'did:plc:iijrtk7ocored6zuziwmqq3c'
-          }
-        ]
+            'did': 'did:plc:iijrtk7ocored6zuziwmqq3c',
+          },
+        ],
       });
     });
 

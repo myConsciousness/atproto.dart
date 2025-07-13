@@ -8,27 +8,24 @@ part of 'repo.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RepoImpl _$$RepoImplFromJson(Map json) => $checkedCreate(
-      r'_$RepoImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$RepoImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? comAtprotoSyncListReposByCollectionRepo),
-          did: $checkedConvert('did', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_Repo _$RepoFromJson(Map json) =>
+    $checkedCreate('_Repo', json, ($checkedConvert) {
+      final val = _Repo(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? comAtprotoSyncListReposByCollectionRepo,
+        ),
+        did: $checkedConvert('did', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$RepoImplToJson(_$RepoImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'did': instance.did,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$RepoToJson(_Repo instance) => <String, dynamic>{
+  r'$type': instance.$type,
+  'did': instance.did,
+  r'$unknown': instance.$unknown,
+};

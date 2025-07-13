@@ -257,16 +257,12 @@ void main() {
               'post':
                   'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.feed.generator/3k27u2pzoly2q',
               'allow': [
-                {
-                  r'$type': 'app.bsky.feed.threadgate#mentionRule',
-                },
-                {
-                  r'$type': 'app.bsky.feed.threadgate#followingRule',
-                },
+                {r'$type': 'app.bsky.feed.threadgate#mentionRule'},
+                {r'$type': 'app.bsky.feed.threadgate#followingRule'},
                 {
                   r'$type': 'app.bsky.feed.threadgate#listRule',
                   'list': 'at://foo.com/com.example.foo/123',
-                }
+                },
               ],
               'createdAt': DateTime.now().toIso8601String(),
             },
@@ -578,9 +574,7 @@ void main() {
             {
               objectType: 'app.bsky.labeler.service',
               'policies': {
-                'labelValues': [
-                  '!hide',
-                ]
+                'labelValues': ['!hide'],
               },
               'createdAt': DateTime.now().toIso8601String(),
             },
@@ -683,9 +677,7 @@ void main() {
         _buildSubscribedRepoCommit(
           _buildUpdateRepoOp(
             'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.actor.profile/3k27u2pzoly2q',
-            {
-              objectType: 'app.bsky.actor.profile',
-            },
+            {objectType: 'app.bsky.actor.profile'},
           ),
         ),
       );
@@ -753,9 +745,7 @@ void main() {
         _buildSubscribedRepoCommit(
           _buildUpdateRepoOp(
             'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.actor.profile/3k27u2pzoly2q',
-            {
-              objectType: 'app.bsky.actor.profile',
-            },
+            {objectType: 'app.bsky.actor.profile'},
           ),
         ),
       );
@@ -1293,44 +1283,34 @@ void main() {
   });
 }
 
-Commit _buildSubscribedRepoCommit(
-  final RepoOp op,
-) =>
-    Commit(
-      ops: [op],
-      did: 'aaaaaaa',
-      cursor: 1234,
-      rev: 'xxxxxxx',
-      isTooBig: false,
-      createdAt: DateTime.now(),
-    );
+Commit _buildSubscribedRepoCommit(final RepoOp op) => Commit(
+  ops: [op],
+  did: 'aaaaaaa',
+  cursor: 1234,
+  rev: 'xxxxxxx',
+  isTooBig: false,
+  createdAt: DateTime.now(),
+);
 
 RepoOp _buildCreateRepoOp(
   final String uri,
   final Map<String, dynamic> record,
-) =>
-    RepoOp(
-      action: RepoAction.create,
-      uri: AtUri.parse(uri),
-      cid: 'aaaa',
-      record: record,
-    );
+) => RepoOp(
+  action: RepoAction.create,
+  uri: AtUri.parse(uri),
+  cid: 'aaaa',
+  record: record,
+);
 
 RepoOp _buildUpdateRepoOp(
   final String uri,
   final Map<String, dynamic> record,
-) =>
-    RepoOp(
-      action: RepoAction.update,
-      uri: AtUri.parse(uri),
-      cid: 'aaaa',
-      record: record,
-    );
+) => RepoOp(
+  action: RepoAction.update,
+  uri: AtUri.parse(uri),
+  cid: 'aaaa',
+  record: record,
+);
 
-RepoOp _buildDeleteRepoOp(
-  final String uri,
-) =>
-    RepoOp(
-      action: RepoAction.delete,
-      uri: AtUri.parse(uri),
-    );
+RepoOp _buildDeleteRepoOp(final String uri) =>
+    RepoOp(action: RepoAction.delete, uri: AtUri.parse(uri));

@@ -8,27 +8,25 @@ part of 'relationship.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RelationshipImpl _$$RelationshipImplFromJson(Map json) => $checkedCreate(
-      r'_$RelationshipImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$RelationshipImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyGraphDefsRelationship),
-          did: $checkedConvert('did', (v) => v as String),
-          following: $checkedConvert('following', (v) => v as String?),
-          followedBy: $checkedConvert('followedBy', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_Relationship _$RelationshipFromJson(Map json) =>
+    $checkedCreate('_Relationship', json, ($checkedConvert) {
+      final val = _Relationship(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyGraphDefsRelationship,
+        ),
+        did: $checkedConvert('did', (v) => v as String),
+        following: $checkedConvert('following', (v) => v as String?),
+        followedBy: $checkedConvert('followedBy', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$RelationshipImplToJson(_$RelationshipImpl instance) =>
+Map<String, dynamic> _$RelationshipToJson(_Relationship instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'did': instance.did,

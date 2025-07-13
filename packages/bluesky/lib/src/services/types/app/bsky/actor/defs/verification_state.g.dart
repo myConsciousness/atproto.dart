@@ -8,35 +8,37 @@ part of 'verification_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$VerificationStateImpl _$$VerificationStateImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$VerificationStateImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$VerificationStateImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? appBskyActorDefsVerificationState),
-          verifications: $checkedConvert(
-              'verifications',
-              (v) => (v as List<dynamic>)
-                  .map((e) => const VerificationViewConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          verifiedStatus: $checkedConvert('verifiedStatus', (v) => v as String),
-          trustedVerifierStatus:
-              $checkedConvert('trustedVerifierStatus', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_VerificationState _$VerificationStateFromJson(Map json) =>
+    $checkedCreate('_VerificationState', json, ($checkedConvert) {
+      final val = _VerificationState(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyActorDefsVerificationState,
+        ),
+        verifications: $checkedConvert(
+          'verifications',
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) => const VerificationViewConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
+        verifiedStatus: $checkedConvert('verifiedStatus', (v) => v as String),
+        trustedVerifierStatus: $checkedConvert(
+          'trustedVerifierStatus',
+          (v) => v as String,
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$VerificationStateImplToJson(
-        _$VerificationStateImpl instance) =>
+Map<String, dynamic> _$VerificationStateToJson(_VerificationState instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'verifications': instance.verifications

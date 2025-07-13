@@ -20,12 +20,11 @@ part 'input.g.dart';
 
 @freezed
 abstract class ModerationGetSubjectsInput with _$ModerationGetSubjectsInput {
-  static const knownProps = <String>[
-    'subjects',
-  ];
+  static const knownProps = <String>['subjects'];
 
   const factory ModerationGetSubjectsInput({
     required List<String> subjects,
+
     Map<String, dynamic>? $unknown,
   }) = _ModerationGetSubjectsInput;
 
@@ -33,20 +32,19 @@ abstract class ModerationGetSubjectsInput with _$ModerationGetSubjectsInput {
       _$ModerationGetSubjectsInputFromJson(json);
 }
 
-final class ModerationGetSubjectsInputConverter extends LexObjectConverter<
-    ModerationGetSubjectsInput, Map<String, dynamic>> {
+final class ModerationGetSubjectsInputConverter
+    extends
+        LexObjectConverter<ModerationGetSubjectsInput, Map<String, dynamic>> {
   const ModerationGetSubjectsInputConverter();
 
   @override
   ModerationGetSubjectsInput fromJson(Map<String, dynamic> json) {
-    return ModerationGetSubjectsInput.fromJson(translate(
-      json,
-      ModerationGetSubjectsInput.knownProps,
-    ));
+    return ModerationGetSubjectsInput.fromJson(
+      translate(json, ModerationGetSubjectsInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ModerationGetSubjectsInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ModerationGetSubjectsInput object) =>
+      untranslate(object.toJson());
 }

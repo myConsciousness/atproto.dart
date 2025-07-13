@@ -24,11 +24,7 @@ part 'log_delete_message.g.dart';
 
 @freezed
 abstract class LogDeleteMessage with _$LogDeleteMessage {
-  static const knownProps = <String>[
-    'rev',
-    'convoId',
-    'message',
-  ];
+  static const knownProps = <String>['rev', 'convoId', 'message'];
 
   const factory LogDeleteMessage({
     @Default(chatBskyConvoDefsLogDeleteMessage) String $type,
@@ -36,6 +32,7 @@ abstract class LogDeleteMessage with _$LogDeleteMessage {
     required String convoId,
     @ULogDeleteMessageMessageConverter()
     required ULogDeleteMessageMessage message,
+
     Map<String, dynamic>? $unknown,
   }) = _LogDeleteMessage;
 
@@ -54,14 +51,12 @@ final class LogDeleteMessageConverter
 
   @override
   LogDeleteMessage fromJson(Map<String, dynamic> json) {
-    return LogDeleteMessage.fromJson(translate(
-      json,
-      LogDeleteMessage.knownProps,
-    ));
+    return LogDeleteMessage.fromJson(
+      translate(json, LogDeleteMessage.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(LogDeleteMessage object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(LogDeleteMessage object) =>
+      untranslate(object.toJson());
 }

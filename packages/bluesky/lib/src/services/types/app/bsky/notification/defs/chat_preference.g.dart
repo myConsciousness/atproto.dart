@@ -8,27 +8,24 @@ part of 'chat_preference.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ChatPreferenceImpl _$$ChatPreferenceImplFromJson(Map json) => $checkedCreate(
-      r'_$ChatPreferenceImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ChatPreferenceImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? appBskyNotificationDefsChatPreference),
-          include: $checkedConvert('include', (v) => v as String),
-          push: $checkedConvert('push', (v) => v as bool),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ChatPreference _$ChatPreferenceFromJson(Map json) =>
+    $checkedCreate('_ChatPreference', json, ($checkedConvert) {
+      final val = _ChatPreference(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyNotificationDefsChatPreference,
+        ),
+        include: $checkedConvert('include', (v) => v as String),
+        push: $checkedConvert('push', (v) => v as bool),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ChatPreferenceImplToJson(
-        _$ChatPreferenceImpl instance) =>
+Map<String, dynamic> _$ChatPreferenceToJson(_ChatPreference instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'include': instance.include,

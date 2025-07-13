@@ -8,29 +8,26 @@ part of 'generator_viewer_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GeneratorViewerStateImpl _$$GeneratorViewerStateImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$GeneratorViewerStateImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$GeneratorViewerStateImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? appBskyFeedDefsGeneratorViewerState),
-          like: $checkedConvert('like', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_GeneratorViewerState _$GeneratorViewerStateFromJson(Map json) =>
+    $checkedCreate('_GeneratorViewerState', json, ($checkedConvert) {
+      final val = _GeneratorViewerState(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyFeedDefsGeneratorViewerState,
+        ),
+        like: $checkedConvert('like', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$GeneratorViewerStateImplToJson(
-        _$GeneratorViewerStateImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'like': instance.like,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$GeneratorViewerStateToJson(
+  _GeneratorViewerState instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'like': instance.like,
+  r'$unknown': instance.$unknown,
+};

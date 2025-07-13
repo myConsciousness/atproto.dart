@@ -8,30 +8,27 @@ part of 'account_codes.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AccountCodesImpl _$$AccountCodesImplFromJson(Map json) => $checkedCreate(
-      r'_$AccountCodesImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$AccountCodesImpl(
-          $type: $checkedConvert(
-              r'$type',
-              (v) =>
-                  v as String? ??
-                  comAtprotoServerCreateInviteCodesAccountCodes),
-          account: $checkedConvert('account', (v) => v as String),
-          codes: $checkedConvert('codes',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_AccountCodes _$AccountCodesFromJson(Map json) =>
+    $checkedCreate('_AccountCodes', json, ($checkedConvert) {
+      final val = _AccountCodes(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? comAtprotoServerCreateInviteCodesAccountCodes,
+        ),
+        account: $checkedConvert('account', (v) => v as String),
+        codes: $checkedConvert(
+          'codes',
+          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$AccountCodesImplToJson(_$AccountCodesImpl instance) =>
+Map<String, dynamic> _$AccountCodesToJson(_AccountCodes instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'account': instance.account,

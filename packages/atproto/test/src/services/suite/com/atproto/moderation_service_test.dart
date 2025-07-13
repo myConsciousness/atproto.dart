@@ -8,9 +8,7 @@ import 'service_suite.dart';
 void main() {
   testModeration<Report>(
     (m, s) => s.createReport(
-      subject: ReportSubject.repoRef(
-        data: RepoRef(did: m.did),
-      ),
+      subject: ReportSubject.repoRef(data: RepoRef(did: m.did)),
     ),
     id: comAtprotoModerationCreateReport,
   );

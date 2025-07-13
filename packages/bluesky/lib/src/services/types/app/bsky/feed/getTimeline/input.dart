@@ -20,17 +20,14 @@ part 'input.g.dart';
 
 @freezed
 abstract class FeedGetTimelineInput with _$FeedGetTimelineInput {
-  static const knownProps = <String>[
-    'algorithm',
-    'limit',
-    'cursor',
-  ];
+  static const knownProps = <String>['algorithm', 'limit', 'cursor'];
 
   const factory FeedGetTimelineInput({
     /// Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism.
     String? algorithm,
     int? limit,
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedGetTimelineInput;
 
@@ -44,14 +41,12 @@ final class FeedGetTimelineInputConverter
 
   @override
   FeedGetTimelineInput fromJson(Map<String, dynamic> json) {
-    return FeedGetTimelineInput.fromJson(translate(
-      json,
-      FeedGetTimelineInput.knownProps,
-    ));
+    return FeedGetTimelineInput.fromJson(
+      translate(json, FeedGetTimelineInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetTimelineInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(FeedGetTimelineInput object) =>
+      untranslate(object.toJson());
 }

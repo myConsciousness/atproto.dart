@@ -8,27 +8,21 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LabelSubscribeLabelsInputImpl _$$LabelSubscribeLabelsInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$LabelSubscribeLabelsInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$LabelSubscribeLabelsInputImpl(
-          cursor: $checkedConvert('cursor', (v) => (v as num?)?.toInt()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_LabelSubscribeLabelsInput _$LabelSubscribeLabelsInputFromJson(Map json) =>
+    $checkedCreate('_LabelSubscribeLabelsInput', json, ($checkedConvert) {
+      final val = _LabelSubscribeLabelsInput(
+        cursor: $checkedConvert('cursor', (v) => (v as num?)?.toInt()),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$LabelSubscribeLabelsInputImplToJson(
-        _$LabelSubscribeLabelsInputImpl instance) =>
-    <String, dynamic>{
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$LabelSubscribeLabelsInputToJson(
+  _LabelSubscribeLabelsInput instance,
+) => <String, dynamic>{
+  'cursor': instance.cursor,
+  r'$unknown': instance.$unknown,
+};

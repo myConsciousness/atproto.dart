@@ -12,7 +12,8 @@ part of 'lex_xrpc_subscription.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LexXrpcSubscription _$LexXrpcSubscriptionFromJson(Map<String, dynamic> json) {
   return _LexXrpcSubscription.fromJson(json);
@@ -40,16 +41,18 @@ mixin _$LexXrpcSubscription {
 /// @nodoc
 abstract class $LexXrpcSubscriptionCopyWith<$Res> {
   factory $LexXrpcSubscriptionCopyWith(
-          LexXrpcSubscription value, $Res Function(LexXrpcSubscription) then) =
-      _$LexXrpcSubscriptionCopyWithImpl<$Res, LexXrpcSubscription>;
+    LexXrpcSubscription value,
+    $Res Function(LexXrpcSubscription) then,
+  ) = _$LexXrpcSubscriptionCopyWithImpl<$Res, LexXrpcSubscription>;
   @useResult
-  $Res call(
-      {String type,
-      String? description,
-      LexXrpcParameters? parameters,
-      LexXrpcSubscriptionMessage? message,
-      List<LexXrpcError>? infos,
-      List<LexXrpcError>? errors});
+  $Res call({
+    String type,
+    String? description,
+    LexXrpcParameters? parameters,
+    LexXrpcSubscriptionMessage? message,
+    List<LexXrpcError>? infos,
+    List<LexXrpcError>? errors,
+  });
 
   $LexXrpcParametersCopyWith<$Res>? get parameters;
   $LexXrpcSubscriptionMessageCopyWith<$Res>? get message;
@@ -77,32 +80,35 @@ class _$LexXrpcSubscriptionCopyWithImpl<$Res, $Val extends LexXrpcSubscription>
     Object? infos = freezed,
     Object? errors = freezed,
   }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      parameters: freezed == parameters
-          ? _value.parameters
-          : parameters // ignore: cast_nullable_to_non_nullable
-              as LexXrpcParameters?,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as LexXrpcSubscriptionMessage?,
-      infos: freezed == infos
-          ? _value.infos
-          : infos // ignore: cast_nullable_to_non_nullable
-              as List<LexXrpcError>?,
-      errors: freezed == errors
-          ? _value.errors
-          : errors // ignore: cast_nullable_to_non_nullable
-              as List<LexXrpcError>?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            parameters: freezed == parameters
+                ? _value.parameters
+                : parameters // ignore: cast_nullable_to_non_nullable
+                      as LexXrpcParameters?,
+            message: freezed == message
+                ? _value.message
+                : message // ignore: cast_nullable_to_non_nullable
+                      as LexXrpcSubscriptionMessage?,
+            infos: freezed == infos
+                ? _value.infos
+                : infos // ignore: cast_nullable_to_non_nullable
+                      as List<LexXrpcError>?,
+            errors: freezed == errors
+                ? _value.errors
+                : errors // ignore: cast_nullable_to_non_nullable
+                      as List<LexXrpcError>?,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of LexXrpcSubscription
@@ -137,18 +143,20 @@ class _$LexXrpcSubscriptionCopyWithImpl<$Res, $Val extends LexXrpcSubscription>
 /// @nodoc
 abstract class _$$LexXrpcSubscriptionImplCopyWith<$Res>
     implements $LexXrpcSubscriptionCopyWith<$Res> {
-  factory _$$LexXrpcSubscriptionImplCopyWith(_$LexXrpcSubscriptionImpl value,
-          $Res Function(_$LexXrpcSubscriptionImpl) then) =
-      __$$LexXrpcSubscriptionImplCopyWithImpl<$Res>;
+  factory _$$LexXrpcSubscriptionImplCopyWith(
+    _$LexXrpcSubscriptionImpl value,
+    $Res Function(_$LexXrpcSubscriptionImpl) then,
+  ) = __$$LexXrpcSubscriptionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String type,
-      String? description,
-      LexXrpcParameters? parameters,
-      LexXrpcSubscriptionMessage? message,
-      List<LexXrpcError>? infos,
-      List<LexXrpcError>? errors});
+  $Res call({
+    String type,
+    String? description,
+    LexXrpcParameters? parameters,
+    LexXrpcSubscriptionMessage? message,
+    List<LexXrpcError>? infos,
+    List<LexXrpcError>? errors,
+  });
 
   @override
   $LexXrpcParametersCopyWith<$Res>? get parameters;
@@ -160,9 +168,10 @@ abstract class _$$LexXrpcSubscriptionImplCopyWith<$Res>
 class __$$LexXrpcSubscriptionImplCopyWithImpl<$Res>
     extends _$LexXrpcSubscriptionCopyWithImpl<$Res, _$LexXrpcSubscriptionImpl>
     implements _$$LexXrpcSubscriptionImplCopyWith<$Res> {
-  __$$LexXrpcSubscriptionImplCopyWithImpl(_$LexXrpcSubscriptionImpl _value,
-      $Res Function(_$LexXrpcSubscriptionImpl) _then)
-      : super(_value, _then);
+  __$$LexXrpcSubscriptionImplCopyWithImpl(
+    _$LexXrpcSubscriptionImpl _value,
+    $Res Function(_$LexXrpcSubscriptionImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexXrpcSubscription
   /// with the given fields replaced by the non-null parameter values.
@@ -176,32 +185,34 @@ class __$$LexXrpcSubscriptionImplCopyWithImpl<$Res>
     Object? infos = freezed,
     Object? errors = freezed,
   }) {
-    return _then(_$LexXrpcSubscriptionImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      parameters: freezed == parameters
-          ? _value.parameters
-          : parameters // ignore: cast_nullable_to_non_nullable
-              as LexXrpcParameters?,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as LexXrpcSubscriptionMessage?,
-      infos: freezed == infos
-          ? _value._infos
-          : infos // ignore: cast_nullable_to_non_nullable
-              as List<LexXrpcError>?,
-      errors: freezed == errors
-          ? _value._errors
-          : errors // ignore: cast_nullable_to_non_nullable
-              as List<LexXrpcError>?,
-    ));
+    return _then(
+      _$LexXrpcSubscriptionImpl(
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        parameters: freezed == parameters
+            ? _value.parameters
+            : parameters // ignore: cast_nullable_to_non_nullable
+                  as LexXrpcParameters?,
+        message: freezed == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as LexXrpcSubscriptionMessage?,
+        infos: freezed == infos
+            ? _value._infos
+            : infos // ignore: cast_nullable_to_non_nullable
+                  as List<LexXrpcError>?,
+        errors: freezed == errors
+            ? _value._errors
+            : errors // ignore: cast_nullable_to_non_nullable
+                  as List<LexXrpcError>?,
+      ),
+    );
   }
 }
 
@@ -209,15 +220,15 @@ class __$$LexXrpcSubscriptionImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$LexXrpcSubscriptionImpl implements _LexXrpcSubscription {
-  const _$LexXrpcSubscriptionImpl(
-      {this.type = 'subscription',
-      this.description,
-      this.parameters,
-      this.message,
-      final List<LexXrpcError>? infos,
-      final List<LexXrpcError>? errors})
-      : _infos = infos,
-        _errors = errors;
+  const _$LexXrpcSubscriptionImpl({
+    this.type = 'subscription',
+    this.description,
+    this.parameters,
+    this.message,
+    final List<LexXrpcError>? infos,
+    final List<LexXrpcError>? errors,
+  }) : _infos = infos,
+       _errors = errors;
 
   factory _$LexXrpcSubscriptionImpl.fromJson(Map<String, dynamic> json) =>
       _$$LexXrpcSubscriptionImplFromJson(json);
@@ -274,13 +285,14 @@ class _$LexXrpcSubscriptionImpl implements _LexXrpcSubscription {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      type,
-      description,
-      parameters,
-      message,
-      const DeepCollectionEquality().hash(_infos),
-      const DeepCollectionEquality().hash(_errors));
+    runtimeType,
+    type,
+    description,
+    parameters,
+    message,
+    const DeepCollectionEquality().hash(_infos),
+    const DeepCollectionEquality().hash(_errors),
+  );
 
   /// Create a copy of LexXrpcSubscription
   /// with the given fields replaced by the non-null parameter values.
@@ -289,24 +301,25 @@ class _$LexXrpcSubscriptionImpl implements _LexXrpcSubscription {
   @pragma('vm:prefer-inline')
   _$$LexXrpcSubscriptionImplCopyWith<_$LexXrpcSubscriptionImpl> get copyWith =>
       __$$LexXrpcSubscriptionImplCopyWithImpl<_$LexXrpcSubscriptionImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LexXrpcSubscriptionImplToJson(
-      this,
-    );
+    return _$$LexXrpcSubscriptionImplToJson(this);
   }
 }
 
 abstract class _LexXrpcSubscription implements LexXrpcSubscription {
-  const factory _LexXrpcSubscription(
-      {final String type,
-      final String? description,
-      final LexXrpcParameters? parameters,
-      final LexXrpcSubscriptionMessage? message,
-      final List<LexXrpcError>? infos,
-      final List<LexXrpcError>? errors}) = _$LexXrpcSubscriptionImpl;
+  const factory _LexXrpcSubscription({
+    final String type,
+    final String? description,
+    final LexXrpcParameters? parameters,
+    final LexXrpcSubscriptionMessage? message,
+    final List<LexXrpcError>? infos,
+    final List<LexXrpcError>? errors,
+  }) = _$LexXrpcSubscriptionImpl;
 
   factory _LexXrpcSubscription.fromJson(Map<String, dynamic> json) =
       _$LexXrpcSubscriptionImpl.fromJson;

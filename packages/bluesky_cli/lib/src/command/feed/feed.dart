@@ -19,11 +19,7 @@ class FeedCommand extends QueryCommand {
         help: 'Maximum search limit from 1 to 100. Defaults to 50.',
         defaultsTo: null,
       )
-      ..addOption(
-        'cursor',
-        help: 'Token for pagination.',
-        defaultsTo: null,
-      );
+      ..addOption('cursor', help: 'Token for pagination.', defaultsTo: null);
   }
 
   @override
@@ -36,15 +32,12 @@ class FeedCommand extends QueryCommand {
   final String invocation = 'bsky feed [actor] [limit] [cursor]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'feed.bsky.app',
-        'getAuthorFeed',
-      );
+  xrpc.NSID get methodId => xrpc.NSID.create('feed.bsky.app', 'getAuthorFeed');
 
   @override
   Map<String, dynamic>? get parameters => {
-        'actor': argResults!['actor'],
-        'limit': argResults!['limit'],
-        'cursor': argResults!['cursor'],
-      };
+    'actor': argResults!['actor'],
+    'limit': argResults!['limit'],
+    'cursor': argResults!['cursor'],
+  };
 }

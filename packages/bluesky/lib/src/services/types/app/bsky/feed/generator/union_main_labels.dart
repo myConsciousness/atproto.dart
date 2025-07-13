@@ -21,9 +21,8 @@ part 'union_main_labels.freezed.dart';
 class UFeedGeneratorLabels with _$UFeedGeneratorLabels {
   const UFeedGeneratorLabels._();
 
-  const factory UFeedGeneratorLabels.selfLabels({
-    required SelfLabels data,
-  }) = UFeedGeneratorLabelsSelfLabels;
+  const factory UFeedGeneratorLabels.selfLabels({required SelfLabels data}) =
+      UFeedGeneratorLabelsSelfLabels;
 
   const factory UFeedGeneratorLabels.unknown({
     required Map<String, dynamic> data,
@@ -54,7 +53,8 @@ final class UFeedGeneratorLabelsConverter
 
   @override
   Map<String, dynamic> toJson(UFeedGeneratorLabels object) => object.when(
-        selfLabels: (data) => const SelfLabelsConverter().toJson(data),
-        unknown: (data) => data,
-      );
+    selfLabels: (data) => const SelfLabelsConverter().toJson(data),
+
+    unknown: (data) => data,
+  );
 }

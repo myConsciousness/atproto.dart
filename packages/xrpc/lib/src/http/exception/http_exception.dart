@@ -23,8 +23,10 @@ final class HttpException implements Exception {
       ..writeln('  ✅ Body:')
       ..writeln('   ${response.data}\n')
       ..writeln()
-      ..writeln('  Please create an Issue if you have a question '
-          'or suggestion for this exception.')
+      ..writeln(
+        '  Please create an Issue if you have a question '
+        'or suggestion for this exception.',
+      )
       ..writeln('  https://github.com/myConsciousness/atproto.dart');
 
     return buffer.toString();

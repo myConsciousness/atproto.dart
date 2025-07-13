@@ -24,40 +24,38 @@ part 'input.g.dart';
 @freezed
 abstract class NotificationPutActivitySubscriptionInput
     with _$NotificationPutActivitySubscriptionInput {
-  static const knownProps = <String>[
-    'subject',
-    'activitySubscription',
-  ];
+  static const knownProps = <String>['subject', 'activitySubscription'];
 
   const factory NotificationPutActivitySubscriptionInput({
     required String subject,
     @ActivitySubscriptionConverter()
     required ActivitySubscription activitySubscription,
+
     Map<String, dynamic>? $unknown,
   }) = _NotificationPutActivitySubscriptionInput;
 
   factory NotificationPutActivitySubscriptionInput.fromJson(
-          Map<String, Object?> json) =>
-      _$NotificationPutActivitySubscriptionInputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$NotificationPutActivitySubscriptionInputFromJson(json);
 }
 
 final class NotificationPutActivitySubscriptionInputConverter
-    extends LexObjectConverter<NotificationPutActivitySubscriptionInput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          NotificationPutActivitySubscriptionInput,
+          Map<String, dynamic>
+        > {
   const NotificationPutActivitySubscriptionInputConverter();
 
   @override
   NotificationPutActivitySubscriptionInput fromJson(Map<String, dynamic> json) {
-    return NotificationPutActivitySubscriptionInput.fromJson(translate(
-      json,
-      NotificationPutActivitySubscriptionInput.knownProps,
-    ));
+    return NotificationPutActivitySubscriptionInput.fromJson(
+      translate(json, NotificationPutActivitySubscriptionInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(
-          NotificationPutActivitySubscriptionInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+    NotificationPutActivitySubscriptionInput object,
+  ) => untranslate(object.toJson());
 }

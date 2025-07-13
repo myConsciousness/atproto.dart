@@ -51,6 +51,7 @@ abstract class SafelinkQueryRulesInput with _$SafelinkQueryRulesInput {
 
     /// Sort direction
     String? sortDirection,
+
     Map<String, dynamic>? $unknown,
   }) = _SafelinkQueryRulesInput;
 
@@ -64,14 +65,12 @@ final class SafelinkQueryRulesInputConverter
 
   @override
   SafelinkQueryRulesInput fromJson(Map<String, dynamic> json) {
-    return SafelinkQueryRulesInput.fromJson(translate(
-      json,
-      SafelinkQueryRulesInput.knownProps,
-    ));
+    return SafelinkQueryRulesInput.fromJson(
+      translate(json, SafelinkQueryRulesInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SafelinkQueryRulesInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SafelinkQueryRulesInput object) =>
+      untranslate(object.toJson());
 }

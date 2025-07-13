@@ -23,12 +23,11 @@ part 'output.g.dart';
 
 @freezed
 abstract class ConvoAddReactionOutput with _$ConvoAddReactionOutput {
-  static const knownProps = <String>[
-    'message',
-  ];
+  static const knownProps = <String>['message'];
 
   const factory ConvoAddReactionOutput({
     @MessageViewConverter() required MessageView message,
+
     Map<String, dynamic>? $unknown,
   }) = _ConvoAddReactionOutput;
 
@@ -42,14 +41,12 @@ final class ConvoAddReactionOutputConverter
 
   @override
   ConvoAddReactionOutput fromJson(Map<String, dynamic> json) {
-    return ConvoAddReactionOutput.fromJson(translate(
-      json,
-      ConvoAddReactionOutput.knownProps,
-    ));
+    return ConvoAddReactionOutput.fromJson(
+      translate(json, ConvoAddReactionOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoAddReactionOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ConvoAddReactionOutput object) =>
+      untranslate(object.toJson());
 }

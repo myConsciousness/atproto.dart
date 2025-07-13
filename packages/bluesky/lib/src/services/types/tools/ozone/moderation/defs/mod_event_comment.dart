@@ -24,10 +24,7 @@ part 'mod_event_comment.g.dart';
 /// Add a comment to a subject. An empty comment will clear any previously set sticky comment.
 @freezed
 abstract class ModEventComment with _$ModEventComment {
-  static const knownProps = <String>[
-    'comment',
-    'sticky',
-  ];
+  static const knownProps = <String>['comment', 'sticky'];
 
   const factory ModEventComment({
     @Default(toolsOzoneModerationDefsModEventComment) String $type,
@@ -35,6 +32,7 @@ abstract class ModEventComment with _$ModEventComment {
 
     /// Make the comment persistent on the subject
     bool? sticky,
+
     Map<String, dynamic>? $unknown,
   }) = _ModEventComment;
 
@@ -53,14 +51,12 @@ final class ModEventCommentConverter
 
   @override
   ModEventComment fromJson(Map<String, dynamic> json) {
-    return ModEventComment.fromJson(translate(
-      json,
-      ModEventComment.knownProps,
-    ));
+    return ModEventComment.fromJson(
+      translate(json, ModEventComment.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ModEventComment object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ModEventComment object) =>
+      untranslate(object.toJson());
 }

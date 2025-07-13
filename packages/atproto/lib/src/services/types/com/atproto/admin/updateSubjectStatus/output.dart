@@ -25,15 +25,13 @@ part 'output.g.dart';
 @freezed
 abstract class AdminUpdateSubjectStatusOutput
     with _$AdminUpdateSubjectStatusOutput {
-  static const knownProps = <String>[
-    'subject',
-    'takedown',
-  ];
+  static const knownProps = <String>['subject', 'takedown'];
 
   const factory AdminUpdateSubjectStatusOutput({
     @UAdminUpdateSubjectStatusSubjectConverter()
     required UAdminUpdateSubjectStatusSubject subject,
     @StatusAttrConverter() StatusAttr? takedown,
+
     Map<String, dynamic>? $unknown,
   }) = _AdminUpdateSubjectStatusOutput;
 
@@ -41,21 +39,22 @@ abstract class AdminUpdateSubjectStatusOutput
       _$AdminUpdateSubjectStatusOutputFromJson(json);
 }
 
-final class AdminUpdateSubjectStatusOutputConverter extends LexObjectConverter<
-    AdminUpdateSubjectStatusOutput, Map<String, dynamic>> {
+final class AdminUpdateSubjectStatusOutputConverter
+    extends
+        LexObjectConverter<
+          AdminUpdateSubjectStatusOutput,
+          Map<String, dynamic>
+        > {
   const AdminUpdateSubjectStatusOutputConverter();
 
   @override
   AdminUpdateSubjectStatusOutput fromJson(Map<String, dynamic> json) {
-    return AdminUpdateSubjectStatusOutput.fromJson(translate(
-      json,
-      AdminUpdateSubjectStatusOutput.knownProps,
-    ));
+    return AdminUpdateSubjectStatusOutput.fromJson(
+      translate(json, AdminUpdateSubjectStatusOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(AdminUpdateSubjectStatusOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

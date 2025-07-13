@@ -11,11 +11,7 @@ import '../procedure_command.dart';
 class MuteListCommand extends ProcedureCommand {
   /// Returns the new instance of [MuteListCommand].
   MuteListCommand() {
-    argParser.addOption(
-      'list',
-      help: 'AT URI of list',
-      defaultsTo: null,
-    );
+    argParser.addOption('list', help: 'AT URI of list', defaultsTo: null);
   }
 
   @override
@@ -28,13 +24,8 @@ class MuteListCommand extends ProcedureCommand {
   final String invocation = 'bsky mute-list [list]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'graph.bsky.app',
-        'muteActorList',
-      );
+  xrpc.NSID get methodId => xrpc.NSID.create('graph.bsky.app', 'muteActorList');
 
   @override
-  FutureOr<Map<String, dynamic>>? get body => {
-        'list': argResults!['list'],
-      };
+  FutureOr<Map<String, dynamic>>? get body => {'list': argResults!['list']};
 }

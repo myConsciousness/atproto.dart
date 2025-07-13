@@ -9,10 +9,7 @@ final class RateLimitPolicy {
   ///               window.
   ///
   /// [window]: The duration representing the time window for the rate limit.
-  const RateLimitPolicy({
-    required this.limitCount,
-    required this.window,
-  });
+  const RateLimitPolicy({required this.limitCount, required this.window});
 
   /// Creates a [RateLimitPolicy] which represents an unlimited rate limit.
   factory RateLimitPolicy.unlimited() =>

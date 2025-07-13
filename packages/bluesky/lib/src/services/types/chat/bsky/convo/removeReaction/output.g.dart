@@ -8,30 +8,25 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConvoRemoveReactionOutputImpl _$$ConvoRemoveReactionOutputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$ConvoRemoveReactionOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ConvoRemoveReactionOutputImpl(
-          message: $checkedConvert(
-              'message',
-              (v) => const MessageViewConverter()
-                  .fromJson(v as Map<String, dynamic>)),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ConvoRemoveReactionOutput _$ConvoRemoveReactionOutputFromJson(Map json) =>
+    $checkedCreate('_ConvoRemoveReactionOutput', json, ($checkedConvert) {
+      final val = _ConvoRemoveReactionOutput(
+        message: $checkedConvert(
+          'message',
+          (v) =>
+              const MessageViewConverter().fromJson(v as Map<String, dynamic>),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ConvoRemoveReactionOutputImplToJson(
-        _$ConvoRemoveReactionOutputImpl instance) =>
-    <String, dynamic>{
-      'message': const MessageViewConverter().toJson(instance.message),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ConvoRemoveReactionOutputToJson(
+  _ConvoRemoveReactionOutput instance,
+) => <String, dynamic>{
+  'message': const MessageViewConverter().toJson(instance.message),
+  r'$unknown': instance.$unknown,
+};

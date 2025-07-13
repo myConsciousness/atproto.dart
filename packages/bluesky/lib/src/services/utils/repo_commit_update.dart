@@ -1,15 +1,16 @@
 // Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/com_atproto_repo_strongref.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
-final class RepoCommitCreate<T> {
-  /// Returns the new instance of [RepoCommitCreate].
-  const RepoCommitCreate({
+final class RepoCommitUpdate<T> {
+  /// Returns the new instance of [RepoCommitUpdate].
+  const RepoCommitUpdate({
     required this.record,
     required this.uri,
     required this.cid,
     required this.author,
     required this.cursor,
+    required this.createdAt,
   });
 
   /// The created data.
@@ -27,23 +28,27 @@ final class RepoCommitCreate<T> {
   /// The current cursor.
   final int cursor;
 
-  /// Returns the [atp.StrongRef] representation.
-  atp.StrongRef toStrongRef() => atp.StrongRef(cid: cid, uri: uri);
+  /// The date and time this event was created.
+  final DateTime createdAt;
+
+  /// Returns the [RepoStrongRef] representation.
+  RepoStrongRef toStrongRef() => RepoStrongRef(cid: cid, uri: uri.toString());
 
   @override
   String toString() =>
-      'RepoCommitCreate(record: $record, uri: $uri, cid: $cid, '
-      'author: $author, cursor: $cursor)';
+      'RepoCommitUpdate(record: $record, uri: $uri, cid: $cid, '
+      'author: $author, cursor: $cursor, createdAt: $createdAt)';
 
   @override
-  bool operator ==(covariant RepoCommitCreate<T> other) {
+  bool operator ==(covariant RepoCommitUpdate<T> other) {
     if (identical(this, other)) return true;
 
     return other.record == record &&
         other.uri == uri &&
         other.cid == cid &&
         other.author == author &&
-        other.cursor == cursor;
+        other.cursor == cursor &&
+        other.createdAt == createdAt;
   }
 
   @override
@@ -52,5 +57,6 @@ final class RepoCommitCreate<T> {
       uri.hashCode ^
       cid.hashCode ^
       author.hashCode ^
-      cursor.hashCode;
+      cursor.hashCode ^
+      createdAt.hashCode;
 }

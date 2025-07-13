@@ -24,13 +24,7 @@ part 'account.g.dart';
 /// Represents a change to an account's status on a host (eg, PDS or Relay). The semantics of this event are that the status is at the host which emitted the event, not necessarily that at the currently active PDS. Eg, a Relay takedown would emit a takedown with active=false, even if the PDS is still active.
 @freezed
 abstract class Account with _$Account {
-  static const knownProps = <String>[
-    'seq',
-    'did',
-    'time',
-    'active',
-    'status',
-  ];
+  static const knownProps = <String>['seq', 'did', 'time', 'active', 'status'];
 
   const factory Account({
     @Default(comAtprotoSyncSubscribeReposAccount) String $type,
@@ -43,6 +37,7 @@ abstract class Account with _$Account {
 
     /// If active=false, this optional field indicates a reason for why the account is not active.
     String? status,
+
     Map<String, dynamic>? $unknown,
   }) = _Account;
 
@@ -61,14 +56,9 @@ final class AccountConverter
 
   @override
   Account fromJson(Map<String, dynamic> json) {
-    return Account.fromJson(translate(
-      json,
-      Account.knownProps,
-    ));
+    return Account.fromJson(translate(json, Account.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(Account object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(Account object) => untranslate(object.toJson());
 }

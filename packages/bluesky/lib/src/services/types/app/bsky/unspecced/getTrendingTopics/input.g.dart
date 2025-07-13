@@ -8,28 +8,25 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UnspeccedGetTrendingTopicsInputImpl
-    _$$UnspeccedGetTrendingTopicsInputImplFromJson(Map json) => $checkedCreate(
-          r'_$UnspeccedGetTrendingTopicsInputImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$UnspeccedGetTrendingTopicsInputImpl(
-              viewer: $checkedConvert('viewer', (v) => v as String?),
-              limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
-              $unknown: $checkedConvert(
-                  r'$unknown',
-                  (v) => (v as Map?)?.map(
-                        (k, e) => MapEntry(k as String, e),
-                      )),
-            );
-            return val;
-          },
-        );
+_UnspeccedGetTrendingTopicsInput _$UnspeccedGetTrendingTopicsInputFromJson(
+  Map json,
+) =>
+    $checkedCreate('_UnspeccedGetTrendingTopicsInput', json, ($checkedConvert) {
+      final val = _UnspeccedGetTrendingTopicsInput(
+        viewer: $checkedConvert('viewer', (v) => v as String?),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$UnspeccedGetTrendingTopicsInputImplToJson(
-        _$UnspeccedGetTrendingTopicsInputImpl instance) =>
-    <String, dynamic>{
-      'viewer': instance.viewer,
-      'limit': instance.limit,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$UnspeccedGetTrendingTopicsInputToJson(
+  _UnspeccedGetTrendingTopicsInput instance,
+) => <String, dynamic>{
+  'viewer': instance.viewer,
+  'limit': instance.limit,
+  r'$unknown': instance.$unknown,
+};

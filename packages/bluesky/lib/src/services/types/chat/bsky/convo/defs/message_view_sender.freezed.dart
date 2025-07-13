@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,205 +9,283 @@ part of 'message_view_sender.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-MessageViewSender _$MessageViewSenderFromJson(Map<String, dynamic> json) {
-  return _MessageViewSender.fromJson(json);
-}
 
 /// @nodoc
 mixin _$MessageViewSender {
-  String get $type => throw _privateConstructorUsedError;
-  String get did => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+ String get $type; String get did; Map<String, dynamic>? get $unknown;
+/// Create a copy of MessageViewSender
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$MessageViewSenderCopyWith<MessageViewSender> get copyWith => _$MessageViewSenderCopyWithImpl<MessageViewSender>(this as MessageViewSender, _$identity);
 
   /// Serializes this MessageViewSender to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of MessageViewSender
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $MessageViewSenderCopyWith<MessageViewSender> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MessageViewSender&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.did, did) || other.did == did)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,did,const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'MessageViewSender(\$type: ${$type}, did: $did, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $MessageViewSenderCopyWith<$Res> {
-  factory $MessageViewSenderCopyWith(
-          MessageViewSender value, $Res Function(MessageViewSender) then) =
-      _$MessageViewSenderCopyWithImpl<$Res, MessageViewSender>;
-  @useResult
-  $Res call({String $type, String did, Map<String, dynamic>? $unknown});
-}
+abstract mixin class $MessageViewSenderCopyWith<$Res>  {
+  factory $MessageViewSenderCopyWith(MessageViewSender value, $Res Function(MessageViewSender) _then) = _$MessageViewSenderCopyWithImpl;
+@useResult
+$Res call({
+ String $type, String did, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$MessageViewSenderCopyWithImpl<$Res, $Val extends MessageViewSender>
+class _$MessageViewSenderCopyWithImpl<$Res>
     implements $MessageViewSenderCopyWith<$Res> {
-  _$MessageViewSenderCopyWithImpl(this._value, this._then);
+  _$MessageViewSenderCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final MessageViewSender _self;
+  final $Res Function(MessageViewSender) _then;
 
-  /// Create a copy of MessageViewSender
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? did = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of MessageViewSender
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? did = null,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
+as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$MessageViewSenderImplCopyWith<$Res>
-    implements $MessageViewSenderCopyWith<$Res> {
-  factory _$$MessageViewSenderImplCopyWith(_$MessageViewSenderImpl value,
-          $Res Function(_$MessageViewSenderImpl) then) =
-      __$$MessageViewSenderImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String $type, String did, Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$MessageViewSenderImplCopyWithImpl<$Res>
-    extends _$MessageViewSenderCopyWithImpl<$Res, _$MessageViewSenderImpl>
-    implements _$$MessageViewSenderImplCopyWith<$Res> {
-  __$$MessageViewSenderImplCopyWithImpl(_$MessageViewSenderImpl _value,
-      $Res Function(_$MessageViewSenderImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of MessageViewSender
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? did = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$MessageViewSenderImpl(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [MessageViewSender].
+extension MessageViewSenderPatterns on MessageViewSender {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _MessageViewSender value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _MessageViewSender() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _MessageViewSender value)  $default,){
+final _that = this;
+switch (_that) {
+case _MessageViewSender():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _MessageViewSender value)?  $default,){
+final _that = this;
+switch (_that) {
+case _MessageViewSender() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _MessageViewSender() when $default != null:
+return $default(_that.$type,_that.did,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _MessageViewSender():
+return $default(_that.$type,_that.did,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _MessageViewSender() when $default != null:
+return $default(_that.$type,_that.did,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$MessageViewSenderImpl implements _MessageViewSender {
-  const _$MessageViewSenderImpl(
-      {this.$type = chatBskyConvoDefsMessageViewSender,
-      required this.did,
-      final Map<String, dynamic>? $unknown})
-      : _$unknown = $unknown;
 
-  factory _$MessageViewSenderImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MessageViewSenderImplFromJson(json);
+class _MessageViewSender implements MessageViewSender {
+  const _MessageViewSender({this.$type = chatBskyConvoDefsMessageViewSender, required this.did, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  factory _MessageViewSender.fromJson(Map<String, dynamic> json) => _$MessageViewSenderFromJson(json);
 
-  @override
-  @JsonKey()
-  final String $type;
-  @override
-  final String did;
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'MessageViewSender(\$type: ${$type}, did: $did, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$MessageViewSenderImpl &&
-            (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.did, did) || other.did == did) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, $type, did, const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of MessageViewSender
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$MessageViewSenderImplCopyWith<_$MessageViewSenderImpl> get copyWith =>
-      __$$MessageViewSenderImplCopyWithImpl<_$MessageViewSenderImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MessageViewSenderImplToJson(
-      this,
-    );
-  }
+@override@JsonKey() final  String $type;
+@override final  String did;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
 
-abstract class _MessageViewSender implements MessageViewSender {
-  const factory _MessageViewSender(
-      {final String $type,
-      required final String did,
-      final Map<String, dynamic>? $unknown}) = _$MessageViewSenderImpl;
 
-  factory _MessageViewSender.fromJson(Map<String, dynamic> json) =
-      _$MessageViewSenderImpl.fromJson;
+/// Create a copy of MessageViewSender
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$MessageViewSenderCopyWith<_MessageViewSender> get copyWith => __$MessageViewSenderCopyWithImpl<_MessageViewSender>(this, _$identity);
 
-  @override
-  String get $type;
-  @override
-  String get did;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of MessageViewSender
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MessageViewSenderImplCopyWith<_$MessageViewSenderImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$MessageViewSenderToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MessageViewSender&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.did, did) || other.did == did)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,did,const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'MessageViewSender(\$type: ${$type}, did: $did, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$MessageViewSenderCopyWith<$Res> implements $MessageViewSenderCopyWith<$Res> {
+  factory _$MessageViewSenderCopyWith(_MessageViewSender value, $Res Function(_MessageViewSender) _then) = __$MessageViewSenderCopyWithImpl;
+@override @useResult
+$Res call({
+ String $type, String did, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$MessageViewSenderCopyWithImpl<$Res>
+    implements _$MessageViewSenderCopyWith<$Res> {
+  __$MessageViewSenderCopyWithImpl(this._self, this._then);
+
+  final _MessageViewSender _self;
+  final $Res Function(_MessageViewSender) _then;
+
+/// Create a copy of MessageViewSender
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? did = null,Object? $unknown = freezed,}) {
+  return _then(_MessageViewSender(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
+as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

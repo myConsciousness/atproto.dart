@@ -48,6 +48,7 @@ abstract class StarterPackViewBasic with _$StarterPackViewBasic {
     int? joinedAllTimeCount,
     @LabelConverter() List<Label>? labels,
     required DateTime indexedAt,
+
     Map<String, dynamic>? $unknown,
   }) = _StarterPackViewBasic;
 
@@ -66,14 +67,12 @@ final class StarterPackViewBasicConverter
 
   @override
   StarterPackViewBasic fromJson(Map<String, dynamic> json) {
-    return StarterPackViewBasic.fromJson(translate(
-      json,
-      StarterPackViewBasic.knownProps,
-    ));
+    return StarterPackViewBasic.fromJson(
+      translate(json, StarterPackViewBasic.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(StarterPackViewBasic object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(StarterPackViewBasic object) =>
+      untranslate(object.toJson());
 }

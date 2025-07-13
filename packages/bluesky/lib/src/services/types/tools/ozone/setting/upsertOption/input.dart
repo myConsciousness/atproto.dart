@@ -34,6 +34,7 @@ abstract class SettingUpsertOptionInput with _$SettingUpsertOptionInput {
     required Map<String, dynamic> value,
     String? description,
     String? managerRole,
+
     Map<String, dynamic>? $unknown,
   }) = _SettingUpsertOptionInput;
 
@@ -47,14 +48,12 @@ final class SettingUpsertOptionInputConverter
 
   @override
   SettingUpsertOptionInput fromJson(Map<String, dynamic> json) {
-    return SettingUpsertOptionInput.fromJson(translate(
-      json,
-      SettingUpsertOptionInput.knownProps,
-    ));
+    return SettingUpsertOptionInput.fromJson(
+      translate(json, SettingUpsertOptionInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SettingUpsertOptionInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SettingUpsertOptionInput object) =>
+      untranslate(object.toJson());
 }

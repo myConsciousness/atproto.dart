@@ -1,5 +1,5 @@
 // Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/com_atproto_label_defs.dart';
 
 // Project imports:
 import '../../ids.g.dart' as ids;
@@ -9,6 +9,7 @@ import '../types/app/bsky/actor/defs/profile_view.dart';
 import '../types/app/bsky/notification/listNotifications/notification.dart';
 import '../types/app/bsky/notification/listNotifications/output.dart';
 import 'group_by.dart';
+import 'grouped_notifications.dart';
 
 const _groupableReasons = <String>['like', 'repost', 'follow'];
 
@@ -68,18 +69,19 @@ final class _NotificationsGrouper implements NotificationsGrouper {
           );
 
           if (relatedGroup.isEmpty) {
-            groupedNotifications.add(_buildRelatedGroup(
-              notification,
-              reasonSubject,
-            ));
+            groupedNotifications.add(
+              _buildRelatedGroup(notification, reasonSubject),
+            );
           } else {
             _updateRelatedGroup(relatedGroup, notification);
           }
         } else {
-          groupedNotifications.add(_buildRelatedGroup(
-            notification,
-            notification.reasonSubject?.toString(),
-          ));
+          groupedNotifications.add(
+            _buildRelatedGroup(
+              notification,
+              notification.reasonSubject?.toString(),
+            ),
+          );
         }
       }
 
@@ -116,17 +118,16 @@ final class _NotificationsGrouper implements NotificationsGrouper {
   Map<String, dynamic> _buildRelatedGroup(
     final Notification notification,
     final String? reasonSubject,
-  ) =>
-      {
-        'uris': [notification.uri.toString()],
-        'reason': _getGroupedReason(notification.reason, reasonSubject),
-        'reasonSubject': reasonSubject,
-        'authors': [notification.author.toJson()],
-        'labels': notification.labels?.map((e) => e.toJson()).toList(),
-        'isRead': notification.isRead,
-        'record': notification.record,
-        'indexedAt': notification.indexedAt.toIso8601String(),
-      };
+  ) => {
+    'uris': [notification.uri.toString()],
+    'reason': _getGroupedReason(notification.reason, reasonSubject),
+    'reasonSubject': reasonSubject,
+    'authors': [notification.author.toJson()],
+    'labels': notification.labels?.map((e) => e.toJson()).toList(),
+    'isRead': notification.isRead,
+    'record': notification.record,
+    'indexedAt': notification.indexedAt.toIso8601String(),
+  };
 
   void _updateRelatedGroup(
     final Map<String, dynamic> relatedGroup,
@@ -165,17 +166,13 @@ final class _NotificationsGrouper implements NotificationsGrouper {
   List<Map<String, dynamic>> _mergeAuthors(
     final List<Map<String, dynamic>> relatedAuthors,
     final ProfileView author,
-  ) =>
-      relatedAuthors
-        //! Technically the same person could not appear on the same
-        //! notification, but just in case.
-        ..removeWhere((element) => element['did'] == author.did)
-        ..add(author.toJson());
+  ) => relatedAuthors
+    //! Technically the same person could not appear on the same
+    //! notification, but just in case.
+    ..removeWhere((element) => element['did'] == author.did)
+    ..add(author.toJson());
 
-  List<String> _mergeUris(
-    final List<String> relatedUris,
-    final String uri,
-  ) =>
+  List<String> _mergeUris(final List<String> relatedUris, final String uri) =>
       relatedUris
         //! Technically the same uri could not appear on the same
         //! notification, but just in case.
@@ -184,7 +181,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
   List<Map<String, dynamic>> _mergeLabels(
     final List<Map<String, dynamic>> relatedLabels,
-    final List<atp.Label>? labels,
+    final List<Label>? labels,
   ) {
     if (labels == null || labels.isEmpty) {
       return relatedLabels;
@@ -202,8 +199,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     bool read,
     DateTime relatedIndexedAt,
     DateTime indexedAt,
-  ) =>
-      indexedAt.isAfter(relatedIndexedAt) ? read : relatedRead;
+  ) => indexedAt.isAfter(relatedIndexedAt) ? read : relatedRead;
 
   DateTime _mergeIndexedAt(DateTime relatedIndexedAt, DateTime indexedAt) =>
       relatedIndexedAt.isAfter(indexedAt) ? relatedIndexedAt : indexedAt;
@@ -214,31 +210,24 @@ final class _NotificationsGrouper implements NotificationsGrouper {
   GroupedNotifications _buildGroupedNotificationsFromJson(
     final List<Map<String, dynamic>> groupedNotifications,
     final String? cursor,
-  ) =>
-      GroupedNotifications.fromJson({
-        'notifications': groupedNotifications
-          ..sort((a, b) {
-            final dateA = DateTime.parse(a['indexedAt']);
-            final dateB = DateTime.parse(b['indexedAt']);
+  ) => GroupedNotifications.fromJson({
+    'notifications': groupedNotifications
+      ..sort((a, b) {
+        final dateA = DateTime.parse(a['indexedAt']);
+        final dateB = DateTime.parse(b['indexedAt']);
 
-            //* order by indexedAt desc
-            return dateB.compareTo(dateA);
-          }),
-        'cursor': cursor,
-      });
+        //* order by indexedAt desc
+        return dateB.compareTo(dateA);
+      }),
+    'cursor': cursor,
+  });
 
-  String _getGroupedReason(
-    final String reason,
-    final String? reasonSubject,
-  ) =>
+  String _getGroupedReason(final String reason, final String? reasonSubject) =>
       _isCustomFeedLike(reason, reasonSubject)
-          ? GroupedNotificationReason.customFeedLike.value
-          : reason;
+      ? GroupedNotificationReason.customFeedLike.value
+      : reason;
 
-  bool _isCustomFeedLike(
-    final String reason,
-    final String? reasonSubject,
-  ) {
+  bool _isCustomFeedLike(final String reason, final String? reasonSubject) {
     if (reasonSubject == null) {
       return false;
     }

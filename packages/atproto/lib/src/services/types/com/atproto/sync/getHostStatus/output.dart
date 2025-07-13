@@ -39,6 +39,7 @@ abstract class SyncGetHostStatusOutput with _$SyncGetHostStatusOutput {
     /// Number of accounts on the server which are associated with the upstream host. Note that the upstream may actually have more accounts.
     int? accountCount,
     @HostStatusConverter() HostStatus? status,
+
     Map<String, dynamic>? $unknown,
   }) = _SyncGetHostStatusOutput;
 
@@ -52,14 +53,12 @@ final class SyncGetHostStatusOutputConverter
 
   @override
   SyncGetHostStatusOutput fromJson(Map<String, dynamic> json) {
-    return SyncGetHostStatusOutput.fromJson(translate(
-      json,
-      SyncGetHostStatusOutput.knownProps,
-    ));
+    return SyncGetHostStatusOutput.fromJson(
+      translate(json, SyncGetHostStatusOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SyncGetHostStatusOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SyncGetHostStatusOutput object) =>
+      untranslate(object.toJson());
 }

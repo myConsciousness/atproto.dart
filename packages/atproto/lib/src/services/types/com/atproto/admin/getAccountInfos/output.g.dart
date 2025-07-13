@@ -8,32 +8,30 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AdminGetAccountInfosOutputImpl _$$AdminGetAccountInfosOutputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$AdminGetAccountInfosOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$AdminGetAccountInfosOutputImpl(
-          infos: $checkedConvert(
-              'infos',
-              (v) => (v as List<dynamic>)
-                  .map((e) => const AccountViewConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_AdminGetAccountInfosOutput _$AdminGetAccountInfosOutputFromJson(Map json) =>
+    $checkedCreate('_AdminGetAccountInfosOutput', json, ($checkedConvert) {
+      final val = _AdminGetAccountInfosOutput(
+        infos: $checkedConvert(
+          'infos',
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) => const AccountViewConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$AdminGetAccountInfosOutputImplToJson(
-        _$AdminGetAccountInfosOutputImpl instance) =>
-    <String, dynamic>{
-      'infos': instance.infos.map(const AccountViewConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$AdminGetAccountInfosOutputToJson(
+  _AdminGetAccountInfosOutput instance,
+) => <String, dynamic>{
+  'infos': instance.infos.map(const AccountViewConverter().toJson).toList(),
+  r'$unknown': instance.$unknown,
+};

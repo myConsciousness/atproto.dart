@@ -50,30 +50,31 @@ abstract class CommunicationUpdateTemplateInput
     /// DID of the user who is updating the template.
     String? updatedBy,
     bool? disabled,
+
     Map<String, dynamic>? $unknown,
   }) = _CommunicationUpdateTemplateInput;
 
   factory CommunicationUpdateTemplateInput.fromJson(
-          Map<String, Object?> json) =>
-      _$CommunicationUpdateTemplateInputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$CommunicationUpdateTemplateInputFromJson(json);
 }
 
 final class CommunicationUpdateTemplateInputConverter
-    extends LexObjectConverter<CommunicationUpdateTemplateInput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          CommunicationUpdateTemplateInput,
+          Map<String, dynamic>
+        > {
   const CommunicationUpdateTemplateInputConverter();
 
   @override
   CommunicationUpdateTemplateInput fromJson(Map<String, dynamic> json) {
-    return CommunicationUpdateTemplateInput.fromJson(translate(
-      json,
-      CommunicationUpdateTemplateInput.knownProps,
-    ));
+    return CommunicationUpdateTemplateInput.fromJson(
+      translate(json, CommunicationUpdateTemplateInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(CommunicationUpdateTemplateInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,210 +9,298 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ConvoUpdateReadOutput _$ConvoUpdateReadOutputFromJson(
-    Map<String, dynamic> json) {
-  return _ConvoUpdateReadOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ConvoUpdateReadOutput {
-  @ConvoViewConverter()
-  ConvoView get convo => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+@ConvoViewConverter() ConvoView get convo; Map<String, dynamic>? get $unknown;
+/// Create a copy of ConvoUpdateReadOutput
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ConvoUpdateReadOutputCopyWith<ConvoUpdateReadOutput> get copyWith => _$ConvoUpdateReadOutputCopyWithImpl<ConvoUpdateReadOutput>(this as ConvoUpdateReadOutput, _$identity);
 
   /// Serializes this ConvoUpdateReadOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of ConvoUpdateReadOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ConvoUpdateReadOutputCopyWith<ConvoUpdateReadOutput> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ConvoUpdateReadOutput&&(identical(other.convo, convo) || other.convo == convo)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,convo,const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'ConvoUpdateReadOutput(convo: $convo, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ConvoUpdateReadOutputCopyWith<$Res> {
-  factory $ConvoUpdateReadOutputCopyWith(ConvoUpdateReadOutput value,
-          $Res Function(ConvoUpdateReadOutput) then) =
-      _$ConvoUpdateReadOutputCopyWithImpl<$Res, ConvoUpdateReadOutput>;
-  @useResult
-  $Res call(
-      {@ConvoViewConverter() ConvoView convo, Map<String, dynamic>? $unknown});
+abstract mixin class $ConvoUpdateReadOutputCopyWith<$Res>  {
+  factory $ConvoUpdateReadOutputCopyWith(ConvoUpdateReadOutput value, $Res Function(ConvoUpdateReadOutput) _then) = _$ConvoUpdateReadOutputCopyWithImpl;
+@useResult
+$Res call({
+@ConvoViewConverter() ConvoView convo, Map<String, dynamic>? $unknown
+});
 
-  $ConvoViewCopyWith<$Res> get convo;
+
+$ConvoViewCopyWith<$Res> get convo;
+
 }
-
 /// @nodoc
-class _$ConvoUpdateReadOutputCopyWithImpl<$Res,
-        $Val extends ConvoUpdateReadOutput>
+class _$ConvoUpdateReadOutputCopyWithImpl<$Res>
     implements $ConvoUpdateReadOutputCopyWith<$Res> {
-  _$ConvoUpdateReadOutputCopyWithImpl(this._value, this._then);
+  _$ConvoUpdateReadOutputCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ConvoUpdateReadOutput _self;
+  final $Res Function(ConvoUpdateReadOutput) _then;
 
-  /// Create a copy of ConvoUpdateReadOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? convo = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      convo: null == convo
-          ? _value.convo
-          : convo // ignore: cast_nullable_to_non_nullable
-              as ConvoView,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
-
-  /// Create a copy of ConvoUpdateReadOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ConvoViewCopyWith<$Res> get convo {
-    return $ConvoViewCopyWith<$Res>(_value.convo, (value) {
-      return _then(_value.copyWith(convo: value) as $Val);
-    });
-  }
+/// Create a copy of ConvoUpdateReadOutput
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? convo = null,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+convo: null == convo ? _self.convo : convo // ignore: cast_nullable_to_non_nullable
+as ConvoView,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+/// Create a copy of ConvoUpdateReadOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ConvoViewCopyWith<$Res> get convo {
+  
+  return $ConvoViewCopyWith<$Res>(_self.convo, (value) {
+    return _then(_self.copyWith(convo: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$ConvoUpdateReadOutputImplCopyWith<$Res>
-    implements $ConvoUpdateReadOutputCopyWith<$Res> {
-  factory _$$ConvoUpdateReadOutputImplCopyWith(
-          _$ConvoUpdateReadOutputImpl value,
-          $Res Function(_$ConvoUpdateReadOutputImpl) then) =
-      __$$ConvoUpdateReadOutputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@ConvoViewConverter() ConvoView convo, Map<String, dynamic>? $unknown});
 
-  @override
-  $ConvoViewCopyWith<$Res> get convo;
+/// Adds pattern-matching-related methods to [ConvoUpdateReadOutput].
+extension ConvoUpdateReadOutputPatterns on ConvoUpdateReadOutput {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ConvoUpdateReadOutput value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ConvoUpdateReadOutput() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ConvoUpdateReadOutput value)  $default,){
+final _that = this;
+switch (_that) {
+case _ConvoUpdateReadOutput():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ConvoUpdateReadOutput value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ConvoUpdateReadOutput() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@ConvoViewConverter()  ConvoView convo,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ConvoUpdateReadOutput() when $default != null:
+return $default(_that.convo,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@ConvoViewConverter()  ConvoView convo,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _ConvoUpdateReadOutput():
+return $default(_that.convo,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@ConvoViewConverter()  ConvoView convo,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _ConvoUpdateReadOutput() when $default != null:
+return $default(_that.convo,_that.$unknown);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-class __$$ConvoUpdateReadOutputImplCopyWithImpl<$Res>
-    extends _$ConvoUpdateReadOutputCopyWithImpl<$Res,
-        _$ConvoUpdateReadOutputImpl>
-    implements _$$ConvoUpdateReadOutputImplCopyWith<$Res> {
-  __$$ConvoUpdateReadOutputImplCopyWithImpl(_$ConvoUpdateReadOutputImpl _value,
-      $Res Function(_$ConvoUpdateReadOutputImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ConvoUpdateReadOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? convo = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$ConvoUpdateReadOutputImpl(
-      convo: null == convo
-          ? _value.convo
-          : convo // ignore: cast_nullable_to_non_nullable
-              as ConvoView,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ConvoUpdateReadOutputImpl implements _ConvoUpdateReadOutput {
-  const _$ConvoUpdateReadOutputImpl(
-      {@ConvoViewConverter() required this.convo,
-      final Map<String, dynamic>? $unknown})
-      : _$unknown = $unknown;
 
-  factory _$ConvoUpdateReadOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConvoUpdateReadOutputImplFromJson(json);
+class _ConvoUpdateReadOutput implements ConvoUpdateReadOutput {
+  const _ConvoUpdateReadOutput({@ConvoViewConverter() required this.convo, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  factory _ConvoUpdateReadOutput.fromJson(Map<String, dynamic> json) => _$ConvoUpdateReadOutputFromJson(json);
 
-  @override
-  @ConvoViewConverter()
-  final ConvoView convo;
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'ConvoUpdateReadOutput(convo: $convo, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ConvoUpdateReadOutputImpl &&
-            (identical(other.convo, convo) || other.convo == convo) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, convo, const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of ConvoUpdateReadOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ConvoUpdateReadOutputImplCopyWith<_$ConvoUpdateReadOutputImpl>
-      get copyWith => __$$ConvoUpdateReadOutputImplCopyWithImpl<
-          _$ConvoUpdateReadOutputImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ConvoUpdateReadOutputImplToJson(
-      this,
-    );
-  }
+@override@ConvoViewConverter() final  ConvoView convo;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
 
-abstract class _ConvoUpdateReadOutput implements ConvoUpdateReadOutput {
-  const factory _ConvoUpdateReadOutput(
-      {@ConvoViewConverter() required final ConvoView convo,
-      final Map<String, dynamic>? $unknown}) = _$ConvoUpdateReadOutputImpl;
 
-  factory _ConvoUpdateReadOutput.fromJson(Map<String, dynamic> json) =
-      _$ConvoUpdateReadOutputImpl.fromJson;
+/// Create a copy of ConvoUpdateReadOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ConvoUpdateReadOutputCopyWith<_ConvoUpdateReadOutput> get copyWith => __$ConvoUpdateReadOutputCopyWithImpl<_ConvoUpdateReadOutput>(this, _$identity);
 
-  @override
-  @ConvoViewConverter()
-  ConvoView get convo;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of ConvoUpdateReadOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ConvoUpdateReadOutputImplCopyWith<_$ConvoUpdateReadOutputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$ConvoUpdateReadOutputToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ConvoUpdateReadOutput&&(identical(other.convo, convo) || other.convo == convo)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,convo,const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'ConvoUpdateReadOutput(convo: $convo, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ConvoUpdateReadOutputCopyWith<$Res> implements $ConvoUpdateReadOutputCopyWith<$Res> {
+  factory _$ConvoUpdateReadOutputCopyWith(_ConvoUpdateReadOutput value, $Res Function(_ConvoUpdateReadOutput) _then) = __$ConvoUpdateReadOutputCopyWithImpl;
+@override @useResult
+$Res call({
+@ConvoViewConverter() ConvoView convo, Map<String, dynamic>? $unknown
+});
+
+
+@override $ConvoViewCopyWith<$Res> get convo;
+
+}
+/// @nodoc
+class __$ConvoUpdateReadOutputCopyWithImpl<$Res>
+    implements _$ConvoUpdateReadOutputCopyWith<$Res> {
+  __$ConvoUpdateReadOutputCopyWithImpl(this._self, this._then);
+
+  final _ConvoUpdateReadOutput _self;
+  final $Res Function(_ConvoUpdateReadOutput) _then;
+
+/// Create a copy of ConvoUpdateReadOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? convo = null,Object? $unknown = freezed,}) {
+  return _then(_ConvoUpdateReadOutput(
+convo: null == convo ? _self.convo : convo // ignore: cast_nullable_to_non_nullable
+as ConvoView,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+/// Create a copy of ConvoUpdateReadOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ConvoViewCopyWith<$Res> get convo {
+  
+  return $ConvoViewCopyWith<$Res>(_self.convo, (value) {
+    return _then(_self.copyWith(convo: value));
+  });
+}
+}
+
+// dart format on

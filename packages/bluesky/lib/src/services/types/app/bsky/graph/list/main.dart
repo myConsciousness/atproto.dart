@@ -49,6 +49,7 @@ abstract class GraphListRecord with _$GraphListRecord {
     @BlobConverter() Blob? avatar,
     @UGraphListLabelsConverter() UGraphListLabels? labels,
     required DateTime createdAt,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphListRecord;
 
@@ -67,14 +68,12 @@ final class GraphListRecordConverter
 
   @override
   GraphListRecord fromJson(Map<String, dynamic> json) {
-    return GraphListRecord.fromJson(translate(
-      json,
-      GraphListRecord.knownProps,
-    ));
+    return GraphListRecord.fromJson(
+      translate(json, GraphListRecord.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphListRecord object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(GraphListRecord object) =>
+      untranslate(object.toJson());
 }

@@ -42,16 +42,14 @@ abstract class SubjectReviewStateConverter
 
   @override
   SubjectReviewState fromJson(Map<String, dynamic> json) {
-    return SubjectReviewState.fromJson(translate(
-      json,
-      SubjectReviewState.knownProps,
-    ));
+    return SubjectReviewState.fromJson(
+      translate(json, SubjectReviewState.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SubjectReviewState object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SubjectReviewState object) =>
+      untranslate(object.toJson());
 }
 
 enum KnownSubjectReviewState implements Serializable {
@@ -62,8 +60,7 @@ enum KnownSubjectReviewState implements Serializable {
   @JsonValue('#reviewClosed')
   reviewClosed('#reviewClosed'),
   @JsonValue('#reviewNone')
-  reviewNone('#reviewNone'),
-  ;
+  reviewNone('#reviewNone');
 
   @override
   final String value;

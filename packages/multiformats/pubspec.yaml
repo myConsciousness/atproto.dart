@@ -8,7 +8,7 @@ funding:
   - https://github.com/sponsors/myConsciousness
 
 environment:
-  sdk: ^3.3.0
+  sdk: ^3.8.0
 
 topics:
   - ipfs
@@ -22,6 +22,6 @@ dependencies:
   dart_multihash: ^1.0.1
 
 dev_dependencies:
-  lints: ^2.0.1
-  test: ^1.21.0
+  lints: ^6.0.0
+  test: ^1.26.2
   import_sorter: ^4.6.0

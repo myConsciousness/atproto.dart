@@ -21,40 +21,39 @@ part 'input.g.dart';
 @freezed
 abstract class NotificationListActivitySubscriptionsInput
     with _$NotificationListActivitySubscriptionsInput {
-  static const knownProps = <String>[
-    'limit',
-    'cursor',
-  ];
+  static const knownProps = <String>['limit', 'cursor'];
 
   const factory NotificationListActivitySubscriptionsInput({
     int? limit,
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _NotificationListActivitySubscriptionsInput;
 
   factory NotificationListActivitySubscriptionsInput.fromJson(
-          Map<String, Object?> json) =>
-      _$NotificationListActivitySubscriptionsInputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$NotificationListActivitySubscriptionsInputFromJson(json);
 }
 
 final class NotificationListActivitySubscriptionsInputConverter
-    extends LexObjectConverter<NotificationListActivitySubscriptionsInput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          NotificationListActivitySubscriptionsInput,
+          Map<String, dynamic>
+        > {
   const NotificationListActivitySubscriptionsInputConverter();
 
   @override
   NotificationListActivitySubscriptionsInput fromJson(
-      Map<String, dynamic> json) {
-    return NotificationListActivitySubscriptionsInput.fromJson(translate(
-      json,
-      NotificationListActivitySubscriptionsInput.knownProps,
-    ));
+    Map<String, dynamic> json,
+  ) {
+    return NotificationListActivitySubscriptionsInput.fromJson(
+      translate(json, NotificationListActivitySubscriptionsInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(
-          NotificationListActivitySubscriptionsInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+    NotificationListActivitySubscriptionsInput object,
+  ) => untranslate(object.toJson());
 }

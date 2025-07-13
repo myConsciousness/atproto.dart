@@ -26,10 +26,7 @@ Future<void> main() async {
       //! when communicating with the API.
       retryConfig: RetryConfig(
         maxAttempts: 5,
-        jitter: Jitter(
-          minInSeconds: 2,
-          maxInSeconds: 5,
-        ),
+        jitter: Jitter(minInSeconds: 2, maxInSeconds: 5),
         onExecute: (event) => print(
           'Retry after ${event.intervalInSeconds} seconds...'
           '[${event.retryCount} times]',
@@ -42,34 +39,27 @@ Future<void> main() async {
 
     //! Create a record to specific service.
     final createdRecord = await atproto.repo.createRecord(
-      collection: NSID.create(
-        'feed.bsky.app',
-        'post',
-      ),
+      repo: session.data.did,
+      collection: 'app.bsky.feed.post',
       record: {
         'text': 'Hello, Bluesky!',
         "createdAt": DateTime.now().toUtc().toIso8601String(),
       },
     );
 
+    final recordUri = AtUri.parse(createdRecord.data.uri);
+
     //! And delete it.
     await atproto.repo.deleteRecord(
-      uri: createdRecord.data.uri,
+      repo: recordUri.hostname,
+      collection: recordUri.collection.toString(),
+      rkey: recordUri.rkey,
     );
 
     //! You can use Stream API easily.
     final subscription = await atproto.sync.subscribeRepos();
     subscription.data.stream.listen((event) {
-      event.when(
-        commit: print,
-        identity: print,
-        account: print,
-        handle: print,
-        migrate: print,
-        tombstone: print,
-        info: print,
-        unknown: print,
-      );
+      print(event);
     });
   } on UnauthorizedException catch (e) {
     print(e);

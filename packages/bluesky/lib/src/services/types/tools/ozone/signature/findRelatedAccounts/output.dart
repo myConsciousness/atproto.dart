@@ -24,38 +24,36 @@ part 'output.g.dart';
 @freezed
 abstract class SignatureFindRelatedAccountsOutput
     with _$SignatureFindRelatedAccountsOutput {
-  static const knownProps = <String>[
-    'cursor',
-    'accounts',
-  ];
+  static const knownProps = <String>['cursor', 'accounts'];
 
   const factory SignatureFindRelatedAccountsOutput({
     String? cursor,
     @RelatedAccountConverter() required List<RelatedAccount> accounts,
+
     Map<String, dynamic>? $unknown,
   }) = _SignatureFindRelatedAccountsOutput;
 
   factory SignatureFindRelatedAccountsOutput.fromJson(
-          Map<String, Object?> json) =>
-      _$SignatureFindRelatedAccountsOutputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$SignatureFindRelatedAccountsOutputFromJson(json);
 }
 
 final class SignatureFindRelatedAccountsOutputConverter
-    extends LexObjectConverter<SignatureFindRelatedAccountsOutput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          SignatureFindRelatedAccountsOutput,
+          Map<String, dynamic>
+        > {
   const SignatureFindRelatedAccountsOutputConverter();
 
   @override
   SignatureFindRelatedAccountsOutput fromJson(Map<String, dynamic> json) {
-    return SignatureFindRelatedAccountsOutput.fromJson(translate(
-      json,
-      SignatureFindRelatedAccountsOutput.knownProps,
-    ));
+    return SignatureFindRelatedAccountsOutput.fromJson(
+      translate(json, SignatureFindRelatedAccountsOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(SignatureFindRelatedAccountsOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

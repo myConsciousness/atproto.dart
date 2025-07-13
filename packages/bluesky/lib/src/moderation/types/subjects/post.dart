@@ -18,13 +18,8 @@ ModerationDecision decidePost(
   final ModerationOpts opts,
 ) {
   final (author, labels, uri, record, embed) = subject.when(
-    postView: (data) => (
-      data.author,
-      data.labels,
-      data.uri,
-      data.record,
-      data.embed,
-    ),
+    postView: (data) =>
+        (data.author, data.labels, data.uri, data.record, data.embed),
   );
 
   final decision = ModerationDecision.init(
@@ -143,9 +138,7 @@ bool _hasHiddenPost(
   if (embed == null) return false;
 
   if (embed is UEmbedViewRecord) {
-    final uri = embed.data.record.whenOrNull(
-      record: (data) => data.uri,
-    );
+    final uri = embed.data.record.whenOrNull(record: (data) => data.uri);
 
     if (hiddenPosts.contains(uri)) {
       return true;
@@ -153,9 +146,7 @@ bool _hasHiddenPost(
   }
 
   if (embed is UEmbedViewRecordWithMedia) {
-    final uri = embed.data.record.record.whenOrNull(
-      record: (data) => data.uri,
-    );
+    final uri = embed.data.record.record.whenOrNull(record: (data) => data.uri);
 
     if (hiddenPosts.contains(uri)) {
       return true;

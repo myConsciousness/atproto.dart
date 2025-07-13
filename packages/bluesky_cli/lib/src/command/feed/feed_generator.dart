@@ -26,13 +26,11 @@ class FeedGeneratorCommand extends QueryCommand {
   final String invocation = 'bsky feed-generator [uri]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'feed.bsky.app',
-        'getFeedGenerator',
-      );
+  xrpc.NSID get methodId =>
+      xrpc.NSID.create('feed.bsky.app', 'getFeedGenerator');
 
   @override
   Map<String, dynamic>? get parameters => {
-        'feed': AtUri.parse(argResults!['uri']).toString(),
-      };
+    'feed': AtUri.parse(argResults!['uri']).toString(),
+  };
 }

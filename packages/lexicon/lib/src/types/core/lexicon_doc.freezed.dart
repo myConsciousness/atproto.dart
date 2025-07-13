@@ -12,7 +12,8 @@ part of 'lexicon_doc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LexiconDoc _$LexiconDocFromJson(Map<String, dynamic> json) {
   return _LexiconDoc.fromJson(json);
@@ -41,15 +42,17 @@ mixin _$LexiconDoc {
 /// @nodoc
 abstract class $LexiconDocCopyWith<$Res> {
   factory $LexiconDocCopyWith(
-          LexiconDoc value, $Res Function(LexiconDoc) then) =
-      _$LexiconDocCopyWithImpl<$Res, LexiconDoc>;
+    LexiconDoc value,
+    $Res Function(LexiconDoc) then,
+  ) = _$LexiconDocCopyWithImpl<$Res, LexiconDoc>;
   @useResult
-  $Res call(
-      {int lexicon,
-      @nsidConverter NSID id,
-      int? revision,
-      String? description,
-      @LexUserTypeConverter() Map<String, LexUserType> defs});
+  $Res call({
+    int lexicon,
+    @nsidConverter NSID id,
+    int? revision,
+    String? description,
+    @LexUserTypeConverter() Map<String, LexUserType> defs,
+  });
 }
 
 /// @nodoc
@@ -73,28 +76,31 @@ class _$LexiconDocCopyWithImpl<$Res, $Val extends LexiconDoc>
     Object? description = freezed,
     Object? defs = null,
   }) {
-    return _then(_value.copyWith(
-      lexicon: null == lexicon
-          ? _value.lexicon
-          : lexicon // ignore: cast_nullable_to_non_nullable
-              as int,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as NSID,
-      revision: freezed == revision
-          ? _value.revision
-          : revision // ignore: cast_nullable_to_non_nullable
-              as int?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      defs: null == defs
-          ? _value.defs
-          : defs // ignore: cast_nullable_to_non_nullable
-              as Map<String, LexUserType>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            lexicon: null == lexicon
+                ? _value.lexicon
+                : lexicon // ignore: cast_nullable_to_non_nullable
+                      as int,
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as NSID,
+            revision: freezed == revision
+                ? _value.revision
+                : revision // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            defs: null == defs
+                ? _value.defs
+                : defs // ignore: cast_nullable_to_non_nullable
+                      as Map<String, LexUserType>,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -102,16 +108,18 @@ class _$LexiconDocCopyWithImpl<$Res, $Val extends LexiconDoc>
 abstract class _$$LexiconDocImplCopyWith<$Res>
     implements $LexiconDocCopyWith<$Res> {
   factory _$$LexiconDocImplCopyWith(
-          _$LexiconDocImpl value, $Res Function(_$LexiconDocImpl) then) =
-      __$$LexiconDocImplCopyWithImpl<$Res>;
+    _$LexiconDocImpl value,
+    $Res Function(_$LexiconDocImpl) then,
+  ) = __$$LexiconDocImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int lexicon,
-      @nsidConverter NSID id,
-      int? revision,
-      String? description,
-      @LexUserTypeConverter() Map<String, LexUserType> defs});
+  $Res call({
+    int lexicon,
+    @nsidConverter NSID id,
+    int? revision,
+    String? description,
+    @LexUserTypeConverter() Map<String, LexUserType> defs,
+  });
 }
 
 /// @nodoc
@@ -119,8 +127,9 @@ class __$$LexiconDocImplCopyWithImpl<$Res>
     extends _$LexiconDocCopyWithImpl<$Res, _$LexiconDocImpl>
     implements _$$LexiconDocImplCopyWith<$Res> {
   __$$LexiconDocImplCopyWithImpl(
-      _$LexiconDocImpl _value, $Res Function(_$LexiconDocImpl) _then)
-      : super(_value, _then);
+    _$LexiconDocImpl _value,
+    $Res Function(_$LexiconDocImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexiconDoc
   /// with the given fields replaced by the non-null parameter values.
@@ -133,28 +142,30 @@ class __$$LexiconDocImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? defs = null,
   }) {
-    return _then(_$LexiconDocImpl(
-      lexicon: null == lexicon
-          ? _value.lexicon
-          : lexicon // ignore: cast_nullable_to_non_nullable
-              as int,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as NSID,
-      revision: freezed == revision
-          ? _value.revision
-          : revision // ignore: cast_nullable_to_non_nullable
-              as int?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      defs: null == defs
-          ? _value._defs
-          : defs // ignore: cast_nullable_to_non_nullable
-              as Map<String, LexUserType>,
-    ));
+    return _then(
+      _$LexiconDocImpl(
+        lexicon: null == lexicon
+            ? _value.lexicon
+            : lexicon // ignore: cast_nullable_to_non_nullable
+                  as int,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as NSID,
+        revision: freezed == revision
+            ? _value.revision
+            : revision // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        defs: null == defs
+            ? _value._defs
+            : defs // ignore: cast_nullable_to_non_nullable
+                  as Map<String, LexUserType>,
+      ),
+    );
   }
 }
 
@@ -162,13 +173,13 @@ class __$$LexiconDocImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$LexiconDocImpl implements _LexiconDoc {
-  const _$LexiconDocImpl(
-      {required this.lexicon,
-      @nsidConverter required this.id,
-      this.revision,
-      this.description,
-      @LexUserTypeConverter() required final Map<String, LexUserType> defs})
-      : _defs = defs;
+  const _$LexiconDocImpl({
+    required this.lexicon,
+    @nsidConverter required this.id,
+    this.revision,
+    this.description,
+    @LexUserTypeConverter() required final Map<String, LexUserType> defs,
+  }) : _defs = defs;
 
   factory _$LexiconDocImpl.fromJson(Map<String, dynamic> json) =>
       _$$LexiconDocImplFromJson(json);
@@ -212,8 +223,14 @@ class _$LexiconDocImpl implements _LexiconDoc {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, lexicon, id, revision,
-      description, const DeepCollectionEquality().hash(_defs));
+  int get hashCode => Object.hash(
+    runtimeType,
+    lexicon,
+    id,
+    revision,
+    description,
+    const DeepCollectionEquality().hash(_defs),
+  );
 
   /// Create a copy of LexiconDoc
   /// with the given fields replaced by the non-null parameter values.
@@ -225,20 +242,18 @@ class _$LexiconDocImpl implements _LexiconDoc {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LexiconDocImplToJson(
-      this,
-    );
+    return _$$LexiconDocImplToJson(this);
   }
 }
 
 abstract class _LexiconDoc implements LexiconDoc {
-  const factory _LexiconDoc(
-      {required final int lexicon,
-      @nsidConverter required final NSID id,
-      final int? revision,
-      final String? description,
-      @LexUserTypeConverter()
-      required final Map<String, LexUserType> defs}) = _$LexiconDocImpl;
+  const factory _LexiconDoc({
+    required final int lexicon,
+    @nsidConverter required final NSID id,
+    final int? revision,
+    final String? description,
+    @LexUserTypeConverter() required final Map<String, LexUserType> defs,
+  }) = _$LexiconDocImpl;
 
   factory _LexiconDoc.fromJson(Map<String, dynamic> json) =
       _$LexiconDocImpl.fromJson;

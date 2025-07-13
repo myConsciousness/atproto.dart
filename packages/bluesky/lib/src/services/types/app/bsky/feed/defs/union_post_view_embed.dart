@@ -30,9 +30,8 @@ class UPostViewEmbed with _$UPostViewEmbed {
   const factory UPostViewEmbed.embedImagesView({
     required EmbedImagesView data,
   }) = UPostViewEmbedEmbedImagesView;
-  const factory UPostViewEmbed.embedVideoView({
-    required EmbedVideoView data,
-  }) = UPostViewEmbedEmbedVideoView;
+  const factory UPostViewEmbed.embedVideoView({required EmbedVideoView data}) =
+      UPostViewEmbedEmbedVideoView;
   const factory UPostViewEmbed.embedExternalView({
     required EmbedExternalView data,
   }) = UPostViewEmbedEmbedExternalView;
@@ -43,9 +42,8 @@ class UPostViewEmbed with _$UPostViewEmbed {
     required EmbedRecordWithMediaView data,
   }) = UPostViewEmbedEmbedRecordWithMediaView;
 
-  const factory UPostViewEmbed.unknown({
-    required Map<String, dynamic> data,
-  }) = UPostViewEmbedUnknown;
+  const factory UPostViewEmbed.unknown({required Map<String, dynamic> data}) =
+      UPostViewEmbedUnknown;
 
   Map<String, dynamic> toJson() => const UPostViewEmbedConverter().toJson(this);
 }
@@ -91,15 +89,14 @@ final class UPostViewEmbedConverter
 
   @override
   Map<String, dynamic> toJson(UPostViewEmbed object) => object.when(
-        embedImagesView: (data) =>
-            const EmbedImagesViewConverter().toJson(data),
-        embedVideoView: (data) => const EmbedVideoViewConverter().toJson(data),
-        embedExternalView: (data) =>
-            const EmbedExternalViewConverter().toJson(data),
-        embedRecordView: (data) =>
-            const EmbedRecordViewConverter().toJson(data),
-        embedRecordWithMediaView: (data) =>
-            const EmbedRecordWithMediaViewConverter().toJson(data),
-        unknown: (data) => data,
-      );
+    embedImagesView: (data) => const EmbedImagesViewConverter().toJson(data),
+    embedVideoView: (data) => const EmbedVideoViewConverter().toJson(data),
+    embedExternalView: (data) =>
+        const EmbedExternalViewConverter().toJson(data),
+    embedRecordView: (data) => const EmbedRecordViewConverter().toJson(data),
+    embedRecordWithMediaView: (data) =>
+        const EmbedRecordWithMediaViewConverter().toJson(data),
+
+    unknown: (data) => data,
+  );
 }

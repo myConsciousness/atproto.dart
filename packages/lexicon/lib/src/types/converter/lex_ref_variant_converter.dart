@@ -16,13 +16,9 @@ final class LexRefVariantConverter
 
     switch (type) {
       case 'ref':
-        return LexRefVariant.ref(
-          data: LexRef.fromJson(json),
-        );
+        return LexRefVariant.ref(data: LexRef.fromJson(json));
       case 'union':
-        return LexRefVariant.refUnion(
-          data: LexRefUnion.fromJson(json),
-        );
+        return LexRefVariant.refUnion(data: LexRefUnion.fromJson(json));
 
       default:
         throw UnsupportedError('Unsupported type [$type]');
@@ -31,7 +27,7 @@ final class LexRefVariantConverter
 
   @override
   Map<String, dynamic> toJson(LexRefVariant object) => object.when(
-        ref: (data) => data.toJson(),
-        refUnion: (data) => data.toJson(),
-      );
+    ref: (data) => data.toJson(),
+    refUnion: (data) => data.toJson(),
+  );
 }

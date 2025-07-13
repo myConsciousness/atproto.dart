@@ -24,38 +24,36 @@ part 'output.g.dart';
 @freezed
 abstract class VerificationListVerificationsOutput
     with _$VerificationListVerificationsOutput {
-  static const knownProps = <String>[
-    'cursor',
-    'verifications',
-  ];
+  static const knownProps = <String>['cursor', 'verifications'];
 
   const factory VerificationListVerificationsOutput({
     String? cursor,
     @VerificationViewConverter() required List<VerificationView> verifications,
+
     Map<String, dynamic>? $unknown,
   }) = _VerificationListVerificationsOutput;
 
   factory VerificationListVerificationsOutput.fromJson(
-          Map<String, Object?> json) =>
-      _$VerificationListVerificationsOutputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$VerificationListVerificationsOutputFromJson(json);
 }
 
 final class VerificationListVerificationsOutputConverter
-    extends LexObjectConverter<VerificationListVerificationsOutput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          VerificationListVerificationsOutput,
+          Map<String, dynamic>
+        > {
   const VerificationListVerificationsOutputConverter();
 
   @override
   VerificationListVerificationsOutput fromJson(Map<String, dynamic> json) {
-    return VerificationListVerificationsOutput.fromJson(translate(
-      json,
-      VerificationListVerificationsOutput.knownProps,
-    ));
+    return VerificationListVerificationsOutput.fromJson(
+      translate(json, VerificationListVerificationsOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(VerificationListVerificationsOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

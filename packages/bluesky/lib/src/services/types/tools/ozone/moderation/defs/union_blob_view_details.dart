@@ -24,16 +24,13 @@ part 'union_blob_view_details.freezed.dart';
 class UBlobViewDetails with _$UBlobViewDetails {
   const UBlobViewDetails._();
 
-  const factory UBlobViewDetails.imageDetails({
-    required ImageDetails data,
-  }) = UBlobViewDetailsImageDetails;
-  const factory UBlobViewDetails.videoDetails({
-    required VideoDetails data,
-  }) = UBlobViewDetailsVideoDetails;
+  const factory UBlobViewDetails.imageDetails({required ImageDetails data}) =
+      UBlobViewDetailsImageDetails;
+  const factory UBlobViewDetails.videoDetails({required VideoDetails data}) =
+      UBlobViewDetailsVideoDetails;
 
-  const factory UBlobViewDetails.unknown({
-    required Map<String, dynamic> data,
-  }) = UBlobViewDetailsUnknown;
+  const factory UBlobViewDetails.unknown({required Map<String, dynamic> data}) =
+      UBlobViewDetailsUnknown;
 
   Map<String, dynamic> toJson() =>
       const UBlobViewDetailsConverter().toJson(this);
@@ -65,8 +62,9 @@ final class UBlobViewDetailsConverter
 
   @override
   Map<String, dynamic> toJson(UBlobViewDetails object) => object.when(
-        imageDetails: (data) => const ImageDetailsConverter().toJson(data),
-        videoDetails: (data) => const VideoDetailsConverter().toJson(data),
-        unknown: (data) => data,
-      );
+    imageDetails: (data) => const ImageDetailsConverter().toJson(data),
+    videoDetails: (data) => const VideoDetailsConverter().toJson(data),
+
+    unknown: (data) => data,
+  );
 }

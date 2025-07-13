@@ -23,10 +23,7 @@ part 'thread_view_pref.g.dart';
 
 @freezed
 abstract class ThreadViewPref with _$ThreadViewPref {
-  static const knownProps = <String>[
-    'sort',
-    'prioritizeFollowedUsers',
-  ];
+  static const knownProps = <String>['sort', 'prioritizeFollowedUsers'];
 
   const factory ThreadViewPref({
     @Default(appBskyActorDefsThreadViewPref) String $type,
@@ -36,6 +33,7 @@ abstract class ThreadViewPref with _$ThreadViewPref {
 
     /// Show followed users at the top of all replies.
     bool? prioritizeFollowedUsers,
+
     Map<String, dynamic>? $unknown,
   }) = _ThreadViewPref;
 
@@ -54,14 +52,10 @@ final class ThreadViewPrefConverter
 
   @override
   ThreadViewPref fromJson(Map<String, dynamic> json) {
-    return ThreadViewPref.fromJson(translate(
-      json,
-      ThreadViewPref.knownProps,
-    ));
+    return ThreadViewPref.fromJson(translate(json, ThreadViewPref.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ThreadViewPref object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ThreadViewPref object) =>
+      untranslate(object.toJson());
 }

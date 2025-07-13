@@ -28,7 +28,9 @@ void main() {
     expect(GroupedNotificationReason.follow.isNotLike, isTrue);
 
     expect(
-        GroupedNotificationReason.customFeedLike.isNotCustomFeedLike, isFalse);
+      GroupedNotificationReason.customFeedLike.isNotCustomFeedLike,
+      isFalse,
+    );
     expect(GroupedNotificationReason.follow.isLike, isFalse);
   });
 

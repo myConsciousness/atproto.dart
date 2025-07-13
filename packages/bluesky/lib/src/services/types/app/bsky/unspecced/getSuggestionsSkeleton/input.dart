@@ -36,30 +36,31 @@ abstract class UnspeccedGetSuggestionsSkeletonInput
 
     /// DID of the account to get suggestions relative to. If not provided, suggestions will be based on the viewer.
     String? relativeToDid,
+
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestionsSkeletonInput;
 
   factory UnspeccedGetSuggestionsSkeletonInput.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedGetSuggestionsSkeletonInputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$UnspeccedGetSuggestionsSkeletonInputFromJson(json);
 }
 
 final class UnspeccedGetSuggestionsSkeletonInputConverter
-    extends LexObjectConverter<UnspeccedGetSuggestionsSkeletonInput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          UnspeccedGetSuggestionsSkeletonInput,
+          Map<String, dynamic>
+        > {
   const UnspeccedGetSuggestionsSkeletonInputConverter();
 
   @override
   UnspeccedGetSuggestionsSkeletonInput fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetSuggestionsSkeletonInput.fromJson(translate(
-      json,
-      UnspeccedGetSuggestionsSkeletonInput.knownProps,
-    ));
+    return UnspeccedGetSuggestionsSkeletonInput.fromJson(
+      translate(json, UnspeccedGetSuggestionsSkeletonInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetSuggestionsSkeletonInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

@@ -8,29 +8,23 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SyncGetLatestCommitOutputImpl _$$SyncGetLatestCommitOutputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$SyncGetLatestCommitOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SyncGetLatestCommitOutputImpl(
-          cid: $checkedConvert('cid', (v) => v as String),
-          rev: $checkedConvert('rev', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_SyncGetLatestCommitOutput _$SyncGetLatestCommitOutputFromJson(Map json) =>
+    $checkedCreate('_SyncGetLatestCommitOutput', json, ($checkedConvert) {
+      final val = _SyncGetLatestCommitOutput(
+        cid: $checkedConvert('cid', (v) => v as String),
+        rev: $checkedConvert('rev', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$SyncGetLatestCommitOutputImplToJson(
-        _$SyncGetLatestCommitOutputImpl instance) =>
-    <String, dynamic>{
-      'cid': instance.cid,
-      'rev': instance.rev,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$SyncGetLatestCommitOutputToJson(
+  _SyncGetLatestCommitOutput instance,
+) => <String, dynamic>{
+  'cid': instance.cid,
+  'rev': instance.rev,
+  r'$unknown': instance.$unknown,
+};

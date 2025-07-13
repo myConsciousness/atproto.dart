@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,3953 +9,1372 @@ part of 'union_preferences.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$UPreferences {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(SavedFeedsPrefV2 data) savedFeedsPrefV2,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
-    required TResult Function(InterestsPref data) interestsPref,
-    required TResult Function(MutedWordsPref data) mutedWordsPref,
-    required TResult Function(HiddenPostsPref data) hiddenPostsPref,
-    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
-    required TResult Function(LabelersPref data) labelersPref,
-    required TResult Function(PostInteractionSettingsPref data)
-        postInteractionSettingsPref,
-    required TResult Function(VerificationPrefs data) verificationPrefs,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
-    TResult? Function(InterestsPref data)? interestsPref,
-    TResult? Function(MutedWordsPref data)? mutedWordsPref,
-    TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult? Function(LabelersPref data)? labelersPref,
-    TResult? Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult? Function(VerificationPrefs data)? verificationPrefs,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
-    TResult Function(InterestsPref data)? interestsPref,
-    TResult Function(MutedWordsPref data)? mutedWordsPref,
-    TResult Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult Function(LabelersPref data)? labelersPref,
-    TResult Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult Function(VerificationPrefs data)? verificationPrefs,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UPreferencesAdultContentPref value)
-        adultContentPref,
-    required TResult Function(UPreferencesContentLabelPref value)
-        contentLabelPref,
-    required TResult Function(UPreferencesSavedFeedsPref value) savedFeedsPref,
-    required TResult Function(UPreferencesSavedFeedsPrefV2 value)
-        savedFeedsPrefV2,
-    required TResult Function(UPreferencesPersonalDetailsPref value)
-        personalDetailsPref,
-    required TResult Function(UPreferencesFeedViewPref value) feedViewPref,
-    required TResult Function(UPreferencesThreadViewPref value) threadViewPref,
-    required TResult Function(UPreferencesInterestsPref value) interestsPref,
-    required TResult Function(UPreferencesMutedWordsPref value) mutedWordsPref,
-    required TResult Function(UPreferencesHiddenPostsPref value)
-        hiddenPostsPref,
-    required TResult Function(UPreferencesBskyAppStatePref value)
-        bskyAppStatePref,
-    required TResult Function(UPreferencesLabelersPref value) labelersPref,
-    required TResult Function(UPreferencesPostInteractionSettingsPref value)
-        postInteractionSettingsPref,
-    required TResult Function(UPreferencesVerificationPrefs value)
-        verificationPrefs,
-    required TResult Function(UPreferencesUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult? Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult? Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult? Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult? Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult? Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult? Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult? Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult? Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult? Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult? Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult? Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult? Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult? Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult? Function(UPreferencesUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult Function(UPreferencesUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+
+ Object get data;
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UPreferences&&const DeepCollectionEquality().equals(other.data, data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'UPreferences(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UPreferencesCopyWith<$Res> {
-  factory $UPreferencesCopyWith(
-          UPreferences value, $Res Function(UPreferences) then) =
-      _$UPreferencesCopyWithImpl<$Res, UPreferences>;
+class $UPreferencesCopyWith<$Res>  {
+$UPreferencesCopyWith(UPreferences _, $Res Function(UPreferences) __);
 }
 
-/// @nodoc
-class _$UPreferencesCopyWithImpl<$Res, $Val extends UPreferences>
-    implements $UPreferencesCopyWith<$Res> {
-  _$UPreferencesCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// Adds pattern-matching-related methods to [UPreferences].
+extension UPreferencesPatterns on UPreferences {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UPreferencesAdultContentPref value)?  adultContentPref,TResult Function( UPreferencesContentLabelPref value)?  contentLabelPref,TResult Function( UPreferencesSavedFeedsPref value)?  savedFeedsPref,TResult Function( UPreferencesSavedFeedsPrefV2 value)?  savedFeedsPrefV2,TResult Function( UPreferencesPersonalDetailsPref value)?  personalDetailsPref,TResult Function( UPreferencesFeedViewPref value)?  feedViewPref,TResult Function( UPreferencesThreadViewPref value)?  threadViewPref,TResult Function( UPreferencesInterestsPref value)?  interestsPref,TResult Function( UPreferencesMutedWordsPref value)?  mutedWordsPref,TResult Function( UPreferencesHiddenPostsPref value)?  hiddenPostsPref,TResult Function( UPreferencesBskyAppStatePref value)?  bskyAppStatePref,TResult Function( UPreferencesLabelersPref value)?  labelersPref,TResult Function( UPreferencesPostInteractionSettingsPref value)?  postInteractionSettingsPref,TResult Function( UPreferencesVerificationPrefs value)?  verificationPrefs,TResult Function( UPreferencesUnknown value)?  unknown,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case UPreferencesAdultContentPref() when adultContentPref != null:
+return adultContentPref(_that);case UPreferencesContentLabelPref() when contentLabelPref != null:
+return contentLabelPref(_that);case UPreferencesSavedFeedsPref() when savedFeedsPref != null:
+return savedFeedsPref(_that);case UPreferencesSavedFeedsPrefV2() when savedFeedsPrefV2 != null:
+return savedFeedsPrefV2(_that);case UPreferencesPersonalDetailsPref() when personalDetailsPref != null:
+return personalDetailsPref(_that);case UPreferencesFeedViewPref() when feedViewPref != null:
+return feedViewPref(_that);case UPreferencesThreadViewPref() when threadViewPref != null:
+return threadViewPref(_that);case UPreferencesInterestsPref() when interestsPref != null:
+return interestsPref(_that);case UPreferencesMutedWordsPref() when mutedWordsPref != null:
+return mutedWordsPref(_that);case UPreferencesHiddenPostsPref() when hiddenPostsPref != null:
+return hiddenPostsPref(_that);case UPreferencesBskyAppStatePref() when bskyAppStatePref != null:
+return bskyAppStatePref(_that);case UPreferencesLabelersPref() when labelersPref != null:
+return labelersPref(_that);case UPreferencesPostInteractionSettingsPref() when postInteractionSettingsPref != null:
+return postInteractionSettingsPref(_that);case UPreferencesVerificationPrefs() when verificationPrefs != null:
+return verificationPrefs(_that);case UPreferencesUnknown() when unknown != null:
+return unknown(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UPreferencesAdultContentPref value)  adultContentPref,required TResult Function( UPreferencesContentLabelPref value)  contentLabelPref,required TResult Function( UPreferencesSavedFeedsPref value)  savedFeedsPref,required TResult Function( UPreferencesSavedFeedsPrefV2 value)  savedFeedsPrefV2,required TResult Function( UPreferencesPersonalDetailsPref value)  personalDetailsPref,required TResult Function( UPreferencesFeedViewPref value)  feedViewPref,required TResult Function( UPreferencesThreadViewPref value)  threadViewPref,required TResult Function( UPreferencesInterestsPref value)  interestsPref,required TResult Function( UPreferencesMutedWordsPref value)  mutedWordsPref,required TResult Function( UPreferencesHiddenPostsPref value)  hiddenPostsPref,required TResult Function( UPreferencesBskyAppStatePref value)  bskyAppStatePref,required TResult Function( UPreferencesLabelersPref value)  labelersPref,required TResult Function( UPreferencesPostInteractionSettingsPref value)  postInteractionSettingsPref,required TResult Function( UPreferencesVerificationPrefs value)  verificationPrefs,required TResult Function( UPreferencesUnknown value)  unknown,}){
+final _that = this;
+switch (_that) {
+case UPreferencesAdultContentPref():
+return adultContentPref(_that);case UPreferencesContentLabelPref():
+return contentLabelPref(_that);case UPreferencesSavedFeedsPref():
+return savedFeedsPref(_that);case UPreferencesSavedFeedsPrefV2():
+return savedFeedsPrefV2(_that);case UPreferencesPersonalDetailsPref():
+return personalDetailsPref(_that);case UPreferencesFeedViewPref():
+return feedViewPref(_that);case UPreferencesThreadViewPref():
+return threadViewPref(_that);case UPreferencesInterestsPref():
+return interestsPref(_that);case UPreferencesMutedWordsPref():
+return mutedWordsPref(_that);case UPreferencesHiddenPostsPref():
+return hiddenPostsPref(_that);case UPreferencesBskyAppStatePref():
+return bskyAppStatePref(_that);case UPreferencesLabelersPref():
+return labelersPref(_that);case UPreferencesPostInteractionSettingsPref():
+return postInteractionSettingsPref(_that);case UPreferencesVerificationPrefs():
+return verificationPrefs(_that);case UPreferencesUnknown():
+return unknown(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UPreferencesAdultContentPref value)?  adultContentPref,TResult? Function( UPreferencesContentLabelPref value)?  contentLabelPref,TResult? Function( UPreferencesSavedFeedsPref value)?  savedFeedsPref,TResult? Function( UPreferencesSavedFeedsPrefV2 value)?  savedFeedsPrefV2,TResult? Function( UPreferencesPersonalDetailsPref value)?  personalDetailsPref,TResult? Function( UPreferencesFeedViewPref value)?  feedViewPref,TResult? Function( UPreferencesThreadViewPref value)?  threadViewPref,TResult? Function( UPreferencesInterestsPref value)?  interestsPref,TResult? Function( UPreferencesMutedWordsPref value)?  mutedWordsPref,TResult? Function( UPreferencesHiddenPostsPref value)?  hiddenPostsPref,TResult? Function( UPreferencesBskyAppStatePref value)?  bskyAppStatePref,TResult? Function( UPreferencesLabelersPref value)?  labelersPref,TResult? Function( UPreferencesPostInteractionSettingsPref value)?  postInteractionSettingsPref,TResult? Function( UPreferencesVerificationPrefs value)?  verificationPrefs,TResult? Function( UPreferencesUnknown value)?  unknown,}){
+final _that = this;
+switch (_that) {
+case UPreferencesAdultContentPref() when adultContentPref != null:
+return adultContentPref(_that);case UPreferencesContentLabelPref() when contentLabelPref != null:
+return contentLabelPref(_that);case UPreferencesSavedFeedsPref() when savedFeedsPref != null:
+return savedFeedsPref(_that);case UPreferencesSavedFeedsPrefV2() when savedFeedsPrefV2 != null:
+return savedFeedsPrefV2(_that);case UPreferencesPersonalDetailsPref() when personalDetailsPref != null:
+return personalDetailsPref(_that);case UPreferencesFeedViewPref() when feedViewPref != null:
+return feedViewPref(_that);case UPreferencesThreadViewPref() when threadViewPref != null:
+return threadViewPref(_that);case UPreferencesInterestsPref() when interestsPref != null:
+return interestsPref(_that);case UPreferencesMutedWordsPref() when mutedWordsPref != null:
+return mutedWordsPref(_that);case UPreferencesHiddenPostsPref() when hiddenPostsPref != null:
+return hiddenPostsPref(_that);case UPreferencesBskyAppStatePref() when bskyAppStatePref != null:
+return bskyAppStatePref(_that);case UPreferencesLabelersPref() when labelersPref != null:
+return labelersPref(_that);case UPreferencesPostInteractionSettingsPref() when postInteractionSettingsPref != null:
+return postInteractionSettingsPref(_that);case UPreferencesVerificationPrefs() when verificationPrefs != null:
+return verificationPrefs(_that);case UPreferencesUnknown() when unknown != null:
+return unknown(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( AdultContentPref data)?  adultContentPref,TResult Function( ContentLabelPref data)?  contentLabelPref,TResult Function( SavedFeedsPref data)?  savedFeedsPref,TResult Function( SavedFeedsPrefV2 data)?  savedFeedsPrefV2,TResult Function( PersonalDetailsPref data)?  personalDetailsPref,TResult Function( FeedViewPref data)?  feedViewPref,TResult Function( ThreadViewPref data)?  threadViewPref,TResult Function( InterestsPref data)?  interestsPref,TResult Function( MutedWordsPref data)?  mutedWordsPref,TResult Function( HiddenPostsPref data)?  hiddenPostsPref,TResult Function( BskyAppStatePref data)?  bskyAppStatePref,TResult Function( LabelersPref data)?  labelersPref,TResult Function( PostInteractionSettingsPref data)?  postInteractionSettingsPref,TResult Function( VerificationPrefs data)?  verificationPrefs,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case UPreferencesAdultContentPref() when adultContentPref != null:
+return adultContentPref(_that.data);case UPreferencesContentLabelPref() when contentLabelPref != null:
+return contentLabelPref(_that.data);case UPreferencesSavedFeedsPref() when savedFeedsPref != null:
+return savedFeedsPref(_that.data);case UPreferencesSavedFeedsPrefV2() when savedFeedsPrefV2 != null:
+return savedFeedsPrefV2(_that.data);case UPreferencesPersonalDetailsPref() when personalDetailsPref != null:
+return personalDetailsPref(_that.data);case UPreferencesFeedViewPref() when feedViewPref != null:
+return feedViewPref(_that.data);case UPreferencesThreadViewPref() when threadViewPref != null:
+return threadViewPref(_that.data);case UPreferencesInterestsPref() when interestsPref != null:
+return interestsPref(_that.data);case UPreferencesMutedWordsPref() when mutedWordsPref != null:
+return mutedWordsPref(_that.data);case UPreferencesHiddenPostsPref() when hiddenPostsPref != null:
+return hiddenPostsPref(_that.data);case UPreferencesBskyAppStatePref() when bskyAppStatePref != null:
+return bskyAppStatePref(_that.data);case UPreferencesLabelersPref() when labelersPref != null:
+return labelersPref(_that.data);case UPreferencesPostInteractionSettingsPref() when postInteractionSettingsPref != null:
+return postInteractionSettingsPref(_that.data);case UPreferencesVerificationPrefs() when verificationPrefs != null:
+return verificationPrefs(_that.data);case UPreferencesUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( AdultContentPref data)  adultContentPref,required TResult Function( ContentLabelPref data)  contentLabelPref,required TResult Function( SavedFeedsPref data)  savedFeedsPref,required TResult Function( SavedFeedsPrefV2 data)  savedFeedsPrefV2,required TResult Function( PersonalDetailsPref data)  personalDetailsPref,required TResult Function( FeedViewPref data)  feedViewPref,required TResult Function( ThreadViewPref data)  threadViewPref,required TResult Function( InterestsPref data)  interestsPref,required TResult Function( MutedWordsPref data)  mutedWordsPref,required TResult Function( HiddenPostsPref data)  hiddenPostsPref,required TResult Function( BskyAppStatePref data)  bskyAppStatePref,required TResult Function( LabelersPref data)  labelersPref,required TResult Function( PostInteractionSettingsPref data)  postInteractionSettingsPref,required TResult Function( VerificationPrefs data)  verificationPrefs,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+switch (_that) {
+case UPreferencesAdultContentPref():
+return adultContentPref(_that.data);case UPreferencesContentLabelPref():
+return contentLabelPref(_that.data);case UPreferencesSavedFeedsPref():
+return savedFeedsPref(_that.data);case UPreferencesSavedFeedsPrefV2():
+return savedFeedsPrefV2(_that.data);case UPreferencesPersonalDetailsPref():
+return personalDetailsPref(_that.data);case UPreferencesFeedViewPref():
+return feedViewPref(_that.data);case UPreferencesThreadViewPref():
+return threadViewPref(_that.data);case UPreferencesInterestsPref():
+return interestsPref(_that.data);case UPreferencesMutedWordsPref():
+return mutedWordsPref(_that.data);case UPreferencesHiddenPostsPref():
+return hiddenPostsPref(_that.data);case UPreferencesBskyAppStatePref():
+return bskyAppStatePref(_that.data);case UPreferencesLabelersPref():
+return labelersPref(_that.data);case UPreferencesPostInteractionSettingsPref():
+return postInteractionSettingsPref(_that.data);case UPreferencesVerificationPrefs():
+return verificationPrefs(_that.data);case UPreferencesUnknown():
+return unknown(_that.data);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( AdultContentPref data)?  adultContentPref,TResult? Function( ContentLabelPref data)?  contentLabelPref,TResult? Function( SavedFeedsPref data)?  savedFeedsPref,TResult? Function( SavedFeedsPrefV2 data)?  savedFeedsPrefV2,TResult? Function( PersonalDetailsPref data)?  personalDetailsPref,TResult? Function( FeedViewPref data)?  feedViewPref,TResult? Function( ThreadViewPref data)?  threadViewPref,TResult? Function( InterestsPref data)?  interestsPref,TResult? Function( MutedWordsPref data)?  mutedWordsPref,TResult? Function( HiddenPostsPref data)?  hiddenPostsPref,TResult? Function( BskyAppStatePref data)?  bskyAppStatePref,TResult? Function( LabelersPref data)?  labelersPref,TResult? Function( PostInteractionSettingsPref data)?  postInteractionSettingsPref,TResult? Function( VerificationPrefs data)?  verificationPrefs,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+switch (_that) {
+case UPreferencesAdultContentPref() when adultContentPref != null:
+return adultContentPref(_that.data);case UPreferencesContentLabelPref() when contentLabelPref != null:
+return contentLabelPref(_that.data);case UPreferencesSavedFeedsPref() when savedFeedsPref != null:
+return savedFeedsPref(_that.data);case UPreferencesSavedFeedsPrefV2() when savedFeedsPrefV2 != null:
+return savedFeedsPrefV2(_that.data);case UPreferencesPersonalDetailsPref() when personalDetailsPref != null:
+return personalDetailsPref(_that.data);case UPreferencesFeedViewPref() when feedViewPref != null:
+return feedViewPref(_that.data);case UPreferencesThreadViewPref() when threadViewPref != null:
+return threadViewPref(_that.data);case UPreferencesInterestsPref() when interestsPref != null:
+return interestsPref(_that.data);case UPreferencesMutedWordsPref() when mutedWordsPref != null:
+return mutedWordsPref(_that.data);case UPreferencesHiddenPostsPref() when hiddenPostsPref != null:
+return hiddenPostsPref(_that.data);case UPreferencesBskyAppStatePref() when bskyAppStatePref != null:
+return bskyAppStatePref(_that.data);case UPreferencesLabelersPref() when labelersPref != null:
+return labelersPref(_that.data);case UPreferencesPostInteractionSettingsPref() when postInteractionSettingsPref != null:
+return postInteractionSettingsPref(_that.data);case UPreferencesVerificationPrefs() when verificationPrefs != null:
+return verificationPrefs(_that.data);case UPreferencesUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-abstract class _$$UPreferencesAdultContentPrefImplCopyWith<$Res> {
-  factory _$$UPreferencesAdultContentPrefImplCopyWith(
-          _$UPreferencesAdultContentPrefImpl value,
-          $Res Function(_$UPreferencesAdultContentPrefImpl) then) =
-      __$$UPreferencesAdultContentPrefImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({AdultContentPref data});
-
-  $AdultContentPrefCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$UPreferencesAdultContentPrefImplCopyWithImpl<$Res>
-    extends _$UPreferencesCopyWithImpl<$Res, _$UPreferencesAdultContentPrefImpl>
-    implements _$$UPreferencesAdultContentPrefImplCopyWith<$Res> {
-  __$$UPreferencesAdultContentPrefImplCopyWithImpl(
-      _$UPreferencesAdultContentPrefImpl _value,
-      $Res Function(_$UPreferencesAdultContentPrefImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UPreferencesAdultContentPrefImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as AdultContentPref,
-    ));
-  }
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AdultContentPrefCopyWith<$Res> get data {
-    return $AdultContentPrefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$UPreferencesAdultContentPrefImpl extends UPreferencesAdultContentPref {
-  const _$UPreferencesAdultContentPrefImpl({required this.data}) : super._();
-
-  @override
-  final AdultContentPref data;
-
-  @override
-  String toString() {
-    return 'UPreferences.adultContentPref(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UPreferencesAdultContentPrefImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UPreferencesAdultContentPrefImplCopyWith<
-          _$UPreferencesAdultContentPrefImpl>
-      get copyWith => __$$UPreferencesAdultContentPrefImplCopyWithImpl<
-          _$UPreferencesAdultContentPrefImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(SavedFeedsPrefV2 data) savedFeedsPrefV2,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
-    required TResult Function(InterestsPref data) interestsPref,
-    required TResult Function(MutedWordsPref data) mutedWordsPref,
-    required TResult Function(HiddenPostsPref data) hiddenPostsPref,
-    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
-    required TResult Function(LabelersPref data) labelersPref,
-    required TResult Function(PostInteractionSettingsPref data)
-        postInteractionSettingsPref,
-    required TResult Function(VerificationPrefs data) verificationPrefs,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return adultContentPref(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
-    TResult? Function(InterestsPref data)? interestsPref,
-    TResult? Function(MutedWordsPref data)? mutedWordsPref,
-    TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult? Function(LabelersPref data)? labelersPref,
-    TResult? Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult? Function(VerificationPrefs data)? verificationPrefs,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return adultContentPref?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
-    TResult Function(InterestsPref data)? interestsPref,
-    TResult Function(MutedWordsPref data)? mutedWordsPref,
-    TResult Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult Function(LabelersPref data)? labelersPref,
-    TResult Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult Function(VerificationPrefs data)? verificationPrefs,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (adultContentPref != null) {
-      return adultContentPref(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UPreferencesAdultContentPref value)
-        adultContentPref,
-    required TResult Function(UPreferencesContentLabelPref value)
-        contentLabelPref,
-    required TResult Function(UPreferencesSavedFeedsPref value) savedFeedsPref,
-    required TResult Function(UPreferencesSavedFeedsPrefV2 value)
-        savedFeedsPrefV2,
-    required TResult Function(UPreferencesPersonalDetailsPref value)
-        personalDetailsPref,
-    required TResult Function(UPreferencesFeedViewPref value) feedViewPref,
-    required TResult Function(UPreferencesThreadViewPref value) threadViewPref,
-    required TResult Function(UPreferencesInterestsPref value) interestsPref,
-    required TResult Function(UPreferencesMutedWordsPref value) mutedWordsPref,
-    required TResult Function(UPreferencesHiddenPostsPref value)
-        hiddenPostsPref,
-    required TResult Function(UPreferencesBskyAppStatePref value)
-        bskyAppStatePref,
-    required TResult Function(UPreferencesLabelersPref value) labelersPref,
-    required TResult Function(UPreferencesPostInteractionSettingsPref value)
-        postInteractionSettingsPref,
-    required TResult Function(UPreferencesVerificationPrefs value)
-        verificationPrefs,
-    required TResult Function(UPreferencesUnknown value) unknown,
-  }) {
-    return adultContentPref(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult? Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult? Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult? Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult? Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult? Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult? Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult? Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult? Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult? Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult? Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult? Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult? Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult? Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult? Function(UPreferencesUnknown value)? unknown,
-  }) {
-    return adultContentPref?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult Function(UPreferencesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (adultContentPref != null) {
-      return adultContentPref(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UPreferencesAdultContentPref extends UPreferences {
-  const factory UPreferencesAdultContentPref(
-          {required final AdultContentPref data}) =
-      _$UPreferencesAdultContentPrefImpl;
-  const UPreferencesAdultContentPref._() : super._();
-
-  @override
-  AdultContentPref get data;
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferencesAdultContentPrefImplCopyWith<
-          _$UPreferencesAdultContentPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UPreferencesContentLabelPrefImplCopyWith<$Res> {
-  factory _$$UPreferencesContentLabelPrefImplCopyWith(
-          _$UPreferencesContentLabelPrefImpl value,
-          $Res Function(_$UPreferencesContentLabelPrefImpl) then) =
-      __$$UPreferencesContentLabelPrefImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ContentLabelPref data});
-
-  $ContentLabelPrefCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$UPreferencesContentLabelPrefImplCopyWithImpl<$Res>
-    extends _$UPreferencesCopyWithImpl<$Res, _$UPreferencesContentLabelPrefImpl>
-    implements _$$UPreferencesContentLabelPrefImplCopyWith<$Res> {
-  __$$UPreferencesContentLabelPrefImplCopyWithImpl(
-      _$UPreferencesContentLabelPrefImpl _value,
-      $Res Function(_$UPreferencesContentLabelPrefImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UPreferencesContentLabelPrefImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ContentLabelPref,
-    ));
-  }
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ContentLabelPrefCopyWith<$Res> get data {
-    return $ContentLabelPrefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
 }
 
 /// @nodoc
 
-class _$UPreferencesContentLabelPrefImpl extends UPreferencesContentLabelPref {
-  const _$UPreferencesContentLabelPrefImpl({required this.data}) : super._();
 
-  @override
-  final ContentLabelPref data;
+class UPreferencesAdultContentPref extends UPreferences {
+  const UPreferencesAdultContentPref({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UPreferences.contentLabelPref(data: $data)';
-  }
+@override final  AdultContentPref data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UPreferencesContentLabelPrefImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UPreferencesAdultContentPrefCopyWith<UPreferencesAdultContentPref> get copyWith => _$UPreferencesAdultContentPrefCopyWithImpl<UPreferencesAdultContentPref>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UPreferencesContentLabelPrefImplCopyWith<
-          _$UPreferencesContentLabelPrefImpl>
-      get copyWith => __$$UPreferencesContentLabelPrefImplCopyWithImpl<
-          _$UPreferencesContentLabelPrefImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(SavedFeedsPrefV2 data) savedFeedsPrefV2,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
-    required TResult Function(InterestsPref data) interestsPref,
-    required TResult Function(MutedWordsPref data) mutedWordsPref,
-    required TResult Function(HiddenPostsPref data) hiddenPostsPref,
-    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
-    required TResult Function(LabelersPref data) labelersPref,
-    required TResult Function(PostInteractionSettingsPref data)
-        postInteractionSettingsPref,
-    required TResult Function(VerificationPrefs data) verificationPrefs,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return contentLabelPref(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
-    TResult? Function(InterestsPref data)? interestsPref,
-    TResult? Function(MutedWordsPref data)? mutedWordsPref,
-    TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult? Function(LabelersPref data)? labelersPref,
-    TResult? Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult? Function(VerificationPrefs data)? verificationPrefs,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return contentLabelPref?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
-    TResult Function(InterestsPref data)? interestsPref,
-    TResult Function(MutedWordsPref data)? mutedWordsPref,
-    TResult Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult Function(LabelersPref data)? labelersPref,
-    TResult Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult Function(VerificationPrefs data)? verificationPrefs,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (contentLabelPref != null) {
-      return contentLabelPref(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UPreferencesAdultContentPref value)
-        adultContentPref,
-    required TResult Function(UPreferencesContentLabelPref value)
-        contentLabelPref,
-    required TResult Function(UPreferencesSavedFeedsPref value) savedFeedsPref,
-    required TResult Function(UPreferencesSavedFeedsPrefV2 value)
-        savedFeedsPrefV2,
-    required TResult Function(UPreferencesPersonalDetailsPref value)
-        personalDetailsPref,
-    required TResult Function(UPreferencesFeedViewPref value) feedViewPref,
-    required TResult Function(UPreferencesThreadViewPref value) threadViewPref,
-    required TResult Function(UPreferencesInterestsPref value) interestsPref,
-    required TResult Function(UPreferencesMutedWordsPref value) mutedWordsPref,
-    required TResult Function(UPreferencesHiddenPostsPref value)
-        hiddenPostsPref,
-    required TResult Function(UPreferencesBskyAppStatePref value)
-        bskyAppStatePref,
-    required TResult Function(UPreferencesLabelersPref value) labelersPref,
-    required TResult Function(UPreferencesPostInteractionSettingsPref value)
-        postInteractionSettingsPref,
-    required TResult Function(UPreferencesVerificationPrefs value)
-        verificationPrefs,
-    required TResult Function(UPreferencesUnknown value) unknown,
-  }) {
-    return contentLabelPref(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult? Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult? Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult? Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult? Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult? Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult? Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult? Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult? Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult? Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult? Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult? Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult? Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult? Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult? Function(UPreferencesUnknown value)? unknown,
-  }) {
-    return contentLabelPref?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult Function(UPreferencesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (contentLabelPref != null) {
-      return contentLabelPref(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UPreferencesAdultContentPref&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UPreferencesContentLabelPref extends UPreferences {
-  const factory UPreferencesContentLabelPref(
-          {required final ContentLabelPref data}) =
-      _$UPreferencesContentLabelPrefImpl;
-  const UPreferencesContentLabelPref._() : super._();
 
-  @override
-  ContentLabelPref get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferencesContentLabelPrefImplCopyWith<
-          _$UPreferencesContentLabelPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UPreferences.adultContentPref(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UPreferencesSavedFeedsPrefImplCopyWith<$Res> {
-  factory _$$UPreferencesSavedFeedsPrefImplCopyWith(
-          _$UPreferencesSavedFeedsPrefImpl value,
-          $Res Function(_$UPreferencesSavedFeedsPrefImpl) then) =
-      __$$UPreferencesSavedFeedsPrefImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({SavedFeedsPref data});
+abstract mixin class $UPreferencesAdultContentPrefCopyWith<$Res> implements $UPreferencesCopyWith<$Res> {
+  factory $UPreferencesAdultContentPrefCopyWith(UPreferencesAdultContentPref value, $Res Function(UPreferencesAdultContentPref) _then) = _$UPreferencesAdultContentPrefCopyWithImpl;
+@useResult
+$Res call({
+ AdultContentPref data
+});
 
-  $SavedFeedsPrefCopyWith<$Res> get data;
+
+$AdultContentPrefCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UPreferencesAdultContentPrefCopyWithImpl<$Res>
+    implements $UPreferencesAdultContentPrefCopyWith<$Res> {
+  _$UPreferencesAdultContentPrefCopyWithImpl(this._self, this._then);
+
+  final UPreferencesAdultContentPref _self;
+  final $Res Function(UPreferencesAdultContentPref) _then;
+
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UPreferencesAdultContentPref(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as AdultContentPref,
+  ));
 }
 
-/// @nodoc
-class __$$UPreferencesSavedFeedsPrefImplCopyWithImpl<$Res>
-    extends _$UPreferencesCopyWithImpl<$Res, _$UPreferencesSavedFeedsPrefImpl>
-    implements _$$UPreferencesSavedFeedsPrefImplCopyWith<$Res> {
-  __$$UPreferencesSavedFeedsPrefImplCopyWithImpl(
-      _$UPreferencesSavedFeedsPrefImpl _value,
-      $Res Function(_$UPreferencesSavedFeedsPrefImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UPreferencesSavedFeedsPrefImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as SavedFeedsPref,
-    ));
-  }
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $SavedFeedsPrefCopyWith<$Res> get data {
-    return $SavedFeedsPrefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AdultContentPrefCopyWith<$Res> get data {
+  
+  return $AdultContentPrefCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UPreferencesSavedFeedsPrefImpl extends UPreferencesSavedFeedsPref {
-  const _$UPreferencesSavedFeedsPrefImpl({required this.data}) : super._();
 
-  @override
-  final SavedFeedsPref data;
+class UPreferencesContentLabelPref extends UPreferences {
+  const UPreferencesContentLabelPref({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UPreferences.savedFeedsPref(data: $data)';
-  }
+@override final  ContentLabelPref data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UPreferencesSavedFeedsPrefImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UPreferencesContentLabelPrefCopyWith<UPreferencesContentLabelPref> get copyWith => _$UPreferencesContentLabelPrefCopyWithImpl<UPreferencesContentLabelPref>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UPreferencesSavedFeedsPrefImplCopyWith<_$UPreferencesSavedFeedsPrefImpl>
-      get copyWith => __$$UPreferencesSavedFeedsPrefImplCopyWithImpl<
-          _$UPreferencesSavedFeedsPrefImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(SavedFeedsPrefV2 data) savedFeedsPrefV2,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
-    required TResult Function(InterestsPref data) interestsPref,
-    required TResult Function(MutedWordsPref data) mutedWordsPref,
-    required TResult Function(HiddenPostsPref data) hiddenPostsPref,
-    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
-    required TResult Function(LabelersPref data) labelersPref,
-    required TResult Function(PostInteractionSettingsPref data)
-        postInteractionSettingsPref,
-    required TResult Function(VerificationPrefs data) verificationPrefs,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return savedFeedsPref(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
-    TResult? Function(InterestsPref data)? interestsPref,
-    TResult? Function(MutedWordsPref data)? mutedWordsPref,
-    TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult? Function(LabelersPref data)? labelersPref,
-    TResult? Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult? Function(VerificationPrefs data)? verificationPrefs,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return savedFeedsPref?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
-    TResult Function(InterestsPref data)? interestsPref,
-    TResult Function(MutedWordsPref data)? mutedWordsPref,
-    TResult Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult Function(LabelersPref data)? labelersPref,
-    TResult Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult Function(VerificationPrefs data)? verificationPrefs,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (savedFeedsPref != null) {
-      return savedFeedsPref(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UPreferencesAdultContentPref value)
-        adultContentPref,
-    required TResult Function(UPreferencesContentLabelPref value)
-        contentLabelPref,
-    required TResult Function(UPreferencesSavedFeedsPref value) savedFeedsPref,
-    required TResult Function(UPreferencesSavedFeedsPrefV2 value)
-        savedFeedsPrefV2,
-    required TResult Function(UPreferencesPersonalDetailsPref value)
-        personalDetailsPref,
-    required TResult Function(UPreferencesFeedViewPref value) feedViewPref,
-    required TResult Function(UPreferencesThreadViewPref value) threadViewPref,
-    required TResult Function(UPreferencesInterestsPref value) interestsPref,
-    required TResult Function(UPreferencesMutedWordsPref value) mutedWordsPref,
-    required TResult Function(UPreferencesHiddenPostsPref value)
-        hiddenPostsPref,
-    required TResult Function(UPreferencesBskyAppStatePref value)
-        bskyAppStatePref,
-    required TResult Function(UPreferencesLabelersPref value) labelersPref,
-    required TResult Function(UPreferencesPostInteractionSettingsPref value)
-        postInteractionSettingsPref,
-    required TResult Function(UPreferencesVerificationPrefs value)
-        verificationPrefs,
-    required TResult Function(UPreferencesUnknown value) unknown,
-  }) {
-    return savedFeedsPref(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult? Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult? Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult? Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult? Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult? Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult? Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult? Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult? Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult? Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult? Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult? Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult? Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult? Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult? Function(UPreferencesUnknown value)? unknown,
-  }) {
-    return savedFeedsPref?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult Function(UPreferencesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (savedFeedsPref != null) {
-      return savedFeedsPref(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UPreferencesContentLabelPref&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UPreferencesSavedFeedsPref extends UPreferences {
-  const factory UPreferencesSavedFeedsPref(
-      {required final SavedFeedsPref data}) = _$UPreferencesSavedFeedsPrefImpl;
-  const UPreferencesSavedFeedsPref._() : super._();
 
-  @override
-  SavedFeedsPref get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferencesSavedFeedsPrefImplCopyWith<_$UPreferencesSavedFeedsPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UPreferences.contentLabelPref(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UPreferencesSavedFeedsPrefV2ImplCopyWith<$Res> {
-  factory _$$UPreferencesSavedFeedsPrefV2ImplCopyWith(
-          _$UPreferencesSavedFeedsPrefV2Impl value,
-          $Res Function(_$UPreferencesSavedFeedsPrefV2Impl) then) =
-      __$$UPreferencesSavedFeedsPrefV2ImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({SavedFeedsPrefV2 data});
+abstract mixin class $UPreferencesContentLabelPrefCopyWith<$Res> implements $UPreferencesCopyWith<$Res> {
+  factory $UPreferencesContentLabelPrefCopyWith(UPreferencesContentLabelPref value, $Res Function(UPreferencesContentLabelPref) _then) = _$UPreferencesContentLabelPrefCopyWithImpl;
+@useResult
+$Res call({
+ ContentLabelPref data
+});
 
-  $SavedFeedsPrefV2CopyWith<$Res> get data;
+
+$ContentLabelPrefCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UPreferencesContentLabelPrefCopyWithImpl<$Res>
+    implements $UPreferencesContentLabelPrefCopyWith<$Res> {
+  _$UPreferencesContentLabelPrefCopyWithImpl(this._self, this._then);
+
+  final UPreferencesContentLabelPref _self;
+  final $Res Function(UPreferencesContentLabelPref) _then;
+
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UPreferencesContentLabelPref(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ContentLabelPref,
+  ));
 }
 
-/// @nodoc
-class __$$UPreferencesSavedFeedsPrefV2ImplCopyWithImpl<$Res>
-    extends _$UPreferencesCopyWithImpl<$Res, _$UPreferencesSavedFeedsPrefV2Impl>
-    implements _$$UPreferencesSavedFeedsPrefV2ImplCopyWith<$Res> {
-  __$$UPreferencesSavedFeedsPrefV2ImplCopyWithImpl(
-      _$UPreferencesSavedFeedsPrefV2Impl _value,
-      $Res Function(_$UPreferencesSavedFeedsPrefV2Impl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UPreferencesSavedFeedsPrefV2Impl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as SavedFeedsPrefV2,
-    ));
-  }
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $SavedFeedsPrefV2CopyWith<$Res> get data {
-    return $SavedFeedsPrefV2CopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ContentLabelPrefCopyWith<$Res> get data {
+  
+  return $ContentLabelPrefCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UPreferencesSavedFeedsPrefV2Impl extends UPreferencesSavedFeedsPrefV2 {
-  const _$UPreferencesSavedFeedsPrefV2Impl({required this.data}) : super._();
 
-  @override
-  final SavedFeedsPrefV2 data;
+class UPreferencesSavedFeedsPref extends UPreferences {
+  const UPreferencesSavedFeedsPref({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UPreferences.savedFeedsPrefV2(data: $data)';
-  }
+@override final  SavedFeedsPref data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UPreferencesSavedFeedsPrefV2Impl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UPreferencesSavedFeedsPrefCopyWith<UPreferencesSavedFeedsPref> get copyWith => _$UPreferencesSavedFeedsPrefCopyWithImpl<UPreferencesSavedFeedsPref>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UPreferencesSavedFeedsPrefV2ImplCopyWith<
-          _$UPreferencesSavedFeedsPrefV2Impl>
-      get copyWith => __$$UPreferencesSavedFeedsPrefV2ImplCopyWithImpl<
-          _$UPreferencesSavedFeedsPrefV2Impl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(SavedFeedsPrefV2 data) savedFeedsPrefV2,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
-    required TResult Function(InterestsPref data) interestsPref,
-    required TResult Function(MutedWordsPref data) mutedWordsPref,
-    required TResult Function(HiddenPostsPref data) hiddenPostsPref,
-    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
-    required TResult Function(LabelersPref data) labelersPref,
-    required TResult Function(PostInteractionSettingsPref data)
-        postInteractionSettingsPref,
-    required TResult Function(VerificationPrefs data) verificationPrefs,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return savedFeedsPrefV2(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
-    TResult? Function(InterestsPref data)? interestsPref,
-    TResult? Function(MutedWordsPref data)? mutedWordsPref,
-    TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult? Function(LabelersPref data)? labelersPref,
-    TResult? Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult? Function(VerificationPrefs data)? verificationPrefs,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return savedFeedsPrefV2?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
-    TResult Function(InterestsPref data)? interestsPref,
-    TResult Function(MutedWordsPref data)? mutedWordsPref,
-    TResult Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult Function(LabelersPref data)? labelersPref,
-    TResult Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult Function(VerificationPrefs data)? verificationPrefs,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (savedFeedsPrefV2 != null) {
-      return savedFeedsPrefV2(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UPreferencesAdultContentPref value)
-        adultContentPref,
-    required TResult Function(UPreferencesContentLabelPref value)
-        contentLabelPref,
-    required TResult Function(UPreferencesSavedFeedsPref value) savedFeedsPref,
-    required TResult Function(UPreferencesSavedFeedsPrefV2 value)
-        savedFeedsPrefV2,
-    required TResult Function(UPreferencesPersonalDetailsPref value)
-        personalDetailsPref,
-    required TResult Function(UPreferencesFeedViewPref value) feedViewPref,
-    required TResult Function(UPreferencesThreadViewPref value) threadViewPref,
-    required TResult Function(UPreferencesInterestsPref value) interestsPref,
-    required TResult Function(UPreferencesMutedWordsPref value) mutedWordsPref,
-    required TResult Function(UPreferencesHiddenPostsPref value)
-        hiddenPostsPref,
-    required TResult Function(UPreferencesBskyAppStatePref value)
-        bskyAppStatePref,
-    required TResult Function(UPreferencesLabelersPref value) labelersPref,
-    required TResult Function(UPreferencesPostInteractionSettingsPref value)
-        postInteractionSettingsPref,
-    required TResult Function(UPreferencesVerificationPrefs value)
-        verificationPrefs,
-    required TResult Function(UPreferencesUnknown value) unknown,
-  }) {
-    return savedFeedsPrefV2(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult? Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult? Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult? Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult? Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult? Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult? Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult? Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult? Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult? Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult? Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult? Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult? Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult? Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult? Function(UPreferencesUnknown value)? unknown,
-  }) {
-    return savedFeedsPrefV2?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult Function(UPreferencesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (savedFeedsPrefV2 != null) {
-      return savedFeedsPrefV2(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UPreferencesSavedFeedsPref&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UPreferencesSavedFeedsPrefV2 extends UPreferences {
-  const factory UPreferencesSavedFeedsPrefV2(
-          {required final SavedFeedsPrefV2 data}) =
-      _$UPreferencesSavedFeedsPrefV2Impl;
-  const UPreferencesSavedFeedsPrefV2._() : super._();
 
-  @override
-  SavedFeedsPrefV2 get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferencesSavedFeedsPrefV2ImplCopyWith<
-          _$UPreferencesSavedFeedsPrefV2Impl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UPreferences.savedFeedsPref(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UPreferencesPersonalDetailsPrefImplCopyWith<$Res> {
-  factory _$$UPreferencesPersonalDetailsPrefImplCopyWith(
-          _$UPreferencesPersonalDetailsPrefImpl value,
-          $Res Function(_$UPreferencesPersonalDetailsPrefImpl) then) =
-      __$$UPreferencesPersonalDetailsPrefImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({PersonalDetailsPref data});
+abstract mixin class $UPreferencesSavedFeedsPrefCopyWith<$Res> implements $UPreferencesCopyWith<$Res> {
+  factory $UPreferencesSavedFeedsPrefCopyWith(UPreferencesSavedFeedsPref value, $Res Function(UPreferencesSavedFeedsPref) _then) = _$UPreferencesSavedFeedsPrefCopyWithImpl;
+@useResult
+$Res call({
+ SavedFeedsPref data
+});
 
-  $PersonalDetailsPrefCopyWith<$Res> get data;
+
+$SavedFeedsPrefCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UPreferencesSavedFeedsPrefCopyWithImpl<$Res>
+    implements $UPreferencesSavedFeedsPrefCopyWith<$Res> {
+  _$UPreferencesSavedFeedsPrefCopyWithImpl(this._self, this._then);
+
+  final UPreferencesSavedFeedsPref _self;
+  final $Res Function(UPreferencesSavedFeedsPref) _then;
+
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UPreferencesSavedFeedsPref(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as SavedFeedsPref,
+  ));
 }
 
-/// @nodoc
-class __$$UPreferencesPersonalDetailsPrefImplCopyWithImpl<$Res>
-    extends _$UPreferencesCopyWithImpl<$Res,
-        _$UPreferencesPersonalDetailsPrefImpl>
-    implements _$$UPreferencesPersonalDetailsPrefImplCopyWith<$Res> {
-  __$$UPreferencesPersonalDetailsPrefImplCopyWithImpl(
-      _$UPreferencesPersonalDetailsPrefImpl _value,
-      $Res Function(_$UPreferencesPersonalDetailsPrefImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UPreferencesPersonalDetailsPrefImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as PersonalDetailsPref,
-    ));
-  }
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PersonalDetailsPrefCopyWith<$Res> get data {
-    return $PersonalDetailsPrefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SavedFeedsPrefCopyWith<$Res> get data {
+  
+  return $SavedFeedsPrefCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UPreferencesPersonalDetailsPrefImpl
-    extends UPreferencesPersonalDetailsPref {
-  const _$UPreferencesPersonalDetailsPrefImpl({required this.data}) : super._();
 
-  @override
-  final PersonalDetailsPref data;
+class UPreferencesSavedFeedsPrefV2 extends UPreferences {
+  const UPreferencesSavedFeedsPrefV2({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UPreferences.personalDetailsPref(data: $data)';
-  }
+@override final  SavedFeedsPrefV2 data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UPreferencesPersonalDetailsPrefImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UPreferencesSavedFeedsPrefV2CopyWith<UPreferencesSavedFeedsPrefV2> get copyWith => _$UPreferencesSavedFeedsPrefV2CopyWithImpl<UPreferencesSavedFeedsPrefV2>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UPreferencesPersonalDetailsPrefImplCopyWith<
-          _$UPreferencesPersonalDetailsPrefImpl>
-      get copyWith => __$$UPreferencesPersonalDetailsPrefImplCopyWithImpl<
-          _$UPreferencesPersonalDetailsPrefImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(SavedFeedsPrefV2 data) savedFeedsPrefV2,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
-    required TResult Function(InterestsPref data) interestsPref,
-    required TResult Function(MutedWordsPref data) mutedWordsPref,
-    required TResult Function(HiddenPostsPref data) hiddenPostsPref,
-    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
-    required TResult Function(LabelersPref data) labelersPref,
-    required TResult Function(PostInteractionSettingsPref data)
-        postInteractionSettingsPref,
-    required TResult Function(VerificationPrefs data) verificationPrefs,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return personalDetailsPref(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
-    TResult? Function(InterestsPref data)? interestsPref,
-    TResult? Function(MutedWordsPref data)? mutedWordsPref,
-    TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult? Function(LabelersPref data)? labelersPref,
-    TResult? Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult? Function(VerificationPrefs data)? verificationPrefs,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return personalDetailsPref?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
-    TResult Function(InterestsPref data)? interestsPref,
-    TResult Function(MutedWordsPref data)? mutedWordsPref,
-    TResult Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult Function(LabelersPref data)? labelersPref,
-    TResult Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult Function(VerificationPrefs data)? verificationPrefs,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (personalDetailsPref != null) {
-      return personalDetailsPref(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UPreferencesAdultContentPref value)
-        adultContentPref,
-    required TResult Function(UPreferencesContentLabelPref value)
-        contentLabelPref,
-    required TResult Function(UPreferencesSavedFeedsPref value) savedFeedsPref,
-    required TResult Function(UPreferencesSavedFeedsPrefV2 value)
-        savedFeedsPrefV2,
-    required TResult Function(UPreferencesPersonalDetailsPref value)
-        personalDetailsPref,
-    required TResult Function(UPreferencesFeedViewPref value) feedViewPref,
-    required TResult Function(UPreferencesThreadViewPref value) threadViewPref,
-    required TResult Function(UPreferencesInterestsPref value) interestsPref,
-    required TResult Function(UPreferencesMutedWordsPref value) mutedWordsPref,
-    required TResult Function(UPreferencesHiddenPostsPref value)
-        hiddenPostsPref,
-    required TResult Function(UPreferencesBskyAppStatePref value)
-        bskyAppStatePref,
-    required TResult Function(UPreferencesLabelersPref value) labelersPref,
-    required TResult Function(UPreferencesPostInteractionSettingsPref value)
-        postInteractionSettingsPref,
-    required TResult Function(UPreferencesVerificationPrefs value)
-        verificationPrefs,
-    required TResult Function(UPreferencesUnknown value) unknown,
-  }) {
-    return personalDetailsPref(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult? Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult? Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult? Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult? Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult? Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult? Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult? Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult? Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult? Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult? Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult? Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult? Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult? Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult? Function(UPreferencesUnknown value)? unknown,
-  }) {
-    return personalDetailsPref?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult Function(UPreferencesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (personalDetailsPref != null) {
-      return personalDetailsPref(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UPreferencesSavedFeedsPrefV2&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UPreferencesPersonalDetailsPref extends UPreferences {
-  const factory UPreferencesPersonalDetailsPref(
-          {required final PersonalDetailsPref data}) =
-      _$UPreferencesPersonalDetailsPrefImpl;
-  const UPreferencesPersonalDetailsPref._() : super._();
 
-  @override
-  PersonalDetailsPref get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferencesPersonalDetailsPrefImplCopyWith<
-          _$UPreferencesPersonalDetailsPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UPreferences.savedFeedsPrefV2(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UPreferencesFeedViewPrefImplCopyWith<$Res> {
-  factory _$$UPreferencesFeedViewPrefImplCopyWith(
-          _$UPreferencesFeedViewPrefImpl value,
-          $Res Function(_$UPreferencesFeedViewPrefImpl) then) =
-      __$$UPreferencesFeedViewPrefImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({FeedViewPref data});
+abstract mixin class $UPreferencesSavedFeedsPrefV2CopyWith<$Res> implements $UPreferencesCopyWith<$Res> {
+  factory $UPreferencesSavedFeedsPrefV2CopyWith(UPreferencesSavedFeedsPrefV2 value, $Res Function(UPreferencesSavedFeedsPrefV2) _then) = _$UPreferencesSavedFeedsPrefV2CopyWithImpl;
+@useResult
+$Res call({
+ SavedFeedsPrefV2 data
+});
 
-  $FeedViewPrefCopyWith<$Res> get data;
+
+$SavedFeedsPrefV2CopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UPreferencesSavedFeedsPrefV2CopyWithImpl<$Res>
+    implements $UPreferencesSavedFeedsPrefV2CopyWith<$Res> {
+  _$UPreferencesSavedFeedsPrefV2CopyWithImpl(this._self, this._then);
+
+  final UPreferencesSavedFeedsPrefV2 _self;
+  final $Res Function(UPreferencesSavedFeedsPrefV2) _then;
+
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UPreferencesSavedFeedsPrefV2(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as SavedFeedsPrefV2,
+  ));
 }
 
-/// @nodoc
-class __$$UPreferencesFeedViewPrefImplCopyWithImpl<$Res>
-    extends _$UPreferencesCopyWithImpl<$Res, _$UPreferencesFeedViewPrefImpl>
-    implements _$$UPreferencesFeedViewPrefImplCopyWith<$Res> {
-  __$$UPreferencesFeedViewPrefImplCopyWithImpl(
-      _$UPreferencesFeedViewPrefImpl _value,
-      $Res Function(_$UPreferencesFeedViewPrefImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UPreferencesFeedViewPrefImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as FeedViewPref,
-    ));
-  }
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $FeedViewPrefCopyWith<$Res> get data {
-    return $FeedViewPrefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SavedFeedsPrefV2CopyWith<$Res> get data {
+  
+  return $SavedFeedsPrefV2CopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UPreferencesFeedViewPrefImpl extends UPreferencesFeedViewPref {
-  const _$UPreferencesFeedViewPrefImpl({required this.data}) : super._();
 
-  @override
-  final FeedViewPref data;
+class UPreferencesPersonalDetailsPref extends UPreferences {
+  const UPreferencesPersonalDetailsPref({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UPreferences.feedViewPref(data: $data)';
-  }
+@override final  PersonalDetailsPref data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UPreferencesFeedViewPrefImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UPreferencesPersonalDetailsPrefCopyWith<UPreferencesPersonalDetailsPref> get copyWith => _$UPreferencesPersonalDetailsPrefCopyWithImpl<UPreferencesPersonalDetailsPref>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UPreferencesFeedViewPrefImplCopyWith<_$UPreferencesFeedViewPrefImpl>
-      get copyWith => __$$UPreferencesFeedViewPrefImplCopyWithImpl<
-          _$UPreferencesFeedViewPrefImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(SavedFeedsPrefV2 data) savedFeedsPrefV2,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
-    required TResult Function(InterestsPref data) interestsPref,
-    required TResult Function(MutedWordsPref data) mutedWordsPref,
-    required TResult Function(HiddenPostsPref data) hiddenPostsPref,
-    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
-    required TResult Function(LabelersPref data) labelersPref,
-    required TResult Function(PostInteractionSettingsPref data)
-        postInteractionSettingsPref,
-    required TResult Function(VerificationPrefs data) verificationPrefs,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return feedViewPref(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
-    TResult? Function(InterestsPref data)? interestsPref,
-    TResult? Function(MutedWordsPref data)? mutedWordsPref,
-    TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult? Function(LabelersPref data)? labelersPref,
-    TResult? Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult? Function(VerificationPrefs data)? verificationPrefs,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return feedViewPref?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
-    TResult Function(InterestsPref data)? interestsPref,
-    TResult Function(MutedWordsPref data)? mutedWordsPref,
-    TResult Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult Function(LabelersPref data)? labelersPref,
-    TResult Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult Function(VerificationPrefs data)? verificationPrefs,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (feedViewPref != null) {
-      return feedViewPref(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UPreferencesAdultContentPref value)
-        adultContentPref,
-    required TResult Function(UPreferencesContentLabelPref value)
-        contentLabelPref,
-    required TResult Function(UPreferencesSavedFeedsPref value) savedFeedsPref,
-    required TResult Function(UPreferencesSavedFeedsPrefV2 value)
-        savedFeedsPrefV2,
-    required TResult Function(UPreferencesPersonalDetailsPref value)
-        personalDetailsPref,
-    required TResult Function(UPreferencesFeedViewPref value) feedViewPref,
-    required TResult Function(UPreferencesThreadViewPref value) threadViewPref,
-    required TResult Function(UPreferencesInterestsPref value) interestsPref,
-    required TResult Function(UPreferencesMutedWordsPref value) mutedWordsPref,
-    required TResult Function(UPreferencesHiddenPostsPref value)
-        hiddenPostsPref,
-    required TResult Function(UPreferencesBskyAppStatePref value)
-        bskyAppStatePref,
-    required TResult Function(UPreferencesLabelersPref value) labelersPref,
-    required TResult Function(UPreferencesPostInteractionSettingsPref value)
-        postInteractionSettingsPref,
-    required TResult Function(UPreferencesVerificationPrefs value)
-        verificationPrefs,
-    required TResult Function(UPreferencesUnknown value) unknown,
-  }) {
-    return feedViewPref(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult? Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult? Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult? Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult? Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult? Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult? Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult? Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult? Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult? Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult? Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult? Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult? Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult? Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult? Function(UPreferencesUnknown value)? unknown,
-  }) {
-    return feedViewPref?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult Function(UPreferencesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (feedViewPref != null) {
-      return feedViewPref(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UPreferencesPersonalDetailsPref&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UPreferencesFeedViewPref extends UPreferences {
-  const factory UPreferencesFeedViewPref({required final FeedViewPref data}) =
-      _$UPreferencesFeedViewPrefImpl;
-  const UPreferencesFeedViewPref._() : super._();
 
-  @override
-  FeedViewPref get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferencesFeedViewPrefImplCopyWith<_$UPreferencesFeedViewPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UPreferences.personalDetailsPref(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UPreferencesThreadViewPrefImplCopyWith<$Res> {
-  factory _$$UPreferencesThreadViewPrefImplCopyWith(
-          _$UPreferencesThreadViewPrefImpl value,
-          $Res Function(_$UPreferencesThreadViewPrefImpl) then) =
-      __$$UPreferencesThreadViewPrefImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ThreadViewPref data});
+abstract mixin class $UPreferencesPersonalDetailsPrefCopyWith<$Res> implements $UPreferencesCopyWith<$Res> {
+  factory $UPreferencesPersonalDetailsPrefCopyWith(UPreferencesPersonalDetailsPref value, $Res Function(UPreferencesPersonalDetailsPref) _then) = _$UPreferencesPersonalDetailsPrefCopyWithImpl;
+@useResult
+$Res call({
+ PersonalDetailsPref data
+});
 
-  $ThreadViewPrefCopyWith<$Res> get data;
+
+$PersonalDetailsPrefCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UPreferencesPersonalDetailsPrefCopyWithImpl<$Res>
+    implements $UPreferencesPersonalDetailsPrefCopyWith<$Res> {
+  _$UPreferencesPersonalDetailsPrefCopyWithImpl(this._self, this._then);
+
+  final UPreferencesPersonalDetailsPref _self;
+  final $Res Function(UPreferencesPersonalDetailsPref) _then;
+
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UPreferencesPersonalDetailsPref(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as PersonalDetailsPref,
+  ));
 }
 
-/// @nodoc
-class __$$UPreferencesThreadViewPrefImplCopyWithImpl<$Res>
-    extends _$UPreferencesCopyWithImpl<$Res, _$UPreferencesThreadViewPrefImpl>
-    implements _$$UPreferencesThreadViewPrefImplCopyWith<$Res> {
-  __$$UPreferencesThreadViewPrefImplCopyWithImpl(
-      _$UPreferencesThreadViewPrefImpl _value,
-      $Res Function(_$UPreferencesThreadViewPrefImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UPreferencesThreadViewPrefImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ThreadViewPref,
-    ));
-  }
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ThreadViewPrefCopyWith<$Res> get data {
-    return $ThreadViewPrefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PersonalDetailsPrefCopyWith<$Res> get data {
+  
+  return $PersonalDetailsPrefCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UPreferencesThreadViewPrefImpl extends UPreferencesThreadViewPref {
-  const _$UPreferencesThreadViewPrefImpl({required this.data}) : super._();
 
-  @override
-  final ThreadViewPref data;
+class UPreferencesFeedViewPref extends UPreferences {
+  const UPreferencesFeedViewPref({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UPreferences.threadViewPref(data: $data)';
-  }
+@override final  FeedViewPref data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UPreferencesThreadViewPrefImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UPreferencesFeedViewPrefCopyWith<UPreferencesFeedViewPref> get copyWith => _$UPreferencesFeedViewPrefCopyWithImpl<UPreferencesFeedViewPref>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UPreferencesThreadViewPrefImplCopyWith<_$UPreferencesThreadViewPrefImpl>
-      get copyWith => __$$UPreferencesThreadViewPrefImplCopyWithImpl<
-          _$UPreferencesThreadViewPrefImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(SavedFeedsPrefV2 data) savedFeedsPrefV2,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
-    required TResult Function(InterestsPref data) interestsPref,
-    required TResult Function(MutedWordsPref data) mutedWordsPref,
-    required TResult Function(HiddenPostsPref data) hiddenPostsPref,
-    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
-    required TResult Function(LabelersPref data) labelersPref,
-    required TResult Function(PostInteractionSettingsPref data)
-        postInteractionSettingsPref,
-    required TResult Function(VerificationPrefs data) verificationPrefs,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return threadViewPref(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
-    TResult? Function(InterestsPref data)? interestsPref,
-    TResult? Function(MutedWordsPref data)? mutedWordsPref,
-    TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult? Function(LabelersPref data)? labelersPref,
-    TResult? Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult? Function(VerificationPrefs data)? verificationPrefs,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return threadViewPref?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
-    TResult Function(InterestsPref data)? interestsPref,
-    TResult Function(MutedWordsPref data)? mutedWordsPref,
-    TResult Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult Function(LabelersPref data)? labelersPref,
-    TResult Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult Function(VerificationPrefs data)? verificationPrefs,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (threadViewPref != null) {
-      return threadViewPref(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UPreferencesAdultContentPref value)
-        adultContentPref,
-    required TResult Function(UPreferencesContentLabelPref value)
-        contentLabelPref,
-    required TResult Function(UPreferencesSavedFeedsPref value) savedFeedsPref,
-    required TResult Function(UPreferencesSavedFeedsPrefV2 value)
-        savedFeedsPrefV2,
-    required TResult Function(UPreferencesPersonalDetailsPref value)
-        personalDetailsPref,
-    required TResult Function(UPreferencesFeedViewPref value) feedViewPref,
-    required TResult Function(UPreferencesThreadViewPref value) threadViewPref,
-    required TResult Function(UPreferencesInterestsPref value) interestsPref,
-    required TResult Function(UPreferencesMutedWordsPref value) mutedWordsPref,
-    required TResult Function(UPreferencesHiddenPostsPref value)
-        hiddenPostsPref,
-    required TResult Function(UPreferencesBskyAppStatePref value)
-        bskyAppStatePref,
-    required TResult Function(UPreferencesLabelersPref value) labelersPref,
-    required TResult Function(UPreferencesPostInteractionSettingsPref value)
-        postInteractionSettingsPref,
-    required TResult Function(UPreferencesVerificationPrefs value)
-        verificationPrefs,
-    required TResult Function(UPreferencesUnknown value) unknown,
-  }) {
-    return threadViewPref(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult? Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult? Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult? Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult? Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult? Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult? Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult? Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult? Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult? Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult? Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult? Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult? Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult? Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult? Function(UPreferencesUnknown value)? unknown,
-  }) {
-    return threadViewPref?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult Function(UPreferencesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (threadViewPref != null) {
-      return threadViewPref(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UPreferencesFeedViewPref&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UPreferencesThreadViewPref extends UPreferences {
-  const factory UPreferencesThreadViewPref(
-      {required final ThreadViewPref data}) = _$UPreferencesThreadViewPrefImpl;
-  const UPreferencesThreadViewPref._() : super._();
 
-  @override
-  ThreadViewPref get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferencesThreadViewPrefImplCopyWith<_$UPreferencesThreadViewPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UPreferences.feedViewPref(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UPreferencesInterestsPrefImplCopyWith<$Res> {
-  factory _$$UPreferencesInterestsPrefImplCopyWith(
-          _$UPreferencesInterestsPrefImpl value,
-          $Res Function(_$UPreferencesInterestsPrefImpl) then) =
-      __$$UPreferencesInterestsPrefImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({InterestsPref data});
+abstract mixin class $UPreferencesFeedViewPrefCopyWith<$Res> implements $UPreferencesCopyWith<$Res> {
+  factory $UPreferencesFeedViewPrefCopyWith(UPreferencesFeedViewPref value, $Res Function(UPreferencesFeedViewPref) _then) = _$UPreferencesFeedViewPrefCopyWithImpl;
+@useResult
+$Res call({
+ FeedViewPref data
+});
 
-  $InterestsPrefCopyWith<$Res> get data;
+
+$FeedViewPrefCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UPreferencesFeedViewPrefCopyWithImpl<$Res>
+    implements $UPreferencesFeedViewPrefCopyWith<$Res> {
+  _$UPreferencesFeedViewPrefCopyWithImpl(this._self, this._then);
+
+  final UPreferencesFeedViewPref _self;
+  final $Res Function(UPreferencesFeedViewPref) _then;
+
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UPreferencesFeedViewPref(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as FeedViewPref,
+  ));
 }
 
-/// @nodoc
-class __$$UPreferencesInterestsPrefImplCopyWithImpl<$Res>
-    extends _$UPreferencesCopyWithImpl<$Res, _$UPreferencesInterestsPrefImpl>
-    implements _$$UPreferencesInterestsPrefImplCopyWith<$Res> {
-  __$$UPreferencesInterestsPrefImplCopyWithImpl(
-      _$UPreferencesInterestsPrefImpl _value,
-      $Res Function(_$UPreferencesInterestsPrefImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UPreferencesInterestsPrefImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as InterestsPref,
-    ));
-  }
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $InterestsPrefCopyWith<$Res> get data {
-    return $InterestsPrefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$FeedViewPrefCopyWith<$Res> get data {
+  
+  return $FeedViewPrefCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UPreferencesInterestsPrefImpl extends UPreferencesInterestsPref {
-  const _$UPreferencesInterestsPrefImpl({required this.data}) : super._();
 
-  @override
-  final InterestsPref data;
+class UPreferencesThreadViewPref extends UPreferences {
+  const UPreferencesThreadViewPref({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UPreferences.interestsPref(data: $data)';
-  }
+@override final  ThreadViewPref data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UPreferencesInterestsPrefImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UPreferencesThreadViewPrefCopyWith<UPreferencesThreadViewPref> get copyWith => _$UPreferencesThreadViewPrefCopyWithImpl<UPreferencesThreadViewPref>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UPreferencesInterestsPrefImplCopyWith<_$UPreferencesInterestsPrefImpl>
-      get copyWith => __$$UPreferencesInterestsPrefImplCopyWithImpl<
-          _$UPreferencesInterestsPrefImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(SavedFeedsPrefV2 data) savedFeedsPrefV2,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
-    required TResult Function(InterestsPref data) interestsPref,
-    required TResult Function(MutedWordsPref data) mutedWordsPref,
-    required TResult Function(HiddenPostsPref data) hiddenPostsPref,
-    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
-    required TResult Function(LabelersPref data) labelersPref,
-    required TResult Function(PostInteractionSettingsPref data)
-        postInteractionSettingsPref,
-    required TResult Function(VerificationPrefs data) verificationPrefs,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return interestsPref(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
-    TResult? Function(InterestsPref data)? interestsPref,
-    TResult? Function(MutedWordsPref data)? mutedWordsPref,
-    TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult? Function(LabelersPref data)? labelersPref,
-    TResult? Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult? Function(VerificationPrefs data)? verificationPrefs,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return interestsPref?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
-    TResult Function(InterestsPref data)? interestsPref,
-    TResult Function(MutedWordsPref data)? mutedWordsPref,
-    TResult Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult Function(LabelersPref data)? labelersPref,
-    TResult Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult Function(VerificationPrefs data)? verificationPrefs,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (interestsPref != null) {
-      return interestsPref(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UPreferencesAdultContentPref value)
-        adultContentPref,
-    required TResult Function(UPreferencesContentLabelPref value)
-        contentLabelPref,
-    required TResult Function(UPreferencesSavedFeedsPref value) savedFeedsPref,
-    required TResult Function(UPreferencesSavedFeedsPrefV2 value)
-        savedFeedsPrefV2,
-    required TResult Function(UPreferencesPersonalDetailsPref value)
-        personalDetailsPref,
-    required TResult Function(UPreferencesFeedViewPref value) feedViewPref,
-    required TResult Function(UPreferencesThreadViewPref value) threadViewPref,
-    required TResult Function(UPreferencesInterestsPref value) interestsPref,
-    required TResult Function(UPreferencesMutedWordsPref value) mutedWordsPref,
-    required TResult Function(UPreferencesHiddenPostsPref value)
-        hiddenPostsPref,
-    required TResult Function(UPreferencesBskyAppStatePref value)
-        bskyAppStatePref,
-    required TResult Function(UPreferencesLabelersPref value) labelersPref,
-    required TResult Function(UPreferencesPostInteractionSettingsPref value)
-        postInteractionSettingsPref,
-    required TResult Function(UPreferencesVerificationPrefs value)
-        verificationPrefs,
-    required TResult Function(UPreferencesUnknown value) unknown,
-  }) {
-    return interestsPref(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult? Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult? Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult? Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult? Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult? Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult? Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult? Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult? Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult? Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult? Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult? Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult? Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult? Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult? Function(UPreferencesUnknown value)? unknown,
-  }) {
-    return interestsPref?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult Function(UPreferencesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (interestsPref != null) {
-      return interestsPref(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UPreferencesThreadViewPref&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UPreferencesInterestsPref extends UPreferences {
-  const factory UPreferencesInterestsPref({required final InterestsPref data}) =
-      _$UPreferencesInterestsPrefImpl;
-  const UPreferencesInterestsPref._() : super._();
 
-  @override
-  InterestsPref get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferencesInterestsPrefImplCopyWith<_$UPreferencesInterestsPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UPreferences.threadViewPref(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UPreferencesMutedWordsPrefImplCopyWith<$Res> {
-  factory _$$UPreferencesMutedWordsPrefImplCopyWith(
-          _$UPreferencesMutedWordsPrefImpl value,
-          $Res Function(_$UPreferencesMutedWordsPrefImpl) then) =
-      __$$UPreferencesMutedWordsPrefImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({MutedWordsPref data});
+abstract mixin class $UPreferencesThreadViewPrefCopyWith<$Res> implements $UPreferencesCopyWith<$Res> {
+  factory $UPreferencesThreadViewPrefCopyWith(UPreferencesThreadViewPref value, $Res Function(UPreferencesThreadViewPref) _then) = _$UPreferencesThreadViewPrefCopyWithImpl;
+@useResult
+$Res call({
+ ThreadViewPref data
+});
 
-  $MutedWordsPrefCopyWith<$Res> get data;
+
+$ThreadViewPrefCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UPreferencesThreadViewPrefCopyWithImpl<$Res>
+    implements $UPreferencesThreadViewPrefCopyWith<$Res> {
+  _$UPreferencesThreadViewPrefCopyWithImpl(this._self, this._then);
+
+  final UPreferencesThreadViewPref _self;
+  final $Res Function(UPreferencesThreadViewPref) _then;
+
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UPreferencesThreadViewPref(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ThreadViewPref,
+  ));
 }
 
-/// @nodoc
-class __$$UPreferencesMutedWordsPrefImplCopyWithImpl<$Res>
-    extends _$UPreferencesCopyWithImpl<$Res, _$UPreferencesMutedWordsPrefImpl>
-    implements _$$UPreferencesMutedWordsPrefImplCopyWith<$Res> {
-  __$$UPreferencesMutedWordsPrefImplCopyWithImpl(
-      _$UPreferencesMutedWordsPrefImpl _value,
-      $Res Function(_$UPreferencesMutedWordsPrefImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UPreferencesMutedWordsPrefImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as MutedWordsPref,
-    ));
-  }
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MutedWordsPrefCopyWith<$Res> get data {
-    return $MutedWordsPrefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ThreadViewPrefCopyWith<$Res> get data {
+  
+  return $ThreadViewPrefCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UPreferencesMutedWordsPrefImpl extends UPreferencesMutedWordsPref {
-  const _$UPreferencesMutedWordsPrefImpl({required this.data}) : super._();
 
-  @override
-  final MutedWordsPref data;
+class UPreferencesInterestsPref extends UPreferences {
+  const UPreferencesInterestsPref({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UPreferences.mutedWordsPref(data: $data)';
-  }
+@override final  InterestsPref data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UPreferencesMutedWordsPrefImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UPreferencesInterestsPrefCopyWith<UPreferencesInterestsPref> get copyWith => _$UPreferencesInterestsPrefCopyWithImpl<UPreferencesInterestsPref>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UPreferencesMutedWordsPrefImplCopyWith<_$UPreferencesMutedWordsPrefImpl>
-      get copyWith => __$$UPreferencesMutedWordsPrefImplCopyWithImpl<
-          _$UPreferencesMutedWordsPrefImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(SavedFeedsPrefV2 data) savedFeedsPrefV2,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
-    required TResult Function(InterestsPref data) interestsPref,
-    required TResult Function(MutedWordsPref data) mutedWordsPref,
-    required TResult Function(HiddenPostsPref data) hiddenPostsPref,
-    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
-    required TResult Function(LabelersPref data) labelersPref,
-    required TResult Function(PostInteractionSettingsPref data)
-        postInteractionSettingsPref,
-    required TResult Function(VerificationPrefs data) verificationPrefs,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return mutedWordsPref(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
-    TResult? Function(InterestsPref data)? interestsPref,
-    TResult? Function(MutedWordsPref data)? mutedWordsPref,
-    TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult? Function(LabelersPref data)? labelersPref,
-    TResult? Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult? Function(VerificationPrefs data)? verificationPrefs,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return mutedWordsPref?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
-    TResult Function(InterestsPref data)? interestsPref,
-    TResult Function(MutedWordsPref data)? mutedWordsPref,
-    TResult Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult Function(LabelersPref data)? labelersPref,
-    TResult Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult Function(VerificationPrefs data)? verificationPrefs,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (mutedWordsPref != null) {
-      return mutedWordsPref(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UPreferencesAdultContentPref value)
-        adultContentPref,
-    required TResult Function(UPreferencesContentLabelPref value)
-        contentLabelPref,
-    required TResult Function(UPreferencesSavedFeedsPref value) savedFeedsPref,
-    required TResult Function(UPreferencesSavedFeedsPrefV2 value)
-        savedFeedsPrefV2,
-    required TResult Function(UPreferencesPersonalDetailsPref value)
-        personalDetailsPref,
-    required TResult Function(UPreferencesFeedViewPref value) feedViewPref,
-    required TResult Function(UPreferencesThreadViewPref value) threadViewPref,
-    required TResult Function(UPreferencesInterestsPref value) interestsPref,
-    required TResult Function(UPreferencesMutedWordsPref value) mutedWordsPref,
-    required TResult Function(UPreferencesHiddenPostsPref value)
-        hiddenPostsPref,
-    required TResult Function(UPreferencesBskyAppStatePref value)
-        bskyAppStatePref,
-    required TResult Function(UPreferencesLabelersPref value) labelersPref,
-    required TResult Function(UPreferencesPostInteractionSettingsPref value)
-        postInteractionSettingsPref,
-    required TResult Function(UPreferencesVerificationPrefs value)
-        verificationPrefs,
-    required TResult Function(UPreferencesUnknown value) unknown,
-  }) {
-    return mutedWordsPref(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult? Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult? Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult? Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult? Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult? Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult? Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult? Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult? Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult? Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult? Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult? Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult? Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult? Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult? Function(UPreferencesUnknown value)? unknown,
-  }) {
-    return mutedWordsPref?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult Function(UPreferencesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (mutedWordsPref != null) {
-      return mutedWordsPref(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UPreferencesInterestsPref&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UPreferencesMutedWordsPref extends UPreferences {
-  const factory UPreferencesMutedWordsPref(
-      {required final MutedWordsPref data}) = _$UPreferencesMutedWordsPrefImpl;
-  const UPreferencesMutedWordsPref._() : super._();
 
-  @override
-  MutedWordsPref get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferencesMutedWordsPrefImplCopyWith<_$UPreferencesMutedWordsPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UPreferences.interestsPref(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UPreferencesHiddenPostsPrefImplCopyWith<$Res> {
-  factory _$$UPreferencesHiddenPostsPrefImplCopyWith(
-          _$UPreferencesHiddenPostsPrefImpl value,
-          $Res Function(_$UPreferencesHiddenPostsPrefImpl) then) =
-      __$$UPreferencesHiddenPostsPrefImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({HiddenPostsPref data});
+abstract mixin class $UPreferencesInterestsPrefCopyWith<$Res> implements $UPreferencesCopyWith<$Res> {
+  factory $UPreferencesInterestsPrefCopyWith(UPreferencesInterestsPref value, $Res Function(UPreferencesInterestsPref) _then) = _$UPreferencesInterestsPrefCopyWithImpl;
+@useResult
+$Res call({
+ InterestsPref data
+});
 
-  $HiddenPostsPrefCopyWith<$Res> get data;
+
+$InterestsPrefCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UPreferencesInterestsPrefCopyWithImpl<$Res>
+    implements $UPreferencesInterestsPrefCopyWith<$Res> {
+  _$UPreferencesInterestsPrefCopyWithImpl(this._self, this._then);
+
+  final UPreferencesInterestsPref _self;
+  final $Res Function(UPreferencesInterestsPref) _then;
+
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UPreferencesInterestsPref(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as InterestsPref,
+  ));
 }
 
-/// @nodoc
-class __$$UPreferencesHiddenPostsPrefImplCopyWithImpl<$Res>
-    extends _$UPreferencesCopyWithImpl<$Res, _$UPreferencesHiddenPostsPrefImpl>
-    implements _$$UPreferencesHiddenPostsPrefImplCopyWith<$Res> {
-  __$$UPreferencesHiddenPostsPrefImplCopyWithImpl(
-      _$UPreferencesHiddenPostsPrefImpl _value,
-      $Res Function(_$UPreferencesHiddenPostsPrefImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UPreferencesHiddenPostsPrefImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as HiddenPostsPref,
-    ));
-  }
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $HiddenPostsPrefCopyWith<$Res> get data {
-    return $HiddenPostsPrefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$InterestsPrefCopyWith<$Res> get data {
+  
+  return $InterestsPrefCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UPreferencesHiddenPostsPrefImpl extends UPreferencesHiddenPostsPref {
-  const _$UPreferencesHiddenPostsPrefImpl({required this.data}) : super._();
 
-  @override
-  final HiddenPostsPref data;
+class UPreferencesMutedWordsPref extends UPreferences {
+  const UPreferencesMutedWordsPref({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UPreferences.hiddenPostsPref(data: $data)';
-  }
+@override final  MutedWordsPref data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UPreferencesHiddenPostsPrefImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UPreferencesMutedWordsPrefCopyWith<UPreferencesMutedWordsPref> get copyWith => _$UPreferencesMutedWordsPrefCopyWithImpl<UPreferencesMutedWordsPref>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UPreferencesHiddenPostsPrefImplCopyWith<_$UPreferencesHiddenPostsPrefImpl>
-      get copyWith => __$$UPreferencesHiddenPostsPrefImplCopyWithImpl<
-          _$UPreferencesHiddenPostsPrefImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(SavedFeedsPrefV2 data) savedFeedsPrefV2,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
-    required TResult Function(InterestsPref data) interestsPref,
-    required TResult Function(MutedWordsPref data) mutedWordsPref,
-    required TResult Function(HiddenPostsPref data) hiddenPostsPref,
-    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
-    required TResult Function(LabelersPref data) labelersPref,
-    required TResult Function(PostInteractionSettingsPref data)
-        postInteractionSettingsPref,
-    required TResult Function(VerificationPrefs data) verificationPrefs,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return hiddenPostsPref(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
-    TResult? Function(InterestsPref data)? interestsPref,
-    TResult? Function(MutedWordsPref data)? mutedWordsPref,
-    TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult? Function(LabelersPref data)? labelersPref,
-    TResult? Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult? Function(VerificationPrefs data)? verificationPrefs,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return hiddenPostsPref?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
-    TResult Function(InterestsPref data)? interestsPref,
-    TResult Function(MutedWordsPref data)? mutedWordsPref,
-    TResult Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult Function(LabelersPref data)? labelersPref,
-    TResult Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult Function(VerificationPrefs data)? verificationPrefs,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (hiddenPostsPref != null) {
-      return hiddenPostsPref(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UPreferencesAdultContentPref value)
-        adultContentPref,
-    required TResult Function(UPreferencesContentLabelPref value)
-        contentLabelPref,
-    required TResult Function(UPreferencesSavedFeedsPref value) savedFeedsPref,
-    required TResult Function(UPreferencesSavedFeedsPrefV2 value)
-        savedFeedsPrefV2,
-    required TResult Function(UPreferencesPersonalDetailsPref value)
-        personalDetailsPref,
-    required TResult Function(UPreferencesFeedViewPref value) feedViewPref,
-    required TResult Function(UPreferencesThreadViewPref value) threadViewPref,
-    required TResult Function(UPreferencesInterestsPref value) interestsPref,
-    required TResult Function(UPreferencesMutedWordsPref value) mutedWordsPref,
-    required TResult Function(UPreferencesHiddenPostsPref value)
-        hiddenPostsPref,
-    required TResult Function(UPreferencesBskyAppStatePref value)
-        bskyAppStatePref,
-    required TResult Function(UPreferencesLabelersPref value) labelersPref,
-    required TResult Function(UPreferencesPostInteractionSettingsPref value)
-        postInteractionSettingsPref,
-    required TResult Function(UPreferencesVerificationPrefs value)
-        verificationPrefs,
-    required TResult Function(UPreferencesUnknown value) unknown,
-  }) {
-    return hiddenPostsPref(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult? Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult? Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult? Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult? Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult? Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult? Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult? Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult? Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult? Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult? Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult? Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult? Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult? Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult? Function(UPreferencesUnknown value)? unknown,
-  }) {
-    return hiddenPostsPref?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult Function(UPreferencesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (hiddenPostsPref != null) {
-      return hiddenPostsPref(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UPreferencesMutedWordsPref&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UPreferencesHiddenPostsPref extends UPreferences {
-  const factory UPreferencesHiddenPostsPref(
-          {required final HiddenPostsPref data}) =
-      _$UPreferencesHiddenPostsPrefImpl;
-  const UPreferencesHiddenPostsPref._() : super._();
 
-  @override
-  HiddenPostsPref get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferencesHiddenPostsPrefImplCopyWith<_$UPreferencesHiddenPostsPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UPreferences.mutedWordsPref(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UPreferencesBskyAppStatePrefImplCopyWith<$Res> {
-  factory _$$UPreferencesBskyAppStatePrefImplCopyWith(
-          _$UPreferencesBskyAppStatePrefImpl value,
-          $Res Function(_$UPreferencesBskyAppStatePrefImpl) then) =
-      __$$UPreferencesBskyAppStatePrefImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({BskyAppStatePref data});
+abstract mixin class $UPreferencesMutedWordsPrefCopyWith<$Res> implements $UPreferencesCopyWith<$Res> {
+  factory $UPreferencesMutedWordsPrefCopyWith(UPreferencesMutedWordsPref value, $Res Function(UPreferencesMutedWordsPref) _then) = _$UPreferencesMutedWordsPrefCopyWithImpl;
+@useResult
+$Res call({
+ MutedWordsPref data
+});
 
-  $BskyAppStatePrefCopyWith<$Res> get data;
+
+$MutedWordsPrefCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UPreferencesMutedWordsPrefCopyWithImpl<$Res>
+    implements $UPreferencesMutedWordsPrefCopyWith<$Res> {
+  _$UPreferencesMutedWordsPrefCopyWithImpl(this._self, this._then);
+
+  final UPreferencesMutedWordsPref _self;
+  final $Res Function(UPreferencesMutedWordsPref) _then;
+
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UPreferencesMutedWordsPref(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as MutedWordsPref,
+  ));
 }
 
-/// @nodoc
-class __$$UPreferencesBskyAppStatePrefImplCopyWithImpl<$Res>
-    extends _$UPreferencesCopyWithImpl<$Res, _$UPreferencesBskyAppStatePrefImpl>
-    implements _$$UPreferencesBskyAppStatePrefImplCopyWith<$Res> {
-  __$$UPreferencesBskyAppStatePrefImplCopyWithImpl(
-      _$UPreferencesBskyAppStatePrefImpl _value,
-      $Res Function(_$UPreferencesBskyAppStatePrefImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UPreferencesBskyAppStatePrefImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as BskyAppStatePref,
-    ));
-  }
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $BskyAppStatePrefCopyWith<$Res> get data {
-    return $BskyAppStatePrefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$MutedWordsPrefCopyWith<$Res> get data {
+  
+  return $MutedWordsPrefCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UPreferencesBskyAppStatePrefImpl extends UPreferencesBskyAppStatePref {
-  const _$UPreferencesBskyAppStatePrefImpl({required this.data}) : super._();
 
-  @override
-  final BskyAppStatePref data;
+class UPreferencesHiddenPostsPref extends UPreferences {
+  const UPreferencesHiddenPostsPref({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UPreferences.bskyAppStatePref(data: $data)';
-  }
+@override final  HiddenPostsPref data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UPreferencesBskyAppStatePrefImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UPreferencesHiddenPostsPrefCopyWith<UPreferencesHiddenPostsPref> get copyWith => _$UPreferencesHiddenPostsPrefCopyWithImpl<UPreferencesHiddenPostsPref>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UPreferencesBskyAppStatePrefImplCopyWith<
-          _$UPreferencesBskyAppStatePrefImpl>
-      get copyWith => __$$UPreferencesBskyAppStatePrefImplCopyWithImpl<
-          _$UPreferencesBskyAppStatePrefImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(SavedFeedsPrefV2 data) savedFeedsPrefV2,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
-    required TResult Function(InterestsPref data) interestsPref,
-    required TResult Function(MutedWordsPref data) mutedWordsPref,
-    required TResult Function(HiddenPostsPref data) hiddenPostsPref,
-    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
-    required TResult Function(LabelersPref data) labelersPref,
-    required TResult Function(PostInteractionSettingsPref data)
-        postInteractionSettingsPref,
-    required TResult Function(VerificationPrefs data) verificationPrefs,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return bskyAppStatePref(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
-    TResult? Function(InterestsPref data)? interestsPref,
-    TResult? Function(MutedWordsPref data)? mutedWordsPref,
-    TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult? Function(LabelersPref data)? labelersPref,
-    TResult? Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult? Function(VerificationPrefs data)? verificationPrefs,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return bskyAppStatePref?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
-    TResult Function(InterestsPref data)? interestsPref,
-    TResult Function(MutedWordsPref data)? mutedWordsPref,
-    TResult Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult Function(LabelersPref data)? labelersPref,
-    TResult Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult Function(VerificationPrefs data)? verificationPrefs,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (bskyAppStatePref != null) {
-      return bskyAppStatePref(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UPreferencesAdultContentPref value)
-        adultContentPref,
-    required TResult Function(UPreferencesContentLabelPref value)
-        contentLabelPref,
-    required TResult Function(UPreferencesSavedFeedsPref value) savedFeedsPref,
-    required TResult Function(UPreferencesSavedFeedsPrefV2 value)
-        savedFeedsPrefV2,
-    required TResult Function(UPreferencesPersonalDetailsPref value)
-        personalDetailsPref,
-    required TResult Function(UPreferencesFeedViewPref value) feedViewPref,
-    required TResult Function(UPreferencesThreadViewPref value) threadViewPref,
-    required TResult Function(UPreferencesInterestsPref value) interestsPref,
-    required TResult Function(UPreferencesMutedWordsPref value) mutedWordsPref,
-    required TResult Function(UPreferencesHiddenPostsPref value)
-        hiddenPostsPref,
-    required TResult Function(UPreferencesBskyAppStatePref value)
-        bskyAppStatePref,
-    required TResult Function(UPreferencesLabelersPref value) labelersPref,
-    required TResult Function(UPreferencesPostInteractionSettingsPref value)
-        postInteractionSettingsPref,
-    required TResult Function(UPreferencesVerificationPrefs value)
-        verificationPrefs,
-    required TResult Function(UPreferencesUnknown value) unknown,
-  }) {
-    return bskyAppStatePref(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult? Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult? Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult? Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult? Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult? Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult? Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult? Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult? Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult? Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult? Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult? Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult? Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult? Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult? Function(UPreferencesUnknown value)? unknown,
-  }) {
-    return bskyAppStatePref?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult Function(UPreferencesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (bskyAppStatePref != null) {
-      return bskyAppStatePref(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UPreferencesHiddenPostsPref&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UPreferencesBskyAppStatePref extends UPreferences {
-  const factory UPreferencesBskyAppStatePref(
-          {required final BskyAppStatePref data}) =
-      _$UPreferencesBskyAppStatePrefImpl;
-  const UPreferencesBskyAppStatePref._() : super._();
 
-  @override
-  BskyAppStatePref get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferencesBskyAppStatePrefImplCopyWith<
-          _$UPreferencesBskyAppStatePrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UPreferences.hiddenPostsPref(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UPreferencesLabelersPrefImplCopyWith<$Res> {
-  factory _$$UPreferencesLabelersPrefImplCopyWith(
-          _$UPreferencesLabelersPrefImpl value,
-          $Res Function(_$UPreferencesLabelersPrefImpl) then) =
-      __$$UPreferencesLabelersPrefImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LabelersPref data});
+abstract mixin class $UPreferencesHiddenPostsPrefCopyWith<$Res> implements $UPreferencesCopyWith<$Res> {
+  factory $UPreferencesHiddenPostsPrefCopyWith(UPreferencesHiddenPostsPref value, $Res Function(UPreferencesHiddenPostsPref) _then) = _$UPreferencesHiddenPostsPrefCopyWithImpl;
+@useResult
+$Res call({
+ HiddenPostsPref data
+});
 
-  $LabelersPrefCopyWith<$Res> get data;
+
+$HiddenPostsPrefCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UPreferencesHiddenPostsPrefCopyWithImpl<$Res>
+    implements $UPreferencesHiddenPostsPrefCopyWith<$Res> {
+  _$UPreferencesHiddenPostsPrefCopyWithImpl(this._self, this._then);
+
+  final UPreferencesHiddenPostsPref _self;
+  final $Res Function(UPreferencesHiddenPostsPref) _then;
+
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UPreferencesHiddenPostsPref(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as HiddenPostsPref,
+  ));
 }
 
-/// @nodoc
-class __$$UPreferencesLabelersPrefImplCopyWithImpl<$Res>
-    extends _$UPreferencesCopyWithImpl<$Res, _$UPreferencesLabelersPrefImpl>
-    implements _$$UPreferencesLabelersPrefImplCopyWith<$Res> {
-  __$$UPreferencesLabelersPrefImplCopyWithImpl(
-      _$UPreferencesLabelersPrefImpl _value,
-      $Res Function(_$UPreferencesLabelersPrefImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UPreferencesLabelersPrefImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LabelersPref,
-    ));
-  }
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LabelersPrefCopyWith<$Res> get data {
-    return $LabelersPrefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$HiddenPostsPrefCopyWith<$Res> get data {
+  
+  return $HiddenPostsPrefCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UPreferencesLabelersPrefImpl extends UPreferencesLabelersPref {
-  const _$UPreferencesLabelersPrefImpl({required this.data}) : super._();
 
-  @override
-  final LabelersPref data;
+class UPreferencesBskyAppStatePref extends UPreferences {
+  const UPreferencesBskyAppStatePref({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UPreferences.labelersPref(data: $data)';
-  }
+@override final  BskyAppStatePref data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UPreferencesLabelersPrefImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UPreferencesBskyAppStatePrefCopyWith<UPreferencesBskyAppStatePref> get copyWith => _$UPreferencesBskyAppStatePrefCopyWithImpl<UPreferencesBskyAppStatePref>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UPreferencesLabelersPrefImplCopyWith<_$UPreferencesLabelersPrefImpl>
-      get copyWith => __$$UPreferencesLabelersPrefImplCopyWithImpl<
-          _$UPreferencesLabelersPrefImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(SavedFeedsPrefV2 data) savedFeedsPrefV2,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
-    required TResult Function(InterestsPref data) interestsPref,
-    required TResult Function(MutedWordsPref data) mutedWordsPref,
-    required TResult Function(HiddenPostsPref data) hiddenPostsPref,
-    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
-    required TResult Function(LabelersPref data) labelersPref,
-    required TResult Function(PostInteractionSettingsPref data)
-        postInteractionSettingsPref,
-    required TResult Function(VerificationPrefs data) verificationPrefs,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return labelersPref(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
-    TResult? Function(InterestsPref data)? interestsPref,
-    TResult? Function(MutedWordsPref data)? mutedWordsPref,
-    TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult? Function(LabelersPref data)? labelersPref,
-    TResult? Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult? Function(VerificationPrefs data)? verificationPrefs,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return labelersPref?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
-    TResult Function(InterestsPref data)? interestsPref,
-    TResult Function(MutedWordsPref data)? mutedWordsPref,
-    TResult Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult Function(LabelersPref data)? labelersPref,
-    TResult Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult Function(VerificationPrefs data)? verificationPrefs,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (labelersPref != null) {
-      return labelersPref(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UPreferencesAdultContentPref value)
-        adultContentPref,
-    required TResult Function(UPreferencesContentLabelPref value)
-        contentLabelPref,
-    required TResult Function(UPreferencesSavedFeedsPref value) savedFeedsPref,
-    required TResult Function(UPreferencesSavedFeedsPrefV2 value)
-        savedFeedsPrefV2,
-    required TResult Function(UPreferencesPersonalDetailsPref value)
-        personalDetailsPref,
-    required TResult Function(UPreferencesFeedViewPref value) feedViewPref,
-    required TResult Function(UPreferencesThreadViewPref value) threadViewPref,
-    required TResult Function(UPreferencesInterestsPref value) interestsPref,
-    required TResult Function(UPreferencesMutedWordsPref value) mutedWordsPref,
-    required TResult Function(UPreferencesHiddenPostsPref value)
-        hiddenPostsPref,
-    required TResult Function(UPreferencesBskyAppStatePref value)
-        bskyAppStatePref,
-    required TResult Function(UPreferencesLabelersPref value) labelersPref,
-    required TResult Function(UPreferencesPostInteractionSettingsPref value)
-        postInteractionSettingsPref,
-    required TResult Function(UPreferencesVerificationPrefs value)
-        verificationPrefs,
-    required TResult Function(UPreferencesUnknown value) unknown,
-  }) {
-    return labelersPref(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult? Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult? Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult? Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult? Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult? Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult? Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult? Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult? Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult? Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult? Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult? Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult? Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult? Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult? Function(UPreferencesUnknown value)? unknown,
-  }) {
-    return labelersPref?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult Function(UPreferencesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (labelersPref != null) {
-      return labelersPref(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UPreferencesBskyAppStatePref&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UPreferencesLabelersPref extends UPreferences {
-  const factory UPreferencesLabelersPref({required final LabelersPref data}) =
-      _$UPreferencesLabelersPrefImpl;
-  const UPreferencesLabelersPref._() : super._();
 
-  @override
-  LabelersPref get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferencesLabelersPrefImplCopyWith<_$UPreferencesLabelersPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UPreferences.bskyAppStatePref(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UPreferencesPostInteractionSettingsPrefImplCopyWith<$Res> {
-  factory _$$UPreferencesPostInteractionSettingsPrefImplCopyWith(
-          _$UPreferencesPostInteractionSettingsPrefImpl value,
-          $Res Function(_$UPreferencesPostInteractionSettingsPrefImpl) then) =
-      __$$UPreferencesPostInteractionSettingsPrefImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({PostInteractionSettingsPref data});
+abstract mixin class $UPreferencesBskyAppStatePrefCopyWith<$Res> implements $UPreferencesCopyWith<$Res> {
+  factory $UPreferencesBskyAppStatePrefCopyWith(UPreferencesBskyAppStatePref value, $Res Function(UPreferencesBskyAppStatePref) _then) = _$UPreferencesBskyAppStatePrefCopyWithImpl;
+@useResult
+$Res call({
+ BskyAppStatePref data
+});
 
-  $PostInteractionSettingsPrefCopyWith<$Res> get data;
+
+$BskyAppStatePrefCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UPreferencesBskyAppStatePrefCopyWithImpl<$Res>
+    implements $UPreferencesBskyAppStatePrefCopyWith<$Res> {
+  _$UPreferencesBskyAppStatePrefCopyWithImpl(this._self, this._then);
+
+  final UPreferencesBskyAppStatePref _self;
+  final $Res Function(UPreferencesBskyAppStatePref) _then;
+
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UPreferencesBskyAppStatePref(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as BskyAppStatePref,
+  ));
 }
 
-/// @nodoc
-class __$$UPreferencesPostInteractionSettingsPrefImplCopyWithImpl<$Res>
-    extends _$UPreferencesCopyWithImpl<$Res,
-        _$UPreferencesPostInteractionSettingsPrefImpl>
-    implements _$$UPreferencesPostInteractionSettingsPrefImplCopyWith<$Res> {
-  __$$UPreferencesPostInteractionSettingsPrefImplCopyWithImpl(
-      _$UPreferencesPostInteractionSettingsPrefImpl _value,
-      $Res Function(_$UPreferencesPostInteractionSettingsPrefImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UPreferencesPostInteractionSettingsPrefImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as PostInteractionSettingsPref,
-    ));
-  }
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PostInteractionSettingsPrefCopyWith<$Res> get data {
-    return $PostInteractionSettingsPrefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$BskyAppStatePrefCopyWith<$Res> get data {
+  
+  return $BskyAppStatePrefCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UPreferencesPostInteractionSettingsPrefImpl
-    extends UPreferencesPostInteractionSettingsPref {
-  const _$UPreferencesPostInteractionSettingsPrefImpl({required this.data})
-      : super._();
 
-  @override
-  final PostInteractionSettingsPref data;
+class UPreferencesLabelersPref extends UPreferences {
+  const UPreferencesLabelersPref({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UPreferences.postInteractionSettingsPref(data: $data)';
-  }
+@override final  LabelersPref data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UPreferencesPostInteractionSettingsPrefImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UPreferencesLabelersPrefCopyWith<UPreferencesLabelersPref> get copyWith => _$UPreferencesLabelersPrefCopyWithImpl<UPreferencesLabelersPref>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UPreferencesPostInteractionSettingsPrefImplCopyWith<
-          _$UPreferencesPostInteractionSettingsPrefImpl>
-      get copyWith =>
-          __$$UPreferencesPostInteractionSettingsPrefImplCopyWithImpl<
-              _$UPreferencesPostInteractionSettingsPrefImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(SavedFeedsPrefV2 data) savedFeedsPrefV2,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
-    required TResult Function(InterestsPref data) interestsPref,
-    required TResult Function(MutedWordsPref data) mutedWordsPref,
-    required TResult Function(HiddenPostsPref data) hiddenPostsPref,
-    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
-    required TResult Function(LabelersPref data) labelersPref,
-    required TResult Function(PostInteractionSettingsPref data)
-        postInteractionSettingsPref,
-    required TResult Function(VerificationPrefs data) verificationPrefs,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return postInteractionSettingsPref(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
-    TResult? Function(InterestsPref data)? interestsPref,
-    TResult? Function(MutedWordsPref data)? mutedWordsPref,
-    TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult? Function(LabelersPref data)? labelersPref,
-    TResult? Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult? Function(VerificationPrefs data)? verificationPrefs,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return postInteractionSettingsPref?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
-    TResult Function(InterestsPref data)? interestsPref,
-    TResult Function(MutedWordsPref data)? mutedWordsPref,
-    TResult Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult Function(LabelersPref data)? labelersPref,
-    TResult Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult Function(VerificationPrefs data)? verificationPrefs,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (postInteractionSettingsPref != null) {
-      return postInteractionSettingsPref(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UPreferencesAdultContentPref value)
-        adultContentPref,
-    required TResult Function(UPreferencesContentLabelPref value)
-        contentLabelPref,
-    required TResult Function(UPreferencesSavedFeedsPref value) savedFeedsPref,
-    required TResult Function(UPreferencesSavedFeedsPrefV2 value)
-        savedFeedsPrefV2,
-    required TResult Function(UPreferencesPersonalDetailsPref value)
-        personalDetailsPref,
-    required TResult Function(UPreferencesFeedViewPref value) feedViewPref,
-    required TResult Function(UPreferencesThreadViewPref value) threadViewPref,
-    required TResult Function(UPreferencesInterestsPref value) interestsPref,
-    required TResult Function(UPreferencesMutedWordsPref value) mutedWordsPref,
-    required TResult Function(UPreferencesHiddenPostsPref value)
-        hiddenPostsPref,
-    required TResult Function(UPreferencesBskyAppStatePref value)
-        bskyAppStatePref,
-    required TResult Function(UPreferencesLabelersPref value) labelersPref,
-    required TResult Function(UPreferencesPostInteractionSettingsPref value)
-        postInteractionSettingsPref,
-    required TResult Function(UPreferencesVerificationPrefs value)
-        verificationPrefs,
-    required TResult Function(UPreferencesUnknown value) unknown,
-  }) {
-    return postInteractionSettingsPref(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult? Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult? Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult? Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult? Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult? Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult? Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult? Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult? Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult? Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult? Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult? Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult? Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult? Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult? Function(UPreferencesUnknown value)? unknown,
-  }) {
-    return postInteractionSettingsPref?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult Function(UPreferencesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (postInteractionSettingsPref != null) {
-      return postInteractionSettingsPref(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UPreferencesLabelersPref&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UPreferencesPostInteractionSettingsPref extends UPreferences {
-  const factory UPreferencesPostInteractionSettingsPref(
-          {required final PostInteractionSettingsPref data}) =
-      _$UPreferencesPostInteractionSettingsPrefImpl;
-  const UPreferencesPostInteractionSettingsPref._() : super._();
 
-  @override
-  PostInteractionSettingsPref get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferencesPostInteractionSettingsPrefImplCopyWith<
-          _$UPreferencesPostInteractionSettingsPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UPreferences.labelersPref(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UPreferencesVerificationPrefsImplCopyWith<$Res> {
-  factory _$$UPreferencesVerificationPrefsImplCopyWith(
-          _$UPreferencesVerificationPrefsImpl value,
-          $Res Function(_$UPreferencesVerificationPrefsImpl) then) =
-      __$$UPreferencesVerificationPrefsImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({VerificationPrefs data});
+abstract mixin class $UPreferencesLabelersPrefCopyWith<$Res> implements $UPreferencesCopyWith<$Res> {
+  factory $UPreferencesLabelersPrefCopyWith(UPreferencesLabelersPref value, $Res Function(UPreferencesLabelersPref) _then) = _$UPreferencesLabelersPrefCopyWithImpl;
+@useResult
+$Res call({
+ LabelersPref data
+});
 
-  $VerificationPrefsCopyWith<$Res> get data;
+
+$LabelersPrefCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UPreferencesLabelersPrefCopyWithImpl<$Res>
+    implements $UPreferencesLabelersPrefCopyWith<$Res> {
+  _$UPreferencesLabelersPrefCopyWithImpl(this._self, this._then);
+
+  final UPreferencesLabelersPref _self;
+  final $Res Function(UPreferencesLabelersPref) _then;
+
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UPreferencesLabelersPref(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as LabelersPref,
+  ));
 }
 
-/// @nodoc
-class __$$UPreferencesVerificationPrefsImplCopyWithImpl<$Res>
-    extends _$UPreferencesCopyWithImpl<$Res,
-        _$UPreferencesVerificationPrefsImpl>
-    implements _$$UPreferencesVerificationPrefsImplCopyWith<$Res> {
-  __$$UPreferencesVerificationPrefsImplCopyWithImpl(
-      _$UPreferencesVerificationPrefsImpl _value,
-      $Res Function(_$UPreferencesVerificationPrefsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UPreferencesVerificationPrefsImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as VerificationPrefs,
-    ));
-  }
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $VerificationPrefsCopyWith<$Res> get data {
-    return $VerificationPrefsCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LabelersPrefCopyWith<$Res> get data {
+  
+  return $LabelersPrefCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UPreferencesVerificationPrefsImpl
-    extends UPreferencesVerificationPrefs {
-  const _$UPreferencesVerificationPrefsImpl({required this.data}) : super._();
 
-  @override
-  final VerificationPrefs data;
+class UPreferencesPostInteractionSettingsPref extends UPreferences {
+  const UPreferencesPostInteractionSettingsPref({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UPreferences.verificationPrefs(data: $data)';
-  }
+@override final  PostInteractionSettingsPref data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UPreferencesVerificationPrefsImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UPreferencesPostInteractionSettingsPrefCopyWith<UPreferencesPostInteractionSettingsPref> get copyWith => _$UPreferencesPostInteractionSettingsPrefCopyWithImpl<UPreferencesPostInteractionSettingsPref>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UPreferencesVerificationPrefsImplCopyWith<
-          _$UPreferencesVerificationPrefsImpl>
-      get copyWith => __$$UPreferencesVerificationPrefsImplCopyWithImpl<
-          _$UPreferencesVerificationPrefsImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(SavedFeedsPrefV2 data) savedFeedsPrefV2,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
-    required TResult Function(InterestsPref data) interestsPref,
-    required TResult Function(MutedWordsPref data) mutedWordsPref,
-    required TResult Function(HiddenPostsPref data) hiddenPostsPref,
-    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
-    required TResult Function(LabelersPref data) labelersPref,
-    required TResult Function(PostInteractionSettingsPref data)
-        postInteractionSettingsPref,
-    required TResult Function(VerificationPrefs data) verificationPrefs,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return verificationPrefs(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
-    TResult? Function(InterestsPref data)? interestsPref,
-    TResult? Function(MutedWordsPref data)? mutedWordsPref,
-    TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult? Function(LabelersPref data)? labelersPref,
-    TResult? Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult? Function(VerificationPrefs data)? verificationPrefs,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return verificationPrefs?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
-    TResult Function(InterestsPref data)? interestsPref,
-    TResult Function(MutedWordsPref data)? mutedWordsPref,
-    TResult Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult Function(LabelersPref data)? labelersPref,
-    TResult Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult Function(VerificationPrefs data)? verificationPrefs,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (verificationPrefs != null) {
-      return verificationPrefs(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UPreferencesAdultContentPref value)
-        adultContentPref,
-    required TResult Function(UPreferencesContentLabelPref value)
-        contentLabelPref,
-    required TResult Function(UPreferencesSavedFeedsPref value) savedFeedsPref,
-    required TResult Function(UPreferencesSavedFeedsPrefV2 value)
-        savedFeedsPrefV2,
-    required TResult Function(UPreferencesPersonalDetailsPref value)
-        personalDetailsPref,
-    required TResult Function(UPreferencesFeedViewPref value) feedViewPref,
-    required TResult Function(UPreferencesThreadViewPref value) threadViewPref,
-    required TResult Function(UPreferencesInterestsPref value) interestsPref,
-    required TResult Function(UPreferencesMutedWordsPref value) mutedWordsPref,
-    required TResult Function(UPreferencesHiddenPostsPref value)
-        hiddenPostsPref,
-    required TResult Function(UPreferencesBskyAppStatePref value)
-        bskyAppStatePref,
-    required TResult Function(UPreferencesLabelersPref value) labelersPref,
-    required TResult Function(UPreferencesPostInteractionSettingsPref value)
-        postInteractionSettingsPref,
-    required TResult Function(UPreferencesVerificationPrefs value)
-        verificationPrefs,
-    required TResult Function(UPreferencesUnknown value) unknown,
-  }) {
-    return verificationPrefs(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult? Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult? Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult? Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult? Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult? Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult? Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult? Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult? Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult? Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult? Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult? Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult? Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult? Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult? Function(UPreferencesUnknown value)? unknown,
-  }) {
-    return verificationPrefs?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult Function(UPreferencesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (verificationPrefs != null) {
-      return verificationPrefs(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UPreferencesPostInteractionSettingsPref&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UPreferencesVerificationPrefs extends UPreferences {
-  const factory UPreferencesVerificationPrefs(
-          {required final VerificationPrefs data}) =
-      _$UPreferencesVerificationPrefsImpl;
-  const UPreferencesVerificationPrefs._() : super._();
 
-  @override
-  VerificationPrefs get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferencesVerificationPrefsImplCopyWith<
-          _$UPreferencesVerificationPrefsImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UPreferences.postInteractionSettingsPref(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UPreferencesUnknownImplCopyWith<$Res> {
-  factory _$$UPreferencesUnknownImplCopyWith(_$UPreferencesUnknownImpl value,
-          $Res Function(_$UPreferencesUnknownImpl) then) =
-      __$$UPreferencesUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
+abstract mixin class $UPreferencesPostInteractionSettingsPrefCopyWith<$Res> implements $UPreferencesCopyWith<$Res> {
+  factory $UPreferencesPostInteractionSettingsPrefCopyWith(UPreferencesPostInteractionSettingsPref value, $Res Function(UPreferencesPostInteractionSettingsPref) _then) = _$UPreferencesPostInteractionSettingsPrefCopyWithImpl;
+@useResult
+$Res call({
+ PostInteractionSettingsPref data
+});
+
+
+$PostInteractionSettingsPrefCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UPreferencesPostInteractionSettingsPrefCopyWithImpl<$Res>
+    implements $UPreferencesPostInteractionSettingsPrefCopyWith<$Res> {
+  _$UPreferencesPostInteractionSettingsPrefCopyWithImpl(this._self, this._then);
+
+  final UPreferencesPostInteractionSettingsPref _self;
+  final $Res Function(UPreferencesPostInteractionSettingsPref) _then;
+
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UPreferencesPostInteractionSettingsPref(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as PostInteractionSettingsPref,
+  ));
 }
 
-/// @nodoc
-class __$$UPreferencesUnknownImplCopyWithImpl<$Res>
-    extends _$UPreferencesCopyWithImpl<$Res, _$UPreferencesUnknownImpl>
-    implements _$$UPreferencesUnknownImplCopyWith<$Res> {
-  __$$UPreferencesUnknownImplCopyWithImpl(_$UPreferencesUnknownImpl _value,
-      $Res Function(_$UPreferencesUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UPreferencesUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PostInteractionSettingsPrefCopyWith<$Res> get data {
+  
+  return $PostInteractionSettingsPrefCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UPreferencesUnknownImpl extends UPreferencesUnknown {
-  const _$UPreferencesUnknownImpl({required final Map<String, dynamic> data})
-      : _data = data,
-        super._();
 
-  final Map<String, dynamic> _data;
-  @override
-  Map<String, dynamic> get data {
-    if (_data is EqualUnmodifiableMapView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_data);
-  }
+class UPreferencesVerificationPrefs extends UPreferences {
+  const UPreferencesVerificationPrefs({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UPreferences.unknown(data: $data)';
-  }
+@override final  VerificationPrefs data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UPreferencesUnknownImpl &&
-            const DeepCollectionEquality().equals(other._data, _data));
-  }
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UPreferencesVerificationPrefsCopyWith<UPreferencesVerificationPrefs> get copyWith => _$UPreferencesVerificationPrefsCopyWithImpl<UPreferencesVerificationPrefs>(this, _$identity);
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UPreferencesUnknownImplCopyWith<_$UPreferencesUnknownImpl> get copyWith =>
-      __$$UPreferencesUnknownImplCopyWithImpl<_$UPreferencesUnknownImpl>(
-          this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(SavedFeedsPrefV2 data) savedFeedsPrefV2,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
-    required TResult Function(InterestsPref data) interestsPref,
-    required TResult Function(MutedWordsPref data) mutedWordsPref,
-    required TResult Function(HiddenPostsPref data) hiddenPostsPref,
-    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
-    required TResult Function(LabelersPref data) labelersPref,
-    required TResult Function(PostInteractionSettingsPref data)
-        postInteractionSettingsPref,
-    required TResult Function(VerificationPrefs data) verificationPrefs,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
-    TResult? Function(InterestsPref data)? interestsPref,
-    TResult? Function(MutedWordsPref data)? mutedWordsPref,
-    TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult? Function(LabelersPref data)? labelersPref,
-    TResult? Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult? Function(VerificationPrefs data)? verificationPrefs,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
-    TResult Function(InterestsPref data)? interestsPref,
-    TResult Function(MutedWordsPref data)? mutedWordsPref,
-    TResult Function(HiddenPostsPref data)? hiddenPostsPref,
-    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
-    TResult Function(LabelersPref data)? labelersPref,
-    TResult Function(PostInteractionSettingsPref data)?
-        postInteractionSettingsPref,
-    TResult Function(VerificationPrefs data)? verificationPrefs,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UPreferencesAdultContentPref value)
-        adultContentPref,
-    required TResult Function(UPreferencesContentLabelPref value)
-        contentLabelPref,
-    required TResult Function(UPreferencesSavedFeedsPref value) savedFeedsPref,
-    required TResult Function(UPreferencesSavedFeedsPrefV2 value)
-        savedFeedsPrefV2,
-    required TResult Function(UPreferencesPersonalDetailsPref value)
-        personalDetailsPref,
-    required TResult Function(UPreferencesFeedViewPref value) feedViewPref,
-    required TResult Function(UPreferencesThreadViewPref value) threadViewPref,
-    required TResult Function(UPreferencesInterestsPref value) interestsPref,
-    required TResult Function(UPreferencesMutedWordsPref value) mutedWordsPref,
-    required TResult Function(UPreferencesHiddenPostsPref value)
-        hiddenPostsPref,
-    required TResult Function(UPreferencesBskyAppStatePref value)
-        bskyAppStatePref,
-    required TResult Function(UPreferencesLabelersPref value) labelersPref,
-    required TResult Function(UPreferencesPostInteractionSettingsPref value)
-        postInteractionSettingsPref,
-    required TResult Function(UPreferencesVerificationPrefs value)
-        verificationPrefs,
-    required TResult Function(UPreferencesUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult? Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult? Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult? Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult? Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult? Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult? Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult? Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult? Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult? Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult? Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult? Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult? Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult? Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult? Function(UPreferencesUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPreferencesAdultContentPref value)? adultContentPref,
-    TResult Function(UPreferencesContentLabelPref value)? contentLabelPref,
-    TResult Function(UPreferencesSavedFeedsPref value)? savedFeedsPref,
-    TResult Function(UPreferencesSavedFeedsPrefV2 value)? savedFeedsPrefV2,
-    TResult Function(UPreferencesPersonalDetailsPref value)?
-        personalDetailsPref,
-    TResult Function(UPreferencesFeedViewPref value)? feedViewPref,
-    TResult Function(UPreferencesThreadViewPref value)? threadViewPref,
-    TResult Function(UPreferencesInterestsPref value)? interestsPref,
-    TResult Function(UPreferencesMutedWordsPref value)? mutedWordsPref,
-    TResult Function(UPreferencesHiddenPostsPref value)? hiddenPostsPref,
-    TResult Function(UPreferencesBskyAppStatePref value)? bskyAppStatePref,
-    TResult Function(UPreferencesLabelersPref value)? labelersPref,
-    TResult Function(UPreferencesPostInteractionSettingsPref value)?
-        postInteractionSettingsPref,
-    TResult Function(UPreferencesVerificationPrefs value)? verificationPrefs,
-    TResult Function(UPreferencesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UPreferencesVerificationPrefs&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UPreferencesUnknown extends UPreferences {
-  const factory UPreferencesUnknown(
-      {required final Map<String, dynamic> data}) = _$UPreferencesUnknownImpl;
-  const UPreferencesUnknown._() : super._();
 
-  @override
-  Map<String, dynamic> get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UPreferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferencesUnknownImplCopyWith<_$UPreferencesUnknownImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UPreferences.verificationPrefs(data: $data)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class $UPreferencesVerificationPrefsCopyWith<$Res> implements $UPreferencesCopyWith<$Res> {
+  factory $UPreferencesVerificationPrefsCopyWith(UPreferencesVerificationPrefs value, $Res Function(UPreferencesVerificationPrefs) _then) = _$UPreferencesVerificationPrefsCopyWithImpl;
+@useResult
+$Res call({
+ VerificationPrefs data
+});
+
+
+$VerificationPrefsCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UPreferencesVerificationPrefsCopyWithImpl<$Res>
+    implements $UPreferencesVerificationPrefsCopyWith<$Res> {
+  _$UPreferencesVerificationPrefsCopyWithImpl(this._self, this._then);
+
+  final UPreferencesVerificationPrefs _self;
+  final $Res Function(UPreferencesVerificationPrefs) _then;
+
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UPreferencesVerificationPrefs(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as VerificationPrefs,
+  ));
+}
+
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$VerificationPrefsCopyWith<$Res> get data {
+  
+  return $VerificationPrefsCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+
+
+class UPreferencesUnknown extends UPreferences {
+  const UPreferencesUnknown({required final  Map<String, dynamic> data}): _data = data,super._();
+  
+
+ final  Map<String, dynamic> _data;
+@override Map<String, dynamic> get data {
+  if (_data is EqualUnmodifiableMapView) return _data;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_data);
+}
+
+
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UPreferencesUnknownCopyWith<UPreferencesUnknown> get copyWith => _$UPreferencesUnknownCopyWithImpl<UPreferencesUnknown>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UPreferencesUnknown&&const DeepCollectionEquality().equals(other._data, _data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_data));
+
+@override
+String toString() {
+  return 'UPreferences.unknown(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UPreferencesUnknownCopyWith<$Res> implements $UPreferencesCopyWith<$Res> {
+  factory $UPreferencesUnknownCopyWith(UPreferencesUnknown value, $Res Function(UPreferencesUnknown) _then) = _$UPreferencesUnknownCopyWithImpl;
+@useResult
+$Res call({
+ Map<String, dynamic> data
+});
+
+
+
+
+}
+/// @nodoc
+class _$UPreferencesUnknownCopyWithImpl<$Res>
+    implements $UPreferencesUnknownCopyWith<$Res> {
+  _$UPreferencesUnknownCopyWithImpl(this._self, this._then);
+
+  final UPreferencesUnknown _self;
+  final $Res Function(UPreferencesUnknown) _then;
+
+/// Create a copy of UPreferences
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UPreferencesUnknown(
+data: null == data ? _self._data : data // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,
+  ));
+}
+
+
+}
+
+// dart format on

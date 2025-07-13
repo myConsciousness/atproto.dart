@@ -25,15 +25,13 @@ part 'message_and_reaction_view.g.dart';
 
 @freezed
 abstract class MessageAndReactionView with _$MessageAndReactionView {
-  static const knownProps = <String>[
-    'message',
-    'reaction',
-  ];
+  static const knownProps = <String>['message', 'reaction'];
 
   const factory MessageAndReactionView({
     @Default(chatBskyConvoDefsMessageAndReactionView) String $type,
     @MessageViewConverter() required MessageView message,
     @ReactionViewConverter() required ReactionView reaction,
+
     Map<String, dynamic>? $unknown,
   }) = _MessageAndReactionView;
 
@@ -52,14 +50,12 @@ final class MessageAndReactionViewConverter
 
   @override
   MessageAndReactionView fromJson(Map<String, dynamic> json) {
-    return MessageAndReactionView.fromJson(translate(
-      json,
-      MessageAndReactionView.knownProps,
-    ));
+    return MessageAndReactionView.fromJson(
+      translate(json, MessageAndReactionView.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(MessageAndReactionView object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(MessageAndReactionView object) =>
+      untranslate(object.toJson());
 }

@@ -24,15 +24,13 @@ part 'blocked_author.g.dart';
 
 @freezed
 abstract class BlockedAuthor with _$BlockedAuthor {
-  static const knownProps = <String>[
-    'did',
-    'viewer',
-  ];
+  static const knownProps = <String>['did', 'viewer'];
 
   const factory BlockedAuthor({
     @Default(appBskyFeedDefsBlockedAuthor) String $type,
     required String did,
     @ViewerStateConverter() ViewerState? viewer,
+
     Map<String, dynamic>? $unknown,
   }) = _BlockedAuthor;
 
@@ -51,14 +49,10 @@ final class BlockedAuthorConverter
 
   @override
   BlockedAuthor fromJson(Map<String, dynamic> json) {
-    return BlockedAuthor.fromJson(translate(
-      json,
-      BlockedAuthor.knownProps,
-    ));
+    return BlockedAuthor.fromJson(translate(json, BlockedAuthor.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(BlockedAuthor object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(BlockedAuthor object) =>
+      untranslate(object.toJson());
 }

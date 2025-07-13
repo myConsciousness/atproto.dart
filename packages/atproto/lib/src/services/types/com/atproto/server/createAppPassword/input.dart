@@ -21,10 +21,7 @@ part 'input.g.dart';
 @freezed
 abstract class ServerCreateAppPasswordInput
     with _$ServerCreateAppPasswordInput {
-  static const knownProps = <String>[
-    'name',
-    'privileged',
-  ];
+  static const knownProps = <String>['name', 'privileged'];
 
   const factory ServerCreateAppPasswordInput({
     /// A short name for the App Password, to help distinguish them.
@@ -32,6 +29,7 @@ abstract class ServerCreateAppPasswordInput
 
     /// If an app password has 'privileged' access to possibly sensitive account state. Meant for use with trusted clients.
     bool? privileged,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerCreateAppPasswordInput;
 
@@ -39,21 +37,19 @@ abstract class ServerCreateAppPasswordInput
       _$ServerCreateAppPasswordInputFromJson(json);
 }
 
-final class ServerCreateAppPasswordInputConverter extends LexObjectConverter<
-    ServerCreateAppPasswordInput, Map<String, dynamic>> {
+final class ServerCreateAppPasswordInputConverter
+    extends
+        LexObjectConverter<ServerCreateAppPasswordInput, Map<String, dynamic>> {
   const ServerCreateAppPasswordInputConverter();
 
   @override
   ServerCreateAppPasswordInput fromJson(Map<String, dynamic> json) {
-    return ServerCreateAppPasswordInput.fromJson(translate(
-      json,
-      ServerCreateAppPasswordInput.knownProps,
-    ));
+    return ServerCreateAppPasswordInput.fromJson(
+      translate(json, ServerCreateAppPasswordInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ServerCreateAppPasswordInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

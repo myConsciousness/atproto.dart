@@ -16,16 +16,19 @@ import 'ids.g.dart' as ids;
 const comAtprotoAdminDeleteAccount = NSID(ids.comAtprotoAdminDeleteAccount);
 
 /// `com.atproto.admin.disableAccountInvites`
-const comAtprotoAdminDisableAccountInvites =
-    NSID(ids.comAtprotoAdminDisableAccountInvites);
+const comAtprotoAdminDisableAccountInvites = NSID(
+  ids.comAtprotoAdminDisableAccountInvites,
+);
 
 /// `com.atproto.admin.disableInviteCodes`
-const comAtprotoAdminDisableInviteCodes =
-    NSID(ids.comAtprotoAdminDisableInviteCodes);
+const comAtprotoAdminDisableInviteCodes = NSID(
+  ids.comAtprotoAdminDisableInviteCodes,
+);
 
 /// `com.atproto.admin.enableAccountInvites`
-const comAtprotoAdminEnableAccountInvites =
-    NSID(ids.comAtprotoAdminEnableAccountInvites);
+const comAtprotoAdminEnableAccountInvites = NSID(
+  ids.comAtprotoAdminEnableAccountInvites,
+);
 
 /// `com.atproto.admin.getAccountInfo`
 const comAtprotoAdminGetAccountInfo = NSID(ids.comAtprotoAdminGetAccountInfo);
@@ -37,8 +40,9 @@ const comAtprotoAdminGetAccountInfos = NSID(ids.comAtprotoAdminGetAccountInfos);
 const comAtprotoAdminGetInviteCodes = NSID(ids.comAtprotoAdminGetInviteCodes);
 
 /// `com.atproto.admin.getSubjectStatus`
-const comAtprotoAdminGetSubjectStatus =
-    NSID(ids.comAtprotoAdminGetSubjectStatus);
+const comAtprotoAdminGetSubjectStatus = NSID(
+  ids.comAtprotoAdminGetSubjectStatus,
+);
 
 /// `com.atproto.admin.searchAccounts`
 const comAtprotoAdminSearchAccounts = NSID(ids.comAtprotoAdminSearchAccounts);
@@ -47,55 +51,67 @@ const comAtprotoAdminSearchAccounts = NSID(ids.comAtprotoAdminSearchAccounts);
 const comAtprotoAdminSendEmail = NSID(ids.comAtprotoAdminSendEmail);
 
 /// `com.atproto.admin.updateAccountEmail`
-const comAtprotoAdminUpdateAccountEmail =
-    NSID(ids.comAtprotoAdminUpdateAccountEmail);
+const comAtprotoAdminUpdateAccountEmail = NSID(
+  ids.comAtprotoAdminUpdateAccountEmail,
+);
 
 /// `com.atproto.admin.updateAccountHandle`
-const comAtprotoAdminUpdateAccountHandle =
-    NSID(ids.comAtprotoAdminUpdateAccountHandle);
+const comAtprotoAdminUpdateAccountHandle = NSID(
+  ids.comAtprotoAdminUpdateAccountHandle,
+);
 
 /// `com.atproto.admin.updateAccountPassword`
-const comAtprotoAdminUpdateAccountPassword =
-    NSID(ids.comAtprotoAdminUpdateAccountPassword);
+const comAtprotoAdminUpdateAccountPassword = NSID(
+  ids.comAtprotoAdminUpdateAccountPassword,
+);
 
 /// `com.atproto.admin.updateAccountSigningKey`
-const comAtprotoAdminUpdateAccountSigningKey =
-    NSID(ids.comAtprotoAdminUpdateAccountSigningKey);
+const comAtprotoAdminUpdateAccountSigningKey = NSID(
+  ids.comAtprotoAdminUpdateAccountSigningKey,
+);
 
 /// `com.atproto.admin.updateSubjectStatus`
-const comAtprotoAdminUpdateSubjectStatus =
-    NSID(ids.comAtprotoAdminUpdateSubjectStatus);
+const comAtprotoAdminUpdateSubjectStatus = NSID(
+  ids.comAtprotoAdminUpdateSubjectStatus,
+);
 
 /// `com.atproto.identity.getRecommendedDidCredentials`
-const comAtprotoIdentityGetRecommendedDidCredentials =
-    NSID(ids.comAtprotoIdentityGetRecommendedDidCredentials);
+const comAtprotoIdentityGetRecommendedDidCredentials = NSID(
+  ids.comAtprotoIdentityGetRecommendedDidCredentials,
+);
 
 /// `com.atproto.identity.refreshIdentity`
-const comAtprotoIdentityRefreshIdentity =
-    NSID(ids.comAtprotoIdentityRefreshIdentity);
+const comAtprotoIdentityRefreshIdentity = NSID(
+  ids.comAtprotoIdentityRefreshIdentity,
+);
 
 /// `com.atproto.identity.requestPlcOperationSignature`
-const comAtprotoIdentityRequestPlcOperationSignature =
-    NSID(ids.comAtprotoIdentityRequestPlcOperationSignature);
+const comAtprotoIdentityRequestPlcOperationSignature = NSID(
+  ids.comAtprotoIdentityRequestPlcOperationSignature,
+);
 
 /// `com.atproto.identity.resolveDid`
 const comAtprotoIdentityResolveDid = NSID(ids.comAtprotoIdentityResolveDid);
 
 /// `com.atproto.identity.resolveHandle`
-const comAtprotoIdentityResolveHandle =
-    NSID(ids.comAtprotoIdentityResolveHandle);
+const comAtprotoIdentityResolveHandle = NSID(
+  ids.comAtprotoIdentityResolveHandle,
+);
 
 /// `com.atproto.identity.resolveIdentity`
-const comAtprotoIdentityResolveIdentity =
-    NSID(ids.comAtprotoIdentityResolveIdentity);
+const comAtprotoIdentityResolveIdentity = NSID(
+  ids.comAtprotoIdentityResolveIdentity,
+);
 
 /// `com.atproto.identity.signPlcOperation`
-const comAtprotoIdentitySignPlcOperation =
-    NSID(ids.comAtprotoIdentitySignPlcOperation);
+const comAtprotoIdentitySignPlcOperation = NSID(
+  ids.comAtprotoIdentitySignPlcOperation,
+);
 
 /// `com.atproto.identity.submitPlcOperation`
-const comAtprotoIdentitySubmitPlcOperation =
-    NSID(ids.comAtprotoIdentitySubmitPlcOperation);
+const comAtprotoIdentitySubmitPlcOperation = NSID(
+  ids.comAtprotoIdentitySubmitPlcOperation,
+);
 
 /// `com.atproto.identity.updateHandle`
 const comAtprotoIdentityUpdateHandle = NSID(ids.comAtprotoIdentityUpdateHandle);
@@ -107,50 +123,60 @@ const comAtprotoLabelQueryLabels = NSID(ids.comAtprotoLabelQueryLabels);
 const comAtprotoLabelSubscribeLabels = NSID(ids.comAtprotoLabelSubscribeLabels);
 
 /// `com.atproto.label.subscribeLabels#info`
-const comAtprotoLabelSubscribeLabelsInfo =
-    NSID(ids.comAtprotoLabelSubscribeLabelsInfo);
+const comAtprotoLabelSubscribeLabelsInfo = NSID(
+  ids.comAtprotoLabelSubscribeLabelsInfo,
+);
 
 /// `com.atproto.label.subscribeLabels#labels`
-const comAtprotoLabelSubscribeLabelsLabels =
-    NSID(ids.comAtprotoLabelSubscribeLabelsLabels);
+const comAtprotoLabelSubscribeLabelsLabels = NSID(
+  ids.comAtprotoLabelSubscribeLabelsLabels,
+);
 
 /// `com.atproto.lexicon.schema`
 const comAtprotoLexiconSchema = NSID(ids.comAtprotoLexiconSchema);
 
 /// `com.atproto.moderation.createReport`
-const comAtprotoModerationCreateReport =
-    NSID(ids.comAtprotoModerationCreateReport);
+const comAtprotoModerationCreateReport = NSID(
+  ids.comAtprotoModerationCreateReport,
+);
 
 /// `com.atproto.moderation.createReport#modTool`
-const comAtprotoModerationCreateReportModTool =
-    NSID(ids.comAtprotoModerationCreateReportModTool);
+const comAtprotoModerationCreateReportModTool = NSID(
+  ids.comAtprotoModerationCreateReportModTool,
+);
 
 /// `com.atproto.repo.applyWrites`
 const comAtprotoRepoApplyWrites = NSID(ids.comAtprotoRepoApplyWrites);
 
 /// `com.atproto.repo.applyWrites#create`
-const comAtprotoRepoApplyWritesCreate =
-    NSID(ids.comAtprotoRepoApplyWritesCreate);
+const comAtprotoRepoApplyWritesCreate = NSID(
+  ids.comAtprotoRepoApplyWritesCreate,
+);
 
 /// `com.atproto.repo.applyWrites#createResult`
-const comAtprotoRepoApplyWritesCreateResult =
-    NSID(ids.comAtprotoRepoApplyWritesCreateResult);
+const comAtprotoRepoApplyWritesCreateResult = NSID(
+  ids.comAtprotoRepoApplyWritesCreateResult,
+);
 
 /// `com.atproto.repo.applyWrites#delete`
-const comAtprotoRepoApplyWritesDelete =
-    NSID(ids.comAtprotoRepoApplyWritesDelete);
+const comAtprotoRepoApplyWritesDelete = NSID(
+  ids.comAtprotoRepoApplyWritesDelete,
+);
 
 /// `com.atproto.repo.applyWrites#deleteResult`
-const comAtprotoRepoApplyWritesDeleteResult =
-    NSID(ids.comAtprotoRepoApplyWritesDeleteResult);
+const comAtprotoRepoApplyWritesDeleteResult = NSID(
+  ids.comAtprotoRepoApplyWritesDeleteResult,
+);
 
 /// `com.atproto.repo.applyWrites#update`
-const comAtprotoRepoApplyWritesUpdate =
-    NSID(ids.comAtprotoRepoApplyWritesUpdate);
+const comAtprotoRepoApplyWritesUpdate = NSID(
+  ids.comAtprotoRepoApplyWritesUpdate,
+);
 
 /// `com.atproto.repo.applyWrites#updateResult`
-const comAtprotoRepoApplyWritesUpdateResult =
-    NSID(ids.comAtprotoRepoApplyWritesUpdateResult);
+const comAtprotoRepoApplyWritesUpdateResult = NSID(
+  ids.comAtprotoRepoApplyWritesUpdateResult,
+);
 
 /// `com.atproto.repo.createRecord`
 const comAtprotoRepoCreateRecord = NSID(ids.comAtprotoRepoCreateRecord);
@@ -171,15 +197,17 @@ const comAtprotoRepoImportRepo = NSID(ids.comAtprotoRepoImportRepo);
 const comAtprotoRepoListMissingBlobs = NSID(ids.comAtprotoRepoListMissingBlobs);
 
 /// `com.atproto.repo.listMissingBlobs#recordBlob`
-const comAtprotoRepoListMissingBlobsRecordBlob =
-    NSID(ids.comAtprotoRepoListMissingBlobsRecordBlob);
+const comAtprotoRepoListMissingBlobsRecordBlob = NSID(
+  ids.comAtprotoRepoListMissingBlobsRecordBlob,
+);
 
 /// `com.atproto.repo.listRecords`
 const comAtprotoRepoListRecords = NSID(ids.comAtprotoRepoListRecords);
 
 /// `com.atproto.repo.listRecords#record`
-const comAtprotoRepoListRecordsRecord =
-    NSID(ids.comAtprotoRepoListRecordsRecord);
+const comAtprotoRepoListRecordsRecord = NSID(
+  ids.comAtprotoRepoListRecordsRecord,
+);
 
 /// `com.atproto.repo.putRecord`
 const comAtprotoRepoPutRecord = NSID(ids.comAtprotoRepoPutRecord);
@@ -191,12 +219,14 @@ const comAtprotoRepoStrongRef = NSID(ids.comAtprotoRepoStrongRef);
 const comAtprotoRepoUploadBlob = NSID(ids.comAtprotoRepoUploadBlob);
 
 /// `com.atproto.server.activateAccount`
-const comAtprotoServerActivateAccount =
-    NSID(ids.comAtprotoServerActivateAccount);
+const comAtprotoServerActivateAccount = NSID(
+  ids.comAtprotoServerActivateAccount,
+);
 
 /// `com.atproto.server.checkAccountStatus`
-const comAtprotoServerCheckAccountStatus =
-    NSID(ids.comAtprotoServerCheckAccountStatus);
+const comAtprotoServerCheckAccountStatus = NSID(
+  ids.comAtprotoServerCheckAccountStatus,
+);
 
 /// `com.atproto.server.confirmEmail`
 const comAtprotoServerConfirmEmail = NSID(ids.comAtprotoServerConfirmEmail);
@@ -205,31 +235,37 @@ const comAtprotoServerConfirmEmail = NSID(ids.comAtprotoServerConfirmEmail);
 const comAtprotoServerCreateAccount = NSID(ids.comAtprotoServerCreateAccount);
 
 /// `com.atproto.server.createAppPassword`
-const comAtprotoServerCreateAppPassword =
-    NSID(ids.comAtprotoServerCreateAppPassword);
+const comAtprotoServerCreateAppPassword = NSID(
+  ids.comAtprotoServerCreateAppPassword,
+);
 
 /// `com.atproto.server.createAppPassword#appPassword`
-const comAtprotoServerCreateAppPasswordAppPassword =
-    NSID(ids.comAtprotoServerCreateAppPasswordAppPassword);
+const comAtprotoServerCreateAppPasswordAppPassword = NSID(
+  ids.comAtprotoServerCreateAppPasswordAppPassword,
+);
 
 /// `com.atproto.server.createInviteCode`
-const comAtprotoServerCreateInviteCode =
-    NSID(ids.comAtprotoServerCreateInviteCode);
+const comAtprotoServerCreateInviteCode = NSID(
+  ids.comAtprotoServerCreateInviteCode,
+);
 
 /// `com.atproto.server.createInviteCodes`
-const comAtprotoServerCreateInviteCodes =
-    NSID(ids.comAtprotoServerCreateInviteCodes);
+const comAtprotoServerCreateInviteCodes = NSID(
+  ids.comAtprotoServerCreateInviteCodes,
+);
 
 /// `com.atproto.server.createInviteCodes#accountCodes`
-const comAtprotoServerCreateInviteCodesAccountCodes =
-    NSID(ids.comAtprotoServerCreateInviteCodesAccountCodes);
+const comAtprotoServerCreateInviteCodesAccountCodes = NSID(
+  ids.comAtprotoServerCreateInviteCodesAccountCodes,
+);
 
 /// `com.atproto.server.createSession`
 const comAtprotoServerCreateSession = NSID(ids.comAtprotoServerCreateSession);
 
 /// `com.atproto.server.deactivateAccount`
-const comAtprotoServerDeactivateAccount =
-    NSID(ids.comAtprotoServerDeactivateAccount);
+const comAtprotoServerDeactivateAccount = NSID(
+  ids.comAtprotoServerDeactivateAccount,
+);
 
 /// `com.atproto.server.deleteAccount`
 const comAtprotoServerDeleteAccount = NSID(ids.comAtprotoServerDeleteAccount);
@@ -241,16 +277,19 @@ const comAtprotoServerDeleteSession = NSID(ids.comAtprotoServerDeleteSession);
 const comAtprotoServerDescribeServer = NSID(ids.comAtprotoServerDescribeServer);
 
 /// `com.atproto.server.describeServer#contact`
-const comAtprotoServerDescribeServerContact =
-    NSID(ids.comAtprotoServerDescribeServerContact);
+const comAtprotoServerDescribeServerContact = NSID(
+  ids.comAtprotoServerDescribeServerContact,
+);
 
 /// `com.atproto.server.describeServer#links`
-const comAtprotoServerDescribeServerLinks =
-    NSID(ids.comAtprotoServerDescribeServerLinks);
+const comAtprotoServerDescribeServerLinks = NSID(
+  ids.comAtprotoServerDescribeServerLinks,
+);
 
 /// `com.atproto.server.getAccountInviteCodes`
-const comAtprotoServerGetAccountInviteCodes =
-    NSID(ids.comAtprotoServerGetAccountInviteCodes);
+const comAtprotoServerGetAccountInviteCodes = NSID(
+  ids.comAtprotoServerGetAccountInviteCodes,
+);
 
 /// `com.atproto.server.getServiceAuth`
 const comAtprotoServerGetServiceAuth = NSID(ids.comAtprotoServerGetServiceAuth);
@@ -259,42 +298,50 @@ const comAtprotoServerGetServiceAuth = NSID(ids.comAtprotoServerGetServiceAuth);
 const comAtprotoServerGetSession = NSID(ids.comAtprotoServerGetSession);
 
 /// `com.atproto.server.listAppPasswords`
-const comAtprotoServerListAppPasswords =
-    NSID(ids.comAtprotoServerListAppPasswords);
+const comAtprotoServerListAppPasswords = NSID(
+  ids.comAtprotoServerListAppPasswords,
+);
 
 /// `com.atproto.server.listAppPasswords#appPassword`
-const comAtprotoServerListAppPasswordsAppPassword =
-    NSID(ids.comAtprotoServerListAppPasswordsAppPassword);
+const comAtprotoServerListAppPasswordsAppPassword = NSID(
+  ids.comAtprotoServerListAppPasswordsAppPassword,
+);
 
 /// `com.atproto.server.refreshSession`
 const comAtprotoServerRefreshSession = NSID(ids.comAtprotoServerRefreshSession);
 
 /// `com.atproto.server.requestAccountDelete`
-const comAtprotoServerRequestAccountDelete =
-    NSID(ids.comAtprotoServerRequestAccountDelete);
+const comAtprotoServerRequestAccountDelete = NSID(
+  ids.comAtprotoServerRequestAccountDelete,
+);
 
 /// `com.atproto.server.requestEmailConfirmation`
-const comAtprotoServerRequestEmailConfirmation =
-    NSID(ids.comAtprotoServerRequestEmailConfirmation);
+const comAtprotoServerRequestEmailConfirmation = NSID(
+  ids.comAtprotoServerRequestEmailConfirmation,
+);
 
 /// `com.atproto.server.requestEmailUpdate`
-const comAtprotoServerRequestEmailUpdate =
-    NSID(ids.comAtprotoServerRequestEmailUpdate);
+const comAtprotoServerRequestEmailUpdate = NSID(
+  ids.comAtprotoServerRequestEmailUpdate,
+);
 
 /// `com.atproto.server.requestPasswordReset`
-const comAtprotoServerRequestPasswordReset =
-    NSID(ids.comAtprotoServerRequestPasswordReset);
+const comAtprotoServerRequestPasswordReset = NSID(
+  ids.comAtprotoServerRequestPasswordReset,
+);
 
 /// `com.atproto.server.reserveSigningKey`
-const comAtprotoServerReserveSigningKey =
-    NSID(ids.comAtprotoServerReserveSigningKey);
+const comAtprotoServerReserveSigningKey = NSID(
+  ids.comAtprotoServerReserveSigningKey,
+);
 
 /// `com.atproto.server.resetPassword`
 const comAtprotoServerResetPassword = NSID(ids.comAtprotoServerResetPassword);
 
 /// `com.atproto.server.revokeAppPassword`
-const comAtprotoServerRevokeAppPassword =
-    NSID(ids.comAtprotoServerRevokeAppPassword);
+const comAtprotoServerRevokeAppPassword = NSID(
+  ids.comAtprotoServerRevokeAppPassword,
+);
 
 /// `com.atproto.server.updateEmail`
 const comAtprotoServerUpdateEmail = NSID(ids.comAtprotoServerUpdateEmail);
@@ -339,12 +386,14 @@ const comAtprotoSyncListHostsHost = NSID(ids.comAtprotoSyncListHostsHost);
 const comAtprotoSyncListRepos = NSID(ids.comAtprotoSyncListRepos);
 
 /// `com.atproto.sync.listReposByCollection`
-const comAtprotoSyncListReposByCollection =
-    NSID(ids.comAtprotoSyncListReposByCollection);
+const comAtprotoSyncListReposByCollection = NSID(
+  ids.comAtprotoSyncListReposByCollection,
+);
 
 /// `com.atproto.sync.listReposByCollection#repo`
-const comAtprotoSyncListReposByCollectionRepo =
-    NSID(ids.comAtprotoSyncListReposByCollectionRepo);
+const comAtprotoSyncListReposByCollectionRepo = NSID(
+  ids.comAtprotoSyncListReposByCollectionRepo,
+);
 
 /// `com.atproto.sync.listRepos#repo`
 const comAtprotoSyncListReposRepo = NSID(ids.comAtprotoSyncListReposRepo);
@@ -359,32 +408,39 @@ const comAtprotoSyncRequestCrawl = NSID(ids.comAtprotoSyncRequestCrawl);
 const comAtprotoSyncSubscribeRepos = NSID(ids.comAtprotoSyncSubscribeRepos);
 
 /// `com.atproto.sync.subscribeRepos#account`
-const comAtprotoSyncSubscribeReposAccount =
-    NSID(ids.comAtprotoSyncSubscribeReposAccount);
+const comAtprotoSyncSubscribeReposAccount = NSID(
+  ids.comAtprotoSyncSubscribeReposAccount,
+);
 
 /// `com.atproto.sync.subscribeRepos#commit`
-const comAtprotoSyncSubscribeReposCommit =
-    NSID(ids.comAtprotoSyncSubscribeReposCommit);
+const comAtprotoSyncSubscribeReposCommit = NSID(
+  ids.comAtprotoSyncSubscribeReposCommit,
+);
 
 /// `com.atproto.sync.subscribeRepos#identity`
-const comAtprotoSyncSubscribeReposIdentity =
-    NSID(ids.comAtprotoSyncSubscribeReposIdentity);
+const comAtprotoSyncSubscribeReposIdentity = NSID(
+  ids.comAtprotoSyncSubscribeReposIdentity,
+);
 
 /// `com.atproto.sync.subscribeRepos#info`
-const comAtprotoSyncSubscribeReposInfo =
-    NSID(ids.comAtprotoSyncSubscribeReposInfo);
+const comAtprotoSyncSubscribeReposInfo = NSID(
+  ids.comAtprotoSyncSubscribeReposInfo,
+);
 
 /// `com.atproto.sync.subscribeRepos#repoOp`
-const comAtprotoSyncSubscribeReposRepoOp =
-    NSID(ids.comAtprotoSyncSubscribeReposRepoOp);
+const comAtprotoSyncSubscribeReposRepoOp = NSID(
+  ids.comAtprotoSyncSubscribeReposRepoOp,
+);
 
 /// `com.atproto.sync.subscribeRepos#sync`
-const comAtprotoSyncSubscribeReposSync =
-    NSID(ids.comAtprotoSyncSubscribeReposSync);
+const comAtprotoSyncSubscribeReposSync = NSID(
+  ids.comAtprotoSyncSubscribeReposSync,
+);
 
 /// `com.atproto.temp.addReservedHandle`
-const comAtprotoTempAddReservedHandle =
-    NSID(ids.comAtprotoTempAddReservedHandle);
+const comAtprotoTempAddReservedHandle = NSID(
+  ids.comAtprotoTempAddReservedHandle,
+);
 
 /// `com.atproto.temp.checkSignupQueue`
 const comAtprotoTempCheckSignupQueue = NSID(ids.comAtprotoTempCheckSignupQueue);
@@ -393,5 +449,6 @@ const comAtprotoTempCheckSignupQueue = NSID(ids.comAtprotoTempCheckSignupQueue);
 const comAtprotoTempFetchLabels = NSID(ids.comAtprotoTempFetchLabels);
 
 /// `com.atproto.temp.requestPhoneVerification`
-const comAtprotoTempRequestPhoneVerification =
-    NSID(ids.comAtprotoTempRequestPhoneVerification);
+const comAtprotoTempRequestPhoneVerification = NSID(
+  ids.comAtprotoTempRequestPhoneVerification,
+);

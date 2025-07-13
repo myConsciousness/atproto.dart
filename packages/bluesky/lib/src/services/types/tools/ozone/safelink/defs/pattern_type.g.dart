@@ -8,20 +8,19 @@ part of 'pattern_type.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PatternTypeImpl _$$PatternTypeImplFromJson(Map json) => $checkedCreate(
-      r'_$PatternTypeImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$PatternTypeImpl(
-          knownValue: $checkedConvert('knownValue',
-              (v) => $enumDecodeNullable(_$KnownPatternTypeEnumMap, v)),
-          unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
-        );
-        return val;
-      },
-    );
+_PatternType _$PatternTypeFromJson(Map json) =>
+    $checkedCreate('_PatternType', json, ($checkedConvert) {
+      final val = _PatternType(
+        knownValue: $checkedConvert(
+          'knownValue',
+          (v) => $enumDecodeNullable(_$KnownPatternTypeEnumMap, v),
+        ),
+        unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$PatternTypeImplToJson(_$PatternTypeImpl instance) =>
+Map<String, dynamic> _$PatternTypeToJson(_PatternType instance) =>
     <String, dynamic>{
       'knownValue': _$KnownPatternTypeEnumMap[instance.knownValue],
       'unknownValue': instance.unknownValue,

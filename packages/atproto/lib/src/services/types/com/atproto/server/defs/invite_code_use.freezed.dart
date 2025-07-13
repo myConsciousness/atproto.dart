@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,230 +9,286 @@ part of 'invite_code_use.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-InviteCodeUse _$InviteCodeUseFromJson(Map<String, dynamic> json) {
-  return _InviteCodeUse.fromJson(json);
-}
 
 /// @nodoc
 mixin _$InviteCodeUse {
-  String get $type => throw _privateConstructorUsedError;
-  String get usedBy => throw _privateConstructorUsedError;
-  DateTime get usedAt => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+ String get $type; String get usedBy; DateTime get usedAt; Map<String, dynamic>? get $unknown;
+/// Create a copy of InviteCodeUse
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$InviteCodeUseCopyWith<InviteCodeUse> get copyWith => _$InviteCodeUseCopyWithImpl<InviteCodeUse>(this as InviteCodeUse, _$identity);
 
   /// Serializes this InviteCodeUse to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of InviteCodeUse
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $InviteCodeUseCopyWith<InviteCodeUse> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is InviteCodeUse&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.usedBy, usedBy) || other.usedBy == usedBy)&&(identical(other.usedAt, usedAt) || other.usedAt == usedAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,usedBy,usedAt,const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'InviteCodeUse(\$type: ${$type}, usedBy: $usedBy, usedAt: $usedAt, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $InviteCodeUseCopyWith<$Res> {
-  factory $InviteCodeUseCopyWith(
-          InviteCodeUse value, $Res Function(InviteCodeUse) then) =
-      _$InviteCodeUseCopyWithImpl<$Res, InviteCodeUse>;
-  @useResult
-  $Res call(
-      {String $type,
-      String usedBy,
-      DateTime usedAt,
-      Map<String, dynamic>? $unknown});
-}
+abstract mixin class $InviteCodeUseCopyWith<$Res>  {
+  factory $InviteCodeUseCopyWith(InviteCodeUse value, $Res Function(InviteCodeUse) _then) = _$InviteCodeUseCopyWithImpl;
+@useResult
+$Res call({
+ String $type, String usedBy, DateTime usedAt, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$InviteCodeUseCopyWithImpl<$Res, $Val extends InviteCodeUse>
+class _$InviteCodeUseCopyWithImpl<$Res>
     implements $InviteCodeUseCopyWith<$Res> {
-  _$InviteCodeUseCopyWithImpl(this._value, this._then);
+  _$InviteCodeUseCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final InviteCodeUse _self;
+  final $Res Function(InviteCodeUse) _then;
 
-  /// Create a copy of InviteCodeUse
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? usedBy = null,
-    Object? usedAt = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      usedBy: null == usedBy
-          ? _value.usedBy
-          : usedBy // ignore: cast_nullable_to_non_nullable
-              as String,
-      usedAt: null == usedAt
-          ? _value.usedAt
-          : usedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of InviteCodeUse
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? usedBy = null,Object? usedAt = null,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,usedBy: null == usedBy ? _self.usedBy : usedBy // ignore: cast_nullable_to_non_nullable
+as String,usedAt: null == usedAt ? _self.usedAt : usedAt // ignore: cast_nullable_to_non_nullable
+as DateTime,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$InviteCodeUseImplCopyWith<$Res>
-    implements $InviteCodeUseCopyWith<$Res> {
-  factory _$$InviteCodeUseImplCopyWith(
-          _$InviteCodeUseImpl value, $Res Function(_$InviteCodeUseImpl) then) =
-      __$$InviteCodeUseImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String $type,
-      String usedBy,
-      DateTime usedAt,
-      Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$InviteCodeUseImplCopyWithImpl<$Res>
-    extends _$InviteCodeUseCopyWithImpl<$Res, _$InviteCodeUseImpl>
-    implements _$$InviteCodeUseImplCopyWith<$Res> {
-  __$$InviteCodeUseImplCopyWithImpl(
-      _$InviteCodeUseImpl _value, $Res Function(_$InviteCodeUseImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of InviteCodeUse
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? usedBy = null,
-    Object? usedAt = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$InviteCodeUseImpl(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      usedBy: null == usedBy
-          ? _value.usedBy
-          : usedBy // ignore: cast_nullable_to_non_nullable
-              as String,
-      usedAt: null == usedAt
-          ? _value.usedAt
-          : usedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [InviteCodeUse].
+extension InviteCodeUsePatterns on InviteCodeUse {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _InviteCodeUse value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _InviteCodeUse() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _InviteCodeUse value)  $default,){
+final _that = this;
+switch (_that) {
+case _InviteCodeUse():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _InviteCodeUse value)?  $default,){
+final _that = this;
+switch (_that) {
+case _InviteCodeUse() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String usedBy,  DateTime usedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _InviteCodeUse() when $default != null:
+return $default(_that.$type,_that.usedBy,_that.usedAt,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String usedBy,  DateTime usedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _InviteCodeUse():
+return $default(_that.$type,_that.usedBy,_that.usedAt,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String usedBy,  DateTime usedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _InviteCodeUse() when $default != null:
+return $default(_that.$type,_that.usedBy,_that.usedAt,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$InviteCodeUseImpl implements _InviteCodeUse {
-  const _$InviteCodeUseImpl(
-      {this.$type = comAtprotoServerDefsInviteCodeUse,
-      required this.usedBy,
-      required this.usedAt,
-      final Map<String, dynamic>? $unknown})
-      : _$unknown = $unknown;
 
-  factory _$InviteCodeUseImpl.fromJson(Map<String, dynamic> json) =>
-      _$$InviteCodeUseImplFromJson(json);
+class _InviteCodeUse implements InviteCodeUse {
+  const _InviteCodeUse({this.$type = comAtprotoServerDefsInviteCodeUse, required this.usedBy, required this.usedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  factory _InviteCodeUse.fromJson(Map<String, dynamic> json) => _$InviteCodeUseFromJson(json);
 
-  @override
-  @JsonKey()
-  final String $type;
-  @override
-  final String usedBy;
-  @override
-  final DateTime usedAt;
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'InviteCodeUse(\$type: ${$type}, usedBy: $usedBy, usedAt: $usedAt, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$InviteCodeUseImpl &&
-            (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.usedBy, usedBy) || other.usedBy == usedBy) &&
-            (identical(other.usedAt, usedAt) || other.usedAt == usedAt) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, $type, usedBy, usedAt,
-      const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of InviteCodeUse
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$InviteCodeUseImplCopyWith<_$InviteCodeUseImpl> get copyWith =>
-      __$$InviteCodeUseImplCopyWithImpl<_$InviteCodeUseImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$InviteCodeUseImplToJson(
-      this,
-    );
-  }
+@override@JsonKey() final  String $type;
+@override final  String usedBy;
+@override final  DateTime usedAt;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
 
-abstract class _InviteCodeUse implements InviteCodeUse {
-  const factory _InviteCodeUse(
-      {final String $type,
-      required final String usedBy,
-      required final DateTime usedAt,
-      final Map<String, dynamic>? $unknown}) = _$InviteCodeUseImpl;
 
-  factory _InviteCodeUse.fromJson(Map<String, dynamic> json) =
-      _$InviteCodeUseImpl.fromJson;
+/// Create a copy of InviteCodeUse
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$InviteCodeUseCopyWith<_InviteCodeUse> get copyWith => __$InviteCodeUseCopyWithImpl<_InviteCodeUse>(this, _$identity);
 
-  @override
-  String get $type;
-  @override
-  String get usedBy;
-  @override
-  DateTime get usedAt;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of InviteCodeUse
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$InviteCodeUseImplCopyWith<_$InviteCodeUseImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$InviteCodeUseToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _InviteCodeUse&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.usedBy, usedBy) || other.usedBy == usedBy)&&(identical(other.usedAt, usedAt) || other.usedAt == usedAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,usedBy,usedAt,const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'InviteCodeUse(\$type: ${$type}, usedBy: $usedBy, usedAt: $usedAt, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$InviteCodeUseCopyWith<$Res> implements $InviteCodeUseCopyWith<$Res> {
+  factory _$InviteCodeUseCopyWith(_InviteCodeUse value, $Res Function(_InviteCodeUse) _then) = __$InviteCodeUseCopyWithImpl;
+@override @useResult
+$Res call({
+ String $type, String usedBy, DateTime usedAt, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$InviteCodeUseCopyWithImpl<$Res>
+    implements _$InviteCodeUseCopyWith<$Res> {
+  __$InviteCodeUseCopyWithImpl(this._self, this._then);
+
+  final _InviteCodeUse _self;
+  final $Res Function(_InviteCodeUse) _then;
+
+/// Create a copy of InviteCodeUse
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? usedBy = null,Object? usedAt = null,Object? $unknown = freezed,}) {
+  return _then(_InviteCodeUse(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,usedBy: null == usedBy ? _self.usedBy : usedBy // ignore: cast_nullable_to_non_nullable
+as String,usedAt: null == usedAt ? _self.usedAt : usedAt // ignore: cast_nullable_to_non_nullable
+as DateTime,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

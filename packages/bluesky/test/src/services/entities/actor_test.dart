@@ -14,10 +14,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: true,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: true, isBlockedBy: false),
       );
 
       expect(actor.isMuted, isTrue);
@@ -27,10 +24,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actor.isMuted, isFalse);
@@ -42,10 +36,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: true,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: true, isBlockedBy: false),
       );
 
       expect(actor.isNotMuted, isFalse);
@@ -55,10 +46,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actor.isNotMuted, isTrue);
@@ -70,10 +58,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: true,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: true),
       );
 
       expect(actor.isBlockedBy, isTrue);
@@ -83,10 +68,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actor.isBlockedBy, isFalse);
@@ -98,10 +80,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: true,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: true),
       );
 
       expect(actor.isNotBlockedBy, isFalse);
@@ -111,10 +90,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actor.isNotBlockedBy, isTrue);
@@ -148,10 +124,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actor.isMutedByList, isFalse);
@@ -185,10 +158,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actor.isNotMutedByList, isTrue);
@@ -222,10 +192,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actor.isBlockingByList, isFalse);
@@ -259,10 +226,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actor.isNotBlockingByList, isTrue);
@@ -290,10 +254,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actor.isBlocking, isFalse);
@@ -321,10 +282,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actor.isNotBlocking, isTrue);
@@ -352,10 +310,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actor.isFollowing, isFalse);
@@ -383,10 +338,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actor.isNotFollowing, isTrue);
@@ -414,10 +366,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actor.isFollowedBy, isFalse);
@@ -445,10 +394,7 @@ void main() {
       final actor = Actor(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorViewer(
-          isMuted: false,
-          isBlockedBy: false,
-        ),
+        viewer: ActorViewer(isMuted: false, isBlockedBy: false),
       );
 
       expect(actor.isNotFollowedBy, isTrue);

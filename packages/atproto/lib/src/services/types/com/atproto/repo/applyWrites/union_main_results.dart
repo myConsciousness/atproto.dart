@@ -74,9 +74,10 @@ final class URepoApplyWritesResultsConverter
 
   @override
   Map<String, dynamic> toJson(URepoApplyWritesResults object) => object.when(
-        createResult: (data) => const CreateResultConverter().toJson(data),
-        updateResult: (data) => const UpdateResultConverter().toJson(data),
-        deleteResult: (data) => const DeleteResultConverter().toJson(data),
-        unknown: (data) => data,
-      );
+    createResult: (data) => const CreateResultConverter().toJson(data),
+    updateResult: (data) => const UpdateResultConverter().toJson(data),
+    deleteResult: (data) => const DeleteResultConverter().toJson(data),
+
+    unknown: (data) => data,
+  );
 }

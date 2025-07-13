@@ -36,17 +36,14 @@ void main() {
     });
 
     test('case3', () {
-      final actual = getLabelerHeaders(ModerationPrefs(
-        labels: const {},
-        labelers: const [
-          ModerationPrefsLabeler(
-            did: 'did:aaaa',
-            labels: {},
-          )
-        ],
-        mutedWords: const [],
-        hiddenPosts: const [],
-      ));
+      final actual = getLabelerHeaders(
+        ModerationPrefs(
+          labels: const {},
+          labelers: const [ModerationPrefsLabeler(did: 'did:aaaa', labels: {})],
+          mutedWords: const [],
+          hiddenPosts: const [],
+        ),
+      );
 
       expect(actual.containsKey('atproto-accept-labelers'), isTrue);
       expect(
@@ -56,21 +53,17 @@ void main() {
     });
 
     test('case4', () {
-      final actual = getLabelerHeaders(ModerationPrefs(
-        labels: const {},
-        labelers: const [
-          ModerationPrefsLabeler(
-            did: 'did:aaaa',
-            labels: {},
-          ),
-          ModerationPrefsLabeler(
-            did: 'did:bbbb',
-            labels: {},
-          )
-        ],
-        mutedWords: const [],
-        hiddenPosts: const [],
-      ));
+      final actual = getLabelerHeaders(
+        ModerationPrefs(
+          labels: const {},
+          labelers: const [
+            ModerationPrefsLabeler(did: 'did:aaaa', labels: {}),
+            ModerationPrefsLabeler(did: 'did:bbbb', labels: {}),
+          ],
+          mutedWords: const [],
+          hiddenPosts: const [],
+        ),
+      );
 
       expect(actual.containsKey('atproto-accept-labelers'), isTrue);
       expect(
@@ -81,21 +74,17 @@ void main() {
     });
 
     test('case5', () {
-      final actual = getLabelerHeaders(ModerationPrefs(
-        labels: const {},
-        labelers: const [
-          ModerationPrefsLabeler(
-            did: 'did:aaaa',
-            labels: {},
-          ),
-          ModerationPrefsLabeler(
-            did: 'did:aaaa',
-            labels: {},
-          )
-        ],
-        mutedWords: const [],
-        hiddenPosts: const [],
-      ));
+      final actual = getLabelerHeaders(
+        ModerationPrefs(
+          labels: const {},
+          labelers: const [
+            ModerationPrefsLabeler(did: 'did:aaaa', labels: {}),
+            ModerationPrefsLabeler(did: 'did:aaaa', labels: {}),
+          ],
+          mutedWords: const [],
+          hiddenPosts: const [],
+        ),
+      );
 
       expect(actual.containsKey('atproto-accept-labelers'), isTrue);
       expect(

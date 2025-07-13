@@ -8,6 +8,7 @@
 ///
 /// These characters are typically used to identify invalid or unexpected
 /// character sequences when processing Unicode text.
-const invalidCharsGroup = r'\uFFFE'
+const invalidCharsGroup =
+    r'\uFFFE'
     r'\uFEFF'
     r'\uFFFF';

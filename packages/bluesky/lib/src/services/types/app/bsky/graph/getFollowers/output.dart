@@ -23,16 +23,13 @@ part 'output.g.dart';
 
 @freezed
 abstract class GraphGetFollowersOutput with _$GraphGetFollowersOutput {
-  static const knownProps = <String>[
-    'subject',
-    'cursor',
-    'followers',
-  ];
+  static const knownProps = <String>['subject', 'cursor', 'followers'];
 
   const factory GraphGetFollowersOutput({
     @ProfileViewConverter() required ProfileView subject,
     String? cursor,
     @ProfileViewConverter() required List<ProfileView> followers,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphGetFollowersOutput;
 
@@ -46,14 +43,12 @@ final class GraphGetFollowersOutputConverter
 
   @override
   GraphGetFollowersOutput fromJson(Map<String, dynamic> json) {
-    return GraphGetFollowersOutput.fromJson(translate(
-      json,
-      GraphGetFollowersOutput.knownProps,
-    ));
+    return GraphGetFollowersOutput.fromJson(
+      translate(json, GraphGetFollowersOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphGetFollowersOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(GraphGetFollowersOutput object) =>
+      untranslate(object.toJson());
 }

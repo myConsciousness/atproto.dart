@@ -23,12 +23,7 @@ part 'view_external.g.dart';
 
 @freezed
 abstract class EmbedExternalViewExternal with _$EmbedExternalViewExternal {
-  static const knownProps = <String>[
-    'uri',
-    'title',
-    'description',
-    'thumb',
-  ];
+  static const knownProps = <String>['uri', 'title', 'description', 'thumb'];
 
   const factory EmbedExternalViewExternal({
     @Default(appBskyEmbedExternalViewExternal) String $type,
@@ -36,6 +31,7 @@ abstract class EmbedExternalViewExternal with _$EmbedExternalViewExternal {
     required String title,
     required String description,
     @AtUriConverter() AtUri? thumb,
+
     Map<String, dynamic>? $unknown,
   }) = _EmbedExternalViewExternal;
 
@@ -48,20 +44,19 @@ abstract class EmbedExternalViewExternal with _$EmbedExternalViewExternal {
   }
 }
 
-final class EmbedExternalViewExternalConverter extends LexObjectConverter<
-    EmbedExternalViewExternal, Map<String, dynamic>> {
+final class EmbedExternalViewExternalConverter
+    extends
+        LexObjectConverter<EmbedExternalViewExternal, Map<String, dynamic>> {
   const EmbedExternalViewExternalConverter();
 
   @override
   EmbedExternalViewExternal fromJson(Map<String, dynamic> json) {
-    return EmbedExternalViewExternal.fromJson(translate(
-      json,
-      EmbedExternalViewExternal.knownProps,
-    ));
+    return EmbedExternalViewExternal.fromJson(
+      translate(json, EmbedExternalViewExternal.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedExternalViewExternal object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(EmbedExternalViewExternal object) =>
+      untranslate(object.toJson());
 }

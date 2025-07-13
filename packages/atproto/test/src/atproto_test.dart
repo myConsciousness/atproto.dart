@@ -53,12 +53,14 @@ void main() {
   });
 
   test('.moderation', () {
-    final service = ATProto.fromSession(core.Session(
-      did: 'aaaa',
-      handle: 'shinyakato.dev',
-      accessJwt: 'test',
-      refreshJwt: 'test',
-    )).moderation;
+    final service = ATProto.fromSession(
+      core.Session(
+        did: 'aaaa',
+        handle: 'shinyakato.dev',
+        accessJwt: 'test',
+        refreshJwt: 'test',
+      ),
+    ).moderation;
 
     expect(service, isA<ModerationService>());
   });

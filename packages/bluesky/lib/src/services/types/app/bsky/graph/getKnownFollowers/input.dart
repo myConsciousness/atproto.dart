@@ -20,16 +20,13 @@ part 'input.g.dart';
 
 @freezed
 abstract class GraphGetKnownFollowersInput with _$GraphGetKnownFollowersInput {
-  static const knownProps = <String>[
-    'actor',
-    'limit',
-    'cursor',
-  ];
+  static const knownProps = <String>['actor', 'limit', 'cursor'];
 
   const factory GraphGetKnownFollowersInput({
     required String actor,
     int? limit,
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphGetKnownFollowersInput;
 
@@ -37,21 +34,19 @@ abstract class GraphGetKnownFollowersInput with _$GraphGetKnownFollowersInput {
       _$GraphGetKnownFollowersInputFromJson(json);
 }
 
-final class GraphGetKnownFollowersInputConverter extends LexObjectConverter<
-    GraphGetKnownFollowersInput, Map<String, dynamic>> {
+final class GraphGetKnownFollowersInputConverter
+    extends
+        LexObjectConverter<GraphGetKnownFollowersInput, Map<String, dynamic>> {
   const GraphGetKnownFollowersInputConverter();
 
   @override
   GraphGetKnownFollowersInput fromJson(Map<String, dynamic> json) {
-    return GraphGetKnownFollowersInput.fromJson(translate(
-      json,
-      GraphGetKnownFollowersInput.knownProps,
-    ));
+    return GraphGetKnownFollowersInput.fromJson(
+      translate(json, GraphGetKnownFollowersInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(GraphGetKnownFollowersInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

@@ -24,17 +24,14 @@ part 'event.g.dart';
 
 @freezed
 abstract class Event with _$Event {
-  static const knownProps = <String>[
-    'details',
-    'createdBy',
-    'createdAt',
-  ];
+  static const knownProps = <String>['details', 'createdBy', 'createdAt'];
 
   const factory Event({
     @Default(toolsOzoneHostingGetAccountHistoryEvent) String $type,
     @UEventDetailsConverter() required UEventDetails details,
     required String createdBy,
     required DateTime createdAt,
+
     Map<String, dynamic>? $unknown,
   }) = _Event;
 
@@ -52,14 +49,9 @@ final class EventConverter
 
   @override
   Event fromJson(Map<String, dynamic> json) {
-    return Event.fromJson(translate(
-      json,
-      Event.knownProps,
-    ));
+    return Event.fromJson(translate(json, Event.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(Event object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(Event object) => untranslate(object.toJson());
 }

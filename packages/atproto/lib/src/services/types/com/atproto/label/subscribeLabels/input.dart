@@ -20,13 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class LabelSubscribeLabelsInput with _$LabelSubscribeLabelsInput {
-  static const knownProps = <String>[
-    'cursor',
-  ];
+  static const knownProps = <String>['cursor'];
 
   const factory LabelSubscribeLabelsInput({
     /// The last known event seq number to backfill from.
     int? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _LabelSubscribeLabelsInput;
 
@@ -34,20 +33,19 @@ abstract class LabelSubscribeLabelsInput with _$LabelSubscribeLabelsInput {
       _$LabelSubscribeLabelsInputFromJson(json);
 }
 
-final class LabelSubscribeLabelsInputConverter extends LexObjectConverter<
-    LabelSubscribeLabelsInput, Map<String, dynamic>> {
+final class LabelSubscribeLabelsInputConverter
+    extends
+        LexObjectConverter<LabelSubscribeLabelsInput, Map<String, dynamic>> {
   const LabelSubscribeLabelsInputConverter();
 
   @override
   LabelSubscribeLabelsInput fromJson(Map<String, dynamic> json) {
-    return LabelSubscribeLabelsInput.fromJson(translate(
-      json,
-      LabelSubscribeLabelsInput.knownProps,
-    ));
+    return LabelSubscribeLabelsInput.fromJson(
+      translate(json, LabelSubscribeLabelsInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(LabelSubscribeLabelsInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(LabelSubscribeLabelsInput object) =>
+      untranslate(object.toJson());
 }

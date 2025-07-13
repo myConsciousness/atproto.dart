@@ -8,44 +8,49 @@ part of 'main.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedThreadgateRecordImpl _$$FeedThreadgateRecordImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$FeedThreadgateRecordImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$FeedThreadgateRecordImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyFeedThreadgate),
-          post: $checkedConvert('post', (v) => v as String),
-          allow: $checkedConvert(
-              'allow',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => const UFeedThreadgateAllowConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          createdAt:
-              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
-          hiddenReplies: $checkedConvert('hiddenReplies',
-              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_FeedThreadgateRecord _$FeedThreadgateRecordFromJson(Map json) =>
+    $checkedCreate('_FeedThreadgateRecord', json, ($checkedConvert) {
+      final val = _FeedThreadgateRecord(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyFeedThreadgate,
+        ),
+        post: $checkedConvert('post', (v) => v as String),
+        allow: $checkedConvert(
+          'allow',
+          (v) => (v as List<dynamic>?)
+              ?.map(
+                (e) => const UFeedThreadgateAllowConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
+        createdAt: $checkedConvert(
+          'createdAt',
+          (v) => DateTime.parse(v as String),
+        ),
+        hiddenReplies: $checkedConvert(
+          'hiddenReplies',
+          (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$FeedThreadgateRecordImplToJson(
-        _$FeedThreadgateRecordImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'post': instance.post,
-      'allow': instance.allow
-          ?.map(const UFeedThreadgateAllowConverter().toJson)
-          .toList(),
-      'createdAt': instance.createdAt.toIso8601String(),
-      'hiddenReplies': instance.hiddenReplies,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$FeedThreadgateRecordToJson(
+  _FeedThreadgateRecord instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'post': instance.post,
+  'allow': instance.allow
+      ?.map(const UFeedThreadgateAllowConverter().toJson)
+      .toList(),
+  'createdAt': instance.createdAt.toIso8601String(),
+  'hiddenReplies': instance.hiddenReplies,
+  r'$unknown': instance.$unknown,
+};

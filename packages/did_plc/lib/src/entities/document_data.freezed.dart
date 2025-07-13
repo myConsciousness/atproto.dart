@@ -12,7 +12,8 @@ part of 'document_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 DocumentData _$DocumentDataFromJson(Map<String, dynamic> json) {
   return _DocumentData.fromJson(json);
@@ -40,15 +41,17 @@ mixin _$DocumentData {
 /// @nodoc
 abstract class $DocumentDataCopyWith<$Res> {
   factory $DocumentDataCopyWith(
-          DocumentData value, $Res Function(DocumentData) then) =
-      _$DocumentDataCopyWithImpl<$Res, DocumentData>;
+    DocumentData value,
+    $Res Function(DocumentData) then,
+  ) = _$DocumentDataCopyWithImpl<$Res, DocumentData>;
   @useResult
-  $Res call(
-      {String did,
-      Map<String, dynamic> verificationMethods,
-      List<String> rotationKeys,
-      List<String> alsoKnownAs,
-      Map<String, dynamic> services});
+  $Res call({
+    String did,
+    Map<String, dynamic> verificationMethods,
+    List<String> rotationKeys,
+    List<String> alsoKnownAs,
+    Map<String, dynamic> services,
+  });
 }
 
 /// @nodoc
@@ -72,28 +75,31 @@ class _$DocumentDataCopyWithImpl<$Res, $Val extends DocumentData>
     Object? alsoKnownAs = null,
     Object? services = null,
   }) {
-    return _then(_value.copyWith(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      verificationMethods: null == verificationMethods
-          ? _value.verificationMethods
-          : verificationMethods // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      rotationKeys: null == rotationKeys
-          ? _value.rotationKeys
-          : rotationKeys // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      alsoKnownAs: null == alsoKnownAs
-          ? _value.alsoKnownAs
-          : alsoKnownAs // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      services: null == services
-          ? _value.services
-          : services // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            did: null == did
+                ? _value.did
+                : did // ignore: cast_nullable_to_non_nullable
+                      as String,
+            verificationMethods: null == verificationMethods
+                ? _value.verificationMethods
+                : verificationMethods // ignore: cast_nullable_to_non_nullable
+                      as Map<String, dynamic>,
+            rotationKeys: null == rotationKeys
+                ? _value.rotationKeys
+                : rotationKeys // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
+            alsoKnownAs: null == alsoKnownAs
+                ? _value.alsoKnownAs
+                : alsoKnownAs // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
+            services: null == services
+                ? _value.services
+                : services // ignore: cast_nullable_to_non_nullable
+                      as Map<String, dynamic>,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -101,16 +107,18 @@ class _$DocumentDataCopyWithImpl<$Res, $Val extends DocumentData>
 abstract class _$$DocumentDataImplCopyWith<$Res>
     implements $DocumentDataCopyWith<$Res> {
   factory _$$DocumentDataImplCopyWith(
-          _$DocumentDataImpl value, $Res Function(_$DocumentDataImpl) then) =
-      __$$DocumentDataImplCopyWithImpl<$Res>;
+    _$DocumentDataImpl value,
+    $Res Function(_$DocumentDataImpl) then,
+  ) = __$$DocumentDataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String did,
-      Map<String, dynamic> verificationMethods,
-      List<String> rotationKeys,
-      List<String> alsoKnownAs,
-      Map<String, dynamic> services});
+  $Res call({
+    String did,
+    Map<String, dynamic> verificationMethods,
+    List<String> rotationKeys,
+    List<String> alsoKnownAs,
+    Map<String, dynamic> services,
+  });
 }
 
 /// @nodoc
@@ -118,8 +126,9 @@ class __$$DocumentDataImplCopyWithImpl<$Res>
     extends _$DocumentDataCopyWithImpl<$Res, _$DocumentDataImpl>
     implements _$$DocumentDataImplCopyWith<$Res> {
   __$$DocumentDataImplCopyWithImpl(
-      _$DocumentDataImpl _value, $Res Function(_$DocumentDataImpl) _then)
-      : super(_value, _then);
+    _$DocumentDataImpl _value,
+    $Res Function(_$DocumentDataImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DocumentData
   /// with the given fields replaced by the non-null parameter values.
@@ -132,28 +141,30 @@ class __$$DocumentDataImplCopyWithImpl<$Res>
     Object? alsoKnownAs = null,
     Object? services = null,
   }) {
-    return _then(_$DocumentDataImpl(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      verificationMethods: null == verificationMethods
-          ? _value._verificationMethods
-          : verificationMethods // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      rotationKeys: null == rotationKeys
-          ? _value._rotationKeys
-          : rotationKeys // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      alsoKnownAs: null == alsoKnownAs
-          ? _value._alsoKnownAs
-          : alsoKnownAs // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      services: null == services
-          ? _value._services
-          : services // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
+    return _then(
+      _$DocumentDataImpl(
+        did: null == did
+            ? _value.did
+            : did // ignore: cast_nullable_to_non_nullable
+                  as String,
+        verificationMethods: null == verificationMethods
+            ? _value._verificationMethods
+            : verificationMethods // ignore: cast_nullable_to_non_nullable
+                  as Map<String, dynamic>,
+        rotationKeys: null == rotationKeys
+            ? _value._rotationKeys
+            : rotationKeys // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
+        alsoKnownAs: null == alsoKnownAs
+            ? _value._alsoKnownAs
+            : alsoKnownAs // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
+        services: null == services
+            ? _value._services
+            : services // ignore: cast_nullable_to_non_nullable
+                  as Map<String, dynamic>,
+      ),
+    );
   }
 }
 
@@ -161,16 +172,16 @@ class __$$DocumentDataImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$DocumentDataImpl implements _DocumentData {
-  const _$DocumentDataImpl(
-      {required this.did,
-      required final Map<String, dynamic> verificationMethods,
-      required final List<String> rotationKeys,
-      required final List<String> alsoKnownAs,
-      required final Map<String, dynamic> services})
-      : _verificationMethods = verificationMethods,
-        _rotationKeys = rotationKeys,
-        _alsoKnownAs = alsoKnownAs,
-        _services = services;
+  const _$DocumentDataImpl({
+    required this.did,
+    required final Map<String, dynamic> verificationMethods,
+    required final List<String> rotationKeys,
+    required final List<String> alsoKnownAs,
+    required final Map<String, dynamic> services,
+  }) : _verificationMethods = verificationMethods,
+       _rotationKeys = rotationKeys,
+       _alsoKnownAs = alsoKnownAs,
+       _services = services;
 
   factory _$DocumentDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$DocumentDataImplFromJson(json);
@@ -221,24 +232,31 @@ class _$DocumentDataImpl implements _DocumentData {
         (other.runtimeType == runtimeType &&
             other is _$DocumentDataImpl &&
             (identical(other.did, did) || other.did == did) &&
-            const DeepCollectionEquality()
-                .equals(other._verificationMethods, _verificationMethods) &&
-            const DeepCollectionEquality()
-                .equals(other._rotationKeys, _rotationKeys) &&
-            const DeepCollectionEquality()
-                .equals(other._alsoKnownAs, _alsoKnownAs) &&
+            const DeepCollectionEquality().equals(
+              other._verificationMethods,
+              _verificationMethods,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._rotationKeys,
+              _rotationKeys,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._alsoKnownAs,
+              _alsoKnownAs,
+            ) &&
             const DeepCollectionEquality().equals(other._services, _services));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      did,
-      const DeepCollectionEquality().hash(_verificationMethods),
-      const DeepCollectionEquality().hash(_rotationKeys),
-      const DeepCollectionEquality().hash(_alsoKnownAs),
-      const DeepCollectionEquality().hash(_services));
+    runtimeType,
+    did,
+    const DeepCollectionEquality().hash(_verificationMethods),
+    const DeepCollectionEquality().hash(_rotationKeys),
+    const DeepCollectionEquality().hash(_alsoKnownAs),
+    const DeepCollectionEquality().hash(_services),
+  );
 
   /// Create a copy of DocumentData
   /// with the given fields replaced by the non-null parameter values.
@@ -250,19 +268,18 @@ class _$DocumentDataImpl implements _DocumentData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DocumentDataImplToJson(
-      this,
-    );
+    return _$$DocumentDataImplToJson(this);
   }
 }
 
 abstract class _DocumentData implements DocumentData {
-  const factory _DocumentData(
-      {required final String did,
-      required final Map<String, dynamic> verificationMethods,
-      required final List<String> rotationKeys,
-      required final List<String> alsoKnownAs,
-      required final Map<String, dynamic> services}) = _$DocumentDataImpl;
+  const factory _DocumentData({
+    required final String did,
+    required final Map<String, dynamic> verificationMethods,
+    required final List<String> rotationKeys,
+    required final List<String> alsoKnownAs,
+    required final Map<String, dynamic> services,
+  }) = _$DocumentDataImpl;
 
   factory _DocumentData.fromJson(Map<String, dynamic> json) =
       _$DocumentDataImpl.fromJson;

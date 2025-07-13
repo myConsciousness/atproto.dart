@@ -21,10 +21,7 @@ part 'input.g.dart';
 @freezed
 abstract class UnspeccedGetPostThreadOtherV2Input
     with _$UnspeccedGetPostThreadOtherV2Input {
-  static const knownProps = <String>[
-    'anchor',
-    'prioritizeFollowedUsers',
-  ];
+  static const knownProps = <String>['anchor', 'prioritizeFollowedUsers'];
 
   const factory UnspeccedGetPostThreadOtherV2Input({
     /// Reference (AT-URI) to post record. This is the anchor post.
@@ -32,30 +29,31 @@ abstract class UnspeccedGetPostThreadOtherV2Input
 
     /// Whether to prioritize posts from followed users. It only has effect when the user is authenticated.
     bool? prioritizeFollowedUsers,
+
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetPostThreadOtherV2Input;
 
   factory UnspeccedGetPostThreadOtherV2Input.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedGetPostThreadOtherV2InputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$UnspeccedGetPostThreadOtherV2InputFromJson(json);
 }
 
 final class UnspeccedGetPostThreadOtherV2InputConverter
-    extends LexObjectConverter<UnspeccedGetPostThreadOtherV2Input,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          UnspeccedGetPostThreadOtherV2Input,
+          Map<String, dynamic>
+        > {
   const UnspeccedGetPostThreadOtherV2InputConverter();
 
   @override
   UnspeccedGetPostThreadOtherV2Input fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetPostThreadOtherV2Input.fromJson(translate(
-      json,
-      UnspeccedGetPostThreadOtherV2Input.knownProps,
-    ));
+    return UnspeccedGetPostThreadOtherV2Input.fromJson(
+      translate(json, UnspeccedGetPostThreadOtherV2Input.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetPostThreadOtherV2Input object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

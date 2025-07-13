@@ -8,27 +8,23 @@ part of 'mod_event_escalate.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ModEventEscalateImpl _$$ModEventEscalateImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ModEventEscalateImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ModEventEscalateImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? toolsOzoneModerationDefsModEventEscalate),
-          comment: $checkedConvert('comment', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ModEventEscalate _$ModEventEscalateFromJson(Map json) =>
+    $checkedCreate('_ModEventEscalate', json, ($checkedConvert) {
+      final val = _ModEventEscalate(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? toolsOzoneModerationDefsModEventEscalate,
+        ),
+        comment: $checkedConvert('comment', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ModEventEscalateImplToJson(
-        _$ModEventEscalateImpl instance) =>
+Map<String, dynamic> _$ModEventEscalateToJson(_ModEventEscalate instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'comment': instance.comment,

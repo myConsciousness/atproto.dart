@@ -20,12 +20,11 @@ part 'output.g.dart';
 
 @freezed
 abstract class SyncGetHeadOutput with _$SyncGetHeadOutput {
-  static const knownProps = <String>[
-    'root',
-  ];
+  static const knownProps = <String>['root'];
 
   const factory SyncGetHeadOutput({
     required String root,
+
     Map<String, dynamic>? $unknown,
   }) = _SyncGetHeadOutput;
 
@@ -39,14 +38,12 @@ final class SyncGetHeadOutputConverter
 
   @override
   SyncGetHeadOutput fromJson(Map<String, dynamic> json) {
-    return SyncGetHeadOutput.fromJson(translate(
-      json,
-      SyncGetHeadOutput.knownProps,
-    ));
+    return SyncGetHeadOutput.fromJson(
+      translate(json, SyncGetHeadOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SyncGetHeadOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SyncGetHeadOutput object) =>
+      untranslate(object.toJson());
 }

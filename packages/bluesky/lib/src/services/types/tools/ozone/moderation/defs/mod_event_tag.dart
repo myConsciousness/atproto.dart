@@ -24,11 +24,7 @@ part 'mod_event_tag.g.dart';
 /// Add/Remove a tag on a subject
 @freezed
 abstract class ModEventTag with _$ModEventTag {
-  static const knownProps = <String>[
-    'add',
-    'remove',
-    'comment',
-  ];
+  static const knownProps = <String>['add', 'remove', 'comment'];
 
   const factory ModEventTag({
     @Default(toolsOzoneModerationDefsModEventTag) String $type,
@@ -37,6 +33,7 @@ abstract class ModEventTag with _$ModEventTag {
 
     /// Additional comment about added/removed tags.
     String? comment,
+
     Map<String, dynamic>? $unknown,
   }) = _ModEventTag;
 
@@ -55,14 +52,10 @@ final class ModEventTagConverter
 
   @override
   ModEventTag fromJson(Map<String, dynamic> json) {
-    return ModEventTag.fromJson(translate(
-      json,
-      ModEventTag.knownProps,
-    ));
+    return ModEventTag.fromJson(translate(json, ModEventTag.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ModEventTag object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ModEventTag object) =>
+      untranslate(object.toJson());
 }

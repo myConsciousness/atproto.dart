@@ -21,15 +21,13 @@ part 'input.g.dart';
 @freezed
 abstract class AdminUpdateAccountEmailInput
     with _$AdminUpdateAccountEmailInput {
-  static const knownProps = <String>[
-    'account',
-    'email',
-  ];
+  static const knownProps = <String>['account', 'email'];
 
   const factory AdminUpdateAccountEmailInput({
     /// The handle or DID of the repo.
     required String account,
     required String email,
+
     Map<String, dynamic>? $unknown,
   }) = _AdminUpdateAccountEmailInput;
 
@@ -37,21 +35,19 @@ abstract class AdminUpdateAccountEmailInput
       _$AdminUpdateAccountEmailInputFromJson(json);
 }
 
-final class AdminUpdateAccountEmailInputConverter extends LexObjectConverter<
-    AdminUpdateAccountEmailInput, Map<String, dynamic>> {
+final class AdminUpdateAccountEmailInputConverter
+    extends
+        LexObjectConverter<AdminUpdateAccountEmailInput, Map<String, dynamic>> {
   const AdminUpdateAccountEmailInputConverter();
 
   @override
   AdminUpdateAccountEmailInput fromJson(Map<String, dynamic> json) {
-    return AdminUpdateAccountEmailInput.fromJson(translate(
-      json,
-      AdminUpdateAccountEmailInput.knownProps,
-    ));
+    return AdminUpdateAccountEmailInput.fromJson(
+      translate(json, AdminUpdateAccountEmailInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(AdminUpdateAccountEmailInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

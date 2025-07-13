@@ -16,9 +16,9 @@ abstract class BskyCommand extends Command<void> {
   BskyCommand();
 
   /// The logger
-  late final logger = BskyLogger(globalResults!['verbose']! as bool
-      ? Logger.verbose()
-      : Logger.standard());
+  late final logger = BskyLogger(
+    globalResults!['verbose']! as bool ? Logger.verbose() : Logger.standard(),
+  );
 
   late final service = globalResults!['service'] as String?;
 
@@ -54,15 +54,9 @@ abstract class BskyCommand extends Command<void> {
 
   Future<Map<String, dynamic>> _createSession() async {
     final response = await xrpc.procedure<String>(
-      xrpc.NSID.create(
-        'server.atproto.com',
-        'createSession',
-      ),
+      xrpc.NSID.create('server.atproto.com', 'createSession'),
       service: service,
-      body: {
-        'identifier': _auth.identifier,
-        'password': _auth.password,
-      },
+      body: {'identifier': _auth.identifier, 'password': _auth.password},
     );
 
     _session = jsonDecode(response.data);
@@ -70,17 +64,10 @@ abstract class BskyCommand extends Command<void> {
     return _session;
   }
 
-  Future<xrpc.XRPCResponse<String>> upload(
-    final File file,
-  ) async =>
+  Future<xrpc.XRPCResponse<String>> upload(final File file) async =>
       await xrpc.procedure<String>(
-        xrpc.NSID.create(
-          'repo.atproto.com',
-          'uploadBlob',
-        ),
+        xrpc.NSID.create('repo.atproto.com', 'uploadBlob'),
         body: file.readAsBytesSync(),
-        headers: {
-          'Authorization': 'Bearer ${await accessJwt}',
-        },
+        headers: {'Authorization': 'Bearer ${await accessJwt}'},
       );
 }

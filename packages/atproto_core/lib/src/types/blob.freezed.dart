@@ -12,7 +12,8 @@ part of 'blob.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Blob _$BlobFromJson(Map<String, dynamic> json) {
   return _Blob.fromJson(json);
@@ -65,24 +66,27 @@ class _$BlobCopyWithImpl<$Res, $Val extends Blob>
     Object? size = null,
     Object? ref = null,
   }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      mimeType: null == mimeType
-          ? _value.mimeType
-          : mimeType // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      ref: null == ref
-          ? _value.ref
-          : ref // ignore: cast_nullable_to_non_nullable
-              as BlobRef,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+            mimeType: null == mimeType
+                ? _value.mimeType
+                : mimeType // ignore: cast_nullable_to_non_nullable
+                      as String,
+            size: null == size
+                ? _value.size
+                : size // ignore: cast_nullable_to_non_nullable
+                      as int,
+            ref: null == ref
+                ? _value.ref
+                : ref // ignore: cast_nullable_to_non_nullable
+                      as BlobRef,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of Blob
@@ -99,8 +103,9 @@ class _$BlobCopyWithImpl<$Res, $Val extends Blob>
 /// @nodoc
 abstract class _$$BlobImplCopyWith<$Res> implements $BlobCopyWith<$Res> {
   factory _$$BlobImplCopyWith(
-          _$BlobImpl value, $Res Function(_$BlobImpl) then) =
-      __$$BlobImplCopyWithImpl<$Res>;
+    _$BlobImpl value,
+    $Res Function(_$BlobImpl) then,
+  ) = __$$BlobImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, String mimeType, int size, BlobRef ref});
@@ -114,7 +119,7 @@ class __$$BlobImplCopyWithImpl<$Res>
     extends _$BlobCopyWithImpl<$Res, _$BlobImpl>
     implements _$$BlobImplCopyWith<$Res> {
   __$$BlobImplCopyWithImpl(_$BlobImpl _value, $Res Function(_$BlobImpl) _then)
-      : super(_value, _then);
+    : super(_value, _then);
 
   /// Create a copy of Blob
   /// with the given fields replaced by the non-null parameter values.
@@ -126,35 +131,38 @@ class __$$BlobImplCopyWithImpl<$Res>
     Object? size = null,
     Object? ref = null,
   }) {
-    return _then(_$BlobImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      mimeType: null == mimeType
-          ? _value.mimeType
-          : mimeType // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      ref: null == ref
-          ? _value.ref
-          : ref // ignore: cast_nullable_to_non_nullable
-              as BlobRef,
-    ));
+    return _then(
+      _$BlobImpl(
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+        mimeType: null == mimeType
+            ? _value.mimeType
+            : mimeType // ignore: cast_nullable_to_non_nullable
+                  as String,
+        size: null == size
+            ? _value.size
+            : size // ignore: cast_nullable_to_non_nullable
+                  as int,
+        ref: null == ref
+            ? _value.ref
+            : ref // ignore: cast_nullable_to_non_nullable
+                  as BlobRef,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$BlobImpl implements _Blob {
-  const _$BlobImpl(
-      {@typeKey this.type = 'blob',
-      required this.mimeType,
-      required this.size,
-      required this.ref});
+  const _$BlobImpl({
+    @typeKey this.type = 'blob',
+    required this.mimeType,
+    required this.size,
+    required this.ref,
+  });
 
   factory _$BlobImpl.fromJson(Map<String, dynamic> json) =>
       _$$BlobImplFromJson(json);
@@ -200,18 +208,17 @@ class _$BlobImpl implements _Blob {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BlobImplToJson(
-      this,
-    );
+    return _$$BlobImplToJson(this);
   }
 }
 
 abstract class _Blob implements Blob {
-  const factory _Blob(
-      {@typeKey final String type,
-      required final String mimeType,
-      required final int size,
-      required final BlobRef ref}) = _$BlobImpl;
+  const factory _Blob({
+    @typeKey final String type,
+    required final String mimeType,
+    required final int size,
+    required final BlobRef ref,
+  }) = _$BlobImpl;
 
   factory _Blob.fromJson(Map<String, dynamic> json) = _$BlobImpl.fromJson;
 

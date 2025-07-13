@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,235 +9,286 @@ part of 'mod_event_priority_score.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ModEventPriorityScore _$ModEventPriorityScoreFromJson(
-    Map<String, dynamic> json) {
-  return _ModEventPriorityScore.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ModEventPriorityScore {
-  String get $type => throw _privateConstructorUsedError;
-  String? get comment => throw _privateConstructorUsedError;
-  int get score => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+ String get $type; String? get comment; int get score; Map<String, dynamic>? get $unknown;
+/// Create a copy of ModEventPriorityScore
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ModEventPriorityScoreCopyWith<ModEventPriorityScore> get copyWith => _$ModEventPriorityScoreCopyWithImpl<ModEventPriorityScore>(this as ModEventPriorityScore, _$identity);
 
   /// Serializes this ModEventPriorityScore to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of ModEventPriorityScore
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ModEventPriorityScoreCopyWith<ModEventPriorityScore> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModEventPriorityScore&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.score, score) || other.score == score)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,comment,score,const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'ModEventPriorityScore(\$type: ${$type}, comment: $comment, score: $score, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ModEventPriorityScoreCopyWith<$Res> {
-  factory $ModEventPriorityScoreCopyWith(ModEventPriorityScore value,
-          $Res Function(ModEventPriorityScore) then) =
-      _$ModEventPriorityScoreCopyWithImpl<$Res, ModEventPriorityScore>;
-  @useResult
-  $Res call(
-      {String $type,
-      String? comment,
-      int score,
-      Map<String, dynamic>? $unknown});
-}
+abstract mixin class $ModEventPriorityScoreCopyWith<$Res>  {
+  factory $ModEventPriorityScoreCopyWith(ModEventPriorityScore value, $Res Function(ModEventPriorityScore) _then) = _$ModEventPriorityScoreCopyWithImpl;
+@useResult
+$Res call({
+ String $type, String? comment, int score, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$ModEventPriorityScoreCopyWithImpl<$Res,
-        $Val extends ModEventPriorityScore>
+class _$ModEventPriorityScoreCopyWithImpl<$Res>
     implements $ModEventPriorityScoreCopyWith<$Res> {
-  _$ModEventPriorityScoreCopyWithImpl(this._value, this._then);
+  _$ModEventPriorityScoreCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ModEventPriorityScore _self;
+  final $Res Function(ModEventPriorityScore) _then;
 
-  /// Create a copy of ModEventPriorityScore
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? comment = freezed,
-    Object? score = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      comment: freezed == comment
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
-              as String?,
-      score: null == score
-          ? _value.score
-          : score // ignore: cast_nullable_to_non_nullable
-              as int,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of ModEventPriorityScore
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? comment = freezed,Object? score = null,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
+as String?,score: null == score ? _self.score : score // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ModEventPriorityScoreImplCopyWith<$Res>
-    implements $ModEventPriorityScoreCopyWith<$Res> {
-  factory _$$ModEventPriorityScoreImplCopyWith(
-          _$ModEventPriorityScoreImpl value,
-          $Res Function(_$ModEventPriorityScoreImpl) then) =
-      __$$ModEventPriorityScoreImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String $type,
-      String? comment,
-      int score,
-      Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$ModEventPriorityScoreImplCopyWithImpl<$Res>
-    extends _$ModEventPriorityScoreCopyWithImpl<$Res,
-        _$ModEventPriorityScoreImpl>
-    implements _$$ModEventPriorityScoreImplCopyWith<$Res> {
-  __$$ModEventPriorityScoreImplCopyWithImpl(_$ModEventPriorityScoreImpl _value,
-      $Res Function(_$ModEventPriorityScoreImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of ModEventPriorityScore
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? comment = freezed,
-    Object? score = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$ModEventPriorityScoreImpl(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      comment: freezed == comment
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
-              as String?,
-      score: null == score
-          ? _value.score
-          : score // ignore: cast_nullable_to_non_nullable
-              as int,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [ModEventPriorityScore].
+extension ModEventPriorityScorePatterns on ModEventPriorityScore {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ModEventPriorityScore value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ModEventPriorityScore() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ModEventPriorityScore value)  $default,){
+final _that = this;
+switch (_that) {
+case _ModEventPriorityScore():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ModEventPriorityScore value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ModEventPriorityScore() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  int score,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ModEventPriorityScore() when $default != null:
+return $default(_that.$type,_that.comment,_that.score,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  int score,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _ModEventPriorityScore():
+return $default(_that.$type,_that.comment,_that.score,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  int score,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _ModEventPriorityScore() when $default != null:
+return $default(_that.$type,_that.comment,_that.score,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ModEventPriorityScoreImpl implements _ModEventPriorityScore {
-  const _$ModEventPriorityScoreImpl(
-      {this.$type = toolsOzoneModerationDefsModEventPriorityScore,
-      this.comment,
-      required this.score,
-      final Map<String, dynamic>? $unknown})
-      : _$unknown = $unknown;
 
-  factory _$ModEventPriorityScoreImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ModEventPriorityScoreImplFromJson(json);
+class _ModEventPriorityScore implements ModEventPriorityScore {
+  const _ModEventPriorityScore({this.$type = toolsOzoneModerationDefsModEventPriorityScore, this.comment, required this.score, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  factory _ModEventPriorityScore.fromJson(Map<String, dynamic> json) => _$ModEventPriorityScoreFromJson(json);
 
-  @override
-  @JsonKey()
-  final String $type;
-  @override
-  final String? comment;
-  @override
-  final int score;
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'ModEventPriorityScore(\$type: ${$type}, comment: $comment, score: $score, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ModEventPriorityScoreImpl &&
-            (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.comment, comment) || other.comment == comment) &&
-            (identical(other.score, score) || other.score == score) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, $type, comment, score,
-      const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of ModEventPriorityScore
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ModEventPriorityScoreImplCopyWith<_$ModEventPriorityScoreImpl>
-      get copyWith => __$$ModEventPriorityScoreImplCopyWithImpl<
-          _$ModEventPriorityScoreImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ModEventPriorityScoreImplToJson(
-      this,
-    );
-  }
+@override@JsonKey() final  String $type;
+@override final  String? comment;
+@override final  int score;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
 
-abstract class _ModEventPriorityScore implements ModEventPriorityScore {
-  const factory _ModEventPriorityScore(
-      {final String $type,
-      final String? comment,
-      required final int score,
-      final Map<String, dynamic>? $unknown}) = _$ModEventPriorityScoreImpl;
 
-  factory _ModEventPriorityScore.fromJson(Map<String, dynamic> json) =
-      _$ModEventPriorityScoreImpl.fromJson;
+/// Create a copy of ModEventPriorityScore
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ModEventPriorityScoreCopyWith<_ModEventPriorityScore> get copyWith => __$ModEventPriorityScoreCopyWithImpl<_ModEventPriorityScore>(this, _$identity);
 
-  @override
-  String get $type;
-  @override
-  String? get comment;
-  @override
-  int get score;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of ModEventPriorityScore
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ModEventPriorityScoreImplCopyWith<_$ModEventPriorityScoreImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$ModEventPriorityScoreToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModEventPriorityScore&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.score, score) || other.score == score)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,comment,score,const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'ModEventPriorityScore(\$type: ${$type}, comment: $comment, score: $score, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ModEventPriorityScoreCopyWith<$Res> implements $ModEventPriorityScoreCopyWith<$Res> {
+  factory _$ModEventPriorityScoreCopyWith(_ModEventPriorityScore value, $Res Function(_ModEventPriorityScore) _then) = __$ModEventPriorityScoreCopyWithImpl;
+@override @useResult
+$Res call({
+ String $type, String? comment, int score, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$ModEventPriorityScoreCopyWithImpl<$Res>
+    implements _$ModEventPriorityScoreCopyWith<$Res> {
+  __$ModEventPriorityScoreCopyWithImpl(this._self, this._then);
+
+  final _ModEventPriorityScore _self;
+  final $Res Function(_ModEventPriorityScore) _then;
+
+/// Create a copy of ModEventPriorityScore
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? comment = freezed,Object? score = null,Object? $unknown = freezed,}) {
+  return _then(_ModEventPriorityScore(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
+as String?,score: null == score ? _self.score : score // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

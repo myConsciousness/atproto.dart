@@ -24,15 +24,13 @@ part 'labels.g.dart';
 
 @freezed
 abstract class Labels with _$Labels {
-  static const knownProps = <String>[
-    'seq',
-    'labels',
-  ];
+  static const knownProps = <String>['seq', 'labels'];
 
   const factory Labels({
     @Default(comAtprotoLabelSubscribeLabelsLabels) String $type,
     required int seq,
     @LabelConverter() required List<Label> labels,
+
     Map<String, dynamic>? $unknown,
   }) = _Labels;
 
@@ -50,14 +48,9 @@ final class LabelsConverter
 
   @override
   Labels fromJson(Map<String, dynamic> json) {
-    return Labels.fromJson(translate(
-      json,
-      Labels.knownProps,
-    ));
+    return Labels.fromJson(translate(json, Labels.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(Labels object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(Labels object) => untranslate(object.toJson());
 }

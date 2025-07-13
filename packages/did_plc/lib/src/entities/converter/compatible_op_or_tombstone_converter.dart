@@ -19,9 +19,7 @@ final class _CompatibleOpOrTombstoneConverter
       final type = json['type'];
 
       if (type == 'plc_operation') {
-        return CompatibleOpOrTombstone.op(
-          data: Operation.fromJson(json),
-        );
+        return CompatibleOpOrTombstone.op(data: Operation.fromJson(json));
       } else if (type == 'plc_tombstone') {
         return CompatibleOpOrTombstone.tombstone(
           data: Tombstone.fromJson(json),
@@ -40,9 +38,9 @@ final class _CompatibleOpOrTombstoneConverter
 
   @override
   Map<String, dynamic> toJson(CompatibleOpOrTombstone object) => object.when(
-        op: (data) => data.toJson(),
-        tombstone: (data) => data.toJson(),
-        createOpV1: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+    op: (data) => data.toJson(),
+    tombstone: (data) => data.toJson(),
+    createOpV1: (data) => data.toJson(),
+    unknown: (data) => data,
+  );
 }

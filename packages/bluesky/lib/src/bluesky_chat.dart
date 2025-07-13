@@ -10,7 +10,7 @@ import 'services/types/chat/bsky/convo_service.dart';
 import 'services/types/chat/bsky/moderation_service.dart';
 
 const _kBskyChatProxyHeaders = <String, String>{
-  'atproto-proxy': 'did:web:api.bsky.chat#bsky_chat'
+  'atproto-proxy': 'did:web:api.bsky.chat#bsky_chat',
 };
 
 /// Provides `chat.bsky.*` services.
@@ -26,37 +26,30 @@ sealed class BlueskyChat {
     final core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  }) =>
-      _BlueskyChat(
-        ServiceContext(
-          atproto: atp.ATProto.fromSession(
-            headers: {
-              ...?headers,
-              ..._kBskyChatProxyHeaders,
-            },
-            session,
-            protocol: protocol,
-            service: service,
-            relayService: relayService,
-            timeout: timeout,
-            retryConfig: retryConfig,
-            mockedGetClient: mockedGetClient,
-            mockedPostClient: mockedPostClient,
-          ),
-          headers: {
-            ...?headers,
-            ..._kBskyChatProxyHeaders,
-          },
-          protocol: protocol,
-          service: service,
-          relayService: relayService,
-          session: session,
-          timeout: timeout,
-          retryConfig: retryConfig,
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
-        ),
-      );
+  }) => _BlueskyChat(
+    ServiceContext(
+      atproto: atp.ATProto.fromSession(
+        headers: {...?headers, ..._kBskyChatProxyHeaders},
+        session,
+        protocol: protocol,
+        service: service,
+        relayService: relayService,
+        timeout: timeout,
+        retryConfig: retryConfig,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
+      ),
+      headers: {...?headers, ..._kBskyChatProxyHeaders},
+      protocol: protocol,
+      service: service,
+      relayService: relayService,
+      session: session,
+      timeout: timeout,
+      retryConfig: retryConfig,
+      mockedGetClient: mockedGetClient,
+      mockedPostClient: mockedPostClient,
+    ),
+  );
 
   /// Returns the new instance of [BlueskyChat].
   factory BlueskyChat.fromOAuthSession(
@@ -69,37 +62,30 @@ sealed class BlueskyChat {
     final core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  }) =>
-      _BlueskyChat(
-        ServiceContext(
-          atproto: atp.ATProto.fromOAuthSession(
-            headers: {
-              ...?headers,
-              ..._kBskyChatProxyHeaders,
-            },
-            session,
-            protocol: protocol,
-            service: service,
-            relayService: relayService,
-            timeout: timeout,
-            retryConfig: retryConfig,
-            mockedGetClient: mockedGetClient,
-            mockedPostClient: mockedPostClient,
-          ),
-          headers: {
-            ...?headers,
-            ..._kBskyChatProxyHeaders,
-          },
-          protocol: protocol,
-          service: service,
-          relayService: relayService,
-          oAuthSession: session,
-          timeout: timeout,
-          retryConfig: retryConfig,
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
-        ),
-      );
+  }) => _BlueskyChat(
+    ServiceContext(
+      atproto: atp.ATProto.fromOAuthSession(
+        headers: {...?headers, ..._kBskyChatProxyHeaders},
+        session,
+        protocol: protocol,
+        service: service,
+        relayService: relayService,
+        timeout: timeout,
+        retryConfig: retryConfig,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
+      ),
+      headers: {...?headers, ..._kBskyChatProxyHeaders},
+      protocol: protocol,
+      service: service,
+      relayService: relayService,
+      oAuthSession: session,
+      timeout: timeout,
+      retryConfig: retryConfig,
+      mockedGetClient: mockedGetClient,
+      mockedPostClient: mockedPostClient,
+    ),
+  );
 
   /// Returns the global headers without auth header.
   Map<String, String> get headers;
@@ -136,10 +122,10 @@ sealed class BlueskyChat {
 
 final class _BlueskyChat implements BlueskyChat {
   _BlueskyChat(final ServiceContext ctx)
-      : actor = ActorService(ctx),
-        convo = ConvoService(ctx),
-        moderation = ModerationService(ctx),
-        _ctx = ctx;
+    : actor = ActorService(ctx),
+      convo = ConvoService(ctx),
+      moderation = ModerationService(ctx),
+      _ctx = ctx;
 
   final ServiceContext _ctx;
 

@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,217 +9,283 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ServerCreateInviteCodeInput _$ServerCreateInviteCodeInputFromJson(
-    Map<String, dynamic> json) {
-  return _ServerCreateInviteCodeInput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ServerCreateInviteCodeInput {
-  int get useCount => throw _privateConstructorUsedError;
-  String? get forAccount => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+ int get useCount; String? get forAccount; Map<String, dynamic>? get $unknown;
+/// Create a copy of ServerCreateInviteCodeInput
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ServerCreateInviteCodeInputCopyWith<ServerCreateInviteCodeInput> get copyWith => _$ServerCreateInviteCodeInputCopyWithImpl<ServerCreateInviteCodeInput>(this as ServerCreateInviteCodeInput, _$identity);
 
   /// Serializes this ServerCreateInviteCodeInput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of ServerCreateInviteCodeInput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ServerCreateInviteCodeInputCopyWith<ServerCreateInviteCodeInput>
-      get copyWith => throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ServerCreateInviteCodeInput&&(identical(other.useCount, useCount) || other.useCount == useCount)&&(identical(other.forAccount, forAccount) || other.forAccount == forAccount)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,useCount,forAccount,const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'ServerCreateInviteCodeInput(useCount: $useCount, forAccount: $forAccount, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ServerCreateInviteCodeInputCopyWith<$Res> {
-  factory $ServerCreateInviteCodeInputCopyWith(
-          ServerCreateInviteCodeInput value,
-          $Res Function(ServerCreateInviteCodeInput) then) =
-      _$ServerCreateInviteCodeInputCopyWithImpl<$Res,
-          ServerCreateInviteCodeInput>;
-  @useResult
-  $Res call({int useCount, String? forAccount, Map<String, dynamic>? $unknown});
-}
+abstract mixin class $ServerCreateInviteCodeInputCopyWith<$Res>  {
+  factory $ServerCreateInviteCodeInputCopyWith(ServerCreateInviteCodeInput value, $Res Function(ServerCreateInviteCodeInput) _then) = _$ServerCreateInviteCodeInputCopyWithImpl;
+@useResult
+$Res call({
+ int useCount, String? forAccount, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$ServerCreateInviteCodeInputCopyWithImpl<$Res,
-        $Val extends ServerCreateInviteCodeInput>
+class _$ServerCreateInviteCodeInputCopyWithImpl<$Res>
     implements $ServerCreateInviteCodeInputCopyWith<$Res> {
-  _$ServerCreateInviteCodeInputCopyWithImpl(this._value, this._then);
+  _$ServerCreateInviteCodeInputCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ServerCreateInviteCodeInput _self;
+  final $Res Function(ServerCreateInviteCodeInput) _then;
 
-  /// Create a copy of ServerCreateInviteCodeInput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? useCount = null,
-    Object? forAccount = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      useCount: null == useCount
-          ? _value.useCount
-          : useCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      forAccount: freezed == forAccount
-          ? _value.forAccount
-          : forAccount // ignore: cast_nullable_to_non_nullable
-              as String?,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of ServerCreateInviteCodeInput
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? useCount = null,Object? forAccount = freezed,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+useCount: null == useCount ? _self.useCount : useCount // ignore: cast_nullable_to_non_nullable
+as int,forAccount: freezed == forAccount ? _self.forAccount : forAccount // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ServerCreateInviteCodeInputImplCopyWith<$Res>
-    implements $ServerCreateInviteCodeInputCopyWith<$Res> {
-  factory _$$ServerCreateInviteCodeInputImplCopyWith(
-          _$ServerCreateInviteCodeInputImpl value,
-          $Res Function(_$ServerCreateInviteCodeInputImpl) then) =
-      __$$ServerCreateInviteCodeInputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int useCount, String? forAccount, Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$ServerCreateInviteCodeInputImplCopyWithImpl<$Res>
-    extends _$ServerCreateInviteCodeInputCopyWithImpl<$Res,
-        _$ServerCreateInviteCodeInputImpl>
-    implements _$$ServerCreateInviteCodeInputImplCopyWith<$Res> {
-  __$$ServerCreateInviteCodeInputImplCopyWithImpl(
-      _$ServerCreateInviteCodeInputImpl _value,
-      $Res Function(_$ServerCreateInviteCodeInputImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of ServerCreateInviteCodeInput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? useCount = null,
-    Object? forAccount = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$ServerCreateInviteCodeInputImpl(
-      useCount: null == useCount
-          ? _value.useCount
-          : useCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      forAccount: freezed == forAccount
-          ? _value.forAccount
-          : forAccount // ignore: cast_nullable_to_non_nullable
-              as String?,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [ServerCreateInviteCodeInput].
+extension ServerCreateInviteCodeInputPatterns on ServerCreateInviteCodeInput {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ServerCreateInviteCodeInput value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ServerCreateInviteCodeInput() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ServerCreateInviteCodeInput value)  $default,){
+final _that = this;
+switch (_that) {
+case _ServerCreateInviteCodeInput():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ServerCreateInviteCodeInput value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ServerCreateInviteCodeInput() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int useCount,  String? forAccount,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ServerCreateInviteCodeInput() when $default != null:
+return $default(_that.useCount,_that.forAccount,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int useCount,  String? forAccount,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _ServerCreateInviteCodeInput():
+return $default(_that.useCount,_that.forAccount,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int useCount,  String? forAccount,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _ServerCreateInviteCodeInput() when $default != null:
+return $default(_that.useCount,_that.forAccount,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ServerCreateInviteCodeInputImpl
-    implements _ServerCreateInviteCodeInput {
-  const _$ServerCreateInviteCodeInputImpl(
-      {required this.useCount,
-      this.forAccount,
-      final Map<String, dynamic>? $unknown})
-      : _$unknown = $unknown;
 
-  factory _$ServerCreateInviteCodeInputImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$ServerCreateInviteCodeInputImplFromJson(json);
+class _ServerCreateInviteCodeInput implements ServerCreateInviteCodeInput {
+  const _ServerCreateInviteCodeInput({required this.useCount, this.forAccount, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  factory _ServerCreateInviteCodeInput.fromJson(Map<String, dynamic> json) => _$ServerCreateInviteCodeInputFromJson(json);
 
-  @override
-  final int useCount;
-  @override
-  final String? forAccount;
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'ServerCreateInviteCodeInput(useCount: $useCount, forAccount: $forAccount, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ServerCreateInviteCodeInputImpl &&
-            (identical(other.useCount, useCount) ||
-                other.useCount == useCount) &&
-            (identical(other.forAccount, forAccount) ||
-                other.forAccount == forAccount) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, useCount, forAccount,
-      const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of ServerCreateInviteCodeInput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ServerCreateInviteCodeInputImplCopyWith<_$ServerCreateInviteCodeInputImpl>
-      get copyWith => __$$ServerCreateInviteCodeInputImplCopyWithImpl<
-          _$ServerCreateInviteCodeInputImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ServerCreateInviteCodeInputImplToJson(
-      this,
-    );
-  }
+@override final  int useCount;
+@override final  String? forAccount;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
 
-abstract class _ServerCreateInviteCodeInput
-    implements ServerCreateInviteCodeInput {
-  const factory _ServerCreateInviteCodeInput(
-          {required final int useCount,
-          final String? forAccount,
-          final Map<String, dynamic>? $unknown}) =
-      _$ServerCreateInviteCodeInputImpl;
 
-  factory _ServerCreateInviteCodeInput.fromJson(Map<String, dynamic> json) =
-      _$ServerCreateInviteCodeInputImpl.fromJson;
+/// Create a copy of ServerCreateInviteCodeInput
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ServerCreateInviteCodeInputCopyWith<_ServerCreateInviteCodeInput> get copyWith => __$ServerCreateInviteCodeInputCopyWithImpl<_ServerCreateInviteCodeInput>(this, _$identity);
 
-  @override
-  int get useCount;
-  @override
-  String? get forAccount;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of ServerCreateInviteCodeInput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ServerCreateInviteCodeInputImplCopyWith<_$ServerCreateInviteCodeInputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$ServerCreateInviteCodeInputToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ServerCreateInviteCodeInput&&(identical(other.useCount, useCount) || other.useCount == useCount)&&(identical(other.forAccount, forAccount) || other.forAccount == forAccount)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,useCount,forAccount,const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'ServerCreateInviteCodeInput(useCount: $useCount, forAccount: $forAccount, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ServerCreateInviteCodeInputCopyWith<$Res> implements $ServerCreateInviteCodeInputCopyWith<$Res> {
+  factory _$ServerCreateInviteCodeInputCopyWith(_ServerCreateInviteCodeInput value, $Res Function(_ServerCreateInviteCodeInput) _then) = __$ServerCreateInviteCodeInputCopyWithImpl;
+@override @useResult
+$Res call({
+ int useCount, String? forAccount, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$ServerCreateInviteCodeInputCopyWithImpl<$Res>
+    implements _$ServerCreateInviteCodeInputCopyWith<$Res> {
+  __$ServerCreateInviteCodeInputCopyWithImpl(this._self, this._then);
+
+  final _ServerCreateInviteCodeInput _self;
+  final $Res Function(_ServerCreateInviteCodeInput) _then;
+
+/// Create a copy of ServerCreateInviteCodeInput
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? useCount = null,Object? forAccount = freezed,Object? $unknown = freezed,}) {
+  return _then(_ServerCreateInviteCodeInput(
+useCount: null == useCount ? _self.useCount : useCount // ignore: cast_nullable_to_non_nullable
+as int,forAccount: freezed == forAccount ? _self.forAccount : forAccount // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -8,34 +8,31 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SettingListOptionsOutputImpl _$$SettingListOptionsOutputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$SettingListOptionsOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SettingListOptionsOutputImpl(
-          cursor: $checkedConvert('cursor', (v) => v as String?),
-          options: $checkedConvert(
-              'options',
-              (v) => (v as List<dynamic>)
-                  .map((e) => const OptionConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_SettingListOptionsOutput _$SettingListOptionsOutputFromJson(Map json) =>
+    $checkedCreate('_SettingListOptionsOutput', json, ($checkedConvert) {
+      final val = _SettingListOptionsOutput(
+        cursor: $checkedConvert('cursor', (v) => v as String?),
+        options: $checkedConvert(
+          'options',
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) =>
+                    const OptionConverter().fromJson(e as Map<String, dynamic>),
+              )
+              .toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$SettingListOptionsOutputImplToJson(
-        _$SettingListOptionsOutputImpl instance) =>
-    <String, dynamic>{
-      'cursor': instance.cursor,
-      'options': instance.options.map(const OptionConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$SettingListOptionsOutputToJson(
+  _SettingListOptionsOutput instance,
+) => <String, dynamic>{
+  'cursor': instance.cursor,
+  'options': instance.options.map(const OptionConverter().toJson).toList(),
+  r'$unknown': instance.$unknown,
+};

@@ -34,20 +34,19 @@ final class SettingService {
     List<String>? keys,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.toolsOzoneSettingListOptions,
-        headers: $headers,
-        parameters: {
-          if (limit != null) 'limit': limit,
-          if (cursor != null) 'cursor': cursor,
-          if (scope != null) 'scope': scope,
-          if (prefix != null) 'prefix': prefix,
-          if (keys != null) 'keys': keys,
-          ...?$unknown,
-        },
-        to: const SettingListOptionsOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.toolsOzoneSettingListOptions,
+    headers: $headers,
+    parameters: {
+      if (limit != null) 'limit': limit,
+      if (cursor != null) 'cursor': cursor,
+      if (scope != null) 'scope': scope,
+      if (prefix != null) 'prefix': prefix,
+      if (keys != null) 'keys': keys,
+      ...?$unknown,
+    },
+    to: const SettingListOptionsOutputConverter().fromJson,
+  );
 
   /// Delete settings by key
   Future<XRPCResponse<EmptyData>> removeOptions({
@@ -55,19 +54,11 @@ final class SettingService {
     required String scope,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.post(
-        ns.toolsOzoneSettingRemoveOptions,
-        headers: {
-          'Content-type': 'application/json',
-          ...?$headers,
-        },
-        body: {
-          'keys': keys,
-          'scope': scope,
-          ...?$unknown,
-        },
-      );
+  }) async => await _ctx.post(
+    ns.toolsOzoneSettingRemoveOptions,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {'keys': keys, 'scope': scope, ...?$unknown},
+  );
 
   /// Create or update setting option
   Future<XRPCResponse<SettingUpsertOptionOutput>> upsertOption({
@@ -78,21 +69,17 @@ final class SettingService {
     String? managerRole,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.post(
-        ns.toolsOzoneSettingUpsertOption,
-        headers: {
-          'Content-type': 'application/json',
-          ...?$headers,
-        },
-        body: {
-          'key': key,
-          'scope': scope,
-          'value': value,
-          if (description != null) 'description': description,
-          if (managerRole != null) 'managerRole': managerRole,
-          ...?$unknown,
-        },
-        to: const SettingUpsertOptionOutputConverter().fromJson,
-      );
+  }) async => await _ctx.post(
+    ns.toolsOzoneSettingUpsertOption,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {
+      'key': key,
+      'scope': scope,
+      'value': value,
+      if (description != null) 'description': description,
+      if (managerRole != null) 'managerRole': managerRole,
+      ...?$unknown,
+    },
+    to: const SettingUpsertOptionOutputConverter().fromJson,
+  );
 }

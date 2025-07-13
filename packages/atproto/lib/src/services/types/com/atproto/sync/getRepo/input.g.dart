@@ -8,26 +8,20 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SyncGetRepoInputImpl _$$SyncGetRepoInputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$SyncGetRepoInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SyncGetRepoInputImpl(
-          did: $checkedConvert('did', (v) => v as String),
-          since: $checkedConvert('since', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_SyncGetRepoInput _$SyncGetRepoInputFromJson(Map json) =>
+    $checkedCreate('_SyncGetRepoInput', json, ($checkedConvert) {
+      final val = _SyncGetRepoInput(
+        did: $checkedConvert('did', (v) => v as String),
+        since: $checkedConvert('since', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$SyncGetRepoInputImplToJson(
-        _$SyncGetRepoInputImpl instance) =>
+Map<String, dynamic> _$SyncGetRepoInputToJson(_SyncGetRepoInput instance) =>
     <String, dynamic>{
       'did': instance.did,
       'since': instance.since,

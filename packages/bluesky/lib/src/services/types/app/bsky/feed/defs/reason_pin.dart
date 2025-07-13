@@ -27,6 +27,7 @@ abstract class ReasonPin with _$ReasonPin {
 
   const factory ReasonPin({
     @Default(appBskyFeedDefsReasonPin) String $type,
+
     Map<String, dynamic>? $unknown,
   }) = _ReasonPin;
 
@@ -45,14 +46,9 @@ final class ReasonPinConverter
 
   @override
   ReasonPin fromJson(Map<String, dynamic> json) {
-    return ReasonPin.fromJson(translate(
-      json,
-      ReasonPin.knownProps,
-    ));
+    return ReasonPin.fromJson(translate(json, ReasonPin.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ReasonPin object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ReasonPin object) => untranslate(object.toJson());
 }

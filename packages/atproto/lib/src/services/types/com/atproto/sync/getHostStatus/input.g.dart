@@ -8,26 +8,21 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SyncGetHostStatusInputImpl _$$SyncGetHostStatusInputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$SyncGetHostStatusInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SyncGetHostStatusInputImpl(
-          hostname: $checkedConvert('hostname', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_SyncGetHostStatusInput _$SyncGetHostStatusInputFromJson(Map json) =>
+    $checkedCreate('_SyncGetHostStatusInput', json, ($checkedConvert) {
+      final val = _SyncGetHostStatusInput(
+        hostname: $checkedConvert('hostname', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$SyncGetHostStatusInputImplToJson(
-        _$SyncGetHostStatusInputImpl instance) =>
-    <String, dynamic>{
-      'hostname': instance.hostname,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$SyncGetHostStatusInputToJson(
+  _SyncGetHostStatusInput instance,
+) => <String, dynamic>{
+  'hostname': instance.hostname,
+  r'$unknown': instance.$unknown,
+};

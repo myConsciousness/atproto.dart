@@ -23,15 +23,13 @@ part 'view_not_found.g.dart';
 
 @freezed
 abstract class EmbedRecordViewNotFound with _$EmbedRecordViewNotFound {
-  static const knownProps = <String>[
-    'uri',
-    'notFound',
-  ];
+  static const knownProps = <String>['uri', 'notFound'];
 
   const factory EmbedRecordViewNotFound({
     @Default(appBskyEmbedRecordViewNotFound) String $type,
     required String uri,
     required bool notFound,
+
     Map<String, dynamic>? $unknown,
   }) = _EmbedRecordViewNotFound;
 
@@ -50,14 +48,12 @@ final class EmbedRecordViewNotFoundConverter
 
   @override
   EmbedRecordViewNotFound fromJson(Map<String, dynamic> json) {
-    return EmbedRecordViewNotFound.fromJson(translate(
-      json,
-      EmbedRecordViewNotFound.knownProps,
-    ));
+    return EmbedRecordViewNotFound.fromJson(
+      translate(json, EmbedRecordViewNotFound.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedRecordViewNotFound object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(EmbedRecordViewNotFound object) =>
+      untranslate(object.toJson());
 }

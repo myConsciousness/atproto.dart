@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,219 +9,286 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-UnspeccedGetSuggestedStarterPacksSkeletonOutput
-    _$UnspeccedGetSuggestedStarterPacksSkeletonOutputFromJson(
-        Map<String, dynamic> json) {
-  return _UnspeccedGetSuggestedStarterPacksSkeletonOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$UnspeccedGetSuggestedStarterPacksSkeletonOutput {
-  List<String> get starterPacks => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+ List<String> get starterPacks; Map<String, dynamic>? get $unknown;
+/// Create a copy of UnspeccedGetSuggestedStarterPacksSkeletonOutput
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith<UnspeccedGetSuggestedStarterPacksSkeletonOutput> get copyWith => _$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWithImpl<UnspeccedGetSuggestedStarterPacksSkeletonOutput>(this as UnspeccedGetSuggestedStarterPacksSkeletonOutput, _$identity);
 
   /// Serializes this UnspeccedGetSuggestedStarterPacksSkeletonOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of UnspeccedGetSuggestedStarterPacksSkeletonOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith<
-          UnspeccedGetSuggestedStarterPacksSkeletonOutput>
-      get copyWith => throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnspeccedGetSuggestedStarterPacksSkeletonOutput&&const DeepCollectionEquality().equals(other.starterPacks, starterPacks)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(starterPacks),const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'UnspeccedGetSuggestedStarterPacksSkeletonOutput(starterPacks: $starterPacks, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith<$Res> {
-  factory $UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith(
-          UnspeccedGetSuggestedStarterPacksSkeletonOutput value,
-          $Res Function(UnspeccedGetSuggestedStarterPacksSkeletonOutput) then) =
-      _$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWithImpl<$Res,
-          UnspeccedGetSuggestedStarterPacksSkeletonOutput>;
-  @useResult
-  $Res call({List<String> starterPacks, Map<String, dynamic>? $unknown});
-}
+abstract mixin class $UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith<$Res>  {
+  factory $UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith(UnspeccedGetSuggestedStarterPacksSkeletonOutput value, $Res Function(UnspeccedGetSuggestedStarterPacksSkeletonOutput) _then) = _$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWithImpl;
+@useResult
+$Res call({
+ List<String> starterPacks, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWithImpl<$Res,
-        $Val extends UnspeccedGetSuggestedStarterPacksSkeletonOutput>
+class _$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWithImpl<$Res>
     implements $UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith<$Res> {
-  _$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWithImpl(
-      this._value, this._then);
+  _$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final UnspeccedGetSuggestedStarterPacksSkeletonOutput _self;
+  final $Res Function(UnspeccedGetSuggestedStarterPacksSkeletonOutput) _then;
 
-  /// Create a copy of UnspeccedGetSuggestedStarterPacksSkeletonOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? starterPacks = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      starterPacks: null == starterPacks
-          ? _value.starterPacks
-          : starterPacks // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of UnspeccedGetSuggestedStarterPacksSkeletonOutput
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? starterPacks = null,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+starterPacks: null == starterPacks ? _self.starterPacks : starterPacks // ignore: cast_nullable_to_non_nullable
+as List<String>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$UnspeccedGetSuggestedStarterPacksSkeletonOutputImplCopyWith<
-        $Res>
-    implements $UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith<$Res> {
-  factory _$$UnspeccedGetSuggestedStarterPacksSkeletonOutputImplCopyWith(
-          _$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl value,
-          $Res Function(_$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl)
-              then) =
-      __$$UnspeccedGetSuggestedStarterPacksSkeletonOutputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<String> starterPacks, Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$UnspeccedGetSuggestedStarterPacksSkeletonOutputImplCopyWithImpl<$Res>
-    extends _$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWithImpl<$Res,
-        _$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl>
-    implements
-        _$$UnspeccedGetSuggestedStarterPacksSkeletonOutputImplCopyWith<$Res> {
-  __$$UnspeccedGetSuggestedStarterPacksSkeletonOutputImplCopyWithImpl(
-      _$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl _value,
-      $Res Function(_$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl)
-          _then)
-      : super(_value, _then);
 
-  /// Create a copy of UnspeccedGetSuggestedStarterPacksSkeletonOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? starterPacks = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl(
-      starterPacks: null == starterPacks
-          ? _value._starterPacks
-          : starterPacks // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [UnspeccedGetSuggestedStarterPacksSkeletonOutput].
+extension UnspeccedGetSuggestedStarterPacksSkeletonOutputPatterns on UnspeccedGetSuggestedStarterPacksSkeletonOutput {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _UnspeccedGetSuggestedStarterPacksSkeletonOutput value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _UnspeccedGetSuggestedStarterPacksSkeletonOutput() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _UnspeccedGetSuggestedStarterPacksSkeletonOutput value)  $default,){
+final _that = this;
+switch (_that) {
+case _UnspeccedGetSuggestedStarterPacksSkeletonOutput():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _UnspeccedGetSuggestedStarterPacksSkeletonOutput value)?  $default,){
+final _that = this;
+switch (_that) {
+case _UnspeccedGetSuggestedStarterPacksSkeletonOutput() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> starterPacks,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _UnspeccedGetSuggestedStarterPacksSkeletonOutput() when $default != null:
+return $default(_that.starterPacks,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> starterPacks,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _UnspeccedGetSuggestedStarterPacksSkeletonOutput():
+return $default(_that.starterPacks,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> starterPacks,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _UnspeccedGetSuggestedStarterPacksSkeletonOutput() when $default != null:
+return $default(_that.starterPacks,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl
-    implements _UnspeccedGetSuggestedStarterPacksSkeletonOutput {
-  const _$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl(
-      {required final List<String> starterPacks,
-      final Map<String, dynamic>? $unknown})
-      : _starterPacks = starterPacks,
-        _$unknown = $unknown;
 
-  factory _$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$UnspeccedGetSuggestedStarterPacksSkeletonOutputImplFromJson(json);
+class _UnspeccedGetSuggestedStarterPacksSkeletonOutput implements UnspeccedGetSuggestedStarterPacksSkeletonOutput {
+  const _UnspeccedGetSuggestedStarterPacksSkeletonOutput({required final  List<String> starterPacks, final  Map<String, dynamic>? $unknown}): _starterPacks = starterPacks,_$unknown = $unknown;
+  factory _UnspeccedGetSuggestedStarterPacksSkeletonOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestedStarterPacksSkeletonOutputFromJson(json);
 
-  final List<String> _starterPacks;
-  @override
-  List<String> get starterPacks {
-    if (_starterPacks is EqualUnmodifiableListView) return _starterPacks;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_starterPacks);
-  }
-
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'UnspeccedGetSuggestedStarterPacksSkeletonOutput(starterPacks: $starterPacks, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl &&
-            const DeepCollectionEquality()
-                .equals(other._starterPacks, _starterPacks) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_starterPacks),
-      const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of UnspeccedGetSuggestedStarterPacksSkeletonOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UnspeccedGetSuggestedStarterPacksSkeletonOutputImplCopyWith<
-          _$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl>
-      get copyWith =>
-          __$$UnspeccedGetSuggestedStarterPacksSkeletonOutputImplCopyWithImpl<
-                  _$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UnspeccedGetSuggestedStarterPacksSkeletonOutputImplToJson(
-      this,
-    );
-  }
+ final  List<String> _starterPacks;
+@override List<String> get starterPacks {
+  if (_starterPacks is EqualUnmodifiableListView) return _starterPacks;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_starterPacks);
 }
 
-abstract class _UnspeccedGetSuggestedStarterPacksSkeletonOutput
-    implements UnspeccedGetSuggestedStarterPacksSkeletonOutput {
-  const factory _UnspeccedGetSuggestedStarterPacksSkeletonOutput(
-          {required final List<String> starterPacks,
-          final Map<String, dynamic>? $unknown}) =
-      _$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl;
-
-  factory _UnspeccedGetSuggestedStarterPacksSkeletonOutput.fromJson(
-          Map<String, dynamic> json) =
-      _$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl.fromJson;
-
-  @override
-  List<String> get starterPacks;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of UnspeccedGetSuggestedStarterPacksSkeletonOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UnspeccedGetSuggestedStarterPacksSkeletonOutputImplCopyWith<
-          _$UnspeccedGetSuggestedStarterPacksSkeletonOutputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
+
+
+/// Create a copy of UnspeccedGetSuggestedStarterPacksSkeletonOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith<_UnspeccedGetSuggestedStarterPacksSkeletonOutput> get copyWith => __$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWithImpl<_UnspeccedGetSuggestedStarterPacksSkeletonOutput>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$UnspeccedGetSuggestedStarterPacksSkeletonOutputToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnspeccedGetSuggestedStarterPacksSkeletonOutput&&const DeepCollectionEquality().equals(other._starterPacks, _starterPacks)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_starterPacks),const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'UnspeccedGetSuggestedStarterPacksSkeletonOutput(starterPacks: $starterPacks, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith<$Res> implements $UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith<$Res> {
+  factory _$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith(_UnspeccedGetSuggestedStarterPacksSkeletonOutput value, $Res Function(_UnspeccedGetSuggestedStarterPacksSkeletonOutput) _then) = __$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWithImpl;
+@override @useResult
+$Res call({
+ List<String> starterPacks, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWithImpl<$Res>
+    implements _$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith<$Res> {
+  __$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWithImpl(this._self, this._then);
+
+  final _UnspeccedGetSuggestedStarterPacksSkeletonOutput _self;
+  final $Res Function(_UnspeccedGetSuggestedStarterPacksSkeletonOutput) _then;
+
+/// Create a copy of UnspeccedGetSuggestedStarterPacksSkeletonOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? starterPacks = null,Object? $unknown = freezed,}) {
+  return _then(_UnspeccedGetSuggestedStarterPacksSkeletonOutput(
+starterPacks: null == starterPacks ? _self._starterPacks : starterPacks // ignore: cast_nullable_to_non_nullable
+as List<String>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

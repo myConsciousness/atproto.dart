@@ -12,7 +12,8 @@ part of 'did_document.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 DidDocument _$DidDocumentFromJson(Map<String, dynamic> json) {
   return _DidDocument.fromJson(json);
@@ -41,15 +42,17 @@ mixin _$DidDocument {
 /// @nodoc
 abstract class $DidDocumentCopyWith<$Res> {
   factory $DidDocumentCopyWith(
-          DidDocument value, $Res Function(DidDocument) then) =
-      _$DidDocumentCopyWithImpl<$Res, DidDocument>;
+    DidDocument value,
+    $Res Function(DidDocument) then,
+  ) = _$DidDocumentCopyWithImpl<$Res, DidDocument>;
   @useResult
-  $Res call(
-      {@JsonKey(name: '@context') List<String> context,
-      String id,
-      List<String> alsoKnownAs,
-      List<VerificationMethod> verificationMethod,
-      List<Service> service});
+  $Res call({
+    @JsonKey(name: '@context') List<String> context,
+    String id,
+    List<String> alsoKnownAs,
+    List<VerificationMethod> verificationMethod,
+    List<Service> service,
+  });
 }
 
 /// @nodoc
@@ -73,28 +76,31 @@ class _$DidDocumentCopyWithImpl<$Res, $Val extends DidDocument>
     Object? verificationMethod = null,
     Object? service = null,
   }) {
-    return _then(_value.copyWith(
-      context: null == context
-          ? _value.context
-          : context // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      alsoKnownAs: null == alsoKnownAs
-          ? _value.alsoKnownAs
-          : alsoKnownAs // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      verificationMethod: null == verificationMethod
-          ? _value.verificationMethod
-          : verificationMethod // ignore: cast_nullable_to_non_nullable
-              as List<VerificationMethod>,
-      service: null == service
-          ? _value.service
-          : service // ignore: cast_nullable_to_non_nullable
-              as List<Service>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            context: null == context
+                ? _value.context
+                : context // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as String,
+            alsoKnownAs: null == alsoKnownAs
+                ? _value.alsoKnownAs
+                : alsoKnownAs // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
+            verificationMethod: null == verificationMethod
+                ? _value.verificationMethod
+                : verificationMethod // ignore: cast_nullable_to_non_nullable
+                      as List<VerificationMethod>,
+            service: null == service
+                ? _value.service
+                : service // ignore: cast_nullable_to_non_nullable
+                      as List<Service>,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -102,16 +108,18 @@ class _$DidDocumentCopyWithImpl<$Res, $Val extends DidDocument>
 abstract class _$$DidDocumentImplCopyWith<$Res>
     implements $DidDocumentCopyWith<$Res> {
   factory _$$DidDocumentImplCopyWith(
-          _$DidDocumentImpl value, $Res Function(_$DidDocumentImpl) then) =
-      __$$DidDocumentImplCopyWithImpl<$Res>;
+    _$DidDocumentImpl value,
+    $Res Function(_$DidDocumentImpl) then,
+  ) = __$$DidDocumentImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: '@context') List<String> context,
-      String id,
-      List<String> alsoKnownAs,
-      List<VerificationMethod> verificationMethod,
-      List<Service> service});
+  $Res call({
+    @JsonKey(name: '@context') List<String> context,
+    String id,
+    List<String> alsoKnownAs,
+    List<VerificationMethod> verificationMethod,
+    List<Service> service,
+  });
 }
 
 /// @nodoc
@@ -119,8 +127,9 @@ class __$$DidDocumentImplCopyWithImpl<$Res>
     extends _$DidDocumentCopyWithImpl<$Res, _$DidDocumentImpl>
     implements _$$DidDocumentImplCopyWith<$Res> {
   __$$DidDocumentImplCopyWithImpl(
-      _$DidDocumentImpl _value, $Res Function(_$DidDocumentImpl) _then)
-      : super(_value, _then);
+    _$DidDocumentImpl _value,
+    $Res Function(_$DidDocumentImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of DidDocument
   /// with the given fields replaced by the non-null parameter values.
@@ -133,28 +142,30 @@ class __$$DidDocumentImplCopyWithImpl<$Res>
     Object? verificationMethod = null,
     Object? service = null,
   }) {
-    return _then(_$DidDocumentImpl(
-      context: null == context
-          ? _value._context
-          : context // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      alsoKnownAs: null == alsoKnownAs
-          ? _value._alsoKnownAs
-          : alsoKnownAs // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      verificationMethod: null == verificationMethod
-          ? _value._verificationMethod
-          : verificationMethod // ignore: cast_nullable_to_non_nullable
-              as List<VerificationMethod>,
-      service: null == service
-          ? _value._service
-          : service // ignore: cast_nullable_to_non_nullable
-              as List<Service>,
-    ));
+    return _then(
+      _$DidDocumentImpl(
+        context: null == context
+            ? _value._context
+            : context // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String,
+        alsoKnownAs: null == alsoKnownAs
+            ? _value._alsoKnownAs
+            : alsoKnownAs // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
+        verificationMethod: null == verificationMethod
+            ? _value._verificationMethod
+            : verificationMethod // ignore: cast_nullable_to_non_nullable
+                  as List<VerificationMethod>,
+        service: null == service
+            ? _value._service
+            : service // ignore: cast_nullable_to_non_nullable
+                  as List<Service>,
+      ),
+    );
   }
 }
 
@@ -162,16 +173,16 @@ class __$$DidDocumentImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$DidDocumentImpl implements _DidDocument {
-  const _$DidDocumentImpl(
-      {@JsonKey(name: '@context') required final List<String> context,
-      required this.id,
-      required final List<String> alsoKnownAs,
-      required final List<VerificationMethod> verificationMethod,
-      required final List<Service> service})
-      : _context = context,
-        _alsoKnownAs = alsoKnownAs,
-        _verificationMethod = verificationMethod,
-        _service = service;
+  const _$DidDocumentImpl({
+    @JsonKey(name: '@context') required final List<String> context,
+    required this.id,
+    required final List<String> alsoKnownAs,
+    required final List<VerificationMethod> verificationMethod,
+    required final List<Service> service,
+  }) : _context = context,
+       _alsoKnownAs = alsoKnownAs,
+       _verificationMethod = verificationMethod,
+       _service = service;
 
   factory _$DidDocumentImpl.fromJson(Map<String, dynamic> json) =>
       _$$DidDocumentImplFromJson(json);
@@ -224,22 +235,27 @@ class _$DidDocumentImpl implements _DidDocument {
             other is _$DidDocumentImpl &&
             const DeepCollectionEquality().equals(other._context, _context) &&
             (identical(other.id, id) || other.id == id) &&
-            const DeepCollectionEquality()
-                .equals(other._alsoKnownAs, _alsoKnownAs) &&
-            const DeepCollectionEquality()
-                .equals(other._verificationMethod, _verificationMethod) &&
+            const DeepCollectionEquality().equals(
+              other._alsoKnownAs,
+              _alsoKnownAs,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._verificationMethod,
+              _verificationMethod,
+            ) &&
             const DeepCollectionEquality().equals(other._service, _service));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_context),
-      id,
-      const DeepCollectionEquality().hash(_alsoKnownAs),
-      const DeepCollectionEquality().hash(_verificationMethod),
-      const DeepCollectionEquality().hash(_service));
+    runtimeType,
+    const DeepCollectionEquality().hash(_context),
+    id,
+    const DeepCollectionEquality().hash(_alsoKnownAs),
+    const DeepCollectionEquality().hash(_verificationMethod),
+    const DeepCollectionEquality().hash(_service),
+  );
 
   /// Create a copy of DidDocument
   /// with the given fields replaced by the non-null parameter values.
@@ -251,19 +267,18 @@ class _$DidDocumentImpl implements _DidDocument {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DidDocumentImplToJson(
-      this,
-    );
+    return _$$DidDocumentImplToJson(this);
   }
 }
 
 abstract class _DidDocument implements DidDocument {
-  const factory _DidDocument(
-      {@JsonKey(name: '@context') required final List<String> context,
-      required final String id,
-      required final List<String> alsoKnownAs,
-      required final List<VerificationMethod> verificationMethod,
-      required final List<Service> service}) = _$DidDocumentImpl;
+  const factory _DidDocument({
+    @JsonKey(name: '@context') required final List<String> context,
+    required final String id,
+    required final List<String> alsoKnownAs,
+    required final List<VerificationMethod> verificationMethod,
+    required final List<Service> service,
+  }) = _$DidDocumentImpl;
 
   factory _DidDocument.fromJson(Map<String, dynamic> json) =
       _$DidDocumentImpl.fromJson;

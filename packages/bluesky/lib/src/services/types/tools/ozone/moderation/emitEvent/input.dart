@@ -41,6 +41,7 @@ abstract class ModerationEmitEventInput with _$ModerationEmitEventInput {
     List<String>? subjectBlobCids,
     required String createdBy,
     @ModToolConverter() ModTool? modTool,
+
     Map<String, dynamic>? $unknown,
   }) = _ModerationEmitEventInput;
 
@@ -54,14 +55,12 @@ final class ModerationEmitEventInputConverter
 
   @override
   ModerationEmitEventInput fromJson(Map<String, dynamic> json) {
-    return ModerationEmitEventInput.fromJson(translate(
-      json,
-      ModerationEmitEventInput.knownProps,
-    ));
+    return ModerationEmitEventInput.fromJson(
+      translate(json, ModerationEmitEventInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ModerationEmitEventInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ModerationEmitEventInput object) =>
+      untranslate(object.toJson());
 }

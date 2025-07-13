@@ -12,7 +12,8 @@ part of 'session.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Session _$SessionFromJson(Map<String, dynamic> json) {
   return _Session.fromJson(json);
@@ -58,17 +59,18 @@ abstract class $SessionCopyWith<$Res> {
   factory $SessionCopyWith(Session value, $Res Function(Session) then) =
       _$SessionCopyWithImpl<$Res, Session>;
   @useResult
-  $Res call(
-      {String did,
-      String handle,
-      String? email,
-      bool emailConfirmed,
-      bool emailAuthFactor,
-      String accessJwt,
-      String refreshJwt,
-      Map<String, dynamic>? didDoc,
-      bool active,
-      String? status});
+  $Res call({
+    String did,
+    String handle,
+    String? email,
+    bool emailConfirmed,
+    bool emailAuthFactor,
+    String accessJwt,
+    String refreshJwt,
+    Map<String, dynamic>? didDoc,
+    bool active,
+    String? status,
+  });
 }
 
 /// @nodoc
@@ -97,69 +99,74 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
     Object? active = null,
     Object? status = freezed,
   }) {
-    return _then(_value.copyWith(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      handle: null == handle
-          ? _value.handle
-          : handle // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      emailConfirmed: null == emailConfirmed
-          ? _value.emailConfirmed
-          : emailConfirmed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      emailAuthFactor: null == emailAuthFactor
-          ? _value.emailAuthFactor
-          : emailAuthFactor // ignore: cast_nullable_to_non_nullable
-              as bool,
-      accessJwt: null == accessJwt
-          ? _value.accessJwt
-          : accessJwt // ignore: cast_nullable_to_non_nullable
-              as String,
-      refreshJwt: null == refreshJwt
-          ? _value.refreshJwt
-          : refreshJwt // ignore: cast_nullable_to_non_nullable
-              as String,
-      didDoc: freezed == didDoc
-          ? _value.didDoc
-          : didDoc // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      active: null == active
-          ? _value.active
-          : active // ignore: cast_nullable_to_non_nullable
-              as bool,
-      status: freezed == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            did: null == did
+                ? _value.did
+                : did // ignore: cast_nullable_to_non_nullable
+                      as String,
+            handle: null == handle
+                ? _value.handle
+                : handle // ignore: cast_nullable_to_non_nullable
+                      as String,
+            email: freezed == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            emailConfirmed: null == emailConfirmed
+                ? _value.emailConfirmed
+                : emailConfirmed // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            emailAuthFactor: null == emailAuthFactor
+                ? _value.emailAuthFactor
+                : emailAuthFactor // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            accessJwt: null == accessJwt
+                ? _value.accessJwt
+                : accessJwt // ignore: cast_nullable_to_non_nullable
+                      as String,
+            refreshJwt: null == refreshJwt
+                ? _value.refreshJwt
+                : refreshJwt // ignore: cast_nullable_to_non_nullable
+                      as String,
+            didDoc: freezed == didDoc
+                ? _value.didDoc
+                : didDoc // ignore: cast_nullable_to_non_nullable
+                      as Map<String, dynamic>?,
+            active: null == active
+                ? _value.active
+                : active // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            status: freezed == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$SessionImplCopyWith<$Res> implements $SessionCopyWith<$Res> {
   factory _$$SessionImplCopyWith(
-          _$SessionImpl value, $Res Function(_$SessionImpl) then) =
-      __$$SessionImplCopyWithImpl<$Res>;
+    _$SessionImpl value,
+    $Res Function(_$SessionImpl) then,
+  ) = __$$SessionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String did,
-      String handle,
-      String? email,
-      bool emailConfirmed,
-      bool emailAuthFactor,
-      String accessJwt,
-      String refreshJwt,
-      Map<String, dynamic>? didDoc,
-      bool active,
-      String? status});
+  $Res call({
+    String did,
+    String handle,
+    String? email,
+    bool emailConfirmed,
+    bool emailAuthFactor,
+    String accessJwt,
+    String refreshJwt,
+    Map<String, dynamic>? didDoc,
+    bool active,
+    String? status,
+  });
 }
 
 /// @nodoc
@@ -167,8 +174,9 @@ class __$$SessionImplCopyWithImpl<$Res>
     extends _$SessionCopyWithImpl<$Res, _$SessionImpl>
     implements _$$SessionImplCopyWith<$Res> {
   __$$SessionImplCopyWithImpl(
-      _$SessionImpl _value, $Res Function(_$SessionImpl) _then)
-      : super(_value, _then);
+    _$SessionImpl _value,
+    $Res Function(_$SessionImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of Session
   /// with the given fields replaced by the non-null parameter values.
@@ -186,48 +194,50 @@ class __$$SessionImplCopyWithImpl<$Res>
     Object? active = null,
     Object? status = freezed,
   }) {
-    return _then(_$SessionImpl(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      handle: null == handle
-          ? _value.handle
-          : handle // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      emailConfirmed: null == emailConfirmed
-          ? _value.emailConfirmed
-          : emailConfirmed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      emailAuthFactor: null == emailAuthFactor
-          ? _value.emailAuthFactor
-          : emailAuthFactor // ignore: cast_nullable_to_non_nullable
-              as bool,
-      accessJwt: null == accessJwt
-          ? _value.accessJwt
-          : accessJwt // ignore: cast_nullable_to_non_nullable
-              as String,
-      refreshJwt: null == refreshJwt
-          ? _value.refreshJwt
-          : refreshJwt // ignore: cast_nullable_to_non_nullable
-              as String,
-      didDoc: freezed == didDoc
-          ? _value._didDoc
-          : didDoc // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      active: null == active
-          ? _value.active
-          : active // ignore: cast_nullable_to_non_nullable
-              as bool,
-      status: freezed == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$SessionImpl(
+        did: null == did
+            ? _value.did
+            : did // ignore: cast_nullable_to_non_nullable
+                  as String,
+        handle: null == handle
+            ? _value.handle
+            : handle // ignore: cast_nullable_to_non_nullable
+                  as String,
+        email: freezed == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        emailConfirmed: null == emailConfirmed
+            ? _value.emailConfirmed
+            : emailConfirmed // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        emailAuthFactor: null == emailAuthFactor
+            ? _value.emailAuthFactor
+            : emailAuthFactor // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        accessJwt: null == accessJwt
+            ? _value.accessJwt
+            : accessJwt // ignore: cast_nullable_to_non_nullable
+                  as String,
+        refreshJwt: null == refreshJwt
+            ? _value.refreshJwt
+            : refreshJwt // ignore: cast_nullable_to_non_nullable
+                  as String,
+        didDoc: freezed == didDoc
+            ? _value._didDoc
+            : didDoc // ignore: cast_nullable_to_non_nullable
+                  as Map<String, dynamic>?,
+        active: null == active
+            ? _value.active
+            : active // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        status: freezed == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
@@ -235,18 +245,18 @@ class __$$SessionImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$SessionImpl implements _Session {
-  const _$SessionImpl(
-      {required this.did,
-      required this.handle,
-      this.email,
-      this.emailConfirmed = false,
-      this.emailAuthFactor = false,
-      required this.accessJwt,
-      required this.refreshJwt,
-      final Map<String, dynamic>? didDoc,
-      this.active = true,
-      this.status})
-      : _didDoc = didDoc;
+  const _$SessionImpl({
+    required this.did,
+    required this.handle,
+    this.email,
+    this.emailConfirmed = false,
+    this.emailAuthFactor = false,
+    required this.accessJwt,
+    required this.refreshJwt,
+    final Map<String, dynamic>? didDoc,
+    this.active = true,
+    this.status,
+  }) : _didDoc = didDoc;
 
   factory _$SessionImpl.fromJson(Map<String, dynamic> json) =>
       _$$SessionImplFromJson(json);
@@ -327,17 +337,18 @@ class _$SessionImpl implements _Session {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      did,
-      handle,
-      email,
-      emailConfirmed,
-      emailAuthFactor,
-      accessJwt,
-      refreshJwt,
-      const DeepCollectionEquality().hash(_didDoc),
-      active,
-      status);
+    runtimeType,
+    did,
+    handle,
+    email,
+    emailConfirmed,
+    emailAuthFactor,
+    accessJwt,
+    refreshJwt,
+    const DeepCollectionEquality().hash(_didDoc),
+    active,
+    status,
+  );
 
   /// Create a copy of Session
   /// with the given fields replaced by the non-null parameter values.
@@ -349,24 +360,23 @@ class _$SessionImpl implements _Session {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SessionImplToJson(
-      this,
-    );
+    return _$$SessionImplToJson(this);
   }
 }
 
 abstract class _Session implements Session {
-  const factory _Session(
-      {required final String did,
-      required final String handle,
-      final String? email,
-      final bool emailConfirmed,
-      final bool emailAuthFactor,
-      required final String accessJwt,
-      required final String refreshJwt,
-      final Map<String, dynamic>? didDoc,
-      final bool active,
-      final String? status}) = _$SessionImpl;
+  const factory _Session({
+    required final String did,
+    required final String handle,
+    final String? email,
+    final bool emailConfirmed,
+    final bool emailAuthFactor,
+    required final String accessJwt,
+    required final String refreshJwt,
+    final Map<String, dynamic>? didDoc,
+    final bool active,
+    final String? status,
+  }) = _$SessionImpl;
 
   factory _Session.fromJson(Map<String, dynamic> json) = _$SessionImpl.fromJson;
 

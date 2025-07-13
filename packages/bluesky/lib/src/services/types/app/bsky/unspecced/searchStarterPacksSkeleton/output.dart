@@ -24,11 +24,7 @@ part 'output.g.dart';
 @freezed
 abstract class UnspeccedSearchStarterPacksSkeletonOutput
     with _$UnspeccedSearchStarterPacksSkeletonOutput {
-  static const knownProps = <String>[
-    'cursor',
-    'hitsTotal',
-    'starterPacks',
-  ];
+  static const knownProps = <String>['cursor', 'hitsTotal', 'starterPacks'];
 
   const factory UnspeccedSearchStarterPacksSkeletonOutput({
     String? cursor,
@@ -37,32 +33,34 @@ abstract class UnspeccedSearchStarterPacksSkeletonOutput
     int? hitsTotal,
     @SkeletonSearchStarterPackConverter()
     required List<SkeletonSearchStarterPack> starterPacks,
+
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedSearchStarterPacksSkeletonOutput;
 
   factory UnspeccedSearchStarterPacksSkeletonOutput.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedSearchStarterPacksSkeletonOutputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$UnspeccedSearchStarterPacksSkeletonOutputFromJson(json);
 }
 
 final class UnspeccedSearchStarterPacksSkeletonOutputConverter
-    extends LexObjectConverter<UnspeccedSearchStarterPacksSkeletonOutput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          UnspeccedSearchStarterPacksSkeletonOutput,
+          Map<String, dynamic>
+        > {
   const UnspeccedSearchStarterPacksSkeletonOutputConverter();
 
   @override
   UnspeccedSearchStarterPacksSkeletonOutput fromJson(
-      Map<String, dynamic> json) {
-    return UnspeccedSearchStarterPacksSkeletonOutput.fromJson(translate(
-      json,
-      UnspeccedSearchStarterPacksSkeletonOutput.knownProps,
-    ));
+    Map<String, dynamic> json,
+  ) {
+    return UnspeccedSearchStarterPacksSkeletonOutput.fromJson(
+      translate(json, UnspeccedSearchStarterPacksSkeletonOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(
-          UnspeccedSearchStarterPacksSkeletonOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+    UnspeccedSearchStarterPacksSkeletonOutput object,
+  ) => untranslate(object.toJson());
 }

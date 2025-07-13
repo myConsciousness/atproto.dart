@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,332 +9,305 @@ part of 'account_stats.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-AccountStats _$AccountStatsFromJson(Map<String, dynamic> json) {
-  return _AccountStats.fromJson(json);
-}
 
 /// @nodoc
 mixin _$AccountStats {
-  String get $type => throw _privateConstructorUsedError;
 
-  /// Total number of reports on the account
-  int? get reportCount => throw _privateConstructorUsedError;
-
-  /// Total number of appeals against a moderation action on the account
-  int? get appealCount => throw _privateConstructorUsedError;
-
-  /// Number of times the account was suspended
-  int? get suspendCount => throw _privateConstructorUsedError;
-
-  /// Number of times the account was escalated
-  int? get escalateCount => throw _privateConstructorUsedError;
-
-  /// Number of times the account was taken down
-  int? get takedownCount => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+ String get $type;/// Total number of reports on the account
+ int? get reportCount;/// Total number of appeals against a moderation action on the account
+ int? get appealCount;/// Number of times the account was suspended
+ int? get suspendCount;/// Number of times the account was escalated
+ int? get escalateCount;/// Number of times the account was taken down
+ int? get takedownCount; Map<String, dynamic>? get $unknown;
+/// Create a copy of AccountStats
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AccountStatsCopyWith<AccountStats> get copyWith => _$AccountStatsCopyWithImpl<AccountStats>(this as AccountStats, _$identity);
 
   /// Serializes this AccountStats to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of AccountStats
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $AccountStatsCopyWith<AccountStats> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AccountStats&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.reportCount, reportCount) || other.reportCount == reportCount)&&(identical(other.appealCount, appealCount) || other.appealCount == appealCount)&&(identical(other.suspendCount, suspendCount) || other.suspendCount == suspendCount)&&(identical(other.escalateCount, escalateCount) || other.escalateCount == escalateCount)&&(identical(other.takedownCount, takedownCount) || other.takedownCount == takedownCount)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,reportCount,appealCount,suspendCount,escalateCount,takedownCount,const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'AccountStats(\$type: ${$type}, reportCount: $reportCount, appealCount: $appealCount, suspendCount: $suspendCount, escalateCount: $escalateCount, takedownCount: $takedownCount, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AccountStatsCopyWith<$Res> {
-  factory $AccountStatsCopyWith(
-          AccountStats value, $Res Function(AccountStats) then) =
-      _$AccountStatsCopyWithImpl<$Res, AccountStats>;
-  @useResult
-  $Res call(
-      {String $type,
-      int? reportCount,
-      int? appealCount,
-      int? suspendCount,
-      int? escalateCount,
-      int? takedownCount,
-      Map<String, dynamic>? $unknown});
-}
+abstract mixin class $AccountStatsCopyWith<$Res>  {
+  factory $AccountStatsCopyWith(AccountStats value, $Res Function(AccountStats) _then) = _$AccountStatsCopyWithImpl;
+@useResult
+$Res call({
+ String $type, int? reportCount, int? appealCount, int? suspendCount, int? escalateCount, int? takedownCount, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$AccountStatsCopyWithImpl<$Res, $Val extends AccountStats>
+class _$AccountStatsCopyWithImpl<$Res>
     implements $AccountStatsCopyWith<$Res> {
-  _$AccountStatsCopyWithImpl(this._value, this._then);
+  _$AccountStatsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AccountStats _self;
+  final $Res Function(AccountStats) _then;
 
-  /// Create a copy of AccountStats
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? reportCount = freezed,
-    Object? appealCount = freezed,
-    Object? suspendCount = freezed,
-    Object? escalateCount = freezed,
-    Object? takedownCount = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      reportCount: freezed == reportCount
-          ? _value.reportCount
-          : reportCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      appealCount: freezed == appealCount
-          ? _value.appealCount
-          : appealCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      suspendCount: freezed == suspendCount
-          ? _value.suspendCount
-          : suspendCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      escalateCount: freezed == escalateCount
-          ? _value.escalateCount
-          : escalateCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      takedownCount: freezed == takedownCount
-          ? _value.takedownCount
-          : takedownCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of AccountStats
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? reportCount = freezed,Object? appealCount = freezed,Object? suspendCount = freezed,Object? escalateCount = freezed,Object? takedownCount = freezed,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,reportCount: freezed == reportCount ? _self.reportCount : reportCount // ignore: cast_nullable_to_non_nullable
+as int?,appealCount: freezed == appealCount ? _self.appealCount : appealCount // ignore: cast_nullable_to_non_nullable
+as int?,suspendCount: freezed == suspendCount ? _self.suspendCount : suspendCount // ignore: cast_nullable_to_non_nullable
+as int?,escalateCount: freezed == escalateCount ? _self.escalateCount : escalateCount // ignore: cast_nullable_to_non_nullable
+as int?,takedownCount: freezed == takedownCount ? _self.takedownCount : takedownCount // ignore: cast_nullable_to_non_nullable
+as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$AccountStatsImplCopyWith<$Res>
-    implements $AccountStatsCopyWith<$Res> {
-  factory _$$AccountStatsImplCopyWith(
-          _$AccountStatsImpl value, $Res Function(_$AccountStatsImpl) then) =
-      __$$AccountStatsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String $type,
-      int? reportCount,
-      int? appealCount,
-      int? suspendCount,
-      int? escalateCount,
-      int? takedownCount,
-      Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$AccountStatsImplCopyWithImpl<$Res>
-    extends _$AccountStatsCopyWithImpl<$Res, _$AccountStatsImpl>
-    implements _$$AccountStatsImplCopyWith<$Res> {
-  __$$AccountStatsImplCopyWithImpl(
-      _$AccountStatsImpl _value, $Res Function(_$AccountStatsImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of AccountStats
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? reportCount = freezed,
-    Object? appealCount = freezed,
-    Object? suspendCount = freezed,
-    Object? escalateCount = freezed,
-    Object? takedownCount = freezed,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$AccountStatsImpl(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      reportCount: freezed == reportCount
-          ? _value.reportCount
-          : reportCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      appealCount: freezed == appealCount
-          ? _value.appealCount
-          : appealCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      suspendCount: freezed == suspendCount
-          ? _value.suspendCount
-          : suspendCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      escalateCount: freezed == escalateCount
-          ? _value.escalateCount
-          : escalateCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      takedownCount: freezed == takedownCount
-          ? _value.takedownCount
-          : takedownCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [AccountStats].
+extension AccountStatsPatterns on AccountStats {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _AccountStats value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _AccountStats() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _AccountStats value)  $default,){
+final _that = this;
+switch (_that) {
+case _AccountStats():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _AccountStats value)?  $default,){
+final _that = this;
+switch (_that) {
+case _AccountStats() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int? reportCount,  int? appealCount,  int? suspendCount,  int? escalateCount,  int? takedownCount,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _AccountStats() when $default != null:
+return $default(_that.$type,_that.reportCount,_that.appealCount,_that.suspendCount,_that.escalateCount,_that.takedownCount,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int? reportCount,  int? appealCount,  int? suspendCount,  int? escalateCount,  int? takedownCount,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _AccountStats():
+return $default(_that.$type,_that.reportCount,_that.appealCount,_that.suspendCount,_that.escalateCount,_that.takedownCount,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int? reportCount,  int? appealCount,  int? suspendCount,  int? escalateCount,  int? takedownCount,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _AccountStats() when $default != null:
+return $default(_that.$type,_that.reportCount,_that.appealCount,_that.suspendCount,_that.escalateCount,_that.takedownCount,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$AccountStatsImpl implements _AccountStats {
-  const _$AccountStatsImpl(
-      {this.$type = toolsOzoneModerationDefsAccountStats,
-      this.reportCount,
-      this.appealCount,
-      this.suspendCount,
-      this.escalateCount,
-      this.takedownCount,
-      final Map<String, dynamic>? $unknown})
-      : _$unknown = $unknown;
 
-  factory _$AccountStatsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AccountStatsImplFromJson(json);
+class _AccountStats implements AccountStats {
+  const _AccountStats({this.$type = toolsOzoneModerationDefsAccountStats, this.reportCount, this.appealCount, this.suspendCount, this.escalateCount, this.takedownCount, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  factory _AccountStats.fromJson(Map<String, dynamic> json) => _$AccountStatsFromJson(json);
 
-  @override
-  @JsonKey()
-  final String $type;
-
-  /// Total number of reports on the account
-  @override
-  final int? reportCount;
-
-  /// Total number of appeals against a moderation action on the account
-  @override
-  final int? appealCount;
-
-  /// Number of times the account was suspended
-  @override
-  final int? suspendCount;
-
-  /// Number of times the account was escalated
-  @override
-  final int? escalateCount;
-
-  /// Number of times the account was taken down
-  @override
-  final int? takedownCount;
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'AccountStats(\$type: ${$type}, reportCount: $reportCount, appealCount: $appealCount, suspendCount: $suspendCount, escalateCount: $escalateCount, takedownCount: $takedownCount, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AccountStatsImpl &&
-            (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.reportCount, reportCount) ||
-                other.reportCount == reportCount) &&
-            (identical(other.appealCount, appealCount) ||
-                other.appealCount == appealCount) &&
-            (identical(other.suspendCount, suspendCount) ||
-                other.suspendCount == suspendCount) &&
-            (identical(other.escalateCount, escalateCount) ||
-                other.escalateCount == escalateCount) &&
-            (identical(other.takedownCount, takedownCount) ||
-                other.takedownCount == takedownCount) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      $type,
-      reportCount,
-      appealCount,
-      suspendCount,
-      escalateCount,
-      takedownCount,
-      const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of AccountStats
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AccountStatsImplCopyWith<_$AccountStatsImpl> get copyWith =>
-      __$$AccountStatsImplCopyWithImpl<_$AccountStatsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AccountStatsImplToJson(
-      this,
-    );
-  }
+@override@JsonKey() final  String $type;
+/// Total number of reports on the account
+@override final  int? reportCount;
+/// Total number of appeals against a moderation action on the account
+@override final  int? appealCount;
+/// Number of times the account was suspended
+@override final  int? suspendCount;
+/// Number of times the account was escalated
+@override final  int? escalateCount;
+/// Number of times the account was taken down
+@override final  int? takedownCount;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
 
-abstract class _AccountStats implements AccountStats {
-  const factory _AccountStats(
-      {final String $type,
-      final int? reportCount,
-      final int? appealCount,
-      final int? suspendCount,
-      final int? escalateCount,
-      final int? takedownCount,
-      final Map<String, dynamic>? $unknown}) = _$AccountStatsImpl;
 
-  factory _AccountStats.fromJson(Map<String, dynamic> json) =
-      _$AccountStatsImpl.fromJson;
+/// Create a copy of AccountStats
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AccountStatsCopyWith<_AccountStats> get copyWith => __$AccountStatsCopyWithImpl<_AccountStats>(this, _$identity);
 
-  @override
-  String get $type;
-
-  /// Total number of reports on the account
-  @override
-  int? get reportCount;
-
-  /// Total number of appeals against a moderation action on the account
-  @override
-  int? get appealCount;
-
-  /// Number of times the account was suspended
-  @override
-  int? get suspendCount;
-
-  /// Number of times the account was escalated
-  @override
-  int? get escalateCount;
-
-  /// Number of times the account was taken down
-  @override
-  int? get takedownCount;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of AccountStats
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AccountStatsImplCopyWith<_$AccountStatsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$AccountStatsToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AccountStats&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.reportCount, reportCount) || other.reportCount == reportCount)&&(identical(other.appealCount, appealCount) || other.appealCount == appealCount)&&(identical(other.suspendCount, suspendCount) || other.suspendCount == suspendCount)&&(identical(other.escalateCount, escalateCount) || other.escalateCount == escalateCount)&&(identical(other.takedownCount, takedownCount) || other.takedownCount == takedownCount)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,reportCount,appealCount,suspendCount,escalateCount,takedownCount,const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'AccountStats(\$type: ${$type}, reportCount: $reportCount, appealCount: $appealCount, suspendCount: $suspendCount, escalateCount: $escalateCount, takedownCount: $takedownCount, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AccountStatsCopyWith<$Res> implements $AccountStatsCopyWith<$Res> {
+  factory _$AccountStatsCopyWith(_AccountStats value, $Res Function(_AccountStats) _then) = __$AccountStatsCopyWithImpl;
+@override @useResult
+$Res call({
+ String $type, int? reportCount, int? appealCount, int? suspendCount, int? escalateCount, int? takedownCount, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$AccountStatsCopyWithImpl<$Res>
+    implements _$AccountStatsCopyWith<$Res> {
+  __$AccountStatsCopyWithImpl(this._self, this._then);
+
+  final _AccountStats _self;
+  final $Res Function(_AccountStats) _then;
+
+/// Create a copy of AccountStats
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? reportCount = freezed,Object? appealCount = freezed,Object? suspendCount = freezed,Object? escalateCount = freezed,Object? takedownCount = freezed,Object? $unknown = freezed,}) {
+  return _then(_AccountStats(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,reportCount: freezed == reportCount ? _self.reportCount : reportCount // ignore: cast_nullable_to_non_nullable
+as int?,appealCount: freezed == appealCount ? _self.appealCount : appealCount // ignore: cast_nullable_to_non_nullable
+as int?,suspendCount: freezed == suspendCount ? _self.suspendCount : suspendCount // ignore: cast_nullable_to_non_nullable
+as int?,escalateCount: freezed == escalateCount ? _self.escalateCount : escalateCount // ignore: cast_nullable_to_non_nullable
+as int?,takedownCount: freezed == takedownCount ? _self.takedownCount : takedownCount // ignore: cast_nullable_to_non_nullable
+as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

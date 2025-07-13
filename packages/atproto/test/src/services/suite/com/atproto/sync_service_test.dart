@@ -49,10 +49,7 @@ void main() {
     bytes: getRecordBytes,
   );
 
-  testSync<Repos>(
-    (m, s) => s.listRepos(),
-    id: comAtprotoSyncListRepos,
-  );
+  testSync<Repos>((m, s) => s.listRepos(), id: comAtprotoSyncListRepos);
 
   testSync<core.EmptyData>(
     (m, s) => s.notifyOfUpdate(hostname: m.name),
@@ -67,8 +64,9 @@ void main() {
   testSync<Uint8List>(
     (m, s) => s.getBlob(did: m.did, cid: m.cid),
     id: comAtprotoSyncGetBlob,
-    bytes: File('test/src/services/suite/com/atproto/sync/getBlob.txt')
-        .readAsBytesSync(),
+    bytes: File(
+      'test/src/services/suite/com/atproto/sync/getBlob.txt',
+    ).readAsBytesSync(),
   );
 
   testSync<BlobRefs>(

@@ -8,27 +8,24 @@ part of 'feed.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedImpl _$$FeedImplFromJson(Map json) => $checkedCreate(
-      r'_$FeedImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$FeedImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? appBskyFeedDescribeFeedGeneratorFeed),
-          uri: $checkedConvert('uri', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_Feed _$FeedFromJson(Map json) =>
+    $checkedCreate('_Feed', json, ($checkedConvert) {
+      final val = _Feed(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyFeedDescribeFeedGeneratorFeed,
+        ),
+        uri: $checkedConvert('uri', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$FeedImplToJson(_$FeedImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'uri': instance.uri,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$FeedToJson(_Feed instance) => <String, dynamic>{
+  r'$type': instance.$type,
+  'uri': instance.uri,
+  r'$unknown': instance.$unknown,
+};

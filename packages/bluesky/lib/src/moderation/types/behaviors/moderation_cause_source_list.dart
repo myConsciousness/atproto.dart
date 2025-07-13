@@ -9,7 +9,6 @@ part 'moderation_cause_source_list.freezed.dart';
 
 @modObject
 class ModerationCauseSourceList with _$ModerationCauseSourceList {
-  const factory ModerationCauseSourceList({
-    required ListViewBasic list,
-  }) = _ModerationCauseSourceList;
+  const factory ModerationCauseSourceList({required ListViewBasic list}) =
+      _ModerationCauseSourceList;
 }

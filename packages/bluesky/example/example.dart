@@ -27,10 +27,7 @@ Future<void> main() async {
       //! when communicating with the API.
       retryConfig: RetryConfig(
         maxAttempts: 5,
-        jitter: Jitter(
-          minInSeconds: 2,
-          maxInSeconds: 5,
-        ),
+        jitter: Jitter(minInSeconds: 2, maxInSeconds: 5),
         onExecute: (event) => print(
           'Retry after ${event.intervalInSeconds} seconds...'
           '[${event.retryCount} times]',
@@ -87,16 +84,12 @@ Future<void> main() async {
     );
 
     //! Let's post cool stuff!
-    final createdRecord = await bsky.feed.post(
-      text: 'Hello, Bluesky!',
-    );
+    final createdRecord = await bsky.feed.post(text: 'Hello, Bluesky!');
 
     print(createdRecord);
 
     //! And delete it.
-    await bsky.atproto.repo.deleteRecord(
-      uri: createdRecord.data.uri,
-    );
+    await bsky.atproto.repo.deleteRecord(uri: createdRecord.data.uri);
 
     //! You can use Stream API easily.
     final subscription = await bsky.atproto.sync.subscribeRepos();

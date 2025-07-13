@@ -9,11 +9,7 @@ void main() {
   test('.toStrongRef', () {
     final commit = RepoCommitUpdate(
       record: {},
-      uri: AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.feed.post',
-        'xxxxxxxx',
-      ),
+      uri: AtUri.make('shinyakato.dev', 'app.bsky.feed.post', 'xxxxxxxx'),
       cid: 'baaaaaaaaaaaa',
       author: 'aaaaaaaaaaaa',
       cursor: 123,

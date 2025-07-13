@@ -8,27 +8,23 @@ part of 'reaction_view_sender.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ReactionViewSenderImpl _$$ReactionViewSenderImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ReactionViewSenderImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ReactionViewSenderImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? chatBskyConvoDefsReactionViewSender),
-          did: $checkedConvert('did', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ReactionViewSender _$ReactionViewSenderFromJson(Map json) =>
+    $checkedCreate('_ReactionViewSender', json, ($checkedConvert) {
+      final val = _ReactionViewSender(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? chatBskyConvoDefsReactionViewSender,
+        ),
+        did: $checkedConvert('did', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ReactionViewSenderImplToJson(
-        _$ReactionViewSenderImpl instance) =>
+Map<String, dynamic> _$ReactionViewSenderToJson(_ReactionViewSender instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'did': instance.did,

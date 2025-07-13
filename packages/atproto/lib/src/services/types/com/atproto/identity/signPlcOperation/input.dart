@@ -36,6 +36,7 @@ abstract class IdentitySignPlcOperationInput
     List<String>? alsoKnownAs,
     Map<String, dynamic>? verificationMethods,
     Map<String, dynamic>? services,
+
     Map<String, dynamic>? $unknown,
   }) = _IdentitySignPlcOperationInput;
 
@@ -43,21 +44,22 @@ abstract class IdentitySignPlcOperationInput
       _$IdentitySignPlcOperationInputFromJson(json);
 }
 
-final class IdentitySignPlcOperationInputConverter extends LexObjectConverter<
-    IdentitySignPlcOperationInput, Map<String, dynamic>> {
+final class IdentitySignPlcOperationInputConverter
+    extends
+        LexObjectConverter<
+          IdentitySignPlcOperationInput,
+          Map<String, dynamic>
+        > {
   const IdentitySignPlcOperationInputConverter();
 
   @override
   IdentitySignPlcOperationInput fromJson(Map<String, dynamic> json) {
-    return IdentitySignPlcOperationInput.fromJson(translate(
-      json,
-      IdentitySignPlcOperationInput.knownProps,
-    ));
+    return IdentitySignPlcOperationInput.fromJson(
+      translate(json, IdentitySignPlcOperationInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(IdentitySignPlcOperationInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

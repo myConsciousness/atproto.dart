@@ -57,6 +57,7 @@ abstract class ListView with _$ListView {
     @LabelConverter() List<Label>? labels,
     @ListViewerStateConverter() ListViewerState? viewer,
     required DateTime indexedAt,
+
     Map<String, dynamic>? $unknown,
   }) = _ListView;
 
@@ -75,14 +76,9 @@ final class ListViewConverter
 
   @override
   ListView fromJson(Map<String, dynamic> json) {
-    return ListView.fromJson(translate(
-      json,
-      ListView.knownProps,
-    ));
+    return ListView.fromJson(translate(json, ListView.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ListView object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ListView object) => untranslate(object.toJson());
 }

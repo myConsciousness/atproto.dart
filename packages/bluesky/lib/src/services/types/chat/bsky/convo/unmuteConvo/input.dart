@@ -20,12 +20,11 @@ part 'input.g.dart';
 
 @freezed
 abstract class ConvoUnmuteConvoInput with _$ConvoUnmuteConvoInput {
-  static const knownProps = <String>[
-    'convoId',
-  ];
+  static const knownProps = <String>['convoId'];
 
   const factory ConvoUnmuteConvoInput({
     required String convoId,
+
     Map<String, dynamic>? $unknown,
   }) = _ConvoUnmuteConvoInput;
 
@@ -39,14 +38,12 @@ final class ConvoUnmuteConvoInputConverter
 
   @override
   ConvoUnmuteConvoInput fromJson(Map<String, dynamic> json) {
-    return ConvoUnmuteConvoInput.fromJson(translate(
-      json,
-      ConvoUnmuteConvoInput.knownProps,
-    ));
+    return ConvoUnmuteConvoInput.fromJson(
+      translate(json, ConvoUnmuteConvoInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoUnmuteConvoInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ConvoUnmuteConvoInput object) =>
+      untranslate(object.toJson());
 }

@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,812 +9,481 @@ part of 'union_thread_view_post_replies.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$UThreadViewPostReplies {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ThreadViewPost data) threadViewPost,
-    required TResult Function(NotFoundPost data) notFoundPost,
-    required TResult Function(BlockedPost data) blockedPost,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThreadViewPost data)? threadViewPost,
-    TResult? Function(NotFoundPost data)? notFoundPost,
-    TResult? Function(BlockedPost data)? blockedPost,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThreadViewPost data)? threadViewPost,
-    TResult Function(NotFoundPost data)? notFoundPost,
-    TResult Function(BlockedPost data)? blockedPost,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UThreadViewPostRepliesThreadViewPost value)
-        threadViewPost,
-    required TResult Function(UThreadViewPostRepliesNotFoundPost value)
-        notFoundPost,
-    required TResult Function(UThreadViewPostRepliesBlockedPost value)
-        blockedPost,
-    required TResult Function(UThreadViewPostRepliesUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UThreadViewPostRepliesThreadViewPost value)?
-        threadViewPost,
-    TResult? Function(UThreadViewPostRepliesNotFoundPost value)? notFoundPost,
-    TResult? Function(UThreadViewPostRepliesBlockedPost value)? blockedPost,
-    TResult? Function(UThreadViewPostRepliesUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UThreadViewPostRepliesThreadViewPost value)?
-        threadViewPost,
-    TResult Function(UThreadViewPostRepliesNotFoundPost value)? notFoundPost,
-    TResult Function(UThreadViewPostRepliesBlockedPost value)? blockedPost,
-    TResult Function(UThreadViewPostRepliesUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+
+ Object get data;
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UThreadViewPostReplies&&const DeepCollectionEquality().equals(other.data, data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'UThreadViewPostReplies(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UThreadViewPostRepliesCopyWith<$Res> {
-  factory $UThreadViewPostRepliesCopyWith(UThreadViewPostReplies value,
-          $Res Function(UThreadViewPostReplies) then) =
-      _$UThreadViewPostRepliesCopyWithImpl<$Res, UThreadViewPostReplies>;
+class $UThreadViewPostRepliesCopyWith<$Res>  {
+$UThreadViewPostRepliesCopyWith(UThreadViewPostReplies _, $Res Function(UThreadViewPostReplies) __);
 }
 
-/// @nodoc
-class _$UThreadViewPostRepliesCopyWithImpl<$Res,
-        $Val extends UThreadViewPostReplies>
-    implements $UThreadViewPostRepliesCopyWith<$Res> {
-  _$UThreadViewPostRepliesCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// Adds pattern-matching-related methods to [UThreadViewPostReplies].
+extension UThreadViewPostRepliesPatterns on UThreadViewPostReplies {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  /// Create a copy of UThreadViewPostReplies
-  /// with the given fields replaced by the non-null parameter values.
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UThreadViewPostRepliesThreadViewPost value)?  threadViewPost,TResult Function( UThreadViewPostRepliesNotFoundPost value)?  notFoundPost,TResult Function( UThreadViewPostRepliesBlockedPost value)?  blockedPost,TResult Function( UThreadViewPostRepliesUnknown value)?  unknown,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case UThreadViewPostRepliesThreadViewPost() when threadViewPost != null:
+return threadViewPost(_that);case UThreadViewPostRepliesNotFoundPost() when notFoundPost != null:
+return notFoundPost(_that);case UThreadViewPostRepliesBlockedPost() when blockedPost != null:
+return blockedPost(_that);case UThreadViewPostRepliesUnknown() when unknown != null:
+return unknown(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UThreadViewPostRepliesThreadViewPost value)  threadViewPost,required TResult Function( UThreadViewPostRepliesNotFoundPost value)  notFoundPost,required TResult Function( UThreadViewPostRepliesBlockedPost value)  blockedPost,required TResult Function( UThreadViewPostRepliesUnknown value)  unknown,}){
+final _that = this;
+switch (_that) {
+case UThreadViewPostRepliesThreadViewPost():
+return threadViewPost(_that);case UThreadViewPostRepliesNotFoundPost():
+return notFoundPost(_that);case UThreadViewPostRepliesBlockedPost():
+return blockedPost(_that);case UThreadViewPostRepliesUnknown():
+return unknown(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UThreadViewPostRepliesThreadViewPost value)?  threadViewPost,TResult? Function( UThreadViewPostRepliesNotFoundPost value)?  notFoundPost,TResult? Function( UThreadViewPostRepliesBlockedPost value)?  blockedPost,TResult? Function( UThreadViewPostRepliesUnknown value)?  unknown,}){
+final _that = this;
+switch (_that) {
+case UThreadViewPostRepliesThreadViewPost() when threadViewPost != null:
+return threadViewPost(_that);case UThreadViewPostRepliesNotFoundPost() when notFoundPost != null:
+return notFoundPost(_that);case UThreadViewPostRepliesBlockedPost() when blockedPost != null:
+return blockedPost(_that);case UThreadViewPostRepliesUnknown() when unknown != null:
+return unknown(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( ThreadViewPost data)?  threadViewPost,TResult Function( NotFoundPost data)?  notFoundPost,TResult Function( BlockedPost data)?  blockedPost,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case UThreadViewPostRepliesThreadViewPost() when threadViewPost != null:
+return threadViewPost(_that.data);case UThreadViewPostRepliesNotFoundPost() when notFoundPost != null:
+return notFoundPost(_that.data);case UThreadViewPostRepliesBlockedPost() when blockedPost != null:
+return blockedPost(_that.data);case UThreadViewPostRepliesUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( ThreadViewPost data)  threadViewPost,required TResult Function( NotFoundPost data)  notFoundPost,required TResult Function( BlockedPost data)  blockedPost,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+switch (_that) {
+case UThreadViewPostRepliesThreadViewPost():
+return threadViewPost(_that.data);case UThreadViewPostRepliesNotFoundPost():
+return notFoundPost(_that.data);case UThreadViewPostRepliesBlockedPost():
+return blockedPost(_that.data);case UThreadViewPostRepliesUnknown():
+return unknown(_that.data);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( ThreadViewPost data)?  threadViewPost,TResult? Function( NotFoundPost data)?  notFoundPost,TResult? Function( BlockedPost data)?  blockedPost,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+switch (_that) {
+case UThreadViewPostRepliesThreadViewPost() when threadViewPost != null:
+return threadViewPost(_that.data);case UThreadViewPostRepliesNotFoundPost() when notFoundPost != null:
+return notFoundPost(_that.data);case UThreadViewPostRepliesBlockedPost() when blockedPost != null:
+return blockedPost(_that.data);case UThreadViewPostRepliesUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-abstract class _$$UThreadViewPostRepliesThreadViewPostImplCopyWith<$Res> {
-  factory _$$UThreadViewPostRepliesThreadViewPostImplCopyWith(
-          _$UThreadViewPostRepliesThreadViewPostImpl value,
-          $Res Function(_$UThreadViewPostRepliesThreadViewPostImpl) then) =
-      __$$UThreadViewPostRepliesThreadViewPostImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ThreadViewPost data});
-
-  $ThreadViewPostCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$UThreadViewPostRepliesThreadViewPostImplCopyWithImpl<$Res>
-    extends _$UThreadViewPostRepliesCopyWithImpl<$Res,
-        _$UThreadViewPostRepliesThreadViewPostImpl>
-    implements _$$UThreadViewPostRepliesThreadViewPostImplCopyWith<$Res> {
-  __$$UThreadViewPostRepliesThreadViewPostImplCopyWithImpl(
-      _$UThreadViewPostRepliesThreadViewPostImpl _value,
-      $Res Function(_$UThreadViewPostRepliesThreadViewPostImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UThreadViewPostReplies
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UThreadViewPostRepliesThreadViewPostImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ThreadViewPost,
-    ));
-  }
-
-  /// Create a copy of UThreadViewPostReplies
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ThreadViewPostCopyWith<$Res> get data {
-    return $ThreadViewPostCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$UThreadViewPostRepliesThreadViewPostImpl
-    extends UThreadViewPostRepliesThreadViewPost {
-  const _$UThreadViewPostRepliesThreadViewPostImpl({required this.data})
-      : super._();
-
-  @override
-  final ThreadViewPost data;
-
-  @override
-  String toString() {
-    return 'UThreadViewPostReplies.threadViewPost(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UThreadViewPostRepliesThreadViewPostImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of UThreadViewPostReplies
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UThreadViewPostRepliesThreadViewPostImplCopyWith<
-          _$UThreadViewPostRepliesThreadViewPostImpl>
-      get copyWith => __$$UThreadViewPostRepliesThreadViewPostImplCopyWithImpl<
-          _$UThreadViewPostRepliesThreadViewPostImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ThreadViewPost data) threadViewPost,
-    required TResult Function(NotFoundPost data) notFoundPost,
-    required TResult Function(BlockedPost data) blockedPost,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return threadViewPost(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThreadViewPost data)? threadViewPost,
-    TResult? Function(NotFoundPost data)? notFoundPost,
-    TResult? Function(BlockedPost data)? blockedPost,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return threadViewPost?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThreadViewPost data)? threadViewPost,
-    TResult Function(NotFoundPost data)? notFoundPost,
-    TResult Function(BlockedPost data)? blockedPost,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (threadViewPost != null) {
-      return threadViewPost(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UThreadViewPostRepliesThreadViewPost value)
-        threadViewPost,
-    required TResult Function(UThreadViewPostRepliesNotFoundPost value)
-        notFoundPost,
-    required TResult Function(UThreadViewPostRepliesBlockedPost value)
-        blockedPost,
-    required TResult Function(UThreadViewPostRepliesUnknown value) unknown,
-  }) {
-    return threadViewPost(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UThreadViewPostRepliesThreadViewPost value)?
-        threadViewPost,
-    TResult? Function(UThreadViewPostRepliesNotFoundPost value)? notFoundPost,
-    TResult? Function(UThreadViewPostRepliesBlockedPost value)? blockedPost,
-    TResult? Function(UThreadViewPostRepliesUnknown value)? unknown,
-  }) {
-    return threadViewPost?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UThreadViewPostRepliesThreadViewPost value)?
-        threadViewPost,
-    TResult Function(UThreadViewPostRepliesNotFoundPost value)? notFoundPost,
-    TResult Function(UThreadViewPostRepliesBlockedPost value)? blockedPost,
-    TResult Function(UThreadViewPostRepliesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (threadViewPost != null) {
-      return threadViewPost(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UThreadViewPostRepliesThreadViewPost
-    extends UThreadViewPostReplies {
-  const factory UThreadViewPostRepliesThreadViewPost(
-          {required final ThreadViewPost data}) =
-      _$UThreadViewPostRepliesThreadViewPostImpl;
-  const UThreadViewPostRepliesThreadViewPost._() : super._();
-
-  @override
-  ThreadViewPost get data;
-
-  /// Create a copy of UThreadViewPostReplies
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UThreadViewPostRepliesThreadViewPostImplCopyWith<
-          _$UThreadViewPostRepliesThreadViewPostImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UThreadViewPostRepliesNotFoundPostImplCopyWith<$Res> {
-  factory _$$UThreadViewPostRepliesNotFoundPostImplCopyWith(
-          _$UThreadViewPostRepliesNotFoundPostImpl value,
-          $Res Function(_$UThreadViewPostRepliesNotFoundPostImpl) then) =
-      __$$UThreadViewPostRepliesNotFoundPostImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({NotFoundPost data});
-
-  $NotFoundPostCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$UThreadViewPostRepliesNotFoundPostImplCopyWithImpl<$Res>
-    extends _$UThreadViewPostRepliesCopyWithImpl<$Res,
-        _$UThreadViewPostRepliesNotFoundPostImpl>
-    implements _$$UThreadViewPostRepliesNotFoundPostImplCopyWith<$Res> {
-  __$$UThreadViewPostRepliesNotFoundPostImplCopyWithImpl(
-      _$UThreadViewPostRepliesNotFoundPostImpl _value,
-      $Res Function(_$UThreadViewPostRepliesNotFoundPostImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UThreadViewPostReplies
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UThreadViewPostRepliesNotFoundPostImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as NotFoundPost,
-    ));
-  }
-
-  /// Create a copy of UThreadViewPostReplies
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $NotFoundPostCopyWith<$Res> get data {
-    return $NotFoundPostCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
 }
 
 /// @nodoc
 
-class _$UThreadViewPostRepliesNotFoundPostImpl
-    extends UThreadViewPostRepliesNotFoundPost {
-  const _$UThreadViewPostRepliesNotFoundPostImpl({required this.data})
-      : super._();
 
-  @override
-  final NotFoundPost data;
+class UThreadViewPostRepliesThreadViewPost extends UThreadViewPostReplies {
+  const UThreadViewPostRepliesThreadViewPost({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UThreadViewPostReplies.notFoundPost(data: $data)';
-  }
+@override final  ThreadViewPost data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UThreadViewPostRepliesNotFoundPostImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UThreadViewPostReplies
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UThreadViewPostRepliesThreadViewPostCopyWith<UThreadViewPostRepliesThreadViewPost> get copyWith => _$UThreadViewPostRepliesThreadViewPostCopyWithImpl<UThreadViewPostRepliesThreadViewPost>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UThreadViewPostReplies
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UThreadViewPostRepliesNotFoundPostImplCopyWith<
-          _$UThreadViewPostRepliesNotFoundPostImpl>
-      get copyWith => __$$UThreadViewPostRepliesNotFoundPostImplCopyWithImpl<
-          _$UThreadViewPostRepliesNotFoundPostImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ThreadViewPost data) threadViewPost,
-    required TResult Function(NotFoundPost data) notFoundPost,
-    required TResult Function(BlockedPost data) blockedPost,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return notFoundPost(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThreadViewPost data)? threadViewPost,
-    TResult? Function(NotFoundPost data)? notFoundPost,
-    TResult? Function(BlockedPost data)? blockedPost,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return notFoundPost?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThreadViewPost data)? threadViewPost,
-    TResult Function(NotFoundPost data)? notFoundPost,
-    TResult Function(BlockedPost data)? blockedPost,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (notFoundPost != null) {
-      return notFoundPost(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UThreadViewPostRepliesThreadViewPost value)
-        threadViewPost,
-    required TResult Function(UThreadViewPostRepliesNotFoundPost value)
-        notFoundPost,
-    required TResult Function(UThreadViewPostRepliesBlockedPost value)
-        blockedPost,
-    required TResult Function(UThreadViewPostRepliesUnknown value) unknown,
-  }) {
-    return notFoundPost(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UThreadViewPostRepliesThreadViewPost value)?
-        threadViewPost,
-    TResult? Function(UThreadViewPostRepliesNotFoundPost value)? notFoundPost,
-    TResult? Function(UThreadViewPostRepliesBlockedPost value)? blockedPost,
-    TResult? Function(UThreadViewPostRepliesUnknown value)? unknown,
-  }) {
-    return notFoundPost?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UThreadViewPostRepliesThreadViewPost value)?
-        threadViewPost,
-    TResult Function(UThreadViewPostRepliesNotFoundPost value)? notFoundPost,
-    TResult Function(UThreadViewPostRepliesBlockedPost value)? blockedPost,
-    TResult Function(UThreadViewPostRepliesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (notFoundPost != null) {
-      return notFoundPost(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UThreadViewPostRepliesThreadViewPost&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UThreadViewPostRepliesNotFoundPost
-    extends UThreadViewPostReplies {
-  const factory UThreadViewPostRepliesNotFoundPost(
-          {required final NotFoundPost data}) =
-      _$UThreadViewPostRepliesNotFoundPostImpl;
-  const UThreadViewPostRepliesNotFoundPost._() : super._();
 
-  @override
-  NotFoundPost get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UThreadViewPostReplies
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UThreadViewPostRepliesNotFoundPostImplCopyWith<
-          _$UThreadViewPostRepliesNotFoundPostImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UThreadViewPostReplies.threadViewPost(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UThreadViewPostRepliesBlockedPostImplCopyWith<$Res> {
-  factory _$$UThreadViewPostRepliesBlockedPostImplCopyWith(
-          _$UThreadViewPostRepliesBlockedPostImpl value,
-          $Res Function(_$UThreadViewPostRepliesBlockedPostImpl) then) =
-      __$$UThreadViewPostRepliesBlockedPostImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({BlockedPost data});
+abstract mixin class $UThreadViewPostRepliesThreadViewPostCopyWith<$Res> implements $UThreadViewPostRepliesCopyWith<$Res> {
+  factory $UThreadViewPostRepliesThreadViewPostCopyWith(UThreadViewPostRepliesThreadViewPost value, $Res Function(UThreadViewPostRepliesThreadViewPost) _then) = _$UThreadViewPostRepliesThreadViewPostCopyWithImpl;
+@useResult
+$Res call({
+ ThreadViewPost data
+});
 
-  $BlockedPostCopyWith<$Res> get data;
+
+$ThreadViewPostCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UThreadViewPostRepliesThreadViewPostCopyWithImpl<$Res>
+    implements $UThreadViewPostRepliesThreadViewPostCopyWith<$Res> {
+  _$UThreadViewPostRepliesThreadViewPostCopyWithImpl(this._self, this._then);
+
+  final UThreadViewPostRepliesThreadViewPost _self;
+  final $Res Function(UThreadViewPostRepliesThreadViewPost) _then;
+
+/// Create a copy of UThreadViewPostReplies
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UThreadViewPostRepliesThreadViewPost(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ThreadViewPost,
+  ));
 }
 
-/// @nodoc
-class __$$UThreadViewPostRepliesBlockedPostImplCopyWithImpl<$Res>
-    extends _$UThreadViewPostRepliesCopyWithImpl<$Res,
-        _$UThreadViewPostRepliesBlockedPostImpl>
-    implements _$$UThreadViewPostRepliesBlockedPostImplCopyWith<$Res> {
-  __$$UThreadViewPostRepliesBlockedPostImplCopyWithImpl(
-      _$UThreadViewPostRepliesBlockedPostImpl _value,
-      $Res Function(_$UThreadViewPostRepliesBlockedPostImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UThreadViewPostReplies
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UThreadViewPostRepliesBlockedPostImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as BlockedPost,
-    ));
-  }
-
-  /// Create a copy of UThreadViewPostReplies
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $BlockedPostCopyWith<$Res> get data {
-    return $BlockedPostCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of UThreadViewPostReplies
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ThreadViewPostCopyWith<$Res> get data {
+  
+  return $ThreadViewPostCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UThreadViewPostRepliesBlockedPostImpl
-    extends UThreadViewPostRepliesBlockedPost {
-  const _$UThreadViewPostRepliesBlockedPostImpl({required this.data})
-      : super._();
 
-  @override
-  final BlockedPost data;
+class UThreadViewPostRepliesNotFoundPost extends UThreadViewPostReplies {
+  const UThreadViewPostRepliesNotFoundPost({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UThreadViewPostReplies.blockedPost(data: $data)';
-  }
+@override final  NotFoundPost data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UThreadViewPostRepliesBlockedPostImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UThreadViewPostReplies
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UThreadViewPostRepliesNotFoundPostCopyWith<UThreadViewPostRepliesNotFoundPost> get copyWith => _$UThreadViewPostRepliesNotFoundPostCopyWithImpl<UThreadViewPostRepliesNotFoundPost>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UThreadViewPostReplies
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UThreadViewPostRepliesBlockedPostImplCopyWith<
-          _$UThreadViewPostRepliesBlockedPostImpl>
-      get copyWith => __$$UThreadViewPostRepliesBlockedPostImplCopyWithImpl<
-          _$UThreadViewPostRepliesBlockedPostImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ThreadViewPost data) threadViewPost,
-    required TResult Function(NotFoundPost data) notFoundPost,
-    required TResult Function(BlockedPost data) blockedPost,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return blockedPost(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThreadViewPost data)? threadViewPost,
-    TResult? Function(NotFoundPost data)? notFoundPost,
-    TResult? Function(BlockedPost data)? blockedPost,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return blockedPost?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThreadViewPost data)? threadViewPost,
-    TResult Function(NotFoundPost data)? notFoundPost,
-    TResult Function(BlockedPost data)? blockedPost,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (blockedPost != null) {
-      return blockedPost(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UThreadViewPostRepliesThreadViewPost value)
-        threadViewPost,
-    required TResult Function(UThreadViewPostRepliesNotFoundPost value)
-        notFoundPost,
-    required TResult Function(UThreadViewPostRepliesBlockedPost value)
-        blockedPost,
-    required TResult Function(UThreadViewPostRepliesUnknown value) unknown,
-  }) {
-    return blockedPost(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UThreadViewPostRepliesThreadViewPost value)?
-        threadViewPost,
-    TResult? Function(UThreadViewPostRepliesNotFoundPost value)? notFoundPost,
-    TResult? Function(UThreadViewPostRepliesBlockedPost value)? blockedPost,
-    TResult? Function(UThreadViewPostRepliesUnknown value)? unknown,
-  }) {
-    return blockedPost?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UThreadViewPostRepliesThreadViewPost value)?
-        threadViewPost,
-    TResult Function(UThreadViewPostRepliesNotFoundPost value)? notFoundPost,
-    TResult Function(UThreadViewPostRepliesBlockedPost value)? blockedPost,
-    TResult Function(UThreadViewPostRepliesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (blockedPost != null) {
-      return blockedPost(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UThreadViewPostRepliesNotFoundPost&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UThreadViewPostRepliesBlockedPost
-    extends UThreadViewPostReplies {
-  const factory UThreadViewPostRepliesBlockedPost(
-          {required final BlockedPost data}) =
-      _$UThreadViewPostRepliesBlockedPostImpl;
-  const UThreadViewPostRepliesBlockedPost._() : super._();
 
-  @override
-  BlockedPost get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UThreadViewPostReplies
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UThreadViewPostRepliesBlockedPostImplCopyWith<
-          _$UThreadViewPostRepliesBlockedPostImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UThreadViewPostReplies.notFoundPost(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UThreadViewPostRepliesUnknownImplCopyWith<$Res> {
-  factory _$$UThreadViewPostRepliesUnknownImplCopyWith(
-          _$UThreadViewPostRepliesUnknownImpl value,
-          $Res Function(_$UThreadViewPostRepliesUnknownImpl) then) =
-      __$$UThreadViewPostRepliesUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
+abstract mixin class $UThreadViewPostRepliesNotFoundPostCopyWith<$Res> implements $UThreadViewPostRepliesCopyWith<$Res> {
+  factory $UThreadViewPostRepliesNotFoundPostCopyWith(UThreadViewPostRepliesNotFoundPost value, $Res Function(UThreadViewPostRepliesNotFoundPost) _then) = _$UThreadViewPostRepliesNotFoundPostCopyWithImpl;
+@useResult
+$Res call({
+ NotFoundPost data
+});
+
+
+$NotFoundPostCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UThreadViewPostRepliesNotFoundPostCopyWithImpl<$Res>
+    implements $UThreadViewPostRepliesNotFoundPostCopyWith<$Res> {
+  _$UThreadViewPostRepliesNotFoundPostCopyWithImpl(this._self, this._then);
+
+  final UThreadViewPostRepliesNotFoundPost _self;
+  final $Res Function(UThreadViewPostRepliesNotFoundPost) _then;
+
+/// Create a copy of UThreadViewPostReplies
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UThreadViewPostRepliesNotFoundPost(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as NotFoundPost,
+  ));
 }
 
-/// @nodoc
-class __$$UThreadViewPostRepliesUnknownImplCopyWithImpl<$Res>
-    extends _$UThreadViewPostRepliesCopyWithImpl<$Res,
-        _$UThreadViewPostRepliesUnknownImpl>
-    implements _$$UThreadViewPostRepliesUnknownImplCopyWith<$Res> {
-  __$$UThreadViewPostRepliesUnknownImplCopyWithImpl(
-      _$UThreadViewPostRepliesUnknownImpl _value,
-      $Res Function(_$UThreadViewPostRepliesUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UThreadViewPostReplies
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UThreadViewPostRepliesUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
+/// Create a copy of UThreadViewPostReplies
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$NotFoundPostCopyWith<$Res> get data {
+  
+  return $NotFoundPostCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UThreadViewPostRepliesUnknownImpl
-    extends UThreadViewPostRepliesUnknown {
-  const _$UThreadViewPostRepliesUnknownImpl(
-      {required final Map<String, dynamic> data})
-      : _data = data,
-        super._();
 
-  final Map<String, dynamic> _data;
-  @override
-  Map<String, dynamic> get data {
-    if (_data is EqualUnmodifiableMapView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_data);
-  }
+class UThreadViewPostRepliesBlockedPost extends UThreadViewPostReplies {
+  const UThreadViewPostRepliesBlockedPost({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UThreadViewPostReplies.unknown(data: $data)';
-  }
+@override final  BlockedPost data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UThreadViewPostRepliesUnknownImpl &&
-            const DeepCollectionEquality().equals(other._data, _data));
-  }
+/// Create a copy of UThreadViewPostReplies
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UThreadViewPostRepliesBlockedPostCopyWith<UThreadViewPostRepliesBlockedPost> get copyWith => _$UThreadViewPostRepliesBlockedPostCopyWithImpl<UThreadViewPostRepliesBlockedPost>(this, _$identity);
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  /// Create a copy of UThreadViewPostReplies
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UThreadViewPostRepliesUnknownImplCopyWith<
-          _$UThreadViewPostRepliesUnknownImpl>
-      get copyWith => __$$UThreadViewPostRepliesUnknownImplCopyWithImpl<
-          _$UThreadViewPostRepliesUnknownImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ThreadViewPost data) threadViewPost,
-    required TResult Function(NotFoundPost data) notFoundPost,
-    required TResult Function(BlockedPost data) blockedPost,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThreadViewPost data)? threadViewPost,
-    TResult? Function(NotFoundPost data)? notFoundPost,
-    TResult? Function(BlockedPost data)? blockedPost,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThreadViewPost data)? threadViewPost,
-    TResult Function(NotFoundPost data)? notFoundPost,
-    TResult Function(BlockedPost data)? blockedPost,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UThreadViewPostRepliesThreadViewPost value)
-        threadViewPost,
-    required TResult Function(UThreadViewPostRepliesNotFoundPost value)
-        notFoundPost,
-    required TResult Function(UThreadViewPostRepliesBlockedPost value)
-        blockedPost,
-    required TResult Function(UThreadViewPostRepliesUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UThreadViewPostRepliesThreadViewPost value)?
-        threadViewPost,
-    TResult? Function(UThreadViewPostRepliesNotFoundPost value)? notFoundPost,
-    TResult? Function(UThreadViewPostRepliesBlockedPost value)? blockedPost,
-    TResult? Function(UThreadViewPostRepliesUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UThreadViewPostRepliesThreadViewPost value)?
-        threadViewPost,
-    TResult Function(UThreadViewPostRepliesNotFoundPost value)? notFoundPost,
-    TResult Function(UThreadViewPostRepliesBlockedPost value)? blockedPost,
-    TResult Function(UThreadViewPostRepliesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UThreadViewPostRepliesBlockedPost&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UThreadViewPostRepliesUnknown extends UThreadViewPostReplies {
-  const factory UThreadViewPostRepliesUnknown(
-          {required final Map<String, dynamic> data}) =
-      _$UThreadViewPostRepliesUnknownImpl;
-  const UThreadViewPostRepliesUnknown._() : super._();
 
-  @override
-  Map<String, dynamic> get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UThreadViewPostReplies
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UThreadViewPostRepliesUnknownImplCopyWith<
-          _$UThreadViewPostRepliesUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UThreadViewPostReplies.blockedPost(data: $data)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class $UThreadViewPostRepliesBlockedPostCopyWith<$Res> implements $UThreadViewPostRepliesCopyWith<$Res> {
+  factory $UThreadViewPostRepliesBlockedPostCopyWith(UThreadViewPostRepliesBlockedPost value, $Res Function(UThreadViewPostRepliesBlockedPost) _then) = _$UThreadViewPostRepliesBlockedPostCopyWithImpl;
+@useResult
+$Res call({
+ BlockedPost data
+});
+
+
+$BlockedPostCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UThreadViewPostRepliesBlockedPostCopyWithImpl<$Res>
+    implements $UThreadViewPostRepliesBlockedPostCopyWith<$Res> {
+  _$UThreadViewPostRepliesBlockedPostCopyWithImpl(this._self, this._then);
+
+  final UThreadViewPostRepliesBlockedPost _self;
+  final $Res Function(UThreadViewPostRepliesBlockedPost) _then;
+
+/// Create a copy of UThreadViewPostReplies
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UThreadViewPostRepliesBlockedPost(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as BlockedPost,
+  ));
+}
+
+/// Create a copy of UThreadViewPostReplies
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$BlockedPostCopyWith<$Res> get data {
+  
+  return $BlockedPostCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+
+
+class UThreadViewPostRepliesUnknown extends UThreadViewPostReplies {
+  const UThreadViewPostRepliesUnknown({required final  Map<String, dynamic> data}): _data = data,super._();
+  
+
+ final  Map<String, dynamic> _data;
+@override Map<String, dynamic> get data {
+  if (_data is EqualUnmodifiableMapView) return _data;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_data);
+}
+
+
+/// Create a copy of UThreadViewPostReplies
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UThreadViewPostRepliesUnknownCopyWith<UThreadViewPostRepliesUnknown> get copyWith => _$UThreadViewPostRepliesUnknownCopyWithImpl<UThreadViewPostRepliesUnknown>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UThreadViewPostRepliesUnknown&&const DeepCollectionEquality().equals(other._data, _data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_data));
+
+@override
+String toString() {
+  return 'UThreadViewPostReplies.unknown(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UThreadViewPostRepliesUnknownCopyWith<$Res> implements $UThreadViewPostRepliesCopyWith<$Res> {
+  factory $UThreadViewPostRepliesUnknownCopyWith(UThreadViewPostRepliesUnknown value, $Res Function(UThreadViewPostRepliesUnknown) _then) = _$UThreadViewPostRepliesUnknownCopyWithImpl;
+@useResult
+$Res call({
+ Map<String, dynamic> data
+});
+
+
+
+
+}
+/// @nodoc
+class _$UThreadViewPostRepliesUnknownCopyWithImpl<$Res>
+    implements $UThreadViewPostRepliesUnknownCopyWith<$Res> {
+  _$UThreadViewPostRepliesUnknownCopyWithImpl(this._self, this._then);
+
+  final UThreadViewPostRepliesUnknown _self;
+  final $Res Function(UThreadViewPostRepliesUnknown) _then;
+
+/// Create a copy of UThreadViewPostReplies
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UThreadViewPostRepliesUnknown(
+data: null == data ? _self._data : data // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,
+  ));
+}
+
+
+}
+
+// dart format on

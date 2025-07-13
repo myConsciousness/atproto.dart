@@ -12,7 +12,8 @@ part of 'lex_boolean.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LexBoolean _$LexBooleanFromJson(Map<String, dynamic> json) {
   return _LexBoolean.fromJson(json);
@@ -40,14 +41,16 @@ mixin _$LexBoolean {
 /// @nodoc
 abstract class $LexBooleanCopyWith<$Res> {
   factory $LexBooleanCopyWith(
-          LexBoolean value, $Res Function(LexBoolean) then) =
-      _$LexBooleanCopyWithImpl<$Res, LexBoolean>;
+    LexBoolean value,
+    $Res Function(LexBoolean) then,
+  ) = _$LexBooleanCopyWithImpl<$Res, LexBoolean>;
   @useResult
-  $Res call(
-      {String type,
-      String? description,
-      @JsonKey(name: 'default') bool? defaultValue,
-      @JsonKey(name: 'const') bool? constValue});
+  $Res call({
+    String type,
+    String? description,
+    @JsonKey(name: 'default') bool? defaultValue,
+    @JsonKey(name: 'const') bool? constValue,
+  });
 }
 
 /// @nodoc
@@ -70,24 +73,27 @@ class _$LexBooleanCopyWithImpl<$Res, $Val extends LexBoolean>
     Object? defaultValue = freezed,
     Object? constValue = freezed,
   }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      defaultValue: freezed == defaultValue
-          ? _value.defaultValue
-          : defaultValue // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      constValue: freezed == constValue
-          ? _value.constValue
-          : constValue // ignore: cast_nullable_to_non_nullable
-              as bool?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            defaultValue: freezed == defaultValue
+                ? _value.defaultValue
+                : defaultValue // ignore: cast_nullable_to_non_nullable
+                      as bool?,
+            constValue: freezed == constValue
+                ? _value.constValue
+                : constValue // ignore: cast_nullable_to_non_nullable
+                      as bool?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -95,15 +101,17 @@ class _$LexBooleanCopyWithImpl<$Res, $Val extends LexBoolean>
 abstract class _$$LexBooleanImplCopyWith<$Res>
     implements $LexBooleanCopyWith<$Res> {
   factory _$$LexBooleanImplCopyWith(
-          _$LexBooleanImpl value, $Res Function(_$LexBooleanImpl) then) =
-      __$$LexBooleanImplCopyWithImpl<$Res>;
+    _$LexBooleanImpl value,
+    $Res Function(_$LexBooleanImpl) then,
+  ) = __$$LexBooleanImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String type,
-      String? description,
-      @JsonKey(name: 'default') bool? defaultValue,
-      @JsonKey(name: 'const') bool? constValue});
+  $Res call({
+    String type,
+    String? description,
+    @JsonKey(name: 'default') bool? defaultValue,
+    @JsonKey(name: 'const') bool? constValue,
+  });
 }
 
 /// @nodoc
@@ -111,8 +119,9 @@ class __$$LexBooleanImplCopyWithImpl<$Res>
     extends _$LexBooleanCopyWithImpl<$Res, _$LexBooleanImpl>
     implements _$$LexBooleanImplCopyWith<$Res> {
   __$$LexBooleanImplCopyWithImpl(
-      _$LexBooleanImpl _value, $Res Function(_$LexBooleanImpl) _then)
-      : super(_value, _then);
+    _$LexBooleanImpl _value,
+    $Res Function(_$LexBooleanImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexBoolean
   /// with the given fields replaced by the non-null parameter values.
@@ -124,24 +133,26 @@ class __$$LexBooleanImplCopyWithImpl<$Res>
     Object? defaultValue = freezed,
     Object? constValue = freezed,
   }) {
-    return _then(_$LexBooleanImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      defaultValue: freezed == defaultValue
-          ? _value.defaultValue
-          : defaultValue // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      constValue: freezed == constValue
-          ? _value.constValue
-          : constValue // ignore: cast_nullable_to_non_nullable
-              as bool?,
-    ));
+    return _then(
+      _$LexBooleanImpl(
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        defaultValue: freezed == defaultValue
+            ? _value.defaultValue
+            : defaultValue // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        constValue: freezed == constValue
+            ? _value.constValue
+            : constValue // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+      ),
+    );
   }
 }
 
@@ -149,11 +160,12 @@ class __$$LexBooleanImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$LexBooleanImpl implements _LexBoolean {
-  const _$LexBooleanImpl(
-      {this.type = 'boolean',
-      this.description,
-      @JsonKey(name: 'default') this.defaultValue,
-      @JsonKey(name: 'const') this.constValue});
+  const _$LexBooleanImpl({
+    this.type = 'boolean',
+    this.description,
+    @JsonKey(name: 'default') this.defaultValue,
+    @JsonKey(name: 'const') this.constValue,
+  });
 
   factory _$LexBooleanImpl.fromJson(Map<String, dynamic> json) =>
       _$$LexBooleanImplFromJson(json);
@@ -204,18 +216,17 @@ class _$LexBooleanImpl implements _LexBoolean {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LexBooleanImplToJson(
-      this,
-    );
+    return _$$LexBooleanImplToJson(this);
   }
 }
 
 abstract class _LexBoolean implements LexBoolean {
-  const factory _LexBoolean(
-      {final String type,
-      final String? description,
-      @JsonKey(name: 'default') final bool? defaultValue,
-      @JsonKey(name: 'const') final bool? constValue}) = _$LexBooleanImpl;
+  const factory _LexBoolean({
+    final String type,
+    final String? description,
+    @JsonKey(name: 'default') final bool? defaultValue,
+    @JsonKey(name: 'const') final bool? constValue,
+  }) = _$LexBooleanImpl;
 
   factory _LexBoolean.fromJson(Map<String, dynamic> json) =
       _$LexBooleanImpl.fromJson;

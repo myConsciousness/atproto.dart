@@ -23,14 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class AdminSearchAccountsOutput with _$AdminSearchAccountsOutput {
-  static const knownProps = <String>[
-    'cursor',
-    'accounts',
-  ];
+  static const knownProps = <String>['cursor', 'accounts'];
 
   const factory AdminSearchAccountsOutput({
     String? cursor,
     @AccountViewConverter() required List<AccountView> accounts,
+
     Map<String, dynamic>? $unknown,
   }) = _AdminSearchAccountsOutput;
 
@@ -38,20 +36,19 @@ abstract class AdminSearchAccountsOutput with _$AdminSearchAccountsOutput {
       _$AdminSearchAccountsOutputFromJson(json);
 }
 
-final class AdminSearchAccountsOutputConverter extends LexObjectConverter<
-    AdminSearchAccountsOutput, Map<String, dynamic>> {
+final class AdminSearchAccountsOutputConverter
+    extends
+        LexObjectConverter<AdminSearchAccountsOutput, Map<String, dynamic>> {
   const AdminSearchAccountsOutputConverter();
 
   @override
   AdminSearchAccountsOutput fromJson(Map<String, dynamic> json) {
-    return AdminSearchAccountsOutput.fromJson(translate(
-      json,
-      AdminSearchAccountsOutput.knownProps,
-    ));
+    return AdminSearchAccountsOutput.fromJson(
+      translate(json, AdminSearchAccountsOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(AdminSearchAccountsOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(AdminSearchAccountsOutput object) =>
+      untranslate(object.toJson());
 }

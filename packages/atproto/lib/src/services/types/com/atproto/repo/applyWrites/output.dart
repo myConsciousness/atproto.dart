@@ -24,14 +24,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class RepoApplyWritesOutput with _$RepoApplyWritesOutput {
-  static const knownProps = <String>[
-    'commit',
-    'results',
-  ];
+  static const knownProps = <String>['commit', 'results'];
 
   const factory RepoApplyWritesOutput({
     @CommitMetaConverter() CommitMeta? commit,
     @URepoApplyWritesResultsConverter() List<URepoApplyWritesResults>? results,
+
     Map<String, dynamic>? $unknown,
   }) = _RepoApplyWritesOutput;
 
@@ -45,14 +43,12 @@ final class RepoApplyWritesOutputConverter
 
   @override
   RepoApplyWritesOutput fromJson(Map<String, dynamic> json) {
-    return RepoApplyWritesOutput.fromJson(translate(
-      json,
-      RepoApplyWritesOutput.knownProps,
-    ));
+    return RepoApplyWritesOutput.fromJson(
+      translate(json, RepoApplyWritesOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(RepoApplyWritesOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RepoApplyWritesOutput object) =>
+      untranslate(object.toJson());
 }

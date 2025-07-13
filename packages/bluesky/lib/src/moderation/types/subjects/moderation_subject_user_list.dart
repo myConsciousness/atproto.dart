@@ -14,7 +14,6 @@ class ModerationSubjectUserList with _$ModerationSubjectUserList {
     required ListViewBasic data,
   }) = UModerationSubjectUserListListViewBasic;
 
-  const factory ModerationSubjectUserList.listView({
-    required ListView data,
-  }) = UModerationSubjectUserListListView;
+  const factory ModerationSubjectUserList.listView({required ListView data}) =
+      UModerationSubjectUserListListView;
 }

@@ -24,11 +24,7 @@ part 'create.g.dart';
 /// Operation which creates a new record.
 @freezed
 abstract class Create with _$Create {
-  static const knownProps = <String>[
-    'collection',
-    'rkey',
-    'value',
-  ];
+  static const knownProps = <String>['collection', 'rkey', 'value'];
 
   const factory Create({
     @Default(comAtprotoRepoApplyWritesCreate) String $type,
@@ -37,6 +33,7 @@ abstract class Create with _$Create {
     /// NOTE: maxLength is redundant with record-key format. Keeping it temporarily to ensure backwards compatibility.
     String? rkey,
     required Map<String, dynamic> value,
+
     Map<String, dynamic>? $unknown,
   }) = _Create;
 
@@ -54,14 +51,9 @@ final class CreateConverter
 
   @override
   Create fromJson(Map<String, dynamic> json) {
-    return Create.fromJson(translate(
-      json,
-      Create.knownProps,
-    ));
+    return Create.fromJson(translate(json, Create.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(Create object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(Create object) => untranslate(object.toJson());
 }

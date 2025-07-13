@@ -8,30 +8,21 @@ part of 'password_updated.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PasswordUpdatedImpl _$$PasswordUpdatedImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$PasswordUpdatedImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$PasswordUpdatedImpl(
-          $type: $checkedConvert(
-              r'$type',
-              (v) =>
-                  v as String? ??
-                  toolsOzoneHostingGetAccountHistoryPasswordUpdated),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_PasswordUpdated _$PasswordUpdatedFromJson(Map json) =>
+    $checkedCreate('_PasswordUpdated', json, ($checkedConvert) {
+      final val = _PasswordUpdated(
+        $type: $checkedConvert(
+          r'$type',
+          (v) =>
+              v as String? ?? toolsOzoneHostingGetAccountHistoryPasswordUpdated,
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$PasswordUpdatedImplToJson(
-        _$PasswordUpdatedImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$PasswordUpdatedToJson(_PasswordUpdated instance) =>
+    <String, dynamic>{r'$type': instance.$type, r'$unknown': instance.$unknown};

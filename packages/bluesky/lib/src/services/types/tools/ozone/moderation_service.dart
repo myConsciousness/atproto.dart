@@ -42,16 +42,12 @@ final class ModerationService {
     required List<String> dids,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.toolsOzoneModerationGetReporterStats,
-        headers: $headers,
-        parameters: {
-          'dids': dids,
-          ...?$unknown,
-        },
-        to: const ModerationGetReporterStatsOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.toolsOzoneModerationGetReporterStats,
+    headers: $headers,
+    parameters: {'dids': dids, ...?$unknown},
+    to: const ModerationGetReporterStatsOutputConverter().fromJson,
+  );
 
   /// View moderation statuses of subjects (record or repo).
   Future<XRPCResponse<ModerationQueryStatusesOutput>> queryStatuses({
@@ -91,121 +87,104 @@ final class ModerationService {
     int? minPriorityScore,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.toolsOzoneModerationQueryStatuses,
-        headers: $headers,
-        parameters: {
-          if (queueCount != null) 'queueCount': queueCount,
-          if (queueIndex != null) 'queueIndex': queueIndex,
-          if (queueSeed != null) 'queueSeed': queueSeed,
-          if (includeAllUserRecords != null)
-            'includeAllUserRecords': includeAllUserRecords,
-          if (subject != null) 'subject': subject,
-          if (comment != null) 'comment': comment,
-          if (reportedAfter != null) 'reportedAfter': reportedAfter,
-          if (reportedBefore != null) 'reportedBefore': reportedBefore,
-          if (reviewedAfter != null) 'reviewedAfter': reviewedAfter,
-          if (hostingDeletedAfter != null)
-            'hostingDeletedAfter': hostingDeletedAfter,
-          if (hostingDeletedBefore != null)
-            'hostingDeletedBefore': hostingDeletedBefore,
-          if (hostingUpdatedAfter != null)
-            'hostingUpdatedAfter': hostingUpdatedAfter,
-          if (hostingUpdatedBefore != null)
-            'hostingUpdatedBefore': hostingUpdatedBefore,
-          if (hostingStatuses != null) 'hostingStatuses': hostingStatuses,
-          if (reviewedBefore != null) 'reviewedBefore': reviewedBefore,
-          if (includeMuted != null) 'includeMuted': includeMuted,
-          if (onlyMuted != null) 'onlyMuted': onlyMuted,
-          if (reviewState != null) 'reviewState': reviewState,
-          if (ignoreSubjects != null) 'ignoreSubjects': ignoreSubjects,
-          if (lastReviewedBy != null) 'lastReviewedBy': lastReviewedBy,
-          if (sortField != null) 'sortField': sortField,
-          if (sortDirection != null) 'sortDirection': sortDirection,
-          if (takendown != null) 'takendown': takendown,
-          if (appealed != null) 'appealed': appealed,
-          if (limit != null) 'limit': limit,
-          if (tags != null) 'tags': tags,
-          if (excludeTags != null) 'excludeTags': excludeTags,
-          if (cursor != null) 'cursor': cursor,
-          if (collections != null) 'collections': collections,
-          if (subjectType != null) 'subjectType': subjectType,
-          if (minAccountSuspendCount != null)
-            'minAccountSuspendCount': minAccountSuspendCount,
-          if (minReportedRecordsCount != null)
-            'minReportedRecordsCount': minReportedRecordsCount,
-          if (minTakendownRecordsCount != null)
-            'minTakendownRecordsCount': minTakendownRecordsCount,
-          if (minPriorityScore != null) 'minPriorityScore': minPriorityScore,
-          ...?$unknown,
-        },
-        to: const ModerationQueryStatusesOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.toolsOzoneModerationQueryStatuses,
+    headers: $headers,
+    parameters: {
+      if (queueCount != null) 'queueCount': queueCount,
+      if (queueIndex != null) 'queueIndex': queueIndex,
+      if (queueSeed != null) 'queueSeed': queueSeed,
+      if (includeAllUserRecords != null)
+        'includeAllUserRecords': includeAllUserRecords,
+      if (subject != null) 'subject': subject,
+      if (comment != null) 'comment': comment,
+      if (reportedAfter != null) 'reportedAfter': reportedAfter,
+      if (reportedBefore != null) 'reportedBefore': reportedBefore,
+      if (reviewedAfter != null) 'reviewedAfter': reviewedAfter,
+      if (hostingDeletedAfter != null)
+        'hostingDeletedAfter': hostingDeletedAfter,
+      if (hostingDeletedBefore != null)
+        'hostingDeletedBefore': hostingDeletedBefore,
+      if (hostingUpdatedAfter != null)
+        'hostingUpdatedAfter': hostingUpdatedAfter,
+      if (hostingUpdatedBefore != null)
+        'hostingUpdatedBefore': hostingUpdatedBefore,
+      if (hostingStatuses != null) 'hostingStatuses': hostingStatuses,
+      if (reviewedBefore != null) 'reviewedBefore': reviewedBefore,
+      if (includeMuted != null) 'includeMuted': includeMuted,
+      if (onlyMuted != null) 'onlyMuted': onlyMuted,
+      if (reviewState != null) 'reviewState': reviewState,
+      if (ignoreSubjects != null) 'ignoreSubjects': ignoreSubjects,
+      if (lastReviewedBy != null) 'lastReviewedBy': lastReviewedBy,
+      if (sortField != null) 'sortField': sortField,
+      if (sortDirection != null) 'sortDirection': sortDirection,
+      if (takendown != null) 'takendown': takendown,
+      if (appealed != null) 'appealed': appealed,
+      if (limit != null) 'limit': limit,
+      if (tags != null) 'tags': tags,
+      if (excludeTags != null) 'excludeTags': excludeTags,
+      if (cursor != null) 'cursor': cursor,
+      if (collections != null) 'collections': collections,
+      if (subjectType != null) 'subjectType': subjectType,
+      if (minAccountSuspendCount != null)
+        'minAccountSuspendCount': minAccountSuspendCount,
+      if (minReportedRecordsCount != null)
+        'minReportedRecordsCount': minReportedRecordsCount,
+      if (minTakendownRecordsCount != null)
+        'minTakendownRecordsCount': minTakendownRecordsCount,
+      if (minPriorityScore != null) 'minPriorityScore': minPriorityScore,
+      ...?$unknown,
+    },
+    to: const ModerationQueryStatusesOutputConverter().fromJson,
+  );
 
   /// Get details about a repository.
   Future<XRPCResponse<RepoViewDetail>> getRepo({
     required String did,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.toolsOzoneModerationGetRepo,
-        headers: $headers,
-        parameters: {
-          'did': did,
-          ...?$unknown,
-        },
-        to: const RepoViewDetailConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.toolsOzoneModerationGetRepo,
+    headers: $headers,
+    parameters: {'did': did, ...?$unknown},
+    to: const RepoViewDetailConverter().fromJson,
+  );
 
   /// Get details about subjects.
   Future<XRPCResponse<ModerationGetSubjectsOutput>> getSubjects({
     required List<String> subjects,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.toolsOzoneModerationGetSubjects,
-        headers: $headers,
-        parameters: {
-          'subjects': subjects,
-          ...?$unknown,
-        },
-        to: const ModerationGetSubjectsOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.toolsOzoneModerationGetSubjects,
+    headers: $headers,
+    parameters: {'subjects': subjects, ...?$unknown},
+    to: const ModerationGetSubjectsOutputConverter().fromJson,
+  );
 
   /// Get details about some records.
   Future<XRPCResponse<ModerationGetRecordsOutput>> getRecords({
     required List<String> uris,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.toolsOzoneModerationGetRecords,
-        headers: $headers,
-        parameters: {
-          'uris': uris,
-          ...?$unknown,
-        },
-        to: const ModerationGetRecordsOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.toolsOzoneModerationGetRecords,
+    headers: $headers,
+    parameters: {'uris': uris, ...?$unknown},
+    to: const ModerationGetRecordsOutputConverter().fromJson,
+  );
 
   /// Get details about a moderation event.
   Future<XRPCResponse<ModEventViewDetail>> getEvent({
     required int id,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.toolsOzoneModerationGetEvent,
-        headers: $headers,
-        parameters: {
-          'id': id,
-          ...?$unknown,
-        },
-        to: const ModEventViewDetailConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.toolsOzoneModerationGetEvent,
+    headers: $headers,
+    parameters: {'id': id, ...?$unknown},
+    to: const ModEventViewDetailConverter().fromJson,
+  );
 
   /// List moderation events related to a subject.
   Future<XRPCResponse<ModerationQueryEventsOutput>> queryEvents({
@@ -231,36 +210,35 @@ final class ModerationService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.toolsOzoneModerationQueryEvents,
-        headers: $headers,
-        parameters: {
-          if (types != null) 'types': types,
-          if (createdBy != null) 'createdBy': createdBy,
-          if (sortDirection != null) 'sortDirection': sortDirection,
-          if (createdAfter != null) 'createdAfter': createdAfter,
-          if (createdBefore != null) 'createdBefore': createdBefore,
-          if (subject != null) 'subject': subject,
-          if (collections != null) 'collections': collections,
-          if (subjectType != null) 'subjectType': subjectType,
-          if (includeAllUserRecords != null)
-            'includeAllUserRecords': includeAllUserRecords,
-          if (limit != null) 'limit': limit,
-          if (hasComment != null) 'hasComment': hasComment,
-          if (comment != null) 'comment': comment,
-          if (addedLabels != null) 'addedLabels': addedLabels,
-          if (removedLabels != null) 'removedLabels': removedLabels,
-          if (addedTags != null) 'addedTags': addedTags,
-          if (removedTags != null) 'removedTags': removedTags,
-          if (reportTypes != null) 'reportTypes': reportTypes,
-          if (policies != null) 'policies': policies,
-          if (modTool != null) 'modTool': modTool,
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        to: const ModerationQueryEventsOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.toolsOzoneModerationQueryEvents,
+    headers: $headers,
+    parameters: {
+      if (types != null) 'types': types,
+      if (createdBy != null) 'createdBy': createdBy,
+      if (sortDirection != null) 'sortDirection': sortDirection,
+      if (createdAfter != null) 'createdAfter': createdAfter,
+      if (createdBefore != null) 'createdBefore': createdBefore,
+      if (subject != null) 'subject': subject,
+      if (collections != null) 'collections': collections,
+      if (subjectType != null) 'subjectType': subjectType,
+      if (includeAllUserRecords != null)
+        'includeAllUserRecords': includeAllUserRecords,
+      if (limit != null) 'limit': limit,
+      if (hasComment != null) 'hasComment': hasComment,
+      if (comment != null) 'comment': comment,
+      if (addedLabels != null) 'addedLabels': addedLabels,
+      if (removedLabels != null) 'removedLabels': removedLabels,
+      if (addedTags != null) 'addedTags': addedTags,
+      if (removedTags != null) 'removedTags': removedTags,
+      if (reportTypes != null) 'reportTypes': reportTypes,
+      if (policies != null) 'policies': policies,
+      if (modTool != null) 'modTool': modTool,
+      if (cursor != null) 'cursor': cursor,
+      ...?$unknown,
+    },
+    to: const ModerationQueryEventsOutputConverter().fromJson,
+  );
 
   /// Get details about a record.
   Future<XRPCResponse<RecordViewDetail>> getRecord({
@@ -268,17 +246,12 @@ final class ModerationService {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.toolsOzoneModerationGetRecord,
-        headers: $headers,
-        parameters: {
-          'uri': uri,
-          if (cid != null) 'cid': cid,
-          ...?$unknown,
-        },
-        to: const RecordViewDetailConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.toolsOzoneModerationGetRecord,
+    headers: $headers,
+    parameters: {'uri': uri, if (cid != null) 'cid': cid, ...?$unknown},
+    to: const RecordViewDetailConverter().fromJson,
+  );
 
   /// Take a moderation action on an actor.
   Future<XRPCResponse<ModEventView>> emitEvent({
@@ -289,23 +262,19 @@ final class ModerationService {
     ModTool? modTool,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.post(
-        ns.toolsOzoneModerationEmitEvent,
-        headers: {
-          'Content-type': 'application/json',
-          ...?$headers,
-        },
-        body: {
-          'event': event.toJson(),
-          'subject': subject.toJson(),
-          if (subjectBlobCids != null) 'subjectBlobCids': subjectBlobCids,
-          'createdBy': createdBy,
-          if (modTool != null) 'modTool': modTool.toJson(),
-          ...?$unknown,
-        },
-        to: const ModEventViewConverter().fromJson,
-      );
+  }) async => await _ctx.post(
+    ns.toolsOzoneModerationEmitEvent,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {
+      'event': event.toJson(),
+      'subject': subject.toJson(),
+      if (subjectBlobCids != null) 'subjectBlobCids': subjectBlobCids,
+      'createdBy': createdBy,
+      if (modTool != null) 'modTool': modTool.toJson(),
+      ...?$unknown,
+    },
+    to: const ModEventViewConverter().fromJson,
+  );
 
   /// Find repositories based on a search term.
   Future<XRPCResponse<ModerationSearchReposOutput>> searchRepos({
@@ -315,33 +284,28 @@ final class ModerationService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.toolsOzoneModerationSearchRepos,
-        headers: $headers,
-        parameters: {
-          if (term != null) 'term': term,
-          if (q != null) 'q': q,
-          if (limit != null) 'limit': limit,
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        to: const ModerationSearchReposOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.toolsOzoneModerationSearchRepos,
+    headers: $headers,
+    parameters: {
+      if (term != null) 'term': term,
+      if (q != null) 'q': q,
+      if (limit != null) 'limit': limit,
+      if (cursor != null) 'cursor': cursor,
+      ...?$unknown,
+    },
+    to: const ModerationSearchReposOutputConverter().fromJson,
+  );
 
   /// Get details about some repositories.
   Future<XRPCResponse<ModerationGetReposOutput>> getRepos({
     required List<String> dids,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.toolsOzoneModerationGetRepos,
-        headers: $headers,
-        parameters: {
-          'dids': dids,
-          ...?$unknown,
-        },
-        to: const ModerationGetReposOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.toolsOzoneModerationGetRepos,
+    headers: $headers,
+    parameters: {'dids': dids, ...?$unknown},
+    to: const ModerationGetReposOutputConverter().fromJson,
+  );
 }

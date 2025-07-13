@@ -8,19 +8,15 @@ part of 'service.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ServiceImpl _$$ServiceImplFromJson(Map json) => $checkedCreate(
-      r'_$ServiceImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ServiceImpl(
-          id: $checkedConvert('id', (v) => v as String),
-          type: $checkedConvert('type', (v) => v as String),
-          serviceEndpoint:
-              $checkedConvert('serviceEndpoint', (v) => v as String),
-        );
-        return val;
-      },
-    );
+_$ServiceImpl _$$ServiceImplFromJson(Map json) =>
+    $checkedCreate(r'_$ServiceImpl', json, ($checkedConvert) {
+      final val = _$ServiceImpl(
+        id: $checkedConvert('id', (v) => v as String),
+        type: $checkedConvert('type', (v) => v as String),
+        serviceEndpoint: $checkedConvert('serviceEndpoint', (v) => v as String),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$$ServiceImplToJson(_$ServiceImpl instance) =>
     <String, dynamic>{

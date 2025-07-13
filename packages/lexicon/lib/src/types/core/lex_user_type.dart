@@ -27,61 +27,44 @@ class LexUserType with _$LexUserType {
   // ignore: unused_element
   const LexUserType._();
 
-  const factory LexUserType.record({
-    required LexRecord data,
-  }) = ULexUserTypeRecord;
+  const factory LexUserType.record({required LexRecord data}) =
+      ULexUserTypeRecord;
 
-  const factory LexUserType.xrpcQuery({
-    required LexXrpcQuery data,
-  }) = ULexUserTypeXrpcQuery;
+  const factory LexUserType.xrpcQuery({required LexXrpcQuery data}) =
+      ULexUserTypeXrpcQuery;
 
-  const factory LexUserType.xrpcProcedure({
-    required LexXrpcProcedure data,
-  }) = ULexUserTypeXrpcProcedure;
+  const factory LexUserType.xrpcProcedure({required LexXrpcProcedure data}) =
+      ULexUserTypeXrpcProcedure;
 
   const factory LexUserType.xrpcSubscription({
     required LexXrpcSubscription data,
   }) = ULexUserTypeXrpcSubscription;
 
-  const factory LexUserType.blob({
-    required LexBlob data,
-  }) = ULexUserTypeBlob;
+  const factory LexUserType.blob({required LexBlob data}) = ULexUserTypeBlob;
 
-  const factory LexUserType.array({
-    required LexArray data,
-  }) = ULexUserTypeArray;
+  const factory LexUserType.array({required LexArray data}) = ULexUserTypeArray;
 
-  const factory LexUserType.token({
-    required LexToken data,
-  }) = ULexUserTypeToken;
+  const factory LexUserType.token({required LexToken data}) = ULexUserTypeToken;
 
-  const factory LexUserType.object({
-    required LexObject data,
-  }) = ULexUserTypeObject;
+  const factory LexUserType.object({required LexObject data}) =
+      ULexUserTypeObject;
 
-  const factory LexUserType.boolean({
-    required LexBoolean data,
-  }) = ULexUserTypeBoolean;
+  const factory LexUserType.boolean({required LexBoolean data}) =
+      ULexUserTypeBoolean;
 
-  const factory LexUserType.integer({
-    required LexInteger data,
-  }) = ULexUserTypeInteger;
+  const factory LexUserType.integer({required LexInteger data}) =
+      ULexUserTypeInteger;
 
-  const factory LexUserType.string({
-    required LexString data,
-  }) = ULexUserTypeString;
+  const factory LexUserType.string({required LexString data}) =
+      ULexUserTypeString;
 
-  const factory LexUserType.bytes({
-    required LexBytes data,
-  }) = ULexUserTypeBytes;
+  const factory LexUserType.bytes({required LexBytes data}) = ULexUserTypeBytes;
 
-  const factory LexUserType.cidLink({
-    required LexCidLink data,
-  }) = ULexUserTypeCidLink;
+  const factory LexUserType.cidLink({required LexCidLink data}) =
+      ULexUserTypeCidLink;
 
-  const factory LexUserType.unknown({
-    required LexUnknown data,
-  }) = ULexUserTypeUnknown;
+  const factory LexUserType.unknown({required LexUnknown data}) =
+      ULexUserTypeUnknown;
 
   Map<String, dynamic> toJson() => const LexUserTypeConverter().toJson(this);
 }

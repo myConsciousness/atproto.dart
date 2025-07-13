@@ -36,6 +36,7 @@ abstract class Metadata with _$Metadata {
     required int messagesReceived,
     required int convos,
     required int convosStarted,
+
     Map<String, dynamic>? $unknown,
   }) = _Metadata;
 
@@ -54,14 +55,9 @@ final class MetadataConverter
 
   @override
   Metadata fromJson(Map<String, dynamic> json) {
-    return Metadata.fromJson(translate(
-      json,
-      Metadata.knownProps,
-    ));
+    return Metadata.fromJson(translate(json, Metadata.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(Metadata object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(Metadata object) => untranslate(object.toJson());
 }

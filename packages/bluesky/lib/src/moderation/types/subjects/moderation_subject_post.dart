@@ -9,7 +9,6 @@ part 'moderation_subject_post.freezed.dart';
 
 @modObject
 class ModerationSubjectPost with _$ModerationSubjectPost {
-  const factory ModerationSubjectPost.postView({
-    required Post data,
-  }) = UModerationSubjectPostPostView;
+  const factory ModerationSubjectPost.postView({required Post data}) =
+      UModerationSubjectPostPostView;
 }

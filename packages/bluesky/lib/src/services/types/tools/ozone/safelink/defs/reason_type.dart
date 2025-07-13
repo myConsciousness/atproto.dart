@@ -20,12 +20,7 @@ part 'reason_type.g.dart';
 
 @freezed
 abstract class ReasonType with _$ReasonType {
-  static const knownProps = <String>[
-    'csam',
-    'spam',
-    'phishing',
-    'none',
-  ];
+  static const knownProps = <String>['csam', 'spam', 'phishing', 'none'];
 
   const factory ReasonType({
     KnownReasonType? knownValue,
@@ -42,16 +37,12 @@ abstract class ReasonTypeConverter
 
   @override
   ReasonType fromJson(Map<String, dynamic> json) {
-    return ReasonType.fromJson(translate(
-      json,
-      ReasonType.knownProps,
-    ));
+    return ReasonType.fromJson(translate(json, ReasonType.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ReasonType object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ReasonType object) =>
+      untranslate(object.toJson());
 }
 
 enum KnownReasonType implements Serializable {
@@ -62,8 +53,7 @@ enum KnownReasonType implements Serializable {
   @JsonValue('phishing')
   phishing('phishing'),
   @JsonValue('none')
-  none('none'),
-  ;
+  none('none');
 
   @override
   final String value;

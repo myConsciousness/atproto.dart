@@ -24,11 +24,7 @@ part 'output.g.dart';
 @freezed
 abstract class UnspeccedSearchActorsSkeletonOutput
     with _$UnspeccedSearchActorsSkeletonOutput {
-  static const knownProps = <String>[
-    'cursor',
-    'hitsTotal',
-    'actors',
-  ];
+  static const knownProps = <String>['cursor', 'hitsTotal', 'actors'];
 
   const factory UnspeccedSearchActorsSkeletonOutput({
     String? cursor,
@@ -36,30 +32,31 @@ abstract class UnspeccedSearchActorsSkeletonOutput
     /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
     int? hitsTotal,
     @SkeletonSearchActorConverter() required List<SkeletonSearchActor> actors,
+
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedSearchActorsSkeletonOutput;
 
   factory UnspeccedSearchActorsSkeletonOutput.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedSearchActorsSkeletonOutputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$UnspeccedSearchActorsSkeletonOutputFromJson(json);
 }
 
 final class UnspeccedSearchActorsSkeletonOutputConverter
-    extends LexObjectConverter<UnspeccedSearchActorsSkeletonOutput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          UnspeccedSearchActorsSkeletonOutput,
+          Map<String, dynamic>
+        > {
   const UnspeccedSearchActorsSkeletonOutputConverter();
 
   @override
   UnspeccedSearchActorsSkeletonOutput fromJson(Map<String, dynamic> json) {
-    return UnspeccedSearchActorsSkeletonOutput.fromJson(translate(
-      json,
-      UnspeccedSearchActorsSkeletonOutput.knownProps,
-    ));
+    return UnspeccedSearchActorsSkeletonOutput.fromJson(
+      translate(json, UnspeccedSearchActorsSkeletonOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedSearchActorsSkeletonOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

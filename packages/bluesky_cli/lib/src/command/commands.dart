@@ -47,9 +47,7 @@ import 'notification/seen_notifications.dart';
 import 'unspecced/popular.dart';
 import 'unspecced/popular_generators.dart';
 
-final commonCommands = <BskyCommand>[
-  DeleteCommand(),
-];
+final commonCommands = <BskyCommand>[DeleteCommand()];
 
 final actorCommands = <BskyCommand>[
   SearchActorsCommand(),

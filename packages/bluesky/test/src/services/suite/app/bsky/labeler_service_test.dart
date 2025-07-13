@@ -14,11 +14,7 @@ void main() {
   );
 
   testLabeler<StrongRef>(
-    (m, s) => s.service(
-      policies: LabelerPolicies(
-        labelValues: ['!hide'],
-      ),
-    ),
+    (m, s) => s.service(policies: LabelerPolicies(labelValues: ['!hide'])),
     id: appBskyLabelerService,
   );
 }

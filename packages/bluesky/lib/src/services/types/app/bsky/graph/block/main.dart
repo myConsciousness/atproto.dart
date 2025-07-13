@@ -23,10 +23,7 @@ part 'main.g.dart';
 
 @freezed
 abstract class GraphBlockRecord with _$GraphBlockRecord {
-  static const knownProps = <String>[
-    'subject',
-    'createdAt',
-  ];
+  static const knownProps = <String>['subject', 'createdAt'];
 
   const factory GraphBlockRecord({
     @Default(appBskyGraphBlock) String $type,
@@ -34,6 +31,7 @@ abstract class GraphBlockRecord with _$GraphBlockRecord {
     /// DID of the account to be blocked.
     required String subject,
     required DateTime createdAt,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphBlockRecord;
 
@@ -52,14 +50,12 @@ final class GraphBlockRecordConverter
 
   @override
   GraphBlockRecord fromJson(Map<String, dynamic> json) {
-    return GraphBlockRecord.fromJson(translate(
-      json,
-      GraphBlockRecord.knownProps,
-    ));
+    return GraphBlockRecord.fromJson(
+      translate(json, GraphBlockRecord.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphBlockRecord object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(GraphBlockRecord object) =>
+      untranslate(object.toJson());
 }

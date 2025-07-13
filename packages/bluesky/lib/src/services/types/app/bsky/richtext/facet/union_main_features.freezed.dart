@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,837 +9,481 @@ part of 'union_main_features.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$URichtextFacetFeatures {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RichtextFacetMention data) richtextFacetMention,
-    required TResult Function(RichtextFacetLink data) richtextFacetLink,
-    required TResult Function(RichtextFacetTag data) richtextFacetTag,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RichtextFacetMention data)? richtextFacetMention,
-    TResult? Function(RichtextFacetLink data)? richtextFacetLink,
-    TResult? Function(RichtextFacetTag data)? richtextFacetTag,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RichtextFacetMention data)? richtextFacetMention,
-    TResult Function(RichtextFacetLink data)? richtextFacetLink,
-    TResult Function(RichtextFacetTag data)? richtextFacetTag,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(URichtextFacetFeaturesRichtextFacetMention value)
-        richtextFacetMention,
-    required TResult Function(URichtextFacetFeaturesRichtextFacetLink value)
-        richtextFacetLink,
-    required TResult Function(URichtextFacetFeaturesRichtextFacetTag value)
-        richtextFacetTag,
-    required TResult Function(URichtextFacetFeaturesUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URichtextFacetFeaturesRichtextFacetMention value)?
-        richtextFacetMention,
-    TResult? Function(URichtextFacetFeaturesRichtextFacetLink value)?
-        richtextFacetLink,
-    TResult? Function(URichtextFacetFeaturesRichtextFacetTag value)?
-        richtextFacetTag,
-    TResult? Function(URichtextFacetFeaturesUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(URichtextFacetFeaturesRichtextFacetMention value)?
-        richtextFacetMention,
-    TResult Function(URichtextFacetFeaturesRichtextFacetLink value)?
-        richtextFacetLink,
-    TResult Function(URichtextFacetFeaturesRichtextFacetTag value)?
-        richtextFacetTag,
-    TResult Function(URichtextFacetFeaturesUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+
+ Object get data;
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is URichtextFacetFeatures&&const DeepCollectionEquality().equals(other.data, data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'URichtextFacetFeatures(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $URichtextFacetFeaturesCopyWith<$Res> {
-  factory $URichtextFacetFeaturesCopyWith(URichtextFacetFeatures value,
-          $Res Function(URichtextFacetFeatures) then) =
-      _$URichtextFacetFeaturesCopyWithImpl<$Res, URichtextFacetFeatures>;
+class $URichtextFacetFeaturesCopyWith<$Res>  {
+$URichtextFacetFeaturesCopyWith(URichtextFacetFeatures _, $Res Function(URichtextFacetFeatures) __);
 }
 
-/// @nodoc
-class _$URichtextFacetFeaturesCopyWithImpl<$Res,
-        $Val extends URichtextFacetFeatures>
-    implements $URichtextFacetFeaturesCopyWith<$Res> {
-  _$URichtextFacetFeaturesCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// Adds pattern-matching-related methods to [URichtextFacetFeatures].
+extension URichtextFacetFeaturesPatterns on URichtextFacetFeatures {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  /// Create a copy of URichtextFacetFeatures
-  /// with the given fields replaced by the non-null parameter values.
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( URichtextFacetFeaturesRichtextFacetMention value)?  richtextFacetMention,TResult Function( URichtextFacetFeaturesRichtextFacetLink value)?  richtextFacetLink,TResult Function( URichtextFacetFeaturesRichtextFacetTag value)?  richtextFacetTag,TResult Function( URichtextFacetFeaturesUnknown value)?  unknown,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case URichtextFacetFeaturesRichtextFacetMention() when richtextFacetMention != null:
+return richtextFacetMention(_that);case URichtextFacetFeaturesRichtextFacetLink() when richtextFacetLink != null:
+return richtextFacetLink(_that);case URichtextFacetFeaturesRichtextFacetTag() when richtextFacetTag != null:
+return richtextFacetTag(_that);case URichtextFacetFeaturesUnknown() when unknown != null:
+return unknown(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( URichtextFacetFeaturesRichtextFacetMention value)  richtextFacetMention,required TResult Function( URichtextFacetFeaturesRichtextFacetLink value)  richtextFacetLink,required TResult Function( URichtextFacetFeaturesRichtextFacetTag value)  richtextFacetTag,required TResult Function( URichtextFacetFeaturesUnknown value)  unknown,}){
+final _that = this;
+switch (_that) {
+case URichtextFacetFeaturesRichtextFacetMention():
+return richtextFacetMention(_that);case URichtextFacetFeaturesRichtextFacetLink():
+return richtextFacetLink(_that);case URichtextFacetFeaturesRichtextFacetTag():
+return richtextFacetTag(_that);case URichtextFacetFeaturesUnknown():
+return unknown(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( URichtextFacetFeaturesRichtextFacetMention value)?  richtextFacetMention,TResult? Function( URichtextFacetFeaturesRichtextFacetLink value)?  richtextFacetLink,TResult? Function( URichtextFacetFeaturesRichtextFacetTag value)?  richtextFacetTag,TResult? Function( URichtextFacetFeaturesUnknown value)?  unknown,}){
+final _that = this;
+switch (_that) {
+case URichtextFacetFeaturesRichtextFacetMention() when richtextFacetMention != null:
+return richtextFacetMention(_that);case URichtextFacetFeaturesRichtextFacetLink() when richtextFacetLink != null:
+return richtextFacetLink(_that);case URichtextFacetFeaturesRichtextFacetTag() when richtextFacetTag != null:
+return richtextFacetTag(_that);case URichtextFacetFeaturesUnknown() when unknown != null:
+return unknown(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( RichtextFacetMention data)?  richtextFacetMention,TResult Function( RichtextFacetLink data)?  richtextFacetLink,TResult Function( RichtextFacetTag data)?  richtextFacetTag,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case URichtextFacetFeaturesRichtextFacetMention() when richtextFacetMention != null:
+return richtextFacetMention(_that.data);case URichtextFacetFeaturesRichtextFacetLink() when richtextFacetLink != null:
+return richtextFacetLink(_that.data);case URichtextFacetFeaturesRichtextFacetTag() when richtextFacetTag != null:
+return richtextFacetTag(_that.data);case URichtextFacetFeaturesUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( RichtextFacetMention data)  richtextFacetMention,required TResult Function( RichtextFacetLink data)  richtextFacetLink,required TResult Function( RichtextFacetTag data)  richtextFacetTag,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+switch (_that) {
+case URichtextFacetFeaturesRichtextFacetMention():
+return richtextFacetMention(_that.data);case URichtextFacetFeaturesRichtextFacetLink():
+return richtextFacetLink(_that.data);case URichtextFacetFeaturesRichtextFacetTag():
+return richtextFacetTag(_that.data);case URichtextFacetFeaturesUnknown():
+return unknown(_that.data);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( RichtextFacetMention data)?  richtextFacetMention,TResult? Function( RichtextFacetLink data)?  richtextFacetLink,TResult? Function( RichtextFacetTag data)?  richtextFacetTag,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+switch (_that) {
+case URichtextFacetFeaturesRichtextFacetMention() when richtextFacetMention != null:
+return richtextFacetMention(_that.data);case URichtextFacetFeaturesRichtextFacetLink() when richtextFacetLink != null:
+return richtextFacetLink(_that.data);case URichtextFacetFeaturesRichtextFacetTag() when richtextFacetTag != null:
+return richtextFacetTag(_that.data);case URichtextFacetFeaturesUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-abstract class _$$URichtextFacetFeaturesRichtextFacetMentionImplCopyWith<$Res> {
-  factory _$$URichtextFacetFeaturesRichtextFacetMentionImplCopyWith(
-          _$URichtextFacetFeaturesRichtextFacetMentionImpl value,
-          $Res Function(_$URichtextFacetFeaturesRichtextFacetMentionImpl)
-              then) =
-      __$$URichtextFacetFeaturesRichtextFacetMentionImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({RichtextFacetMention data});
-
-  $RichtextFacetMentionCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$URichtextFacetFeaturesRichtextFacetMentionImplCopyWithImpl<$Res>
-    extends _$URichtextFacetFeaturesCopyWithImpl<$Res,
-        _$URichtextFacetFeaturesRichtextFacetMentionImpl>
-    implements _$$URichtextFacetFeaturesRichtextFacetMentionImplCopyWith<$Res> {
-  __$$URichtextFacetFeaturesRichtextFacetMentionImplCopyWithImpl(
-      _$URichtextFacetFeaturesRichtextFacetMentionImpl _value,
-      $Res Function(_$URichtextFacetFeaturesRichtextFacetMentionImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of URichtextFacetFeatures
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$URichtextFacetFeaturesRichtextFacetMentionImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as RichtextFacetMention,
-    ));
-  }
-
-  /// Create a copy of URichtextFacetFeatures
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RichtextFacetMentionCopyWith<$Res> get data {
-    return $RichtextFacetMentionCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$URichtextFacetFeaturesRichtextFacetMentionImpl
-    extends URichtextFacetFeaturesRichtextFacetMention {
-  const _$URichtextFacetFeaturesRichtextFacetMentionImpl({required this.data})
-      : super._();
-
-  @override
-  final RichtextFacetMention data;
-
-  @override
-  String toString() {
-    return 'URichtextFacetFeatures.richtextFacetMention(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$URichtextFacetFeaturesRichtextFacetMentionImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of URichtextFacetFeatures
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$URichtextFacetFeaturesRichtextFacetMentionImplCopyWith<
-          _$URichtextFacetFeaturesRichtextFacetMentionImpl>
-      get copyWith =>
-          __$$URichtextFacetFeaturesRichtextFacetMentionImplCopyWithImpl<
-                  _$URichtextFacetFeaturesRichtextFacetMentionImpl>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RichtextFacetMention data) richtextFacetMention,
-    required TResult Function(RichtextFacetLink data) richtextFacetLink,
-    required TResult Function(RichtextFacetTag data) richtextFacetTag,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return richtextFacetMention(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RichtextFacetMention data)? richtextFacetMention,
-    TResult? Function(RichtextFacetLink data)? richtextFacetLink,
-    TResult? Function(RichtextFacetTag data)? richtextFacetTag,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return richtextFacetMention?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RichtextFacetMention data)? richtextFacetMention,
-    TResult Function(RichtextFacetLink data)? richtextFacetLink,
-    TResult Function(RichtextFacetTag data)? richtextFacetTag,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (richtextFacetMention != null) {
-      return richtextFacetMention(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(URichtextFacetFeaturesRichtextFacetMention value)
-        richtextFacetMention,
-    required TResult Function(URichtextFacetFeaturesRichtextFacetLink value)
-        richtextFacetLink,
-    required TResult Function(URichtextFacetFeaturesRichtextFacetTag value)
-        richtextFacetTag,
-    required TResult Function(URichtextFacetFeaturesUnknown value) unknown,
-  }) {
-    return richtextFacetMention(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URichtextFacetFeaturesRichtextFacetMention value)?
-        richtextFacetMention,
-    TResult? Function(URichtextFacetFeaturesRichtextFacetLink value)?
-        richtextFacetLink,
-    TResult? Function(URichtextFacetFeaturesRichtextFacetTag value)?
-        richtextFacetTag,
-    TResult? Function(URichtextFacetFeaturesUnknown value)? unknown,
-  }) {
-    return richtextFacetMention?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(URichtextFacetFeaturesRichtextFacetMention value)?
-        richtextFacetMention,
-    TResult Function(URichtextFacetFeaturesRichtextFacetLink value)?
-        richtextFacetLink,
-    TResult Function(URichtextFacetFeaturesRichtextFacetTag value)?
-        richtextFacetTag,
-    TResult Function(URichtextFacetFeaturesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (richtextFacetMention != null) {
-      return richtextFacetMention(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class URichtextFacetFeaturesRichtextFacetMention
-    extends URichtextFacetFeatures {
-  const factory URichtextFacetFeaturesRichtextFacetMention(
-          {required final RichtextFacetMention data}) =
-      _$URichtextFacetFeaturesRichtextFacetMentionImpl;
-  const URichtextFacetFeaturesRichtextFacetMention._() : super._();
-
-  @override
-  RichtextFacetMention get data;
-
-  /// Create a copy of URichtextFacetFeatures
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$URichtextFacetFeaturesRichtextFacetMentionImplCopyWith<
-          _$URichtextFacetFeaturesRichtextFacetMentionImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$URichtextFacetFeaturesRichtextFacetLinkImplCopyWith<$Res> {
-  factory _$$URichtextFacetFeaturesRichtextFacetLinkImplCopyWith(
-          _$URichtextFacetFeaturesRichtextFacetLinkImpl value,
-          $Res Function(_$URichtextFacetFeaturesRichtextFacetLinkImpl) then) =
-      __$$URichtextFacetFeaturesRichtextFacetLinkImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({RichtextFacetLink data});
-
-  $RichtextFacetLinkCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$URichtextFacetFeaturesRichtextFacetLinkImplCopyWithImpl<$Res>
-    extends _$URichtextFacetFeaturesCopyWithImpl<$Res,
-        _$URichtextFacetFeaturesRichtextFacetLinkImpl>
-    implements _$$URichtextFacetFeaturesRichtextFacetLinkImplCopyWith<$Res> {
-  __$$URichtextFacetFeaturesRichtextFacetLinkImplCopyWithImpl(
-      _$URichtextFacetFeaturesRichtextFacetLinkImpl _value,
-      $Res Function(_$URichtextFacetFeaturesRichtextFacetLinkImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of URichtextFacetFeatures
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$URichtextFacetFeaturesRichtextFacetLinkImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as RichtextFacetLink,
-    ));
-  }
-
-  /// Create a copy of URichtextFacetFeatures
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RichtextFacetLinkCopyWith<$Res> get data {
-    return $RichtextFacetLinkCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
 }
 
 /// @nodoc
 
-class _$URichtextFacetFeaturesRichtextFacetLinkImpl
-    extends URichtextFacetFeaturesRichtextFacetLink {
-  const _$URichtextFacetFeaturesRichtextFacetLinkImpl({required this.data})
-      : super._();
 
-  @override
-  final RichtextFacetLink data;
+class URichtextFacetFeaturesRichtextFacetMention extends URichtextFacetFeatures {
+  const URichtextFacetFeaturesRichtextFacetMention({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'URichtextFacetFeatures.richtextFacetLink(data: $data)';
-  }
+@override final  RichtextFacetMention data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$URichtextFacetFeaturesRichtextFacetLinkImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of URichtextFacetFeatures
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$URichtextFacetFeaturesRichtextFacetMentionCopyWith<URichtextFacetFeaturesRichtextFacetMention> get copyWith => _$URichtextFacetFeaturesRichtextFacetMentionCopyWithImpl<URichtextFacetFeaturesRichtextFacetMention>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of URichtextFacetFeatures
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$URichtextFacetFeaturesRichtextFacetLinkImplCopyWith<
-          _$URichtextFacetFeaturesRichtextFacetLinkImpl>
-      get copyWith =>
-          __$$URichtextFacetFeaturesRichtextFacetLinkImplCopyWithImpl<
-              _$URichtextFacetFeaturesRichtextFacetLinkImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RichtextFacetMention data) richtextFacetMention,
-    required TResult Function(RichtextFacetLink data) richtextFacetLink,
-    required TResult Function(RichtextFacetTag data) richtextFacetTag,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return richtextFacetLink(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RichtextFacetMention data)? richtextFacetMention,
-    TResult? Function(RichtextFacetLink data)? richtextFacetLink,
-    TResult? Function(RichtextFacetTag data)? richtextFacetTag,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return richtextFacetLink?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RichtextFacetMention data)? richtextFacetMention,
-    TResult Function(RichtextFacetLink data)? richtextFacetLink,
-    TResult Function(RichtextFacetTag data)? richtextFacetTag,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (richtextFacetLink != null) {
-      return richtextFacetLink(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(URichtextFacetFeaturesRichtextFacetMention value)
-        richtextFacetMention,
-    required TResult Function(URichtextFacetFeaturesRichtextFacetLink value)
-        richtextFacetLink,
-    required TResult Function(URichtextFacetFeaturesRichtextFacetTag value)
-        richtextFacetTag,
-    required TResult Function(URichtextFacetFeaturesUnknown value) unknown,
-  }) {
-    return richtextFacetLink(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URichtextFacetFeaturesRichtextFacetMention value)?
-        richtextFacetMention,
-    TResult? Function(URichtextFacetFeaturesRichtextFacetLink value)?
-        richtextFacetLink,
-    TResult? Function(URichtextFacetFeaturesRichtextFacetTag value)?
-        richtextFacetTag,
-    TResult? Function(URichtextFacetFeaturesUnknown value)? unknown,
-  }) {
-    return richtextFacetLink?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(URichtextFacetFeaturesRichtextFacetMention value)?
-        richtextFacetMention,
-    TResult Function(URichtextFacetFeaturesRichtextFacetLink value)?
-        richtextFacetLink,
-    TResult Function(URichtextFacetFeaturesRichtextFacetTag value)?
-        richtextFacetTag,
-    TResult Function(URichtextFacetFeaturesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (richtextFacetLink != null) {
-      return richtextFacetLink(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is URichtextFacetFeaturesRichtextFacetMention&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class URichtextFacetFeaturesRichtextFacetLink
-    extends URichtextFacetFeatures {
-  const factory URichtextFacetFeaturesRichtextFacetLink(
-          {required final RichtextFacetLink data}) =
-      _$URichtextFacetFeaturesRichtextFacetLinkImpl;
-  const URichtextFacetFeaturesRichtextFacetLink._() : super._();
 
-  @override
-  RichtextFacetLink get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of URichtextFacetFeatures
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$URichtextFacetFeaturesRichtextFacetLinkImplCopyWith<
-          _$URichtextFacetFeaturesRichtextFacetLinkImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'URichtextFacetFeatures.richtextFacetMention(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$URichtextFacetFeaturesRichtextFacetTagImplCopyWith<$Res> {
-  factory _$$URichtextFacetFeaturesRichtextFacetTagImplCopyWith(
-          _$URichtextFacetFeaturesRichtextFacetTagImpl value,
-          $Res Function(_$URichtextFacetFeaturesRichtextFacetTagImpl) then) =
-      __$$URichtextFacetFeaturesRichtextFacetTagImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({RichtextFacetTag data});
+abstract mixin class $URichtextFacetFeaturesRichtextFacetMentionCopyWith<$Res> implements $URichtextFacetFeaturesCopyWith<$Res> {
+  factory $URichtextFacetFeaturesRichtextFacetMentionCopyWith(URichtextFacetFeaturesRichtextFacetMention value, $Res Function(URichtextFacetFeaturesRichtextFacetMention) _then) = _$URichtextFacetFeaturesRichtextFacetMentionCopyWithImpl;
+@useResult
+$Res call({
+ RichtextFacetMention data
+});
 
-  $RichtextFacetTagCopyWith<$Res> get data;
+
+$RichtextFacetMentionCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$URichtextFacetFeaturesRichtextFacetMentionCopyWithImpl<$Res>
+    implements $URichtextFacetFeaturesRichtextFacetMentionCopyWith<$Res> {
+  _$URichtextFacetFeaturesRichtextFacetMentionCopyWithImpl(this._self, this._then);
+
+  final URichtextFacetFeaturesRichtextFacetMention _self;
+  final $Res Function(URichtextFacetFeaturesRichtextFacetMention) _then;
+
+/// Create a copy of URichtextFacetFeatures
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(URichtextFacetFeaturesRichtextFacetMention(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as RichtextFacetMention,
+  ));
 }
 
-/// @nodoc
-class __$$URichtextFacetFeaturesRichtextFacetTagImplCopyWithImpl<$Res>
-    extends _$URichtextFacetFeaturesCopyWithImpl<$Res,
-        _$URichtextFacetFeaturesRichtextFacetTagImpl>
-    implements _$$URichtextFacetFeaturesRichtextFacetTagImplCopyWith<$Res> {
-  __$$URichtextFacetFeaturesRichtextFacetTagImplCopyWithImpl(
-      _$URichtextFacetFeaturesRichtextFacetTagImpl _value,
-      $Res Function(_$URichtextFacetFeaturesRichtextFacetTagImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of URichtextFacetFeatures
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$URichtextFacetFeaturesRichtextFacetTagImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as RichtextFacetTag,
-    ));
-  }
-
-  /// Create a copy of URichtextFacetFeatures
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RichtextFacetTagCopyWith<$Res> get data {
-    return $RichtextFacetTagCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of URichtextFacetFeatures
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RichtextFacetMentionCopyWith<$Res> get data {
+  
+  return $RichtextFacetMentionCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$URichtextFacetFeaturesRichtextFacetTagImpl
-    extends URichtextFacetFeaturesRichtextFacetTag {
-  const _$URichtextFacetFeaturesRichtextFacetTagImpl({required this.data})
-      : super._();
 
-  @override
-  final RichtextFacetTag data;
+class URichtextFacetFeaturesRichtextFacetLink extends URichtextFacetFeatures {
+  const URichtextFacetFeaturesRichtextFacetLink({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'URichtextFacetFeatures.richtextFacetTag(data: $data)';
-  }
+@override final  RichtextFacetLink data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$URichtextFacetFeaturesRichtextFacetTagImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of URichtextFacetFeatures
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$URichtextFacetFeaturesRichtextFacetLinkCopyWith<URichtextFacetFeaturesRichtextFacetLink> get copyWith => _$URichtextFacetFeaturesRichtextFacetLinkCopyWithImpl<URichtextFacetFeaturesRichtextFacetLink>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of URichtextFacetFeatures
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$URichtextFacetFeaturesRichtextFacetTagImplCopyWith<
-          _$URichtextFacetFeaturesRichtextFacetTagImpl>
-      get copyWith =>
-          __$$URichtextFacetFeaturesRichtextFacetTagImplCopyWithImpl<
-              _$URichtextFacetFeaturesRichtextFacetTagImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RichtextFacetMention data) richtextFacetMention,
-    required TResult Function(RichtextFacetLink data) richtextFacetLink,
-    required TResult Function(RichtextFacetTag data) richtextFacetTag,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return richtextFacetTag(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RichtextFacetMention data)? richtextFacetMention,
-    TResult? Function(RichtextFacetLink data)? richtextFacetLink,
-    TResult? Function(RichtextFacetTag data)? richtextFacetTag,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return richtextFacetTag?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RichtextFacetMention data)? richtextFacetMention,
-    TResult Function(RichtextFacetLink data)? richtextFacetLink,
-    TResult Function(RichtextFacetTag data)? richtextFacetTag,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (richtextFacetTag != null) {
-      return richtextFacetTag(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(URichtextFacetFeaturesRichtextFacetMention value)
-        richtextFacetMention,
-    required TResult Function(URichtextFacetFeaturesRichtextFacetLink value)
-        richtextFacetLink,
-    required TResult Function(URichtextFacetFeaturesRichtextFacetTag value)
-        richtextFacetTag,
-    required TResult Function(URichtextFacetFeaturesUnknown value) unknown,
-  }) {
-    return richtextFacetTag(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URichtextFacetFeaturesRichtextFacetMention value)?
-        richtextFacetMention,
-    TResult? Function(URichtextFacetFeaturesRichtextFacetLink value)?
-        richtextFacetLink,
-    TResult? Function(URichtextFacetFeaturesRichtextFacetTag value)?
-        richtextFacetTag,
-    TResult? Function(URichtextFacetFeaturesUnknown value)? unknown,
-  }) {
-    return richtextFacetTag?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(URichtextFacetFeaturesRichtextFacetMention value)?
-        richtextFacetMention,
-    TResult Function(URichtextFacetFeaturesRichtextFacetLink value)?
-        richtextFacetLink,
-    TResult Function(URichtextFacetFeaturesRichtextFacetTag value)?
-        richtextFacetTag,
-    TResult Function(URichtextFacetFeaturesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (richtextFacetTag != null) {
-      return richtextFacetTag(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is URichtextFacetFeaturesRichtextFacetLink&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class URichtextFacetFeaturesRichtextFacetTag
-    extends URichtextFacetFeatures {
-  const factory URichtextFacetFeaturesRichtextFacetTag(
-          {required final RichtextFacetTag data}) =
-      _$URichtextFacetFeaturesRichtextFacetTagImpl;
-  const URichtextFacetFeaturesRichtextFacetTag._() : super._();
 
-  @override
-  RichtextFacetTag get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of URichtextFacetFeatures
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$URichtextFacetFeaturesRichtextFacetTagImplCopyWith<
-          _$URichtextFacetFeaturesRichtextFacetTagImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'URichtextFacetFeatures.richtextFacetLink(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$URichtextFacetFeaturesUnknownImplCopyWith<$Res> {
-  factory _$$URichtextFacetFeaturesUnknownImplCopyWith(
-          _$URichtextFacetFeaturesUnknownImpl value,
-          $Res Function(_$URichtextFacetFeaturesUnknownImpl) then) =
-      __$$URichtextFacetFeaturesUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
+abstract mixin class $URichtextFacetFeaturesRichtextFacetLinkCopyWith<$Res> implements $URichtextFacetFeaturesCopyWith<$Res> {
+  factory $URichtextFacetFeaturesRichtextFacetLinkCopyWith(URichtextFacetFeaturesRichtextFacetLink value, $Res Function(URichtextFacetFeaturesRichtextFacetLink) _then) = _$URichtextFacetFeaturesRichtextFacetLinkCopyWithImpl;
+@useResult
+$Res call({
+ RichtextFacetLink data
+});
+
+
+$RichtextFacetLinkCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$URichtextFacetFeaturesRichtextFacetLinkCopyWithImpl<$Res>
+    implements $URichtextFacetFeaturesRichtextFacetLinkCopyWith<$Res> {
+  _$URichtextFacetFeaturesRichtextFacetLinkCopyWithImpl(this._self, this._then);
+
+  final URichtextFacetFeaturesRichtextFacetLink _self;
+  final $Res Function(URichtextFacetFeaturesRichtextFacetLink) _then;
+
+/// Create a copy of URichtextFacetFeatures
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(URichtextFacetFeaturesRichtextFacetLink(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as RichtextFacetLink,
+  ));
 }
 
-/// @nodoc
-class __$$URichtextFacetFeaturesUnknownImplCopyWithImpl<$Res>
-    extends _$URichtextFacetFeaturesCopyWithImpl<$Res,
-        _$URichtextFacetFeaturesUnknownImpl>
-    implements _$$URichtextFacetFeaturesUnknownImplCopyWith<$Res> {
-  __$$URichtextFacetFeaturesUnknownImplCopyWithImpl(
-      _$URichtextFacetFeaturesUnknownImpl _value,
-      $Res Function(_$URichtextFacetFeaturesUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of URichtextFacetFeatures
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$URichtextFacetFeaturesUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
+/// Create a copy of URichtextFacetFeatures
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RichtextFacetLinkCopyWith<$Res> get data {
+  
+  return $RichtextFacetLinkCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$URichtextFacetFeaturesUnknownImpl
-    extends URichtextFacetFeaturesUnknown {
-  const _$URichtextFacetFeaturesUnknownImpl(
-      {required final Map<String, dynamic> data})
-      : _data = data,
-        super._();
 
-  final Map<String, dynamic> _data;
-  @override
-  Map<String, dynamic> get data {
-    if (_data is EqualUnmodifiableMapView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_data);
-  }
+class URichtextFacetFeaturesRichtextFacetTag extends URichtextFacetFeatures {
+  const URichtextFacetFeaturesRichtextFacetTag({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'URichtextFacetFeatures.unknown(data: $data)';
-  }
+@override final  RichtextFacetTag data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$URichtextFacetFeaturesUnknownImpl &&
-            const DeepCollectionEquality().equals(other._data, _data));
-  }
+/// Create a copy of URichtextFacetFeatures
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$URichtextFacetFeaturesRichtextFacetTagCopyWith<URichtextFacetFeaturesRichtextFacetTag> get copyWith => _$URichtextFacetFeaturesRichtextFacetTagCopyWithImpl<URichtextFacetFeaturesRichtextFacetTag>(this, _$identity);
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  /// Create a copy of URichtextFacetFeatures
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$URichtextFacetFeaturesUnknownImplCopyWith<
-          _$URichtextFacetFeaturesUnknownImpl>
-      get copyWith => __$$URichtextFacetFeaturesUnknownImplCopyWithImpl<
-          _$URichtextFacetFeaturesUnknownImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RichtextFacetMention data) richtextFacetMention,
-    required TResult Function(RichtextFacetLink data) richtextFacetLink,
-    required TResult Function(RichtextFacetTag data) richtextFacetTag,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RichtextFacetMention data)? richtextFacetMention,
-    TResult? Function(RichtextFacetLink data)? richtextFacetLink,
-    TResult? Function(RichtextFacetTag data)? richtextFacetTag,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RichtextFacetMention data)? richtextFacetMention,
-    TResult Function(RichtextFacetLink data)? richtextFacetLink,
-    TResult Function(RichtextFacetTag data)? richtextFacetTag,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(URichtextFacetFeaturesRichtextFacetMention value)
-        richtextFacetMention,
-    required TResult Function(URichtextFacetFeaturesRichtextFacetLink value)
-        richtextFacetLink,
-    required TResult Function(URichtextFacetFeaturesRichtextFacetTag value)
-        richtextFacetTag,
-    required TResult Function(URichtextFacetFeaturesUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URichtextFacetFeaturesRichtextFacetMention value)?
-        richtextFacetMention,
-    TResult? Function(URichtextFacetFeaturesRichtextFacetLink value)?
-        richtextFacetLink,
-    TResult? Function(URichtextFacetFeaturesRichtextFacetTag value)?
-        richtextFacetTag,
-    TResult? Function(URichtextFacetFeaturesUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(URichtextFacetFeaturesRichtextFacetMention value)?
-        richtextFacetMention,
-    TResult Function(URichtextFacetFeaturesRichtextFacetLink value)?
-        richtextFacetLink,
-    TResult Function(URichtextFacetFeaturesRichtextFacetTag value)?
-        richtextFacetTag,
-    TResult Function(URichtextFacetFeaturesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is URichtextFacetFeaturesRichtextFacetTag&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class URichtextFacetFeaturesUnknown extends URichtextFacetFeatures {
-  const factory URichtextFacetFeaturesUnknown(
-          {required final Map<String, dynamic> data}) =
-      _$URichtextFacetFeaturesUnknownImpl;
-  const URichtextFacetFeaturesUnknown._() : super._();
 
-  @override
-  Map<String, dynamic> get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of URichtextFacetFeatures
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$URichtextFacetFeaturesUnknownImplCopyWith<
-          _$URichtextFacetFeaturesUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'URichtextFacetFeatures.richtextFacetTag(data: $data)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class $URichtextFacetFeaturesRichtextFacetTagCopyWith<$Res> implements $URichtextFacetFeaturesCopyWith<$Res> {
+  factory $URichtextFacetFeaturesRichtextFacetTagCopyWith(URichtextFacetFeaturesRichtextFacetTag value, $Res Function(URichtextFacetFeaturesRichtextFacetTag) _then) = _$URichtextFacetFeaturesRichtextFacetTagCopyWithImpl;
+@useResult
+$Res call({
+ RichtextFacetTag data
+});
+
+
+$RichtextFacetTagCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$URichtextFacetFeaturesRichtextFacetTagCopyWithImpl<$Res>
+    implements $URichtextFacetFeaturesRichtextFacetTagCopyWith<$Res> {
+  _$URichtextFacetFeaturesRichtextFacetTagCopyWithImpl(this._self, this._then);
+
+  final URichtextFacetFeaturesRichtextFacetTag _self;
+  final $Res Function(URichtextFacetFeaturesRichtextFacetTag) _then;
+
+/// Create a copy of URichtextFacetFeatures
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(URichtextFacetFeaturesRichtextFacetTag(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as RichtextFacetTag,
+  ));
+}
+
+/// Create a copy of URichtextFacetFeatures
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RichtextFacetTagCopyWith<$Res> get data {
+  
+  return $RichtextFacetTagCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+
+
+class URichtextFacetFeaturesUnknown extends URichtextFacetFeatures {
+  const URichtextFacetFeaturesUnknown({required final  Map<String, dynamic> data}): _data = data,super._();
+  
+
+ final  Map<String, dynamic> _data;
+@override Map<String, dynamic> get data {
+  if (_data is EqualUnmodifiableMapView) return _data;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_data);
+}
+
+
+/// Create a copy of URichtextFacetFeatures
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$URichtextFacetFeaturesUnknownCopyWith<URichtextFacetFeaturesUnknown> get copyWith => _$URichtextFacetFeaturesUnknownCopyWithImpl<URichtextFacetFeaturesUnknown>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is URichtextFacetFeaturesUnknown&&const DeepCollectionEquality().equals(other._data, _data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_data));
+
+@override
+String toString() {
+  return 'URichtextFacetFeatures.unknown(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $URichtextFacetFeaturesUnknownCopyWith<$Res> implements $URichtextFacetFeaturesCopyWith<$Res> {
+  factory $URichtextFacetFeaturesUnknownCopyWith(URichtextFacetFeaturesUnknown value, $Res Function(URichtextFacetFeaturesUnknown) _then) = _$URichtextFacetFeaturesUnknownCopyWithImpl;
+@useResult
+$Res call({
+ Map<String, dynamic> data
+});
+
+
+
+
+}
+/// @nodoc
+class _$URichtextFacetFeaturesUnknownCopyWithImpl<$Res>
+    implements $URichtextFacetFeaturesUnknownCopyWith<$Res> {
+  _$URichtextFacetFeaturesUnknownCopyWithImpl(this._self, this._then);
+
+  final URichtextFacetFeaturesUnknown _self;
+  final $Res Function(URichtextFacetFeaturesUnknown) _then;
+
+/// Create a copy of URichtextFacetFeatures
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(URichtextFacetFeaturesUnknown(
+data: null == data ? _self._data : data // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -8,20 +8,19 @@ part of 'label_value.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LabelValueImpl _$$LabelValueImplFromJson(Map json) => $checkedCreate(
-      r'_$LabelValueImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$LabelValueImpl(
-          knownValue: $checkedConvert('knownValue',
-              (v) => $enumDecodeNullable(_$KnownLabelValueEnumMap, v)),
-          unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
-        );
-        return val;
-      },
-    );
+_LabelValue _$LabelValueFromJson(Map json) =>
+    $checkedCreate('_LabelValue', json, ($checkedConvert) {
+      final val = _LabelValue(
+        knownValue: $checkedConvert(
+          'knownValue',
+          (v) => $enumDecodeNullable(_$KnownLabelValueEnumMap, v),
+        ),
+        unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$LabelValueImplToJson(_$LabelValueImpl instance) =>
+Map<String, dynamic> _$LabelValueToJson(_LabelValue instance) =>
     <String, dynamic>{
       'knownValue': _$KnownLabelValueEnumMap[instance.knownValue],
       'unknownValue': instance.unknownValue,

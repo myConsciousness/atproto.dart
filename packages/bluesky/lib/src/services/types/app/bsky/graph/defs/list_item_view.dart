@@ -24,15 +24,13 @@ part 'list_item_view.g.dart';
 
 @freezed
 abstract class ListItemView with _$ListItemView {
-  static const knownProps = <String>[
-    'uri',
-    'subject',
-  ];
+  static const knownProps = <String>['uri', 'subject'];
 
   const factory ListItemView({
     @Default(appBskyGraphDefsListItemView) String $type,
     required String uri,
     @ProfileViewConverter() required ProfileView subject,
+
     Map<String, dynamic>? $unknown,
   }) = _ListItemView;
 
@@ -51,14 +49,10 @@ final class ListItemViewConverter
 
   @override
   ListItemView fromJson(Map<String, dynamic> json) {
-    return ListItemView.fromJson(translate(
-      json,
-      ListItemView.knownProps,
-    ));
+    return ListItemView.fromJson(translate(json, ListItemView.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ListItemView object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ListItemView object) =>
+      untranslate(object.toJson());
 }

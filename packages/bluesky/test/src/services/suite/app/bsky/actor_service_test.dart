@@ -32,17 +32,11 @@ void main() {
   );
 
   testActor<ActorsTypeahead>(
-    (m, s) => s.searchActorsTypeahead(
-      term: m.query,
-      limit: m.limit,
-    ),
+    (m, s) => s.searchActorsTypeahead(term: m.query, limit: m.limit),
     id: appBskyActorSearchActorsTypeahead,
   );
 
-  testActor<atp.StrongRef>(
-    (m, s) => s.profile(),
-    id: appBskyActorProfile,
-  );
+  testActor<atp.StrongRef>((m, s) => s.profile(), id: appBskyActorProfile);
 
   testActor<Preferences>(
     (m, s) => s.getPreferences(),

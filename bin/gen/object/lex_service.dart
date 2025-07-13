@@ -170,7 +170,7 @@ final class LexApi {
     } else if (isProcedure) {
       return _getProcedureApi(parameters);
     } else if (isSubscription) {
-      return _getSubscriptionApi();
+      return _getSubscriptionApi(parameters);
     } else if (isRecord) {
       return _getRecordApi(parameters);
     }
@@ -262,8 +262,28 @@ final class LexApi {
     return buffer.toString();
   }
 
-  String _getSubscriptionApi() {
-    return '';
+  String _getSubscriptionApi(List<LexParameter> parameters) {
+    final ns = rule.getNamespaceIdForApi(lexiconId);
+
+    final buffer = StringBuffer();
+    if (description != null) {
+      buffer.writeln('/// $description');
+    }
+    buffer.writeln('Future<XRPCResponse<Subscription<Uint8List>>> $name({');
+    for (final parameter in parameters) {
+      buffer.writeln(parameter.getParams());
+    }
+    buffer.writeln('}) async =>');
+    buffer.writeln('  await _ctx.stream(');
+    buffer.writeln('    ns.$ns,');
+    buffer.writeln('    parameters: {');
+    for (final parameter in parameters) {
+      buffer.writeln(parameter.getParamsRecord());
+    }
+    buffer.writeln('    },');
+    buffer.writeln('  );');
+
+    return buffer.toString();
   }
 
   String _getRecordApi(List<LexParameter> parameters) {

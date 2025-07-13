@@ -41,16 +41,12 @@ abstract class ListPurposeConverter
 
   @override
   ListPurpose fromJson(Map<String, dynamic> json) {
-    return ListPurpose.fromJson(translate(
-      json,
-      ListPurpose.knownProps,
-    ));
+    return ListPurpose.fromJson(translate(json, ListPurpose.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ListPurpose object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ListPurpose object) =>
+      untranslate(object.toJson());
 }
 
 enum KnownListPurpose implements Serializable {
@@ -59,8 +55,7 @@ enum KnownListPurpose implements Serializable {
   @JsonValue('app.bsky.graph.defs#curatelist')
   curatelist('app.bsky.graph.defs#curatelist'),
   @JsonValue('app.bsky.graph.defs#referencelist')
-  referencelist('app.bsky.graph.defs#referencelist'),
-  ;
+  referencelist('app.bsky.graph.defs#referencelist');
 
   @override
   final String value;

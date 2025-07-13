@@ -52,30 +52,31 @@ abstract class VerificationListVerificationsInput
 
     /// Filter to verifications that are revoked or not. By default, includes both.
     bool? isRevoked,
+
     Map<String, dynamic>? $unknown,
   }) = _VerificationListVerificationsInput;
 
   factory VerificationListVerificationsInput.fromJson(
-          Map<String, Object?> json) =>
-      _$VerificationListVerificationsInputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$VerificationListVerificationsInputFromJson(json);
 }
 
 final class VerificationListVerificationsInputConverter
-    extends LexObjectConverter<VerificationListVerificationsInput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          VerificationListVerificationsInput,
+          Map<String, dynamic>
+        > {
   const VerificationListVerificationsInputConverter();
 
   @override
   VerificationListVerificationsInput fromJson(Map<String, dynamic> json) {
-    return VerificationListVerificationsInput.fromJson(translate(
-      json,
-      VerificationListVerificationsInput.knownProps,
-    ));
+    return VerificationListVerificationsInput.fromJson(
+      translate(json, VerificationListVerificationsInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(VerificationListVerificationsInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

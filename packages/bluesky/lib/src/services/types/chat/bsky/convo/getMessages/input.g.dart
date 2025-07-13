@@ -8,30 +8,25 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConvoGetMessagesInputImpl _$$ConvoGetMessagesInputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ConvoGetMessagesInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ConvoGetMessagesInputImpl(
-          convoId: $checkedConvert('convoId', (v) => v as String),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
-          cursor: $checkedConvert('cursor', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ConvoGetMessagesInput _$ConvoGetMessagesInputFromJson(Map json) =>
+    $checkedCreate('_ConvoGetMessagesInput', json, ($checkedConvert) {
+      final val = _ConvoGetMessagesInput(
+        convoId: $checkedConvert('convoId', (v) => v as String),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        cursor: $checkedConvert('cursor', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ConvoGetMessagesInputImplToJson(
-        _$ConvoGetMessagesInputImpl instance) =>
-    <String, dynamic>{
-      'convoId': instance.convoId,
-      'limit': instance.limit,
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ConvoGetMessagesInputToJson(
+  _ConvoGetMessagesInput instance,
+) => <String, dynamic>{
+  'convoId': instance.convoId,
+  'limit': instance.limit,
+  'cursor': instance.cursor,
+  r'$unknown': instance.$unknown,
+};

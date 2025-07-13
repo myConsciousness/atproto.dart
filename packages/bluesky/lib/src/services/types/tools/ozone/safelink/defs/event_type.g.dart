@@ -8,20 +8,19 @@ part of 'event_type.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EventTypeImpl _$$EventTypeImplFromJson(Map json) => $checkedCreate(
-      r'_$EventTypeImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$EventTypeImpl(
-          knownValue: $checkedConvert('knownValue',
-              (v) => $enumDecodeNullable(_$KnownEventTypeEnumMap, v)),
-          unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
-        );
-        return val;
-      },
-    );
+_EventType _$EventTypeFromJson(Map json) =>
+    $checkedCreate('_EventType', json, ($checkedConvert) {
+      final val = _EventType(
+        knownValue: $checkedConvert(
+          'knownValue',
+          (v) => $enumDecodeNullable(_$KnownEventTypeEnumMap, v),
+        ),
+        unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$EventTypeImplToJson(_$EventTypeImpl instance) =>
+Map<String, dynamic> _$EventTypeToJson(_EventType instance) =>
     <String, dynamic>{
       'knownValue': _$KnownEventTypeEnumMap[instance.knownValue],
       'unknownValue': instance.unknownValue,

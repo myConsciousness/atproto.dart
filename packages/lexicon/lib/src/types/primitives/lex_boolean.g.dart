@@ -9,19 +9,19 @@ part of 'lex_boolean.dart';
 // **************************************************************************
 
 _$LexBooleanImpl _$$LexBooleanImplFromJson(Map json) => $checkedCreate(
-      r'_$LexBooleanImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$LexBooleanImpl(
-          type: $checkedConvert('type', (v) => v as String? ?? 'boolean'),
-          description: $checkedConvert('description', (v) => v as String?),
-          defaultValue: $checkedConvert('default', (v) => v as bool?),
-          constValue: $checkedConvert('const', (v) => v as bool?),
-        );
-        return val;
-      },
-      fieldKeyMap: const {'defaultValue': 'default', 'constValue': 'const'},
+  r'_$LexBooleanImpl',
+  json,
+  ($checkedConvert) {
+    final val = _$LexBooleanImpl(
+      type: $checkedConvert('type', (v) => v as String? ?? 'boolean'),
+      description: $checkedConvert('description', (v) => v as String?),
+      defaultValue: $checkedConvert('default', (v) => v as bool?),
+      constValue: $checkedConvert('const', (v) => v as bool?),
     );
+    return val;
+  },
+  fieldKeyMap: const {'defaultValue': 'default', 'constValue': 'const'},
+);
 
 Map<String, dynamic> _$$LexBooleanImplToJson(_$LexBooleanImpl instance) =>
     <String, dynamic>{

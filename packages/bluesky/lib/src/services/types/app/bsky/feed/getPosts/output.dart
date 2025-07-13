@@ -23,12 +23,11 @@ part 'output.g.dart';
 
 @freezed
 abstract class FeedGetPostsOutput with _$FeedGetPostsOutput {
-  static const knownProps = <String>[
-    'posts',
-  ];
+  static const knownProps = <String>['posts'];
 
   const factory FeedGetPostsOutput({
     @PostViewConverter() required List<PostView> posts,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedGetPostsOutput;
 
@@ -42,14 +41,12 @@ final class FeedGetPostsOutputConverter
 
   @override
   FeedGetPostsOutput fromJson(Map<String, dynamic> json) {
-    return FeedGetPostsOutput.fromJson(translate(
-      json,
-      FeedGetPostsOutput.knownProps,
-    ));
+    return FeedGetPostsOutput.fromJson(
+      translate(json, FeedGetPostsOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetPostsOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(FeedGetPostsOutput object) =>
+      untranslate(object.toJson());
 }

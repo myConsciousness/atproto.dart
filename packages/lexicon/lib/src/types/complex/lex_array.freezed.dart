@@ -12,7 +12,8 @@ part of 'lex_array.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LexArray _$LexArrayFromJson(Map<String, dynamic> json) {
   return _LexArray.fromJson(json);
@@ -42,12 +43,13 @@ abstract class $LexArrayCopyWith<$Res> {
   factory $LexArrayCopyWith(LexArray value, $Res Function(LexArray) then) =
       _$LexArrayCopyWithImpl<$Res, LexArray>;
   @useResult
-  $Res call(
-      {String type,
-      String? description,
-      @LexArrayItemConverter() LexArrayItem items,
-      int? minLength,
-      int? maxLength});
+  $Res call({
+    String type,
+    String? description,
+    @LexArrayItemConverter() LexArrayItem items,
+    int? minLength,
+    int? maxLength,
+  });
 
   $LexArrayItemCopyWith<$Res> get items;
 }
@@ -73,28 +75,31 @@ class _$LexArrayCopyWithImpl<$Res, $Val extends LexArray>
     Object? minLength = freezed,
     Object? maxLength = freezed,
   }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      items: null == items
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
-              as LexArrayItem,
-      minLength: freezed == minLength
-          ? _value.minLength
-          : minLength // ignore: cast_nullable_to_non_nullable
-              as int?,
-      maxLength: freezed == maxLength
-          ? _value.maxLength
-          : maxLength // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            items: null == items
+                ? _value.items
+                : items // ignore: cast_nullable_to_non_nullable
+                      as LexArrayItem,
+            minLength: freezed == minLength
+                ? _value.minLength
+                : minLength // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            maxLength: freezed == maxLength
+                ? _value.maxLength
+                : maxLength // ignore: cast_nullable_to_non_nullable
+                      as int?,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of LexArray
@@ -112,16 +117,18 @@ class _$LexArrayCopyWithImpl<$Res, $Val extends LexArray>
 abstract class _$$LexArrayImplCopyWith<$Res>
     implements $LexArrayCopyWith<$Res> {
   factory _$$LexArrayImplCopyWith(
-          _$LexArrayImpl value, $Res Function(_$LexArrayImpl) then) =
-      __$$LexArrayImplCopyWithImpl<$Res>;
+    _$LexArrayImpl value,
+    $Res Function(_$LexArrayImpl) then,
+  ) = __$$LexArrayImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String type,
-      String? description,
-      @LexArrayItemConverter() LexArrayItem items,
-      int? minLength,
-      int? maxLength});
+  $Res call({
+    String type,
+    String? description,
+    @LexArrayItemConverter() LexArrayItem items,
+    int? minLength,
+    int? maxLength,
+  });
 
   @override
   $LexArrayItemCopyWith<$Res> get items;
@@ -132,8 +139,9 @@ class __$$LexArrayImplCopyWithImpl<$Res>
     extends _$LexArrayCopyWithImpl<$Res, _$LexArrayImpl>
     implements _$$LexArrayImplCopyWith<$Res> {
   __$$LexArrayImplCopyWithImpl(
-      _$LexArrayImpl _value, $Res Function(_$LexArrayImpl) _then)
-      : super(_value, _then);
+    _$LexArrayImpl _value,
+    $Res Function(_$LexArrayImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexArray
   /// with the given fields replaced by the non-null parameter values.
@@ -146,28 +154,30 @@ class __$$LexArrayImplCopyWithImpl<$Res>
     Object? minLength = freezed,
     Object? maxLength = freezed,
   }) {
-    return _then(_$LexArrayImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      items: null == items
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
-              as LexArrayItem,
-      minLength: freezed == minLength
-          ? _value.minLength
-          : minLength // ignore: cast_nullable_to_non_nullable
-              as int?,
-      maxLength: freezed == maxLength
-          ? _value.maxLength
-          : maxLength // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
+    return _then(
+      _$LexArrayImpl(
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        items: null == items
+            ? _value.items
+            : items // ignore: cast_nullable_to_non_nullable
+                  as LexArrayItem,
+        minLength: freezed == minLength
+            ? _value.minLength
+            : minLength // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        maxLength: freezed == maxLength
+            ? _value.maxLength
+            : maxLength // ignore: cast_nullable_to_non_nullable
+                  as int?,
+      ),
+    );
   }
 }
 
@@ -175,12 +185,13 @@ class __$$LexArrayImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$LexArrayImpl implements _LexArray {
-  const _$LexArrayImpl(
-      {this.type = 'array',
-      this.description,
-      @LexArrayItemConverter() required this.items,
-      this.minLength,
-      this.maxLength});
+  const _$LexArrayImpl({
+    this.type = 'array',
+    this.description,
+    @LexArrayItemConverter() required this.items,
+    this.minLength,
+    this.maxLength,
+  });
 
   factory _$LexArrayImpl.fromJson(Map<String, dynamic> json) =>
       _$$LexArrayImplFromJson(json);
@@ -233,19 +244,18 @@ class _$LexArrayImpl implements _LexArray {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LexArrayImplToJson(
-      this,
-    );
+    return _$$LexArrayImplToJson(this);
   }
 }
 
 abstract class _LexArray implements LexArray {
-  const factory _LexArray(
-      {final String type,
-      final String? description,
-      @LexArrayItemConverter() required final LexArrayItem items,
-      final int? minLength,
-      final int? maxLength}) = _$LexArrayImpl;
+  const factory _LexArray({
+    final String type,
+    final String? description,
+    @LexArrayItemConverter() required final LexArrayItem items,
+    final int? minLength,
+    final int? maxLength,
+  }) = _$LexArrayImpl;
 
   factory _LexArray.fromJson(Map<String, dynamic> json) =
       _$LexArrayImpl.fromJson;

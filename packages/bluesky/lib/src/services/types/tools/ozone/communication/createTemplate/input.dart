@@ -44,30 +44,31 @@ abstract class CommunicationCreateTemplateInput
 
     /// DID of the user who is creating the template.
     String? createdBy,
+
     Map<String, dynamic>? $unknown,
   }) = _CommunicationCreateTemplateInput;
 
   factory CommunicationCreateTemplateInput.fromJson(
-          Map<String, Object?> json) =>
-      _$CommunicationCreateTemplateInputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$CommunicationCreateTemplateInputFromJson(json);
 }
 
 final class CommunicationCreateTemplateInputConverter
-    extends LexObjectConverter<CommunicationCreateTemplateInput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          CommunicationCreateTemplateInput,
+          Map<String, dynamic>
+        > {
   const CommunicationCreateTemplateInputConverter();
 
   @override
   CommunicationCreateTemplateInput fromJson(Map<String, dynamic> json) {
-    return CommunicationCreateTemplateInput.fromJson(translate(
-      json,
-      CommunicationCreateTemplateInput.knownProps,
-    ));
+    return CommunicationCreateTemplateInput.fromJson(
+      translate(json, CommunicationCreateTemplateInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(CommunicationCreateTemplateInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

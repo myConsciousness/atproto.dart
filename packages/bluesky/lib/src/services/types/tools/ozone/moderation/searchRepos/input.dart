@@ -20,16 +20,13 @@ part 'input.g.dart';
 
 @freezed
 abstract class ModerationSearchReposInput with _$ModerationSearchReposInput {
-  static const knownProps = <String>[
-    'q',
-    'limit',
-    'cursor',
-  ];
+  static const knownProps = <String>['q', 'limit', 'cursor'];
 
   const factory ModerationSearchReposInput({
     String? q,
     int? limit,
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _ModerationSearchReposInput;
 
@@ -37,20 +34,19 @@ abstract class ModerationSearchReposInput with _$ModerationSearchReposInput {
       _$ModerationSearchReposInputFromJson(json);
 }
 
-final class ModerationSearchReposInputConverter extends LexObjectConverter<
-    ModerationSearchReposInput, Map<String, dynamic>> {
+final class ModerationSearchReposInputConverter
+    extends
+        LexObjectConverter<ModerationSearchReposInput, Map<String, dynamic>> {
   const ModerationSearchReposInputConverter();
 
   @override
   ModerationSearchReposInput fromJson(Map<String, dynamic> json) {
-    return ModerationSearchReposInput.fromJson(translate(
-      json,
-      ModerationSearchReposInput.knownProps,
-    ));
+    return ModerationSearchReposInput.fromJson(
+      translate(json, ModerationSearchReposInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ModerationSearchReposInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ModerationSearchReposInput object) =>
+      untranslate(object.toJson());
 }

@@ -23,17 +23,14 @@ part 'create_result.g.dart';
 
 @freezed
 abstract class CreateResult with _$CreateResult {
-  static const knownProps = <String>[
-    'uri',
-    'cid',
-    'validationStatus',
-  ];
+  static const knownProps = <String>['uri', 'cid', 'validationStatus'];
 
   const factory CreateResult({
     @Default(comAtprotoRepoApplyWritesCreateResult) String $type,
     required String uri,
     required String cid,
     String? validationStatus,
+
     Map<String, dynamic>? $unknown,
   }) = _CreateResult;
 
@@ -52,14 +49,10 @@ final class CreateResultConverter
 
   @override
   CreateResult fromJson(Map<String, dynamic> json) {
-    return CreateResult.fromJson(translate(
-      json,
-      CreateResult.knownProps,
-    ));
+    return CreateResult.fromJson(translate(json, CreateResult.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(CreateResult object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(CreateResult object) =>
+      untranslate(object.toJson());
 }

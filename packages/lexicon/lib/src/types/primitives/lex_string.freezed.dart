@@ -12,7 +12,8 @@ part of 'lex_string.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LexString _$LexStringFromJson(Map<String, dynamic> json) {
   return _LexString.fromJson(json);
@@ -50,18 +51,19 @@ abstract class $LexStringCopyWith<$Res> {
   factory $LexStringCopyWith(LexString value, $Res Function(LexString) then) =
       _$LexStringCopyWithImpl<$Res, LexString>;
   @useResult
-  $Res call(
-      {String type,
-      LexStringFormat? format,
-      String? description,
-      @JsonKey(name: 'default') String? defaultValue,
-      int? minLength,
-      int? maxLength,
-      int? minGraphemes,
-      int? maxGraphemes,
-      @JsonKey(name: 'enum') List<String>? enumValues,
-      @JsonKey(name: 'const') String? constValue,
-      List<String>? knownValues});
+  $Res call({
+    String type,
+    LexStringFormat? format,
+    String? description,
+    @JsonKey(name: 'default') String? defaultValue,
+    int? minLength,
+    int? maxLength,
+    int? minGraphemes,
+    int? maxGraphemes,
+    @JsonKey(name: 'enum') List<String>? enumValues,
+    @JsonKey(name: 'const') String? constValue,
+    List<String>? knownValues,
+  });
 }
 
 /// @nodoc
@@ -91,52 +93,55 @@ class _$LexStringCopyWithImpl<$Res, $Val extends LexString>
     Object? constValue = freezed,
     Object? knownValues = freezed,
   }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      format: freezed == format
-          ? _value.format
-          : format // ignore: cast_nullable_to_non_nullable
-              as LexStringFormat?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      defaultValue: freezed == defaultValue
-          ? _value.defaultValue
-          : defaultValue // ignore: cast_nullable_to_non_nullable
-              as String?,
-      minLength: freezed == minLength
-          ? _value.minLength
-          : minLength // ignore: cast_nullable_to_non_nullable
-              as int?,
-      maxLength: freezed == maxLength
-          ? _value.maxLength
-          : maxLength // ignore: cast_nullable_to_non_nullable
-              as int?,
-      minGraphemes: freezed == minGraphemes
-          ? _value.minGraphemes
-          : minGraphemes // ignore: cast_nullable_to_non_nullable
-              as int?,
-      maxGraphemes: freezed == maxGraphemes
-          ? _value.maxGraphemes
-          : maxGraphemes // ignore: cast_nullable_to_non_nullable
-              as int?,
-      enumValues: freezed == enumValues
-          ? _value.enumValues
-          : enumValues // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      constValue: freezed == constValue
-          ? _value.constValue
-          : constValue // ignore: cast_nullable_to_non_nullable
-              as String?,
-      knownValues: freezed == knownValues
-          ? _value.knownValues
-          : knownValues // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+            format: freezed == format
+                ? _value.format
+                : format // ignore: cast_nullable_to_non_nullable
+                      as LexStringFormat?,
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            defaultValue: freezed == defaultValue
+                ? _value.defaultValue
+                : defaultValue // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            minLength: freezed == minLength
+                ? _value.minLength
+                : minLength // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            maxLength: freezed == maxLength
+                ? _value.maxLength
+                : maxLength // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            minGraphemes: freezed == minGraphemes
+                ? _value.minGraphemes
+                : minGraphemes // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            maxGraphemes: freezed == maxGraphemes
+                ? _value.maxGraphemes
+                : maxGraphemes // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            enumValues: freezed == enumValues
+                ? _value.enumValues
+                : enumValues // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            constValue: freezed == constValue
+                ? _value.constValue
+                : constValue // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            knownValues: freezed == knownValues
+                ? _value.knownValues
+                : knownValues // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -144,22 +149,24 @@ class _$LexStringCopyWithImpl<$Res, $Val extends LexString>
 abstract class _$$LexStringImplCopyWith<$Res>
     implements $LexStringCopyWith<$Res> {
   factory _$$LexStringImplCopyWith(
-          _$LexStringImpl value, $Res Function(_$LexStringImpl) then) =
-      __$$LexStringImplCopyWithImpl<$Res>;
+    _$LexStringImpl value,
+    $Res Function(_$LexStringImpl) then,
+  ) = __$$LexStringImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String type,
-      LexStringFormat? format,
-      String? description,
-      @JsonKey(name: 'default') String? defaultValue,
-      int? minLength,
-      int? maxLength,
-      int? minGraphemes,
-      int? maxGraphemes,
-      @JsonKey(name: 'enum') List<String>? enumValues,
-      @JsonKey(name: 'const') String? constValue,
-      List<String>? knownValues});
+  $Res call({
+    String type,
+    LexStringFormat? format,
+    String? description,
+    @JsonKey(name: 'default') String? defaultValue,
+    int? minLength,
+    int? maxLength,
+    int? minGraphemes,
+    int? maxGraphemes,
+    @JsonKey(name: 'enum') List<String>? enumValues,
+    @JsonKey(name: 'const') String? constValue,
+    List<String>? knownValues,
+  });
 }
 
 /// @nodoc
@@ -167,8 +174,9 @@ class __$$LexStringImplCopyWithImpl<$Res>
     extends _$LexStringCopyWithImpl<$Res, _$LexStringImpl>
     implements _$$LexStringImplCopyWith<$Res> {
   __$$LexStringImplCopyWithImpl(
-      _$LexStringImpl _value, $Res Function(_$LexStringImpl) _then)
-      : super(_value, _then);
+    _$LexStringImpl _value,
+    $Res Function(_$LexStringImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexString
   /// with the given fields replaced by the non-null parameter values.
@@ -187,52 +195,54 @@ class __$$LexStringImplCopyWithImpl<$Res>
     Object? constValue = freezed,
     Object? knownValues = freezed,
   }) {
-    return _then(_$LexStringImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      format: freezed == format
-          ? _value.format
-          : format // ignore: cast_nullable_to_non_nullable
-              as LexStringFormat?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      defaultValue: freezed == defaultValue
-          ? _value.defaultValue
-          : defaultValue // ignore: cast_nullable_to_non_nullable
-              as String?,
-      minLength: freezed == minLength
-          ? _value.minLength
-          : minLength // ignore: cast_nullable_to_non_nullable
-              as int?,
-      maxLength: freezed == maxLength
-          ? _value.maxLength
-          : maxLength // ignore: cast_nullable_to_non_nullable
-              as int?,
-      minGraphemes: freezed == minGraphemes
-          ? _value.minGraphemes
-          : minGraphemes // ignore: cast_nullable_to_non_nullable
-              as int?,
-      maxGraphemes: freezed == maxGraphemes
-          ? _value.maxGraphemes
-          : maxGraphemes // ignore: cast_nullable_to_non_nullable
-              as int?,
-      enumValues: freezed == enumValues
-          ? _value._enumValues
-          : enumValues // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      constValue: freezed == constValue
-          ? _value.constValue
-          : constValue // ignore: cast_nullable_to_non_nullable
-              as String?,
-      knownValues: freezed == knownValues
-          ? _value._knownValues
-          : knownValues // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-    ));
+    return _then(
+      _$LexStringImpl(
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+        format: freezed == format
+            ? _value.format
+            : format // ignore: cast_nullable_to_non_nullable
+                  as LexStringFormat?,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        defaultValue: freezed == defaultValue
+            ? _value.defaultValue
+            : defaultValue // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        minLength: freezed == minLength
+            ? _value.minLength
+            : minLength // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        maxLength: freezed == maxLength
+            ? _value.maxLength
+            : maxLength // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        minGraphemes: freezed == minGraphemes
+            ? _value.minGraphemes
+            : minGraphemes // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        maxGraphemes: freezed == maxGraphemes
+            ? _value.maxGraphemes
+            : maxGraphemes // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        enumValues: freezed == enumValues
+            ? _value._enumValues
+            : enumValues // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        constValue: freezed == constValue
+            ? _value.constValue
+            : constValue // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        knownValues: freezed == knownValues
+            ? _value._knownValues
+            : knownValues // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+      ),
+    );
   }
 }
 
@@ -240,20 +250,20 @@ class __$$LexStringImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$LexStringImpl implements _LexString {
-  const _$LexStringImpl(
-      {this.type = 'string',
-      this.format,
-      this.description,
-      @JsonKey(name: 'default') this.defaultValue,
-      this.minLength,
-      this.maxLength,
-      this.minGraphemes,
-      this.maxGraphemes,
-      @JsonKey(name: 'enum') final List<String>? enumValues,
-      @JsonKey(name: 'const') this.constValue,
-      final List<String>? knownValues})
-      : _enumValues = enumValues,
-        _knownValues = knownValues;
+  const _$LexStringImpl({
+    this.type = 'string',
+    this.format,
+    this.description,
+    @JsonKey(name: 'default') this.defaultValue,
+    this.minLength,
+    this.maxLength,
+    this.minGraphemes,
+    this.maxGraphemes,
+    @JsonKey(name: 'enum') final List<String>? enumValues,
+    @JsonKey(name: 'const') this.constValue,
+    final List<String>? knownValues,
+  }) : _enumValues = enumValues,
+       _knownValues = knownValues;
 
   factory _$LexStringImpl.fromJson(Map<String, dynamic> json) =>
       _$$LexStringImplFromJson(json);
@@ -324,29 +334,34 @@ class _$LexStringImpl implements _LexString {
                 other.minGraphemes == minGraphemes) &&
             (identical(other.maxGraphemes, maxGraphemes) ||
                 other.maxGraphemes == maxGraphemes) &&
-            const DeepCollectionEquality()
-                .equals(other._enumValues, _enumValues) &&
+            const DeepCollectionEquality().equals(
+              other._enumValues,
+              _enumValues,
+            ) &&
             (identical(other.constValue, constValue) ||
                 other.constValue == constValue) &&
-            const DeepCollectionEquality()
-                .equals(other._knownValues, _knownValues));
+            const DeepCollectionEquality().equals(
+              other._knownValues,
+              _knownValues,
+            ));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      type,
-      format,
-      description,
-      defaultValue,
-      minLength,
-      maxLength,
-      minGraphemes,
-      maxGraphemes,
-      const DeepCollectionEquality().hash(_enumValues),
-      constValue,
-      const DeepCollectionEquality().hash(_knownValues));
+    runtimeType,
+    type,
+    format,
+    description,
+    defaultValue,
+    minLength,
+    maxLength,
+    minGraphemes,
+    maxGraphemes,
+    const DeepCollectionEquality().hash(_enumValues),
+    constValue,
+    const DeepCollectionEquality().hash(_knownValues),
+  );
 
   /// Create a copy of LexString
   /// with the given fields replaced by the non-null parameter values.
@@ -358,25 +373,24 @@ class _$LexStringImpl implements _LexString {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LexStringImplToJson(
-      this,
-    );
+    return _$$LexStringImplToJson(this);
   }
 }
 
 abstract class _LexString implements LexString {
-  const factory _LexString(
-      {final String type,
-      final LexStringFormat? format,
-      final String? description,
-      @JsonKey(name: 'default') final String? defaultValue,
-      final int? minLength,
-      final int? maxLength,
-      final int? minGraphemes,
-      final int? maxGraphemes,
-      @JsonKey(name: 'enum') final List<String>? enumValues,
-      @JsonKey(name: 'const') final String? constValue,
-      final List<String>? knownValues}) = _$LexStringImpl;
+  const factory _LexString({
+    final String type,
+    final LexStringFormat? format,
+    final String? description,
+    @JsonKey(name: 'default') final String? defaultValue,
+    final int? minLength,
+    final int? maxLength,
+    final int? minGraphemes,
+    final int? maxGraphemes,
+    @JsonKey(name: 'enum') final List<String>? enumValues,
+    @JsonKey(name: 'const') final String? constValue,
+    final List<String>? knownValues,
+  }) = _$LexStringImpl;
 
   factory _LexString.fromJson(Map<String, dynamic> json) =
       _$LexStringImpl.fromJson;

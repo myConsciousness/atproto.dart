@@ -8,27 +8,25 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$IdentitySignPlcOperationOutputImpl
-    _$$IdentitySignPlcOperationOutputImplFromJson(Map json) => $checkedCreate(
-          r'_$IdentitySignPlcOperationOutputImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$IdentitySignPlcOperationOutputImpl(
-              operation: $checkedConvert(
-                  'operation', (v) => Map<String, dynamic>.from(v as Map)),
-              $unknown: $checkedConvert(
-                  r'$unknown',
-                  (v) => (v as Map?)?.map(
-                        (k, e) => MapEntry(k as String, e),
-                      )),
-            );
-            return val;
-          },
-        );
+_IdentitySignPlcOperationOutput _$IdentitySignPlcOperationOutputFromJson(
+  Map json,
+) => $checkedCreate('_IdentitySignPlcOperationOutput', json, ($checkedConvert) {
+  final val = _IdentitySignPlcOperationOutput(
+    operation: $checkedConvert(
+      'operation',
+      (v) => Map<String, dynamic>.from(v as Map),
+    ),
+    $unknown: $checkedConvert(
+      r'$unknown',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
+  );
+  return val;
+});
 
-Map<String, dynamic> _$$IdentitySignPlcOperationOutputImplToJson(
-        _$IdentitySignPlcOperationOutputImpl instance) =>
-    <String, dynamic>{
-      'operation': instance.operation,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$IdentitySignPlcOperationOutputToJson(
+  _IdentitySignPlcOperationOutput instance,
+) => <String, dynamic>{
+  'operation': instance.operation,
+  r'$unknown': instance.$unknown,
+};

@@ -59,6 +59,7 @@ abstract class PostView with _$PostView {
     @ViewerStateConverter() ViewerState? viewer,
     @LabelConverter() List<Label>? labels,
     @ThreadgateViewConverter() ThreadgateView? threadgate,
+
     Map<String, dynamic>? $unknown,
   }) = _PostView;
 
@@ -77,14 +78,9 @@ final class PostViewConverter
 
   @override
   PostView fromJson(Map<String, dynamic> json) {
-    return PostView.fromJson(translate(
-      json,
-      PostView.knownProps,
-    ));
+    return PostView.fromJson(translate(json, PostView.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(PostView object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(PostView object) => untranslate(object.toJson());
 }

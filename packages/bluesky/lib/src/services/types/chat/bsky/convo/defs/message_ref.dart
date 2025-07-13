@@ -23,17 +23,14 @@ part 'message_ref.g.dart';
 
 @freezed
 abstract class MessageRef with _$MessageRef {
-  static const knownProps = <String>[
-    'did',
-    'convoId',
-    'messageId',
-  ];
+  static const knownProps = <String>['did', 'convoId', 'messageId'];
 
   const factory MessageRef({
     @Default(chatBskyConvoDefsMessageRef) String $type,
     required String did,
     required String convoId,
     required String messageId,
+
     Map<String, dynamic>? $unknown,
   }) = _MessageRef;
 
@@ -52,14 +49,10 @@ final class MessageRefConverter
 
   @override
   MessageRef fromJson(Map<String, dynamic> json) {
-    return MessageRef.fromJson(translate(
-      json,
-      MessageRef.knownProps,
-    ));
+    return MessageRef.fromJson(translate(json, MessageRef.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(MessageRef object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(MessageRef object) =>
+      untranslate(object.toJson());
 }

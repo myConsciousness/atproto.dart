@@ -41,6 +41,7 @@ abstract class ActorStatusRecord with _$ActorStatusRecord {
     /// The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.
     int? durationMinutes,
     required DateTime createdAt,
+
     Map<String, dynamic>? $unknown,
   }) = _ActorStatusRecord;
 
@@ -59,14 +60,12 @@ final class ActorStatusRecordConverter
 
   @override
   ActorStatusRecord fromJson(Map<String, dynamic> json) {
-    return ActorStatusRecord.fromJson(translate(
-      json,
-      ActorStatusRecord.knownProps,
-    ));
+    return ActorStatusRecord.fromJson(
+      translate(json, ActorStatusRecord.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ActorStatusRecord object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ActorStatusRecord object) =>
+      untranslate(object.toJson());
 }

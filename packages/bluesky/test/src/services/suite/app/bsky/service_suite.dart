@@ -17,77 +17,52 @@ void testActor<D>(
   final atp_test.ServiceCallback<ActorService, D> endpoint, {
   required String id,
   String? label,
-}) =>
-    atp_test.testService<ActorService, D>(
-      _runner,
-      endpoint,
-      id,
-      label,
-    );
+}) => atp_test.testService<ActorService, D>(_runner, endpoint, id, label);
 
 void testFeed<D>(
   final atp_test.ServiceCallback<FeedService, D> endpoint, {
   required String id,
   String? label,
   atp_test.BulkCallback<FeedService>? bulk,
-}) =>
-    atp_test.testService<FeedService, D>(
-      _runner,
-      endpoint,
-      id,
-      label,
-      bulk: bulk,
-    );
+}) => atp_test.testService<FeedService, D>(
+  _runner,
+  endpoint,
+  id,
+  label,
+  bulk: bulk,
+);
 
 void testGraph<D>(
   final atp_test.ServiceCallback<GraphService, D> endpoint, {
   required String id,
   String? label,
   atp_test.BulkCallback<GraphService>? bulk,
-}) =>
-    atp_test.testService<GraphService, D>(
-      _runner,
-      endpoint,
-      id,
-      label,
-      bulk: bulk,
-    );
+}) => atp_test.testService<GraphService, D>(
+  _runner,
+  endpoint,
+  id,
+  label,
+  bulk: bulk,
+);
 
 void testNotification<D>(
   final atp_test.ServiceCallback<NotificationService, D> endpoint, {
   required String id,
   String? label,
 }) =>
-    atp_test.testService<NotificationService, D>(
-      _runner,
-      endpoint,
-      id,
-      label,
-    );
+    atp_test.testService<NotificationService, D>(_runner, endpoint, id, label);
 
 void testUnspecced<D>(
   final atp_test.ServiceCallback<UnspeccedService, D> endpoint, {
   required String id,
   String? label,
-}) =>
-    atp_test.testService<UnspeccedService, D>(
-      _runner,
-      endpoint,
-      id,
-      label,
-    );
+}) => atp_test.testService<UnspeccedService, D>(_runner, endpoint, id, label);
 
 void testLabeler<D>(
   final atp_test.ServiceCallback<LabelerService, D> endpoint, {
   required String id,
   String? label,
-}) =>
-    atp_test.testService<LabelerService, D>(
-      _runner,
-      endpoint,
-      id,
-      label,
-    );
+}) => atp_test.testService<LabelerService, D>(_runner, endpoint, id, label);
 
 final class _ServiceRunner extends atp_test.ServiceRunner {
   const _ServiceRunner();
@@ -117,89 +92,76 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
   atp.ATProto _getAtproto(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) =>
-      atp.ATProto.fromSession(
-        session,
-        service: service,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+  ) => atp.ATProto.fromSession(
+    session,
+    service: service,
+    mockedGetClient: mockedGetClient,
+    mockedPostClient: mockedPostClient,
+  );
 
   ActorService _getActorService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) =>
-      ActorService(BlueskyServiceContext(
-        atproto: _getAtproto(
-          mockedGetClient,
-          mockedPostClient,
-        ),
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      ));
+  ) => ActorService(
+    BlueskyServiceContext(
+      atproto: _getAtproto(mockedGetClient, mockedPostClient),
+      mockedGetClient: mockedGetClient,
+      mockedPostClient: mockedPostClient,
+    ),
+  );
 
   FeedService _getFeedService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) =>
-      FeedService(BlueskyServiceContext(
-        atproto: _getAtproto(
-          mockedGetClient,
-          mockedPostClient,
-        ),
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      ));
+  ) => FeedService(
+    BlueskyServiceContext(
+      atproto: _getAtproto(mockedGetClient, mockedPostClient),
+      mockedGetClient: mockedGetClient,
+      mockedPostClient: mockedPostClient,
+    ),
+  );
 
   GraphService _getGraphService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) =>
-      GraphService(BlueskyServiceContext(
-        atproto: _getAtproto(
-          mockedGetClient,
-          mockedPostClient,
-        ),
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      ));
+  ) => GraphService(
+    BlueskyServiceContext(
+      atproto: _getAtproto(mockedGetClient, mockedPostClient),
+      mockedGetClient: mockedGetClient,
+      mockedPostClient: mockedPostClient,
+    ),
+  );
 
   NotificationService _getNotificationService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) =>
-      NotificationService(BlueskyServiceContext(
-        atproto: _getAtproto(
-          mockedGetClient,
-          mockedPostClient,
-        ),
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      ));
+  ) => NotificationService(
+    BlueskyServiceContext(
+      atproto: _getAtproto(mockedGetClient, mockedPostClient),
+      mockedGetClient: mockedGetClient,
+      mockedPostClient: mockedPostClient,
+    ),
+  );
 
   UnspeccedService _getUnspeccedService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) =>
-      UnspeccedService(BlueskyServiceContext(
-        atproto: _getAtproto(
-          mockedGetClient,
-          mockedPostClient,
-        ),
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      ));
+  ) => UnspeccedService(
+    BlueskyServiceContext(
+      atproto: _getAtproto(mockedGetClient, mockedPostClient),
+      mockedGetClient: mockedGetClient,
+      mockedPostClient: mockedPostClient,
+    ),
+  );
 
   LabelerService _getLabelerService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) =>
-      LabelerService(BlueskyServiceContext(
-        atproto: _getAtproto(
-          mockedGetClient,
-          mockedPostClient,
-        ),
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      ));
+  ) => LabelerService(
+    BlueskyServiceContext(
+      atproto: _getAtproto(mockedGetClient, mockedPostClient),
+      mockedGetClient: mockedGetClient,
+      mockedPostClient: mockedPostClient,
+    ),
+  );
 }

@@ -144,6 +144,7 @@ abstract class ModerationQueryStatusesInput
 
     /// If specified, only subjects that have priority score value above the given value will be returned.
     int? minPriorityScore,
+
     Map<String, dynamic>? $unknown,
   }) = _ModerationQueryStatusesInput;
 
@@ -151,21 +152,19 @@ abstract class ModerationQueryStatusesInput
       _$ModerationQueryStatusesInputFromJson(json);
 }
 
-final class ModerationQueryStatusesInputConverter extends LexObjectConverter<
-    ModerationQueryStatusesInput, Map<String, dynamic>> {
+final class ModerationQueryStatusesInputConverter
+    extends
+        LexObjectConverter<ModerationQueryStatusesInput, Map<String, dynamic>> {
   const ModerationQueryStatusesInputConverter();
 
   @override
   ModerationQueryStatusesInput fromJson(Map<String, dynamic> json) {
-    return ModerationQueryStatusesInput.fromJson(translate(
-      json,
-      ModerationQueryStatusesInput.knownProps,
-    ));
+    return ModerationQueryStatusesInput.fromJson(
+      translate(json, ModerationQueryStatusesInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ModerationQueryStatusesInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

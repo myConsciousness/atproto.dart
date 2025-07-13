@@ -20,12 +20,11 @@ part 'input.g.dart';
 
 @freezed
 abstract class NotificationUpdateSeenInput with _$NotificationUpdateSeenInput {
-  static const knownProps = <String>[
-    'seenAt',
-  ];
+  static const knownProps = <String>['seenAt'];
 
   const factory NotificationUpdateSeenInput({
     required DateTime seenAt,
+
     Map<String, dynamic>? $unknown,
   }) = _NotificationUpdateSeenInput;
 
@@ -33,21 +32,19 @@ abstract class NotificationUpdateSeenInput with _$NotificationUpdateSeenInput {
       _$NotificationUpdateSeenInputFromJson(json);
 }
 
-final class NotificationUpdateSeenInputConverter extends LexObjectConverter<
-    NotificationUpdateSeenInput, Map<String, dynamic>> {
+final class NotificationUpdateSeenInputConverter
+    extends
+        LexObjectConverter<NotificationUpdateSeenInput, Map<String, dynamic>> {
   const NotificationUpdateSeenInputConverter();
 
   @override
   NotificationUpdateSeenInput fromJson(Map<String, dynamic> json) {
-    return NotificationUpdateSeenInput.fromJson(translate(
-      json,
-      NotificationUpdateSeenInput.knownProps,
-    ));
+    return NotificationUpdateSeenInput.fromJson(
+      translate(json, NotificationUpdateSeenInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(NotificationUpdateSeenInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

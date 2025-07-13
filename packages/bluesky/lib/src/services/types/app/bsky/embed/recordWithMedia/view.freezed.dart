@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,274 +9,322 @@ part of 'view.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-EmbedRecordWithMediaView _$EmbedRecordWithMediaViewFromJson(
-    Map<String, dynamic> json) {
-  return _EmbedRecordWithMediaView.fromJson(json);
-}
 
 /// @nodoc
 mixin _$EmbedRecordWithMediaView {
-  String get $type => throw _privateConstructorUsedError;
-  @EmbedRecordViewConverter()
-  EmbedRecordView get record => throw _privateConstructorUsedError;
-  @UEmbedRecordWithMediaViewMediaConverter()
-  UEmbedRecordWithMediaViewMedia get media =>
-      throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+ String get $type;@EmbedRecordViewConverter() EmbedRecordView get record;@UEmbedRecordWithMediaViewMediaConverter() UEmbedRecordWithMediaViewMedia get media; Map<String, dynamic>? get $unknown;
+/// Create a copy of EmbedRecordWithMediaView
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$EmbedRecordWithMediaViewCopyWith<EmbedRecordWithMediaView> get copyWith => _$EmbedRecordWithMediaViewCopyWithImpl<EmbedRecordWithMediaView>(this as EmbedRecordWithMediaView, _$identity);
 
   /// Serializes this EmbedRecordWithMediaView to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of EmbedRecordWithMediaView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $EmbedRecordWithMediaViewCopyWith<EmbedRecordWithMediaView> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedRecordWithMediaView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.record, record) || other.record == record)&&(identical(other.media, media) || other.media == media)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,record,media,const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'EmbedRecordWithMediaView(\$type: ${$type}, record: $record, media: $media, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $EmbedRecordWithMediaViewCopyWith<$Res> {
-  factory $EmbedRecordWithMediaViewCopyWith(EmbedRecordWithMediaView value,
-          $Res Function(EmbedRecordWithMediaView) then) =
-      _$EmbedRecordWithMediaViewCopyWithImpl<$Res, EmbedRecordWithMediaView>;
-  @useResult
-  $Res call(
-      {String $type,
-      @EmbedRecordViewConverter() EmbedRecordView record,
-      @UEmbedRecordWithMediaViewMediaConverter()
-      UEmbedRecordWithMediaViewMedia media,
-      Map<String, dynamic>? $unknown});
+abstract mixin class $EmbedRecordWithMediaViewCopyWith<$Res>  {
+  factory $EmbedRecordWithMediaViewCopyWith(EmbedRecordWithMediaView value, $Res Function(EmbedRecordWithMediaView) _then) = _$EmbedRecordWithMediaViewCopyWithImpl;
+@useResult
+$Res call({
+ String $type,@EmbedRecordViewConverter() EmbedRecordView record,@UEmbedRecordWithMediaViewMediaConverter() UEmbedRecordWithMediaViewMedia media, Map<String, dynamic>? $unknown
+});
 
-  $EmbedRecordViewCopyWith<$Res> get record;
-  $UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media;
+
+$EmbedRecordViewCopyWith<$Res> get record;$UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media;
+
 }
-
 /// @nodoc
-class _$EmbedRecordWithMediaViewCopyWithImpl<$Res,
-        $Val extends EmbedRecordWithMediaView>
+class _$EmbedRecordWithMediaViewCopyWithImpl<$Res>
     implements $EmbedRecordWithMediaViewCopyWith<$Res> {
-  _$EmbedRecordWithMediaViewCopyWithImpl(this._value, this._then);
+  _$EmbedRecordWithMediaViewCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final EmbedRecordWithMediaView _self;
+  final $Res Function(EmbedRecordWithMediaView) _then;
 
-  /// Create a copy of EmbedRecordWithMediaView
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? record = null,
-    Object? media = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      record: null == record
-          ? _value.record
-          : record // ignore: cast_nullable_to_non_nullable
-              as EmbedRecordView,
-      media: null == media
-          ? _value.media
-          : media // ignore: cast_nullable_to_non_nullable
-              as UEmbedRecordWithMediaViewMedia,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
-
-  /// Create a copy of EmbedRecordWithMediaView
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $EmbedRecordViewCopyWith<$Res> get record {
-    return $EmbedRecordViewCopyWith<$Res>(_value.record, (value) {
-      return _then(_value.copyWith(record: value) as $Val);
-    });
-  }
-
-  /// Create a copy of EmbedRecordWithMediaView
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media {
-    return $UEmbedRecordWithMediaViewMediaCopyWith<$Res>(_value.media, (value) {
-      return _then(_value.copyWith(media: value) as $Val);
-    });
-  }
+/// Create a copy of EmbedRecordWithMediaView
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? record = null,Object? media = null,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,record: null == record ? _self.record : record // ignore: cast_nullable_to_non_nullable
+as EmbedRecordView,media: null == media ? _self.media : media // ignore: cast_nullable_to_non_nullable
+as UEmbedRecordWithMediaViewMedia,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+/// Create a copy of EmbedRecordWithMediaView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EmbedRecordViewCopyWith<$Res> get record {
+  
+  return $EmbedRecordViewCopyWith<$Res>(_self.record, (value) {
+    return _then(_self.copyWith(record: value));
+  });
+}/// Create a copy of EmbedRecordWithMediaView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media {
+  
+  return $UEmbedRecordWithMediaViewMediaCopyWith<$Res>(_self.media, (value) {
+    return _then(_self.copyWith(media: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$EmbedRecordWithMediaViewImplCopyWith<$Res>
-    implements $EmbedRecordWithMediaViewCopyWith<$Res> {
-  factory _$$EmbedRecordWithMediaViewImplCopyWith(
-          _$EmbedRecordWithMediaViewImpl value,
-          $Res Function(_$EmbedRecordWithMediaViewImpl) then) =
-      __$$EmbedRecordWithMediaViewImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String $type,
-      @EmbedRecordViewConverter() EmbedRecordView record,
-      @UEmbedRecordWithMediaViewMediaConverter()
-      UEmbedRecordWithMediaViewMedia media,
-      Map<String, dynamic>? $unknown});
 
-  @override
-  $EmbedRecordViewCopyWith<$Res> get record;
-  @override
-  $UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media;
+/// Adds pattern-matching-related methods to [EmbedRecordWithMediaView].
+extension EmbedRecordWithMediaViewPatterns on EmbedRecordWithMediaView {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _EmbedRecordWithMediaView value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _EmbedRecordWithMediaView() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _EmbedRecordWithMediaView value)  $default,){
+final _that = this;
+switch (_that) {
+case _EmbedRecordWithMediaView():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _EmbedRecordWithMediaView value)?  $default,){
+final _that = this;
+switch (_that) {
+case _EmbedRecordWithMediaView() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @EmbedRecordViewConverter()  EmbedRecordView record, @UEmbedRecordWithMediaViewMediaConverter()  UEmbedRecordWithMediaViewMedia media,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _EmbedRecordWithMediaView() when $default != null:
+return $default(_that.$type,_that.record,_that.media,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @EmbedRecordViewConverter()  EmbedRecordView record, @UEmbedRecordWithMediaViewMediaConverter()  UEmbedRecordWithMediaViewMedia media,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _EmbedRecordWithMediaView():
+return $default(_that.$type,_that.record,_that.media,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @EmbedRecordViewConverter()  EmbedRecordView record, @UEmbedRecordWithMediaViewMediaConverter()  UEmbedRecordWithMediaViewMedia media,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _EmbedRecordWithMediaView() when $default != null:
+return $default(_that.$type,_that.record,_that.media,_that.$unknown);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-class __$$EmbedRecordWithMediaViewImplCopyWithImpl<$Res>
-    extends _$EmbedRecordWithMediaViewCopyWithImpl<$Res,
-        _$EmbedRecordWithMediaViewImpl>
-    implements _$$EmbedRecordWithMediaViewImplCopyWith<$Res> {
-  __$$EmbedRecordWithMediaViewImplCopyWithImpl(
-      _$EmbedRecordWithMediaViewImpl _value,
-      $Res Function(_$EmbedRecordWithMediaViewImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of EmbedRecordWithMediaView
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? record = null,
-    Object? media = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$EmbedRecordWithMediaViewImpl(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      record: null == record
-          ? _value.record
-          : record // ignore: cast_nullable_to_non_nullable
-              as EmbedRecordView,
-      media: null == media
-          ? _value.media
-          : media // ignore: cast_nullable_to_non_nullable
-              as UEmbedRecordWithMediaViewMedia,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$EmbedRecordWithMediaViewImpl implements _EmbedRecordWithMediaView {
-  const _$EmbedRecordWithMediaViewImpl(
-      {this.$type = appBskyEmbedRecordWithMediaView,
-      @EmbedRecordViewConverter() required this.record,
-      @UEmbedRecordWithMediaViewMediaConverter() required this.media,
-      final Map<String, dynamic>? $unknown})
-      : _$unknown = $unknown;
 
-  factory _$EmbedRecordWithMediaViewImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EmbedRecordWithMediaViewImplFromJson(json);
+class _EmbedRecordWithMediaView implements EmbedRecordWithMediaView {
+  const _EmbedRecordWithMediaView({this.$type = appBskyEmbedRecordWithMediaView, @EmbedRecordViewConverter() required this.record, @UEmbedRecordWithMediaViewMediaConverter() required this.media, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  factory _EmbedRecordWithMediaView.fromJson(Map<String, dynamic> json) => _$EmbedRecordWithMediaViewFromJson(json);
 
-  @override
-  @JsonKey()
-  final String $type;
-  @override
-  @EmbedRecordViewConverter()
-  final EmbedRecordView record;
-  @override
-  @UEmbedRecordWithMediaViewMediaConverter()
-  final UEmbedRecordWithMediaViewMedia media;
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'EmbedRecordWithMediaView(\$type: ${$type}, record: $record, media: $media, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$EmbedRecordWithMediaViewImpl &&
-            (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.record, record) || other.record == record) &&
-            (identical(other.media, media) || other.media == media) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, $type, record, media,
-      const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of EmbedRecordWithMediaView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$EmbedRecordWithMediaViewImplCopyWith<_$EmbedRecordWithMediaViewImpl>
-      get copyWith => __$$EmbedRecordWithMediaViewImplCopyWithImpl<
-          _$EmbedRecordWithMediaViewImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$EmbedRecordWithMediaViewImplToJson(
-      this,
-    );
-  }
+@override@JsonKey() final  String $type;
+@override@EmbedRecordViewConverter() final  EmbedRecordView record;
+@override@UEmbedRecordWithMediaViewMediaConverter() final  UEmbedRecordWithMediaViewMedia media;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
 
-abstract class _EmbedRecordWithMediaView implements EmbedRecordWithMediaView {
-  const factory _EmbedRecordWithMediaView(
-      {final String $type,
-      @EmbedRecordViewConverter() required final EmbedRecordView record,
-      @UEmbedRecordWithMediaViewMediaConverter()
-      required final UEmbedRecordWithMediaViewMedia media,
-      final Map<String, dynamic>? $unknown}) = _$EmbedRecordWithMediaViewImpl;
 
-  factory _EmbedRecordWithMediaView.fromJson(Map<String, dynamic> json) =
-      _$EmbedRecordWithMediaViewImpl.fromJson;
+/// Create a copy of EmbedRecordWithMediaView
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$EmbedRecordWithMediaViewCopyWith<_EmbedRecordWithMediaView> get copyWith => __$EmbedRecordWithMediaViewCopyWithImpl<_EmbedRecordWithMediaView>(this, _$identity);
 
-  @override
-  String get $type;
-  @override
-  @EmbedRecordViewConverter()
-  EmbedRecordView get record;
-  @override
-  @UEmbedRecordWithMediaViewMediaConverter()
-  UEmbedRecordWithMediaViewMedia get media;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of EmbedRecordWithMediaView
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$EmbedRecordWithMediaViewImplCopyWith<_$EmbedRecordWithMediaViewImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$EmbedRecordWithMediaViewToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedRecordWithMediaView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.record, record) || other.record == record)&&(identical(other.media, media) || other.media == media)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,record,media,const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'EmbedRecordWithMediaView(\$type: ${$type}, record: $record, media: $media, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$EmbedRecordWithMediaViewCopyWith<$Res> implements $EmbedRecordWithMediaViewCopyWith<$Res> {
+  factory _$EmbedRecordWithMediaViewCopyWith(_EmbedRecordWithMediaView value, $Res Function(_EmbedRecordWithMediaView) _then) = __$EmbedRecordWithMediaViewCopyWithImpl;
+@override @useResult
+$Res call({
+ String $type,@EmbedRecordViewConverter() EmbedRecordView record,@UEmbedRecordWithMediaViewMediaConverter() UEmbedRecordWithMediaViewMedia media, Map<String, dynamic>? $unknown
+});
+
+
+@override $EmbedRecordViewCopyWith<$Res> get record;@override $UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media;
+
+}
+/// @nodoc
+class __$EmbedRecordWithMediaViewCopyWithImpl<$Res>
+    implements _$EmbedRecordWithMediaViewCopyWith<$Res> {
+  __$EmbedRecordWithMediaViewCopyWithImpl(this._self, this._then);
+
+  final _EmbedRecordWithMediaView _self;
+  final $Res Function(_EmbedRecordWithMediaView) _then;
+
+/// Create a copy of EmbedRecordWithMediaView
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? record = null,Object? media = null,Object? $unknown = freezed,}) {
+  return _then(_EmbedRecordWithMediaView(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,record: null == record ? _self.record : record // ignore: cast_nullable_to_non_nullable
+as EmbedRecordView,media: null == media ? _self.media : media // ignore: cast_nullable_to_non_nullable
+as UEmbedRecordWithMediaViewMedia,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+/// Create a copy of EmbedRecordWithMediaView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EmbedRecordViewCopyWith<$Res> get record {
+  
+  return $EmbedRecordViewCopyWith<$Res>(_self.record, (value) {
+    return _then(_self.copyWith(record: value));
+  });
+}/// Create a copy of EmbedRecordWithMediaView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media {
+  
+  return $UEmbedRecordWithMediaViewMediaCopyWith<$Res>(_self.media, (value) {
+    return _then(_self.copyWith(media: value));
+  });
+}
+}
+
+// dart format on

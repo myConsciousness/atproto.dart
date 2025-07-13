@@ -55,6 +55,7 @@ abstract class LabelerViewDetailed with _$LabelerViewDetailed {
     @ReasonTypeConverter() List<ReasonType>? reasonTypes,
     @SubjectTypeConverter() List<SubjectType>? subjectTypes,
     List<String>? subjectCollections,
+
     Map<String, dynamic>? $unknown,
   }) = _LabelerViewDetailed;
 
@@ -73,14 +74,12 @@ final class LabelerViewDetailedConverter
 
   @override
   LabelerViewDetailed fromJson(Map<String, dynamic> json) {
-    return LabelerViewDetailed.fromJson(translate(
-      json,
-      LabelerViewDetailed.knownProps,
-    ));
+    return LabelerViewDetailed.fromJson(
+      translate(json, LabelerViewDetailed.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(LabelerViewDetailed object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(LabelerViewDetailed object) =>
+      untranslate(object.toJson());
 }

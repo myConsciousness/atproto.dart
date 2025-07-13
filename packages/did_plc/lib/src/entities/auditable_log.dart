@@ -14,9 +14,8 @@ part 'auditable_log.g.dart';
 class AuditableLog with _$AuditableLog {
   /// Creates an instance of [AuditableLog].
   @jsonSerializable
-  const factory AuditableLog({
-    required List<ExportedOperation> log,
-  }) = _AuditableLog;
+  const factory AuditableLog({required List<ExportedOperation> log}) =
+      _AuditableLog;
 
   /// Creates an instance of [AuditableLog] from a map of
   /// [String, Object?].

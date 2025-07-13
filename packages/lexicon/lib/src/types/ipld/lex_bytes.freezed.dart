@@ -12,7 +12,8 @@ part of 'lex_bytes.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LexBytes _$LexBytesFromJson(Map<String, dynamic> json) {
   return _LexBytes.fromJson(json);
@@ -63,24 +64,27 @@ class _$LexBytesCopyWithImpl<$Res, $Val extends LexBytes>
     Object? maxLength = freezed,
     Object? minLength = freezed,
   }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      maxLength: freezed == maxLength
-          ? _value.maxLength
-          : maxLength // ignore: cast_nullable_to_non_nullable
-              as int?,
-      minLength: freezed == minLength
-          ? _value.minLength
-          : minLength // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            maxLength: freezed == maxLength
+                ? _value.maxLength
+                : maxLength // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            minLength: freezed == minLength
+                ? _value.minLength
+                : minLength // ignore: cast_nullable_to_non_nullable
+                      as int?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -88,8 +92,9 @@ class _$LexBytesCopyWithImpl<$Res, $Val extends LexBytes>
 abstract class _$$LexBytesImplCopyWith<$Res>
     implements $LexBytesCopyWith<$Res> {
   factory _$$LexBytesImplCopyWith(
-          _$LexBytesImpl value, $Res Function(_$LexBytesImpl) then) =
-      __$$LexBytesImplCopyWithImpl<$Res>;
+    _$LexBytesImpl value,
+    $Res Function(_$LexBytesImpl) then,
+  ) = __$$LexBytesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type, String? description, int? maxLength, int? minLength});
@@ -100,8 +105,9 @@ class __$$LexBytesImplCopyWithImpl<$Res>
     extends _$LexBytesCopyWithImpl<$Res, _$LexBytesImpl>
     implements _$$LexBytesImplCopyWith<$Res> {
   __$$LexBytesImplCopyWithImpl(
-      _$LexBytesImpl _value, $Res Function(_$LexBytesImpl) _then)
-      : super(_value, _then);
+    _$LexBytesImpl _value,
+    $Res Function(_$LexBytesImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexBytes
   /// with the given fields replaced by the non-null parameter values.
@@ -113,24 +119,26 @@ class __$$LexBytesImplCopyWithImpl<$Res>
     Object? maxLength = freezed,
     Object? minLength = freezed,
   }) {
-    return _then(_$LexBytesImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      maxLength: freezed == maxLength
-          ? _value.maxLength
-          : maxLength // ignore: cast_nullable_to_non_nullable
-              as int?,
-      minLength: freezed == minLength
-          ? _value.minLength
-          : minLength // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
+    return _then(
+      _$LexBytesImpl(
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        maxLength: freezed == maxLength
+            ? _value.maxLength
+            : maxLength // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        minLength: freezed == minLength
+            ? _value.minLength
+            : minLength // ignore: cast_nullable_to_non_nullable
+                  as int?,
+      ),
+    );
   }
 }
 
@@ -138,8 +146,12 @@ class __$$LexBytesImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$LexBytesImpl implements _LexBytes {
-  const _$LexBytesImpl(
-      {this.type = 'bytes', this.description, this.maxLength, this.minLength});
+  const _$LexBytesImpl({
+    this.type = 'bytes',
+    this.description,
+    this.maxLength,
+    this.minLength,
+  });
 
   factory _$LexBytesImpl.fromJson(Map<String, dynamic> json) =>
       _$$LexBytesImplFromJson(json);
@@ -188,18 +200,17 @@ class _$LexBytesImpl implements _LexBytes {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LexBytesImplToJson(
-      this,
-    );
+    return _$$LexBytesImplToJson(this);
   }
 }
 
 abstract class _LexBytes implements LexBytes {
-  const factory _LexBytes(
-      {final String type,
-      final String? description,
-      final int? maxLength,
-      final int? minLength}) = _$LexBytesImpl;
+  const factory _LexBytes({
+    final String type,
+    final String? description,
+    final int? maxLength,
+    final int? minLength,
+  }) = _$LexBytesImpl;
 
   factory _LexBytes.fromJson(Map<String, dynamic> json) =
       _$LexBytesImpl.fromJson;

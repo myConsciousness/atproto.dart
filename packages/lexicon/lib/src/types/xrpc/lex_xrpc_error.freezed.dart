@@ -12,7 +12,8 @@ part of 'lex_xrpc_error.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LexXrpcError _$LexXrpcErrorFromJson(Map<String, dynamic> json) {
   return _LexXrpcError.fromJson(json);
@@ -36,8 +37,9 @@ mixin _$LexXrpcError {
 /// @nodoc
 abstract class $LexXrpcErrorCopyWith<$Res> {
   factory $LexXrpcErrorCopyWith(
-          LexXrpcError value, $Res Function(LexXrpcError) then) =
-      _$LexXrpcErrorCopyWithImpl<$Res, LexXrpcError>;
+    LexXrpcError value,
+    $Res Function(LexXrpcError) then,
+  ) = _$LexXrpcErrorCopyWithImpl<$Res, LexXrpcError>;
   @useResult
   $Res call({String name, String? description});
 }
@@ -56,20 +58,20 @@ class _$LexXrpcErrorCopyWithImpl<$Res, $Val extends LexXrpcError>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = null,
-    Object? description = freezed,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  $Res call({Object? name = null, Object? description = freezed}) {
+    return _then(
+      _value.copyWith(
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -77,8 +79,9 @@ class _$LexXrpcErrorCopyWithImpl<$Res, $Val extends LexXrpcError>
 abstract class _$$LexXrpcErrorImplCopyWith<$Res>
     implements $LexXrpcErrorCopyWith<$Res> {
   factory _$$LexXrpcErrorImplCopyWith(
-          _$LexXrpcErrorImpl value, $Res Function(_$LexXrpcErrorImpl) then) =
-      __$$LexXrpcErrorImplCopyWithImpl<$Res>;
+    _$LexXrpcErrorImpl value,
+    $Res Function(_$LexXrpcErrorImpl) then,
+  ) = __$$LexXrpcErrorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String? description});
@@ -89,27 +92,27 @@ class __$$LexXrpcErrorImplCopyWithImpl<$Res>
     extends _$LexXrpcErrorCopyWithImpl<$Res, _$LexXrpcErrorImpl>
     implements _$$LexXrpcErrorImplCopyWith<$Res> {
   __$$LexXrpcErrorImplCopyWithImpl(
-      _$LexXrpcErrorImpl _value, $Res Function(_$LexXrpcErrorImpl) _then)
-      : super(_value, _then);
+    _$LexXrpcErrorImpl _value,
+    $Res Function(_$LexXrpcErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexXrpcError
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = null,
-    Object? description = freezed,
-  }) {
-    return _then(_$LexXrpcErrorImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+  $Res call({Object? name = null, Object? description = freezed}) {
+    return _then(
+      _$LexXrpcErrorImpl(
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
@@ -156,16 +159,15 @@ class _$LexXrpcErrorImpl implements _LexXrpcError {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LexXrpcErrorImplToJson(
-      this,
-    );
+    return _$$LexXrpcErrorImplToJson(this);
   }
 }
 
 abstract class _LexXrpcError implements LexXrpcError {
-  const factory _LexXrpcError(
-      {required final String name,
-      final String? description}) = _$LexXrpcErrorImpl;
+  const factory _LexXrpcError({
+    required final String name,
+    final String? description,
+  }) = _$LexXrpcErrorImpl;
 
   factory _LexXrpcError.fromJson(Map<String, dynamic> json) =
       _$LexXrpcErrorImpl.fromJson;

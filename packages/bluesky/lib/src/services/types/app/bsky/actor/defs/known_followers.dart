@@ -25,15 +25,13 @@ part 'known_followers.g.dart';
 /// The subject's followers whom you also follow
 @freezed
 abstract class KnownFollowers with _$KnownFollowers {
-  static const knownProps = <String>[
-    'count',
-    'followers',
-  ];
+  static const knownProps = <String>['count', 'followers'];
 
   const factory KnownFollowers({
     @Default(appBskyActorDefsKnownFollowers) String $type,
     required int count,
     @ProfileViewBasicConverter() required List<ProfileViewBasic> followers,
+
     Map<String, dynamic>? $unknown,
   }) = _KnownFollowers;
 
@@ -52,14 +50,10 @@ final class KnownFollowersConverter
 
   @override
   KnownFollowers fromJson(Map<String, dynamic> json) {
-    return KnownFollowers.fromJson(translate(
-      json,
-      KnownFollowers.knownProps,
-    ));
+    return KnownFollowers.fromJson(translate(json, KnownFollowers.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(KnownFollowers object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(KnownFollowers object) =>
+      untranslate(object.toJson());
 }

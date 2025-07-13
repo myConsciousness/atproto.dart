@@ -12,7 +12,8 @@ part of 'lex_ref_union.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LexRefUnion _$LexRefUnionFromJson(Map<String, dynamic> json) {
   return _LexRefUnion.fromJson(json);
@@ -38,11 +39,16 @@ mixin _$LexRefUnion {
 /// @nodoc
 abstract class $LexRefUnionCopyWith<$Res> {
   factory $LexRefUnionCopyWith(
-          LexRefUnion value, $Res Function(LexRefUnion) then) =
-      _$LexRefUnionCopyWithImpl<$Res, LexRefUnion>;
+    LexRefUnion value,
+    $Res Function(LexRefUnion) then,
+  ) = _$LexRefUnionCopyWithImpl<$Res, LexRefUnion>;
   @useResult
-  $Res call(
-      {String type, String? description, List<String>? refs, bool? closed});
+  $Res call({
+    String type,
+    String? description,
+    List<String>? refs,
+    bool? closed,
+  });
 }
 
 /// @nodoc
@@ -65,24 +71,27 @@ class _$LexRefUnionCopyWithImpl<$Res, $Val extends LexRefUnion>
     Object? refs = freezed,
     Object? closed = freezed,
   }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      refs: freezed == refs
-          ? _value.refs
-          : refs // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      closed: freezed == closed
-          ? _value.closed
-          : closed // ignore: cast_nullable_to_non_nullable
-              as bool?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            refs: freezed == refs
+                ? _value.refs
+                : refs // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            closed: freezed == closed
+                ? _value.closed
+                : closed // ignore: cast_nullable_to_non_nullable
+                      as bool?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -90,12 +99,17 @@ class _$LexRefUnionCopyWithImpl<$Res, $Val extends LexRefUnion>
 abstract class _$$LexRefUnionImplCopyWith<$Res>
     implements $LexRefUnionCopyWith<$Res> {
   factory _$$LexRefUnionImplCopyWith(
-          _$LexRefUnionImpl value, $Res Function(_$LexRefUnionImpl) then) =
-      __$$LexRefUnionImplCopyWithImpl<$Res>;
+    _$LexRefUnionImpl value,
+    $Res Function(_$LexRefUnionImpl) then,
+  ) = __$$LexRefUnionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String type, String? description, List<String>? refs, bool? closed});
+  $Res call({
+    String type,
+    String? description,
+    List<String>? refs,
+    bool? closed,
+  });
 }
 
 /// @nodoc
@@ -103,8 +117,9 @@ class __$$LexRefUnionImplCopyWithImpl<$Res>
     extends _$LexRefUnionCopyWithImpl<$Res, _$LexRefUnionImpl>
     implements _$$LexRefUnionImplCopyWith<$Res> {
   __$$LexRefUnionImplCopyWithImpl(
-      _$LexRefUnionImpl _value, $Res Function(_$LexRefUnionImpl) _then)
-      : super(_value, _then);
+    _$LexRefUnionImpl _value,
+    $Res Function(_$LexRefUnionImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexRefUnion
   /// with the given fields replaced by the non-null parameter values.
@@ -116,24 +131,26 @@ class __$$LexRefUnionImplCopyWithImpl<$Res>
     Object? refs = freezed,
     Object? closed = freezed,
   }) {
-    return _then(_$LexRefUnionImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      refs: freezed == refs
-          ? _value._refs
-          : refs // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      closed: freezed == closed
-          ? _value.closed
-          : closed // ignore: cast_nullable_to_non_nullable
-              as bool?,
-    ));
+    return _then(
+      _$LexRefUnionImpl(
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        refs: freezed == refs
+            ? _value._refs
+            : refs // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        closed: freezed == closed
+            ? _value.closed
+            : closed // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+      ),
+    );
   }
 }
 
@@ -141,12 +158,12 @@ class __$$LexRefUnionImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$LexRefUnionImpl implements _LexRefUnion {
-  const _$LexRefUnionImpl(
-      {this.type = 'union',
-      this.description,
-      final List<String>? refs,
-      this.closed})
-      : _refs = refs;
+  const _$LexRefUnionImpl({
+    this.type = 'union',
+    this.description,
+    final List<String>? refs,
+    this.closed,
+  }) : _refs = refs;
 
   factory _$LexRefUnionImpl.fromJson(Map<String, dynamic> json) =>
       _$$LexRefUnionImplFromJson(json);
@@ -188,8 +205,13 @@ class _$LexRefUnionImpl implements _LexRefUnion {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, type, description,
-      const DeepCollectionEquality().hash(_refs), closed);
+  int get hashCode => Object.hash(
+    runtimeType,
+    type,
+    description,
+    const DeepCollectionEquality().hash(_refs),
+    closed,
+  );
 
   /// Create a copy of LexRefUnion
   /// with the given fields replaced by the non-null parameter values.
@@ -201,18 +223,17 @@ class _$LexRefUnionImpl implements _LexRefUnion {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LexRefUnionImplToJson(
-      this,
-    );
+    return _$$LexRefUnionImplToJson(this);
   }
 }
 
 abstract class _LexRefUnion implements LexRefUnion {
-  const factory _LexRefUnion(
-      {final String type,
-      final String? description,
-      final List<String>? refs,
-      final bool? closed}) = _$LexRefUnionImpl;
+  const factory _LexRefUnion({
+    final String type,
+    final String? description,
+    final List<String>? refs,
+    final bool? closed,
+  }) = _$LexRefUnionImpl;
 
   factory _LexRefUnion.fromJson(Map<String, dynamic> json) =
       _$LexRefUnionImpl.fromJson;

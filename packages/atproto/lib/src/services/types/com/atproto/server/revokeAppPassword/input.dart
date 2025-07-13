@@ -21,12 +21,11 @@ part 'input.g.dart';
 @freezed
 abstract class ServerRevokeAppPasswordInput
     with _$ServerRevokeAppPasswordInput {
-  static const knownProps = <String>[
-    'name',
-  ];
+  static const knownProps = <String>['name'];
 
   const factory ServerRevokeAppPasswordInput({
     required String name,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerRevokeAppPasswordInput;
 
@@ -34,21 +33,19 @@ abstract class ServerRevokeAppPasswordInput
       _$ServerRevokeAppPasswordInputFromJson(json);
 }
 
-final class ServerRevokeAppPasswordInputConverter extends LexObjectConverter<
-    ServerRevokeAppPasswordInput, Map<String, dynamic>> {
+final class ServerRevokeAppPasswordInputConverter
+    extends
+        LexObjectConverter<ServerRevokeAppPasswordInput, Map<String, dynamic>> {
   const ServerRevokeAppPasswordInputConverter();
 
   @override
   ServerRevokeAppPasswordInput fromJson(Map<String, dynamic> json) {
-    return ServerRevokeAppPasswordInput.fromJson(translate(
-      json,
-      ServerRevokeAppPasswordInput.knownProps,
-    ));
+    return ServerRevokeAppPasswordInput.fromJson(
+      translate(json, ServerRevokeAppPasswordInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ServerRevokeAppPasswordInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

@@ -23,14 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class GraphGetListMutesOutput with _$GraphGetListMutesOutput {
-  static const knownProps = <String>[
-    'cursor',
-    'lists',
-  ];
+  static const knownProps = <String>['cursor', 'lists'];
 
   const factory GraphGetListMutesOutput({
     String? cursor,
     @ListViewConverter() required List<ListView> lists,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphGetListMutesOutput;
 
@@ -44,14 +42,12 @@ final class GraphGetListMutesOutputConverter
 
   @override
   GraphGetListMutesOutput fromJson(Map<String, dynamic> json) {
-    return GraphGetListMutesOutput.fromJson(translate(
-      json,
-      GraphGetListMutesOutput.knownProps,
-    ));
+    return GraphGetListMutesOutput.fromJson(
+      translate(json, GraphGetListMutesOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphGetListMutesOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(GraphGetListMutesOutput object) =>
+      untranslate(object.toJson());
 }

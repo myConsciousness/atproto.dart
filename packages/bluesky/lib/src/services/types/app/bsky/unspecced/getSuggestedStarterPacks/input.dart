@@ -21,36 +21,35 @@ part 'input.g.dart';
 @freezed
 abstract class UnspeccedGetSuggestedStarterPacksInput
     with _$UnspeccedGetSuggestedStarterPacksInput {
-  static const knownProps = <String>[
-    'limit',
-  ];
+  static const knownProps = <String>['limit'];
 
   const factory UnspeccedGetSuggestedStarterPacksInput({
     int? limit,
+
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestedStarterPacksInput;
 
   factory UnspeccedGetSuggestedStarterPacksInput.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedGetSuggestedStarterPacksInputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$UnspeccedGetSuggestedStarterPacksInputFromJson(json);
 }
 
 final class UnspeccedGetSuggestedStarterPacksInputConverter
-    extends LexObjectConverter<UnspeccedGetSuggestedStarterPacksInput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          UnspeccedGetSuggestedStarterPacksInput,
+          Map<String, dynamic>
+        > {
   const UnspeccedGetSuggestedStarterPacksInputConverter();
 
   @override
   UnspeccedGetSuggestedStarterPacksInput fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetSuggestedStarterPacksInput.fromJson(translate(
-      json,
-      UnspeccedGetSuggestedStarterPacksInput.knownProps,
-    ));
+    return UnspeccedGetSuggestedStarterPacksInput.fromJson(
+      translate(json, UnspeccedGetSuggestedStarterPacksInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetSuggestedStarterPacksInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

@@ -23,12 +23,7 @@ part 'saved_feed.g.dart';
 
 @freezed
 abstract class SavedFeed with _$SavedFeed {
-  static const knownProps = <String>[
-    'id',
-    'type',
-    'value',
-    'pinned',
-  ];
+  static const knownProps = <String>['id', 'type', 'value', 'pinned'];
 
   const factory SavedFeed({
     @Default(appBskyActorDefsSavedFeed) String $type,
@@ -36,6 +31,7 @@ abstract class SavedFeed with _$SavedFeed {
     required String type,
     required String value,
     required bool pinned,
+
     Map<String, dynamic>? $unknown,
   }) = _SavedFeed;
 
@@ -54,14 +50,9 @@ final class SavedFeedConverter
 
   @override
   SavedFeed fromJson(Map<String, dynamic> json) {
-    return SavedFeed.fromJson(translate(
-      json,
-      SavedFeed.knownProps,
-    ));
+    return SavedFeed.fromJson(translate(json, SavedFeed.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(SavedFeed object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SavedFeed object) => untranslate(object.toJson());
 }

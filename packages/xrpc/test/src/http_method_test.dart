@@ -22,7 +22,9 @@ void main() {
 
     test('when value is not supported', () {
       expect(
-          () => HttpMethod.valueOf('TEST'), throwsA(isA<UnsupportedError>()));
+        () => HttpMethod.valueOf('TEST'),
+        throwsA(isA<UnsupportedError>()),
+      );
     });
   });
 }

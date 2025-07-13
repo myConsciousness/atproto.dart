@@ -20,10 +20,7 @@ part 'pattern_type.g.dart';
 
 @freezed
 abstract class PatternType with _$PatternType {
-  static const knownProps = <String>[
-    'domain',
-    'url',
-  ];
+  static const knownProps = <String>['domain', 'url'];
 
   const factory PatternType({
     KnownPatternType? knownValue,
@@ -40,24 +37,19 @@ abstract class PatternTypeConverter
 
   @override
   PatternType fromJson(Map<String, dynamic> json) {
-    return PatternType.fromJson(translate(
-      json,
-      PatternType.knownProps,
-    ));
+    return PatternType.fromJson(translate(json, PatternType.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(PatternType object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(PatternType object) =>
+      untranslate(object.toJson());
 }
 
 enum KnownPatternType implements Serializable {
   @JsonValue('domain')
   domain('domain'),
   @JsonValue('url')
-  url('url'),
-  ;
+  url('url');
 
   @override
   final String value;

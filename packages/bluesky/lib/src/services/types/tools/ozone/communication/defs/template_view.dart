@@ -56,6 +56,7 @@ abstract class TemplateView with _$TemplateView {
     required String lastUpdatedBy,
     required DateTime createdAt,
     required DateTime updatedAt,
+
     Map<String, dynamic>? $unknown,
   }) = _TemplateView;
 
@@ -74,14 +75,10 @@ final class TemplateViewConverter
 
   @override
   TemplateView fromJson(Map<String, dynamic> json) {
-    return TemplateView.fromJson(translate(
-      json,
-      TemplateView.knownProps,
-    ));
+    return TemplateView.fromJson(translate(json, TemplateView.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(TemplateView object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(TemplateView object) =>
+      untranslate(object.toJson());
 }

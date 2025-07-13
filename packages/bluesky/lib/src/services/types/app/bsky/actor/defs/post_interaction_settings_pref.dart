@@ -35,10 +35,11 @@ abstract class PostInteractionSettingsPref with _$PostInteractionSettingsPref {
     @Default(appBskyActorDefsPostInteractionSettingsPref) String $type,
     @UPostInteractionSettingsPrefThreadgateAllowRulesConverter()
     List<UPostInteractionSettingsPrefThreadgateAllowRules>?
-        threadgateAllowRules,
+    threadgateAllowRules,
     @UPostInteractionSettingsPrefPostgateEmbeddingRulesConverter()
     List<UPostInteractionSettingsPrefPostgateEmbeddingRules>?
-        postgateEmbeddingRules,
+    postgateEmbeddingRules,
+
     Map<String, dynamic>? $unknown,
   }) = _PostInteractionSettingsPref;
 
@@ -51,21 +52,19 @@ abstract class PostInteractionSettingsPref with _$PostInteractionSettingsPref {
   }
 }
 
-final class PostInteractionSettingsPrefConverter extends LexObjectConverter<
-    PostInteractionSettingsPref, Map<String, dynamic>> {
+final class PostInteractionSettingsPrefConverter
+    extends
+        LexObjectConverter<PostInteractionSettingsPref, Map<String, dynamic>> {
   const PostInteractionSettingsPrefConverter();
 
   @override
   PostInteractionSettingsPref fromJson(Map<String, dynamic> json) {
-    return PostInteractionSettingsPref.fromJson(translate(
-      json,
-      PostInteractionSettingsPref.knownProps,
-    ));
+    return PostInteractionSettingsPref.fromJson(
+      translate(json, PostInteractionSettingsPref.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(PostInteractionSettingsPref object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

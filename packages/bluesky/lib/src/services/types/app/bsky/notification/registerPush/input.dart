@@ -33,6 +33,7 @@ abstract class NotificationRegisterPushInput
     required String token,
     required String platform,
     required String appId,
+
     Map<String, dynamic>? $unknown,
   }) = _NotificationRegisterPushInput;
 
@@ -40,21 +41,22 @@ abstract class NotificationRegisterPushInput
       _$NotificationRegisterPushInputFromJson(json);
 }
 
-final class NotificationRegisterPushInputConverter extends LexObjectConverter<
-    NotificationRegisterPushInput, Map<String, dynamic>> {
+final class NotificationRegisterPushInputConverter
+    extends
+        LexObjectConverter<
+          NotificationRegisterPushInput,
+          Map<String, dynamic>
+        > {
   const NotificationRegisterPushInputConverter();
 
   @override
   NotificationRegisterPushInput fromJson(Map<String, dynamic> json) {
-    return NotificationRegisterPushInput.fromJson(translate(
-      json,
-      NotificationRegisterPushInput.knownProps,
-    ));
+    return NotificationRegisterPushInput.fromJson(
+      translate(json, NotificationRegisterPushInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(NotificationRegisterPushInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

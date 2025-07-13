@@ -24,12 +24,7 @@ part 'threadgate_view.g.dart';
 
 @freezed
 abstract class ThreadgateView with _$ThreadgateView {
-  static const knownProps = <String>[
-    'uri',
-    'cid',
-    'record',
-    'lists',
-  ];
+  static const knownProps = <String>['uri', 'cid', 'record', 'lists'];
 
   const factory ThreadgateView({
     @Default(appBskyFeedDefsThreadgateView) String $type,
@@ -37,6 +32,7 @@ abstract class ThreadgateView with _$ThreadgateView {
     String? cid,
     Map<String, dynamic>? record,
     @ListViewBasicConverter() List<ListViewBasic>? lists,
+
     Map<String, dynamic>? $unknown,
   }) = _ThreadgateView;
 
@@ -55,14 +51,10 @@ final class ThreadgateViewConverter
 
   @override
   ThreadgateView fromJson(Map<String, dynamic> json) {
-    return ThreadgateView.fromJson(translate(
-      json,
-      ThreadgateView.knownProps,
-    ));
+    return ThreadgateView.fromJson(translate(json, ThreadgateView.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ThreadgateView object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ThreadgateView object) =>
+      untranslate(object.toJson());
 }

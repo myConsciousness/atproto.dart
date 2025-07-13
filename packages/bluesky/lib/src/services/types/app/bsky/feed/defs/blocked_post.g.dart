@@ -8,30 +8,32 @@ part of 'blocked_post.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BlockedPostImpl _$$BlockedPostImplFromJson(Map json) => $checkedCreate(
-      r'_$BlockedPostImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$BlockedPostImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyFeedDefsBlockedPost),
-          uri: $checkedConvert('uri', (v) => v as String),
-          blocked: $checkedConvert('blocked', (v) => v as bool),
-          author: $checkedConvert(
-              'author',
-              (v) => const BlockedAuthorConverter()
-                  .fromJson(v as Map<String, dynamic>)),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
+_BlockedPost _$BlockedPostFromJson(Map json) => $checkedCreate(
+  '_BlockedPost',
+  json,
+  ($checkedConvert) {
+    final val = _BlockedPost(
+      $type: $checkedConvert(
+        r'$type',
+        (v) => v as String? ?? appBskyFeedDefsBlockedPost,
+      ),
+      uri: $checkedConvert('uri', (v) => v as String),
+      blocked: $checkedConvert('blocked', (v) => v as bool),
+      author: $checkedConvert(
+        'author',
+        (v) =>
+            const BlockedAuthorConverter().fromJson(v as Map<String, dynamic>),
+      ),
+      $unknown: $checkedConvert(
+        r'$unknown',
+        (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+      ),
     );
+    return val;
+  },
+);
 
-Map<String, dynamic> _$$BlockedPostImplToJson(_$BlockedPostImpl instance) =>
+Map<String, dynamic> _$BlockedPostToJson(_BlockedPost instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'uri': instance.uri,

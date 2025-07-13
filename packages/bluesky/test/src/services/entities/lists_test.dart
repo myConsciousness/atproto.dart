@@ -13,48 +13,40 @@ import 'package:bluesky/src/services/entities/lists.dart';
 void main() {
   group('.moderatedLists', () {
     test('case1', () {
-      final lists = Lists(lists: [
-        ListView(
-          purpose: appBskyGraphDefsCuratelist,
-          uri: AtUri.parse(
-            'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
-          ),
-          cid: 'aaaaa',
-          name: 'test',
-          createdBy: Actor(
-            did: 'xxxxxx',
-            handle: 'shinyakato.dev',
-            viewer: ActorViewer(
-              isMuted: true,
-              isBlockedBy: false,
+      final lists = Lists(
+        lists: [
+          ListView(
+            purpose: appBskyGraphDefsCuratelist,
+            uri: AtUri.parse(
+              'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
             ),
-          ),
-          viewer: ListViewer(
-            isMuted: false,
-          ),
-          indexedAt: DateTime.now(),
-        ),
-        ListView(
-          purpose: appBskyGraphDefsModlist,
-          uri: AtUri.parse(
-            'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5aaaaaa',
-          ),
-          cid: 'aaaaa',
-          name: 'test',
-          createdBy: Actor(
-            did: 'xxxxxx',
-            handle: 'shinyakato.dev',
-            viewer: ActorViewer(
-              isMuted: true,
-              isBlockedBy: false,
+            cid: 'aaaaa',
+            name: 'test',
+            createdBy: Actor(
+              did: 'xxxxxx',
+              handle: 'shinyakato.dev',
+              viewer: ActorViewer(isMuted: true, isBlockedBy: false),
             ),
+            viewer: ListViewer(isMuted: false),
+            indexedAt: DateTime.now(),
           ),
-          viewer: ListViewer(
-            isMuted: false,
+          ListView(
+            purpose: appBskyGraphDefsModlist,
+            uri: AtUri.parse(
+              'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5aaaaaa',
+            ),
+            cid: 'aaaaa',
+            name: 'test',
+            createdBy: Actor(
+              did: 'xxxxxx',
+              handle: 'shinyakato.dev',
+              viewer: ActorViewer(isMuted: true, isBlockedBy: false),
+            ),
+            viewer: ListViewer(isMuted: false),
+            indexedAt: DateTime.now(),
           ),
-          indexedAt: DateTime.now(),
-        )
-      ]);
+        ],
+      );
 
       final moderated = lists.moderatedLists;
 
@@ -66,48 +58,40 @@ void main() {
     });
 
     test('case2', () {
-      final lists = Lists(lists: [
-        ListView(
-          purpose: appBskyGraphDefsCuratelist,
-          uri: AtUri.parse(
-            'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
-          ),
-          cid: 'aaaaa',
-          name: 'test',
-          createdBy: Actor(
-            did: 'xxxxxx',
-            handle: 'shinyakato.dev',
-            viewer: ActorViewer(
-              isMuted: true,
-              isBlockedBy: false,
+      final lists = Lists(
+        lists: [
+          ListView(
+            purpose: appBskyGraphDefsCuratelist,
+            uri: AtUri.parse(
+              'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
             ),
-          ),
-          viewer: ListViewer(
-            isMuted: false,
-          ),
-          indexedAt: DateTime.now(),
-        ),
-        ListView(
-          purpose: appBskyGraphDefsCuratelist,
-          uri: AtUri.parse(
-            'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5aaaaaa',
-          ),
-          cid: 'aaaaa',
-          name: 'test',
-          createdBy: Actor(
-            did: 'xxxxxx',
-            handle: 'shinyakato.dev',
-            viewer: ActorViewer(
-              isMuted: true,
-              isBlockedBy: false,
+            cid: 'aaaaa',
+            name: 'test',
+            createdBy: Actor(
+              did: 'xxxxxx',
+              handle: 'shinyakato.dev',
+              viewer: ActorViewer(isMuted: true, isBlockedBy: false),
             ),
+            viewer: ListViewer(isMuted: false),
+            indexedAt: DateTime.now(),
           ),
-          viewer: ListViewer(
-            isMuted: false,
+          ListView(
+            purpose: appBskyGraphDefsCuratelist,
+            uri: AtUri.parse(
+              'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5aaaaaa',
+            ),
+            cid: 'aaaaa',
+            name: 'test',
+            createdBy: Actor(
+              did: 'xxxxxx',
+              handle: 'shinyakato.dev',
+              viewer: ActorViewer(isMuted: true, isBlockedBy: false),
+            ),
+            viewer: ListViewer(isMuted: false),
+            indexedAt: DateTime.now(),
           ),
-          indexedAt: DateTime.now(),
-        )
-      ]);
+        ],
+      );
 
       final moderated = lists.moderatedLists;
 
@@ -117,48 +101,40 @@ void main() {
 
   group('.curatedLists', () {
     test('case1', () {
-      final lists = Lists(lists: [
-        ListView(
-          purpose: appBskyGraphDefsCuratelist,
-          uri: AtUri.parse(
-            'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
-          ),
-          cid: 'aaaaa',
-          name: 'test',
-          createdBy: Actor(
-            did: 'xxxxxx',
-            handle: 'shinyakato.dev',
-            viewer: ActorViewer(
-              isMuted: true,
-              isBlockedBy: false,
+      final lists = Lists(
+        lists: [
+          ListView(
+            purpose: appBskyGraphDefsCuratelist,
+            uri: AtUri.parse(
+              'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
             ),
-          ),
-          viewer: ListViewer(
-            isMuted: false,
-          ),
-          indexedAt: DateTime.now(),
-        ),
-        ListView(
-          purpose: appBskyGraphDefsModlist,
-          uri: AtUri.parse(
-            'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5aaaaaa',
-          ),
-          cid: 'aaaaa',
-          name: 'test',
-          createdBy: Actor(
-            did: 'xxxxxx',
-            handle: 'shinyakato.dev',
-            viewer: ActorViewer(
-              isMuted: true,
-              isBlockedBy: false,
+            cid: 'aaaaa',
+            name: 'test',
+            createdBy: Actor(
+              did: 'xxxxxx',
+              handle: 'shinyakato.dev',
+              viewer: ActorViewer(isMuted: true, isBlockedBy: false),
             ),
+            viewer: ListViewer(isMuted: false),
+            indexedAt: DateTime.now(),
           ),
-          viewer: ListViewer(
-            isMuted: false,
+          ListView(
+            purpose: appBskyGraphDefsModlist,
+            uri: AtUri.parse(
+              'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5aaaaaa',
+            ),
+            cid: 'aaaaa',
+            name: 'test',
+            createdBy: Actor(
+              did: 'xxxxxx',
+              handle: 'shinyakato.dev',
+              viewer: ActorViewer(isMuted: true, isBlockedBy: false),
+            ),
+            viewer: ListViewer(isMuted: false),
+            indexedAt: DateTime.now(),
           ),
-          indexedAt: DateTime.now(),
-        )
-      ]);
+        ],
+      );
 
       final curated = lists.curatedLists;
 
@@ -170,48 +146,40 @@ void main() {
     });
 
     test('case2', () {
-      final lists = Lists(lists: [
-        ListView(
-          purpose: appBskyGraphDefsModlist,
-          uri: AtUri.parse(
-            'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
-          ),
-          cid: 'aaaaa',
-          name: 'test',
-          createdBy: Actor(
-            did: 'xxxxxx',
-            handle: 'shinyakato.dev',
-            viewer: ActorViewer(
-              isMuted: true,
-              isBlockedBy: false,
+      final lists = Lists(
+        lists: [
+          ListView(
+            purpose: appBskyGraphDefsModlist,
+            uri: AtUri.parse(
+              'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
             ),
-          ),
-          viewer: ListViewer(
-            isMuted: false,
-          ),
-          indexedAt: DateTime.now(),
-        ),
-        ListView(
-          purpose: appBskyGraphDefsModlist,
-          uri: AtUri.parse(
-            'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5aaaaaa',
-          ),
-          cid: 'aaaaa',
-          name: 'test',
-          createdBy: Actor(
-            did: 'xxxxxx',
-            handle: 'shinyakato.dev',
-            viewer: ActorViewer(
-              isMuted: true,
-              isBlockedBy: false,
+            cid: 'aaaaa',
+            name: 'test',
+            createdBy: Actor(
+              did: 'xxxxxx',
+              handle: 'shinyakato.dev',
+              viewer: ActorViewer(isMuted: true, isBlockedBy: false),
             ),
+            viewer: ListViewer(isMuted: false),
+            indexedAt: DateTime.now(),
           ),
-          viewer: ListViewer(
-            isMuted: false,
+          ListView(
+            purpose: appBskyGraphDefsModlist,
+            uri: AtUri.parse(
+              'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5aaaaaa',
+            ),
+            cid: 'aaaaa',
+            name: 'test',
+            createdBy: Actor(
+              did: 'xxxxxx',
+              handle: 'shinyakato.dev',
+              viewer: ActorViewer(isMuted: true, isBlockedBy: false),
+            ),
+            viewer: ListViewer(isMuted: false),
+            indexedAt: DateTime.now(),
           ),
-          indexedAt: DateTime.now(),
-        )
-      ]);
+        ],
+      );
 
       final curated = lists.curatedLists;
 

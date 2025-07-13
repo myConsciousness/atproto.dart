@@ -8,20 +8,19 @@ part of 'reason_type.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ReasonTypeImpl _$$ReasonTypeImplFromJson(Map json) => $checkedCreate(
-      r'_$ReasonTypeImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ReasonTypeImpl(
-          knownValue: $checkedConvert('knownValue',
-              (v) => $enumDecodeNullable(_$KnownReasonTypeEnumMap, v)),
-          unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
-        );
-        return val;
-      },
-    );
+_ReasonType _$ReasonTypeFromJson(Map json) =>
+    $checkedCreate('_ReasonType', json, ($checkedConvert) {
+      final val = _ReasonType(
+        knownValue: $checkedConvert(
+          'knownValue',
+          (v) => $enumDecodeNullable(_$KnownReasonTypeEnumMap, v),
+        ),
+        unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ReasonTypeImplToJson(_$ReasonTypeImpl instance) =>
+Map<String, dynamic> _$ReasonTypeToJson(_ReasonType instance) =>
     <String, dynamic>{
       'knownValue': _$KnownReasonTypeEnumMap[instance.knownValue],
       'unknownValue': instance.unknownValue,

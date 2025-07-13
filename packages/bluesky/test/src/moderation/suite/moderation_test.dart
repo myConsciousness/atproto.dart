@@ -19,8 +19,7 @@ import 'utils/runner.dart';
 
 void main() {
   group('Moderation', () {
-    test(
-        'Applies self-labels on profiles according to the global preferences '
+    test('Applies self-labels on profiles according to the global preferences '
         '(porn (hide))', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.profileViewBasic(
@@ -41,9 +40,7 @@ void main() {
           userDid: 'did:web:alice.test',
           prefs: ModerationPrefs(
             adultContentEnabled: true,
-            labels: {
-              'porn': LabelPreference.hide,
-            },
+            labels: {'porn': LabelPreference.hide},
             labelers: const [],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -58,8 +55,7 @@ void main() {
       );
     });
 
-    test(
-        'Applies self-labels on profiles according to the global preferences '
+    test('Applies self-labels on profiles according to the global preferences '
         '(porn (ignore))', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.profileViewBasic(
@@ -80,9 +76,7 @@ void main() {
           userDid: 'did:web:alice.test',
           prefs: ModerationPrefs(
             adultContentEnabled: true,
-            labels: {
-              'porn': LabelPreference.ignore,
-            },
+            labels: {'porn': LabelPreference.ignore},
             labelers: const [],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -97,8 +91,7 @@ void main() {
       );
     });
 
-    test(
-        'Ignores labels from unsubscribed moderators or ignored labels for '
+    test('Ignores labels from unsubscribed moderators or ignored labels for '
         'a moderator (porn (moderator disabled))', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.profileViewBasic(
@@ -119,9 +112,7 @@ void main() {
           userDid: 'did:web:alice.test',
           prefs: ModerationPrefs(
             adultContentEnabled: true,
-            labels: {
-              'porn': LabelPreference.hide,
-            },
+            labels: {'porn': LabelPreference.hide},
             labelers: const [],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -138,8 +129,7 @@ void main() {
       }
     });
 
-    test(
-        'Ignores labels from unsubscribed moderators or ignored labels for '
+    test('Ignores labels from unsubscribed moderators or ignored labels for '
         'a moderator (porn (label group disabled))', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.profileViewBasic(
@@ -160,15 +150,11 @@ void main() {
           userDid: 'did:web:alice.test',
           prefs: ModerationPrefs(
             adultContentEnabled: true,
-            labels: {
-              'porn': LabelPreference.ignore,
-            },
+            labels: {'porn': LabelPreference.ignore},
             labelers: const [
               ModerationPrefsLabeler(
                 did: 'did:web:labeler.test',
-                labels: {
-                  'porn': LabelPreference.ignore,
-                },
+                labels: {'porn': LabelPreference.ignore},
               ),
             ],
             mutedWords: const [],
@@ -194,10 +180,7 @@ void main() {
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
             ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
           ),
         ),
         ModerationOpts(
@@ -206,10 +189,7 @@ void main() {
             adultContentEnabled: true,
             labels: const {},
             labelers: const [
-              ModerationPrefsLabeler(
-                did: 'did:web:labeler.test',
-                labels: {},
-              ),
+              ModerationPrefsLabeler(did: 'did:web:labeler.test', labels: {}),
             ],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -229,9 +209,7 @@ void main() {
       );
       testModeration(
         actual: actual.getUI(ModerationBehaviorContext.contentView),
-        expected: const [
-          ModerationTestSuiteResultFlag.blur,
-        ],
+        expected: const [ModerationTestSuiteResultFlag.blur],
         context: ModerationBehaviorContext.contentView.name,
       );
     });
@@ -244,10 +222,7 @@ void main() {
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
             ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
@@ -268,14 +243,9 @@ void main() {
           userDid: 'did:web:alice.test',
           prefs: ModerationPrefs(
             adultContentEnabled: true,
-            labels: const {
-              'porn': LabelPreference.hide,
-            },
+            labels: const {'porn': LabelPreference.hide},
             labelers: const [
-              ModerationPrefsLabeler(
-                did: 'did:web:labeler.test',
-                labels: {},
-              ),
+              ModerationPrefsLabeler(did: 'did:web:labeler.test', labels: {}),
             ],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -324,10 +294,7 @@ void main() {
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
             ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
@@ -342,15 +309,11 @@ void main() {
           userDid: 'did:web:alice.test',
           prefs: ModerationPrefs(
             adultContentEnabled: true,
-            labels: const {
-              'porn': LabelPreference.warn,
-            },
+            labels: const {'porn': LabelPreference.warn},
             labelers: const [
               ModerationPrefsLabeler(
                 did: 'did:web:labeler.test',
-                labels: {
-                  'porn': LabelPreference.warn,
-                },
+                labels: {'porn': LabelPreference.warn},
               ),
             ],
             mutedWords: const [],
@@ -364,8 +327,8 @@ void main() {
                 blurs: 'none',
                 defaultSetting: LabelPreference.warn,
                 definedBy: 'did:web:labeler.test',
-              )
-            ]
+              ),
+            ],
           },
         ),
       );
@@ -420,10 +383,7 @@ void main() {
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
             ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
@@ -440,10 +400,7 @@ void main() {
             adultContentEnabled: true,
             labels: const {},
             labelers: const [
-              ModerationPrefsLabeler(
-                did: 'did:web:labeler.test',
-                labels: {},
-              ),
+              ModerationPrefsLabeler(did: 'did:web:labeler.test', labels: {}),
             ],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -456,8 +413,8 @@ void main() {
                 blurs: 'none',
                 defaultSetting: LabelPreference.warn,
                 definedBy: 'did:web:labeler.test',
-              )
-            ]
+              ),
+            ],
           },
         ),
       );
@@ -519,10 +476,7 @@ void main() {
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
             ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
@@ -571,8 +525,8 @@ void main() {
                 blurs: 'content',
                 defaultSetting: LabelPreference.warn,
                 definedBy: 'did:web:labeler.test',
-              )
-            ]
+              ),
+            ],
           },
         ),
       );
@@ -627,10 +581,7 @@ void main() {
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
             ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
@@ -647,10 +598,7 @@ void main() {
             adultContentEnabled: true,
             labels: const {},
             labelers: const [
-              ModerationPrefsLabeler(
-                did: 'did:web:labeler.test',
-                labels: {},
-              ),
+              ModerationPrefsLabeler(did: 'did:web:labeler.test', labels: {}),
             ],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -677,8 +625,8 @@ void main() {
                 blurs: 'content',
                 defaultSetting: LabelPreference.ignore,
                 definedBy: 'did:web:labeler.test',
-              )
-            ]
+              ),
+            ],
           },
         ),
       );
@@ -718,9 +666,7 @@ void main() {
       );
       testModeration(
         actual: actual.getUI(ModerationBehaviorContext.contentView),
-        expected: const [
-          ModerationTestSuiteResultFlag.inform,
-        ],
+        expected: const [ModerationTestSuiteResultFlag.inform],
         context: ModerationBehaviorContext.contentView.name,
       );
       testModeration(
@@ -738,10 +684,7 @@ void main() {
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
             ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
@@ -758,10 +701,7 @@ void main() {
             adultContentEnabled: true,
             labels: const {},
             labelers: const [
-              ModerationPrefsLabeler(
-                did: 'did:web:labeler.test',
-                labels: {},
-              ),
+              ModerationPrefsLabeler(did: 'did:web:labeler.test', labels: {}),
             ],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -788,8 +728,8 @@ void main() {
                 blurs: 'content',
                 defaultSetting: LabelPreference.ignore,
                 definedBy: 'did:web:labeler.test',
-              )
-            ]
+              ),
+            ],
           },
         ),
       );
@@ -821,16 +761,12 @@ void main() {
       );
       testModeration(
         actual: actual.getUI(ModerationBehaviorContext.contentList),
-        expected: const [
-          ModerationTestSuiteResultFlag.blur,
-        ],
+        expected: const [ModerationTestSuiteResultFlag.blur],
         context: ModerationBehaviorContext.contentList.name,
       );
       testModeration(
         actual: actual.getUI(ModerationBehaviorContext.contentView),
-        expected: const [
-          ModerationTestSuiteResultFlag.inform,
-        ],
+        expected: const [ModerationTestSuiteResultFlag.inform],
         context: ModerationBehaviorContext.contentView.name,
       );
       testModeration(
@@ -848,10 +784,7 @@ void main() {
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
             ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
@@ -868,10 +801,7 @@ void main() {
             adultContentEnabled: true,
             labels: const {},
             labelers: const [
-              ModerationPrefsLabeler(
-                did: 'did:web:labeler.test',
-                labels: {},
-              ),
+              ModerationPrefsLabeler(did: 'did:web:labeler.test', labels: {}),
             ],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -898,8 +828,8 @@ void main() {
                 blurs: 'content',
                 defaultSetting: LabelPreference.ignore,
                 definedBy: 'did:web:labeler.test',
-              )
-            ]
+              ),
+            ],
           },
         ),
       );
@@ -954,10 +884,7 @@ void main() {
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
             ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
@@ -972,15 +899,11 @@ void main() {
           userDid: 'did:web:alice.test',
           prefs: ModerationPrefs(
             adultContentEnabled: false,
-            labels: const {
-              'adult': LabelPreference.ignore,
-            },
+            labels: const {'adult': LabelPreference.ignore},
             labelers: const [
               ModerationPrefsLabeler(
                 did: 'did:web:labeler.test',
-                labels: {
-                  'adult': LabelPreference.ignore,
-                },
+                labels: {'adult': LabelPreference.ignore},
               ),
             ],
             mutedWords: const [],
@@ -996,7 +919,7 @@ void main() {
                 adultOnly: true,
                 definedBy: 'did:web:labeler.test',
               ),
-            ]
+            ],
           },
         ),
       );
@@ -1058,10 +981,7 @@ void main() {
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
             ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
@@ -1076,14 +996,9 @@ void main() {
           userDid: 'did:web:alice.test',
           prefs: ModerationPrefs(
             adultContentEnabled: false,
-            labels: const {
-              'porn': LabelPreference.ignore,
-            },
+            labels: const {'porn': LabelPreference.ignore},
             labelers: const [
-              ModerationPrefsLabeler(
-                did: 'did:web:labeler.test',
-                labels: {},
-              ),
+              ModerationPrefsLabeler(did: 'did:web:labeler.test', labels: {}),
             ],
             mutedWords: const [],
             hiddenPosts: const [],

@@ -23,15 +23,13 @@ part 'invite_code_use.g.dart';
 
 @freezed
 abstract class InviteCodeUse with _$InviteCodeUse {
-  static const knownProps = <String>[
-    'usedBy',
-    'usedAt',
-  ];
+  static const knownProps = <String>['usedBy', 'usedAt'];
 
   const factory InviteCodeUse({
     @Default(comAtprotoServerDefsInviteCodeUse) String $type,
     required String usedBy,
     required DateTime usedAt,
+
     Map<String, dynamic>? $unknown,
   }) = _InviteCodeUse;
 
@@ -50,14 +48,10 @@ final class InviteCodeUseConverter
 
   @override
   InviteCodeUse fromJson(Map<String, dynamic> json) {
-    return InviteCodeUse.fromJson(translate(
-      json,
-      InviteCodeUse.knownProps,
-    ));
+    return InviteCodeUse.fromJson(translate(json, InviteCodeUse.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(InviteCodeUse object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(InviteCodeUse object) =>
+      untranslate(object.toJson());
 }

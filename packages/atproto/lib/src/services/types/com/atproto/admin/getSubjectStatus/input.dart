@@ -20,16 +20,13 @@ part 'input.g.dart';
 
 @freezed
 abstract class AdminGetSubjectStatusInput with _$AdminGetSubjectStatusInput {
-  static const knownProps = <String>[
-    'did',
-    'uri',
-    'blob',
-  ];
+  static const knownProps = <String>['did', 'uri', 'blob'];
 
   const factory AdminGetSubjectStatusInput({
     String? did,
     String? uri,
     String? blob,
+
     Map<String, dynamic>? $unknown,
   }) = _AdminGetSubjectStatusInput;
 
@@ -37,20 +34,19 @@ abstract class AdminGetSubjectStatusInput with _$AdminGetSubjectStatusInput {
       _$AdminGetSubjectStatusInputFromJson(json);
 }
 
-final class AdminGetSubjectStatusInputConverter extends LexObjectConverter<
-    AdminGetSubjectStatusInput, Map<String, dynamic>> {
+final class AdminGetSubjectStatusInputConverter
+    extends
+        LexObjectConverter<AdminGetSubjectStatusInput, Map<String, dynamic>> {
   const AdminGetSubjectStatusInputConverter();
 
   @override
   AdminGetSubjectStatusInput fromJson(Map<String, dynamic> json) {
-    return AdminGetSubjectStatusInput.fromJson(translate(
-      json,
-      AdminGetSubjectStatusInput.knownProps,
-    ));
+    return AdminGetSubjectStatusInput.fromJson(
+      translate(json, AdminGetSubjectStatusInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(AdminGetSubjectStatusInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(AdminGetSubjectStatusInput object) =>
+      untranslate(object.toJson());
 }

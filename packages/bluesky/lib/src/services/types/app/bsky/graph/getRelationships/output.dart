@@ -23,15 +23,13 @@ part 'output.g.dart';
 
 @freezed
 abstract class GraphGetRelationshipsOutput with _$GraphGetRelationshipsOutput {
-  static const knownProps = <String>[
-    'actor',
-    'relationships',
-  ];
+  static const knownProps = <String>['actor', 'relationships'];
 
   const factory GraphGetRelationshipsOutput({
     String? actor,
     @UGraphGetRelationshipsRelationshipsConverter()
     required List<UGraphGetRelationshipsRelationships> relationships,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphGetRelationshipsOutput;
 
@@ -39,21 +37,19 @@ abstract class GraphGetRelationshipsOutput with _$GraphGetRelationshipsOutput {
       _$GraphGetRelationshipsOutputFromJson(json);
 }
 
-final class GraphGetRelationshipsOutputConverter extends LexObjectConverter<
-    GraphGetRelationshipsOutput, Map<String, dynamic>> {
+final class GraphGetRelationshipsOutputConverter
+    extends
+        LexObjectConverter<GraphGetRelationshipsOutput, Map<String, dynamic>> {
   const GraphGetRelationshipsOutputConverter();
 
   @override
   GraphGetRelationshipsOutput fromJson(Map<String, dynamic> json) {
-    return GraphGetRelationshipsOutput.fromJson(translate(
-      json,
-      GraphGetRelationshipsOutput.knownProps,
-    ));
+    return GraphGetRelationshipsOutput.fromJson(
+      translate(json, GraphGetRelationshipsOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(GraphGetRelationshipsOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

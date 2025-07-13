@@ -23,12 +23,11 @@ part 'input.g.dart';
 
 @freezed
 abstract class ActorPutPreferencesInput with _$ActorPutPreferencesInput {
-  static const knownProps = <String>[
-    'preferences',
-  ];
+  static const knownProps = <String>['preferences'];
 
   const factory ActorPutPreferencesInput({
     @UPreferencesConverter() required List<UPreferences> preferences,
+
     Map<String, dynamic>? $unknown,
   }) = _ActorPutPreferencesInput;
 
@@ -42,14 +41,12 @@ final class ActorPutPreferencesInputConverter
 
   @override
   ActorPutPreferencesInput fromJson(Map<String, dynamic> json) {
-    return ActorPutPreferencesInput.fromJson(translate(
-      json,
-      ActorPutPreferencesInput.knownProps,
-    ));
+    return ActorPutPreferencesInput.fromJson(
+      translate(json, ActorPutPreferencesInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ActorPutPreferencesInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ActorPutPreferencesInput object) =>
+      untranslate(object.toJson());
 }

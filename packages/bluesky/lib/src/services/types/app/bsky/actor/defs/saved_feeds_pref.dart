@@ -23,17 +23,14 @@ part 'saved_feeds_pref.g.dart';
 
 @freezed
 abstract class SavedFeedsPref with _$SavedFeedsPref {
-  static const knownProps = <String>[
-    'pinned',
-    'saved',
-    'timelineIndex',
-  ];
+  static const knownProps = <String>['pinned', 'saved', 'timelineIndex'];
 
   const factory SavedFeedsPref({
     @Default(appBskyActorDefsSavedFeedsPref) String $type,
     required List<String> pinned,
     required List<String> saved,
     int? timelineIndex,
+
     Map<String, dynamic>? $unknown,
   }) = _SavedFeedsPref;
 
@@ -52,14 +49,10 @@ final class SavedFeedsPrefConverter
 
   @override
   SavedFeedsPref fromJson(Map<String, dynamic> json) {
-    return SavedFeedsPref.fromJson(translate(
-      json,
-      SavedFeedsPref.knownProps,
-    ));
+    return SavedFeedsPref.fromJson(translate(json, SavedFeedsPref.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(SavedFeedsPref object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SavedFeedsPref object) =>
+      untranslate(object.toJson());
 }

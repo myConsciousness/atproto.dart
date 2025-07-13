@@ -12,7 +12,8 @@ part of 'lex_ipld.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$LexIpld {
@@ -21,40 +22,34 @@ mixin _$LexIpld {
   TResult when<TResult extends Object?>({
     required TResult Function(LexBytes data) bytes,
     required TResult Function(LexCidLink data) cidLink,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(LexBytes data)? bytes,
     TResult? Function(LexCidLink data)? cidLink,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(LexBytes data)? bytes,
     TResult Function(LexCidLink data)? cidLink,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ULexIpldBytes value) bytes,
     required TResult Function(ULexIpldCidLink value) cidLink,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ULexIpldBytes value)? bytes,
     TResult? Function(ULexIpldCidLink value)? cidLink,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ULexIpldBytes value)? bytes,
     TResult Function(ULexIpldCidLink value)? cidLink,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -80,8 +75,9 @@ class _$LexIpldCopyWithImpl<$Res, $Val extends LexIpld>
 /// @nodoc
 abstract class _$$ULexIpldBytesImplCopyWith<$Res> {
   factory _$$ULexIpldBytesImplCopyWith(
-          _$ULexIpldBytesImpl value, $Res Function(_$ULexIpldBytesImpl) then) =
-      __$$ULexIpldBytesImplCopyWithImpl<$Res>;
+    _$ULexIpldBytesImpl value,
+    $Res Function(_$ULexIpldBytesImpl) then,
+  ) = __$$ULexIpldBytesImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexBytes data});
 
@@ -93,22 +89,23 @@ class __$$ULexIpldBytesImplCopyWithImpl<$Res>
     extends _$LexIpldCopyWithImpl<$Res, _$ULexIpldBytesImpl>
     implements _$$ULexIpldBytesImplCopyWith<$Res> {
   __$$ULexIpldBytesImplCopyWithImpl(
-      _$ULexIpldBytesImpl _value, $Res Function(_$ULexIpldBytesImpl) _then)
-      : super(_value, _then);
+    _$ULexIpldBytesImpl _value,
+    $Res Function(_$ULexIpldBytesImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexIpld
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexIpldBytesImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexBytes,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexIpldBytesImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexBytes,
+      ),
+    );
   }
 
   /// Create a copy of LexIpld
@@ -234,9 +231,10 @@ abstract class ULexIpldBytes extends LexIpld {
 
 /// @nodoc
 abstract class _$$ULexIpldCidLinkImplCopyWith<$Res> {
-  factory _$$ULexIpldCidLinkImplCopyWith(_$ULexIpldCidLinkImpl value,
-          $Res Function(_$ULexIpldCidLinkImpl) then) =
-      __$$ULexIpldCidLinkImplCopyWithImpl<$Res>;
+  factory _$$ULexIpldCidLinkImplCopyWith(
+    _$ULexIpldCidLinkImpl value,
+    $Res Function(_$ULexIpldCidLinkImpl) then,
+  ) = __$$ULexIpldCidLinkImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexCidLink data});
 
@@ -248,22 +246,23 @@ class __$$ULexIpldCidLinkImplCopyWithImpl<$Res>
     extends _$LexIpldCopyWithImpl<$Res, _$ULexIpldCidLinkImpl>
     implements _$$ULexIpldCidLinkImplCopyWith<$Res> {
   __$$ULexIpldCidLinkImplCopyWithImpl(
-      _$ULexIpldCidLinkImpl _value, $Res Function(_$ULexIpldCidLinkImpl) _then)
-      : super(_value, _then);
+    _$ULexIpldCidLinkImpl _value,
+    $Res Function(_$ULexIpldCidLinkImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexIpld
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexIpldCidLinkImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexCidLink,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexIpldCidLinkImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexCidLink,
+      ),
+    );
   }
 
   /// Create a copy of LexIpld
@@ -308,7 +307,9 @@ class _$ULexIpldCidLinkImpl extends ULexIpldCidLink {
   @pragma('vm:prefer-inline')
   _$$ULexIpldCidLinkImplCopyWith<_$ULexIpldCidLinkImpl> get copyWith =>
       __$$ULexIpldCidLinkImplCopyWithImpl<_$ULexIpldCidLinkImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs

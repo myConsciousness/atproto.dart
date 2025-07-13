@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,227 +9,286 @@ part of 'delete.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Delete _$DeleteFromJson(Map<String, dynamic> json) {
-  return _Delete.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Delete {
-  String get $type => throw _privateConstructorUsedError;
-  String get collection => throw _privateConstructorUsedError;
-  String get rkey => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+
+ String get $type; String get collection; String get rkey; Map<String, dynamic>? get $unknown;
+/// Create a copy of Delete
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DeleteCopyWith<Delete> get copyWith => _$DeleteCopyWithImpl<Delete>(this as Delete, _$identity);
 
   /// Serializes this Delete to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of Delete
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $DeleteCopyWith<Delete> get copyWith => throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Delete&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.collection, collection) || other.collection == collection)&&(identical(other.rkey, rkey) || other.rkey == rkey)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,collection,rkey,const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'Delete(\$type: ${$type}, collection: $collection, rkey: $rkey, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $DeleteCopyWith<$Res> {
-  factory $DeleteCopyWith(Delete value, $Res Function(Delete) then) =
-      _$DeleteCopyWithImpl<$Res, Delete>;
-  @useResult
-  $Res call(
-      {String $type,
-      String collection,
-      String rkey,
-      Map<String, dynamic>? $unknown});
-}
+abstract mixin class $DeleteCopyWith<$Res>  {
+  factory $DeleteCopyWith(Delete value, $Res Function(Delete) _then) = _$DeleteCopyWithImpl;
+@useResult
+$Res call({
+ String $type, String collection, String rkey, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$DeleteCopyWithImpl<$Res, $Val extends Delete>
+class _$DeleteCopyWithImpl<$Res>
     implements $DeleteCopyWith<$Res> {
-  _$DeleteCopyWithImpl(this._value, this._then);
+  _$DeleteCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Delete _self;
+  final $Res Function(Delete) _then;
 
-  /// Create a copy of Delete
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? collection = null,
-    Object? rkey = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      collection: null == collection
-          ? _value.collection
-          : collection // ignore: cast_nullable_to_non_nullable
-              as String,
-      rkey: null == rkey
-          ? _value.rkey
-          : rkey // ignore: cast_nullable_to_non_nullable
-              as String,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of Delete
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? collection = null,Object? rkey = null,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,collection: null == collection ? _self.collection : collection // ignore: cast_nullable_to_non_nullable
+as String,rkey: null == rkey ? _self.rkey : rkey // ignore: cast_nullable_to_non_nullable
+as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$DeleteImplCopyWith<$Res> implements $DeleteCopyWith<$Res> {
-  factory _$$DeleteImplCopyWith(
-          _$DeleteImpl value, $Res Function(_$DeleteImpl) then) =
-      __$$DeleteImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String $type,
-      String collection,
-      String rkey,
-      Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$DeleteImplCopyWithImpl<$Res>
-    extends _$DeleteCopyWithImpl<$Res, _$DeleteImpl>
-    implements _$$DeleteImplCopyWith<$Res> {
-  __$$DeleteImplCopyWithImpl(
-      _$DeleteImpl _value, $Res Function(_$DeleteImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of Delete
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? $type = null,
-    Object? collection = null,
-    Object? rkey = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$DeleteImpl(
-      $type: null == $type
-          ? _value.$type
-          : $type // ignore: cast_nullable_to_non_nullable
-              as String,
-      collection: null == collection
-          ? _value.collection
-          : collection // ignore: cast_nullable_to_non_nullable
-              as String,
-      rkey: null == rkey
-          ? _value.rkey
-          : rkey // ignore: cast_nullable_to_non_nullable
-              as String,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [Delete].
+extension DeletePatterns on Delete {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Delete value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _Delete() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Delete value)  $default,){
+final _that = this;
+switch (_that) {
+case _Delete():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Delete value)?  $default,){
+final _that = this;
+switch (_that) {
+case _Delete() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String collection,  String rkey,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _Delete() when $default != null:
+return $default(_that.$type,_that.collection,_that.rkey,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String collection,  String rkey,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _Delete():
+return $default(_that.$type,_that.collection,_that.rkey,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String collection,  String rkey,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _Delete() when $default != null:
+return $default(_that.$type,_that.collection,_that.rkey,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$DeleteImpl implements _Delete {
-  const _$DeleteImpl(
-      {this.$type = comAtprotoRepoApplyWritesDelete,
-      required this.collection,
-      required this.rkey,
-      final Map<String, dynamic>? $unknown})
-      : _$unknown = $unknown;
 
-  factory _$DeleteImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DeleteImplFromJson(json);
+class _Delete implements Delete {
+  const _Delete({this.$type = comAtprotoRepoApplyWritesDelete, required this.collection, required this.rkey, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  factory _Delete.fromJson(Map<String, dynamic> json) => _$DeleteFromJson(json);
 
-  @override
-  @JsonKey()
-  final String $type;
-  @override
-  final String collection;
-  @override
-  final String rkey;
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'Delete(\$type: ${$type}, collection: $collection, rkey: $rkey, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DeleteImpl &&
-            (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.collection, collection) ||
-                other.collection == collection) &&
-            (identical(other.rkey, rkey) || other.rkey == rkey) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, $type, collection, rkey,
-      const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of Delete
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
-      __$$DeleteImplCopyWithImpl<_$DeleteImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DeleteImplToJson(
-      this,
-    );
-  }
+@override@JsonKey() final  String $type;
+@override final  String collection;
+@override final  String rkey;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
 
-abstract class _Delete implements Delete {
-  const factory _Delete(
-      {final String $type,
-      required final String collection,
-      required final String rkey,
-      final Map<String, dynamic>? $unknown}) = _$DeleteImpl;
 
-  factory _Delete.fromJson(Map<String, dynamic> json) = _$DeleteImpl.fromJson;
+/// Create a copy of Delete
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DeleteCopyWith<_Delete> get copyWith => __$DeleteCopyWithImpl<_Delete>(this, _$identity);
 
-  @override
-  String get $type;
-  @override
-  String get collection;
-  @override
-  String get rkey;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of Delete
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$DeleteToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Delete&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.collection, collection) || other.collection == collection)&&(identical(other.rkey, rkey) || other.rkey == rkey)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,$type,collection,rkey,const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'Delete(\$type: ${$type}, collection: $collection, rkey: $rkey, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DeleteCopyWith<$Res> implements $DeleteCopyWith<$Res> {
+  factory _$DeleteCopyWith(_Delete value, $Res Function(_Delete) _then) = __$DeleteCopyWithImpl;
+@override @useResult
+$Res call({
+ String $type, String collection, String rkey, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$DeleteCopyWithImpl<$Res>
+    implements _$DeleteCopyWith<$Res> {
+  __$DeleteCopyWithImpl(this._self, this._then);
+
+  final _Delete _self;
+  final $Res Function(_Delete) _then;
+
+/// Create a copy of Delete
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? collection = null,Object? rkey = null,Object? $unknown = freezed,}) {
+  return _then(_Delete(
+$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
+as String,collection: null == collection ? _self.collection : collection // ignore: cast_nullable_to_non_nullable
+as String,rkey: null == rkey ? _self.rkey : rkey // ignore: cast_nullable_to_non_nullable
+as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

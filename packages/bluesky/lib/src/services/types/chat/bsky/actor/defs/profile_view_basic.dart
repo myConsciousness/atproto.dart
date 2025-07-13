@@ -50,6 +50,7 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
     /// Set to true when the actor cannot actively participate in conversations
     bool? chatDisabled,
     @VerificationStateConverter() VerificationState? verification,
+
     Map<String, dynamic>? $unknown,
   }) = _ProfileViewBasic;
 
@@ -68,14 +69,12 @@ final class ProfileViewBasicConverter
 
   @override
   ProfileViewBasic fromJson(Map<String, dynamic> json) {
-    return ProfileViewBasic.fromJson(translate(
-      json,
-      ProfileViewBasic.knownProps,
-    ));
+    return ProfileViewBasic.fromJson(
+      translate(json, ProfileViewBasic.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ProfileViewBasic object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ProfileViewBasic object) =>
+      untranslate(object.toJson());
 }

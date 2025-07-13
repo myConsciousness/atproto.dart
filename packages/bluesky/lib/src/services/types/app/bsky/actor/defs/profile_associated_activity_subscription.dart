@@ -24,20 +24,19 @@ part 'profile_associated_activity_subscription.g.dart';
 @freezed
 abstract class ProfileAssociatedActivitySubscription
     with _$ProfileAssociatedActivitySubscription {
-  static const knownProps = <String>[
-    'allowSubscriptions',
-  ];
+  static const knownProps = <String>['allowSubscriptions'];
 
   const factory ProfileAssociatedActivitySubscription({
     @Default(appBskyActorDefsProfileAssociatedActivitySubscription)
     String $type,
     required String allowSubscriptions,
+
     Map<String, dynamic>? $unknown,
   }) = _ProfileAssociatedActivitySubscription;
 
   factory ProfileAssociatedActivitySubscription.fromJson(
-          Map<String, Object?> json) =>
-      _$ProfileAssociatedActivitySubscriptionFromJson(json);
+    Map<String, Object?> json,
+  ) => _$ProfileAssociatedActivitySubscriptionFromJson(json);
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
@@ -47,21 +46,21 @@ abstract class ProfileAssociatedActivitySubscription
 }
 
 final class ProfileAssociatedActivitySubscriptionConverter
-    extends LexObjectConverter<ProfileAssociatedActivitySubscription,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          ProfileAssociatedActivitySubscription,
+          Map<String, dynamic>
+        > {
   const ProfileAssociatedActivitySubscriptionConverter();
 
   @override
   ProfileAssociatedActivitySubscription fromJson(Map<String, dynamic> json) {
-    return ProfileAssociatedActivitySubscription.fromJson(translate(
-      json,
-      ProfileAssociatedActivitySubscription.knownProps,
-    ));
+    return ProfileAssociatedActivitySubscription.fromJson(
+      translate(json, ProfileAssociatedActivitySubscription.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ProfileAssociatedActivitySubscription object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

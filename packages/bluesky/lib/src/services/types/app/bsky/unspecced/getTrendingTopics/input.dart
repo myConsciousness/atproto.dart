@@ -21,15 +21,13 @@ part 'input.g.dart';
 @freezed
 abstract class UnspeccedGetTrendingTopicsInput
     with _$UnspeccedGetTrendingTopicsInput {
-  static const knownProps = <String>[
-    'viewer',
-    'limit',
-  ];
+  static const knownProps = <String>['viewer', 'limit'];
 
   const factory UnspeccedGetTrendingTopicsInput({
     /// DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.
     String? viewer,
     int? limit,
+
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetTrendingTopicsInput;
 
@@ -37,21 +35,22 @@ abstract class UnspeccedGetTrendingTopicsInput
       _$UnspeccedGetTrendingTopicsInputFromJson(json);
 }
 
-final class UnspeccedGetTrendingTopicsInputConverter extends LexObjectConverter<
-    UnspeccedGetTrendingTopicsInput, Map<String, dynamic>> {
+final class UnspeccedGetTrendingTopicsInputConverter
+    extends
+        LexObjectConverter<
+          UnspeccedGetTrendingTopicsInput,
+          Map<String, dynamic>
+        > {
   const UnspeccedGetTrendingTopicsInputConverter();
 
   @override
   UnspeccedGetTrendingTopicsInput fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetTrendingTopicsInput.fromJson(translate(
-      json,
-      UnspeccedGetTrendingTopicsInput.knownProps,
-    ));
+    return UnspeccedGetTrendingTopicsInput.fromJson(
+      translate(json, UnspeccedGetTrendingTopicsInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetTrendingTopicsInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

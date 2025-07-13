@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,775 +9,481 @@ part of 'union_main_writes.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$URepoApplyWritesWrites {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Create data) create,
-    required TResult Function(Update data) update,
-    required TResult Function(Delete data) delete,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Create data)? create,
-    TResult? Function(Update data)? update,
-    TResult? Function(Delete data)? delete,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Create data)? create,
-    TResult Function(Update data)? update,
-    TResult Function(Delete data)? delete,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(URepoApplyWritesWritesCreate value) create,
-    required TResult Function(URepoApplyWritesWritesUpdate value) update,
-    required TResult Function(URepoApplyWritesWritesDelete value) delete,
-    required TResult Function(URepoApplyWritesWritesUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URepoApplyWritesWritesCreate value)? create,
-    TResult? Function(URepoApplyWritesWritesUpdate value)? update,
-    TResult? Function(URepoApplyWritesWritesDelete value)? delete,
-    TResult? Function(URepoApplyWritesWritesUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(URepoApplyWritesWritesCreate value)? create,
-    TResult Function(URepoApplyWritesWritesUpdate value)? update,
-    TResult Function(URepoApplyWritesWritesDelete value)? delete,
-    TResult Function(URepoApplyWritesWritesUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+
+ Object get data;
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is URepoApplyWritesWrites&&const DeepCollectionEquality().equals(other.data, data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'URepoApplyWritesWrites(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $URepoApplyWritesWritesCopyWith<$Res> {
-  factory $URepoApplyWritesWritesCopyWith(URepoApplyWritesWrites value,
-          $Res Function(URepoApplyWritesWrites) then) =
-      _$URepoApplyWritesWritesCopyWithImpl<$Res, URepoApplyWritesWrites>;
+class $URepoApplyWritesWritesCopyWith<$Res>  {
+$URepoApplyWritesWritesCopyWith(URepoApplyWritesWrites _, $Res Function(URepoApplyWritesWrites) __);
 }
 
-/// @nodoc
-class _$URepoApplyWritesWritesCopyWithImpl<$Res,
-        $Val extends URepoApplyWritesWrites>
-    implements $URepoApplyWritesWritesCopyWith<$Res> {
-  _$URepoApplyWritesWritesCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// Adds pattern-matching-related methods to [URepoApplyWritesWrites].
+extension URepoApplyWritesWritesPatterns on URepoApplyWritesWrites {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  /// Create a copy of URepoApplyWritesWrites
-  /// with the given fields replaced by the non-null parameter values.
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( URepoApplyWritesWritesCreate value)?  create,TResult Function( URepoApplyWritesWritesUpdate value)?  update,TResult Function( URepoApplyWritesWritesDelete value)?  delete,TResult Function( URepoApplyWritesWritesUnknown value)?  unknown,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case URepoApplyWritesWritesCreate() when create != null:
+return create(_that);case URepoApplyWritesWritesUpdate() when update != null:
+return update(_that);case URepoApplyWritesWritesDelete() when delete != null:
+return delete(_that);case URepoApplyWritesWritesUnknown() when unknown != null:
+return unknown(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( URepoApplyWritesWritesCreate value)  create,required TResult Function( URepoApplyWritesWritesUpdate value)  update,required TResult Function( URepoApplyWritesWritesDelete value)  delete,required TResult Function( URepoApplyWritesWritesUnknown value)  unknown,}){
+final _that = this;
+switch (_that) {
+case URepoApplyWritesWritesCreate():
+return create(_that);case URepoApplyWritesWritesUpdate():
+return update(_that);case URepoApplyWritesWritesDelete():
+return delete(_that);case URepoApplyWritesWritesUnknown():
+return unknown(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( URepoApplyWritesWritesCreate value)?  create,TResult? Function( URepoApplyWritesWritesUpdate value)?  update,TResult? Function( URepoApplyWritesWritesDelete value)?  delete,TResult? Function( URepoApplyWritesWritesUnknown value)?  unknown,}){
+final _that = this;
+switch (_that) {
+case URepoApplyWritesWritesCreate() when create != null:
+return create(_that);case URepoApplyWritesWritesUpdate() when update != null:
+return update(_that);case URepoApplyWritesWritesDelete() when delete != null:
+return delete(_that);case URepoApplyWritesWritesUnknown() when unknown != null:
+return unknown(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( Create data)?  create,TResult Function( Update data)?  update,TResult Function( Delete data)?  delete,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case URepoApplyWritesWritesCreate() when create != null:
+return create(_that.data);case URepoApplyWritesWritesUpdate() when update != null:
+return update(_that.data);case URepoApplyWritesWritesDelete() when delete != null:
+return delete(_that.data);case URepoApplyWritesWritesUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( Create data)  create,required TResult Function( Update data)  update,required TResult Function( Delete data)  delete,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+switch (_that) {
+case URepoApplyWritesWritesCreate():
+return create(_that.data);case URepoApplyWritesWritesUpdate():
+return update(_that.data);case URepoApplyWritesWritesDelete():
+return delete(_that.data);case URepoApplyWritesWritesUnknown():
+return unknown(_that.data);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( Create data)?  create,TResult? Function( Update data)?  update,TResult? Function( Delete data)?  delete,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+switch (_that) {
+case URepoApplyWritesWritesCreate() when create != null:
+return create(_that.data);case URepoApplyWritesWritesUpdate() when update != null:
+return update(_that.data);case URepoApplyWritesWritesDelete() when delete != null:
+return delete(_that.data);case URepoApplyWritesWritesUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-abstract class _$$URepoApplyWritesWritesCreateImplCopyWith<$Res> {
-  factory _$$URepoApplyWritesWritesCreateImplCopyWith(
-          _$URepoApplyWritesWritesCreateImpl value,
-          $Res Function(_$URepoApplyWritesWritesCreateImpl) then) =
-      __$$URepoApplyWritesWritesCreateImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Create data});
-
-  $CreateCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$URepoApplyWritesWritesCreateImplCopyWithImpl<$Res>
-    extends _$URepoApplyWritesWritesCopyWithImpl<$Res,
-        _$URepoApplyWritesWritesCreateImpl>
-    implements _$$URepoApplyWritesWritesCreateImplCopyWith<$Res> {
-  __$$URepoApplyWritesWritesCreateImplCopyWithImpl(
-      _$URepoApplyWritesWritesCreateImpl _value,
-      $Res Function(_$URepoApplyWritesWritesCreateImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of URepoApplyWritesWrites
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$URepoApplyWritesWritesCreateImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Create,
-    ));
-  }
-
-  /// Create a copy of URepoApplyWritesWrites
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $CreateCopyWith<$Res> get data {
-    return $CreateCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$URepoApplyWritesWritesCreateImpl extends URepoApplyWritesWritesCreate {
-  const _$URepoApplyWritesWritesCreateImpl({required this.data}) : super._();
-
-  @override
-  final Create data;
-
-  @override
-  String toString() {
-    return 'URepoApplyWritesWrites.create(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$URepoApplyWritesWritesCreateImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of URepoApplyWritesWrites
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$URepoApplyWritesWritesCreateImplCopyWith<
-          _$URepoApplyWritesWritesCreateImpl>
-      get copyWith => __$$URepoApplyWritesWritesCreateImplCopyWithImpl<
-          _$URepoApplyWritesWritesCreateImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Create data) create,
-    required TResult Function(Update data) update,
-    required TResult Function(Delete data) delete,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return create(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Create data)? create,
-    TResult? Function(Update data)? update,
-    TResult? Function(Delete data)? delete,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return create?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Create data)? create,
-    TResult Function(Update data)? update,
-    TResult Function(Delete data)? delete,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (create != null) {
-      return create(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(URepoApplyWritesWritesCreate value) create,
-    required TResult Function(URepoApplyWritesWritesUpdate value) update,
-    required TResult Function(URepoApplyWritesWritesDelete value) delete,
-    required TResult Function(URepoApplyWritesWritesUnknown value) unknown,
-  }) {
-    return create(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URepoApplyWritesWritesCreate value)? create,
-    TResult? Function(URepoApplyWritesWritesUpdate value)? update,
-    TResult? Function(URepoApplyWritesWritesDelete value)? delete,
-    TResult? Function(URepoApplyWritesWritesUnknown value)? unknown,
-  }) {
-    return create?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(URepoApplyWritesWritesCreate value)? create,
-    TResult Function(URepoApplyWritesWritesUpdate value)? update,
-    TResult Function(URepoApplyWritesWritesDelete value)? delete,
-    TResult Function(URepoApplyWritesWritesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (create != null) {
-      return create(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class URepoApplyWritesWritesCreate extends URepoApplyWritesWrites {
-  const factory URepoApplyWritesWritesCreate({required final Create data}) =
-      _$URepoApplyWritesWritesCreateImpl;
-  const URepoApplyWritesWritesCreate._() : super._();
-
-  @override
-  Create get data;
-
-  /// Create a copy of URepoApplyWritesWrites
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$URepoApplyWritesWritesCreateImplCopyWith<
-          _$URepoApplyWritesWritesCreateImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$URepoApplyWritesWritesUpdateImplCopyWith<$Res> {
-  factory _$$URepoApplyWritesWritesUpdateImplCopyWith(
-          _$URepoApplyWritesWritesUpdateImpl value,
-          $Res Function(_$URepoApplyWritesWritesUpdateImpl) then) =
-      __$$URepoApplyWritesWritesUpdateImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Update data});
-
-  $UpdateCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$URepoApplyWritesWritesUpdateImplCopyWithImpl<$Res>
-    extends _$URepoApplyWritesWritesCopyWithImpl<$Res,
-        _$URepoApplyWritesWritesUpdateImpl>
-    implements _$$URepoApplyWritesWritesUpdateImplCopyWith<$Res> {
-  __$$URepoApplyWritesWritesUpdateImplCopyWithImpl(
-      _$URepoApplyWritesWritesUpdateImpl _value,
-      $Res Function(_$URepoApplyWritesWritesUpdateImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of URepoApplyWritesWrites
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$URepoApplyWritesWritesUpdateImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Update,
-    ));
-  }
-
-  /// Create a copy of URepoApplyWritesWrites
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $UpdateCopyWith<$Res> get data {
-    return $UpdateCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
 }
 
 /// @nodoc
 
-class _$URepoApplyWritesWritesUpdateImpl extends URepoApplyWritesWritesUpdate {
-  const _$URepoApplyWritesWritesUpdateImpl({required this.data}) : super._();
 
-  @override
-  final Update data;
+class URepoApplyWritesWritesCreate extends URepoApplyWritesWrites {
+  const URepoApplyWritesWritesCreate({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'URepoApplyWritesWrites.update(data: $data)';
-  }
+@override final  Create data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$URepoApplyWritesWritesUpdateImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of URepoApplyWritesWrites
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$URepoApplyWritesWritesCreateCopyWith<URepoApplyWritesWritesCreate> get copyWith => _$URepoApplyWritesWritesCreateCopyWithImpl<URepoApplyWritesWritesCreate>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of URepoApplyWritesWrites
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$URepoApplyWritesWritesUpdateImplCopyWith<
-          _$URepoApplyWritesWritesUpdateImpl>
-      get copyWith => __$$URepoApplyWritesWritesUpdateImplCopyWithImpl<
-          _$URepoApplyWritesWritesUpdateImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Create data) create,
-    required TResult Function(Update data) update,
-    required TResult Function(Delete data) delete,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return update(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Create data)? create,
-    TResult? Function(Update data)? update,
-    TResult? Function(Delete data)? delete,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return update?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Create data)? create,
-    TResult Function(Update data)? update,
-    TResult Function(Delete data)? delete,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (update != null) {
-      return update(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(URepoApplyWritesWritesCreate value) create,
-    required TResult Function(URepoApplyWritesWritesUpdate value) update,
-    required TResult Function(URepoApplyWritesWritesDelete value) delete,
-    required TResult Function(URepoApplyWritesWritesUnknown value) unknown,
-  }) {
-    return update(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URepoApplyWritesWritesCreate value)? create,
-    TResult? Function(URepoApplyWritesWritesUpdate value)? update,
-    TResult? Function(URepoApplyWritesWritesDelete value)? delete,
-    TResult? Function(URepoApplyWritesWritesUnknown value)? unknown,
-  }) {
-    return update?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(URepoApplyWritesWritesCreate value)? create,
-    TResult Function(URepoApplyWritesWritesUpdate value)? update,
-    TResult Function(URepoApplyWritesWritesDelete value)? delete,
-    TResult Function(URepoApplyWritesWritesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (update != null) {
-      return update(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is URepoApplyWritesWritesCreate&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class URepoApplyWritesWritesUpdate extends URepoApplyWritesWrites {
-  const factory URepoApplyWritesWritesUpdate({required final Update data}) =
-      _$URepoApplyWritesWritesUpdateImpl;
-  const URepoApplyWritesWritesUpdate._() : super._();
 
-  @override
-  Update get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of URepoApplyWritesWrites
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$URepoApplyWritesWritesUpdateImplCopyWith<
-          _$URepoApplyWritesWritesUpdateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'URepoApplyWritesWrites.create(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$URepoApplyWritesWritesDeleteImplCopyWith<$Res> {
-  factory _$$URepoApplyWritesWritesDeleteImplCopyWith(
-          _$URepoApplyWritesWritesDeleteImpl value,
-          $Res Function(_$URepoApplyWritesWritesDeleteImpl) then) =
-      __$$URepoApplyWritesWritesDeleteImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Delete data});
+abstract mixin class $URepoApplyWritesWritesCreateCopyWith<$Res> implements $URepoApplyWritesWritesCopyWith<$Res> {
+  factory $URepoApplyWritesWritesCreateCopyWith(URepoApplyWritesWritesCreate value, $Res Function(URepoApplyWritesWritesCreate) _then) = _$URepoApplyWritesWritesCreateCopyWithImpl;
+@useResult
+$Res call({
+ Create data
+});
 
-  $DeleteCopyWith<$Res> get data;
+
+$CreateCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$URepoApplyWritesWritesCreateCopyWithImpl<$Res>
+    implements $URepoApplyWritesWritesCreateCopyWith<$Res> {
+  _$URepoApplyWritesWritesCreateCopyWithImpl(this._self, this._then);
+
+  final URepoApplyWritesWritesCreate _self;
+  final $Res Function(URepoApplyWritesWritesCreate) _then;
+
+/// Create a copy of URepoApplyWritesWrites
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(URepoApplyWritesWritesCreate(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as Create,
+  ));
 }
 
-/// @nodoc
-class __$$URepoApplyWritesWritesDeleteImplCopyWithImpl<$Res>
-    extends _$URepoApplyWritesWritesCopyWithImpl<$Res,
-        _$URepoApplyWritesWritesDeleteImpl>
-    implements _$$URepoApplyWritesWritesDeleteImplCopyWith<$Res> {
-  __$$URepoApplyWritesWritesDeleteImplCopyWithImpl(
-      _$URepoApplyWritesWritesDeleteImpl _value,
-      $Res Function(_$URepoApplyWritesWritesDeleteImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of URepoApplyWritesWrites
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$URepoApplyWritesWritesDeleteImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Delete,
-    ));
-  }
-
-  /// Create a copy of URepoApplyWritesWrites
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $DeleteCopyWith<$Res> get data {
-    return $DeleteCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of URepoApplyWritesWrites
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$CreateCopyWith<$Res> get data {
+  
+  return $CreateCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$URepoApplyWritesWritesDeleteImpl extends URepoApplyWritesWritesDelete {
-  const _$URepoApplyWritesWritesDeleteImpl({required this.data}) : super._();
 
-  @override
-  final Delete data;
+class URepoApplyWritesWritesUpdate extends URepoApplyWritesWrites {
+  const URepoApplyWritesWritesUpdate({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'URepoApplyWritesWrites.delete(data: $data)';
-  }
+@override final  Update data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$URepoApplyWritesWritesDeleteImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of URepoApplyWritesWrites
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$URepoApplyWritesWritesUpdateCopyWith<URepoApplyWritesWritesUpdate> get copyWith => _$URepoApplyWritesWritesUpdateCopyWithImpl<URepoApplyWritesWritesUpdate>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of URepoApplyWritesWrites
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$URepoApplyWritesWritesDeleteImplCopyWith<
-          _$URepoApplyWritesWritesDeleteImpl>
-      get copyWith => __$$URepoApplyWritesWritesDeleteImplCopyWithImpl<
-          _$URepoApplyWritesWritesDeleteImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Create data) create,
-    required TResult Function(Update data) update,
-    required TResult Function(Delete data) delete,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return delete(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Create data)? create,
-    TResult? Function(Update data)? update,
-    TResult? Function(Delete data)? delete,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return delete?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Create data)? create,
-    TResult Function(Update data)? update,
-    TResult Function(Delete data)? delete,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (delete != null) {
-      return delete(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(URepoApplyWritesWritesCreate value) create,
-    required TResult Function(URepoApplyWritesWritesUpdate value) update,
-    required TResult Function(URepoApplyWritesWritesDelete value) delete,
-    required TResult Function(URepoApplyWritesWritesUnknown value) unknown,
-  }) {
-    return delete(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URepoApplyWritesWritesCreate value)? create,
-    TResult? Function(URepoApplyWritesWritesUpdate value)? update,
-    TResult? Function(URepoApplyWritesWritesDelete value)? delete,
-    TResult? Function(URepoApplyWritesWritesUnknown value)? unknown,
-  }) {
-    return delete?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(URepoApplyWritesWritesCreate value)? create,
-    TResult Function(URepoApplyWritesWritesUpdate value)? update,
-    TResult Function(URepoApplyWritesWritesDelete value)? delete,
-    TResult Function(URepoApplyWritesWritesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (delete != null) {
-      return delete(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is URepoApplyWritesWritesUpdate&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class URepoApplyWritesWritesDelete extends URepoApplyWritesWrites {
-  const factory URepoApplyWritesWritesDelete({required final Delete data}) =
-      _$URepoApplyWritesWritesDeleteImpl;
-  const URepoApplyWritesWritesDelete._() : super._();
 
-  @override
-  Delete get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of URepoApplyWritesWrites
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$URepoApplyWritesWritesDeleteImplCopyWith<
-          _$URepoApplyWritesWritesDeleteImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'URepoApplyWritesWrites.update(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$URepoApplyWritesWritesUnknownImplCopyWith<$Res> {
-  factory _$$URepoApplyWritesWritesUnknownImplCopyWith(
-          _$URepoApplyWritesWritesUnknownImpl value,
-          $Res Function(_$URepoApplyWritesWritesUnknownImpl) then) =
-      __$$URepoApplyWritesWritesUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
+abstract mixin class $URepoApplyWritesWritesUpdateCopyWith<$Res> implements $URepoApplyWritesWritesCopyWith<$Res> {
+  factory $URepoApplyWritesWritesUpdateCopyWith(URepoApplyWritesWritesUpdate value, $Res Function(URepoApplyWritesWritesUpdate) _then) = _$URepoApplyWritesWritesUpdateCopyWithImpl;
+@useResult
+$Res call({
+ Update data
+});
+
+
+$UpdateCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$URepoApplyWritesWritesUpdateCopyWithImpl<$Res>
+    implements $URepoApplyWritesWritesUpdateCopyWith<$Res> {
+  _$URepoApplyWritesWritesUpdateCopyWithImpl(this._self, this._then);
+
+  final URepoApplyWritesWritesUpdate _self;
+  final $Res Function(URepoApplyWritesWritesUpdate) _then;
+
+/// Create a copy of URepoApplyWritesWrites
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(URepoApplyWritesWritesUpdate(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as Update,
+  ));
 }
 
-/// @nodoc
-class __$$URepoApplyWritesWritesUnknownImplCopyWithImpl<$Res>
-    extends _$URepoApplyWritesWritesCopyWithImpl<$Res,
-        _$URepoApplyWritesWritesUnknownImpl>
-    implements _$$URepoApplyWritesWritesUnknownImplCopyWith<$Res> {
-  __$$URepoApplyWritesWritesUnknownImplCopyWithImpl(
-      _$URepoApplyWritesWritesUnknownImpl _value,
-      $Res Function(_$URepoApplyWritesWritesUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of URepoApplyWritesWrites
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$URepoApplyWritesWritesUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
+/// Create a copy of URepoApplyWritesWrites
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UpdateCopyWith<$Res> get data {
+  
+  return $UpdateCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$URepoApplyWritesWritesUnknownImpl
-    extends URepoApplyWritesWritesUnknown {
-  const _$URepoApplyWritesWritesUnknownImpl(
-      {required final Map<String, dynamic> data})
-      : _data = data,
-        super._();
 
-  final Map<String, dynamic> _data;
-  @override
-  Map<String, dynamic> get data {
-    if (_data is EqualUnmodifiableMapView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_data);
-  }
+class URepoApplyWritesWritesDelete extends URepoApplyWritesWrites {
+  const URepoApplyWritesWritesDelete({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'URepoApplyWritesWrites.unknown(data: $data)';
-  }
+@override final  Delete data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$URepoApplyWritesWritesUnknownImpl &&
-            const DeepCollectionEquality().equals(other._data, _data));
-  }
+/// Create a copy of URepoApplyWritesWrites
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$URepoApplyWritesWritesDeleteCopyWith<URepoApplyWritesWritesDelete> get copyWith => _$URepoApplyWritesWritesDeleteCopyWithImpl<URepoApplyWritesWritesDelete>(this, _$identity);
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  /// Create a copy of URepoApplyWritesWrites
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$URepoApplyWritesWritesUnknownImplCopyWith<
-          _$URepoApplyWritesWritesUnknownImpl>
-      get copyWith => __$$URepoApplyWritesWritesUnknownImplCopyWithImpl<
-          _$URepoApplyWritesWritesUnknownImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Create data) create,
-    required TResult Function(Update data) update,
-    required TResult Function(Delete data) delete,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Create data)? create,
-    TResult? Function(Update data)? update,
-    TResult? Function(Delete data)? delete,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Create data)? create,
-    TResult Function(Update data)? update,
-    TResult Function(Delete data)? delete,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(URepoApplyWritesWritesCreate value) create,
-    required TResult Function(URepoApplyWritesWritesUpdate value) update,
-    required TResult Function(URepoApplyWritesWritesDelete value) delete,
-    required TResult Function(URepoApplyWritesWritesUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URepoApplyWritesWritesCreate value)? create,
-    TResult? Function(URepoApplyWritesWritesUpdate value)? update,
-    TResult? Function(URepoApplyWritesWritesDelete value)? delete,
-    TResult? Function(URepoApplyWritesWritesUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(URepoApplyWritesWritesCreate value)? create,
-    TResult Function(URepoApplyWritesWritesUpdate value)? update,
-    TResult Function(URepoApplyWritesWritesDelete value)? delete,
-    TResult Function(URepoApplyWritesWritesUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is URepoApplyWritesWritesDelete&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class URepoApplyWritesWritesUnknown extends URepoApplyWritesWrites {
-  const factory URepoApplyWritesWritesUnknown(
-          {required final Map<String, dynamic> data}) =
-      _$URepoApplyWritesWritesUnknownImpl;
-  const URepoApplyWritesWritesUnknown._() : super._();
 
-  @override
-  Map<String, dynamic> get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of URepoApplyWritesWrites
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$URepoApplyWritesWritesUnknownImplCopyWith<
-          _$URepoApplyWritesWritesUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'URepoApplyWritesWrites.delete(data: $data)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class $URepoApplyWritesWritesDeleteCopyWith<$Res> implements $URepoApplyWritesWritesCopyWith<$Res> {
+  factory $URepoApplyWritesWritesDeleteCopyWith(URepoApplyWritesWritesDelete value, $Res Function(URepoApplyWritesWritesDelete) _then) = _$URepoApplyWritesWritesDeleteCopyWithImpl;
+@useResult
+$Res call({
+ Delete data
+});
+
+
+$DeleteCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$URepoApplyWritesWritesDeleteCopyWithImpl<$Res>
+    implements $URepoApplyWritesWritesDeleteCopyWith<$Res> {
+  _$URepoApplyWritesWritesDeleteCopyWithImpl(this._self, this._then);
+
+  final URepoApplyWritesWritesDelete _self;
+  final $Res Function(URepoApplyWritesWritesDelete) _then;
+
+/// Create a copy of URepoApplyWritesWrites
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(URepoApplyWritesWritesDelete(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as Delete,
+  ));
+}
+
+/// Create a copy of URepoApplyWritesWrites
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$DeleteCopyWith<$Res> get data {
+  
+  return $DeleteCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+
+
+class URepoApplyWritesWritesUnknown extends URepoApplyWritesWrites {
+  const URepoApplyWritesWritesUnknown({required final  Map<String, dynamic> data}): _data = data,super._();
+  
+
+ final  Map<String, dynamic> _data;
+@override Map<String, dynamic> get data {
+  if (_data is EqualUnmodifiableMapView) return _data;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_data);
+}
+
+
+/// Create a copy of URepoApplyWritesWrites
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$URepoApplyWritesWritesUnknownCopyWith<URepoApplyWritesWritesUnknown> get copyWith => _$URepoApplyWritesWritesUnknownCopyWithImpl<URepoApplyWritesWritesUnknown>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is URepoApplyWritesWritesUnknown&&const DeepCollectionEquality().equals(other._data, _data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_data));
+
+@override
+String toString() {
+  return 'URepoApplyWritesWrites.unknown(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $URepoApplyWritesWritesUnknownCopyWith<$Res> implements $URepoApplyWritesWritesCopyWith<$Res> {
+  factory $URepoApplyWritesWritesUnknownCopyWith(URepoApplyWritesWritesUnknown value, $Res Function(URepoApplyWritesWritesUnknown) _then) = _$URepoApplyWritesWritesUnknownCopyWithImpl;
+@useResult
+$Res call({
+ Map<String, dynamic> data
+});
+
+
+
+
+}
+/// @nodoc
+class _$URepoApplyWritesWritesUnknownCopyWithImpl<$Res>
+    implements $URepoApplyWritesWritesUnknownCopyWith<$Res> {
+  _$URepoApplyWritesWritesUnknownCopyWithImpl(this._self, this._then);
+
+  final URepoApplyWritesWritesUnknown _self;
+  final $Res Function(URepoApplyWritesWritesUnknown) _then;
+
+/// Create a copy of URepoApplyWritesWrites
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(URepoApplyWritesWritesUnknown(
+data: null == data ? _self._data : data // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,
+  ));
+}
+
+
+}
+
+// dart format on

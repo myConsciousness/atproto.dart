@@ -25,16 +25,14 @@ part 'main.g.dart';
 
 @freezed
 abstract class EmbedRecordWithMedia with _$EmbedRecordWithMedia {
-  static const knownProps = <String>[
-    'record',
-    'media',
-  ];
+  static const knownProps = <String>['record', 'media'];
 
   const factory EmbedRecordWithMedia({
     @Default(appBskyEmbedRecordWithMedia) String $type,
     @EmbedRecordConverter() required EmbedRecord record,
     @UEmbedRecordWithMediaMediaConverter()
     required UEmbedRecordWithMediaMedia media,
+
     Map<String, dynamic>? $unknown,
   }) = _EmbedRecordWithMedia;
 
@@ -54,14 +52,12 @@ final class EmbedRecordWithMediaConverter
 
   @override
   EmbedRecordWithMedia fromJson(Map<String, dynamic> json) {
-    return EmbedRecordWithMedia.fromJson(translate(
-      json,
-      EmbedRecordWithMedia.knownProps,
-    ));
+    return EmbedRecordWithMedia.fromJson(
+      translate(json, EmbedRecordWithMedia.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedRecordWithMedia object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(EmbedRecordWithMedia object) =>
+      untranslate(object.toJson());
 }

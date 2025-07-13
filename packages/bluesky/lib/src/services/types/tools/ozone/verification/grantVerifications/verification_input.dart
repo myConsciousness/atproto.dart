@@ -45,6 +45,7 @@ abstract class VerificationInput with _$VerificationInput {
 
     /// Timestamp for verification record. Defaults to current time when not specified.
     DateTime? createdAt,
+
     Map<String, dynamic>? $unknown,
   }) = _VerificationInput;
 
@@ -64,14 +65,12 @@ final class VerificationInputConverter
 
   @override
   VerificationInput fromJson(Map<String, dynamic> json) {
-    return VerificationInput.fromJson(translate(
-      json,
-      VerificationInput.knownProps,
-    ));
+    return VerificationInput.fromJson(
+      translate(json, VerificationInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(VerificationInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(VerificationInput object) =>
+      untranslate(object.toJson());
 }

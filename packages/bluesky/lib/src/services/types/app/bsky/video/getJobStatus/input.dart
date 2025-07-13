@@ -20,12 +20,11 @@ part 'input.g.dart';
 
 @freezed
 abstract class VideoGetJobStatusInput with _$VideoGetJobStatusInput {
-  static const knownProps = <String>[
-    'jobId',
-  ];
+  static const knownProps = <String>['jobId'];
 
   const factory VideoGetJobStatusInput({
     required String jobId,
+
     Map<String, dynamic>? $unknown,
   }) = _VideoGetJobStatusInput;
 
@@ -39,14 +38,12 @@ final class VideoGetJobStatusInputConverter
 
   @override
   VideoGetJobStatusInput fromJson(Map<String, dynamic> json) {
-    return VideoGetJobStatusInput.fromJson(translate(
-      json,
-      VideoGetJobStatusInput.knownProps,
-    ));
+    return VideoGetJobStatusInput.fromJson(
+      translate(json, VideoGetJobStatusInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(VideoGetJobStatusInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(VideoGetJobStatusInput object) =>
+      untranslate(object.toJson());
 }

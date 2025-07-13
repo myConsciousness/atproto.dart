@@ -62,6 +62,7 @@ abstract class Commit with _$Commit {
 
     /// Timestamp of when this message was originally broadcast.
     required DateTime time,
+
     Map<String, dynamic>? $unknown,
   }) = _Commit;
 
@@ -79,14 +80,9 @@ final class CommitConverter
 
   @override
   Commit fromJson(Map<String, dynamic> json) {
-    return Commit.fromJson(translate(
-      json,
-      Commit.knownProps,
-    ));
+    return Commit.fromJson(translate(json, Commit.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(Commit object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(Commit object) => untranslate(object.toJson());
 }

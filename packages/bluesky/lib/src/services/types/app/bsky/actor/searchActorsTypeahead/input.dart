@@ -21,15 +21,13 @@ part 'input.g.dart';
 @freezed
 abstract class ActorSearchActorsTypeaheadInput
     with _$ActorSearchActorsTypeaheadInput {
-  static const knownProps = <String>[
-    'q',
-    'limit',
-  ];
+  static const knownProps = <String>['q', 'limit'];
 
   const factory ActorSearchActorsTypeaheadInput({
     /// Search query prefix; not a full query string.
     String? q,
     int? limit,
+
     Map<String, dynamic>? $unknown,
   }) = _ActorSearchActorsTypeaheadInput;
 
@@ -37,21 +35,22 @@ abstract class ActorSearchActorsTypeaheadInput
       _$ActorSearchActorsTypeaheadInputFromJson(json);
 }
 
-final class ActorSearchActorsTypeaheadInputConverter extends LexObjectConverter<
-    ActorSearchActorsTypeaheadInput, Map<String, dynamic>> {
+final class ActorSearchActorsTypeaheadInputConverter
+    extends
+        LexObjectConverter<
+          ActorSearchActorsTypeaheadInput,
+          Map<String, dynamic>
+        > {
   const ActorSearchActorsTypeaheadInputConverter();
 
   @override
   ActorSearchActorsTypeaheadInput fromJson(Map<String, dynamic> json) {
-    return ActorSearchActorsTypeaheadInput.fromJson(translate(
-      json,
-      ActorSearchActorsTypeaheadInput.knownProps,
-    ));
+    return ActorSearchActorsTypeaheadInput.fromJson(
+      translate(json, ActorSearchActorsTypeaheadInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ActorSearchActorsTypeaheadInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

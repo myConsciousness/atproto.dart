@@ -15,9 +15,8 @@ class ModerationSubjectProfile with _$ModerationSubjectProfile {
     required ActorBasic data,
   }) = UModerationSubjectProfileProfileViewBasic;
 
-  const factory ModerationSubjectProfile.profileView({
-    required Actor data,
-  }) = UModerationSubjectProfileProfileView;
+  const factory ModerationSubjectProfile.profileView({required Actor data}) =
+      UModerationSubjectProfileProfileView;
 
   const factory ModerationSubjectProfile.profileViewDetailed({
     required ActorProfile data,

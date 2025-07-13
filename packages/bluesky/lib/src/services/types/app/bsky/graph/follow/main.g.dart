@@ -8,29 +8,22 @@ part of 'main.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GraphFollowRecordImpl _$$GraphFollowRecordImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$GraphFollowRecordImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$GraphFollowRecordImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyGraphFollow),
-          subject: $checkedConvert('subject', (v) => v as String),
-          createdAt:
-              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_GraphFollowRecord _$GraphFollowRecordFromJson(
+  Map json,
+) => $checkedCreate('_GraphFollowRecord', json, ($checkedConvert) {
+  final val = _GraphFollowRecord(
+    $type: $checkedConvert(r'$type', (v) => v as String? ?? appBskyGraphFollow),
+    subject: $checkedConvert('subject', (v) => v as String),
+    createdAt: $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+    $unknown: $checkedConvert(
+      r'$unknown',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
+  );
+  return val;
+});
 
-Map<String, dynamic> _$$GraphFollowRecordImplToJson(
-        _$GraphFollowRecordImpl instance) =>
+Map<String, dynamic> _$GraphFollowRecordToJson(_GraphFollowRecord instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'subject': instance.subject,

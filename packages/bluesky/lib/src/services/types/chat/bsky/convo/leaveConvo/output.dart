@@ -20,14 +20,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class ConvoLeaveConvoOutput with _$ConvoLeaveConvoOutput {
-  static const knownProps = <String>[
-    'convoId',
-    'rev',
-  ];
+  static const knownProps = <String>['convoId', 'rev'];
 
   const factory ConvoLeaveConvoOutput({
     required String convoId,
     required String rev,
+
     Map<String, dynamic>? $unknown,
   }) = _ConvoLeaveConvoOutput;
 
@@ -41,14 +39,12 @@ final class ConvoLeaveConvoOutputConverter
 
   @override
   ConvoLeaveConvoOutput fromJson(Map<String, dynamic> json) {
-    return ConvoLeaveConvoOutput.fromJson(translate(
-      json,
-      ConvoLeaveConvoOutput.knownProps,
-    ));
+    return ConvoLeaveConvoOutput.fromJson(
+      translate(json, ConvoLeaveConvoOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoLeaveConvoOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ConvoLeaveConvoOutput object) =>
+      untranslate(object.toJson());
 }

@@ -8,34 +8,32 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LabelerGetServicesOutputImpl _$$LabelerGetServicesOutputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$LabelerGetServicesOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$LabelerGetServicesOutputImpl(
-          views: $checkedConvert(
-              'views',
-              (v) => (v as List<dynamic>)
-                  .map((e) => const ULabelerGetServicesViewsConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_LabelerGetServicesOutput _$LabelerGetServicesOutputFromJson(Map json) =>
+    $checkedCreate('_LabelerGetServicesOutput', json, ($checkedConvert) {
+      final val = _LabelerGetServicesOutput(
+        views: $checkedConvert(
+          'views',
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) => const ULabelerGetServicesViewsConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$LabelerGetServicesOutputImplToJson(
-        _$LabelerGetServicesOutputImpl instance) =>
-    <String, dynamic>{
-      'views': instance.views
-          .map(const ULabelerGetServicesViewsConverter().toJson)
-          .toList(),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$LabelerGetServicesOutputToJson(
+  _LabelerGetServicesOutput instance,
+) => <String, dynamic>{
+  'views': instance.views
+      .map(const ULabelerGetServicesViewsConverter().toJson)
+      .toList(),
+  r'$unknown': instance.$unknown,
+};

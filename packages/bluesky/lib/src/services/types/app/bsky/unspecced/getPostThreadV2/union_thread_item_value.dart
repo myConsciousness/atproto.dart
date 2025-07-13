@@ -39,9 +39,8 @@ class UThreadItemValue with _$UThreadItemValue {
     required ThreadItemBlocked data,
   }) = UThreadItemValueThreadItemBlocked;
 
-  const factory UThreadItemValue.unknown({
-    required Map<String, dynamic> data,
-  }) = UThreadItemValueUnknown;
+  const factory UThreadItemValue.unknown({required Map<String, dynamic> data}) =
+      UThreadItemValueUnknown;
 
   Map<String, dynamic> toJson() =>
       const UThreadItemValueConverter().toJson(this);
@@ -83,13 +82,14 @@ final class UThreadItemValueConverter
 
   @override
   Map<String, dynamic> toJson(UThreadItemValue object) => object.when(
-        threadItemPost: (data) => const ThreadItemPostConverter().toJson(data),
-        threadItemNoUnauthenticated: (data) =>
-            const ThreadItemNoUnauthenticatedConverter().toJson(data),
-        threadItemNotFound: (data) =>
-            const ThreadItemNotFoundConverter().toJson(data),
-        threadItemBlocked: (data) =>
-            const ThreadItemBlockedConverter().toJson(data),
-        unknown: (data) => data,
-      );
+    threadItemPost: (data) => const ThreadItemPostConverter().toJson(data),
+    threadItemNoUnauthenticated: (data) =>
+        const ThreadItemNoUnauthenticatedConverter().toJson(data),
+    threadItemNotFound: (data) =>
+        const ThreadItemNotFoundConverter().toJson(data),
+    threadItemBlocked: (data) =>
+        const ThreadItemBlockedConverter().toJson(data),
+
+    unknown: (data) => data,
+  );
 }

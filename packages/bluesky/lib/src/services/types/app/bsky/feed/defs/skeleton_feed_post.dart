@@ -24,11 +24,7 @@ part 'skeleton_feed_post.g.dart';
 
 @freezed
 abstract class SkeletonFeedPost with _$SkeletonFeedPost {
-  static const knownProps = <String>[
-    'post',
-    'reason',
-    'feedContext',
-  ];
+  static const knownProps = <String>['post', 'reason', 'feedContext'];
 
   const factory SkeletonFeedPost({
     @Default(appBskyFeedDefsSkeletonFeedPost) String $type,
@@ -37,6 +33,7 @@ abstract class SkeletonFeedPost with _$SkeletonFeedPost {
 
     /// Context that will be passed through to client and may be passed to feed generator back alongside interactions.
     String? feedContext,
+
     Map<String, dynamic>? $unknown,
   }) = _SkeletonFeedPost;
 
@@ -55,14 +52,12 @@ final class SkeletonFeedPostConverter
 
   @override
   SkeletonFeedPost fromJson(Map<String, dynamic> json) {
-    return SkeletonFeedPost.fromJson(translate(
-      json,
-      SkeletonFeedPost.knownProps,
-    ));
+    return SkeletonFeedPost.fromJson(
+      translate(json, SkeletonFeedPost.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SkeletonFeedPost object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SkeletonFeedPost object) =>
+      untranslate(object.toJson());
 }

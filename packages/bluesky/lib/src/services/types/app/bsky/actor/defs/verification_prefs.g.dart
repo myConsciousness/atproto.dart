@@ -8,27 +8,23 @@ part of 'verification_prefs.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$VerificationPrefsImpl _$$VerificationPrefsImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$VerificationPrefsImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$VerificationPrefsImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? appBskyActorDefsVerificationPrefs),
-          hideBadges: $checkedConvert('hideBadges', (v) => v as bool?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_VerificationPrefs _$VerificationPrefsFromJson(Map json) =>
+    $checkedCreate('_VerificationPrefs', json, ($checkedConvert) {
+      final val = _VerificationPrefs(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyActorDefsVerificationPrefs,
+        ),
+        hideBadges: $checkedConvert('hideBadges', (v) => v as bool?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$VerificationPrefsImplToJson(
-        _$VerificationPrefsImpl instance) =>
+Map<String, dynamic> _$VerificationPrefsToJson(_VerificationPrefs instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'hideBadges': instance.hideBadges,

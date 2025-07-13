@@ -23,18 +23,14 @@ part 'output.g.dart';
 
 @freezed
 abstract class FeedGetRepostedByOutput with _$FeedGetRepostedByOutput {
-  static const knownProps = <String>[
-    'uri',
-    'cid',
-    'cursor',
-    'repostedBy',
-  ];
+  static const knownProps = <String>['uri', 'cid', 'cursor', 'repostedBy'];
 
   const factory FeedGetRepostedByOutput({
     required String uri,
     String? cid,
     String? cursor,
     @ProfileViewConverter() required List<ProfileView> repostedBy,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedGetRepostedByOutput;
 
@@ -48,14 +44,12 @@ final class FeedGetRepostedByOutputConverter
 
   @override
   FeedGetRepostedByOutput fromJson(Map<String, dynamic> json) {
-    return FeedGetRepostedByOutput.fromJson(translate(
-      json,
-      FeedGetRepostedByOutput.knownProps,
-    ));
+    return FeedGetRepostedByOutput.fromJson(
+      translate(json, FeedGetRepostedByOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetRepostedByOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(FeedGetRepostedByOutput object) =>
+      untranslate(object.toJson());
 }

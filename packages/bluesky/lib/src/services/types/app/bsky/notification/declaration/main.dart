@@ -24,15 +24,14 @@ part 'main.g.dart';
 @freezed
 abstract class NotificationDeclarationRecord
     with _$NotificationDeclarationRecord {
-  static const knownProps = <String>[
-    'allowSubscriptions',
-  ];
+  static const knownProps = <String>['allowSubscriptions'];
 
   const factory NotificationDeclarationRecord({
     @Default(appBskyNotificationDeclaration) String $type,
 
     /// A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.
     required String allowSubscriptions,
+
     Map<String, dynamic>? $unknown,
   }) = _NotificationDeclarationRecord;
 
@@ -45,21 +44,22 @@ abstract class NotificationDeclarationRecord
   }
 }
 
-final class NotificationDeclarationRecordConverter extends LexObjectConverter<
-    NotificationDeclarationRecord, Map<String, dynamic>> {
+final class NotificationDeclarationRecordConverter
+    extends
+        LexObjectConverter<
+          NotificationDeclarationRecord,
+          Map<String, dynamic>
+        > {
   const NotificationDeclarationRecordConverter();
 
   @override
   NotificationDeclarationRecord fromJson(Map<String, dynamic> json) {
-    return NotificationDeclarationRecord.fromJson(translate(
-      json,
-      NotificationDeclarationRecord.knownProps,
-    ));
+    return NotificationDeclarationRecord.fromJson(
+      translate(json, NotificationDeclarationRecord.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(NotificationDeclarationRecord object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

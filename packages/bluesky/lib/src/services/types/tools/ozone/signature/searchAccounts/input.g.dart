@@ -8,32 +8,29 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SignatureSearchAccountsInputImpl _$$SignatureSearchAccountsInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$SignatureSearchAccountsInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SignatureSearchAccountsInputImpl(
-          values: $checkedConvert('values',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-          cursor: $checkedConvert('cursor', (v) => v as String?),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_SignatureSearchAccountsInput _$SignatureSearchAccountsInputFromJson(
+  Map json,
+) => $checkedCreate('_SignatureSearchAccountsInput', json, ($checkedConvert) {
+  final val = _SignatureSearchAccountsInput(
+    values: $checkedConvert(
+      'values',
+      (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+    ),
+    cursor: $checkedConvert('cursor', (v) => v as String?),
+    limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+    $unknown: $checkedConvert(
+      r'$unknown',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
+  );
+  return val;
+});
 
-Map<String, dynamic> _$$SignatureSearchAccountsInputImplToJson(
-        _$SignatureSearchAccountsInputImpl instance) =>
-    <String, dynamic>{
-      'values': instance.values,
-      'cursor': instance.cursor,
-      'limit': instance.limit,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$SignatureSearchAccountsInputToJson(
+  _SignatureSearchAccountsInput instance,
+) => <String, dynamic>{
+  'values': instance.values,
+  'cursor': instance.cursor,
+  'limit': instance.limit,
+  r'$unknown': instance.$unknown,
+};

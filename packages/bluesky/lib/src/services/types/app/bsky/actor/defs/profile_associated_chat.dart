@@ -23,13 +23,12 @@ part 'profile_associated_chat.g.dart';
 
 @freezed
 abstract class ProfileAssociatedChat with _$ProfileAssociatedChat {
-  static const knownProps = <String>[
-    'allowIncoming',
-  ];
+  static const knownProps = <String>['allowIncoming'];
 
   const factory ProfileAssociatedChat({
     @Default(appBskyActorDefsProfileAssociatedChat) String $type,
     required String allowIncoming,
+
     Map<String, dynamic>? $unknown,
   }) = _ProfileAssociatedChat;
 
@@ -48,14 +47,12 @@ final class ProfileAssociatedChatConverter
 
   @override
   ProfileAssociatedChat fromJson(Map<String, dynamic> json) {
-    return ProfileAssociatedChat.fromJson(translate(
-      json,
-      ProfileAssociatedChat.knownProps,
-    ));
+    return ProfileAssociatedChat.fromJson(
+      translate(json, ProfileAssociatedChat.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ProfileAssociatedChat object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ProfileAssociatedChat object) =>
+      untranslate(object.toJson());
 }

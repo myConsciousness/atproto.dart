@@ -9,8 +9,8 @@ final class Subscription<T> {
   const Subscription({
     required WebSocketChannel channel,
     required StreamController<T> controller,
-  })  : _channel = channel,
-        _controller = controller;
+  }) : _channel = channel,
+       _controller = controller;
 
   /// Returns the stream.
   Stream<T> get stream => _controller.stream;

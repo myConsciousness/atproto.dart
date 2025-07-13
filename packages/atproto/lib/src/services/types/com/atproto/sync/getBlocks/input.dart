@@ -20,15 +20,13 @@ part 'input.g.dart';
 
 @freezed
 abstract class SyncGetBlocksInput with _$SyncGetBlocksInput {
-  static const knownProps = <String>[
-    'did',
-    'cids',
-  ];
+  static const knownProps = <String>['did', 'cids'];
 
   const factory SyncGetBlocksInput({
     /// The DID of the repo.
     required String did,
     required List<String> cids,
+
     Map<String, dynamic>? $unknown,
   }) = _SyncGetBlocksInput;
 
@@ -42,14 +40,12 @@ final class SyncGetBlocksInputConverter
 
   @override
   SyncGetBlocksInput fromJson(Map<String, dynamic> json) {
-    return SyncGetBlocksInput.fromJson(translate(
-      json,
-      SyncGetBlocksInput.knownProps,
-    ));
+    return SyncGetBlocksInput.fromJson(
+      translate(json, SyncGetBlocksInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SyncGetBlocksInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SyncGetBlocksInput object) =>
+      untranslate(object.toJson());
 }

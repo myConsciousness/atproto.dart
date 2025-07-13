@@ -20,14 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class SettingRemoveOptionsInput with _$SettingRemoveOptionsInput {
-  static const knownProps = <String>[
-    'keys',
-    'scope',
-  ];
+  static const knownProps = <String>['keys', 'scope'];
 
   const factory SettingRemoveOptionsInput({
     required List<String> keys,
     required String scope,
+
     Map<String, dynamic>? $unknown,
   }) = _SettingRemoveOptionsInput;
 
@@ -35,20 +33,19 @@ abstract class SettingRemoveOptionsInput with _$SettingRemoveOptionsInput {
       _$SettingRemoveOptionsInputFromJson(json);
 }
 
-final class SettingRemoveOptionsInputConverter extends LexObjectConverter<
-    SettingRemoveOptionsInput, Map<String, dynamic>> {
+final class SettingRemoveOptionsInputConverter
+    extends
+        LexObjectConverter<SettingRemoveOptionsInput, Map<String, dynamic>> {
   const SettingRemoveOptionsInputConverter();
 
   @override
   SettingRemoveOptionsInput fromJson(Map<String, dynamic> json) {
-    return SettingRemoveOptionsInput.fromJson(translate(
-      json,
-      SettingRemoveOptionsInput.knownProps,
-    ));
+    return SettingRemoveOptionsInput.fromJson(
+      translate(json, SettingRemoveOptionsInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SettingRemoveOptionsInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SettingRemoveOptionsInput object) =>
+      untranslate(object.toJson());
 }

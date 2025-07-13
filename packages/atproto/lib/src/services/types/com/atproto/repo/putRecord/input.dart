@@ -49,6 +49,7 @@ abstract class RepoPutRecordInput with _$RepoPutRecordInput {
 
     /// Compare and swap with the previous commit by CID.
     String? swapCommit,
+
     Map<String, dynamic>? $unknown,
   }) = _RepoPutRecordInput;
 
@@ -62,14 +63,12 @@ final class RepoPutRecordInputConverter
 
   @override
   RepoPutRecordInput fromJson(Map<String, dynamic> json) {
-    return RepoPutRecordInput.fromJson(translate(
-      json,
-      RepoPutRecordInput.knownProps,
-    ));
+    return RepoPutRecordInput.fromJson(
+      translate(json, RepoPutRecordInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(RepoPutRecordInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RepoPutRecordInput object) =>
+      untranslate(object.toJson());
 }

@@ -45,6 +45,7 @@ abstract class StatusView with _$StatusView {
 
     /// True if the status is not expired, false if it is expired. Only present if expiration was set.
     bool? isActive,
+
     Map<String, dynamic>? $unknown,
   }) = _StatusView;
 
@@ -63,14 +64,10 @@ final class StatusViewConverter
 
   @override
   StatusView fromJson(Map<String, dynamic> json) {
-    return StatusView.fromJson(translate(
-      json,
-      StatusView.knownProps,
-    ));
+    return StatusView.fromJson(translate(json, StatusView.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(StatusView object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(StatusView object) =>
+      untranslate(object.toJson());
 }

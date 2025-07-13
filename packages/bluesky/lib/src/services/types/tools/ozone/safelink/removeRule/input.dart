@@ -23,12 +23,7 @@ part 'input.g.dart';
 
 @freezed
 abstract class SafelinkRemoveRuleInput with _$SafelinkRemoveRuleInput {
-  static const knownProps = <String>[
-    'url',
-    'pattern',
-    'comment',
-    'createdBy',
-  ];
+  static const knownProps = <String>['url', 'pattern', 'comment', 'createdBy'];
 
   const factory SafelinkRemoveRuleInput({
     /// The URL or domain to remove the rule for
@@ -40,6 +35,7 @@ abstract class SafelinkRemoveRuleInput with _$SafelinkRemoveRuleInput {
 
     /// Optional DID of the user. Only respected when using admin auth.
     String? createdBy,
+
     Map<String, dynamic>? $unknown,
   }) = _SafelinkRemoveRuleInput;
 
@@ -53,14 +49,12 @@ final class SafelinkRemoveRuleInputConverter
 
   @override
   SafelinkRemoveRuleInput fromJson(Map<String, dynamic> json) {
-    return SafelinkRemoveRuleInput.fromJson(translate(
-      json,
-      SafelinkRemoveRuleInput.knownProps,
-    ));
+    return SafelinkRemoveRuleInput.fromJson(
+      translate(json, SafelinkRemoveRuleInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SafelinkRemoveRuleInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SafelinkRemoveRuleInput object) =>
+      untranslate(object.toJson());
 }

@@ -12,7 +12,8 @@ part of 'service.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Service _$ServiceFromJson(Map<String, dynamic> json) {
   return _Service.fromJson(json);
@@ -60,28 +61,32 @@ class _$ServiceCopyWithImpl<$Res, $Val extends Service>
     Object? type = null,
     Object? serviceEndpoint = null,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      serviceEndpoint: null == serviceEndpoint
-          ? _value.serviceEndpoint
-          : serviceEndpoint // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as String,
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+            serviceEndpoint: null == serviceEndpoint
+                ? _value.serviceEndpoint
+                : serviceEndpoint // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$ServiceImplCopyWith<$Res> implements $ServiceCopyWith<$Res> {
   factory _$$ServiceImplCopyWith(
-          _$ServiceImpl value, $Res Function(_$ServiceImpl) then) =
-      __$$ServiceImplCopyWithImpl<$Res>;
+    _$ServiceImpl value,
+    $Res Function(_$ServiceImpl) then,
+  ) = __$$ServiceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String type, String serviceEndpoint});
@@ -92,8 +97,9 @@ class __$$ServiceImplCopyWithImpl<$Res>
     extends _$ServiceCopyWithImpl<$Res, _$ServiceImpl>
     implements _$$ServiceImplCopyWith<$Res> {
   __$$ServiceImplCopyWithImpl(
-      _$ServiceImpl _value, $Res Function(_$ServiceImpl) _then)
-      : super(_value, _then);
+    _$ServiceImpl _value,
+    $Res Function(_$ServiceImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of Service
   /// with the given fields replaced by the non-null parameter values.
@@ -104,20 +110,22 @@ class __$$ServiceImplCopyWithImpl<$Res>
     Object? type = null,
     Object? serviceEndpoint = null,
   }) {
-    return _then(_$ServiceImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      serviceEndpoint: null == serviceEndpoint
-          ? _value.serviceEndpoint
-          : serviceEndpoint // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$ServiceImpl(
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String,
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+        serviceEndpoint: null == serviceEndpoint
+            ? _value.serviceEndpoint
+            : serviceEndpoint // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -125,8 +133,11 @@ class __$$ServiceImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$ServiceImpl implements _Service {
-  const _$ServiceImpl(
-      {required this.id, required this.type, required this.serviceEndpoint});
+  const _$ServiceImpl({
+    required this.id,
+    required this.type,
+    required this.serviceEndpoint,
+  });
 
   factory _$ServiceImpl.fromJson(Map<String, dynamic> json) =>
       _$$ServiceImplFromJson(json);
@@ -168,17 +179,16 @@ class _$ServiceImpl implements _Service {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ServiceImplToJson(
-      this,
-    );
+    return _$$ServiceImplToJson(this);
   }
 }
 
 abstract class _Service implements Service {
-  const factory _Service(
-      {required final String id,
-      required final String type,
-      required final String serviceEndpoint}) = _$ServiceImpl;
+  const factory _Service({
+    required final String id,
+    required final String type,
+    required final String serviceEndpoint,
+  }) = _$ServiceImpl;
 
   factory _Service.fromJson(Map<String, dynamic> json) = _$ServiceImpl.fromJson;
 

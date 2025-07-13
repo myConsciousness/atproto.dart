@@ -11,7 +11,8 @@ class TimelineCommand extends QueryCommand {
     argParser
       ..addOption(
         'algorithm',
-        help: 'Algorithm for displaying timeline. '
+        help:
+            'Algorithm for displaying timeline. '
             'Defaults to "reverse-chronological"',
         defaultsTo: null,
       )
@@ -20,11 +21,7 @@ class TimelineCommand extends QueryCommand {
         help: 'Maximum search limit from 1 to 100. Defaults to 50.',
         defaultsTo: null,
       )
-      ..addOption(
-        'cursor',
-        help: 'Token for pagination.',
-        defaultsTo: null,
-      );
+      ..addOption('cursor', help: 'Token for pagination.', defaultsTo: null);
   }
 
   @override
@@ -37,15 +34,12 @@ class TimelineCommand extends QueryCommand {
   final String invocation = 'bsky timeline [algorithm] [limit] [cursor]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'feed.bsky.app',
-        'getTimeline',
-      );
+  xrpc.NSID get methodId => xrpc.NSID.create('feed.bsky.app', 'getTimeline');
 
   @override
   Map<String, dynamic>? get parameters => {
-        'algorithm': argResults!['algorithm'],
-        'limit': argResults!['limit'],
-        'before': argResults!['cursor'],
-      };
+    'algorithm': argResults!['algorithm'],
+    'limit': argResults!['limit'],
+    'before': argResults!['cursor'],
+  };
 }

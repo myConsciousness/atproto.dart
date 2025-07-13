@@ -8,22 +8,19 @@ part of 'subject_review_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SubjectReviewStateImpl _$$SubjectReviewStateImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$SubjectReviewStateImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SubjectReviewStateImpl(
-          knownValue: $checkedConvert('knownValue',
-              (v) => $enumDecodeNullable(_$KnownSubjectReviewStateEnumMap, v)),
-          unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
-        );
-        return val;
-      },
-    );
+_SubjectReviewState _$SubjectReviewStateFromJson(Map json) =>
+    $checkedCreate('_SubjectReviewState', json, ($checkedConvert) {
+      final val = _SubjectReviewState(
+        knownValue: $checkedConvert(
+          'knownValue',
+          (v) => $enumDecodeNullable(_$KnownSubjectReviewStateEnumMap, v),
+        ),
+        unknownValue: $checkedConvert('unknownValue', (v) => v as String?),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$SubjectReviewStateImplToJson(
-        _$SubjectReviewStateImpl instance) =>
+Map<String, dynamic> _$SubjectReviewStateToJson(_SubjectReviewState instance) =>
     <String, dynamic>{
       'knownValue': _$KnownSubjectReviewStateEnumMap[instance.knownValue],
       'unknownValue': instance.unknownValue,

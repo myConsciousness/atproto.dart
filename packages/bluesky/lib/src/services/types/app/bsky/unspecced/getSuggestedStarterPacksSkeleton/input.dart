@@ -21,41 +21,43 @@ part 'input.g.dart';
 @freezed
 abstract class UnspeccedGetSuggestedStarterPacksSkeletonInput
     with _$UnspeccedGetSuggestedStarterPacksSkeletonInput {
-  static const knownProps = <String>[
-    'viewer',
-    'limit',
-  ];
+  static const knownProps = <String>['viewer', 'limit'];
 
   const factory UnspeccedGetSuggestedStarterPacksSkeletonInput({
     /// DID of the account making the request (not included for public/unauthenticated queries).
     String? viewer,
     int? limit,
+
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestedStarterPacksSkeletonInput;
 
   factory UnspeccedGetSuggestedStarterPacksSkeletonInput.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedGetSuggestedStarterPacksSkeletonInputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$UnspeccedGetSuggestedStarterPacksSkeletonInputFromJson(json);
 }
 
 final class UnspeccedGetSuggestedStarterPacksSkeletonInputConverter
-    extends LexObjectConverter<UnspeccedGetSuggestedStarterPacksSkeletonInput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          UnspeccedGetSuggestedStarterPacksSkeletonInput,
+          Map<String, dynamic>
+        > {
   const UnspeccedGetSuggestedStarterPacksSkeletonInputConverter();
 
   @override
   UnspeccedGetSuggestedStarterPacksSkeletonInput fromJson(
-      Map<String, dynamic> json) {
-    return UnspeccedGetSuggestedStarterPacksSkeletonInput.fromJson(translate(
-      json,
-      UnspeccedGetSuggestedStarterPacksSkeletonInput.knownProps,
-    ));
+    Map<String, dynamic> json,
+  ) {
+    return UnspeccedGetSuggestedStarterPacksSkeletonInput.fromJson(
+      translate(
+        json,
+        UnspeccedGetSuggestedStarterPacksSkeletonInput.knownProps,
+      ),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(
-          UnspeccedGetSuggestedStarterPacksSkeletonInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+    UnspeccedGetSuggestedStarterPacksSkeletonInput object,
+  ) => untranslate(object.toJson());
 }

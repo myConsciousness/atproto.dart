@@ -16,13 +16,9 @@ final class LexIpldConverter
 
     switch (type) {
       case 'bytes':
-        return LexIpld.bytes(
-          data: LexBytes.fromJson(json),
-        );
+        return LexIpld.bytes(data: LexBytes.fromJson(json));
       case 'cid-link':
-        return LexIpld.cidLink(
-          data: LexCidLink.fromJson(json),
-        );
+        return LexIpld.cidLink(data: LexCidLink.fromJson(json));
 
       default:
         throw UnsupportedError('Unsupported type [$type]');
@@ -31,7 +27,7 @@ final class LexIpldConverter
 
   @override
   Map<String, dynamic> toJson(LexIpld object) => object.when(
-        bytes: (data) => data.toJson(),
-        cidLink: (data) => data.toJson(),
-      );
+    bytes: (data) => data.toJson(),
+    cidLink: (data) => data.toJson(),
+  );
 }

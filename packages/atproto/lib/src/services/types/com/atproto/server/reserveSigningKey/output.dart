@@ -21,13 +21,12 @@ part 'output.g.dart';
 @freezed
 abstract class ServerReserveSigningKeyOutput
     with _$ServerReserveSigningKeyOutput {
-  static const knownProps = <String>[
-    'signingKey',
-  ];
+  static const knownProps = <String>['signingKey'];
 
   const factory ServerReserveSigningKeyOutput({
     /// The public key for the reserved signing key, in did:key serialization.
     required String signingKey,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerReserveSigningKeyOutput;
 
@@ -35,21 +34,22 @@ abstract class ServerReserveSigningKeyOutput
       _$ServerReserveSigningKeyOutputFromJson(json);
 }
 
-final class ServerReserveSigningKeyOutputConverter extends LexObjectConverter<
-    ServerReserveSigningKeyOutput, Map<String, dynamic>> {
+final class ServerReserveSigningKeyOutputConverter
+    extends
+        LexObjectConverter<
+          ServerReserveSigningKeyOutput,
+          Map<String, dynamic>
+        > {
   const ServerReserveSigningKeyOutputConverter();
 
   @override
   ServerReserveSigningKeyOutput fromJson(Map<String, dynamic> json) {
-    return ServerReserveSigningKeyOutput.fromJson(translate(
-      json,
-      ServerReserveSigningKeyOutput.knownProps,
-    ));
+    return ServerReserveSigningKeyOutput.fromJson(
+      translate(json, ServerReserveSigningKeyOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ServerReserveSigningKeyOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

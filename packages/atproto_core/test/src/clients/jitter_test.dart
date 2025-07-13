@@ -22,27 +22,21 @@ void main() {
   test('when minInSeconds is less than 0', () {
     expect(
       () => Jitter(minInSeconds: -1, maxInSeconds: 5),
-      throwsA(
-        isA<ArgumentError>(),
-      ),
+      throwsA(isA<ArgumentError>()),
     );
   });
 
   test('when maxInSeconds is less than 0', () {
     expect(
       () => Jitter(minInSeconds: 0, maxInSeconds: -1),
-      throwsA(
-        isA<ArgumentError>(),
-      ),
+      throwsA(isA<ArgumentError>()),
     );
   });
 
   test('when maxInSeconds is less than minInSeconds', () {
     expect(
       () => Jitter(minInSeconds: 2, maxInSeconds: 1),
-      throwsA(
-        isA<ArgumentError>(),
-      ),
+      throwsA(isA<ArgumentError>()),
     );
   });
 }

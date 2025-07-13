@@ -23,15 +23,13 @@ part 'info.g.dart';
 
 @freezed
 abstract class Info with _$Info {
-  static const knownProps = <String>[
-    'name',
-    'message',
-  ];
+  static const knownProps = <String>['name', 'message'];
 
   const factory Info({
     @Default(comAtprotoSyncSubscribeReposInfo) String $type,
     required String name,
     String? message,
+
     Map<String, dynamic>? $unknown,
   }) = _Info;
 
@@ -49,14 +47,9 @@ final class InfoConverter
 
   @override
   Info fromJson(Map<String, dynamic> json) {
-    return Info.fromJson(translate(
-      json,
-      Info.knownProps,
-    ));
+    return Info.fromJson(translate(json, Info.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(Info object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(Info object) => untranslate(object.toJson());
 }

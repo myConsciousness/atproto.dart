@@ -43,6 +43,7 @@ abstract class ProfileAssociated with _$ProfileAssociated {
     @ProfileAssociatedChatConverter() ProfileAssociatedChat? chat,
     @ProfileAssociatedActivitySubscriptionConverter()
     ProfileAssociatedActivitySubscription? activitySubscription,
+
     Map<String, dynamic>? $unknown,
   }) = _ProfileAssociated;
 
@@ -61,14 +62,12 @@ final class ProfileAssociatedConverter
 
   @override
   ProfileAssociated fromJson(Map<String, dynamic> json) {
-    return ProfileAssociated.fromJson(translate(
-      json,
-      ProfileAssociated.knownProps,
-    ));
+    return ProfileAssociated.fromJson(
+      translate(json, ProfileAssociated.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ProfileAssociated object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ProfileAssociated object) =>
+      untranslate(object.toJson());
 }

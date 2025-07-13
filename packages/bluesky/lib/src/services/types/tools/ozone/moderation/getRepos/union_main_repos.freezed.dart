@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,613 +9,400 @@ part of 'union_main_repos.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$UModerationGetReposRepos {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoViewDetail data) repoViewDetail,
-    required TResult Function(RepoViewNotFound data) repoViewNotFound,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoViewDetail data)? repoViewDetail,
-    TResult? Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoViewDetail data)? repoViewDetail,
-    TResult Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationGetReposReposRepoViewDetail value)
-        repoViewDetail,
-    required TResult Function(UModerationGetReposReposRepoViewNotFound value)
-        repoViewNotFound,
-    required TResult Function(UModerationGetReposReposUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationGetReposReposRepoViewDetail value)?
-        repoViewDetail,
-    TResult? Function(UModerationGetReposReposRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult? Function(UModerationGetReposReposUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationGetReposReposRepoViewDetail value)?
-        repoViewDetail,
-    TResult Function(UModerationGetReposReposRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult Function(UModerationGetReposReposUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+
+ Object get data;
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationGetReposRepos&&const DeepCollectionEquality().equals(other.data, data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'UModerationGetReposRepos(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UModerationGetReposReposCopyWith<$Res> {
-  factory $UModerationGetReposReposCopyWith(UModerationGetReposRepos value,
-          $Res Function(UModerationGetReposRepos) then) =
-      _$UModerationGetReposReposCopyWithImpl<$Res, UModerationGetReposRepos>;
+class $UModerationGetReposReposCopyWith<$Res>  {
+$UModerationGetReposReposCopyWith(UModerationGetReposRepos _, $Res Function(UModerationGetReposRepos) __);
 }
 
-/// @nodoc
-class _$UModerationGetReposReposCopyWithImpl<$Res,
-        $Val extends UModerationGetReposRepos>
-    implements $UModerationGetReposReposCopyWith<$Res> {
-  _$UModerationGetReposReposCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// Adds pattern-matching-related methods to [UModerationGetReposRepos].
+extension UModerationGetReposReposPatterns on UModerationGetReposRepos {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  /// Create a copy of UModerationGetReposRepos
-  /// with the given fields replaced by the non-null parameter values.
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UModerationGetReposReposRepoViewDetail value)?  repoViewDetail,TResult Function( UModerationGetReposReposRepoViewNotFound value)?  repoViewNotFound,TResult Function( UModerationGetReposReposUnknown value)?  unknown,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case UModerationGetReposReposRepoViewDetail() when repoViewDetail != null:
+return repoViewDetail(_that);case UModerationGetReposReposRepoViewNotFound() when repoViewNotFound != null:
+return repoViewNotFound(_that);case UModerationGetReposReposUnknown() when unknown != null:
+return unknown(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UModerationGetReposReposRepoViewDetail value)  repoViewDetail,required TResult Function( UModerationGetReposReposRepoViewNotFound value)  repoViewNotFound,required TResult Function( UModerationGetReposReposUnknown value)  unknown,}){
+final _that = this;
+switch (_that) {
+case UModerationGetReposReposRepoViewDetail():
+return repoViewDetail(_that);case UModerationGetReposReposRepoViewNotFound():
+return repoViewNotFound(_that);case UModerationGetReposReposUnknown():
+return unknown(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UModerationGetReposReposRepoViewDetail value)?  repoViewDetail,TResult? Function( UModerationGetReposReposRepoViewNotFound value)?  repoViewNotFound,TResult? Function( UModerationGetReposReposUnknown value)?  unknown,}){
+final _that = this;
+switch (_that) {
+case UModerationGetReposReposRepoViewDetail() when repoViewDetail != null:
+return repoViewDetail(_that);case UModerationGetReposReposRepoViewNotFound() when repoViewNotFound != null:
+return repoViewNotFound(_that);case UModerationGetReposReposUnknown() when unknown != null:
+return unknown(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( RepoViewDetail data)?  repoViewDetail,TResult Function( RepoViewNotFound data)?  repoViewNotFound,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case UModerationGetReposReposRepoViewDetail() when repoViewDetail != null:
+return repoViewDetail(_that.data);case UModerationGetReposReposRepoViewNotFound() when repoViewNotFound != null:
+return repoViewNotFound(_that.data);case UModerationGetReposReposUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( RepoViewDetail data)  repoViewDetail,required TResult Function( RepoViewNotFound data)  repoViewNotFound,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+switch (_that) {
+case UModerationGetReposReposRepoViewDetail():
+return repoViewDetail(_that.data);case UModerationGetReposReposRepoViewNotFound():
+return repoViewNotFound(_that.data);case UModerationGetReposReposUnknown():
+return unknown(_that.data);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( RepoViewDetail data)?  repoViewDetail,TResult? Function( RepoViewNotFound data)?  repoViewNotFound,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+switch (_that) {
+case UModerationGetReposReposRepoViewDetail() when repoViewDetail != null:
+return repoViewDetail(_that.data);case UModerationGetReposReposRepoViewNotFound() when repoViewNotFound != null:
+return repoViewNotFound(_that.data);case UModerationGetReposReposUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-abstract class _$$UModerationGetReposReposRepoViewDetailImplCopyWith<$Res> {
-  factory _$$UModerationGetReposReposRepoViewDetailImplCopyWith(
-          _$UModerationGetReposReposRepoViewDetailImpl value,
-          $Res Function(_$UModerationGetReposReposRepoViewDetailImpl) then) =
-      __$$UModerationGetReposReposRepoViewDetailImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({RepoViewDetail data});
-
-  $RepoViewDetailCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$UModerationGetReposReposRepoViewDetailImplCopyWithImpl<$Res>
-    extends _$UModerationGetReposReposCopyWithImpl<$Res,
-        _$UModerationGetReposReposRepoViewDetailImpl>
-    implements _$$UModerationGetReposReposRepoViewDetailImplCopyWith<$Res> {
-  __$$UModerationGetReposReposRepoViewDetailImplCopyWithImpl(
-      _$UModerationGetReposReposRepoViewDetailImpl _value,
-      $Res Function(_$UModerationGetReposReposRepoViewDetailImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationGetReposRepos
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationGetReposReposRepoViewDetailImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as RepoViewDetail,
-    ));
-  }
-
-  /// Create a copy of UModerationGetReposRepos
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RepoViewDetailCopyWith<$Res> get data {
-    return $RepoViewDetailCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$UModerationGetReposReposRepoViewDetailImpl
-    extends UModerationGetReposReposRepoViewDetail {
-  const _$UModerationGetReposReposRepoViewDetailImpl({required this.data})
-      : super._();
-
-  @override
-  final RepoViewDetail data;
-
-  @override
-  String toString() {
-    return 'UModerationGetReposRepos.repoViewDetail(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationGetReposReposRepoViewDetailImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of UModerationGetReposRepos
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationGetReposReposRepoViewDetailImplCopyWith<
-          _$UModerationGetReposReposRepoViewDetailImpl>
-      get copyWith =>
-          __$$UModerationGetReposReposRepoViewDetailImplCopyWithImpl<
-              _$UModerationGetReposReposRepoViewDetailImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoViewDetail data) repoViewDetail,
-    required TResult Function(RepoViewNotFound data) repoViewNotFound,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return repoViewDetail(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoViewDetail data)? repoViewDetail,
-    TResult? Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return repoViewDetail?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoViewDetail data)? repoViewDetail,
-    TResult Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (repoViewDetail != null) {
-      return repoViewDetail(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationGetReposReposRepoViewDetail value)
-        repoViewDetail,
-    required TResult Function(UModerationGetReposReposRepoViewNotFound value)
-        repoViewNotFound,
-    required TResult Function(UModerationGetReposReposUnknown value) unknown,
-  }) {
-    return repoViewDetail(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationGetReposReposRepoViewDetail value)?
-        repoViewDetail,
-    TResult? Function(UModerationGetReposReposRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult? Function(UModerationGetReposReposUnknown value)? unknown,
-  }) {
-    return repoViewDetail?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationGetReposReposRepoViewDetail value)?
-        repoViewDetail,
-    TResult Function(UModerationGetReposReposRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult Function(UModerationGetReposReposUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (repoViewDetail != null) {
-      return repoViewDetail(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UModerationGetReposReposRepoViewDetail
-    extends UModerationGetReposRepos {
-  const factory UModerationGetReposReposRepoViewDetail(
-          {required final RepoViewDetail data}) =
-      _$UModerationGetReposReposRepoViewDetailImpl;
-  const UModerationGetReposReposRepoViewDetail._() : super._();
-
-  @override
-  RepoViewDetail get data;
-
-  /// Create a copy of UModerationGetReposRepos
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationGetReposReposRepoViewDetailImplCopyWith<
-          _$UModerationGetReposReposRepoViewDetailImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UModerationGetReposReposRepoViewNotFoundImplCopyWith<$Res> {
-  factory _$$UModerationGetReposReposRepoViewNotFoundImplCopyWith(
-          _$UModerationGetReposReposRepoViewNotFoundImpl value,
-          $Res Function(_$UModerationGetReposReposRepoViewNotFoundImpl) then) =
-      __$$UModerationGetReposReposRepoViewNotFoundImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({RepoViewNotFound data});
-
-  $RepoViewNotFoundCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$UModerationGetReposReposRepoViewNotFoundImplCopyWithImpl<$Res>
-    extends _$UModerationGetReposReposCopyWithImpl<$Res,
-        _$UModerationGetReposReposRepoViewNotFoundImpl>
-    implements _$$UModerationGetReposReposRepoViewNotFoundImplCopyWith<$Res> {
-  __$$UModerationGetReposReposRepoViewNotFoundImplCopyWithImpl(
-      _$UModerationGetReposReposRepoViewNotFoundImpl _value,
-      $Res Function(_$UModerationGetReposReposRepoViewNotFoundImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationGetReposRepos
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationGetReposReposRepoViewNotFoundImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as RepoViewNotFound,
-    ));
-  }
-
-  /// Create a copy of UModerationGetReposRepos
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RepoViewNotFoundCopyWith<$Res> get data {
-    return $RepoViewNotFoundCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
 }
 
 /// @nodoc
 
-class _$UModerationGetReposReposRepoViewNotFoundImpl
-    extends UModerationGetReposReposRepoViewNotFound {
-  const _$UModerationGetReposReposRepoViewNotFoundImpl({required this.data})
-      : super._();
 
-  @override
-  final RepoViewNotFound data;
+class UModerationGetReposReposRepoViewDetail extends UModerationGetReposRepos {
+  const UModerationGetReposReposRepoViewDetail({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationGetReposRepos.repoViewNotFound(data: $data)';
-  }
+@override final  RepoViewDetail data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationGetReposReposRepoViewNotFoundImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of UModerationGetReposRepos
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationGetReposReposRepoViewDetailCopyWith<UModerationGetReposReposRepoViewDetail> get copyWith => _$UModerationGetReposReposRepoViewDetailCopyWithImpl<UModerationGetReposReposRepoViewDetail>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UModerationGetReposRepos
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationGetReposReposRepoViewNotFoundImplCopyWith<
-          _$UModerationGetReposReposRepoViewNotFoundImpl>
-      get copyWith =>
-          __$$UModerationGetReposReposRepoViewNotFoundImplCopyWithImpl<
-              _$UModerationGetReposReposRepoViewNotFoundImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoViewDetail data) repoViewDetail,
-    required TResult Function(RepoViewNotFound data) repoViewNotFound,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return repoViewNotFound(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoViewDetail data)? repoViewDetail,
-    TResult? Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return repoViewNotFound?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoViewDetail data)? repoViewDetail,
-    TResult Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (repoViewNotFound != null) {
-      return repoViewNotFound(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationGetReposReposRepoViewDetail value)
-        repoViewDetail,
-    required TResult Function(UModerationGetReposReposRepoViewNotFound value)
-        repoViewNotFound,
-    required TResult Function(UModerationGetReposReposUnknown value) unknown,
-  }) {
-    return repoViewNotFound(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationGetReposReposRepoViewDetail value)?
-        repoViewDetail,
-    TResult? Function(UModerationGetReposReposRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult? Function(UModerationGetReposReposUnknown value)? unknown,
-  }) {
-    return repoViewNotFound?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationGetReposReposRepoViewDetail value)?
-        repoViewDetail,
-    TResult Function(UModerationGetReposReposRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult Function(UModerationGetReposReposUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (repoViewNotFound != null) {
-      return repoViewNotFound(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationGetReposReposRepoViewDetail&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationGetReposReposRepoViewNotFound
-    extends UModerationGetReposRepos {
-  const factory UModerationGetReposReposRepoViewNotFound(
-          {required final RepoViewNotFound data}) =
-      _$UModerationGetReposReposRepoViewNotFoundImpl;
-  const UModerationGetReposReposRepoViewNotFound._() : super._();
 
-  @override
-  RepoViewNotFound get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationGetReposRepos
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationGetReposReposRepoViewNotFoundImplCopyWith<
-          _$UModerationGetReposReposRepoViewNotFoundImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationGetReposRepos.repoViewDetail(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$UModerationGetReposReposUnknownImplCopyWith<$Res> {
-  factory _$$UModerationGetReposReposUnknownImplCopyWith(
-          _$UModerationGetReposReposUnknownImpl value,
-          $Res Function(_$UModerationGetReposReposUnknownImpl) then) =
-      __$$UModerationGetReposReposUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
+abstract mixin class $UModerationGetReposReposRepoViewDetailCopyWith<$Res> implements $UModerationGetReposReposCopyWith<$Res> {
+  factory $UModerationGetReposReposRepoViewDetailCopyWith(UModerationGetReposReposRepoViewDetail value, $Res Function(UModerationGetReposReposRepoViewDetail) _then) = _$UModerationGetReposReposRepoViewDetailCopyWithImpl;
+@useResult
+$Res call({
+ RepoViewDetail data
+});
+
+
+$RepoViewDetailCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationGetReposReposRepoViewDetailCopyWithImpl<$Res>
+    implements $UModerationGetReposReposRepoViewDetailCopyWith<$Res> {
+  _$UModerationGetReposReposRepoViewDetailCopyWithImpl(this._self, this._then);
+
+  final UModerationGetReposReposRepoViewDetail _self;
+  final $Res Function(UModerationGetReposReposRepoViewDetail) _then;
+
+/// Create a copy of UModerationGetReposRepos
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationGetReposReposRepoViewDetail(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as RepoViewDetail,
+  ));
 }
 
-/// @nodoc
-class __$$UModerationGetReposReposUnknownImplCopyWithImpl<$Res>
-    extends _$UModerationGetReposReposCopyWithImpl<$Res,
-        _$UModerationGetReposReposUnknownImpl>
-    implements _$$UModerationGetReposReposUnknownImplCopyWith<$Res> {
-  __$$UModerationGetReposReposUnknownImplCopyWithImpl(
-      _$UModerationGetReposReposUnknownImpl _value,
-      $Res Function(_$UModerationGetReposReposUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UModerationGetReposRepos
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationGetReposReposUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
+/// Create a copy of UModerationGetReposRepos
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RepoViewDetailCopyWith<$Res> get data {
+  
+  return $RepoViewDetailCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$UModerationGetReposReposUnknownImpl
-    extends UModerationGetReposReposUnknown {
-  const _$UModerationGetReposReposUnknownImpl(
-      {required final Map<String, dynamic> data})
-      : _data = data,
-        super._();
 
-  final Map<String, dynamic> _data;
-  @override
-  Map<String, dynamic> get data {
-    if (_data is EqualUnmodifiableMapView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_data);
-  }
+class UModerationGetReposReposRepoViewNotFound extends UModerationGetReposRepos {
+  const UModerationGetReposReposRepoViewNotFound({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'UModerationGetReposRepos.unknown(data: $data)';
-  }
+@override final  RepoViewNotFound data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationGetReposReposUnknownImpl &&
-            const DeepCollectionEquality().equals(other._data, _data));
-  }
+/// Create a copy of UModerationGetReposRepos
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationGetReposReposRepoViewNotFoundCopyWith<UModerationGetReposReposRepoViewNotFound> get copyWith => _$UModerationGetReposReposRepoViewNotFoundCopyWithImpl<UModerationGetReposReposRepoViewNotFound>(this, _$identity);
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  /// Create a copy of UModerationGetReposRepos
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationGetReposReposUnknownImplCopyWith<
-          _$UModerationGetReposReposUnknownImpl>
-      get copyWith => __$$UModerationGetReposReposUnknownImplCopyWithImpl<
-          _$UModerationGetReposReposUnknownImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoViewDetail data) repoViewDetail,
-    required TResult Function(RepoViewNotFound data) repoViewNotFound,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoViewDetail data)? repoViewDetail,
-    TResult? Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoViewDetail data)? repoViewDetail,
-    TResult Function(RepoViewNotFound data)? repoViewNotFound,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationGetReposReposRepoViewDetail value)
-        repoViewDetail,
-    required TResult Function(UModerationGetReposReposRepoViewNotFound value)
-        repoViewNotFound,
-    required TResult Function(UModerationGetReposReposUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationGetReposReposRepoViewDetail value)?
-        repoViewDetail,
-    TResult? Function(UModerationGetReposReposRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult? Function(UModerationGetReposReposUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationGetReposReposRepoViewDetail value)?
-        repoViewDetail,
-    TResult Function(UModerationGetReposReposRepoViewNotFound value)?
-        repoViewNotFound,
-    TResult Function(UModerationGetReposReposUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationGetReposReposRepoViewNotFound&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class UModerationGetReposReposUnknown
-    extends UModerationGetReposRepos {
-  const factory UModerationGetReposReposUnknown(
-          {required final Map<String, dynamic> data}) =
-      _$UModerationGetReposReposUnknownImpl;
-  const UModerationGetReposReposUnknown._() : super._();
 
-  @override
-  Map<String, dynamic> get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of UModerationGetReposRepos
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationGetReposReposUnknownImplCopyWith<
-          _$UModerationGetReposReposUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'UModerationGetReposRepos.repoViewNotFound(data: $data)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class $UModerationGetReposReposRepoViewNotFoundCopyWith<$Res> implements $UModerationGetReposReposCopyWith<$Res> {
+  factory $UModerationGetReposReposRepoViewNotFoundCopyWith(UModerationGetReposReposRepoViewNotFound value, $Res Function(UModerationGetReposReposRepoViewNotFound) _then) = _$UModerationGetReposReposRepoViewNotFoundCopyWithImpl;
+@useResult
+$Res call({
+ RepoViewNotFound data
+});
+
+
+$RepoViewNotFoundCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationGetReposReposRepoViewNotFoundCopyWithImpl<$Res>
+    implements $UModerationGetReposReposRepoViewNotFoundCopyWith<$Res> {
+  _$UModerationGetReposReposRepoViewNotFoundCopyWithImpl(this._self, this._then);
+
+  final UModerationGetReposReposRepoViewNotFound _self;
+  final $Res Function(UModerationGetReposReposRepoViewNotFound) _then;
+
+/// Create a copy of UModerationGetReposRepos
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationGetReposReposRepoViewNotFound(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as RepoViewNotFound,
+  ));
+}
+
+/// Create a copy of UModerationGetReposRepos
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RepoViewNotFoundCopyWith<$Res> get data {
+  
+  return $RepoViewNotFoundCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+
+
+class UModerationGetReposReposUnknown extends UModerationGetReposRepos {
+  const UModerationGetReposReposUnknown({required final  Map<String, dynamic> data}): _data = data,super._();
+  
+
+ final  Map<String, dynamic> _data;
+@override Map<String, dynamic> get data {
+  if (_data is EqualUnmodifiableMapView) return _data;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_data);
+}
+
+
+/// Create a copy of UModerationGetReposRepos
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationGetReposReposUnknownCopyWith<UModerationGetReposReposUnknown> get copyWith => _$UModerationGetReposReposUnknownCopyWithImpl<UModerationGetReposReposUnknown>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationGetReposReposUnknown&&const DeepCollectionEquality().equals(other._data, _data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_data));
+
+@override
+String toString() {
+  return 'UModerationGetReposRepos.unknown(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UModerationGetReposReposUnknownCopyWith<$Res> implements $UModerationGetReposReposCopyWith<$Res> {
+  factory $UModerationGetReposReposUnknownCopyWith(UModerationGetReposReposUnknown value, $Res Function(UModerationGetReposReposUnknown) _then) = _$UModerationGetReposReposUnknownCopyWithImpl;
+@useResult
+$Res call({
+ Map<String, dynamic> data
+});
+
+
+
+
+}
+/// @nodoc
+class _$UModerationGetReposReposUnknownCopyWithImpl<$Res>
+    implements $UModerationGetReposReposUnknownCopyWith<$Res> {
+  _$UModerationGetReposReposUnknownCopyWithImpl(this._self, this._then);
+
+  final UModerationGetReposReposUnknown _self;
+  final $Res Function(UModerationGetReposReposUnknown) _then;
+
+/// Create a copy of UModerationGetReposRepos
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationGetReposReposUnknown(
+data: null == data ? _self._data : data // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,
+  ));
+}
+
+
+}
+
+// dart format on

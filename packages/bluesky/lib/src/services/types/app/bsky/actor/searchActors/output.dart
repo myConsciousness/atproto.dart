@@ -23,14 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class ActorSearchActorsOutput with _$ActorSearchActorsOutput {
-  static const knownProps = <String>[
-    'cursor',
-    'actors',
-  ];
+  static const knownProps = <String>['cursor', 'actors'];
 
   const factory ActorSearchActorsOutput({
     String? cursor,
     @ProfileViewConverter() required List<ProfileView> actors,
+
     Map<String, dynamic>? $unknown,
   }) = _ActorSearchActorsOutput;
 
@@ -44,14 +42,12 @@ final class ActorSearchActorsOutputConverter
 
   @override
   ActorSearchActorsOutput fromJson(Map<String, dynamic> json) {
-    return ActorSearchActorsOutput.fromJson(translate(
-      json,
-      ActorSearchActorsOutput.knownProps,
-    ));
+    return ActorSearchActorsOutput.fromJson(
+      translate(json, ActorSearchActorsOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ActorSearchActorsOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ActorSearchActorsOutput object) =>
+      untranslate(object.toJson());
 }

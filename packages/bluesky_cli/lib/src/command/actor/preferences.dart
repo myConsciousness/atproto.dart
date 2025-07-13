@@ -19,10 +19,8 @@ class PreferencesCommand extends QueryCommand {
   final String invocation = 'bsky preferences';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'actor.bsky.app',
-        'getPreferences',
-      );
+  xrpc.NSID get methodId =>
+      xrpc.NSID.create('actor.bsky.app', 'getPreferences');
 
   @override
   Map<String, dynamic>? get parameters => {};

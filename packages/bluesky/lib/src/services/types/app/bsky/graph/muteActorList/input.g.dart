@@ -8,27 +8,18 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GraphMuteActorListInputImpl _$$GraphMuteActorListInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$GraphMuteActorListInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$GraphMuteActorListInputImpl(
-          list: $checkedConvert('list', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_GraphMuteActorListInput _$GraphMuteActorListInputFromJson(Map json) =>
+    $checkedCreate('_GraphMuteActorListInput', json, ($checkedConvert) {
+      final val = _GraphMuteActorListInput(
+        list: $checkedConvert('list', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$GraphMuteActorListInputImplToJson(
-        _$GraphMuteActorListInputImpl instance) =>
-    <String, dynamic>{
-      'list': instance.list,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$GraphMuteActorListInputToJson(
+  _GraphMuteActorListInput instance,
+) => <String, dynamic>{'list': instance.list, r'$unknown': instance.$unknown};

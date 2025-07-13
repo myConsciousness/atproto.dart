@@ -8,38 +8,40 @@ part of 'trend_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TrendViewImpl _$$TrendViewImplFromJson(Map json) => $checkedCreate(
-      r'_$TrendViewImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$TrendViewImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyUnspeccedDefsTrendView),
-          topic: $checkedConvert('topic', (v) => v as String),
-          displayName: $checkedConvert('displayName', (v) => v as String),
-          link: $checkedConvert('link', (v) => v as String),
-          startedAt:
-              $checkedConvert('startedAt', (v) => DateTime.parse(v as String)),
-          postCount: $checkedConvert('postCount', (v) => (v as num).toInt()),
-          status: $checkedConvert('status', (v) => v as String?),
-          category: $checkedConvert('category', (v) => v as String?),
-          actors: $checkedConvert(
-              'actors',
-              (v) => (v as List<dynamic>)
-                  .map((e) => const ProfileViewBasicConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_TrendView _$TrendViewFromJson(Map json) => $checkedCreate('_TrendView', json, (
+  $checkedConvert,
+) {
+  final val = _TrendView(
+    $type: $checkedConvert(
+      r'$type',
+      (v) => v as String? ?? appBskyUnspeccedDefsTrendView,
+    ),
+    topic: $checkedConvert('topic', (v) => v as String),
+    displayName: $checkedConvert('displayName', (v) => v as String),
+    link: $checkedConvert('link', (v) => v as String),
+    startedAt: $checkedConvert('startedAt', (v) => DateTime.parse(v as String)),
+    postCount: $checkedConvert('postCount', (v) => (v as num).toInt()),
+    status: $checkedConvert('status', (v) => v as String?),
+    category: $checkedConvert('category', (v) => v as String?),
+    actors: $checkedConvert(
+      'actors',
+      (v) => (v as List<dynamic>)
+          .map(
+            (e) => const ProfileViewBasicConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
+    ),
+    $unknown: $checkedConvert(
+      r'$unknown',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
+  );
+  return val;
+});
 
-Map<String, dynamic> _$$TrendViewImplToJson(_$TrendViewImpl instance) =>
+Map<String, dynamic> _$TrendViewToJson(_TrendView instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'topic': instance.topic,

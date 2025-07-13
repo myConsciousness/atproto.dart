@@ -14,11 +14,7 @@ class MutingListsCommand extends QueryCommand {
         help: 'Maximum search limit from 1 to 100. Defaults to 50.',
         defaultsTo: null,
       )
-      ..addOption(
-        'cursor',
-        help: 'Token for pagination.',
-        defaultsTo: null,
-      );
+      ..addOption('cursor', help: 'Token for pagination.', defaultsTo: null);
   }
 
   @override
@@ -31,14 +27,11 @@ class MutingListsCommand extends QueryCommand {
   final String invocation = 'bsky muting-lists [limit] [cursor]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'graph.bsky.app',
-        'getListMutes',
-      );
+  xrpc.NSID get methodId => xrpc.NSID.create('graph.bsky.app', 'getListMutes');
 
   @override
   Map<String, dynamic>? get parameters => {
-        'limit': argResults!['limit'],
-        'cursor': argResults!['cursor'],
-      };
+    'limit': argResults!['limit'],
+    'cursor': argResults!['cursor'],
+  };
 }

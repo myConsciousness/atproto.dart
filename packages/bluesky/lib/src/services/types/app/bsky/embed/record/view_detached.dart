@@ -23,15 +23,13 @@ part 'view_detached.g.dart';
 
 @freezed
 abstract class EmbedRecordViewDetached with _$EmbedRecordViewDetached {
-  static const knownProps = <String>[
-    'uri',
-    'detached',
-  ];
+  static const knownProps = <String>['uri', 'detached'];
 
   const factory EmbedRecordViewDetached({
     @Default(appBskyEmbedRecordViewDetached) String $type,
     required String uri,
     required bool detached,
+
     Map<String, dynamic>? $unknown,
   }) = _EmbedRecordViewDetached;
 
@@ -50,14 +48,12 @@ final class EmbedRecordViewDetachedConverter
 
   @override
   EmbedRecordViewDetached fromJson(Map<String, dynamic> json) {
-    return EmbedRecordViewDetached.fromJson(translate(
-      json,
-      EmbedRecordViewDetached.knownProps,
-    ));
+    return EmbedRecordViewDetached.fromJson(
+      translate(json, EmbedRecordViewDetached.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedRecordViewDetached object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(EmbedRecordViewDetached object) =>
+      untranslate(object.toJson());
 }

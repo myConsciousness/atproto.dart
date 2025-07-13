@@ -17,10 +17,7 @@ void main() {
   );
 
   testModeration<core.EmptyData>(
-    (m, s) => s.updateActorAccess(
-      actor: m.actor,
-      allowAccess: true,
-    ),
+    (m, s) => s.updateActorAccess(actor: m.actor, allowAccess: true),
     id: chatBskyModerationUpdateActorAccess,
   );
 }

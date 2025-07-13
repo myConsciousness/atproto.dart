@@ -51,6 +51,7 @@ abstract class ThreadItemPost with _$ThreadItemPost {
 
     /// This is by an account muted by the viewer requesting it.
     required bool mutedByViewer,
+
     Map<String, dynamic>? $unknown,
   }) = _ThreadItemPost;
 
@@ -69,14 +70,10 @@ final class ThreadItemPostConverter
 
   @override
   ThreadItemPost fromJson(Map<String, dynamic> json) {
-    return ThreadItemPost.fromJson(translate(
-      json,
-      ThreadItemPost.knownProps,
-    ));
+    return ThreadItemPost.fromJson(translate(json, ThreadItemPost.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ThreadItemPost object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ThreadItemPost object) =>
+      untranslate(object.toJson());
 }

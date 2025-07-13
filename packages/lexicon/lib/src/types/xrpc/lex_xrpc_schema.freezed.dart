@@ -12,7 +12,8 @@ part of 'lex_xrpc_schema.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$LexXrpcSchema {
@@ -21,47 +22,42 @@ mixin _$LexXrpcSchema {
   TResult when<TResult extends Object?>({
     required TResult Function(LexRefVariant data) refVariant,
     required TResult Function(LexObject data) object,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(LexRefVariant data)? refVariant,
     TResult? Function(LexObject data)? object,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(LexRefVariant data)? refVariant,
     TResult Function(LexObject data)? object,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ULexXrpcSchemaRefVariant value) refVariant,
     required TResult Function(ULexXrpcSchemaObject value) object,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ULexXrpcSchemaRefVariant value)? refVariant,
     TResult? Function(ULexXrpcSchemaObject value)? object,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ULexXrpcSchemaRefVariant value)? refVariant,
     TResult Function(ULexXrpcSchemaObject value)? object,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $LexXrpcSchemaCopyWith<$Res> {
   factory $LexXrpcSchemaCopyWith(
-          LexXrpcSchema value, $Res Function(LexXrpcSchema) then) =
-      _$LexXrpcSchemaCopyWithImpl<$Res, LexXrpcSchema>;
+    LexXrpcSchema value,
+    $Res Function(LexXrpcSchema) then,
+  ) = _$LexXrpcSchemaCopyWithImpl<$Res, LexXrpcSchema>;
 }
 
 /// @nodoc
@@ -81,9 +77,9 @@ class _$LexXrpcSchemaCopyWithImpl<$Res, $Val extends LexXrpcSchema>
 /// @nodoc
 abstract class _$$ULexXrpcSchemaRefVariantImplCopyWith<$Res> {
   factory _$$ULexXrpcSchemaRefVariantImplCopyWith(
-          _$ULexXrpcSchemaRefVariantImpl value,
-          $Res Function(_$ULexXrpcSchemaRefVariantImpl) then) =
-      __$$ULexXrpcSchemaRefVariantImplCopyWithImpl<$Res>;
+    _$ULexXrpcSchemaRefVariantImpl value,
+    $Res Function(_$ULexXrpcSchemaRefVariantImpl) then,
+  ) = __$$ULexXrpcSchemaRefVariantImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexRefVariant data});
 
@@ -95,23 +91,23 @@ class __$$ULexXrpcSchemaRefVariantImplCopyWithImpl<$Res>
     extends _$LexXrpcSchemaCopyWithImpl<$Res, _$ULexXrpcSchemaRefVariantImpl>
     implements _$$ULexXrpcSchemaRefVariantImplCopyWith<$Res> {
   __$$ULexXrpcSchemaRefVariantImplCopyWithImpl(
-      _$ULexXrpcSchemaRefVariantImpl _value,
-      $Res Function(_$ULexXrpcSchemaRefVariantImpl) _then)
-      : super(_value, _then);
+    _$ULexXrpcSchemaRefVariantImpl _value,
+    $Res Function(_$ULexXrpcSchemaRefVariantImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexXrpcSchema
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexXrpcSchemaRefVariantImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexRefVariant,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexXrpcSchemaRefVariantImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexRefVariant,
+      ),
+    );
   }
 
   /// Create a copy of LexXrpcSchema
@@ -155,8 +151,10 @@ class _$ULexXrpcSchemaRefVariantImpl extends ULexXrpcSchemaRefVariant {
   @override
   @pragma('vm:prefer-inline')
   _$$ULexXrpcSchemaRefVariantImplCopyWith<_$ULexXrpcSchemaRefVariantImpl>
-      get copyWith => __$$ULexXrpcSchemaRefVariantImplCopyWithImpl<
-          _$ULexXrpcSchemaRefVariantImpl>(this, _$identity);
+  get copyWith =>
+      __$$ULexXrpcSchemaRefVariantImplCopyWithImpl<
+        _$ULexXrpcSchemaRefVariantImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -233,14 +231,15 @@ abstract class ULexXrpcSchemaRefVariant extends LexXrpcSchema {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexXrpcSchemaRefVariantImplCopyWith<_$ULexXrpcSchemaRefVariantImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$ULexXrpcSchemaObjectImplCopyWith<$Res> {
-  factory _$$ULexXrpcSchemaObjectImplCopyWith(_$ULexXrpcSchemaObjectImpl value,
-          $Res Function(_$ULexXrpcSchemaObjectImpl) then) =
-      __$$ULexXrpcSchemaObjectImplCopyWithImpl<$Res>;
+  factory _$$ULexXrpcSchemaObjectImplCopyWith(
+    _$ULexXrpcSchemaObjectImpl value,
+    $Res Function(_$ULexXrpcSchemaObjectImpl) then,
+  ) = __$$ULexXrpcSchemaObjectImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexObject data});
 
@@ -251,23 +250,24 @@ abstract class _$$ULexXrpcSchemaObjectImplCopyWith<$Res> {
 class __$$ULexXrpcSchemaObjectImplCopyWithImpl<$Res>
     extends _$LexXrpcSchemaCopyWithImpl<$Res, _$ULexXrpcSchemaObjectImpl>
     implements _$$ULexXrpcSchemaObjectImplCopyWith<$Res> {
-  __$$ULexXrpcSchemaObjectImplCopyWithImpl(_$ULexXrpcSchemaObjectImpl _value,
-      $Res Function(_$ULexXrpcSchemaObjectImpl) _then)
-      : super(_value, _then);
+  __$$ULexXrpcSchemaObjectImplCopyWithImpl(
+    _$ULexXrpcSchemaObjectImpl _value,
+    $Res Function(_$ULexXrpcSchemaObjectImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexXrpcSchema
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULexXrpcSchemaObjectImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as LexObject,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ULexXrpcSchemaObjectImpl(
+        data: null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LexObject,
+      ),
+    );
   }
 
   /// Create a copy of LexXrpcSchema
@@ -311,9 +311,11 @@ class _$ULexXrpcSchemaObjectImpl extends ULexXrpcSchemaObject {
   @override
   @pragma('vm:prefer-inline')
   _$$ULexXrpcSchemaObjectImplCopyWith<_$ULexXrpcSchemaObjectImpl>
-      get copyWith =>
-          __$$ULexXrpcSchemaObjectImplCopyWithImpl<_$ULexXrpcSchemaObjectImpl>(
-              this, _$identity);
+  get copyWith =>
+      __$$ULexXrpcSchemaObjectImplCopyWithImpl<_$ULexXrpcSchemaObjectImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -390,5 +392,5 @@ abstract class ULexXrpcSchemaObject extends LexXrpcSchema {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexXrpcSchemaObjectImplCopyWith<_$ULexXrpcSchemaObjectImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

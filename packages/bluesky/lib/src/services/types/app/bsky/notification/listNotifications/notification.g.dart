@@ -8,46 +8,50 @@ part of 'notification.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
-      r'_$NotificationImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$NotificationImpl(
-          $type: $checkedConvert(
-              r'$type',
-              (v) =>
-                  v as String? ??
-                  appBskyNotificationListNotificationsNotification),
-          uri: $checkedConvert('uri', (v) => v as String),
-          cid: $checkedConvert('cid', (v) => v as String),
-          author: $checkedConvert(
-              'author',
-              (v) => const ProfileViewConverter()
-                  .fromJson(v as Map<String, dynamic>)),
-          reason: $checkedConvert('reason', (v) => v as String),
-          reasonSubject: $checkedConvert('reasonSubject', (v) => v as String?),
-          record: $checkedConvert(
-              'record', (v) => Map<String, dynamic>.from(v as Map)),
-          isRead: $checkedConvert('isRead', (v) => v as bool),
-          indexedAt:
-              $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
-          labels: $checkedConvert(
-              'labels',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => const LabelConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_Notification _$NotificationFromJson(Map json) =>
+    $checkedCreate('_Notification', json, ($checkedConvert) {
+      final val = _Notification(
+        $type: $checkedConvert(
+          r'$type',
+          (v) =>
+              v as String? ?? appBskyNotificationListNotificationsNotification,
+        ),
+        uri: $checkedConvert('uri', (v) => v as String),
+        cid: $checkedConvert('cid', (v) => v as String),
+        author: $checkedConvert(
+          'author',
+          (v) =>
+              const ProfileViewConverter().fromJson(v as Map<String, dynamic>),
+        ),
+        reason: $checkedConvert('reason', (v) => v as String),
+        reasonSubject: $checkedConvert('reasonSubject', (v) => v as String?),
+        record: $checkedConvert(
+          'record',
+          (v) => Map<String, dynamic>.from(v as Map),
+        ),
+        isRead: $checkedConvert('isRead', (v) => v as bool),
+        indexedAt: $checkedConvert(
+          'indexedAt',
+          (v) => DateTime.parse(v as String),
+        ),
+        labels: $checkedConvert(
+          'labels',
+          (v) => (v as List<dynamic>?)
+              ?.map(
+                (e) =>
+                    const LabelConverter().fromJson(e as Map<String, dynamic>),
+              )
+              .toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$NotificationImplToJson(_$NotificationImpl instance) =>
+Map<String, dynamic> _$NotificationToJson(_Notification instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'uri': instance.uri,

@@ -12,7 +12,8 @@ part of 'lex_ref.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LexRef _$LexRefFromJson(Map<String, dynamic> json) {
   return _LexRef.fromJson(json);
@@ -60,28 +61,32 @@ class _$LexRefCopyWithImpl<$Res, $Val extends LexRef>
     Object? description = freezed,
     Object? ref = freezed,
   }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      ref: freezed == ref
-          ? _value.ref
-          : ref // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            ref: freezed == ref
+                ? _value.ref
+                : ref // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$LexRefImplCopyWith<$Res> implements $LexRefCopyWith<$Res> {
   factory _$$LexRefImplCopyWith(
-          _$LexRefImpl value, $Res Function(_$LexRefImpl) then) =
-      __$$LexRefImplCopyWithImpl<$Res>;
+    _$LexRefImpl value,
+    $Res Function(_$LexRefImpl) then,
+  ) = __$$LexRefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type, String? description, String? ref});
@@ -92,8 +97,9 @@ class __$$LexRefImplCopyWithImpl<$Res>
     extends _$LexRefCopyWithImpl<$Res, _$LexRefImpl>
     implements _$$LexRefImplCopyWith<$Res> {
   __$$LexRefImplCopyWithImpl(
-      _$LexRefImpl _value, $Res Function(_$LexRefImpl) _then)
-      : super(_value, _then);
+    _$LexRefImpl _value,
+    $Res Function(_$LexRefImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LexRef
   /// with the given fields replaced by the non-null parameter values.
@@ -104,20 +110,22 @@ class __$$LexRefImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? ref = freezed,
   }) {
-    return _then(_$LexRefImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      ref: freezed == ref
-          ? _value.ref
-          : ref // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$LexRefImpl(
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        ref: freezed == ref
+            ? _value.ref
+            : ref // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
@@ -168,17 +176,16 @@ class _$LexRefImpl implements _LexRef {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LexRefImplToJson(
-      this,
-    );
+    return _$$LexRefImplToJson(this);
   }
 }
 
 abstract class _LexRef implements LexRef {
-  const factory _LexRef(
-      {final String type,
-      final String? description,
-      final String? ref}) = _$LexRefImpl;
+  const factory _LexRef({
+    final String type,
+    final String? description,
+    final String? ref,
+  }) = _$LexRefImpl;
 
   factory _LexRef.fromJson(Map<String, dynamic> json) = _$LexRefImpl.fromJson;
 

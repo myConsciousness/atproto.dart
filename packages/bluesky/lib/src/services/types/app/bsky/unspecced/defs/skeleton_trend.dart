@@ -44,6 +44,7 @@ abstract class SkeletonTrend with _$SkeletonTrend {
     String? status,
     String? category,
     required List<String> dids,
+
     Map<String, dynamic>? $unknown,
   }) = _SkeletonTrend;
 
@@ -62,14 +63,10 @@ final class SkeletonTrendConverter
 
   @override
   SkeletonTrend fromJson(Map<String, dynamic> json) {
-    return SkeletonTrend.fromJson(translate(
-      json,
-      SkeletonTrend.knownProps,
-    ));
+    return SkeletonTrend.fromJson(translate(json, SkeletonTrend.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(SkeletonTrend object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SkeletonTrend object) =>
+      untranslate(object.toJson());
 }

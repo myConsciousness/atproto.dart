@@ -24,36 +24,35 @@ part 'output.g.dart';
 @freezed
 abstract class CommunicationListTemplatesOutput
     with _$CommunicationListTemplatesOutput {
-  static const knownProps = <String>[
-    'communicationTemplates',
-  ];
+  static const knownProps = <String>['communicationTemplates'];
 
   const factory CommunicationListTemplatesOutput({
     @TemplateViewConverter() required List<TemplateView> communicationTemplates,
+
     Map<String, dynamic>? $unknown,
   }) = _CommunicationListTemplatesOutput;
 
   factory CommunicationListTemplatesOutput.fromJson(
-          Map<String, Object?> json) =>
-      _$CommunicationListTemplatesOutputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$CommunicationListTemplatesOutputFromJson(json);
 }
 
 final class CommunicationListTemplatesOutputConverter
-    extends LexObjectConverter<CommunicationListTemplatesOutput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          CommunicationListTemplatesOutput,
+          Map<String, dynamic>
+        > {
   const CommunicationListTemplatesOutputConverter();
 
   @override
   CommunicationListTemplatesOutput fromJson(Map<String, dynamic> json) {
-    return CommunicationListTemplatesOutput.fromJson(translate(
-      json,
-      CommunicationListTemplatesOutput.knownProps,
-    ));
+    return CommunicationListTemplatesOutput.fromJson(
+      translate(json, CommunicationListTemplatesOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(CommunicationListTemplatesOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

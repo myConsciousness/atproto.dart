@@ -40,6 +40,7 @@ abstract class FeedPostgateRecord with _$FeedPostgateRecord {
     List<String>? detachedEmbeddingUris,
     @UFeedPostgateEmbeddingRulesConverter()
     List<UFeedPostgateEmbeddingRules>? embeddingRules,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedPostgateRecord;
 
@@ -58,14 +59,12 @@ final class FeedPostgateRecordConverter
 
   @override
   FeedPostgateRecord fromJson(Map<String, dynamic> json) {
-    return FeedPostgateRecord.fromJson(translate(
-      json,
-      FeedPostgateRecord.knownProps,
-    ));
+    return FeedPostgateRecord.fromJson(
+      translate(json, FeedPostgateRecord.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(FeedPostgateRecord object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(FeedPostgateRecord object) =>
+      untranslate(object.toJson());
 }

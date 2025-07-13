@@ -8,29 +8,23 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RepoListMissingBlobsInputImpl _$$RepoListMissingBlobsInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$RepoListMissingBlobsInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$RepoListMissingBlobsInputImpl(
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
-          cursor: $checkedConvert('cursor', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_RepoListMissingBlobsInput _$RepoListMissingBlobsInputFromJson(Map json) =>
+    $checkedCreate('_RepoListMissingBlobsInput', json, ($checkedConvert) {
+      final val = _RepoListMissingBlobsInput(
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        cursor: $checkedConvert('cursor', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$RepoListMissingBlobsInputImplToJson(
-        _$RepoListMissingBlobsInputImpl instance) =>
-    <String, dynamic>{
-      'limit': instance.limit,
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$RepoListMissingBlobsInputToJson(
+  _RepoListMissingBlobsInput instance,
+) => <String, dynamic>{
+  'limit': instance.limit,
+  'cursor': instance.cursor,
+  r'$unknown': instance.$unknown,
+};

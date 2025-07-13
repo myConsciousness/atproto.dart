@@ -23,12 +23,7 @@ part 'external.g.dart';
 
 @freezed
 abstract class EmbedExternalExternal with _$EmbedExternalExternal {
-  static const knownProps = <String>[
-    'uri',
-    'title',
-    'description',
-    'thumb',
-  ];
+  static const knownProps = <String>['uri', 'title', 'description', 'thumb'];
 
   const factory EmbedExternalExternal({
     @Default(appBskyEmbedExternalExternal) String $type,
@@ -36,6 +31,7 @@ abstract class EmbedExternalExternal with _$EmbedExternalExternal {
     required String title,
     required String description,
     @BlobConverter() Blob? thumb,
+
     Map<String, dynamic>? $unknown,
   }) = _EmbedExternalExternal;
 
@@ -54,14 +50,12 @@ final class EmbedExternalExternalConverter
 
   @override
   EmbedExternalExternal fromJson(Map<String, dynamic> json) {
-    return EmbedExternalExternal.fromJson(translate(
-      json,
-      EmbedExternalExternal.knownProps,
-    ));
+    return EmbedExternalExternal.fromJson(
+      translate(json, EmbedExternalExternal.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedExternalExternal object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(EmbedExternalExternal object) =>
+      untranslate(object.toJson());
 }

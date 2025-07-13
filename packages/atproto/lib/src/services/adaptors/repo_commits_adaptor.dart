@@ -21,14 +21,9 @@ Map<String, dynamic> toRepoCommits(
 
     //! Just include committed records.
     if (record.containsKey(r'$type')) {
-      commits.add({
-        'cid': key.toString(),
-        'commit': convertCidLinks(record),
-      });
+      commits.add({'cid': key.toString(), 'commit': convertCidLinks(record)});
     }
   });
 
-  return {
-    'commits': commits,
-  };
+  return {'commits': commits};
 }

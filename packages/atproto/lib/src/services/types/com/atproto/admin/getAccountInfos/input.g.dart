@@ -8,28 +8,21 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AdminGetAccountInfosInputImpl _$$AdminGetAccountInfosInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$AdminGetAccountInfosInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$AdminGetAccountInfosInputImpl(
-          dids: $checkedConvert('dids',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_AdminGetAccountInfosInput _$AdminGetAccountInfosInputFromJson(Map json) =>
+    $checkedCreate('_AdminGetAccountInfosInput', json, ($checkedConvert) {
+      final val = _AdminGetAccountInfosInput(
+        dids: $checkedConvert(
+          'dids',
+          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$AdminGetAccountInfosInputImplToJson(
-        _$AdminGetAccountInfosInputImpl instance) =>
-    <String, dynamic>{
-      'dids': instance.dids,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$AdminGetAccountInfosInputToJson(
+  _AdminGetAccountInfosInput instance,
+) => <String, dynamic>{'dids': instance.dids, r'$unknown': instance.$unknown};

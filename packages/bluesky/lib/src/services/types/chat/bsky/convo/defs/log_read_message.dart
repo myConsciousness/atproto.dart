@@ -24,17 +24,14 @@ part 'log_read_message.g.dart';
 
 @freezed
 abstract class LogReadMessage with _$LogReadMessage {
-  static const knownProps = <String>[
-    'rev',
-    'convoId',
-    'message',
-  ];
+  static const knownProps = <String>['rev', 'convoId', 'message'];
 
   const factory LogReadMessage({
     @Default(chatBskyConvoDefsLogReadMessage) String $type,
     required String rev,
     required String convoId,
     @ULogReadMessageMessageConverter() required ULogReadMessageMessage message,
+
     Map<String, dynamic>? $unknown,
   }) = _LogReadMessage;
 
@@ -53,14 +50,10 @@ final class LogReadMessageConverter
 
   @override
   LogReadMessage fromJson(Map<String, dynamic> json) {
-    return LogReadMessage.fromJson(translate(
-      json,
-      LogReadMessage.knownProps,
-    ));
+    return LogReadMessage.fromJson(translate(json, LogReadMessage.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(LogReadMessage object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(LogReadMessage object) =>
+      untranslate(object.toJson());
 }

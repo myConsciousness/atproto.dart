@@ -45,6 +45,7 @@ abstract class FeedViewPost with _$FeedViewPost {
 
     /// Unique identifier per request that may be passed back alongside interactions.
     String? reqId,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedViewPost;
 
@@ -63,14 +64,10 @@ final class FeedViewPostConverter
 
   @override
   FeedViewPost fromJson(Map<String, dynamic> json) {
-    return FeedViewPost.fromJson(translate(
-      json,
-      FeedViewPost.knownProps,
-    ));
+    return FeedViewPost.fromJson(translate(json, FeedViewPost.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedViewPost object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(FeedViewPost object) =>
+      untranslate(object.toJson());
 }

@@ -9,10 +9,8 @@ part 'lex_xrpc_error.g.dart';
 @freezed
 class LexXrpcError with _$LexXrpcError {
   @JsonSerializable(includeIfNull: false)
-  const factory LexXrpcError({
-    required String name,
-    String? description,
-  }) = _LexXrpcError;
+  const factory LexXrpcError({required String name, String? description}) =
+      _LexXrpcError;
 
   factory LexXrpcError.fromJson(Map<String, Object?> json) =>
       _$LexXrpcErrorFromJson(json);

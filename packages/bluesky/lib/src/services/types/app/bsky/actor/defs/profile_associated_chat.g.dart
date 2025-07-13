@@ -8,29 +8,26 @@ part of 'profile_associated_chat.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ProfileAssociatedChatImpl _$$ProfileAssociatedChatImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ProfileAssociatedChatImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ProfileAssociatedChatImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? appBskyActorDefsProfileAssociatedChat),
-          allowIncoming: $checkedConvert('allowIncoming', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ProfileAssociatedChat _$ProfileAssociatedChatFromJson(Map json) =>
+    $checkedCreate('_ProfileAssociatedChat', json, ($checkedConvert) {
+      final val = _ProfileAssociatedChat(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyActorDefsProfileAssociatedChat,
+        ),
+        allowIncoming: $checkedConvert('allowIncoming', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ProfileAssociatedChatImplToJson(
-        _$ProfileAssociatedChatImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'allowIncoming': instance.allowIncoming,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ProfileAssociatedChatToJson(
+  _ProfileAssociatedChat instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'allowIncoming': instance.allowIncoming,
+  r'$unknown': instance.$unknown,
+};

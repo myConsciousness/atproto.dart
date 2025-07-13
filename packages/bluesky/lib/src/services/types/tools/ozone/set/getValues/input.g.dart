@@ -8,27 +8,21 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SetGetValuesInputImpl _$$SetGetValuesInputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$SetGetValuesInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SetGetValuesInputImpl(
-          name: $checkedConvert('name', (v) => v as String),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
-          cursor: $checkedConvert('cursor', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_SetGetValuesInput _$SetGetValuesInputFromJson(Map json) =>
+    $checkedCreate('_SetGetValuesInput', json, ($checkedConvert) {
+      final val = _SetGetValuesInput(
+        name: $checkedConvert('name', (v) => v as String),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        cursor: $checkedConvert('cursor', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$SetGetValuesInputImplToJson(
-        _$SetGetValuesInputImpl instance) =>
+Map<String, dynamic> _$SetGetValuesInputToJson(_SetGetValuesInput instance) =>
     <String, dynamic>{
       'name': instance.name,
       'limit': instance.limit,

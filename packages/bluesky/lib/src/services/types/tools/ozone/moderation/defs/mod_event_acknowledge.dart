@@ -23,10 +23,7 @@ part 'mod_event_acknowledge.g.dart';
 
 @freezed
 abstract class ModEventAcknowledge with _$ModEventAcknowledge {
-  static const knownProps = <String>[
-    'comment',
-    'acknowledgeAccountSubjects',
-  ];
+  static const knownProps = <String>['comment', 'acknowledgeAccountSubjects'];
 
   const factory ModEventAcknowledge({
     @Default(toolsOzoneModerationDefsModEventAcknowledge) String $type,
@@ -34,6 +31,7 @@ abstract class ModEventAcknowledge with _$ModEventAcknowledge {
 
     /// If true, all other reports on content authored by this account will be resolved (acknowledged).
     bool? acknowledgeAccountSubjects,
+
     Map<String, dynamic>? $unknown,
   }) = _ModEventAcknowledge;
 
@@ -52,14 +50,12 @@ final class ModEventAcknowledgeConverter
 
   @override
   ModEventAcknowledge fromJson(Map<String, dynamic> json) {
-    return ModEventAcknowledge.fromJson(translate(
-      json,
-      ModEventAcknowledge.knownProps,
-    ));
+    return ModEventAcknowledge.fromJson(
+      translate(json, ModEventAcknowledge.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ModEventAcknowledge object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ModEventAcknowledge object) =>
+      untranslate(object.toJson());
 }

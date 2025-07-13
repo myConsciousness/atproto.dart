@@ -61,6 +61,7 @@ abstract class RecordsStats with _$RecordsStats {
 
     /// Number of item currently taken down
     int? takendownCount,
+
     Map<String, dynamic>? $unknown,
   }) = _RecordsStats;
 
@@ -79,14 +80,10 @@ final class RecordsStatsConverter
 
   @override
   RecordsStats fromJson(Map<String, dynamic> json) {
-    return RecordsStats.fromJson(translate(
-      json,
-      RecordsStats.knownProps,
-    ));
+    return RecordsStats.fromJson(translate(json, RecordsStats.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(RecordsStats object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RecordsStats object) =>
+      untranslate(object.toJson());
 }

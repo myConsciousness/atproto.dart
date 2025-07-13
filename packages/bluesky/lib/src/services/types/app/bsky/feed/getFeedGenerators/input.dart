@@ -20,12 +20,11 @@ part 'input.g.dart';
 
 @freezed
 abstract class FeedGetFeedGeneratorsInput with _$FeedGetFeedGeneratorsInput {
-  static const knownProps = <String>[
-    'feeds',
-  ];
+  static const knownProps = <String>['feeds'];
 
   const factory FeedGetFeedGeneratorsInput({
     required List<String> feeds,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedGetFeedGeneratorsInput;
 
@@ -33,20 +32,19 @@ abstract class FeedGetFeedGeneratorsInput with _$FeedGetFeedGeneratorsInput {
       _$FeedGetFeedGeneratorsInputFromJson(json);
 }
 
-final class FeedGetFeedGeneratorsInputConverter extends LexObjectConverter<
-    FeedGetFeedGeneratorsInput, Map<String, dynamic>> {
+final class FeedGetFeedGeneratorsInputConverter
+    extends
+        LexObjectConverter<FeedGetFeedGeneratorsInput, Map<String, dynamic>> {
   const FeedGetFeedGeneratorsInputConverter();
 
   @override
   FeedGetFeedGeneratorsInput fromJson(Map<String, dynamic> json) {
-    return FeedGetFeedGeneratorsInput.fromJson(translate(
-      json,
-      FeedGetFeedGeneratorsInput.knownProps,
-    ));
+    return FeedGetFeedGeneratorsInput.fromJson(
+      translate(json, FeedGetFeedGeneratorsInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetFeedGeneratorsInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(FeedGetFeedGeneratorsInput object) =>
+      untranslate(object.toJson());
 }

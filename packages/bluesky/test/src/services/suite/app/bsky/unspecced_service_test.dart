@@ -19,10 +19,7 @@ void main() {
   );
 
   testUnspecced<SkeletonActorsByQuery>(
-    (m, s) => s.searchActorsSkeleton(
-      m.query,
-      viewer: m.did,
-    ),
+    (m, s) => s.searchActorsSkeleton(m.query, viewer: m.did),
     id: appBskyUnspeccedSearchActorsSkeleton,
   );
 

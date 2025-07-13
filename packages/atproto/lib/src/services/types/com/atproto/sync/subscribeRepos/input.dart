@@ -20,13 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class SyncSubscribeReposInput with _$SyncSubscribeReposInput {
-  static const knownProps = <String>[
-    'cursor',
-  ];
+  static const knownProps = <String>['cursor'];
 
   const factory SyncSubscribeReposInput({
     /// The last known event seq number to backfill from.
     int? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _SyncSubscribeReposInput;
 
@@ -40,14 +39,12 @@ final class SyncSubscribeReposInputConverter
 
   @override
   SyncSubscribeReposInput fromJson(Map<String, dynamic> json) {
-    return SyncSubscribeReposInput.fromJson(translate(
-      json,
-      SyncSubscribeReposInput.knownProps,
-    ));
+    return SyncSubscribeReposInput.fromJson(
+      translate(json, SyncSubscribeReposInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SyncSubscribeReposInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SyncSubscribeReposInput object) =>
+      untranslate(object.toJson());
 }

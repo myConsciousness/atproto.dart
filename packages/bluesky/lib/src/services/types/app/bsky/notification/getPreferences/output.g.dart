@@ -8,29 +8,27 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$NotificationGetPreferencesOutputImpl
-    _$$NotificationGetPreferencesOutputImplFromJson(Map json) => $checkedCreate(
-          r'_$NotificationGetPreferencesOutputImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$NotificationGetPreferencesOutputImpl(
-              preferences: $checkedConvert(
-                  'preferences',
-                  (v) => const PreferencesConverter()
-                      .fromJson(v as Map<String, dynamic>)),
-              $unknown: $checkedConvert(
-                  r'$unknown',
-                  (v) => (v as Map?)?.map(
-                        (k, e) => MapEntry(k as String, e),
-                      )),
-            );
-            return val;
-          },
-        );
+_NotificationGetPreferencesOutput _$NotificationGetPreferencesOutputFromJson(
+  Map json,
+) => $checkedCreate('_NotificationGetPreferencesOutput', json, (
+  $checkedConvert,
+) {
+  final val = _NotificationGetPreferencesOutput(
+    preferences: $checkedConvert(
+      'preferences',
+      (v) => const PreferencesConverter().fromJson(v as Map<String, dynamic>),
+    ),
+    $unknown: $checkedConvert(
+      r'$unknown',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
+  );
+  return val;
+});
 
-Map<String, dynamic> _$$NotificationGetPreferencesOutputImplToJson(
-        _$NotificationGetPreferencesOutputImpl instance) =>
-    <String, dynamic>{
-      'preferences': const PreferencesConverter().toJson(instance.preferences),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$NotificationGetPreferencesOutputToJson(
+  _NotificationGetPreferencesOutput instance,
+) => <String, dynamic>{
+  'preferences': const PreferencesConverter().toJson(instance.preferences),
+  r'$unknown': instance.$unknown,
+};

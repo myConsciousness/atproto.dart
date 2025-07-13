@@ -12,7 +12,8 @@ part of 'client_metadata.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 OAuthClientMetadata _$OAuthClientMetadataFromJson(Map<String, dynamic> json) {
   return _OAuthClientMetadata.fromJson(json);
@@ -46,21 +47,23 @@ mixin _$OAuthClientMetadata {
 /// @nodoc
 abstract class $OAuthClientMetadataCopyWith<$Res> {
   factory $OAuthClientMetadataCopyWith(
-          OAuthClientMetadata value, $Res Function(OAuthClientMetadata) then) =
-      _$OAuthClientMetadataCopyWithImpl<$Res, OAuthClientMetadata>;
+    OAuthClientMetadata value,
+    $Res Function(OAuthClientMetadata) then,
+  ) = _$OAuthClientMetadataCopyWithImpl<$Res, OAuthClientMetadata>;
   @useResult
-  $Res call(
-      {String clientId,
-      String applicationType,
-      String clientName,
-      String clientUri,
-      bool dpopBoundAccessTokens,
-      List<String> grantTypes,
-      @JsonKey(name: 'redirect_uris_OLD') List<String> redirectUrisOLD,
-      List<String> redirectUris,
-      List<String> responseTypes,
-      String scope,
-      String tokenEndpointAuthMethod});
+  $Res call({
+    String clientId,
+    String applicationType,
+    String clientName,
+    String clientUri,
+    bool dpopBoundAccessTokens,
+    List<String> grantTypes,
+    @JsonKey(name: 'redirect_uris_OLD') List<String> redirectUrisOLD,
+    List<String> redirectUris,
+    List<String> responseTypes,
+    String scope,
+    String tokenEndpointAuthMethod,
+  });
 }
 
 /// @nodoc
@@ -90,84 +93,90 @@ class _$OAuthClientMetadataCopyWithImpl<$Res, $Val extends OAuthClientMetadata>
     Object? scope = null,
     Object? tokenEndpointAuthMethod = null,
   }) {
-    return _then(_value.copyWith(
-      clientId: null == clientId
-          ? _value.clientId
-          : clientId // ignore: cast_nullable_to_non_nullable
-              as String,
-      applicationType: null == applicationType
-          ? _value.applicationType
-          : applicationType // ignore: cast_nullable_to_non_nullable
-              as String,
-      clientName: null == clientName
-          ? _value.clientName
-          : clientName // ignore: cast_nullable_to_non_nullable
-              as String,
-      clientUri: null == clientUri
-          ? _value.clientUri
-          : clientUri // ignore: cast_nullable_to_non_nullable
-              as String,
-      dpopBoundAccessTokens: null == dpopBoundAccessTokens
-          ? _value.dpopBoundAccessTokens
-          : dpopBoundAccessTokens // ignore: cast_nullable_to_non_nullable
-              as bool,
-      grantTypes: null == grantTypes
-          ? _value.grantTypes
-          : grantTypes // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      redirectUrisOLD: null == redirectUrisOLD
-          ? _value.redirectUrisOLD
-          : redirectUrisOLD // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      redirectUris: null == redirectUris
-          ? _value.redirectUris
-          : redirectUris // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      responseTypes: null == responseTypes
-          ? _value.responseTypes
-          : responseTypes // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      scope: null == scope
-          ? _value.scope
-          : scope // ignore: cast_nullable_to_non_nullable
-              as String,
-      tokenEndpointAuthMethod: null == tokenEndpointAuthMethod
-          ? _value.tokenEndpointAuthMethod
-          : tokenEndpointAuthMethod // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            clientId: null == clientId
+                ? _value.clientId
+                : clientId // ignore: cast_nullable_to_non_nullable
+                      as String,
+            applicationType: null == applicationType
+                ? _value.applicationType
+                : applicationType // ignore: cast_nullable_to_non_nullable
+                      as String,
+            clientName: null == clientName
+                ? _value.clientName
+                : clientName // ignore: cast_nullable_to_non_nullable
+                      as String,
+            clientUri: null == clientUri
+                ? _value.clientUri
+                : clientUri // ignore: cast_nullable_to_non_nullable
+                      as String,
+            dpopBoundAccessTokens: null == dpopBoundAccessTokens
+                ? _value.dpopBoundAccessTokens
+                : dpopBoundAccessTokens // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            grantTypes: null == grantTypes
+                ? _value.grantTypes
+                : grantTypes // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
+            redirectUrisOLD: null == redirectUrisOLD
+                ? _value.redirectUrisOLD
+                : redirectUrisOLD // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
+            redirectUris: null == redirectUris
+                ? _value.redirectUris
+                : redirectUris // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
+            responseTypes: null == responseTypes
+                ? _value.responseTypes
+                : responseTypes // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
+            scope: null == scope
+                ? _value.scope
+                : scope // ignore: cast_nullable_to_non_nullable
+                      as String,
+            tokenEndpointAuthMethod: null == tokenEndpointAuthMethod
+                ? _value.tokenEndpointAuthMethod
+                : tokenEndpointAuthMethod // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$OAuthClientMetadataImplCopyWith<$Res>
     implements $OAuthClientMetadataCopyWith<$Res> {
-  factory _$$OAuthClientMetadataImplCopyWith(_$OAuthClientMetadataImpl value,
-          $Res Function(_$OAuthClientMetadataImpl) then) =
-      __$$OAuthClientMetadataImplCopyWithImpl<$Res>;
+  factory _$$OAuthClientMetadataImplCopyWith(
+    _$OAuthClientMetadataImpl value,
+    $Res Function(_$OAuthClientMetadataImpl) then,
+  ) = __$$OAuthClientMetadataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String clientId,
-      String applicationType,
-      String clientName,
-      String clientUri,
-      bool dpopBoundAccessTokens,
-      List<String> grantTypes,
-      @JsonKey(name: 'redirect_uris_OLD') List<String> redirectUrisOLD,
-      List<String> redirectUris,
-      List<String> responseTypes,
-      String scope,
-      String tokenEndpointAuthMethod});
+  $Res call({
+    String clientId,
+    String applicationType,
+    String clientName,
+    String clientUri,
+    bool dpopBoundAccessTokens,
+    List<String> grantTypes,
+    @JsonKey(name: 'redirect_uris_OLD') List<String> redirectUrisOLD,
+    List<String> redirectUris,
+    List<String> responseTypes,
+    String scope,
+    String tokenEndpointAuthMethod,
+  });
 }
 
 /// @nodoc
 class __$$OAuthClientMetadataImplCopyWithImpl<$Res>
     extends _$OAuthClientMetadataCopyWithImpl<$Res, _$OAuthClientMetadataImpl>
     implements _$$OAuthClientMetadataImplCopyWith<$Res> {
-  __$$OAuthClientMetadataImplCopyWithImpl(_$OAuthClientMetadataImpl _value,
-      $Res Function(_$OAuthClientMetadataImpl) _then)
-      : super(_value, _then);
+  __$$OAuthClientMetadataImplCopyWithImpl(
+    _$OAuthClientMetadataImpl _value,
+    $Res Function(_$OAuthClientMetadataImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of OAuthClientMetadata
   /// with the given fields replaced by the non-null parameter values.
@@ -186,52 +195,54 @@ class __$$OAuthClientMetadataImplCopyWithImpl<$Res>
     Object? scope = null,
     Object? tokenEndpointAuthMethod = null,
   }) {
-    return _then(_$OAuthClientMetadataImpl(
-      clientId: null == clientId
-          ? _value.clientId
-          : clientId // ignore: cast_nullable_to_non_nullable
-              as String,
-      applicationType: null == applicationType
-          ? _value.applicationType
-          : applicationType // ignore: cast_nullable_to_non_nullable
-              as String,
-      clientName: null == clientName
-          ? _value.clientName
-          : clientName // ignore: cast_nullable_to_non_nullable
-              as String,
-      clientUri: null == clientUri
-          ? _value.clientUri
-          : clientUri // ignore: cast_nullable_to_non_nullable
-              as String,
-      dpopBoundAccessTokens: null == dpopBoundAccessTokens
-          ? _value.dpopBoundAccessTokens
-          : dpopBoundAccessTokens // ignore: cast_nullable_to_non_nullable
-              as bool,
-      grantTypes: null == grantTypes
-          ? _value._grantTypes
-          : grantTypes // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      redirectUrisOLD: null == redirectUrisOLD
-          ? _value._redirectUrisOLD
-          : redirectUrisOLD // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      redirectUris: null == redirectUris
-          ? _value._redirectUris
-          : redirectUris // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      responseTypes: null == responseTypes
-          ? _value._responseTypes
-          : responseTypes // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      scope: null == scope
-          ? _value.scope
-          : scope // ignore: cast_nullable_to_non_nullable
-              as String,
-      tokenEndpointAuthMethod: null == tokenEndpointAuthMethod
-          ? _value.tokenEndpointAuthMethod
-          : tokenEndpointAuthMethod // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$OAuthClientMetadataImpl(
+        clientId: null == clientId
+            ? _value.clientId
+            : clientId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        applicationType: null == applicationType
+            ? _value.applicationType
+            : applicationType // ignore: cast_nullable_to_non_nullable
+                  as String,
+        clientName: null == clientName
+            ? _value.clientName
+            : clientName // ignore: cast_nullable_to_non_nullable
+                  as String,
+        clientUri: null == clientUri
+            ? _value.clientUri
+            : clientUri // ignore: cast_nullable_to_non_nullable
+                  as String,
+        dpopBoundAccessTokens: null == dpopBoundAccessTokens
+            ? _value.dpopBoundAccessTokens
+            : dpopBoundAccessTokens // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        grantTypes: null == grantTypes
+            ? _value._grantTypes
+            : grantTypes // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
+        redirectUrisOLD: null == redirectUrisOLD
+            ? _value._redirectUrisOLD
+            : redirectUrisOLD // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
+        redirectUris: null == redirectUris
+            ? _value._redirectUris
+            : redirectUris // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
+        responseTypes: null == responseTypes
+            ? _value._responseTypes
+            : responseTypes // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
+        scope: null == scope
+            ? _value.scope
+            : scope // ignore: cast_nullable_to_non_nullable
+                  as String,
+        tokenEndpointAuthMethod: null == tokenEndpointAuthMethod
+            ? _value.tokenEndpointAuthMethod
+            : tokenEndpointAuthMethod // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -239,23 +250,23 @@ class __$$OAuthClientMetadataImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false, fieldRename: FieldRename.snake)
 class _$OAuthClientMetadataImpl implements _OAuthClientMetadata {
-  const _$OAuthClientMetadataImpl(
-      {required this.clientId,
-      required this.applicationType,
-      required this.clientName,
-      required this.clientUri,
-      this.dpopBoundAccessTokens = true,
-      final List<String> grantTypes = const [],
-      @JsonKey(name: 'redirect_uris_OLD')
-      final List<String> redirectUrisOLD = const [],
-      final List<String> redirectUris = const [],
-      final List<String> responseTypes = const [],
-      required this.scope,
-      required this.tokenEndpointAuthMethod})
-      : _grantTypes = grantTypes,
-        _redirectUrisOLD = redirectUrisOLD,
-        _redirectUris = redirectUris,
-        _responseTypes = responseTypes;
+  const _$OAuthClientMetadataImpl({
+    required this.clientId,
+    required this.applicationType,
+    required this.clientName,
+    required this.clientUri,
+    this.dpopBoundAccessTokens = true,
+    final List<String> grantTypes = const [],
+    @JsonKey(name: 'redirect_uris_OLD')
+    final List<String> redirectUrisOLD = const [],
+    final List<String> redirectUris = const [],
+    final List<String> responseTypes = const [],
+    required this.scope,
+    required this.tokenEndpointAuthMethod,
+  }) : _grantTypes = grantTypes,
+       _redirectUrisOLD = redirectUrisOLD,
+       _redirectUris = redirectUris,
+       _responseTypes = responseTypes;
 
   factory _$OAuthClientMetadataImpl.fromJson(Map<String, dynamic> json) =>
       _$$OAuthClientMetadataImplFromJson(json);
@@ -332,35 +343,46 @@ class _$OAuthClientMetadataImpl implements _OAuthClientMetadata {
                 other.clientUri == clientUri) &&
             (identical(other.dpopBoundAccessTokens, dpopBoundAccessTokens) ||
                 other.dpopBoundAccessTokens == dpopBoundAccessTokens) &&
-            const DeepCollectionEquality()
-                .equals(other._grantTypes, _grantTypes) &&
-            const DeepCollectionEquality()
-                .equals(other._redirectUrisOLD, _redirectUrisOLD) &&
-            const DeepCollectionEquality()
-                .equals(other._redirectUris, _redirectUris) &&
-            const DeepCollectionEquality()
-                .equals(other._responseTypes, _responseTypes) &&
+            const DeepCollectionEquality().equals(
+              other._grantTypes,
+              _grantTypes,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._redirectUrisOLD,
+              _redirectUrisOLD,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._redirectUris,
+              _redirectUris,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._responseTypes,
+              _responseTypes,
+            ) &&
             (identical(other.scope, scope) || other.scope == scope) &&
             (identical(
-                    other.tokenEndpointAuthMethod, tokenEndpointAuthMethod) ||
+                  other.tokenEndpointAuthMethod,
+                  tokenEndpointAuthMethod,
+                ) ||
                 other.tokenEndpointAuthMethod == tokenEndpointAuthMethod));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      clientId,
-      applicationType,
-      clientName,
-      clientUri,
-      dpopBoundAccessTokens,
-      const DeepCollectionEquality().hash(_grantTypes),
-      const DeepCollectionEquality().hash(_redirectUrisOLD),
-      const DeepCollectionEquality().hash(_redirectUris),
-      const DeepCollectionEquality().hash(_responseTypes),
-      scope,
-      tokenEndpointAuthMethod);
+    runtimeType,
+    clientId,
+    applicationType,
+    clientName,
+    clientUri,
+    dpopBoundAccessTokens,
+    const DeepCollectionEquality().hash(_grantTypes),
+    const DeepCollectionEquality().hash(_redirectUrisOLD),
+    const DeepCollectionEquality().hash(_redirectUris),
+    const DeepCollectionEquality().hash(_responseTypes),
+    scope,
+    tokenEndpointAuthMethod,
+  );
 
   /// Create a copy of OAuthClientMetadata
   /// with the given fields replaced by the non-null parameter values.
@@ -369,30 +391,30 @@ class _$OAuthClientMetadataImpl implements _OAuthClientMetadata {
   @pragma('vm:prefer-inline')
   _$$OAuthClientMetadataImplCopyWith<_$OAuthClientMetadataImpl> get copyWith =>
       __$$OAuthClientMetadataImplCopyWithImpl<_$OAuthClientMetadataImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OAuthClientMetadataImplToJson(
-      this,
-    );
+    return _$$OAuthClientMetadataImplToJson(this);
   }
 }
 
 abstract class _OAuthClientMetadata implements OAuthClientMetadata {
-  const factory _OAuthClientMetadata(
-      {required final String clientId,
-      required final String applicationType,
-      required final String clientName,
-      required final String clientUri,
-      final bool dpopBoundAccessTokens,
-      final List<String> grantTypes,
-      @JsonKey(name: 'redirect_uris_OLD') final List<String> redirectUrisOLD,
-      final List<String> redirectUris,
-      final List<String> responseTypes,
-      required final String scope,
-      required final String
-          tokenEndpointAuthMethod}) = _$OAuthClientMetadataImpl;
+  const factory _OAuthClientMetadata({
+    required final String clientId,
+    required final String applicationType,
+    required final String clientName,
+    required final String clientUri,
+    final bool dpopBoundAccessTokens,
+    final List<String> grantTypes,
+    @JsonKey(name: 'redirect_uris_OLD') final List<String> redirectUrisOLD,
+    final List<String> redirectUris,
+    final List<String> responseTypes,
+    required final String scope,
+    required final String tokenEndpointAuthMethod,
+  }) = _$OAuthClientMetadataImpl;
 
   factory _OAuthClientMetadata.fromJson(Map<String, dynamic> json) =
       _$OAuthClientMetadataImpl.fromJson;

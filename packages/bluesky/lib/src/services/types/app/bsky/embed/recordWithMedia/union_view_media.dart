@@ -81,6 +81,7 @@ final class UEmbedRecordWithMediaViewMediaConverter
         embedVideoView: (data) => const EmbedVideoViewConverter().toJson(data),
         embedExternalView: (data) =>
             const EmbedExternalViewConverter().toJson(data),
+
         unknown: (data) => data,
       );
 }

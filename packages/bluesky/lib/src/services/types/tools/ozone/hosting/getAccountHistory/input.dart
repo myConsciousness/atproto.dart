@@ -21,18 +21,14 @@ part 'input.g.dart';
 @freezed
 abstract class HostingGetAccountHistoryInput
     with _$HostingGetAccountHistoryInput {
-  static const knownProps = <String>[
-    'did',
-    'events',
-    'cursor',
-    'limit',
-  ];
+  static const knownProps = <String>['did', 'events', 'cursor', 'limit'];
 
   const factory HostingGetAccountHistoryInput({
     required String did,
     List<String>? events,
     String? cursor,
     int? limit,
+
     Map<String, dynamic>? $unknown,
   }) = _HostingGetAccountHistoryInput;
 
@@ -40,21 +36,22 @@ abstract class HostingGetAccountHistoryInput
       _$HostingGetAccountHistoryInputFromJson(json);
 }
 
-final class HostingGetAccountHistoryInputConverter extends LexObjectConverter<
-    HostingGetAccountHistoryInput, Map<String, dynamic>> {
+final class HostingGetAccountHistoryInputConverter
+    extends
+        LexObjectConverter<
+          HostingGetAccountHistoryInput,
+          Map<String, dynamic>
+        > {
   const HostingGetAccountHistoryInputConverter();
 
   @override
   HostingGetAccountHistoryInput fromJson(Map<String, dynamic> json) {
-    return HostingGetAccountHistoryInput.fromJson(translate(
-      json,
-      HostingGetAccountHistoryInput.knownProps,
-    ));
+    return HostingGetAccountHistoryInput.fromJson(
+      translate(json, HostingGetAccountHistoryInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(HostingGetAccountHistoryInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

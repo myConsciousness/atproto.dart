@@ -472,5 +472,5 @@ const getBlocksBytes = [
   105,
   111,
   110,
-  2
+  2,
 ];

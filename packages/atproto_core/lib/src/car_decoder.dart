@@ -24,23 +24,14 @@ Map<CID, List<int>> decodeCar(
     final body = _decodeReader(bytes.sublist(start));
     start += body.length;
 
-    final cid = CID.fromList(bytes.sublist(
-      start,
-      start + _cidV1BytesLength,
-    ));
+    final cid = CID.fromList(bytes.sublist(start, start + _cidV1BytesLength));
 
     start += _cidV1BytesLength;
-    blocks[cid] = bytes.sublist(
-      start,
-      start + body.value - _cidV1BytesLength,
-    );
+    blocks[cid] = bytes.sublist(start, start + body.value - _cidV1BytesLength);
 
     start += body.value - _cidV1BytesLength;
 
-    progress?.call(ProgressStatusEvent(
-      bytesLength,
-      start,
-    ));
+    progress?.call(ProgressStatusEvent(bytesLength, start));
   }
 
   return blocks;

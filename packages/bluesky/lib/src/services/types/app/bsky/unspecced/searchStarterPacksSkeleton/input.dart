@@ -21,12 +21,7 @@ part 'input.g.dart';
 @freezed
 abstract class UnspeccedSearchStarterPacksSkeletonInput
     with _$UnspeccedSearchStarterPacksSkeletonInput {
-  static const knownProps = <String>[
-    'q',
-    'viewer',
-    'limit',
-    'cursor',
-  ];
+  static const knownProps = <String>['q', 'viewer', 'limit', 'cursor'];
 
   const factory UnspeccedSearchStarterPacksSkeletonInput({
     /// Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
@@ -38,31 +33,32 @@ abstract class UnspeccedSearchStarterPacksSkeletonInput
 
     /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedSearchStarterPacksSkeletonInput;
 
   factory UnspeccedSearchStarterPacksSkeletonInput.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedSearchStarterPacksSkeletonInputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$UnspeccedSearchStarterPacksSkeletonInputFromJson(json);
 }
 
 final class UnspeccedSearchStarterPacksSkeletonInputConverter
-    extends LexObjectConverter<UnspeccedSearchStarterPacksSkeletonInput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          UnspeccedSearchStarterPacksSkeletonInput,
+          Map<String, dynamic>
+        > {
   const UnspeccedSearchStarterPacksSkeletonInputConverter();
 
   @override
   UnspeccedSearchStarterPacksSkeletonInput fromJson(Map<String, dynamic> json) {
-    return UnspeccedSearchStarterPacksSkeletonInput.fromJson(translate(
-      json,
-      UnspeccedSearchStarterPacksSkeletonInput.knownProps,
-    ));
+    return UnspeccedSearchStarterPacksSkeletonInput.fromJson(
+      translate(json, UnspeccedSearchStarterPacksSkeletonInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(
-          UnspeccedSearchStarterPacksSkeletonInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+    UnspeccedSearchStarterPacksSkeletonInput object,
+  ) => untranslate(object.toJson());
 }

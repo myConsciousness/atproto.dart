@@ -14,11 +14,15 @@ void main() {
       expect(NSID.parse('com.example.*').authority, 'example.com');
       expect(NSID.parse('com.example.*').name, '*');
       expect(NSID.parse('com.example.*').toString(), 'com.example.*');
-      expect(NSID.parse('com.long-thing1.cool.fooBarBaz').authority,
-          'cool.long-thing1.com');
+      expect(
+        NSID.parse('com.long-thing1.cool.fooBarBaz').authority,
+        'cool.long-thing1.com',
+      );
       expect(NSID.parse('com.long-thing1.cool.fooBarBaz').name, 'fooBarBaz');
-      expect(NSID.parse('com.long-thing1.cool.fooBarBaz').toString(),
-          'com.long-thing1.cool.fooBarBaz');
+      expect(
+        NSID.parse('com.long-thing1.cool.fooBarBaz').toString(),
+        'com.long-thing1.cool.fooBarBaz',
+      );
     });
 
     test('.create', () {
@@ -28,12 +32,18 @@ void main() {
       expect(NSID.create('example.com', '*').authority, 'example.com');
       expect(NSID.create('example.com', '*').name, '*');
       expect(NSID.create('example.com', '*').toString(), 'com.example.*');
-      expect(NSID.create('cool.long-thing1.com', 'fooBarBaz').authority,
-          'cool.long-thing1.com');
       expect(
-          NSID.create('cool.long-thing1.com', 'fooBarBaz').name, 'fooBarBaz');
-      expect(NSID.create('cool.long-thing1.com', 'fooBarBaz').toString(),
-          'com.long-thing1.cool.fooBarBaz');
+        NSID.create('cool.long-thing1.com', 'fooBarBaz').authority,
+        'cool.long-thing1.com',
+      );
+      expect(
+        NSID.create('cool.long-thing1.com', 'fooBarBaz').name,
+        'fooBarBaz',
+      );
+      expect(
+        NSID.create('cool.long-thing1.com', 'fooBarBaz').toString(),
+        'com.long-thing1.cool.fooBarBaz',
+      );
     });
   });
 

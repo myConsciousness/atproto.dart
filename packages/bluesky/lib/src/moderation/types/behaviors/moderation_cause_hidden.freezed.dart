@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,194 +9,287 @@ part of 'moderation_cause_hidden.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$ModerationCauseHidden {
-  ModerationCauseSource get source => throw _privateConstructorUsedError;
-  int get priority => throw _privateConstructorUsedError;
-  bool get downgraded => throw _privateConstructorUsedError;
 
-  /// Create a copy of ModerationCauseHidden
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ModerationCauseHiddenCopyWith<ModerationCauseHidden> get copyWith =>
-      throw _privateConstructorUsedError;
+ ModerationCauseSource get source; int get priority; bool get downgraded;
+/// Create a copy of ModerationCauseHidden
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ModerationCauseHiddenCopyWith<ModerationCauseHidden> get copyWith => _$ModerationCauseHiddenCopyWithImpl<ModerationCauseHidden>(this as ModerationCauseHidden, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationCauseHidden&&(identical(other.source, source) || other.source == source)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.downgraded, downgraded) || other.downgraded == downgraded));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,source,priority,downgraded);
+
+@override
+String toString() {
+  return 'ModerationCauseHidden(source: $source, priority: $priority, downgraded: $downgraded)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ModerationCauseHiddenCopyWith<$Res> {
-  factory $ModerationCauseHiddenCopyWith(ModerationCauseHidden value,
-          $Res Function(ModerationCauseHidden) then) =
-      _$ModerationCauseHiddenCopyWithImpl<$Res, ModerationCauseHidden>;
-  @useResult
-  $Res call({ModerationCauseSource source, int priority, bool downgraded});
+abstract mixin class $ModerationCauseHiddenCopyWith<$Res>  {
+  factory $ModerationCauseHiddenCopyWith(ModerationCauseHidden value, $Res Function(ModerationCauseHidden) _then) = _$ModerationCauseHiddenCopyWithImpl;
+@useResult
+$Res call({
+ ModerationCauseSource source, int priority, bool downgraded
+});
 
-  $ModerationCauseSourceCopyWith<$Res> get source;
+
+$ModerationCauseSourceCopyWith<$Res> get source;
+
 }
-
 /// @nodoc
-class _$ModerationCauseHiddenCopyWithImpl<$Res,
-        $Val extends ModerationCauseHidden>
+class _$ModerationCauseHiddenCopyWithImpl<$Res>
     implements $ModerationCauseHiddenCopyWith<$Res> {
-  _$ModerationCauseHiddenCopyWithImpl(this._value, this._then);
+  _$ModerationCauseHiddenCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ModerationCauseHidden _self;
+  final $Res Function(ModerationCauseHidden) _then;
 
-  /// Create a copy of ModerationCauseHidden
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? source = null,
-    Object? priority = null,
-    Object? downgraded = null,
-  }) {
-    return _then(_value.copyWith(
-      source: null == source
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as ModerationCauseSource,
-      priority: null == priority
-          ? _value.priority
-          : priority // ignore: cast_nullable_to_non_nullable
-              as int,
-      downgraded: null == downgraded
-          ? _value.downgraded
-          : downgraded // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
+/// Create a copy of ModerationCauseHidden
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? source = null,Object? priority = null,Object? downgraded = null,}) {
+  return _then(_self.copyWith(
+source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
+as ModerationCauseSource,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
+as int,downgraded: null == downgraded ? _self.downgraded : downgraded // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+/// Create a copy of ModerationCauseHidden
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModerationCauseSourceCopyWith<$Res> get source {
+  
+  return $ModerationCauseSourceCopyWith<$Res>(_self.source, (value) {
+    return _then(_self.copyWith(source: value));
+  });
+}
+}
 
-  /// Create a copy of ModerationCauseHidden
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ModerationCauseSourceCopyWith<$Res> get source {
-    return $ModerationCauseSourceCopyWith<$Res>(_value.source, (value) {
-      return _then(_value.copyWith(source: value) as $Val);
-    });
-  }
+
+/// Adds pattern-matching-related methods to [ModerationCauseHidden].
+extension ModerationCauseHiddenPatterns on ModerationCauseHidden {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ModerationCauseHidden value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ModerationCauseHidden() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ModerationCauseHidden value)  $default,){
+final _that = this;
+switch (_that) {
+case _ModerationCauseHidden():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ModerationCauseHidden value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ModerationCauseHidden() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( ModerationCauseSource source,  int priority,  bool downgraded)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ModerationCauseHidden() when $default != null:
+return $default(_that.source,_that.priority,_that.downgraded);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( ModerationCauseSource source,  int priority,  bool downgraded)  $default,) {final _that = this;
+switch (_that) {
+case _ModerationCauseHidden():
+return $default(_that.source,_that.priority,_that.downgraded);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( ModerationCauseSource source,  int priority,  bool downgraded)?  $default,) {final _that = this;
+switch (_that) {
+case _ModerationCauseHidden() when $default != null:
+return $default(_that.source,_that.priority,_that.downgraded);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
-abstract class _$$ModerationCauseHiddenImplCopyWith<$Res>
-    implements $ModerationCauseHiddenCopyWith<$Res> {
-  factory _$$ModerationCauseHiddenImplCopyWith(
-          _$ModerationCauseHiddenImpl value,
-          $Res Function(_$ModerationCauseHiddenImpl) then) =
-      __$$ModerationCauseHiddenImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({ModerationCauseSource source, int priority, bool downgraded});
 
-  @override
-  $ModerationCauseSourceCopyWith<$Res> get source;
+
+class _ModerationCauseHidden implements ModerationCauseHidden {
+  const _ModerationCauseHidden({required this.source, this.priority = 6, this.downgraded = false});
+  
+
+@override final  ModerationCauseSource source;
+@override@JsonKey() final  int priority;
+@override@JsonKey() final  bool downgraded;
+
+/// Create a copy of ModerationCauseHidden
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ModerationCauseHiddenCopyWith<_ModerationCauseHidden> get copyWith => __$ModerationCauseHiddenCopyWithImpl<_ModerationCauseHidden>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModerationCauseHidden&&(identical(other.source, source) || other.source == source)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.downgraded, downgraded) || other.downgraded == downgraded));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,source,priority,downgraded);
+
+@override
+String toString() {
+  return 'ModerationCauseHidden(source: $source, priority: $priority, downgraded: $downgraded)';
+}
+
+
 }
 
 /// @nodoc
-class __$$ModerationCauseHiddenImplCopyWithImpl<$Res>
-    extends _$ModerationCauseHiddenCopyWithImpl<$Res,
-        _$ModerationCauseHiddenImpl>
-    implements _$$ModerationCauseHiddenImplCopyWith<$Res> {
-  __$$ModerationCauseHiddenImplCopyWithImpl(_$ModerationCauseHiddenImpl _value,
-      $Res Function(_$ModerationCauseHiddenImpl) _then)
-      : super(_value, _then);
+abstract mixin class _$ModerationCauseHiddenCopyWith<$Res> implements $ModerationCauseHiddenCopyWith<$Res> {
+  factory _$ModerationCauseHiddenCopyWith(_ModerationCauseHidden value, $Res Function(_ModerationCauseHidden) _then) = __$ModerationCauseHiddenCopyWithImpl;
+@override @useResult
+$Res call({
+ ModerationCauseSource source, int priority, bool downgraded
+});
 
-  /// Create a copy of ModerationCauseHidden
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? source = null,
-    Object? priority = null,
-    Object? downgraded = null,
-  }) {
-    return _then(_$ModerationCauseHiddenImpl(
-      source: null == source
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as ModerationCauseSource,
-      priority: null == priority
-          ? _value.priority
-          : priority // ignore: cast_nullable_to_non_nullable
-              as int,
-      downgraded: null == downgraded
-          ? _value.downgraded
-          : downgraded // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
+
+@override $ModerationCauseSourceCopyWith<$Res> get source;
+
 }
-
 /// @nodoc
+class __$ModerationCauseHiddenCopyWithImpl<$Res>
+    implements _$ModerationCauseHiddenCopyWith<$Res> {
+  __$ModerationCauseHiddenCopyWithImpl(this._self, this._then);
 
-class _$ModerationCauseHiddenImpl implements _ModerationCauseHidden {
-  const _$ModerationCauseHiddenImpl(
-      {required this.source, this.priority = 6, this.downgraded = false});
+  final _ModerationCauseHidden _self;
+  final $Res Function(_ModerationCauseHidden) _then;
 
-  @override
-  final ModerationCauseSource source;
-  @override
-  @JsonKey()
-  final int priority;
-  @override
-  @JsonKey()
-  final bool downgraded;
-
-  @override
-  String toString() {
-    return 'ModerationCauseHidden(source: $source, priority: $priority, downgraded: $downgraded)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ModerationCauseHiddenImpl &&
-            (identical(other.source, source) || other.source == source) &&
-            (identical(other.priority, priority) ||
-                other.priority == priority) &&
-            (identical(other.downgraded, downgraded) ||
-                other.downgraded == downgraded));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, source, priority, downgraded);
-
-  /// Create a copy of ModerationCauseHidden
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ModerationCauseHiddenImplCopyWith<_$ModerationCauseHiddenImpl>
-      get copyWith => __$$ModerationCauseHiddenImplCopyWithImpl<
-          _$ModerationCauseHiddenImpl>(this, _$identity);
+/// Create a copy of ModerationCauseHidden
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? source = null,Object? priority = null,Object? downgraded = null,}) {
+  return _then(_ModerationCauseHidden(
+source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
+as ModerationCauseSource,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
+as int,downgraded: null == downgraded ? _self.downgraded : downgraded // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
 }
 
-abstract class _ModerationCauseHidden implements ModerationCauseHidden {
-  const factory _ModerationCauseHidden(
-      {required final ModerationCauseSource source,
-      final int priority,
-      final bool downgraded}) = _$ModerationCauseHiddenImpl;
-
-  @override
-  ModerationCauseSource get source;
-  @override
-  int get priority;
-  @override
-  bool get downgraded;
-
-  /// Create a copy of ModerationCauseHidden
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ModerationCauseHiddenImplCopyWith<_$ModerationCauseHiddenImpl>
-      get copyWith => throw _privateConstructorUsedError;
+/// Create a copy of ModerationCauseHidden
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModerationCauseSourceCopyWith<$Res> get source {
+  
+  return $ModerationCauseSourceCopyWith<$Res>(_self.source, (value) {
+    return _then(_self.copyWith(source: value));
+  });
 }
+}
+
+// dart format on

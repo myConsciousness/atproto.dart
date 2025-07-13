@@ -8,26 +8,20 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ModerationGetActorMetadataInputImpl
-    _$$ModerationGetActorMetadataInputImplFromJson(Map json) => $checkedCreate(
-          r'_$ModerationGetActorMetadataInputImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$ModerationGetActorMetadataInputImpl(
-              actor: $checkedConvert('actor', (v) => v as String),
-              $unknown: $checkedConvert(
-                  r'$unknown',
-                  (v) => (v as Map?)?.map(
-                        (k, e) => MapEntry(k as String, e),
-                      )),
-            );
-            return val;
-          },
-        );
+_ModerationGetActorMetadataInput _$ModerationGetActorMetadataInputFromJson(
+  Map json,
+) =>
+    $checkedCreate('_ModerationGetActorMetadataInput', json, ($checkedConvert) {
+      final val = _ModerationGetActorMetadataInput(
+        actor: $checkedConvert('actor', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ModerationGetActorMetadataInputImplToJson(
-        _$ModerationGetActorMetadataInputImpl instance) =>
-    <String, dynamic>{
-      'actor': instance.actor,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ModerationGetActorMetadataInputToJson(
+  _ModerationGetActorMetadataInput instance,
+) => <String, dynamic>{'actor': instance.actor, r'$unknown': instance.$unknown};

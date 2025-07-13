@@ -27,6 +27,7 @@ abstract class RecordDeleted with _$RecordDeleted {
 
   const factory RecordDeleted({
     @Default(appBskyNotificationDefsRecordDeleted) String $type,
+
     Map<String, dynamic>? $unknown,
   }) = _RecordDeleted;
 
@@ -45,14 +46,10 @@ final class RecordDeletedConverter
 
   @override
   RecordDeleted fromJson(Map<String, dynamic> json) {
-    return RecordDeleted.fromJson(translate(
-      json,
-      RecordDeleted.knownProps,
-    ));
+    return RecordDeleted.fromJson(translate(json, RecordDeleted.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(RecordDeleted object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RecordDeleted object) =>
+      untranslate(object.toJson());
 }

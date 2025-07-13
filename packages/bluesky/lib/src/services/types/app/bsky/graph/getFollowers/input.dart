@@ -20,16 +20,13 @@ part 'input.g.dart';
 
 @freezed
 abstract class GraphGetFollowersInput with _$GraphGetFollowersInput {
-  static const knownProps = <String>[
-    'actor',
-    'limit',
-    'cursor',
-  ];
+  static const knownProps = <String>['actor', 'limit', 'cursor'];
 
   const factory GraphGetFollowersInput({
     required String actor,
     int? limit,
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphGetFollowersInput;
 
@@ -43,14 +40,12 @@ final class GraphGetFollowersInputConverter
 
   @override
   GraphGetFollowersInput fromJson(Map<String, dynamic> json) {
-    return GraphGetFollowersInput.fromJson(translate(
-      json,
-      GraphGetFollowersInput.knownProps,
-    ));
+    return GraphGetFollowersInput.fromJson(
+      translate(json, GraphGetFollowersInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphGetFollowersInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(GraphGetFollowersInput object) =>
+      untranslate(object.toJson());
 }

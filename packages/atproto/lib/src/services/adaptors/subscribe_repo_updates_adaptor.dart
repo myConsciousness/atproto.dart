@@ -36,11 +36,7 @@ Map<String, dynamic> toSubscribedRepo(final dynamic data) {
 
     if (record != null) {
       op['record'] = convertCidLinks(
-        jsonDecode(
-          jsonEncode(
-            core.cbor.decode(record),
-          ),
-        ),
+        jsonDecode(jsonEncode(core.cbor.decode(record))),
       );
     }
   }

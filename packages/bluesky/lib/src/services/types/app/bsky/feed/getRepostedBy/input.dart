@@ -20,12 +20,7 @@ part 'input.g.dart';
 
 @freezed
 abstract class FeedGetRepostedByInput with _$FeedGetRepostedByInput {
-  static const knownProps = <String>[
-    'uri',
-    'cid',
-    'limit',
-    'cursor',
-  ];
+  static const knownProps = <String>['uri', 'cid', 'limit', 'cursor'];
 
   const factory FeedGetRepostedByInput({
     /// Reference (AT-URI) of post record
@@ -35,6 +30,7 @@ abstract class FeedGetRepostedByInput with _$FeedGetRepostedByInput {
     String? cid,
     int? limit,
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedGetRepostedByInput;
 
@@ -48,14 +44,12 @@ final class FeedGetRepostedByInputConverter
 
   @override
   FeedGetRepostedByInput fromJson(Map<String, dynamic> json) {
-    return FeedGetRepostedByInput.fromJson(translate(
-      json,
-      FeedGetRepostedByInput.knownProps,
-    ));
+    return FeedGetRepostedByInput.fromJson(
+      translate(json, FeedGetRepostedByInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetRepostedByInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(FeedGetRepostedByInput object) =>
+      untranslate(object.toJson());
 }

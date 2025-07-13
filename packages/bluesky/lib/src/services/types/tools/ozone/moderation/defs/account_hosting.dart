@@ -40,6 +40,7 @@ abstract class AccountHosting with _$AccountHosting {
     DateTime? deletedAt,
     DateTime? deactivatedAt,
     DateTime? reactivatedAt,
+
     Map<String, dynamic>? $unknown,
   }) = _AccountHosting;
 
@@ -58,14 +59,10 @@ final class AccountHostingConverter
 
   @override
   AccountHosting fromJson(Map<String, dynamic> json) {
-    return AccountHosting.fromJson(translate(
-      json,
-      AccountHosting.knownProps,
-    ));
+    return AccountHosting.fromJson(translate(json, AccountHosting.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(AccountHosting object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(AccountHosting object) =>
+      untranslate(object.toJson());
 }

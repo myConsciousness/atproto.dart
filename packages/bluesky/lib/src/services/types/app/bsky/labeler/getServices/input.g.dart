@@ -8,30 +8,26 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LabelerGetServicesInputImpl _$$LabelerGetServicesInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$LabelerGetServicesInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$LabelerGetServicesInputImpl(
-          dids: $checkedConvert('dids',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-          detailed: $checkedConvert('detailed', (v) => v as bool?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_LabelerGetServicesInput _$LabelerGetServicesInputFromJson(Map json) =>
+    $checkedCreate('_LabelerGetServicesInput', json, ($checkedConvert) {
+      final val = _LabelerGetServicesInput(
+        dids: $checkedConvert(
+          'dids',
+          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+        ),
+        detailed: $checkedConvert('detailed', (v) => v as bool?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$LabelerGetServicesInputImplToJson(
-        _$LabelerGetServicesInputImpl instance) =>
-    <String, dynamic>{
-      'dids': instance.dids,
-      'detailed': instance.detailed,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$LabelerGetServicesInputToJson(
+  _LabelerGetServicesInput instance,
+) => <String, dynamic>{
+  'dids': instance.dids,
+  'detailed': instance.detailed,
+  r'$unknown': instance.$unknown,
+};

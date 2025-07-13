@@ -27,6 +27,7 @@ abstract class PasswordUpdated with _$PasswordUpdated {
 
   const factory PasswordUpdated({
     @Default(toolsOzoneHostingGetAccountHistoryPasswordUpdated) String $type,
+
     Map<String, dynamic>? $unknown,
   }) = _PasswordUpdated;
 
@@ -46,14 +47,12 @@ final class PasswordUpdatedConverter
 
   @override
   PasswordUpdated fromJson(Map<String, dynamic> json) {
-    return PasswordUpdated.fromJson(translate(
-      json,
-      PasswordUpdated.knownProps,
-    ));
+    return PasswordUpdated.fromJson(
+      translate(json, PasswordUpdated.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(PasswordUpdated object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(PasswordUpdated object) =>
+      untranslate(object.toJson());
 }

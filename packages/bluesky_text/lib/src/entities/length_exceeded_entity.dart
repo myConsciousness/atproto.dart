@@ -9,7 +9,9 @@ part 'length_exceeded_entity.freezed.dart';
 part 'length_exceeded_entity.g.dart';
 
 @freezed
-class LengthExceededEntity with _$LengthExceededEntity implements Facetable {
+abstract class LengthExceededEntity
+    with _$LengthExceededEntity
+    implements Facetable {
   const factory LengthExceededEntity({
     required String value,
     required ByteIndices indices,

@@ -8,27 +8,18 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ModerationGetEventInputImpl _$$ModerationGetEventInputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$ModerationGetEventInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ModerationGetEventInputImpl(
-          id: $checkedConvert('id', (v) => (v as num).toInt()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ModerationGetEventInput _$ModerationGetEventInputFromJson(Map json) =>
+    $checkedCreate('_ModerationGetEventInput', json, ($checkedConvert) {
+      final val = _ModerationGetEventInput(
+        id: $checkedConvert('id', (v) => (v as num).toInt()),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ModerationGetEventInputImplToJson(
-        _$ModerationGetEventInputImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ModerationGetEventInputToJson(
+  _ModerationGetEventInput instance,
+) => <String, dynamic>{'id': instance.id, r'$unknown': instance.$unknown};

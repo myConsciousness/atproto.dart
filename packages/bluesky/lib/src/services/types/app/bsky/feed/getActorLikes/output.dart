@@ -23,14 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class FeedGetActorLikesOutput with _$FeedGetActorLikesOutput {
-  static const knownProps = <String>[
-    'cursor',
-    'feed',
-  ];
+  static const knownProps = <String>['cursor', 'feed'];
 
   const factory FeedGetActorLikesOutput({
     String? cursor,
     @FeedViewPostConverter() required List<FeedViewPost> feed,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedGetActorLikesOutput;
 
@@ -44,14 +42,12 @@ final class FeedGetActorLikesOutputConverter
 
   @override
   FeedGetActorLikesOutput fromJson(Map<String, dynamic> json) {
-    return FeedGetActorLikesOutput.fromJson(translate(
-      json,
-      FeedGetActorLikesOutput.knownProps,
-    ));
+    return FeedGetActorLikesOutput.fromJson(
+      translate(json, FeedGetActorLikesOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetActorLikesOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(FeedGetActorLikesOutput object) =>
+      untranslate(object.toJson());
 }

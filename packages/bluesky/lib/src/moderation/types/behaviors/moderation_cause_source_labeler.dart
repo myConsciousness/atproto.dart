@@ -8,7 +8,6 @@ part 'moderation_cause_source_labeler.freezed.dart';
 
 @modObject
 class ModerationCauseSourceLabeler with _$ModerationCauseSourceLabeler {
-  const factory ModerationCauseSourceLabeler({
-    required String did,
-  }) = _ModerationCauseSourceLabeler;
+  const factory ModerationCauseSourceLabeler({required String did}) =
+      _ModerationCauseSourceLabeler;
 }

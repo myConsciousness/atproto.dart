@@ -9,30 +9,29 @@ part of 'lex_integer.dart';
 // **************************************************************************
 
 _$LexIntegerImpl _$$LexIntegerImplFromJson(Map json) => $checkedCreate(
-      r'_$LexIntegerImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$LexIntegerImpl(
-          type: $checkedConvert('type', (v) => v as String? ?? 'integer'),
-          description: $checkedConvert('description', (v) => v as String?),
-          defaultValue: $checkedConvert('default', (v) => (v as num?)?.toInt()),
-          minimum: $checkedConvert('minimum', (v) => (v as num?)?.toInt()),
-          maximum: $checkedConvert('maximum', (v) => (v as num?)?.toInt()),
-          enumValues: $checkedConvert(
-              'enum',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => (e as num).toInt())
-                  .toList()),
-          constValue: $checkedConvert('const', (v) => (v as num?)?.toInt()),
-        );
-        return val;
-      },
-      fieldKeyMap: const {
-        'defaultValue': 'default',
-        'enumValues': 'enum',
-        'constValue': 'const'
-      },
+  r'_$LexIntegerImpl',
+  json,
+  ($checkedConvert) {
+    final val = _$LexIntegerImpl(
+      type: $checkedConvert('type', (v) => v as String? ?? 'integer'),
+      description: $checkedConvert('description', (v) => v as String?),
+      defaultValue: $checkedConvert('default', (v) => (v as num?)?.toInt()),
+      minimum: $checkedConvert('minimum', (v) => (v as num?)?.toInt()),
+      maximum: $checkedConvert('maximum', (v) => (v as num?)?.toInt()),
+      enumValues: $checkedConvert(
+        'enum',
+        (v) => (v as List<dynamic>?)?.map((e) => (e as num).toInt()).toList(),
+      ),
+      constValue: $checkedConvert('const', (v) => (v as num?)?.toInt()),
     );
+    return val;
+  },
+  fieldKeyMap: const {
+    'defaultValue': 'default',
+    'enumValues': 'enum',
+    'constValue': 'const',
+  },
+);
 
 Map<String, dynamic> _$$LexIntegerImplToJson(_$LexIntegerImpl instance) =>
     <String, dynamic>{

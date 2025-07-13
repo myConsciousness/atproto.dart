@@ -24,11 +24,7 @@ part 'output.g.dart';
 @freezed
 abstract class GraphGetSuggestedFollowsByActorOutput
     with _$GraphGetSuggestedFollowsByActorOutput {
-  static const knownProps = <String>[
-    'suggestions',
-    'isFallback',
-    'recId',
-  ];
+  static const knownProps = <String>['suggestions', 'isFallback', 'recId'];
 
   const factory GraphGetSuggestedFollowsByActorOutput({
     @ProfileViewConverter() required List<ProfileView> suggestions,
@@ -38,30 +34,31 @@ abstract class GraphGetSuggestedFollowsByActorOutput
 
     /// Snowflake for this recommendation, use when submitting recommendation events.
     int? recId,
+
     Map<String, dynamic>? $unknown,
   }) = _GraphGetSuggestedFollowsByActorOutput;
 
   factory GraphGetSuggestedFollowsByActorOutput.fromJson(
-          Map<String, Object?> json) =>
-      _$GraphGetSuggestedFollowsByActorOutputFromJson(json);
+    Map<String, Object?> json,
+  ) => _$GraphGetSuggestedFollowsByActorOutputFromJson(json);
 }
 
 final class GraphGetSuggestedFollowsByActorOutputConverter
-    extends LexObjectConverter<GraphGetSuggestedFollowsByActorOutput,
-        Map<String, dynamic>> {
+    extends
+        LexObjectConverter<
+          GraphGetSuggestedFollowsByActorOutput,
+          Map<String, dynamic>
+        > {
   const GraphGetSuggestedFollowsByActorOutputConverter();
 
   @override
   GraphGetSuggestedFollowsByActorOutput fromJson(Map<String, dynamic> json) {
-    return GraphGetSuggestedFollowsByActorOutput.fromJson(translate(
-      json,
-      GraphGetSuggestedFollowsByActorOutput.knownProps,
-    ));
+    return GraphGetSuggestedFollowsByActorOutput.fromJson(
+      translate(json, GraphGetSuggestedFollowsByActorOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(GraphGetSuggestedFollowsByActorOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

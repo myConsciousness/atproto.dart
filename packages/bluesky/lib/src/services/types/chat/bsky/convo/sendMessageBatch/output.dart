@@ -23,12 +23,11 @@ part 'output.g.dart';
 
 @freezed
 abstract class ConvoSendMessageBatchOutput with _$ConvoSendMessageBatchOutput {
-  static const knownProps = <String>[
-    'items',
-  ];
+  static const knownProps = <String>['items'];
 
   const factory ConvoSendMessageBatchOutput({
     @MessageViewConverter() required List<MessageView> items,
+
     Map<String, dynamic>? $unknown,
   }) = _ConvoSendMessageBatchOutput;
 
@@ -36,21 +35,19 @@ abstract class ConvoSendMessageBatchOutput with _$ConvoSendMessageBatchOutput {
       _$ConvoSendMessageBatchOutputFromJson(json);
 }
 
-final class ConvoSendMessageBatchOutputConverter extends LexObjectConverter<
-    ConvoSendMessageBatchOutput, Map<String, dynamic>> {
+final class ConvoSendMessageBatchOutputConverter
+    extends
+        LexObjectConverter<ConvoSendMessageBatchOutput, Map<String, dynamic>> {
   const ConvoSendMessageBatchOutputConverter();
 
   @override
   ConvoSendMessageBatchOutput fromJson(Map<String, dynamic> json) {
-    return ConvoSendMessageBatchOutput.fromJson(translate(
-      json,
-      ConvoSendMessageBatchOutput.knownProps,
-    ));
+    return ConvoSendMessageBatchOutput.fromJson(
+      translate(json, ConvoSendMessageBatchOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ConvoSendMessageBatchOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

@@ -23,15 +23,13 @@ part 'list_viewer_state.g.dart';
 
 @freezed
 abstract class ListViewerState with _$ListViewerState {
-  static const knownProps = <String>[
-    'muted',
-    'blocked',
-  ];
+  static const knownProps = <String>['muted', 'blocked'];
 
   const factory ListViewerState({
     @Default(appBskyGraphDefsListViewerState) String $type,
     bool? muted,
     String? blocked,
+
     Map<String, dynamic>? $unknown,
   }) = _ListViewerState;
 
@@ -50,14 +48,12 @@ final class ListViewerStateConverter
 
   @override
   ListViewerState fromJson(Map<String, dynamic> json) {
-    return ListViewerState.fromJson(translate(
-      json,
-      ListViewerState.knownProps,
-    ));
+    return ListViewerState.fromJson(
+      translate(json, ListViewerState.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ListViewerState object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ListViewerState object) =>
+      untranslate(object.toJson());
 }

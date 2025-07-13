@@ -8,33 +8,32 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConvoListConvosOutputImpl _$$ConvoListConvosOutputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ConvoListConvosOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ConvoListConvosOutputImpl(
-          cursor: $checkedConvert('cursor', (v) => v as String?),
-          convos: $checkedConvert(
-              'convos',
-              (v) => (v as List<dynamic>)
-                  .map((e) => const ConvoViewConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ConvoListConvosOutput _$ConvoListConvosOutputFromJson(Map json) =>
+    $checkedCreate('_ConvoListConvosOutput', json, ($checkedConvert) {
+      final val = _ConvoListConvosOutput(
+        cursor: $checkedConvert('cursor', (v) => v as String?),
+        convos: $checkedConvert(
+          'convos',
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) => const ConvoViewConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ConvoListConvosOutputImplToJson(
-        _$ConvoListConvosOutputImpl instance) =>
-    <String, dynamic>{
-      'cursor': instance.cursor,
-      'convos': instance.convos.map(const ConvoViewConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ConvoListConvosOutputToJson(
+  _ConvoListConvosOutput instance,
+) => <String, dynamic>{
+  'cursor': instance.cursor,
+  'convos': instance.convos.map(const ConvoViewConverter().toJson).toList(),
+  r'$unknown': instance.$unknown,
+};

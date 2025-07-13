@@ -8,28 +8,23 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConvoUpdateReadInputImpl _$$ConvoUpdateReadInputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ConvoUpdateReadInputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ConvoUpdateReadInputImpl(
-          convoId: $checkedConvert('convoId', (v) => v as String),
-          messageId: $checkedConvert('messageId', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ConvoUpdateReadInput _$ConvoUpdateReadInputFromJson(Map json) =>
+    $checkedCreate('_ConvoUpdateReadInput', json, ($checkedConvert) {
+      final val = _ConvoUpdateReadInput(
+        convoId: $checkedConvert('convoId', (v) => v as String),
+        messageId: $checkedConvert('messageId', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ConvoUpdateReadInputImplToJson(
-        _$ConvoUpdateReadInputImpl instance) =>
-    <String, dynamic>{
-      'convoId': instance.convoId,
-      'messageId': instance.messageId,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ConvoUpdateReadInputToJson(
+  _ConvoUpdateReadInput instance,
+) => <String, dynamic>{
+  'convoId': instance.convoId,
+  'messageId': instance.messageId,
+  r'$unknown': instance.$unknown,
+};

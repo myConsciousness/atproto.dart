@@ -50,6 +50,7 @@ abstract class FeedGeneratorRecord with _$FeedGeneratorRecord {
     @UFeedGeneratorLabelsConverter() UFeedGeneratorLabels? labels,
     String? contentMode,
     required DateTime createdAt,
+
     Map<String, dynamic>? $unknown,
   }) = _FeedGeneratorRecord;
 
@@ -68,14 +69,12 @@ final class FeedGeneratorRecordConverter
 
   @override
   FeedGeneratorRecord fromJson(Map<String, dynamic> json) {
-    return FeedGeneratorRecord.fromJson(translate(
-      json,
-      FeedGeneratorRecord.knownProps,
-    ));
+    return FeedGeneratorRecord.fromJson(
+      translate(json, FeedGeneratorRecord.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGeneratorRecord object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(FeedGeneratorRecord object) =>
+      untranslate(object.toJson());
 }

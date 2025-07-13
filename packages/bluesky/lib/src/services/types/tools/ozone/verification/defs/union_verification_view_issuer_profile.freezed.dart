@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,248 +9,269 @@ part of 'union_verification_view_issuer_profile.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$UVerificationViewIssuerProfile {
-  Map<String, dynamic> get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UVerificationViewIssuerProfileUnknown value)
-        unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UVerificationViewIssuerProfileUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UVerificationViewIssuerProfileUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
-  /// Create a copy of UVerificationViewIssuerProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $UVerificationViewIssuerProfileCopyWith<UVerificationViewIssuerProfile>
-      get copyWith => throw _privateConstructorUsedError;
+ Map<String, dynamic> get data;
+/// Create a copy of UVerificationViewIssuerProfile
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UVerificationViewIssuerProfileCopyWith<UVerificationViewIssuerProfile> get copyWith => _$UVerificationViewIssuerProfileCopyWithImpl<UVerificationViewIssuerProfile>(this as UVerificationViewIssuerProfile, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UVerificationViewIssuerProfile&&const DeepCollectionEquality().equals(other.data, data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'UVerificationViewIssuerProfile(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UVerificationViewIssuerProfileCopyWith<$Res> {
-  factory $UVerificationViewIssuerProfileCopyWith(
-          UVerificationViewIssuerProfile value,
-          $Res Function(UVerificationViewIssuerProfile) then) =
-      _$UVerificationViewIssuerProfileCopyWithImpl<$Res,
-          UVerificationViewIssuerProfile>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
-}
+abstract mixin class $UVerificationViewIssuerProfileCopyWith<$Res>  {
+  factory $UVerificationViewIssuerProfileCopyWith(UVerificationViewIssuerProfile value, $Res Function(UVerificationViewIssuerProfile) _then) = _$UVerificationViewIssuerProfileCopyWithImpl;
+@useResult
+$Res call({
+ Map<String, dynamic> data
+});
 
+
+
+
+}
 /// @nodoc
-class _$UVerificationViewIssuerProfileCopyWithImpl<$Res,
-        $Val extends UVerificationViewIssuerProfile>
+class _$UVerificationViewIssuerProfileCopyWithImpl<$Res>
     implements $UVerificationViewIssuerProfileCopyWith<$Res> {
-  _$UVerificationViewIssuerProfileCopyWithImpl(this._value, this._then);
+  _$UVerificationViewIssuerProfileCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final UVerificationViewIssuerProfile _self;
+  final $Res Function(UVerificationViewIssuerProfile) _then;
 
-  /// Create a copy of UVerificationViewIssuerProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_value.copyWith(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ) as $Val);
-  }
+/// Create a copy of UVerificationViewIssuerProfile
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? data = null,}) {
+  return _then(_self.copyWith(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [UVerificationViewIssuerProfile].
+extension UVerificationViewIssuerProfilePatterns on UVerificationViewIssuerProfile {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UVerificationViewIssuerProfileUnknown value)?  unknown,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case UVerificationViewIssuerProfileUnknown() when unknown != null:
+return unknown(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UVerificationViewIssuerProfileUnknown value)  unknown,}){
+final _that = this;
+switch (_that) {
+case UVerificationViewIssuerProfileUnknown():
+return unknown(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UVerificationViewIssuerProfileUnknown value)?  unknown,}){
+final _that = this;
+switch (_that) {
+case UVerificationViewIssuerProfileUnknown() when unknown != null:
+return unknown(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case UVerificationViewIssuerProfileUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+switch (_that) {
+case UVerificationViewIssuerProfileUnknown():
+return unknown(_that.data);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+switch (_that) {
+case UVerificationViewIssuerProfileUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
-abstract class _$$UVerificationViewIssuerProfileUnknownImplCopyWith<$Res>
-    implements $UVerificationViewIssuerProfileCopyWith<$Res> {
-  factory _$$UVerificationViewIssuerProfileUnknownImplCopyWith(
-          _$UVerificationViewIssuerProfileUnknownImpl value,
-          $Res Function(_$UVerificationViewIssuerProfileUnknownImpl) then) =
-      __$$UVerificationViewIssuerProfileUnknownImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Map<String, dynamic> data});
+
+
+class UVerificationViewIssuerProfileUnknown extends UVerificationViewIssuerProfile {
+  const UVerificationViewIssuerProfileUnknown({required final  Map<String, dynamic> data}): _data = data,super._();
+  
+
+ final  Map<String, dynamic> _data;
+@override Map<String, dynamic> get data {
+  if (_data is EqualUnmodifiableMapView) return _data;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_data);
+}
+
+
+/// Create a copy of UVerificationViewIssuerProfile
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UVerificationViewIssuerProfileUnknownCopyWith<UVerificationViewIssuerProfileUnknown> get copyWith => _$UVerificationViewIssuerProfileUnknownCopyWithImpl<UVerificationViewIssuerProfileUnknown>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UVerificationViewIssuerProfileUnknown&&const DeepCollectionEquality().equals(other._data, _data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_data));
+
+@override
+String toString() {
+  return 'UVerificationViewIssuerProfile.unknown(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-class __$$UVerificationViewIssuerProfileUnknownImplCopyWithImpl<$Res>
-    extends _$UVerificationViewIssuerProfileCopyWithImpl<$Res,
-        _$UVerificationViewIssuerProfileUnknownImpl>
-    implements _$$UVerificationViewIssuerProfileUnknownImplCopyWith<$Res> {
-  __$$UVerificationViewIssuerProfileUnknownImplCopyWithImpl(
-      _$UVerificationViewIssuerProfileUnknownImpl _value,
-      $Res Function(_$UVerificationViewIssuerProfileUnknownImpl) _then)
-      : super(_value, _then);
+abstract mixin class $UVerificationViewIssuerProfileUnknownCopyWith<$Res> implements $UVerificationViewIssuerProfileCopyWith<$Res> {
+  factory $UVerificationViewIssuerProfileUnknownCopyWith(UVerificationViewIssuerProfileUnknown value, $Res Function(UVerificationViewIssuerProfileUnknown) _then) = _$UVerificationViewIssuerProfileUnknownCopyWithImpl;
+@override @useResult
+$Res call({
+ Map<String, dynamic> data
+});
 
-  /// Create a copy of UVerificationViewIssuerProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UVerificationViewIssuerProfileUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
+
+
+
 }
-
 /// @nodoc
+class _$UVerificationViewIssuerProfileUnknownCopyWithImpl<$Res>
+    implements $UVerificationViewIssuerProfileUnknownCopyWith<$Res> {
+  _$UVerificationViewIssuerProfileUnknownCopyWithImpl(this._self, this._then);
 
-class _$UVerificationViewIssuerProfileUnknownImpl
-    extends UVerificationViewIssuerProfileUnknown {
-  const _$UVerificationViewIssuerProfileUnknownImpl(
-      {required final Map<String, dynamic> data})
-      : _data = data,
-        super._();
+  final UVerificationViewIssuerProfileUnknown _self;
+  final $Res Function(UVerificationViewIssuerProfileUnknown) _then;
 
-  final Map<String, dynamic> _data;
-  @override
-  Map<String, dynamic> get data {
-    if (_data is EqualUnmodifiableMapView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_data);
-  }
-
-  @override
-  String toString() {
-    return 'UVerificationViewIssuerProfile.unknown(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UVerificationViewIssuerProfileUnknownImpl &&
-            const DeepCollectionEquality().equals(other._data, _data));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
-
-  /// Create a copy of UVerificationViewIssuerProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UVerificationViewIssuerProfileUnknownImplCopyWith<
-          _$UVerificationViewIssuerProfileUnknownImpl>
-      get copyWith => __$$UVerificationViewIssuerProfileUnknownImplCopyWithImpl<
-          _$UVerificationViewIssuerProfileUnknownImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UVerificationViewIssuerProfileUnknown value)
-        unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UVerificationViewIssuerProfileUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UVerificationViewIssuerProfileUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
-  }
+/// Create a copy of UVerificationViewIssuerProfile
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UVerificationViewIssuerProfileUnknown(
+data: null == data ? _self._data : data // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,
+  ));
 }
 
-abstract class UVerificationViewIssuerProfileUnknown
-    extends UVerificationViewIssuerProfile {
-  const factory UVerificationViewIssuerProfileUnknown(
-          {required final Map<String, dynamic> data}) =
-      _$UVerificationViewIssuerProfileUnknownImpl;
-  const UVerificationViewIssuerProfileUnknown._() : super._();
 
-  @override
-  Map<String, dynamic> get data;
-
-  /// Create a copy of UVerificationViewIssuerProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UVerificationViewIssuerProfileUnknownImplCopyWith<
-          _$UVerificationViewIssuerProfileUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
+
+// dart format on

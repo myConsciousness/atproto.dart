@@ -24,15 +24,13 @@ part 'mod_event_priority_score.g.dart';
 /// Set priority score of the subject. Higher score means higher priority.
 @freezed
 abstract class ModEventPriorityScore with _$ModEventPriorityScore {
-  static const knownProps = <String>[
-    'comment',
-    'score',
-  ];
+  static const knownProps = <String>['comment', 'score'];
 
   const factory ModEventPriorityScore({
     @Default(toolsOzoneModerationDefsModEventPriorityScore) String $type,
     String? comment,
     required int score,
+
     Map<String, dynamic>? $unknown,
   }) = _ModEventPriorityScore;
 
@@ -51,14 +49,12 @@ final class ModEventPriorityScoreConverter
 
   @override
   ModEventPriorityScore fromJson(Map<String, dynamic> json) {
-    return ModEventPriorityScore.fromJson(translate(
-      json,
-      ModEventPriorityScore.knownProps,
-    ));
+    return ModEventPriorityScore.fromJson(
+      translate(json, ModEventPriorityScore.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ModEventPriorityScore object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ModEventPriorityScore object) =>
+      untranslate(object.toJson());
 }

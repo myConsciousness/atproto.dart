@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,276 +9,294 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-UnspeccedSearchStarterPacksSkeletonOutput
-    _$UnspeccedSearchStarterPacksSkeletonOutputFromJson(
-        Map<String, dynamic> json) {
-  return _UnspeccedSearchStarterPacksSkeletonOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$UnspeccedSearchStarterPacksSkeletonOutput {
-  String? get cursor => throw _privateConstructorUsedError;
 
-  /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
-  int? get hitsTotal => throw _privateConstructorUsedError;
-  @SkeletonSearchStarterPackConverter()
-  List<SkeletonSearchStarterPack> get starterPacks =>
-      throw _privateConstructorUsedError;
-  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
+ String? get cursor;/// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
+ int? get hitsTotal;@SkeletonSearchStarterPackConverter() List<SkeletonSearchStarterPack> get starterPacks; Map<String, dynamic>? get $unknown;
+/// Create a copy of UnspeccedSearchStarterPacksSkeletonOutput
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UnspeccedSearchStarterPacksSkeletonOutputCopyWith<UnspeccedSearchStarterPacksSkeletonOutput> get copyWith => _$UnspeccedSearchStarterPacksSkeletonOutputCopyWithImpl<UnspeccedSearchStarterPacksSkeletonOutput>(this as UnspeccedSearchStarterPacksSkeletonOutput, _$identity);
 
   /// Serializes this UnspeccedSearchStarterPacksSkeletonOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of UnspeccedSearchStarterPacksSkeletonOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $UnspeccedSearchStarterPacksSkeletonOutputCopyWith<
-          UnspeccedSearchStarterPacksSkeletonOutput>
-      get copyWith => throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnspeccedSearchStarterPacksSkeletonOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&(identical(other.hitsTotal, hitsTotal) || other.hitsTotal == hitsTotal)&&const DeepCollectionEquality().equals(other.starterPacks, starterPacks)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,cursor,hitsTotal,const DeepCollectionEquality().hash(starterPacks),const DeepCollectionEquality().hash($unknown));
+
+@override
+String toString() {
+  return 'UnspeccedSearchStarterPacksSkeletonOutput(cursor: $cursor, hitsTotal: $hitsTotal, starterPacks: $starterPacks, \$unknown: ${$unknown})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UnspeccedSearchStarterPacksSkeletonOutputCopyWith<$Res> {
-  factory $UnspeccedSearchStarterPacksSkeletonOutputCopyWith(
-          UnspeccedSearchStarterPacksSkeletonOutput value,
-          $Res Function(UnspeccedSearchStarterPacksSkeletonOutput) then) =
-      _$UnspeccedSearchStarterPacksSkeletonOutputCopyWithImpl<$Res,
-          UnspeccedSearchStarterPacksSkeletonOutput>;
-  @useResult
-  $Res call(
-      {String? cursor,
-      int? hitsTotal,
-      @SkeletonSearchStarterPackConverter()
-      List<SkeletonSearchStarterPack> starterPacks,
-      Map<String, dynamic>? $unknown});
-}
+abstract mixin class $UnspeccedSearchStarterPacksSkeletonOutputCopyWith<$Res>  {
+  factory $UnspeccedSearchStarterPacksSkeletonOutputCopyWith(UnspeccedSearchStarterPacksSkeletonOutput value, $Res Function(UnspeccedSearchStarterPacksSkeletonOutput) _then) = _$UnspeccedSearchStarterPacksSkeletonOutputCopyWithImpl;
+@useResult
+$Res call({
+ String? cursor, int? hitsTotal,@SkeletonSearchStarterPackConverter() List<SkeletonSearchStarterPack> starterPacks, Map<String, dynamic>? $unknown
+});
 
+
+
+
+}
 /// @nodoc
-class _$UnspeccedSearchStarterPacksSkeletonOutputCopyWithImpl<$Res,
-        $Val extends UnspeccedSearchStarterPacksSkeletonOutput>
+class _$UnspeccedSearchStarterPacksSkeletonOutputCopyWithImpl<$Res>
     implements $UnspeccedSearchStarterPacksSkeletonOutputCopyWith<$Res> {
-  _$UnspeccedSearchStarterPacksSkeletonOutputCopyWithImpl(
-      this._value, this._then);
+  _$UnspeccedSearchStarterPacksSkeletonOutputCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final UnspeccedSearchStarterPacksSkeletonOutput _self;
+  final $Res Function(UnspeccedSearchStarterPacksSkeletonOutput) _then;
 
-  /// Create a copy of UnspeccedSearchStarterPacksSkeletonOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cursor = freezed,
-    Object? hitsTotal = freezed,
-    Object? starterPacks = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_value.copyWith(
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      hitsTotal: freezed == hitsTotal
-          ? _value.hitsTotal
-          : hitsTotal // ignore: cast_nullable_to_non_nullable
-              as int?,
-      starterPacks: null == starterPacks
-          ? _value.starterPacks
-          : starterPacks // ignore: cast_nullable_to_non_nullable
-              as List<SkeletonSearchStarterPack>,
-      $unknown: freezed == $unknown
-          ? _value.$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
+/// Create a copy of UnspeccedSearchStarterPacksSkeletonOutput
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? hitsTotal = freezed,Object? starterPacks = null,Object? $unknown = freezed,}) {
+  return _then(_self.copyWith(
+cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String?,hitsTotal: freezed == hitsTotal ? _self.hitsTotal : hitsTotal // ignore: cast_nullable_to_non_nullable
+as int?,starterPacks: null == starterPacks ? _self.starterPacks : starterPacks // ignore: cast_nullable_to_non_nullable
+as List<SkeletonSearchStarterPack>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$UnspeccedSearchStarterPacksSkeletonOutputImplCopyWith<$Res>
-    implements $UnspeccedSearchStarterPacksSkeletonOutputCopyWith<$Res> {
-  factory _$$UnspeccedSearchStarterPacksSkeletonOutputImplCopyWith(
-          _$UnspeccedSearchStarterPacksSkeletonOutputImpl value,
-          $Res Function(_$UnspeccedSearchStarterPacksSkeletonOutputImpl) then) =
-      __$$UnspeccedSearchStarterPacksSkeletonOutputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String? cursor,
-      int? hitsTotal,
-      @SkeletonSearchStarterPackConverter()
-      List<SkeletonSearchStarterPack> starterPacks,
-      Map<String, dynamic>? $unknown});
 }
 
-/// @nodoc
-class __$$UnspeccedSearchStarterPacksSkeletonOutputImplCopyWithImpl<$Res>
-    extends _$UnspeccedSearchStarterPacksSkeletonOutputCopyWithImpl<$Res,
-        _$UnspeccedSearchStarterPacksSkeletonOutputImpl>
-    implements _$$UnspeccedSearchStarterPacksSkeletonOutputImplCopyWith<$Res> {
-  __$$UnspeccedSearchStarterPacksSkeletonOutputImplCopyWithImpl(
-      _$UnspeccedSearchStarterPacksSkeletonOutputImpl _value,
-      $Res Function(_$UnspeccedSearchStarterPacksSkeletonOutputImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of UnspeccedSearchStarterPacksSkeletonOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cursor = freezed,
-    Object? hitsTotal = freezed,
-    Object? starterPacks = null,
-    Object? $unknown = freezed,
-  }) {
-    return _then(_$UnspeccedSearchStarterPacksSkeletonOutputImpl(
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      hitsTotal: freezed == hitsTotal
-          ? _value.hitsTotal
-          : hitsTotal // ignore: cast_nullable_to_non_nullable
-              as int?,
-      starterPacks: null == starterPacks
-          ? _value._starterPacks
-          : starterPacks // ignore: cast_nullable_to_non_nullable
-              as List<SkeletonSearchStarterPack>,
-      $unknown: freezed == $unknown
-          ? _value._$unknown
-          : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [UnspeccedSearchStarterPacksSkeletonOutput].
+extension UnspeccedSearchStarterPacksSkeletonOutputPatterns on UnspeccedSearchStarterPacksSkeletonOutput {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _UnspeccedSearchStarterPacksSkeletonOutput value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _UnspeccedSearchStarterPacksSkeletonOutput() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _UnspeccedSearchStarterPacksSkeletonOutput value)  $default,){
+final _that = this;
+switch (_that) {
+case _UnspeccedSearchStarterPacksSkeletonOutput():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _UnspeccedSearchStarterPacksSkeletonOutput value)?  $default,){
+final _that = this;
+switch (_that) {
+case _UnspeccedSearchStarterPacksSkeletonOutput() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor,  int? hitsTotal, @SkeletonSearchStarterPackConverter()  List<SkeletonSearchStarterPack> starterPacks,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _UnspeccedSearchStarterPacksSkeletonOutput() when $default != null:
+return $default(_that.cursor,_that.hitsTotal,_that.starterPacks,_that.$unknown);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor,  int? hitsTotal, @SkeletonSearchStarterPackConverter()  List<SkeletonSearchStarterPack> starterPacks,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+switch (_that) {
+case _UnspeccedSearchStarterPacksSkeletonOutput():
+return $default(_that.cursor,_that.hitsTotal,_that.starterPacks,_that.$unknown);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor,  int? hitsTotal, @SkeletonSearchStarterPackConverter()  List<SkeletonSearchStarterPack> starterPacks,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+switch (_that) {
+case _UnspeccedSearchStarterPacksSkeletonOutput() when $default != null:
+return $default(_that.cursor,_that.hitsTotal,_that.starterPacks,_that.$unknown);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$UnspeccedSearchStarterPacksSkeletonOutputImpl
-    implements _UnspeccedSearchStarterPacksSkeletonOutput {
-  const _$UnspeccedSearchStarterPacksSkeletonOutputImpl(
-      {this.cursor,
-      this.hitsTotal,
-      @SkeletonSearchStarterPackConverter()
-      required final List<SkeletonSearchStarterPack> starterPacks,
-      final Map<String, dynamic>? $unknown})
-      : _starterPacks = starterPacks,
-        _$unknown = $unknown;
 
-  factory _$UnspeccedSearchStarterPacksSkeletonOutputImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$UnspeccedSearchStarterPacksSkeletonOutputImplFromJson(json);
+class _UnspeccedSearchStarterPacksSkeletonOutput implements UnspeccedSearchStarterPacksSkeletonOutput {
+  const _UnspeccedSearchStarterPacksSkeletonOutput({this.cursor, this.hitsTotal, @SkeletonSearchStarterPackConverter() required final  List<SkeletonSearchStarterPack> starterPacks, final  Map<String, dynamic>? $unknown}): _starterPacks = starterPacks,_$unknown = $unknown;
+  factory _UnspeccedSearchStarterPacksSkeletonOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedSearchStarterPacksSkeletonOutputFromJson(json);
 
-  @override
-  final String? cursor;
-
-  /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
-  @override
-  final int? hitsTotal;
-  final List<SkeletonSearchStarterPack> _starterPacks;
-  @override
-  @SkeletonSearchStarterPackConverter()
-  List<SkeletonSearchStarterPack> get starterPacks {
-    if (_starterPacks is EqualUnmodifiableListView) return _starterPacks;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_starterPacks);
-  }
-
-  final Map<String, dynamic>? _$unknown;
-  @override
-  Map<String, dynamic>? get $unknown {
-    final value = _$unknown;
-    if (value == null) return null;
-    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'UnspeccedSearchStarterPacksSkeletonOutput(cursor: $cursor, hitsTotal: $hitsTotal, starterPacks: $starterPacks, \$unknown: ${$unknown})';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UnspeccedSearchStarterPacksSkeletonOutputImpl &&
-            (identical(other.cursor, cursor) || other.cursor == cursor) &&
-            (identical(other.hitsTotal, hitsTotal) ||
-                other.hitsTotal == hitsTotal) &&
-            const DeepCollectionEquality()
-                .equals(other._starterPacks, _starterPacks) &&
-            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      cursor,
-      hitsTotal,
-      const DeepCollectionEquality().hash(_starterPacks),
-      const DeepCollectionEquality().hash(_$unknown));
-
-  /// Create a copy of UnspeccedSearchStarterPacksSkeletonOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UnspeccedSearchStarterPacksSkeletonOutputImplCopyWith<
-          _$UnspeccedSearchStarterPacksSkeletonOutputImpl>
-      get copyWith =>
-          __$$UnspeccedSearchStarterPacksSkeletonOutputImplCopyWithImpl<
-                  _$UnspeccedSearchStarterPacksSkeletonOutputImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UnspeccedSearchStarterPacksSkeletonOutputImplToJson(
-      this,
-    );
-  }
+@override final  String? cursor;
+/// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
+@override final  int? hitsTotal;
+ final  List<SkeletonSearchStarterPack> _starterPacks;
+@override@SkeletonSearchStarterPackConverter() List<SkeletonSearchStarterPack> get starterPacks {
+  if (_starterPacks is EqualUnmodifiableListView) return _starterPacks;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_starterPacks);
 }
 
-abstract class _UnspeccedSearchStarterPacksSkeletonOutput
-    implements UnspeccedSearchStarterPacksSkeletonOutput {
-  const factory _UnspeccedSearchStarterPacksSkeletonOutput(
-          {final String? cursor,
-          final int? hitsTotal,
-          @SkeletonSearchStarterPackConverter()
-          required final List<SkeletonSearchStarterPack> starterPacks,
-          final Map<String, dynamic>? $unknown}) =
-      _$UnspeccedSearchStarterPacksSkeletonOutputImpl;
-
-  factory _UnspeccedSearchStarterPacksSkeletonOutput.fromJson(
-          Map<String, dynamic> json) =
-      _$UnspeccedSearchStarterPacksSkeletonOutputImpl.fromJson;
-
-  @override
-  String? get cursor;
-
-  /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
-  @override
-  int? get hitsTotal;
-  @override
-  @SkeletonSearchStarterPackConverter()
-  List<SkeletonSearchStarterPack> get starterPacks;
-  @override
-  Map<String, dynamic>? get $unknown;
-
-  /// Create a copy of UnspeccedSearchStarterPacksSkeletonOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UnspeccedSearchStarterPacksSkeletonOutputImplCopyWith<
-          _$UnspeccedSearchStarterPacksSkeletonOutputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+ final  Map<String, dynamic>? _$unknown;
+@override Map<String, dynamic>? get $unknown {
+  final value = _$unknown;
+  if (value == null) return null;
+  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
+
+
+/// Create a copy of UnspeccedSearchStarterPacksSkeletonOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$UnspeccedSearchStarterPacksSkeletonOutputCopyWith<_UnspeccedSearchStarterPacksSkeletonOutput> get copyWith => __$UnspeccedSearchStarterPacksSkeletonOutputCopyWithImpl<_UnspeccedSearchStarterPacksSkeletonOutput>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$UnspeccedSearchStarterPacksSkeletonOutputToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnspeccedSearchStarterPacksSkeletonOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&(identical(other.hitsTotal, hitsTotal) || other.hitsTotal == hitsTotal)&&const DeepCollectionEquality().equals(other._starterPacks, _starterPacks)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,cursor,hitsTotal,const DeepCollectionEquality().hash(_starterPacks),const DeepCollectionEquality().hash(_$unknown));
+
+@override
+String toString() {
+  return 'UnspeccedSearchStarterPacksSkeletonOutput(cursor: $cursor, hitsTotal: $hitsTotal, starterPacks: $starterPacks, \$unknown: ${$unknown})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$UnspeccedSearchStarterPacksSkeletonOutputCopyWith<$Res> implements $UnspeccedSearchStarterPacksSkeletonOutputCopyWith<$Res> {
+  factory _$UnspeccedSearchStarterPacksSkeletonOutputCopyWith(_UnspeccedSearchStarterPacksSkeletonOutput value, $Res Function(_UnspeccedSearchStarterPacksSkeletonOutput) _then) = __$UnspeccedSearchStarterPacksSkeletonOutputCopyWithImpl;
+@override @useResult
+$Res call({
+ String? cursor, int? hitsTotal,@SkeletonSearchStarterPackConverter() List<SkeletonSearchStarterPack> starterPacks, Map<String, dynamic>? $unknown
+});
+
+
+
+
+}
+/// @nodoc
+class __$UnspeccedSearchStarterPacksSkeletonOutputCopyWithImpl<$Res>
+    implements _$UnspeccedSearchStarterPacksSkeletonOutputCopyWith<$Res> {
+  __$UnspeccedSearchStarterPacksSkeletonOutputCopyWithImpl(this._self, this._then);
+
+  final _UnspeccedSearchStarterPacksSkeletonOutput _self;
+  final $Res Function(_UnspeccedSearchStarterPacksSkeletonOutput) _then;
+
+/// Create a copy of UnspeccedSearchStarterPacksSkeletonOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? hitsTotal = freezed,Object? starterPacks = null,Object? $unknown = freezed,}) {
+  return _then(_UnspeccedSearchStarterPacksSkeletonOutput(
+cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String?,hitsTotal: freezed == hitsTotal ? _self.hitsTotal : hitsTotal // ignore: cast_nullable_to_non_nullable
+as int?,starterPacks: null == starterPacks ? _self._starterPacks : starterPacks // ignore: cast_nullable_to_non_nullable
+as List<SkeletonSearchStarterPack>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+// dart format on

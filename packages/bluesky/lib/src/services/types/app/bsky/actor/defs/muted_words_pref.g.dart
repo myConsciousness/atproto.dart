@@ -8,31 +8,32 @@ part of 'muted_words_pref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MutedWordsPrefImpl _$$MutedWordsPrefImplFromJson(Map json) => $checkedCreate(
-      r'_$MutedWordsPrefImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$MutedWordsPrefImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyActorDefsMutedWordsPref),
-          items: $checkedConvert(
-              'items',
-              (v) => (v as List<dynamic>)
-                  .map((e) => const MutedWordConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_MutedWordsPref _$MutedWordsPrefFromJson(Map json) =>
+    $checkedCreate('_MutedWordsPref', json, ($checkedConvert) {
+      final val = _MutedWordsPref(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyActorDefsMutedWordsPref,
+        ),
+        items: $checkedConvert(
+          'items',
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) => const MutedWordConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$MutedWordsPrefImplToJson(
-        _$MutedWordsPrefImpl instance) =>
+Map<String, dynamic> _$MutedWordsPrefToJson(_MutedWordsPref instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'items': instance.items.map(const MutedWordConverter().toJson).toList(),

@@ -128,26 +128,28 @@ const _kScenario = [
 void main() {
   test('Moderation: custom labels', () {
     final scenarios = _kScenario
-        .expand((e) => [
-              {
-                'blurs': e['blurs'],
-                'severity': e['severity'],
-                'target': 'post',
-                'expected': e['post'],
-              },
-              {
-                'blurs': e['blurs'],
-                'severity': e['severity'],
-                'target': 'profile',
-                'expected': e['profile'],
-              },
-              {
-                'blurs': e['blurs'],
-                'severity': e['severity'],
-                'target': 'account',
-                'expected': e['account'],
-              }
-            ])
+        .expand(
+          (e) => [
+            {
+              'blurs': e['blurs'],
+              'severity': e['severity'],
+              'target': 'post',
+              'expected': e['post'],
+            },
+            {
+              'blurs': e['blurs'],
+              'severity': e['severity'],
+              'target': 'profile',
+              'expected': e['profile'],
+            },
+            {
+              'blurs': e['blurs'],
+              'severity': e['severity'],
+              'target': 'account',
+              'expected': e['account'],
+            },
+          ],
+        )
         .toList();
 
     for (final scenario in scenarios) {
@@ -196,10 +198,7 @@ void main() {
             labels: profileLabels,
           ),
         ),
-        author: m.profileViewBasic(
-          handle: 'bob.test',
-          displayName: 'Bob',
-        ),
+        author: m.profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
       );
 
       final actual = moderatePost(
@@ -259,10 +258,7 @@ List<ModerationTestSuiteResultFlag> _getExpectedResultFlags(
       : const [];
 }
 
-ModerationOpts modOpts(
-  final String blurs,
-  final String severity,
-) {
+ModerationOpts modOpts(final String blurs, final String severity) {
   return ModerationOpts(
     userDid: 'did:web:alice.test',
     prefs: ModerationPrefs(
@@ -271,18 +267,14 @@ ModerationOpts modOpts(
       labelers: [
         ModerationPrefsLabeler(
           did: 'did:web:labeler.test',
-          labels: const {
-            'custom': LabelPreference.hide,
-          },
+          labels: const {'custom': LabelPreference.hide},
         ),
       ],
       mutedWords: const [],
       hiddenPosts: const [],
     ),
     labelDefs: {
-      'did:web:labeler.test': [
-        makeCustomLabel(blurs, severity),
-      ],
+      'did:web:labeler.test': [makeCustomLabel(blurs, severity)],
     },
   );
 }

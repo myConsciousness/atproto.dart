@@ -20,16 +20,13 @@ part 'input.g.dart';
 
 @freezed
 abstract class SetGetValuesInput with _$SetGetValuesInput {
-  static const knownProps = <String>[
-    'name',
-    'limit',
-    'cursor',
-  ];
+  static const knownProps = <String>['name', 'limit', 'cursor'];
 
   const factory SetGetValuesInput({
     required String name,
     int? limit,
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _SetGetValuesInput;
 
@@ -43,14 +40,12 @@ final class SetGetValuesInputConverter
 
   @override
   SetGetValuesInput fromJson(Map<String, dynamic> json) {
-    return SetGetValuesInput.fromJson(translate(
-      json,
-      SetGetValuesInput.knownProps,
-    ));
+    return SetGetValuesInput.fromJson(
+      translate(json, SetGetValuesInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SetGetValuesInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SetGetValuesInput object) =>
+      untranslate(object.toJson());
 }

@@ -8,26 +8,24 @@ part of 'image_details.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ImageDetailsImpl _$$ImageDetailsImplFromJson(Map json) => $checkedCreate(
-      r'_$ImageDetailsImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$ImageDetailsImpl(
-          $type: $checkedConvert(r'$type',
-              (v) => v as String? ?? toolsOzoneModerationDefsImageDetails),
-          width: $checkedConvert('width', (v) => (v as num).toInt()),
-          height: $checkedConvert('height', (v) => (v as num).toInt()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+_ImageDetails _$ImageDetailsFromJson(Map json) =>
+    $checkedCreate('_ImageDetails', json, ($checkedConvert) {
+      final val = _ImageDetails(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? toolsOzoneModerationDefsImageDetails,
+        ),
+        width: $checkedConvert('width', (v) => (v as num).toInt()),
+        height: $checkedConvert('height', (v) => (v as num).toInt()),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$$ImageDetailsImplToJson(_$ImageDetailsImpl instance) =>
+Map<String, dynamic> _$ImageDetailsToJson(_ImageDetails instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'width': instance.width,

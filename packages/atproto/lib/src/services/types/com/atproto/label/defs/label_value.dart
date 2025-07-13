@@ -49,16 +49,12 @@ abstract class LabelValueConverter
 
   @override
   LabelValue fromJson(Map<String, dynamic> json) {
-    return LabelValue.fromJson(translate(
-      json,
-      LabelValue.knownProps,
-    ));
+    return LabelValue.fromJson(translate(json, LabelValue.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(LabelValue object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(LabelValue object) =>
+      untranslate(object.toJson());
 }
 
 enum KnownLabelValue implements Serializable {
@@ -83,8 +79,7 @@ enum KnownLabelValue implements Serializable {
   @JsonValue('nsfl')
   nsfl('nsfl'),
   @JsonValue('gore')
-  gore('gore'),
-  ;
+  gore('gore');
 
   @override
   final String value;

@@ -24,13 +24,12 @@ part 'view.g.dart';
 
 @freezed
 abstract class EmbedImagesView with _$EmbedImagesView {
-  static const knownProps = <String>[
-    'images',
-  ];
+  static const knownProps = <String>['images'];
 
   const factory EmbedImagesView({
     @Default(appBskyEmbedImagesView) String $type,
     @EmbedImagesViewImageConverter() required List<EmbedImagesViewImage> images,
+
     Map<String, dynamic>? $unknown,
   }) = _EmbedImagesView;
 
@@ -49,14 +48,12 @@ final class EmbedImagesViewConverter
 
   @override
   EmbedImagesView fromJson(Map<String, dynamic> json) {
-    return EmbedImagesView.fromJson(translate(
-      json,
-      EmbedImagesView.knownProps,
-    ));
+    return EmbedImagesView.fromJson(
+      translate(json, EmbedImagesView.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedImagesView object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(EmbedImagesView object) =>
+      untranslate(object.toJson());
 }

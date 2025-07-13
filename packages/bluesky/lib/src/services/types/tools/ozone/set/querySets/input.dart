@@ -36,6 +36,7 @@ abstract class SetQuerySetsInput with _$SetQuerySetsInput {
 
     /// Defaults to ascending order of name field.
     String? sortDirection,
+
     Map<String, dynamic>? $unknown,
   }) = _SetQuerySetsInput;
 
@@ -49,14 +50,12 @@ final class SetQuerySetsInputConverter
 
   @override
   SetQuerySetsInput fromJson(Map<String, dynamic> json) {
-    return SetQuerySetsInput.fromJson(translate(
-      json,
-      SetQuerySetsInput.knownProps,
-    ));
+    return SetQuerySetsInput.fromJson(
+      translate(json, SetQuerySetsInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SetQuerySetsInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SetQuerySetsInput object) =>
+      untranslate(object.toJson());
 }

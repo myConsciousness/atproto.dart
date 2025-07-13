@@ -31,9 +31,8 @@ class UThreadViewPostParent with _$UThreadViewPostParent {
   const factory UThreadViewPostParent.notFoundPost({
     required NotFoundPost data,
   }) = UThreadViewPostParentNotFoundPost;
-  const factory UThreadViewPostParent.blockedPost({
-    required BlockedPost data,
-  }) = UThreadViewPostParentBlockedPost;
+  const factory UThreadViewPostParent.blockedPost({required BlockedPost data}) =
+      UThreadViewPostParentBlockedPost;
 
   const factory UThreadViewPostParent.unknown({
     required Map<String, dynamic> data,
@@ -74,9 +73,10 @@ final class UThreadViewPostParentConverter
 
   @override
   Map<String, dynamic> toJson(UThreadViewPostParent object) => object.when(
-        threadViewPost: (data) => const ThreadViewPostConverter().toJson(data),
-        notFoundPost: (data) => const NotFoundPostConverter().toJson(data),
-        blockedPost: (data) => const BlockedPostConverter().toJson(data),
-        unknown: (data) => data,
-      );
+    threadViewPost: (data) => const ThreadViewPostConverter().toJson(data),
+    notFoundPost: (data) => const NotFoundPostConverter().toJson(data),
+    blockedPost: (data) => const BlockedPostConverter().toJson(data),
+
+    unknown: (data) => data,
+  );
 }

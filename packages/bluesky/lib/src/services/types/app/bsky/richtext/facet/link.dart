@@ -24,13 +24,12 @@ part 'link.g.dart';
 /// Facet feature for a URL. The text URL may have been simplified or truncated, but the facet reference should be a complete URL.
 @freezed
 abstract class RichtextFacetLink with _$RichtextFacetLink {
-  static const knownProps = <String>[
-    'uri',
-  ];
+  static const knownProps = <String>['uri'];
 
   const factory RichtextFacetLink({
     @Default(appBskyRichtextFacetLink) String $type,
     @AtUriConverter() required AtUri uri,
+
     Map<String, dynamic>? $unknown,
   }) = _RichtextFacetLink;
 
@@ -49,14 +48,12 @@ final class RichtextFacetLinkConverter
 
   @override
   RichtextFacetLink fromJson(Map<String, dynamic> json) {
-    return RichtextFacetLink.fromJson(translate(
-      json,
-      RichtextFacetLink.knownProps,
-    ));
+    return RichtextFacetLink.fromJson(
+      translate(json, RichtextFacetLink.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(RichtextFacetLink object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RichtextFacetLink object) =>
+      untranslate(object.toJson());
 }
