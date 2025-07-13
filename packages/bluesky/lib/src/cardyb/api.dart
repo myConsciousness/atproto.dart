@@ -2,10 +2,10 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:
-import '../entities/link_preview.dart';
+import 'link_preview.dart';
 
 /// Returns link preview information for a given [url].
-Future<core.Response<LinkPreview>> findLinkPreview(
+Future<core.Response<LinkPreview>> getLinkPreview(
   final Uri url, {
   String service = core.defaultLinkPreviewService,
   core.GetClient? mockedGetClient,
@@ -13,10 +13,10 @@ Future<core.Response<LinkPreview>> findLinkPreview(
     await _$EmbedService(
       service: service,
       mockedGetClient: mockedGetClient,
-    ).findLinkPreview(url);
+    ).getLinkPreview(url);
 
 sealed class _EmbedService {
-  Future<core.Response<LinkPreview>> findLinkPreview(final Uri url);
+  Future<core.Response<LinkPreview>> getLinkPreview(final Uri url);
 }
 
 final class _$EmbedService extends core.BaseHttpService
@@ -27,7 +27,7 @@ final class _$EmbedService extends core.BaseHttpService
   });
 
   @override
-  Future<core.Response<LinkPreview>> findLinkPreview(final Uri url) async =>
+  Future<core.Response<LinkPreview>> getLinkPreview(final Uri url) async =>
       await super.get(
         '/v1/extract',
         parameters: {
