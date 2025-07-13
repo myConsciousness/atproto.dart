@@ -12,7 +12,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../app/bsky/actor/defs/preferences.dart';
+import '../../../../app/bsky/actor/defs/union_preferences.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -28,7 +28,7 @@ abstract class ActorGetPreferencesOutput with _$ActorGetPreferencesOutput {
   ];
 
   const factory ActorGetPreferencesOutput({
-    @PreferencesConverter() required Preferences preferences,
+    @UPreferencesConverter() required List<UPreferences> preferences,
     Map<String, dynamic>? $unknown,
   }) = _ActorGetPreferencesOutput;
 

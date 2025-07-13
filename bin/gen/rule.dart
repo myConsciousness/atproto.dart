@@ -1,3 +1,6 @@
+import 'package:lexicon/docs.dart';
+import 'package:lexicon/lexicon.dart';
+
 import 'utils.dart';
 import 'object/lex_type.dart';
 
@@ -193,27 +196,30 @@ String getLexObjectNameFromRef(
 
 String getLexObjectPackagePathFromRef(
   final String lexiconId,
-  final String ref,
-) {
+  final String ref, {
+  bool isUnion = false,
+}) {
+  final fileNamePrefix = isUnion ? 'union_' : '';
   final relativePath = getPackageRelativePath(lexiconId, ref);
+
   if (ref.startsWith('#')) {
     final defName = ref.substring(1);
-    return '$relativePath/${getLexObjectFileName(defName)}.dart';
+    return '$relativePath/$fileNamePrefix${getLexObjectFileName(defName)}.dart';
   }
 
   if (_isInTheSamePackage(lexiconId, ref)) {
     if (ref.contains('#')) {
       final parts = ref.split('#');
-      return '$relativePath/${getLexObjectFileName(parts[1])}.dart';
+      return '$relativePath/$fileNamePrefix${getLexObjectFileName(parts[1])}.dart';
     } else {
-      return '$relativePath/${getLexObjectFileName('main')}.dart';
+      return '$relativePath/$fileNamePrefix${getLexObjectFileName('main')}.dart';
     }
   } else {
     if (ref.contains('#')) {
       final $lexiconId = ref.split('#').first;
-      return '$relativePath/${getPackageName($lexiconId)}.dart';
+      return '$relativePath/$fileNamePrefix${getPackageName($lexiconId)}.dart';
     } else {
-      return '$relativePath/${getPackageName(ref)}.dart';
+      return '$relativePath/$fileNamePrefix${getPackageName(ref)}.dart';
     }
   }
 }
@@ -348,4 +354,24 @@ String getLexKnownValuesElementName(final String value) {
 
 String getNamespaceIdForApi(final String lexiconId) {
   return toFirstLowerCase(lexiconId.split('.').map(toFirstUpperCase).join());
+}
+
+LexUserType? getRelatedDocFromRef(final String? ref) {
+  if (ref == null) return null;
+  if (ref.startsWith('#')) return null;
+  if (!ref.contains('#')) return null;
+
+  final parts = ref.split('#');
+  final lexiconId = parts.first;
+  final defName = parts.last;
+
+  for (final doc in lexicons.map(LexiconDoc.fromJson).toList()) {
+    for (final def in doc.defs.entries) {
+      if (doc.id.toString() == lexiconId && def.key == defName) {
+        return def.value;
+      }
+    }
+  }
+
+  return null;
 }

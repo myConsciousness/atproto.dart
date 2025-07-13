@@ -40,6 +40,7 @@ List<LexProperty> generateLexProperties(
   if (properties == null) return const [];
 
   final requiredProps = requiredProperties ?? const [];
+  final isSingleProp = properties.length == 1;
 
   final result = <LexProperty>[];
   for (final property in properties.entries) {
@@ -48,6 +49,7 @@ List<LexProperty> generateLexProperties(
       lexiconId,
       defName,
       mainVariants,
+      isSingleProp,
     );
 
     if (type.isNil) continue;
@@ -74,6 +76,7 @@ DartType _getDartType(
   final lex.NSID lexiconId,
   final String defName,
   final List<String> mainVariants,
+  final bool isSingleProp,
 ) {
   switch (property.value) {
     case lex.ULexObjectPropertyPrimitive primitive:
@@ -103,6 +106,7 @@ DartType _getDartType(
             defName,
             property.key,
             mainVariants,
+            isSingleProp,
           );
 
           return DartType.array(
@@ -127,6 +131,7 @@ DartType _getDartType(
         defName,
         property.key,
         mainVariants,
+        isSingleProp,
       );
 
     default:
@@ -161,9 +166,27 @@ DartType _getLexRefVariantType(
   final String defName,
   final String fieldName,
   final List<String> mainVariants,
+  final bool isSingleProp,
 ) {
   switch (ref) {
     case lex.ULexRefVariantRef ref:
+      bool isArray = false;
+      bool isUnion = false;
+      final relatedDoc = rule.getRelatedDocFromRef(ref.data.ref);
+
+      if (isSingleProp && relatedDoc != null) {
+        final array = relatedDoc.whenOrNull(array: (data) => data);
+        if (array != null) {
+          isArray = true;
+
+          final refvariant = array.items.whenOrNull(refVariant: (data) => data);
+          final refUnion = refvariant?.whenOrNull(refUnion: (data) => data);
+          if (refUnion != null) {
+            isUnion = true;
+          }
+        }
+      }
+
       final name = rule.getLexObjectNameFromRef(
         lexiconId.toString(),
         ref.data.ref!,
@@ -171,15 +194,17 @@ DartType _getLexRefVariantType(
       );
 
       return DartType(
-        name: name,
+        name: isUnion ? 'U$name' : name,
         lexiconId: lexiconId.toString(),
         ref: ref.data.ref!,
         packagePath: rule.getLexObjectPackagePathFromRef(
           lexiconId.toString(),
           ref.data.ref!,
+          isUnion: isUnion,
         ),
-        annotation: '@${name}Converter()',
+        annotation: isUnion ? '@U${name}Converter()' : '@${name}Converter()',
         description: ref.data.description,
+        isArray: isArray,
       );
     case lex.ULexRefVariantRefUnion refUnion:
       final union = generateLexUnion(
