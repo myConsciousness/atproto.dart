@@ -33,6 +33,10 @@ abstract class LexType {
     return null;
   }
 
+  bool isBytes() {
+    return false;
+  }
+
   String getFilePath() {
     return rule.getFilePath(lexiconId, defName, state);
   }

@@ -14,6 +14,18 @@ final class LexInput extends LexType {
   final String name;
   final List<LexProperty> properties;
 
+  final bool bytes;
+
+  @override
+  bool isShouldNotBeGenerated() {
+    return isBytes();
+  }
+
+  @override
+  bool isBytes() {
+    return bytes;
+  }
+
   @override
   List<LexProperty> getProperties() {
     return properties;
@@ -33,6 +45,7 @@ final class LexInput extends LexType {
     required this.defName,
     required this.name,
     required this.properties,
+    this.bytes = false,
   });
 
   @override

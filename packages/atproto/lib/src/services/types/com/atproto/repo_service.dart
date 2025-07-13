@@ -1,3 +1,6 @@
+// Dart imports:
+import 'dart:typed_data';
+
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
 
@@ -117,16 +120,16 @@ final class RepoService {
       );
 
   /// Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
-  Future<XRPCResponse<RepoUploadBlobOutput>> uploadBlob({
+  Future<XRPCResponse<RepoUploadBlobOutput>> uploadBlob(
+    Uint8List bytes, {
     Map<String, String>? $headers,
-    Map<String, String>? $unknown,
+    Map<String, String>? $parameters,
   }) async =>
       await _ctx.post(
         ns.comAtprotoRepoUploadBlob,
         headers: $headers,
-        body: {
-          ...?$unknown,
-        },
+        parameters: $parameters,
+        body: bytes,
         to: const RepoUploadBlobOutputConverter().fromJson,
       );
 

@@ -36,7 +36,14 @@ final class LexService {
   String getPackagePaths() {
     final buffer = StringBuffer();
     for (final api in apis) {
-      for (final parameter in api.parameters ?? const <LexParameter>[]) {
+      final parameters = api.inputType == null
+          ? const <LexParameter>[]
+          : api.inputType!
+              .getProperties()
+              .map((e) => e.toLexParameter())
+              .toList();
+
+      for (final parameter in parameters) {
         if (parameter.type.lexiconId == null) continue;
         if (parameter.type.packagePath == null) continue;
 
@@ -91,6 +98,8 @@ final class LexService {
 
 $packagePaths
 
+import 'dart:typed_data';
+
 import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
 
@@ -112,8 +121,8 @@ final class LexApi {
 
   final String name;
   final String? description;
+  final LexType? inputType;
   final LexType? returnType;
-  final List<LexParameter>? parameters;
 
   final bool isQuery;
   final bool isProcedure;
@@ -124,8 +133,8 @@ final class LexApi {
     required this.lexiconId,
     required this.name,
     this.description,
+    this.inputType,
     this.returnType,
-    this.parameters,
     this.isQuery = false,
     this.isProcedure = false,
     this.isSubscription = false,
@@ -133,20 +142,24 @@ final class LexApi {
   });
 
   String format() {
+    final parameters = inputType == null
+        ? const <LexParameter>[]
+        : inputType!.getProperties().map((e) => e.toLexParameter()).toList();
+
     if (isQuery) {
-      return _getQueryApi();
+      return _getQueryApi(parameters);
     } else if (isProcedure) {
-      return _getProcedureApi();
+      return _getProcedureApi(parameters);
     } else if (isSubscription) {
       return _getSubscriptionApi();
     } else if (isRecord) {
-      return _getRecordApi();
+      return _getRecordApi(parameters);
     }
 
     throw UnsupportedError('Unsupported API format');
   }
 
-  String _getQueryApi() {
+  String _getQueryApi(final List<LexParameter> parameters) {
     final ns = rule.getNamespaceIdForApi(lexiconId);
     final returnType = _getReturnType();
 
@@ -155,7 +168,7 @@ final class LexApi {
       buffer.writeln('/// $description');
     }
     buffer.writeln('Future<XRPCResponse<$returnType>> $name({');
-    for (final parameter in parameters ?? const <LexParameter>[]) {
+    for (final parameter in parameters) {
       buffer.writeln(parameter.getParams());
     }
     buffer.writeln('  Map<String, String>? \$headers,');
@@ -165,7 +178,7 @@ final class LexApi {
     buffer.writeln('    ns.$ns,');
     buffer.writeln('    headers: \$headers,');
     buffer.writeln('    parameters: {');
-    for (final parameter in parameters ?? const <LexParameter>[]) {
+    for (final parameter in parameters) {
       buffer.writeln(parameter.getParamsRecord());
     }
     buffer.writeln('      ...?\$unknown,');
@@ -178,7 +191,7 @@ final class LexApi {
     return buffer.toString();
   }
 
-  String _getProcedureApi() {
+  String _getProcedureApi(List<LexParameter> parameters) {
     final ns = rule.getNamespaceIdForApi(lexiconId);
     final returnType = _getReturnType();
 
@@ -186,22 +199,37 @@ final class LexApi {
     if (description != null) {
       buffer.writeln('/// $description');
     }
-    buffer.writeln('Future<XRPCResponse<$returnType>> $name({');
-    for (final parameter in parameters ?? const <LexParameter>[]) {
-      buffer.writeln(parameter.getParams());
+
+    if (inputType?.isBytes() ?? false) {
+      buffer.writeln('Future<XRPCResponse<$returnType>> $name(');
+      buffer.writeln('  Uint8List bytes,');
+      buffer.writeln('{');
+      buffer.writeln('  Map<String, String>? \$headers,');
+      buffer.writeln('  Map<String, String>? \$parameters,');
+    } else {
+      buffer.writeln('Future<XRPCResponse<$returnType>> $name({');
+      for (final parameter in parameters) {
+        buffer.writeln(parameter.getParams());
+      }
+      buffer.writeln('  Map<String, String>? \$headers,');
+      buffer.writeln('  Map<String, String>? \$unknown,');
     }
-    buffer.writeln('  Map<String, String>? \$headers,');
-    buffer.writeln('  Map<String, String>? \$unknown,');
     buffer.writeln('}) async =>');
     buffer.writeln('  await _ctx.post(');
     buffer.writeln('    ns.$ns,');
     buffer.writeln('    headers: \$headers,');
-    buffer.writeln('    body: {');
-    for (final parameter in parameters ?? const <LexParameter>[]) {
-      buffer.writeln(parameter.getParamsRecord());
+    if (inputType?.isBytes() ?? false) {
+      buffer.writeln('    parameters: \$parameters,');
+      buffer.writeln('    body: bytes,');
+    } else {
+      buffer.writeln('    body: {');
+      for (final parameter in parameters) {
+        buffer.writeln(parameter.getParamsRecord());
+      }
+      buffer.writeln('      ...?\$unknown,');
+      buffer.writeln('    },');
     }
-    buffer.writeln('      ...?\$unknown,');
-    buffer.writeln('    },');
+
     if (this.returnType != null) {
       buffer.writeln('    to: const ${returnType}Converter().fromJson,');
     }
@@ -214,7 +242,7 @@ final class LexApi {
     return '';
   }
 
-  String _getRecordApi() {
+  String _getRecordApi(List<LexParameter> parameters) {
     final ns = rule.getNamespaceIdForApi(lexiconId);
 
     final buffer = StringBuffer();
@@ -222,7 +250,7 @@ final class LexApi {
       buffer.writeln('/// $description');
     }
     buffer.writeln('Future<XRPCResponse<RepoCreateRecordOutput>> $name({');
-    for (final parameter in parameters ?? const <LexParameter>[]) {
+    for (final parameter in parameters) {
       buffer.writeln(parameter.getParams(
         ignoreRequired: parameter.name == 'createdAt',
       ));
@@ -236,7 +264,7 @@ final class LexApi {
     buffer.writeln('    collection: ids.$ns,');
     buffer.writeln('    rkey: \$rey,');
     buffer.writeln('    record: {');
-    for (final parameter in parameters ?? const <LexParameter>[]) {
+    for (final parameter in parameters) {
       buffer.writeln(parameter.getParamsRecord(
         isRecordCreatedAt: parameter.name == 'createdAt',
       ));

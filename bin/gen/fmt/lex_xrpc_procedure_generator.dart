@@ -38,6 +38,18 @@ final class _LexLexXrpcProcedureGenerator {
   }
 
   LexInput? _getInput() {
+    final input = procedure.input;
+    if (input?.schema == null && input?.encoding != null) {
+      // Bytes
+      return LexInput(
+        lexiconId: lexiconId.toString(),
+        defName: defName,
+        name: '',
+        properties: const [],
+        bytes: true,
+      );
+    }
+
     final object = procedure.input?.schema?.whenOrNull(object: (e) => e);
     if (object == null) return null;
 

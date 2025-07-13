@@ -63,13 +63,8 @@ final class _LexServiceGenerator {
           lexiconId: doc.id.toString(),
           name: rule.getServiceApiName(doc.id.toString()),
           description: _getApiDescription(api),
+          inputType: inputType,
           returnType: returnType,
-          parameters: inputType == null
-              ? const []
-              : inputType
-                  .getProperties()
-                  .map((e) => e.toLexParameter())
-                  .toList(),
           isQuery: _isQuery(doc),
           isProcedure: _isProcedure(doc),
           isSubscription: _isSubscription(doc),

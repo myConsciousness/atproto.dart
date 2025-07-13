@@ -1,3 +1,6 @@
+// Dart imports:
+import 'dart:typed_data';
+
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
 
@@ -14,16 +17,16 @@ final class VideoService {
   final z.ServiceContext _ctx;
 
   /// Upload a video to be processed then stored on the PDS.
-  Future<XRPCResponse<VideoUploadVideoOutput>> uploadVideo({
+  Future<XRPCResponse<VideoUploadVideoOutput>> uploadVideo(
+    Uint8List bytes, {
     Map<String, String>? $headers,
-    Map<String, String>? $unknown,
+    Map<String, String>? $parameters,
   }) async =>
       await _ctx.post(
         ns.appBskyVideoUploadVideo,
         headers: $headers,
-        body: {
-          ...?$unknown,
-        },
+        parameters: $parameters,
+        body: bytes,
         to: const VideoUploadVideoOutputConverter().fromJson,
       );
 
