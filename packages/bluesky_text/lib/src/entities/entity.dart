@@ -6,21 +6,19 @@ import '../api/find_did.dart' as api;
 import 'byte_indices.dart';
 import 'facetable.dart';
 
-part 'entity.freezed.dart';
-part 'entity.g.dart';
-
 @freezed
-abstract class Entity with _$Entity implements Facetable {
-  // ignore: unused_element
-  const Entity._();
+final class Entity implements Facetable {
+  final EntityType type;
+  final String value;
 
-  const factory Entity({
-    required EntityType type,
-    required String value,
-    required ByteIndices indices,
-  }) = _Entity;
+  @override
+  final ByteIndices indices;
 
-  factory Entity.fromJson(Map<String, Object?> json) => _$EntityFromJson(json);
+  const Entity({
+    required this.type,
+    required this.value,
+    required this.indices,
+  });
 
   /// Returns the facet representation of this entity as JSON.
   Future<Map<String, dynamic>> toFacet({String? service}) async {
