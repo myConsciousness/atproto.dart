@@ -49,18 +49,31 @@ final class LexService {
         if (parameter.type.packagePath == null) continue;
 
         if (parameter.type.isUnion) {
-          if (parameter.type.defName == null) continue;
           if (parameter.type.fieldName == null) continue;
 
-          final relativePath =
-              parameter.type.lexiconId!.split('.').sublist(2).join('/');
-          final fileName = rule.getFileNameForUnion(
-            parameter.type.lexiconId!,
-            parameter.type.defName!,
-            parameter.type.fieldName!,
-          );
+          final ref = parameter.type.ref;
+          if (ref != null) {
+            final lexiconId = ref.split('#').first;
 
-          buffer.writeln("import '$relativePath/$fileName.dart';");
+            final relativePath = lexiconId.split('.').sublist(2).join('/');
+            final fileName = rule.getFileNameForUnion(
+              lexiconId,
+              parameter.type.defName,
+              parameter.type.fieldName!,
+            );
+
+            buffer.writeln("import '$relativePath/$fileName.dart';");
+          } else {
+            final relativePath =
+                parameter.type.lexiconId!.split('.').sublist(2).join('/');
+            final fileName = rule.getFileNameForUnion(
+              parameter.type.lexiconId!,
+              parameter.type.defName,
+              parameter.type.fieldName!,
+            );
+
+            buffer.writeln("import '$relativePath/$fileName.dart';");
+          }
         } else {
           if (parameter.type.ref == null) continue;
 

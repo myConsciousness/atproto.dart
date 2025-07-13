@@ -21,7 +21,7 @@ final class LexRecord extends LexType {
 
   @override
   List<LexType> get nested => properties
-      .where((e) => e.type.isUnion)
+      .where((e) => e.type.union != null)
       .map((e) => e.type.union!)
       .toList();
 

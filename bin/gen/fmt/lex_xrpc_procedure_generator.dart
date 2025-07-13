@@ -45,7 +45,6 @@ final class _LexLexXrpcProcedureGenerator {
         lexiconId: lexiconId.toString(),
         defName: defName,
         name: '',
-        description: input?.description,
         properties: const [],
         bytes: true,
         encoding: input?.encoding,

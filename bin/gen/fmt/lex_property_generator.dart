@@ -173,8 +173,8 @@ DartType _getLexRefVariantType(
     case lex.ULexRefVariantRef ref:
       bool isArray = false;
       bool isUnion = false;
-      final relatedDoc = rule.getRelatedDocFromRef(ref.data.ref);
 
+      final relatedDoc = rule.getRelatedDocFromRef(ref.data.ref);
       if (isSingleProp && relatedDoc != null) {
         final array = relatedDoc.whenOrNull(array: (data) => data);
         if (array != null) {
@@ -197,6 +197,7 @@ DartType _getLexRefVariantType(
       return DartType(
         name: isUnion ? 'U$name' : name,
         lexiconId: lexiconId.toString(),
+        fieldName: isUnion ? fieldName : '',
         ref: ref.data.ref!,
         packagePath: rule.getLexObjectPackagePathFromRef(
           lexiconId.toString(),
@@ -206,6 +207,7 @@ DartType _getLexRefVariantType(
         annotation: isUnion ? '@U${name}Converter()' : '@${name}Converter()',
         description: ref.data.description,
         isArray: isArray,
+        isUnion: isUnion,
       );
     case lex.ULexRefVariantRefUnion refUnion:
       final union = generateLexUnion(

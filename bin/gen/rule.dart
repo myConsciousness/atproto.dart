@@ -53,11 +53,8 @@ String getLexUnionName(
 }
 
 /// Ex: profile_view_basic
-String getLexObjectFileName(final String defName) {
-  if (defName.isEmpty) {
-    throw ArgumentError('Definition name must not be empty');
-  }
-
+String getLexObjectFileName(final String? defName) {
+  if (defName == null) return '';
   return splitByUpperCase(defName).join('_').toLowerCase();
 }
 
@@ -100,7 +97,7 @@ String getFilePath(
 
 String getFileNameForUnion(
   final String lexiconId,
-  final String defName,
+  final String? defName,
   final String fieldName,
 ) {
   if (fieldName.isEmpty) {
@@ -109,6 +106,8 @@ String getFileNameForUnion(
 
   final suffix =
       splitByUpperCase(fieldName).map((e) => e.toLowerCase()).join('_');
+
+  if (defName == null) return 'union_$suffix';
 
   return 'union_${getLexObjectFileName(defName)}_$suffix';
 }
