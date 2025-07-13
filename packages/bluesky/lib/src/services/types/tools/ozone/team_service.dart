@@ -38,15 +38,18 @@ final class TeamService {
 
   /// Delete a member from ozone team. Requires admin role.
   Future<XRPCResponse<EmptyData>> deleteMember({
+    required String did,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.toolsOzoneTeamDeleteMember,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'did': did,
           ...?$unknown,
         },
       );

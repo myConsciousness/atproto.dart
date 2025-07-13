@@ -32,7 +32,7 @@ final class _LexLexXrpcProcedureGenerator {
   );
 
   (LexInput?, LexOutput?)? execute() {
-    if (procedure.input == null || procedure.output == null) return null;
+    if (procedure.input == null && procedure.output == null) return null;
 
     return (_getInput(), _getOutput());
   }

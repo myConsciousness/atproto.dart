@@ -24,30 +24,42 @@ final class NotificationService {
 
   /// Register to receive push notifications, via a specified service, for the requesting account. Requires auth.
   Future<XRPCResponse<EmptyData>> registerPush({
+    required String serviceDid,
+    required String token,
+    required String platform,
+    required String appId,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.appBskyNotificationRegisterPush,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'serviceDid': serviceDid,
+          'token': token,
+          'platform': platform,
+          'appId': appId,
           ...?$unknown,
         },
       );
 
   /// Set notification-related preferences for an account. Requires auth.
   Future<XRPCResponse<EmptyData>> putPreferences({
+    required bool priority,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.appBskyNotificationPutPreferences,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'priority': priority,
           ...?$unknown,
         },
       );
@@ -137,15 +149,18 @@ final class NotificationService {
 
   /// Notify server that the requesting account has seen notifications. Requires auth.
   Future<XRPCResponse<EmptyData>> updateSeen({
+    required DateTime seenAt,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.appBskyNotificationUpdateSeen,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'seenAt': seenAt,
           ...?$unknown,
         },
       );

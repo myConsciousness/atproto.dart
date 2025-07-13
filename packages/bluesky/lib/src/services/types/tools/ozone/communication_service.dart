@@ -86,15 +86,18 @@ final class CommunicationService {
 
   /// Delete a communication template.
   Future<XRPCResponse<EmptyData>> deleteTemplate({
+    required String id,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.toolsOzoneCommunicationDeleteTemplate,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'id': id,
           ...?$unknown,
         },
       );

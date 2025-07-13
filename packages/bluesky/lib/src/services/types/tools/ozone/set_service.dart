@@ -15,15 +15,20 @@ final class SetService {
 
   /// Add values to a specific set. Attempting to add values to a set that does not exist will result in an error.
   Future<XRPCResponse<EmptyData>> addValues({
+    required String name,
+    required List<String> values,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.toolsOzoneSetAddValues,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'name': name,
+          'values': values,
           ...?$unknown,
         },
       );
@@ -89,15 +94,20 @@ final class SetService {
 
   /// Delete values from a specific set. Attempting to delete values that are not in the set will not result in an error
   Future<XRPCResponse<EmptyData>> deleteValues({
+    required String name,
+    required List<String> values,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.toolsOzoneSetDeleteValues,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'name': name,
+          'values': values,
           ...?$unknown,
         },
       );

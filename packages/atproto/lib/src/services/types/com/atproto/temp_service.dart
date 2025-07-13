@@ -46,15 +46,18 @@ final class TempService {
 
   /// Request a verification code to be sent to the supplied phone number
   Future<XRPCResponse<EmptyData>> requestPhoneVerification({
+    required String phoneNumber,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.comAtprotoTempRequestPhoneVerification,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'phoneNumber': phoneNumber,
           ...?$unknown,
         },
       );

@@ -17,15 +17,18 @@ final class IdentityService {
 
   /// Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.
   Future<XRPCResponse<EmptyData>> updateHandle({
+    required String handle,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.comAtprotoIdentityUpdateHandle,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'handle': handle,
           ...?$unknown,
         },
       );
@@ -60,15 +63,18 @@ final class IdentityService {
 
   /// Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry
   Future<XRPCResponse<EmptyData>> submitPlcOperation({
+    required Map<String, dynamic> operation,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.comAtprotoIdentitySubmitPlcOperation,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'operation': operation,
           ...?$unknown,
         },
       );

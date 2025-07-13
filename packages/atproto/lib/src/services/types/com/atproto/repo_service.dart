@@ -146,18 +146,19 @@ final class RepoService {
       );
 
   /// Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.
-  Future<XRPCResponse<EmptyData>> importRepo({
+  Future<XRPCResponse<EmptyData>> importRepo(
+    Uint8List bytes, {
     Map<String, String>? $headers,
-    Map<String, String>? $unknown,
+    Map<String, String>? $parameters,
   }) async =>
       await _ctx.post(
         ns.comAtprotoRepoImportRepo,
         headers: {
+          'Content-type': 'application/vnd.ipld.car',
           ...?$headers,
         },
-        body: {
-          ...?$unknown,
-        },
+        parameters: $parameters,
+        body: bytes,
       );
 
   /// Get information about an account and repository, including the list of collections. Does not require auth.

@@ -14,6 +14,8 @@ import 'server/getAccountInviteCodes/output.dart';
 import 'server/getServiceAuth/output.dart';
 import 'server/getSession/output.dart';
 import 'server/listAppPasswords/output.dart';
+import 'server/refreshSession/output.dart';
+import 'server/requestEmailUpdate/output.dart';
 import 'server/reserveSigningKey/output.dart';
 
 final class ServerService {
@@ -173,15 +175,18 @@ final class ServerService {
 
   /// Revoke an App Password by name.
   Future<XRPCResponse<EmptyData>> revokeAppPassword({
+    required String name,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerRevokeAppPassword,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'name': name,
           ...?$unknown,
         },
       );
@@ -237,15 +242,20 @@ final class ServerService {
 
   /// Confirm an email using a token from com.atproto.server.requestEmailConfirmation.
   Future<XRPCResponse<EmptyData>> confirmEmail({
+    required String email,
+    required String token,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerConfirmEmail,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'email': email,
+          'token': token,
           ...?$unknown,
         },
       );
@@ -265,7 +275,7 @@ final class ServerService {
       );
 
   /// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
-  Future<XRPCResponse<EmptyData>> refreshSession({
+  Future<XRPCResponse<ServerRefreshSessionOutput>> refreshSession({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
@@ -277,49 +287,65 @@ final class ServerService {
         body: {
           ...?$unknown,
         },
+        to: const ServerRefreshSessionOutputConverter().fromJson,
       );
 
   /// Deactivates a currently active account. Stops serving of repo, and future writes to repo until reactivated. Used to finalize account migration with the old host after the account has been activated on the new host.
   Future<XRPCResponse<EmptyData>> deactivateAccount({
+    DateTime? deleteAfter,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerDeactivateAccount,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          if (deleteAfter != null) 'deleteAfter': deleteAfter,
           ...?$unknown,
         },
       );
 
   /// Update an account's email.
   Future<XRPCResponse<EmptyData>> updateEmail({
+    required String email,
+    bool? emailAuthFactor,
+    String? token,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerUpdateEmail,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'email': email,
+          if (emailAuthFactor != null) 'emailAuthFactor': emailAuthFactor,
+          if (token != null) 'token': token,
           ...?$unknown,
         },
       );
 
   /// Reset a user account password using a token.
   Future<XRPCResponse<EmptyData>> resetPassword({
+    required String token,
+    required String password,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerResetPassword,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'token': token,
+          'password': password,
           ...?$unknown,
         },
       );
@@ -339,7 +365,7 @@ final class ServerService {
       );
 
   /// Request a token in order to update email.
-  Future<XRPCResponse<EmptyData>> requestEmailUpdate({
+  Future<XRPCResponse<ServerRequestEmailUpdateOutput>> requestEmailUpdate({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
@@ -351,19 +377,23 @@ final class ServerService {
         body: {
           ...?$unknown,
         },
+        to: const ServerRequestEmailUpdateOutputConverter().fromJson,
       );
 
   /// Initiate a user account password reset via email.
   Future<XRPCResponse<EmptyData>> requestPasswordReset({
+    required String email,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerRequestPasswordReset,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'email': email,
           ...?$unknown,
         },
       );
@@ -420,15 +450,22 @@ final class ServerService {
 
   /// Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.
   Future<XRPCResponse<EmptyData>> deleteAccount({
+    required String did,
+    required String password,
+    required String token,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerDeleteAccount,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'did': did,
+          'password': password,
+          'token': token,
           ...?$unknown,
         },
       );

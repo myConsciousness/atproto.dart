@@ -100,15 +100,18 @@ final class GraphService {
 
   /// Unmutes the specified list of accounts. Requires auth.
   Future<XRPCResponse<EmptyData>> unmuteActorList({
+    required String list,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.appBskyGraphUnmuteActorList,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'list': list,
           ...?$unknown,
         },
       );
@@ -193,30 +196,36 @@ final class GraphService {
 
   /// Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
   Future<XRPCResponse<EmptyData>> muteActorList({
+    required String list,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.appBskyGraphMuteActorList,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'list': list,
           ...?$unknown,
         },
       );
 
   /// Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.
   Future<XRPCResponse<EmptyData>> muteThread({
+    required String root,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.appBskyGraphMuteThread,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'root': root,
           ...?$unknown,
         },
       );
@@ -303,30 +312,36 @@ final class GraphService {
 
   /// Unmutes the specified thread. Requires auth.
   Future<XRPCResponse<EmptyData>> unmuteThread({
+    required String root,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.appBskyGraphUnmuteThread,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'root': root,
           ...?$unknown,
         },
       );
 
   /// Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
   Future<XRPCResponse<EmptyData>> muteActor({
+    required String actor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.appBskyGraphMuteActor,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'actor': actor,
           ...?$unknown,
         },
       );
@@ -514,15 +529,18 @@ final class GraphService {
 
   /// Unmutes the specified account. Requires auth.
   Future<XRPCResponse<EmptyData>> unmuteActor({
+    required String actor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.appBskyGraphUnmuteActor,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'actor': actor,
           ...?$unknown,
         },
       );

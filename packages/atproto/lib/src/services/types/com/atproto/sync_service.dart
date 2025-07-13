@@ -73,30 +73,36 @@ final class SyncService {
 
   /// Notify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay. DEPRECATED: just use com.atproto.sync.requestCrawl
   Future<XRPCResponse<EmptyData>> notifyOfUpdate({
+    required String hostname,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.comAtprotoSyncNotifyOfUpdate,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'hostname': hostname,
           ...?$unknown,
         },
       );
 
   /// Request a service to persistently crawl hosted repos. Expected use is new PDS instances declaring their existence to Relays. Does not require auth.
   Future<XRPCResponse<EmptyData>> requestCrawl({
+    required String hostname,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.comAtprotoSyncRequestCrawl,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'hostname': hostname,
           ...?$unknown,
         },
       );

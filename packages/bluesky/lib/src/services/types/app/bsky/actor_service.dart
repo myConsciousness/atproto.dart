@@ -7,6 +7,7 @@ import 'package:atproto_core/atproto_core.dart';
 import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
+import 'actor/defs/preferences.dart';
 import 'actor/defs/profile_view_detailed.dart';
 import 'actor/getPreferences/output.dart';
 import 'actor/getProfiles/output.dart';
@@ -43,15 +44,18 @@ final class ActorService {
 
   /// Set the private preferences attached to the account.
   Future<XRPCResponse<EmptyData>> putPreferences({
+    required List<UPreferences> preferences,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.appBskyActorPutPreferences,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'preferences': preferences.map((e) => e.toJson()).toList(),
           ...?$unknown,
         },
       );
