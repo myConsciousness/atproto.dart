@@ -1,6 +1,7 @@
 import 'lex_parameter.dart';
 import 'lex_type.dart';
 import '../rule.dart' as rule;
+import '../utils.dart';
 
 final class LexService {
   final String lexiconId;
@@ -95,7 +96,9 @@ final class LexService {
     final apis = this.apis.map((e) => e.format()).join();
     final packagePaths = getPackagePaths();
 
-    return '''import 'package:atproto_core/atproto_core.dart';
+    return '''$kHeaderHint
+
+import 'package:atproto_core/atproto_core.dart';
 
 $packagePaths
 
@@ -105,6 +108,8 @@ import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
 
 import '../../../service_context.dart' as z;
+
+$kHeader
 
 final class ${name}Service {
   ${name}Service(this._ctx);

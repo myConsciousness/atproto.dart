@@ -73,6 +73,7 @@ mixin _$ModerationQueryStatusesInput {
 
   /// Specify when fetching subjects in a certain state
   String? get reviewState => throw _privateConstructorUsedError;
+  @AtUriConverter()
   List<AtUri>? get ignoreSubjects => throw _privateConstructorUsedError;
 
   /// Get all subject statuses that were reviewed by a specific moderator
@@ -146,7 +147,7 @@ abstract class $ModerationQueryStatusesInputCopyWith<$Res> {
       bool? includeMuted,
       bool? onlyMuted,
       String? reviewState,
-      List<AtUri>? ignoreSubjects,
+      @AtUriConverter() List<AtUri>? ignoreSubjects,
       String? lastReviewedBy,
       String? sortField,
       String? sortDirection,
@@ -390,7 +391,7 @@ abstract class _$$ModerationQueryStatusesInputImplCopyWith<$Res>
       bool? includeMuted,
       bool? onlyMuted,
       String? reviewState,
-      List<AtUri>? ignoreSubjects,
+      @AtUriConverter() List<AtUri>? ignoreSubjects,
       String? lastReviewedBy,
       String? sortField,
       String? sortDirection,
@@ -628,7 +629,7 @@ class _$ModerationQueryStatusesInputImpl
       this.includeMuted,
       this.onlyMuted,
       this.reviewState,
-      final List<AtUri>? ignoreSubjects,
+      @AtUriConverter() final List<AtUri>? ignoreSubjects,
       this.lastReviewedBy,
       this.sortField,
       this.sortDirection,
@@ -735,6 +736,7 @@ class _$ModerationQueryStatusesInputImpl
   final String? reviewState;
   final List<AtUri>? _ignoreSubjects;
   @override
+  @AtUriConverter()
   List<AtUri>? get ignoreSubjects {
     final value = _ignoreSubjects;
     if (value == null) return null;
@@ -983,7 +985,7 @@ abstract class _ModerationQueryStatusesInput
           final bool? includeMuted,
           final bool? onlyMuted,
           final String? reviewState,
-          final List<AtUri>? ignoreSubjects,
+          @AtUriConverter() final List<AtUri>? ignoreSubjects,
           final String? lastReviewedBy,
           final String? sortField,
           final String? sortDirection,
@@ -1076,6 +1078,7 @@ abstract class _ModerationQueryStatusesInput
   @override
   String? get reviewState;
   @override
+  @AtUriConverter()
   List<AtUri>? get ignoreSubjects;
 
   /// Get all subject statuses that were reviewed by a specific moderator

@@ -97,6 +97,7 @@ DartType _getDartType(
           final type = _getLexPrimitiveType(primitive.data);
           return DartType.array(
             type: type.name,
+            annotation: type.annotation,
             description: type.description,
           );
         case lex.ULexArrayRefVariant refVariant:

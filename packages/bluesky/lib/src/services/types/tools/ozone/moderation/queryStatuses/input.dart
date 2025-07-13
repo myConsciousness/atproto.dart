@@ -110,7 +110,7 @@ abstract class ModerationQueryStatusesInput
 
     /// Specify when fetching subjects in a certain state
     String? reviewState,
-    List<AtUri>? ignoreSubjects,
+    @AtUriConverter() List<AtUri>? ignoreSubjects,
 
     /// Get all subject statuses that were reviewed by a specific moderator
     String? lastReviewedBy,
