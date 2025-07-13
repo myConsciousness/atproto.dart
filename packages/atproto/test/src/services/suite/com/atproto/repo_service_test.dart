@@ -6,45 +6,63 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:
 import 'package:atproto/src/ids.g.dart';
-import 'package:atproto/src/services/entities/batch_action.dart';
-import 'package:atproto/src/services/entities/blob_data.dart';
-import 'package:atproto/src/services/entities/create_action.dart';
-import 'package:atproto/src/services/entities/missing_blobs.dart';
-import 'package:atproto/src/services/entities/record.dart';
-import 'package:atproto/src/services/entities/records.dart';
-import 'package:atproto/src/services/entities/repo_info.dart';
-import 'package:atproto/src/services/entities/strong_ref.dart';
-import 'package:atproto/src/services/entities/update_action.dart';
-import 'package:atproto/src/services/repo_service.dart';
+import 'package:atproto/src/services/types/com/atproto/repo/applyWrites/create.dart';
+import 'package:atproto/src/services/types/com/atproto/repo/applyWrites/output.dart';
+import 'package:atproto/src/services/types/com/atproto/repo/applyWrites/union_main_writes.dart';
+import 'package:atproto/src/services/types/com/atproto/repo/createRecord/output.dart';
+import 'package:atproto/src/services/types/com/atproto/repo/deleteRecord/output.dart';
+import 'package:atproto/src/services/types/com/atproto/repo/describeRepo/output.dart';
+import 'package:atproto/src/services/types/com/atproto/repo/getRecord/output.dart';
+import 'package:atproto/src/services/types/com/atproto/repo/listMissingBlobs/output.dart';
+import 'package:atproto/src/services/types/com/atproto/repo/listRecords/output.dart';
+import 'package:atproto/src/services/types/com/atproto/repo/putRecord/output.dart';
+import 'package:atproto/src/services/types/com/atproto/repo/uploadBlob/output.dart';
 import 'service_suite.dart';
 
 void main() {
-  testRepo<StrongRef>(
-    (m, s) => s.createRecord(collection: m.collection, record: {}),
+  testRepo<RepoCreateRecordOutput>(
+    (m, s) => s.createRecord(
+      repo: m.actor,
+      collection: m.collection.toString(),
+      record: {},
+    ),
     id: comAtprotoRepoCreateRecord,
   );
 
-  testRepo<Record>(
-    (m, s) => s.getRecord(uri: m.uri),
+  testRepo<RepoGetRecordOutput>(
+    (m, s) => s.getRecord(
+      repo: m.uri.hostname,
+      collection: m.uri.collection.toString(),
+      rkey: m.uri.rkey,
+    ),
     id: comAtprotoRepoGetRecord,
   );
 
-  testRepo<Records>(
-    (m, s) => s.listRecords(repo: m.actor, collection: m.collection),
+  testRepo<RepoListRecordsOutput>(
+    (m, s) => s.listRecords(repo: m.actor, collection: m.collection.toString()),
     id: comAtprotoRepoListRecords,
   );
 
-  testRepo<core.EmptyData>(
-    (m, s) => s.deleteRecord(uri: m.uri),
+  testRepo<RepoDeleteRecordOutput>(
+    (m, s) => s.deleteRecord(
+      repo: m.actor,
+      collection: m.collection.toString(),
+      rkey: m.uri.rkey,
+    ),
     id: comAtprotoRepoDeleteRecord,
   );
 
-  testRepo<StrongRef>(
-    (m, s) => s.putRecord(uri: m.uri, record: {}),
+  testRepo<RepoPutRecordOutput>(
+    (m, s) => s.putRecord(
+      repo: m.actor,
+      collection: m.collection.toString(),
+      rkey: m.uri.rkey,
+      record: const {},
+    ),
     id: comAtprotoRepoPutRecord,
   );
 
-  testRepo<BlobData>(
+  testRepo<RepoUploadBlobOutput>(
     (m, s) => s.uploadBlob(
       File(
         'test/src/services/suite/com/atproto/repo/dash.png',
@@ -53,47 +71,24 @@ void main() {
     id: comAtprotoRepoUploadBlob,
   );
 
-  testRepo<RepoInfo>(
+  testRepo<RepoDescribeRepoOutput>(
     (m, s) => s.describeRepo(repo: m.actor),
     id: comAtprotoRepoDescribeRepo,
   );
 
-  testRepo<core.EmptyData>(
+  testRepo<RepoApplyWritesOutput>(
     (m, s) => s.applyWrites(
-      actions: [
-        BatchAction.create(
-          data: CreateAction(collection: m.collection, record: {}),
+      repo: m.actor,
+      writes: [
+        URepoApplyWritesWrites.create(
+          data: Create(collection: m.collection.toString(), value: {}),
         ),
       ],
     ),
     id: comAtprotoRepoApplyWrites,
   );
 
-  testRepo<core.EmptyData>(
-    (m, s) => s.createRecordInBulk(
-      actions: [CreateAction(collection: m.collection, record: {})],
-    ),
-    id: comAtprotoRepoApplyWrites,
-    label: 'Create',
-  );
-
-  testRepo<core.EmptyData>(
-    (m, s) => s.updateRecordInBulk(
-      actions: [
-        UpdateAction(collection: m.collection, rkey: m.uri.rkey, record: {}),
-      ],
-    ),
-    id: comAtprotoRepoApplyWrites,
-    label: 'Update',
-  );
-
-  testRepo<core.EmptyData>(
-    (m, s) => s.deleteRecordInBulk(uris: [m.uri]),
-    id: comAtprotoRepoApplyWrites,
-    label: 'Delete',
-  );
-
-  testRepo<MissingBlobs>(
+  testRepo<RepoListMissingBlobsOutput>(
     (m, s) => s.listMissingBlobs(limit: m.limit, cursor: m.cursor),
     id: comAtprotoRepoListMissingBlobs,
   );

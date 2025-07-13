@@ -3,27 +3,26 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:
 import 'package:atproto/src/ids.g.dart';
-import 'package:atproto/src/services/entities/account.dart';
-import 'package:atproto/src/services/entities/account_status.dart';
-import 'package:atproto/src/services/entities/app_password.dart';
-import 'package:atproto/src/services/entities/app_passwords.dart';
-import 'package:atproto/src/services/entities/created_invite_code.dart';
-import 'package:atproto/src/services/entities/created_invite_codes.dart';
-import 'package:atproto/src/services/entities/current_session.dart';
-import 'package:atproto/src/services/entities/email_update.dart';
-import 'package:atproto/src/services/entities/invite_codes.dart';
-import 'package:atproto/src/services/entities/server_info.dart';
-import 'package:atproto/src/services/entities/service_auth_token.dart';
-import 'package:atproto/src/services/entities/signing_key.dart';
+import 'package:atproto/src/services/types/com/atproto/server/checkAccountStatus/output.dart';
+import 'package:atproto/src/services/types/com/atproto/server/createAccount/output.dart';
+import 'package:atproto/src/services/types/com/atproto/server/createInviteCode/output.dart';
+import 'package:atproto/src/services/types/com/atproto/server/createInviteCodes/output.dart';
+import 'package:atproto/src/services/types/com/atproto/server/describeServer/output.dart';
+import 'package:atproto/src/services/types/com/atproto/server/getAccountInviteCodes/output.dart';
+import 'package:atproto/src/services/types/com/atproto/server/getServiceAuth/output.dart';
+import 'package:atproto/src/services/types/com/atproto/server/getSession/output.dart';
+import 'package:atproto/src/services/types/com/atproto/server/listAppPasswords/output.dart';
+import 'package:atproto/src/services/types/com/atproto/server/requestEmailUpdate/output.dart';
+import 'package:atproto/src/services/types/com/atproto/server/reserveSigningKey/output.dart';
 import 'service_suite.dart';
 
 void main() {
-  testServer<CurrentSession>(
+  testServer<ServerGetSessionOutput>(
     (m, s) => s.getSession(),
     id: comAtprotoServerGetSession,
   );
 
-  testServer<CreateAccountOutput>(
+  testServer<ServerCreateAccountOutput>(
     (m, s) =>
         s.createAccount(handle: m.actor, email: m.email, password: m.password),
     id: comAtprotoServerCreateAccount,
@@ -35,21 +34,22 @@ void main() {
   );
 
   testServer<core.EmptyData>(
-    (m, s) => s.deleteAccount(password: m.password, token: m.token),
+    (m, s) =>
+        s.deleteAccount(did: m.actor, password: m.password, token: m.token),
     id: comAtprotoServerDeleteAccount,
   );
 
-  testServer<CreatedInviteCode>(
+  testServer<ServerCreateInviteCodeOutput>(
     (m, s) => s.createInviteCode(useCount: 0),
     id: comAtprotoServerCreateInviteCode,
   );
 
-  testServer<CreatedInviteCodes>(
+  testServer<ServerCreateInviteCodesOutput>(
     (m, s) => s.createInviteCodes(codeCount: 1, useCount: 0),
     id: comAtprotoServerCreateInviteCodes,
   );
 
-  testServer<InviteCodes>(
+  testServer<ServerGetAccountInviteCodesOutput>(
     (m, s) => s.getAccountInviteCodes(),
     id: comAtprotoServerGetAccountInviteCodes,
   );
@@ -74,17 +74,17 @@ void main() {
     id: comAtprotoServerRevokeAppPassword,
   );
 
-  testServer<AppPasswords>(
+  testServer<ServerListAppPasswordsOutput>(
     (m, s) => s.listAppPasswords(),
     id: comAtprotoServerListAppPasswords,
   );
 
-  testServer<ServerInfo>(
+  testServer<ServerDescribeServerOutput>(
     (m, s) => s.describeServer(),
     id: comAtprotoServerDescribeServer,
   );
 
-  testServer<EmailUpdate>(
+  testServer<ServerRequestEmailUpdateOutput>(
     (m, s) => s.requestEmailUpdate(),
     id: comAtprotoServerRequestEmailUpdate,
   );
@@ -105,12 +105,12 @@ void main() {
     id: comAtprotoServerUpdateEmail,
   );
 
-  testServer<SigningKey>(
+  testServer<ServerReserveSigningKeyOutput>(
     (m, s) => s.reserveSigningKey(),
     id: comAtprotoServerReserveSigningKey,
   );
 
-  testServer<ServiceAuthToken>(
+  testServer<ServerGetServiceAuthOutput>(
     (m, s) => s.getServiceAuth(aud: m.did),
     id: comAtprotoServerGetServiceAuth,
   );
@@ -125,7 +125,7 @@ void main() {
     id: comAtprotoServerDeactivateAccount,
   );
 
-  testServer<AccountStatus>(
+  testServer<ServerCheckAccountStatusOutput>(
     (m, s) => s.checkAccountStatus(),
     id: comAtprotoServerCheckAccountStatus,
   );
