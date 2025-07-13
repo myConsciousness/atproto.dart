@@ -22,7 +22,25 @@ enum NotificationReason {
   quote('quote'),
 
   @JsonValue('starterpack-joined')
-  starterpackJoined('starterpack-joined');
+  starterpackJoined('starterpack-joined'),
+
+  /// Indicates verified.
+  verified('verified'),
+
+  /// Indicates unverified.
+  unverified('unverified'),
+
+  /// Indicates like via repost.
+  @JsonValue('like-via-repost')
+  likeViaRepost('like-via-repost'),
+
+  /// Indicates repost via repost.
+  @JsonValue('repost-via-repost')
+  repostViaRepost('repost-via-repost'),
+
+  /// Indicates subscribed post.
+  @JsonValue('subscribed-post')
+  subscribedPost('subscribed-post');
 
   /// Json value.
   final String value;

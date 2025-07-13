@@ -8,6 +8,7 @@ part of 'reaction_view_sender.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+<<<<<<< HEAD
 _ReactionViewSender _$ReactionViewSenderFromJson(Map json) =>
     $checkedCreate('_ReactionViewSender', json, ($checkedConvert) {
       final val = _ReactionViewSender(
@@ -29,4 +30,22 @@ Map<String, dynamic> _$ReactionViewSenderToJson(_ReactionViewSender instance) =>
       r'$type': instance.$type,
       'did': instance.did,
       r'$unknown': instance.$unknown,
+=======
+_$ReactionViewSenderImpl _$$ReactionViewSenderImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$ReactionViewSenderImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$ReactionViewSenderImpl(
+          did: $checkedConvert('did', (v) => v as String),
+        );
+        return val;
+      },
+    );
+
+Map<String, dynamic> _$$ReactionViewSenderImplToJson(
+        _$ReactionViewSenderImpl instance) =>
+    <String, dynamic>{
+      'did': instance.did,
+>>>>>>> main
     };

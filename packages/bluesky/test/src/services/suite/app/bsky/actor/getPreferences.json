@@ -42,12 +42,8 @@
     },
     {
       "$type": "app.bsky.actor.defs#savedFeedsPref",
-      "pinned": [
-        "at://did:plc:7hsnhyve3clc2crizt2ttrxz/app.bsky.feed.post/3jvwwuk2jrs2n"
-      ],
-      "saved": [
-        "at://did:plc:7hsnhyve3clc2crizt2ttrxz/app.bsky.feed.post/3jvwwuk2jrs2n"
-      ],
+      "pinned": ["at://did:plc:7hsnhyve3clc2crizt2ttrxz/app.bsky.feed.post/3jvwwuk2jrs2n"],
+      "saved": ["at://did:plc:7hsnhyve3clc2crizt2ttrxz/app.bsky.feed.post/3jvwwuk2jrs2n"],
       "timelineIndex": 1
     },
     {
@@ -86,9 +82,7 @@
     },
     {
       "$type": "app.bsky.actor.defs#hiddenPostsPref",
-      "items": [
-        "at://did:plc:qexgypv67x75g7bjrelr5gof/app.bsky.feed.post/3klymmkynk22s"
-      ]
+      "items": ["at://did:plc:qexgypv67x75g7bjrelr5gof/app.bsky.feed.post/3klymmkynk22s"]
     },
     {
       "$type": "app.bsky.actor.defs#mutedWordsPref",

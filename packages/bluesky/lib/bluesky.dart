@@ -7,6 +7,7 @@ export 'package:bluesky/src/services/constants/grouped_notification_reason.dart'
 
 export 'package:bluesky/src/services/extensions/at_uri.dart';
 export 'package:bluesky/src/services/extensions/blob.dart';
+export 'package:bluesky/src/services/extensions/grouped_notification.dart';
 export 'package:bluesky/src/services/extensions/strong_ref.dart';
 export 'package:bluesky/src/services/extensions/grouped_notification.dart';
 

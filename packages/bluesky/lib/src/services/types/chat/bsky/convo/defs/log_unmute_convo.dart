@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Copyright (c) 2025, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
@@ -9,11 +10,15 @@
 
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
+=======
+// Package imports:
+>>>>>>> main
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'log_unmute_convo.freezed.dart';
 part 'log_unmute_convo.g.dart';
 
+<<<<<<< HEAD
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
@@ -51,4 +56,16 @@ final class LogUnmuteConvoConverter
   @override
   Map<String, dynamic> toJson(LogUnmuteConvo object) =>
       untranslate(object.toJson());
+=======
+@freezed
+class LogUnmuteConvo with _$LogUnmuteConvo {
+  @JsonSerializable()
+  const factory LogUnmuteConvo({
+    required String rev,
+    required String convoId,
+  }) = _LogUnmuteConvo;
+
+  factory LogUnmuteConvo.fromJson(Map<String, dynamic> json) =>
+      _$LogUnmuteConvoFromJson(json);
+>>>>>>> main
 }

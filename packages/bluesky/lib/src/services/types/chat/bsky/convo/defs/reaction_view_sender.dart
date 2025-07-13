@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Copyright (c) 2025, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
@@ -9,11 +10,15 @@
 
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
+=======
+// Package imports:
+>>>>>>> main
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'reaction_view_sender.freezed.dart';
 part 'reaction_view_sender.g.dart';
 
+<<<<<<< HEAD
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
@@ -52,4 +57,15 @@ final class ReactionViewSenderConverter
   @override
   Map<String, dynamic> toJson(ReactionViewSender object) =>
       untranslate(object.toJson());
+=======
+@freezed
+class ReactionViewSender with _$ReactionViewSender {
+  @JsonSerializable()
+  const factory ReactionViewSender({
+    required String did,
+  }) = _ReactionViewSender;
+
+  factory ReactionViewSender.fromJson(Map<String, dynamic> json) =>
+      _$ReactionViewSenderFromJson(json);
+>>>>>>> main
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Copyright (c) 2025, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
@@ -13,10 +14,18 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import './reaction_view_sender.dart';
+=======
+// Package imports:
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+// Project imports:
+import 'reaction_view_sender.dart';
+>>>>>>> main
 
 part 'reaction_view.freezed.dart';
 part 'reaction_view.g.dart';
 
+<<<<<<< HEAD
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
@@ -55,4 +64,18 @@ final class ReactionViewConverter
   @override
   Map<String, dynamic> toJson(ReactionView object) =>
       untranslate(object.toJson());
+=======
+/// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#reactionview
+@freezed
+class ReactionView with _$ReactionView {
+  @JsonSerializable()
+  const factory ReactionView({
+    required String value,
+    required ReactionViewSender sender,
+    required DateTime createdAt,
+  }) = _ReactionView;
+
+  factory ReactionView.fromJson(Map<String, dynamic> json) =>
+      _$ReactionViewFromJson(json);
+>>>>>>> main
 }

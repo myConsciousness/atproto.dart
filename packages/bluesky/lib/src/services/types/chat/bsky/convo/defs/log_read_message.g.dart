@@ -8,6 +8,7 @@ part of 'log_read_message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+<<<<<<< HEAD
 _LogReadMessage _$LogReadMessageFromJson(Map json) =>
     $checkedCreate('_LogReadMessage', json, ($checkedConvert) {
       final val = _LogReadMessage(
@@ -40,3 +41,28 @@ Map<String, dynamic> _$LogReadMessageToJson(
   'message': const ULogReadMessageMessageConverter().toJson(instance.message),
   r'$unknown': instance.$unknown,
 };
+=======
+_$LogReadMessageImpl _$$LogReadMessageImplFromJson(Map json) => $checkedCreate(
+      r'_$LogReadMessageImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$LogReadMessageImpl(
+          rev: $checkedConvert('rev', (v) => v as String),
+          convoId: $checkedConvert('convoId', (v) => v as String),
+          message: $checkedConvert(
+              'message',
+              (v) => unionConvoMessageViewConverter
+                  .fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
+    );
+
+Map<String, dynamic> _$$LogReadMessageImplToJson(
+        _$LogReadMessageImpl instance) =>
+    <String, dynamic>{
+      'rev': instance.rev,
+      'convoId': instance.convoId,
+      'message': unionConvoMessageViewConverter.toJson(instance.message),
+    };
+>>>>>>> main
