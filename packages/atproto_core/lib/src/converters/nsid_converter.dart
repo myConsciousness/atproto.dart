@@ -1,15 +1,13 @@
 // Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:xrpc/xrpc.dart';
 
-// Project imports:
-import 'package:atproto_core/atproto_core.dart' as core;
-
-final class NsidConverter implements JsonConverter<core.NSID, String> {
+final class NsidConverter implements JsonConverter<NSID, String> {
   const NsidConverter();
 
   @override
-  core.NSID fromJson(String json) => core.NSID.parse(json);
+  NSID fromJson(String json) => NSID.parse(json);
 
   @override
-  String toJson(core.NSID object) => object.toString();
+  String toJson(NSID object) => object.toString();
 }

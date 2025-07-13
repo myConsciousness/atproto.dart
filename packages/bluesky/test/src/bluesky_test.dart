@@ -1,20 +1,20 @@
 // Package imports:
 import 'package:atproto/atproto.dart';
-import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:test/test.dart';
 
 // Project imports:
 import 'package:bluesky/src/bluesky.dart';
-import 'package:bluesky/src/services/actor_service.dart';
-import 'package:bluesky/src/services/feed_service.dart';
-import 'package:bluesky/src/services/graph_service.dart';
-import 'package:bluesky/src/services/notification_service.dart';
-import 'package:bluesky/src/services/unspecced_service.dart';
+import 'package:bluesky/src/services/types/app/bsky/actor_service.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed_service.dart';
+import 'package:bluesky/src/services/types/app/bsky/graph_service.dart';
+import 'package:bluesky/src/services/types/app/bsky/notification_service.dart';
+import 'package:bluesky/src/services/types/app/bsky/unspecced_service.dart';
 
 void main() {
   group('.session', () {
     test('fromSession', () {
-      final session = Session(
+      final session = core.Session(
         did: 'aaaa',
         handle: 'bbbbb',
         accessJwt: 'cccccc',
@@ -36,7 +36,7 @@ void main() {
 
   test('.actor', () {
     final service = Bluesky.fromSession(
-      Session(
+      core.Session(
         did: 'aaaa',
         handle: 'shinyakato.dev',
         accessJwt: 'test',
@@ -49,7 +49,7 @@ void main() {
 
   test('.feed', () {
     final service = Bluesky.fromSession(
-      Session(
+      core.Session(
         did: 'aaaa',
         handle: 'shinyakato.dev',
         accessJwt: 'test',
@@ -62,7 +62,7 @@ void main() {
 
   test('.notification', () {
     final service = Bluesky.fromSession(
-      Session(
+      core.Session(
         did: 'aaaa',
         handle: 'shinyakato.dev',
         accessJwt: 'test',
@@ -75,7 +75,7 @@ void main() {
 
   test('.graph', () {
     final service = Bluesky.fromSession(
-      Session(
+      core.Session(
         did: 'aaaa',
         handle: 'shinyakato.dev',
         accessJwt: 'test',
@@ -88,7 +88,7 @@ void main() {
 
   test('.unspecced', () {
     final service = Bluesky.fromSession(
-      Session(
+      core.Session(
         did: 'aaaa',
         handle: 'shinyakato.dev',
         accessJwt: 'test',
