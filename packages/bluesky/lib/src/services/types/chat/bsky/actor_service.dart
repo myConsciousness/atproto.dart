@@ -47,7 +47,9 @@ final class ActorService {
   }) async =>
       await _ctx.post(
         ns.chatBskyActorDeleteAccount,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },

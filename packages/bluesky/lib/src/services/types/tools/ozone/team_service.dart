@@ -43,7 +43,9 @@ final class TeamService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneTeamDeleteMember,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -59,7 +61,10 @@ final class TeamService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneTeamUpdateMember,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'did': did,
           if (disabled != null) 'disabled': disabled,
@@ -78,7 +83,10 @@ final class TeamService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneTeamAddMember,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'did': did,
           'role': role,

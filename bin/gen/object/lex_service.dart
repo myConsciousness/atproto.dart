@@ -218,7 +218,12 @@ final class LexApi {
     buffer.writeln('}) async =>');
     buffer.writeln('  await _ctx.post(');
     buffer.writeln('    ns.$ns,');
-    buffer.writeln('    headers: \$headers,');
+    buffer.writeln('    headers: {');
+    if (inputType != null) {
+      buffer.writeln("      'Content-type': '${inputType?.getEncoding()}',");
+    }
+    buffer.writeln('      ...?\$headers,');
+    buffer.writeln('    },');
     if (inputType?.isBytes() ?? false) {
       buffer.writeln('    parameters: \$parameters,');
       buffer.writeln('    body: bytes,');

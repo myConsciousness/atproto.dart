@@ -24,7 +24,10 @@ final class VideoService {
   }) async =>
       await _ctx.post(
         ns.appBskyVideoUploadVideo,
-        headers: $headers,
+        headers: {
+          'Content-type': 'video/mp4',
+          ...?$headers,
+        },
         parameters: $parameters,
         body: bytes,
         to: const VideoUploadVideoOutputConverter().fromJson,

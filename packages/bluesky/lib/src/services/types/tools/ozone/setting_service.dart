@@ -45,7 +45,10 @@ final class SettingService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneSettingRemoveOptions,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'keys': keys,
           'scope': scope,
@@ -65,7 +68,10 @@ final class SettingService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneSettingUpsertOption,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'key': key,
           'scope': scope,

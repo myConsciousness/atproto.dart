@@ -78,7 +78,9 @@ final class SyncService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoSyncNotifyOfUpdate,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -91,7 +93,9 @@ final class SyncService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoSyncRequestCrawl,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },

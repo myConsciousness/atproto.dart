@@ -105,7 +105,9 @@ final class GraphService {
   }) async =>
       await _ctx.post(
         ns.appBskyGraphUnmuteActorList,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -196,7 +198,9 @@ final class GraphService {
   }) async =>
       await _ctx.post(
         ns.appBskyGraphMuteActorList,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -209,7 +213,9 @@ final class GraphService {
   }) async =>
       await _ctx.post(
         ns.appBskyGraphMuteThread,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -302,7 +308,9 @@ final class GraphService {
   }) async =>
       await _ctx.post(
         ns.appBskyGraphUnmuteThread,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -315,7 +323,9 @@ final class GraphService {
   }) async =>
       await _ctx.post(
         ns.appBskyGraphMuteActor,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -509,7 +519,9 @@ final class GraphService {
   }) async =>
       await _ctx.post(
         ns.appBskyGraphUnmuteActor,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },

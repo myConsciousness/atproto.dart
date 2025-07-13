@@ -279,7 +279,10 @@ final class ModerationService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneModerationEmitEvent,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'event': event.toJson(),
           'subject': subject.toJson(),

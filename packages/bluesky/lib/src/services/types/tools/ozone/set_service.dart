@@ -20,7 +20,9 @@ final class SetService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneSetAddValues,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -54,7 +56,10 @@ final class SetService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneSetDeleteSet,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'name': name,
           ...?$unknown,
@@ -68,7 +73,9 @@ final class SetService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneSetUpsertSet,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -82,7 +89,9 @@ final class SetService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneSetDeleteValues,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },

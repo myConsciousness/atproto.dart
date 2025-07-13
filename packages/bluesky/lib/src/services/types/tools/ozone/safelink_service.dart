@@ -29,7 +29,10 @@ final class SafelinkService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneSafelinkAddRule,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'url': url,
           'pattern': pattern.toJson(),
@@ -53,7 +56,10 @@ final class SafelinkService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneSafelinkRemoveRule,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'url': url,
           'pattern': pattern.toJson(),
@@ -77,7 +83,10 @@ final class SafelinkService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneSafelinkUpdateRule,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'url': url,
           'pattern': pattern.toJson(),
@@ -102,7 +111,10 @@ final class SafelinkService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneSafelinkQueryEvents,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           if (cursor != null) 'cursor': cursor,
           if (limit != null) 'limit': limit,
@@ -129,7 +141,10 @@ final class SafelinkService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneSafelinkQueryRules,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           if (cursor != null) 'cursor': cursor,
           if (limit != null) 'limit': limit,

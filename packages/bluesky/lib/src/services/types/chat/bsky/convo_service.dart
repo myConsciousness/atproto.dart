@@ -56,7 +56,10 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoUnmuteConvo,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'convoId': convoId,
           ...?$unknown,
@@ -101,7 +104,10 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoSendMessage,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'convoId': convoId,
           'message': message.toJson(),
@@ -116,7 +122,10 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoLeaveConvo,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'convoId': convoId,
           ...?$unknown,
@@ -134,7 +143,10 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoAddReaction,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'convoId': convoId,
           'messageId': messageId,
@@ -150,7 +162,10 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoAcceptConvo,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'convoId': convoId,
           ...?$unknown,
@@ -164,7 +179,10 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoMuteConvo,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'convoId': convoId,
           ...?$unknown,
@@ -179,7 +197,10 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoDeleteMessageForSelf,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'convoId': convoId,
           'messageId': messageId,
@@ -198,7 +219,10 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoRemoveReaction,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'convoId': convoId,
           'messageId': messageId,
@@ -215,7 +239,10 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoUpdateRead,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'convoId': convoId,
           if (messageId != null) 'messageId': messageId,
@@ -230,7 +257,10 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoUpdateAllRead,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           if (status != null) 'status': status,
           ...?$unknown,
@@ -290,7 +320,10 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoSendMessageBatch,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'items': items.map((e) => e.toJson()).toList(),
           ...?$unknown,

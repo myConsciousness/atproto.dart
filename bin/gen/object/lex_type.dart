@@ -37,6 +37,10 @@ abstract class LexType {
     return false;
   }
 
+  String getEncoding() {
+    return 'application/json';
+  }
+
   String getFilePath() {
     return rule.getFilePath(lexiconId, defName, state);
   }

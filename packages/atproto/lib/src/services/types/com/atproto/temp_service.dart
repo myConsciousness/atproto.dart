@@ -20,7 +20,10 @@ final class TempService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoTempAddReservedHandle,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'handle': handle,
           ...?$unknown,
@@ -48,7 +51,9 @@ final class TempService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoTempRequestPhoneVerification,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },

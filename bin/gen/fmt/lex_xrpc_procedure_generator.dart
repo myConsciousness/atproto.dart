@@ -47,6 +47,7 @@ final class _LexLexXrpcProcedureGenerator {
         name: '',
         properties: const [],
         bytes: true,
+        encoding: input?.encoding,
       );
     }
 
@@ -71,6 +72,7 @@ final class _LexLexXrpcProcedureGenerator {
         mainVariants,
       ),
       properties: properties,
+      encoding: input?.encoding,
     );
   }
 

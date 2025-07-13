@@ -26,7 +26,10 @@ final class CommunicationService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneCommunicationUpdateTemplate,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'id': id,
           if (name != null) 'name': name,
@@ -52,7 +55,10 @@ final class CommunicationService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneCommunicationCreateTemplate,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'name': name,
           'contentMarkdown': contentMarkdown,
@@ -85,7 +91,9 @@ final class CommunicationService {
   }) async =>
       await _ctx.post(
         ns.toolsOzoneCommunicationDeleteTemplate,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },

@@ -28,7 +28,9 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerRequestEmailConfirmation,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -42,7 +44,10 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerReserveSigningKey,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           if (did != null) 'did': did,
           ...?$unknown,
@@ -100,7 +105,10 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateSession,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'identifier': identifier,
           'password': password,
@@ -135,7 +143,10 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateInviteCodes,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'codeCount': codeCount,
           'useCount': useCount,
@@ -152,7 +163,9 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerDeleteSession,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -165,7 +178,9 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerRevokeAppPassword,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -180,7 +195,10 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateAppPassword,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'name': name,
           if (privileged != null) 'privileged': privileged,
@@ -195,7 +213,9 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerActivateAccount,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -222,7 +242,9 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerConfirmEmail,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -249,7 +271,9 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerRefreshSession,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -262,7 +286,9 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerDeactivateAccount,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -275,7 +301,9 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerUpdateEmail,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -288,7 +316,9 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerResetPassword,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -315,7 +345,9 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerRequestEmailUpdate,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -328,7 +360,9 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerRequestPasswordReset,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -341,7 +375,9 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerRequestAccountDelete,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -363,7 +399,10 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateAccount,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           if (email != null) 'email': email,
           'handle': handle,
@@ -386,7 +425,9 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerDeleteAccount,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -401,7 +442,10 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateInviteCode,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'useCount': useCount,
           if (forAccount != null) 'forAccount': forAccount,

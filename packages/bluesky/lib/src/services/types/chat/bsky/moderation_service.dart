@@ -52,7 +52,9 @@ final class ModerationService {
   }) async =>
       await _ctx.post(
         ns.chatBskyModerationUpdateActorAccess,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },

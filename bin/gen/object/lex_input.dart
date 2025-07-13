@@ -15,6 +15,7 @@ final class LexInput extends LexType {
   final List<LexProperty> properties;
 
   final bool bytes;
+  final String? encoding;
 
   @override
   bool isShouldNotBeGenerated() {
@@ -32,6 +33,11 @@ final class LexInput extends LexType {
   }
 
   @override
+  String getEncoding() {
+    return encoding ?? super.getEncoding();
+  }
+
+  @override
   List<LexType> get nested => properties
       .where((e) => e.type.isUnion)
       .map((e) => e.type.union!)
@@ -46,6 +52,7 @@ final class LexInput extends LexType {
     required this.name,
     required this.properties,
     this.bytes = false,
+    this.encoding,
   });
 
   @override

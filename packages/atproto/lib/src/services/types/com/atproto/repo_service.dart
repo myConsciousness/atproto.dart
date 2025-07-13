@@ -54,7 +54,10 @@ final class RepoService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoRepoCreateRecord,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'repo': repo,
           'collection': collection,
@@ -79,7 +82,10 @@ final class RepoService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoRepoDeleteRecord,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'repo': repo,
           'collection': collection,
@@ -105,7 +111,10 @@ final class RepoService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoRepoPutRecord,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'repo': repo,
           'collection': collection,
@@ -127,7 +136,10 @@ final class RepoService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoRepoUploadBlob,
-        headers: $headers,
+        headers: {
+          'Content-type': '*/*',
+          ...?$headers,
+        },
         parameters: $parameters,
         body: bytes,
         to: const RepoUploadBlobOutputConverter().fromJson,
@@ -140,7 +152,9 @@ final class RepoService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoRepoImportRepo,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -195,7 +209,10 @@ final class RepoService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoRepoApplyWrites,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'repo': repo,
           if (validate != null) 'validate': validate,

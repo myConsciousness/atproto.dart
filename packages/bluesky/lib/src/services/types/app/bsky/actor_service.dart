@@ -48,7 +48,9 @@ final class ActorService {
   }) async =>
       await _ctx.post(
         ns.appBskyActorPutPreferences,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },

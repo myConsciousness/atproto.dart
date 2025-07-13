@@ -29,7 +29,9 @@ final class NotificationService {
   }) async =>
       await _ctx.post(
         ns.appBskyNotificationRegisterPush,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -42,7 +44,9 @@ final class NotificationService {
   }) async =>
       await _ctx.post(
         ns.appBskyNotificationPutPreferences,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -58,7 +62,10 @@ final class NotificationService {
   }) async =>
           await _ctx.post(
             ns.appBskyNotificationPutActivitySubscription,
-            headers: $headers,
+            headers: {
+              'Content-type': 'application/json',
+              ...?$headers,
+            },
             body: {
               'subject': subject,
               'activitySubscription': activitySubscription.toJson(),
@@ -103,7 +110,10 @@ final class NotificationService {
   }) async =>
       await _ctx.post(
         ns.appBskyNotificationPutPreferencesV2,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           if (chat != null) 'chat': chat.toJson(),
           if (follow != null) 'follow': follow.toJson(),
@@ -132,7 +142,9 @@ final class NotificationService {
   }) async =>
       await _ctx.post(
         ns.appBskyNotificationUpdateSeen,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },

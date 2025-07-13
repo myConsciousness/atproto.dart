@@ -24,7 +24,10 @@ final class VerificationService {
   }) async =>
           await _ctx.post(
             ns.toolsOzoneVerificationRevokeVerifications,
-            headers: $headers,
+            headers: {
+              'Content-type': 'application/json',
+              ...?$headers,
+            },
             body: {
               'uris': uris,
               if (revokeReason != null) 'revokeReason': revokeReason,
@@ -42,7 +45,10 @@ final class VerificationService {
   }) async =>
           await _ctx.post(
             ns.toolsOzoneVerificationGrantVerifications,
-            headers: $headers,
+            headers: {
+              'Content-type': 'application/json',
+              ...?$headers,
+            },
             body: {
               'verifications': verifications.map((e) => e.toJson()).toList(),
               ...?$unknown,

@@ -26,7 +26,9 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminUpdateAccountEmail,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -95,7 +97,9 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminUpdateAccountPassword,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -108,7 +112,9 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminUpdateAccountHandle,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -141,7 +147,9 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminUpdateAccountSigningKey,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -154,7 +162,9 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminEnableAccountInvites,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -167,7 +177,9 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminDisableAccountInvites,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -180,7 +192,9 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminDisableInviteCodes,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -196,7 +210,10 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminUpdateSubjectStatus,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'subject': subject.toJson(),
           if (takedown != null) 'takedown': takedown.toJson(),
@@ -218,7 +235,10 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminSendEmail,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'recipientDid': recipientDid,
           'content': content,
@@ -253,7 +273,9 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminDeleteAccount,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },

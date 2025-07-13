@@ -22,7 +22,9 @@ final class IdentityService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoIdentityUpdateHandle,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -40,7 +42,10 @@ final class IdentityService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoIdentitySignPlcOperation,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           if (token != null) 'token': token,
           if (rotationKeys != null) 'rotationKeys': rotationKeys,
@@ -60,7 +65,9 @@ final class IdentityService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoIdentitySubmitPlcOperation,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
@@ -90,7 +97,10 @@ final class IdentityService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoIdentityRefreshIdentity,
-        headers: $headers,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
         body: {
           'identifier': identifier,
           ...?$unknown,
@@ -121,7 +131,9 @@ final class IdentityService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoIdentityRequestPlcOperationSignature,
-        headers: $headers,
+        headers: {
+          ...?$headers,
+        },
         body: {
           ...?$unknown,
         },
