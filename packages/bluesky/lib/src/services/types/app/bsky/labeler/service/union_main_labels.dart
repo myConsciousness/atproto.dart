@@ -18,7 +18,7 @@ part 'union_main_labels.freezed.dart';
 // **************************************************************************
 
 @freezed
-class ULabelerServiceLabels with _$ULabelerServiceLabels {
+abstract class ULabelerServiceLabels with _$ULabelerServiceLabels {
   const ULabelerServiceLabels._();
 
   const factory ULabelerServiceLabels.selfLabels({required SelfLabels data}) =

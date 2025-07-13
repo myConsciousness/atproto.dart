@@ -21,7 +21,7 @@ part 'union_log_remove_reaction_message.freezed.dart';
 // **************************************************************************
 
 @freezed
-class ULogRemoveReactionMessage with _$ULogRemoveReactionMessage {
+abstract class ULogRemoveReactionMessage with _$ULogRemoveReactionMessage {
   const ULogRemoveReactionMessage._();
 
   const factory ULogRemoveReactionMessage.messageView({

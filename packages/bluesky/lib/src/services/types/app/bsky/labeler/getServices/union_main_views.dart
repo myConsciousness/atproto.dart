@@ -21,7 +21,7 @@ part 'union_main_views.freezed.dart';
 // **************************************************************************
 
 @freezed
-class ULabelerGetServicesViews with _$ULabelerGetServicesViews {
+abstract class ULabelerGetServicesViews with _$ULabelerGetServicesViews {
   const ULabelerGetServicesViews._();
 
   const factory ULabelerGetServicesViews.labelerView({

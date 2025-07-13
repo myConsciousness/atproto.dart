@@ -38,7 +38,7 @@ part 'union_mod_event_view_event.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UModEventViewEvent with _$UModEventViewEvent {
+abstract class UModEventViewEvent with _$UModEventViewEvent {
   const UModEventViewEvent._();
 
   const factory UModEventViewEvent.modEventTakedown({

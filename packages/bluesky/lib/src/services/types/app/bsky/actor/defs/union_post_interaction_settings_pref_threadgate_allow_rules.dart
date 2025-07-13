@@ -23,7 +23,7 @@ part 'union_post_interaction_settings_pref_threadgate_allow_rules.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UPostInteractionSettingsPrefThreadgateAllowRules
+abstract class UPostInteractionSettingsPrefThreadgateAllowRules
     with _$UPostInteractionSettingsPrefThreadgateAllowRules {
   const UPostInteractionSettingsPrefThreadgateAllowRules._();
 

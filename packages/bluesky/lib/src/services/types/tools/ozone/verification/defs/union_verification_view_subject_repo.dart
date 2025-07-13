@@ -21,7 +21,8 @@ part 'union_verification_view_subject_repo.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UVerificationViewSubjectRepo with _$UVerificationViewSubjectRepo {
+abstract class UVerificationViewSubjectRepo
+    with _$UVerificationViewSubjectRepo {
   const UVerificationViewSubjectRepo._();
 
   const factory UVerificationViewSubjectRepo.repoViewDetail({

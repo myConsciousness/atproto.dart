@@ -21,7 +21,7 @@ part 'union_main_repos.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UModerationGetReposRepos with _$UModerationGetReposRepos {
+abstract class UModerationGetReposRepos with _$UModerationGetReposRepos {
   const UModerationGetReposRepos._();
 
   const factory UModerationGetReposRepos.repoViewDetail({

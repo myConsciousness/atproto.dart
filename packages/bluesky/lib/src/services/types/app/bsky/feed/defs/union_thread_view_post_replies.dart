@@ -22,7 +22,7 @@ part 'union_thread_view_post_replies.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UThreadViewPostReplies with _$UThreadViewPostReplies {
+abstract class UThreadViewPostReplies with _$UThreadViewPostReplies {
   const UThreadViewPostReplies._();
 
   const factory UThreadViewPostReplies.threadViewPost({

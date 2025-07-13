@@ -18,7 +18,7 @@ part 'union_main_labels.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UFeedPostLabels with _$UFeedPostLabels {
+abstract class UFeedPostLabels with _$UFeedPostLabels {
   const UFeedPostLabels._();
 
   const factory UFeedPostLabels.selfLabels({required SelfLabels data}) =

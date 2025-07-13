@@ -22,7 +22,7 @@ part 'union_subject_status_view_subject.freezed.dart';
 // **************************************************************************
 
 @freezed
-class USubjectStatusViewSubject with _$USubjectStatusViewSubject {
+abstract class USubjectStatusViewSubject with _$USubjectStatusViewSubject {
   const USubjectStatusViewSubject._();
 
   const factory USubjectStatusViewSubject.repoRef({required RepoRef data}) =

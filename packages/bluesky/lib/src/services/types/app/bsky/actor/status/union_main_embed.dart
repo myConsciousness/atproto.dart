@@ -20,7 +20,7 @@ part 'union_main_embed.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UActorStatusEmbed with _$UActorStatusEmbed {
+abstract class UActorStatusEmbed with _$UActorStatusEmbed {
   const UActorStatusEmbed._();
 
   const factory UActorStatusEmbed.embedExternal({required EmbedExternal data}) =

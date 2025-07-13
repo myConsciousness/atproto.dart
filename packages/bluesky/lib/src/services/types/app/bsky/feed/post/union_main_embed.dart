@@ -24,7 +24,7 @@ part 'union_main_embed.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UFeedPostEmbed with _$UFeedPostEmbed {
+abstract class UFeedPostEmbed with _$UFeedPostEmbed {
   const UFeedPostEmbed._();
 
   const factory UFeedPostEmbed.embedImages({required EmbedImages data}) =

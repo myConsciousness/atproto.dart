@@ -20,7 +20,7 @@ part 'union_message_view_embed.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UMessageViewEmbed with _$UMessageViewEmbed {
+abstract class UMessageViewEmbed with _$UMessageViewEmbed {
   const UMessageViewEmbed._();
 
   const factory UMessageViewEmbed.embedRecordView({

@@ -18,7 +18,7 @@ part 'union_main_labels.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UGraphListLabels with _$UGraphListLabels {
+abstract class UGraphListLabels with _$UGraphListLabels {
   const UGraphListLabels._();
 
   const factory UGraphListLabels.selfLabels({required SelfLabels data}) =

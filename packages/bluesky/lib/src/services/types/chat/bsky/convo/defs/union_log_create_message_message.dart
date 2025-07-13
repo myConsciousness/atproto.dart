@@ -21,7 +21,7 @@ part 'union_log_create_message_message.freezed.dart';
 // **************************************************************************
 
 @freezed
-class ULogCreateMessageMessage with _$ULogCreateMessageMessage {
+abstract class ULogCreateMessageMessage with _$ULogCreateMessageMessage {
   const ULogCreateMessageMessage._();
 
   const factory ULogCreateMessageMessage.messageView({

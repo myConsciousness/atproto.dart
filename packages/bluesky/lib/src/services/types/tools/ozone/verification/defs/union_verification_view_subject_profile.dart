@@ -17,7 +17,8 @@ part 'union_verification_view_subject_profile.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UVerificationViewSubjectProfile with _$UVerificationViewSubjectProfile {
+abstract class UVerificationViewSubjectProfile
+    with _$UVerificationViewSubjectProfile {
   const UVerificationViewSubjectProfile._();
 
   const factory UVerificationViewSubjectProfile.unknown({

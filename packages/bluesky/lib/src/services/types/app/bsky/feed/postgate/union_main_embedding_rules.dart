@@ -20,7 +20,7 @@ part 'union_main_embedding_rules.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UFeedPostgateEmbeddingRules with _$UFeedPostgateEmbeddingRules {
+abstract class UFeedPostgateEmbeddingRules with _$UFeedPostgateEmbeddingRules {
   const UFeedPostgateEmbeddingRules._();
 
   const factory UFeedPostgateEmbeddingRules.disableRule({

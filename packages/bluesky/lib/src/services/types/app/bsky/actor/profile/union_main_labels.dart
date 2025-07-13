@@ -18,7 +18,7 @@ part 'union_main_labels.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UActorProfileLabels with _$UActorProfileLabels {
+abstract class UActorProfileLabels with _$UActorProfileLabels {
   const UActorProfileLabels._();
 
   const factory UActorProfileLabels.selfLabels({required SelfLabels data}) =

@@ -21,7 +21,8 @@ part 'union_main_subject.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UModerationCreateReportSubject with _$UModerationCreateReportSubject {
+abstract class UModerationCreateReportSubject
+    with _$UModerationCreateReportSubject {
   const UModerationCreateReportSubject._();
 
   const factory UModerationCreateReportSubject.repoRef({

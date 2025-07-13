@@ -24,7 +24,7 @@ part 'union_main_message.freezed.dart';
 // **************************************************************************
 
 @freezed
-class USyncSubscribeReposMessage with _$USyncSubscribeReposMessage {
+abstract class USyncSubscribeReposMessage with _$USyncSubscribeReposMessage {
   const USyncSubscribeReposMessage._();
 
   const factory USyncSubscribeReposMessage.commit({required Commit data}) =

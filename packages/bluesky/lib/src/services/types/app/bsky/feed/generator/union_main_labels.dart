@@ -18,7 +18,7 @@ part 'union_main_labels.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UFeedGeneratorLabels with _$UFeedGeneratorLabels {
+abstract class UFeedGeneratorLabels with _$UFeedGeneratorLabels {
   const UFeedGeneratorLabels._();
 
   const factory UFeedGeneratorLabels.selfLabels({required SelfLabels data}) =

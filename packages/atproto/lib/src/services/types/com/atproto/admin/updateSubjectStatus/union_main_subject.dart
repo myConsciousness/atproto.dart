@@ -22,7 +22,8 @@ part 'union_main_subject.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UAdminUpdateSubjectStatusSubject with _$UAdminUpdateSubjectStatusSubject {
+abstract class UAdminUpdateSubjectStatusSubject
+    with _$UAdminUpdateSubjectStatusSubject {
   const UAdminUpdateSubjectStatusSubject._();
 
   const factory UAdminUpdateSubjectStatusSubject.repoRef({

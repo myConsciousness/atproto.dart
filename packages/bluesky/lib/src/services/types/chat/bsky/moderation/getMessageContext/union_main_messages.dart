@@ -21,7 +21,7 @@ part 'union_main_messages.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UModerationGetMessageContextMessages
+abstract class UModerationGetMessageContextMessages
     with _$UModerationGetMessageContextMessages {
   const UModerationGetMessageContextMessages._();
 

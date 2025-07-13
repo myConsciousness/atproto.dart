@@ -22,7 +22,7 @@ part 'union_main_thread.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UFeedGetPostThreadThread with _$UFeedGetPostThreadThread {
+abstract class UFeedGetPostThreadThread with _$UFeedGetPostThreadThread {
   const UFeedGetPostThreadThread._();
 
   const factory UFeedGetPostThreadThread.threadViewPost({

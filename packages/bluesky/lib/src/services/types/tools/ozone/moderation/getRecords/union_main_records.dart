@@ -21,7 +21,8 @@ part 'union_main_records.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UModerationGetRecordsRecords with _$UModerationGetRecordsRecords {
+abstract class UModerationGetRecordsRecords
+    with _$UModerationGetRecordsRecords {
   const UModerationGetRecordsRecords._();
 
   const factory UModerationGetRecordsRecords.recordViewDetail({

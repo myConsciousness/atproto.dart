@@ -22,7 +22,7 @@ part 'union_main_features.freezed.dart';
 // **************************************************************************
 
 @freezed
-class URichtextFacetFeatures with _$URichtextFacetFeatures {
+abstract class URichtextFacetFeatures with _$URichtextFacetFeatures {
   const URichtextFacetFeatures._();
 
   const factory URichtextFacetFeatures.richtextFacetMention({

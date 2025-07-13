@@ -33,7 +33,7 @@ part 'union_preferences.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UPreferences with _$UPreferences {
+abstract class UPreferences with _$UPreferences {
   const UPreferences._();
 
   const factory UPreferences.adultContentPref({

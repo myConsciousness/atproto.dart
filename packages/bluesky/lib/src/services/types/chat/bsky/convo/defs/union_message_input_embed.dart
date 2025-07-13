@@ -20,7 +20,7 @@ part 'union_message_input_embed.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UMessageInputEmbed with _$UMessageInputEmbed {
+abstract class UMessageInputEmbed with _$UMessageInputEmbed {
   const UMessageInputEmbed._();
 
   const factory UMessageInputEmbed.embedRecord({required EmbedRecord data}) =

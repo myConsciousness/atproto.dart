@@ -22,7 +22,7 @@ part 'union_mod_event_view_subject.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UModEventViewSubject with _$UModEventViewSubject {
+abstract class UModEventViewSubject with _$UModEventViewSubject {
   const UModEventViewSubject._();
 
   const factory UModEventViewSubject.repoRef({required RepoRef data}) =

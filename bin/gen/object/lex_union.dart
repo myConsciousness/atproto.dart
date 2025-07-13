@@ -63,7 +63,7 @@ part '$fileName.freezed.dart';
 $kHeader
 
 @freezed
-class $name with _\$$name {
+abstract class $name with _\$$name {
   const $name._();
 
   $factories
@@ -139,8 +139,9 @@ final class ${name}Converter implements JsonConverter<$name, Map<String, dynamic
 
       buffer.writeln('if ($objectName.validate(json)) {');
       buffer.writeln('  return $name.${toFirstLowerCase(objectName)}(');
-      buffer
-          .writeln('    data: const ${objectName}Converter().fromJson(json),');
+      buffer.writeln(
+        '    data: const ${objectName}Converter().fromJson(json),',
+      );
       buffer.writeln('  );');
       buffer.writeln('}');
     }
@@ -158,8 +159,10 @@ final class ${name}Converter implements JsonConverter<$name, Map<String, dynamic
         mainVariants,
       );
 
-      buffer.writeln('${toFirstLowerCase(objectName)}: (data) => '
-          'const ${objectName}Converter().toJson(data),');
+      buffer.writeln(
+        '${toFirstLowerCase(objectName)}: (data) => '
+        'const ${objectName}Converter().toJson(data),',
+      );
     }
 
     return buffer.toString();

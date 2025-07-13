@@ -20,7 +20,7 @@ part 'union_convo_view_last_reaction.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UConvoViewLastReaction with _$UConvoViewLastReaction {
+abstract class UConvoViewLastReaction with _$UConvoViewLastReaction {
   const UConvoViewLastReaction._();
 
   const factory UConvoViewLastReaction.messageAndReactionView({

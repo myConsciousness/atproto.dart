@@ -21,7 +21,7 @@ part 'union_main_messages.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UConvoGetMessagesMessages with _$UConvoGetMessagesMessages {
+abstract class UConvoGetMessagesMessages with _$UConvoGetMessagesMessages {
   const UConvoGetMessagesMessages._();
 
   const factory UConvoGetMessagesMessages.messageView({

@@ -22,7 +22,7 @@ part 'union_reply_ref_root.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UReplyRefRoot with _$UReplyRefRoot {
+abstract class UReplyRefRoot with _$UReplyRefRoot {
   const UReplyRefRoot._();
 
   const factory UReplyRefRoot.postView({required PostView data}) =

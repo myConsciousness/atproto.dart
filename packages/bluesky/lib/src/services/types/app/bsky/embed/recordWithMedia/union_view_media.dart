@@ -22,7 +22,8 @@ part 'union_view_media.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UEmbedRecordWithMediaViewMedia with _$UEmbedRecordWithMediaViewMedia {
+abstract class UEmbedRecordWithMediaViewMedia
+    with _$UEmbedRecordWithMediaViewMedia {
   const UEmbedRecordWithMediaViewMedia._();
 
   const factory UEmbedRecordWithMediaViewMedia.embedImagesView({

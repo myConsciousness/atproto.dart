@@ -20,7 +20,7 @@ part 'union_thread_item_value.freezed.dart';
 // **************************************************************************
 
 @freezed
-class UThreadItemValue with _$UThreadItemValue {
+abstract class UThreadItemValue with _$UThreadItemValue {
   const UThreadItemValue._();
 
   const factory UThreadItemValue.threadItemPost({
