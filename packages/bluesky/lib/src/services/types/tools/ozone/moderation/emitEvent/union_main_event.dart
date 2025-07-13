@@ -12,6 +12,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../tools/ozone/moderation/defs/account_event.dart';
+import '../../../../tools/ozone/moderation/defs/age_assurance_event.dart';
+import '../../../../tools/ozone/moderation/defs/age_assurance_override_event.dart';
 import '../../../../tools/ozone/moderation/defs/identity_event.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_acknowledge.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_comment.dart';
@@ -98,6 +100,12 @@ abstract class UModerationEmitEventEvent with _$UModerationEmitEventEvent {
   const factory UModerationEmitEventEvent.modEventPriorityScore({
     required ModEventPriorityScore data,
   }) = UModerationEmitEventEventModEventPriorityScore;
+  const factory UModerationEmitEventEvent.ageAssuranceEvent({
+    required AgeAssuranceEvent data,
+  }) = UModerationEmitEventEventAgeAssuranceEvent;
+  const factory UModerationEmitEventEvent.ageAssuranceOverrideEvent({
+    required AgeAssuranceOverrideEvent data,
+  }) = UModerationEmitEventEventAgeAssuranceOverrideEvent;
 
   const factory UModerationEmitEventEvent.unknown({
     required Map<String, dynamic> data,
@@ -209,6 +217,16 @@ final class UModerationEmitEventEventConverter
           data: const ModEventPriorityScoreConverter().fromJson(json),
         );
       }
+      if (AgeAssuranceEvent.validate(json)) {
+        return UModerationEmitEventEvent.ageAssuranceEvent(
+          data: const AgeAssuranceEventConverter().fromJson(json),
+        );
+      }
+      if (AgeAssuranceOverrideEvent.validate(json)) {
+        return UModerationEmitEventEvent.ageAssuranceOverrideEvent(
+          data: const AgeAssuranceOverrideEventConverter().fromJson(json),
+        );
+      }
 
       return UModerationEmitEventEvent.unknown(data: json);
     } catch (_) {
@@ -243,6 +261,10 @@ final class UModerationEmitEventEventConverter
     recordEvent: (data) => const RecordEventConverter().toJson(data),
     modEventPriorityScore: (data) =>
         const ModEventPriorityScoreConverter().toJson(data),
+    ageAssuranceEvent: (data) =>
+        const AgeAssuranceEventConverter().toJson(data),
+    ageAssuranceOverrideEvent: (data) =>
+        const AgeAssuranceOverrideEventConverter().toJson(data),
 
     unknown: (data) => data,
   );

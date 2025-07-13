@@ -388,8 +388,9 @@ const appBskyRichtextFacetMention = NSID(ids.appBskyRichtextFacetMention);
 const appBskyRichtextFacetTag = NSID(ids.appBskyRichtextFacetTag);
 
 /// `app.bsky.unspecced.getAgeAssuranceState`
-const appBskyUnspeccedGetAgeAssuranceState =
-    NSID(ids.appBskyUnspeccedGetAgeAssuranceState);
+const appBskyUnspeccedGetAgeAssuranceState = NSID(
+  ids.appBskyUnspeccedGetAgeAssuranceState,
+);
 
 /// `app.bsky.unspecced.getConfig`
 const appBskyUnspeccedGetConfig = NSID(ids.appBskyUnspeccedGetConfig);
@@ -483,8 +484,9 @@ const appBskyUnspeccedGetTrendsSkeleton = NSID(
 );
 
 /// `app.bsky.unspecced.initAgeAssurance`
-const appBskyUnspeccedInitAgeAssurance =
-    NSID(ids.appBskyUnspeccedInitAgeAssurance);
+const appBskyUnspeccedInitAgeAssurance = NSID(
+  ids.appBskyUnspeccedInitAgeAssurance,
+);
 
 /// `app.bsky.unspecced.searchActorsSkeleton`
 const appBskyUnspeccedSearchActorsSkeleton = NSID(

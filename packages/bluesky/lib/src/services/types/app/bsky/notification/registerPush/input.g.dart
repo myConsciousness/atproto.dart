@@ -16,6 +16,7 @@ _NotificationRegisterPushInput _$NotificationRegisterPushInputFromJson(
     token: $checkedConvert('token', (v) => v as String),
     platform: $checkedConvert('platform', (v) => v as String),
     appId: $checkedConvert('appId', (v) => v as String),
+    ageRestricted: $checkedConvert('ageRestricted', (v) => v as bool?),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -31,5 +32,6 @@ Map<String, dynamic> _$NotificationRegisterPushInputToJson(
   'token': instance.token,
   'platform': instance.platform,
   'appId': instance.appId,
+  'ageRestricted': instance.ageRestricted,
   r'$unknown': instance.$unknown,
 };

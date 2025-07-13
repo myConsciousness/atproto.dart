@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$NotificationRegisterPushInput {
 
- String get serviceDid; String get token; String get platform; String get appId; Map<String, dynamic>? get $unknown;
+ String get serviceDid; String get token; String get platform; String get appId;/// Set to true when the actor is age restricted
+ bool? get ageRestricted; Map<String, dynamic>? get $unknown;
 /// Create a copy of NotificationRegisterPushInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +29,16 @@ $NotificationRegisterPushInputCopyWith<NotificationRegisterPushInput> get copyWi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotificationRegisterPushInput&&(identical(other.serviceDid, serviceDid) || other.serviceDid == serviceDid)&&(identical(other.token, token) || other.token == token)&&(identical(other.platform, platform) || other.platform == platform)&&(identical(other.appId, appId) || other.appId == appId)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotificationRegisterPushInput&&(identical(other.serviceDid, serviceDid) || other.serviceDid == serviceDid)&&(identical(other.token, token) || other.token == token)&&(identical(other.platform, platform) || other.platform == platform)&&(identical(other.appId, appId) || other.appId == appId)&&(identical(other.ageRestricted, ageRestricted) || other.ageRestricted == ageRestricted)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,serviceDid,token,platform,appId,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,serviceDid,token,platform,appId,ageRestricted,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'NotificationRegisterPushInput(serviceDid: $serviceDid, token: $token, platform: $platform, appId: $appId, \$unknown: ${$unknown})';
+  return 'NotificationRegisterPushInput(serviceDid: $serviceDid, token: $token, platform: $platform, appId: $appId, ageRestricted: $ageRestricted, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +49,7 @@ abstract mixin class $NotificationRegisterPushInputCopyWith<$Res>  {
   factory $NotificationRegisterPushInputCopyWith(NotificationRegisterPushInput value, $Res Function(NotificationRegisterPushInput) _then) = _$NotificationRegisterPushInputCopyWithImpl;
 @useResult
 $Res call({
- String serviceDid, String token, String platform, String appId, Map<String, dynamic>? $unknown
+ String serviceDid, String token, String platform, String appId, bool? ageRestricted, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,13 +66,14 @@ class _$NotificationRegisterPushInputCopyWithImpl<$Res>
 
 /// Create a copy of NotificationRegisterPushInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? serviceDid = null,Object? token = null,Object? platform = null,Object? appId = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? serviceDid = null,Object? token = null,Object? platform = null,Object? appId = null,Object? ageRestricted = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 serviceDid: null == serviceDid ? _self.serviceDid : serviceDid // ignore: cast_nullable_to_non_nullable
 as String,token: null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
 as String,platform: null == platform ? _self.platform : platform // ignore: cast_nullable_to_non_nullable
 as String,appId: null == appId ? _self.appId : appId // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String,ageRestricted: freezed == ageRestricted ? _self.ageRestricted : ageRestricted // ignore: cast_nullable_to_non_nullable
+as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -157,10 +159,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String serviceDid,  String token,  String platform,  String appId,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String serviceDid,  String token,  String platform,  String appId,  bool? ageRestricted,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _NotificationRegisterPushInput() when $default != null:
-return $default(_that.serviceDid,_that.token,_that.platform,_that.appId,_that.$unknown);case _:
+return $default(_that.serviceDid,_that.token,_that.platform,_that.appId,_that.ageRestricted,_that.$unknown);case _:
   return orElse();
 
 }
@@ -178,10 +180,10 @@ return $default(_that.serviceDid,_that.token,_that.platform,_that.appId,_that.$u
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String serviceDid,  String token,  String platform,  String appId,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String serviceDid,  String token,  String platform,  String appId,  bool? ageRestricted,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _NotificationRegisterPushInput():
-return $default(_that.serviceDid,_that.token,_that.platform,_that.appId,_that.$unknown);case _:
+return $default(_that.serviceDid,_that.token,_that.platform,_that.appId,_that.ageRestricted,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -198,10 +200,10 @@ return $default(_that.serviceDid,_that.token,_that.platform,_that.appId,_that.$u
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String serviceDid,  String token,  String platform,  String appId,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String serviceDid,  String token,  String platform,  String appId,  bool? ageRestricted,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _NotificationRegisterPushInput() when $default != null:
-return $default(_that.serviceDid,_that.token,_that.platform,_that.appId,_that.$unknown);case _:
+return $default(_that.serviceDid,_that.token,_that.platform,_that.appId,_that.ageRestricted,_that.$unknown);case _:
   return null;
 
 }
@@ -213,13 +215,15 @@ return $default(_that.serviceDid,_that.token,_that.platform,_that.appId,_that.$u
 @JsonSerializable()
 
 class _NotificationRegisterPushInput implements NotificationRegisterPushInput {
-  const _NotificationRegisterPushInput({required this.serviceDid, required this.token, required this.platform, required this.appId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _NotificationRegisterPushInput({required this.serviceDid, required this.token, required this.platform, required this.appId, this.ageRestricted, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationRegisterPushInput.fromJson(Map<String, dynamic> json) => _$NotificationRegisterPushInputFromJson(json);
 
 @override final  String serviceDid;
 @override final  String token;
 @override final  String platform;
 @override final  String appId;
+/// Set to true when the actor is age restricted
+@override final  bool? ageRestricted;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -243,16 +247,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _NotificationRegisterPushInput&&(identical(other.serviceDid, serviceDid) || other.serviceDid == serviceDid)&&(identical(other.token, token) || other.token == token)&&(identical(other.platform, platform) || other.platform == platform)&&(identical(other.appId, appId) || other.appId == appId)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _NotificationRegisterPushInput&&(identical(other.serviceDid, serviceDid) || other.serviceDid == serviceDid)&&(identical(other.token, token) || other.token == token)&&(identical(other.platform, platform) || other.platform == platform)&&(identical(other.appId, appId) || other.appId == appId)&&(identical(other.ageRestricted, ageRestricted) || other.ageRestricted == ageRestricted)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,serviceDid,token,platform,appId,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,serviceDid,token,platform,appId,ageRestricted,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'NotificationRegisterPushInput(serviceDid: $serviceDid, token: $token, platform: $platform, appId: $appId, \$unknown: ${$unknown})';
+  return 'NotificationRegisterPushInput(serviceDid: $serviceDid, token: $token, platform: $platform, appId: $appId, ageRestricted: $ageRestricted, \$unknown: ${$unknown})';
 }
 
 
@@ -263,7 +267,7 @@ abstract mixin class _$NotificationRegisterPushInputCopyWith<$Res> implements $N
   factory _$NotificationRegisterPushInputCopyWith(_NotificationRegisterPushInput value, $Res Function(_NotificationRegisterPushInput) _then) = __$NotificationRegisterPushInputCopyWithImpl;
 @override @useResult
 $Res call({
- String serviceDid, String token, String platform, String appId, Map<String, dynamic>? $unknown
+ String serviceDid, String token, String platform, String appId, bool? ageRestricted, Map<String, dynamic>? $unknown
 });
 
 
@@ -280,13 +284,14 @@ class __$NotificationRegisterPushInputCopyWithImpl<$Res>
 
 /// Create a copy of NotificationRegisterPushInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? serviceDid = null,Object? token = null,Object? platform = null,Object? appId = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? serviceDid = null,Object? token = null,Object? platform = null,Object? appId = null,Object? ageRestricted = freezed,Object? $unknown = freezed,}) {
   return _then(_NotificationRegisterPushInput(
 serviceDid: null == serviceDid ? _self.serviceDid : serviceDid // ignore: cast_nullable_to_non_nullable
 as String,token: null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
 as String,platform: null == platform ? _self.platform : platform // ignore: cast_nullable_to_non_nullable
 as String,appId: null == appId ? _self.appId : appId // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String,ageRestricted: freezed == ageRestricted ? _self.ageRestricted : ageRestricted // ignore: cast_nullable_to_non_nullable
+as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

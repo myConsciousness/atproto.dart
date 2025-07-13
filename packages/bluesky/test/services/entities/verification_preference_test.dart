@@ -40,7 +40,9 @@ void main() {
       // Test serialization
       final preferenceJson = preference.toJson();
       expect(
-          preferenceJson[r'$type'], equals(appBskyActorDefsVerificationPrefs));
+        preferenceJson[r'$type'],
+        equals(appBskyActorDefsVerificationPrefs),
+      );
       expect(preferenceJson['hideBadges'], isTrue);
 
       // Test deserialization

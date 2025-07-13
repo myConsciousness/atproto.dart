@@ -13,6 +13,7 @@ import 'package:atproto_core/atproto_core.dart';
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
+import 'unspecced/defs/age_assurance_state.dart';
 import 'unspecced/getConfig/output.dart';
 import 'unspecced/getPopularFeedGenerators/output.dart';
 import 'unspecced/getPostThreadOtherV2/output.dart';
@@ -292,6 +293,17 @@ final class UnspeccedService {
     to: const UnspeccedSearchPostsSkeletonOutputConverter().fromJson,
   );
 
+  /// Returns the current state of the age assurance process for an account. This is used to check if the user has completed age assurance or if further action is required.
+  Future<XRPCResponse<AgeAssuranceState>> getAgeAssuranceState({
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.get(
+    ns.appBskyUnspeccedGetAgeAssuranceState,
+    headers: $headers,
+    parameters: {...?$unknown},
+    to: const AgeAssuranceStateConverter().fromJson,
+  );
+
   /// An unspecced view of globally popular feed generators.
   Future<XRPCResponse<UnspeccedGetPopularFeedGeneratorsOutput>>
   getPopularFeedGenerators({
@@ -310,6 +322,25 @@ final class UnspeccedService {
       ...?$unknown,
     },
     to: const UnspeccedGetPopularFeedGeneratorsOutputConverter().fromJson,
+  );
+
+  /// Initiate age assurance for an account. This is a one-time action that will start the process of verifying the user's age.
+  Future<XRPCResponse<AgeAssuranceState>> initAgeAssurance({
+    required String email,
+    required String language,
+    required String countryCode,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.post(
+    ns.appBskyUnspeccedInitAgeAssurance,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {
+      'email': email,
+      'language': language,
+      'countryCode': countryCode,
+      ...?$unknown,
+    },
+    to: const AgeAssuranceStateConverter().fromJson,
   );
 
   /// Get a list of trending topics

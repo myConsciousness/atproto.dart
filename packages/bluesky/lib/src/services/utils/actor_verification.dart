@@ -11,11 +11,7 @@ part 'actor_verification.freezed.dart';
 part 'actor_verification.g.dart';
 
 /// Verification status values
-enum VerificationStatus {
-  valid,
-  invalid,
-  none,
-}
+enum VerificationStatus { valid, invalid, none }
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#verificationstate
 @freezed

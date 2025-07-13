@@ -72,6 +72,10 @@ _ModerationQueryEventsInput _$ModerationQueryEventsInputFromJson(Map json) =>
           'modTool',
           (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
         ),
+        ageAssuranceState: $checkedConvert(
+          'ageAssuranceState',
+          (v) => v as String?,
+        ),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -106,6 +110,7 @@ Map<String, dynamic> _$ModerationQueryEventsInputToJson(
   'reportTypes': instance.reportTypes,
   'policies': instance.policies,
   'modTool': instance.modTool,
+  'ageAssuranceState': instance.ageAssuranceState,
   'cursor': instance.cursor,
   r'$unknown': instance.$unknown,
 };

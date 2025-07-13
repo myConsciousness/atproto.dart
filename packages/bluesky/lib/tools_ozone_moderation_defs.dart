@@ -32,6 +32,8 @@ export 'package:bluesky/src/services/types/tools/ozone/moderation/defs/mod_event
 export 'package:bluesky/src/services/types/tools/ozone/moderation/defs/mod_event_report.dart';
 export 'package:bluesky/src/services/types/tools/ozone/moderation/defs/mod_event_label.dart';
 export 'package:bluesky/src/services/types/tools/ozone/moderation/defs/mod_event_priority_score.dart';
+export 'package:bluesky/src/services/types/tools/ozone/moderation/defs/age_assurance_event.dart';
+export 'package:bluesky/src/services/types/tools/ozone/moderation/defs/age_assurance_override_event.dart';
 export 'package:bluesky/src/services/types/tools/ozone/moderation/defs/mod_event_acknowledge.dart';
 export 'package:bluesky/src/services/types/tools/ozone/moderation/defs/mod_event_escalate.dart';
 export 'package:bluesky/src/services/types/tools/ozone/moderation/defs/mod_event_mute.dart';

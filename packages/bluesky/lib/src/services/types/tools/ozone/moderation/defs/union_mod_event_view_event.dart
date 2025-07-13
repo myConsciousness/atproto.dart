@@ -12,6 +12,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import './account_event.dart';
+import './age_assurance_event.dart';
+import './age_assurance_override_event.dart';
 import './identity_event.dart';
 import './mod_event_acknowledge.dart';
 import './mod_event_comment.dart';
@@ -94,6 +96,12 @@ abstract class UModEventViewEvent with _$UModEventViewEvent {
   const factory UModEventViewEvent.modEventPriorityScore({
     required ModEventPriorityScore data,
   }) = UModEventViewEventModEventPriorityScore;
+  const factory UModEventViewEvent.ageAssuranceEvent({
+    required AgeAssuranceEvent data,
+  }) = UModEventViewEventAgeAssuranceEvent;
+  const factory UModEventViewEvent.ageAssuranceOverrideEvent({
+    required AgeAssuranceOverrideEvent data,
+  }) = UModEventViewEventAgeAssuranceOverrideEvent;
 
   const factory UModEventViewEvent.unknown({
     required Map<String, dynamic> data,
@@ -205,6 +213,16 @@ final class UModEventViewEventConverter
           data: const ModEventPriorityScoreConverter().fromJson(json),
         );
       }
+      if (AgeAssuranceEvent.validate(json)) {
+        return UModEventViewEvent.ageAssuranceEvent(
+          data: const AgeAssuranceEventConverter().fromJson(json),
+        );
+      }
+      if (AgeAssuranceOverrideEvent.validate(json)) {
+        return UModEventViewEvent.ageAssuranceOverrideEvent(
+          data: const AgeAssuranceOverrideEventConverter().fromJson(json),
+        );
+      }
 
       return UModEventViewEvent.unknown(data: json);
     } catch (_) {
@@ -239,6 +257,10 @@ final class UModEventViewEventConverter
     recordEvent: (data) => const RecordEventConverter().toJson(data),
     modEventPriorityScore: (data) =>
         const ModEventPriorityScoreConverter().toJson(data),
+    ageAssuranceEvent: (data) =>
+        const AgeAssuranceEventConverter().toJson(data),
+    ageAssuranceOverrideEvent: (data) =>
+        const AgeAssuranceOverrideEventConverter().toJson(data),
 
     unknown: (data) => data,
   );

@@ -56,6 +56,7 @@ abstract class ModerationQueryStatusesInput
     'minReportedRecordsCount',
     'minTakendownRecordsCount',
     'minPriorityScore',
+    'ageAssuranceState',
   ];
 
   const factory ModerationQueryStatusesInput({
@@ -144,6 +145,9 @@ abstract class ModerationQueryStatusesInput
 
     /// If specified, only subjects that have priority score value above the given value will be returned.
     int? minPriorityScore,
+
+    /// If specified, only subjects with the given age assurance state will be returned.
+    String? ageAssuranceState,
 
     Map<String, dynamic>? $unknown,
   }) = _ModerationQueryStatusesInput;

@@ -41,6 +41,7 @@ final class NotificationService {
     required String token,
     required String platform,
     required String appId,
+    bool? ageRestricted,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.post(
@@ -51,6 +52,7 @@ final class NotificationService {
       'token': token,
       'platform': platform,
       'appId': appId,
+      if (ageRestricted != null) 'ageRestricted': ageRestricted,
       ...?$unknown,
     },
   );

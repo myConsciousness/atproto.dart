@@ -26,6 +26,7 @@ abstract class NotificationRegisterPushInput
     'token',
     'platform',
     'appId',
+    'ageRestricted',
   ];
 
   const factory NotificationRegisterPushInput({
@@ -33,6 +34,9 @@ abstract class NotificationRegisterPushInput
     required String token,
     required String platform,
     required String appId,
+
+    /// Set to true when the actor is age restricted
+    bool? ageRestricted,
 
     Map<String, dynamic>? $unknown,
   }) = _NotificationRegisterPushInput;

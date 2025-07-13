@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Copyright (c) 2025, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
@@ -14,18 +13,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import './union_log_read_message_message.dart';
-=======
-// Package imports:
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-// Project imports:
-import 'union/message_view.dart';
->>>>>>> main
 
 part 'log_read_message.freezed.dart';
 part 'log_read_message.g.dart';
 
-<<<<<<< HEAD
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
@@ -64,17 +55,4 @@ final class LogReadMessageConverter
   @override
   Map<String, dynamic> toJson(LogReadMessage object) =>
       untranslate(object.toJson());
-=======
-@freezed
-class LogReadMessage with _$LogReadMessage {
-  @JsonSerializable()
-  const factory LogReadMessage({
-    required String rev,
-    required String convoId,
-    @unionConvoMessageViewConverter required UConvoMessageView message,
-  }) = _LogReadMessage;
-
-  factory LogReadMessage.fromJson(Map<String, dynamic> json) =>
-      _$LogReadMessageFromJson(json);
->>>>>>> main
 }

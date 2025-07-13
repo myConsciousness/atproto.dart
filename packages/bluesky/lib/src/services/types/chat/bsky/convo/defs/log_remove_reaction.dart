@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Copyright (c) 2025, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
@@ -15,19 +14,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import './reaction_view.dart';
 import './union_log_remove_reaction_message.dart';
-=======
-// Package imports:
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-// Project imports:
-import 'reaction_view.dart';
-import 'union/message_view.dart';
->>>>>>> main
 
 part 'log_remove_reaction.freezed.dart';
 part 'log_remove_reaction.g.dart';
 
-<<<<<<< HEAD
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
@@ -70,18 +60,4 @@ final class LogRemoveReactionConverter
   @override
   Map<String, dynamic> toJson(LogRemoveReaction object) =>
       untranslate(object.toJson());
-=======
-@freezed
-class LogRemoveReaction with _$LogRemoveReaction {
-  @JsonSerializable()
-  const factory LogRemoveReaction({
-    required String rev,
-    required String convoId,
-    @unionConvoMessageViewConverter required UConvoMessageView message,
-    required ReactionView reaction,
-  }) = _LogRemoveReaction;
-
-  factory LogRemoveReaction.fromJson(Map<String, dynamic> json) =>
-      _$LogRemoveReactionFromJson(json);
->>>>>>> main
 }

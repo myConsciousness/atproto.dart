@@ -23,7 +23,8 @@ mixin _$ModerationQueryEventsInput {
  bool? get includeAllUserRecords; int? get limit;/// If true, only events with comments are returned
  bool? get hasComment;/// If specified, only events with comments containing the keyword are returned. Apply || separator to use multiple keywords and match using OR condition.
  String? get comment; List<String>? get addedLabels; List<String>? get removedLabels; List<String>? get addedTags; List<String>? get removedTags; List<String>? get reportTypes;/// If specified, only events where the action policies match any of the given policies are returned
- List<String>? get policies; List<String>? get modTool; String? get cursor; Map<String, dynamic>? get $unknown;
+ List<String>? get policies; List<String>? get modTool;/// If specified, only events where the age assurance state matches the given value are returned
+ String? get ageAssuranceState; String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModerationQueryEventsInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -36,16 +37,16 @@ $ModerationQueryEventsInputCopyWith<ModerationQueryEventsInput> get copyWith => 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationQueryEventsInput&&const DeepCollectionEquality().equals(other.types, types)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.sortDirection, sortDirection) || other.sortDirection == sortDirection)&&(identical(other.createdAfter, createdAfter) || other.createdAfter == createdAfter)&&(identical(other.createdBefore, createdBefore) || other.createdBefore == createdBefore)&&(identical(other.subject, subject) || other.subject == subject)&&const DeepCollectionEquality().equals(other.collections, collections)&&(identical(other.subjectType, subjectType) || other.subjectType == subjectType)&&(identical(other.includeAllUserRecords, includeAllUserRecords) || other.includeAllUserRecords == includeAllUserRecords)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.hasComment, hasComment) || other.hasComment == hasComment)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other.addedLabels, addedLabels)&&const DeepCollectionEquality().equals(other.removedLabels, removedLabels)&&const DeepCollectionEquality().equals(other.addedTags, addedTags)&&const DeepCollectionEquality().equals(other.removedTags, removedTags)&&const DeepCollectionEquality().equals(other.reportTypes, reportTypes)&&const DeepCollectionEquality().equals(other.policies, policies)&&const DeepCollectionEquality().equals(other.modTool, modTool)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationQueryEventsInput&&const DeepCollectionEquality().equals(other.types, types)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.sortDirection, sortDirection) || other.sortDirection == sortDirection)&&(identical(other.createdAfter, createdAfter) || other.createdAfter == createdAfter)&&(identical(other.createdBefore, createdBefore) || other.createdBefore == createdBefore)&&(identical(other.subject, subject) || other.subject == subject)&&const DeepCollectionEquality().equals(other.collections, collections)&&(identical(other.subjectType, subjectType) || other.subjectType == subjectType)&&(identical(other.includeAllUserRecords, includeAllUserRecords) || other.includeAllUserRecords == includeAllUserRecords)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.hasComment, hasComment) || other.hasComment == hasComment)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other.addedLabels, addedLabels)&&const DeepCollectionEquality().equals(other.removedLabels, removedLabels)&&const DeepCollectionEquality().equals(other.addedTags, addedTags)&&const DeepCollectionEquality().equals(other.removedTags, removedTags)&&const DeepCollectionEquality().equals(other.reportTypes, reportTypes)&&const DeepCollectionEquality().equals(other.policies, policies)&&const DeepCollectionEquality().equals(other.modTool, modTool)&&(identical(other.ageAssuranceState, ageAssuranceState) || other.ageAssuranceState == ageAssuranceState)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,const DeepCollectionEquality().hash(types),createdBy,sortDirection,createdAfter,createdBefore,subject,const DeepCollectionEquality().hash(collections),subjectType,includeAllUserRecords,limit,hasComment,comment,const DeepCollectionEquality().hash(addedLabels),const DeepCollectionEquality().hash(removedLabels),const DeepCollectionEquality().hash(addedTags),const DeepCollectionEquality().hash(removedTags),const DeepCollectionEquality().hash(reportTypes),const DeepCollectionEquality().hash(policies),const DeepCollectionEquality().hash(modTool),cursor,const DeepCollectionEquality().hash($unknown)]);
+int get hashCode => Object.hashAll([runtimeType,const DeepCollectionEquality().hash(types),createdBy,sortDirection,createdAfter,createdBefore,subject,const DeepCollectionEquality().hash(collections),subjectType,includeAllUserRecords,limit,hasComment,comment,const DeepCollectionEquality().hash(addedLabels),const DeepCollectionEquality().hash(removedLabels),const DeepCollectionEquality().hash(addedTags),const DeepCollectionEquality().hash(removedTags),const DeepCollectionEquality().hash(reportTypes),const DeepCollectionEquality().hash(policies),const DeepCollectionEquality().hash(modTool),ageAssuranceState,cursor,const DeepCollectionEquality().hash($unknown)]);
 
 @override
 String toString() {
-  return 'ModerationQueryEventsInput(types: $types, createdBy: $createdBy, sortDirection: $sortDirection, createdAfter: $createdAfter, createdBefore: $createdBefore, subject: $subject, collections: $collections, subjectType: $subjectType, includeAllUserRecords: $includeAllUserRecords, limit: $limit, hasComment: $hasComment, comment: $comment, addedLabels: $addedLabels, removedLabels: $removedLabels, addedTags: $addedTags, removedTags: $removedTags, reportTypes: $reportTypes, policies: $policies, modTool: $modTool, cursor: $cursor, \$unknown: ${$unknown})';
+  return 'ModerationQueryEventsInput(types: $types, createdBy: $createdBy, sortDirection: $sortDirection, createdAfter: $createdAfter, createdBefore: $createdBefore, subject: $subject, collections: $collections, subjectType: $subjectType, includeAllUserRecords: $includeAllUserRecords, limit: $limit, hasComment: $hasComment, comment: $comment, addedLabels: $addedLabels, removedLabels: $removedLabels, addedTags: $addedTags, removedTags: $removedTags, reportTypes: $reportTypes, policies: $policies, modTool: $modTool, ageAssuranceState: $ageAssuranceState, cursor: $cursor, \$unknown: ${$unknown})';
 }
 
 
@@ -56,7 +57,7 @@ abstract mixin class $ModerationQueryEventsInputCopyWith<$Res>  {
   factory $ModerationQueryEventsInputCopyWith(ModerationQueryEventsInput value, $Res Function(ModerationQueryEventsInput) _then) = _$ModerationQueryEventsInputCopyWithImpl;
 @useResult
 $Res call({
- List<String>? types, String? createdBy, String? sortDirection, DateTime? createdAfter, DateTime? createdBefore,@AtUriConverter() AtUri? subject, List<String>? collections, String? subjectType, bool? includeAllUserRecords, int? limit, bool? hasComment, String? comment, List<String>? addedLabels, List<String>? removedLabels, List<String>? addedTags, List<String>? removedTags, List<String>? reportTypes, List<String>? policies, List<String>? modTool, String? cursor, Map<String, dynamic>? $unknown
+ List<String>? types, String? createdBy, String? sortDirection, DateTime? createdAfter, DateTime? createdBefore,@AtUriConverter() AtUri? subject, List<String>? collections, String? subjectType, bool? includeAllUserRecords, int? limit, bool? hasComment, String? comment, List<String>? addedLabels, List<String>? removedLabels, List<String>? addedTags, List<String>? removedTags, List<String>? reportTypes, List<String>? policies, List<String>? modTool, String? ageAssuranceState, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -73,7 +74,7 @@ class _$ModerationQueryEventsInputCopyWithImpl<$Res>
 
 /// Create a copy of ModerationQueryEventsInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? types = freezed,Object? createdBy = freezed,Object? sortDirection = freezed,Object? createdAfter = freezed,Object? createdBefore = freezed,Object? subject = freezed,Object? collections = freezed,Object? subjectType = freezed,Object? includeAllUserRecords = freezed,Object? limit = freezed,Object? hasComment = freezed,Object? comment = freezed,Object? addedLabels = freezed,Object? removedLabels = freezed,Object? addedTags = freezed,Object? removedTags = freezed,Object? reportTypes = freezed,Object? policies = freezed,Object? modTool = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? types = freezed,Object? createdBy = freezed,Object? sortDirection = freezed,Object? createdAfter = freezed,Object? createdBefore = freezed,Object? subject = freezed,Object? collections = freezed,Object? subjectType = freezed,Object? includeAllUserRecords = freezed,Object? limit = freezed,Object? hasComment = freezed,Object? comment = freezed,Object? addedLabels = freezed,Object? removedLabels = freezed,Object? addedTags = freezed,Object? removedTags = freezed,Object? reportTypes = freezed,Object? policies = freezed,Object? modTool = freezed,Object? ageAssuranceState = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 types: freezed == types ? _self.types : types // ignore: cast_nullable_to_non_nullable
 as List<String>?,createdBy: freezed == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
@@ -94,7 +95,8 @@ as List<String>?,removedTags: freezed == removedTags ? _self.removedTags : remov
 as List<String>?,reportTypes: freezed == reportTypes ? _self.reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
 as List<String>?,policies: freezed == policies ? _self.policies : policies // ignore: cast_nullable_to_non_nullable
 as List<String>?,modTool: freezed == modTool ? _self.modTool : modTool // ignore: cast_nullable_to_non_nullable
-as List<String>?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as List<String>?,ageAssuranceState: freezed == ageAssuranceState ? _self.ageAssuranceState : ageAssuranceState // ignore: cast_nullable_to_non_nullable
+as String?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -181,10 +183,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String>? types,  String? createdBy,  String? sortDirection,  DateTime? createdAfter,  DateTime? createdBefore, @AtUriConverter()  AtUri? subject,  List<String>? collections,  String? subjectType,  bool? includeAllUserRecords,  int? limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String>? types,  String? createdBy,  String? sortDirection,  DateTime? createdAfter,  DateTime? createdBefore, @AtUriConverter()  AtUri? subject,  List<String>? collections,  String? subjectType,  bool? includeAllUserRecords,  int? limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool,  String? ageAssuranceState,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModerationQueryEventsInput() when $default != null:
-return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAfter,_that.createdBefore,_that.subject,_that.collections,_that.subjectType,_that.includeAllUserRecords,_that.limit,_that.hasComment,_that.comment,_that.addedLabels,_that.removedLabels,_that.addedTags,_that.removedTags,_that.reportTypes,_that.policies,_that.modTool,_that.cursor,_that.$unknown);case _:
+return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAfter,_that.createdBefore,_that.subject,_that.collections,_that.subjectType,_that.includeAllUserRecords,_that.limit,_that.hasComment,_that.comment,_that.addedLabels,_that.removedLabels,_that.addedTags,_that.removedTags,_that.reportTypes,_that.policies,_that.modTool,_that.ageAssuranceState,_that.cursor,_that.$unknown);case _:
   return orElse();
 
 }
@@ -202,10 +204,10 @@ return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAft
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String>? types,  String? createdBy,  String? sortDirection,  DateTime? createdAfter,  DateTime? createdBefore, @AtUriConverter()  AtUri? subject,  List<String>? collections,  String? subjectType,  bool? includeAllUserRecords,  int? limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String>? types,  String? createdBy,  String? sortDirection,  DateTime? createdAfter,  DateTime? createdBefore, @AtUriConverter()  AtUri? subject,  List<String>? collections,  String? subjectType,  bool? includeAllUserRecords,  int? limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool,  String? ageAssuranceState,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModerationQueryEventsInput():
-return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAfter,_that.createdBefore,_that.subject,_that.collections,_that.subjectType,_that.includeAllUserRecords,_that.limit,_that.hasComment,_that.comment,_that.addedLabels,_that.removedLabels,_that.addedTags,_that.removedTags,_that.reportTypes,_that.policies,_that.modTool,_that.cursor,_that.$unknown);case _:
+return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAfter,_that.createdBefore,_that.subject,_that.collections,_that.subjectType,_that.includeAllUserRecords,_that.limit,_that.hasComment,_that.comment,_that.addedLabels,_that.removedLabels,_that.addedTags,_that.removedTags,_that.reportTypes,_that.policies,_that.modTool,_that.ageAssuranceState,_that.cursor,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -222,10 +224,10 @@ return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAft
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String>? types,  String? createdBy,  String? sortDirection,  DateTime? createdAfter,  DateTime? createdBefore, @AtUriConverter()  AtUri? subject,  List<String>? collections,  String? subjectType,  bool? includeAllUserRecords,  int? limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String>? types,  String? createdBy,  String? sortDirection,  DateTime? createdAfter,  DateTime? createdBefore, @AtUriConverter()  AtUri? subject,  List<String>? collections,  String? subjectType,  bool? includeAllUserRecords,  int? limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool,  String? ageAssuranceState,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModerationQueryEventsInput() when $default != null:
-return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAfter,_that.createdBefore,_that.subject,_that.collections,_that.subjectType,_that.includeAllUserRecords,_that.limit,_that.hasComment,_that.comment,_that.addedLabels,_that.removedLabels,_that.addedTags,_that.removedTags,_that.reportTypes,_that.policies,_that.modTool,_that.cursor,_that.$unknown);case _:
+return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAfter,_that.createdBefore,_that.subject,_that.collections,_that.subjectType,_that.includeAllUserRecords,_that.limit,_that.hasComment,_that.comment,_that.addedLabels,_that.removedLabels,_that.addedTags,_that.removedTags,_that.reportTypes,_that.policies,_that.modTool,_that.ageAssuranceState,_that.cursor,_that.$unknown);case _:
   return null;
 
 }
@@ -237,7 +239,7 @@ return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAft
 @JsonSerializable()
 
 class _ModerationQueryEventsInput implements ModerationQueryEventsInput {
-  const _ModerationQueryEventsInput({final  List<String>? types, this.createdBy, this.sortDirection, this.createdAfter, this.createdBefore, @AtUriConverter() this.subject, final  List<String>? collections, this.subjectType, this.includeAllUserRecords, this.limit, this.hasComment, this.comment, final  List<String>? addedLabels, final  List<String>? removedLabels, final  List<String>? addedTags, final  List<String>? removedTags, final  List<String>? reportTypes, final  List<String>? policies, final  List<String>? modTool, this.cursor, final  Map<String, dynamic>? $unknown}): _types = types,_collections = collections,_addedLabels = addedLabels,_removedLabels = removedLabels,_addedTags = addedTags,_removedTags = removedTags,_reportTypes = reportTypes,_policies = policies,_modTool = modTool,_$unknown = $unknown;
+  const _ModerationQueryEventsInput({final  List<String>? types, this.createdBy, this.sortDirection, this.createdAfter, this.createdBefore, @AtUriConverter() this.subject, final  List<String>? collections, this.subjectType, this.includeAllUserRecords, this.limit, this.hasComment, this.comment, final  List<String>? addedLabels, final  List<String>? removedLabels, final  List<String>? addedTags, final  List<String>? removedTags, final  List<String>? reportTypes, final  List<String>? policies, final  List<String>? modTool, this.ageAssuranceState, this.cursor, final  Map<String, dynamic>? $unknown}): _types = types,_collections = collections,_addedLabels = addedLabels,_removedLabels = removedLabels,_addedTags = addedTags,_removedTags = removedTags,_reportTypes = reportTypes,_policies = policies,_modTool = modTool,_$unknown = $unknown;
   factory _ModerationQueryEventsInput.fromJson(Map<String, dynamic> json) => _$ModerationQueryEventsInputFromJson(json);
 
  final  List<String>? _types;
@@ -340,6 +342,8 @@ class _ModerationQueryEventsInput implements ModerationQueryEventsInput {
   return EqualUnmodifiableListView(value);
 }
 
+/// If specified, only events where the age assurance state matches the given value are returned
+@override final  String? ageAssuranceState;
 @override final  String? cursor;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -364,16 +368,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModerationQueryEventsInput&&const DeepCollectionEquality().equals(other._types, _types)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.sortDirection, sortDirection) || other.sortDirection == sortDirection)&&(identical(other.createdAfter, createdAfter) || other.createdAfter == createdAfter)&&(identical(other.createdBefore, createdBefore) || other.createdBefore == createdBefore)&&(identical(other.subject, subject) || other.subject == subject)&&const DeepCollectionEquality().equals(other._collections, _collections)&&(identical(other.subjectType, subjectType) || other.subjectType == subjectType)&&(identical(other.includeAllUserRecords, includeAllUserRecords) || other.includeAllUserRecords == includeAllUserRecords)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.hasComment, hasComment) || other.hasComment == hasComment)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other._addedLabels, _addedLabels)&&const DeepCollectionEquality().equals(other._removedLabels, _removedLabels)&&const DeepCollectionEquality().equals(other._addedTags, _addedTags)&&const DeepCollectionEquality().equals(other._removedTags, _removedTags)&&const DeepCollectionEquality().equals(other._reportTypes, _reportTypes)&&const DeepCollectionEquality().equals(other._policies, _policies)&&const DeepCollectionEquality().equals(other._modTool, _modTool)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModerationQueryEventsInput&&const DeepCollectionEquality().equals(other._types, _types)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.sortDirection, sortDirection) || other.sortDirection == sortDirection)&&(identical(other.createdAfter, createdAfter) || other.createdAfter == createdAfter)&&(identical(other.createdBefore, createdBefore) || other.createdBefore == createdBefore)&&(identical(other.subject, subject) || other.subject == subject)&&const DeepCollectionEquality().equals(other._collections, _collections)&&(identical(other.subjectType, subjectType) || other.subjectType == subjectType)&&(identical(other.includeAllUserRecords, includeAllUserRecords) || other.includeAllUserRecords == includeAllUserRecords)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.hasComment, hasComment) || other.hasComment == hasComment)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other._addedLabels, _addedLabels)&&const DeepCollectionEquality().equals(other._removedLabels, _removedLabels)&&const DeepCollectionEquality().equals(other._addedTags, _addedTags)&&const DeepCollectionEquality().equals(other._removedTags, _removedTags)&&const DeepCollectionEquality().equals(other._reportTypes, _reportTypes)&&const DeepCollectionEquality().equals(other._policies, _policies)&&const DeepCollectionEquality().equals(other._modTool, _modTool)&&(identical(other.ageAssuranceState, ageAssuranceState) || other.ageAssuranceState == ageAssuranceState)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,const DeepCollectionEquality().hash(_types),createdBy,sortDirection,createdAfter,createdBefore,subject,const DeepCollectionEquality().hash(_collections),subjectType,includeAllUserRecords,limit,hasComment,comment,const DeepCollectionEquality().hash(_addedLabels),const DeepCollectionEquality().hash(_removedLabels),const DeepCollectionEquality().hash(_addedTags),const DeepCollectionEquality().hash(_removedTags),const DeepCollectionEquality().hash(_reportTypes),const DeepCollectionEquality().hash(_policies),const DeepCollectionEquality().hash(_modTool),cursor,const DeepCollectionEquality().hash(_$unknown)]);
+int get hashCode => Object.hashAll([runtimeType,const DeepCollectionEquality().hash(_types),createdBy,sortDirection,createdAfter,createdBefore,subject,const DeepCollectionEquality().hash(_collections),subjectType,includeAllUserRecords,limit,hasComment,comment,const DeepCollectionEquality().hash(_addedLabels),const DeepCollectionEquality().hash(_removedLabels),const DeepCollectionEquality().hash(_addedTags),const DeepCollectionEquality().hash(_removedTags),const DeepCollectionEquality().hash(_reportTypes),const DeepCollectionEquality().hash(_policies),const DeepCollectionEquality().hash(_modTool),ageAssuranceState,cursor,const DeepCollectionEquality().hash(_$unknown)]);
 
 @override
 String toString() {
-  return 'ModerationQueryEventsInput(types: $types, createdBy: $createdBy, sortDirection: $sortDirection, createdAfter: $createdAfter, createdBefore: $createdBefore, subject: $subject, collections: $collections, subjectType: $subjectType, includeAllUserRecords: $includeAllUserRecords, limit: $limit, hasComment: $hasComment, comment: $comment, addedLabels: $addedLabels, removedLabels: $removedLabels, addedTags: $addedTags, removedTags: $removedTags, reportTypes: $reportTypes, policies: $policies, modTool: $modTool, cursor: $cursor, \$unknown: ${$unknown})';
+  return 'ModerationQueryEventsInput(types: $types, createdBy: $createdBy, sortDirection: $sortDirection, createdAfter: $createdAfter, createdBefore: $createdBefore, subject: $subject, collections: $collections, subjectType: $subjectType, includeAllUserRecords: $includeAllUserRecords, limit: $limit, hasComment: $hasComment, comment: $comment, addedLabels: $addedLabels, removedLabels: $removedLabels, addedTags: $addedTags, removedTags: $removedTags, reportTypes: $reportTypes, policies: $policies, modTool: $modTool, ageAssuranceState: $ageAssuranceState, cursor: $cursor, \$unknown: ${$unknown})';
 }
 
 
@@ -384,7 +388,7 @@ abstract mixin class _$ModerationQueryEventsInputCopyWith<$Res> implements $Mode
   factory _$ModerationQueryEventsInputCopyWith(_ModerationQueryEventsInput value, $Res Function(_ModerationQueryEventsInput) _then) = __$ModerationQueryEventsInputCopyWithImpl;
 @override @useResult
 $Res call({
- List<String>? types, String? createdBy, String? sortDirection, DateTime? createdAfter, DateTime? createdBefore,@AtUriConverter() AtUri? subject, List<String>? collections, String? subjectType, bool? includeAllUserRecords, int? limit, bool? hasComment, String? comment, List<String>? addedLabels, List<String>? removedLabels, List<String>? addedTags, List<String>? removedTags, List<String>? reportTypes, List<String>? policies, List<String>? modTool, String? cursor, Map<String, dynamic>? $unknown
+ List<String>? types, String? createdBy, String? sortDirection, DateTime? createdAfter, DateTime? createdBefore,@AtUriConverter() AtUri? subject, List<String>? collections, String? subjectType, bool? includeAllUserRecords, int? limit, bool? hasComment, String? comment, List<String>? addedLabels, List<String>? removedLabels, List<String>? addedTags, List<String>? removedTags, List<String>? reportTypes, List<String>? policies, List<String>? modTool, String? ageAssuranceState, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -401,7 +405,7 @@ class __$ModerationQueryEventsInputCopyWithImpl<$Res>
 
 /// Create a copy of ModerationQueryEventsInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? types = freezed,Object? createdBy = freezed,Object? sortDirection = freezed,Object? createdAfter = freezed,Object? createdBefore = freezed,Object? subject = freezed,Object? collections = freezed,Object? subjectType = freezed,Object? includeAllUserRecords = freezed,Object? limit = freezed,Object? hasComment = freezed,Object? comment = freezed,Object? addedLabels = freezed,Object? removedLabels = freezed,Object? addedTags = freezed,Object? removedTags = freezed,Object? reportTypes = freezed,Object? policies = freezed,Object? modTool = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? types = freezed,Object? createdBy = freezed,Object? sortDirection = freezed,Object? createdAfter = freezed,Object? createdBefore = freezed,Object? subject = freezed,Object? collections = freezed,Object? subjectType = freezed,Object? includeAllUserRecords = freezed,Object? limit = freezed,Object? hasComment = freezed,Object? comment = freezed,Object? addedLabels = freezed,Object? removedLabels = freezed,Object? addedTags = freezed,Object? removedTags = freezed,Object? reportTypes = freezed,Object? policies = freezed,Object? modTool = freezed,Object? ageAssuranceState = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_ModerationQueryEventsInput(
 types: freezed == types ? _self._types : types // ignore: cast_nullable_to_non_nullable
 as List<String>?,createdBy: freezed == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
@@ -422,7 +426,8 @@ as List<String>?,removedTags: freezed == removedTags ? _self._removedTags : remo
 as List<String>?,reportTypes: freezed == reportTypes ? _self._reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
 as List<String>?,policies: freezed == policies ? _self._policies : policies // ignore: cast_nullable_to_non_nullable
 as List<String>?,modTool: freezed == modTool ? _self._modTool : modTool // ignore: cast_nullable_to_non_nullable
-as List<String>?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as List<String>?,ageAssuranceState: freezed == ageAssuranceState ? _self.ageAssuranceState : ageAssuranceState // ignore: cast_nullable_to_non_nullable
+as String?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

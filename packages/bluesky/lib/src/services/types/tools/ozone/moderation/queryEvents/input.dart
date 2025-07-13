@@ -40,6 +40,7 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
     'reportTypes',
     'policies',
     'modTool',
+    'ageAssuranceState',
     'cursor',
   ];
 
@@ -79,6 +80,9 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
     /// If specified, only events where the action policies match any of the given policies are returned
     List<String>? policies,
     List<String>? modTool,
+
+    /// If specified, only events where the age assurance state matches the given value are returned
+    String? ageAssuranceState,
     String? cursor,
 
     Map<String, dynamic>? $unknown,

@@ -21,3 +21,5 @@ export 'package:bluesky/src/services/types/app/bsky/unspecced/defs/thread_item_p
 export 'package:bluesky/src/services/types/app/bsky/unspecced/defs/thread_item_no_unauthenticated.dart';
 export 'package:bluesky/src/services/types/app/bsky/unspecced/defs/thread_item_not_found.dart';
 export 'package:bluesky/src/services/types/app/bsky/unspecced/defs/thread_item_blocked.dart';
+export 'package:bluesky/src/services/types/app/bsky/unspecced/defs/age_assurance_state.dart';
+export 'package:bluesky/src/services/types/app/bsky/unspecced/defs/age_assurance_event.dart';

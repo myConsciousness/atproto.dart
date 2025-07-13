@@ -50,6 +50,8 @@ abstract class SubjectStatusView with _$SubjectStatusView {
     'tags',
     'accountStats',
     'recordsStats',
+    'ageAssuranceState',
+    'ageAssuranceUpdatedBy',
   ];
 
   const factory SubjectStatusView({
@@ -93,6 +95,12 @@ abstract class SubjectStatusView with _$SubjectStatusView {
 
     /// Statistics related to the record subjects authored by the subject's account
     @RecordsStatsConverter() RecordsStats? recordsStats,
+
+    /// Current age assurance state of the subject.
+    String? ageAssuranceState,
+
+    /// Whether or not the last successful update to age assurance was made by the user or admin.
+    String? ageAssuranceUpdatedBy,
 
     Map<String, dynamic>? $unknown,
   }) = _SubjectStatusView;

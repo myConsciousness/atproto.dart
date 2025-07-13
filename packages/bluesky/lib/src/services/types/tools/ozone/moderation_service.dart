@@ -85,6 +85,7 @@ final class ModerationService {
     int? minReportedRecordsCount,
     int? minTakendownRecordsCount,
     int? minPriorityScore,
+    String? ageAssuranceState,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.get(
@@ -137,6 +138,7 @@ final class ModerationService {
       if (minTakendownRecordsCount != null)
         'minTakendownRecordsCount': minTakendownRecordsCount,
       if (minPriorityScore != null) 'minPriorityScore': minPriorityScore,
+      if (ageAssuranceState != null) 'ageAssuranceState': ageAssuranceState,
       ...?$unknown,
     },
     to: const ModerationQueryStatusesOutputConverter().fromJson,
@@ -211,6 +213,7 @@ final class ModerationService {
     List<String>? reportTypes,
     List<String>? policies,
     List<String>? modTool,
+    String? ageAssuranceState,
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -240,6 +243,7 @@ final class ModerationService {
       if (reportTypes != null) 'reportTypes': reportTypes,
       if (policies != null) 'policies': policies,
       if (modTool != null) 'modTool': modTool,
+      if (ageAssuranceState != null) 'ageAssuranceState': ageAssuranceState,
       if (cursor != null) 'cursor': cursor,
       ...?$unknown,
     },

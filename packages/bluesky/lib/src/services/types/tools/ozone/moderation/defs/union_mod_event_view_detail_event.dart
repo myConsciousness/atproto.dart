@@ -12,6 +12,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import './account_event.dart';
+import './age_assurance_event.dart';
+import './age_assurance_override_event.dart';
 import './identity_event.dart';
 import './mod_event_acknowledge.dart';
 import './mod_event_comment.dart';
@@ -98,6 +100,12 @@ abstract class UModEventViewDetailEvent with _$UModEventViewDetailEvent {
   const factory UModEventViewDetailEvent.modEventPriorityScore({
     required ModEventPriorityScore data,
   }) = UModEventViewDetailEventModEventPriorityScore;
+  const factory UModEventViewDetailEvent.ageAssuranceEvent({
+    required AgeAssuranceEvent data,
+  }) = UModEventViewDetailEventAgeAssuranceEvent;
+  const factory UModEventViewDetailEvent.ageAssuranceOverrideEvent({
+    required AgeAssuranceOverrideEvent data,
+  }) = UModEventViewDetailEventAgeAssuranceOverrideEvent;
 
   const factory UModEventViewDetailEvent.unknown({
     required Map<String, dynamic> data,
@@ -209,6 +217,16 @@ final class UModEventViewDetailEventConverter
           data: const ModEventPriorityScoreConverter().fromJson(json),
         );
       }
+      if (AgeAssuranceEvent.validate(json)) {
+        return UModEventViewDetailEvent.ageAssuranceEvent(
+          data: const AgeAssuranceEventConverter().fromJson(json),
+        );
+      }
+      if (AgeAssuranceOverrideEvent.validate(json)) {
+        return UModEventViewDetailEvent.ageAssuranceOverrideEvent(
+          data: const AgeAssuranceOverrideEventConverter().fromJson(json),
+        );
+      }
 
       return UModEventViewDetailEvent.unknown(data: json);
     } catch (_) {
@@ -243,6 +261,10 @@ final class UModEventViewDetailEventConverter
     recordEvent: (data) => const RecordEventConverter().toJson(data),
     modEventPriorityScore: (data) =>
         const ModEventPriorityScoreConverter().toJson(data),
+    ageAssuranceEvent: (data) =>
+        const AgeAssuranceEventConverter().toJson(data),
+    ageAssuranceOverrideEvent: (data) =>
+        const AgeAssuranceOverrideEventConverter().toJson(data),
 
     unknown: (data) => data,
   );

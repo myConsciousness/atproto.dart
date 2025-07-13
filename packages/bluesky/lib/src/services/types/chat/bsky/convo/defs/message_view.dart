@@ -12,17 +12,10 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-<<<<<<< HEAD
 import 'package:bluesky/app_bsky_richtext_facet.dart';
 import './message_view_sender.dart';
 import './reaction_view.dart';
 import './union_message_view_embed.dart';
-=======
-import '../../../../../entities/facet.dart';
-import 'message_view_sender.dart';
-import 'reaction_view.dart';
-import 'union/message_embed_view.dart';
->>>>>>> main
 
 part 'message_view.freezed.dart';
 part 'message_view.g.dart';
@@ -49,17 +42,10 @@ abstract class MessageView with _$MessageView {
     required String id,
     required String rev,
     required String text,
-<<<<<<< HEAD
     @RichtextFacetConverter() List<RichtextFacet>? facets,
     @UMessageViewEmbedConverter() UMessageViewEmbed? embed,
     @ReactionViewConverter() List<ReactionView>? reactions,
     @MessageViewSenderConverter() required MessageViewSender sender,
-=======
-    List<Facet>? facets,
-    @unionConvoMessageEmbedViewConverter UConvoMessageEmbedView? embed,
-    List<ReactionView>? reactions,
-    required MessageViewSender sender,
->>>>>>> main
     required DateTime sentAt,
 
     Map<String, dynamic>? $unknown,

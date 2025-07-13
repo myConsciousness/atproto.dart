@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,223 +9,283 @@ part of 'actor_verification.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ActorVerification _$ActorVerificationFromJson(Map<String, dynamic> json) {
-  return _ActorVerification.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ActorVerification {
-  List<VerificationView>? get verifications =>
-      throw _privateConstructorUsedError;
-  VerificationStatus? get verifiedStatus => throw _privateConstructorUsedError;
-  VerificationStatus? get trustedVerifierStatus =>
-      throw _privateConstructorUsedError;
+
+ List<VerificationView>? get verifications; VerificationStatus? get verifiedStatus; VerificationStatus? get trustedVerifierStatus;
+/// Create a copy of ActorVerification
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ActorVerificationCopyWith<ActorVerification> get copyWith => _$ActorVerificationCopyWithImpl<ActorVerification>(this as ActorVerification, _$identity);
 
   /// Serializes this ActorVerification to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of ActorVerification
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ActorVerificationCopyWith<ActorVerification> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActorVerification&&const DeepCollectionEquality().equals(other.verifications, verifications)&&(identical(other.verifiedStatus, verifiedStatus) || other.verifiedStatus == verifiedStatus)&&(identical(other.trustedVerifierStatus, trustedVerifierStatus) || other.trustedVerifierStatus == trustedVerifierStatus));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(verifications),verifiedStatus,trustedVerifierStatus);
+
+@override
+String toString() {
+  return 'ActorVerification(verifications: $verifications, verifiedStatus: $verifiedStatus, trustedVerifierStatus: $trustedVerifierStatus)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ActorVerificationCopyWith<$Res> {
-  factory $ActorVerificationCopyWith(
-          ActorVerification value, $Res Function(ActorVerification) then) =
-      _$ActorVerificationCopyWithImpl<$Res, ActorVerification>;
-  @useResult
-  $Res call(
-      {List<VerificationView>? verifications,
-      VerificationStatus? verifiedStatus,
-      VerificationStatus? trustedVerifierStatus});
-}
+abstract mixin class $ActorVerificationCopyWith<$Res>  {
+  factory $ActorVerificationCopyWith(ActorVerification value, $Res Function(ActorVerification) _then) = _$ActorVerificationCopyWithImpl;
+@useResult
+$Res call({
+ List<VerificationView>? verifications, VerificationStatus? verifiedStatus, VerificationStatus? trustedVerifierStatus
+});
 
+
+
+
+}
 /// @nodoc
-class _$ActorVerificationCopyWithImpl<$Res, $Val extends ActorVerification>
+class _$ActorVerificationCopyWithImpl<$Res>
     implements $ActorVerificationCopyWith<$Res> {
-  _$ActorVerificationCopyWithImpl(this._value, this._then);
+  _$ActorVerificationCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ActorVerification _self;
+  final $Res Function(ActorVerification) _then;
 
-  /// Create a copy of ActorVerification
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? verifications = freezed,
-    Object? verifiedStatus = freezed,
-    Object? trustedVerifierStatus = freezed,
-  }) {
-    return _then(_value.copyWith(
-      verifications: freezed == verifications
-          ? _value.verifications
-          : verifications // ignore: cast_nullable_to_non_nullable
-              as List<VerificationView>?,
-      verifiedStatus: freezed == verifiedStatus
-          ? _value.verifiedStatus
-          : verifiedStatus // ignore: cast_nullable_to_non_nullable
-              as VerificationStatus?,
-      trustedVerifierStatus: freezed == trustedVerifierStatus
-          ? _value.trustedVerifierStatus
-          : trustedVerifierStatus // ignore: cast_nullable_to_non_nullable
-              as VerificationStatus?,
-    ) as $Val);
-  }
+/// Create a copy of ActorVerification
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? verifications = freezed,Object? verifiedStatus = freezed,Object? trustedVerifierStatus = freezed,}) {
+  return _then(_self.copyWith(
+verifications: freezed == verifications ? _self.verifications : verifications // ignore: cast_nullable_to_non_nullable
+as List<VerificationView>?,verifiedStatus: freezed == verifiedStatus ? _self.verifiedStatus : verifiedStatus // ignore: cast_nullable_to_non_nullable
+as VerificationStatus?,trustedVerifierStatus: freezed == trustedVerifierStatus ? _self.trustedVerifierStatus : trustedVerifierStatus // ignore: cast_nullable_to_non_nullable
+as VerificationStatus?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ActorVerificationImplCopyWith<$Res>
-    implements $ActorVerificationCopyWith<$Res> {
-  factory _$$ActorVerificationImplCopyWith(_$ActorVerificationImpl value,
-          $Res Function(_$ActorVerificationImpl) then) =
-      __$$ActorVerificationImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {List<VerificationView>? verifications,
-      VerificationStatus? verifiedStatus,
-      VerificationStatus? trustedVerifierStatus});
 }
 
-/// @nodoc
-class __$$ActorVerificationImplCopyWithImpl<$Res>
-    extends _$ActorVerificationCopyWithImpl<$Res, _$ActorVerificationImpl>
-    implements _$$ActorVerificationImplCopyWith<$Res> {
-  __$$ActorVerificationImplCopyWithImpl(_$ActorVerificationImpl _value,
-      $Res Function(_$ActorVerificationImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of ActorVerification
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? verifications = freezed,
-    Object? verifiedStatus = freezed,
-    Object? trustedVerifierStatus = freezed,
-  }) {
-    return _then(_$ActorVerificationImpl(
-      verifications: freezed == verifications
-          ? _value._verifications
-          : verifications // ignore: cast_nullable_to_non_nullable
-              as List<VerificationView>?,
-      verifiedStatus: freezed == verifiedStatus
-          ? _value.verifiedStatus
-          : verifiedStatus // ignore: cast_nullable_to_non_nullable
-              as VerificationStatus?,
-      trustedVerifierStatus: freezed == trustedVerifierStatus
-          ? _value.trustedVerifierStatus
-          : trustedVerifierStatus // ignore: cast_nullable_to_non_nullable
-              as VerificationStatus?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [ActorVerification].
+extension ActorVerificationPatterns on ActorVerification {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ActorVerification value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ActorVerification() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ActorVerification value)  $default,){
+final _that = this;
+switch (_that) {
+case _ActorVerification():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ActorVerification value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ActorVerification() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<VerificationView>? verifications,  VerificationStatus? verifiedStatus,  VerificationStatus? trustedVerifierStatus)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ActorVerification() when $default != null:
+return $default(_that.verifications,_that.verifiedStatus,_that.trustedVerifierStatus);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<VerificationView>? verifications,  VerificationStatus? verifiedStatus,  VerificationStatus? trustedVerifierStatus)  $default,) {final _that = this;
+switch (_that) {
+case _ActorVerification():
+return $default(_that.verifications,_that.verifiedStatus,_that.trustedVerifierStatus);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<VerificationView>? verifications,  VerificationStatus? verifiedStatus,  VerificationStatus? trustedVerifierStatus)?  $default,) {final _that = this;
+switch (_that) {
+case _ActorVerification() when $default != null:
+return $default(_that.verifications,_that.verifiedStatus,_that.trustedVerifierStatus);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 
 @jsonSerializable
-class _$ActorVerificationImpl extends _ActorVerification {
-  const _$ActorVerificationImpl(
-      {final List<VerificationView>? verifications,
-      this.verifiedStatus,
-      this.trustedVerifierStatus})
-      : _verifications = verifications,
-        super._();
+class _ActorVerification extends ActorVerification {
+  const _ActorVerification({final  List<VerificationView>? verifications, this.verifiedStatus, this.trustedVerifierStatus}): _verifications = verifications,super._();
+  factory _ActorVerification.fromJson(Map<String, dynamic> json) => _$ActorVerificationFromJson(json);
 
-  factory _$ActorVerificationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActorVerificationImplFromJson(json);
-
-  final List<VerificationView>? _verifications;
-  @override
-  List<VerificationView>? get verifications {
-    final value = _verifications;
-    if (value == null) return null;
-    if (_verifications is EqualUnmodifiableListView) return _verifications;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  final VerificationStatus? verifiedStatus;
-  @override
-  final VerificationStatus? trustedVerifierStatus;
-
-  @override
-  String toString() {
-    return 'ActorVerification(verifications: $verifications, verifiedStatus: $verifiedStatus, trustedVerifierStatus: $trustedVerifierStatus)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ActorVerificationImpl &&
-            const DeepCollectionEquality()
-                .equals(other._verifications, _verifications) &&
-            (identical(other.verifiedStatus, verifiedStatus) ||
-                other.verifiedStatus == verifiedStatus) &&
-            (identical(other.trustedVerifierStatus, trustedVerifierStatus) ||
-                other.trustedVerifierStatus == trustedVerifierStatus));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_verifications),
-      verifiedStatus,
-      trustedVerifierStatus);
-
-  /// Create a copy of ActorVerification
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ActorVerificationImplCopyWith<_$ActorVerificationImpl> get copyWith =>
-      __$$ActorVerificationImplCopyWithImpl<_$ActorVerificationImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ActorVerificationImplToJson(
-      this,
-    );
-  }
+ final  List<VerificationView>? _verifications;
+@override List<VerificationView>? get verifications {
+  final value = _verifications;
+  if (value == null) return null;
+  if (_verifications is EqualUnmodifiableListView) return _verifications;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
 }
 
-abstract class _ActorVerification extends ActorVerification {
-  const factory _ActorVerification(
-          {final List<VerificationView>? verifications,
-          final VerificationStatus? verifiedStatus,
-          final VerificationStatus? trustedVerifierStatus}) =
-      _$ActorVerificationImpl;
-  const _ActorVerification._() : super._();
+@override final  VerificationStatus? verifiedStatus;
+@override final  VerificationStatus? trustedVerifierStatus;
 
-  factory _ActorVerification.fromJson(Map<String, dynamic> json) =
-      _$ActorVerificationImpl.fromJson;
+/// Create a copy of ActorVerification
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ActorVerificationCopyWith<_ActorVerification> get copyWith => __$ActorVerificationCopyWithImpl<_ActorVerification>(this, _$identity);
 
-  @override
-  List<VerificationView>? get verifications;
-  @override
-  VerificationStatus? get verifiedStatus;
-  @override
-  VerificationStatus? get trustedVerifierStatus;
-
-  /// Create a copy of ActorVerification
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ActorVerificationImplCopyWith<_$ActorVerificationImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$ActorVerificationToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActorVerification&&const DeepCollectionEquality().equals(other._verifications, _verifications)&&(identical(other.verifiedStatus, verifiedStatus) || other.verifiedStatus == verifiedStatus)&&(identical(other.trustedVerifierStatus, trustedVerifierStatus) || other.trustedVerifierStatus == trustedVerifierStatus));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_verifications),verifiedStatus,trustedVerifierStatus);
+
+@override
+String toString() {
+  return 'ActorVerification(verifications: $verifications, verifiedStatus: $verifiedStatus, trustedVerifierStatus: $trustedVerifierStatus)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ActorVerificationCopyWith<$Res> implements $ActorVerificationCopyWith<$Res> {
+  factory _$ActorVerificationCopyWith(_ActorVerification value, $Res Function(_ActorVerification) _then) = __$ActorVerificationCopyWithImpl;
+@override @useResult
+$Res call({
+ List<VerificationView>? verifications, VerificationStatus? verifiedStatus, VerificationStatus? trustedVerifierStatus
+});
+
+
+
+
+}
+/// @nodoc
+class __$ActorVerificationCopyWithImpl<$Res>
+    implements _$ActorVerificationCopyWith<$Res> {
+  __$ActorVerificationCopyWithImpl(this._self, this._then);
+
+  final _ActorVerification _self;
+  final $Res Function(_ActorVerification) _then;
+
+/// Create a copy of ActorVerification
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? verifications = freezed,Object? verifiedStatus = freezed,Object? trustedVerifierStatus = freezed,}) {
+  return _then(_ActorVerification(
+verifications: freezed == verifications ? _self._verifications : verifications // ignore: cast_nullable_to_non_nullable
+as List<VerificationView>?,verifiedStatus: freezed == verifiedStatus ? _self.verifiedStatus : verifiedStatus // ignore: cast_nullable_to_non_nullable
+as VerificationStatus?,trustedVerifierStatus: freezed == trustedVerifierStatus ? _self.trustedVerifierStatus : trustedVerifierStatus // ignore: cast_nullable_to_non_nullable
+as VerificationStatus?,
+  ));
+}
+
+
+}
+
+// dart format on

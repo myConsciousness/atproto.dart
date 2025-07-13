@@ -1039,6 +1039,14 @@ const toolsOzoneModerationDefsAccountHosting =
 const toolsOzoneModerationDefsAccountStats =
     'tools.ozone.moderation.defs#accountStats';
 
+/// `tools.ozone.moderation.defs#ageAssuranceEvent`
+const toolsOzoneModerationDefsAgeAssuranceEvent =
+    'tools.ozone.moderation.defs#ageAssuranceEvent';
+
+/// `tools.ozone.moderation.defs#ageAssuranceOverrideEvent`
+const toolsOzoneModerationDefsAgeAssuranceOverrideEvent =
+    'tools.ozone.moderation.defs#ageAssuranceOverrideEvent';
+
 /// `tools.ozone.moderation.defs#blobView`
 const toolsOzoneModerationDefsBlobView = 'tools.ozone.moderation.defs#blobView';
 

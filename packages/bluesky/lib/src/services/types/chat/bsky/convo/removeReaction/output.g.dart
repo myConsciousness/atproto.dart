@@ -8,7 +8,6 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-<<<<<<< HEAD
 _ConvoRemoveReactionOutput _$ConvoRemoveReactionOutputFromJson(Map json) =>
     $checkedCreate('_ConvoRemoveReactionOutput', json, ($checkedConvert) {
       final val = _ConvoRemoveReactionOutput(
@@ -31,23 +30,3 @@ Map<String, dynamic> _$ConvoRemoveReactionOutputToJson(
   'message': const MessageViewConverter().toJson(instance.message),
   r'$unknown': instance.$unknown,
 };
-=======
-_$RemoveReactionOutputImpl _$$RemoveReactionOutputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$RemoveReactionOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$RemoveReactionOutputImpl(
-          message: $checkedConvert('message',
-              (v) => MessageView.fromJson(Map<String, Object?>.from(v as Map))),
-        );
-        return val;
-      },
-    );
-
-Map<String, dynamic> _$$RemoveReactionOutputImplToJson(
-        _$RemoveReactionOutputImpl instance) =>
-    <String, dynamic>{
-      'message': instance.message.toJson(),
-    };
->>>>>>> main

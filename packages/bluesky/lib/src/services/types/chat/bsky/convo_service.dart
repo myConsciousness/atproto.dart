@@ -12,11 +12,7 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-<<<<<<< HEAD
 import '../../../service_context.dart' as z;
-=======
-import '../../../service_context.dart';
->>>>>>> main
 import 'convo/acceptConvo/output.dart';
 import 'convo/addReaction/output.dart';
 import 'convo/defs/deleted_message_view.dart';
@@ -89,7 +85,6 @@ final class ConvoService {
   );
   Future<XRPCResponse<ConvoGetLogOutput>> getLog({
     String? cursor,
-<<<<<<< HEAD
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.get(
@@ -110,100 +105,6 @@ final class ConvoService {
     to: const MessageViewConverter().fromJson,
   );
   Future<XRPCResponse<ConvoLeaveConvoOutput>> leaveConvo({
-=======
-  }) async =>
-      await _ctx.get(
-        ns.chatBskyConvoGetLog,
-        parameters: {
-          'cursor': cursor,
-        },
-        to: GetLogOutput.fromJson,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getMessages
-  Future<core.XRPCResponse<GetMessagesOutput>> getMessages({
-    required String convoId,
-    int? limit,
-    String? cursor,
-  }) async =>
-      await _ctx.get(
-        ns.chatBskyConvoGetMessages,
-        parameters: {
-          'convoId': convoId,
-          'limit': limit,
-          'cursor': cursor,
-        },
-        to: GetMessagesOutput.fromJson,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/leaveConvo
-  Future<core.XRPCResponse<LeaveConvoOutput>> leaveConvo({
-    required String convoId,
-  }) async =>
-      await _ctx.post(
-        ns.chatBskyConvoLeaveConvo,
-        body: {
-          'convoId': convoId,
-        },
-        to: LeaveConvoOutput.fromJson,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/listConvos
-  Future<core.XRPCResponse<ListConvosOutput>> listConvos({
-    int? limit,
-    String? cursor,
-    String? readState,
-    String? status,
-  }) async =>
-      await _ctx.get(
-        ns.chatBskyConvoListConvos,
-        parameters: {
-          'limit': limit,
-          'cursor': cursor,
-          'readState': readState,
-          'status': status,
-        },
-        to: ListConvosOutput.fromJson,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/muteConvo
-  Future<core.XRPCResponse<MuteConvoOutput>> muteConvo({
-    required String convoId,
-  }) async =>
-      await _ctx.post(
-        ns.chatBskyConvoMuteConvo,
-        body: {
-          'convoId': convoId,
-        },
-        to: MuteConvoOutput.fromJson,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessage
-  Future<core.XRPCResponse<MessageView>> sendMessage({
-    required String convoId,
-    required MessageInput message,
-  }) async =>
-      await _ctx.post(
-        ns.chatBskyConvoSendMessage,
-        body: {'convoId': convoId, 'message': message.toJson()},
-        to: MessageView.fromJson,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessageBatch
-  Future<core.XRPCResponse<SendMessageBatchOutput>> sendMessageBatch({
-    required List<BatchItem> items,
-  }) async =>
-      await _ctx.post(
-        ns.chatBskyConvoSendMessageBatch,
-        body: {
-          'items': items.map((e) => e.toJson()).toList(),
-        },
-        to: SendMessageBatchOutput.fromJson,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/unmuteConvo
-  Future<core.XRPCResponse<UnmuteConvoOutput>> unmuteConvo({
->>>>>>> main
     required String convoId,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -285,7 +186,6 @@ final class ConvoService {
   Future<XRPCResponse<ConvoUpdateReadOutput>> updateRead({
     required String convoId,
     String? messageId,
-<<<<<<< HEAD
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.post(
@@ -355,59 +255,4 @@ final class ConvoService {
     body: {'items': items.map((e) => e.toJson()).toList(), ...?$unknown},
     to: const ConvoSendMessageBatchOutputConverter().fromJson,
   );
-=======
-  }) async =>
-      await _ctx.post(
-        ns.chatBskyConvoUpdateRead,
-        body: {
-          'convoId': convoId,
-          'messageId': messageId,
-        },
-        to: UpdateReadOutput.fromJson,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/acceptconvo/
-  Future<core.XRPCResponse<AcceptConvoOutput>> acceptConvo({
-    required String convoId,
-  }) async =>
-      await _ctx.post(
-        ns.chatBskyConvoAcceptConvo,
-        body: {
-          'convoId': convoId,
-        },
-        to: AcceptConvoOutput.fromJson,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/addReaction
-  Future<core.XRPCResponse<AddReactionOutput>> addReaction({
-    required String convoId,
-    required String messageId,
-    required String reaction,
-  }) async =>
-      await _ctx.post(
-        ns.chatBskyConvoAddReaction,
-        body: {
-          'convoId': convoId,
-          'messageId': messageId,
-          'value': reaction,
-        },
-        to: AddReactionOutput.fromJson,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/deleteReaction
-  Future<core.XRPCResponse<RemoveReactionOutput>> removeReaction({
-    required String convoId,
-    required String messageId,
-    required String reaction,
-  }) async =>
-      await _ctx.post(
-        ns.chatBskyConvoRemoveReaction,
-        body: {
-          'convoId': convoId,
-          'messageId': messageId,
-          'value': reaction,
-        },
-        to: RemoveReactionOutput.fromJson,
-      );
->>>>>>> main
 }

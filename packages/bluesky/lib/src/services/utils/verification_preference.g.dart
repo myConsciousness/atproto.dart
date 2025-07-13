@@ -8,24 +8,21 @@ part of 'verification_preference.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$VerificationPreferenceImpl _$$VerificationPreferenceImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$VerificationPreferenceImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$VerificationPreferenceImpl(
-          type: $checkedConvert(r'$type',
-              (v) => v as String? ?? appBskyActorDefsVerificationPrefs),
-          hideBadges: $checkedConvert('hideBadges', (v) => v as bool? ?? false),
-        );
-        return val;
-      },
-      fieldKeyMap: const {'type': r'$type'},
-    );
+_VerificationPreference _$VerificationPreferenceFromJson(Map json) =>
+    $checkedCreate('_VerificationPreference', json, ($checkedConvert) {
+      final val = _VerificationPreference(
+        type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? appBskyActorDefsVerificationPrefs,
+        ),
+        hideBadges: $checkedConvert('hideBadges', (v) => v as bool? ?? false),
+      );
+      return val;
+    }, fieldKeyMap: const {'type': r'$type'});
 
-Map<String, dynamic> _$$VerificationPreferenceImplToJson(
-        _$VerificationPreferenceImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.type,
-      'hideBadges': instance.hideBadges,
-    };
+Map<String, dynamic> _$VerificationPreferenceToJson(
+  _VerificationPreference instance,
+) => <String, dynamic>{
+  r'$type': instance.type,
+  'hideBadges': instance.hideBadges,
+};
