@@ -16,6 +16,8 @@ final class LexOutput extends LexType {
 
   final String? ref;
 
+  final bool bytes;
+
   @override
   String? getRef() {
     return ref;
@@ -23,7 +25,12 @@ final class LexOutput extends LexType {
 
   @override
   bool isShouldNotBeGenerated() {
-    return getRef() != null;
+    return getRef() != null || isBytes();
+  }
+
+  @override
+  bool isBytes() {
+    return bytes;
   }
 
   @override
@@ -46,6 +53,7 @@ final class LexOutput extends LexType {
     required this.name,
     required this.properties,
     this.ref,
+    this.bytes = false,
   });
 
   @override
@@ -55,6 +63,7 @@ final class LexOutput extends LexType {
 
   @override
   String getTypeName() {
+    if (isBytes()) return 'Uint8List';
     return '${name}Output';
   }
 

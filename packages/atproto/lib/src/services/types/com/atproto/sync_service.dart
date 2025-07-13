@@ -1,3 +1,6 @@
+// Dart imports:
+import 'dart:typed_data';
+
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
 
@@ -35,7 +38,7 @@ final class SyncService {
       );
 
   /// Get a blob associated with a given account. Returns the full blob as originally uploaded. Does not require auth; implemented by PDS.
-  Future<XRPCResponse<EmptyData>> getBlob({
+  Future<XRPCResponse<Uint8List>> getBlob({
     required String did,
     required String cid,
     Map<String, String>? $headers,
@@ -52,7 +55,7 @@ final class SyncService {
       );
 
   /// Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.
-  Future<XRPCResponse<EmptyData>> getRepo({
+  Future<XRPCResponse<Uint8List>> getRepo({
     required String did,
     String? since,
     Map<String, String>? $headers,
@@ -149,7 +152,7 @@ final class SyncService {
       );
 
   /// Get data blocks needed to prove the existence or non-existence of record in the current version of repo. Does not require auth.
-  Future<XRPCResponse<EmptyData>> getRecord({
+  Future<XRPCResponse<Uint8List>> getRecord({
     required String did,
     required String collection,
     required String rkey,
@@ -220,7 +223,7 @@ final class SyncService {
       );
 
   /// Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.
-  Future<XRPCResponse<EmptyData>> getBlocks({
+  Future<XRPCResponse<Uint8List>> getBlocks({
     required String did,
     required List<String> cids,
     Map<String, String>? $headers,
@@ -257,7 +260,7 @@ final class SyncService {
       );
 
   /// DEPRECATED - please use com.atproto.sync.getRepo instead
-  Future<XRPCResponse<EmptyData>> getCheckout({
+  Future<XRPCResponse<Uint8List>> getCheckout({
     required String did,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,

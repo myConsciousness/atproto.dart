@@ -72,7 +72,8 @@ final class LexService {
         }
       }
 
-      if (api.returnType != null) {
+      if (api.returnType != null &&
+          !(api.returnType?.isShouldNotBeGenerated() ?? true)) {
         final lexiconId = api.returnType!.lexiconId;
         final fileDir = lexiconId.split('.').sublist(2).join('/');
         final fileName = api.returnType!.getFileName();
@@ -183,7 +184,7 @@ final class LexApi {
     }
     buffer.writeln('      ...?\$unknown,');
     buffer.writeln('    },');
-    if (this.returnType != null) {
+    if (this.returnType != null && !(this.returnType?.isBytes() ?? true)) {
       buffer.writeln('    to: const ${returnType}Converter().fromJson,');
     }
     buffer.writeln('  );');

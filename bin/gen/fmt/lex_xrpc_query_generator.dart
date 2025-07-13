@@ -63,13 +63,25 @@ final class _LexLexXrpcQueryGenerator {
   }
 
   LexOutput? _getOutput() {
-    final output = query.output?.schema?.whenOrNull(object: (e) => e);
-    if (output != null) {
+    final output = query.output;
+    if (output?.schema == null && output?.encoding != null) {
+      // Bytes
+      return LexOutput(
+        lexiconId: lexiconId.toString(),
+        defName: defName,
+        name: '',
+        properties: const [],
+        bytes: true,
+      );
+    }
+
+    final object = output?.schema?.whenOrNull(object: (e) => e);
+    if (object != null) {
       final properties = generateLexProperties(
         lexiconId,
         defName,
-        output.properties,
-        output.requiredProperties,
+        object.properties,
+        object.requiredProperties,
         mainVariants,
       );
       if (properties.isEmpty) return null;

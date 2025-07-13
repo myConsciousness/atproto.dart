@@ -1,3 +1,6 @@
+// Dart imports:
+import 'dart:typed_data';
+
 // Package imports:
 import 'package:atproto/com_atproto_repo_createrecord.dart';
 import 'package:atproto_core/atproto_core.dart';
@@ -27,7 +30,7 @@ final class ActorService {
           ...?$unknown,
         },
       );
-  Future<XRPCResponse<EmptyData>> exportAccountData({
+  Future<XRPCResponse<Uint8List>> exportAccountData({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
