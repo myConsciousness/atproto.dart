@@ -21,6 +21,7 @@ part 'relationship.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// lists the bi-directional graph relationships between one actor (not indicated in the object), and the target actors (the DID included in the object)
 @freezed
 abstract class Relationship with _$Relationship {
   static const knownProps = <String>[

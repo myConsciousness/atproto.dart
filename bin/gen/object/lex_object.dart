@@ -13,12 +13,8 @@ final class LexObject extends LexType {
   final String defName;
 
   final String name;
+  final String? description;
   final List<LexProperty> properties;
-
-  @override
-  List<LexProperty> getProperties() {
-    return properties;
-  }
 
   @override
   List<LexType> get nested => properties
@@ -33,8 +29,18 @@ final class LexObject extends LexType {
     required this.lexiconId,
     required this.defName,
     required this.name,
+    this.description,
     required this.properties,
   });
+
+  String getDescription() {
+    return description != null ? '/// $description' : '';
+  }
+
+  @override
+  List<LexProperty> getProperties() {
+    return properties;
+  }
 
   @override
   String getTypeName() {
@@ -83,6 +89,7 @@ part '$fileName.g.dart';
 
 $kHeader
 
+${getDescription()}
 @freezed
 abstract class $name with _\$$name {
   $knownProps

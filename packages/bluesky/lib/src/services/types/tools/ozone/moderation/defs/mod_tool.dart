@@ -21,6 +21,7 @@ part 'mod_tool.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Moderation tool information for tracing the source of the action
 @freezed
 abstract class ModTool with _$ModTool {
   static const knownProps = <String>[

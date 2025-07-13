@@ -21,6 +21,7 @@ part 'thread_context.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Metadata about this post within the context of the thread it is in.
 @freezed
 abstract class ThreadContext with _$ThreadContext {
   static const knownProps = <String>[

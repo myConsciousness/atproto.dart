@@ -58,6 +58,7 @@ final class _LexLexXrpcQueryGenerator {
         defName,
         mainVariants,
       ),
+      description: parameters.description,
       properties: properties,
     );
   }
@@ -70,6 +71,7 @@ final class _LexLexXrpcQueryGenerator {
         lexiconId: lexiconId.toString(),
         defName: defName,
         name: '',
+        description: output?.description,
         properties: const [],
         bytes: true,
       );
@@ -94,6 +96,7 @@ final class _LexLexXrpcQueryGenerator {
           defName,
           mainVariants,
         ),
+        description: output?.description,
         properties: properties,
       );
     }
@@ -111,6 +114,7 @@ final class _LexLexXrpcQueryGenerator {
         defName,
         mainVariants,
       ),
+      description: output?.description,
       ref: ref.ref,
       properties: const [],
     );

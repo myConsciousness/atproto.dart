@@ -21,6 +21,7 @@ part 'record_event.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Logs lifecycle event on a record subject. Normally captured by automod from the firehose and emitted to ozone for historical tracking.
 @freezed
 abstract class RecordEvent with _$RecordEvent {
   static const knownProps = <String>[

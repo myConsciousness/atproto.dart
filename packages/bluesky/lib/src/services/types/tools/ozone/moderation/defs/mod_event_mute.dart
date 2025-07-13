@@ -21,6 +21,7 @@ part 'mod_event_mute.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Mute incoming reports on a subject
 @freezed
 abstract class ModEventMute with _$ModEventMute {
   static const knownProps = <String>[

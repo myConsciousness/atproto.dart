@@ -22,6 +22,7 @@ part 'known_followers.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// The subject's followers whom you also follow
 @freezed
 abstract class KnownFollowers with _$KnownFollowers {
   static const knownProps = <String>[

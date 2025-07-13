@@ -21,6 +21,7 @@ part 'link.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Facet feature for a URL. The text URL may have been simplified or truncated, but the facet reference should be a complete URL.
 @freezed
 abstract class RichtextFacetLink with _$RichtextFacetLink {
   static const knownProps = <String>[

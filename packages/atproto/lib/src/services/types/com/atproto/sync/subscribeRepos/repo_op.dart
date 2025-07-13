@@ -21,6 +21,7 @@ part 'repo_op.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// A repo operation, ie a mutation of a single record.
 @freezed
 abstract class RepoOp with _$RepoOp {
   static const knownProps = <String>[

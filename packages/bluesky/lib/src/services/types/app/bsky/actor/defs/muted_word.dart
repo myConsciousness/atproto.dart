@@ -22,6 +22,7 @@ part 'muted_word.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// A word that the account owner has muted.
 @freezed
 abstract class MutedWord with _$MutedWord {
   static const knownProps = <String>[

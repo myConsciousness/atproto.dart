@@ -21,6 +21,7 @@ part 'delete.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Operation which deletes an existing record.
 @freezed
 abstract class Delete with _$Delete {
   static const knownProps = <String>[

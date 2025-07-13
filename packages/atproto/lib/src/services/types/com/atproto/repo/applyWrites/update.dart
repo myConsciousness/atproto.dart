@@ -21,6 +21,7 @@ part 'update.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Operation which updates an existing record.
 @freezed
 abstract class Update with _$Update {
   static const knownProps = <String>[

@@ -21,6 +21,7 @@ part 'mod_event_divert.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Divert a record's blobs to a 3rd party service for further scanning/tagging
 @freezed
 abstract class ModEventDivert with _$ModEventDivert {
   static const knownProps = <String>[

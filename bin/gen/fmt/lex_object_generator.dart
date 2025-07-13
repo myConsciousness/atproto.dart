@@ -39,6 +39,7 @@ final class _LexObjectGenerator {
         defName,
         mainVariants,
       ),
+      description: object.description,
       properties: generateLexProperties(
         lexiconId,
         defName,

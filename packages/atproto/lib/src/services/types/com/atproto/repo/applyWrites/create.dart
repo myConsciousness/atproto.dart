@@ -21,6 +21,7 @@ part 'create.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Operation which creates a new record.
 @freezed
 abstract class Create with _$Create {
   static const knownProps = <String>[

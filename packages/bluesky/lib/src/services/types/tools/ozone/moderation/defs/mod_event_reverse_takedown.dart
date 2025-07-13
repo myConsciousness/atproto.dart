@@ -21,6 +21,7 @@ part 'mod_event_reverse_takedown.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Revert take down action on a subject
 @freezed
 abstract class ModEventReverseTakedown with _$ModEventReverseTakedown {
   static const knownProps = <String>[

@@ -21,6 +21,7 @@ part 'mention_rule.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Allow replies from actors mentioned in your post.
 @freezed
 abstract class MentionRule with _$MentionRule {
   static const knownProps = <String>[];

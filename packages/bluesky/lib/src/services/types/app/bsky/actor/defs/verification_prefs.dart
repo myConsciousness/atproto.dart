@@ -21,6 +21,7 @@ part 'verification_prefs.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Preferences for how verified accounts appear in the app.
 @freezed
 abstract class VerificationPrefs with _$VerificationPrefs {
   static const knownProps = <String>[

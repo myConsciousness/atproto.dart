@@ -15,7 +15,5 @@ void main(List<String> args) {
   print(kLexGeneratorLogo);
 
   final types = generateLexTypes(services, packages);
-  print('Generated ${types.length} objects.');
-
   generateLexServices(services, packages, types);
 }

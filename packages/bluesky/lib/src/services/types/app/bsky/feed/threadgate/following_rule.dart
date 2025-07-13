@@ -21,6 +21,7 @@ part 'following_rule.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Allow replies from actors you follow.
 @freezed
 abstract class FollowingRule with _$FollowingRule {
   static const knownProps = <String>[];

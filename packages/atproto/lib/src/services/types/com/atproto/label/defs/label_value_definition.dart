@@ -22,6 +22,7 @@ part 'label_value_definition.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Declares a label value and its expected interpretations and behaviors.
 @freezed
 abstract class LabelValueDefinition with _$LabelValueDefinition {
   static const knownProps = <String>[

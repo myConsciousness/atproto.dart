@@ -21,6 +21,7 @@ part 'byte_slice.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text. NOTE: some languages, like Javascript, use UTF-16 or Unicode codepoints for string slice indexing; in these languages, convert to byte arrays before working with facets.
 @freezed
 abstract class RichtextFacetByteSlice with _$RichtextFacetByteSlice {
   static const knownProps = <String>[

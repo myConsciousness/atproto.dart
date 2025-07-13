@@ -25,6 +25,7 @@ part 'event.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// An event for URL safety decisions
 @freezed
 abstract class Event with _$Event {
   static const knownProps = <String>[

@@ -22,6 +22,7 @@ part 'commit.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Represents an update of repository state. Note that empty commits are allowed, which include no repo data changes, but an update to rev and signature.
 @freezed
 abstract class Commit with _$Commit {
   static const knownProps = <String>[

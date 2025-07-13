@@ -22,6 +22,7 @@ part 'verification_state.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Represents the verification information about the user this object is attached to.
 @freezed
 abstract class VerificationState with _$VerificationState {
   static const knownProps = <String>[

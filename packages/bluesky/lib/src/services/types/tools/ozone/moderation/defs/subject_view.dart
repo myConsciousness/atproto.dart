@@ -26,6 +26,7 @@ part 'subject_view.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Detailed view of a subject. For record subjects, the author's repo and profile will be returned.
 @freezed
 abstract class SubjectView with _$SubjectView {
   static const knownProps = <String>[

@@ -21,6 +21,7 @@ part 'self_label.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Metadata tag on an atproto record, published by the author within the record. Note that schemas should use #selfLabels, not #selfLabel.
 @freezed
 abstract class SelfLabel with _$SelfLabel {
   static const knownProps = <String>[

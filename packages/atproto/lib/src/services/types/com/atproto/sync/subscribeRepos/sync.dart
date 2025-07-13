@@ -21,6 +21,7 @@ part 'sync.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Updates the repo to a new state, without necessarily including that state on the firehose. Used to recover from broken commit streams, data loss incidents, or in situations where upstream host does not know recent state of the repository.
 @freezed
 abstract class Sync with _$Sync {
   static const knownProps = <String>[

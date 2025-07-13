@@ -21,6 +21,7 @@ part 'mod_event_unmute.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Unmute action on a subject
 @freezed
 abstract class ModEventUnmute with _$ModEventUnmute {
   static const knownProps = <String>[

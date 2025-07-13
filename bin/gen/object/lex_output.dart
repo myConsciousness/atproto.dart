@@ -12,11 +12,35 @@ final class LexOutput extends LexType {
   final String defName;
 
   final String name;
+  final String? description;
   final List<LexProperty> properties;
 
   final String? ref;
 
   final bool bytes;
+
+  @override
+  List<LexType> get nested => properties
+      .where((e) => e.type.isUnion)
+      .map((e) => e.type.union!)
+      .toList();
+
+  @override
+  LexTypeState get state => LexTypeState.output;
+
+  const LexOutput({
+    required this.lexiconId,
+    required this.defName,
+    required this.name,
+    this.description,
+    required this.properties,
+    this.ref,
+    this.bytes = false,
+  });
+
+  String? getDescription() {
+    return description != null ? '/// $description' : '';
+  }
 
   @override
   String? getRef() {
@@ -37,24 +61,6 @@ final class LexOutput extends LexType {
   List<LexProperty> getProperties() {
     return properties;
   }
-
-  @override
-  List<LexType> get nested => properties
-      .where((e) => e.type.isUnion)
-      .map((e) => e.type.union!)
-      .toList();
-
-  @override
-  LexTypeState get state => LexTypeState.output;
-
-  const LexOutput({
-    required this.lexiconId,
-    required this.defName,
-    required this.name,
-    required this.properties,
-    this.ref,
-    this.bytes = false,
-  });
 
   @override
   String getFileName() {
@@ -103,6 +109,7 @@ part 'output.g.dart';
 
 $kHeader
 
+${getDescription()}
 @freezed
 abstract class ${name}Output with _\$${name}Output {
   $knownProps

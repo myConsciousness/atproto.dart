@@ -21,6 +21,7 @@ part 'list_rule.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Allow replies from actors on a list.
 @freezed
 abstract class ListRule with _$ListRule {
   static const knownProps = <String>[

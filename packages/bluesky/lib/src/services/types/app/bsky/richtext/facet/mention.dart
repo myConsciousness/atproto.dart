@@ -21,6 +21,7 @@ part 'mention.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Facet feature for mention of another account. The text is usually a handle, including a '@' prefix, but the facet reference is a DID.
 @freezed
 abstract class RichtextFacetMention with _$RichtextFacetMention {
   static const knownProps = <String>[

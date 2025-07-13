@@ -21,6 +21,7 @@ part 'grant_error.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Error object for failed verifications.
 @freezed
 abstract class GrantError with _$GrantError {
   static const knownProps = <String>[

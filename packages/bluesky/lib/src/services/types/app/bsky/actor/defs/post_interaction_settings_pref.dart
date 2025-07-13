@@ -23,6 +23,7 @@ part 'post_interaction_settings_pref.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Default post interaction settings for the account. These values should be applied as default values when creating new posts. These refs should mirror the threadgate and postgate records exactly.
 @freezed
 abstract class PostInteractionSettingsPref with _$PostInteractionSettingsPref {
   static const knownProps = <String>[

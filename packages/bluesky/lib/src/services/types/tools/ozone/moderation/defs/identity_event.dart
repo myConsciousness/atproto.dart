@@ -21,6 +21,7 @@ part 'identity_event.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Logs identity related events on a repo subject. Normally captured by automod from the firehose and emitted to ozone for historical tracking.
 @freezed
 abstract class IdentityEvent with _$IdentityEvent {
   static const knownProps = <String>[

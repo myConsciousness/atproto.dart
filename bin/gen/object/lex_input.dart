@@ -12,12 +12,37 @@ final class LexInput extends LexType {
   final String defName;
 
   final String name;
+  final String? description;
   final List<LexProperty> properties;
 
   final bool bytes;
   final String? encoding;
 
   final String? ref;
+
+  @override
+  List<LexType> get nested => properties
+      .where((e) => e.type.isUnion)
+      .map((e) => e.type.union!)
+      .toList();
+
+  @override
+  LexTypeState get state => LexTypeState.input;
+
+  const LexInput({
+    required this.lexiconId,
+    required this.defName,
+    required this.name,
+    this.description,
+    required this.properties,
+    this.bytes = false,
+    this.ref,
+    this.encoding,
+  });
+
+  String? getDescription() {
+    return description != null ? '/// $description' : '';
+  }
 
   @override
   String? getRef() {
@@ -43,25 +68,6 @@ final class LexInput extends LexType {
   String getEncoding() {
     return encoding ?? super.getEncoding();
   }
-
-  @override
-  List<LexType> get nested => properties
-      .where((e) => e.type.isUnion)
-      .map((e) => e.type.union!)
-      .toList();
-
-  @override
-  LexTypeState get state => LexTypeState.input;
-
-  const LexInput({
-    required this.lexiconId,
-    required this.defName,
-    required this.name,
-    required this.properties,
-    this.bytes = false,
-    this.ref,
-    this.encoding,
-  });
 
   @override
   String getFileName() {
@@ -110,6 +116,7 @@ part 'input.g.dart';
 
 $kHeader
 
+${getDescription()}
 @freezed
 abstract class $typeName with _\$$typeName {
   $knownProps

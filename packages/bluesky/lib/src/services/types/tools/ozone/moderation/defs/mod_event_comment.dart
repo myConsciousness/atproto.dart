@@ -21,6 +21,7 @@ part 'mod_event_comment.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Add a comment to a subject. An empty comment will clear any previously set sticky comment.
 @freezed
 abstract class ModEventComment with _$ModEventComment {
   static const knownProps = <String>[

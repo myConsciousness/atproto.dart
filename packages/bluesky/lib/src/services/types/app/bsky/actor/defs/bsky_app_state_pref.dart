@@ -23,6 +23,7 @@ part 'bsky_app_state_pref.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// A grab bag of state that's specific to the bsky.app program. Third-party apps shouldn't use this.
 @freezed
 abstract class BskyAppStatePref with _$BskyAppStatePref {
   static const knownProps = <String>[

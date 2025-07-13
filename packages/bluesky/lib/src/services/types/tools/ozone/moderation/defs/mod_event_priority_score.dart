@@ -21,6 +21,7 @@ part 'mod_event_priority_score.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Set priority score of the subject. Higher score means higher priority.
 @freezed
 abstract class ModEventPriorityScore with _$ModEventPriorityScore {
   static const knownProps = <String>[

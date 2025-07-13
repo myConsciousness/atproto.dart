@@ -21,6 +21,7 @@ part 'mod_event_email.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Keep a log of outgoing email to a user
 @freezed
 abstract class ModEventEmail with _$ModEventEmail {
   static const knownProps = <String>[

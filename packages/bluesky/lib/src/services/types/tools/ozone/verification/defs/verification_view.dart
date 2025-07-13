@@ -25,6 +25,7 @@ part 'verification_view.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Verification data for the associated subject.
 @freezed
 abstract class VerificationView with _$VerificationView {
   static const knownProps = <String>[

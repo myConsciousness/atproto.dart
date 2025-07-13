@@ -21,6 +21,7 @@ part 'revoke_error.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Error object for failed revocations
 @freezed
 abstract class RevokeError with _$RevokeError {
   static const knownProps = <String>[

@@ -21,6 +21,7 @@ part 'not_found_actor.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// indicates that a handle or DID could not be resolved
 @freezed
 abstract class NotFoundActor with _$NotFoundActor {
   static const knownProps = <String>[

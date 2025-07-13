@@ -21,6 +21,7 @@ part 'mod_event_label.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Apply/Negate labels on a subject
 @freezed
 abstract class ModEventLabel with _$ModEventLabel {
   static const knownProps = <String>[

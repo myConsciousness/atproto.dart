@@ -21,6 +21,7 @@ part 'records_stats.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Statistics about a set of record subject items
 @freezed
 abstract class RecordsStats with _$RecordsStats {
   static const knownProps = <String>[

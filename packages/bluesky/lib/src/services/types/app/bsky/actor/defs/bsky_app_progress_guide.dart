@@ -21,6 +21,7 @@ part 'bsky_app_progress_guide.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// If set, an active progress guide. Once completed, can be set to undefined. Should have unspecced fields tracking progress.
 @freezed
 abstract class BskyAppProgressGuide with _$BskyAppProgressGuide {
   static const knownProps = <String>[

@@ -21,6 +21,7 @@ part 'disable_rule.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Disables embedding of this post.
 @freezed
 abstract class DisableRule with _$DisableRule {
   static const knownProps = <String>[];

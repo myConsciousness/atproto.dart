@@ -45,6 +45,7 @@ final class _LexLexXrpcProcedureGenerator {
         lexiconId: lexiconId.toString(),
         defName: defName,
         name: '',
+        description: input?.description,
         properties: const [],
         bytes: true,
         encoding: input?.encoding,
@@ -70,6 +71,7 @@ final class _LexLexXrpcProcedureGenerator {
           defName,
           mainVariants,
         ),
+        description: input?.description,
         properties: properties,
         encoding: input?.encoding,
       );
@@ -115,6 +117,7 @@ final class _LexLexXrpcProcedureGenerator {
           defName,
           mainVariants,
         ),
+        description: procedure.output?.description,
         properties: properties,
       );
     }
@@ -132,6 +135,7 @@ final class _LexLexXrpcProcedureGenerator {
         defName,
         mainVariants,
       ),
+      description: procedure.output?.description,
       ref: ref.ref,
       properties: const [],
     );

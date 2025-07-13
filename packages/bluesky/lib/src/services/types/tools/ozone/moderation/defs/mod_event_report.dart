@@ -22,6 +22,7 @@ part 'mod_event_report.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Report a subject
 @freezed
 abstract class ModEventReport with _$ModEventReport {
   static const knownProps = <String>[

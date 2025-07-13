@@ -21,6 +21,7 @@ part 'mod_event_resolve_appeal.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Resolve appeal on a subject
 @freezed
 abstract class ModEventResolveAppeal with _$ModEventResolveAppeal {
   static const knownProps = <String>[

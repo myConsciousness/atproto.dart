@@ -22,6 +22,7 @@ part 'subject_activity_subscription.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Object used to store activity subscription data in stash.
 @freezed
 abstract class SubjectActivitySubscription with _$SubjectActivitySubscription {
   static const knownProps = <String>[

@@ -23,6 +23,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Annotation of a sub-string within rich text.
 @freezed
 abstract class RichtextFacet with _$RichtextFacet {
   static const knownProps = <String>[

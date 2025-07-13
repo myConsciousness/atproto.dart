@@ -21,6 +21,7 @@ part 'mod_event_takedown.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Take down a subject permanently or temporarily
 @freezed
 abstract class ModEventTakedown with _$ModEventTakedown {
   static const knownProps = <String>[

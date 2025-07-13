@@ -21,6 +21,7 @@ part 'aspect_ratio.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.
 @freezed
 abstract class AspectRatio with _$AspectRatio {
   static const knownProps = <String>[

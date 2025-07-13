@@ -22,6 +22,7 @@ part 'self_labels.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Metadata tags on an atproto record, published by the author within the record.
 @freezed
 abstract class SelfLabels with _$SelfLabels {
   static const knownProps = <String>[

@@ -21,6 +21,7 @@ part 'account_stats.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Statistics about a particular account subject
 @freezed
 abstract class AccountStats with _$AccountStats {
   static const knownProps = <String>[

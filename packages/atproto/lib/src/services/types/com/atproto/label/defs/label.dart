@@ -21,6 +21,7 @@ part 'label.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Metadata tag on an atproto resource (eg, repo or record).
 @freezed
 abstract class Label with _$Label {
   static const knownProps = <String>[

@@ -21,6 +21,7 @@ part 'viewer_state.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Metadata about the requesting account's relationship with the subject content. Only has meaningful content for authed requests.
 @freezed
 abstract class ViewerState with _$ViewerState {
   static const knownProps = <String>[

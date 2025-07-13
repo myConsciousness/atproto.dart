@@ -21,6 +21,7 @@ part 'account_event.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Logs account status related events on a repo subject. Normally captured by automod from the firehose and emitted to ozone for historical tracking.
 @freezed
 abstract class AccountEvent with _$AccountEvent {
   static const knownProps = <String>[

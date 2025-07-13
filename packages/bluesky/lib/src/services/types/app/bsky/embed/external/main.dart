@@ -22,6 +22,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// A representation of some externally linked content (eg, a URL and 'card'), embedded in a Bluesky record (eg, a post).
 @freezed
 abstract class EmbedExternal with _$EmbedExternal {
   static const knownProps = <String>[

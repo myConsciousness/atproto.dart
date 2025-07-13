@@ -21,6 +21,7 @@ part 'tag.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Facet feature for a hashtag. The text usually includes a '#' prefix, but the facet reference should not (except in the case of 'double hash tags').
 @freezed
 abstract class RichtextFacetTag with _$RichtextFacetTag {
   static const knownProps = <String>[

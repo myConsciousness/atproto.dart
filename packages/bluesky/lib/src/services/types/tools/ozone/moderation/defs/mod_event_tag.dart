@@ -21,6 +21,7 @@ part 'mod_event_tag.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Add/Remove a tag on a subject
 @freezed
 abstract class ModEventTag with _$ModEventTag {
   static const knownProps = <String>[

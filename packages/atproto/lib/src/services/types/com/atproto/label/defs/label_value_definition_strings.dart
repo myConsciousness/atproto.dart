@@ -21,6 +21,7 @@ part 'label_value_definition_strings.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Strings which describe the label in the UI, localized into a specific language.
 @freezed
 abstract class LabelValueDefinitionStrings with _$LabelValueDefinitionStrings {
   static const knownProps = <String>[

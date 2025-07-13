@@ -21,6 +21,7 @@ part 'identity.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Represents a change to an account's identity. Could be an updated handle, signing key, or pds hosting endpoint. Serves as a prod to all downstream services to refresh their identity cache.
 @freezed
 abstract class Identity with _$Identity {
   static const knownProps = <String>[

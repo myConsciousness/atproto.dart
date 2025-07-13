@@ -24,6 +24,7 @@ part 'url_rule.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Input for creating a URL safety rule
 @freezed
 abstract class UrlRule with _$UrlRule {
   static const knownProps = <String>[

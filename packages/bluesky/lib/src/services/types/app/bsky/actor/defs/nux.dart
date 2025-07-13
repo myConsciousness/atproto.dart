@@ -21,6 +21,7 @@ part 'nux.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// A new user experiences (NUX) storage object
 @freezed
 abstract class Nux with _$Nux {
   static const knownProps = <String>[

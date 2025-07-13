@@ -21,6 +21,7 @@ part 'mod_event_unmute_reporter.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Unmute incoming reports from an account
 @freezed
 abstract class ModEventUnmuteReporter with _$ModEventUnmuteReporter {
   static const knownProps = <String>[
