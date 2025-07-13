@@ -68,15 +68,20 @@ final class SetService {
 
   /// Create or update set metadata
   Future<XRPCResponse<SetView>> upsertSet({
+    required String name,
+    String? description,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.toolsOzoneSetUpsertSet,
         headers: {
+          'Content-type': 'application/json',
           ...?$headers,
         },
         body: {
+          'name': name,
+          if (description != null) 'description': description,
           ...?$unknown,
         },
         to: const SetViewConverter().fromJson,

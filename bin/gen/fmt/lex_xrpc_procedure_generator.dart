@@ -52,16 +52,33 @@ final class _LexLexXrpcProcedureGenerator {
     }
 
     final object = procedure.input?.schema?.whenOrNull(object: (e) => e);
-    if (object == null) return null;
+    if (object != null) {
+      final properties = generateLexProperties(
+        lexiconId,
+        defName,
+        object.properties,
+        object.requiredProperties,
+        mainVariants,
+      );
+      if (properties.isEmpty) return null;
 
-    final properties = generateLexProperties(
-      lexiconId,
-      defName,
-      object.properties,
-      object.requiredProperties,
-      mainVariants,
-    );
-    if (properties.isEmpty) return null;
+      return LexInput(
+        lexiconId: lexiconId.toString(),
+        defName: defName,
+        name: rule.getLexObjectName(
+          lexiconId.toString(),
+          defName,
+          mainVariants,
+        ),
+        properties: properties,
+        encoding: input?.encoding,
+      );
+    }
+
+    final refVariant =
+        procedure.input?.schema?.whenOrNull(refVariant: (data) => data);
+    final ref = refVariant?.whenOrNull(ref: (data) => data);
+    if (ref == null) return null;
 
     return LexInput(
       lexiconId: lexiconId.toString(),
@@ -71,7 +88,8 @@ final class _LexLexXrpcProcedureGenerator {
         defName,
         mainVariants,
       ),
-      properties: properties,
+      ref: ref.ref,
+      properties: const [],
       encoding: input?.encoding,
     );
   }

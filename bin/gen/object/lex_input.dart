@@ -17,9 +17,16 @@ final class LexInput extends LexType {
   final bool bytes;
   final String? encoding;
 
+  final String? ref;
+
+  @override
+  String? getRef() {
+    return ref;
+  }
+
   @override
   bool isShouldNotBeGenerated() {
-    return isBytes();
+    return getRef() != null || isBytes();
   }
 
   @override
@@ -52,6 +59,7 @@ final class LexInput extends LexType {
     required this.name,
     required this.properties,
     this.bytes = false,
+    this.ref,
     this.encoding,
   });
 
