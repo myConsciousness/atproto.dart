@@ -14,7 +14,7 @@ _Event _$EventFromJson(Map json) => $checkedCreate('_Event', json, (
   final val = _Event(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? toolsOzoneSafelinkDefsEvent,
+      (v) => v as String? ?? 'tools.ozone.safelink.defs#event',
     ),
     id: $checkedConvert('id', (v) => (v as num).toInt()),
     eventType: $checkedConvert(

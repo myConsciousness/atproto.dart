@@ -13,7 +13,7 @@ _AccountEvent _$AccountEventFromJson(Map json) =>
       final val = _AccountEvent(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsAccountEvent,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#accountEvent',
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         active: $checkedConvert('active', (v) => v as bool),

@@ -13,7 +13,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import 'package:bluesky/app_bsky_richtext_facet.dart';
-import '../../../../../../ids.g.dart';
 import './message_view_sender.dart';
 import './reaction_view.dart';
 import './union_message_view_embed.dart';
@@ -39,7 +38,7 @@ abstract class MessageView with _$MessageView {
   ];
 
   const factory MessageView({
-    @Default(chatBskyConvoDefsMessageView) String $type,
+    @Default('chat.bsky.convo.defs#messageView') String $type,
     required String id,
     required String rev,
     required String text,
@@ -57,7 +56,7 @@ abstract class MessageView with _$MessageView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == chatBskyConvoDefsMessageView;
+    return object['\$type'] == 'chat.bsky.convo.defs#messageView';
   }
 }
 

@@ -13,7 +13,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
 import './threadgate_view.dart';
 import './union_post_view_embed.dart';
@@ -45,7 +44,7 @@ abstract class PostView with _$PostView {
   ];
 
   const factory PostView({
-    @Default(appBskyFeedDefsPostView) String $type,
+    @Default('app.bsky.feed.defs#postView') String $type,
     required String uri,
     required String cid,
     @ProfileViewBasicConverter() required ProfileViewBasic author,
@@ -68,7 +67,7 @@ abstract class PostView with _$PostView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDefsPostView;
+    return object['\$type'] == 'app.bsky.feed.defs#postView';
   }
 }
 

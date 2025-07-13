@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'external.freezed.dart';
 part 'external.g.dart';
 
@@ -26,7 +23,7 @@ abstract class EmbedExternalExternal with _$EmbedExternalExternal {
   static const knownProps = <String>['uri', 'title', 'description', 'thumb'];
 
   const factory EmbedExternalExternal({
-    @Default(appBskyEmbedExternalExternal) String $type,
+    @Default('app.bsky.embed.external#external') String $type,
     @AtUriConverter() required AtUri uri,
     required String title,
     required String description,
@@ -40,7 +37,7 @@ abstract class EmbedExternalExternal with _$EmbedExternalExternal {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyEmbedExternalExternal;
+    return object['\$type'] == 'app.bsky.embed.external#external';
   }
 }
 

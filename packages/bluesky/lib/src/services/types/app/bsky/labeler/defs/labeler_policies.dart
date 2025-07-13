@@ -12,9 +12,6 @@ import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'labeler_policies.freezed.dart';
 part 'labeler_policies.g.dart';
 
@@ -27,7 +24,7 @@ abstract class LabelerPolicies with _$LabelerPolicies {
   static const knownProps = <String>['labelValues', 'labelValueDefinitions'];
 
   const factory LabelerPolicies({
-    @Default(appBskyLabelerDefsLabelerPolicies) String $type,
+    @Default('app.bsky.labeler.defs#labelerPolicies') String $type,
     @LabelValueConverter() required List<LabelValue> labelValues,
     @LabelValueDefinitionConverter()
     List<LabelValueDefinition>? labelValueDefinitions,
@@ -40,7 +37,7 @@ abstract class LabelerPolicies with _$LabelerPolicies {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyLabelerDefsLabelerPolicies;
+    return object['\$type'] == 'app.bsky.labeler.defs#labelerPolicies';
   }
 }
 

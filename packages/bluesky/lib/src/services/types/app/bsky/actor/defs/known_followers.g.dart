@@ -13,7 +13,7 @@ _KnownFollowers _$KnownFollowersFromJson(Map json) =>
       final val = _KnownFollowers(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsKnownFollowers,
+          (v) => v as String? ?? 'app.bsky.actor.defs#knownFollowers',
         ),
         count: $checkedConvert('count', (v) => (v as num).toInt()),
         followers: $checkedConvert(

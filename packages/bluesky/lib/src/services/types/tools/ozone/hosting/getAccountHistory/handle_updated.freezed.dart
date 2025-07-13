@@ -211,7 +211,7 @@ return $default(_that.$type,_that.handle,_that.$unknown);case _:
 @JsonSerializable()
 
 class _HandleUpdated implements HandleUpdated {
-  const _HandleUpdated({this.$type = toolsOzoneHostingGetAccountHistoryHandleUpdated, required this.handle, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _HandleUpdated({this.$type = 'tools.ozone.hosting.getAccountHistory#handleUpdated', required this.handle, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _HandleUpdated.fromJson(Map<String, dynamic> json) => _$HandleUpdatedFromJson(json);
 
 @override@JsonKey() final  String $type;

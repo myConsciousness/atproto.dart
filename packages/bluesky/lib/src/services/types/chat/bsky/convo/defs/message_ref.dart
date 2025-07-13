@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'message_ref.freezed.dart';
 part 'message_ref.g.dart';
 
@@ -26,7 +23,7 @@ abstract class MessageRef with _$MessageRef {
   static const knownProps = <String>['did', 'convoId', 'messageId'];
 
   const factory MessageRef({
-    @Default(chatBskyConvoDefsMessageRef) String $type,
+    @Default('chat.bsky.convo.defs#messageRef') String $type,
     required String did,
     required String convoId,
     required String messageId,
@@ -39,7 +36,7 @@ abstract class MessageRef with _$MessageRef {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == chatBskyConvoDefsMessageRef;
+    return object['\$type'] == 'chat.bsky.convo.defs#messageRef';
   }
 }
 

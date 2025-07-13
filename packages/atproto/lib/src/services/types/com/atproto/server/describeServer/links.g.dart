@@ -13,7 +13,7 @@ _Links _$LinksFromJson(Map json) =>
       final val = _Links(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoServerDescribeServerLinks,
+          (v) => v as String? ?? 'com.atproto.server.describeServer#links',
         ),
         privacyPolicy: $checkedConvert(
           'privacyPolicy',

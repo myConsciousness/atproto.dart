@@ -252,7 +252,7 @@ return $default(_that.$type,_that.purpose,_that.name,_that.description,_that.des
 @JsonSerializable()
 
 class _GraphListRecord implements GraphListRecord {
-  const _GraphListRecord({this.$type = appBskyGraphList, @ListPurposeConverter() required this.purpose, required this.name, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @BlobConverter() this.avatar, @UGraphListLabelsConverter() this.labels, required this.createdAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_$unknown = $unknown;
+  const _GraphListRecord({this.$type = 'app.bsky.graph.list', @ListPurposeConverter() required this.purpose, required this.name, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @BlobConverter() this.avatar, @UGraphListLabelsConverter() this.labels, required this.createdAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_$unknown = $unknown;
   factory _GraphListRecord.fromJson(Map<String, dynamic> json) => _$GraphListRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

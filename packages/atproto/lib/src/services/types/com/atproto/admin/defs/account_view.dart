@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../com/atproto/server/defs/invite_code.dart';
 import './threat_signature.dart';
 
@@ -41,7 +40,7 @@ abstract class AccountView with _$AccountView {
   ];
 
   const factory AccountView({
-    @Default(comAtprotoAdminDefsAccountView) String $type,
+    @Default('com.atproto.admin.defs#accountView') String $type,
     required String did,
     required String handle,
     String? email,
@@ -63,7 +62,7 @@ abstract class AccountView with _$AccountView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoAdminDefsAccountView;
+    return object['\$type'] == 'com.atproto.admin.defs#accountView';
   }
 }
 

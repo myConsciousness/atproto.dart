@@ -14,7 +14,7 @@ _Event _$EventFromJson(Map json) => $checkedCreate('_Event', json, (
   final val = _Event(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? toolsOzoneHostingGetAccountHistoryEvent,
+      (v) => v as String? ?? 'tools.ozone.hosting.getAccountHistory#event',
     ),
     details: $checkedConvert(
       'details',

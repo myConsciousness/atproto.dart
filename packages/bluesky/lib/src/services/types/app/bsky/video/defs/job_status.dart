@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'job_status.freezed.dart';
 part 'job_status.g.dart';
 
@@ -34,7 +31,7 @@ abstract class JobStatus with _$JobStatus {
   ];
 
   const factory JobStatus({
-    @Default(appBskyVideoDefsJobStatus) String $type,
+    @Default('app.bsky.video.defs#jobStatus') String $type,
     required String jobId,
     required String did,
 
@@ -55,7 +52,7 @@ abstract class JobStatus with _$JobStatus {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyVideoDefsJobStatus;
+    return object['\$type'] == 'app.bsky.video.defs#jobStatus';
   }
 }
 

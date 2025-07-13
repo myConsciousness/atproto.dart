@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'update_result.freezed.dart';
 part 'update_result.g.dart';
 
@@ -26,7 +23,7 @@ abstract class UpdateResult with _$UpdateResult {
   static const knownProps = <String>['uri', 'cid', 'validationStatus'];
 
   const factory UpdateResult({
-    @Default(comAtprotoRepoApplyWritesUpdateResult) String $type,
+    @Default('com.atproto.repo.applyWrites#updateResult') String $type,
     required String uri,
     required String cid,
     String? validationStatus,
@@ -39,7 +36,7 @@ abstract class UpdateResult with _$UpdateResult {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoRepoApplyWritesUpdateResult;
+    return object['\$type'] == 'com.atproto.repo.applyWrites#updateResult';
   }
 }
 

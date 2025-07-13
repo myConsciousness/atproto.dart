@@ -212,7 +212,7 @@ return $default(_that.$type,_that.width,_that.height,_that.$unknown);case _:
 @JsonSerializable()
 
 class _AspectRatio implements AspectRatio {
-  const _AspectRatio({this.$type = appBskyEmbedDefsAspectRatio, required this.width, required this.height, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AspectRatio({this.$type = 'app.bsky.embed.defs#aspectRatio', required this.width, required this.height, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AspectRatio.fromJson(Map<String, dynamic> json) => _$AspectRatioFromJson(json);
 
 @override@JsonKey() final  String $type;

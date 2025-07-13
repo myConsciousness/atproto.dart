@@ -252,7 +252,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.name,_that.p
 @JsonSerializable()
 
 class _ListView implements ListView {
-  const _ListView({this.$type = appBskyGraphDefsListView, required this.uri, required this.cid, @ProfileViewConverter() required this.creator, required this.name, @ListPurposeConverter() required this.purpose, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @AtUriConverter() this.avatar, this.listItemCount, @LabelConverter() final  List<Label>? labels, @ListViewerStateConverter() this.viewer, required this.indexedAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_labels = labels,_$unknown = $unknown;
+  const _ListView({this.$type = 'app.bsky.graph.defs#listView', required this.uri, required this.cid, @ProfileViewConverter() required this.creator, required this.name, @ListPurposeConverter() required this.purpose, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @AtUriConverter() this.avatar, this.listItemCount, @LabelConverter() final  List<Label>? labels, @ListViewerStateConverter() this.viewer, required this.indexedAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_labels = labels,_$unknown = $unknown;
   factory _ListView.fromJson(Map<String, dynamic> json) => _$ListViewFromJson(json);
 
 @override@JsonKey() final  String $type;

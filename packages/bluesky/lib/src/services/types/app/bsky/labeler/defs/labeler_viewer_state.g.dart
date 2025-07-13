@@ -13,7 +13,7 @@ _LabelerViewerState _$LabelerViewerStateFromJson(Map json) =>
       final val = _LabelerViewerState(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyLabelerDefsLabelerViewerState,
+          (v) => v as String? ?? 'app.bsky.labeler.defs#labelerViewerState',
         ),
         like: $checkedConvert('like', (v) => v as String?),
         $unknown: $checkedConvert(

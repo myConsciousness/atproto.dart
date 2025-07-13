@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'set_view.freezed.dart';
 part 'set_view.g.dart';
 
@@ -32,7 +29,7 @@ abstract class SetView with _$SetView {
   ];
 
   const factory SetView({
-    @Default(toolsOzoneSetDefsSetView) String $type,
+    @Default('tools.ozone.set.defs#setView') String $type,
     required String name,
     String? description,
     required int setSize,
@@ -47,7 +44,7 @@ abstract class SetView with _$SetView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneSetDefsSetView;
+    return object['\$type'] == 'tools.ozone.set.defs#setView';
   }
 }
 

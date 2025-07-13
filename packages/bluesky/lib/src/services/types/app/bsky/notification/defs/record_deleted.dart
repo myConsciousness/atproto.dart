@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'record_deleted.freezed.dart';
 part 'record_deleted.g.dart';
 
@@ -26,7 +23,7 @@ abstract class RecordDeleted with _$RecordDeleted {
   static const knownProps = <String>[];
 
   const factory RecordDeleted({
-    @Default(appBskyNotificationDefsRecordDeleted) String $type,
+    @Default('app.bsky.notification.defs#recordDeleted') String $type,
 
     Map<String, dynamic>? $unknown,
   }) = _RecordDeleted;
@@ -36,7 +33,7 @@ abstract class RecordDeleted with _$RecordDeleted {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyNotificationDefsRecordDeleted;
+    return object['\$type'] == 'app.bsky.notification.defs#recordDeleted';
   }
 }
 

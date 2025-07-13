@@ -213,7 +213,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.value,_that.$unknown);case
 @JsonSerializable()
 
 class _RepoListRecordsRecord implements RepoListRecordsRecord {
-  const _RepoListRecordsRecord({this.$type = comAtprotoRepoListRecordsRecord, required this.uri, required this.cid, required final  Map<String, dynamic> value, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
+  const _RepoListRecordsRecord({this.$type = 'com.atproto.repo.listRecords#record', required this.uri, required this.cid, required final  Map<String, dynamic> value, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
   factory _RepoListRecordsRecord.fromJson(Map<String, dynamic> json) => _$RepoListRecordsRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

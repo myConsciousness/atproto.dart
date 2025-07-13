@@ -13,7 +13,7 @@ _EmbedRecordViewDetached _$EmbedRecordViewDetachedFromJson(Map json) =>
       final val = _EmbedRecordViewDetached(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyEmbedRecordViewDetached,
+          (v) => v as String? ?? 'app.bsky.embed.record#viewDetached',
         ),
         uri: $checkedConvert('uri', (v) => v as String),
         detached: $checkedConvert('detached', (v) => v as bool),

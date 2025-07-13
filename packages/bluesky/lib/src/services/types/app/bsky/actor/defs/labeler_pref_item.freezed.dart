@@ -211,7 +211,7 @@ return $default(_that.$type,_that.did,_that.$unknown);case _:
 @JsonSerializable()
 
 class _LabelerPrefItem implements LabelerPrefItem {
-  const _LabelerPrefItem({this.$type = appBskyActorDefsLabelerPrefItem, required this.did, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _LabelerPrefItem({this.$type = 'app.bsky.actor.defs#labelerPrefItem', required this.did, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _LabelerPrefItem.fromJson(Map<String, dynamic> json) => _$LabelerPrefItemFromJson(json);
 
 @override@JsonKey() final  String $type;

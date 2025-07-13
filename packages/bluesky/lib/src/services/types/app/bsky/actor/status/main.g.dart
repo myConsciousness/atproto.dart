@@ -8,31 +8,37 @@ part of 'main.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_ActorStatusRecord _$ActorStatusRecordFromJson(
-  Map json,
-) => $checkedCreate('_ActorStatusRecord', json, ($checkedConvert) {
-  final val = _ActorStatusRecord(
-    $type: $checkedConvert(r'$type', (v) => v as String? ?? appBskyActorStatus),
-    status: $checkedConvert('status', (v) => v as String),
-    embed: $checkedConvert(
-      'embed',
-      (v) => _$JsonConverterFromJson<Map<String, dynamic>, UActorStatusEmbed>(
-        v,
-        const UActorStatusEmbedConverter().fromJson,
-      ),
-    ),
-    durationMinutes: $checkedConvert(
-      'durationMinutes',
-      (v) => (v as num?)?.toInt(),
-    ),
-    createdAt: $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
-    $unknown: $checkedConvert(
-      r'$unknown',
-      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-    ),
-  );
-  return val;
-});
+_ActorStatusRecord _$ActorStatusRecordFromJson(Map json) =>
+    $checkedCreate('_ActorStatusRecord', json, ($checkedConvert) {
+      final val = _ActorStatusRecord(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? 'app.bsky.actor.status',
+        ),
+        status: $checkedConvert('status', (v) => v as String),
+        embed: $checkedConvert(
+          'embed',
+          (v) =>
+              _$JsonConverterFromJson<Map<String, dynamic>, UActorStatusEmbed>(
+                v,
+                const UActorStatusEmbedConverter().fromJson,
+              ),
+        ),
+        durationMinutes: $checkedConvert(
+          'durationMinutes',
+          (v) => (v as num?)?.toInt(),
+        ),
+        createdAt: $checkedConvert(
+          'createdAt',
+          (v) => DateTime.parse(v as String),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$ActorStatusRecordToJson(_ActorStatusRecord instance) =>
     <String, dynamic>{

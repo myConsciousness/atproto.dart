@@ -213,7 +213,7 @@ return $default(_that.$type,_that.pinned,_that.saved,_that.timelineIndex,_that.$
 @JsonSerializable()
 
 class _SavedFeedsPref implements SavedFeedsPref {
-  const _SavedFeedsPref({this.$type = appBskyActorDefsSavedFeedsPref, required final  List<String> pinned, required final  List<String> saved, this.timelineIndex, final  Map<String, dynamic>? $unknown}): _pinned = pinned,_saved = saved,_$unknown = $unknown;
+  const _SavedFeedsPref({this.$type = 'app.bsky.actor.defs#savedFeedsPref', required final  List<String> pinned, required final  List<String> saved, this.timelineIndex, final  Map<String, dynamic>? $unknown}): _pinned = pinned,_saved = saved,_$unknown = $unknown;
   factory _SavedFeedsPref.fromJson(Map<String, dynamic> json) => _$SavedFeedsPrefFromJson(json);
 
 @override@JsonKey() final  String $type;

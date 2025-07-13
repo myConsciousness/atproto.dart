@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'mod_tool.freezed.dart';
 part 'mod_tool.g.dart';
 
@@ -27,7 +24,7 @@ abstract class ModTool with _$ModTool {
   static const knownProps = <String>['name', 'meta'];
 
   const factory ModTool({
-    @Default(comAtprotoModerationCreateReportModTool) String $type,
+    @Default('com.atproto.moderation.createReport#modTool') String $type,
 
     /// Name/identifier of the source (e.g., 'bsky-app/android', 'bsky-web/chrome')
     required String name,
@@ -41,7 +38,7 @@ abstract class ModTool with _$ModTool {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoModerationCreateReportModTool;
+    return object['\$type'] == 'com.atproto.moderation.createReport#modTool';
   }
 }
 

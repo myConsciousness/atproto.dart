@@ -12,7 +12,7 @@ _Set _$SetFromJson(Map json) => $checkedCreate('_Set', json, ($checkedConvert) {
   final val = _Set(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? toolsOzoneSetDefsSet,
+      (v) => v as String? ?? 'tools.ozone.set.defs#set',
     ),
     name: $checkedConvert('name', (v) => v as String),
     description: $checkedConvert('description', (v) => v as String?),

@@ -13,7 +13,7 @@ _Interaction _$InteractionFromJson(Map json) =>
       final val = _Interaction(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyFeedDefsInteraction,
+          (v) => v as String? ?? 'app.bsky.feed.defs#interaction',
         ),
         item: $checkedConvert('item', (v) => v as String?),
         event: $checkedConvert('event', (v) => v as String?),

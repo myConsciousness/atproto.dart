@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'links.freezed.dart';
 part 'links.g.dart';
 
@@ -26,7 +23,7 @@ abstract class Links with _$Links {
   static const knownProps = <String>['privacyPolicy', 'termsOfService'];
 
   const factory Links({
-    @Default(appBskyFeedDescribeFeedGeneratorLinks) String $type,
+    @Default('app.bsky.feed.describeFeedGenerator#links') String $type,
     String? privacyPolicy,
     String? termsOfService,
 
@@ -37,7 +34,7 @@ abstract class Links with _$Links {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDescribeFeedGeneratorLinks;
+    return object['\$type'] == 'app.bsky.feed.describeFeedGenerator#links';
   }
 }
 

@@ -15,7 +15,7 @@ _MessageView _$MessageViewFromJson(Map json) => $checkedCreate(
     final val = _MessageView(
       $type: $checkedConvert(
         r'$type',
-        (v) => v as String? ?? chatBskyConvoDefsMessageView,
+        (v) => v as String? ?? 'chat.bsky.convo.defs#messageView',
       ),
       id: $checkedConvert('id', (v) => v as String),
       rev: $checkedConvert('rev', (v) => v as String),

@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'main.freezed.dart';
 part 'main.g.dart';
 
@@ -26,7 +23,7 @@ abstract class GraphFollowRecord with _$GraphFollowRecord {
   static const knownProps = <String>['subject', 'createdAt'];
 
   const factory GraphFollowRecord({
-    @Default(appBskyGraphFollow) String $type,
+    @Default('app.bsky.graph.follow') String $type,
     required String subject,
     required DateTime createdAt,
 
@@ -38,7 +35,7 @@ abstract class GraphFollowRecord with _$GraphFollowRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyGraphFollow;
+    return object['\$type'] == 'app.bsky.graph.follow';
   }
 }
 

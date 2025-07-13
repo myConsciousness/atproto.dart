@@ -13,7 +13,7 @@ _Contact _$ContactFromJson(Map json) =>
       final val = _Contact(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoServerDescribeServerContact,
+          (v) => v as String? ?? 'com.atproto.server.describeServer#contact',
         ),
         email: $checkedConvert('email', (v) => v as String?),
         $unknown: $checkedConvert(

@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'caption.freezed.dart';
 part 'caption.g.dart';
 
@@ -26,7 +23,7 @@ abstract class EmbedVideoCaption with _$EmbedVideoCaption {
   static const knownProps = <String>['lang', 'file'];
 
   const factory EmbedVideoCaption({
-    @Default(appBskyEmbedVideoCaption) String $type,
+    @Default('app.bsky.embed.video#caption') String $type,
     required String lang,
     @BlobConverter() required Blob file,
 
@@ -38,7 +35,7 @@ abstract class EmbedVideoCaption with _$EmbedVideoCaption {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyEmbedVideoCaption;
+    return object['\$type'] == 'app.bsky.embed.video#caption';
   }
 }
 

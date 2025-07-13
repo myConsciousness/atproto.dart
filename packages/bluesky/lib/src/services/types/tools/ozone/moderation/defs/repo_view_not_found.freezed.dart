@@ -211,7 +211,7 @@ return $default(_that.$type,_that.did,_that.$unknown);case _:
 @JsonSerializable()
 
 class _RepoViewNotFound implements RepoViewNotFound {
-  const _RepoViewNotFound({this.$type = toolsOzoneModerationDefsRepoViewNotFound, required this.did, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RepoViewNotFound({this.$type = 'tools.ozone.moderation.defs#repoViewNotFound', required this.did, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoViewNotFound.fromJson(Map<String, dynamic> json) => _$RepoViewNotFoundFromJson(json);
 
 @override@JsonKey() final  String $type;

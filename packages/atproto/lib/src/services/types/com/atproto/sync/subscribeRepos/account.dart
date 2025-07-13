@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'account.freezed.dart';
 part 'account.g.dart';
 
@@ -27,7 +24,7 @@ abstract class Account with _$Account {
   static const knownProps = <String>['seq', 'did', 'time', 'active', 'status'];
 
   const factory Account({
-    @Default(comAtprotoSyncSubscribeReposAccount) String $type,
+    @Default('com.atproto.sync.subscribeRepos#account') String $type,
     required int seq,
     required String did,
     required DateTime time,
@@ -46,7 +43,7 @@ abstract class Account with _$Account {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoSyncSubscribeReposAccount;
+    return object['\$type'] == 'com.atproto.sync.subscribeRepos#account';
   }
 }
 

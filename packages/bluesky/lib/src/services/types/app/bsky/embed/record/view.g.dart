@@ -13,7 +13,7 @@ _EmbedRecordView _$EmbedRecordViewFromJson(Map json) =>
       final val = _EmbedRecordView(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyEmbedRecordView,
+          (v) => v as String? ?? 'app.bsky.embed.record#view',
         ),
         record: $checkedConvert(
           'record',

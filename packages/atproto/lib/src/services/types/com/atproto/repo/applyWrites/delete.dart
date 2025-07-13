@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'delete.freezed.dart';
 part 'delete.g.dart';
 
@@ -27,7 +24,7 @@ abstract class Delete with _$Delete {
   static const knownProps = <String>['collection', 'rkey'];
 
   const factory Delete({
-    @Default(comAtprotoRepoApplyWritesDelete) String $type,
+    @Default('com.atproto.repo.applyWrites#delete') String $type,
     required String collection,
     required String rkey,
 
@@ -38,7 +35,7 @@ abstract class Delete with _$Delete {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoRepoApplyWritesDelete;
+    return object['\$type'] == 'com.atproto.repo.applyWrites#delete';
   }
 }
 

@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'handle_updated.freezed.dart';
 part 'handle_updated.g.dart';
 
@@ -26,7 +23,8 @@ abstract class HandleUpdated with _$HandleUpdated {
   static const knownProps = <String>['handle'];
 
   const factory HandleUpdated({
-    @Default(toolsOzoneHostingGetAccountHistoryHandleUpdated) String $type,
+    @Default('tools.ozone.hosting.getAccountHistory#handleUpdated')
+    String $type,
     required String handle,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +35,8 @@ abstract class HandleUpdated with _$HandleUpdated {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneHostingGetAccountHistoryHandleUpdated;
+    return object['\$type'] ==
+        'tools.ozone.hosting.getAccountHistory#handleUpdated';
   }
 }
 

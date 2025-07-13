@@ -13,7 +13,7 @@ _Preference _$PreferenceFromJson(Map json) =>
       final val = _Preference(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyNotificationDefsPreference,
+          (v) => v as String? ?? 'app.bsky.notification.defs#preference',
         ),
         list: $checkedConvert('list', (v) => v as bool),
         push: $checkedConvert('push', (v) => v as bool),

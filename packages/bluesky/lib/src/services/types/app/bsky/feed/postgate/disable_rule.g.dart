@@ -13,7 +13,7 @@ _DisableRule _$DisableRuleFromJson(Map json) =>
       final val = _DisableRule(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyFeedPostgateDisableRule,
+          (v) => v as String? ?? 'app.bsky.feed.postgate#disableRule',
         ),
         $unknown: $checkedConvert(
           r'$unknown',

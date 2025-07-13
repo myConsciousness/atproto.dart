@@ -13,7 +13,7 @@ _EmbedRecordViewBlocked _$EmbedRecordViewBlockedFromJson(Map json) =>
       final val = _EmbedRecordViewBlocked(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyEmbedRecordViewBlocked,
+          (v) => v as String? ?? 'app.bsky.embed.record#viewBlocked',
         ),
         uri: $checkedConvert('uri', (v) => v as String),
         blocked: $checkedConvert('blocked', (v) => v as bool),

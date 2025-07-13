@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'tag.freezed.dart';
 part 'tag.g.dart';
 
@@ -27,7 +24,7 @@ abstract class RichtextFacetTag with _$RichtextFacetTag {
   static const knownProps = <String>['tag'];
 
   const factory RichtextFacetTag({
-    @Default(appBskyRichtextFacetTag) String $type,
+    @Default('app.bsky.richtext.facet#tag') String $type,
     required String tag,
 
     Map<String, dynamic>? $unknown,
@@ -38,7 +35,7 @@ abstract class RichtextFacetTag with _$RichtextFacetTag {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyRichtextFacetTag;
+    return object['\$type'] == 'app.bsky.richtext.facet#tag';
   }
 }
 

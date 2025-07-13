@@ -13,7 +13,7 @@ _NotFoundActor _$NotFoundActorFromJson(Map json) =>
       final val = _NotFoundActor(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyGraphDefsNotFoundActor,
+          (v) => v as String? ?? 'app.bsky.graph.defs#notFoundActor',
         ),
         actor: $checkedConvert('actor', (v) => v as String),
         notFound: $checkedConvert('notFound', (v) => v as bool),

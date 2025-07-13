@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'byte_slice.freezed.dart';
 part 'byte_slice.g.dart';
 
@@ -27,7 +24,7 @@ abstract class RichtextFacetByteSlice with _$RichtextFacetByteSlice {
   static const knownProps = <String>['byteStart', 'byteEnd'];
 
   const factory RichtextFacetByteSlice({
-    @Default(appBskyRichtextFacetByteSlice) String $type,
+    @Default('app.bsky.richtext.facet#byteSlice') String $type,
     required int byteStart,
     required int byteEnd,
 
@@ -39,7 +36,7 @@ abstract class RichtextFacetByteSlice with _$RichtextFacetByteSlice {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyRichtextFacetByteSlice;
+    return object['\$type'] == 'app.bsky.richtext.facet#byteSlice';
   }
 }
 

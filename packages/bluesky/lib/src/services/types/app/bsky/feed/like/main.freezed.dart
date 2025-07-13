@@ -234,7 +234,7 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.via,_that.$unkno
 @JsonSerializable()
 
 class _FeedLikeRecord implements FeedLikeRecord {
-  const _FeedLikeRecord({this.$type = appBskyFeedLike, @RepoStrongRefConverter() required this.subject, required this.createdAt, @RepoStrongRefConverter() this.via, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FeedLikeRecord({this.$type = 'app.bsky.feed.like', @RepoStrongRefConverter() required this.subject, required this.createdAt, @RepoStrongRefConverter() this.via, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedLikeRecord.fromJson(Map<String, dynamic> json) => _$FeedLikeRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

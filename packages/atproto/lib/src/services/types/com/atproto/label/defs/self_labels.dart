@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './self_label.dart';
 
 part 'self_labels.freezed.dart';
@@ -28,7 +27,7 @@ abstract class SelfLabels with _$SelfLabels {
   static const knownProps = <String>['values'];
 
   const factory SelfLabels({
-    @Default(comAtprotoLabelDefsSelfLabels) String $type,
+    @Default('com.atproto.label.defs#selfLabels') String $type,
     @SelfLabelConverter() required List<SelfLabel> values,
 
     Map<String, dynamic>? $unknown,
@@ -39,7 +38,7 @@ abstract class SelfLabels with _$SelfLabels {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoLabelDefsSelfLabels;
+    return object['\$type'] == 'com.atproto.label.defs#selfLabels';
   }
 }
 

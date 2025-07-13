@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'viewer_config.freezed.dart';
 part 'viewer_config.g.dart';
 
@@ -26,7 +23,7 @@ abstract class ViewerConfig with _$ViewerConfig {
   static const knownProps = <String>['role'];
 
   const factory ViewerConfig({
-    @Default(toolsOzoneServerGetConfigViewerConfig) String $type,
+    @Default('tools.ozone.server.getConfig#viewerConfig') String $type,
     String? role,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +34,7 @@ abstract class ViewerConfig with _$ViewerConfig {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneServerGetConfigViewerConfig;
+    return object['\$type'] == 'tools.ozone.server.getConfig#viewerConfig';
   }
 }
 

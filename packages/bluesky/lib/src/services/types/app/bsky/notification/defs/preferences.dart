@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './chat_preference.dart';
 import './filterable_preference.dart';
 import './preference.dart';
@@ -43,7 +42,7 @@ abstract class Preferences with _$Preferences {
   ];
 
   const factory Preferences({
-    @Default(appBskyNotificationDefsPreferences) String $type,
+    @Default('app.bsky.notification.defs#preferences') String $type,
     @ChatPreferenceConverter() required ChatPreference chat,
     @FilterablePreferenceConverter() required FilterablePreference follow,
     @FilterablePreferenceConverter() required FilterablePreference like,
@@ -68,7 +67,7 @@ abstract class Preferences with _$Preferences {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyNotificationDefsPreferences;
+    return object['\$type'] == 'app.bsky.notification.defs#preferences';
   }
 }
 

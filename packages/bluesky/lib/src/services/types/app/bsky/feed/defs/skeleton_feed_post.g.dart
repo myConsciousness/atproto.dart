@@ -13,7 +13,7 @@ _SkeletonFeedPost _$SkeletonFeedPostFromJson(Map json) =>
       final val = _SkeletonFeedPost(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyFeedDefsSkeletonFeedPost,
+          (v) => v as String? ?? 'app.bsky.feed.defs#skeletonFeedPost',
         ),
         post: $checkedConvert('post', (v) => v as String),
         reason: $checkedConvert(

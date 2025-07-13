@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'main.freezed.dart';
 part 'main.g.dart';
 
@@ -31,7 +28,7 @@ abstract class GraphVerificationRecord with _$GraphVerificationRecord {
   ];
 
   const factory GraphVerificationRecord({
-    @Default(appBskyGraphVerification) String $type,
+    @Default('app.bsky.graph.verification') String $type,
 
     /// DID of the subject the verification applies to.
     required String subject,
@@ -53,7 +50,7 @@ abstract class GraphVerificationRecord with _$GraphVerificationRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyGraphVerification;
+    return object['\$type'] == 'app.bsky.graph.verification';
   }
 }
 

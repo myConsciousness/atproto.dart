@@ -13,7 +13,7 @@ _EmbedRecordViewNotFound _$EmbedRecordViewNotFoundFromJson(Map json) =>
       final val = _EmbedRecordViewNotFound(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyEmbedRecordViewNotFound,
+          (v) => v as String? ?? 'app.bsky.embed.record#viewNotFound',
         ),
         uri: $checkedConvert('uri', (v) => v as String),
         notFound: $checkedConvert('notFound', (v) => v as bool),

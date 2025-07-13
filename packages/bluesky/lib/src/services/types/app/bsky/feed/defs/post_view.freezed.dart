@@ -268,7 +268,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.record,_that.
 @JsonSerializable()
 
 class _PostView implements PostView {
-  const _PostView({this.$type = appBskyFeedDefsPostView, required this.uri, required this.cid, @ProfileViewBasicConverter() required this.author, required final  Map<String, dynamic> record, @UPostViewEmbedConverter() this.embed, this.replyCount, this.repostCount, this.likeCount, this.quoteCount, required this.indexedAt, @ViewerStateConverter() this.viewer, @LabelConverter() final  List<Label>? labels, @ThreadgateViewConverter() this.threadgate, final  Map<String, dynamic>? $unknown}): _record = record,_labels = labels,_$unknown = $unknown;
+  const _PostView({this.$type = 'app.bsky.feed.defs#postView', required this.uri, required this.cid, @ProfileViewBasicConverter() required this.author, required final  Map<String, dynamic> record, @UPostViewEmbedConverter() this.embed, this.replyCount, this.repostCount, this.likeCount, this.quoteCount, required this.indexedAt, @ViewerStateConverter() this.viewer, @LabelConverter() final  List<Label>? labels, @ThreadgateViewConverter() this.threadgate, final  Map<String, dynamic>? $unknown}): _record = record,_labels = labels,_$unknown = $unknown;
   factory _PostView.fromJson(Map<String, dynamic> json) => _$PostViewFromJson(json);
 
 @override@JsonKey() final  String $type;

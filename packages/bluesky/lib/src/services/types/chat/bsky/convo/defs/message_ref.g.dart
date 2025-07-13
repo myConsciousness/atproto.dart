@@ -13,7 +13,7 @@ _MessageRef _$MessageRefFromJson(Map json) =>
       final val = _MessageRef(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? chatBskyConvoDefsMessageRef,
+          (v) => v as String? ?? 'chat.bsky.convo.defs#messageRef',
         ),
         did: $checkedConvert('did', (v) => v as String),
         convoId: $checkedConvert('convoId', (v) => v as String),

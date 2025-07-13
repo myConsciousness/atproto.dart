@@ -221,7 +221,7 @@ return $default(_that.$type,_that.identifier,_that.severity,_that.blurs,_that.de
 @JsonSerializable()
 
 class _LabelValueDefinition implements LabelValueDefinition {
-  const _LabelValueDefinition({this.$type = comAtprotoLabelDefsLabelValueDefinition, required this.identifier, required this.severity, required this.blurs, this.defaultSetting, this.adultOnly, @LabelValueDefinitionStringsConverter() required final  List<LabelValueDefinitionStrings> locales, final  Map<String, dynamic>? $unknown}): _locales = locales,_$unknown = $unknown;
+  const _LabelValueDefinition({this.$type = 'com.atproto.label.defs#labelValueDefinition', required this.identifier, required this.severity, required this.blurs, this.defaultSetting, this.adultOnly, @LabelValueDefinitionStringsConverter() required final  List<LabelValueDefinitionStrings> locales, final  Map<String, dynamic>? $unknown}): _locales = locales,_$unknown = $unknown;
   factory _LabelValueDefinition.fromJson(Map<String, dynamic> json) => _$LabelValueDefinitionFromJson(json);
 
 @override@JsonKey() final  String $type;

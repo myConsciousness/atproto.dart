@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './union_view_record.dart';
 
 part 'view.freezed.dart';
@@ -27,7 +26,7 @@ abstract class EmbedRecordView with _$EmbedRecordView {
   static const knownProps = <String>['record'];
 
   const factory EmbedRecordView({
-    @Default(appBskyEmbedRecordView) String $type,
+    @Default('app.bsky.embed.record#view') String $type,
     @UEmbedRecordViewRecordConverter() required UEmbedRecordViewRecord record,
 
     Map<String, dynamic>? $unknown,
@@ -38,7 +37,7 @@ abstract class EmbedRecordView with _$EmbedRecordView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyEmbedRecordView;
+    return object['\$type'] == 'app.bsky.embed.record#view';
   }
 }
 

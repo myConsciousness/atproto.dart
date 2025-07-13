@@ -13,7 +13,8 @@ _ThreadItem _$ThreadItemFromJson(Map json) =>
       final val = _ThreadItem(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyUnspeccedGetPostThreadV2ThreadItem,
+          (v) =>
+              v as String? ?? 'app.bsky.unspecced.getPostThreadV2#threadItem',
         ),
         uri: $checkedConvert('uri', (v) => v as String),
         depth: $checkedConvert('depth', (v) => (v as num).toInt()),

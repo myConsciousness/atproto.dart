@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'password_updated.freezed.dart';
 part 'password_updated.g.dart';
 
@@ -26,7 +23,8 @@ abstract class PasswordUpdated with _$PasswordUpdated {
   static const knownProps = <String>[];
 
   const factory PasswordUpdated({
-    @Default(toolsOzoneHostingGetAccountHistoryPasswordUpdated) String $type,
+    @Default('tools.ozone.hosting.getAccountHistory#passwordUpdated')
+    String $type,
 
     Map<String, dynamic>? $unknown,
   }) = _PasswordUpdated;
@@ -37,7 +35,7 @@ abstract class PasswordUpdated with _$PasswordUpdated {
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
     return object['\$type'] ==
-        toolsOzoneHostingGetAccountHistoryPasswordUpdated;
+        'tools.ozone.hosting.getAccountHistory#passwordUpdated';
   }
 }
 

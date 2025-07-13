@@ -212,7 +212,7 @@ return $default(_that.$type,_that.uri,_that.notFound,_that.$unknown);case _:
 @JsonSerializable()
 
 class _EmbedRecordViewNotFound implements EmbedRecordViewNotFound {
-  const _EmbedRecordViewNotFound({this.$type = appBskyEmbedRecordViewNotFound, required this.uri, required this.notFound, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedRecordViewNotFound({this.$type = 'app.bsky.embed.record#viewNotFound', required this.uri, required this.notFound, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedRecordViewNotFound.fromJson(Map<String, dynamic> json) => _$EmbedRecordViewNotFoundFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'list_rule.freezed.dart';
 part 'list_rule.g.dart';
 
@@ -27,7 +24,7 @@ abstract class ListRule with _$ListRule {
   static const knownProps = <String>['list'];
 
   const factory ListRule({
-    @Default(appBskyFeedThreadgateListRule) String $type,
+    @Default('app.bsky.feed.threadgate#listRule') String $type,
     required String list,
 
     Map<String, dynamic>? $unknown,
@@ -38,7 +35,7 @@ abstract class ListRule with _$ListRule {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedThreadgateListRule;
+    return object['\$type'] == 'app.bsky.feed.threadgate#listRule';
   }
 }
 

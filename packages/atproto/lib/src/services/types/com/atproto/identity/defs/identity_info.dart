@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'identity_info.freezed.dart';
 part 'identity_info.g.dart';
 
@@ -26,7 +23,7 @@ abstract class IdentityInfo with _$IdentityInfo {
   static const knownProps = <String>['did', 'handle', 'didDoc'];
 
   const factory IdentityInfo({
-    @Default(comAtprotoIdentityDefsIdentityInfo) String $type,
+    @Default('com.atproto.identity.defs#identityInfo') String $type,
     required String did,
 
     /// The validated handle of the account; or 'handle.invalid' if the handle did not bi-directionally match the DID document.
@@ -41,7 +38,7 @@ abstract class IdentityInfo with _$IdentityInfo {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoIdentityDefsIdentityInfo;
+    return object['\$type'] == 'com.atproto.identity.defs#identityInfo';
   }
 }
 

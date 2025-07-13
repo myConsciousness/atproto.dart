@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'mod_event_label.freezed.dart';
 part 'mod_event_label.g.dart';
 
@@ -32,7 +29,7 @@ abstract class ModEventLabel with _$ModEventLabel {
   ];
 
   const factory ModEventLabel({
-    @Default(toolsOzoneModerationDefsModEventLabel) String $type,
+    @Default('tools.ozone.moderation.defs#modEventLabel') String $type,
     String? comment,
     required List<String> createLabelVals,
     required List<String> negateLabelVals,
@@ -48,7 +45,7 @@ abstract class ModEventLabel with _$ModEventLabel {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsModEventLabel;
+    return object['\$type'] == 'tools.ozone.moderation.defs#modEventLabel';
   }
 }
 

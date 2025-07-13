@@ -13,7 +13,7 @@ _ThreadItemNotFound _$ThreadItemNotFoundFromJson(Map json) =>
       final val = _ThreadItemNotFound(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyUnspeccedDefsThreadItemNotFound,
+          (v) => v as String? ?? 'app.bsky.unspecced.defs#threadItemNotFound',
         ),
         $unknown: $checkedConvert(
           r'$unknown',

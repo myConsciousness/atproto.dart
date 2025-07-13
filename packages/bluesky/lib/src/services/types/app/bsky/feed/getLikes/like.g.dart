@@ -14,7 +14,7 @@ _Like _$LikeFromJson(Map json) => $checkedCreate('_Like', json, (
   final val = _Like(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyFeedGetLikesLike,
+      (v) => v as String? ?? 'app.bsky.feed.getLikes#like',
     ),
     indexedAt: $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
     createdAt: $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),

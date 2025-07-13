@@ -216,7 +216,7 @@ return $default(_that.$type,_that.repost,_that.like,_that.threadMuted,_that.repl
 @JsonSerializable()
 
 class _ViewerState implements ViewerState {
-  const _ViewerState({this.$type = appBskyFeedDefsViewerState, this.repost, this.like, this.threadMuted, this.replyDisabled, this.embeddingDisabled, this.pinned, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ViewerState({this.$type = 'app.bsky.feed.defs#viewerState', this.repost, this.like, this.threadMuted, this.replyDisabled, this.embeddingDisabled, this.pinned, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ViewerState.fromJson(Map<String, dynamic> json) => _$ViewerStateFromJson(json);
 
 @override@JsonKey() final  String $type;

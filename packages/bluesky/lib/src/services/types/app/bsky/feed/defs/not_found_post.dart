@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'not_found_post.freezed.dart';
 part 'not_found_post.g.dart';
 
@@ -26,7 +23,7 @@ abstract class NotFoundPost with _$NotFoundPost {
   static const knownProps = <String>['uri', 'notFound'];
 
   const factory NotFoundPost({
-    @Default(appBskyFeedDefsNotFoundPost) String $type,
+    @Default('app.bsky.feed.defs#notFoundPost') String $type,
     required String uri,
     required bool notFound,
 
@@ -38,7 +35,7 @@ abstract class NotFoundPost with _$NotFoundPost {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDefsNotFoundPost;
+    return object['\$type'] == 'app.bsky.feed.defs#notFoundPost';
   }
 }
 

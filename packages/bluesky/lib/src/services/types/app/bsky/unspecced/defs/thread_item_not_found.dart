@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'thread_item_not_found.freezed.dart';
 part 'thread_item_not_found.g.dart';
 
@@ -26,7 +23,7 @@ abstract class ThreadItemNotFound with _$ThreadItemNotFound {
   static const knownProps = <String>[];
 
   const factory ThreadItemNotFound({
-    @Default(appBskyUnspeccedDefsThreadItemNotFound) String $type,
+    @Default('app.bsky.unspecced.defs#threadItemNotFound') String $type,
 
     Map<String, dynamic>? $unknown,
   }) = _ThreadItemNotFound;
@@ -36,7 +33,7 @@ abstract class ThreadItemNotFound with _$ThreadItemNotFound {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyUnspeccedDefsThreadItemNotFound;
+    return object['\$type'] == 'app.bsky.unspecced.defs#threadItemNotFound';
   }
 }
 

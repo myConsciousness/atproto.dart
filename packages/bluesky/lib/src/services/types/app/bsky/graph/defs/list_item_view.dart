@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view.dart';
 
 part 'list_item_view.freezed.dart';
@@ -27,7 +26,7 @@ abstract class ListItemView with _$ListItemView {
   static const knownProps = <String>['uri', 'subject'];
 
   const factory ListItemView({
-    @Default(appBskyGraphDefsListItemView) String $type,
+    @Default('app.bsky.graph.defs#listItemView') String $type,
     required String uri,
     @ProfileViewConverter() required ProfileView subject,
 
@@ -39,7 +38,7 @@ abstract class ListItemView with _$ListItemView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyGraphDefsListItemView;
+    return object['\$type'] == 'app.bsky.graph.defs#listItemView';
   }
 }
 

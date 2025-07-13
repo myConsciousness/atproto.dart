@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'mod_event_comment.freezed.dart';
 part 'mod_event_comment.g.dart';
 
@@ -27,7 +24,7 @@ abstract class ModEventComment with _$ModEventComment {
   static const knownProps = <String>['comment', 'sticky'];
 
   const factory ModEventComment({
-    @Default(toolsOzoneModerationDefsModEventComment) String $type,
+    @Default('tools.ozone.moderation.defs#modEventComment') String $type,
     String? comment,
 
     /// Make the comment persistent on the subject
@@ -41,7 +38,7 @@ abstract class ModEventComment with _$ModEventComment {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsModEventComment;
+    return object['\$type'] == 'tools.ozone.moderation.defs#modEventComment';
   }
 }
 

@@ -13,7 +13,7 @@ _MentionRule _$MentionRuleFromJson(Map json) =>
       final val = _MentionRule(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyFeedThreadgateMentionRule,
+          (v) => v as String? ?? 'app.bsky.feed.threadgate#mentionRule',
         ),
         $unknown: $checkedConvert(
           r'$unknown',

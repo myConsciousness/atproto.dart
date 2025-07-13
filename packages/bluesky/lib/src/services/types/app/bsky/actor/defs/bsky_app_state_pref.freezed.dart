@@ -225,7 +225,7 @@ return $default(_that.$type,_that.activeProgressGuide,_that.queuedNudges,_that.n
 @JsonSerializable()
 
 class _BskyAppStatePref implements BskyAppStatePref {
-  const _BskyAppStatePref({this.$type = appBskyActorDefsBskyAppStatePref, @BskyAppProgressGuideConverter() this.activeProgressGuide, final  List<String>? queuedNudges, @NuxConverter() final  List<Nux>? nuxs, final  Map<String, dynamic>? $unknown}): _queuedNudges = queuedNudges,_nuxs = nuxs,_$unknown = $unknown;
+  const _BskyAppStatePref({this.$type = 'app.bsky.actor.defs#bskyAppStatePref', @BskyAppProgressGuideConverter() this.activeProgressGuide, final  List<String>? queuedNudges, @NuxConverter() final  List<Nux>? nuxs, final  Map<String, dynamic>? $unknown}): _queuedNudges = queuedNudges,_nuxs = nuxs,_$unknown = $unknown;
   factory _BskyAppStatePref.fromJson(Map<String, dynamic> json) => _$BskyAppStatePrefFromJson(json);
 
 @override@JsonKey() final  String $type;

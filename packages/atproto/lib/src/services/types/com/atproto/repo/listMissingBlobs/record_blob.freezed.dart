@@ -212,7 +212,7 @@ return $default(_that.$type,_that.cid,_that.recordUri,_that.$unknown);case _:
 @JsonSerializable()
 
 class _RecordBlob implements RecordBlob {
-  const _RecordBlob({this.$type = comAtprotoRepoListMissingBlobsRecordBlob, required this.cid, required this.recordUri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RecordBlob({this.$type = 'com.atproto.repo.listMissingBlobs#recordBlob', required this.cid, required this.recordUri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RecordBlob.fromJson(Map<String, dynamic> json) => _$RecordBlobFromJson(json);
 
 @override@JsonKey() final  String $type;

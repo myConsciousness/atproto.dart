@@ -13,7 +13,7 @@ _ReactionViewSender _$ReactionViewSenderFromJson(Map json) =>
       final val = _ReactionViewSender(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? chatBskyConvoDefsReactionViewSender,
+          (v) => v as String? ?? 'chat.bsky.convo.defs#reactionViewSender',
         ),
         did: $checkedConvert('did', (v) => v as String),
         $unknown: $checkedConvert(

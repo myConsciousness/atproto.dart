@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/feed/defs/post_view.dart';
 
 part 'thread_item_post.freezed.dart';
@@ -34,7 +33,7 @@ abstract class ThreadItemPost with _$ThreadItemPost {
   ];
 
   const factory ThreadItemPost({
-    @Default(appBskyUnspeccedDefsThreadItemPost) String $type,
+    @Default('app.bsky.unspecced.defs#threadItemPost') String $type,
     @PostViewConverter() required PostView post,
 
     /// This post has more parents that were not present in the response. This is just a boolean, without the number of parents.
@@ -60,7 +59,7 @@ abstract class ThreadItemPost with _$ThreadItemPost {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyUnspeccedDefsThreadItemPost;
+    return object['\$type'] == 'app.bsky.unspecced.defs#threadItemPost';
   }
 }
 

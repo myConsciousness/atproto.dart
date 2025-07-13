@@ -211,7 +211,7 @@ return $default(_that.$type,_that.list,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ListRule implements ListRule {
-  const _ListRule({this.$type = appBskyFeedThreadgateListRule, required this.list, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ListRule({this.$type = 'app.bsky.feed.threadgate#listRule', required this.list, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ListRule.fromJson(Map<String, dynamic> json) => _$ListRuleFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'not_found_actor.freezed.dart';
 part 'not_found_actor.g.dart';
 
@@ -27,7 +24,7 @@ abstract class NotFoundActor with _$NotFoundActor {
   static const knownProps = <String>['actor', 'notFound'];
 
   const factory NotFoundActor({
-    @Default(appBskyGraphDefsNotFoundActor) String $type,
+    @Default('app.bsky.graph.defs#notFoundActor') String $type,
     required String actor,
     required bool notFound,
 
@@ -39,7 +36,7 @@ abstract class NotFoundActor with _$NotFoundActor {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyGraphDefsNotFoundActor;
+    return object['\$type'] == 'app.bsky.graph.defs#notFoundActor';
   }
 }
 

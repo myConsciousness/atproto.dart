@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './byte_slice.dart';
 import './union_main_features.dart';
 
@@ -29,7 +28,7 @@ abstract class RichtextFacet with _$RichtextFacet {
   static const knownProps = <String>['index', 'features'];
 
   const factory RichtextFacet({
-    @Default(appBskyRichtextFacet) String $type,
+    @Default('app.bsky.richtext.facet') String $type,
     @RichtextFacetByteSliceConverter() required RichtextFacetByteSlice index,
     @URichtextFacetFeaturesConverter()
     required List<URichtextFacetFeatures> features,
@@ -42,7 +41,7 @@ abstract class RichtextFacet with _$RichtextFacet {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyRichtextFacet ||
+    return object['\$type'] == 'app.bsky.richtext.facet' ||
         object['\$type'] == 'app.bsky.richtext.facet#main';
   }
 }

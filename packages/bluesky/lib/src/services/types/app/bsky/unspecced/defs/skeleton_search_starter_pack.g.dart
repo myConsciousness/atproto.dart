@@ -13,7 +13,9 @@ _SkeletonSearchStarterPack _$SkeletonSearchStarterPackFromJson(Map json) =>
       final val = _SkeletonSearchStarterPack(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyUnspeccedDefsSkeletonSearchStarterPack,
+          (v) =>
+              v as String? ??
+              'app.bsky.unspecced.defs#skeletonSearchStarterPack',
         ),
         uri: $checkedConvert('uri', (v) => v as String),
         $unknown: $checkedConvert(

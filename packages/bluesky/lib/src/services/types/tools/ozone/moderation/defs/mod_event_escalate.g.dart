@@ -13,7 +13,7 @@ _ModEventEscalate _$ModEventEscalateFromJson(Map json) =>
       final val = _ModEventEscalate(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsModEventEscalate,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#modEventEscalate',
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         $unknown: $checkedConvert(

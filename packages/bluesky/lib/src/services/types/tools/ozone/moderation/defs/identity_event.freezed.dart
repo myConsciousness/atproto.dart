@@ -215,7 +215,7 @@ return $default(_that.$type,_that.comment,_that.handle,_that.pdsHost,_that.tombs
 @JsonSerializable()
 
 class _IdentityEvent implements IdentityEvent {
-  const _IdentityEvent({this.$type = toolsOzoneModerationDefsIdentityEvent, this.comment, this.handle, @AtUriConverter() this.pdsHost, this.tombstone, required this.timestamp, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _IdentityEvent({this.$type = 'tools.ozone.moderation.defs#identityEvent', this.comment, this.handle, @AtUriConverter() this.pdsHost, this.tombstone, required this.timestamp, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _IdentityEvent.fromJson(Map<String, dynamic> json) => _$IdentityEventFromJson(json);
 
 @override@JsonKey() final  String $type;

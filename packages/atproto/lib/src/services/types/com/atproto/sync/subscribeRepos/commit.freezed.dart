@@ -226,7 +226,7 @@ return $default(_that.$type,_that.seq,_that.repo,_that.commit,_that.rev,_that.si
 @JsonSerializable()
 
 class _Commit implements Commit {
-  const _Commit({this.$type = comAtprotoSyncSubscribeReposCommit, required this.seq, required this.repo, required final  Map<String, dynamic> commit, required this.rev, required this.since, required final  Map<String, dynamic> blocks, @RepoOpConverter() required final  List<RepoOp> ops, required final  List<Object> blobs, final  Map<String, dynamic>? prevData, required this.time, final  Map<String, dynamic>? $unknown}): _commit = commit,_blocks = blocks,_ops = ops,_blobs = blobs,_prevData = prevData,_$unknown = $unknown;
+  const _Commit({this.$type = 'com.atproto.sync.subscribeRepos#commit', required this.seq, required this.repo, required final  Map<String, dynamic> commit, required this.rev, required this.since, required final  Map<String, dynamic> blocks, @RepoOpConverter() required final  List<RepoOp> ops, required final  List<Object> blobs, final  Map<String, dynamic>? prevData, required this.time, final  Map<String, dynamic>? $unknown}): _commit = commit,_blocks = blocks,_ops = ops,_blobs = blobs,_prevData = prevData,_$unknown = $unknown;
   factory _Commit.fromJson(Map<String, dynamic> json) => _$CommitFromJson(json);
 
 @override@JsonKey() final  String $type;

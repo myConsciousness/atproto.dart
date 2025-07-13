@@ -211,7 +211,7 @@ return $default(_that.$type,_that.images,_that.$unknown);case _:
 @JsonSerializable()
 
 class _EmbedImagesView implements EmbedImagesView {
-  const _EmbedImagesView({this.$type = appBskyEmbedImagesView, @EmbedImagesViewImageConverter() required final  List<EmbedImagesViewImage> images, final  Map<String, dynamic>? $unknown}): _images = images,_$unknown = $unknown;
+  const _EmbedImagesView({this.$type = 'app.bsky.embed.images#view', @EmbedImagesViewImageConverter() required final  List<EmbedImagesViewImage> images, final  Map<String, dynamic>? $unknown}): _images = images,_$unknown = $unknown;
   factory _EmbedImagesView.fromJson(Map<String, dynamic> json) => _$EmbedImagesViewFromJson(json);
 
 @override@JsonKey() final  String $type;

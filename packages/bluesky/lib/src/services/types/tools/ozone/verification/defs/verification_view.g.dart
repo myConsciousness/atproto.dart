@@ -13,7 +13,8 @@ _VerificationView _$VerificationViewFromJson(Map json) =>
       final val = _VerificationView(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneVerificationDefsVerificationView,
+          (v) =>
+              v as String? ?? 'tools.ozone.verification.defs#verificationView',
         ),
         issuer: $checkedConvert('issuer', (v) => v as String),
         uri: $checkedConvert('uri', (v) => v as String),

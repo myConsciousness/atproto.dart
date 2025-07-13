@@ -13,7 +13,7 @@ _RichtextFacetByteSlice _$RichtextFacetByteSliceFromJson(Map json) =>
       final val = _RichtextFacetByteSlice(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyRichtextFacetByteSlice,
+          (v) => v as String? ?? 'app.bsky.richtext.facet#byteSlice',
         ),
         byteStart: $checkedConvert('byteStart', (v) => (v as num).toInt()),
         byteEnd: $checkedConvert('byteEnd', (v) => (v as num).toInt()),

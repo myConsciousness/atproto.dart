@@ -211,7 +211,7 @@ return $default(_that.$type,_that.like,_that.$unknown);case _:
 @JsonSerializable()
 
 class _GeneratorViewerState implements GeneratorViewerState {
-  const _GeneratorViewerState({this.$type = appBskyFeedDefsGeneratorViewerState, this.like, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GeneratorViewerState({this.$type = 'app.bsky.feed.defs#generatorViewerState', this.like, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GeneratorViewerState.fromJson(Map<String, dynamic> json) => _$GeneratorViewerStateFromJson(json);
 
 @override@JsonKey() final  String $type;

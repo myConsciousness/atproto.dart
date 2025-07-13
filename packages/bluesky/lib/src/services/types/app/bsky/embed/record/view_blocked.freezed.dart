@@ -222,7 +222,7 @@ return $default(_that.$type,_that.uri,_that.blocked,_that.author,_that.$unknown)
 @JsonSerializable()
 
 class _EmbedRecordViewBlocked implements EmbedRecordViewBlocked {
-  const _EmbedRecordViewBlocked({this.$type = appBskyEmbedRecordViewBlocked, required this.uri, required this.blocked, @BlockedAuthorConverter() required this.author, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedRecordViewBlocked({this.$type = 'app.bsky.embed.record#viewBlocked', required this.uri, required this.blocked, @BlockedAuthorConverter() required this.author, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedRecordViewBlocked.fromJson(Map<String, dynamic> json) => _$EmbedRecordViewBlockedFromJson(json);
 
 @override@JsonKey() final  String $type;

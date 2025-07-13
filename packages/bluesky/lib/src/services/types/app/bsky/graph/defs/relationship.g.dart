@@ -13,7 +13,7 @@ _Relationship _$RelationshipFromJson(Map json) =>
       final val = _Relationship(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyGraphDefsRelationship,
+          (v) => v as String? ?? 'app.bsky.graph.defs#relationship',
         ),
         did: $checkedConvert('did', (v) => v as String),
         following: $checkedConvert('following', (v) => v as String?),

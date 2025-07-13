@@ -13,7 +13,7 @@ _ContentLabelPref _$ContentLabelPrefFromJson(Map json) =>
       final val = _ContentLabelPref(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsContentLabelPref,
+          (v) => v as String? ?? 'app.bsky.actor.defs#contentLabelPref',
         ),
         labelerDid: $checkedConvert('labelerDid', (v) => v as String?),
         label: $checkedConvert('label', (v) => v as String),

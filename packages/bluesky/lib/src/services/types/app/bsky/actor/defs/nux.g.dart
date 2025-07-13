@@ -12,7 +12,7 @@ _Nux _$NuxFromJson(Map json) => $checkedCreate('_Nux', json, ($checkedConvert) {
   final val = _Nux(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyActorDefsNux,
+      (v) => v as String? ?? 'app.bsky.actor.defs#nux',
     ),
     id: $checkedConvert('id', (v) => v as String),
     completed: $checkedConvert('completed', (v) => v as bool),

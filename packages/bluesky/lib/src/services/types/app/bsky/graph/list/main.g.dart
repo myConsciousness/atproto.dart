@@ -12,7 +12,10 @@ _GraphListRecord _$GraphListRecordFromJson(
   Map json,
 ) => $checkedCreate('_GraphListRecord', json, ($checkedConvert) {
   final val = _GraphListRecord(
-    $type: $checkedConvert(r'$type', (v) => v as String? ?? appBskyGraphList),
+    $type: $checkedConvert(
+      r'$type',
+      (v) => v as String? ?? 'app.bsky.graph.list',
+    ),
     purpose: $checkedConvert(
       'purpose',
       (v) => const ListPurposeConverter().fromJson(v as Map<String, dynamic>),

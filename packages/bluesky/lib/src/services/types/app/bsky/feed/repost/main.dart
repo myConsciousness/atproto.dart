@@ -12,9 +12,6 @@ import 'package:atproto/com_atproto_repo_strongref.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'main.freezed.dart';
 part 'main.g.dart';
 
@@ -27,7 +24,7 @@ abstract class FeedRepostRecord with _$FeedRepostRecord {
   static const knownProps = <String>['subject', 'createdAt', 'via'];
 
   const factory FeedRepostRecord({
-    @Default(appBskyFeedRepost) String $type,
+    @Default('app.bsky.feed.repost') String $type,
     @RepoStrongRefConverter() required RepoStrongRef subject,
     required DateTime createdAt,
     @RepoStrongRefConverter() RepoStrongRef? via,
@@ -40,7 +37,7 @@ abstract class FeedRepostRecord with _$FeedRepostRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedRepost;
+    return object['\$type'] == 'app.bsky.feed.repost';
   }
 }
 

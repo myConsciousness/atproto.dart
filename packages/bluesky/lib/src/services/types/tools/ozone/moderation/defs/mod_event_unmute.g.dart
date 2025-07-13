@@ -13,7 +13,7 @@ _ModEventUnmute _$ModEventUnmuteFromJson(Map json) =>
       final val = _ModEventUnmute(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsModEventUnmute,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#modEventUnmute',
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         $unknown: $checkedConvert(

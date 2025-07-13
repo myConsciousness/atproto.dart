@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'records_stats.freezed.dart';
 part 'records_stats.g.dart';
 
@@ -36,7 +33,7 @@ abstract class RecordsStats with _$RecordsStats {
   ];
 
   const factory RecordsStats({
-    @Default(toolsOzoneModerationDefsRecordsStats) String $type,
+    @Default('tools.ozone.moderation.defs#recordsStats') String $type,
 
     /// Cumulative sum of the number of reports on the items in the set
     int? totalReports,
@@ -70,7 +67,7 @@ abstract class RecordsStats with _$RecordsStats {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsRecordsStats;
+    return object['\$type'] == 'tools.ozone.moderation.defs#recordsStats';
   }
 }
 

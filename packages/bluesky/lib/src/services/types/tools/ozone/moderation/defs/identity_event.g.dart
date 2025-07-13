@@ -13,7 +13,7 @@ _IdentityEvent _$IdentityEventFromJson(Map json) =>
       final val = _IdentityEvent(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsIdentityEvent,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#identityEvent',
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         handle: $checkedConvert('handle', (v) => v as String?),

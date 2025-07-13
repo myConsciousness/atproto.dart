@@ -216,7 +216,7 @@ return $default(_that.$type,_that.item,_that.event,_that.feedContext,_that.reqId
 @JsonSerializable()
 
 class _Interaction implements Interaction {
-  const _Interaction({this.$type = appBskyFeedDefsInteraction, this.item, this.event, this.feedContext, this.reqId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Interaction({this.$type = 'app.bsky.feed.defs#interaction', this.item, this.event, this.feedContext, this.reqId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Interaction.fromJson(Map<String, dynamic> json) => _$InteractionFromJson(json);
 
 @override@JsonKey() final  String $type;

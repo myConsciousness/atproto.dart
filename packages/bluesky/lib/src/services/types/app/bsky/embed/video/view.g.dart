@@ -13,7 +13,7 @@ _EmbedVideoView _$EmbedVideoViewFromJson(Map json) =>
       final val = _EmbedVideoView(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyEmbedVideoView,
+          (v) => v as String? ?? 'app.bsky.embed.video#view',
         ),
         cid: $checkedConvert('cid', (v) => v as String),
         playlist: $checkedConvert(

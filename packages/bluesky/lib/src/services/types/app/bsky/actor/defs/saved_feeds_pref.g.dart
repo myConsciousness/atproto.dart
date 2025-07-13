@@ -13,7 +13,7 @@ _SavedFeedsPref _$SavedFeedsPrefFromJson(Map json) =>
       final val = _SavedFeedsPref(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsSavedFeedsPref,
+          (v) => v as String? ?? 'app.bsky.actor.defs#savedFeedsPref',
         ),
         pinned: $checkedConvert(
           'pinned',

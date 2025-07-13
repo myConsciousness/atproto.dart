@@ -213,7 +213,7 @@ return $default(_that.$type,_that.width,_that.height,_that.length,_that.$unknown
 @JsonSerializable()
 
 class _VideoDetails implements VideoDetails {
-  const _VideoDetails({this.$type = toolsOzoneModerationDefsVideoDetails, required this.width, required this.height, required this.length, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _VideoDetails({this.$type = 'tools.ozone.moderation.defs#videoDetails', required this.width, required this.height, required this.length, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _VideoDetails.fromJson(Map<String, dynamic> json) => _$VideoDetailsFromJson(json);
 
 @override@JsonKey() final  String $type;

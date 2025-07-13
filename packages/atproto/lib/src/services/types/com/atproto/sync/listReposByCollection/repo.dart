@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'repo.freezed.dart';
 part 'repo.g.dart';
 
@@ -26,7 +23,7 @@ abstract class Repo with _$Repo {
   static const knownProps = <String>['did'];
 
   const factory Repo({
-    @Default(comAtprotoSyncListReposByCollectionRepo) String $type,
+    @Default('com.atproto.sync.listReposByCollection#repo') String $type,
     required String did,
 
     Map<String, dynamic>? $unknown,
@@ -36,7 +33,7 @@ abstract class Repo with _$Repo {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoSyncListReposByCollectionRepo;
+    return object['\$type'] == 'com.atproto.sync.listReposByCollection#repo';
   }
 }
 

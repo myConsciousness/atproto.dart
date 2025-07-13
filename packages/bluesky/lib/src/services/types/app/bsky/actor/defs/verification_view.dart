@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'verification_view.freezed.dart';
 part 'verification_view.g.dart';
 
@@ -27,7 +24,7 @@ abstract class VerificationView with _$VerificationView {
   static const knownProps = <String>['issuer', 'uri', 'isValid', 'createdAt'];
 
   const factory VerificationView({
-    @Default(appBskyActorDefsVerificationView) String $type,
+    @Default('app.bsky.actor.defs#verificationView') String $type,
 
     /// The user who issued this verification.
     required String issuer,
@@ -49,7 +46,7 @@ abstract class VerificationView with _$VerificationView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsVerificationView;
+    return object['\$type'] == 'app.bsky.actor.defs#verificationView';
   }
 }
 

@@ -15,7 +15,7 @@ _Preferences _$PreferencesFromJson(Map json) => $checkedCreate(
     final val = _Preferences(
       $type: $checkedConvert(
         r'$type',
-        (v) => v as String? ?? appBskyNotificationDefsPreferences,
+        (v) => v as String? ?? 'app.bsky.notification.defs#preferences',
       ),
       chat: $checkedConvert(
         'chat',

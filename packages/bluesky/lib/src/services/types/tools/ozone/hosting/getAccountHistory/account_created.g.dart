@@ -14,7 +14,8 @@ _AccountCreated _$AccountCreatedFromJson(Map json) =>
         $type: $checkedConvert(
           r'$type',
           (v) =>
-              v as String? ?? toolsOzoneHostingGetAccountHistoryAccountCreated,
+              v as String? ??
+              'tools.ozone.hosting.getAccountHistory#accountCreated',
         ),
         email: $checkedConvert('email', (v) => v as String?),
         handle: $checkedConvert('handle', (v) => v as String?),

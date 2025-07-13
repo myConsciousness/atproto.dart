@@ -15,7 +15,7 @@ _SubjectView _$SubjectViewFromJson(Map json) => $checkedCreate(
     final val = _SubjectView(
       $type: $checkedConvert(
         r'$type',
-        (v) => v as String? ?? toolsOzoneModerationDefsSubjectView,
+        (v) => v as String? ?? 'tools.ozone.moderation.defs#subjectView',
       ),
       type: $checkedConvert(
         'type',

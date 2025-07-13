@@ -13,7 +13,7 @@ _SkeletonReasonPin _$SkeletonReasonPinFromJson(Map json) =>
       final val = _SkeletonReasonPin(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyFeedDefsSkeletonReasonPin,
+          (v) => v as String? ?? 'app.bsky.feed.defs#skeletonReasonPin',
         ),
         $unknown: $checkedConvert(
           r'$unknown',

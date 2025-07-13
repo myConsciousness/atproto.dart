@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'grant_error.freezed.dart';
 part 'grant_error.g.dart';
 
@@ -27,7 +24,8 @@ abstract class GrantError with _$GrantError {
   static const knownProps = <String>['error', 'subject'];
 
   const factory GrantError({
-    @Default(toolsOzoneVerificationGrantVerificationsGrantError) String $type,
+    @Default('tools.ozone.verification.grantVerifications#grantError')
+    String $type,
 
     /// Error message describing the reason for failure.
     required String error,
@@ -44,7 +42,7 @@ abstract class GrantError with _$GrantError {
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
     return object['\$type'] ==
-        toolsOzoneVerificationGrantVerificationsGrantError;
+        'tools.ozone.verification.grantVerifications#grantError';
   }
 }
 

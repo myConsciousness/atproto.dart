@@ -37,7 +37,7 @@ abstract class HostStatus with _$HostStatus {
       _$HostStatusFromJson(json);
 }
 
-abstract class HostStatusConverter
+final class HostStatusConverter
     extends LexKnownValuesConverter<HostStatus, Map<String, dynamic>> {
   const HostStatusConverter();
 

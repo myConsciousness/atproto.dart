@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'mod_event_mute.freezed.dart';
 part 'mod_event_mute.g.dart';
 
@@ -27,7 +24,7 @@ abstract class ModEventMute with _$ModEventMute {
   static const knownProps = <String>['comment', 'durationInHours'];
 
   const factory ModEventMute({
-    @Default(toolsOzoneModerationDefsModEventMute) String $type,
+    @Default('tools.ozone.moderation.defs#modEventMute') String $type,
     String? comment,
 
     /// Indicates how long the subject should remain muted.
@@ -41,7 +38,7 @@ abstract class ModEventMute with _$ModEventMute {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsModEventMute;
+    return object['\$type'] == 'tools.ozone.moderation.defs#modEventMute';
   }
 }
 

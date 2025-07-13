@@ -13,7 +13,7 @@ _Commit _$CommitFromJson(Map json) =>
       final val = _Commit(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoSyncSubscribeReposCommit,
+          (v) => v as String? ?? 'com.atproto.sync.subscribeRepos#commit',
         ),
         seq: $checkedConvert('seq', (v) => (v as num).toInt()),
         repo: $checkedConvert('repo', (v) => v as String),

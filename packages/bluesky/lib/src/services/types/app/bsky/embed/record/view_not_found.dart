@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'view_not_found.freezed.dart';
 part 'view_not_found.g.dart';
 
@@ -26,7 +23,7 @@ abstract class EmbedRecordViewNotFound with _$EmbedRecordViewNotFound {
   static const knownProps = <String>['uri', 'notFound'];
 
   const factory EmbedRecordViewNotFound({
-    @Default(appBskyEmbedRecordViewNotFound) String $type,
+    @Default('app.bsky.embed.record#viewNotFound') String $type,
     required String uri,
     required bool notFound,
 
@@ -38,7 +35,7 @@ abstract class EmbedRecordViewNotFound with _$EmbedRecordViewNotFound {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyEmbedRecordViewNotFound;
+    return object['\$type'] == 'app.bsky.embed.record#viewNotFound';
   }
 }
 

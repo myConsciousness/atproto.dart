@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'sig_detail.freezed.dart';
 part 'sig_detail.g.dart';
 
@@ -26,7 +23,7 @@ abstract class SigDetail with _$SigDetail {
   static const knownProps = <String>['property', 'value'];
 
   const factory SigDetail({
-    @Default(toolsOzoneSignatureDefsSigDetail) String $type,
+    @Default('tools.ozone.signature.defs#sigDetail') String $type,
     required String property,
     required String value,
 
@@ -38,7 +35,7 @@ abstract class SigDetail with _$SigDetail {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneSignatureDefsSigDetail;
+    return object['\$type'] == 'tools.ozone.signature.defs#sigDetail';
   }
 }
 

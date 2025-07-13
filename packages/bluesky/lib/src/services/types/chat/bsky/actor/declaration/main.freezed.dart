@@ -211,7 +211,7 @@ return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ActorDeclarationRecord implements ActorDeclarationRecord {
-  const _ActorDeclarationRecord({this.$type = chatBskyActorDeclaration, required this.allowIncoming, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ActorDeclarationRecord({this.$type = 'chat.bsky.actor.declaration', required this.allowIncoming, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ActorDeclarationRecord.fromJson(Map<String, dynamic> json) => _$ActorDeclarationRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -222,7 +222,7 @@ return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.$unknown
 @JsonSerializable()
 
 class _LogReadMessage implements LogReadMessage {
-  const _LogReadMessage({this.$type = chatBskyConvoDefsLogReadMessage, required this.rev, required this.convoId, @ULogReadMessageMessageConverter() required this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _LogReadMessage({this.$type = 'chat.bsky.convo.defs#logReadMessage', required this.rev, required this.convoId, @ULogReadMessageMessageConverter() required this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _LogReadMessage.fromJson(Map<String, dynamic> json) => _$LogReadMessageFromJson(json);
 
 @override@JsonKey() final  String $type;

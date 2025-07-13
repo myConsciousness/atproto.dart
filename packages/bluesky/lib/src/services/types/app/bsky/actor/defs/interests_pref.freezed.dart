@@ -211,7 +211,7 @@ return $default(_that.$type,_that.tags,_that.$unknown);case _:
 @JsonSerializable()
 
 class _InterestsPref implements InterestsPref {
-  const _InterestsPref({this.$type = appBskyActorDefsInterestsPref, required final  List<String> tags, final  Map<String, dynamic>? $unknown}): _tags = tags,_$unknown = $unknown;
+  const _InterestsPref({this.$type = 'app.bsky.actor.defs#interestsPref', required final  List<String> tags, final  Map<String, dynamic>? $unknown}): _tags = tags,_$unknown = $unknown;
   factory _InterestsPref.fromJson(Map<String, dynamic> json) => _$InterestsPrefFromJson(json);
 
 @override@JsonKey() final  String $type;

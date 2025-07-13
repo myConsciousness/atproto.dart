@@ -12,9 +12,6 @@ import 'package:atproto/com_atproto_repo_strongref.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'reply_ref.freezed.dart';
 part 'reply_ref.g.dart';
 
@@ -27,7 +24,7 @@ abstract class ReplyRef with _$ReplyRef {
   static const knownProps = <String>['root', 'parent'];
 
   const factory ReplyRef({
-    @Default(appBskyFeedPostReplyRef) String $type,
+    @Default('app.bsky.feed.post#replyRef') String $type,
     @RepoStrongRefConverter() required RepoStrongRef root,
     @RepoStrongRefConverter() required RepoStrongRef parent,
 
@@ -39,7 +36,7 @@ abstract class ReplyRef with _$ReplyRef {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedPostReplyRef;
+    return object['\$type'] == 'app.bsky.feed.post#replyRef';
   }
 }
 

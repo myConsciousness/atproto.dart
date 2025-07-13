@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './subject_status_view.dart';
 
 part 'moderation_detail.freezed.dart';
@@ -27,7 +26,7 @@ abstract class ModerationDetail with _$ModerationDetail {
   static const knownProps = <String>['subjectStatus'];
 
   const factory ModerationDetail({
-    @Default(toolsOzoneModerationDefsModerationDetail) String $type,
+    @Default('tools.ozone.moderation.defs#moderationDetail') String $type,
     @SubjectStatusViewConverter() SubjectStatusView? subjectStatus,
 
     Map<String, dynamic>? $unknown,
@@ -38,7 +37,7 @@ abstract class ModerationDetail with _$ModerationDetail {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsModerationDetail;
+    return object['\$type'] == 'tools.ozone.moderation.defs#moderationDetail';
   }
 }
 

@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'thread_view_pref.freezed.dart';
 part 'thread_view_pref.g.dart';
 
@@ -26,7 +23,7 @@ abstract class ThreadViewPref with _$ThreadViewPref {
   static const knownProps = <String>['sort', 'prioritizeFollowedUsers'];
 
   const factory ThreadViewPref({
-    @Default(appBskyActorDefsThreadViewPref) String $type,
+    @Default('app.bsky.actor.defs#threadViewPref') String $type,
 
     /// Sorting mode for threads.
     String? sort,
@@ -42,7 +39,7 @@ abstract class ThreadViewPref with _$ThreadViewPref {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsThreadViewPref;
+    return object['\$type'] == 'app.bsky.actor.defs#threadViewPref';
   }
 }
 

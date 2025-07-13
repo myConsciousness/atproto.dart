@@ -13,7 +13,7 @@ _ModEventComment _$ModEventCommentFromJson(Map json) =>
       final val = _ModEventComment(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsModEventComment,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#modEventComment',
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         sticky: $checkedConvert('sticky', (v) => v as bool?),

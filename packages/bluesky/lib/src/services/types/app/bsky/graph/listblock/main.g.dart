@@ -13,7 +13,7 @@ _GraphListblockRecord _$GraphListblockRecordFromJson(Map json) =>
       final val = _GraphListblockRecord(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyGraphListblock,
+          (v) => v as String? ?? 'app.bsky.graph.listblock',
         ),
         subject: $checkedConvert('subject', (v) => v as String),
         createdAt: $checkedConvert(

@@ -14,7 +14,7 @@ _ThreadViewPost _$ThreadViewPostFromJson(
   final val = _ThreadViewPost(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyFeedDefsThreadViewPost,
+      (v) => v as String? ?? 'app.bsky.feed.defs#threadViewPost',
     ),
     post: $checkedConvert(
       'post',

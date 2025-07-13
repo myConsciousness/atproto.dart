@@ -220,7 +220,7 @@ return $default(_that.$type,_that.key,_that.did,_that.value,_that.description,_t
 @JsonSerializable()
 
 class _Option implements Option {
-  const _Option({this.$type = toolsOzoneSettingDefsOption, required this.key, required this.did, required final  Map<String, dynamic> value, this.description, this.createdAt, this.updatedAt, this.managerRole, required this.scope, required this.createdBy, required this.lastUpdatedBy, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
+  const _Option({this.$type = 'tools.ozone.setting.defs#option', required this.key, required this.did, required final  Map<String, dynamic> value, this.description, this.createdAt, this.updatedAt, this.managerRole, required this.scope, required this.createdBy, required this.lastUpdatedBy, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
   factory _Option.fromJson(Map<String, dynamic> json) => _$OptionFromJson(json);
 
 @override@JsonKey() final  String $type;

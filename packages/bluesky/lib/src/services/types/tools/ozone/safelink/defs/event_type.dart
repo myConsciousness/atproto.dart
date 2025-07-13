@@ -29,7 +29,7 @@ abstract class EventType with _$EventType {
       _$EventTypeFromJson(json);
 }
 
-abstract class EventTypeConverter
+final class EventTypeConverter
     extends LexKnownValuesConverter<EventType, Map<String, dynamic>> {
   const EventTypeConverter();
 

@@ -211,7 +211,7 @@ return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ProfileAssociatedChat implements ProfileAssociatedChat {
-  const _ProfileAssociatedChat({this.$type = appBskyActorDefsProfileAssociatedChat, required this.allowIncoming, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ProfileAssociatedChat({this.$type = 'app.bsky.actor.defs#profileAssociatedChat', required this.allowIncoming, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ProfileAssociatedChat.fromJson(Map<String, dynamic> json) => _$ProfileAssociatedChatFromJson(json);
 
 @override@JsonKey() final  String $type;

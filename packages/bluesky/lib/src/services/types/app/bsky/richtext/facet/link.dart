@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'link.freezed.dart';
 part 'link.g.dart';
 
@@ -27,7 +24,7 @@ abstract class RichtextFacetLink with _$RichtextFacetLink {
   static const knownProps = <String>['uri'];
 
   const factory RichtextFacetLink({
-    @Default(appBskyRichtextFacetLink) String $type,
+    @Default('app.bsky.richtext.facet#link') String $type,
     @AtUriConverter() required AtUri uri,
 
     Map<String, dynamic>? $unknown,
@@ -38,7 +35,7 @@ abstract class RichtextFacetLink with _$RichtextFacetLink {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyRichtextFacetLink;
+    return object['\$type'] == 'app.bsky.richtext.facet#link';
   }
 }
 

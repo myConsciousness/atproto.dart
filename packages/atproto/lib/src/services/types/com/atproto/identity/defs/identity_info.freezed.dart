@@ -214,7 +214,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.didDoc,_that.$unknown);
 @JsonSerializable()
 
 class _IdentityInfo implements IdentityInfo {
-  const _IdentityInfo({this.$type = comAtprotoIdentityDefsIdentityInfo, required this.did, required this.handle, required final  Map<String, dynamic> didDoc, final  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_$unknown = $unknown;
+  const _IdentityInfo({this.$type = 'com.atproto.identity.defs#identityInfo', required this.did, required this.handle, required final  Map<String, dynamic> didDoc, final  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_$unknown = $unknown;
   factory _IdentityInfo.fromJson(Map<String, dynamic> json) => _$IdentityInfoFromJson(json);
 
 @override@JsonKey() final  String $type;

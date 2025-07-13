@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'verification_prefs.freezed.dart';
 part 'verification_prefs.g.dart';
 
@@ -27,7 +24,7 @@ abstract class VerificationPrefs with _$VerificationPrefs {
   static const knownProps = <String>['hideBadges'];
 
   const factory VerificationPrefs({
-    @Default(appBskyActorDefsVerificationPrefs) String $type,
+    @Default('app.bsky.actor.defs#verificationPrefs') String $type,
 
     /// Hide the blue check badges for verified accounts and trusted verifiers.
     bool? hideBadges,
@@ -40,7 +37,7 @@ abstract class VerificationPrefs with _$VerificationPrefs {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsVerificationPrefs;
+    return object['\$type'] == 'app.bsky.actor.defs#verificationPrefs';
   }
 }
 

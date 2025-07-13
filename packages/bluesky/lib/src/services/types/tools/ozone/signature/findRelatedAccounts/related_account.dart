@@ -13,7 +13,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../tools/ozone/signature/defs/sig_detail.dart';
 
 part 'related_account.freezed.dart';
@@ -28,7 +27,8 @@ abstract class RelatedAccount with _$RelatedAccount {
   static const knownProps = <String>['account', 'similarities'];
 
   const factory RelatedAccount({
-    @Default(toolsOzoneSignatureFindRelatedAccountsRelatedAccount) String $type,
+    @Default('tools.ozone.signature.findRelatedAccounts#relatedAccount')
+    String $type,
     @AccountViewConverter() required AccountView account,
     @SigDetailConverter() List<SigDetail>? similarities,
 
@@ -41,7 +41,7 @@ abstract class RelatedAccount with _$RelatedAccount {
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
     return object['\$type'] ==
-        toolsOzoneSignatureFindRelatedAccountsRelatedAccount;
+        'tools.ozone.signature.findRelatedAccounts#relatedAccount';
   }
 }
 

@@ -269,7 +269,7 @@ return $default(_that.$type,_that.muted,_that.mutedByList,_that.blockedBy,_that.
 @JsonSerializable()
 
 class _ViewerState implements ViewerState {
-  const _ViewerState({this.$type = appBskyActorDefsViewerState, this.muted, @ListViewBasicConverter() this.mutedByList, this.blockedBy, this.blocking, @ListViewBasicConverter() this.blockingByList, this.following, this.followedBy, @KnownFollowersConverter() this.knownFollowers, @ActivitySubscriptionConverter() this.activitySubscription, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ViewerState({this.$type = 'app.bsky.actor.defs#viewerState', this.muted, @ListViewBasicConverter() this.mutedByList, this.blockedBy, this.blocking, @ListViewBasicConverter() this.blockingByList, this.following, this.followedBy, @KnownFollowersConverter() this.knownFollowers, @ActivitySubscriptionConverter() this.activitySubscription, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ViewerState.fromJson(Map<String, dynamic> json) => _$ViewerStateFromJson(json);
 
 @override@JsonKey() final  String $type;

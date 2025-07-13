@@ -225,7 +225,7 @@ return $default(_that.$type,_that.text,_that.facets,_that.embed,_that.$unknown);
 @JsonSerializable()
 
 class _MessageInput implements MessageInput {
-  const _MessageInput({this.$type = chatBskyConvoDefsMessageInput, required this.text, @RichtextFacetConverter() final  List<RichtextFacet>? facets, @UMessageInputEmbedConverter() this.embed, final  Map<String, dynamic>? $unknown}): _facets = facets,_$unknown = $unknown;
+  const _MessageInput({this.$type = 'chat.bsky.convo.defs#messageInput', required this.text, @RichtextFacetConverter() final  List<RichtextFacet>? facets, @UMessageInputEmbedConverter() this.embed, final  Map<String, dynamic>? $unknown}): _facets = facets,_$unknown = $unknown;
   factory _MessageInput.fromJson(Map<String, dynamic> json) => _$MessageInputFromJson(json);
 
 @override@JsonKey() final  String $type;

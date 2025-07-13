@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'reason_pin.freezed.dart';
 part 'reason_pin.g.dart';
 
@@ -26,7 +23,7 @@ abstract class ReasonPin with _$ReasonPin {
   static const knownProps = <String>[];
 
   const factory ReasonPin({
-    @Default(appBskyFeedDefsReasonPin) String $type,
+    @Default('app.bsky.feed.defs#reasonPin') String $type,
 
     Map<String, dynamic>? $unknown,
   }) = _ReasonPin;
@@ -36,7 +33,7 @@ abstract class ReasonPin with _$ReasonPin {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDefsReasonPin;
+    return object['\$type'] == 'app.bsky.feed.defs#reasonPin';
   }
 }
 

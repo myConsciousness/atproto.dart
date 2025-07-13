@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'mod_event_tag.freezed.dart';
 part 'mod_event_tag.g.dart';
 
@@ -27,7 +24,7 @@ abstract class ModEventTag with _$ModEventTag {
   static const knownProps = <String>['add', 'remove', 'comment'];
 
   const factory ModEventTag({
-    @Default(toolsOzoneModerationDefsModEventTag) String $type,
+    @Default('tools.ozone.moderation.defs#modEventTag') String $type,
     required List<String> add,
     required List<String> remove,
 
@@ -42,7 +39,7 @@ abstract class ModEventTag with _$ModEventTag {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsModEventTag;
+    return object['\$type'] == 'tools.ozone.moderation.defs#modEventTag';
   }
 }
 

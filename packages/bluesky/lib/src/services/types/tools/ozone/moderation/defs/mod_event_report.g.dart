@@ -13,7 +13,7 @@ _ModEventReport _$ModEventReportFromJson(Map json) =>
       final val = _ModEventReport(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsModEventReport,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#modEventReport',
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         isReporterMuted: $checkedConvert('isReporterMuted', (v) => v as bool?),

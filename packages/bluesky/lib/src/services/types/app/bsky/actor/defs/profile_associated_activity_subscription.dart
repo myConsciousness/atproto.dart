@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'profile_associated_activity_subscription.freezed.dart';
 part 'profile_associated_activity_subscription.g.dart';
 
@@ -27,7 +24,7 @@ abstract class ProfileAssociatedActivitySubscription
   static const knownProps = <String>['allowSubscriptions'];
 
   const factory ProfileAssociatedActivitySubscription({
-    @Default(appBskyActorDefsProfileAssociatedActivitySubscription)
+    @Default('app.bsky.actor.defs#profileAssociatedActivitySubscription')
     String $type,
     required String allowSubscriptions,
 
@@ -41,7 +38,7 @@ abstract class ProfileAssociatedActivitySubscription
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
     return object['\$type'] ==
-        appBskyActorDefsProfileAssociatedActivitySubscription;
+        'app.bsky.actor.defs#profileAssociatedActivitySubscription';
   }
 }
 

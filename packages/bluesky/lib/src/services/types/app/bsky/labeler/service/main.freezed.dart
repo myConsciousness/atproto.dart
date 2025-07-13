@@ -237,7 +237,7 @@ return $default(_that.$type,_that.policies,_that.labels,_that.createdAt,_that.re
 @JsonSerializable()
 
 class _LabelerServiceRecord implements LabelerServiceRecord {
-  const _LabelerServiceRecord({this.$type = appBskyLabelerService, @LabelerPoliciesConverter() required this.policies, @ULabelerServiceLabelsConverter() this.labels, required this.createdAt, @ReasonTypeConverter() final  List<ReasonType>? reasonTypes, @SubjectTypeConverter() final  List<SubjectType>? subjectTypes, final  List<String>? subjectCollections, final  Map<String, dynamic>? $unknown}): _reasonTypes = reasonTypes,_subjectTypes = subjectTypes,_subjectCollections = subjectCollections,_$unknown = $unknown;
+  const _LabelerServiceRecord({this.$type = 'app.bsky.labeler.service', @LabelerPoliciesConverter() required this.policies, @ULabelerServiceLabelsConverter() this.labels, required this.createdAt, @ReasonTypeConverter() final  List<ReasonType>? reasonTypes, @SubjectTypeConverter() final  List<SubjectType>? subjectTypes, final  List<String>? subjectCollections, final  Map<String, dynamic>? $unknown}): _reasonTypes = reasonTypes,_subjectTypes = subjectTypes,_subjectCollections = subjectCollections,_$unknown = $unknown;
   factory _LabelerServiceRecord.fromJson(Map<String, dynamic> json) => _$LabelerServiceRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

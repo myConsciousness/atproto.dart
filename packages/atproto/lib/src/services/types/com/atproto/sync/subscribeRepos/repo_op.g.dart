@@ -13,7 +13,7 @@ _RepoOp _$RepoOpFromJson(Map json) =>
       final val = _RepoOp(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoSyncSubscribeReposRepoOp,
+          (v) => v as String? ?? 'com.atproto.sync.subscribeRepos#repoOp',
         ),
         action: $checkedConvert('action', (v) => v as String),
         path: $checkedConvert('path', (v) => v as String),

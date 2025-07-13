@@ -13,7 +13,7 @@ _RecordHosting _$RecordHostingFromJson(Map json) =>
       final val = _RecordHosting(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsRecordHosting,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#recordHosting',
         ),
         status: $checkedConvert('status', (v) => v as String),
         updatedAt: $checkedConvert(

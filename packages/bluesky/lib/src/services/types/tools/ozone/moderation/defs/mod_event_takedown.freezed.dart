@@ -216,7 +216,7 @@ return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledg
 @JsonSerializable()
 
 class _ModEventTakedown implements ModEventTakedown {
-  const _ModEventTakedown({this.$type = toolsOzoneModerationDefsModEventTakedown, this.comment, this.durationInHours, this.acknowledgeAccountSubjects, final  List<String>? policies, final  Map<String, dynamic>? $unknown}): _policies = policies,_$unknown = $unknown;
+  const _ModEventTakedown({this.$type = 'tools.ozone.moderation.defs#modEventTakedown', this.comment, this.durationInHours, this.acknowledgeAccountSubjects, final  List<String>? policies, final  Map<String, dynamic>? $unknown}): _policies = policies,_$unknown = $unknown;
   factory _ModEventTakedown.fromJson(Map<String, dynamic> json) => _$ModEventTakedownFromJson(json);
 
 @override@JsonKey() final  String $type;

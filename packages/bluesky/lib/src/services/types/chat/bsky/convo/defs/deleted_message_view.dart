@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './message_view_sender.dart';
 
 part 'deleted_message_view.freezed.dart';
@@ -27,7 +26,7 @@ abstract class DeletedMessageView with _$DeletedMessageView {
   static const knownProps = <String>['id', 'rev', 'sender', 'sentAt'];
 
   const factory DeletedMessageView({
-    @Default(chatBskyConvoDefsDeletedMessageView) String $type,
+    @Default('chat.bsky.convo.defs#deletedMessageView') String $type,
     required String id,
     required String rev,
     @MessageViewSenderConverter() required MessageViewSender sender,
@@ -41,7 +40,7 @@ abstract class DeletedMessageView with _$DeletedMessageView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == chatBskyConvoDefsDeletedMessageView;
+    return object['\$type'] == 'chat.bsky.convo.defs#deletedMessageView';
   }
 }
 

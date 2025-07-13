@@ -215,7 +215,7 @@ return $default(_that.$type,_that.subject,_that.list,_that.createdAt,_that.$unkn
 @JsonSerializable()
 
 class _GraphListitemRecord implements GraphListitemRecord {
-  const _GraphListitemRecord({this.$type = appBskyGraphListitem, required this.subject, required this.list, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GraphListitemRecord({this.$type = 'app.bsky.graph.listitem', required this.subject, required this.list, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphListitemRecord.fromJson(Map<String, dynamic> json) => _$GraphListitemRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'mod_event_acknowledge.freezed.dart';
 part 'mod_event_acknowledge.g.dart';
 
@@ -26,7 +23,7 @@ abstract class ModEventAcknowledge with _$ModEventAcknowledge {
   static const knownProps = <String>['comment', 'acknowledgeAccountSubjects'];
 
   const factory ModEventAcknowledge({
-    @Default(toolsOzoneModerationDefsModEventAcknowledge) String $type,
+    @Default('tools.ozone.moderation.defs#modEventAcknowledge') String $type,
     String? comment,
 
     /// If true, all other reports on content authored by this account will be resolved (acknowledged).
@@ -40,7 +37,8 @@ abstract class ModEventAcknowledge with _$ModEventAcknowledge {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsModEventAcknowledge;
+    return object['\$type'] ==
+        'tools.ozone.moderation.defs#modEventAcknowledge';
   }
 }
 

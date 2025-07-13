@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './reaction_view.dart';
 import './union_log_remove_reaction_message.dart';
 
@@ -28,7 +27,7 @@ abstract class LogRemoveReaction with _$LogRemoveReaction {
   static const knownProps = <String>['rev', 'convoId', 'message', 'reaction'];
 
   const factory LogRemoveReaction({
-    @Default(chatBskyConvoDefsLogRemoveReaction) String $type,
+    @Default('chat.bsky.convo.defs#logRemoveReaction') String $type,
     required String rev,
     required String convoId,
     @ULogRemoveReactionMessageConverter()
@@ -43,7 +42,7 @@ abstract class LogRemoveReaction with _$LogRemoveReaction {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == chatBskyConvoDefsLogRemoveReaction;
+    return object['\$type'] == 'chat.bsky.convo.defs#logRemoveReaction';
   }
 }
 

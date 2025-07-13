@@ -210,7 +210,7 @@ return $default(_that.$type,_that.$unknown);case _:
 @JsonSerializable()
 
 class _SkeletonReasonPin implements SkeletonReasonPin {
-  const _SkeletonReasonPin({this.$type = appBskyFeedDefsSkeletonReasonPin, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SkeletonReasonPin({this.$type = 'app.bsky.feed.defs#skeletonReasonPin', final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SkeletonReasonPin.fromJson(Map<String, dynamic> json) => _$SkeletonReasonPinFromJson(json);
 
 @override@JsonKey() final  String $type;

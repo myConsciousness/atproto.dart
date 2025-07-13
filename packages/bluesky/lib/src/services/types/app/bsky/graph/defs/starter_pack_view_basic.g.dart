@@ -14,7 +14,7 @@ _StarterPackViewBasic _$StarterPackViewBasicFromJson(
   final val = _StarterPackViewBasic(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyGraphDefsStarterPackViewBasic,
+      (v) => v as String? ?? 'app.bsky.graph.defs#starterPackViewBasic',
     ),
     uri: $checkedConvert('uri', (v) => v as String),
     cid: $checkedConvert('cid', (v) => v as String),

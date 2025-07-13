@@ -13,7 +13,7 @@ _ModEventView _$ModEventViewFromJson(Map json) =>
       final val = _ModEventView(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsModEventView,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#modEventView',
         ),
         id: $checkedConvert('id', (v) => (v as num).toInt()),
         event: $checkedConvert(

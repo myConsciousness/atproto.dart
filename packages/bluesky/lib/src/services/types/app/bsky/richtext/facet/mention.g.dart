@@ -13,7 +13,7 @@ _RichtextFacetMention _$RichtextFacetMentionFromJson(Map json) =>
       final val = _RichtextFacetMention(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyRichtextFacetMention,
+          (v) => v as String? ?? 'app.bsky.richtext.facet#mention',
         ),
         did: $checkedConvert('did', (v) => v as String),
         $unknown: $checkedConvert(

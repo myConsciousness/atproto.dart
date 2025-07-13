@@ -211,7 +211,7 @@ return $default(_that.$type,_that.like,_that.$unknown);case _:
 @JsonSerializable()
 
 class _LabelerViewerState implements LabelerViewerState {
-  const _LabelerViewerState({this.$type = appBskyLabelerDefsLabelerViewerState, this.like, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _LabelerViewerState({this.$type = 'app.bsky.labeler.defs#labelerViewerState', this.like, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _LabelerViewerState.fromJson(Map<String, dynamic> json) => _$LabelerViewerStateFromJson(json);
 
 @override@JsonKey() final  String $type;

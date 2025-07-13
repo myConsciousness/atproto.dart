@@ -13,7 +13,7 @@ _StatusView _$StatusViewFromJson(Map json) =>
       final val = _StatusView(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsStatusView,
+          (v) => v as String? ?? 'app.bsky.actor.defs#statusView',
         ),
         status: $checkedConvert('status', (v) => v as String),
         record: $checkedConvert(

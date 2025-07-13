@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './union_log_read_message_message.dart';
 
 part 'log_read_message.freezed.dart';
@@ -27,7 +26,7 @@ abstract class LogReadMessage with _$LogReadMessage {
   static const knownProps = <String>['rev', 'convoId', 'message'];
 
   const factory LogReadMessage({
-    @Default(chatBskyConvoDefsLogReadMessage) String $type,
+    @Default('chat.bsky.convo.defs#logReadMessage') String $type,
     required String rev,
     required String convoId,
     @ULogReadMessageMessageConverter() required ULogReadMessageMessage message,
@@ -40,7 +39,7 @@ abstract class LogReadMessage with _$LogReadMessage {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == chatBskyConvoDefsLogReadMessage;
+    return object['\$type'] == 'chat.bsky.convo.defs#logReadMessage';
   }
 }
 

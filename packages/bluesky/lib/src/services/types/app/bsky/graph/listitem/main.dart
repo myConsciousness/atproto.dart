@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'main.freezed.dart';
 part 'main.g.dart';
 
@@ -26,7 +23,7 @@ abstract class GraphListitemRecord with _$GraphListitemRecord {
   static const knownProps = <String>['subject', 'list', 'createdAt'];
 
   const factory GraphListitemRecord({
-    @Default(appBskyGraphListitem) String $type,
+    @Default('app.bsky.graph.listitem') String $type,
 
     /// The account which is included on the list.
     required String subject,
@@ -43,7 +40,7 @@ abstract class GraphListitemRecord with _$GraphListitemRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyGraphListitem;
+    return object['\$type'] == 'app.bsky.graph.listitem';
   }
 }
 

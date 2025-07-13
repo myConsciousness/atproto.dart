@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './reaction_view.dart';
 import './union_log_add_reaction_message.dart';
 
@@ -28,7 +27,7 @@ abstract class LogAddReaction with _$LogAddReaction {
   static const knownProps = <String>['rev', 'convoId', 'message', 'reaction'];
 
   const factory LogAddReaction({
-    @Default(chatBskyConvoDefsLogAddReaction) String $type,
+    @Default('chat.bsky.convo.defs#logAddReaction') String $type,
     required String rev,
     required String convoId,
     @ULogAddReactionMessageConverter() required ULogAddReactionMessage message,
@@ -42,7 +41,7 @@ abstract class LogAddReaction with _$LogAddReaction {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == chatBskyConvoDefsLogAddReaction;
+    return object['\$type'] == 'chat.bsky.convo.defs#logAddReaction';
   }
 }
 

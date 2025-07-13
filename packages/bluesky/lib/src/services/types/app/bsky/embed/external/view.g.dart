@@ -13,7 +13,7 @@ _EmbedExternalView _$EmbedExternalViewFromJson(Map json) =>
       final val = _EmbedExternalView(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyEmbedExternalView,
+          (v) => v as String? ?? 'app.bsky.embed.external#view',
         ),
         external: $checkedConvert(
           'external',

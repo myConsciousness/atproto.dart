@@ -220,7 +220,7 @@ return $default(_that.$type,_that.author,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ThreadItemBlocked implements ThreadItemBlocked {
-  const _ThreadItemBlocked({this.$type = appBskyUnspeccedDefsThreadItemBlocked, @BlockedAuthorConverter() required this.author, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ThreadItemBlocked({this.$type = 'app.bsky.unspecced.defs#threadItemBlocked', @BlockedAuthorConverter() required this.author, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ThreadItemBlocked.fromJson(Map<String, dynamic> json) => _$ThreadItemBlockedFromJson(json);
 
 @override@JsonKey() final  String $type;

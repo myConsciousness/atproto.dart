@@ -212,7 +212,7 @@ return $default(_that.$type,_that.comment,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ModEventReverseTakedown implements ModEventReverseTakedown {
-  const _ModEventReverseTakedown({this.$type = toolsOzoneModerationDefsModEventReverseTakedown, this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModEventReverseTakedown({this.$type = 'tools.ozone.moderation.defs#modEventReverseTakedown', this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModEventReverseTakedown.fromJson(Map<String, dynamic> json) => _$ModEventReverseTakedownFromJson(json);
 
 @override@JsonKey() final  String $type;

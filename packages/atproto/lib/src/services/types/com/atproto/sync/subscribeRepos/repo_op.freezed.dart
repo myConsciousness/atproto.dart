@@ -214,7 +214,7 @@ return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$
 @JsonSerializable()
 
 class _RepoOp implements RepoOp {
-  const _RepoOp({this.$type = comAtprotoSyncSubscribeReposRepoOp, required this.action, required this.path, required final  Map<String, dynamic> cid, final  Map<String, dynamic>? prev, final  Map<String, dynamic>? $unknown}): _cid = cid,_prev = prev,_$unknown = $unknown;
+  const _RepoOp({this.$type = 'com.atproto.sync.subscribeRepos#repoOp', required this.action, required this.path, required final  Map<String, dynamic> cid, final  Map<String, dynamic>? prev, final  Map<String, dynamic>? $unknown}): _cid = cid,_prev = prev,_$unknown = $unknown;
   factory _RepoOp.fromJson(Map<String, dynamic> json) => _$RepoOpFromJson(json);
 
 @override@JsonKey() final  String $type;

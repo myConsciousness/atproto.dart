@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './union_verification_view_issuer_profile.dart';
 import './union_verification_view_issuer_repo.dart';
 import './union_verification_view_subject_profile.dart';
@@ -45,7 +44,7 @@ abstract class VerificationView with _$VerificationView {
   ];
 
   const factory VerificationView({
-    @Default(toolsOzoneVerificationDefsVerificationView) String $type,
+    @Default('tools.ozone.verification.defs#verificationView') String $type,
 
     /// The user who issued this verification.
     required String issuer,
@@ -90,7 +89,7 @@ abstract class VerificationView with _$VerificationView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneVerificationDefsVerificationView;
+    return object['\$type'] == 'tools.ozone.verification.defs#verificationView';
   }
 }
 

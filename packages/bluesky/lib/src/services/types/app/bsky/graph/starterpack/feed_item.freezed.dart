@@ -211,7 +211,7 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 @JsonSerializable()
 
 class _FeedItem implements FeedItem {
-  const _FeedItem({this.$type = appBskyGraphStarterpackFeedItem, required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FeedItem({this.$type = 'app.bsky.graph.starterpack#feedItem', required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedItem.fromJson(Map<String, dynamic> json) => _$FeedItemFromJson(json);
 
 @override@JsonKey() final  String $type;

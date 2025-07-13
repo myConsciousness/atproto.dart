@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
 import './union_reply_ref_parent.dart';
 import './union_reply_ref_root.dart';
@@ -29,7 +28,7 @@ abstract class ReplyRef with _$ReplyRef {
   static const knownProps = <String>['root', 'parent', 'grandparentAuthor'];
 
   const factory ReplyRef({
-    @Default(appBskyFeedDefsReplyRef) String $type,
+    @Default('app.bsky.feed.defs#replyRef') String $type,
     @UReplyRefRootConverter() required UReplyRefRoot root,
     @UReplyRefParentConverter() required UReplyRefParent parent,
 
@@ -44,7 +43,7 @@ abstract class ReplyRef with _$ReplyRef {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDefsReplyRef;
+    return object['\$type'] == 'app.bsky.feed.defs#replyRef';
   }
 }
 

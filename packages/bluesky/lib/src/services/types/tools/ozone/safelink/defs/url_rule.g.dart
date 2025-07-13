@@ -14,7 +14,7 @@ _UrlRule _$UrlRuleFromJson(Map json) => $checkedCreate('_UrlRule', json, (
   final val = _UrlRule(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? toolsOzoneSafelinkDefsUrlRule,
+      (v) => v as String? ?? 'tools.ozone.safelink.defs#urlRule',
     ),
     url: $checkedConvert('url', (v) => v as String),
     pattern: $checkedConvert(

@@ -13,7 +13,7 @@ _BlockedAuthor _$BlockedAuthorFromJson(Map json) =>
       final val = _BlockedAuthor(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyFeedDefsBlockedAuthor,
+          (v) => v as String? ?? 'app.bsky.feed.defs#blockedAuthor',
         ),
         did: $checkedConvert('did', (v) => v as String),
         viewer: $checkedConvert(

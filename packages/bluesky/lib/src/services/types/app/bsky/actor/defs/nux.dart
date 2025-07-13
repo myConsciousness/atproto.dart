@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'nux.freezed.dart';
 part 'nux.g.dart';
 
@@ -27,7 +24,7 @@ abstract class Nux with _$Nux {
   static const knownProps = <String>['id', 'completed', 'data', 'expiresAt'];
 
   const factory Nux({
-    @Default(appBskyActorDefsNux) String $type,
+    @Default('app.bsky.actor.defs#nux') String $type,
     required String id,
     required bool completed,
 
@@ -44,7 +41,7 @@ abstract class Nux with _$Nux {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsNux;
+    return object['\$type'] == 'app.bsky.actor.defs#nux';
   }
 }
 

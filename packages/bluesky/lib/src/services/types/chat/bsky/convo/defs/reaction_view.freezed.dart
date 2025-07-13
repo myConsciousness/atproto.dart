@@ -222,7 +222,7 @@ return $default(_that.$type,_that.value,_that.sender,_that.createdAt,_that.$unkn
 @JsonSerializable()
 
 class _ReactionView implements ReactionView {
-  const _ReactionView({this.$type = chatBskyConvoDefsReactionView, required this.value, @ReactionViewSenderConverter() required this.sender, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ReactionView({this.$type = 'chat.bsky.convo.defs#reactionView', required this.value, @ReactionViewSenderConverter() required this.sender, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ReactionView.fromJson(Map<String, dynamic> json) => _$ReactionViewFromJson(json);
 
 @override@JsonKey() final  String $type;

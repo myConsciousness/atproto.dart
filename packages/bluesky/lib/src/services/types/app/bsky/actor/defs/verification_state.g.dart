@@ -13,7 +13,7 @@ _VerificationState _$VerificationStateFromJson(Map json) =>
       final val = _VerificationState(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsVerificationState,
+          (v) => v as String? ?? 'app.bsky.actor.defs#verificationState',
         ),
         verifications: $checkedConvert(
           'verifications',

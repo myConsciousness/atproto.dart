@@ -332,7 +332,7 @@ XRPCResponse<Subscription<T>> subscribe<T>(
     (event) {
       final data = adaptor != null ? adaptor.call(event) : event;
 
-      controller.sink.add(to != null ? to.call(data) : jsonEncode(data) as T);
+      controller.sink.add(to != null ? to.call(data) : data as T);
     },
     onError: (_) async {
       await channel.sink.close();

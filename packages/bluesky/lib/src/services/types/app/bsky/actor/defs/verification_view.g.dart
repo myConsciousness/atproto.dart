@@ -13,7 +13,7 @@ _VerificationView _$VerificationViewFromJson(Map json) =>
       final val = _VerificationView(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsVerificationView,
+          (v) => v as String? ?? 'app.bsky.actor.defs#verificationView',
         ),
         issuer: $checkedConvert('issuer', (v) => v as String),
         uri: $checkedConvert('uri', (v) => v as String),

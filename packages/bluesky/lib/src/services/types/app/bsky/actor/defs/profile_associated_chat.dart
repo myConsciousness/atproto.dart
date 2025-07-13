@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'profile_associated_chat.freezed.dart';
 part 'profile_associated_chat.g.dart';
 
@@ -26,7 +23,7 @@ abstract class ProfileAssociatedChat with _$ProfileAssociatedChat {
   static const knownProps = <String>['allowIncoming'];
 
   const factory ProfileAssociatedChat({
-    @Default(appBskyActorDefsProfileAssociatedChat) String $type,
+    @Default('app.bsky.actor.defs#profileAssociatedChat') String $type,
     required String allowIncoming,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +34,7 @@ abstract class ProfileAssociatedChat with _$ProfileAssociatedChat {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsProfileAssociatedChat;
+    return object['\$type'] == 'app.bsky.actor.defs#profileAssociatedChat';
   }
 }
 

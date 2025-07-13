@@ -14,7 +14,7 @@ _RecordsStats _$RecordsStatsFromJson(
   final val = _RecordsStats(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? toolsOzoneModerationDefsRecordsStats,
+      (v) => v as String? ?? 'tools.ozone.moderation.defs#recordsStats',
     ),
     totalReports: $checkedConvert('totalReports', (v) => (v as num?)?.toInt()),
     reportedCount: $checkedConvert(

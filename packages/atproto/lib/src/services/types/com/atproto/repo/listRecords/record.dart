@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'record.freezed.dart';
 part 'record.g.dart';
 
@@ -26,7 +23,7 @@ abstract class RepoListRecordsRecord with _$RepoListRecordsRecord {
   static const knownProps = <String>['uri', 'cid', 'value'];
 
   const factory RepoListRecordsRecord({
-    @Default(comAtprotoRepoListRecordsRecord) String $type,
+    @Default('com.atproto.repo.listRecords#record') String $type,
     required String uri,
     required String cid,
     required Map<String, dynamic> value,
@@ -39,7 +36,7 @@ abstract class RepoListRecordsRecord with _$RepoListRecordsRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoRepoListRecordsRecord;
+    return object['\$type'] == 'com.atproto.repo.listRecords#record';
   }
 }
 

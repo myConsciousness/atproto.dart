@@ -13,7 +13,7 @@ _UpdateResult _$UpdateResultFromJson(Map json) =>
       final val = _UpdateResult(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoRepoApplyWritesUpdateResult,
+          (v) => v as String? ?? 'com.atproto.repo.applyWrites#updateResult',
         ),
         uri: $checkedConvert('uri', (v) => v as String),
         cid: $checkedConvert('cid', (v) => v as String),

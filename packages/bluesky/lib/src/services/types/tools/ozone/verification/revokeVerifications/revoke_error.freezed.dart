@@ -214,7 +214,7 @@ return $default(_that.$type,_that.uri,_that.error,_that.$unknown);case _:
 @JsonSerializable()
 
 class _RevokeError implements RevokeError {
-  const _RevokeError({this.$type = toolsOzoneVerificationRevokeVerificationsRevokeError, required this.uri, required this.error, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RevokeError({this.$type = 'tools.ozone.verification.revokeVerifications#revokeError', required this.uri, required this.error, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RevokeError.fromJson(Map<String, dynamic> json) => _$RevokeErrorFromJson(json);
 
 @override@JsonKey() final  String $type;

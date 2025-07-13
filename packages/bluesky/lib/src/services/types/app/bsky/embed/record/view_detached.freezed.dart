@@ -212,7 +212,7 @@ return $default(_that.$type,_that.uri,_that.detached,_that.$unknown);case _:
 @JsonSerializable()
 
 class _EmbedRecordViewDetached implements EmbedRecordViewDetached {
-  const _EmbedRecordViewDetached({this.$type = appBskyEmbedRecordViewDetached, required this.uri, required this.detached, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedRecordViewDetached({this.$type = 'app.bsky.embed.record#viewDetached', required this.uri, required this.detached, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedRecordViewDetached.fromJson(Map<String, dynamic> json) => _$EmbedRecordViewDetachedFromJson(json);
 
 @override@JsonKey() final  String $type;

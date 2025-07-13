@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../chat/bsky/convo/defs/message_input.dart';
 
 part 'batch_item.freezed.dart';
@@ -27,7 +26,7 @@ abstract class BatchItem with _$BatchItem {
   static const knownProps = <String>['convoId', 'message'];
 
   const factory BatchItem({
-    @Default(chatBskyConvoSendMessageBatchBatchItem) String $type,
+    @Default('chat.bsky.convo.sendMessageBatch#batchItem') String $type,
     required String convoId,
     @MessageInputConverter() required MessageInput message,
 
@@ -39,7 +38,7 @@ abstract class BatchItem with _$BatchItem {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == chatBskyConvoSendMessageBatchBatchItem;
+    return object['\$type'] == 'chat.bsky.convo.sendMessageBatch#batchItem';
   }
 }
 

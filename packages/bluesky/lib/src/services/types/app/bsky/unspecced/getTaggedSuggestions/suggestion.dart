@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'suggestion.freezed.dart';
 part 'suggestion.g.dart';
 
@@ -26,7 +23,7 @@ abstract class Suggestion with _$Suggestion {
   static const knownProps = <String>['tag', 'subjectType', 'subject'];
 
   const factory Suggestion({
-    @Default(appBskyUnspeccedGetTaggedSuggestionsSuggestion) String $type,
+    @Default('app.bsky.unspecced.getTaggedSuggestions#suggestion') String $type,
     required String tag,
     required String subjectType,
     @AtUriConverter() required AtUri subject,
@@ -39,7 +36,8 @@ abstract class Suggestion with _$Suggestion {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyUnspeccedGetTaggedSuggestionsSuggestion;
+    return object['\$type'] ==
+        'app.bsky.unspecced.getTaggedSuggestions#suggestion';
   }
 }
 

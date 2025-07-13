@@ -212,7 +212,7 @@ return $default(_that.$type,_that.val,_that.$unknown);case _:
 @JsonSerializable()
 
 class _SelfLabel implements SelfLabel {
-  const _SelfLabel({this.$type = comAtprotoLabelDefsSelfLabel, required this.val, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SelfLabel({this.$type = 'com.atproto.label.defs#selfLabel', required this.val, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SelfLabel.fromJson(Map<String, dynamic> json) => _$SelfLabelFromJson(json);
 
 @override@JsonKey() final  String $type;

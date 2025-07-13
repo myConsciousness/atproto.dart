@@ -13,7 +13,7 @@ _LabelValueDefinition _$LabelValueDefinitionFromJson(Map json) =>
       final val = _LabelValueDefinition(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoLabelDefsLabelValueDefinition,
+          (v) => v as String? ?? 'com.atproto.label.defs#labelValueDefinition',
         ),
         identifier: $checkedConvert('identifier', (v) => v as String),
         severity: $checkedConvert('severity', (v) => v as String),

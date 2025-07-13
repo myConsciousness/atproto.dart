@@ -216,7 +216,7 @@ return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.d
 @JsonSerializable()
 
 class _AccountHosting implements AccountHosting {
-  const _AccountHosting({this.$type = toolsOzoneModerationDefsAccountHosting, required this.status, this.updatedAt, this.createdAt, this.deletedAt, this.deactivatedAt, this.reactivatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AccountHosting({this.$type = 'tools.ozone.moderation.defs#accountHosting', required this.status, this.updatedAt, this.createdAt, this.deletedAt, this.deactivatedAt, this.reactivatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AccountHosting.fromJson(Map<String, dynamic> json) => _$AccountHostingFromJson(json);
 
 @override@JsonKey() final  String $type;

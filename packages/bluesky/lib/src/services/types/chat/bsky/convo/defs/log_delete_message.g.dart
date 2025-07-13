@@ -13,7 +13,7 @@ _LogDeleteMessage _$LogDeleteMessageFromJson(Map json) =>
       final val = _LogDeleteMessage(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? chatBskyConvoDefsLogDeleteMessage,
+          (v) => v as String? ?? 'chat.bsky.convo.defs#logDeleteMessage',
         ),
         rev: $checkedConvert('rev', (v) => v as String),
         convoId: $checkedConvert('convoId', (v) => v as String),

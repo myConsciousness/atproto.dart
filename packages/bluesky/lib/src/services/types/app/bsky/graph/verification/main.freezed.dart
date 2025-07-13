@@ -218,7 +218,7 @@ return $default(_that.$type,_that.subject,_that.handle,_that.displayName,_that.c
 @JsonSerializable()
 
 class _GraphVerificationRecord implements GraphVerificationRecord {
-  const _GraphVerificationRecord({this.$type = appBskyGraphVerification, required this.subject, required this.handle, required this.displayName, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GraphVerificationRecord({this.$type = 'app.bsky.graph.verification', required this.subject, required this.handle, required this.displayName, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphVerificationRecord.fromJson(Map<String, dynamic> json) => _$GraphVerificationRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

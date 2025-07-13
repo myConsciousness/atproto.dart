@@ -13,7 +13,8 @@ _FilterablePreference _$FilterablePreferenceFromJson(Map json) =>
       final val = _FilterablePreference(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyNotificationDefsFilterablePreference,
+          (v) =>
+              v as String? ?? 'app.bsky.notification.defs#filterablePreference',
         ),
         include: $checkedConvert('include', (v) => v as String),
         list: $checkedConvert('list', (v) => v as bool),

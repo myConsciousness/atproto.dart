@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'interaction.freezed.dart';
 part 'interaction.g.dart';
 
@@ -26,7 +23,7 @@ abstract class Interaction with _$Interaction {
   static const knownProps = <String>['item', 'event', 'feedContext', 'reqId'];
 
   const factory Interaction({
-    @Default(appBskyFeedDefsInteraction) String $type,
+    @Default('app.bsky.feed.defs#interaction') String $type,
     String? item,
     String? event,
 
@@ -44,7 +41,7 @@ abstract class Interaction with _$Interaction {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDefsInteraction;
+    return object['\$type'] == 'app.bsky.feed.defs#interaction';
   }
 }
 

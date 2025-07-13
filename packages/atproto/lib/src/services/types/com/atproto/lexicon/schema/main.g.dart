@@ -13,7 +13,7 @@ _LexiconSchemaRecord _$LexiconSchemaRecordFromJson(Map json) =>
       final val = _LexiconSchemaRecord(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoLexiconSchema,
+          (v) => v as String? ?? 'com.atproto.lexicon.schema',
         ),
         lexicon: $checkedConvert('lexicon', (v) => (v as num).toInt()),
         $unknown: $checkedConvert(

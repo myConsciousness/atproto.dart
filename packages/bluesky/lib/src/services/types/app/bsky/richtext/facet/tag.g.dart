@@ -13,7 +13,7 @@ _RichtextFacetTag _$RichtextFacetTagFromJson(Map json) =>
       final val = _RichtextFacetTag(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyRichtextFacetTag,
+          (v) => v as String? ?? 'app.bsky.richtext.facet#tag',
         ),
         tag: $checkedConvert('tag', (v) => v as String),
         $unknown: $checkedConvert(

@@ -215,7 +215,7 @@ return $default(_that.$type,_that.comment,_that.active,_that.status,_that.timest
 @JsonSerializable()
 
 class _AccountEvent implements AccountEvent {
-  const _AccountEvent({this.$type = toolsOzoneModerationDefsAccountEvent, this.comment, required this.active, this.status, required this.timestamp, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AccountEvent({this.$type = 'tools.ozone.moderation.defs#accountEvent', this.comment, required this.active, this.status, required this.timestamp, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AccountEvent.fromJson(Map<String, dynamic> json) => _$AccountEventFromJson(json);
 
 @override@JsonKey() final  String $type;

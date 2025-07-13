@@ -13,7 +13,7 @@ _InterestsPref _$InterestsPrefFromJson(Map json) =>
       final val = _InterestsPref(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsInterestsPref,
+          (v) => v as String? ?? 'app.bsky.actor.defs#interestsPref',
         ),
         tags: $checkedConvert(
           'tags',

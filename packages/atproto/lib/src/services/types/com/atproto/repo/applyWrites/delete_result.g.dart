@@ -13,7 +13,7 @@ _DeleteResult _$DeleteResultFromJson(Map json) =>
       final val = _DeleteResult(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoRepoApplyWritesDeleteResult,
+          (v) => v as String? ?? 'com.atproto.repo.applyWrites#deleteResult',
         ),
         $unknown: $checkedConvert(
           r'$unknown',

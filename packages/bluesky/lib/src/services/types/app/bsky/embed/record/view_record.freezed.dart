@@ -230,7 +230,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.value,_that.l
 @JsonSerializable()
 
 class _EmbedRecordViewRecord implements EmbedRecordViewRecord {
-  const _EmbedRecordViewRecord({this.$type = appBskyEmbedRecordViewRecord, required this.uri, required this.cid, @ProfileViewBasicConverter() required this.author, required final  Map<String, dynamic> value, @LabelConverter() final  List<Label>? labels, this.replyCount, this.repostCount, this.likeCount, this.quoteCount, @UEmbedRecordViewRecordEmbedsConverter() final  List<UEmbedRecordViewRecordEmbeds>? embeds, required this.indexedAt, final  Map<String, dynamic>? $unknown}): _value = value,_labels = labels,_embeds = embeds,_$unknown = $unknown;
+  const _EmbedRecordViewRecord({this.$type = 'app.bsky.embed.record#viewRecord', required this.uri, required this.cid, @ProfileViewBasicConverter() required this.author, required final  Map<String, dynamic> value, @LabelConverter() final  List<Label>? labels, this.replyCount, this.repostCount, this.likeCount, this.quoteCount, @UEmbedRecordViewRecordEmbedsConverter() final  List<UEmbedRecordViewRecordEmbeds>? embeds, required this.indexedAt, final  Map<String, dynamic>? $unknown}): _value = value,_labels = labels,_embeds = embeds,_$unknown = $unknown;
   factory _EmbedRecordViewRecord.fromJson(Map<String, dynamic> json) => _$EmbedRecordViewRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

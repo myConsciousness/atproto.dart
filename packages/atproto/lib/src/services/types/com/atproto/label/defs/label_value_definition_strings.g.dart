@@ -13,7 +13,9 @@ _LabelValueDefinitionStrings _$LabelValueDefinitionStringsFromJson(Map json) =>
       final val = _LabelValueDefinitionStrings(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoLabelDefsLabelValueDefinitionStrings,
+          (v) =>
+              v as String? ??
+              'com.atproto.label.defs#labelValueDefinitionStrings',
         ),
         lang: $checkedConvert('lang', (v) => v as String),
         name: $checkedConvert('name', (v) => v as String),

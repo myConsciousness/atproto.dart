@@ -13,7 +13,8 @@ _ActivitySubscription _$ActivitySubscriptionFromJson(Map json) =>
       final val = _ActivitySubscription(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyNotificationDefsActivitySubscription,
+          (v) =>
+              v as String? ?? 'app.bsky.notification.defs#activitySubscription',
         ),
         post: $checkedConvert('post', (v) => v as bool),
         reply: $checkedConvert('reply', (v) => v as bool),

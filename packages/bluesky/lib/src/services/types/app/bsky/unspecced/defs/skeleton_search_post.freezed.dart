@@ -211,7 +211,7 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 @JsonSerializable()
 
 class _SkeletonSearchPost implements SkeletonSearchPost {
-  const _SkeletonSearchPost({this.$type = appBskyUnspeccedDefsSkeletonSearchPost, required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SkeletonSearchPost({this.$type = 'app.bsky.unspecced.defs#skeletonSearchPost', required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SkeletonSearchPost.fromJson(Map<String, dynamic> json) => _$SkeletonSearchPostFromJson(json);
 
 @override@JsonKey() final  String $type;

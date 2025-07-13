@@ -13,7 +13,7 @@ _RepoViewNotFound _$RepoViewNotFoundFromJson(Map json) =>
       final val = _RepoViewNotFound(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsRepoViewNotFound,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#repoViewNotFound',
         ),
         did: $checkedConvert('did', (v) => v as String),
         $unknown: $checkedConvert(

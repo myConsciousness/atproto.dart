@@ -13,7 +13,7 @@ _MessageAndReactionView _$MessageAndReactionViewFromJson(Map json) =>
       final val = _MessageAndReactionView(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? chatBskyConvoDefsMessageAndReactionView,
+          (v) => v as String? ?? 'chat.bsky.convo.defs#messageAndReactionView',
         ),
         message: $checkedConvert(
           'message',

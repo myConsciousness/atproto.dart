@@ -210,7 +210,7 @@ return $default(_that.$type,_that.$unknown);case _:
 @JsonSerializable()
 
 class _MentionRule implements MentionRule {
-  const _MentionRule({this.$type = appBskyFeedThreadgateMentionRule, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _MentionRule({this.$type = 'app.bsky.feed.threadgate#mentionRule', final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _MentionRule.fromJson(Map<String, dynamic> json) => _$MentionRuleFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -14,7 +14,7 @@ _Member _$MemberFromJson(Map json) => $checkedCreate('_Member', json, (
   final val = _Member(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? toolsOzoneTeamDefsMember,
+      (v) => v as String? ?? 'tools.ozone.team.defs#member',
     ),
     did: $checkedConvert('did', (v) => v as String),
     disabled: $checkedConvert('disabled', (v) => v as bool?),

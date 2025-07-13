@@ -230,7 +230,7 @@ return $default(_that.$type,_that.record,_that.media,_that.$unknown);case _:
 @JsonSerializable()
 
 class _EmbedRecordWithMediaView implements EmbedRecordWithMediaView {
-  const _EmbedRecordWithMediaView({this.$type = appBskyEmbedRecordWithMediaView, @EmbedRecordViewConverter() required this.record, @UEmbedRecordWithMediaViewMediaConverter() required this.media, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedRecordWithMediaView({this.$type = 'app.bsky.embed.recordWithMedia#view', @EmbedRecordViewConverter() required this.record, @UEmbedRecordWithMediaViewMediaConverter() required this.media, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedRecordWithMediaView.fromJson(Map<String, dynamic> json) => _$EmbedRecordWithMediaViewFromJson(json);
 
 @override@JsonKey() final  String $type;

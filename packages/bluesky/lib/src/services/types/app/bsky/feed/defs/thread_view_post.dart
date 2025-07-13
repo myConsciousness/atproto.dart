@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './post_view.dart';
 import './thread_context.dart';
 import './union_thread_view_post_parent.dart';
@@ -35,7 +34,7 @@ abstract class ThreadViewPost with _$ThreadViewPost {
   ];
 
   const factory ThreadViewPost({
-    @Default(appBskyFeedDefsThreadViewPost) String $type,
+    @Default('app.bsky.feed.defs#threadViewPost') String $type,
     @PostViewConverter() required PostView post,
     @UThreadViewPostParentConverter() UThreadViewPostParent? parent,
     @UThreadViewPostRepliesConverter() List<UThreadViewPostReplies>? replies,
@@ -49,7 +48,7 @@ abstract class ThreadViewPost with _$ThreadViewPost {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDefsThreadViewPost;
+    return object['\$type'] == 'app.bsky.feed.defs#threadViewPost';
   }
 }
 

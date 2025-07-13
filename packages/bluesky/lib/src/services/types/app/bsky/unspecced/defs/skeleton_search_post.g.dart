@@ -13,7 +13,7 @@ _SkeletonSearchPost _$SkeletonSearchPostFromJson(Map json) =>
       final val = _SkeletonSearchPost(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyUnspeccedDefsSkeletonSearchPost,
+          (v) => v as String? ?? 'app.bsky.unspecced.defs#skeletonSearchPost',
         ),
         uri: $checkedConvert('uri', (v) => v as String),
         $unknown: $checkedConvert(

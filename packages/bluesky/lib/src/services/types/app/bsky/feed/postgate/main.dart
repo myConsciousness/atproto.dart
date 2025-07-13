@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './union_main_embedding_rules.dart';
 
 part 'main.freezed.dart';
@@ -32,7 +31,7 @@ abstract class FeedPostgateRecord with _$FeedPostgateRecord {
   ];
 
   const factory FeedPostgateRecord({
-    @Default(appBskyFeedPostgate) String $type,
+    @Default('app.bsky.feed.postgate') String $type,
     required DateTime createdAt,
 
     /// Reference (AT-URI) to the post record.
@@ -49,7 +48,7 @@ abstract class FeedPostgateRecord with _$FeedPostgateRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedPostgate;
+    return object['\$type'] == 'app.bsky.feed.postgate';
   }
 }
 

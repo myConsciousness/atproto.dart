@@ -14,7 +14,7 @@ _NotificationDeclarationRecord _$NotificationDeclarationRecordFromJson(
   final val = _NotificationDeclarationRecord(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyNotificationDeclaration,
+      (v) => v as String? ?? 'app.bsky.notification.declaration',
     ),
     allowSubscriptions: $checkedConvert(
       'allowSubscriptions',

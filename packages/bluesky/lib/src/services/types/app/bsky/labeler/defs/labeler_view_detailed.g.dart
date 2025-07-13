@@ -14,7 +14,7 @@ _LabelerViewDetailed _$LabelerViewDetailedFromJson(
   final val = _LabelerViewDetailed(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyLabelerDefsLabelerViewDetailed,
+      (v) => v as String? ?? 'app.bsky.labeler.defs#labelerViewDetailed',
     ),
     uri: $checkedConvert('uri', (v) => v as String),
     cid: $checkedConvert('cid', (v) => v as String),

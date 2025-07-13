@@ -13,7 +13,7 @@ _VerificationPrefs _$VerificationPrefsFromJson(Map json) =>
       final val = _VerificationPrefs(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsVerificationPrefs,
+          (v) => v as String? ?? 'app.bsky.actor.defs#verificationPrefs',
         ),
         hideBadges: $checkedConvert('hideBadges', (v) => v as bool?),
         $unknown: $checkedConvert(

@@ -14,7 +14,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './moderation.dart';
 
 part 'repo_view.freezed.dart';
@@ -41,7 +40,7 @@ abstract class RepoView with _$RepoView {
   ];
 
   const factory RepoView({
-    @Default(toolsOzoneModerationDefsRepoView) String $type,
+    @Default('tools.ozone.moderation.defs#repoView') String $type,
     required String did,
     required String handle,
     String? email,
@@ -62,7 +61,7 @@ abstract class RepoView with _$RepoView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsRepoView;
+    return object['\$type'] == 'tools.ozone.moderation.defs#repoView';
   }
 }
 

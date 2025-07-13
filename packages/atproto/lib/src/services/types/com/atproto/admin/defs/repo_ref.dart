@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'repo_ref.freezed.dart';
 part 'repo_ref.g.dart';
 
@@ -26,7 +23,7 @@ abstract class RepoRef with _$RepoRef {
   static const knownProps = <String>['did'];
 
   const factory RepoRef({
-    @Default(comAtprotoAdminDefsRepoRef) String $type,
+    @Default('com.atproto.admin.defs#repoRef') String $type,
     required String did,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +34,7 @@ abstract class RepoRef with _$RepoRef {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoAdminDefsRepoRef;
+    return object['\$type'] == 'com.atproto.admin.defs#repoRef';
   }
 }
 

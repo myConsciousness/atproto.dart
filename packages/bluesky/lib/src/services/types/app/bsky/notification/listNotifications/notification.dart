@@ -13,7 +13,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view.dart';
 
 part 'notification.freezed.dart';
@@ -38,7 +37,8 @@ abstract class Notification with _$Notification {
   ];
 
   const factory Notification({
-    @Default(appBskyNotificationListNotificationsNotification) String $type,
+    @Default('app.bsky.notification.listNotifications#notification')
+    String $type,
     required String uri,
     required String cid,
     @ProfileViewConverter() required ProfileView author,
@@ -59,7 +59,8 @@ abstract class Notification with _$Notification {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyNotificationListNotificationsNotification;
+    return object['\$type'] ==
+        'app.bsky.notification.listNotifications#notification';
   }
 }
 

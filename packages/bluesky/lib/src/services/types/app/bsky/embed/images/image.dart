@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/embed/defs/aspect_ratio.dart';
 
 part 'image.freezed.dart';
@@ -27,7 +26,7 @@ abstract class EmbedImagesImage with _$EmbedImagesImage {
   static const knownProps = <String>['image', 'alt', 'aspectRatio'];
 
   const factory EmbedImagesImage({
-    @Default(appBskyEmbedImagesImage) String $type,
+    @Default('app.bsky.embed.images#image') String $type,
     @BlobConverter() required Blob image,
 
     /// Alt text description of the image, for accessibility.
@@ -42,7 +41,7 @@ abstract class EmbedImagesImage with _$EmbedImagesImage {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyEmbedImagesImage;
+    return object['\$type'] == 'app.bsky.embed.images#image';
   }
 }
 

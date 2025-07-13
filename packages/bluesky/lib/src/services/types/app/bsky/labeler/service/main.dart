@@ -13,7 +13,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/labeler/defs/labeler_policies.dart';
 import './union_main_labels.dart';
 
@@ -36,7 +35,7 @@ abstract class LabelerServiceRecord with _$LabelerServiceRecord {
   ];
 
   const factory LabelerServiceRecord({
-    @Default(appBskyLabelerService) String $type,
+    @Default('app.bsky.labeler.service') String $type,
     @LabelerPoliciesConverter() required LabelerPolicies policies,
     @ULabelerServiceLabelsConverter() ULabelerServiceLabels? labels,
     required DateTime createdAt,
@@ -52,7 +51,7 @@ abstract class LabelerServiceRecord with _$LabelerServiceRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyLabelerService;
+    return object['\$type'] == 'app.bsky.labeler.service';
   }
 }
 

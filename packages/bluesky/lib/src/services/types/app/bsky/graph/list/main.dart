@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/graph/defs/list_purpose.dart';
 import '../../../../app/bsky/richtext/facet//main.dart';
 import './union_main_labels.dart';
@@ -37,7 +36,7 @@ abstract class GraphListRecord with _$GraphListRecord {
   ];
 
   const factory GraphListRecord({
-    @Default(appBskyGraphList) String $type,
+    @Default('app.bsky.graph.list') String $type,
 
     /// Defines the purpose of the list (aka, moderation-oriented or curration-oriented)
     @ListPurposeConverter() required ListPurpose purpose,
@@ -58,7 +57,7 @@ abstract class GraphListRecord with _$GraphListRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyGraphList;
+    return object['\$type'] == 'app.bsky.graph.list';
   }
 }
 

@@ -212,7 +212,7 @@ return $default(_that.$type,_that.privacyPolicy,_that.termsOfService,_that.$unkn
 @JsonSerializable()
 
 class _Links implements Links {
-  const _Links({this.$type = comAtprotoServerDescribeServerLinks, @AtUriConverter() this.privacyPolicy, @AtUriConverter() this.termsOfService, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Links({this.$type = 'com.atproto.server.describeServer#links', @AtUriConverter() this.privacyPolicy, @AtUriConverter() this.termsOfService, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Links.fromJson(Map<String, dynamic> json) => _$LinksFromJson(json);
 
 @override@JsonKey() final  String $type;

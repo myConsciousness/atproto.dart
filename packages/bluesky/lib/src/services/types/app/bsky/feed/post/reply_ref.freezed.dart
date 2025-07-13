@@ -230,7 +230,7 @@ return $default(_that.$type,_that.root,_that.parent,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ReplyRef implements ReplyRef {
-  const _ReplyRef({this.$type = appBskyFeedPostReplyRef, @RepoStrongRefConverter() required this.root, @RepoStrongRefConverter() required this.parent, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ReplyRef({this.$type = 'app.bsky.feed.post#replyRef', @RepoStrongRefConverter() required this.root, @RepoStrongRefConverter() required this.parent, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ReplyRef.fromJson(Map<String, dynamic> json) => _$ReplyRefFromJson(json);
 
 @override@JsonKey() final  String $type;

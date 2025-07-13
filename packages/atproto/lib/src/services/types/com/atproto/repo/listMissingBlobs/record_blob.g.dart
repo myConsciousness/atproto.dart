@@ -13,7 +13,7 @@ _RecordBlob _$RecordBlobFromJson(Map json) =>
       final val = _RecordBlob(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoRepoListMissingBlobsRecordBlob,
+          (v) => v as String? ?? 'com.atproto.repo.listMissingBlobs#recordBlob',
         ),
         cid: $checkedConvert('cid', (v) => v as String),
         recordUri: $checkedConvert('recordUri', (v) => v as String),

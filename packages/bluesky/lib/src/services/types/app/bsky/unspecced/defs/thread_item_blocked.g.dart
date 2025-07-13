@@ -15,7 +15,7 @@ _ThreadItemBlocked _$ThreadItemBlockedFromJson(Map json) => $checkedCreate(
     final val = _ThreadItemBlocked(
       $type: $checkedConvert(
         r'$type',
-        (v) => v as String? ?? appBskyUnspeccedDefsThreadItemBlocked,
+        (v) => v as String? ?? 'app.bsky.unspecced.defs#threadItemBlocked',
       ),
       author: $checkedConvert(
         'author',

@@ -13,7 +13,7 @@ _EmbedVideo _$EmbedVideoFromJson(Map json) =>
       final val = _EmbedVideo(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyEmbedVideo,
+          (v) => v as String? ?? 'app.bsky.embed.video',
         ),
         video: $checkedConvert(
           'video',

@@ -211,7 +211,7 @@ return $default(_that.$type,_that.allowSubscriptions,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ProfileAssociatedActivitySubscription implements ProfileAssociatedActivitySubscription {
-  const _ProfileAssociatedActivitySubscription({this.$type = appBskyActorDefsProfileAssociatedActivitySubscription, required this.allowSubscriptions, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ProfileAssociatedActivitySubscription({this.$type = 'app.bsky.actor.defs#profileAssociatedActivitySubscription', required this.allowSubscriptions, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ProfileAssociatedActivitySubscription.fromJson(Map<String, dynamic> json) => _$ProfileAssociatedActivitySubscriptionFromJson(json);
 
 @override@JsonKey() final  String $type;

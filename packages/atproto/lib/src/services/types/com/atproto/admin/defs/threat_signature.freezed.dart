@@ -212,7 +212,7 @@ return $default(_that.$type,_that.property,_that.value,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ThreatSignature implements ThreatSignature {
-  const _ThreatSignature({this.$type = comAtprotoAdminDefsThreatSignature, required this.property, required this.value, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ThreatSignature({this.$type = 'com.atproto.admin.defs#threatSignature', required this.property, required this.value, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ThreatSignature.fromJson(Map<String, dynamic> json) => _$ThreatSignatureFromJson(json);
 
 @override@JsonKey() final  String $type;

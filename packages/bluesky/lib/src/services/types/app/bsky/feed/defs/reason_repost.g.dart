@@ -14,7 +14,7 @@ _ReasonRepost _$ReasonRepostFromJson(
   final val = _ReasonRepost(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyFeedDefsReasonRepost,
+      (v) => v as String? ?? 'app.bsky.feed.defs#reasonRepost',
     ),
     by: $checkedConvert(
       'by',

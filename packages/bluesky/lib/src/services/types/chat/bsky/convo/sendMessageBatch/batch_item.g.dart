@@ -13,7 +13,7 @@ _BatchItem _$BatchItemFromJson(Map json) =>
       final val = _BatchItem(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? chatBskyConvoSendMessageBatchBatchItem,
+          (v) => v as String? ?? 'chat.bsky.convo.sendMessageBatch#batchItem',
         ),
         convoId: $checkedConvert('convoId', (v) => v as String),
         message: $checkedConvert(

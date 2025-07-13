@@ -13,7 +13,7 @@ _InviteCodeUse _$InviteCodeUseFromJson(Map json) =>
       final val = _InviteCodeUse(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoServerDefsInviteCodeUse,
+          (v) => v as String? ?? 'com.atproto.server.defs#inviteCodeUse',
         ),
         usedBy: $checkedConvert('usedBy', (v) => v as String),
         usedAt: $checkedConvert('usedAt', (v) => DateTime.parse(v as String)),

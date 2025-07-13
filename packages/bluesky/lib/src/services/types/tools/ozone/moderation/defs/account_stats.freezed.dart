@@ -220,7 +220,7 @@ return $default(_that.$type,_that.reportCount,_that.appealCount,_that.suspendCou
 @JsonSerializable()
 
 class _AccountStats implements AccountStats {
-  const _AccountStats({this.$type = toolsOzoneModerationDefsAccountStats, this.reportCount, this.appealCount, this.suspendCount, this.escalateCount, this.takedownCount, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AccountStats({this.$type = 'tools.ozone.moderation.defs#accountStats', this.reportCount, this.appealCount, this.suspendCount, this.escalateCount, this.takedownCount, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AccountStats.fromJson(Map<String, dynamic> json) => _$AccountStatsFromJson(json);
 
 @override@JsonKey() final  String $type;

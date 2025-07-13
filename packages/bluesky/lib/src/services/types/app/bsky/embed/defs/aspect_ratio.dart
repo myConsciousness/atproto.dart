@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'aspect_ratio.freezed.dart';
 part 'aspect_ratio.g.dart';
 
@@ -27,7 +24,7 @@ abstract class AspectRatio with _$AspectRatio {
   static const knownProps = <String>['width', 'height'];
 
   const factory AspectRatio({
-    @Default(appBskyEmbedDefsAspectRatio) String $type,
+    @Default('app.bsky.embed.defs#aspectRatio') String $type,
     required int width,
     required int height,
 
@@ -39,7 +36,7 @@ abstract class AspectRatio with _$AspectRatio {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyEmbedDefsAspectRatio;
+    return object['\$type'] == 'app.bsky.embed.defs#aspectRatio';
   }
 }
 

@@ -13,7 +13,7 @@ _AspectRatio _$AspectRatioFromJson(Map json) =>
       final val = _AspectRatio(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyEmbedDefsAspectRatio,
+          (v) => v as String? ?? 'app.bsky.embed.defs#aspectRatio',
         ),
         width: $checkedConvert('width', (v) => (v as num).toInt()),
         height: $checkedConvert('height', (v) => (v as num).toInt()),

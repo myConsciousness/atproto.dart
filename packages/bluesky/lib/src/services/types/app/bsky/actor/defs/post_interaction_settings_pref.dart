@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './union_post_interaction_settings_pref_postgate_embedding_rules.dart';
 import './union_post_interaction_settings_pref_threadgate_allow_rules.dart';
 
@@ -32,7 +31,7 @@ abstract class PostInteractionSettingsPref with _$PostInteractionSettingsPref {
   ];
 
   const factory PostInteractionSettingsPref({
-    @Default(appBskyActorDefsPostInteractionSettingsPref) String $type,
+    @Default('app.bsky.actor.defs#postInteractionSettingsPref') String $type,
     @UPostInteractionSettingsPrefThreadgateAllowRulesConverter()
     List<UPostInteractionSettingsPrefThreadgateAllowRules>?
     threadgateAllowRules,
@@ -48,7 +47,8 @@ abstract class PostInteractionSettingsPref with _$PostInteractionSettingsPref {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsPostInteractionSettingsPref;
+    return object['\$type'] ==
+        'app.bsky.actor.defs#postInteractionSettingsPref';
   }
 }
 

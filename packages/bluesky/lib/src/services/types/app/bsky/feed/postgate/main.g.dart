@@ -13,7 +13,7 @@ _FeedPostgateRecord _$FeedPostgateRecordFromJson(Map json) =>
       final val = _FeedPostgateRecord(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyFeedPostgate,
+          (v) => v as String? ?? 'app.bsky.feed.postgate',
         ),
         createdAt: $checkedConvert(
           'createdAt',

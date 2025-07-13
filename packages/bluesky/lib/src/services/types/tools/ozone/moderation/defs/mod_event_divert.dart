@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'mod_event_divert.freezed.dart';
 part 'mod_event_divert.g.dart';
 
@@ -27,7 +24,7 @@ abstract class ModEventDivert with _$ModEventDivert {
   static const knownProps = <String>['comment'];
 
   const factory ModEventDivert({
-    @Default(toolsOzoneModerationDefsModEventDivert) String $type,
+    @Default('tools.ozone.moderation.defs#modEventDivert') String $type,
     String? comment,
 
     Map<String, dynamic>? $unknown,
@@ -38,7 +35,7 @@ abstract class ModEventDivert with _$ModEventDivert {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsModEventDivert;
+    return object['\$type'] == 'tools.ozone.moderation.defs#modEventDivert';
   }
 }
 

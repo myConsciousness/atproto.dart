@@ -13,7 +13,7 @@ _ChatPreference _$ChatPreferenceFromJson(Map json) =>
       final val = _ChatPreference(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyNotificationDefsChatPreference,
+          (v) => v as String? ?? 'app.bsky.notification.defs#chatPreference',
         ),
         include: $checkedConvert('include', (v) => v as String),
         push: $checkedConvert('push', (v) => v as bool),

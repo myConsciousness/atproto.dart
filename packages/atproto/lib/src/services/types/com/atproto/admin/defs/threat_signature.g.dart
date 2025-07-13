@@ -13,7 +13,7 @@ _ThreatSignature _$ThreatSignatureFromJson(Map json) =>
       final val = _ThreatSignature(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoAdminDefsThreatSignature,
+          (v) => v as String? ?? 'com.atproto.admin.defs#threatSignature',
         ),
         property: $checkedConvert('property', (v) => v as String),
         value: $checkedConvert('value', (v) => v as String),

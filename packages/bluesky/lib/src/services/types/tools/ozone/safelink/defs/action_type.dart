@@ -31,7 +31,7 @@ abstract class ActionType with _$ActionType {
       _$ActionTypeFromJson(json);
 }
 
-abstract class ActionTypeConverter
+final class ActionTypeConverter
     extends LexKnownValuesConverter<ActionType, Map<String, dynamic>> {
   const ActionTypeConverter();
 

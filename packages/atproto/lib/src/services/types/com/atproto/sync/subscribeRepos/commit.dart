@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './repo_op.dart';
 
 part 'commit.freezed.dart';
@@ -39,7 +38,7 @@ abstract class Commit with _$Commit {
   ];
 
   const factory Commit({
-    @Default(comAtprotoSyncSubscribeReposCommit) String $type,
+    @Default('com.atproto.sync.subscribeRepos#commit') String $type,
 
     /// The stream sequence number of this message.
     required int seq,
@@ -70,7 +69,7 @@ abstract class Commit with _$Commit {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoSyncSubscribeReposCommit;
+    return object['\$type'] == 'com.atproto.sync.subscribeRepos#commit';
   }
 }
 

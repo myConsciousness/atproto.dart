@@ -13,7 +13,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view.dart';
 import '../../../../app/bsky/richtext/facet//main.dart';
 import './list_purpose.dart';
@@ -44,7 +43,7 @@ abstract class ListView with _$ListView {
   ];
 
   const factory ListView({
-    @Default(appBskyGraphDefsListView) String $type,
+    @Default('app.bsky.graph.defs#listView') String $type,
     required String uri,
     required String cid,
     @ProfileViewConverter() required ProfileView creator,
@@ -66,7 +65,7 @@ abstract class ListView with _$ListView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyGraphDefsListView;
+    return object['\$type'] == 'app.bsky.graph.defs#listView';
   }
 }
 

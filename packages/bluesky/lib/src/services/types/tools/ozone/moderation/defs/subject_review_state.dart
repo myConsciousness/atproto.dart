@@ -36,7 +36,7 @@ abstract class SubjectReviewState with _$SubjectReviewState {
       _$SubjectReviewStateFromJson(json);
 }
 
-abstract class SubjectReviewStateConverter
+final class SubjectReviewStateConverter
     extends LexKnownValuesConverter<SubjectReviewState, Map<String, dynamic>> {
   const SubjectReviewStateConverter();
 

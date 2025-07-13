@@ -13,7 +13,7 @@ _Delete _$DeleteFromJson(Map json) =>
       final val = _Delete(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoRepoApplyWritesDelete,
+          (v) => v as String? ?? 'com.atproto.repo.applyWrites#delete',
         ),
         collection: $checkedConvert('collection', (v) => v as String),
         rkey: $checkedConvert('rkey', (v) => v as String),

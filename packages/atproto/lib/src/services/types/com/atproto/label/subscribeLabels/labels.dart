@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../com/atproto/label/defs/label.dart';
 
 part 'labels.freezed.dart';
@@ -27,7 +26,7 @@ abstract class Labels with _$Labels {
   static const knownProps = <String>['seq', 'labels'];
 
   const factory Labels({
-    @Default(comAtprotoLabelSubscribeLabelsLabels) String $type,
+    @Default('com.atproto.label.subscribeLabels#labels') String $type,
     required int seq,
     @LabelConverter() required List<Label> labels,
 
@@ -38,7 +37,7 @@ abstract class Labels with _$Labels {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoLabelSubscribeLabelsLabels;
+    return object['\$type'] == 'com.atproto.label.subscribeLabels#labels';
   }
 }
 

@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/feed/defs/blocked_author.dart';
 
 part 'view_blocked.freezed.dart';
@@ -27,7 +26,7 @@ abstract class EmbedRecordViewBlocked with _$EmbedRecordViewBlocked {
   static const knownProps = <String>['uri', 'blocked', 'author'];
 
   const factory EmbedRecordViewBlocked({
-    @Default(appBskyEmbedRecordViewBlocked) String $type,
+    @Default('app.bsky.embed.record#viewBlocked') String $type,
     required String uri,
     required bool blocked,
     @BlockedAuthorConverter() required BlockedAuthor author,
@@ -40,7 +39,7 @@ abstract class EmbedRecordViewBlocked with _$EmbedRecordViewBlocked {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyEmbedRecordViewBlocked;
+    return object['\$type'] == 'app.bsky.embed.record#viewBlocked';
   }
 }
 

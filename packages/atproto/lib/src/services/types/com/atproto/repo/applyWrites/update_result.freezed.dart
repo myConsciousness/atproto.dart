@@ -213,7 +213,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.validationStatus,_that.$un
 @JsonSerializable()
 
 class _UpdateResult implements UpdateResult {
-  const _UpdateResult({this.$type = comAtprotoRepoApplyWritesUpdateResult, required this.uri, required this.cid, this.validationStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _UpdateResult({this.$type = 'com.atproto.repo.applyWrites#updateResult', required this.uri, required this.cid, this.validationStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UpdateResult.fromJson(Map<String, dynamic> json) => _$UpdateResultFromJson(json);
 
 @override@JsonKey() final  String $type;

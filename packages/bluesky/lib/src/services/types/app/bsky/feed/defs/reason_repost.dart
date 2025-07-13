@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
 
 part 'reason_repost.freezed.dart';
@@ -27,7 +26,7 @@ abstract class ReasonRepost with _$ReasonRepost {
   static const knownProps = <String>['by', 'uri', 'cid', 'indexedAt'];
 
   const factory ReasonRepost({
-    @Default(appBskyFeedDefsReasonRepost) String $type,
+    @Default('app.bsky.feed.defs#reasonRepost') String $type,
     @ProfileViewBasicConverter() required ProfileViewBasic by,
     String? uri,
     String? cid,
@@ -41,7 +40,7 @@ abstract class ReasonRepost with _$ReasonRepost {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDefsReasonRepost;
+    return object['\$type'] == 'app.bsky.feed.defs#reasonRepost';
   }
 }
 

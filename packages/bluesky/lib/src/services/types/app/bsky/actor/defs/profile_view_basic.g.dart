@@ -13,7 +13,7 @@ _ProfileViewBasic _$ProfileViewBasicFromJson(Map json) =>
       final val = _ProfileViewBasic(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsProfileViewBasic,
+          (v) => v as String? ?? 'app.bsky.actor.defs#profileViewBasic',
         ),
         did: $checkedConvert('did', (v) => v as String),
         handle: $checkedConvert('handle', (v) => v as String),

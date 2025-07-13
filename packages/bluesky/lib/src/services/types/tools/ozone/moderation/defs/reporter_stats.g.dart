@@ -13,7 +13,7 @@ _ReporterStats _$ReporterStatsFromJson(Map json) =>
       final val = _ReporterStats(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsReporterStats,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#reporterStats',
         ),
         did: $checkedConvert('did', (v) => v as String),
         accountReportCount: $checkedConvert(

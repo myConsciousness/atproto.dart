@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'view_detached.freezed.dart';
 part 'view_detached.g.dart';
 
@@ -26,7 +23,7 @@ abstract class EmbedRecordViewDetached with _$EmbedRecordViewDetached {
   static const knownProps = <String>['uri', 'detached'];
 
   const factory EmbedRecordViewDetached({
-    @Default(appBskyEmbedRecordViewDetached) String $type,
+    @Default('app.bsky.embed.record#viewDetached') String $type,
     required String uri,
     required bool detached,
 
@@ -38,7 +35,7 @@ abstract class EmbedRecordViewDetached with _$EmbedRecordViewDetached {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyEmbedRecordViewDetached;
+    return object['\$type'] == 'app.bsky.embed.record#viewDetached';
   }
 }
 

@@ -15,7 +15,7 @@ _ThreadgateView _$ThreadgateViewFromJson(Map json) => $checkedCreate(
     final val = _ThreadgateView(
       $type: $checkedConvert(
         r'$type',
-        (v) => v as String? ?? appBskyFeedDefsThreadgateView,
+        (v) => v as String? ?? 'app.bsky.feed.defs#threadgateView',
       ),
       uri: $checkedConvert('uri', (v) => v as String?),
       cid: $checkedConvert('cid', (v) => v as String?),

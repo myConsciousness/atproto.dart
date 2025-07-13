@@ -13,7 +13,7 @@ _SkeletonTrend _$SkeletonTrendFromJson(Map json) =>
       final val = _SkeletonTrend(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyUnspeccedDefsSkeletonTrend,
+          (v) => v as String? ?? 'app.bsky.unspecced.defs#skeletonTrend',
         ),
         topic: $checkedConvert('topic', (v) => v as String),
         displayName: $checkedConvert('displayName', (v) => v as String),

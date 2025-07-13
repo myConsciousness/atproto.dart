@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'account_event.freezed.dart';
 part 'account_event.g.dart';
 
@@ -32,7 +29,7 @@ abstract class AccountEvent with _$AccountEvent {
   ];
 
   const factory AccountEvent({
-    @Default(toolsOzoneModerationDefsAccountEvent) String $type,
+    @Default('tools.ozone.moderation.defs#accountEvent') String $type,
     String? comment,
 
     /// Indicates that the account has a repository which can be fetched from the host that emitted this event.
@@ -48,7 +45,7 @@ abstract class AccountEvent with _$AccountEvent {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsAccountEvent;
+    return object['\$type'] == 'tools.ozone.moderation.defs#accountEvent';
   }
 }
 

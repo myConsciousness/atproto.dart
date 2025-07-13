@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './account_stats.dart';
 import './records_stats.dart';
 import './subject_review_state.dart';
@@ -54,7 +53,7 @@ abstract class SubjectStatusView with _$SubjectStatusView {
   ];
 
   const factory SubjectStatusView({
-    @Default(toolsOzoneModerationDefsSubjectStatusView) String $type,
+    @Default('tools.ozone.moderation.defs#subjectStatusView') String $type,
     required int id,
     @USubjectStatusViewSubjectConverter()
     required USubjectStatusViewSubject subject,
@@ -103,7 +102,7 @@ abstract class SubjectStatusView with _$SubjectStatusView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsSubjectStatusView;
+    return object['\$type'] == 'tools.ozone.moderation.defs#subjectStatusView';
   }
 }
 

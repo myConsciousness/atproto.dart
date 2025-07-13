@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'app_password.freezed.dart';
 part 'app_password.g.dart';
 
@@ -26,7 +23,7 @@ abstract class AppPassword with _$AppPassword {
   static const knownProps = <String>['name', 'createdAt', 'privileged'];
 
   const factory AppPassword({
-    @Default(comAtprotoServerListAppPasswordsAppPassword) String $type,
+    @Default('com.atproto.server.listAppPasswords#appPassword') String $type,
     required String name,
     required DateTime createdAt,
     bool? privileged,
@@ -39,7 +36,8 @@ abstract class AppPassword with _$AppPassword {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoServerListAppPasswordsAppPassword;
+    return object['\$type'] ==
+        'com.atproto.server.listAppPasswords#appPassword';
   }
 }
 

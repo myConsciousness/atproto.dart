@@ -13,7 +13,7 @@ _RepoListRecordsRecord _$RepoListRecordsRecordFromJson(Map json) =>
       final val = _RepoListRecordsRecord(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoRepoListRecordsRecord,
+          (v) => v as String? ?? 'com.atproto.repo.listRecords#record',
         ),
         uri: $checkedConvert('uri', (v) => v as String),
         cid: $checkedConvert('cid', (v) => v as String),

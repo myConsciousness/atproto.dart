@@ -230,7 +230,7 @@ return $default(_that.$type,_that.message,_that.reaction,_that.$unknown);case _:
 @JsonSerializable()
 
 class _MessageAndReactionView implements MessageAndReactionView {
-  const _MessageAndReactionView({this.$type = chatBskyConvoDefsMessageAndReactionView, @MessageViewConverter() required this.message, @ReactionViewConverter() required this.reaction, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _MessageAndReactionView({this.$type = 'chat.bsky.convo.defs#messageAndReactionView', @MessageViewConverter() required this.message, @ReactionViewConverter() required this.reaction, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _MessageAndReactionView.fromJson(Map<String, dynamic> json) => _$MessageAndReactionViewFromJson(json);
 
 @override@JsonKey() final  String $type;

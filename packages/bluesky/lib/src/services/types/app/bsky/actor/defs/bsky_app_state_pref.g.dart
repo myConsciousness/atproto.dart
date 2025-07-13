@@ -14,7 +14,7 @@ _BskyAppStatePref _$BskyAppStatePrefFromJson(
   final val = _BskyAppStatePref(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyActorDefsBskyAppStatePref,
+      (v) => v as String? ?? 'app.bsky.actor.defs#bskyAppStatePref',
     ),
     activeProgressGuide: $checkedConvert(
       'activeProgressGuide',

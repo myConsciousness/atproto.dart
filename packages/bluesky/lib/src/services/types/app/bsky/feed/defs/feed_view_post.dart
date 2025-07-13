@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './post_view.dart';
 import './reply_ref.dart';
 import './union_feed_view_post_reason.dart';
@@ -35,7 +34,7 @@ abstract class FeedViewPost with _$FeedViewPost {
   ];
 
   const factory FeedViewPost({
-    @Default(appBskyFeedDefsFeedViewPost) String $type,
+    @Default('app.bsky.feed.defs#feedViewPost') String $type,
     @PostViewConverter() required PostView post,
     @ReplyRefConverter() ReplyRef? reply,
     @UFeedViewPostReasonConverter() UFeedViewPostReason? reason,
@@ -54,7 +53,7 @@ abstract class FeedViewPost with _$FeedViewPost {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDefsFeedViewPost;
+    return object['\$type'] == 'app.bsky.feed.defs#feedViewPost';
   }
 }
 

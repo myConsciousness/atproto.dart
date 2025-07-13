@@ -212,7 +212,7 @@ return $default(_that.$type,_that.seq,_that.labels,_that.$unknown);case _:
 @JsonSerializable()
 
 class _Labels implements Labels {
-  const _Labels({this.$type = comAtprotoLabelSubscribeLabelsLabels, required this.seq, @LabelConverter() required final  List<Label> labels, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
+  const _Labels({this.$type = 'com.atproto.label.subscribeLabels#labels', required this.seq, @LabelConverter() required final  List<Label> labels, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
   factory _Labels.fromJson(Map<String, dynamic> json) => _$LabelsFromJson(json);
 
 @override@JsonKey() final  String $type;

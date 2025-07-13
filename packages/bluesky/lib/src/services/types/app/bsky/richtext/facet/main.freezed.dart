@@ -221,7 +221,7 @@ return $default(_that.$type,_that.index,_that.features,_that.$unknown);case _:
 @JsonSerializable()
 
 class _RichtextFacet implements RichtextFacet {
-  const _RichtextFacet({this.$type = appBskyRichtextFacet, @RichtextFacetByteSliceConverter() required this.index, @URichtextFacetFeaturesConverter() required final  List<URichtextFacetFeatures> features, final  Map<String, dynamic>? $unknown}): _features = features,_$unknown = $unknown;
+  const _RichtextFacet({this.$type = 'app.bsky.richtext.facet', @RichtextFacetByteSliceConverter() required this.index, @URichtextFacetFeaturesConverter() required final  List<URichtextFacetFeatures> features, final  Map<String, dynamic>? $unknown}): _features = features,_$unknown = $unknown;
   factory _RichtextFacet.fromJson(Map<String, dynamic> json) => _$RichtextFacetFromJson(json);
 
 @override@JsonKey() final  String $type;

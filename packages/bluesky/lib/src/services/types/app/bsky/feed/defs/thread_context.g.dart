@@ -13,7 +13,7 @@ _ThreadContext _$ThreadContextFromJson(Map json) =>
       final val = _ThreadContext(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyFeedDefsThreadContext,
+          (v) => v as String? ?? 'app.bsky.feed.defs#threadContext',
         ),
         rootAuthorLike: $checkedConvert('rootAuthorLike', (v) => v as String?),
         $unknown: $checkedConvert(

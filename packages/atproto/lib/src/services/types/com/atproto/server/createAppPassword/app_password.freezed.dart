@@ -214,7 +214,7 @@ return $default(_that.$type,_that.name,_that.password,_that.createdAt,_that.priv
 @JsonSerializable()
 
 class _AppPassword implements AppPassword {
-  const _AppPassword({this.$type = comAtprotoServerCreateAppPasswordAppPassword, required this.name, required this.password, required this.createdAt, this.privileged, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AppPassword({this.$type = 'com.atproto.server.createAppPassword#appPassword', required this.name, required this.password, required this.createdAt, this.privileged, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AppPassword.fromJson(Map<String, dynamic> json) => _$AppPasswordFromJson(json);
 
 @override@JsonKey() final  String $type;

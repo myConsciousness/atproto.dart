@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../chat/bsky/actor/defs/profile_view_basic.dart';
 import './union_convo_view_last_message.dart';
 import './union_convo_view_last_reaction.dart';
@@ -38,7 +37,7 @@ abstract class ConvoView with _$ConvoView {
   ];
 
   const factory ConvoView({
-    @Default(chatBskyConvoDefsConvoView) String $type,
+    @Default('chat.bsky.convo.defs#convoView') String $type,
     required String id,
     required String rev,
     @ProfileViewBasicConverter() required List<ProfileViewBasic> members,
@@ -56,7 +55,7 @@ abstract class ConvoView with _$ConvoView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == chatBskyConvoDefsConvoView;
+    return object['\$type'] == 'chat.bsky.convo.defs#convoView';
   }
 }
 

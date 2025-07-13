@@ -281,7 +281,7 @@ return $default(_that.$type,_that.displayName,_that.description,_that.avatar,_th
 @JsonSerializable()
 
 class _ActorProfileRecord implements ActorProfileRecord {
-  const _ActorProfileRecord({this.$type = appBskyActorProfile, this.displayName, this.description, @BlobConverter() this.avatar, @BlobConverter() this.banner, @UActorProfileLabelsConverter() this.labels, @RepoStrongRefConverter() this.joinedViaStarterPack, @RepoStrongRefConverter() this.pinnedPost, this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ActorProfileRecord({this.$type = 'app.bsky.actor.profile', this.displayName, this.description, @BlobConverter() this.avatar, @BlobConverter() this.banner, @UActorProfileLabelsConverter() this.labels, @RepoStrongRefConverter() this.joinedViaStarterPack, @RepoStrongRefConverter() this.pinnedPost, this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ActorProfileRecord.fromJson(Map<String, dynamic> json) => _$ActorProfileRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -13,7 +13,7 @@ _MessageViewSender _$MessageViewSenderFromJson(Map json) =>
       final val = _MessageViewSender(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? chatBskyConvoDefsMessageViewSender,
+          (v) => v as String? ?? 'chat.bsky.convo.defs#messageViewSender',
         ),
         did: $checkedConvert('did', (v) => v as String),
         $unknown: $checkedConvert(

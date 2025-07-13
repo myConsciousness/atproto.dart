@@ -212,7 +212,7 @@ return $default(_that.$type,_that.collection,_that.rkey,_that.$unknown);case _:
 @JsonSerializable()
 
 class _Delete implements Delete {
-  const _Delete({this.$type = comAtprotoRepoApplyWritesDelete, required this.collection, required this.rkey, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Delete({this.$type = 'com.atproto.repo.applyWrites#delete', required this.collection, required this.rkey, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Delete.fromJson(Map<String, dynamic> json) => _$DeleteFromJson(json);
 
 @override@JsonKey() final  String $type;

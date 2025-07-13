@@ -18,7 +18,7 @@ _$ProfileAssociatedActivitySubscriptionFromJson(Map json) => $checkedCreate(
         r'$type',
         (v) =>
             v as String? ??
-            appBskyActorDefsProfileAssociatedActivitySubscription,
+            'app.bsky.actor.defs#profileAssociatedActivitySubscription',
       ),
       allowSubscriptions: $checkedConvert(
         'allowSubscriptions',

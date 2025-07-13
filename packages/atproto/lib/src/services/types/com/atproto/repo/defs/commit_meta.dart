@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'commit_meta.freezed.dart';
 part 'commit_meta.g.dart';
 
@@ -26,7 +23,7 @@ abstract class CommitMeta with _$CommitMeta {
   static const knownProps = <String>['cid', 'rev'];
 
   const factory CommitMeta({
-    @Default(comAtprotoRepoDefsCommitMeta) String $type,
+    @Default('com.atproto.repo.defs#commitMeta') String $type,
     required String cid,
     required String rev,
 
@@ -38,7 +35,7 @@ abstract class CommitMeta with _$CommitMeta {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoRepoDefsCommitMeta;
+    return object['\$type'] == 'com.atproto.repo.defs#commitMeta';
   }
 }
 

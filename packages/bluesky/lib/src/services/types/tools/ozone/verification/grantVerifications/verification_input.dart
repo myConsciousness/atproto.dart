@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'verification_input.freezed.dart';
 part 'verification_input.g.dart';
 
@@ -31,7 +28,7 @@ abstract class VerificationInput with _$VerificationInput {
   ];
 
   const factory VerificationInput({
-    @Default(toolsOzoneVerificationGrantVerificationsVerificationInput)
+    @Default('tools.ozone.verification.grantVerifications#verificationInput')
     String $type,
 
     /// The did of the subject being verified
@@ -55,7 +52,7 @@ abstract class VerificationInput with _$VerificationInput {
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
     return object['\$type'] ==
-        toolsOzoneVerificationGrantVerificationsVerificationInput;
+        'tools.ozone.verification.grantVerifications#verificationInput';
   }
 }
 

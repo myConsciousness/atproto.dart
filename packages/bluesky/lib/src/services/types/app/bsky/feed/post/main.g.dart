@@ -12,7 +12,10 @@ _FeedPostRecord _$FeedPostRecordFromJson(
   Map json,
 ) => $checkedCreate('_FeedPostRecord', json, ($checkedConvert) {
   final val = _FeedPostRecord(
-    $type: $checkedConvert(r'$type', (v) => v as String? ?? appBskyFeedPost),
+    $type: $checkedConvert(
+      r'$type',
+      (v) => v as String? ?? 'app.bsky.feed.post',
+    ),
     text: $checkedConvert('text', (v) => v as String),
     facets: $checkedConvert(
       'facets',

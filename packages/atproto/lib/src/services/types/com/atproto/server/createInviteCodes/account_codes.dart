@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'account_codes.freezed.dart';
 part 'account_codes.g.dart';
 
@@ -26,7 +23,7 @@ abstract class AccountCodes with _$AccountCodes {
   static const knownProps = <String>['account', 'codes'];
 
   const factory AccountCodes({
-    @Default(comAtprotoServerCreateInviteCodesAccountCodes) String $type,
+    @Default('com.atproto.server.createInviteCodes#accountCodes') String $type,
     required String account,
     required List<String> codes,
 
@@ -38,7 +35,8 @@ abstract class AccountCodes with _$AccountCodes {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoServerCreateInviteCodesAccountCodes;
+    return object['\$type'] ==
+        'com.atproto.server.createInviteCodes#accountCodes';
   }
 }
 

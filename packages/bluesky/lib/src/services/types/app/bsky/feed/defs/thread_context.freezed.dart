@@ -211,7 +211,7 @@ return $default(_that.$type,_that.rootAuthorLike,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ThreadContext implements ThreadContext {
-  const _ThreadContext({this.$type = appBskyFeedDefsThreadContext, this.rootAuthorLike, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ThreadContext({this.$type = 'app.bsky.feed.defs#threadContext', this.rootAuthorLike, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ThreadContext.fromJson(Map<String, dynamic> json) => _$ThreadContextFromJson(json);
 
 @override@JsonKey() final  String $type;

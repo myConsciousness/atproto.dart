@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'record_blob.freezed.dart';
 part 'record_blob.g.dart';
 
@@ -26,7 +23,7 @@ abstract class RecordBlob with _$RecordBlob {
   static const knownProps = <String>['cid', 'recordUri'];
 
   const factory RecordBlob({
-    @Default(comAtprotoRepoListMissingBlobsRecordBlob) String $type,
+    @Default('com.atproto.repo.listMissingBlobs#recordBlob') String $type,
     required String cid,
     required String recordUri,
 
@@ -38,7 +35,7 @@ abstract class RecordBlob with _$RecordBlob {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoRepoListMissingBlobsRecordBlob;
+    return object['\$type'] == 'com.atproto.repo.listMissingBlobs#recordBlob';
   }
 }
 

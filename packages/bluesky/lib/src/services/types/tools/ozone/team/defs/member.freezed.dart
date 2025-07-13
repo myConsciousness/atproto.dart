@@ -229,7 +229,7 @@ return $default(_that.$type,_that.did,_that.disabled,_that.profile,_that.created
 @JsonSerializable()
 
 class _Member implements Member {
-  const _Member({this.$type = toolsOzoneTeamDefsMember, required this.did, this.disabled, @ProfileViewDetailedConverter() this.profile, this.createdAt, this.updatedAt, this.lastUpdatedBy, required this.role, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Member({this.$type = 'tools.ozone.team.defs#member', required this.did, this.disabled, @ProfileViewDetailedConverter() this.profile, this.createdAt, this.updatedAt, this.lastUpdatedBy, required this.role, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Member.fromJson(Map<String, dynamic> json) => _$MemberFromJson(json);
 
 @override@JsonKey() final  String $type;

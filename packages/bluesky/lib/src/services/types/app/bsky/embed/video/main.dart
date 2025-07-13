@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/embed/defs/aspect_ratio.dart';
 import './caption.dart';
 
@@ -28,7 +27,7 @@ abstract class EmbedVideo with _$EmbedVideo {
   static const knownProps = <String>['video', 'captions', 'alt', 'aspectRatio'];
 
   const factory EmbedVideo({
-    @Default(appBskyEmbedVideo) String $type,
+    @Default('app.bsky.embed.video') String $type,
 
     /// The mp4 video file. May be up to 100mb, formerly limited to 50mb.
     @BlobConverter() required Blob video,
@@ -46,7 +45,7 @@ abstract class EmbedVideo with _$EmbedVideo {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyEmbedVideo ||
+    return object['\$type'] == 'app.bsky.embed.video' ||
         object['\$type'] == 'app.bsky.embed.video#main';
   }
 }

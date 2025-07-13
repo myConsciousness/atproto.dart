@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'set.freezed.dart';
 part 'set.g.dart';
 
@@ -26,7 +23,7 @@ abstract class Set with _$Set {
   static const knownProps = <String>['name', 'description'];
 
   const factory Set({
-    @Default(toolsOzoneSetDefsSet) String $type,
+    @Default('tools.ozone.set.defs#set') String $type,
     required String name,
     String? description,
 
@@ -37,7 +34,7 @@ abstract class Set with _$Set {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneSetDefsSet;
+    return object['\$type'] == 'tools.ozone.set.defs#set';
   }
 }
 

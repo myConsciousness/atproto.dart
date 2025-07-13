@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'mod_event_takedown.freezed.dart';
 part 'mod_event_takedown.g.dart';
 
@@ -32,7 +29,7 @@ abstract class ModEventTakedown with _$ModEventTakedown {
   ];
 
   const factory ModEventTakedown({
-    @Default(toolsOzoneModerationDefsModEventTakedown) String $type,
+    @Default('tools.ozone.moderation.defs#modEventTakedown') String $type,
     String? comment,
 
     /// Indicates how long the takedown should be in effect before automatically expiring.
@@ -50,7 +47,7 @@ abstract class ModEventTakedown with _$ModEventTakedown {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsModEventTakedown;
+    return object['\$type'] == 'tools.ozone.moderation.defs#modEventTakedown';
   }
 }
 

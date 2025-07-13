@@ -14,7 +14,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/graph/defs/starter_pack_view_basic.dart';
 import './profile_associated.dart';
 import './status_view.dart';
@@ -52,7 +51,7 @@ abstract class ProfileViewDetailed with _$ProfileViewDetailed {
   ];
 
   const factory ProfileViewDetailed({
-    @Default(appBskyActorDefsProfileViewDetailed) String $type,
+    @Default('app.bsky.actor.defs#profileViewDetailed') String $type,
     required String did,
     required String handle,
     String? displayName,
@@ -80,7 +79,7 @@ abstract class ProfileViewDetailed with _$ProfileViewDetailed {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsProfileViewDetailed;
+    return object['\$type'] == 'app.bsky.actor.defs#profileViewDetailed';
   }
 }
 

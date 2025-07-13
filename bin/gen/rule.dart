@@ -104,8 +104,9 @@ String getFileNameForUnion(
     return 'union_${getLexObjectFileName(defName)}';
   }
 
-  final suffix =
-      splitByUpperCase(fieldName).map((e) => e.toLowerCase()).join('_');
+  final suffix = splitByUpperCase(
+    fieldName,
+  ).map((e) => e.toLowerCase()).join('_');
 
   if (defName == null) return 'union_$suffix';
 
@@ -123,10 +124,11 @@ String getFilePathForUnion(
 }
 
 String getLexObjectTypeId(final String lexiconId, final String defName) {
-  final id = lexiconId.split('.').map(toFirstUpperCase).join() +
-      (defName == 'main' ? '' : toFirstUpperCase(defName));
+  if (defName == 'main') {
+    return lexiconId;
+  }
 
-  return id.substring(0, 1).toLowerCase() + id.substring(1);
+  return '$lexiconId#$defName';
 }
 
 String getHomeDir(final String lexiconId) {
@@ -264,10 +266,7 @@ String getLexObjectPackagePathForUnion(
   return './$fileName.dart';
 }
 
-String getPackageRelativePath(
-  final String lexiconId,
-  final String ref,
-) {
+String getPackageRelativePath(final String lexiconId, final String ref) {
   if (ref.startsWith('#')) return '.';
 
   if (_isInTheSamePackage(lexiconId, ref)) {
@@ -279,18 +278,15 @@ String getPackageRelativePath(
     }
   } else {
     if (ref.contains('#')) {
-      final _lexiconId = ref.split('#').first;
-      return 'package:${getRootPackageName(_lexiconId)}';
+      final lexiconId0 = ref.split('#').first;
+      return 'package:${getRootPackageName(lexiconId0)}';
     } else {
       return 'package:${getRootPackageName(ref)}';
     }
   }
 }
 
-bool _isInTheSamePackage(
-  final String lexiconId,
-  final String ref,
-) {
+bool _isInTheSamePackage(final String lexiconId, final String ref) {
   if (ref.startsWith('#')) return true;
   return _getServiceFromLexiconId(lexiconId) == _getServiceFromLexiconId(ref);
 }
@@ -323,10 +319,7 @@ String getServiceApiName(final String lexiconId) {
   return lexiconId.split('.').last;
 }
 
-String getLexObjectAbsolutePath(
-  final String lexiconId,
-  final String fileName,
-) {
+String getLexObjectAbsolutePath(final String lexiconId, final String fileName) {
   return '${_getHomeDirForExport(lexiconId)}/${_getFileDir(lexiconId)}/$fileName.dart';
 }
 

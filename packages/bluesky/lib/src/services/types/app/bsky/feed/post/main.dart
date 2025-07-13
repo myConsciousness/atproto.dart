@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/richtext/facet//main.dart';
 import './reply_ref.dart';
 import './union_main_embed.dart';
@@ -39,7 +38,7 @@ abstract class FeedPostRecord with _$FeedPostRecord {
   ];
 
   const factory FeedPostRecord({
-    @Default(appBskyFeedPost) String $type,
+    @Default('app.bsky.feed.post') String $type,
 
     /// The primary post content. May be an empty string, if there are embeds.
     required String text,
@@ -61,7 +60,7 @@ abstract class FeedPostRecord with _$FeedPostRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedPost;
+    return object['\$type'] == 'app.bsky.feed.post';
   }
 }
 

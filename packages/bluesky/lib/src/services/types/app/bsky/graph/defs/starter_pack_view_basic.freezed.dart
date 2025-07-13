@@ -228,7 +228,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.record,_that.creator,_that
 @JsonSerializable()
 
 class _StarterPackViewBasic implements StarterPackViewBasic {
-  const _StarterPackViewBasic({this.$type = appBskyGraphDefsStarterPackViewBasic, required this.uri, required this.cid, required final  Map<String, dynamic> record, @ProfileViewBasicConverter() required this.creator, this.listItemCount, this.joinedWeekCount, this.joinedAllTimeCount, @LabelConverter() final  List<Label>? labels, required this.indexedAt, final  Map<String, dynamic>? $unknown}): _record = record,_labels = labels,_$unknown = $unknown;
+  const _StarterPackViewBasic({this.$type = 'app.bsky.graph.defs#starterPackViewBasic', required this.uri, required this.cid, required final  Map<String, dynamic> record, @ProfileViewBasicConverter() required this.creator, this.listItemCount, this.joinedWeekCount, this.joinedAllTimeCount, @LabelConverter() final  List<Label>? labels, required this.indexedAt, final  Map<String, dynamic>? $unknown}): _record = record,_labels = labels,_$unknown = $unknown;
   factory _StarterPackViewBasic.fromJson(Map<String, dynamic> json) => _$StarterPackViewBasicFromJson(json);
 
 @override@JsonKey() final  String $type;

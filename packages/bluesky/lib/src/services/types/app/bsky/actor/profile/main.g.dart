@@ -15,7 +15,7 @@ _ActorProfileRecord _$ActorProfileRecordFromJson(Map json) => $checkedCreate(
     final val = _ActorProfileRecord(
       $type: $checkedConvert(
         r'$type',
-        (v) => v as String? ?? appBskyActorProfile,
+        (v) => v as String? ?? 'app.bsky.actor.profile',
       ),
       displayName: $checkedConvert('displayName', (v) => v as String?),
       description: $checkedConvert('description', (v) => v as String?),

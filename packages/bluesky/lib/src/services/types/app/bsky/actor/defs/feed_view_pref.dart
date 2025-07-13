@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'feed_view_pref.freezed.dart';
 part 'feed_view_pref.g.dart';
 
@@ -33,7 +30,7 @@ abstract class FeedViewPref with _$FeedViewPref {
   ];
 
   const factory FeedViewPref({
-    @Default(appBskyActorDefsFeedViewPref) String $type,
+    @Default('app.bsky.actor.defs#feedViewPref') String $type,
 
     /// The URI of the feed, or an identifier which describes the feed.
     required String feed,
@@ -61,7 +58,7 @@ abstract class FeedViewPref with _$FeedViewPref {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsFeedViewPref;
+    return object['\$type'] == 'app.bsky.actor.defs#feedViewPref';
   }
 }
 

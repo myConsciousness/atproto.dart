@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'labeler_pref_item.freezed.dart';
 part 'labeler_pref_item.g.dart';
 
@@ -26,7 +23,7 @@ abstract class LabelerPrefItem with _$LabelerPrefItem {
   static const knownProps = <String>['did'];
 
   const factory LabelerPrefItem({
-    @Default(appBskyActorDefsLabelerPrefItem) String $type,
+    @Default('app.bsky.actor.defs#labelerPrefItem') String $type,
     required String did,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +34,7 @@ abstract class LabelerPrefItem with _$LabelerPrefItem {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsLabelerPrefItem;
+    return object['\$type'] == 'app.bsky.actor.defs#labelerPrefItem';
   }
 }
 

@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'preference.freezed.dart';
 part 'preference.g.dart';
 
@@ -26,7 +23,7 @@ abstract class Preference with _$Preference {
   static const knownProps = <String>['list', 'push'];
 
   const factory Preference({
-    @Default(appBskyNotificationDefsPreference) String $type,
+    @Default('app.bsky.notification.defs#preference') String $type,
     required bool list,
     required bool push,
 
@@ -38,7 +35,7 @@ abstract class Preference with _$Preference {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyNotificationDefsPreference;
+    return object['\$type'] == 'app.bsky.notification.defs#preference';
   }
 }
 

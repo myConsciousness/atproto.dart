@@ -13,7 +13,7 @@ _ModEventTag _$ModEventTagFromJson(Map json) =>
       final val = _ModEventTag(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsModEventTag,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#modEventTag',
         ),
         add: $checkedConvert(
           'add',

@@ -224,7 +224,7 @@ return $default(_that.$type,_that.did,_that.viewer,_that.$unknown);case _:
 @JsonSerializable()
 
 class _BlockedAuthor implements BlockedAuthor {
-  const _BlockedAuthor({this.$type = appBskyFeedDefsBlockedAuthor, required this.did, @ViewerStateConverter() this.viewer, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _BlockedAuthor({this.$type = 'app.bsky.feed.defs#blockedAuthor', required this.did, @ViewerStateConverter() this.viewer, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _BlockedAuthor.fromJson(Map<String, dynamic> json) => _$BlockedAuthorFromJson(json);
 
 @override@JsonKey() final  String $type;

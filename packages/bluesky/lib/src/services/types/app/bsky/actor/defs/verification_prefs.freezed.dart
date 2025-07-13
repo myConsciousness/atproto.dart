@@ -212,7 +212,7 @@ return $default(_that.$type,_that.hideBadges,_that.$unknown);case _:
 @JsonSerializable()
 
 class _VerificationPrefs implements VerificationPrefs {
-  const _VerificationPrefs({this.$type = appBskyActorDefsVerificationPrefs, this.hideBadges, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _VerificationPrefs({this.$type = 'app.bsky.actor.defs#verificationPrefs', this.hideBadges, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _VerificationPrefs.fromJson(Map<String, dynamic> json) => _$VerificationPrefsFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -219,7 +219,7 @@ return $default(_that.$type,_that.seq,_that.did,_that.blocks,_that.rev,_that.tim
 @JsonSerializable()
 
 class _Sync implements Sync {
-  const _Sync({this.$type = comAtprotoSyncSubscribeReposSync, required this.seq, required this.did, required final  Map<String, dynamic> blocks, required this.rev, required this.time, final  Map<String, dynamic>? $unknown}): _blocks = blocks,_$unknown = $unknown;
+  const _Sync({this.$type = 'com.atproto.sync.subscribeRepos#sync', required this.seq, required this.did, required final  Map<String, dynamic> blocks, required this.rev, required this.time, final  Map<String, dynamic>? $unknown}): _blocks = blocks,_$unknown = $unknown;
   factory _Sync.fromJson(Map<String, dynamic> json) => _$SyncFromJson(json);
 
 @override@JsonKey() final  String $type;

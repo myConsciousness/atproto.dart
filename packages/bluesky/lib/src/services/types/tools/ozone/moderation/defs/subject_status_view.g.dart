@@ -14,7 +14,7 @@ _SubjectStatusView _$SubjectStatusViewFromJson(
   final val = _SubjectStatusView(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? toolsOzoneModerationDefsSubjectStatusView,
+      (v) => v as String? ?? 'tools.ozone.moderation.defs#subjectStatusView',
     ),
     id: $checkedConvert('id', (v) => (v as num).toInt()),
     subject: $checkedConvert(

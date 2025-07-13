@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/embed/record/view.dart';
 import './union_view_media.dart';
 
@@ -28,7 +27,7 @@ abstract class EmbedRecordWithMediaView with _$EmbedRecordWithMediaView {
   static const knownProps = <String>['record', 'media'];
 
   const factory EmbedRecordWithMediaView({
-    @Default(appBskyEmbedRecordWithMediaView) String $type,
+    @Default('app.bsky.embed.recordWithMedia#view') String $type,
     @EmbedRecordViewConverter() required EmbedRecordView record,
     @UEmbedRecordWithMediaViewMediaConverter()
     required UEmbedRecordWithMediaViewMedia media,
@@ -41,7 +40,7 @@ abstract class EmbedRecordWithMediaView with _$EmbedRecordWithMediaView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyEmbedRecordWithMediaView;
+    return object['\$type'] == 'app.bsky.embed.recordWithMedia#view';
   }
 }
 

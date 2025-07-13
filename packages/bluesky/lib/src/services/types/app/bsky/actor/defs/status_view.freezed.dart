@@ -230,7 +230,7 @@ return $default(_that.$type,_that.status,_that.record,_that.embed,_that.expiresA
 @JsonSerializable()
 
 class _StatusView implements StatusView {
-  const _StatusView({this.$type = appBskyActorDefsStatusView, required this.status, required final  Map<String, dynamic> record, @UStatusViewEmbedConverter() this.embed, this.expiresAt, this.isActive, final  Map<String, dynamic>? $unknown}): _record = record,_$unknown = $unknown;
+  const _StatusView({this.$type = 'app.bsky.actor.defs#statusView', required this.status, required final  Map<String, dynamic> record, @UStatusViewEmbedConverter() this.embed, this.expiresAt, this.isActive, final  Map<String, dynamic>? $unknown}): _record = record,_$unknown = $unknown;
   factory _StatusView.fromJson(Map<String, dynamic> json) => _$StatusViewFromJson(json);
 
 @override@JsonKey() final  String $type;

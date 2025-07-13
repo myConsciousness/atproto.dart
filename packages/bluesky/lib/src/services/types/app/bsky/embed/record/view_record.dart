@@ -13,7 +13,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
 import './union_view_record_embeds.dart';
 
@@ -41,7 +40,7 @@ abstract class EmbedRecordViewRecord with _$EmbedRecordViewRecord {
   ];
 
   const factory EmbedRecordViewRecord({
-    @Default(appBskyEmbedRecordViewRecord) String $type,
+    @Default('app.bsky.embed.record#viewRecord') String $type,
     required String uri,
     required String cid,
     @ProfileViewBasicConverter() required ProfileViewBasic author,
@@ -63,7 +62,7 @@ abstract class EmbedRecordViewRecord with _$EmbedRecordViewRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyEmbedRecordViewRecord;
+    return object['\$type'] == 'app.bsky.embed.record#viewRecord';
   }
 }
 

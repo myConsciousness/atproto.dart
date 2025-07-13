@@ -15,7 +15,7 @@ _RevokeError _$RevokeErrorFromJson(Map json) =>
           r'$type',
           (v) =>
               v as String? ??
-              toolsOzoneVerificationRevokeVerificationsRevokeError,
+              'tools.ozone.verification.revokeVerifications#revokeError',
         ),
         uri: $checkedConvert('uri', (v) => v as String),
         error: $checkedConvert('error', (v) => v as String),

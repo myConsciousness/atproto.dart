@@ -14,7 +14,7 @@ _ModEventViewDetail _$ModEventViewDetailFromJson(
   final val = _ModEventViewDetail(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? toolsOzoneModerationDefsModEventViewDetail,
+      (v) => v as String? ?? 'tools.ozone.moderation.defs#modEventViewDetail',
     ),
     id: $checkedConvert('id', (v) => (v as num).toInt()),
     event: $checkedConvert(

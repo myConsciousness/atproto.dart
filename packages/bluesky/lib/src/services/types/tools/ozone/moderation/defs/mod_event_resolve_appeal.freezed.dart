@@ -212,7 +212,7 @@ return $default(_that.$type,_that.comment,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ModEventResolveAppeal implements ModEventResolveAppeal {
-  const _ModEventResolveAppeal({this.$type = toolsOzoneModerationDefsModEventResolveAppeal, this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModEventResolveAppeal({this.$type = 'tools.ozone.moderation.defs#modEventResolveAppeal', this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModEventResolveAppeal.fromJson(Map<String, dynamic> json) => _$ModEventResolveAppealFromJson(json);
 
 @override@JsonKey() final  String $type;

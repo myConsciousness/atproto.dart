@@ -43,7 +43,7 @@ abstract class LabelValue with _$LabelValue {
       _$LabelValueFromJson(json);
 }
 
-abstract class LabelValueConverter
+final class LabelValueConverter
     extends LexKnownValuesConverter<LabelValue, Map<String, dynamic>> {
   const LabelValueConverter();
 

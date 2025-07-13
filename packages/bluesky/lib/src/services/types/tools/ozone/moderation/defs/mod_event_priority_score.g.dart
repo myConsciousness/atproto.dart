@@ -13,7 +13,9 @@ _ModEventPriorityScore _$ModEventPriorityScoreFromJson(Map json) =>
       final val = _ModEventPriorityScore(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsModEventPriorityScore,
+          (v) =>
+              v as String? ??
+              'tools.ozone.moderation.defs#modEventPriorityScore',
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         score: $checkedConvert('score', (v) => (v as num).toInt()),

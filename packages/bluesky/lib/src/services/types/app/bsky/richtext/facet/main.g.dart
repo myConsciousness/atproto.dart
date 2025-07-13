@@ -13,7 +13,7 @@ _RichtextFacet _$RichtextFacetFromJson(Map json) =>
       final val = _RichtextFacet(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyRichtextFacet,
+          (v) => v as String? ?? 'app.bsky.richtext.facet',
         ),
         index: $checkedConvert(
           'index',

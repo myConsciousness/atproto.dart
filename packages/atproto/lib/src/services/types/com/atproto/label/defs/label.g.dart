@@ -13,7 +13,7 @@ _Label _$LabelFromJson(Map json) =>
       final val = _Label(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoLabelDefsLabel,
+          (v) => v as String? ?? 'com.atproto.label.defs#label',
         ),
         ver: $checkedConvert('ver', (v) => (v as num?)?.toInt()),
         src: $checkedConvert('src', (v) => v as String),

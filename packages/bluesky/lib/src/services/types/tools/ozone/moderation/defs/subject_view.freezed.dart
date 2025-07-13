@@ -273,7 +273,7 @@ return $default(_that.$type,_that.type,_that.subject,_that.status,_that.repo,_th
 @JsonSerializable()
 
 class _SubjectView implements SubjectView {
-  const _SubjectView({this.$type = toolsOzoneModerationDefsSubjectView, @SubjectTypeConverter() required this.type, required this.subject, @SubjectStatusViewConverter() this.status, @RepoViewDetailConverter() this.repo, @USubjectViewProfileConverter() this.profile, @RecordViewDetailConverter() this.record, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SubjectView({this.$type = 'tools.ozone.moderation.defs#subjectView', @SubjectTypeConverter() required this.type, required this.subject, @SubjectStatusViewConverter() this.status, @RepoViewDetailConverter() this.repo, @USubjectViewProfileConverter() this.profile, @RecordViewDetailConverter() this.record, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SubjectView.fromJson(Map<String, dynamic> json) => _$SubjectViewFromJson(json);
 
 @override@JsonKey() final  String $type;

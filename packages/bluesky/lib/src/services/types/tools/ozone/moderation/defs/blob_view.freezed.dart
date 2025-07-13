@@ -240,7 +240,7 @@ return $default(_that.$type,_that.cid,_that.mimeType,_that.size,_that.createdAt,
 @JsonSerializable()
 
 class _BlobView implements BlobView {
-  const _BlobView({this.$type = toolsOzoneModerationDefsBlobView, required this.cid, required this.mimeType, required this.size, required this.createdAt, @UBlobViewDetailsConverter() this.details, @ModerationConverter() this.moderation, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _BlobView({this.$type = 'tools.ozone.moderation.defs#blobView', required this.cid, required this.mimeType, required this.size, required this.createdAt, @UBlobViewDetailsConverter() this.details, @ModerationConverter() this.moderation, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _BlobView.fromJson(Map<String, dynamic> json) => _$BlobViewFromJson(json);
 
 @override@JsonKey() final  String $type;

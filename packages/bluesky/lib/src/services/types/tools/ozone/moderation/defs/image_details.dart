@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'image_details.freezed.dart';
 part 'image_details.g.dart';
 
@@ -26,7 +23,7 @@ abstract class ImageDetails with _$ImageDetails {
   static const knownProps = <String>['width', 'height'];
 
   const factory ImageDetails({
-    @Default(toolsOzoneModerationDefsImageDetails) String $type,
+    @Default('tools.ozone.moderation.defs#imageDetails') String $type,
     required int width,
     required int height,
 
@@ -38,7 +35,7 @@ abstract class ImageDetails with _$ImageDetails {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsImageDetails;
+    return object['\$type'] == 'tools.ozone.moderation.defs#imageDetails';
   }
 }
 

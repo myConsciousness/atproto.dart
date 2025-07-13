@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'mod_event_unmute_reporter.freezed.dart';
 part 'mod_event_unmute_reporter.g.dart';
 
@@ -27,7 +24,7 @@ abstract class ModEventUnmuteReporter with _$ModEventUnmuteReporter {
   static const knownProps = <String>['comment'];
 
   const factory ModEventUnmuteReporter({
-    @Default(toolsOzoneModerationDefsModEventUnmuteReporter) String $type,
+    @Default('tools.ozone.moderation.defs#modEventUnmuteReporter') String $type,
 
     /// Describe reasoning behind the reversal.
     String? comment,
@@ -40,7 +37,8 @@ abstract class ModEventUnmuteReporter with _$ModEventUnmuteReporter {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsModEventUnmuteReporter;
+    return object['\$type'] ==
+        'tools.ozone.moderation.defs#modEventUnmuteReporter';
   }
 }
 

@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/nux.dart';
 import './bsky_app_progress_guide.dart';
 
@@ -33,7 +32,7 @@ abstract class BskyAppStatePref with _$BskyAppStatePref {
   ];
 
   const factory BskyAppStatePref({
-    @Default(appBskyActorDefsBskyAppStatePref) String $type,
+    @Default('app.bsky.actor.defs#bskyAppStatePref') String $type,
     @BskyAppProgressGuideConverter() BskyAppProgressGuide? activeProgressGuide,
     List<String>? queuedNudges,
     @NuxConverter() List<Nux>? nuxs,
@@ -46,7 +45,7 @@ abstract class BskyAppStatePref with _$BskyAppStatePref {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsBskyAppStatePref;
+    return object['\$type'] == 'app.bsky.actor.defs#bskyAppStatePref';
   }
 }
 

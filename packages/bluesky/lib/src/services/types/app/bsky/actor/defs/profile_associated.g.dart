@@ -14,7 +14,7 @@ _ProfileAssociated _$ProfileAssociatedFromJson(
   final val = _ProfileAssociated(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyActorDefsProfileAssociated,
+      (v) => v as String? ?? 'app.bsky.actor.defs#profileAssociated',
     ),
     lists: $checkedConvert('lists', (v) => (v as num?)?.toInt()),
     feedgens: $checkedConvert('feedgens', (v) => (v as num?)?.toInt()),

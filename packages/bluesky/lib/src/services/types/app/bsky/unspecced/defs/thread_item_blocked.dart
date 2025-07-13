@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/feed/defs/blocked_author.dart';
 
 part 'thread_item_blocked.freezed.dart';
@@ -27,7 +26,7 @@ abstract class ThreadItemBlocked with _$ThreadItemBlocked {
   static const knownProps = <String>['author'];
 
   const factory ThreadItemBlocked({
-    @Default(appBskyUnspeccedDefsThreadItemBlocked) String $type,
+    @Default('app.bsky.unspecced.defs#threadItemBlocked') String $type,
     @BlockedAuthorConverter() required BlockedAuthor author,
 
     Map<String, dynamic>? $unknown,
@@ -38,7 +37,7 @@ abstract class ThreadItemBlocked with _$ThreadItemBlocked {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyUnspeccedDefsThreadItemBlocked;
+    return object['\$type'] == 'app.bsky.unspecced.defs#threadItemBlocked';
   }
 }
 

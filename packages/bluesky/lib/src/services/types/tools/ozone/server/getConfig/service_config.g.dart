@@ -13,7 +13,7 @@ _ServiceConfig _$ServiceConfigFromJson(Map json) =>
       final val = _ServiceConfig(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneServerGetConfigServiceConfig,
+          (v) => v as String? ?? 'tools.ozone.server.getConfig#serviceConfig',
         ),
         url: $checkedConvert(
           'url',

@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'label_value_definition_strings.freezed.dart';
 part 'label_value_definition_strings.g.dart';
 
@@ -27,7 +24,7 @@ abstract class LabelValueDefinitionStrings with _$LabelValueDefinitionStrings {
   static const knownProps = <String>['lang', 'name', 'description'];
 
   const factory LabelValueDefinitionStrings({
-    @Default(comAtprotoLabelDefsLabelValueDefinitionStrings) String $type,
+    @Default('com.atproto.label.defs#labelValueDefinitionStrings') String $type,
 
     /// The code of the language these strings are written in.
     required String lang,
@@ -46,7 +43,8 @@ abstract class LabelValueDefinitionStrings with _$LabelValueDefinitionStrings {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoLabelDefsLabelValueDefinitionStrings;
+    return object['\$type'] ==
+        'com.atproto.label.defs#labelValueDefinitionStrings';
   }
 }
 

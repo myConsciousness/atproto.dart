@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'log_accept_convo.freezed.dart';
 part 'log_accept_convo.g.dart';
 
@@ -26,7 +23,7 @@ abstract class LogAcceptConvo with _$LogAcceptConvo {
   static const knownProps = <String>['rev', 'convoId'];
 
   const factory LogAcceptConvo({
-    @Default(chatBskyConvoDefsLogAcceptConvo) String $type,
+    @Default('chat.bsky.convo.defs#logAcceptConvo') String $type,
     required String rev,
     required String convoId,
 
@@ -38,7 +35,7 @@ abstract class LogAcceptConvo with _$LogAcceptConvo {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == chatBskyConvoDefsLogAcceptConvo;
+    return object['\$type'] == 'chat.bsky.convo.defs#logAcceptConvo';
   }
 }
 

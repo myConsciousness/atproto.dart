@@ -13,7 +13,7 @@ _CommitMeta _$CommitMetaFromJson(Map json) =>
       final val = _CommitMeta(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoRepoDefsCommitMeta,
+          (v) => v as String? ?? 'com.atproto.repo.defs#commitMeta',
         ),
         cid: $checkedConvert('cid', (v) => v as String),
         rev: $checkedConvert('rev', (v) => v as String),

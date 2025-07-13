@@ -13,7 +13,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './profile_associated.dart';
 import './status_view.dart';
 import './verification_state.dart';
@@ -42,7 +41,7 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
   ];
 
   const factory ProfileViewBasic({
-    @Default(appBskyActorDefsProfileViewBasic) String $type,
+    @Default('app.bsky.actor.defs#profileViewBasic') String $type,
     required String did,
     required String handle,
     String? displayName,
@@ -62,7 +61,7 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsProfileViewBasic;
+    return object['\$type'] == 'app.bsky.actor.defs#profileViewBasic';
   }
 }
 

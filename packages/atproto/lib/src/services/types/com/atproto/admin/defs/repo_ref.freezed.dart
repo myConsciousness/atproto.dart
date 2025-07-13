@@ -211,7 +211,7 @@ return $default(_that.$type,_that.did,_that.$unknown);case _:
 @JsonSerializable()
 
 class _RepoRef implements RepoRef {
-  const _RepoRef({this.$type = comAtprotoAdminDefsRepoRef, required this.did, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RepoRef({this.$type = 'com.atproto.admin.defs#repoRef', required this.did, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoRef.fromJson(Map<String, dynamic> json) => _$RepoRefFromJson(json);
 
 @override@JsonKey() final  String $type;

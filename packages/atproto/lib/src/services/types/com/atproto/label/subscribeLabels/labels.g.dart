@@ -13,7 +13,7 @@ _Labels _$LabelsFromJson(Map json) =>
       final val = _Labels(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoLabelSubscribeLabelsLabels,
+          (v) => v as String? ?? 'com.atproto.label.subscribeLabels#labels',
         ),
         seq: $checkedConvert('seq', (v) => (v as num).toInt()),
         labels: $checkedConvert(

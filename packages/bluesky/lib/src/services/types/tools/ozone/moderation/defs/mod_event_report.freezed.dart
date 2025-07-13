@@ -223,7 +223,7 @@ return $default(_that.$type,_that.comment,_that.isReporterMuted,_that.reportType
 @JsonSerializable()
 
 class _ModEventReport implements ModEventReport {
-  const _ModEventReport({this.$type = toolsOzoneModerationDefsModEventReport, this.comment, this.isReporterMuted, @ReasonTypeConverter() required this.reportType, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModEventReport({this.$type = 'tools.ozone.moderation.defs#modEventReport', this.comment, this.isReporterMuted, @ReasonTypeConverter() required this.reportType, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModEventReport.fromJson(Map<String, dynamic> json) => _$ModEventReportFromJson(json);
 
 @override@JsonKey() final  String $type;

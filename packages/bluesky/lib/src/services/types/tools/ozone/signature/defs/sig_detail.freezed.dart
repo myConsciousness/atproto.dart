@@ -212,7 +212,7 @@ return $default(_that.$type,_that.property,_that.value,_that.$unknown);case _:
 @JsonSerializable()
 
 class _SigDetail implements SigDetail {
-  const _SigDetail({this.$type = toolsOzoneSignatureDefsSigDetail, required this.property, required this.value, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SigDetail({this.$type = 'tools.ozone.signature.defs#sigDetail', required this.property, required this.value, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SigDetail.fromJson(Map<String, dynamic> json) => _$SigDetailFromJson(json);
 
 @override@JsonKey() final  String $type;

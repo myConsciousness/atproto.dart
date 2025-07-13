@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
 
 part 'trend_view.freezed.dart';
@@ -36,7 +35,7 @@ abstract class TrendView with _$TrendView {
   ];
 
   const factory TrendView({
-    @Default(appBskyUnspeccedDefsTrendView) String $type,
+    @Default('app.bsky.unspecced.defs#trendView') String $type,
     required String topic,
     required String displayName,
     required String link,
@@ -54,7 +53,7 @@ abstract class TrendView with _$TrendView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyUnspeccedDefsTrendView;
+    return object['\$type'] == 'app.bsky.unspecced.defs#trendView';
   }
 }
 

@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'personal_details_pref.freezed.dart';
 part 'personal_details_pref.g.dart';
 
@@ -26,7 +23,7 @@ abstract class PersonalDetailsPref with _$PersonalDetailsPref {
   static const knownProps = <String>['birthDate'];
 
   const factory PersonalDetailsPref({
-    @Default(appBskyActorDefsPersonalDetailsPref) String $type,
+    @Default('app.bsky.actor.defs#personalDetailsPref') String $type,
 
     /// The birth date of account owner.
     DateTime? birthDate,
@@ -39,7 +36,7 @@ abstract class PersonalDetailsPref with _$PersonalDetailsPref {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsPersonalDetailsPref;
+    return object['\$type'] == 'app.bsky.actor.defs#personalDetailsPref';
   }
 }
 

@@ -221,7 +221,7 @@ return $default(_that.$type,_that.uri,_that.subject,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ListItemView implements ListItemView {
-  const _ListItemView({this.$type = appBskyGraphDefsListItemView, required this.uri, @ProfileViewConverter() required this.subject, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ListItemView({this.$type = 'app.bsky.graph.defs#listItemView', required this.uri, @ProfileViewConverter() required this.subject, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ListItemView.fromJson(Map<String, dynamic> json) => _$ListItemViewFromJson(json);
 
 @override@JsonKey() final  String $type;

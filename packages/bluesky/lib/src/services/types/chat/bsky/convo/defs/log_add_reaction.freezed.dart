@@ -232,7 +232,7 @@ return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.reaction
 @JsonSerializable()
 
 class _LogAddReaction implements LogAddReaction {
-  const _LogAddReaction({this.$type = chatBskyConvoDefsLogAddReaction, required this.rev, required this.convoId, @ULogAddReactionMessageConverter() required this.message, @ReactionViewConverter() required this.reaction, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _LogAddReaction({this.$type = 'chat.bsky.convo.defs#logAddReaction', required this.rev, required this.convoId, @ULogAddReactionMessageConverter() required this.message, @ReactionViewConverter() required this.reaction, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _LogAddReaction.fromJson(Map<String, dynamic> json) => _$LogAddReactionFromJson(json);
 
 @override@JsonKey() final  String $type;

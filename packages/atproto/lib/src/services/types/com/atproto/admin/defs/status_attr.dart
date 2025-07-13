@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'status_attr.freezed.dart';
 part 'status_attr.g.dart';
 
@@ -26,7 +23,7 @@ abstract class StatusAttr with _$StatusAttr {
   static const knownProps = <String>['applied', 'ref'];
 
   const factory StatusAttr({
-    @Default(comAtprotoAdminDefsStatusAttr) String $type,
+    @Default('com.atproto.admin.defs#statusAttr') String $type,
     required bool applied,
     String? ref,
 
@@ -38,7 +35,7 @@ abstract class StatusAttr with _$StatusAttr {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoAdminDefsStatusAttr;
+    return object['\$type'] == 'com.atproto.admin.defs#statusAttr';
   }
 }
 

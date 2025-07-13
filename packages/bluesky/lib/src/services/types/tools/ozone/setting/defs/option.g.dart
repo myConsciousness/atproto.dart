@@ -14,7 +14,7 @@ _Option _$OptionFromJson(Map json) => $checkedCreate('_Option', json, (
   final val = _Option(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? toolsOzoneSettingDefsOption,
+      (v) => v as String? ?? 'tools.ozone.setting.defs#option',
     ),
     key: $checkedConvert('key', (v) => v as String),
     did: $checkedConvert('did', (v) => v as String),

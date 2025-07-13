@@ -13,7 +13,7 @@ _ThreadViewPref _$ThreadViewPrefFromJson(Map json) =>
       final val = _ThreadViewPref(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsThreadViewPref,
+          (v) => v as String? ?? 'app.bsky.actor.defs#threadViewPref',
         ),
         sort: $checkedConvert('sort', (v) => v as String?),
         prioritizeFollowedUsers: $checkedConvert(

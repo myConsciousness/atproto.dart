@@ -213,7 +213,7 @@ return $default(_that.$type,_that.collection,_that.rkey,_that.value,_that.$unkno
 @JsonSerializable()
 
 class _Update implements Update {
-  const _Update({this.$type = comAtprotoRepoApplyWritesUpdate, required this.collection, required this.rkey, required final  Map<String, dynamic> value, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
+  const _Update({this.$type = 'com.atproto.repo.applyWrites#update', required this.collection, required this.rkey, required final  Map<String, dynamic> value, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
   factory _Update.fromJson(Map<String, dynamic> json) => _$UpdateFromJson(json);
 
 @override@JsonKey() final  String $type;

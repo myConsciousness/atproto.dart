@@ -245,7 +245,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.did,_that.creator,_that.di
 @JsonSerializable()
 
 class _GeneratorView implements GeneratorView {
-  const _GeneratorView({this.$type = appBskyFeedDefsGeneratorView, required this.uri, required this.cid, required this.did, @ProfileViewConverter() required this.creator, required this.displayName, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @AtUriConverter() this.avatar, this.likeCount, this.acceptsInteractions, @LabelConverter() final  List<Label>? labels, @GeneratorViewerStateConverter() this.viewer, this.contentMode, required this.indexedAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_labels = labels,_$unknown = $unknown;
+  const _GeneratorView({this.$type = 'app.bsky.feed.defs#generatorView', required this.uri, required this.cid, required this.did, @ProfileViewConverter() required this.creator, required this.displayName, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @AtUriConverter() this.avatar, this.likeCount, this.acceptsInteractions, @LabelConverter() final  List<Label>? labels, @GeneratorViewerStateConverter() this.viewer, this.contentMode, required this.indexedAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_labels = labels,_$unknown = $unknown;
   factory _GeneratorView.fromJson(Map<String, dynamic> json) => _$GeneratorViewFromJson(json);
 
 @override@JsonKey() final  String $type;

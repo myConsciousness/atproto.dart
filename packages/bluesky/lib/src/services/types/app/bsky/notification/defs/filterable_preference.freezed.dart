@@ -213,7 +213,7 @@ return $default(_that.$type,_that.include,_that.list,_that.push,_that.$unknown);
 @JsonSerializable()
 
 class _FilterablePreference implements FilterablePreference {
-  const _FilterablePreference({this.$type = appBskyNotificationDefsFilterablePreference, required this.include, required this.list, required this.push, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FilterablePreference({this.$type = 'app.bsky.notification.defs#filterablePreference', required this.include, required this.list, required this.push, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FilterablePreference.fromJson(Map<String, dynamic> json) => _$FilterablePreferenceFromJson(json);
 
 @override@JsonKey() final  String $type;

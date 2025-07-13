@@ -210,7 +210,7 @@ return $default(_that.$type,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ThreadItemNoUnauthenticated implements ThreadItemNoUnauthenticated {
-  const _ThreadItemNoUnauthenticated({this.$type = appBskyUnspeccedDefsThreadItemNoUnauthenticated, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ThreadItemNoUnauthenticated({this.$type = 'app.bsky.unspecced.defs#threadItemNoUnauthenticated', final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ThreadItemNoUnauthenticated.fromJson(Map<String, dynamic> json) => _$ThreadItemNoUnauthenticatedFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -13,7 +13,7 @@ _Identity _$IdentityFromJson(Map json) =>
       final val = _Identity(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoSyncSubscribeReposIdentity,
+          (v) => v as String? ?? 'com.atproto.sync.subscribeRepos#identity',
         ),
         seq: $checkedConvert('seq', (v) => (v as num).toInt()),
         did: $checkedConvert('did', (v) => v as String),

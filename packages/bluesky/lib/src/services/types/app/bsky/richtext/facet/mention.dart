@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'mention.freezed.dart';
 part 'mention.g.dart';
 
@@ -27,7 +24,7 @@ abstract class RichtextFacetMention with _$RichtextFacetMention {
   static const knownProps = <String>['did'];
 
   const factory RichtextFacetMention({
-    @Default(appBskyRichtextFacetMention) String $type,
+    @Default('app.bsky.richtext.facet#mention') String $type,
     required String did,
 
     Map<String, dynamic>? $unknown,
@@ -38,7 +35,7 @@ abstract class RichtextFacetMention with _$RichtextFacetMention {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyRichtextFacetMention;
+    return object['\$type'] == 'app.bsky.richtext.facet#mention';
   }
 }
 

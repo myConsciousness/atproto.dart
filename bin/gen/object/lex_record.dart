@@ -54,12 +54,12 @@ final class LexRecord extends LexType {
     final id = rule.getLexObjectTypeId(lexiconId, defName);
 
     final packages = StringBuffer();
-    for (final packagePath in this
-        .properties
-        .where((e) => e.type.packagePath != null)
-        .map((e) => e.type.packagePath)
-        .toSet()
-        .toList()) {
+    for (final packagePath
+        in this.properties
+            .where((e) => e.type.packagePath != null)
+            .map((e) => e.type.packagePath)
+            .toSet()
+            .toList()) {
       packages.writeln("import '$packagePath';");
     }
 
@@ -71,8 +71,6 @@ final class LexRecord extends LexType {
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:atproto_core/atproto_core.dart';
-
-import '../../../../../../ids.g.dart';
 
 ${packages.toString()}
 
@@ -86,7 +84,7 @@ abstract class ${name}Record with _\$${name}Record {
   $knownProps
 
   const factory ${name}Record({
-    @Default($id) String \$type,
+    @Default('$id') String \$type,
     ${properties.toString()}
     Map<String, dynamic>? \$unknown,
   }) = _${name}Record;
@@ -104,7 +102,7 @@ $converter
     final buffer = StringBuffer();
     buffer.writeln('static bool validate(final Map<String, dynamic> object) {');
     buffer.writeln("  if (!object.containsKey('\\\$type')) return false;");
-    buffer.writeln("  return object['\\\$type'] == $id;");
+    buffer.writeln("  return object['\\\$type'] == '$id';");
     buffer.writeln('}');
 
     return buffer.toString();

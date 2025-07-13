@@ -211,7 +211,7 @@ return $default(_that.$type,_that.email,_that.$unknown);case _:
 @JsonSerializable()
 
 class _EmailUpdated implements EmailUpdated {
-  const _EmailUpdated({this.$type = toolsOzoneHostingGetAccountHistoryEmailUpdated, required this.email, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmailUpdated({this.$type = 'tools.ozone.hosting.getAccountHistory#emailUpdated', required this.email, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmailUpdated.fromJson(Map<String, dynamic> json) => _$EmailUpdatedFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -13,7 +13,7 @@ _EmbedExternalExternal _$EmbedExternalExternalFromJson(Map json) =>
       final val = _EmbedExternalExternal(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyEmbedExternalExternal,
+          (v) => v as String? ?? 'app.bsky.embed.external#external',
         ),
         uri: $checkedConvert(
           'uri',

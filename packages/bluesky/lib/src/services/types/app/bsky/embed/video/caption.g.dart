@@ -13,7 +13,7 @@ _EmbedVideoCaption _$EmbedVideoCaptionFromJson(Map json) =>
       final val = _EmbedVideoCaption(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyEmbedVideoCaption,
+          (v) => v as String? ?? 'app.bsky.embed.video#caption',
         ),
         lang: $checkedConvert('lang', (v) => v as String),
         file: $checkedConvert(

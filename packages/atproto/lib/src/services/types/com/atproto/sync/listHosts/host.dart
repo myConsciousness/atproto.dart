@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../com/atproto/sync/defs/host_status.dart';
 
 part 'host.freezed.dart';
@@ -32,7 +31,7 @@ abstract class Host with _$Host {
   ];
 
   const factory Host({
-    @Default(comAtprotoSyncListHostsHost) String $type,
+    @Default('com.atproto.sync.listHosts#host') String $type,
 
     /// hostname of server; not a URL (no scheme)
     required String hostname,
@@ -49,7 +48,7 @@ abstract class Host with _$Host {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoSyncListHostsHost;
+    return object['\$type'] == 'com.atproto.sync.listHosts#host';
   }
 }
 

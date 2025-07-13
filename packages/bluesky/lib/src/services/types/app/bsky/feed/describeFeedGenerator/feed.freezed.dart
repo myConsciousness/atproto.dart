@@ -211,7 +211,7 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 @JsonSerializable()
 
 class _Feed implements Feed {
-  const _Feed({this.$type = appBskyFeedDescribeFeedGeneratorFeed, required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Feed({this.$type = 'app.bsky.feed.describeFeedGenerator#feed', required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Feed.fromJson(Map<String, dynamic> json) => _$FeedFromJson(json);
 
 @override@JsonKey() final  String $type;

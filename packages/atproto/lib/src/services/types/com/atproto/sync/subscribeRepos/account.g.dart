@@ -13,7 +13,7 @@ _Account _$AccountFromJson(Map json) =>
       final val = _Account(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoSyncSubscribeReposAccount,
+          (v) => v as String? ?? 'com.atproto.sync.subscribeRepos#account',
         ),
         seq: $checkedConvert('seq', (v) => (v as num).toInt()),
         did: $checkedConvert('did', (v) => v as String),

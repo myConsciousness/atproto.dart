@@ -13,7 +13,7 @@ _GeneratorViewerState _$GeneratorViewerStateFromJson(Map json) =>
       final val = _GeneratorViewerState(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyFeedDefsGeneratorViewerState,
+          (v) => v as String? ?? 'app.bsky.feed.defs#generatorViewerState',
         ),
         like: $checkedConvert('like', (v) => v as String?),
         $unknown: $checkedConvert(

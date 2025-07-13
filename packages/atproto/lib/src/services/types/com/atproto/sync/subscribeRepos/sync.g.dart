@@ -13,7 +13,7 @@ _Sync _$SyncFromJson(Map json) =>
       final val = _Sync(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoSyncSubscribeReposSync,
+          (v) => v as String? ?? 'com.atproto.sync.subscribeRepos#sync',
         ),
         seq: $checkedConvert('seq', (v) => (v as num).toInt()),
         did: $checkedConvert('did', (v) => v as String),

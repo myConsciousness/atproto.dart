@@ -212,7 +212,7 @@ return $default(_that.$type,_that.include,_that.push,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ChatPreference implements ChatPreference {
-  const _ChatPreference({this.$type = appBskyNotificationDefsChatPreference, required this.include, required this.push, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ChatPreference({this.$type = 'app.bsky.notification.defs#chatPreference', required this.include, required this.push, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ChatPreference.fromJson(Map<String, dynamic> json) => _$ChatPreferenceFromJson(json);
 
 @override@JsonKey() final  String $type;

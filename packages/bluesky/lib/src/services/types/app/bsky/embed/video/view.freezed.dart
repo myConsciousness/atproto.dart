@@ -227,7 +227,7 @@ return $default(_that.$type,_that.cid,_that.playlist,_that.thumbnail,_that.alt,_
 @JsonSerializable()
 
 class _EmbedVideoView implements EmbedVideoView {
-  const _EmbedVideoView({this.$type = appBskyEmbedVideoView, required this.cid, @AtUriConverter() required this.playlist, @AtUriConverter() this.thumbnail, this.alt, @AspectRatioConverter() this.aspectRatio, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedVideoView({this.$type = 'app.bsky.embed.video#view', required this.cid, @AtUriConverter() required this.playlist, @AtUriConverter() this.thumbnail, this.alt, @AspectRatioConverter() this.aspectRatio, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedVideoView.fromJson(Map<String, dynamic> json) => _$EmbedVideoViewFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -235,7 +235,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.value,_that.blobCids,_that
 @JsonSerializable()
 
 class _RecordView implements RecordView {
-  const _RecordView({this.$type = toolsOzoneModerationDefsRecordView, required this.uri, required this.cid, required final  Map<String, dynamic> value, required final  List<String> blobCids, required this.indexedAt, @ModerationConverter() required this.moderation, @RepoViewConverter() required this.repo, final  Map<String, dynamic>? $unknown}): _value = value,_blobCids = blobCids,_$unknown = $unknown;
+  const _RecordView({this.$type = 'tools.ozone.moderation.defs#recordView', required this.uri, required this.cid, required final  Map<String, dynamic> value, required final  List<String> blobCids, required this.indexedAt, @ModerationConverter() required this.moderation, @RepoViewConverter() required this.repo, final  Map<String, dynamic>? $unknown}): _value = value,_blobCids = blobCids,_$unknown = $unknown;
   factory _RecordView.fromJson(Map<String, dynamic> json) => _$RecordViewFromJson(json);
 
 @override@JsonKey() final  String $type;

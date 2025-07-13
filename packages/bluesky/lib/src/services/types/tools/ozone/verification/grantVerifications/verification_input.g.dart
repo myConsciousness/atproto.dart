@@ -15,7 +15,7 @@ _VerificationInput _$VerificationInputFromJson(Map json) =>
           r'$type',
           (v) =>
               v as String? ??
-              toolsOzoneVerificationGrantVerificationsVerificationInput,
+              'tools.ozone.verification.grantVerifications#verificationInput',
         ),
         subject: $checkedConvert('subject', (v) => v as String),
         handle: $checkedConvert('handle', (v) => v as String),

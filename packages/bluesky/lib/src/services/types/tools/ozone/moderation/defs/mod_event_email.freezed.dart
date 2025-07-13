@@ -216,7 +216,7 @@ return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.
 @JsonSerializable()
 
 class _ModEventEmail implements ModEventEmail {
-  const _ModEventEmail({this.$type = toolsOzoneModerationDefsModEventEmail, required this.subjectLine, this.content, this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModEventEmail({this.$type = 'tools.ozone.moderation.defs#modEventEmail', required this.subjectLine, this.content, this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModEventEmail.fromJson(Map<String, dynamic> json) => _$ModEventEmailFromJson(json);
 
 @override@JsonKey() final  String $type;

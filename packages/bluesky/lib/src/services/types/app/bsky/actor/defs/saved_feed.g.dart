@@ -13,7 +13,7 @@ _SavedFeed _$SavedFeedFromJson(Map json) =>
       final val = _SavedFeed(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsSavedFeed,
+          (v) => v as String? ?? 'app.bsky.actor.defs#savedFeed',
         ),
         id: $checkedConvert('id', (v) => v as String),
         type: $checkedConvert('type', (v) => v as String),

@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'chat_preference.freezed.dart';
 part 'chat_preference.g.dart';
 
@@ -26,7 +23,7 @@ abstract class ChatPreference with _$ChatPreference {
   static const knownProps = <String>['include', 'push'];
 
   const factory ChatPreference({
-    @Default(appBskyNotificationDefsChatPreference) String $type,
+    @Default('app.bsky.notification.defs#chatPreference') String $type,
     required String include,
     required bool push,
 
@@ -38,7 +35,7 @@ abstract class ChatPreference with _$ChatPreference {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyNotificationDefsChatPreference;
+    return object['\$type'] == 'app.bsky.notification.defs#chatPreference';
   }
 }
 

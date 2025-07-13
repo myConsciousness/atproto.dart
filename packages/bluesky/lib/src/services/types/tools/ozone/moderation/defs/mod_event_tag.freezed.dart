@@ -214,7 +214,7 @@ return $default(_that.$type,_that.add,_that.remove,_that.comment,_that.$unknown)
 @JsonSerializable()
 
 class _ModEventTag implements ModEventTag {
-  const _ModEventTag({this.$type = toolsOzoneModerationDefsModEventTag, required final  List<String> add, required final  List<String> remove, this.comment, final  Map<String, dynamic>? $unknown}): _add = add,_remove = remove,_$unknown = $unknown;
+  const _ModEventTag({this.$type = 'tools.ozone.moderation.defs#modEventTag', required final  List<String> add, required final  List<String> remove, this.comment, final  Map<String, dynamic>? $unknown}): _add = add,_remove = remove,_$unknown = $unknown;
   factory _ModEventTag.fromJson(Map<String, dynamic> json) => _$ModEventTagFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -12,9 +12,6 @@ import 'package:atproto/com_atproto_repo_strongref.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'main.freezed.dart';
 part 'main.g.dart';
 
@@ -27,7 +24,7 @@ abstract class FeedLikeRecord with _$FeedLikeRecord {
   static const knownProps = <String>['subject', 'createdAt', 'via'];
 
   const factory FeedLikeRecord({
-    @Default(appBskyFeedLike) String $type,
+    @Default('app.bsky.feed.like') String $type,
     @RepoStrongRefConverter() required RepoStrongRef subject,
     required DateTime createdAt,
     @RepoStrongRefConverter() RepoStrongRef? via,
@@ -40,7 +37,7 @@ abstract class FeedLikeRecord with _$FeedLikeRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedLike;
+    return object['\$type'] == 'app.bsky.feed.like';
   }
 }
 

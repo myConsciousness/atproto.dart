@@ -213,7 +213,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.validationStatus,_that.$un
 @JsonSerializable()
 
 class _CreateResult implements CreateResult {
-  const _CreateResult({this.$type = comAtprotoRepoApplyWritesCreateResult, required this.uri, required this.cid, this.validationStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _CreateResult({this.$type = 'com.atproto.repo.applyWrites#createResult', required this.uri, required this.cid, this.validationStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _CreateResult.fromJson(Map<String, dynamic> json) => _$CreateResultFromJson(json);
 
 @override@JsonKey() final  String $type;

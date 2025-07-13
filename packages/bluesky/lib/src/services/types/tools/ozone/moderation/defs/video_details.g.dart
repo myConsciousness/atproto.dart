@@ -13,7 +13,7 @@ _VideoDetails _$VideoDetailsFromJson(Map json) =>
       final val = _VideoDetails(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsVideoDetails,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#videoDetails',
         ),
         width: $checkedConvert('width', (v) => (v as num).toInt()),
         height: $checkedConvert('height', (v) => (v as num).toInt()),

@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'live_now_config.freezed.dart';
 part 'live_now_config.g.dart';
 
@@ -26,7 +23,7 @@ abstract class LiveNowConfig with _$LiveNowConfig {
   static const knownProps = <String>['did', 'domains'];
 
   const factory LiveNowConfig({
-    @Default(appBskyUnspeccedGetConfigLiveNowConfig) String $type,
+    @Default('app.bsky.unspecced.getConfig#liveNowConfig') String $type,
     required String did,
     required List<String> domains,
 
@@ -38,7 +35,7 @@ abstract class LiveNowConfig with _$LiveNowConfig {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyUnspeccedGetConfigLiveNowConfig;
+    return object['\$type'] == 'app.bsky.unspecced.getConfig#liveNowConfig';
   }
 }
 

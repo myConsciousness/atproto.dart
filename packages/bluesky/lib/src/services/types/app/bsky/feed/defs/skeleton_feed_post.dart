@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './union_skeleton_feed_post_reason.dart';
 
 part 'skeleton_feed_post.freezed.dart';
@@ -27,7 +26,7 @@ abstract class SkeletonFeedPost with _$SkeletonFeedPost {
   static const knownProps = <String>['post', 'reason', 'feedContext'];
 
   const factory SkeletonFeedPost({
-    @Default(appBskyFeedDefsSkeletonFeedPost) String $type,
+    @Default('app.bsky.feed.defs#skeletonFeedPost') String $type,
     required String post,
     @USkeletonFeedPostReasonConverter() USkeletonFeedPostReason? reason,
 
@@ -42,7 +41,7 @@ abstract class SkeletonFeedPost with _$SkeletonFeedPost {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDefsSkeletonFeedPost;
+    return object['\$type'] == 'app.bsky.feed.defs#skeletonFeedPost';
   }
 }
 

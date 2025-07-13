@@ -215,7 +215,7 @@ return $default(_that.$type,_that.comment,_that.createLabelVals,_that.negateLabe
 @JsonSerializable()
 
 class _ModEventLabel implements ModEventLabel {
-  const _ModEventLabel({this.$type = toolsOzoneModerationDefsModEventLabel, this.comment, required final  List<String> createLabelVals, required final  List<String> negateLabelVals, this.durationInHours, final  Map<String, dynamic>? $unknown}): _createLabelVals = createLabelVals,_negateLabelVals = negateLabelVals,_$unknown = $unknown;
+  const _ModEventLabel({this.$type = 'tools.ozone.moderation.defs#modEventLabel', this.comment, required final  List<String> createLabelVals, required final  List<String> negateLabelVals, this.durationInHours, final  Map<String, dynamic>? $unknown}): _createLabelVals = createLabelVals,_negateLabelVals = negateLabelVals,_$unknown = $unknown;
   factory _ModEventLabel.fromJson(Map<String, dynamic> json) => _$ModEventLabelFromJson(json);
 
 @override@JsonKey() final  String $type;

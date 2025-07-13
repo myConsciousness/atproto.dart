@@ -31,7 +31,7 @@ abstract class SubjectType with _$SubjectType {
       _$SubjectTypeFromJson(json);
 }
 
-abstract class SubjectTypeConverter
+final class SubjectTypeConverter
     extends LexKnownValuesConverter<SubjectType, Map<String, dynamic>> {
   const SubjectTypeConverter();
 

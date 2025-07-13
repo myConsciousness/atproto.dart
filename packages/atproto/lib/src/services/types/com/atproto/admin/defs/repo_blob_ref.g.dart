@@ -13,7 +13,7 @@ _RepoBlobRef _$RepoBlobRefFromJson(Map json) =>
       final val = _RepoBlobRef(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoAdminDefsRepoBlobRef,
+          (v) => v as String? ?? 'com.atproto.admin.defs#repoBlobRef',
         ),
         did: $checkedConvert('did', (v) => v as String),
         cid: $checkedConvert('cid', (v) => v as String),

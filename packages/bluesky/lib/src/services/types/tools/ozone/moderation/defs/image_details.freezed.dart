@@ -212,7 +212,7 @@ return $default(_that.$type,_that.width,_that.height,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ImageDetails implements ImageDetails {
-  const _ImageDetails({this.$type = toolsOzoneModerationDefsImageDetails, required this.width, required this.height, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ImageDetails({this.$type = 'tools.ozone.moderation.defs#imageDetails', required this.width, required this.height, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ImageDetails.fromJson(Map<String, dynamic> json) => _$ImageDetailsFromJson(json);
 
 @override@JsonKey() final  String $type;

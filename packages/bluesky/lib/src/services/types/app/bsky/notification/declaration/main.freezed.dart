@@ -212,7 +212,7 @@ return $default(_that.$type,_that.allowSubscriptions,_that.$unknown);case _:
 @JsonSerializable()
 
 class _NotificationDeclarationRecord implements NotificationDeclarationRecord {
-  const _NotificationDeclarationRecord({this.$type = appBskyNotificationDeclaration, required this.allowSubscriptions, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _NotificationDeclarationRecord({this.$type = 'app.bsky.notification.declaration', required this.allowSubscriptions, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationDeclarationRecord.fromJson(Map<String, dynamic> json) => _$NotificationDeclarationRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

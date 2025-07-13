@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'bsky_app_progress_guide.freezed.dart';
 part 'bsky_app_progress_guide.g.dart';
 
@@ -27,7 +24,7 @@ abstract class BskyAppProgressGuide with _$BskyAppProgressGuide {
   static const knownProps = <String>['guide'];
 
   const factory BskyAppProgressGuide({
-    @Default(appBskyActorDefsBskyAppProgressGuide) String $type,
+    @Default('app.bsky.actor.defs#bskyAppProgressGuide') String $type,
     required String guide,
 
     Map<String, dynamic>? $unknown,
@@ -38,7 +35,7 @@ abstract class BskyAppProgressGuide with _$BskyAppProgressGuide {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsBskyAppProgressGuide;
+    return object['\$type'] == 'app.bsky.actor.defs#bskyAppProgressGuide';
   }
 }
 

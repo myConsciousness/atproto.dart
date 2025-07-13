@@ -14,7 +14,7 @@ _ConvoView _$ConvoViewFromJson(Map json) => $checkedCreate('_ConvoView', json, (
   final val = _ConvoView(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? chatBskyConvoDefsConvoView,
+      (v) => v as String? ?? 'chat.bsky.convo.defs#convoView',
     ),
     id: $checkedConvert('id', (v) => v as String),
     rev: $checkedConvert('rev', (v) => v as String),

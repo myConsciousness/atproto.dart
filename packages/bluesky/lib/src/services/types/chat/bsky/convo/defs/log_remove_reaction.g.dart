@@ -13,7 +13,7 @@ _LogRemoveReaction _$LogRemoveReactionFromJson(Map json) =>
       final val = _LogRemoveReaction(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? chatBskyConvoDefsLogRemoveReaction,
+          (v) => v as String? ?? 'chat.bsky.convo.defs#logRemoveReaction',
         ),
         rev: $checkedConvert('rev', (v) => v as String),
         convoId: $checkedConvert('convoId', (v) => v as String),

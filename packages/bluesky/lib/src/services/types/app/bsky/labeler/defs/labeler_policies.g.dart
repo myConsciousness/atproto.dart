@@ -13,7 +13,7 @@ _LabelerPolicies _$LabelerPoliciesFromJson(Map json) =>
       final val = _LabelerPolicies(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyLabelerDefsLabelerPolicies,
+          (v) => v as String? ?? 'app.bsky.labeler.defs#labelerPolicies',
         ),
         labelValues: $checkedConvert(
           'labelValues',

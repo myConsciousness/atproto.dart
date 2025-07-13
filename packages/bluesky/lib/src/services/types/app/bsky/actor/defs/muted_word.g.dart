@@ -14,7 +14,7 @@ _MutedWord _$MutedWordFromJson(Map json) => $checkedCreate('_MutedWord', json, (
   final val = _MutedWord(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyActorDefsMutedWord,
+      (v) => v as String? ?? 'app.bsky.actor.defs#mutedWord',
     ),
     id: $checkedConvert('id', (v) => v as String?),
     value: $checkedConvert('value', (v) => v as String),

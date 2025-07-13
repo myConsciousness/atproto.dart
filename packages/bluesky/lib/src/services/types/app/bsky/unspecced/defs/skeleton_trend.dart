@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'skeleton_trend.freezed.dart';
 part 'skeleton_trend.g.dart';
 
@@ -35,7 +32,7 @@ abstract class SkeletonTrend with _$SkeletonTrend {
   ];
 
   const factory SkeletonTrend({
-    @Default(appBskyUnspeccedDefsSkeletonTrend) String $type,
+    @Default('app.bsky.unspecced.defs#skeletonTrend') String $type,
     required String topic,
     required String displayName,
     required String link,
@@ -53,7 +50,7 @@ abstract class SkeletonTrend with _$SkeletonTrend {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyUnspeccedDefsSkeletonTrend;
+    return object['\$type'] == 'app.bsky.unspecced.defs#skeletonTrend';
   }
 }
 

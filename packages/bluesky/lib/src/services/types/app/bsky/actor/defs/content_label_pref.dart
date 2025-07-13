@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'content_label_pref.freezed.dart';
 part 'content_label_pref.g.dart';
 
@@ -26,7 +23,7 @@ abstract class ContentLabelPref with _$ContentLabelPref {
   static const knownProps = <String>['labelerDid', 'label', 'visibility'];
 
   const factory ContentLabelPref({
-    @Default(appBskyActorDefsContentLabelPref) String $type,
+    @Default('app.bsky.actor.defs#contentLabelPref') String $type,
 
     /// Which labeler does this preference apply to? If undefined, applies globally.
     String? labelerDid,
@@ -41,7 +38,7 @@ abstract class ContentLabelPref with _$ContentLabelPref {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsContentLabelPref;
+    return object['\$type'] == 'app.bsky.actor.defs#contentLabelPref';
   }
 }
 

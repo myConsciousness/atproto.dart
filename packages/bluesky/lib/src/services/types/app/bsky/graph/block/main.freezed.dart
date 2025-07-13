@@ -213,7 +213,7 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.$unknown);case _
 @JsonSerializable()
 
 class _GraphBlockRecord implements GraphBlockRecord {
-  const _GraphBlockRecord({this.$type = appBskyGraphBlock, required this.subject, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GraphBlockRecord({this.$type = 'app.bsky.graph.block', required this.subject, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphBlockRecord.fromJson(Map<String, dynamic> json) => _$GraphBlockRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

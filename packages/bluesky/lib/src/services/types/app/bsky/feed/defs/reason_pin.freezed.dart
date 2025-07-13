@@ -210,7 +210,7 @@ return $default(_that.$type,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ReasonPin implements ReasonPin {
-  const _ReasonPin({this.$type = appBskyFeedDefsReasonPin, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ReasonPin({this.$type = 'app.bsky.feed.defs#reasonPin', final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ReasonPin.fromJson(Map<String, dynamic> json) => _$ReasonPinFromJson(json);
 
 @override@JsonKey() final  String $type;

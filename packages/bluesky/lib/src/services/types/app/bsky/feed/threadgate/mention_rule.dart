@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'mention_rule.freezed.dart';
 part 'mention_rule.g.dart';
 
@@ -27,7 +24,7 @@ abstract class MentionRule with _$MentionRule {
   static const knownProps = <String>[];
 
   const factory MentionRule({
-    @Default(appBskyFeedThreadgateMentionRule) String $type,
+    @Default('app.bsky.feed.threadgate#mentionRule') String $type,
 
     Map<String, dynamic>? $unknown,
   }) = _MentionRule;
@@ -37,7 +34,7 @@ abstract class MentionRule with _$MentionRule {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedThreadgateMentionRule;
+    return object['\$type'] == 'app.bsky.feed.threadgate#mentionRule';
   }
 }
 

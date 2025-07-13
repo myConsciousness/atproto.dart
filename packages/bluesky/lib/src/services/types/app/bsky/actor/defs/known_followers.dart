@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './profile_view_basic.dart';
 
 part 'known_followers.freezed.dart';
@@ -28,7 +27,7 @@ abstract class KnownFollowers with _$KnownFollowers {
   static const knownProps = <String>['count', 'followers'];
 
   const factory KnownFollowers({
-    @Default(appBskyActorDefsKnownFollowers) String $type,
+    @Default('app.bsky.actor.defs#knownFollowers') String $type,
     required int count,
     @ProfileViewBasicConverter() required List<ProfileViewBasic> followers,
 
@@ -40,7 +39,7 @@ abstract class KnownFollowers with _$KnownFollowers {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsKnownFollowers;
+    return object['\$type'] == 'app.bsky.actor.defs#knownFollowers';
   }
 }
 

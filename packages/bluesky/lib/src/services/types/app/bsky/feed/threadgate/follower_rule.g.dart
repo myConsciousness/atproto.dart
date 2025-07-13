@@ -13,7 +13,7 @@ _FollowerRule _$FollowerRuleFromJson(Map json) =>
       final val = _FollowerRule(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyFeedThreadgateFollowerRule,
+          (v) => v as String? ?? 'app.bsky.feed.threadgate#followerRule',
         ),
         $unknown: $checkedConvert(
           r'$unknown',

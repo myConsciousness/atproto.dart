@@ -212,7 +212,7 @@ return $default(_that.$type,_that.actor,_that.notFound,_that.$unknown);case _:
 @JsonSerializable()
 
 class _NotFoundActor implements NotFoundActor {
-  const _NotFoundActor({this.$type = appBskyGraphDefsNotFoundActor, required this.actor, required this.notFound, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _NotFoundActor({this.$type = 'app.bsky.graph.defs#notFoundActor', required this.actor, required this.notFound, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotFoundActor.fromJson(Map<String, dynamic> json) => _$NotFoundActorFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'revoke_error.freezed.dart';
 part 'revoke_error.g.dart';
 
@@ -27,7 +24,8 @@ abstract class RevokeError with _$RevokeError {
   static const knownProps = <String>['uri', 'error'];
 
   const factory RevokeError({
-    @Default(toolsOzoneVerificationRevokeVerificationsRevokeError) String $type,
+    @Default('tools.ozone.verification.revokeVerifications#revokeError')
+    String $type,
 
     /// The AT-URI of the verification record that failed to revoke.
     required String uri,
@@ -44,7 +42,7 @@ abstract class RevokeError with _$RevokeError {
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
     return object['\$type'] ==
-        toolsOzoneVerificationRevokeVerificationsRevokeError;
+        'tools.ozone.verification.revokeVerifications#revokeError';
   }
 }
 

@@ -14,7 +14,7 @@ _Host _$HostFromJson(Map json) => $checkedCreate('_Host', json, (
   final val = _Host(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? comAtprotoSyncListHostsHost,
+      (v) => v as String? ?? 'com.atproto.sync.listHosts#host',
     ),
     hostname: $checkedConvert('hostname', (v) => v as String),
     seq: $checkedConvert('seq', (v) => (v as num?)?.toInt()),

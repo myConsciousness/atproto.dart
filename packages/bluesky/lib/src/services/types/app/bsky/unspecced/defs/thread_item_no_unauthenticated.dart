@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'thread_item_no_unauthenticated.freezed.dart';
 part 'thread_item_no_unauthenticated.g.dart';
 
@@ -26,7 +23,8 @@ abstract class ThreadItemNoUnauthenticated with _$ThreadItemNoUnauthenticated {
   static const knownProps = <String>[];
 
   const factory ThreadItemNoUnauthenticated({
-    @Default(appBskyUnspeccedDefsThreadItemNoUnauthenticated) String $type,
+    @Default('app.bsky.unspecced.defs#threadItemNoUnauthenticated')
+    String $type,
 
     Map<String, dynamic>? $unknown,
   }) = _ThreadItemNoUnauthenticated;
@@ -36,7 +34,8 @@ abstract class ThreadItemNoUnauthenticated with _$ThreadItemNoUnauthenticated {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyUnspeccedDefsThreadItemNoUnauthenticated;
+    return object['\$type'] ==
+        'app.bsky.unspecced.defs#threadItemNoUnauthenticated';
   }
 }
 

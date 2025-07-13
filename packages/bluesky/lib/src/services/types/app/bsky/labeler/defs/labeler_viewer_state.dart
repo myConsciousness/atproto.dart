@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'labeler_viewer_state.freezed.dart';
 part 'labeler_viewer_state.g.dart';
 
@@ -26,7 +23,7 @@ abstract class LabelerViewerState with _$LabelerViewerState {
   static const knownProps = <String>['like'];
 
   const factory LabelerViewerState({
-    @Default(appBskyLabelerDefsLabelerViewerState) String $type,
+    @Default('app.bsky.labeler.defs#labelerViewerState') String $type,
     String? like,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +34,7 @@ abstract class LabelerViewerState with _$LabelerViewerState {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyLabelerDefsLabelerViewerState;
+    return object['\$type'] == 'app.bsky.labeler.defs#labelerViewerState';
   }
 }
 

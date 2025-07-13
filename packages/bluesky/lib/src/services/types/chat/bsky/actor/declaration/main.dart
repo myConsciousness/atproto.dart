@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'main.freezed.dart';
 part 'main.g.dart';
 
@@ -26,7 +23,7 @@ abstract class ActorDeclarationRecord with _$ActorDeclarationRecord {
   static const knownProps = <String>['allowIncoming'];
 
   const factory ActorDeclarationRecord({
-    @Default(chatBskyActorDeclaration) String $type,
+    @Default('chat.bsky.actor.declaration') String $type,
     required String allowIncoming,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +34,7 @@ abstract class ActorDeclarationRecord with _$ActorDeclarationRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == chatBskyActorDeclaration;
+    return object['\$type'] == 'chat.bsky.actor.declaration';
   }
 }
 

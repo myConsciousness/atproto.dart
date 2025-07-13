@@ -13,7 +13,8 @@ _RecordViewNotFound _$RecordViewNotFoundFromJson(Map json) =>
       final val = _RecordViewNotFound(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsRecordViewNotFound,
+          (v) =>
+              v as String? ?? 'tools.ozone.moderation.defs#recordViewNotFound',
         ),
         uri: $checkedConvert('uri', (v) => v as String),
         $unknown: $checkedConvert(

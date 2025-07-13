@@ -13,7 +13,7 @@ _ModEventTakedown _$ModEventTakedownFromJson(Map json) =>
       final val = _ModEventTakedown(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsModEventTakedown,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#modEventTakedown',
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         durationInHours: $checkedConvert(

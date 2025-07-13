@@ -13,7 +13,7 @@ _LiveNowConfig _$LiveNowConfigFromJson(Map json) =>
       final val = _LiveNowConfig(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyUnspeccedGetConfigLiveNowConfig,
+          (v) => v as String? ?? 'app.bsky.unspecced.getConfig#liveNowConfig',
         ),
         did: $checkedConvert('did', (v) => v as String),
         domains: $checkedConvert(

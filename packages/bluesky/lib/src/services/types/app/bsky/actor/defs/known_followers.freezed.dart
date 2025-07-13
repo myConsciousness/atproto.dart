@@ -212,7 +212,7 @@ return $default(_that.$type,_that.count,_that.followers,_that.$unknown);case _:
 @JsonSerializable()
 
 class _KnownFollowers implements KnownFollowers {
-  const _KnownFollowers({this.$type = appBskyActorDefsKnownFollowers, required this.count, @ProfileViewBasicConverter() required final  List<ProfileViewBasic> followers, final  Map<String, dynamic>? $unknown}): _followers = followers,_$unknown = $unknown;
+  const _KnownFollowers({this.$type = 'app.bsky.actor.defs#knownFollowers', required this.count, @ProfileViewBasicConverter() required final  List<ProfileViewBasic> followers, final  Map<String, dynamic>? $unknown}): _followers = followers,_$unknown = $unknown;
   factory _KnownFollowers.fromJson(Map<String, dynamic> json) => _$KnownFollowersFromJson(json);
 
 @override@JsonKey() final  String $type;

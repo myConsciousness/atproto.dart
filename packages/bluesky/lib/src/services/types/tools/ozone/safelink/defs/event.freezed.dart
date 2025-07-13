@@ -259,7 +259,7 @@ return $default(_that.$type,_that.id,_that.eventType,_that.url,_that.pattern,_th
 @JsonSerializable()
 
 class _Event implements Event {
-  const _Event({this.$type = toolsOzoneSafelinkDefsEvent, required this.id, @EventTypeConverter() required this.eventType, required this.url, @PatternTypeConverter() required this.pattern, @ActionTypeConverter() required this.action, @ReasonTypeConverter() required this.reason, required this.createdBy, required this.createdAt, this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Event({this.$type = 'tools.ozone.safelink.defs#event', required this.id, @EventTypeConverter() required this.eventType, required this.url, @PatternTypeConverter() required this.pattern, @ActionTypeConverter() required this.action, @ReasonTypeConverter() required this.reason, required this.createdBy, required this.createdAt, this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
 
 @override@JsonKey() final  String $type;

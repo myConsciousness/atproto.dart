@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'mod_event_priority_score.freezed.dart';
 part 'mod_event_priority_score.g.dart';
 
@@ -27,7 +24,7 @@ abstract class ModEventPriorityScore with _$ModEventPriorityScore {
   static const knownProps = <String>['comment', 'score'];
 
   const factory ModEventPriorityScore({
-    @Default(toolsOzoneModerationDefsModEventPriorityScore) String $type,
+    @Default('tools.ozone.moderation.defs#modEventPriorityScore') String $type,
     String? comment,
     required int score,
 
@@ -39,7 +36,8 @@ abstract class ModEventPriorityScore with _$ModEventPriorityScore {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsModEventPriorityScore;
+    return object['\$type'] ==
+        'tools.ozone.moderation.defs#modEventPriorityScore';
   }
 }
 

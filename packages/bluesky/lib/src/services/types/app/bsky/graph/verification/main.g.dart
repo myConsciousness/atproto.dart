@@ -13,7 +13,7 @@ _GraphVerificationRecord _$GraphVerificationRecordFromJson(Map json) =>
       final val = _GraphVerificationRecord(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyGraphVerification,
+          (v) => v as String? ?? 'app.bsky.graph.verification',
         ),
         subject: $checkedConvert('subject', (v) => v as String),
         handle: $checkedConvert('handle', (v) => v as String),

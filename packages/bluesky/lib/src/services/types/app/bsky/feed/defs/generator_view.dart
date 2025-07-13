@@ -13,7 +13,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view.dart';
 import '../../../../app/bsky/richtext/facet//main.dart';
 import './generator_viewer_state.dart';
@@ -45,7 +44,7 @@ abstract class GeneratorView with _$GeneratorView {
   ];
 
   const factory GeneratorView({
-    @Default(appBskyFeedDefsGeneratorView) String $type,
+    @Default('app.bsky.feed.defs#generatorView') String $type,
     required String uri,
     required String cid,
     required String did,
@@ -69,7 +68,7 @@ abstract class GeneratorView with _$GeneratorView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDefsGeneratorView;
+    return object['\$type'] == 'app.bsky.feed.defs#generatorView';
   }
 }
 

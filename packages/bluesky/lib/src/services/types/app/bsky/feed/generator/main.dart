@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/richtext/facet//main.dart';
 import './union_main_labels.dart';
 
@@ -38,7 +37,7 @@ abstract class FeedGeneratorRecord with _$FeedGeneratorRecord {
   ];
 
   const factory FeedGeneratorRecord({
-    @Default(appBskyFeedGenerator) String $type,
+    @Default('app.bsky.feed.generator') String $type,
     required String did,
     required String displayName,
     String? description,
@@ -59,7 +58,7 @@ abstract class FeedGeneratorRecord with _$FeedGeneratorRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedGenerator;
+    return object['\$type'] == 'app.bsky.feed.generator';
   }
 }
 

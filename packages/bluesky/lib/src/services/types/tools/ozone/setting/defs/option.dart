@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'option.freezed.dart';
 part 'option.g.dart';
 
@@ -37,7 +34,7 @@ abstract class Option with _$Option {
   ];
 
   const factory Option({
-    @Default(toolsOzoneSettingDefsOption) String $type,
+    @Default('tools.ozone.setting.defs#option') String $type,
     required String key,
     required String did,
     required Map<String, dynamic> value,
@@ -56,7 +53,7 @@ abstract class Option with _$Option {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneSettingDefsOption;
+    return object['\$type'] == 'tools.ozone.setting.defs#option';
   }
 }
 

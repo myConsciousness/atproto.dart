@@ -214,7 +214,7 @@ return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.d
 @JsonSerializable()
 
 class _RecordHosting implements RecordHosting {
-  const _RecordHosting({this.$type = toolsOzoneModerationDefsRecordHosting, required this.status, this.updatedAt, this.createdAt, this.deletedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RecordHosting({this.$type = 'tools.ozone.moderation.defs#recordHosting', required this.status, this.updatedAt, this.createdAt, this.deletedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RecordHosting.fromJson(Map<String, dynamic> json) => _$RecordHostingFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './union_status_view_embed.dart';
 
 part 'status_view.freezed.dart';
@@ -33,7 +32,7 @@ abstract class StatusView with _$StatusView {
   ];
 
   const factory StatusView({
-    @Default(appBskyActorDefsStatusView) String $type,
+    @Default('app.bsky.actor.defs#statusView') String $type,
 
     /// The status for the account.
     required String status,
@@ -54,7 +53,7 @@ abstract class StatusView with _$StatusView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsStatusView;
+    return object['\$type'] == 'app.bsky.actor.defs#statusView';
   }
 }
 

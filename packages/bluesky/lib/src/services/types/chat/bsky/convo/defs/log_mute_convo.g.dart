@@ -13,7 +13,7 @@ _LogMuteConvo _$LogMuteConvoFromJson(Map json) =>
       final val = _LogMuteConvo(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? chatBskyConvoDefsLogMuteConvo,
+          (v) => v as String? ?? 'chat.bsky.convo.defs#logMuteConvo',
         ),
         rev: $checkedConvert('rev', (v) => v as String),
         convoId: $checkedConvert('convoId', (v) => v as String),

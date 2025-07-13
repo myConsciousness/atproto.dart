@@ -211,7 +211,7 @@ return $default(_that.$type,_that.repost,_that.$unknown);case _:
 @JsonSerializable()
 
 class _SkeletonReasonRepost implements SkeletonReasonRepost {
-  const _SkeletonReasonRepost({this.$type = appBskyFeedDefsSkeletonReasonRepost, required this.repost, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SkeletonReasonRepost({this.$type = 'app.bsky.feed.defs#skeletonReasonRepost', required this.repost, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SkeletonReasonRepost.fromJson(Map<String, dynamic> json) => _$SkeletonReasonRepostFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -222,7 +222,7 @@ return $default(_that.$type,_that.uri,_that.blocked,_that.author,_that.$unknown)
 @JsonSerializable()
 
 class _BlockedPost implements BlockedPost {
-  const _BlockedPost({this.$type = appBskyFeedDefsBlockedPost, required this.uri, required this.blocked, @BlockedAuthorConverter() required this.author, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _BlockedPost({this.$type = 'app.bsky.feed.defs#blockedPost', required this.uri, required this.blocked, @BlockedAuthorConverter() required this.author, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _BlockedPost.fromJson(Map<String, dynamic> json) => _$BlockedPostFromJson(json);
 
 @override@JsonKey() final  String $type;

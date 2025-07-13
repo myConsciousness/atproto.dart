@@ -211,7 +211,7 @@ return $default(_that.$type,_that.email,_that.$unknown);case _:
 @JsonSerializable()
 
 class _Contact implements Contact {
-  const _Contact({this.$type = comAtprotoServerDescribeServerContact, this.email, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Contact({this.$type = 'com.atproto.server.describeServer#contact', this.email, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Contact.fromJson(Map<String, dynamic> json) => _$ContactFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -237,7 +237,7 @@ return $default(_that.$type,_that.video,_that.captions,_that.alt,_that.aspectRat
 @JsonSerializable()
 
 class _EmbedVideo implements EmbedVideo {
-  const _EmbedVideo({this.$type = appBskyEmbedVideo, @BlobConverter() required this.video, @EmbedVideoCaptionConverter() final  List<EmbedVideoCaption>? captions, this.alt, @AspectRatioConverter() this.aspectRatio, final  Map<String, dynamic>? $unknown}): _captions = captions,_$unknown = $unknown;
+  const _EmbedVideo({this.$type = 'app.bsky.embed.video', @BlobConverter() required this.video, @EmbedVideoCaptionConverter() final  List<EmbedVideoCaption>? captions, this.alt, @AspectRatioConverter() this.aspectRatio, final  Map<String, dynamic>? $unknown}): _captions = captions,_$unknown = $unknown;
   factory _EmbedVideo.fromJson(Map<String, dynamic> json) => _$EmbedVideoFromJson(json);
 
 @override@JsonKey() final  String $type;

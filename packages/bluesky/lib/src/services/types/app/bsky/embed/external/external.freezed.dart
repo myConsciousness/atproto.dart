@@ -226,7 +226,7 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,
 @JsonSerializable()
 
 class _EmbedExternalExternal implements EmbedExternalExternal {
-  const _EmbedExternalExternal({this.$type = appBskyEmbedExternalExternal, @AtUriConverter() required this.uri, required this.title, required this.description, @BlobConverter() this.thumb, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedExternalExternal({this.$type = 'app.bsky.embed.external#external', @AtUriConverter() required this.uri, required this.title, required this.description, @BlobConverter() this.thumb, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedExternalExternal.fromJson(Map<String, dynamic> json) => _$EmbedExternalExternalFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -12,7 +12,10 @@ _FeedLikeRecord _$FeedLikeRecordFromJson(
   Map json,
 ) => $checkedCreate('_FeedLikeRecord', json, ($checkedConvert) {
   final val = _FeedLikeRecord(
-    $type: $checkedConvert(r'$type', (v) => v as String? ?? appBskyFeedLike),
+    $type: $checkedConvert(
+      r'$type',
+      (v) => v as String? ?? 'app.bsky.feed.like',
+    ),
     subject: $checkedConvert(
       'subject',
       (v) => const RepoStrongRefConverter().fromJson(v as Map<String, dynamic>),

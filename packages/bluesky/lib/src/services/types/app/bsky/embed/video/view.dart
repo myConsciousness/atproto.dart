@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/embed/defs/aspect_ratio.dart';
 
 part 'view.freezed.dart';
@@ -33,7 +32,7 @@ abstract class EmbedVideoView with _$EmbedVideoView {
   ];
 
   const factory EmbedVideoView({
-    @Default(appBskyEmbedVideoView) String $type,
+    @Default('app.bsky.embed.video#view') String $type,
     required String cid,
     @AtUriConverter() required AtUri playlist,
     @AtUriConverter() AtUri? thumbnail,
@@ -48,7 +47,7 @@ abstract class EmbedVideoView with _$EmbedVideoView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyEmbedVideoView;
+    return object['\$type'] == 'app.bsky.embed.video#view';
   }
 }
 

@@ -213,7 +213,7 @@ return $default(_that.$type,_that.name,_that.meta,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ModTool implements ModTool {
-  const _ModTool({this.$type = comAtprotoModerationCreateReportModTool, required this.name, final  Map<String, dynamic>? meta, final  Map<String, dynamic>? $unknown}): _meta = meta,_$unknown = $unknown;
+  const _ModTool({this.$type = 'com.atproto.moderation.createReport#modTool', required this.name, final  Map<String, dynamic>? meta, final  Map<String, dynamic>? $unknown}): _meta = meta,_$unknown = $unknown;
   factory _ModTool.fromJson(Map<String, dynamic> json) => _$ModToolFromJson(json);
 
 @override@JsonKey() final  String $type;

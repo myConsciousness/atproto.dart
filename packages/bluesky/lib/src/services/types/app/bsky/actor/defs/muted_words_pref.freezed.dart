@@ -211,7 +211,7 @@ return $default(_that.$type,_that.items,_that.$unknown);case _:
 @JsonSerializable()
 
 class _MutedWordsPref implements MutedWordsPref {
-  const _MutedWordsPref({this.$type = appBskyActorDefsMutedWordsPref, @MutedWordConverter() required final  List<MutedWord> items, final  Map<String, dynamic>? $unknown}): _items = items,_$unknown = $unknown;
+  const _MutedWordsPref({this.$type = 'app.bsky.actor.defs#mutedWordsPref', @MutedWordConverter() required final  List<MutedWord> items, final  Map<String, dynamic>? $unknown}): _items = items,_$unknown = $unknown;
   factory _MutedWordsPref.fromJson(Map<String, dynamic> json) => _$MutedWordsPrefFromJson(json);
 
 @override@JsonKey() final  String $type;

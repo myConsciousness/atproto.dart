@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './moderation.dart';
 import './union_blob_view_details.dart';
 
@@ -35,7 +34,7 @@ abstract class BlobView with _$BlobView {
   ];
 
   const factory BlobView({
-    @Default(toolsOzoneModerationDefsBlobView) String $type,
+    @Default('tools.ozone.moderation.defs#blobView') String $type,
     required String cid,
     required String mimeType,
     required int size,
@@ -51,7 +50,7 @@ abstract class BlobView with _$BlobView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsBlobView;
+    return object['\$type'] == 'tools.ozone.moderation.defs#blobView';
   }
 }
 

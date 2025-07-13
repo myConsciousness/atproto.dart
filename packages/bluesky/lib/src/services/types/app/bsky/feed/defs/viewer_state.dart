@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'viewer_state.freezed.dart';
 part 'viewer_state.g.dart';
 
@@ -34,7 +31,7 @@ abstract class ViewerState with _$ViewerState {
   ];
 
   const factory ViewerState({
-    @Default(appBskyFeedDefsViewerState) String $type,
+    @Default('app.bsky.feed.defs#viewerState') String $type,
     String? repost,
     String? like,
     bool? threadMuted,
@@ -50,7 +47,7 @@ abstract class ViewerState with _$ViewerState {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDefsViewerState;
+    return object['\$type'] == 'app.bsky.feed.defs#viewerState';
   }
 }
 

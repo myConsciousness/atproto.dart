@@ -13,7 +13,7 @@ _FeedThreadgateRecord _$FeedThreadgateRecordFromJson(Map json) =>
       final val = _FeedThreadgateRecord(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyFeedThreadgate,
+          (v) => v as String? ?? 'app.bsky.feed.threadgate',
         ),
         post: $checkedConvert('post', (v) => v as String),
         allow: $checkedConvert(

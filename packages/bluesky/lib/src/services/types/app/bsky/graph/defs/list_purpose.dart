@@ -35,7 +35,7 @@ abstract class ListPurpose with _$ListPurpose {
       _$ListPurposeFromJson(json);
 }
 
-abstract class ListPurposeConverter
+final class ListPurposeConverter
     extends LexKnownValuesConverter<ListPurpose, Map<String, dynamic>> {
   const ListPurposeConverter();
 

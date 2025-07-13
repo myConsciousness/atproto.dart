@@ -14,7 +14,7 @@ _RecordViewDetail _$RecordViewDetailFromJson(
   final val = _RecordViewDetail(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? toolsOzoneModerationDefsRecordViewDetail,
+      (v) => v as String? ?? 'tools.ozone.moderation.defs#recordViewDetail',
     ),
     uri: $checkedConvert('uri', (v) => v as String),
     cid: $checkedConvert('cid', (v) => v as String),

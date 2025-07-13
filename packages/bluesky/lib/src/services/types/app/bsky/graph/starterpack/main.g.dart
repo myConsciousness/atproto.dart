@@ -14,7 +14,7 @@ _GraphStarterpackRecord _$GraphStarterpackRecordFromJson(
   final val = _GraphStarterpackRecord(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyGraphStarterpack,
+      (v) => v as String? ?? 'app.bsky.graph.starterpack',
     ),
     name: $checkedConvert('name', (v) => v as String),
     description: $checkedConvert('description', (v) => v as String?),

@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './message_view.dart';
 import './reaction_view.dart';
 
@@ -28,7 +27,7 @@ abstract class MessageAndReactionView with _$MessageAndReactionView {
   static const knownProps = <String>['message', 'reaction'];
 
   const factory MessageAndReactionView({
-    @Default(chatBskyConvoDefsMessageAndReactionView) String $type,
+    @Default('chat.bsky.convo.defs#messageAndReactionView') String $type,
     @MessageViewConverter() required MessageView message,
     @ReactionViewConverter() required ReactionView reaction,
 
@@ -40,7 +39,7 @@ abstract class MessageAndReactionView with _$MessageAndReactionView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == chatBskyConvoDefsMessageAndReactionView;
+    return object['\$type'] == 'chat.bsky.convo.defs#messageAndReactionView';
   }
 }
 

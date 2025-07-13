@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'trending_topic.freezed.dart';
 part 'trending_topic.g.dart';
 
@@ -31,7 +28,7 @@ abstract class TrendingTopic with _$TrendingTopic {
   ];
 
   const factory TrendingTopic({
-    @Default(appBskyUnspeccedDefsTrendingTopic) String $type,
+    @Default('app.bsky.unspecced.defs#trendingTopic') String $type,
     required String topic,
     String? displayName,
     String? description,
@@ -45,7 +42,7 @@ abstract class TrendingTopic with _$TrendingTopic {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyUnspeccedDefsTrendingTopic;
+    return object['\$type'] == 'app.bsky.unspecced.defs#trendingTopic';
   }
 }
 

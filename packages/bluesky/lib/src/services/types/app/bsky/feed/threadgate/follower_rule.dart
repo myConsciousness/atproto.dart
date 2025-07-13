@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'follower_rule.freezed.dart';
 part 'follower_rule.g.dart';
 
@@ -27,7 +24,7 @@ abstract class FollowerRule with _$FollowerRule {
   static const knownProps = <String>[];
 
   const factory FollowerRule({
-    @Default(appBskyFeedThreadgateFollowerRule) String $type,
+    @Default('app.bsky.feed.threadgate#followerRule') String $type,
 
     Map<String, dynamic>? $unknown,
   }) = _FollowerRule;
@@ -37,7 +34,7 @@ abstract class FollowerRule with _$FollowerRule {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedThreadgateFollowerRule;
+    return object['\$type'] == 'app.bsky.feed.threadgate#followerRule';
   }
 }
 

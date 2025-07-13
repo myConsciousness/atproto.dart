@@ -250,7 +250,7 @@ return $default(_that.$type,_that.url,_that.pattern,_that.action,_that.reason,_t
 @JsonSerializable()
 
 class _UrlRule implements UrlRule {
-  const _UrlRule({this.$type = toolsOzoneSafelinkDefsUrlRule, required this.url, @PatternTypeConverter() required this.pattern, @ActionTypeConverter() required this.action, @ReasonTypeConverter() required this.reason, this.comment, required this.createdBy, required this.createdAt, required this.updatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _UrlRule({this.$type = 'tools.ozone.safelink.defs#urlRule', required this.url, @PatternTypeConverter() required this.pattern, @ActionTypeConverter() required this.action, @ReasonTypeConverter() required this.reason, this.comment, required this.createdBy, required this.createdAt, required this.updatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UrlRule.fromJson(Map<String, dynamic> json) => _$UrlRuleFromJson(json);
 
 @override@JsonKey() final  String $type;

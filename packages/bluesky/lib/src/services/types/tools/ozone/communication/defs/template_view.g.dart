@@ -14,7 +14,7 @@ _TemplateView _$TemplateViewFromJson(
   final val = _TemplateView(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? toolsOzoneCommunicationDefsTemplateView,
+      (v) => v as String? ?? 'tools.ozone.communication.defs#templateView',
     ),
     id: $checkedConvert('id', (v) => v as String),
     name: $checkedConvert('name', (v) => v as String),

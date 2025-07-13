@@ -13,7 +13,7 @@ _RepoRef _$RepoRefFromJson(Map json) =>
       final val = _RepoRef(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoAdminDefsRepoRef,
+          (v) => v as String? ?? 'com.atproto.admin.defs#repoRef',
         ),
         did: $checkedConvert('did', (v) => v as String),
         $unknown: $checkedConvert(

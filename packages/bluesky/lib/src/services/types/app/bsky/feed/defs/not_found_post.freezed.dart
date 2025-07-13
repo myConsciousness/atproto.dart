@@ -212,7 +212,7 @@ return $default(_that.$type,_that.uri,_that.notFound,_that.$unknown);case _:
 @JsonSerializable()
 
 class _NotFoundPost implements NotFoundPost {
-  const _NotFoundPost({this.$type = appBskyFeedDefsNotFoundPost, required this.uri, required this.notFound, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _NotFoundPost({this.$type = 'app.bsky.feed.defs#notFoundPost', required this.uri, required this.notFound, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotFoundPost.fromJson(Map<String, dynamic> json) => _$NotFoundPostFromJson(json);
 
 @override@JsonKey() final  String $type;

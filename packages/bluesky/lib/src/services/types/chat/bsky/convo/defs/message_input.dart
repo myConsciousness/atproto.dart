@@ -13,7 +13,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import 'package:bluesky/app_bsky_richtext_facet.dart';
-import '../../../../../../ids.g.dart';
 import './union_message_input_embed.dart';
 
 part 'message_input.freezed.dart';
@@ -28,7 +27,7 @@ abstract class MessageInput with _$MessageInput {
   static const knownProps = <String>['text', 'facets', 'embed'];
 
   const factory MessageInput({
-    @Default(chatBskyConvoDefsMessageInput) String $type,
+    @Default('chat.bsky.convo.defs#messageInput') String $type,
     required String text,
     @RichtextFacetConverter() List<RichtextFacet>? facets,
     @UMessageInputEmbedConverter() UMessageInputEmbed? embed,
@@ -41,7 +40,7 @@ abstract class MessageInput with _$MessageInput {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == chatBskyConvoDefsMessageInput;
+    return object['\$type'] == 'chat.bsky.convo.defs#messageInput';
   }
 }
 

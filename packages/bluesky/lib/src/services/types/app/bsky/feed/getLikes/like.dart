@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view.dart';
 
 part 'like.freezed.dart';
@@ -27,7 +26,7 @@ abstract class Like with _$Like {
   static const knownProps = <String>['indexedAt', 'createdAt', 'actor'];
 
   const factory Like({
-    @Default(appBskyFeedGetLikesLike) String $type,
+    @Default('app.bsky.feed.getLikes#like') String $type,
     required DateTime indexedAt,
     required DateTime createdAt,
     @ProfileViewConverter() required ProfileView actor,
@@ -39,7 +38,7 @@ abstract class Like with _$Like {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedGetLikesLike;
+    return object['\$type'] == 'app.bsky.feed.getLikes#like';
   }
 }
 

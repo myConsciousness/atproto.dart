@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'sync.freezed.dart';
 part 'sync.g.dart';
 
@@ -27,7 +24,7 @@ abstract class Sync with _$Sync {
   static const knownProps = <String>['seq', 'did', 'blocks', 'rev', 'time'];
 
   const factory Sync({
-    @Default(comAtprotoSyncSubscribeReposSync) String $type,
+    @Default('com.atproto.sync.subscribeRepos#sync') String $type,
 
     /// The stream sequence number of this message.
     required int seq,
@@ -49,7 +46,7 @@ abstract class Sync with _$Sync {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoSyncSubscribeReposSync;
+    return object['\$type'] == 'com.atproto.sync.subscribeRepos#sync';
   }
 }
 

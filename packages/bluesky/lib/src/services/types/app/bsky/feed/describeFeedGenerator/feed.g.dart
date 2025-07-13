@@ -13,7 +13,7 @@ _Feed _$FeedFromJson(Map json) =>
       final val = _Feed(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyFeedDescribeFeedGeneratorFeed,
+          (v) => v as String? ?? 'app.bsky.feed.describeFeedGenerator#feed',
         ),
         uri: $checkedConvert('uri', (v) => v as String),
         $unknown: $checkedConvert(

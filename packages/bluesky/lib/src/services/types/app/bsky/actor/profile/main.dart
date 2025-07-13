@@ -13,7 +13,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './union_main_labels.dart';
 
 part 'main.freezed.dart';
@@ -37,7 +36,7 @@ abstract class ActorProfileRecord with _$ActorProfileRecord {
   ];
 
   const factory ActorProfileRecord({
-    @Default(appBskyActorProfile) String $type,
+    @Default('app.bsky.actor.profile') String $type,
     String? displayName,
 
     /// Free-form profile description text.
@@ -61,7 +60,7 @@ abstract class ActorProfileRecord with _$ActorProfileRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorProfile;
+    return object['\$type'] == 'app.bsky.actor.profile';
   }
 }
 

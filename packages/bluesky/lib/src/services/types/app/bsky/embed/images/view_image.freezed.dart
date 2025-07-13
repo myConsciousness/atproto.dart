@@ -229,7 +229,7 @@ return $default(_that.$type,_that.thumb,_that.fullsize,_that.alt,_that.aspectRat
 @JsonSerializable()
 
 class _EmbedImagesViewImage implements EmbedImagesViewImage {
-  const _EmbedImagesViewImage({this.$type = appBskyEmbedImagesViewImage, @AtUriConverter() required this.thumb, @AtUriConverter() required this.fullsize, required this.alt, @AspectRatioConverter() this.aspectRatio, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedImagesViewImage({this.$type = 'app.bsky.embed.images#viewImage', @AtUriConverter() required this.thumb, @AtUriConverter() required this.fullsize, required this.alt, @AspectRatioConverter() this.aspectRatio, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedImagesViewImage.fromJson(Map<String, dynamic> json) => _$EmbedImagesViewImageFromJson(json);
 
 @override@JsonKey() final  String $type;

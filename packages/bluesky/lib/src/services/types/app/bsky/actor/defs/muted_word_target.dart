@@ -31,7 +31,7 @@ abstract class MutedWordTarget with _$MutedWordTarget {
       _$MutedWordTargetFromJson(json);
 }
 
-abstract class MutedWordTargetConverter
+final class MutedWordTargetConverter
     extends LexKnownValuesConverter<MutedWordTarget, Map<String, dynamic>> {
   const MutedWordTargetConverter();
 

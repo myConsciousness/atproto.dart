@@ -13,7 +13,7 @@ _ActorDeclarationRecord _$ActorDeclarationRecordFromJson(Map json) =>
       final val = _ActorDeclarationRecord(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? chatBskyActorDeclaration,
+          (v) => v as String? ?? 'chat.bsky.actor.declaration',
         ),
         allowIncoming: $checkedConvert('allowIncoming', (v) => v as String),
         $unknown: $checkedConvert(

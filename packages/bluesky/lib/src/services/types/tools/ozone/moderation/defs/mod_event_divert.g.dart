@@ -13,7 +13,7 @@ _ModEventDivert _$ModEventDivertFromJson(Map json) =>
       final val = _ModEventDivert(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsModEventDivert,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#modEventDivert',
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         $unknown: $checkedConvert(

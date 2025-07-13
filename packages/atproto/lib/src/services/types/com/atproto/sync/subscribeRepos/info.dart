@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'info.freezed.dart';
 part 'info.g.dart';
 
@@ -26,7 +23,7 @@ abstract class Info with _$Info {
   static const knownProps = <String>['name', 'message'];
 
   const factory Info({
-    @Default(comAtprotoSyncSubscribeReposInfo) String $type,
+    @Default('com.atproto.sync.subscribeRepos#info') String $type,
     required String name,
     String? message,
 
@@ -37,7 +34,7 @@ abstract class Info with _$Info {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoSyncSubscribeReposInfo;
+    return object['\$type'] == 'com.atproto.sync.subscribeRepos#info';
   }
 }
 

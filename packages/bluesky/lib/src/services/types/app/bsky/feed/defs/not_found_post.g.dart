@@ -13,7 +13,7 @@ _NotFoundPost _$NotFoundPostFromJson(Map json) =>
       final val = _NotFoundPost(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyFeedDefsNotFoundPost,
+          (v) => v as String? ?? 'app.bsky.feed.defs#notFoundPost',
         ),
         uri: $checkedConvert('uri', (v) => v as String),
         notFound: $checkedConvert('notFound', (v) => v as bool),

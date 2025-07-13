@@ -13,7 +13,7 @@ _RecordEvent _$RecordEventFromJson(Map json) =>
       final val = _RecordEvent(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsRecordEvent,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#recordEvent',
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         op: $checkedConvert('op', (v) => v as String),

@@ -13,7 +13,7 @@ _Moderation _$ModerationFromJson(Map json) =>
       final val = _Moderation(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsModeration,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#moderation',
         ),
         subjectStatus: $checkedConvert(
           'subjectStatus',

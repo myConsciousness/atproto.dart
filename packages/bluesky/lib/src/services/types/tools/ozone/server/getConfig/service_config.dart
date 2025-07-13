@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'service_config.freezed.dart';
 part 'service_config.g.dart';
 
@@ -26,7 +23,7 @@ abstract class ServiceConfig with _$ServiceConfig {
   static const knownProps = <String>['url'];
 
   const factory ServiceConfig({
-    @Default(toolsOzoneServerGetConfigServiceConfig) String $type,
+    @Default('tools.ozone.server.getConfig#serviceConfig') String $type,
     @AtUriConverter() AtUri? url,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +34,7 @@ abstract class ServiceConfig with _$ServiceConfig {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneServerGetConfigServiceConfig;
+    return object['\$type'] == 'tools.ozone.server.getConfig#serviceConfig';
   }
 }
 

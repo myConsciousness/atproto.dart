@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'disable_rule.freezed.dart';
 part 'disable_rule.g.dart';
 
@@ -27,7 +24,7 @@ abstract class DisableRule with _$DisableRule {
   static const knownProps = <String>[];
 
   const factory DisableRule({
-    @Default(appBskyFeedPostgateDisableRule) String $type,
+    @Default('app.bsky.feed.postgate#disableRule') String $type,
 
     Map<String, dynamic>? $unknown,
   }) = _DisableRule;
@@ -37,7 +34,7 @@ abstract class DisableRule with _$DisableRule {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedPostgateDisableRule;
+    return object['\$type'] == 'app.bsky.feed.postgate#disableRule';
   }
 }
 

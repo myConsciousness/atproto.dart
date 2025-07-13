@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './union_thread_item_value.dart';
 
 part 'thread_item.freezed.dart';
@@ -27,7 +26,7 @@ abstract class ThreadItem with _$ThreadItem {
   static const knownProps = <String>['uri', 'depth', 'value'];
 
   const factory ThreadItem({
-    @Default(appBskyUnspeccedGetPostThreadV2ThreadItem) String $type,
+    @Default('app.bsky.unspecced.getPostThreadV2#threadItem') String $type,
     required String uri,
 
     /// The nesting level of this item in the thread. Depth 0 means the anchor item. Items above have negative depths, items below have positive depths.
@@ -42,7 +41,7 @@ abstract class ThreadItem with _$ThreadItem {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyUnspeccedGetPostThreadV2ThreadItem;
+    return object['\$type'] == 'app.bsky.unspecced.getPostThreadV2#threadItem';
   }
 }
 

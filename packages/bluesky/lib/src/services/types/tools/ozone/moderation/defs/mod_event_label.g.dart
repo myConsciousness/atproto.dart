@@ -13,7 +13,7 @@ _ModEventLabel _$ModEventLabelFromJson(Map json) =>
       final val = _ModEventLabel(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsModEventLabel,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#modEventLabel',
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         createLabelVals: $checkedConvert(

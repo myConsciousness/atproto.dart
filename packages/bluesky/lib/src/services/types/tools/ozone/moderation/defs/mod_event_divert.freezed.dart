@@ -211,7 +211,7 @@ return $default(_that.$type,_that.comment,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ModEventDivert implements ModEventDivert {
-  const _ModEventDivert({this.$type = toolsOzoneModerationDefsModEventDivert, this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModEventDivert({this.$type = 'tools.ozone.moderation.defs#modEventDivert', this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModEventDivert.fromJson(Map<String, dynamic> json) => _$ModEventDivertFromJson(json);
 
 @override@JsonKey() final  String $type;

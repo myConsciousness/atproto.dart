@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './blob_view.dart';
 import './mod_tool.dart';
 import './union_mod_event_view_detail_event.dart';
@@ -38,7 +37,7 @@ abstract class ModEventViewDetail with _$ModEventViewDetail {
   ];
 
   const factory ModEventViewDetail({
-    @Default(toolsOzoneModerationDefsModEventViewDetail) String $type,
+    @Default('tools.ozone.moderation.defs#modEventViewDetail') String $type,
     required int id,
     @UModEventViewDetailEventConverter()
     required UModEventViewDetailEvent event,
@@ -57,7 +56,7 @@ abstract class ModEventViewDetail with _$ModEventViewDetail {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsModEventViewDetail;
+    return object['\$type'] == 'tools.ozone.moderation.defs#modEventViewDetail';
   }
 }
 

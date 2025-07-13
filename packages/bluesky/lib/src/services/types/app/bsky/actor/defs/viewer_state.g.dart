@@ -15,7 +15,7 @@ _ViewerState _$ViewerStateFromJson(Map json) => $checkedCreate(
     final val = _ViewerState(
       $type: $checkedConvert(
         r'$type',
-        (v) => v as String? ?? appBskyActorDefsViewerState,
+        (v) => v as String? ?? 'app.bsky.actor.defs#viewerState',
       ),
       muted: $checkedConvert('muted', (v) => v as bool?),
       mutedByList: $checkedConvert(

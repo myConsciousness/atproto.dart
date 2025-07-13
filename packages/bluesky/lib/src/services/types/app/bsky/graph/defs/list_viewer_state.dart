@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'list_viewer_state.freezed.dart';
 part 'list_viewer_state.g.dart';
 
@@ -26,7 +23,7 @@ abstract class ListViewerState with _$ListViewerState {
   static const knownProps = <String>['muted', 'blocked'];
 
   const factory ListViewerState({
-    @Default(appBskyGraphDefsListViewerState) String $type,
+    @Default('app.bsky.graph.defs#listViewerState') String $type,
     bool? muted,
     String? blocked,
 
@@ -38,7 +35,7 @@ abstract class ListViewerState with _$ListViewerState {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyGraphDefsListViewerState;
+    return object['\$type'] == 'app.bsky.graph.defs#listViewerState';
   }
 }
 

@@ -251,7 +251,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.policies,_th
 @JsonSerializable()
 
 class _LabelerViewDetailed implements LabelerViewDetailed {
-  const _LabelerViewDetailed({this.$type = appBskyLabelerDefsLabelerViewDetailed, required this.uri, required this.cid, @ProfileViewConverter() required this.creator, @LabelerPoliciesConverter() required this.policies, this.likeCount, @LabelerViewerStateConverter() this.viewer, required this.indexedAt, @LabelConverter() final  List<Label>? labels, @ReasonTypeConverter() final  List<ReasonType>? reasonTypes, @SubjectTypeConverter() final  List<SubjectType>? subjectTypes, final  List<String>? subjectCollections, final  Map<String, dynamic>? $unknown}): _labels = labels,_reasonTypes = reasonTypes,_subjectTypes = subjectTypes,_subjectCollections = subjectCollections,_$unknown = $unknown;
+  const _LabelerViewDetailed({this.$type = 'app.bsky.labeler.defs#labelerViewDetailed', required this.uri, required this.cid, @ProfileViewConverter() required this.creator, @LabelerPoliciesConverter() required this.policies, this.likeCount, @LabelerViewerStateConverter() this.viewer, required this.indexedAt, @LabelConverter() final  List<Label>? labels, @ReasonTypeConverter() final  List<ReasonType>? reasonTypes, @SubjectTypeConverter() final  List<SubjectType>? subjectTypes, final  List<String>? subjectCollections, final  Map<String, dynamic>? $unknown}): _labels = labels,_reasonTypes = reasonTypes,_subjectTypes = subjectTypes,_subjectCollections = subjectCollections,_$unknown = $unknown;
   factory _LabelerViewDetailed.fromJson(Map<String, dynamic> json) => _$LabelerViewDetailedFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -14,7 +14,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import 'package:bluesky/app_bsky_actor_defs.dart';
-import '../../../../../../ids.g.dart';
 
 part 'profile_view_basic.freezed.dart';
 part 'profile_view_basic.g.dart';
@@ -38,7 +37,7 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
   ];
 
   const factory ProfileViewBasic({
-    @Default(chatBskyActorDefsProfileViewBasic) String $type,
+    @Default('chat.bsky.actor.defs#profileViewBasic') String $type,
     required String did,
     required String handle,
     String? displayName,
@@ -59,7 +58,7 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == chatBskyActorDefsProfileViewBasic;
+    return object['\$type'] == 'chat.bsky.actor.defs#profileViewBasic';
   }
 }
 

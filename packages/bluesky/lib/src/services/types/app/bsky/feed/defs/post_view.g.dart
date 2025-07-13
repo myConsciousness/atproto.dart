@@ -14,7 +14,7 @@ _PostView _$PostViewFromJson(Map json) => $checkedCreate('_PostView', json, (
   final val = _PostView(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyFeedDefsPostView,
+      (v) => v as String? ?? 'app.bsky.feed.defs#postView',
     ),
     uri: $checkedConvert('uri', (v) => v as String),
     cid: $checkedConvert('cid', (v) => v as String),

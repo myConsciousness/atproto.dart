@@ -223,7 +223,7 @@ return $default(_that.$type,_that.uri,_that.depth,_that.value,_that.$unknown);ca
 @JsonSerializable()
 
 class _ThreadItem implements ThreadItem {
-  const _ThreadItem({this.$type = appBskyUnspeccedGetPostThreadV2ThreadItem, required this.uri, required this.depth, @UThreadItemValueConverter() required this.value, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ThreadItem({this.$type = 'app.bsky.unspecced.getPostThreadV2#threadItem', required this.uri, required this.depth, @UThreadItemValueConverter() required this.value, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ThreadItem.fromJson(Map<String, dynamic> json) => _$ThreadItemFromJson(json);
 
 @override@JsonKey() final  String $type;

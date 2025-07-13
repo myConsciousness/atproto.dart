@@ -14,7 +14,7 @@ _Metadata _$MetadataFromJson(Map json) => $checkedCreate('_Metadata', json, (
   final val = _Metadata(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? chatBskyModerationGetActorMetadataMetadata,
+      (v) => v as String? ?? 'chat.bsky.moderation.getActorMetadata#metadata',
     ),
     messagesSent: $checkedConvert('messagesSent', (v) => (v as num).toInt()),
     messagesReceived: $checkedConvert(

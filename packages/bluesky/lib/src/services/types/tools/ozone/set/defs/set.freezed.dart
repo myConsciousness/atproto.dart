@@ -212,7 +212,7 @@ return $default(_that.$type,_that.name,_that.description,_that.$unknown);case _:
 @JsonSerializable()
 
 class _Set implements Set {
-  const _Set({this.$type = toolsOzoneSetDefsSet, required this.name, this.description, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Set({this.$type = 'tools.ozone.set.defs#set', required this.name, this.description, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Set.fromJson(Map<String, dynamic> json) => _$SetFromJson(json);
 
 @override@JsonKey() final  String $type;

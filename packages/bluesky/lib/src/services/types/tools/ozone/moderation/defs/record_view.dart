@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './moderation.dart';
 import './repo_view.dart';
 
@@ -36,7 +35,7 @@ abstract class RecordView with _$RecordView {
   ];
 
   const factory RecordView({
-    @Default(toolsOzoneModerationDefsRecordView) String $type,
+    @Default('tools.ozone.moderation.defs#recordView') String $type,
     required String uri,
     required String cid,
     required Map<String, dynamic> value,
@@ -53,7 +52,7 @@ abstract class RecordView with _$RecordView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsRecordView;
+    return object['\$type'] == 'tools.ozone.moderation.defs#recordView';
   }
 }
 

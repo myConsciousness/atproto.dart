@@ -14,7 +14,8 @@ _ThreadItemNoUnauthenticated _$ThreadItemNoUnauthenticatedFromJson(Map json) =>
         $type: $checkedConvert(
           r'$type',
           (v) =>
-              v as String? ?? appBskyUnspeccedDefsThreadItemNoUnauthenticated,
+              v as String? ??
+              'app.bsky.unspecced.defs#threadItemNoUnauthenticated',
         ),
         $unknown: $checkedConvert(
           r'$unknown',

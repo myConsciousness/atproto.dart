@@ -13,7 +13,7 @@ _ThreadItemPost _$ThreadItemPostFromJson(Map json) =>
       final val = _ThreadItemPost(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyUnspeccedDefsThreadItemPost,
+          (v) => v as String? ?? 'app.bsky.unspecced.defs#threadItemPost',
         ),
         post: $checkedConvert(
           'post',

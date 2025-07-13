@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './invite_code_use.dart';
 
 part 'invite_code.freezed.dart';
@@ -35,7 +34,7 @@ abstract class InviteCode with _$InviteCode {
   ];
 
   const factory InviteCode({
-    @Default(comAtprotoServerDefsInviteCode) String $type,
+    @Default('com.atproto.server.defs#inviteCode') String $type,
     required String code,
     required int available,
     required bool disabled,
@@ -52,7 +51,7 @@ abstract class InviteCode with _$InviteCode {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoServerDefsInviteCode;
+    return object['\$type'] == 'com.atproto.server.defs#inviteCode';
   }
 }
 

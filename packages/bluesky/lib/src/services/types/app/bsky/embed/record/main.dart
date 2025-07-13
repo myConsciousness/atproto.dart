@@ -12,9 +12,6 @@ import 'package:atproto/com_atproto_repo_strongref.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'main.freezed.dart';
 part 'main.g.dart';
 
@@ -27,7 +24,7 @@ abstract class EmbedRecord with _$EmbedRecord {
   static const knownProps = <String>['record'];
 
   const factory EmbedRecord({
-    @Default(appBskyEmbedRecord) String $type,
+    @Default('app.bsky.embed.record') String $type,
     @RepoStrongRefConverter() required RepoStrongRef record,
 
     Map<String, dynamic>? $unknown,
@@ -38,7 +35,7 @@ abstract class EmbedRecord with _$EmbedRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyEmbedRecord ||
+    return object['\$type'] == 'app.bsky.embed.record' ||
         object['\$type'] == 'app.bsky.embed.record#main';
   }
 }

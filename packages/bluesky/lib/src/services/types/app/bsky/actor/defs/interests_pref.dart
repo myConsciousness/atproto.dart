@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'interests_pref.freezed.dart';
 part 'interests_pref.g.dart';
 
@@ -26,7 +23,7 @@ abstract class InterestsPref with _$InterestsPref {
   static const knownProps = <String>['tags'];
 
   const factory InterestsPref({
-    @Default(appBskyActorDefsInterestsPref) String $type,
+    @Default('app.bsky.actor.defs#interestsPref') String $type,
     required List<String> tags,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +34,7 @@ abstract class InterestsPref with _$InterestsPref {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsInterestsPref;
+    return object['\$type'] == 'app.bsky.actor.defs#interestsPref';
   }
 }
 

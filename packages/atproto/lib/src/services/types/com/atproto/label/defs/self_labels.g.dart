@@ -13,7 +13,7 @@ _SelfLabels _$SelfLabelsFromJson(Map json) =>
       final val = _SelfLabels(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoLabelDefsSelfLabels,
+          (v) => v as String? ?? 'com.atproto.label.defs#selfLabels',
         ),
         values: $checkedConvert(
           'values',

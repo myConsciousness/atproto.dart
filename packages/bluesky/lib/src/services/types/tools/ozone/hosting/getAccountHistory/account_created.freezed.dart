@@ -212,7 +212,7 @@ return $default(_that.$type,_that.email,_that.handle,_that.$unknown);case _:
 @JsonSerializable()
 
 class _AccountCreated implements AccountCreated {
-  const _AccountCreated({this.$type = toolsOzoneHostingGetAccountHistoryAccountCreated, this.email, this.handle, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AccountCreated({this.$type = 'tools.ozone.hosting.getAccountHistory#accountCreated', this.email, this.handle, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AccountCreated.fromJson(Map<String, dynamic> json) => _$AccountCreatedFromJson(json);
 
 @override@JsonKey() final  String $type;

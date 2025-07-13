@@ -13,7 +13,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import 'package:bluesky/app_bsky_actor_defs.dart';
-import '../../../../../../ids.g.dart';
 
 part 'member.freezed.dart';
 part 'member.g.dart';
@@ -35,7 +34,7 @@ abstract class Member with _$Member {
   ];
 
   const factory Member({
-    @Default(toolsOzoneTeamDefsMember) String $type,
+    @Default('tools.ozone.team.defs#member') String $type,
     required String did,
     bool? disabled,
     @ProfileViewDetailedConverter() ProfileViewDetailed? profile,
@@ -51,7 +50,7 @@ abstract class Member with _$Member {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneTeamDefsMember;
+    return object['\$type'] == 'tools.ozone.team.defs#member';
   }
 }
 

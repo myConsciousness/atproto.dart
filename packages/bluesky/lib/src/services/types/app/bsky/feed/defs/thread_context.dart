@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'thread_context.freezed.dart';
 part 'thread_context.g.dart';
 
@@ -27,7 +24,7 @@ abstract class ThreadContext with _$ThreadContext {
   static const knownProps = <String>['rootAuthorLike'];
 
   const factory ThreadContext({
-    @Default(appBskyFeedDefsThreadContext) String $type,
+    @Default('app.bsky.feed.defs#threadContext') String $type,
     String? rootAuthorLike,
 
     Map<String, dynamic>? $unknown,
@@ -38,7 +35,7 @@ abstract class ThreadContext with _$ThreadContext {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDefsThreadContext;
+    return object['\$type'] == 'app.bsky.feed.defs#threadContext';
   }
 }
 

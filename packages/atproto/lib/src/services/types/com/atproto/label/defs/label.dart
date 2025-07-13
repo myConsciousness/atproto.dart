@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'label.freezed.dart';
 part 'label.g.dart';
 
@@ -37,7 +34,7 @@ abstract class Label with _$Label {
   ];
 
   const factory Label({
-    @Default(comAtprotoLabelDefsLabel) String $type,
+    @Default('com.atproto.label.defs#label') String $type,
 
     /// The AT Protocol version of the label object.
     int? ver,
@@ -71,7 +68,7 @@ abstract class Label with _$Label {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoLabelDefsLabel;
+    return object['\$type'] == 'com.atproto.label.defs#label';
   }
 }
 

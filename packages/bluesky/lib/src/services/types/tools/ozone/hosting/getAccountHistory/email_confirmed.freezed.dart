@@ -211,7 +211,7 @@ return $default(_that.$type,_that.email,_that.$unknown);case _:
 @JsonSerializable()
 
 class _EmailConfirmed implements EmailConfirmed {
-  const _EmailConfirmed({this.$type = toolsOzoneHostingGetAccountHistoryEmailConfirmed, required this.email, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmailConfirmed({this.$type = 'tools.ozone.hosting.getAccountHistory#emailConfirmed', required this.email, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmailConfirmed.fromJson(Map<String, dynamic> json) => _$EmailConfirmedFromJson(json);
 
 @override@JsonKey() final  String $type;

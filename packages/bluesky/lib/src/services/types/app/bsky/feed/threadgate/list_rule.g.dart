@@ -13,7 +13,7 @@ _ListRule _$ListRuleFromJson(Map json) =>
       final val = _ListRule(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyFeedThreadgateListRule,
+          (v) => v as String? ?? 'app.bsky.feed.threadgate#listRule',
         ),
         list: $checkedConvert('list', (v) => v as String),
         $unknown: $checkedConvert(

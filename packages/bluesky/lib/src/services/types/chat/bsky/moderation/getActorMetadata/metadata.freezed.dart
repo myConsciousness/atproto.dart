@@ -214,7 +214,7 @@ return $default(_that.$type,_that.messagesSent,_that.messagesReceived,_that.conv
 @JsonSerializable()
 
 class _Metadata implements Metadata {
-  const _Metadata({this.$type = chatBskyModerationGetActorMetadataMetadata, required this.messagesSent, required this.messagesReceived, required this.convos, required this.convosStarted, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Metadata({this.$type = 'chat.bsky.moderation.getActorMetadata#metadata', required this.messagesSent, required this.messagesReceived, required this.convos, required this.convosStarted, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Metadata.fromJson(Map<String, dynamic> json) => _$MetadataFromJson(json);
 
 @override@JsonKey() final  String $type;

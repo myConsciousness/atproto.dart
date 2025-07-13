@@ -222,7 +222,7 @@ return $default(_that.$type,_that.details,_that.createdBy,_that.createdAt,_that.
 @JsonSerializable()
 
 class _Event implements Event {
-  const _Event({this.$type = toolsOzoneHostingGetAccountHistoryEvent, @UEventDetailsConverter() required this.details, required this.createdBy, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Event({this.$type = 'tools.ozone.hosting.getAccountHistory#event', @UEventDetailsConverter() required this.details, required this.createdBy, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
 
 @override@JsonKey() final  String $type;

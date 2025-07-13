@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'reaction_view_sender.freezed.dart';
 part 'reaction_view_sender.g.dart';
 
@@ -26,7 +23,7 @@ abstract class ReactionViewSender with _$ReactionViewSender {
   static const knownProps = <String>['did'];
 
   const factory ReactionViewSender({
-    @Default(chatBskyConvoDefsReactionViewSender) String $type,
+    @Default('chat.bsky.convo.defs#reactionViewSender') String $type,
     required String did,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +34,7 @@ abstract class ReactionViewSender with _$ReactionViewSender {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == chatBskyConvoDefsReactionViewSender;
+    return object['\$type'] == 'chat.bsky.convo.defs#reactionViewSender';
   }
 }
 

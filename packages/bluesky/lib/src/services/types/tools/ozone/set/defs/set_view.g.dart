@@ -14,7 +14,7 @@ _SetView _$SetViewFromJson(Map json) => $checkedCreate('_SetView', json, (
   final val = _SetView(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? toolsOzoneSetDefsSetView,
+      (v) => v as String? ?? 'tools.ozone.set.defs#setView',
     ),
     name: $checkedConvert('name', (v) => v as String),
     description: $checkedConvert('description', (v) => v as String?),

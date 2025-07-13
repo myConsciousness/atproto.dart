@@ -13,7 +13,7 @@ _LabelerPrefItem _$LabelerPrefItemFromJson(Map json) =>
       final val = _LabelerPrefItem(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsLabelerPrefItem,
+          (v) => v as String? ?? 'app.bsky.actor.defs#labelerPrefItem',
         ),
         did: $checkedConvert('did', (v) => v as String),
         $unknown: $checkedConvert(

@@ -214,7 +214,7 @@ return $default(_that.$type,_that.collection,_that.rkey,_that.value,_that.$unkno
 @JsonSerializable()
 
 class _Create implements Create {
-  const _Create({this.$type = comAtprotoRepoApplyWritesCreate, required this.collection, this.rkey, required final  Map<String, dynamic> value, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
+  const _Create({this.$type = 'com.atproto.repo.applyWrites#create', required this.collection, this.rkey, required final  Map<String, dynamic> value, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
   factory _Create.fromJson(Map<String, dynamic> json) => _$CreateFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -13,7 +13,7 @@ _Info _$InfoFromJson(Map json) =>
       final val = _Info(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoLabelSubscribeLabelsInfo,
+          (v) => v as String? ?? 'com.atproto.label.subscribeLabels#info',
         ),
         name: $checkedConvert('name', (v) => v as String),
         message: $checkedConvert('message', (v) => v as String?),

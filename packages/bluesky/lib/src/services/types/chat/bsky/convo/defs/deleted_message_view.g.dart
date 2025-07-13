@@ -13,7 +13,7 @@ _DeletedMessageView _$DeletedMessageViewFromJson(Map json) =>
       final val = _DeletedMessageView(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? chatBskyConvoDefsDeletedMessageView,
+          (v) => v as String? ?? 'chat.bsky.convo.defs#deletedMessageView',
         ),
         id: $checkedConvert('id', (v) => v as String),
         rev: $checkedConvert('rev', (v) => v as String),

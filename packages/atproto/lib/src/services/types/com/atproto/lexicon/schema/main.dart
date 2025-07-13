@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'main.freezed.dart';
 part 'main.g.dart';
 
@@ -26,7 +23,7 @@ abstract class LexiconSchemaRecord with _$LexiconSchemaRecord {
   static const knownProps = <String>['lexicon'];
 
   const factory LexiconSchemaRecord({
-    @Default(comAtprotoLexiconSchema) String $type,
+    @Default('com.atproto.lexicon.schema') String $type,
 
     /// Indicates the 'version' of the Lexicon language. Must be '1' for the current atproto/Lexicon schema system.
     required int lexicon,
@@ -39,7 +36,7 @@ abstract class LexiconSchemaRecord with _$LexiconSchemaRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoLexiconSchema;
+    return object['\$type'] == 'com.atproto.lexicon.schema';
   }
 }
 

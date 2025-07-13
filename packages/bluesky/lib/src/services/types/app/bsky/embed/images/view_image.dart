@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/embed/defs/aspect_ratio.dart';
 
 part 'view_image.freezed.dart';
@@ -27,7 +26,7 @@ abstract class EmbedImagesViewImage with _$EmbedImagesViewImage {
   static const knownProps = <String>['thumb', 'fullsize', 'alt', 'aspectRatio'];
 
   const factory EmbedImagesViewImage({
-    @Default(appBskyEmbedImagesViewImage) String $type,
+    @Default('app.bsky.embed.images#viewImage') String $type,
 
     /// Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View.
     @AtUriConverter() required AtUri thumb,
@@ -47,7 +46,7 @@ abstract class EmbedImagesViewImage with _$EmbedImagesViewImage {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyEmbedImagesViewImage;
+    return object['\$type'] == 'app.bsky.embed.images#viewImage';
   }
 }
 

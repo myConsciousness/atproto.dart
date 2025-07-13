@@ -212,7 +212,7 @@ return $default(_that.$type,_that.usedBy,_that.usedAt,_that.$unknown);case _:
 @JsonSerializable()
 
 class _InviteCodeUse implements InviteCodeUse {
-  const _InviteCodeUse({this.$type = comAtprotoServerDefsInviteCodeUse, required this.usedBy, required this.usedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _InviteCodeUse({this.$type = 'com.atproto.server.defs#inviteCodeUse', required this.usedBy, required this.usedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _InviteCodeUse.fromJson(Map<String, dynamic> json) => _$InviteCodeUseFromJson(json);
 
 @override@JsonKey() final  String $type;

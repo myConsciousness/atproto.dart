@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'invite_code_use.freezed.dart';
 part 'invite_code_use.g.dart';
 
@@ -26,7 +23,7 @@ abstract class InviteCodeUse with _$InviteCodeUse {
   static const knownProps = <String>['usedBy', 'usedAt'];
 
   const factory InviteCodeUse({
-    @Default(comAtprotoServerDefsInviteCodeUse) String $type,
+    @Default('com.atproto.server.defs#inviteCodeUse') String $type,
     required String usedBy,
     required DateTime usedAt,
 
@@ -38,7 +35,7 @@ abstract class InviteCodeUse with _$InviteCodeUse {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoServerDefsInviteCodeUse;
+    return object['\$type'] == 'com.atproto.server.defs#inviteCodeUse';
   }
 }
 

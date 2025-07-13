@@ -13,7 +13,7 @@ _GraphListitemRecord _$GraphListitemRecordFromJson(Map json) =>
       final val = _GraphListitemRecord(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyGraphListitem,
+          (v) => v as String? ?? 'app.bsky.graph.listitem',
         ),
         subject: $checkedConvert('subject', (v) => v as String),
         list: $checkedConvert('list', (v) => v as String),

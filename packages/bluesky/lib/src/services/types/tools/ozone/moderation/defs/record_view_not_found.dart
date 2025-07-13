@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'record_view_not_found.freezed.dart';
 part 'record_view_not_found.g.dart';
 
@@ -26,7 +23,7 @@ abstract class RecordViewNotFound with _$RecordViewNotFound {
   static const knownProps = <String>['uri'];
 
   const factory RecordViewNotFound({
-    @Default(toolsOzoneModerationDefsRecordViewNotFound) String $type,
+    @Default('tools.ozone.moderation.defs#recordViewNotFound') String $type,
     required String uri,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +34,7 @@ abstract class RecordViewNotFound with _$RecordViewNotFound {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsRecordViewNotFound;
+    return object['\$type'] == 'tools.ozone.moderation.defs#recordViewNotFound';
   }
 }
 

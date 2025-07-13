@@ -32,12 +32,14 @@ final class LexKnownValues extends LexType {
 
   @override
   String format() {
-    final elements = values.map((e) {
-      final buffer = StringBuffer();
-      buffer.writeln("@JsonValue('$e')");
-      buffer.write("${rule.getLexKnownValuesElementName(e)}('$e'),");
-      return buffer.toString();
-    }).join('\n');
+    final elements = values
+        .map((e) {
+          final buffer = StringBuffer();
+          buffer.writeln("@JsonValue('$e')");
+          buffer.write("${rule.getLexKnownValuesElementName(e)}('$e'),");
+          return buffer.toString();
+        })
+        .join('\n');
 
     final fileName = rule.getLexObjectFileName(defName);
     final knownProps = getKnownProps();
@@ -64,7 +66,7 @@ abstract class $name with _\$$name {
   factory $name.fromJson(Map<String, Object?> json) => _\$${name}FromJson(json);
 }
 
-abstract class ${name}Converter
+final class ${name}Converter
     extends LexKnownValuesConverter<$name, Map<String, dynamic>> {
   const ${name}Converter();
 
@@ -72,7 +74,7 @@ abstract class ${name}Converter
   $name fromJson(Map<String, dynamic> json) {
     return $name.fromJson(translate(
       json,
-      ${name}.knownProps,
+      $name.knownProps,
     ));
   }
 

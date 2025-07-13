@@ -13,7 +13,7 @@ _SigDetail _$SigDetailFromJson(Map json) =>
       final val = _SigDetail(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneSignatureDefsSigDetail,
+          (v) => v as String? ?? 'tools.ozone.signature.defs#sigDetail',
         ),
         property: $checkedConvert('property', (v) => v as String),
         value: $checkedConvert('value', (v) => v as String),

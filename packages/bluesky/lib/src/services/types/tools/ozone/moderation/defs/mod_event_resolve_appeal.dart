@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'mod_event_resolve_appeal.freezed.dart';
 part 'mod_event_resolve_appeal.g.dart';
 
@@ -27,7 +24,7 @@ abstract class ModEventResolveAppeal with _$ModEventResolveAppeal {
   static const knownProps = <String>['comment'];
 
   const factory ModEventResolveAppeal({
-    @Default(toolsOzoneModerationDefsModEventResolveAppeal) String $type,
+    @Default('tools.ozone.moderation.defs#modEventResolveAppeal') String $type,
 
     /// Describe resolution.
     String? comment,
@@ -40,7 +37,8 @@ abstract class ModEventResolveAppeal with _$ModEventResolveAppeal {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsModEventResolveAppeal;
+    return object['\$type'] ==
+        'tools.ozone.moderation.defs#modEventResolveAppeal';
   }
 }
 

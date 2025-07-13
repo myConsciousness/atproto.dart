@@ -280,7 +280,7 @@ return $default(_that.$type,_that.issuer,_that.uri,_that.subject,_that.handle,_t
 @JsonSerializable()
 
 class _VerificationView implements VerificationView {
-  const _VerificationView({this.$type = toolsOzoneVerificationDefsVerificationView, required this.issuer, required this.uri, required this.subject, required this.handle, required this.displayName, required this.createdAt, this.revokeReason, this.revokedAt, this.revokedBy, @UVerificationViewSubjectProfileConverter() this.subjectProfile, @UVerificationViewIssuerProfileConverter() this.issuerProfile, @UVerificationViewSubjectRepoConverter() this.subjectRepo, @UVerificationViewIssuerRepoConverter() this.issuerRepo, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _VerificationView({this.$type = 'tools.ozone.verification.defs#verificationView', required this.issuer, required this.uri, required this.subject, required this.handle, required this.displayName, required this.createdAt, this.revokeReason, this.revokedAt, this.revokedBy, @UVerificationViewSubjectProfileConverter() this.subjectProfile, @UVerificationViewIssuerProfileConverter() this.issuerProfile, @UVerificationViewSubjectRepoConverter() this.subjectRepo, @UVerificationViewIssuerRepoConverter() this.issuerRepo, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _VerificationView.fromJson(Map<String, dynamic> json) => _$VerificationViewFromJson(json);
 
 @override@JsonKey() final  String $type;

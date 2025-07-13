@@ -220,7 +220,7 @@ return $default(_that.$type,_that.record,_that.$unknown);case _:
 @JsonSerializable()
 
 class _EmbedRecord implements EmbedRecord {
-  const _EmbedRecord({this.$type = appBskyEmbedRecord, @RepoStrongRefConverter() required this.record, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedRecord({this.$type = 'app.bsky.embed.record', @RepoStrongRefConverter() required this.record, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedRecord.fromJson(Map<String, dynamic> json) => _$EmbedRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

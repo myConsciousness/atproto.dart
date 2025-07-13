@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'mod_event_email.freezed.dart';
 part 'mod_event_email.g.dart';
 
@@ -27,7 +24,7 @@ abstract class ModEventEmail with _$ModEventEmail {
   static const knownProps = <String>['subjectLine', 'content', 'comment'];
 
   const factory ModEventEmail({
-    @Default(toolsOzoneModerationDefsModEventEmail) String $type,
+    @Default('tools.ozone.moderation.defs#modEventEmail') String $type,
 
     /// The subject line of the email sent to the user.
     required String subjectLine,
@@ -46,7 +43,7 @@ abstract class ModEventEmail with _$ModEventEmail {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsModEventEmail;
+    return object['\$type'] == 'tools.ozone.moderation.defs#modEventEmail';
   }
 }
 

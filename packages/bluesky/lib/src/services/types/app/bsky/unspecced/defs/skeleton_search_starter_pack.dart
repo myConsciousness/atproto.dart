@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'skeleton_search_starter_pack.freezed.dart';
 part 'skeleton_search_starter_pack.g.dart';
 
@@ -26,7 +23,7 @@ abstract class SkeletonSearchStarterPack with _$SkeletonSearchStarterPack {
   static const knownProps = <String>['uri'];
 
   const factory SkeletonSearchStarterPack({
-    @Default(appBskyUnspeccedDefsSkeletonSearchStarterPack) String $type,
+    @Default('app.bsky.unspecced.defs#skeletonSearchStarterPack') String $type,
     required String uri,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +34,8 @@ abstract class SkeletonSearchStarterPack with _$SkeletonSearchStarterPack {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyUnspeccedDefsSkeletonSearchStarterPack;
+    return object['\$type'] ==
+        'app.bsky.unspecced.defs#skeletonSearchStarterPack';
   }
 }
 

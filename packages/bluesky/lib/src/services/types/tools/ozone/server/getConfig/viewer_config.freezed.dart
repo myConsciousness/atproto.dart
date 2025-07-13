@@ -211,7 +211,7 @@ return $default(_that.$type,_that.role,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ViewerConfig implements ViewerConfig {
-  const _ViewerConfig({this.$type = toolsOzoneServerGetConfigViewerConfig, this.role, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ViewerConfig({this.$type = 'tools.ozone.server.getConfig#viewerConfig', this.role, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ViewerConfig.fromJson(Map<String, dynamic> json) => _$ViewerConfigFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './union_log_delete_message_message.dart';
 
 part 'log_delete_message.freezed.dart';
@@ -27,7 +26,7 @@ abstract class LogDeleteMessage with _$LogDeleteMessage {
   static const knownProps = <String>['rev', 'convoId', 'message'];
 
   const factory LogDeleteMessage({
-    @Default(chatBskyConvoDefsLogDeleteMessage) String $type,
+    @Default('chat.bsky.convo.defs#logDeleteMessage') String $type,
     required String rev,
     required String convoId,
     @ULogDeleteMessageMessageConverter()
@@ -41,7 +40,7 @@ abstract class LogDeleteMessage with _$LogDeleteMessage {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == chatBskyConvoDefsLogDeleteMessage;
+    return object['\$type'] == 'chat.bsky.convo.defs#logDeleteMessage';
   }
 }
 

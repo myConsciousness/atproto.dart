@@ -13,7 +13,7 @@ _SavedFeedsPrefV2 _$SavedFeedsPrefV2FromJson(Map json) =>
       final val = _SavedFeedsPrefV2(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsSavedFeedsPrefV2,
+          (v) => v as String? ?? 'app.bsky.actor.defs#savedFeedsPrefV2',
         ),
         items: $checkedConvert(
           'items',

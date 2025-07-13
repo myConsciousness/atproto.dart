@@ -13,7 +13,9 @@ _ModEventResolveAppeal _$ModEventResolveAppealFromJson(Map json) =>
       final val = _ModEventResolveAppeal(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsModEventResolveAppeal,
+          (v) =>
+              v as String? ??
+              'tools.ozone.moderation.defs#modEventResolveAppeal',
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         $unknown: $checkedConvert(

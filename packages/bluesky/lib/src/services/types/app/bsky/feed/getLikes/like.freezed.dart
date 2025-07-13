@@ -222,7 +222,7 @@ return $default(_that.$type,_that.indexedAt,_that.createdAt,_that.actor,_that.$u
 @JsonSerializable()
 
 class _Like implements Like {
-  const _Like({this.$type = appBskyFeedGetLikesLike, required this.indexedAt, required this.createdAt, @ProfileViewConverter() required this.actor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Like({this.$type = 'app.bsky.feed.getLikes#like', required this.indexedAt, required this.createdAt, @ProfileViewConverter() required this.actor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Like.fromJson(Map<String, dynamic> json) => _$LikeFromJson(json);
 
 @override@JsonKey() final  String $type;

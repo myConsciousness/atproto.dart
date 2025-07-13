@@ -13,7 +13,8 @@ _AppPassword _$AppPasswordFromJson(Map json) =>
       final val = _AppPassword(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoServerListAppPasswordsAppPassword,
+          (v) =>
+              v as String? ?? 'com.atproto.server.listAppPasswords#appPassword',
         ),
         name: $checkedConvert('name', (v) => v as String),
         createdAt: $checkedConvert(

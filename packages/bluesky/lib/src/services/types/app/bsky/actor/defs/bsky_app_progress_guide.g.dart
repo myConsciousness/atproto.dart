@@ -13,7 +13,7 @@ _BskyAppProgressGuide _$BskyAppProgressGuideFromJson(Map json) =>
       final val = _BskyAppProgressGuide(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsBskyAppProgressGuide,
+          (v) => v as String? ?? 'app.bsky.actor.defs#bskyAppProgressGuide',
         ),
         guide: $checkedConvert('guide', (v) => v as String),
         $unknown: $checkedConvert(

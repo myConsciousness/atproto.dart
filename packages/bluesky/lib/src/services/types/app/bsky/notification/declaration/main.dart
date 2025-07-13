@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'main.freezed.dart';
 part 'main.g.dart';
 
@@ -27,7 +24,7 @@ abstract class NotificationDeclarationRecord
   static const knownProps = <String>['allowSubscriptions'];
 
   const factory NotificationDeclarationRecord({
-    @Default(appBskyNotificationDeclaration) String $type,
+    @Default('app.bsky.notification.declaration') String $type,
 
     /// A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.
     required String allowSubscriptions,
@@ -40,7 +37,7 @@ abstract class NotificationDeclarationRecord
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyNotificationDeclaration;
+    return object['\$type'] == 'app.bsky.notification.declaration';
   }
 }
 

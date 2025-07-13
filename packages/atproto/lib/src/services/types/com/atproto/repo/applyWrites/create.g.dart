@@ -14,7 +14,7 @@ _Create _$CreateFromJson(Map json) => $checkedCreate('_Create', json, (
   final val = _Create(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? comAtprotoRepoApplyWritesCreate,
+      (v) => v as String? ?? 'com.atproto.repo.applyWrites#create',
     ),
     collection: $checkedConvert('collection', (v) => v as String),
     rkey: $checkedConvert('rkey', (v) => v as String?),

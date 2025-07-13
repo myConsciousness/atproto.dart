@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'reporter_stats.freezed.dart';
 part 'reporter_stats.g.dart';
 
@@ -36,7 +33,7 @@ abstract class ReporterStats with _$ReporterStats {
   ];
 
   const factory ReporterStats({
-    @Default(toolsOzoneModerationDefsReporterStats) String $type,
+    @Default('tools.ozone.moderation.defs#reporterStats') String $type,
     required String did,
 
     /// The total number of reports made by the user on accounts.
@@ -71,7 +68,7 @@ abstract class ReporterStats with _$ReporterStats {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsReporterStats;
+    return object['\$type'] == 'tools.ozone.moderation.defs#reporterStats';
   }
 }
 

@@ -14,7 +14,8 @@ _HandleUpdated _$HandleUpdatedFromJson(Map json) =>
         $type: $checkedConvert(
           r'$type',
           (v) =>
-              v as String? ?? toolsOzoneHostingGetAccountHistoryHandleUpdated,
+              v as String? ??
+              'tools.ozone.hosting.getAccountHistory#handleUpdated',
         ),
         handle: $checkedConvert('handle', (v) => v as String),
         $unknown: $checkedConvert(

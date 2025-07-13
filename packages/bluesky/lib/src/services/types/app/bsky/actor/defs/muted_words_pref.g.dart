@@ -13,7 +13,7 @@ _MutedWordsPref _$MutedWordsPrefFromJson(Map json) =>
       final val = _MutedWordsPref(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsMutedWordsPref,
+          (v) => v as String? ?? 'app.bsky.actor.defs#mutedWordsPref',
         ),
         items: $checkedConvert(
           'items',

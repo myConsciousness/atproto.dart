@@ -13,7 +13,7 @@ _EmbedImagesImage _$EmbedImagesImageFromJson(Map json) =>
       final val = _EmbedImagesImage(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyEmbedImagesImage,
+          (v) => v as String? ?? 'app.bsky.embed.images#image',
         ),
         image: $checkedConvert(
           'image',

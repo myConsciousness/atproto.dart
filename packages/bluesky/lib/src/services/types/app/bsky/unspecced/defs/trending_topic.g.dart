@@ -13,7 +13,7 @@ _TrendingTopic _$TrendingTopicFromJson(Map json) =>
       final val = _TrendingTopic(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyUnspeccedDefsTrendingTopic,
+          (v) => v as String? ?? 'app.bsky.unspecced.defs#trendingTopic',
         ),
         topic: $checkedConvert('topic', (v) => v as String),
         displayName: $checkedConvert('displayName', (v) => v as String?),

@@ -14,7 +14,7 @@ _ReplyRef _$ReplyRefFromJson(Map json) => $checkedCreate('_ReplyRef', json, (
   final val = _ReplyRef(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyFeedDefsReplyRef,
+      (v) => v as String? ?? 'app.bsky.feed.defs#replyRef',
     ),
     root: $checkedConvert(
       'root',

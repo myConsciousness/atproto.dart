@@ -13,7 +13,9 @@ _Suggestion _$SuggestionFromJson(Map json) =>
       final val = _Suggestion(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyUnspeccedGetTaggedSuggestionsSuggestion,
+          (v) =>
+              v as String? ??
+              'app.bsky.unspecced.getTaggedSuggestions#suggestion',
         ),
         tag: $checkedConvert('tag', (v) => v as String),
         subjectType: $checkedConvert('subjectType', (v) => v as String),

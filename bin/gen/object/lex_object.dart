@@ -62,12 +62,12 @@ final class LexObject extends LexType {
     }
 
     final packages = StringBuffer();
-    for (final packagePath in this
-        .properties
-        .where((e) => e.type.packagePath != null)
-        .map((e) => e.type.packagePath)
-        .toSet()
-        .toList()) {
+    for (final packagePath
+        in this.properties
+            .where((e) => e.type.packagePath != null)
+            .map((e) => e.type.packagePath)
+            .toSet()
+            .toList()) {
       packages.writeln("import '$packagePath';");
     }
 
@@ -79,8 +79,6 @@ final class LexObject extends LexType {
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:atproto_core/atproto_core.dart';
-
-import '../../../../../../ids.g.dart';
 
 ${packages.toString()}
 
@@ -95,7 +93,7 @@ abstract class $name with _\$$name {
   $knownProps
 
   const factory $name({
-    @Default($id) String \$type,
+    @Default('$id') String \$type,
     ${properties.toString()}
     Map<String, dynamic>? \$unknown,
   }) = _$name;
@@ -113,7 +111,7 @@ $converter
     final buffer = StringBuffer();
     buffer.writeln('static bool validate(final Map<String, dynamic> object) {');
     buffer.writeln("  if (!object.containsKey('\\\$type')) return false;");
-    buffer.writeln("  return object['\\\$type'] == $id");
+    buffer.writeln("  return object['\\\$type'] == '$id'");
     if (defName == 'main') {
       buffer.writeln("  || object['\\\$type'] == '$lexiconId#main'");
     }

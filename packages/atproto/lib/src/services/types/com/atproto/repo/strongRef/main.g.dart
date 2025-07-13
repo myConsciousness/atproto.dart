@@ -13,7 +13,7 @@ _RepoStrongRef _$RepoStrongRefFromJson(Map json) =>
       final val = _RepoStrongRef(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoRepoStrongRef,
+          (v) => v as String? ?? 'com.atproto.repo.strongRef',
         ),
         uri: $checkedConvert('uri', (v) => v as String),
         cid: $checkedConvert('cid', (v) => v as String),

@@ -211,7 +211,7 @@ return $default(_that.$type,_that.url,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ServiceConfig implements ServiceConfig {
-  const _ServiceConfig({this.$type = toolsOzoneServerGetConfigServiceConfig, @AtUriConverter() this.url, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ServiceConfig({this.$type = 'tools.ozone.server.getConfig#serviceConfig', @AtUriConverter() this.url, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServiceConfig.fromJson(Map<String, dynamic> json) => _$ServiceConfigFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/saved_feed.dart';
 
 part 'saved_feeds_pref_v_2.freezed.dart';
@@ -27,7 +26,7 @@ abstract class SavedFeedsPrefV2 with _$SavedFeedsPrefV2 {
   static const knownProps = <String>['items'];
 
   const factory SavedFeedsPrefV2({
-    @Default(appBskyActorDefsSavedFeedsPrefV2) String $type,
+    @Default('app.bsky.actor.defs#savedFeedsPrefV2') String $type,
     @SavedFeedConverter() required List<SavedFeed> items,
 
     Map<String, dynamic>? $unknown,
@@ -38,7 +37,7 @@ abstract class SavedFeedsPrefV2 with _$SavedFeedsPrefV2 {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsSavedFeedsPrefV2;
+    return object['\$type'] == 'app.bsky.actor.defs#savedFeedsPrefV2';
   }
 }
 

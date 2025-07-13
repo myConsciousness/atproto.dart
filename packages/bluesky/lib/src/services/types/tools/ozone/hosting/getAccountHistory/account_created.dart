@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'account_created.freezed.dart';
 part 'account_created.g.dart';
 
@@ -26,7 +23,8 @@ abstract class AccountCreated with _$AccountCreated {
   static const knownProps = <String>['email', 'handle'];
 
   const factory AccountCreated({
-    @Default(toolsOzoneHostingGetAccountHistoryAccountCreated) String $type,
+    @Default('tools.ozone.hosting.getAccountHistory#accountCreated')
+    String $type,
     String? email,
     String? handle,
 
@@ -38,7 +36,8 @@ abstract class AccountCreated with _$AccountCreated {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneHostingGetAccountHistoryAccountCreated;
+    return object['\$type'] ==
+        'tools.ozone.hosting.getAccountHistory#accountCreated';
   }
 }
 

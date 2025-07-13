@@ -13,7 +13,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
 
 part 'starter_pack_view_basic.freezed.dart';
@@ -38,7 +37,7 @@ abstract class StarterPackViewBasic with _$StarterPackViewBasic {
   ];
 
   const factory StarterPackViewBasic({
-    @Default(appBskyGraphDefsStarterPackViewBasic) String $type,
+    @Default('app.bsky.graph.defs#starterPackViewBasic') String $type,
     required String uri,
     required String cid,
     required Map<String, dynamic> record,
@@ -57,7 +56,7 @@ abstract class StarterPackViewBasic with _$StarterPackViewBasic {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyGraphDefsStarterPackViewBasic;
+    return object['\$type'] == 'app.bsky.graph.defs#starterPackViewBasic';
   }
 }
 

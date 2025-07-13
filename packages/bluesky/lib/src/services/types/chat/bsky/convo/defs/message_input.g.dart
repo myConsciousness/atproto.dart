@@ -15,7 +15,7 @@ _MessageInput _$MessageInputFromJson(Map json) => $checkedCreate(
     final val = _MessageInput(
       $type: $checkedConvert(
         r'$type',
-        (v) => v as String? ?? chatBskyConvoDefsMessageInput,
+        (v) => v as String? ?? 'chat.bsky.convo.defs#messageInput',
       ),
       text: $checkedConvert('text', (v) => v as String),
       facets: $checkedConvert(

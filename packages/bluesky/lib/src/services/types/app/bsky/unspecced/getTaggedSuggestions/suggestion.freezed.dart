@@ -213,7 +213,7 @@ return $default(_that.$type,_that.tag,_that.subjectType,_that.subject,_that.$unk
 @JsonSerializable()
 
 class _Suggestion implements Suggestion {
-  const _Suggestion({this.$type = appBskyUnspeccedGetTaggedSuggestionsSuggestion, required this.tag, required this.subjectType, @AtUriConverter() required this.subject, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Suggestion({this.$type = 'app.bsky.unspecced.getTaggedSuggestions#suggestion', required this.tag, required this.subjectType, @AtUriConverter() required this.subject, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Suggestion.fromJson(Map<String, dynamic> json) => _$SuggestionFromJson(json);
 
 @override@JsonKey() final  String $type;

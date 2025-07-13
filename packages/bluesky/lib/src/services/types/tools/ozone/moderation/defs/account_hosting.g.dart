@@ -13,7 +13,7 @@ _AccountHosting _$AccountHostingFromJson(Map json) =>
       final val = _AccountHosting(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsAccountHosting,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#accountHosting',
         ),
         status: $checkedConvert('status', (v) => v as String),
         updatedAt: $checkedConvert(

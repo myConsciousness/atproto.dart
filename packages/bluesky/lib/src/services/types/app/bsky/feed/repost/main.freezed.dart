@@ -234,7 +234,7 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.via,_that.$unkno
 @JsonSerializable()
 
 class _FeedRepostRecord implements FeedRepostRecord {
-  const _FeedRepostRecord({this.$type = appBskyFeedRepost, @RepoStrongRefConverter() required this.subject, required this.createdAt, @RepoStrongRefConverter() this.via, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FeedRepostRecord({this.$type = 'app.bsky.feed.repost', @RepoStrongRefConverter() required this.subject, required this.createdAt, @RepoStrongRefConverter() this.via, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedRepostRecord.fromJson(Map<String, dynamic> json) => _$FeedRepostRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

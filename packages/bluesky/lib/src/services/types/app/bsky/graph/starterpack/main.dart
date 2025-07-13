@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/richtext/facet//main.dart';
 import './feed_item.dart';
 
@@ -35,7 +34,7 @@ abstract class GraphStarterpackRecord with _$GraphStarterpackRecord {
   ];
 
   const factory GraphStarterpackRecord({
-    @Default(appBskyGraphStarterpack) String $type,
+    @Default('app.bsky.graph.starterpack') String $type,
 
     /// Display name for starter pack; can not be empty.
     required String name,
@@ -55,7 +54,7 @@ abstract class GraphStarterpackRecord with _$GraphStarterpackRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyGraphStarterpack;
+    return object['\$type'] == 'app.bsky.graph.starterpack';
   }
 }
 

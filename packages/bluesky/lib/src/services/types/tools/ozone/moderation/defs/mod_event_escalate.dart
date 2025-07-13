@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'mod_event_escalate.freezed.dart';
 part 'mod_event_escalate.g.dart';
 
@@ -26,7 +23,7 @@ abstract class ModEventEscalate with _$ModEventEscalate {
   static const knownProps = <String>['comment'];
 
   const factory ModEventEscalate({
-    @Default(toolsOzoneModerationDefsModEventEscalate) String $type,
+    @Default('tools.ozone.moderation.defs#modEventEscalate') String $type,
     String? comment,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +34,7 @@ abstract class ModEventEscalate with _$ModEventEscalate {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsModEventEscalate;
+    return object['\$type'] == 'tools.ozone.moderation.defs#modEventEscalate';
   }
 }
 

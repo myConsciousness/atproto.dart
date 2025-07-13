@@ -13,7 +13,7 @@ _CreateResult _$CreateResultFromJson(Map json) =>
       final val = _CreateResult(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoRepoApplyWritesCreateResult,
+          (v) => v as String? ?? 'com.atproto.repo.applyWrites#createResult',
         ),
         uri: $checkedConvert('uri', (v) => v as String),
         cid: $checkedConvert('cid', (v) => v as String),

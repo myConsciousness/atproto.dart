@@ -13,7 +13,7 @@ _ModTool _$ModToolFromJson(Map json) =>
       final val = _ModTool(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsModTool,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#modTool',
         ),
         name: $checkedConvert('name', (v) => v as String),
         meta: $checkedConvert(

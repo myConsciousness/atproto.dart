@@ -13,7 +13,7 @@ _Links _$LinksFromJson(Map json) =>
       final val = _Links(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyFeedDescribeFeedGeneratorLinks,
+          (v) => v as String? ?? 'app.bsky.feed.describeFeedGenerator#links',
         ),
         privacyPolicy: $checkedConvert('privacyPolicy', (v) => v as String?),
         termsOfService: $checkedConvert('termsOfService', (v) => v as String?),

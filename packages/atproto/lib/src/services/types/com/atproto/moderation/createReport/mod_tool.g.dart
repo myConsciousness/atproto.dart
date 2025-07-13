@@ -13,7 +13,7 @@ _ModTool _$ModToolFromJson(Map json) =>
       final val = _ModTool(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoModerationCreateReportModTool,
+          (v) => v as String? ?? 'com.atproto.moderation.createReport#modTool',
         ),
         name: $checkedConvert('name', (v) => v as String),
         meta: $checkedConvert(

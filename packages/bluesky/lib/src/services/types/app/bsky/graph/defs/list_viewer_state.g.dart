@@ -13,7 +13,7 @@ _ListViewerState _$ListViewerStateFromJson(Map json) =>
       final val = _ListViewerState(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyGraphDefsListViewerState,
+          (v) => v as String? ?? 'app.bsky.graph.defs#listViewerState',
         ),
         muted: $checkedConvert('muted', (v) => v as bool?),
         blocked: $checkedConvert('blocked', (v) => v as String?),

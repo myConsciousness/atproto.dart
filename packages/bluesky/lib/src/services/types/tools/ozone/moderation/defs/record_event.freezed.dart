@@ -214,7 +214,7 @@ return $default(_that.$type,_that.comment,_that.op,_that.cid,_that.timestamp,_th
 @JsonSerializable()
 
 class _RecordEvent implements RecordEvent {
-  const _RecordEvent({this.$type = toolsOzoneModerationDefsRecordEvent, this.comment, required this.op, this.cid, required this.timestamp, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RecordEvent({this.$type = 'tools.ozone.moderation.defs#recordEvent', this.comment, required this.op, this.cid, required this.timestamp, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RecordEvent.fromJson(Map<String, dynamic> json) => _$RecordEventFromJson(json);
 
 @override@JsonKey() final  String $type;

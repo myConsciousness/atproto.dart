@@ -14,7 +14,7 @@ _TrendView _$TrendViewFromJson(Map json) => $checkedCreate('_TrendView', json, (
   final val = _TrendView(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyUnspeccedDefsTrendView,
+      (v) => v as String? ?? 'app.bsky.unspecced.defs#trendView',
     ),
     topic: $checkedConvert('topic', (v) => v as String),
     displayName: $checkedConvert('displayName', (v) => v as String),

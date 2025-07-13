@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'repo_blob_ref.freezed.dart';
 part 'repo_blob_ref.g.dart';
 
@@ -26,7 +23,7 @@ abstract class RepoBlobRef with _$RepoBlobRef {
   static const knownProps = <String>['did', 'cid', 'recordUri'];
 
   const factory RepoBlobRef({
-    @Default(comAtprotoAdminDefsRepoBlobRef) String $type,
+    @Default('com.atproto.admin.defs#repoBlobRef') String $type,
     required String did,
     required String cid,
     String? recordUri,
@@ -39,7 +36,7 @@ abstract class RepoBlobRef with _$RepoBlobRef {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoAdminDefsRepoBlobRef;
+    return object['\$type'] == 'com.atproto.admin.defs#repoBlobRef';
   }
 }
 

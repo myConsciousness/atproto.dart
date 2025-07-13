@@ -14,7 +14,7 @@ _InviteCode _$InviteCodeFromJson(
   final val = _InviteCode(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? comAtprotoServerDefsInviteCode,
+      (v) => v as String? ?? 'com.atproto.server.defs#inviteCode',
     ),
     code: $checkedConvert('code', (v) => v as String),
     available: $checkedConvert('available', (v) => (v as num).toInt()),

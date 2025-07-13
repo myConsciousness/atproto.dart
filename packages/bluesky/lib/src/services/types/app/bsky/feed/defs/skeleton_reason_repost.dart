@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'skeleton_reason_repost.freezed.dart';
 part 'skeleton_reason_repost.g.dart';
 
@@ -26,7 +23,7 @@ abstract class SkeletonReasonRepost with _$SkeletonReasonRepost {
   static const knownProps = <String>['repost'];
 
   const factory SkeletonReasonRepost({
-    @Default(appBskyFeedDefsSkeletonReasonRepost) String $type,
+    @Default('app.bsky.feed.defs#skeletonReasonRepost') String $type,
     required String repost,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +34,7 @@ abstract class SkeletonReasonRepost with _$SkeletonReasonRepost {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDefsSkeletonReasonRepost;
+    return object['\$type'] == 'app.bsky.feed.defs#skeletonReasonRepost';
   }
 }
 

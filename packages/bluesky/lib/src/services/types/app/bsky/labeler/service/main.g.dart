@@ -14,7 +14,7 @@ _LabelerServiceRecord _$LabelerServiceRecordFromJson(
   final val = _LabelerServiceRecord(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyLabelerService,
+      (v) => v as String? ?? 'app.bsky.labeler.service',
     ),
     policies: $checkedConvert(
       'policies',

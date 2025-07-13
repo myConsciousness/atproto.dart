@@ -13,7 +13,7 @@ _LogAcceptConvo _$LogAcceptConvoFromJson(Map json) =>
       final val = _LogAcceptConvo(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? chatBskyConvoDefsLogAcceptConvo,
+          (v) => v as String? ?? 'chat.bsky.convo.defs#logAcceptConvo',
         ),
         rev: $checkedConvert('rev', (v) => v as String),
         convoId: $checkedConvert('convoId', (v) => v as String),

@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'generator_viewer_state.freezed.dart';
 part 'generator_viewer_state.g.dart';
 
@@ -26,7 +23,7 @@ abstract class GeneratorViewerState with _$GeneratorViewerState {
   static const knownProps = <String>['like'];
 
   const factory GeneratorViewerState({
-    @Default(appBskyFeedDefsGeneratorViewerState) String $type,
+    @Default('app.bsky.feed.defs#generatorViewerState') String $type,
     String? like,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +34,7 @@ abstract class GeneratorViewerState with _$GeneratorViewerState {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDefsGeneratorViewerState;
+    return object['\$type'] == 'app.bsky.feed.defs#generatorViewerState';
   }
 }
 

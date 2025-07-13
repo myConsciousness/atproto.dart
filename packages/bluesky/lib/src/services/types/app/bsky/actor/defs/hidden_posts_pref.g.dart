@@ -13,7 +13,7 @@ _HiddenPostsPref _$HiddenPostsPrefFromJson(Map json) =>
       final val = _HiddenPostsPref(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsHiddenPostsPref,
+          (v) => v as String? ?? 'app.bsky.actor.defs#hiddenPostsPref',
         ),
         items: $checkedConvert(
           'items',

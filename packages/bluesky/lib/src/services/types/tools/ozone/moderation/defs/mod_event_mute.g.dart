@@ -13,7 +13,7 @@ _ModEventMute _$ModEventMuteFromJson(Map json) =>
       final val = _ModEventMute(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsModEventMute,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#modEventMute',
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         durationInHours: $checkedConvert(

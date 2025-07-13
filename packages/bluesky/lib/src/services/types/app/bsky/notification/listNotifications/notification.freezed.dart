@@ -229,7 +229,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.reason,_that.
 @JsonSerializable()
 
 class _Notification implements Notification {
-  const _Notification({this.$type = appBskyNotificationListNotificationsNotification, required this.uri, required this.cid, @ProfileViewConverter() required this.author, required this.reason, this.reasonSubject, required final  Map<String, dynamic> record, required this.isRead, required this.indexedAt, @LabelConverter() final  List<Label>? labels, final  Map<String, dynamic>? $unknown}): _record = record,_labels = labels,_$unknown = $unknown;
+  const _Notification({this.$type = 'app.bsky.notification.listNotifications#notification', required this.uri, required this.cid, @ProfileViewConverter() required this.author, required this.reason, this.reasonSubject, required final  Map<String, dynamic> record, required this.isRead, required this.indexedAt, @LabelConverter() final  List<Label>? labels, final  Map<String, dynamic>? $unknown}): _record = record,_labels = labels,_$unknown = $unknown;
   factory _Notification.fromJson(Map<String, dynamic> json) => _$NotificationFromJson(json);
 
 @override@JsonKey() final  String $type;

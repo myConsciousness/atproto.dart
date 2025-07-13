@@ -238,7 +238,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.likeCount,_t
 @JsonSerializable()
 
 class _LabelerView implements LabelerView {
-  const _LabelerView({this.$type = appBskyLabelerDefsLabelerView, required this.uri, required this.cid, @ProfileViewConverter() required this.creator, this.likeCount, @LabelerViewerStateConverter() this.viewer, required this.indexedAt, @LabelConverter() final  List<Label>? labels, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
+  const _LabelerView({this.$type = 'app.bsky.labeler.defs#labelerView', required this.uri, required this.cid, @ProfileViewConverter() required this.creator, this.likeCount, @LabelerViewerStateConverter() this.viewer, required this.indexedAt, @LabelConverter() final  List<Label>? labels, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
   factory _LabelerView.fromJson(Map<String, dynamic> json) => _$LabelerViewFromJson(json);
 
 @override@JsonKey() final  String $type;

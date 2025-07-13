@@ -13,7 +13,7 @@ _StatusAttr _$StatusAttrFromJson(Map json) =>
       final val = _StatusAttr(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoAdminDefsStatusAttr,
+          (v) => v as String? ?? 'com.atproto.admin.defs#statusAttr',
         ),
         applied: $checkedConvert('applied', (v) => v as bool),
         ref: $checkedConvert('ref', (v) => v as String?),

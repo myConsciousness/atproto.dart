@@ -212,7 +212,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.$unknown);case _:
 @JsonSerializable()
 
 class _RepoStrongRef implements RepoStrongRef {
-  const _RepoStrongRef({this.$type = comAtprotoRepoStrongRef, required this.uri, required this.cid, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RepoStrongRef({this.$type = 'com.atproto.repo.strongRef', required this.uri, required this.cid, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoStrongRef.fromJson(Map<String, dynamic> json) => _$RepoStrongRefFromJson(json);
 
 @override@JsonKey() final  String $type;

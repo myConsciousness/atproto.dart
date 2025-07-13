@@ -13,7 +13,7 @@ _FeedItem _$FeedItemFromJson(Map json) =>
       final val = _FeedItem(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyGraphStarterpackFeedItem,
+          (v) => v as String? ?? 'app.bsky.graph.starterpack#feedItem',
         ),
         uri: $checkedConvert('uri', (v) => v as String),
         $unknown: $checkedConvert(

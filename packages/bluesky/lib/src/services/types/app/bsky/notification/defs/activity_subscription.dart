@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'activity_subscription.freezed.dart';
 part 'activity_subscription.g.dart';
 
@@ -26,7 +23,7 @@ abstract class ActivitySubscription with _$ActivitySubscription {
   static const knownProps = <String>['post', 'reply'];
 
   const factory ActivitySubscription({
-    @Default(appBskyNotificationDefsActivitySubscription) String $type,
+    @Default('app.bsky.notification.defs#activitySubscription') String $type,
     required bool post,
     required bool reply,
 
@@ -38,7 +35,8 @@ abstract class ActivitySubscription with _$ActivitySubscription {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyNotificationDefsActivitySubscription;
+    return object['\$type'] ==
+        'app.bsky.notification.defs#activitySubscription';
   }
 }
 

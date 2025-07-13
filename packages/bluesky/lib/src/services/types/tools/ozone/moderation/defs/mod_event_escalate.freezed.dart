@@ -211,7 +211,7 @@ return $default(_that.$type,_that.comment,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ModEventEscalate implements ModEventEscalate {
-  const _ModEventEscalate({this.$type = toolsOzoneModerationDefsModEventEscalate, this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModEventEscalate({this.$type = 'tools.ozone.moderation.defs#modEventEscalate', this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModEventEscalate.fromJson(Map<String, dynamic> json) => _$ModEventEscalateFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -235,7 +235,7 @@ return $default(_that.$type,_that.image,_that.alt,_that.aspectRatio,_that.$unkno
 @JsonSerializable()
 
 class _EmbedImagesImage implements EmbedImagesImage {
-  const _EmbedImagesImage({this.$type = appBskyEmbedImagesImage, @BlobConverter() required this.image, required this.alt, @AspectRatioConverter() this.aspectRatio, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedImagesImage({this.$type = 'app.bsky.embed.images#image', @BlobConverter() required this.image, required this.alt, @AspectRatioConverter() this.aspectRatio, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedImagesImage.fromJson(Map<String, dynamic> json) => _$EmbedImagesImageFromJson(json);
 
 @override@JsonKey() final  String $type;

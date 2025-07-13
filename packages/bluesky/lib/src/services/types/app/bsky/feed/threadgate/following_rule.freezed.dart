@@ -210,7 +210,7 @@ return $default(_that.$type,_that.$unknown);case _:
 @JsonSerializable()
 
 class _FollowingRule implements FollowingRule {
-  const _FollowingRule({this.$type = appBskyFeedThreadgateFollowingRule, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FollowingRule({this.$type = 'app.bsky.feed.threadgate#followingRule', final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FollowingRule.fromJson(Map<String, dynamic> json) => _$FollowingRuleFromJson(json);
 
 @override@JsonKey() final  String $type;

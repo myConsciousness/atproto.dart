@@ -12,7 +12,10 @@ _FeedRepostRecord _$FeedRepostRecordFromJson(
   Map json,
 ) => $checkedCreate('_FeedRepostRecord', json, ($checkedConvert) {
   final val = _FeedRepostRecord(
-    $type: $checkedConvert(r'$type', (v) => v as String? ?? appBskyFeedRepost),
+    $type: $checkedConvert(
+      r'$type',
+      (v) => v as String? ?? 'app.bsky.feed.repost',
+    ),
     subject: $checkedConvert(
       'subject',
       (v) => const RepoStrongRefConverter().fromJson(v as Map<String, dynamic>),

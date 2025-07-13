@@ -13,7 +13,7 @@ _ViewerState _$ViewerStateFromJson(Map json) =>
       final val = _ViewerState(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyFeedDefsViewerState,
+          (v) => v as String? ?? 'app.bsky.feed.defs#viewerState',
         ),
         repost: $checkedConvert('repost', (v) => v as String?),
         like: $checkedConvert('like', (v) => v as String?),

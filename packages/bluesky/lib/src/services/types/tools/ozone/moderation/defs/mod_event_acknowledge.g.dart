@@ -13,7 +13,8 @@ _ModEventAcknowledge _$ModEventAcknowledgeFromJson(Map json) =>
       final val = _ModEventAcknowledge(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsModEventAcknowledge,
+          (v) =>
+              v as String? ?? 'tools.ozone.moderation.defs#modEventAcknowledge',
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         acknowledgeAccountSubjects: $checkedConvert(

@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'relationship.freezed.dart';
 part 'relationship.g.dart';
 
@@ -27,7 +24,7 @@ abstract class Relationship with _$Relationship {
   static const knownProps = <String>['did', 'following', 'followedBy'];
 
   const factory Relationship({
-    @Default(appBskyGraphDefsRelationship) String $type,
+    @Default('app.bsky.graph.defs#relationship') String $type,
     required String did,
 
     /// if the actor follows this DID, this is the AT-URI of the follow record
@@ -44,7 +41,7 @@ abstract class Relationship with _$Relationship {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyGraphDefsRelationship;
+    return object['\$type'] == 'app.bsky.graph.defs#relationship';
   }
 }
 

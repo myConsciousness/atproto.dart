@@ -214,7 +214,7 @@ return $default(_that.$type,_that.labelerDid,_that.label,_that.visibility,_that.
 @JsonSerializable()
 
 class _ContentLabelPref implements ContentLabelPref {
-  const _ContentLabelPref({this.$type = appBskyActorDefsContentLabelPref, this.labelerDid, required this.label, required this.visibility, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ContentLabelPref({this.$type = 'app.bsky.actor.defs#contentLabelPref', this.labelerDid, required this.label, required this.visibility, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ContentLabelPref.fromJson(Map<String, dynamic> json) => _$ContentLabelPrefFromJson(json);
 
 @override@JsonKey() final  String $type;

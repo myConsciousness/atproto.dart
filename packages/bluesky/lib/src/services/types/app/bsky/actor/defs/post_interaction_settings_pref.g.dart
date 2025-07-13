@@ -14,7 +14,7 @@ _PostInteractionSettingsPref _$PostInteractionSettingsPrefFromJson(
   final val = _PostInteractionSettingsPref(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyActorDefsPostInteractionSettingsPref,
+      (v) => v as String? ?? 'app.bsky.actor.defs#postInteractionSettingsPref',
     ),
     threadgateAllowRules: $checkedConvert(
       'threadgateAllowRules',

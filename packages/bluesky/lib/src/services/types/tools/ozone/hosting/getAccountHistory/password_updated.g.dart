@@ -14,7 +14,8 @@ _PasswordUpdated _$PasswordUpdatedFromJson(Map json) =>
         $type: $checkedConvert(
           r'$type',
           (v) =>
-              v as String? ?? toolsOzoneHostingGetAccountHistoryPasswordUpdated,
+              v as String? ??
+              'tools.ozone.hosting.getAccountHistory#passwordUpdated',
         ),
         $unknown: $checkedConvert(
           r'$unknown',

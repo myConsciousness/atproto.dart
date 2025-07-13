@@ -213,7 +213,7 @@ return $default(_that.$type,_that.comment,_that.durationInHours,_that.$unknown);
 @JsonSerializable()
 
 class _ModEventMute implements ModEventMute {
-  const _ModEventMute({this.$type = toolsOzoneModerationDefsModEventMute, this.comment, required this.durationInHours, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModEventMute({this.$type = 'tools.ozone.moderation.defs#modEventMute', this.comment, required this.durationInHours, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModEventMute.fromJson(Map<String, dynamic> json) => _$ModEventMuteFromJson(json);
 
 @override@JsonKey() final  String $type;

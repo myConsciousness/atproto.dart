@@ -213,7 +213,7 @@ return $default(_that.$type,_that.did,_that.cid,_that.recordUri,_that.$unknown);
 @JsonSerializable()
 
 class _RepoBlobRef implements RepoBlobRef {
-  const _RepoBlobRef({this.$type = comAtprotoAdminDefsRepoBlobRef, required this.did, required this.cid, this.recordUri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RepoBlobRef({this.$type = 'com.atproto.admin.defs#repoBlobRef', required this.did, required this.cid, this.recordUri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoBlobRef.fromJson(Map<String, dynamic> json) => _$RepoBlobRefFromJson(json);
 
 @override@JsonKey() final  String $type;

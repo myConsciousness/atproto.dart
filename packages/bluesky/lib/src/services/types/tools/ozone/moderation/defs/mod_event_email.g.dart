@@ -13,7 +13,7 @@ _ModEventEmail _$ModEventEmailFromJson(Map json) =>
       final val = _ModEventEmail(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsModEventEmail,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#modEventEmail',
         ),
         subjectLine: $checkedConvert('subjectLine', (v) => v as String),
         content: $checkedConvert('content', (v) => v as String?),

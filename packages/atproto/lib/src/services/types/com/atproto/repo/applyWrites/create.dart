@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'create.freezed.dart';
 part 'create.g.dart';
 
@@ -27,7 +24,7 @@ abstract class Create with _$Create {
   static const knownProps = <String>['collection', 'rkey', 'value'];
 
   const factory Create({
-    @Default(comAtprotoRepoApplyWritesCreate) String $type,
+    @Default('com.atproto.repo.applyWrites#create') String $type,
     required String collection,
 
     /// NOTE: maxLength is redundant with record-key format. Keeping it temporarily to ensure backwards compatibility.
@@ -41,7 +38,7 @@ abstract class Create with _$Create {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoRepoApplyWritesCreate;
+    return object['\$type'] == 'com.atproto.repo.applyWrites#create';
   }
 }
 

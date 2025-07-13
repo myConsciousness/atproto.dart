@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'feed.freezed.dart';
 part 'feed.g.dart';
 
@@ -26,7 +23,7 @@ abstract class Feed with _$Feed {
   static const knownProps = <String>['uri'];
 
   const factory Feed({
-    @Default(appBskyFeedDescribeFeedGeneratorFeed) String $type,
+    @Default('app.bsky.feed.describeFeedGenerator#feed') String $type,
     required String uri,
 
     Map<String, dynamic>? $unknown,
@@ -36,7 +33,7 @@ abstract class Feed with _$Feed {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDescribeFeedGeneratorFeed;
+    return object['\$type'] == 'app.bsky.feed.describeFeedGenerator#feed';
   }
 }
 

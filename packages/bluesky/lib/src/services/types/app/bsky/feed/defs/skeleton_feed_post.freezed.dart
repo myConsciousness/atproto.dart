@@ -226,7 +226,7 @@ return $default(_that.$type,_that.post,_that.reason,_that.feedContext,_that.$unk
 @JsonSerializable()
 
 class _SkeletonFeedPost implements SkeletonFeedPost {
-  const _SkeletonFeedPost({this.$type = appBskyFeedDefsSkeletonFeedPost, required this.post, @USkeletonFeedPostReasonConverter() this.reason, this.feedContext, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SkeletonFeedPost({this.$type = 'app.bsky.feed.defs#skeletonFeedPost', required this.post, @USkeletonFeedPostReasonConverter() this.reason, this.feedContext, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SkeletonFeedPost.fromJson(Map<String, dynamic> json) => _$SkeletonFeedPostFromJson(json);
 
 @override@JsonKey() final  String $type;

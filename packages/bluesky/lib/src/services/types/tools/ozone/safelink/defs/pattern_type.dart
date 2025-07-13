@@ -31,7 +31,7 @@ abstract class PatternType with _$PatternType {
       _$PatternTypeFromJson(json);
 }
 
-abstract class PatternTypeConverter
+final class PatternTypeConverter
     extends LexKnownValuesConverter<PatternType, Map<String, dynamic>> {
   const PatternTypeConverter();
 

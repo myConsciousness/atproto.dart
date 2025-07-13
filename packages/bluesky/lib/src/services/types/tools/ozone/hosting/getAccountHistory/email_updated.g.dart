@@ -13,7 +13,9 @@ _EmailUpdated _$EmailUpdatedFromJson(Map json) =>
       final val = _EmailUpdated(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneHostingGetAccountHistoryEmailUpdated,
+          (v) =>
+              v as String? ??
+              'tools.ozone.hosting.getAccountHistory#emailUpdated',
         ),
         email: $checkedConvert('email', (v) => v as String),
         $unknown: $checkedConvert(

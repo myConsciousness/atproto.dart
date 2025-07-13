@@ -13,7 +13,7 @@ _ReasonPin _$ReasonPinFromJson(Map json) =>
       final val = _ReasonPin(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyFeedDefsReasonPin,
+          (v) => v as String? ?? 'app.bsky.feed.defs#reasonPin',
         ),
         $unknown: $checkedConvert(
           r'$unknown',

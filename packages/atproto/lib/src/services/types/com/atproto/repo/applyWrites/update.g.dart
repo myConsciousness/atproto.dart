@@ -14,7 +14,7 @@ _Update _$UpdateFromJson(Map json) => $checkedCreate('_Update', json, (
   final val = _Update(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? comAtprotoRepoApplyWritesUpdate,
+      (v) => v as String? ?? 'com.atproto.repo.applyWrites#update',
     ),
     collection: $checkedConvert('collection', (v) => v as String),
     rkey: $checkedConvert('rkey', (v) => v as String),

@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'skeleton_reason_pin.freezed.dart';
 part 'skeleton_reason_pin.g.dart';
 
@@ -26,7 +23,7 @@ abstract class SkeletonReasonPin with _$SkeletonReasonPin {
   static const knownProps = <String>[];
 
   const factory SkeletonReasonPin({
-    @Default(appBskyFeedDefsSkeletonReasonPin) String $type,
+    @Default('app.bsky.feed.defs#skeletonReasonPin') String $type,
 
     Map<String, dynamic>? $unknown,
   }) = _SkeletonReasonPin;
@@ -36,7 +33,7 @@ abstract class SkeletonReasonPin with _$SkeletonReasonPin {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDefsSkeletonReasonPin;
+    return object['\$type'] == 'app.bsky.feed.defs#skeletonReasonPin';
   }
 }
 

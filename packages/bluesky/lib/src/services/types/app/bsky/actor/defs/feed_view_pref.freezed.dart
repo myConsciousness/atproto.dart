@@ -222,7 +222,7 @@ return $default(_that.$type,_that.feed,_that.hideReplies,_that.hideRepliesByUnfo
 @JsonSerializable()
 
 class _FeedViewPref implements FeedViewPref {
-  const _FeedViewPref({this.$type = appBskyActorDefsFeedViewPref, required this.feed, this.hideReplies, this.hideRepliesByUnfollowed, this.hideRepliesByLikeCount, this.hideReposts, this.hideQuotePosts, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FeedViewPref({this.$type = 'app.bsky.actor.defs#feedViewPref', required this.feed, this.hideReplies, this.hideRepliesByUnfollowed, this.hideRepliesByLikeCount, this.hideReposts, this.hideQuotePosts, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedViewPref.fromJson(Map<String, dynamic> json) => _$FeedViewPrefFromJson(json);
 
 @override@JsonKey() final  String $type;

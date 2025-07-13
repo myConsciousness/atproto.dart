@@ -14,7 +14,7 @@ _RepoViewDetail _$RepoViewDetailFromJson(
   final val = _RepoViewDetail(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? toolsOzoneModerationDefsRepoViewDetail,
+      (v) => v as String? ?? 'tools.ozone.moderation.defs#repoViewDetail',
     ),
     did: $checkedConvert('did', (v) => v as String),
     handle: $checkedConvert('handle', (v) => v as String),

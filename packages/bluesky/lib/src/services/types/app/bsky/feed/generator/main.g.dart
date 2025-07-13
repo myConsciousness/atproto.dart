@@ -14,7 +14,7 @@ _FeedGeneratorRecord _$FeedGeneratorRecordFromJson(
   final val = _FeedGeneratorRecord(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyFeedGenerator,
+      (v) => v as String? ?? 'app.bsky.feed.generator',
     ),
     did: $checkedConvert('did', (v) => v as String),
     displayName: $checkedConvert('displayName', (v) => v as String),

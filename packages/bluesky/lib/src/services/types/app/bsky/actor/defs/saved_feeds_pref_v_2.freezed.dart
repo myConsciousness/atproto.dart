@@ -211,7 +211,7 @@ return $default(_that.$type,_that.items,_that.$unknown);case _:
 @JsonSerializable()
 
 class _SavedFeedsPrefV2 implements SavedFeedsPrefV2 {
-  const _SavedFeedsPrefV2({this.$type = appBskyActorDefsSavedFeedsPrefV2, @SavedFeedConverter() required final  List<SavedFeed> items, final  Map<String, dynamic>? $unknown}): _items = items,_$unknown = $unknown;
+  const _SavedFeedsPrefV2({this.$type = 'app.bsky.actor.defs#savedFeedsPrefV2', @SavedFeedConverter() required final  List<SavedFeed> items, final  Map<String, dynamic>? $unknown}): _items = items,_$unknown = $unknown;
   factory _SavedFeedsPrefV2.fromJson(Map<String, dynamic> json) => _$SavedFeedsPrefV2FromJson(json);
 
 @override@JsonKey() final  String $type;

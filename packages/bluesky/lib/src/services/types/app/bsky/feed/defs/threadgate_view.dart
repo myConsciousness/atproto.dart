@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/graph/defs/list_view_basic.dart';
 
 part 'threadgate_view.freezed.dart';
@@ -27,7 +26,7 @@ abstract class ThreadgateView with _$ThreadgateView {
   static const knownProps = <String>['uri', 'cid', 'record', 'lists'];
 
   const factory ThreadgateView({
-    @Default(appBskyFeedDefsThreadgateView) String $type,
+    @Default('app.bsky.feed.defs#threadgateView') String $type,
     String? uri,
     String? cid,
     Map<String, dynamic>? record,
@@ -41,7 +40,7 @@ abstract class ThreadgateView with _$ThreadgateView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDefsThreadgateView;
+    return object['\$type'] == 'app.bsky.feed.defs#threadgateView';
   }
 }
 

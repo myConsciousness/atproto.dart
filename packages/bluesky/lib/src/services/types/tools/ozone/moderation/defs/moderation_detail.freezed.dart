@@ -223,7 +223,7 @@ return $default(_that.$type,_that.subjectStatus,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ModerationDetail implements ModerationDetail {
-  const _ModerationDetail({this.$type = toolsOzoneModerationDefsModerationDetail, @SubjectStatusViewConverter() this.subjectStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModerationDetail({this.$type = 'tools.ozone.moderation.defs#moderationDetail', @SubjectStatusViewConverter() this.subjectStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModerationDetail.fromJson(Map<String, dynamic> json) => _$ModerationDetailFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/muted_word_target.dart';
 
 part 'muted_word.freezed.dart';
@@ -34,7 +33,7 @@ abstract class MutedWord with _$MutedWord {
   ];
 
   const factory MutedWord({
-    @Default(appBskyActorDefsMutedWord) String $type,
+    @Default('app.bsky.actor.defs#mutedWord') String $type,
     String? id,
 
     /// The muted word itself.
@@ -55,7 +54,7 @@ abstract class MutedWord with _$MutedWord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsMutedWord;
+    return object['\$type'] == 'app.bsky.actor.defs#mutedWord';
   }
 }
 

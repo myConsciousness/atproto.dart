@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'video_details.freezed.dart';
 part 'video_details.g.dart';
 
@@ -26,7 +23,7 @@ abstract class VideoDetails with _$VideoDetails {
   static const knownProps = <String>['width', 'height', 'length'];
 
   const factory VideoDetails({
-    @Default(toolsOzoneModerationDefsVideoDetails) String $type,
+    @Default('tools.ozone.moderation.defs#videoDetails') String $type,
     required int width,
     required int height,
     required int length,
@@ -39,7 +36,7 @@ abstract class VideoDetails with _$VideoDetails {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsVideoDetails;
+    return object['\$type'] == 'tools.ozone.moderation.defs#videoDetails';
   }
 }
 

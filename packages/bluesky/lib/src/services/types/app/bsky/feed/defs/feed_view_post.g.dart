@@ -15,7 +15,7 @@ _FeedViewPost _$FeedViewPostFromJson(Map json) => $checkedCreate(
     final val = _FeedViewPost(
       $type: $checkedConvert(
         r'$type',
-        (v) => v as String? ?? appBskyFeedDefsFeedViewPost,
+        (v) => v as String? ?? 'app.bsky.feed.defs#feedViewPost',
       ),
       post: $checkedConvert(
         'post',

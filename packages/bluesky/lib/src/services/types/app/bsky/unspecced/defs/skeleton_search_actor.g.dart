@@ -13,7 +13,7 @@ _SkeletonSearchActor _$SkeletonSearchActorFromJson(Map json) =>
       final val = _SkeletonSearchActor(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyUnspeccedDefsSkeletonSearchActor,
+          (v) => v as String? ?? 'app.bsky.unspecced.defs#skeletonSearchActor',
         ),
         did: $checkedConvert('did', (v) => v as String),
         $unknown: $checkedConvert(

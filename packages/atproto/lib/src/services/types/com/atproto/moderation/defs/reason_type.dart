@@ -39,7 +39,7 @@ abstract class ReasonType with _$ReasonType {
       _$ReasonTypeFromJson(json);
 }
 
-abstract class ReasonTypeConverter
+final class ReasonTypeConverter
     extends LexKnownValuesConverter<ReasonType, Map<String, dynamic>> {
   const ReasonTypeConverter();
 

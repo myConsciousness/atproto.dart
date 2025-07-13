@@ -242,7 +242,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.email,_that.relatedReco
 @JsonSerializable()
 
 class _RepoView implements RepoView {
-  const _RepoView({this.$type = toolsOzoneModerationDefsRepoView, required this.did, required this.handle, this.email, required final  List<Map<String, dynamic>> relatedRecords, required this.indexedAt, @ModerationConverter() required this.moderation, @InviteCodeConverter() this.invitedBy, this.invitesDisabled, this.inviteNote, this.deactivatedAt, @ThreatSignatureConverter() final  List<ThreatSignature>? threatSignatures, final  Map<String, dynamic>? $unknown}): _relatedRecords = relatedRecords,_threatSignatures = threatSignatures,_$unknown = $unknown;
+  const _RepoView({this.$type = 'tools.ozone.moderation.defs#repoView', required this.did, required this.handle, this.email, required final  List<Map<String, dynamic>> relatedRecords, required this.indexedAt, @ModerationConverter() required this.moderation, @InviteCodeConverter() this.invitedBy, this.invitesDisabled, this.inviteNote, this.deactivatedAt, @ThreatSignatureConverter() final  List<ThreatSignature>? threatSignatures, final  Map<String, dynamic>? $unknown}): _relatedRecords = relatedRecords,_threatSignatures = threatSignatures,_$unknown = $unknown;
   factory _RepoView.fromJson(Map<String, dynamic> json) => _$RepoViewFromJson(json);
 
 @override@JsonKey() final  String $type;

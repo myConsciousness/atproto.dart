@@ -212,7 +212,7 @@ return $default(_that.$type,_that.comment,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ModEventUnmuteReporter implements ModEventUnmuteReporter {
-  const _ModEventUnmuteReporter({this.$type = toolsOzoneModerationDefsModEventUnmuteReporter, this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModEventUnmuteReporter({this.$type = 'tools.ozone.moderation.defs#modEventUnmuteReporter', this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModEventUnmuteReporter.fromJson(Map<String, dynamic> json) => _$ModEventUnmuteReporterFromJson(json);
 
 @override@JsonKey() final  String $type;

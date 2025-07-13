@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'template_view.freezed.dart';
 part 'template_view.g.dart';
 
@@ -36,7 +33,7 @@ abstract class TemplateView with _$TemplateView {
   ];
 
   const factory TemplateView({
-    @Default(toolsOzoneCommunicationDefsTemplateView) String $type,
+    @Default('tools.ozone.communication.defs#templateView') String $type,
     required String id,
 
     /// Name of the template.
@@ -65,7 +62,7 @@ abstract class TemplateView with _$TemplateView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneCommunicationDefsTemplateView;
+    return object['\$type'] == 'tools.ozone.communication.defs#templateView';
   }
 }
 

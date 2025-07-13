@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'hidden_posts_pref.freezed.dart';
 part 'hidden_posts_pref.g.dart';
 
@@ -26,7 +23,7 @@ abstract class HiddenPostsPref with _$HiddenPostsPref {
   static const knownProps = <String>['items'];
 
   const factory HiddenPostsPref({
-    @Default(appBskyActorDefsHiddenPostsPref) String $type,
+    @Default('app.bsky.actor.defs#hiddenPostsPref') String $type,
     required List<String> items,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +34,7 @@ abstract class HiddenPostsPref with _$HiddenPostsPref {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsHiddenPostsPref;
+    return object['\$type'] == 'app.bsky.actor.defs#hiddenPostsPref';
   }
 }
 

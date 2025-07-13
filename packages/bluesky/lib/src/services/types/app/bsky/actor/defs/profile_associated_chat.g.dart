@@ -13,7 +13,7 @@ _ProfileAssociatedChat _$ProfileAssociatedChatFromJson(Map json) =>
       final val = _ProfileAssociatedChat(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsProfileAssociatedChat,
+          (v) => v as String? ?? 'app.bsky.actor.defs#profileAssociatedChat',
         ),
         allowIncoming: $checkedConvert('allowIncoming', (v) => v as String),
         $unknown: $checkedConvert(

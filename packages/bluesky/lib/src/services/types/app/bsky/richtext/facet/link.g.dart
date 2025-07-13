@@ -13,7 +13,7 @@ _RichtextFacetLink _$RichtextFacetLinkFromJson(Map json) =>
       final val = _RichtextFacetLink(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyRichtextFacetLink,
+          (v) => v as String? ?? 'app.bsky.richtext.facet#link',
         ),
         uri: $checkedConvert(
           'uri',

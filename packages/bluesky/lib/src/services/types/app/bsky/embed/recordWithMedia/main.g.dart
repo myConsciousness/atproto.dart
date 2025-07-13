@@ -13,7 +13,7 @@ _EmbedRecordWithMedia _$EmbedRecordWithMediaFromJson(Map json) =>
       final val = _EmbedRecordWithMedia(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyEmbedRecordWithMedia,
+          (v) => v as String? ?? 'app.bsky.embed.recordWithMedia',
         ),
         record: $checkedConvert(
           'record',

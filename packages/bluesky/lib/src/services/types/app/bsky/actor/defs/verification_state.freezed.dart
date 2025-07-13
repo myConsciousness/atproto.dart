@@ -215,7 +215,7 @@ return $default(_that.$type,_that.verifications,_that.verifiedStatus,_that.trust
 @JsonSerializable()
 
 class _VerificationState implements VerificationState {
-  const _VerificationState({this.$type = appBskyActorDefsVerificationState, @VerificationViewConverter() required final  List<VerificationView> verifications, required this.verifiedStatus, required this.trustedVerifierStatus, final  Map<String, dynamic>? $unknown}): _verifications = verifications,_$unknown = $unknown;
+  const _VerificationState({this.$type = 'app.bsky.actor.defs#verificationState', @VerificationViewConverter() required final  List<VerificationView> verifications, required this.verifiedStatus, required this.trustedVerifierStatus, final  Map<String, dynamic>? $unknown}): _verifications = verifications,_$unknown = $unknown;
   factory _VerificationState.fromJson(Map<String, dynamic> json) => _$VerificationStateFromJson(json);
 
 @override@JsonKey() final  String $type;

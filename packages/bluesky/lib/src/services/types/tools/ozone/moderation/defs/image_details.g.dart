@@ -13,7 +13,7 @@ _ImageDetails _$ImageDetailsFromJson(Map json) =>
       final val = _ImageDetails(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneModerationDefsImageDetails,
+          (v) => v as String? ?? 'tools.ozone.moderation.defs#imageDetails',
         ),
         width: $checkedConvert('width', (v) => (v as num).toInt()),
         height: $checkedConvert('height', (v) => (v as num).toInt()),

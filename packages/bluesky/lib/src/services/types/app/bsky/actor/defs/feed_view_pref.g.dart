@@ -13,7 +13,7 @@ _FeedViewPref _$FeedViewPrefFromJson(Map json) =>
       final val = _FeedViewPref(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsFeedViewPref,
+          (v) => v as String? ?? 'app.bsky.actor.defs#feedViewPref',
         ),
         feed: $checkedConvert('feed', (v) => v as String),
         hideReplies: $checkedConvert('hideReplies', (v) => v as bool?),

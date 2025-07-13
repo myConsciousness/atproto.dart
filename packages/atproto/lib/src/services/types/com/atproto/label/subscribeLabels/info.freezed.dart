@@ -212,7 +212,7 @@ return $default(_that.$type,_that.name,_that.message,_that.$unknown);case _:
 @JsonSerializable()
 
 class _Info implements Info {
-  const _Info({this.$type = comAtprotoLabelSubscribeLabelsInfo, required this.name, this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Info({this.$type = 'com.atproto.label.subscribeLabels#info', required this.name, this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Info.fromJson(Map<String, dynamic> json) => _$InfoFromJson(json);
 
 @override@JsonKey() final  String $type;

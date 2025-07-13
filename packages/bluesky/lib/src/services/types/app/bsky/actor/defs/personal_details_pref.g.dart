@@ -13,7 +13,7 @@ _PersonalDetailsPref _$PersonalDetailsPrefFromJson(Map json) =>
       final val = _PersonalDetailsPref(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyActorDefsPersonalDetailsPref,
+          (v) => v as String? ?? 'app.bsky.actor.defs#personalDetailsPref',
         ),
         birthDate: $checkedConvert(
           'birthDate',

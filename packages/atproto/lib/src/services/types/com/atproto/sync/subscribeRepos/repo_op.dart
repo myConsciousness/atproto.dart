@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'repo_op.freezed.dart';
 part 'repo_op.g.dart';
 
@@ -27,7 +24,7 @@ abstract class RepoOp with _$RepoOp {
   static const knownProps = <String>['action', 'path', 'cid', 'prev'];
 
   const factory RepoOp({
-    @Default(comAtprotoSyncSubscribeReposRepoOp) String $type,
+    @Default('com.atproto.sync.subscribeRepos#repoOp') String $type,
     required String action,
     required String path,
     required Map<String, dynamic> cid,
@@ -40,7 +37,7 @@ abstract class RepoOp with _$RepoOp {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoSyncSubscribeReposRepoOp;
+    return object['\$type'] == 'com.atproto.sync.subscribeRepos#repoOp';
   }
 }
 

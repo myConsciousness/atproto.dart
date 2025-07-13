@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/graph/defs/list_view_basic.dart';
 import '../../../../app/bsky/notification/defs/activity_subscription.dart';
 import './known_followers.dart';
@@ -40,7 +39,7 @@ abstract class ViewerState with _$ViewerState {
   ];
 
   const factory ViewerState({
-    @Default(appBskyActorDefsViewerState) String $type,
+    @Default('app.bsky.actor.defs#viewerState') String $type,
     bool? muted,
     @ListViewBasicConverter() ListViewBasic? mutedByList,
     bool? blockedBy,
@@ -63,7 +62,7 @@ abstract class ViewerState with _$ViewerState {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsViewerState;
+    return object['\$type'] == 'app.bsky.actor.defs#viewerState';
   }
 }
 

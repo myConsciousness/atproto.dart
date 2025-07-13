@@ -13,7 +13,7 @@ _JobStatus _$JobStatusFromJson(Map json) =>
       final val = _JobStatus(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyVideoDefsJobStatus,
+          (v) => v as String? ?? 'app.bsky.video.defs#jobStatus',
         ),
         jobId: $checkedConvert('jobId', (v) => v as String),
         did: $checkedConvert('did', (v) => v as String),

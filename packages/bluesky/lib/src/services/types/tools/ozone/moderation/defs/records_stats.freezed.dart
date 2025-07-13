@@ -226,7 +226,7 @@ return $default(_that.$type,_that.totalReports,_that.reportedCount,_that.escalat
 @JsonSerializable()
 
 class _RecordsStats implements RecordsStats {
-  const _RecordsStats({this.$type = toolsOzoneModerationDefsRecordsStats, this.totalReports, this.reportedCount, this.escalatedCount, this.appealedCount, this.subjectCount, this.pendingCount, this.processedCount, this.takendownCount, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RecordsStats({this.$type = 'tools.ozone.moderation.defs#recordsStats', this.totalReports, this.reportedCount, this.escalatedCount, this.appealedCount, this.subjectCount, this.pendingCount, this.processedCount, this.takendownCount, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RecordsStats.fromJson(Map<String, dynamic> json) => _$RecordsStatsFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'main.freezed.dart';
 part 'main.g.dart';
 
@@ -26,7 +23,7 @@ abstract class GraphListblockRecord with _$GraphListblockRecord {
   static const knownProps = <String>['subject', 'createdAt'];
 
   const factory GraphListblockRecord({
-    @Default(appBskyGraphListblock) String $type,
+    @Default('app.bsky.graph.listblock') String $type,
 
     /// Reference (AT-URI) to the mod list record.
     required String subject,
@@ -40,7 +37,7 @@ abstract class GraphListblockRecord with _$GraphListblockRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyGraphListblock;
+    return object['\$type'] == 'app.bsky.graph.listblock';
   }
 }
 

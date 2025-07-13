@@ -214,7 +214,7 @@ return $default(_that.$type,_that.id,_that.type,_that.value,_that.pinned,_that.$
 @JsonSerializable()
 
 class _SavedFeed implements SavedFeed {
-  const _SavedFeed({this.$type = appBskyActorDefsSavedFeed, required this.id, required this.type, required this.value, required this.pinned, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SavedFeed({this.$type = 'app.bsky.actor.defs#savedFeed', required this.id, required this.type, required this.value, required this.pinned, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SavedFeed.fromJson(Map<String, dynamic> json) => _$SavedFeedFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -14,7 +14,7 @@ _AccountStats _$AccountStatsFromJson(
   final val = _AccountStats(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? toolsOzoneModerationDefsAccountStats,
+      (v) => v as String? ?? 'tools.ozone.moderation.defs#accountStats',
     ),
     reportCount: $checkedConvert('reportCount', (v) => (v as num?)?.toInt()),
     appealCount: $checkedConvert('appealCount', (v) => (v as num?)?.toInt()),

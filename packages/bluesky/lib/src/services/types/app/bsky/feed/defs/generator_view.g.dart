@@ -14,7 +14,7 @@ _GeneratorView _$GeneratorViewFromJson(
   final val = _GeneratorView(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? appBskyFeedDefsGeneratorView,
+      (v) => v as String? ?? 'app.bsky.feed.defs#generatorView',
     ),
     uri: $checkedConvert('uri', (v) => v as String),
     cid: $checkedConvert('cid', (v) => v as String),

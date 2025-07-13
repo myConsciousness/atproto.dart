@@ -212,7 +212,7 @@ return $default(_that.$type,_that.threadgateAllowRules,_that.postgateEmbeddingRu
 @JsonSerializable()
 
 class _PostInteractionSettingsPref implements PostInteractionSettingsPref {
-  const _PostInteractionSettingsPref({this.$type = appBskyActorDefsPostInteractionSettingsPref, @UPostInteractionSettingsPrefThreadgateAllowRulesConverter() final  List<UPostInteractionSettingsPrefThreadgateAllowRules>? threadgateAllowRules, @UPostInteractionSettingsPrefPostgateEmbeddingRulesConverter() final  List<UPostInteractionSettingsPrefPostgateEmbeddingRules>? postgateEmbeddingRules, final  Map<String, dynamic>? $unknown}): _threadgateAllowRules = threadgateAllowRules,_postgateEmbeddingRules = postgateEmbeddingRules,_$unknown = $unknown;
+  const _PostInteractionSettingsPref({this.$type = 'app.bsky.actor.defs#postInteractionSettingsPref', @UPostInteractionSettingsPrefThreadgateAllowRulesConverter() final  List<UPostInteractionSettingsPrefThreadgateAllowRules>? threadgateAllowRules, @UPostInteractionSettingsPrefPostgateEmbeddingRulesConverter() final  List<UPostInteractionSettingsPrefPostgateEmbeddingRules>? postgateEmbeddingRules, final  Map<String, dynamic>? $unknown}): _threadgateAllowRules = threadgateAllowRules,_postgateEmbeddingRules = postgateEmbeddingRules,_$unknown = $unknown;
   factory _PostInteractionSettingsPref.fromJson(Map<String, dynamic> json) => _$PostInteractionSettingsPrefFromJson(json);
 
 @override@JsonKey() final  String $type;

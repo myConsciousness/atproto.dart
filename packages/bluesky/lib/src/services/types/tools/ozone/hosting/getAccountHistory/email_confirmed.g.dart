@@ -14,7 +14,8 @@ _EmailConfirmed _$EmailConfirmedFromJson(Map json) =>
         $type: $checkedConvert(
           r'$type',
           (v) =>
-              v as String? ?? toolsOzoneHostingGetAccountHistoryEmailConfirmed,
+              v as String? ??
+              'tools.ozone.hosting.getAccountHistory#emailConfirmed',
         ),
         email: $checkedConvert('email', (v) => v as String),
         $unknown: $checkedConvert(

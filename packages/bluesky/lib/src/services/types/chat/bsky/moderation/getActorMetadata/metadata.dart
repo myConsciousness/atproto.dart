@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'metadata.freezed.dart';
 part 'metadata.g.dart';
 
@@ -31,7 +28,7 @@ abstract class Metadata with _$Metadata {
   ];
 
   const factory Metadata({
-    @Default(chatBskyModerationGetActorMetadataMetadata) String $type,
+    @Default('chat.bsky.moderation.getActorMetadata#metadata') String $type,
     required int messagesSent,
     required int messagesReceived,
     required int convos,
@@ -45,7 +42,7 @@ abstract class Metadata with _$Metadata {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == chatBskyModerationGetActorMetadataMetadata;
+    return object['\$type'] == 'chat.bsky.moderation.getActorMetadata#metadata';
   }
 }
 

@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './union_event_details.dart';
 
 part 'event.freezed.dart';
@@ -27,7 +26,7 @@ abstract class Event with _$Event {
   static const knownProps = <String>['details', 'createdBy', 'createdAt'];
 
   const factory Event({
-    @Default(toolsOzoneHostingGetAccountHistoryEvent) String $type,
+    @Default('tools.ozone.hosting.getAccountHistory#event') String $type,
     @UEventDetailsConverter() required UEventDetails details,
     required String createdBy,
     required DateTime createdAt,
@@ -39,7 +38,7 @@ abstract class Event with _$Event {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneHostingGetAccountHistoryEvent;
+    return object['\$type'] == 'tools.ozone.hosting.getAccountHistory#event';
   }
 }
 

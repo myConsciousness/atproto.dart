@@ -13,7 +13,7 @@ _RecordDeleted _$RecordDeletedFromJson(Map json) =>
       final val = _RecordDeleted(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyNotificationDefsRecordDeleted,
+          (v) => v as String? ?? 'app.bsky.notification.defs#recordDeleted',
         ),
         $unknown: $checkedConvert(
           r'$unknown',

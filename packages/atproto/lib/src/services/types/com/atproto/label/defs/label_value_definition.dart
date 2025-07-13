@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './label_value_definition_strings.dart';
 
 part 'label_value_definition.freezed.dart';
@@ -35,7 +34,7 @@ abstract class LabelValueDefinition with _$LabelValueDefinition {
   ];
 
   const factory LabelValueDefinition({
-    @Default(comAtprotoLabelDefsLabelValueDefinition) String $type,
+    @Default('com.atproto.label.defs#labelValueDefinition') String $type,
 
     /// The value of the label being defined. Must only include lowercase ascii and the '-' character ([a-z-]+).
     required String identifier,
@@ -62,7 +61,7 @@ abstract class LabelValueDefinition with _$LabelValueDefinition {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoLabelDefsLabelValueDefinition;
+    return object['\$type'] == 'com.atproto.label.defs#labelValueDefinition';
   }
 }
 

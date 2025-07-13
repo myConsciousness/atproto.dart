@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'contact.freezed.dart';
 part 'contact.g.dart';
 
@@ -26,7 +23,7 @@ abstract class Contact with _$Contact {
   static const knownProps = <String>['email'];
 
   const factory Contact({
-    @Default(comAtprotoServerDescribeServerContact) String $type,
+    @Default('com.atproto.server.describeServer#contact') String $type,
     String? email,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +34,7 @@ abstract class Contact with _$Contact {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoServerDescribeServerContact;
+    return object['\$type'] == 'com.atproto.server.describeServer#contact';
   }
 }
 

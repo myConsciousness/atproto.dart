@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'adult_content_pref.freezed.dart';
 part 'adult_content_pref.g.dart';
 
@@ -26,7 +23,7 @@ abstract class AdultContentPref with _$AdultContentPref {
   static const knownProps = <String>['enabled'];
 
   const factory AdultContentPref({
-    @Default(appBskyActorDefsAdultContentPref) String $type,
+    @Default('app.bsky.actor.defs#adultContentPref') String $type,
     required bool enabled,
 
     Map<String, dynamic>? $unknown,
@@ -37,7 +34,7 @@ abstract class AdultContentPref with _$AdultContentPref {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyActorDefsAdultContentPref;
+    return object['\$type'] == 'app.bsky.actor.defs#adultContentPref';
   }
 }
 

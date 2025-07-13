@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'threat_signature.freezed.dart';
 part 'threat_signature.g.dart';
 
@@ -26,7 +23,7 @@ abstract class ThreatSignature with _$ThreatSignature {
   static const knownProps = <String>['property', 'value'];
 
   const factory ThreatSignature({
-    @Default(comAtprotoAdminDefsThreatSignature) String $type,
+    @Default('com.atproto.admin.defs#threatSignature') String $type,
     required String property,
     required String value,
 
@@ -38,7 +35,7 @@ abstract class ThreatSignature with _$ThreatSignature {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoAdminDefsThreatSignature;
+    return object['\$type'] == 'com.atproto.admin.defs#threatSignature';
   }
 }
 

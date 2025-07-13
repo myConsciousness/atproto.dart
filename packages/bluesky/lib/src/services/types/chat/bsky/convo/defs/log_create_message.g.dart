@@ -13,7 +13,7 @@ _LogCreateMessage _$LogCreateMessageFromJson(Map json) =>
       final val = _LogCreateMessage(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? chatBskyConvoDefsLogCreateMessage,
+          (v) => v as String? ?? 'chat.bsky.convo.defs#logCreateMessage',
         ),
         rev: $checkedConvert('rev', (v) => v as String),
         convoId: $checkedConvert('convoId', (v) => v as String),

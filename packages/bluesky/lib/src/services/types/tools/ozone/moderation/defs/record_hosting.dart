@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'record_hosting.freezed.dart';
 part 'record_hosting.g.dart';
 
@@ -31,7 +28,7 @@ abstract class RecordHosting with _$RecordHosting {
   ];
 
   const factory RecordHosting({
-    @Default(toolsOzoneModerationDefsRecordHosting) String $type,
+    @Default('tools.ozone.moderation.defs#recordHosting') String $type,
     required String status,
     DateTime? updatedAt,
     DateTime? createdAt,
@@ -45,7 +42,7 @@ abstract class RecordHosting with _$RecordHosting {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsRecordHosting;
+    return object['\$type'] == 'tools.ozone.moderation.defs#recordHosting';
   }
 }
 

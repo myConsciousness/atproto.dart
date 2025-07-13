@@ -12,9 +12,6 @@ import 'package:atproto/com_atproto_moderation_defs.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'mod_event_report.freezed.dart';
 part 'mod_event_report.g.dart';
 
@@ -32,7 +29,7 @@ abstract class ModEventReport with _$ModEventReport {
   ];
 
   const factory ModEventReport({
-    @Default(toolsOzoneModerationDefsModEventReport) String $type,
+    @Default('tools.ozone.moderation.defs#modEventReport') String $type,
     String? comment,
 
     /// Set to true if the reporter was muted from reporting at the time of the event. These reports won't impact the reviewState of the subject.
@@ -47,7 +44,7 @@ abstract class ModEventReport with _$ModEventReport {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsModEventReport;
+    return object['\$type'] == 'tools.ozone.moderation.defs#modEventReport';
   }
 }
 

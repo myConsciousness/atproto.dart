@@ -222,7 +222,7 @@ return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.$unknown
 @JsonSerializable()
 
 class _LogDeleteMessage implements LogDeleteMessage {
-  const _LogDeleteMessage({this.$type = chatBskyConvoDefsLogDeleteMessage, required this.rev, required this.convoId, @ULogDeleteMessageMessageConverter() required this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _LogDeleteMessage({this.$type = 'chat.bsky.convo.defs#logDeleteMessage', required this.rev, required this.convoId, @ULogDeleteMessageMessageConverter() required this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _LogDeleteMessage.fromJson(Map<String, dynamic> json) => _$LogDeleteMessageFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/viewer_state.dart';
 
 part 'blocked_author.freezed.dart';
@@ -27,7 +26,7 @@ abstract class BlockedAuthor with _$BlockedAuthor {
   static const knownProps = <String>['did', 'viewer'];
 
   const factory BlockedAuthor({
-    @Default(appBskyFeedDefsBlockedAuthor) String $type,
+    @Default('app.bsky.feed.defs#blockedAuthor') String $type,
     required String did,
     @ViewerStateConverter() ViewerState? viewer,
 
@@ -39,7 +38,7 @@ abstract class BlockedAuthor with _$BlockedAuthor {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedDefsBlockedAuthor;
+    return object['\$type'] == 'app.bsky.feed.defs#blockedAuthor';
   }
 }
 

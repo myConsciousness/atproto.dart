@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './action_type.dart';
 import './pattern_type.dart';
 import './reason_type.dart';
@@ -39,7 +38,7 @@ abstract class UrlRule with _$UrlRule {
   ];
 
   const factory UrlRule({
-    @Default(toolsOzoneSafelinkDefsUrlRule) String $type,
+    @Default('tools.ozone.safelink.defs#urlRule') String $type,
 
     /// The URL or domain to apply the rule to
     required String url,
@@ -67,7 +66,7 @@ abstract class UrlRule with _$UrlRule {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneSafelinkDefsUrlRule;
+    return object['\$type'] == 'tools.ozone.safelink.defs#urlRule';
   }
 }
 

@@ -14,7 +14,7 @@ _BlobView _$BlobViewFromJson(Map json) => $checkedCreate('_BlobView', json, (
   final val = _BlobView(
     $type: $checkedConvert(
       r'$type',
-      (v) => v as String? ?? toolsOzoneModerationDefsBlobView,
+      (v) => v as String? ?? 'tools.ozone.moderation.defs#blobView',
     ),
     cid: $checkedConvert('cid', (v) => v as String),
     mimeType: $checkedConvert('mimeType', (v) => v as String),

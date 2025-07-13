@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'filterable_preference.freezed.dart';
 part 'filterable_preference.g.dart';
 
@@ -26,7 +23,7 @@ abstract class FilterablePreference with _$FilterablePreference {
   static const knownProps = <String>['include', 'list', 'push'];
 
   const factory FilterablePreference({
-    @Default(appBskyNotificationDefsFilterablePreference) String $type,
+    @Default('app.bsky.notification.defs#filterablePreference') String $type,
     required String include,
     required bool list,
     required bool push,
@@ -39,7 +36,8 @@ abstract class FilterablePreference with _$FilterablePreference {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyNotificationDefsFilterablePreference;
+    return object['\$type'] ==
+        'app.bsky.notification.defs#filterablePreference';
   }
 }
 

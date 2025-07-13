@@ -212,7 +212,7 @@ return $default(_that.$type,_that.rev,_that.convoId,_that.$unknown);case _:
 @JsonSerializable()
 
 class _LogAcceptConvo implements LogAcceptConvo {
-  const _LogAcceptConvo({this.$type = chatBskyConvoDefsLogAcceptConvo, required this.rev, required this.convoId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _LogAcceptConvo({this.$type = 'chat.bsky.convo.defs#logAcceptConvo', required this.rev, required this.convoId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _LogAcceptConvo.fromJson(Map<String, dynamic> json) => _$LogAcceptConvoFromJson(json);
 
 @override@JsonKey() final  String $type;

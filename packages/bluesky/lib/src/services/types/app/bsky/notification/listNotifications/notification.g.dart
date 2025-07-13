@@ -14,7 +14,8 @@ _Notification _$NotificationFromJson(Map json) =>
         $type: $checkedConvert(
           r'$type',
           (v) =>
-              v as String? ?? appBskyNotificationListNotificationsNotification,
+              v as String? ??
+              'app.bsky.notification.listNotifications#notification',
         ),
         uri: $checkedConvert('uri', (v) => v as String),
         cid: $checkedConvert('cid', (v) => v as String),

@@ -13,7 +13,7 @@ _ListItemView _$ListItemViewFromJson(Map json) =>
       final val = _ListItemView(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? appBskyGraphDefsListItemView,
+          (v) => v as String? ?? 'app.bsky.graph.defs#listItemView',
         ),
         uri: $checkedConvert('uri', (v) => v as String),
         subject: $checkedConvert(

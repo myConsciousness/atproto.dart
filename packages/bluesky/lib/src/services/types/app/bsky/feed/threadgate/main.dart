@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './union_main_allow.dart';
 
 part 'main.freezed.dart';
@@ -32,7 +31,7 @@ abstract class FeedThreadgateRecord with _$FeedThreadgateRecord {
   ];
 
   const factory FeedThreadgateRecord({
-    @Default(appBskyFeedThreadgate) String $type,
+    @Default('app.bsky.feed.threadgate') String $type,
 
     /// Reference (AT-URI) to the post record.
     required String post,
@@ -48,7 +47,7 @@ abstract class FeedThreadgateRecord with _$FeedThreadgateRecord {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyFeedThreadgate;
+    return object['\$type'] == 'app.bsky.feed.threadgate';
   }
 }
 

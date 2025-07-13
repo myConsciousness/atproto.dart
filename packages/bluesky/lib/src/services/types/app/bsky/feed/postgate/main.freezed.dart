@@ -215,7 +215,7 @@ return $default(_that.$type,_that.createdAt,_that.post,_that.detachedEmbeddingUr
 @JsonSerializable()
 
 class _FeedPostgateRecord implements FeedPostgateRecord {
-  const _FeedPostgateRecord({this.$type = appBskyFeedPostgate, required this.createdAt, required this.post, final  List<String>? detachedEmbeddingUris, @UFeedPostgateEmbeddingRulesConverter() final  List<UFeedPostgateEmbeddingRules>? embeddingRules, final  Map<String, dynamic>? $unknown}): _detachedEmbeddingUris = detachedEmbeddingUris,_embeddingRules = embeddingRules,_$unknown = $unknown;
+  const _FeedPostgateRecord({this.$type = 'app.bsky.feed.postgate', required this.createdAt, required this.post, final  List<String>? detachedEmbeddingUris, @UFeedPostgateEmbeddingRulesConverter() final  List<UFeedPostgateEmbeddingRules>? embeddingRules, final  Map<String, dynamic>? $unknown}): _detachedEmbeddingUris = detachedEmbeddingUris,_embeddingRules = embeddingRules,_$unknown = $unknown;
   factory _FeedPostgateRecord.fromJson(Map<String, dynamic> json) => _$FeedPostgateRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

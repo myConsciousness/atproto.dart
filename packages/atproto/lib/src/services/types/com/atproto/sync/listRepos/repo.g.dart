@@ -13,7 +13,7 @@ _Repo _$RepoFromJson(Map json) =>
       final val = _Repo(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? comAtprotoSyncListReposRepo,
+          (v) => v as String? ?? 'com.atproto.sync.listRepos#repo',
         ),
         did: $checkedConvert('did', (v) => v as String),
         head: $checkedConvert('head', (v) => v as String),

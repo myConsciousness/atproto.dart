@@ -13,7 +13,7 @@ _ViewerConfig _$ViewerConfigFromJson(Map json) =>
       final val = _ViewerConfig(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? toolsOzoneServerGetConfigViewerConfig,
+          (v) => v as String? ?? 'tools.ozone.server.getConfig#viewerConfig',
         ),
         role: $checkedConvert('role', (v) => v as String?),
         $unknown: $checkedConvert(

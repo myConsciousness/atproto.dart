@@ -212,7 +212,7 @@ return $default(_that.$type,_that.cid,_that.rev,_that.$unknown);case _:
 @JsonSerializable()
 
 class _CommitMeta implements CommitMeta {
-  const _CommitMeta({this.$type = comAtprotoRepoDefsCommitMeta, required this.cid, required this.rev, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _CommitMeta({this.$type = 'com.atproto.repo.defs#commitMeta', required this.cid, required this.rev, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _CommitMeta.fromJson(Map<String, dynamic> json) => _$CommitMetaFromJson(json);
 
 @override@JsonKey() final  String $type;

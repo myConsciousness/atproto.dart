@@ -15,7 +15,7 @@ _SubjectActivitySubscription _$SubjectActivitySubscriptionFromJson(Map json) =>
           r'$type',
           (v) =>
               v as String? ??
-              appBskyNotificationDefsSubjectActivitySubscription,
+              'app.bsky.notification.defs#subjectActivitySubscription',
         ),
         subject: $checkedConvert('subject', (v) => v as String),
         activitySubscription: $checkedConvert(

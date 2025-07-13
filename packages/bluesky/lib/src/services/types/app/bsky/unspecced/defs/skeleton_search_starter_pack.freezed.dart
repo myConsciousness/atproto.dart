@@ -211,7 +211,7 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 @JsonSerializable()
 
 class _SkeletonSearchStarterPack implements SkeletonSearchStarterPack {
-  const _SkeletonSearchStarterPack({this.$type = appBskyUnspeccedDefsSkeletonSearchStarterPack, required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SkeletonSearchStarterPack({this.$type = 'app.bsky.unspecced.defs#skeletonSearchStarterPack', required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SkeletonSearchStarterPack.fromJson(Map<String, dynamic> json) => _$SkeletonSearchStarterPackFromJson(json);
 
 @override@JsonKey() final  String $type;

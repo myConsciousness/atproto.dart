@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './view_image.dart';
 
 part 'view.freezed.dart';
@@ -27,7 +26,7 @@ abstract class EmbedImagesView with _$EmbedImagesView {
   static const knownProps = <String>['images'];
 
   const factory EmbedImagesView({
-    @Default(appBskyEmbedImagesView) String $type,
+    @Default('app.bsky.embed.images#view') String $type,
     @EmbedImagesViewImageConverter() required List<EmbedImagesViewImage> images,
 
     Map<String, dynamic>? $unknown,
@@ -38,7 +37,7 @@ abstract class EmbedImagesView with _$EmbedImagesView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyEmbedImagesView;
+    return object['\$type'] == 'app.bsky.embed.images#view';
   }
 }
 

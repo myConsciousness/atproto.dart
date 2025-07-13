@@ -14,7 +14,8 @@ _ModEventReverseTakedown _$ModEventReverseTakedownFromJson(Map json) =>
         $type: $checkedConvert(
           r'$type',
           (v) =>
-              v as String? ?? toolsOzoneModerationDefsModEventReverseTakedown,
+              v as String? ??
+              'tools.ozone.moderation.defs#modEventReverseTakedown',
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         $unknown: $checkedConvert(

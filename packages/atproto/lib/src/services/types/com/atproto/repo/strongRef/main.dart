@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'main.freezed.dart';
 part 'main.g.dart';
 
@@ -26,7 +23,7 @@ abstract class RepoStrongRef with _$RepoStrongRef {
   static const knownProps = <String>['uri', 'cid'];
 
   const factory RepoStrongRef({
-    @Default(comAtprotoRepoStrongRef) String $type,
+    @Default('com.atproto.repo.strongRef') String $type,
     required String uri,
     required String cid,
 
@@ -38,7 +35,7 @@ abstract class RepoStrongRef with _$RepoStrongRef {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == comAtprotoRepoStrongRef ||
+    return object['\$type'] == 'com.atproto.repo.strongRef' ||
         object['\$type'] == 'com.atproto.repo.strongRef#main';
   }
 }

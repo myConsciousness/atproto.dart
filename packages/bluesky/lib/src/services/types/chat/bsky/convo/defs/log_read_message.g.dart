@@ -13,7 +13,7 @@ _LogReadMessage _$LogReadMessageFromJson(Map json) =>
       final val = _LogReadMessage(
         $type: $checkedConvert(
           r'$type',
-          (v) => v as String? ?? chatBskyConvoDefsLogReadMessage,
+          (v) => v as String? ?? 'chat.bsky.convo.defs#logReadMessage',
         ),
         rev: $checkedConvert('rev', (v) => v as String),
         convoId: $checkedConvert('convoId', (v) => v as String),

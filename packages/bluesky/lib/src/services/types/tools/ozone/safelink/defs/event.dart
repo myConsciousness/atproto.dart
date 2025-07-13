@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import './action_type.dart';
 import './event_type.dart';
 import './pattern_type.dart';
@@ -41,7 +40,7 @@ abstract class Event with _$Event {
   ];
 
   const factory Event({
-    @Default(toolsOzoneSafelinkDefsEvent) String $type,
+    @Default('tools.ozone.safelink.defs#event') String $type,
 
     /// Auto-incrementing row ID
     required int id,
@@ -67,7 +66,7 @@ abstract class Event with _$Event {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneSafelinkDefsEvent;
+    return object['\$type'] == 'tools.ozone.safelink.defs#event';
   }
 }
 

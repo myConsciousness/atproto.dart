@@ -212,7 +212,7 @@ return $default(_that.$type,_that.byteStart,_that.byteEnd,_that.$unknown);case _
 @JsonSerializable()
 
 class _RichtextFacetByteSlice implements RichtextFacetByteSlice {
-  const _RichtextFacetByteSlice({this.$type = appBskyRichtextFacetByteSlice, required this.byteStart, required this.byteEnd, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RichtextFacetByteSlice({this.$type = 'app.bsky.richtext.facet#byteSlice', required this.byteStart, required this.byteEnd, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RichtextFacetByteSlice.fromJson(Map<String, dynamic> json) => _$RichtextFacetByteSliceFromJson(json);
 
 @override@JsonKey() final  String $type;

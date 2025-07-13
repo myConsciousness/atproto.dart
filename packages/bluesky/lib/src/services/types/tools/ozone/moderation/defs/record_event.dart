@@ -11,9 +11,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import '../../../../../../ids.g.dart';
-
 part 'record_event.freezed.dart';
 part 'record_event.g.dart';
 
@@ -27,7 +24,7 @@ abstract class RecordEvent with _$RecordEvent {
   static const knownProps = <String>['comment', 'op', 'cid', 'timestamp'];
 
   const factory RecordEvent({
-    @Default(toolsOzoneModerationDefsRecordEvent) String $type,
+    @Default('tools.ozone.moderation.defs#recordEvent') String $type,
     String? comment,
     required String op,
     String? cid,
@@ -41,7 +38,7 @@ abstract class RecordEvent with _$RecordEvent {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == toolsOzoneModerationDefsRecordEvent;
+    return object['\$type'] == 'tools.ozone.moderation.defs#recordEvent';
   }
 }
 

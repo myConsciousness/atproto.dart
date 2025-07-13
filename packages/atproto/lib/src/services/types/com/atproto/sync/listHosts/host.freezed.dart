@@ -228,7 +228,7 @@ return $default(_that.$type,_that.hostname,_that.seq,_that.accountCount,_that.st
 @JsonSerializable()
 
 class _Host implements Host {
-  const _Host({this.$type = comAtprotoSyncListHostsHost, required this.hostname, this.seq, this.accountCount, @HostStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Host({this.$type = 'com.atproto.sync.listHosts#host', required this.hostname, this.seq, this.accountCount, @HostStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Host.fromJson(Map<String, dynamic> json) => _$HostFromJson(json);
 
 @override@JsonKey() final  String $type;

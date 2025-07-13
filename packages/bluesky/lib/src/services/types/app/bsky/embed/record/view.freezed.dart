@@ -220,7 +220,7 @@ return $default(_that.$type,_that.record,_that.$unknown);case _:
 @JsonSerializable()
 
 class _EmbedRecordView implements EmbedRecordView {
-  const _EmbedRecordView({this.$type = appBskyEmbedRecordView, @UEmbedRecordViewRecordConverter() required this.record, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedRecordView({this.$type = 'app.bsky.embed.record#view', @UEmbedRecordViewRecordConverter() required this.record, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedRecordView.fromJson(Map<String, dynamic> json) => _$EmbedRecordViewFromJson(json);
 
 @override@JsonKey() final  String $type;

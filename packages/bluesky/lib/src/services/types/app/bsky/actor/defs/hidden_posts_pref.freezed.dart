@@ -211,7 +211,7 @@ return $default(_that.$type,_that.items,_that.$unknown);case _:
 @JsonSerializable()
 
 class _HiddenPostsPref implements HiddenPostsPref {
-  const _HiddenPostsPref({this.$type = appBskyActorDefsHiddenPostsPref, required final  List<String> items, final  Map<String, dynamic>? $unknown}): _items = items,_$unknown = $unknown;
+  const _HiddenPostsPref({this.$type = 'app.bsky.actor.defs#hiddenPostsPref', required final  List<String> items, final  Map<String, dynamic>? $unknown}): _items = items,_$unknown = $unknown;
   factory _HiddenPostsPref.fromJson(Map<String, dynamic> json) => _$HiddenPostsPrefFromJson(json);
 
 @override@JsonKey() final  String $type;

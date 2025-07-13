@@ -13,7 +13,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view.dart';
 import './labeler_viewer_state.dart';
 
@@ -37,7 +36,7 @@ abstract class LabelerView with _$LabelerView {
   ];
 
   const factory LabelerView({
-    @Default(appBskyLabelerDefsLabelerView) String $type,
+    @Default('app.bsky.labeler.defs#labelerView') String $type,
     required String uri,
     required String cid,
     @ProfileViewConverter() required ProfileView creator,
@@ -54,7 +53,7 @@ abstract class LabelerView with _$LabelerView {
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == appBskyLabelerDefsLabelerView;
+    return object['\$type'] == 'app.bsky.labeler.defs#labelerView';
   }
 }
 
