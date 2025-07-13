@@ -2,7 +2,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../lexicon.dart';
 import '../complex/lex_primitive_array.dart';
 import '../primitives/lex_boolean.dart';
 import '../primitives/lex_integer.dart';
