@@ -19,15 +19,15 @@ _UrlRule _$UrlRuleFromJson(Map json) => $checkedCreate('_UrlRule', json, (
     url: $checkedConvert('url', (v) => v as String),
     pattern: $checkedConvert(
       'pattern',
-      (v) => const PatternTypeConverter().fromJson(v as Map<String, dynamic>),
+      (v) => const PatternTypeConverter().fromJson(v as String),
     ),
     action: $checkedConvert(
       'action',
-      (v) => const ActionTypeConverter().fromJson(v as Map<String, dynamic>),
+      (v) => const ActionTypeConverter().fromJson(v as String),
     ),
     reason: $checkedConvert(
       'reason',
-      (v) => const ReasonTypeConverter().fromJson(v as Map<String, dynamic>),
+      (v) => const ReasonTypeConverter().fromJson(v as String),
     ),
     comment: $checkedConvert('comment', (v) => v as String?),
     createdBy: $checkedConvert('createdBy', (v) => v as String),

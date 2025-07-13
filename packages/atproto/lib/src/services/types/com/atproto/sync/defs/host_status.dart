@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'host_status.freezed.dart';
-part 'host_status.g.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -20,35 +19,37 @@ part 'host_status.g.dart';
 
 @freezed
 abstract class HostStatus with _$HostStatus {
-  static const knownProps = <String>[
-    'active',
-    'idle',
-    'offline',
-    'throttled',
-    'banned',
-  ];
+  const HostStatus._();
 
-  const factory HostStatus({
-    KnownHostStatus? knownValue,
-    String? unknownValue,
-  }) = _HostStatus;
+  const factory HostStatus.known({required KnownHostStatus data}) =
+      HostStatusKnown;
 
-  factory HostStatus.fromJson(Map<String, Object?> json) =>
-      _$HostStatusFromJson(json);
+  const factory HostStatus.unknown({required String data}) = HostStatusUnknown;
+
+  String toJson() => const HostStatusConverter().toJson(this);
 }
 
 final class HostStatusConverter
-    extends LexKnownValuesConverter<HostStatus, Map<String, dynamic>> {
+    extends LexKnownValuesConverter<HostStatus, String> {
   const HostStatusConverter();
 
   @override
-  HostStatus fromJson(Map<String, dynamic> json) {
-    return HostStatus.fromJson(translate(json, HostStatus.knownProps));
+  HostStatus fromJson(String json) {
+    try {
+      final knownValue = KnownHostStatus.valueOf(json);
+      if (knownValue != null) {
+        return HostStatus.known(data: knownValue);
+      }
+
+      return HostStatus.unknown(data: json);
+    } catch (_) {
+      return HostStatus.unknown(data: json);
+    }
   }
 
   @override
-  Map<String, dynamic> toJson(HostStatus object) =>
-      untranslate(object.toJson());
+  String toJson(HostStatus object) =>
+      object.when(known: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownHostStatus implements Serializable {
@@ -68,7 +69,11 @@ enum KnownHostStatus implements Serializable {
 
   const KnownHostStatus(this.value);
 
-  static KnownHostStatus? fromValue(final String value) {
+  static bool isKnownValue(final String value) {
+    return valueOf(value) != null;
+  }
+
+  static KnownHostStatus? valueOf(final String value) {
     for (final v in values) {
       if (v.value == value) {
         return v;

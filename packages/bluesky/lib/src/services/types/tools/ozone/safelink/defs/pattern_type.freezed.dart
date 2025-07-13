@@ -11,68 +11,33 @@ part of 'pattern_type.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$PatternType {
 
- KnownPatternType? get knownValue; String? get unknownValue;
-/// Create a copy of PatternType
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$PatternTypeCopyWith<PatternType> get copyWith => _$PatternTypeCopyWithImpl<PatternType>(this as PatternType, _$identity);
+ Object get data;
 
-  /// Serializes this PatternType to a JSON map.
-  Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PatternType&&(identical(other.knownValue, knownValue) || other.knownValue == knownValue)&&(identical(other.unknownValue, unknownValue) || other.unknownValue == unknownValue));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PatternType&&const DeepCollectionEquality().equals(other.data, data));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
-int get hashCode => Object.hash(runtimeType,knownValue,unknownValue);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
 
 @override
 String toString() {
-  return 'PatternType(knownValue: $knownValue, unknownValue: $unknownValue)';
+  return 'PatternType(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $PatternTypeCopyWith<$Res>  {
-  factory $PatternTypeCopyWith(PatternType value, $Res Function(PatternType) _then) = _$PatternTypeCopyWithImpl;
-@useResult
-$Res call({
- KnownPatternType? knownValue, String? unknownValue
-});
-
-
-
-
-}
-/// @nodoc
-class _$PatternTypeCopyWithImpl<$Res>
-    implements $PatternTypeCopyWith<$Res> {
-  _$PatternTypeCopyWithImpl(this._self, this._then);
-
-  final PatternType _self;
-  final $Res Function(PatternType) _then;
-
-/// Create a copy of PatternType
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? knownValue = freezed,Object? unknownValue = freezed,}) {
-  return _then(_self.copyWith(
-knownValue: freezed == knownValue ? _self.knownValue : knownValue // ignore: cast_nullable_to_non_nullable
-as KnownPatternType?,unknownValue: freezed == unknownValue ? _self.unknownValue : unknownValue // ignore: cast_nullable_to_non_nullable
-as String?,
-  ));
-}
-
+class $PatternTypeCopyWith<$Res>  {
+$PatternTypeCopyWith(PatternType _, $Res Function(PatternType) __);
 }
 
 
@@ -90,11 +55,12 @@ extension PatternTypePatterns on PatternType {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _PatternType value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( PatternTypeKnown value)?  known,TResult Function( PatternTypeUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _PatternType() when $default != null:
-return $default(_that);case _:
+case PatternTypeKnown() when known != null:
+return known(_that);case PatternTypeUnknown() when unknown != null:
+return unknown(_that);case _:
   return orElse();
 
 }
@@ -112,11 +78,12 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _PatternType value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( PatternTypeKnown value)  known,required TResult Function( PatternTypeUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
-case _PatternType():
-return $default(_that);case _:
+case PatternTypeKnown():
+return known(_that);case PatternTypeUnknown():
+return unknown(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -133,11 +100,12 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _PatternType value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( PatternTypeKnown value)?  known,TResult? Function( PatternTypeUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
-case _PatternType() when $default != null:
-return $default(_that);case _:
+case PatternTypeKnown() when known != null:
+return known(_that);case PatternTypeUnknown() when unknown != null:
+return unknown(_that);case _:
   return null;
 
 }
@@ -154,10 +122,11 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( KnownPatternType? knownValue,  String? unknownValue)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownPatternType data)?  known,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _PatternType() when $default != null:
-return $default(_that.knownValue,_that.unknownValue);case _:
+case PatternTypeKnown() when known != null:
+return known(_that.data);case PatternTypeUnknown() when unknown != null:
+return unknown(_that.data);case _:
   return orElse();
 
 }
@@ -175,10 +144,11 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( KnownPatternType? knownValue,  String? unknownValue)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownPatternType data)  known,required TResult Function( String data)  unknown,}) {final _that = this;
 switch (_that) {
-case _PatternType():
-return $default(_that.knownValue,_that.unknownValue);case _:
+case PatternTypeKnown():
+return known(_that.data);case PatternTypeUnknown():
+return unknown(_that.data);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +165,11 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( KnownPatternType? knownValue,  String? unknownValue)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownPatternType data)?  known,TResult? Function( String data)?  unknown,}) {final _that = this;
 switch (_that) {
-case _PatternType() when $default != null:
-return $default(_that.knownValue,_that.unknownValue);case _:
+case PatternTypeKnown() when known != null:
+return known(_that.data);case PatternTypeUnknown() when unknown != null:
+return unknown(_that.data);case _:
   return null;
 
 }
@@ -207,49 +178,45 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
-class _PatternType implements PatternType {
-  const _PatternType({this.knownValue, this.unknownValue});
-  factory _PatternType.fromJson(Map<String, dynamic> json) => _$PatternTypeFromJson(json);
 
-@override final  KnownPatternType? knownValue;
-@override final  String? unknownValue;
+class PatternTypeKnown extends PatternType {
+  const PatternTypeKnown({required this.data}): super._();
+  
+
+@override final  KnownPatternType data;
 
 /// Create a copy of PatternType
 /// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
+@JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$PatternTypeCopyWith<_PatternType> get copyWith => __$PatternTypeCopyWithImpl<_PatternType>(this, _$identity);
+$PatternTypeKnownCopyWith<PatternTypeKnown> get copyWith => _$PatternTypeKnownCopyWithImpl<PatternTypeKnown>(this, _$identity);
 
-@override
-Map<String, dynamic> toJson() {
-  return _$PatternTypeToJson(this, );
-}
+
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PatternType&&(identical(other.knownValue, knownValue) || other.knownValue == knownValue)&&(identical(other.unknownValue, unknownValue) || other.unknownValue == unknownValue));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PatternTypeKnown&&(identical(other.data, data) || other.data == data));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
-int get hashCode => Object.hash(runtimeType,knownValue,unknownValue);
+int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'PatternType(knownValue: $knownValue, unknownValue: $unknownValue)';
+  return 'PatternType.known(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$PatternTypeCopyWith<$Res> implements $PatternTypeCopyWith<$Res> {
-  factory _$PatternTypeCopyWith(_PatternType value, $Res Function(_PatternType) _then) = __$PatternTypeCopyWithImpl;
-@override @useResult
+abstract mixin class $PatternTypeKnownCopyWith<$Res> implements $PatternTypeCopyWith<$Res> {
+  factory $PatternTypeKnownCopyWith(PatternTypeKnown value, $Res Function(PatternTypeKnown) _then) = _$PatternTypeKnownCopyWithImpl;
+@useResult
 $Res call({
- KnownPatternType? knownValue, String? unknownValue
+ KnownPatternType data
 });
 
 
@@ -257,20 +224,85 @@ $Res call({
 
 }
 /// @nodoc
-class __$PatternTypeCopyWithImpl<$Res>
-    implements _$PatternTypeCopyWith<$Res> {
-  __$PatternTypeCopyWithImpl(this._self, this._then);
+class _$PatternTypeKnownCopyWithImpl<$Res>
+    implements $PatternTypeKnownCopyWith<$Res> {
+  _$PatternTypeKnownCopyWithImpl(this._self, this._then);
 
-  final _PatternType _self;
-  final $Res Function(_PatternType) _then;
+  final PatternTypeKnown _self;
+  final $Res Function(PatternTypeKnown) _then;
 
 /// Create a copy of PatternType
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? knownValue = freezed,Object? unknownValue = freezed,}) {
-  return _then(_PatternType(
-knownValue: freezed == knownValue ? _self.knownValue : knownValue // ignore: cast_nullable_to_non_nullable
-as KnownPatternType?,unknownValue: freezed == unknownValue ? _self.unknownValue : unknownValue // ignore: cast_nullable_to_non_nullable
-as String?,
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(PatternTypeKnown(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as KnownPatternType,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class PatternTypeUnknown extends PatternType {
+  const PatternTypeUnknown({required this.data}): super._();
+  
+
+@override final  String data;
+
+/// Create a copy of PatternType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PatternTypeUnknownCopyWith<PatternTypeUnknown> get copyWith => _$PatternTypeUnknownCopyWithImpl<PatternTypeUnknown>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PatternTypeUnknown&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'PatternType.unknown(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $PatternTypeUnknownCopyWith<$Res> implements $PatternTypeCopyWith<$Res> {
+  factory $PatternTypeUnknownCopyWith(PatternTypeUnknown value, $Res Function(PatternTypeUnknown) _then) = _$PatternTypeUnknownCopyWithImpl;
+@useResult
+$Res call({
+ String data
+});
+
+
+
+
+}
+/// @nodoc
+class _$PatternTypeUnknownCopyWithImpl<$Res>
+    implements $PatternTypeUnknownCopyWith<$Res> {
+  _$PatternTypeUnknownCopyWithImpl(this._self, this._then);
+
+  final PatternTypeUnknown _self;
+  final $Res Function(PatternTypeUnknown) _then;
+
+/// Create a copy of PatternType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(PatternTypeUnknown(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 

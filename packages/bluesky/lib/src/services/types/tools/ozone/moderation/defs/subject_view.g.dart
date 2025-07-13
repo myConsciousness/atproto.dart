@@ -19,7 +19,7 @@ _SubjectView _$SubjectViewFromJson(Map json) => $checkedCreate(
       ),
       type: $checkedConvert(
         'type',
-        (v) => const SubjectTypeConverter().fromJson(v as Map<String, dynamic>),
+        (v) => const SubjectTypeConverter().fromJson(v as String),
       ),
       subject: $checkedConvert('subject', (v) => v as String),
       status: $checkedConvert(

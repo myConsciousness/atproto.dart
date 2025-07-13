@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'list_purpose.freezed.dart';
-part 'list_purpose.g.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -20,33 +19,38 @@ part 'list_purpose.g.dart';
 
 @freezed
 abstract class ListPurpose with _$ListPurpose {
-  static const knownProps = <String>[
-    'app.bsky.graph.defs#modlist',
-    'app.bsky.graph.defs#curatelist',
-    'app.bsky.graph.defs#referencelist',
-  ];
+  const ListPurpose._();
 
-  const factory ListPurpose({
-    KnownListPurpose? knownValue,
-    String? unknownValue,
-  }) = _ListPurpose;
+  const factory ListPurpose.known({required KnownListPurpose data}) =
+      ListPurposeKnown;
 
-  factory ListPurpose.fromJson(Map<String, Object?> json) =>
-      _$ListPurposeFromJson(json);
+  const factory ListPurpose.unknown({required String data}) =
+      ListPurposeUnknown;
+
+  String toJson() => const ListPurposeConverter().toJson(this);
 }
 
 final class ListPurposeConverter
-    extends LexKnownValuesConverter<ListPurpose, Map<String, dynamic>> {
+    extends LexKnownValuesConverter<ListPurpose, String> {
   const ListPurposeConverter();
 
   @override
-  ListPurpose fromJson(Map<String, dynamic> json) {
-    return ListPurpose.fromJson(translate(json, ListPurpose.knownProps));
+  ListPurpose fromJson(String json) {
+    try {
+      final knownValue = KnownListPurpose.valueOf(json);
+      if (knownValue != null) {
+        return ListPurpose.known(data: knownValue);
+      }
+
+      return ListPurpose.unknown(data: json);
+    } catch (_) {
+      return ListPurpose.unknown(data: json);
+    }
   }
 
   @override
-  Map<String, dynamic> toJson(ListPurpose object) =>
-      untranslate(object.toJson());
+  String toJson(ListPurpose object) =>
+      object.when(known: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownListPurpose implements Serializable {
@@ -62,7 +66,11 @@ enum KnownListPurpose implements Serializable {
 
   const KnownListPurpose(this.value);
 
-  static KnownListPurpose? fromValue(final String value) {
+  static bool isKnownValue(final String value) {
+    return valueOf(value) != null;
+  }
+
+  static KnownListPurpose? valueOf(final String value) {
     for (final v in values) {
       if (v.value == value) {
         return v;

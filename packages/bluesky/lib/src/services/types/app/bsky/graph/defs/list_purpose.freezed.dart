@@ -11,68 +11,33 @@ part of 'list_purpose.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$ListPurpose {
 
- KnownListPurpose? get knownValue; String? get unknownValue;
-/// Create a copy of ListPurpose
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$ListPurposeCopyWith<ListPurpose> get copyWith => _$ListPurposeCopyWithImpl<ListPurpose>(this as ListPurpose, _$identity);
+ Object get data;
 
-  /// Serializes this ListPurpose to a JSON map.
-  Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ListPurpose&&(identical(other.knownValue, knownValue) || other.knownValue == knownValue)&&(identical(other.unknownValue, unknownValue) || other.unknownValue == unknownValue));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ListPurpose&&const DeepCollectionEquality().equals(other.data, data));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
-int get hashCode => Object.hash(runtimeType,knownValue,unknownValue);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
 
 @override
 String toString() {
-  return 'ListPurpose(knownValue: $knownValue, unknownValue: $unknownValue)';
+  return 'ListPurpose(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $ListPurposeCopyWith<$Res>  {
-  factory $ListPurposeCopyWith(ListPurpose value, $Res Function(ListPurpose) _then) = _$ListPurposeCopyWithImpl;
-@useResult
-$Res call({
- KnownListPurpose? knownValue, String? unknownValue
-});
-
-
-
-
-}
-/// @nodoc
-class _$ListPurposeCopyWithImpl<$Res>
-    implements $ListPurposeCopyWith<$Res> {
-  _$ListPurposeCopyWithImpl(this._self, this._then);
-
-  final ListPurpose _self;
-  final $Res Function(ListPurpose) _then;
-
-/// Create a copy of ListPurpose
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? knownValue = freezed,Object? unknownValue = freezed,}) {
-  return _then(_self.copyWith(
-knownValue: freezed == knownValue ? _self.knownValue : knownValue // ignore: cast_nullable_to_non_nullable
-as KnownListPurpose?,unknownValue: freezed == unknownValue ? _self.unknownValue : unknownValue // ignore: cast_nullable_to_non_nullable
-as String?,
-  ));
-}
-
+class $ListPurposeCopyWith<$Res>  {
+$ListPurposeCopyWith(ListPurpose _, $Res Function(ListPurpose) __);
 }
 
 
@@ -90,11 +55,12 @@ extension ListPurposePatterns on ListPurpose {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ListPurpose value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( ListPurposeKnown value)?  known,TResult Function( ListPurposeUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _ListPurpose() when $default != null:
-return $default(_that);case _:
+case ListPurposeKnown() when known != null:
+return known(_that);case ListPurposeUnknown() when unknown != null:
+return unknown(_that);case _:
   return orElse();
 
 }
@@ -112,11 +78,12 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ListPurpose value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( ListPurposeKnown value)  known,required TResult Function( ListPurposeUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
-case _ListPurpose():
-return $default(_that);case _:
+case ListPurposeKnown():
+return known(_that);case ListPurposeUnknown():
+return unknown(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -133,11 +100,12 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ListPurpose value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( ListPurposeKnown value)?  known,TResult? Function( ListPurposeUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
-case _ListPurpose() when $default != null:
-return $default(_that);case _:
+case ListPurposeKnown() when known != null:
+return known(_that);case ListPurposeUnknown() when unknown != null:
+return unknown(_that);case _:
   return null;
 
 }
@@ -154,10 +122,11 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( KnownListPurpose? knownValue,  String? unknownValue)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownListPurpose data)?  known,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _ListPurpose() when $default != null:
-return $default(_that.knownValue,_that.unknownValue);case _:
+case ListPurposeKnown() when known != null:
+return known(_that.data);case ListPurposeUnknown() when unknown != null:
+return unknown(_that.data);case _:
   return orElse();
 
 }
@@ -175,10 +144,11 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( KnownListPurpose? knownValue,  String? unknownValue)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownListPurpose data)  known,required TResult Function( String data)  unknown,}) {final _that = this;
 switch (_that) {
-case _ListPurpose():
-return $default(_that.knownValue,_that.unknownValue);case _:
+case ListPurposeKnown():
+return known(_that.data);case ListPurposeUnknown():
+return unknown(_that.data);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +165,11 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( KnownListPurpose? knownValue,  String? unknownValue)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownListPurpose data)?  known,TResult? Function( String data)?  unknown,}) {final _that = this;
 switch (_that) {
-case _ListPurpose() when $default != null:
-return $default(_that.knownValue,_that.unknownValue);case _:
+case ListPurposeKnown() when known != null:
+return known(_that.data);case ListPurposeUnknown() when unknown != null:
+return unknown(_that.data);case _:
   return null;
 
 }
@@ -207,49 +178,45 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
-class _ListPurpose implements ListPurpose {
-  const _ListPurpose({this.knownValue, this.unknownValue});
-  factory _ListPurpose.fromJson(Map<String, dynamic> json) => _$ListPurposeFromJson(json);
 
-@override final  KnownListPurpose? knownValue;
-@override final  String? unknownValue;
+class ListPurposeKnown extends ListPurpose {
+  const ListPurposeKnown({required this.data}): super._();
+  
+
+@override final  KnownListPurpose data;
 
 /// Create a copy of ListPurpose
 /// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
+@JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$ListPurposeCopyWith<_ListPurpose> get copyWith => __$ListPurposeCopyWithImpl<_ListPurpose>(this, _$identity);
+$ListPurposeKnownCopyWith<ListPurposeKnown> get copyWith => _$ListPurposeKnownCopyWithImpl<ListPurposeKnown>(this, _$identity);
 
-@override
-Map<String, dynamic> toJson() {
-  return _$ListPurposeToJson(this, );
-}
+
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ListPurpose&&(identical(other.knownValue, knownValue) || other.knownValue == knownValue)&&(identical(other.unknownValue, unknownValue) || other.unknownValue == unknownValue));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ListPurposeKnown&&(identical(other.data, data) || other.data == data));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
-int get hashCode => Object.hash(runtimeType,knownValue,unknownValue);
+int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'ListPurpose(knownValue: $knownValue, unknownValue: $unknownValue)';
+  return 'ListPurpose.known(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$ListPurposeCopyWith<$Res> implements $ListPurposeCopyWith<$Res> {
-  factory _$ListPurposeCopyWith(_ListPurpose value, $Res Function(_ListPurpose) _then) = __$ListPurposeCopyWithImpl;
-@override @useResult
+abstract mixin class $ListPurposeKnownCopyWith<$Res> implements $ListPurposeCopyWith<$Res> {
+  factory $ListPurposeKnownCopyWith(ListPurposeKnown value, $Res Function(ListPurposeKnown) _then) = _$ListPurposeKnownCopyWithImpl;
+@useResult
 $Res call({
- KnownListPurpose? knownValue, String? unknownValue
+ KnownListPurpose data
 });
 
 
@@ -257,20 +224,85 @@ $Res call({
 
 }
 /// @nodoc
-class __$ListPurposeCopyWithImpl<$Res>
-    implements _$ListPurposeCopyWith<$Res> {
-  __$ListPurposeCopyWithImpl(this._self, this._then);
+class _$ListPurposeKnownCopyWithImpl<$Res>
+    implements $ListPurposeKnownCopyWith<$Res> {
+  _$ListPurposeKnownCopyWithImpl(this._self, this._then);
 
-  final _ListPurpose _self;
-  final $Res Function(_ListPurpose) _then;
+  final ListPurposeKnown _self;
+  final $Res Function(ListPurposeKnown) _then;
 
 /// Create a copy of ListPurpose
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? knownValue = freezed,Object? unknownValue = freezed,}) {
-  return _then(_ListPurpose(
-knownValue: freezed == knownValue ? _self.knownValue : knownValue // ignore: cast_nullable_to_non_nullable
-as KnownListPurpose?,unknownValue: freezed == unknownValue ? _self.unknownValue : unknownValue // ignore: cast_nullable_to_non_nullable
-as String?,
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ListPurposeKnown(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as KnownListPurpose,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class ListPurposeUnknown extends ListPurpose {
+  const ListPurposeUnknown({required this.data}): super._();
+  
+
+@override final  String data;
+
+/// Create a copy of ListPurpose
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ListPurposeUnknownCopyWith<ListPurposeUnknown> get copyWith => _$ListPurposeUnknownCopyWithImpl<ListPurposeUnknown>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ListPurposeUnknown&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'ListPurpose.unknown(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $ListPurposeUnknownCopyWith<$Res> implements $ListPurposeCopyWith<$Res> {
+  factory $ListPurposeUnknownCopyWith(ListPurposeUnknown value, $Res Function(ListPurposeUnknown) _then) = _$ListPurposeUnknownCopyWithImpl;
+@useResult
+$Res call({
+ String data
+});
+
+
+
+
+}
+/// @nodoc
+class _$ListPurposeUnknownCopyWithImpl<$Res>
+    implements $ListPurposeUnknownCopyWith<$Res> {
+  _$ListPurposeUnknownCopyWithImpl(this._self, this._then);
+
+  final ListPurposeUnknown _self;
+  final $Res Function(ListPurposeUnknown) _then;
+
+/// Create a copy of ListPurpose
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ListPurposeUnknown(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 

@@ -14,8 +14,7 @@ _SafelinkRemoveRuleInput _$SafelinkRemoveRuleInputFromJson(Map json) =>
         url: $checkedConvert('url', (v) => v as String),
         pattern: $checkedConvert(
           'pattern',
-          (v) =>
-              const PatternTypeConverter().fromJson(v as Map<String, dynamic>),
+          (v) => const PatternTypeConverter().fromJson(v as String),
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         createdBy: $checkedConvert('createdBy', (v) => v as String?),

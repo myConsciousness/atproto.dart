@@ -11,68 +11,33 @@ part of 'muted_word_target.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$MutedWordTarget {
 
- KnownMutedWordTarget? get knownValue; String? get unknownValue;
-/// Create a copy of MutedWordTarget
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$MutedWordTargetCopyWith<MutedWordTarget> get copyWith => _$MutedWordTargetCopyWithImpl<MutedWordTarget>(this as MutedWordTarget, _$identity);
+ Object get data;
 
-  /// Serializes this MutedWordTarget to a JSON map.
-  Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MutedWordTarget&&(identical(other.knownValue, knownValue) || other.knownValue == knownValue)&&(identical(other.unknownValue, unknownValue) || other.unknownValue == unknownValue));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MutedWordTarget&&const DeepCollectionEquality().equals(other.data, data));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
-int get hashCode => Object.hash(runtimeType,knownValue,unknownValue);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
 
 @override
 String toString() {
-  return 'MutedWordTarget(knownValue: $knownValue, unknownValue: $unknownValue)';
+  return 'MutedWordTarget(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $MutedWordTargetCopyWith<$Res>  {
-  factory $MutedWordTargetCopyWith(MutedWordTarget value, $Res Function(MutedWordTarget) _then) = _$MutedWordTargetCopyWithImpl;
-@useResult
-$Res call({
- KnownMutedWordTarget? knownValue, String? unknownValue
-});
-
-
-
-
-}
-/// @nodoc
-class _$MutedWordTargetCopyWithImpl<$Res>
-    implements $MutedWordTargetCopyWith<$Res> {
-  _$MutedWordTargetCopyWithImpl(this._self, this._then);
-
-  final MutedWordTarget _self;
-  final $Res Function(MutedWordTarget) _then;
-
-/// Create a copy of MutedWordTarget
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? knownValue = freezed,Object? unknownValue = freezed,}) {
-  return _then(_self.copyWith(
-knownValue: freezed == knownValue ? _self.knownValue : knownValue // ignore: cast_nullable_to_non_nullable
-as KnownMutedWordTarget?,unknownValue: freezed == unknownValue ? _self.unknownValue : unknownValue // ignore: cast_nullable_to_non_nullable
-as String?,
-  ));
-}
-
+class $MutedWordTargetCopyWith<$Res>  {
+$MutedWordTargetCopyWith(MutedWordTarget _, $Res Function(MutedWordTarget) __);
 }
 
 
@@ -90,11 +55,12 @@ extension MutedWordTargetPatterns on MutedWordTarget {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _MutedWordTarget value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( MutedWordTargetKnown value)?  known,TResult Function( MutedWordTargetUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _MutedWordTarget() when $default != null:
-return $default(_that);case _:
+case MutedWordTargetKnown() when known != null:
+return known(_that);case MutedWordTargetUnknown() when unknown != null:
+return unknown(_that);case _:
   return orElse();
 
 }
@@ -112,11 +78,12 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _MutedWordTarget value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( MutedWordTargetKnown value)  known,required TResult Function( MutedWordTargetUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
-case _MutedWordTarget():
-return $default(_that);case _:
+case MutedWordTargetKnown():
+return known(_that);case MutedWordTargetUnknown():
+return unknown(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -133,11 +100,12 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _MutedWordTarget value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( MutedWordTargetKnown value)?  known,TResult? Function( MutedWordTargetUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
-case _MutedWordTarget() when $default != null:
-return $default(_that);case _:
+case MutedWordTargetKnown() when known != null:
+return known(_that);case MutedWordTargetUnknown() when unknown != null:
+return unknown(_that);case _:
   return null;
 
 }
@@ -154,10 +122,11 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( KnownMutedWordTarget? knownValue,  String? unknownValue)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownMutedWordTarget data)?  known,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _MutedWordTarget() when $default != null:
-return $default(_that.knownValue,_that.unknownValue);case _:
+case MutedWordTargetKnown() when known != null:
+return known(_that.data);case MutedWordTargetUnknown() when unknown != null:
+return unknown(_that.data);case _:
   return orElse();
 
 }
@@ -175,10 +144,11 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( KnownMutedWordTarget? knownValue,  String? unknownValue)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownMutedWordTarget data)  known,required TResult Function( String data)  unknown,}) {final _that = this;
 switch (_that) {
-case _MutedWordTarget():
-return $default(_that.knownValue,_that.unknownValue);case _:
+case MutedWordTargetKnown():
+return known(_that.data);case MutedWordTargetUnknown():
+return unknown(_that.data);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +165,11 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( KnownMutedWordTarget? knownValue,  String? unknownValue)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownMutedWordTarget data)?  known,TResult? Function( String data)?  unknown,}) {final _that = this;
 switch (_that) {
-case _MutedWordTarget() when $default != null:
-return $default(_that.knownValue,_that.unknownValue);case _:
+case MutedWordTargetKnown() when known != null:
+return known(_that.data);case MutedWordTargetUnknown() when unknown != null:
+return unknown(_that.data);case _:
   return null;
 
 }
@@ -207,49 +178,45 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
-class _MutedWordTarget implements MutedWordTarget {
-  const _MutedWordTarget({this.knownValue, this.unknownValue});
-  factory _MutedWordTarget.fromJson(Map<String, dynamic> json) => _$MutedWordTargetFromJson(json);
 
-@override final  KnownMutedWordTarget? knownValue;
-@override final  String? unknownValue;
+class MutedWordTargetKnown extends MutedWordTarget {
+  const MutedWordTargetKnown({required this.data}): super._();
+  
+
+@override final  KnownMutedWordTarget data;
 
 /// Create a copy of MutedWordTarget
 /// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
+@JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$MutedWordTargetCopyWith<_MutedWordTarget> get copyWith => __$MutedWordTargetCopyWithImpl<_MutedWordTarget>(this, _$identity);
+$MutedWordTargetKnownCopyWith<MutedWordTargetKnown> get copyWith => _$MutedWordTargetKnownCopyWithImpl<MutedWordTargetKnown>(this, _$identity);
 
-@override
-Map<String, dynamic> toJson() {
-  return _$MutedWordTargetToJson(this, );
-}
+
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MutedWordTarget&&(identical(other.knownValue, knownValue) || other.knownValue == knownValue)&&(identical(other.unknownValue, unknownValue) || other.unknownValue == unknownValue));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MutedWordTargetKnown&&(identical(other.data, data) || other.data == data));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
-int get hashCode => Object.hash(runtimeType,knownValue,unknownValue);
+int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'MutedWordTarget(knownValue: $knownValue, unknownValue: $unknownValue)';
+  return 'MutedWordTarget.known(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$MutedWordTargetCopyWith<$Res> implements $MutedWordTargetCopyWith<$Res> {
-  factory _$MutedWordTargetCopyWith(_MutedWordTarget value, $Res Function(_MutedWordTarget) _then) = __$MutedWordTargetCopyWithImpl;
-@override @useResult
+abstract mixin class $MutedWordTargetKnownCopyWith<$Res> implements $MutedWordTargetCopyWith<$Res> {
+  factory $MutedWordTargetKnownCopyWith(MutedWordTargetKnown value, $Res Function(MutedWordTargetKnown) _then) = _$MutedWordTargetKnownCopyWithImpl;
+@useResult
 $Res call({
- KnownMutedWordTarget? knownValue, String? unknownValue
+ KnownMutedWordTarget data
 });
 
 
@@ -257,20 +224,85 @@ $Res call({
 
 }
 /// @nodoc
-class __$MutedWordTargetCopyWithImpl<$Res>
-    implements _$MutedWordTargetCopyWith<$Res> {
-  __$MutedWordTargetCopyWithImpl(this._self, this._then);
+class _$MutedWordTargetKnownCopyWithImpl<$Res>
+    implements $MutedWordTargetKnownCopyWith<$Res> {
+  _$MutedWordTargetKnownCopyWithImpl(this._self, this._then);
 
-  final _MutedWordTarget _self;
-  final $Res Function(_MutedWordTarget) _then;
+  final MutedWordTargetKnown _self;
+  final $Res Function(MutedWordTargetKnown) _then;
 
 /// Create a copy of MutedWordTarget
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? knownValue = freezed,Object? unknownValue = freezed,}) {
-  return _then(_MutedWordTarget(
-knownValue: freezed == knownValue ? _self.knownValue : knownValue // ignore: cast_nullable_to_non_nullable
-as KnownMutedWordTarget?,unknownValue: freezed == unknownValue ? _self.unknownValue : unknownValue // ignore: cast_nullable_to_non_nullable
-as String?,
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(MutedWordTargetKnown(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as KnownMutedWordTarget,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class MutedWordTargetUnknown extends MutedWordTarget {
+  const MutedWordTargetUnknown({required this.data}): super._();
+  
+
+@override final  String data;
+
+/// Create a copy of MutedWordTarget
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$MutedWordTargetUnknownCopyWith<MutedWordTargetUnknown> get copyWith => _$MutedWordTargetUnknownCopyWithImpl<MutedWordTargetUnknown>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MutedWordTargetUnknown&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'MutedWordTarget.unknown(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $MutedWordTargetUnknownCopyWith<$Res> implements $MutedWordTargetCopyWith<$Res> {
+  factory $MutedWordTargetUnknownCopyWith(MutedWordTargetUnknown value, $Res Function(MutedWordTargetUnknown) _then) = _$MutedWordTargetUnknownCopyWithImpl;
+@useResult
+$Res call({
+ String data
+});
+
+
+
+
+}
+/// @nodoc
+class _$MutedWordTargetUnknownCopyWithImpl<$Res>
+    implements $MutedWordTargetUnknownCopyWith<$Res> {
+  _$MutedWordTargetUnknownCopyWithImpl(this._self, this._then);
+
+  final MutedWordTargetUnknown _self;
+  final $Res Function(MutedWordTargetUnknown) _then;
+
+/// Create a copy of MutedWordTarget
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(MutedWordTargetUnknown(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 

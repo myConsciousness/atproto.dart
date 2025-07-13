@@ -79,8 +79,10 @@ final class VerificationService {
     parameters: {
       if (cursor != null) 'cursor': cursor,
       if (limit != null) 'limit': limit,
-      if (createdAfter != null) 'createdAfter': createdAfter,
-      if (createdBefore != null) 'createdBefore': createdBefore,
+      if (createdAfter != null)
+        'createdAfter': _ctx.toUtcIso8601String(createdAfter),
+      if (createdBefore != null)
+        'createdBefore': _ctx.toUtcIso8601String(createdBefore),
       if (issuers != null) 'issuers': issuers,
       if (subjects != null) 'subjects': subjects,
       if (sortDirection != null) 'sortDirection': sortDirection,

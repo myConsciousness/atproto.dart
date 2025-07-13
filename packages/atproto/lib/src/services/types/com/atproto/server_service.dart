@@ -15,6 +15,7 @@ import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
 import 'server/checkAccountStatus/output.dart';
 import 'server/createAccount/output.dart';
+import 'server/createAppPassword/app_password.dart';
 import 'server/createInviteCode/output.dart';
 import 'server/createInviteCodes/output.dart';
 import 'server/createSession/output.dart';
@@ -168,7 +169,7 @@ final class ServerService {
   );
 
   /// Create an App Password.
-  Future<XRPCResponse<EmptyData>> createAppPassword({
+  Future<XRPCResponse<AppPassword>> createAppPassword({
     required String name,
     bool? privileged,
     Map<String, String>? $headers,
@@ -181,6 +182,7 @@ final class ServerService {
       if (privileged != null) 'privileged': privileged,
       ...?$unknown,
     },
+    to: const AppPasswordConverter().fromJson,
   );
 
   /// Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.
@@ -246,7 +248,11 @@ final class ServerService {
   }) async => await _ctx.post(
     ns.comAtprotoServerDeactivateAccount,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {if (deleteAfter != null) 'deleteAfter': deleteAfter, ...?$unknown},
+    body: {
+      if (deleteAfter != null)
+        'deleteAfter': _ctx.toUtcIso8601String(deleteAfter),
+      ...?$unknown,
+    },
   );
 
   /// Update an account's email.

@@ -11,68 +11,33 @@ part of 'subject_type.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$SubjectType {
 
- KnownSubjectType? get knownValue; String? get unknownValue;
-/// Create a copy of SubjectType
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$SubjectTypeCopyWith<SubjectType> get copyWith => _$SubjectTypeCopyWithImpl<SubjectType>(this as SubjectType, _$identity);
+ Object get data;
 
-  /// Serializes this SubjectType to a JSON map.
-  Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectType&&(identical(other.knownValue, knownValue) || other.knownValue == knownValue)&&(identical(other.unknownValue, unknownValue) || other.unknownValue == unknownValue));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectType&&const DeepCollectionEquality().equals(other.data, data));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
-int get hashCode => Object.hash(runtimeType,knownValue,unknownValue);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
 
 @override
 String toString() {
-  return 'SubjectType(knownValue: $knownValue, unknownValue: $unknownValue)';
+  return 'SubjectType(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $SubjectTypeCopyWith<$Res>  {
-  factory $SubjectTypeCopyWith(SubjectType value, $Res Function(SubjectType) _then) = _$SubjectTypeCopyWithImpl;
-@useResult
-$Res call({
- KnownSubjectType? knownValue, String? unknownValue
-});
-
-
-
-
-}
-/// @nodoc
-class _$SubjectTypeCopyWithImpl<$Res>
-    implements $SubjectTypeCopyWith<$Res> {
-  _$SubjectTypeCopyWithImpl(this._self, this._then);
-
-  final SubjectType _self;
-  final $Res Function(SubjectType) _then;
-
-/// Create a copy of SubjectType
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? knownValue = freezed,Object? unknownValue = freezed,}) {
-  return _then(_self.copyWith(
-knownValue: freezed == knownValue ? _self.knownValue : knownValue // ignore: cast_nullable_to_non_nullable
-as KnownSubjectType?,unknownValue: freezed == unknownValue ? _self.unknownValue : unknownValue // ignore: cast_nullable_to_non_nullable
-as String?,
-  ));
-}
-
+class $SubjectTypeCopyWith<$Res>  {
+$SubjectTypeCopyWith(SubjectType _, $Res Function(SubjectType) __);
 }
 
 
@@ -90,11 +55,12 @@ extension SubjectTypePatterns on SubjectType {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SubjectType value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( SubjectTypeKnown value)?  known,TResult Function( SubjectTypeUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _SubjectType() when $default != null:
-return $default(_that);case _:
+case SubjectTypeKnown() when known != null:
+return known(_that);case SubjectTypeUnknown() when unknown != null:
+return unknown(_that);case _:
   return orElse();
 
 }
@@ -112,11 +78,12 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SubjectType value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( SubjectTypeKnown value)  known,required TResult Function( SubjectTypeUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
-case _SubjectType():
-return $default(_that);case _:
+case SubjectTypeKnown():
+return known(_that);case SubjectTypeUnknown():
+return unknown(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -133,11 +100,12 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SubjectType value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( SubjectTypeKnown value)?  known,TResult? Function( SubjectTypeUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
-case _SubjectType() when $default != null:
-return $default(_that);case _:
+case SubjectTypeKnown() when known != null:
+return known(_that);case SubjectTypeUnknown() when unknown != null:
+return unknown(_that);case _:
   return null;
 
 }
@@ -154,10 +122,11 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( KnownSubjectType? knownValue,  String? unknownValue)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownSubjectType data)?  known,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _SubjectType() when $default != null:
-return $default(_that.knownValue,_that.unknownValue);case _:
+case SubjectTypeKnown() when known != null:
+return known(_that.data);case SubjectTypeUnknown() when unknown != null:
+return unknown(_that.data);case _:
   return orElse();
 
 }
@@ -175,10 +144,11 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( KnownSubjectType? knownValue,  String? unknownValue)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownSubjectType data)  known,required TResult Function( String data)  unknown,}) {final _that = this;
 switch (_that) {
-case _SubjectType():
-return $default(_that.knownValue,_that.unknownValue);case _:
+case SubjectTypeKnown():
+return known(_that.data);case SubjectTypeUnknown():
+return unknown(_that.data);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +165,11 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( KnownSubjectType? knownValue,  String? unknownValue)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownSubjectType data)?  known,TResult? Function( String data)?  unknown,}) {final _that = this;
 switch (_that) {
-case _SubjectType() when $default != null:
-return $default(_that.knownValue,_that.unknownValue);case _:
+case SubjectTypeKnown() when known != null:
+return known(_that.data);case SubjectTypeUnknown() when unknown != null:
+return unknown(_that.data);case _:
   return null;
 
 }
@@ -207,49 +178,45 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
-class _SubjectType implements SubjectType {
-  const _SubjectType({this.knownValue, this.unknownValue});
-  factory _SubjectType.fromJson(Map<String, dynamic> json) => _$SubjectTypeFromJson(json);
 
-@override final  KnownSubjectType? knownValue;
-@override final  String? unknownValue;
+class SubjectTypeKnown extends SubjectType {
+  const SubjectTypeKnown({required this.data}): super._();
+  
+
+@override final  KnownSubjectType data;
 
 /// Create a copy of SubjectType
 /// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
+@JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$SubjectTypeCopyWith<_SubjectType> get copyWith => __$SubjectTypeCopyWithImpl<_SubjectType>(this, _$identity);
+$SubjectTypeKnownCopyWith<SubjectTypeKnown> get copyWith => _$SubjectTypeKnownCopyWithImpl<SubjectTypeKnown>(this, _$identity);
 
-@override
-Map<String, dynamic> toJson() {
-  return _$SubjectTypeToJson(this, );
-}
+
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SubjectType&&(identical(other.knownValue, knownValue) || other.knownValue == knownValue)&&(identical(other.unknownValue, unknownValue) || other.unknownValue == unknownValue));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectTypeKnown&&(identical(other.data, data) || other.data == data));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
-int get hashCode => Object.hash(runtimeType,knownValue,unknownValue);
+int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'SubjectType(knownValue: $knownValue, unknownValue: $unknownValue)';
+  return 'SubjectType.known(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$SubjectTypeCopyWith<$Res> implements $SubjectTypeCopyWith<$Res> {
-  factory _$SubjectTypeCopyWith(_SubjectType value, $Res Function(_SubjectType) _then) = __$SubjectTypeCopyWithImpl;
-@override @useResult
+abstract mixin class $SubjectTypeKnownCopyWith<$Res> implements $SubjectTypeCopyWith<$Res> {
+  factory $SubjectTypeKnownCopyWith(SubjectTypeKnown value, $Res Function(SubjectTypeKnown) _then) = _$SubjectTypeKnownCopyWithImpl;
+@useResult
 $Res call({
- KnownSubjectType? knownValue, String? unknownValue
+ KnownSubjectType data
 });
 
 
@@ -257,20 +224,85 @@ $Res call({
 
 }
 /// @nodoc
-class __$SubjectTypeCopyWithImpl<$Res>
-    implements _$SubjectTypeCopyWith<$Res> {
-  __$SubjectTypeCopyWithImpl(this._self, this._then);
+class _$SubjectTypeKnownCopyWithImpl<$Res>
+    implements $SubjectTypeKnownCopyWith<$Res> {
+  _$SubjectTypeKnownCopyWithImpl(this._self, this._then);
 
-  final _SubjectType _self;
-  final $Res Function(_SubjectType) _then;
+  final SubjectTypeKnown _self;
+  final $Res Function(SubjectTypeKnown) _then;
 
 /// Create a copy of SubjectType
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? knownValue = freezed,Object? unknownValue = freezed,}) {
-  return _then(_SubjectType(
-knownValue: freezed == knownValue ? _self.knownValue : knownValue // ignore: cast_nullable_to_non_nullable
-as KnownSubjectType?,unknownValue: freezed == unknownValue ? _self.unknownValue : unknownValue // ignore: cast_nullable_to_non_nullable
-as String?,
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(SubjectTypeKnown(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as KnownSubjectType,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class SubjectTypeUnknown extends SubjectType {
+  const SubjectTypeUnknown({required this.data}): super._();
+  
+
+@override final  String data;
+
+/// Create a copy of SubjectType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SubjectTypeUnknownCopyWith<SubjectTypeUnknown> get copyWith => _$SubjectTypeUnknownCopyWithImpl<SubjectTypeUnknown>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectTypeUnknown&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'SubjectType.unknown(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $SubjectTypeUnknownCopyWith<$Res> implements $SubjectTypeCopyWith<$Res> {
+  factory $SubjectTypeUnknownCopyWith(SubjectTypeUnknown value, $Res Function(SubjectTypeUnknown) _then) = _$SubjectTypeUnknownCopyWithImpl;
+@useResult
+$Res call({
+ String data
+});
+
+
+
+
+}
+/// @nodoc
+class _$SubjectTypeUnknownCopyWithImpl<$Res>
+    implements $SubjectTypeUnknownCopyWith<$Res> {
+  _$SubjectTypeUnknownCopyWithImpl(this._self, this._then);
+
+  final SubjectTypeUnknown _self;
+  final $Res Function(SubjectTypeUnknown) _then;
+
+/// Create a copy of SubjectType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(SubjectTypeUnknown(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 

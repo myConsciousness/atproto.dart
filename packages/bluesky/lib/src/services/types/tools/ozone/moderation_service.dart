@@ -98,19 +98,23 @@ final class ModerationService {
         'includeAllUserRecords': includeAllUserRecords,
       if (subject != null) 'subject': subject,
       if (comment != null) 'comment': comment,
-      if (reportedAfter != null) 'reportedAfter': reportedAfter,
-      if (reportedBefore != null) 'reportedBefore': reportedBefore,
-      if (reviewedAfter != null) 'reviewedAfter': reviewedAfter,
+      if (reportedAfter != null)
+        'reportedAfter': _ctx.toUtcIso8601String(reportedAfter),
+      if (reportedBefore != null)
+        'reportedBefore': _ctx.toUtcIso8601String(reportedBefore),
+      if (reviewedAfter != null)
+        'reviewedAfter': _ctx.toUtcIso8601String(reviewedAfter),
       if (hostingDeletedAfter != null)
-        'hostingDeletedAfter': hostingDeletedAfter,
+        'hostingDeletedAfter': _ctx.toUtcIso8601String(hostingDeletedAfter),
       if (hostingDeletedBefore != null)
-        'hostingDeletedBefore': hostingDeletedBefore,
+        'hostingDeletedBefore': _ctx.toUtcIso8601String(hostingDeletedBefore),
       if (hostingUpdatedAfter != null)
-        'hostingUpdatedAfter': hostingUpdatedAfter,
+        'hostingUpdatedAfter': _ctx.toUtcIso8601String(hostingUpdatedAfter),
       if (hostingUpdatedBefore != null)
-        'hostingUpdatedBefore': hostingUpdatedBefore,
+        'hostingUpdatedBefore': _ctx.toUtcIso8601String(hostingUpdatedBefore),
       if (hostingStatuses != null) 'hostingStatuses': hostingStatuses,
-      if (reviewedBefore != null) 'reviewedBefore': reviewedBefore,
+      if (reviewedBefore != null)
+        'reviewedBefore': _ctx.toUtcIso8601String(reviewedBefore),
       if (includeMuted != null) 'includeMuted': includeMuted,
       if (onlyMuted != null) 'onlyMuted': onlyMuted,
       if (reviewState != null) 'reviewState': reviewState,
@@ -217,8 +221,10 @@ final class ModerationService {
       if (types != null) 'types': types,
       if (createdBy != null) 'createdBy': createdBy,
       if (sortDirection != null) 'sortDirection': sortDirection,
-      if (createdAfter != null) 'createdAfter': createdAfter,
-      if (createdBefore != null) 'createdBefore': createdBefore,
+      if (createdAfter != null)
+        'createdAfter': _ctx.toUtcIso8601String(createdAfter),
+      if (createdBefore != null)
+        'createdBefore': _ctx.toUtcIso8601String(createdBefore),
       if (subject != null) 'subject': subject,
       if (collections != null) 'collections': collections,
       if (subjectType != null) 'subjectType': subjectType,

@@ -143,7 +143,7 @@ final class NotificationService {
   }) async => await _ctx.post(
     ns.appBskyNotificationUpdateSeen,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'seenAt': seenAt, ...?$unknown},
+    body: {'seenAt': _ctx.toUtcIso8601String(seenAt), ...?$unknown},
   );
 
   /// Enumerate all accounts to which the requesting account is subscribed to receive notifications for. Requires auth.
@@ -192,7 +192,7 @@ final class NotificationService {
       if (limit != null) 'limit': limit,
       if (priority != null) 'priority': priority,
       if (cursor != null) 'cursor': cursor,
-      if (seenAt != null) 'seenAt': seenAt,
+      if (seenAt != null) 'seenAt': _ctx.toUtcIso8601String(seenAt),
       ...?$unknown,
     },
     to: const NotificationListNotificationsOutputConverter().fromJson,
@@ -209,7 +209,7 @@ final class NotificationService {
     headers: $headers,
     parameters: {
       if (priority != null) 'priority': priority,
-      if (seenAt != null) 'seenAt': seenAt,
+      if (seenAt != null) 'seenAt': _ctx.toUtcIso8601String(seenAt),
       ...?$unknown,
     },
     to: const NotificationGetUnreadCountOutputConverter().fromJson,

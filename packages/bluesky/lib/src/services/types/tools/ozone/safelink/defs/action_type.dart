@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'action_type.freezed.dart';
-part 'action_type.g.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -20,29 +19,37 @@ part 'action_type.g.dart';
 
 @freezed
 abstract class ActionType with _$ActionType {
-  static const knownProps = <String>['block', 'warn', 'whitelist'];
+  const ActionType._();
 
-  const factory ActionType({
-    KnownActionType? knownValue,
-    String? unknownValue,
-  }) = _ActionType;
+  const factory ActionType.known({required KnownActionType data}) =
+      ActionTypeKnown;
 
-  factory ActionType.fromJson(Map<String, Object?> json) =>
-      _$ActionTypeFromJson(json);
+  const factory ActionType.unknown({required String data}) = ActionTypeUnknown;
+
+  String toJson() => const ActionTypeConverter().toJson(this);
 }
 
 final class ActionTypeConverter
-    extends LexKnownValuesConverter<ActionType, Map<String, dynamic>> {
+    extends LexKnownValuesConverter<ActionType, String> {
   const ActionTypeConverter();
 
   @override
-  ActionType fromJson(Map<String, dynamic> json) {
-    return ActionType.fromJson(translate(json, ActionType.knownProps));
+  ActionType fromJson(String json) {
+    try {
+      final knownValue = KnownActionType.valueOf(json);
+      if (knownValue != null) {
+        return ActionType.known(data: knownValue);
+      }
+
+      return ActionType.unknown(data: json);
+    } catch (_) {
+      return ActionType.unknown(data: json);
+    }
   }
 
   @override
-  Map<String, dynamic> toJson(ActionType object) =>
-      untranslate(object.toJson());
+  String toJson(ActionType object) =>
+      object.when(known: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownActionType implements Serializable {
@@ -58,7 +65,11 @@ enum KnownActionType implements Serializable {
 
   const KnownActionType(this.value);
 
-  static KnownActionType? fromValue(final String value) {
+  static bool isKnownValue(final String value) {
+    return valueOf(value) != null;
+  }
+
+  static KnownActionType? valueOf(final String value) {
     for (final v in values) {
       if (v.value == value) {
         return v;

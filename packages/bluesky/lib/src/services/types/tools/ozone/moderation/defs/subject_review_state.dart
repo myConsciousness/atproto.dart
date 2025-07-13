@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'subject_review_state.freezed.dart';
-part 'subject_review_state.g.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -20,36 +19,39 @@ part 'subject_review_state.g.dart';
 
 @freezed
 abstract class SubjectReviewState with _$SubjectReviewState {
-  static const knownProps = <String>[
-    '#reviewOpen',
-    '#reviewEscalated',
-    '#reviewClosed',
-    '#reviewNone',
-  ];
+  const SubjectReviewState._();
 
-  const factory SubjectReviewState({
-    KnownSubjectReviewState? knownValue,
-    String? unknownValue,
-  }) = _SubjectReviewState;
+  const factory SubjectReviewState.known({
+    required KnownSubjectReviewState data,
+  }) = SubjectReviewStateKnown;
 
-  factory SubjectReviewState.fromJson(Map<String, Object?> json) =>
-      _$SubjectReviewStateFromJson(json);
+  const factory SubjectReviewState.unknown({required String data}) =
+      SubjectReviewStateUnknown;
+
+  String toJson() => const SubjectReviewStateConverter().toJson(this);
 }
 
 final class SubjectReviewStateConverter
-    extends LexKnownValuesConverter<SubjectReviewState, Map<String, dynamic>> {
+    extends LexKnownValuesConverter<SubjectReviewState, String> {
   const SubjectReviewStateConverter();
 
   @override
-  SubjectReviewState fromJson(Map<String, dynamic> json) {
-    return SubjectReviewState.fromJson(
-      translate(json, SubjectReviewState.knownProps),
-    );
+  SubjectReviewState fromJson(String json) {
+    try {
+      final knownValue = KnownSubjectReviewState.valueOf(json);
+      if (knownValue != null) {
+        return SubjectReviewState.known(data: knownValue);
+      }
+
+      return SubjectReviewState.unknown(data: json);
+    } catch (_) {
+      return SubjectReviewState.unknown(data: json);
+    }
   }
 
   @override
-  Map<String, dynamic> toJson(SubjectReviewState object) =>
-      untranslate(object.toJson());
+  String toJson(SubjectReviewState object) =>
+      object.when(known: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownSubjectReviewState implements Serializable {
@@ -67,7 +69,11 @@ enum KnownSubjectReviewState implements Serializable {
 
   const KnownSubjectReviewState(this.value);
 
-  static KnownSubjectReviewState? fromValue(final String value) {
+  static bool isKnownValue(final String value) {
+    return valueOf(value) != null;
+  }
+
+  static KnownSubjectReviewState? valueOf(final String value) {
     for (final v in values) {
       if (v.value == value) {
         return v;

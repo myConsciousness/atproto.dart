@@ -19,20 +19,20 @@ _Event _$EventFromJson(Map json) => $checkedCreate('_Event', json, (
     id: $checkedConvert('id', (v) => (v as num).toInt()),
     eventType: $checkedConvert(
       'eventType',
-      (v) => const EventTypeConverter().fromJson(v as Map<String, dynamic>),
+      (v) => const EventTypeConverter().fromJson(v as String),
     ),
     url: $checkedConvert('url', (v) => v as String),
     pattern: $checkedConvert(
       'pattern',
-      (v) => const PatternTypeConverter().fromJson(v as Map<String, dynamic>),
+      (v) => const PatternTypeConverter().fromJson(v as String),
     ),
     action: $checkedConvert(
       'action',
-      (v) => const ActionTypeConverter().fromJson(v as Map<String, dynamic>),
+      (v) => const ActionTypeConverter().fromJson(v as String),
     ),
     reason: $checkedConvert(
       'reason',
-      (v) => const ReasonTypeConverter().fromJson(v as Map<String, dynamic>),
+      (v) => const ReasonTypeConverter().fromJson(v as String),
     ),
     createdBy: $checkedConvert('createdBy', (v) => v as String),
     createdAt: $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),

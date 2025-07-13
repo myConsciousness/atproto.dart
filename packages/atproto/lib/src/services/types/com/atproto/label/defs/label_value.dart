@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'label_value.freezed.dart';
-part 'label_value.g.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -20,41 +19,37 @@ part 'label_value.g.dart';
 
 @freezed
 abstract class LabelValue with _$LabelValue {
-  static const knownProps = <String>[
-    '!hide',
-    '!no-promote',
-    '!warn',
-    '!no-unauthenticated',
-    'dmca-violation',
-    'doxxing',
-    'porn',
-    'sexual',
-    'nudity',
-    'nsfl',
-    'gore',
-  ];
+  const LabelValue._();
 
-  const factory LabelValue({
-    KnownLabelValue? knownValue,
-    String? unknownValue,
-  }) = _LabelValue;
+  const factory LabelValue.known({required KnownLabelValue data}) =
+      LabelValueKnown;
 
-  factory LabelValue.fromJson(Map<String, Object?> json) =>
-      _$LabelValueFromJson(json);
+  const factory LabelValue.unknown({required String data}) = LabelValueUnknown;
+
+  String toJson() => const LabelValueConverter().toJson(this);
 }
 
 final class LabelValueConverter
-    extends LexKnownValuesConverter<LabelValue, Map<String, dynamic>> {
+    extends LexKnownValuesConverter<LabelValue, String> {
   const LabelValueConverter();
 
   @override
-  LabelValue fromJson(Map<String, dynamic> json) {
-    return LabelValue.fromJson(translate(json, LabelValue.knownProps));
+  LabelValue fromJson(String json) {
+    try {
+      final knownValue = KnownLabelValue.valueOf(json);
+      if (knownValue != null) {
+        return LabelValue.known(data: knownValue);
+      }
+
+      return LabelValue.unknown(data: json);
+    } catch (_) {
+      return LabelValue.unknown(data: json);
+    }
   }
 
   @override
-  Map<String, dynamic> toJson(LabelValue object) =>
-      untranslate(object.toJson());
+  String toJson(LabelValue object) =>
+      object.when(known: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownLabelValue implements Serializable {
@@ -86,7 +81,11 @@ enum KnownLabelValue implements Serializable {
 
   const KnownLabelValue(this.value);
 
-  static KnownLabelValue? fromValue(final String value) {
+  static bool isKnownValue(final String value) {
+    return valueOf(value) != null;
+  }
+
+  static KnownLabelValue? valueOf(final String value) {
     for (final v in values) {
       if (v.value == value) {
         return v;

@@ -11,68 +11,33 @@ part of 'subject_review_state.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$SubjectReviewState {
 
- KnownSubjectReviewState? get knownValue; String? get unknownValue;
-/// Create a copy of SubjectReviewState
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$SubjectReviewStateCopyWith<SubjectReviewState> get copyWith => _$SubjectReviewStateCopyWithImpl<SubjectReviewState>(this as SubjectReviewState, _$identity);
+ Object get data;
 
-  /// Serializes this SubjectReviewState to a JSON map.
-  Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectReviewState&&(identical(other.knownValue, knownValue) || other.knownValue == knownValue)&&(identical(other.unknownValue, unknownValue) || other.unknownValue == unknownValue));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectReviewState&&const DeepCollectionEquality().equals(other.data, data));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
-int get hashCode => Object.hash(runtimeType,knownValue,unknownValue);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
 
 @override
 String toString() {
-  return 'SubjectReviewState(knownValue: $knownValue, unknownValue: $unknownValue)';
+  return 'SubjectReviewState(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $SubjectReviewStateCopyWith<$Res>  {
-  factory $SubjectReviewStateCopyWith(SubjectReviewState value, $Res Function(SubjectReviewState) _then) = _$SubjectReviewStateCopyWithImpl;
-@useResult
-$Res call({
- KnownSubjectReviewState? knownValue, String? unknownValue
-});
-
-
-
-
-}
-/// @nodoc
-class _$SubjectReviewStateCopyWithImpl<$Res>
-    implements $SubjectReviewStateCopyWith<$Res> {
-  _$SubjectReviewStateCopyWithImpl(this._self, this._then);
-
-  final SubjectReviewState _self;
-  final $Res Function(SubjectReviewState) _then;
-
-/// Create a copy of SubjectReviewState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? knownValue = freezed,Object? unknownValue = freezed,}) {
-  return _then(_self.copyWith(
-knownValue: freezed == knownValue ? _self.knownValue : knownValue // ignore: cast_nullable_to_non_nullable
-as KnownSubjectReviewState?,unknownValue: freezed == unknownValue ? _self.unknownValue : unknownValue // ignore: cast_nullable_to_non_nullable
-as String?,
-  ));
-}
-
+class $SubjectReviewStateCopyWith<$Res>  {
+$SubjectReviewStateCopyWith(SubjectReviewState _, $Res Function(SubjectReviewState) __);
 }
 
 
@@ -90,11 +55,12 @@ extension SubjectReviewStatePatterns on SubjectReviewState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SubjectReviewState value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( SubjectReviewStateKnown value)?  known,TResult Function( SubjectReviewStateUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _SubjectReviewState() when $default != null:
-return $default(_that);case _:
+case SubjectReviewStateKnown() when known != null:
+return known(_that);case SubjectReviewStateUnknown() when unknown != null:
+return unknown(_that);case _:
   return orElse();
 
 }
@@ -112,11 +78,12 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SubjectReviewState value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( SubjectReviewStateKnown value)  known,required TResult Function( SubjectReviewStateUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
-case _SubjectReviewState():
-return $default(_that);case _:
+case SubjectReviewStateKnown():
+return known(_that);case SubjectReviewStateUnknown():
+return unknown(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -133,11 +100,12 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SubjectReviewState value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( SubjectReviewStateKnown value)?  known,TResult? Function( SubjectReviewStateUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
-case _SubjectReviewState() when $default != null:
-return $default(_that);case _:
+case SubjectReviewStateKnown() when known != null:
+return known(_that);case SubjectReviewStateUnknown() when unknown != null:
+return unknown(_that);case _:
   return null;
 
 }
@@ -154,10 +122,11 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( KnownSubjectReviewState? knownValue,  String? unknownValue)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownSubjectReviewState data)?  known,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _SubjectReviewState() when $default != null:
-return $default(_that.knownValue,_that.unknownValue);case _:
+case SubjectReviewStateKnown() when known != null:
+return known(_that.data);case SubjectReviewStateUnknown() when unknown != null:
+return unknown(_that.data);case _:
   return orElse();
 
 }
@@ -175,10 +144,11 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( KnownSubjectReviewState? knownValue,  String? unknownValue)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownSubjectReviewState data)  known,required TResult Function( String data)  unknown,}) {final _that = this;
 switch (_that) {
-case _SubjectReviewState():
-return $default(_that.knownValue,_that.unknownValue);case _:
+case SubjectReviewStateKnown():
+return known(_that.data);case SubjectReviewStateUnknown():
+return unknown(_that.data);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +165,11 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( KnownSubjectReviewState? knownValue,  String? unknownValue)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownSubjectReviewState data)?  known,TResult? Function( String data)?  unknown,}) {final _that = this;
 switch (_that) {
-case _SubjectReviewState() when $default != null:
-return $default(_that.knownValue,_that.unknownValue);case _:
+case SubjectReviewStateKnown() when known != null:
+return known(_that.data);case SubjectReviewStateUnknown() when unknown != null:
+return unknown(_that.data);case _:
   return null;
 
 }
@@ -207,49 +178,45 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
-class _SubjectReviewState implements SubjectReviewState {
-  const _SubjectReviewState({this.knownValue, this.unknownValue});
-  factory _SubjectReviewState.fromJson(Map<String, dynamic> json) => _$SubjectReviewStateFromJson(json);
 
-@override final  KnownSubjectReviewState? knownValue;
-@override final  String? unknownValue;
+class SubjectReviewStateKnown extends SubjectReviewState {
+  const SubjectReviewStateKnown({required this.data}): super._();
+  
+
+@override final  KnownSubjectReviewState data;
 
 /// Create a copy of SubjectReviewState
 /// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
+@JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$SubjectReviewStateCopyWith<_SubjectReviewState> get copyWith => __$SubjectReviewStateCopyWithImpl<_SubjectReviewState>(this, _$identity);
+$SubjectReviewStateKnownCopyWith<SubjectReviewStateKnown> get copyWith => _$SubjectReviewStateKnownCopyWithImpl<SubjectReviewStateKnown>(this, _$identity);
 
-@override
-Map<String, dynamic> toJson() {
-  return _$SubjectReviewStateToJson(this, );
-}
+
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SubjectReviewState&&(identical(other.knownValue, knownValue) || other.knownValue == knownValue)&&(identical(other.unknownValue, unknownValue) || other.unknownValue == unknownValue));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectReviewStateKnown&&(identical(other.data, data) || other.data == data));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
-int get hashCode => Object.hash(runtimeType,knownValue,unknownValue);
+int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'SubjectReviewState(knownValue: $knownValue, unknownValue: $unknownValue)';
+  return 'SubjectReviewState.known(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$SubjectReviewStateCopyWith<$Res> implements $SubjectReviewStateCopyWith<$Res> {
-  factory _$SubjectReviewStateCopyWith(_SubjectReviewState value, $Res Function(_SubjectReviewState) _then) = __$SubjectReviewStateCopyWithImpl;
-@override @useResult
+abstract mixin class $SubjectReviewStateKnownCopyWith<$Res> implements $SubjectReviewStateCopyWith<$Res> {
+  factory $SubjectReviewStateKnownCopyWith(SubjectReviewStateKnown value, $Res Function(SubjectReviewStateKnown) _then) = _$SubjectReviewStateKnownCopyWithImpl;
+@useResult
 $Res call({
- KnownSubjectReviewState? knownValue, String? unknownValue
+ KnownSubjectReviewState data
 });
 
 
@@ -257,20 +224,85 @@ $Res call({
 
 }
 /// @nodoc
-class __$SubjectReviewStateCopyWithImpl<$Res>
-    implements _$SubjectReviewStateCopyWith<$Res> {
-  __$SubjectReviewStateCopyWithImpl(this._self, this._then);
+class _$SubjectReviewStateKnownCopyWithImpl<$Res>
+    implements $SubjectReviewStateKnownCopyWith<$Res> {
+  _$SubjectReviewStateKnownCopyWithImpl(this._self, this._then);
 
-  final _SubjectReviewState _self;
-  final $Res Function(_SubjectReviewState) _then;
+  final SubjectReviewStateKnown _self;
+  final $Res Function(SubjectReviewStateKnown) _then;
 
 /// Create a copy of SubjectReviewState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? knownValue = freezed,Object? unknownValue = freezed,}) {
-  return _then(_SubjectReviewState(
-knownValue: freezed == knownValue ? _self.knownValue : knownValue // ignore: cast_nullable_to_non_nullable
-as KnownSubjectReviewState?,unknownValue: freezed == unknownValue ? _self.unknownValue : unknownValue // ignore: cast_nullable_to_non_nullable
-as String?,
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(SubjectReviewStateKnown(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as KnownSubjectReviewState,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class SubjectReviewStateUnknown extends SubjectReviewState {
+  const SubjectReviewStateUnknown({required this.data}): super._();
+  
+
+@override final  String data;
+
+/// Create a copy of SubjectReviewState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SubjectReviewStateUnknownCopyWith<SubjectReviewStateUnknown> get copyWith => _$SubjectReviewStateUnknownCopyWithImpl<SubjectReviewStateUnknown>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectReviewStateUnknown&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'SubjectReviewState.unknown(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $SubjectReviewStateUnknownCopyWith<$Res> implements $SubjectReviewStateCopyWith<$Res> {
+  factory $SubjectReviewStateUnknownCopyWith(SubjectReviewStateUnknown value, $Res Function(SubjectReviewStateUnknown) _then) = _$SubjectReviewStateUnknownCopyWithImpl;
+@useResult
+$Res call({
+ String data
+});
+
+
+
+
+}
+/// @nodoc
+class _$SubjectReviewStateUnknownCopyWithImpl<$Res>
+    implements $SubjectReviewStateUnknownCopyWith<$Res> {
+  _$SubjectReviewStateUnknownCopyWithImpl(this._self, this._then);
+
+  final SubjectReviewStateUnknown _self;
+  final $Res Function(SubjectReviewStateUnknown) _then;
+
+/// Create a copy of SubjectReviewState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(SubjectReviewStateUnknown(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 

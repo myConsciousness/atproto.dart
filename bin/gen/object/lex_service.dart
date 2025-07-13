@@ -40,9 +40,9 @@ final class LexService {
       final parameters = api.inputType == null
           ? const <LexParameter>[]
           : api.inputType!
-              .getProperties()
-              .map((e) => e.toLexParameter())
-              .toList();
+                .getProperties()
+                .map((e) => e.toLexParameter())
+                .toList();
 
       for (final parameter in parameters) {
         if (parameter.type.lexiconId == null) continue;
@@ -64,8 +64,10 @@ final class LexService {
 
             buffer.writeln("import '$relativePath/$fileName.dart';");
           } else {
-            final relativePath =
-                parameter.type.lexiconId!.split('.').sublist(2).join('/');
+            final relativePath = parameter.type.lexiconId!
+                .split('.')
+                .sublist(2)
+                .join('/');
             final fileName = rule.getFileNameForUnion(
               parameter.type.lexiconId!,
               parameter.type.defName,
@@ -295,9 +297,9 @@ final class LexApi {
     }
     buffer.writeln('Future<XRPCResponse<RepoCreateRecordOutput>> $name({');
     for (final parameter in parameters) {
-      buffer.writeln(parameter.getParams(
-        ignoreRequired: parameter.name == 'createdAt',
-      ));
+      buffer.writeln(
+        parameter.getParams(ignoreRequired: parameter.name == 'createdAt'),
+      );
     }
     buffer.writeln('  String? \$rey,');
     buffer.writeln('  Map<String, String>? \$headers,');
@@ -309,9 +311,7 @@ final class LexApi {
     buffer.writeln('    rkey: \$rey,');
     buffer.writeln('    record: {');
     for (final parameter in parameters) {
-      buffer.writeln(parameter.getParamsRecord(
-        isRecordCreatedAt: parameter.name == 'createdAt',
-      ));
+      buffer.writeln(parameter.getParamsRecord());
     }
     buffer.writeln('      ...?\$unknown,');
     buffer.writeln('    },');

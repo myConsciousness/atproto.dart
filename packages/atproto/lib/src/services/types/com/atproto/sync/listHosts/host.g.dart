@@ -21,7 +21,7 @@ _Host _$HostFromJson(Map json) => $checkedCreate('_Host', json, (
     accountCount: $checkedConvert('accountCount', (v) => (v as num?)?.toInt()),
     status: $checkedConvert(
       'status',
-      (v) => _$JsonConverterFromJson<Map<String, dynamic>, HostStatus>(
+      (v) => _$JsonConverterFromJson<String, HostStatus>(
         v,
         const HostStatusConverter().fromJson,
       ),
@@ -39,7 +39,7 @@ Map<String, dynamic> _$HostToJson(_Host instance) => <String, dynamic>{
   'hostname': instance.hostname,
   'seq': instance.seq,
   'accountCount': instance.accountCount,
-  'status': _$JsonConverterToJson<Map<String, dynamic>, HostStatus>(
+  'status': _$JsonConverterToJson<String, HostStatus>(
     instance.status,
     const HostStatusConverter().toJson,
   ),

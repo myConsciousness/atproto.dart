@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'pattern_type.freezed.dart';
-part 'pattern_type.g.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -20,29 +19,38 @@ part 'pattern_type.g.dart';
 
 @freezed
 abstract class PatternType with _$PatternType {
-  static const knownProps = <String>['domain', 'url'];
+  const PatternType._();
 
-  const factory PatternType({
-    KnownPatternType? knownValue,
-    String? unknownValue,
-  }) = _PatternType;
+  const factory PatternType.known({required KnownPatternType data}) =
+      PatternTypeKnown;
 
-  factory PatternType.fromJson(Map<String, Object?> json) =>
-      _$PatternTypeFromJson(json);
+  const factory PatternType.unknown({required String data}) =
+      PatternTypeUnknown;
+
+  String toJson() => const PatternTypeConverter().toJson(this);
 }
 
 final class PatternTypeConverter
-    extends LexKnownValuesConverter<PatternType, Map<String, dynamic>> {
+    extends LexKnownValuesConverter<PatternType, String> {
   const PatternTypeConverter();
 
   @override
-  PatternType fromJson(Map<String, dynamic> json) {
-    return PatternType.fromJson(translate(json, PatternType.knownProps));
+  PatternType fromJson(String json) {
+    try {
+      final knownValue = KnownPatternType.valueOf(json);
+      if (knownValue != null) {
+        return PatternType.known(data: knownValue);
+      }
+
+      return PatternType.unknown(data: json);
+    } catch (_) {
+      return PatternType.unknown(data: json);
+    }
   }
 
   @override
-  Map<String, dynamic> toJson(PatternType object) =>
-      untranslate(object.toJson());
+  String toJson(PatternType object) =>
+      object.when(known: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownPatternType implements Serializable {
@@ -56,7 +64,11 @@ enum KnownPatternType implements Serializable {
 
   const KnownPatternType(this.value);
 
-  static KnownPatternType? fromValue(final String value) {
+  static bool isKnownValue(final String value) {
+    return valueOf(value) != null;
+  }
+
+  static KnownPatternType? valueOf(final String value) {
     for (final v in values) {
       if (v.value == value) {
         return v;

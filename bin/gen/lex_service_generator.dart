@@ -15,11 +15,7 @@ void generateLexServices(
   final List<String> packages,
   final List<LexType> types,
 ) {
-  return _LexServiceGenerator(
-    services,
-    packages,
-    types,
-  ).execute();
+  return _LexServiceGenerator(services, packages, types).execute();
 }
 
 final class _LexServiceGenerator {
@@ -27,16 +23,13 @@ final class _LexServiceGenerator {
   final List<String> packages;
   final List<LexType> types;
 
-  const _LexServiceGenerator(
-    this.services,
-    this.packages,
-    this.types,
-  );
+  const _LexServiceGenerator(this.services, this.packages, this.types);
 
   void execute() {
     final services = <LexService>[];
     final docsByService = _groupDocsByService(
-        _filterLexicons().map(LexiconDoc.fromJson).toList());
+      _filterLexicons().map(LexiconDoc.fromJson).toList(),
+    );
 
     for (final entry in docsByService.entries) {
       final apis = <LexApi>[];
@@ -50,33 +43,36 @@ final class _LexServiceGenerator {
         );
         if (api == null) continue;
 
-        final returnType = _getRelatedType(
-          doc.id.toString(),
-          const [LexTypeState.output],
-        );
-        final inputType = _getRelatedType(
-          doc.id.toString(),
-          const [LexTypeState.input, LexTypeState.record],
-        );
+        final returnType = _getRelatedType(doc.id.toString(), const [
+          LexTypeState.output,
+        ]);
+        final inputType = _getRelatedType(doc.id.toString(), const [
+          LexTypeState.input,
+          LexTypeState.record,
+        ]);
 
-        apis.add(LexApi(
-          lexiconId: doc.id.toString(),
-          name: rule.getServiceApiName(doc.id.toString()),
-          description: _getApiDescription(api),
-          inputType: inputType,
-          returnType: returnType,
-          isQuery: _isQuery(doc),
-          isProcedure: _isProcedure(doc),
-          isSubscription: _isSubscription(doc),
-          isRecord: _isRecord(doc),
-        ));
+        apis.add(
+          LexApi(
+            lexiconId: doc.id.toString(),
+            name: rule.getServiceApiName(doc.id.toString()),
+            description: _getApiDescription(api),
+            inputType: inputType,
+            returnType: returnType,
+            isQuery: _isQuery(doc),
+            isProcedure: _isProcedure(doc),
+            isSubscription: _isSubscription(doc),
+            isRecord: _isRecord(doc),
+          ),
+        );
       }
 
-      services.add(LexService(
-        lexiconId: entry.key,
-        name: toFirstUpperCase(rule.getServiceName(entry.key)),
-        apis: apis,
-      ));
+      services.add(
+        LexService(
+          lexiconId: entry.key,
+          name: toFirstUpperCase(rule.getServiceName(entry.key)),
+          apis: apis,
+        ),
+      );
     }
 
     for (final service in services) {
@@ -98,7 +94,8 @@ final class _LexServiceGenerator {
   }
 
   Map<String, List<LexiconDoc>> _groupDocsByService(
-      final List<LexiconDoc> docs) {
+    final List<LexiconDoc> docs,
+  ) {
     final result = <String, List<LexiconDoc>>{};
 
     for (final doc in docs) {
@@ -168,15 +165,19 @@ final class _LexServiceGenerator {
           if (ref == null) return type;
 
           // Try to get the object from ref
-          final parts = ref.split('#');
-          final refLexiconId = parts.first;
-          final refDefName = parts.last;
+          if (ref.startsWith('#')) {
+            return _getRelatedType(lexiconId, const [
+              LexTypeState.object,
+            ], refDefName: ref.substring(1));
+          } else {
+            final parts = ref.split('#');
+            final refLexiconId = parts.first;
+            final refDefName = parts.last;
 
-          return _getRelatedType(
-            refLexiconId,
-            const [LexTypeState.object],
-            refDefName: refDefName,
-          );
+            return _getRelatedType(refLexiconId, const [
+              LexTypeState.object,
+            ], refDefName: refDefName);
+          }
         }
       }
     }

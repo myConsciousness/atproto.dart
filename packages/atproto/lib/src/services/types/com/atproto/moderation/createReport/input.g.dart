@@ -13,8 +13,7 @@ _ModerationCreateReportInput _$ModerationCreateReportInputFromJson(Map json) =>
       final val = _ModerationCreateReportInput(
         reasonType: $checkedConvert(
           'reasonType',
-          (v) =>
-              const ReasonTypeConverter().fromJson(v as Map<String, dynamic>),
+          (v) => const ReasonTypeConverter().fromJson(v as String),
         ),
         reason: $checkedConvert('reason', (v) => v as String?),
         subject: $checkedConvert(

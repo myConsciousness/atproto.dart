@@ -42,7 +42,6 @@ final class LexKnownValues extends LexType {
         .join('\n');
 
     final fileName = rule.getLexObjectFileName(defName);
-    final knownProps = getKnownProps();
 
     return '''$kHeaderHint
 
@@ -50,37 +49,45 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '$fileName.freezed.dart';
-part '$fileName.g.dart';
 
 $kHeader
 
 @freezed
 abstract class $name with _\$$name {
-  $knownProps
+  const $name._();
 
-  const factory $name({
-    Known$name? knownValue,
-    String? unknownValue,
-  }) = _$name;
+  const factory $name.known({
+    required Known$name data,
+  }) = ${name}Known;
 
-  factory $name.fromJson(Map<String, Object?> json) => _\$${name}FromJson(json);
+  const factory $name.unknown({
+    required String data,
+  }) = ${name}Unknown;
+
+  String toJson() => const ${name}Converter().toJson(this);
 }
 
-final class ${name}Converter
-    extends LexKnownValuesConverter<$name, Map<String, dynamic>> {
+final class ${name}Converter extends LexKnownValuesConverter<$name, String> {
   const ${name}Converter();
 
   @override
-  $name fromJson(Map<String, dynamic> json) {
-    return $name.fromJson(translate(
-      json,
-      $name.knownProps,
-    ));
+  $name fromJson(String json) {
+    try {
+      final knownValue = Known$name.valueOf(json);
+      if (knownValue != null) {
+        return $name.known(data: knownValue);
+      }
+
+      return $name.unknown(data: json);
+    } catch (_) {
+      return $name.unknown(data: json);
+    }
   }
 
   @override
-  Map<String, dynamic> toJson($name object) => untranslate(
-        object.toJson(),
+  String toJson($name object) => object.when(
+        known: (data) => data.value,
+        unknown: (data) => data,
       );
 }
 
@@ -93,7 +100,11 @@ enum Known$name implements Serializable{
 
   const Known$name(this.value);
 
-  static Known$name? fromValue(final String value) {
+  static bool isKnownValue(final String value) {
+    return valueOf(value) != null;
+  }
+
+  static Known$name? valueOf(final String value) {
     for (final v in values) {
       if (v.value == value) {
         return v;
@@ -103,17 +114,5 @@ enum Known$name implements Serializable{
   }
 }
 ''';
-  }
-
-  String getKnownProps() {
-    final buffer = StringBuffer();
-
-    buffer.write('static const knownProps = <String>[');
-    for (final value in values) {
-      buffer.write("'$value', ");
-    }
-    buffer.write('];');
-
-    return buffer.toString();
   }
 }

@@ -20,8 +20,7 @@ _ListViewBasic _$ListViewBasicFromJson(Map json) =>
         name: $checkedConvert('name', (v) => v as String),
         purpose: $checkedConvert(
           'purpose',
-          (v) =>
-              const ListPurposeConverter().fromJson(v as Map<String, dynamic>),
+          (v) => const ListPurposeConverter().fromJson(v as String),
         ),
         avatar: $checkedConvert(
           'avatar',

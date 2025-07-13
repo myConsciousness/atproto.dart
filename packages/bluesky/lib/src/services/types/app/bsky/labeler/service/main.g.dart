@@ -33,20 +33,13 @@ _LabelerServiceRecord _$LabelerServiceRecordFromJson(
     reasonTypes: $checkedConvert(
       'reasonTypes',
       (v) => (v as List<dynamic>?)
-          ?.map(
-            (e) =>
-                const ReasonTypeConverter().fromJson(e as Map<String, dynamic>),
-          )
+          ?.map((e) => const ReasonTypeConverter().fromJson(e as String))
           .toList(),
     ),
     subjectTypes: $checkedConvert(
       'subjectTypes',
       (v) => (v as List<dynamic>?)
-          ?.map(
-            (e) => const SubjectTypeConverter().fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
+          ?.map((e) => const SubjectTypeConverter().fromJson(e as String))
           .toList(),
     ),
     subjectCollections: $checkedConvert(

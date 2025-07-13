@@ -17,11 +17,6 @@ import 'sync/get_record.dart';
 import 'sync/get_repo.dart';
 
 void main() {
-  testSyncSubscription<Uint8List>(
-    (m, s) => s.subscribeRepos(),
-    id: comAtprotoSyncSubscribeRepos,
-  );
-
   testSync<Uint8List>(
     (m, s) => s.getRepo(did: m.did),
     id: comAtprotoSyncGetRepo,

@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'muted_word_target.freezed.dart';
-part 'muted_word_target.g.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -20,31 +19,38 @@ part 'muted_word_target.g.dart';
 
 @freezed
 abstract class MutedWordTarget with _$MutedWordTarget {
-  static const knownProps = <String>['content', 'tag'];
+  const MutedWordTarget._();
 
-  const factory MutedWordTarget({
-    KnownMutedWordTarget? knownValue,
-    String? unknownValue,
-  }) = _MutedWordTarget;
+  const factory MutedWordTarget.known({required KnownMutedWordTarget data}) =
+      MutedWordTargetKnown;
 
-  factory MutedWordTarget.fromJson(Map<String, Object?> json) =>
-      _$MutedWordTargetFromJson(json);
+  const factory MutedWordTarget.unknown({required String data}) =
+      MutedWordTargetUnknown;
+
+  String toJson() => const MutedWordTargetConverter().toJson(this);
 }
 
 final class MutedWordTargetConverter
-    extends LexKnownValuesConverter<MutedWordTarget, Map<String, dynamic>> {
+    extends LexKnownValuesConverter<MutedWordTarget, String> {
   const MutedWordTargetConverter();
 
   @override
-  MutedWordTarget fromJson(Map<String, dynamic> json) {
-    return MutedWordTarget.fromJson(
-      translate(json, MutedWordTarget.knownProps),
-    );
+  MutedWordTarget fromJson(String json) {
+    try {
+      final knownValue = KnownMutedWordTarget.valueOf(json);
+      if (knownValue != null) {
+        return MutedWordTarget.known(data: knownValue);
+      }
+
+      return MutedWordTarget.unknown(data: json);
+    } catch (_) {
+      return MutedWordTarget.unknown(data: json);
+    }
   }
 
   @override
-  Map<String, dynamic> toJson(MutedWordTarget object) =>
-      untranslate(object.toJson());
+  String toJson(MutedWordTarget object) =>
+      object.when(known: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownMutedWordTarget implements Serializable {
@@ -58,7 +64,11 @@ enum KnownMutedWordTarget implements Serializable {
 
   const KnownMutedWordTarget(this.value);
 
-  static KnownMutedWordTarget? fromValue(final String value) {
+  static bool isKnownValue(final String value) {
+    return valueOf(value) != null;
+  }
+
+  static KnownMutedWordTarget? valueOf(final String value) {
     for (final v in values) {
       if (v.value == value) {
         return v;

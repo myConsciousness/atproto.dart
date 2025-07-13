@@ -15,7 +15,7 @@ _ModerationCreateReportOutput _$ModerationCreateReportOutputFromJson(
     id: $checkedConvert('id', (v) => (v as num).toInt()),
     reasonType: $checkedConvert(
       'reasonType',
-      (v) => const ReasonTypeConverter().fromJson(v as Map<String, dynamic>),
+      (v) => const ReasonTypeConverter().fromJson(v as String),
     ),
     reason: $checkedConvert('reason', (v) => v as String?),
     subject: $checkedConvert(

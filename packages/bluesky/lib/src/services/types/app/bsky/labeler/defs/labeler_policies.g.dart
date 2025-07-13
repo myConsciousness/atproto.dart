@@ -18,11 +18,7 @@ _LabelerPolicies _$LabelerPoliciesFromJson(Map json) =>
         labelValues: $checkedConvert(
           'labelValues',
           (v) => (v as List<dynamic>)
-              .map(
-                (e) => const LabelValueConverter().fromJson(
-                  e as Map<String, dynamic>,
-                ),
-              )
+              .map((e) => const LabelValueConverter().fromJson(e as String))
               .toList(),
         ),
         labelValueDefinitions: $checkedConvert(

@@ -11,68 +11,33 @@ part of 'reason_type.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$ReasonType {
 
- KnownReasonType? get knownValue; String? get unknownValue;
-/// Create a copy of ReasonType
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$ReasonTypeCopyWith<ReasonType> get copyWith => _$ReasonTypeCopyWithImpl<ReasonType>(this as ReasonType, _$identity);
+ Object get data;
 
-  /// Serializes this ReasonType to a JSON map.
-  Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReasonType&&(identical(other.knownValue, knownValue) || other.knownValue == knownValue)&&(identical(other.unknownValue, unknownValue) || other.unknownValue == unknownValue));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReasonType&&const DeepCollectionEquality().equals(other.data, data));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
-int get hashCode => Object.hash(runtimeType,knownValue,unknownValue);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
 
 @override
 String toString() {
-  return 'ReasonType(knownValue: $knownValue, unknownValue: $unknownValue)';
+  return 'ReasonType(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $ReasonTypeCopyWith<$Res>  {
-  factory $ReasonTypeCopyWith(ReasonType value, $Res Function(ReasonType) _then) = _$ReasonTypeCopyWithImpl;
-@useResult
-$Res call({
- KnownReasonType? knownValue, String? unknownValue
-});
-
-
-
-
-}
-/// @nodoc
-class _$ReasonTypeCopyWithImpl<$Res>
-    implements $ReasonTypeCopyWith<$Res> {
-  _$ReasonTypeCopyWithImpl(this._self, this._then);
-
-  final ReasonType _self;
-  final $Res Function(ReasonType) _then;
-
-/// Create a copy of ReasonType
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? knownValue = freezed,Object? unknownValue = freezed,}) {
-  return _then(_self.copyWith(
-knownValue: freezed == knownValue ? _self.knownValue : knownValue // ignore: cast_nullable_to_non_nullable
-as KnownReasonType?,unknownValue: freezed == unknownValue ? _self.unknownValue : unknownValue // ignore: cast_nullable_to_non_nullable
-as String?,
-  ));
-}
-
+class $ReasonTypeCopyWith<$Res>  {
+$ReasonTypeCopyWith(ReasonType _, $Res Function(ReasonType) __);
 }
 
 
@@ -90,11 +55,12 @@ extension ReasonTypePatterns on ReasonType {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ReasonType value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( ReasonTypeKnown value)?  known,TResult Function( ReasonTypeUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _ReasonType() when $default != null:
-return $default(_that);case _:
+case ReasonTypeKnown() when known != null:
+return known(_that);case ReasonTypeUnknown() when unknown != null:
+return unknown(_that);case _:
   return orElse();
 
 }
@@ -112,11 +78,12 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ReasonType value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( ReasonTypeKnown value)  known,required TResult Function( ReasonTypeUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
-case _ReasonType():
-return $default(_that);case _:
+case ReasonTypeKnown():
+return known(_that);case ReasonTypeUnknown():
+return unknown(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -133,11 +100,12 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ReasonType value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( ReasonTypeKnown value)?  known,TResult? Function( ReasonTypeUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
-case _ReasonType() when $default != null:
-return $default(_that);case _:
+case ReasonTypeKnown() when known != null:
+return known(_that);case ReasonTypeUnknown() when unknown != null:
+return unknown(_that);case _:
   return null;
 
 }
@@ -154,10 +122,11 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( KnownReasonType? knownValue,  String? unknownValue)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownReasonType data)?  known,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _ReasonType() when $default != null:
-return $default(_that.knownValue,_that.unknownValue);case _:
+case ReasonTypeKnown() when known != null:
+return known(_that.data);case ReasonTypeUnknown() when unknown != null:
+return unknown(_that.data);case _:
   return orElse();
 
 }
@@ -175,10 +144,11 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( KnownReasonType? knownValue,  String? unknownValue)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownReasonType data)  known,required TResult Function( String data)  unknown,}) {final _that = this;
 switch (_that) {
-case _ReasonType():
-return $default(_that.knownValue,_that.unknownValue);case _:
+case ReasonTypeKnown():
+return known(_that.data);case ReasonTypeUnknown():
+return unknown(_that.data);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +165,11 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( KnownReasonType? knownValue,  String? unknownValue)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownReasonType data)?  known,TResult? Function( String data)?  unknown,}) {final _that = this;
 switch (_that) {
-case _ReasonType() when $default != null:
-return $default(_that.knownValue,_that.unknownValue);case _:
+case ReasonTypeKnown() when known != null:
+return known(_that.data);case ReasonTypeUnknown() when unknown != null:
+return unknown(_that.data);case _:
   return null;
 
 }
@@ -207,49 +178,45 @@ return $default(_that.knownValue,_that.unknownValue);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
-class _ReasonType implements ReasonType {
-  const _ReasonType({this.knownValue, this.unknownValue});
-  factory _ReasonType.fromJson(Map<String, dynamic> json) => _$ReasonTypeFromJson(json);
 
-@override final  KnownReasonType? knownValue;
-@override final  String? unknownValue;
+class ReasonTypeKnown extends ReasonType {
+  const ReasonTypeKnown({required this.data}): super._();
+  
+
+@override final  KnownReasonType data;
 
 /// Create a copy of ReasonType
 /// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
+@JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$ReasonTypeCopyWith<_ReasonType> get copyWith => __$ReasonTypeCopyWithImpl<_ReasonType>(this, _$identity);
+$ReasonTypeKnownCopyWith<ReasonTypeKnown> get copyWith => _$ReasonTypeKnownCopyWithImpl<ReasonTypeKnown>(this, _$identity);
 
-@override
-Map<String, dynamic> toJson() {
-  return _$ReasonTypeToJson(this, );
-}
+
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReasonType&&(identical(other.knownValue, knownValue) || other.knownValue == knownValue)&&(identical(other.unknownValue, unknownValue) || other.unknownValue == unknownValue));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReasonTypeKnown&&(identical(other.data, data) || other.data == data));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
-int get hashCode => Object.hash(runtimeType,knownValue,unknownValue);
+int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'ReasonType(knownValue: $knownValue, unknownValue: $unknownValue)';
+  return 'ReasonType.known(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$ReasonTypeCopyWith<$Res> implements $ReasonTypeCopyWith<$Res> {
-  factory _$ReasonTypeCopyWith(_ReasonType value, $Res Function(_ReasonType) _then) = __$ReasonTypeCopyWithImpl;
-@override @useResult
+abstract mixin class $ReasonTypeKnownCopyWith<$Res> implements $ReasonTypeCopyWith<$Res> {
+  factory $ReasonTypeKnownCopyWith(ReasonTypeKnown value, $Res Function(ReasonTypeKnown) _then) = _$ReasonTypeKnownCopyWithImpl;
+@useResult
 $Res call({
- KnownReasonType? knownValue, String? unknownValue
+ KnownReasonType data
 });
 
 
@@ -257,20 +224,85 @@ $Res call({
 
 }
 /// @nodoc
-class __$ReasonTypeCopyWithImpl<$Res>
-    implements _$ReasonTypeCopyWith<$Res> {
-  __$ReasonTypeCopyWithImpl(this._self, this._then);
+class _$ReasonTypeKnownCopyWithImpl<$Res>
+    implements $ReasonTypeKnownCopyWith<$Res> {
+  _$ReasonTypeKnownCopyWithImpl(this._self, this._then);
 
-  final _ReasonType _self;
-  final $Res Function(_ReasonType) _then;
+  final ReasonTypeKnown _self;
+  final $Res Function(ReasonTypeKnown) _then;
 
 /// Create a copy of ReasonType
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? knownValue = freezed,Object? unknownValue = freezed,}) {
-  return _then(_ReasonType(
-knownValue: freezed == knownValue ? _self.knownValue : knownValue // ignore: cast_nullable_to_non_nullable
-as KnownReasonType?,unknownValue: freezed == unknownValue ? _self.unknownValue : unknownValue // ignore: cast_nullable_to_non_nullable
-as String?,
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ReasonTypeKnown(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as KnownReasonType,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class ReasonTypeUnknown extends ReasonType {
+  const ReasonTypeUnknown({required this.data}): super._();
+  
+
+@override final  String data;
+
+/// Create a copy of ReasonType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ReasonTypeUnknownCopyWith<ReasonTypeUnknown> get copyWith => _$ReasonTypeUnknownCopyWithImpl<ReasonTypeUnknown>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReasonTypeUnknown&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'ReasonType.unknown(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $ReasonTypeUnknownCopyWith<$Res> implements $ReasonTypeCopyWith<$Res> {
+  factory $ReasonTypeUnknownCopyWith(ReasonTypeUnknown value, $Res Function(ReasonTypeUnknown) _then) = _$ReasonTypeUnknownCopyWithImpl;
+@useResult
+$Res call({
+ String data
+});
+
+
+
+
+}
+/// @nodoc
+class _$ReasonTypeUnknownCopyWithImpl<$Res>
+    implements $ReasonTypeUnknownCopyWith<$Res> {
+  _$ReasonTypeUnknownCopyWithImpl(this._self, this._then);
+
+  final ReasonTypeUnknown _self;
+  final $Res Function(ReasonTypeUnknown) _then;
+
+/// Create a copy of ReasonType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ReasonTypeUnknown(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 

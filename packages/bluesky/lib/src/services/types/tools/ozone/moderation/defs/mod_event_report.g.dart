@@ -19,8 +19,7 @@ _ModEventReport _$ModEventReportFromJson(Map json) =>
         isReporterMuted: $checkedConvert('isReporterMuted', (v) => v as bool?),
         reportType: $checkedConvert(
           'reportType',
-          (v) =>
-              const ReasonTypeConverter().fromJson(v as Map<String, dynamic>),
+          (v) => const ReasonTypeConverter().fromJson(v as String),
         ),
         $unknown: $checkedConvert(
           r'$unknown',

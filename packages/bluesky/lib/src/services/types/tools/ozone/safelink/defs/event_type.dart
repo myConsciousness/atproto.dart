@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'event_type.freezed.dart';
-part 'event_type.g.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -20,26 +19,37 @@ part 'event_type.g.dart';
 
 @freezed
 abstract class EventType with _$EventType {
-  static const knownProps = <String>['addRule', 'updateRule', 'removeRule'];
+  const EventType._();
 
-  const factory EventType({KnownEventType? knownValue, String? unknownValue}) =
-      _EventType;
+  const factory EventType.known({required KnownEventType data}) =
+      EventTypeKnown;
 
-  factory EventType.fromJson(Map<String, Object?> json) =>
-      _$EventTypeFromJson(json);
+  const factory EventType.unknown({required String data}) = EventTypeUnknown;
+
+  String toJson() => const EventTypeConverter().toJson(this);
 }
 
 final class EventTypeConverter
-    extends LexKnownValuesConverter<EventType, Map<String, dynamic>> {
+    extends LexKnownValuesConverter<EventType, String> {
   const EventTypeConverter();
 
   @override
-  EventType fromJson(Map<String, dynamic> json) {
-    return EventType.fromJson(translate(json, EventType.knownProps));
+  EventType fromJson(String json) {
+    try {
+      final knownValue = KnownEventType.valueOf(json);
+      if (knownValue != null) {
+        return EventType.known(data: knownValue);
+      }
+
+      return EventType.unknown(data: json);
+    } catch (_) {
+      return EventType.unknown(data: json);
+    }
   }
 
   @override
-  Map<String, dynamic> toJson(EventType object) => untranslate(object.toJson());
+  String toJson(EventType object) =>
+      object.when(known: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownEventType implements Serializable {
@@ -55,7 +65,11 @@ enum KnownEventType implements Serializable {
 
   const KnownEventType(this.value);
 
-  static KnownEventType? fromValue(final String value) {
+  static bool isKnownValue(final String value) {
+    return valueOf(value) != null;
+  }
+
+  static KnownEventType? valueOf(final String value) {
     for (final v in values) {
       if (v.value == value) {
         return v;

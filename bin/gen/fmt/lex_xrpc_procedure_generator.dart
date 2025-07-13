@@ -76,19 +76,16 @@ final class _LexLexXrpcProcedureGenerator {
       );
     }
 
-    final refVariant =
-        procedure.input?.schema?.whenOrNull(refVariant: (data) => data);
+    final refVariant = procedure.input?.schema?.whenOrNull(
+      refVariant: (data) => data,
+    );
     final ref = refVariant?.whenOrNull(ref: (data) => data);
     if (ref == null) return null;
 
     return LexInput(
       lexiconId: lexiconId.toString(),
       defName: defName,
-      name: rule.getLexObjectName(
-        lexiconId.toString(),
-        defName,
-        mainVariants,
-      ),
+      name: rule.getLexObjectName(lexiconId.toString(), defName, mainVariants),
       ref: ref.ref,
       properties: const [],
       encoding: input?.encoding,
@@ -121,19 +118,16 @@ final class _LexLexXrpcProcedureGenerator {
       );
     }
 
-    final refVariant =
-        procedure.output?.schema?.whenOrNull(refVariant: (data) => data);
+    final refVariant = procedure.output?.schema?.whenOrNull(
+      refVariant: (data) => data,
+    );
     final ref = refVariant?.whenOrNull(ref: (data) => data);
     if (ref == null) return null;
 
     return LexOutput(
       lexiconId: lexiconId.toString(),
       defName: defName,
-      name: rule.getLexObjectName(
-        lexiconId.toString(),
-        defName,
-        mainVariants,
-      ),
+      name: rule.getLexObjectName(lexiconId.toString(), defName, mainVariants),
       description: procedure.output?.description,
       ref: ref.ref,
       properties: const [],

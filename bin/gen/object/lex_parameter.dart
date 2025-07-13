@@ -15,9 +15,7 @@ final class LexParameter {
     this.defaultValue,
   });
 
-  String getParams({
-    bool ignoreRequired = false,
-  }) {
+  String getParams({bool ignoreRequired = false}) {
     final buffer = StringBuffer();
 
     if (!ignoreRequired && isRequired) {
@@ -44,9 +42,7 @@ final class LexParameter {
     return buffer.toString();
   }
 
-  String getParamsRecord({
-    bool isRecordCreatedAt = false,
-  }) {
+  String getParamsRecord() {
     final buffer = StringBuffer();
 
     if (!isRequired) {
@@ -56,7 +52,7 @@ final class LexParameter {
 
     buffer.write("'$name':");
     buffer.write(' ');
-    if (isRecordCreatedAt) {
+    if (type.name == 'DateTime') {
       buffer.write('_ctx.toUtcIso8601String($name)');
     } else if (type.isRef() || type.isUnion) {
       if (type.isArray) {

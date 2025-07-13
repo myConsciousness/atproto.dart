@@ -43,9 +43,7 @@ _SubjectStatusView _$SubjectStatusViewFromJson(
     createdAt: $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
     reviewState: $checkedConvert(
       'reviewState',
-      (v) => const SubjectReviewStateConverter().fromJson(
-        v as Map<String, dynamic>,
-      ),
+      (v) => const SubjectReviewStateConverter().fromJson(v as String),
     ),
     comment: $checkedConvert('comment', (v) => v as String?),
     priorityScore: $checkedConvert(

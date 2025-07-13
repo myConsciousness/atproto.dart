@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'subject_type.freezed.dart';
-part 'subject_type.g.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -20,29 +19,38 @@ part 'subject_type.g.dart';
 
 @freezed
 abstract class SubjectType with _$SubjectType {
-  static const knownProps = <String>['account', 'record', 'chat'];
+  const SubjectType._();
 
-  const factory SubjectType({
-    KnownSubjectType? knownValue,
-    String? unknownValue,
-  }) = _SubjectType;
+  const factory SubjectType.known({required KnownSubjectType data}) =
+      SubjectTypeKnown;
 
-  factory SubjectType.fromJson(Map<String, Object?> json) =>
-      _$SubjectTypeFromJson(json);
+  const factory SubjectType.unknown({required String data}) =
+      SubjectTypeUnknown;
+
+  String toJson() => const SubjectTypeConverter().toJson(this);
 }
 
 final class SubjectTypeConverter
-    extends LexKnownValuesConverter<SubjectType, Map<String, dynamic>> {
+    extends LexKnownValuesConverter<SubjectType, String> {
   const SubjectTypeConverter();
 
   @override
-  SubjectType fromJson(Map<String, dynamic> json) {
-    return SubjectType.fromJson(translate(json, SubjectType.knownProps));
+  SubjectType fromJson(String json) {
+    try {
+      final knownValue = KnownSubjectType.valueOf(json);
+      if (knownValue != null) {
+        return SubjectType.known(data: knownValue);
+      }
+
+      return SubjectType.unknown(data: json);
+    } catch (_) {
+      return SubjectType.unknown(data: json);
+    }
   }
 
   @override
-  Map<String, dynamic> toJson(SubjectType object) =>
-      untranslate(object.toJson());
+  String toJson(SubjectType object) =>
+      object.when(known: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownSubjectType implements Serializable {
@@ -58,7 +66,11 @@ enum KnownSubjectType implements Serializable {
 
   const KnownSubjectType(this.value);
 
-  static KnownSubjectType? fromValue(final String value) {
+  static bool isKnownValue(final String value) {
+    return valueOf(value) != null;
+  }
+
+  static KnownSubjectType? valueOf(final String value) {
     for (final v in values) {
       if (v.value == value) {
         return v;

@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'reason_type.freezed.dart';
-part 'reason_type.g.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -20,37 +19,37 @@ part 'reason_type.g.dart';
 
 @freezed
 abstract class ReasonType with _$ReasonType {
-  static const knownProps = <String>[
-    'com.atproto.moderation.defs#reasonSpam',
-    'com.atproto.moderation.defs#reasonViolation',
-    'com.atproto.moderation.defs#reasonMisleading',
-    'com.atproto.moderation.defs#reasonSexual',
-    'com.atproto.moderation.defs#reasonRude',
-    'com.atproto.moderation.defs#reasonOther',
-    'com.atproto.moderation.defs#reasonAppeal',
-  ];
+  const ReasonType._();
 
-  const factory ReasonType({
-    KnownReasonType? knownValue,
-    String? unknownValue,
-  }) = _ReasonType;
+  const factory ReasonType.known({required KnownReasonType data}) =
+      ReasonTypeKnown;
 
-  factory ReasonType.fromJson(Map<String, Object?> json) =>
-      _$ReasonTypeFromJson(json);
+  const factory ReasonType.unknown({required String data}) = ReasonTypeUnknown;
+
+  String toJson() => const ReasonTypeConverter().toJson(this);
 }
 
 final class ReasonTypeConverter
-    extends LexKnownValuesConverter<ReasonType, Map<String, dynamic>> {
+    extends LexKnownValuesConverter<ReasonType, String> {
   const ReasonTypeConverter();
 
   @override
-  ReasonType fromJson(Map<String, dynamic> json) {
-    return ReasonType.fromJson(translate(json, ReasonType.knownProps));
+  ReasonType fromJson(String json) {
+    try {
+      final knownValue = KnownReasonType.valueOf(json);
+      if (knownValue != null) {
+        return ReasonType.known(data: knownValue);
+      }
+
+      return ReasonType.unknown(data: json);
+    } catch (_) {
+      return ReasonType.unknown(data: json);
+    }
   }
 
   @override
-  Map<String, dynamic> toJson(ReasonType object) =>
-      untranslate(object.toJson());
+  String toJson(ReasonType object) =>
+      object.when(known: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownReasonType implements Serializable {
@@ -74,7 +73,11 @@ enum KnownReasonType implements Serializable {
 
   const KnownReasonType(this.value);
 
-  static KnownReasonType? fromValue(final String value) {
+  static bool isKnownValue(final String value) {
+    return valueOf(value) != null;
+  }
+
+  static KnownReasonType? valueOf(final String value) {
     for (final v in values) {
       if (v.value == value) {
         return v;

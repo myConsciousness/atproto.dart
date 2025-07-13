@@ -2,6 +2,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:
+import 'package:atproto/com_atproto_server_createapppassword.dart';
 import 'package:atproto/src/ids.g.dart';
 import 'package:atproto/src/services/types/com/atproto/server/checkAccountStatus/output.dart';
 import 'package:atproto/src/services/types/com/atproto/server/createAccount/output.dart';

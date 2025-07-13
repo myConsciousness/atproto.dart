@@ -21,11 +21,7 @@ _MutedWord _$MutedWordFromJson(Map json) => $checkedCreate('_MutedWord', json, (
     targets: $checkedConvert(
       'targets',
       (v) => (v as List<dynamic>)
-          .map(
-            (e) => const MutedWordTargetConverter().fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
+          .map((e) => const MutedWordTargetConverter().fromJson(e as String))
           .toList(),
     ),
     actorTarget: $checkedConvert('actorTarget', (v) => v as String?),

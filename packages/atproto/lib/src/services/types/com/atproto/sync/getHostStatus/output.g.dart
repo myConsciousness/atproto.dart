@@ -19,7 +19,7 @@ _SyncGetHostStatusOutput _$SyncGetHostStatusOutputFromJson(Map json) =>
         ),
         status: $checkedConvert(
           'status',
-          (v) => _$JsonConverterFromJson<Map<String, dynamic>, HostStatus>(
+          (v) => _$JsonConverterFromJson<String, HostStatus>(
             v,
             const HostStatusConverter().fromJson,
           ),
@@ -38,7 +38,7 @@ Map<String, dynamic> _$SyncGetHostStatusOutputToJson(
   'hostname': instance.hostname,
   'seq': instance.seq,
   'accountCount': instance.accountCount,
-  'status': _$JsonConverterToJson<Map<String, dynamic>, HostStatus>(
+  'status': _$JsonConverterToJson<String, HostStatus>(
     instance.status,
     const HostStatusConverter().toJson,
   ),
