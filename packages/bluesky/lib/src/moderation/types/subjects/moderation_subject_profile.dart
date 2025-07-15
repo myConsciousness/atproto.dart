@@ -5,11 +5,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../services/types/app/bsky/actor/defs/profile_view.dart';
 import '../../../services/types/app/bsky/actor/defs/profile_view_basic.dart';
 import '../../../services/types/app/bsky/actor/defs/profile_view_detailed.dart';
-import '../mod_object.dart';
 
 part 'moderation_subject_profile.freezed.dart';
 
-@modObject
+@Freezed(fromJson: false, toJson: false)
 abstract class ModerationSubjectProfile with _$ModerationSubjectProfile {
   const factory ModerationSubjectProfile.profileViewBasic({
     required ProfileViewBasic data,

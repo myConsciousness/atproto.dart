@@ -4,11 +4,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import '../../../services/types/app/bsky/graph/defs/list_view.dart';
 import '../../../services/types/app/bsky/graph/defs/list_view_basic.dart';
-import '../mod_object.dart';
 
 part 'moderation_subject_user_list.freezed.dart';
 
-@modObject
+@Freezed(fromJson: false, toJson: false)
 abstract class ModerationSubjectUserList with _$ModerationSubjectUserList {
   const factory ModerationSubjectUserList.listViewBasic({
     required ListViewBasic data,

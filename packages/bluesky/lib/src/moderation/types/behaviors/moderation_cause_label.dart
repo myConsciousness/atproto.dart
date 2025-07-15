@@ -5,7 +5,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import '../interpreted_label_value_definition.dart';
 import '../labels.dart';
-import '../mod_object.dart';
 import '../moderation_behavior.dart';
 import 'moderation_cause_source.dart';
 
@@ -18,7 +17,7 @@ const _assertEvalPriority =
     'priority == 7 || '
     'priority == 8';
 
-@modObject
+@Freezed(fromJson: false, toJson: false)
 abstract class ModerationCauseLabel with _$ModerationCauseLabel {
   const factory ModerationCauseLabel({
     required ModerationCauseSource source,

@@ -3,11 +3,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../moderation.dart';
-import 'mod_object.dart';
 
 part 'interpreted_label_value_definition.freezed.dart';
 
-@modObject
+@Freezed(fromJson: false, toJson: false)
 abstract class InterpretedLabelValueDefinition
     with _$InterpretedLabelValueDefinition {
   const factory InterpretedLabelValueDefinition({

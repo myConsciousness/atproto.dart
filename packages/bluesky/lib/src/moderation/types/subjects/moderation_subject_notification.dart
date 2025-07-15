@@ -3,11 +3,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../services/types/app/bsky/notification/listNotifications/notification.dart';
-import '../mod_object.dart';
 
 part 'moderation_subject_notification.freezed.dart';
 
-@modObject
+@Freezed(fromJson: false, toJson: false)
 abstract class ModerationSubjectNotification
     with _$ModerationSubjectNotification {
   const factory ModerationSubjectNotification.notification({

@@ -2,7 +2,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../mod_object.dart';
 import 'moderation_cause_block_other.dart';
 import 'moderation_cause_blocked_by.dart';
 import 'moderation_cause_blocking.dart';
@@ -13,7 +12,7 @@ import 'moderation_cause_muted.dart';
 
 part 'moderation_cause.freezed.dart';
 
-@modObject
+@Freezed(fromJson: false, toJson: false)
 abstract class ModerationCause with _$ModerationCause {
   // ignore: unused_element
   const ModerationCause._();
