@@ -1,135 +1,136 @@
 // Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/com_atproto_repo_createrecord.dart';
+import 'package:atproto/com_atproto_repo_strongref.dart';
 import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/entities/actor_feeds.dart';
-import 'package:bluesky/src/services/entities/feed.dart';
-import 'package:bluesky/src/services/entities/feed_generator.dart';
-import 'package:bluesky/src/services/entities/feed_generator_info.dart';
-import 'package:bluesky/src/services/entities/feed_generators.dart';
-import 'package:bluesky/src/services/entities/feed_interaction.dart';
-import 'package:bluesky/src/services/entities/likes.dart';
-import 'package:bluesky/src/services/entities/post_thread.dart';
-import 'package:bluesky/src/services/entities/posts.dart';
-import 'package:bluesky/src/services/entities/posts_by_query.dart';
-import 'package:bluesky/src/services/entities/reposted_by.dart';
-import 'package:bluesky/src/services/entities/skeleton_feed.dart';
-import 'package:bluesky/src/services/feed_service.dart';
-import 'package:bluesky/src/services/params/generator_param.dart';
-import 'package:bluesky/src/services/params/post_param.dart';
-import 'package:bluesky/src/services/params/strong_ref_param.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/defs/interaction.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/describeFeedGenerator/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/getActorFeeds/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/getActorLikes/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/getAuthorFeed/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/getFeed/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/getFeedGenerator/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/getFeedGenerators/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/getFeedSkeleton/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/getLikes/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/getListFeed/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/getPostThread/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/getPosts/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/getRepostedBy/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/getSuggestedFeeds/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/getTimeline/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/searchPosts/output.dart';
 import 'service_suite.dart';
 
 void main() {
-  testFeed<atp.StrongRef>(
-    (m, s) => s.post(text: m.text),
-    bulk: (m, s) => s.postInBulk([PostParam(text: m.text)]),
+  testFeed<RepoCreateRecordOutput>(
+    (m, s) => s.repost(
+      subject: RepoStrongRef(uri: m.uri.toString(), cid: 'test'),
+    ),
     id: appBskyFeedPost,
   );
 
-  testFeed<atp.StrongRef>(
-    (m, s) => s.repost(cid: m.cid, uri: m.uri),
-    bulk: (m, s) => s.repostInBulk([StrongRefParam(cid: m.cid, uri: m.uri)]),
+  testFeed<FeedGetTimelineOutput>(
+    (m, s) => s.getTimeline(),
+    id: appBskyFeedGetTimeline,
+  );
+
+  testFeed<RepoCreateRecordOutput>(
+    (m, s) => s.like(
+      subject: RepoStrongRef(uri: m.uri.toString(), cid: 'test'),
+    ),
     id: appBskyFeedPost,
   );
 
-  testFeed<Feed>((m, s) => s.getTimeline(), id: appBskyFeedGetTimeline);
-
-  testFeed<atp.StrongRef>(
-    (m, s) => s.like(cid: m.cid, uri: m.uri),
-    id: appBskyFeedPost,
-  );
-
-  testFeed<Feed>(
+  testFeed<FeedGetAuthorFeedOutput>(
     (m, s) => s.getAuthorFeed(actor: m.actor),
     id: appBskyFeedGetAuthorFeed,
   );
 
-  testFeed<Feed>(
-    (m, s) => s.getFeed(generatorUri: m.uri),
+  testFeed<FeedGetFeedOutput>(
+    (m, s) => s.getFeed(feed: m.uri.toString()),
     id: appBskyFeedGetFeed,
   );
 
-  testFeed<SkeletonFeed>(
-    (m, s) => s.getFeedSkeleton(generatorUri: m.uri),
+  testFeed<FeedGetFeedSkeletonOutput>(
+    (m, s) => s.getFeedSkeleton(feed: m.uri.toString()),
     id: appBskyFeedGetFeedSkeleton,
   );
 
-  testFeed<ActorFeeds>(
+  testFeed<FeedGetActorFeedsOutput>(
     (m, s) => s.getActorFeeds(actor: m.actor),
     id: appBskyFeedGetActorFeeds,
   );
 
-  testFeed<Likes>(
-    (m, s) => s.getLikes(uri: m.uri),
-    bulk: (m, s) => s.likeInBulk([StrongRefParam(cid: m.cid, uri: m.uri)]),
+  testFeed<FeedGetLikesOutput>(
+    (m, s) => s.getLikes(uri: m.uri.toString()),
     id: appBskyFeedGetLikes,
   );
 
-  testFeed<RepostedBy>(
-    (m, s) => s.getRepostedBy(uri: m.uri),
+  testFeed<FeedGetRepostedByOutput>(
+    (m, s) => s.getRepostedBy(uri: m.uri.toString()),
     id: appBskyFeedGetRepostedBy,
   );
 
-  testFeed<PostThread>(
-    (m, s) => s.getPostThread(uri: m.uri),
+  testFeed<FeedGetPostThreadOutput>(
+    (m, s) => s.getPostThread(uri: m.uri.toString()),
     id: appBskyFeedGetPostThread,
   );
 
-  testFeed<Posts>((m, s) => s.getPosts(uris: [m.uri]), id: appBskyFeedGetPosts);
+  testFeed<FeedGetPostsOutput>(
+    (m, s) => s.getPosts(uris: [m.uri.toString()]),
+    id: appBskyFeedGetPosts,
+  );
 
-  testFeed<atp.StrongRef>(
+  testFeed<RepoCreateRecordOutput>(
     (m, s) => s.generator(did: m.did, displayName: m.displayName),
-    bulk: (m, s) => s.generatorInBulk([
-      GeneratorParam(did: m.did, displayName: m.displayName),
-    ]),
     id: appBskyFeedGenerator,
   );
 
-  testFeed<FeedGenerator>(
-    (m, s) => s.getFeedGenerator(uri: m.uri),
+  testFeed<FeedGetFeedGeneratorOutput>(
+    (m, s) => s.getFeedGenerator(feed: m.uri.toString()),
     id: appBskyFeedGetFeedGenerator,
   );
 
-  testFeed<FeedGenerators>(
-    (m, s) => s.getFeedGenerators(uris: [m.uri]),
+  testFeed<FeedGetFeedGeneratorsOutput>(
+    (m, s) => s.getFeedGenerators(feeds: [m.uri.toString()]),
     id: appBskyFeedGetFeedGenerators,
   );
 
-  testFeed<FeedGeneratorInfo>(
+  testFeed<FeedDescribeFeedGeneratorOutput>(
     (m, s) => s.describeFeedGenerator(),
     id: appBskyFeedDescribeFeedGenerator,
   );
 
-  testFeed<Feed>(
+  testFeed<FeedGetActorLikesOutput>(
     (m, s) => s.getActorLikes(actor: m.actor),
     id: appBskyFeedGetActorLikes,
   );
 
-  testFeed<FeedGenerators>(
+  testFeed<FeedGetSuggestedFeedsOutput>(
     (m, s) => s.getSuggestedFeeds(),
     id: appBskyFeedGetSuggestedFeeds,
   );
 
-  testFeed<Feed>(
-    (m, s) => s.getListFeed(list: m.uri),
+  testFeed<FeedGetListFeedOutput>(
+    (m, s) => s.getListFeed(list: m.uri.toString()),
     id: appBskyFeedGetListFeed,
   );
 
-  testFeed<atp.StrongRef>(
-    (m, s) => s.threadgate(postUri: m.uri),
+  testFeed<RepoCreateRecordOutput>(
+    (m, s) => s.threadgate(post: m.uri.toString()),
     id: appBskyFeedThreadgate,
   );
 
-  testFeed<PostsByQuery>(
-    (m, s) => s.searchPosts(m.query),
+  testFeed<FeedSearchPostsOutput>(
+    (m, s) => s.searchPosts(q: m.query),
     id: appBskyFeedSearchPosts,
   );
 
   testFeed<EmptyData>(
-    (m, s) => s.sendInteractions([FeedInteraction()]),
+    (m, s) => s.sendInteractions(interactions: [Interaction()]),
     id: appBskyFeedSendInteractions,
   );
 }

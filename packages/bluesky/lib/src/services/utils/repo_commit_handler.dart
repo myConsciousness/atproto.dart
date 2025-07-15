@@ -2,8 +2,7 @@
 import 'dart:async';
 
 // Package imports:
-import 'package:atproto/atproto.dart';
-import 'package:atproto/com_atproto_sync_subscriberepos.dart';
+import 'package:atproto/firehose.dart' as firehose;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:
@@ -25,8 +24,6 @@ import 'repo_commit_create.dart';
 import 'repo_commit_delete.dart';
 import 'repo_commit_update.dart';
 
-// Project imports:
-
 /// Action on create records.
 typedef RepoCommitOnCreate<T> =
     FutureOr<void> Function(RepoCommitCreate<T> data);
@@ -38,9 +35,9 @@ typedef RepoCommitOnUpdate<T> =
 /// Action on delete records.
 typedef RepoCommitOnDelete = FutureOr<void> Function(RepoCommitDelete data);
 
-final class RepoCommitAdaptor {
-  /// Returns the new instance of [RepoCommitAdaptor].
-  const RepoCommitAdaptor({
+final class RepoCommitHandler {
+  /// Returns the new instance of [RepoCommitHandler].
+  const RepoCommitHandler({
     final RepoCommitOnCreate<FeedPostRecord>? onCreatePost,
     final RepoCommitOnCreate<FeedRepostRecord>? onCreateRepost,
     final RepoCommitOnCreate<FeedLikeRecord>? onCreateLike,
@@ -124,7 +121,7 @@ final class RepoCommitAdaptor {
   final RepoCommitOnDelete? _onDeleteUnknown;
 
   /// Performs actions based on [data].
-  FutureOr<void> execute(final Commit data) async {
+  FutureOr<void> execute(final firehose.Commit data) async {
     for (final op in data.ops) {
       switch (op.action) {
         case 'create':
@@ -141,115 +138,118 @@ final class RepoCommitAdaptor {
   }
 
   /// Performs action on create.
-  Future<void> _onCreate(final Commit data, final RepoOp op) async {
+  Future<void> _onCreate(
+    final firehose.Commit data,
+    final firehose.RepoOp op,
+  ) async {
     if (op.uri.isFeedPost && _isFeedPost(op.record!)) {
       await _onCreatePost?.call(
-        RepoCommitCreate<PostRecord>(
-          record: postRecordConverter.fromJson(op.record!),
+        RepoCommitCreate<FeedPostRecord>(
+          record: const FeedPostRecordConverter().fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
-          author: data.did,
-          cursor: data.cursor,
+          author: data.repo,
+          cursor: data.seq,
         ),
       );
     } else if (op.uri.isFeedRepost && _isFeedRepost(op.record!)) {
       await _onCreateRepost?.call(
-        RepoCommitCreate<RepostRecord>(
-          record: RepostRecord.fromJson(op.record!),
+        RepoCommitCreate<FeedRepostRecord>(
+          record: const FeedRepostRecordConverter().fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
-          author: data.did,
-          cursor: data.cursor,
+          author: data.repo,
+          cursor: data.seq,
         ),
       );
     } else if (op.uri.isFeedLike && _isFeedLike(op.record!)) {
       await _onCreateLike?.call(
-        RepoCommitCreate<LikeRecord>(
-          record: LikeRecord.fromJson(op.record!),
+        RepoCommitCreate<FeedLikeRecord>(
+          record: const FeedLikeRecordConverter().fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
-          author: data.did,
-          cursor: data.cursor,
+          author: data.repo,
+          cursor: data.seq,
         ),
       );
     } else if (op.uri.isFeedGenerator && _isFeedGenerator(op.record!)) {
       await _onCreateGenerator?.call(
-        RepoCommitCreate<GeneratorRecord>(
-          record: GeneratorRecord.fromJson(op.record!),
+        RepoCommitCreate<FeedGeneratorRecord>(
+          record: const FeedGeneratorRecordConverter().fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
-          author: data.did,
-          cursor: data.cursor,
+          author: data.repo,
+          cursor: data.seq,
         ),
       );
     } else if (op.uri.isFeedThreadgate && _isFeedThreadgate(op.record!)) {
       await _onCreateThreadgate?.call(
-        RepoCommitCreate<ThreadgateRecord>(
-          record: ThreadgateRecord.fromJson(op.record!),
+        RepoCommitCreate<FeedThreadgateRecord>(
+          record: const FeedThreadgateRecordConverter().fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
-          author: data.did,
-          cursor: data.cursor,
+          author: data.repo,
+          cursor: data.seq,
         ),
       );
     } else if (op.uri.isGraphFollow && _isGraphFollow(op.record!)) {
       await _onCreateFollow?.call(
-        RepoCommitCreate<FollowRecord>(
-          record: FollowRecord.fromJson(op.record!),
+        RepoCommitCreate<GraphFollowRecord>(
+          record: const GraphFollowRecordConverter().fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
-          author: data.did,
-          cursor: data.cursor,
+          author: data.repo,
+          cursor: data.seq,
         ),
       );
     } else if (op.uri.isGraphBlock && _isGraphBlock(op.record!)) {
       await _onCreateBlock?.call(
-        RepoCommitCreate<BlockRecord>(
-          record: BlockRecord.fromJson(op.record!),
+        RepoCommitCreate<GraphBlockRecord>(
+          record: const GraphBlockRecordConverter().fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
-          author: data.did,
-          cursor: data.cursor,
+          author: data.repo,
+          cursor: data.seq,
         ),
       );
     } else if (op.uri.isGraphList && _isGraphList(op.record!)) {
       await _onCreateList?.call(
-        RepoCommitCreate<ListRecord>(
-          record: ListRecord.fromJson(op.record!),
+        RepoCommitCreate<GraphListRecord>(
+          record: const GraphListRecordConverter().fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
-          author: data.did,
-          cursor: data.cursor,
+          author: data.repo,
+          cursor: data.seq,
         ),
       );
     } else if (op.uri.isGraphListItem && _isGraphListItem(op.record!)) {
       await _onCreateListItem?.call(
-        RepoCommitCreate<ListItemRecord>(
-          record: ListItemRecord.fromJson(op.record!),
+        RepoCommitCreate<GraphListitemRecord>(
+          record: const GraphListitemRecordConverter().fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
-          author: data.did,
-          cursor: data.cursor,
+          author: data.repo,
+          cursor: data.seq,
         ),
       );
     } else if (op.uri.isGraphBlockList && _isGraphBlockList(op.record!)) {
       await _onCreateBlockList?.call(
-        RepoCommitCreate<BlockListRecord>(
-          record: BlockListRecord.fromJson(op.record!),
+        RepoCommitCreate<GraphListblockRecord>(
+          record: const GraphListblockRecordConverter().fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
-          author: data.did,
-          cursor: data.cursor,
+          author: data.repo,
+          cursor: data.seq,
         ),
       );
     } else if (op.uri.isLabelerService && _isLabelerService(op.record!)) {
       await _onCreateLabelerService?.call(
         RepoCommitCreate<LabelerServiceRecord>(
-          record: LabelerServiceRecord.fromJson(op.record!),
+          record: const LabelerServiceRecordConverter().fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
-          author: data.did,
-          cursor: data.cursor,
+          author: data.repo,
+          cursor: data.seq,
         ),
       );
     } else {
@@ -258,24 +258,27 @@ final class RepoCommitAdaptor {
           record: op.record!,
           uri: op.uri,
           cid: op.cid,
-          author: data.did,
-          cursor: data.cursor,
+          author: data.repo,
+          cursor: data.seq,
         ),
       );
     }
   }
 
   /// Performs actions on update.
-  Future<void> _onUpdate(final Commit data, final RepoOp op) async {
+  Future<void> _onUpdate(
+    final firehose.Commit data,
+    final firehose.RepoOp op,
+  ) async {
     if (op.uri.isActorProfile && _isActorProfile(op.record!)) {
       await _onUpdateProfile?.call(
-        RepoCommitUpdate<ProfileRecord>(
-          record: ProfileRecord.fromJson(op.record!),
+        RepoCommitUpdate<ActorProfileRecord>(
+          record: const ActorProfileRecordConverter().fromJson(op.record!),
           uri: op.uri,
           cid: op.cid,
-          author: data.did,
-          cursor: data.cursor,
-          createdAt: data.createdAt,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
         ),
       );
     } else {
@@ -284,122 +287,125 @@ final class RepoCommitAdaptor {
           record: op.record!,
           uri: op.uri,
           cid: op.cid,
-          author: data.did,
-          cursor: data.cursor,
-          createdAt: data.createdAt,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
         ),
       );
     }
   }
 
   /// Performs actions on delete.
-  Future<void> _onDelete(final Commit data, final RepoOp op) async {
+  Future<void> _onDelete(
+    final firehose.Commit data,
+    final firehose.RepoOp op,
+  ) async {
     if (op.uri.isFeedPost) {
       await _onDeletePost?.call(
         RepoCommitDelete(
           uri: op.uri,
-          author: data.did,
-          cursor: data.cursor,
-          createdAt: data.createdAt,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
         ),
       );
     } else if (op.uri.isFeedRepost) {
       await _onDeleteRepost?.call(
         RepoCommitDelete(
           uri: op.uri,
-          author: data.did,
-          cursor: data.cursor,
-          createdAt: data.createdAt,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
         ),
       );
     } else if (op.uri.isFeedLike) {
       await _onDeleteLike?.call(
         RepoCommitDelete(
           uri: op.uri,
-          author: data.did,
-          cursor: data.cursor,
-          createdAt: data.createdAt,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
         ),
       );
     } else if (op.uri.isFeedGenerator) {
       await _onDeleteGenerator?.call(
         RepoCommitDelete(
           uri: op.uri,
-          author: data.did,
-          cursor: data.cursor,
-          createdAt: data.createdAt,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
         ),
       );
     } else if (op.uri.isFeedThreadgate) {
       await _onDeleteThreadgate?.call(
         RepoCommitDelete(
           uri: op.uri,
-          author: data.did,
-          cursor: data.cursor,
-          createdAt: data.createdAt,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
         ),
       );
     } else if (op.uri.isGraphFollow) {
       await _onDeleteFollow?.call(
         RepoCommitDelete(
           uri: op.uri,
-          author: data.did,
-          cursor: data.cursor,
-          createdAt: data.createdAt,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
         ),
       );
     } else if (op.uri.isGraphBlock) {
       await _onDeleteBlock?.call(
         RepoCommitDelete(
           uri: op.uri,
-          author: data.did,
-          cursor: data.cursor,
-          createdAt: data.createdAt,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
         ),
       );
     } else if (op.uri.isGraphList) {
       await _onDeleteList?.call(
         RepoCommitDelete(
           uri: op.uri,
-          author: data.did,
-          cursor: data.cursor,
-          createdAt: data.createdAt,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
         ),
       );
     } else if (op.uri.isGraphListItem) {
       await _onDeleteListItem?.call(
         RepoCommitDelete(
           uri: op.uri,
-          author: data.did,
-          cursor: data.cursor,
-          createdAt: data.createdAt,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
         ),
       );
     } else if (op.uri.isGraphBlockList) {
       await _onDeleteBlockList?.call(
         RepoCommitDelete(
           uri: op.uri,
-          author: data.did,
-          cursor: data.cursor,
-          createdAt: data.createdAt,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
         ),
       );
     } else if (op.uri.isLabelerService) {
       await _onDeleteLabelerService?.call(
         RepoCommitDelete(
           uri: op.uri,
-          author: data.did,
-          cursor: data.cursor,
-          createdAt: data.createdAt,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
         ),
       );
     } else {
       await _onDeleteUnknown?.call(
         RepoCommitDelete(
           uri: op.uri,
-          author: data.did,
-          cursor: data.cursor,
-          createdAt: data.createdAt,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
         ),
       );
     }

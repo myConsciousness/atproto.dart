@@ -4,6 +4,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 
 // Project imports:
+import 'package:bluesky/src/services/service_context.dart';
 import 'package:bluesky/src/services/types/chat/bsky/actor_service.dart';
 import 'package:bluesky/src/services/types/chat/bsky/convo_service.dart';
 import 'package:bluesky/src/services/types/chat/bsky/moderation_service.dart';
@@ -61,7 +62,7 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) => ActorService(
-    BlueskyServiceContext(
+    ServiceContext(
       atproto: _getAtproto(mockedGetClient, mockedPostClient),
       mockedGetClient: mockedGetClient,
       mockedPostClient: mockedPostClient,
@@ -72,7 +73,7 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) => ConvoService(
-    BlueskyServiceContext(
+    ServiceContext(
       atproto: _getAtproto(mockedGetClient, mockedPostClient),
       mockedGetClient: mockedGetClient,
       mockedPostClient: mockedPostClient,
@@ -83,7 +84,7 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) => ModerationService(
-    BlueskyServiceContext(
+    ServiceContext(
       atproto: _getAtproto(mockedGetClient, mockedPostClient),
       mockedGetClient: mockedGetClient,
       mockedPostClient: mockedPostClient,

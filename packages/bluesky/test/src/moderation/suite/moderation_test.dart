@@ -1,9 +1,11 @@
 // Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // Project imports:
 import 'package:bluesky/src/moderation.dart';
+import 'package:bluesky/src/moderation/types/behaviors/moderation_cause.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_opts.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_prefs.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_prefs_labeler.dart';
@@ -12,7 +14,7 @@ import 'package:bluesky/src/moderation/types/moderation_behavior.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_profile.dart';
 import 'package:bluesky/src/moderation/utils.dart';
-import 'package:bluesky/src/services/entities/post_record.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/post/main.dart';
 import 'utils/mock.dart';
 import 'utils/result_flag.dart';
 import 'utils/runner.dart';
@@ -29,9 +31,9 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:bob.test',
-                uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.actor.profile/self'),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -65,9 +67,9 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:bob.test',
-                uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.actor.profile/self'),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -101,9 +103,9 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.actor.profile/self'),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -139,9 +141,9 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.actor.profile/self'),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -176,10 +178,10 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
+            ).toJson(),
             author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
           ),
         ),
@@ -218,23 +220,23 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
+            ).toJson(),
             author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: '!hide',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: '!hide',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -258,14 +260,14 @@ void main() {
             .getUI(ModerationBehaviorContext.contentList)
             .filters
             .first
-            .whenOrNull(label: (data) => data.label.value),
+            .whenOrNull(label: (data) => data.label.val),
         '!hide',
       );
       expect(
         actual
             .getUI(ModerationBehaviorContext.contentList)
             .filters[1]
-            .whenOrNull(label: (data) => data.label.value),
+            .whenOrNull(label: (data) => data.label.val),
         'porn',
       );
       expect(
@@ -273,7 +275,7 @@ void main() {
             .getUI(ModerationBehaviorContext.contentList)
             .blurs
             .first
-            .whenOrNull(label: (data) => data.label.value),
+            .whenOrNull(label: (data) => data.label.val),
         '!hide',
       );
       expect(
@@ -281,7 +283,7 @@ void main() {
             .getUI(ModerationBehaviorContext.contentMedia)
             .blurs
             .first
-            .whenOrNull(label: (data) => data.label.value),
+            .whenOrNull(label: (data) => data.label.val),
         'porn',
       );
     });
@@ -290,17 +292,17 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
+            ).toJson(),
             author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -379,17 +381,17 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
+            ).toJson(),
             author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: '!hide',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: '!hide',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -472,23 +474,23 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
+            ).toJson(),
             author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'BadLabel',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'BadLabel',
+                cts: DateTime.now().toUtc(),
               ),
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'bad/label',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'bad/label',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -577,17 +579,17 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
+            ).toJson(),
             author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'default-hide',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'default-hide',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -680,17 +682,17 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
+            ).toJson(),
             author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'default-warn',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'default-warn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -780,17 +782,17 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
+            ).toJson(),
             author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'default-ignore',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'default-ignore',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -880,17 +882,17 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
+            ).toJson(),
             author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'adult',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'adult',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -977,17 +979,17 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
+            ).toJson(),
             author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),

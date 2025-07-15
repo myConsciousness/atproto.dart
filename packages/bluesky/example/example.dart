@@ -4,14 +4,10 @@ import 'package:bluesky/atproto.dart';
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/bluesky_chat.dart';
 
+import 'package:bluesky/firehose.dart' as firehose;
+
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/atproto_oauth.dart';
-
-import 'package:bluesky/app_bsky_embed_video.dart';
-import 'package:bluesky/app_bsky_feed_post.dart';
-import 'package:bluesky/chat_bsky_convo_defs.dart';
-
-import 'package:bluesky/moderation.dart';
 
 /// https://atprotodart.com/docs/packages/bluesky
 Future<void> main() async {
@@ -90,47 +86,32 @@ Future<void> main() async {
     //! Let's post cool stuff!
     final createdRecord = await bsky.feed.post(
       text: 'Hello, Bluesky!',
-      embed: UFeedPostEmbed.embedVideo(
-        data: EmbedVideo(video: uploadedVideo.data.blob!),
-      ),
+      embed: Embed.video(data: EmbedVideo(video: uploadedVideo.data.blob!)),
     );
-
-    print(createdRecord);
-
-    //! And delete it.
-    final createdRecordUri = AtUri(createdRecord.data.uri);
-    await bsky.atproto.repo.deleteRecord(
-      repo: createdRecordUri.hostname,
-      collection: createdRecordUri.collection.toString(),
-      rkey: createdRecordUri.rkey,
-    );
-
     //! You can use Stream API easily.
     final subscription = await bsky.atproto.sync.subscribeRepos();
 
+    final handler = firehose.RepoCommitHandler(
+      //! Create events.
+      onCreatePost: (data) => data.record,
+      onCreateLike: print,
+
+      //! Update events.
+      onUpdateProfile: print,
+
+      //! Delete events.
+      onDeletePost: print,
+    );
     subscription.data.stream.listen((event) {
-      event.when(
-        //! You can handle commit events very easily
-        //! with RepoCommitAdaptor.
-        commit: RepoCommitAdaptor(
-          //! Create events.
-          onCreatePost: (data) => data.record,
-          onCreateLike: print,
+      final repos = const firehose.FirehoseAdaptor().execute(event);
 
-          //! Update events.
-          onUpdateProfile: print,
+      if (firehose.isRepoCommit(repos)) {
+        final commit = firehose.Commit.fromJson(
+          const firehose.RepoCommitAdaptor().execute(repos)!,
+        );
 
-          //! Delete events.
-          onDeletePost: print,
-        ).execute,
-        identity: print,
-        account: print,
-        handle: print,
-        migrate: print,
-        tombstone: print,
-        info: print,
-        unknown: print,
-      );
+        handler.execute(commit);
+      }
     });
   } on UnauthorizedException catch (e) {
     print(e);

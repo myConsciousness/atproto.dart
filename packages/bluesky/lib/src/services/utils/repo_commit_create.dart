@@ -1,5 +1,4 @@
 // Package imports:
-import 'package:atproto/com_atproto_repo_strongref.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 final class RepoCommitCreate<T> {
@@ -19,16 +18,13 @@ final class RepoCommitCreate<T> {
   final core.AtUri uri;
 
   /// CID of this [record].
-  final String cid;
+  final String? cid;
 
   /// The author of this event.
   final String author;
 
   /// The current cursor.
   final int cursor;
-
-  /// Returns the [RepoStrongRef] representation.
-  RepoStrongRef toStrongRef() => RepoStrongRef(cid: cid, uri: uri.toString());
 
   @override
   String toString() =>

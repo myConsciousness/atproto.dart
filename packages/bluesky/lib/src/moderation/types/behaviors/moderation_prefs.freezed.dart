@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ModerationPrefs {
 
- bool get adultContentEnabled; Map<String, LabelPreference> get labels; List<ModerationPrefsLabeler> get labelers; List<MutedWord> get mutedWords; List<AtUri> get hiddenPosts;
+ bool get adultContentEnabled; Map<String, LabelPreference> get labels; List<ModerationPrefsLabeler> get labelers; List<MutedWord> get mutedWords; List<String> get hiddenPosts;
 /// Create a copy of ModerationPrefs
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -45,7 +45,7 @@ abstract mixin class $ModerationPrefsCopyWith<$Res>  {
   factory $ModerationPrefsCopyWith(ModerationPrefs value, $Res Function(ModerationPrefs) _then) = _$ModerationPrefsCopyWithImpl;
 @useResult
 $Res call({
- bool adultContentEnabled, Map<String, LabelPreference> labels, List<ModerationPrefsLabeler> labelers, List<MutedWord> mutedWords, List<AtUri> hiddenPosts
+ bool adultContentEnabled, Map<String, LabelPreference> labels, List<ModerationPrefsLabeler> labelers, List<MutedWord> mutedWords, List<String> hiddenPosts
 });
 
 
@@ -69,7 +69,7 @@ as bool,labels: null == labels ? _self.labels : labels // ignore: cast_nullable_
 as Map<String, LabelPreference>,labelers: null == labelers ? _self.labelers : labelers // ignore: cast_nullable_to_non_nullable
 as List<ModerationPrefsLabeler>,mutedWords: null == mutedWords ? _self.mutedWords : mutedWords // ignore: cast_nullable_to_non_nullable
 as List<MutedWord>,hiddenPosts: null == hiddenPosts ? _self.hiddenPosts : hiddenPosts // ignore: cast_nullable_to_non_nullable
-as List<AtUri>,
+as List<String>,
   ));
 }
 
@@ -154,7 +154,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool adultContentEnabled,  Map<String, LabelPreference> labels,  List<ModerationPrefsLabeler> labelers,  List<MutedWord> mutedWords,  List<AtUri> hiddenPosts)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool adultContentEnabled,  Map<String, LabelPreference> labels,  List<ModerationPrefsLabeler> labelers,  List<MutedWord> mutedWords,  List<String> hiddenPosts)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModerationPrefs() when $default != null:
 return $default(_that.adultContentEnabled,_that.labels,_that.labelers,_that.mutedWords,_that.hiddenPosts);case _:
@@ -175,7 +175,7 @@ return $default(_that.adultContentEnabled,_that.labels,_that.labelers,_that.mute
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool adultContentEnabled,  Map<String, LabelPreference> labels,  List<ModerationPrefsLabeler> labelers,  List<MutedWord> mutedWords,  List<AtUri> hiddenPosts)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool adultContentEnabled,  Map<String, LabelPreference> labels,  List<ModerationPrefsLabeler> labelers,  List<MutedWord> mutedWords,  List<String> hiddenPosts)  $default,) {final _that = this;
 switch (_that) {
 case _ModerationPrefs():
 return $default(_that.adultContentEnabled,_that.labels,_that.labelers,_that.mutedWords,_that.hiddenPosts);case _:
@@ -195,7 +195,7 @@ return $default(_that.adultContentEnabled,_that.labels,_that.labelers,_that.mute
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool adultContentEnabled,  Map<String, LabelPreference> labels,  List<ModerationPrefsLabeler> labelers,  List<MutedWord> mutedWords,  List<AtUri> hiddenPosts)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool adultContentEnabled,  Map<String, LabelPreference> labels,  List<ModerationPrefsLabeler> labelers,  List<MutedWord> mutedWords,  List<String> hiddenPosts)?  $default,) {final _that = this;
 switch (_that) {
 case _ModerationPrefs() when $default != null:
 return $default(_that.adultContentEnabled,_that.labels,_that.labelers,_that.mutedWords,_that.hiddenPosts);case _:
@@ -210,7 +210,7 @@ return $default(_that.adultContentEnabled,_that.labels,_that.labelers,_that.mute
 
 
 class _ModerationPrefs implements ModerationPrefs {
-  const _ModerationPrefs({this.adultContentEnabled = false, required final  Map<String, LabelPreference> labels, required final  List<ModerationPrefsLabeler> labelers, required final  List<MutedWord> mutedWords, required final  List<AtUri> hiddenPosts}): _labels = labels,_labelers = labelers,_mutedWords = mutedWords,_hiddenPosts = hiddenPosts;
+  const _ModerationPrefs({this.adultContentEnabled = false, required final  Map<String, LabelPreference> labels, required final  List<ModerationPrefsLabeler> labelers, required final  List<MutedWord> mutedWords, required final  List<String> hiddenPosts}): _labels = labels,_labelers = labelers,_mutedWords = mutedWords,_hiddenPosts = hiddenPosts;
   
 
 @override@JsonKey() final  bool adultContentEnabled;
@@ -235,8 +235,8 @@ class _ModerationPrefs implements ModerationPrefs {
   return EqualUnmodifiableListView(_mutedWords);
 }
 
- final  List<AtUri> _hiddenPosts;
-@override List<AtUri> get hiddenPosts {
+ final  List<String> _hiddenPosts;
+@override List<String> get hiddenPosts {
   if (_hiddenPosts is EqualUnmodifiableListView) return _hiddenPosts;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_hiddenPosts);
@@ -273,7 +273,7 @@ abstract mixin class _$ModerationPrefsCopyWith<$Res> implements $ModerationPrefs
   factory _$ModerationPrefsCopyWith(_ModerationPrefs value, $Res Function(_ModerationPrefs) _then) = __$ModerationPrefsCopyWithImpl;
 @override @useResult
 $Res call({
- bool adultContentEnabled, Map<String, LabelPreference> labels, List<ModerationPrefsLabeler> labelers, List<MutedWord> mutedWords, List<AtUri> hiddenPosts
+ bool adultContentEnabled, Map<String, LabelPreference> labels, List<ModerationPrefsLabeler> labelers, List<MutedWord> mutedWords, List<String> hiddenPosts
 });
 
 
@@ -297,7 +297,7 @@ as bool,labels: null == labels ? _self._labels : labels // ignore: cast_nullable
 as Map<String, LabelPreference>,labelers: null == labelers ? _self._labelers : labelers // ignore: cast_nullable_to_non_nullable
 as List<ModerationPrefsLabeler>,mutedWords: null == mutedWords ? _self._mutedWords : mutedWords // ignore: cast_nullable_to_non_nullable
 as List<MutedWord>,hiddenPosts: null == hiddenPosts ? _self._hiddenPosts : hiddenPosts // ignore: cast_nullable_to_non_nullable
-as List<AtUri>,
+as List<String>,
   ));
 }
 

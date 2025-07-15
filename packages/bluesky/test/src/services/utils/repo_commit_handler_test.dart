@@ -1,35 +1,35 @@
 // Package imports:
-import 'package:atproto/atproto.dart';
-import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto/firehose.dart' as firehose;
+import 'package:atproto_core/atproto_core.dart' hide isA;
 import 'package:test/test.dart';
 
 // Project imports:
-import 'package:bluesky/src/services/entities/adaptor/repo_commit_create.dart';
-import 'package:bluesky/src/services/entities/adaptor/repo_commit_delete.dart';
-import 'package:bluesky/src/services/entities/adaptor/repo_commit_update.dart';
-import 'package:bluesky/src/services/entities/block_list_record.dart';
-import 'package:bluesky/src/services/entities/block_record.dart';
-import 'package:bluesky/src/services/entities/follow_record.dart';
-import 'package:bluesky/src/services/entities/generator_record.dart';
-import 'package:bluesky/src/services/entities/labeler_service_record.dart';
-import 'package:bluesky/src/services/entities/like_record.dart';
-import 'package:bluesky/src/services/entities/list_item_record.dart';
-import 'package:bluesky/src/services/entities/list_record.dart';
-import 'package:bluesky/src/services/entities/post_record.dart';
-import 'package:bluesky/src/services/entities/profile_record.dart';
-import 'package:bluesky/src/services/entities/repost_record.dart';
-import 'package:bluesky/src/services/entities/threadgate_record.dart';
-import 'package:bluesky/src/services/utils/repo_commit_adaptor.dart';
+import 'package:bluesky/src/services/types/app/bsky/actor/profile/main.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/generator/main.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/like/main.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/post/main.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/repost/main.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/threadgate/main.dart';
+import 'package:bluesky/src/services/types/app/bsky/graph/block/main.dart';
+import 'package:bluesky/src/services/types/app/bsky/graph/follow/main.dart';
+import 'package:bluesky/src/services/types/app/bsky/graph/list/main.dart';
+import 'package:bluesky/src/services/types/app/bsky/graph/listblock/main.dart';
+import 'package:bluesky/src/services/types/app/bsky/graph/listitem/main.dart';
+import 'package:bluesky/src/services/types/app/bsky/labeler/service/main.dart';
+import 'package:bluesky/src/services/utils/repo_commit_create.dart';
+import 'package:bluesky/src/services/utils/repo_commit_delete.dart';
+import 'package:bluesky/src/services/utils/repo_commit_handler.dart';
+import 'package:bluesky/src/services/utils/repo_commit_update.dart';
 
 void main() {
   group('.onCreatePost', () {
     test('when created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreatePost: (data) {
           expect(data, isA<RepoCommitCreate>());
-          expect(data.record, isA<PostRecord>());
+          expect(data.record, isA<FeedPostRecord>());
 
           result = true;
         },
@@ -54,7 +54,7 @@ void main() {
     test('when not created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreatePost: (data) {
           result = true;
         },
@@ -77,10 +77,10 @@ void main() {
     test('when created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateRepost: (data) {
           expect(data, isA<RepoCommitCreate>());
-          expect(data.record, isA<RepostRecord>());
+          expect(data.record, isA<FeedRepostRecord>());
 
           result = true;
         },
@@ -109,7 +109,7 @@ void main() {
     test('when not created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateRepost: (data) {
           result = true;
         },
@@ -132,10 +132,10 @@ void main() {
     test('when created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateLike: (data) {
           expect(data, isA<RepoCommitCreate>());
-          expect(data.record, isA<LikeRecord>());
+          expect(data.record, isA<FeedLikeRecord>());
 
           result = true;
         },
@@ -164,7 +164,7 @@ void main() {
     test('when not created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateLike: (data) {
           result = true;
         },
@@ -187,10 +187,10 @@ void main() {
     test('when created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateGenerator: (data) {
           expect(data, isA<RepoCommitCreate>());
-          expect(data.record, isA<GeneratorRecord>());
+          expect(data.record, isA<FeedGeneratorRecord>());
 
           result = true;
         },
@@ -216,7 +216,7 @@ void main() {
     test('when not created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateGenerator: (data) {
           result = true;
         },
@@ -239,10 +239,10 @@ void main() {
     test('when created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateThreadgate: (data) {
           expect(data, isA<RepoCommitCreate>());
-          expect(data.record, isA<ThreadgateRecord>());
+          expect(data.record, isA<FeedThreadgateRecord>());
 
           result = true;
         },
@@ -276,7 +276,7 @@ void main() {
     test('when not created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateThreadgate: (data) {
           result = true;
         },
@@ -299,10 +299,10 @@ void main() {
     test('when created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateFollow: (data) {
           expect(data, isA<RepoCommitCreate>());
-          expect(data.record, isA<FollowRecord>());
+          expect(data.record, isA<GraphFollowRecord>());
 
           result = true;
         },
@@ -327,7 +327,7 @@ void main() {
     test('when not created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateFollow: (data) {
           result = true;
         },
@@ -350,10 +350,10 @@ void main() {
     test('when created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateBlock: (data) {
           expect(data, isA<RepoCommitCreate>());
-          expect(data.record, isA<BlockRecord>());
+          expect(data.record, isA<GraphBlockRecord>());
 
           result = true;
         },
@@ -378,7 +378,7 @@ void main() {
     test('when not created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateBlock: (data) {
           result = true;
         },
@@ -401,10 +401,10 @@ void main() {
     test('when created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateList: (data) {
           expect(data, isA<RepoCommitCreate>());
-          expect(data.record, isA<ListRecord>());
+          expect(data.record, isA<GraphListRecord>());
 
           result = true;
         },
@@ -430,7 +430,7 @@ void main() {
     test('when not created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateList: (data) {
           result = true;
         },
@@ -453,10 +453,10 @@ void main() {
     test('when created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateListItem: (data) {
           expect(data, isA<RepoCommitCreate>());
-          expect(data.record, isA<ListItemRecord>());
+          expect(data.record, isA<GraphListitemRecord>());
 
           result = true;
         },
@@ -483,7 +483,7 @@ void main() {
     test('when not created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateListItem: (data) {
           result = true;
         },
@@ -506,10 +506,10 @@ void main() {
     test('when created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateBlockList: (data) {
           expect(data, isA<RepoCommitCreate>());
-          expect(data.record, isA<BlockListRecord>());
+          expect(data.record, isA<GraphListblockRecord>());
 
           result = true;
         },
@@ -535,7 +535,7 @@ void main() {
     test('when not created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateBlockList: (data) {
           result = true;
         },
@@ -558,7 +558,7 @@ void main() {
     test('when created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateLabelerService: (data) {
           expect(data, isA<RepoCommitCreate>());
           expect(data.record, isA<LabelerServiceRecord>());
@@ -588,7 +588,7 @@ void main() {
     test('when not created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateLabelerService: (data) {
           result = true;
         },
@@ -611,7 +611,7 @@ void main() {
     test('when created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onCreateUnknown: (data) {
           expect(data, isA<RepoCommitCreate>());
           expect(data.record, isA<Map<String, dynamic>>());
@@ -636,7 +636,7 @@ void main() {
   test('when not created', () async {
     bool result = false;
 
-    final adaptor = RepoCommitAdaptor(
+    final adaptor = RepoCommitHandler(
       onCreateUnknown: (data) {
         result = true;
       },
@@ -664,10 +664,10 @@ void main() {
     test('when created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onUpdateProfile: (data) {
           expect(data, isA<RepoCommitUpdate>());
-          expect(data.record, isA<ProfileRecord>());
+          expect(data.record, isA<ActorProfileRecord>());
 
           result = true;
         },
@@ -688,7 +688,7 @@ void main() {
     test('when not created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onUpdateProfile: (data) {
           result = true;
         },
@@ -711,7 +711,7 @@ void main() {
     test('when created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onUpdateUnknown: (data) {
           expect(data, isA<RepoCommitUpdate>());
           expect(data.record, isA<Map<String, dynamic>>());
@@ -735,7 +735,7 @@ void main() {
     test('when not created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onUpdateUnknown: (data) {
           result = true;
         },
@@ -758,7 +758,7 @@ void main() {
     test('when deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeletePost: (data) {
           expect(data, isA<RepoCommitDelete>());
 
@@ -780,7 +780,7 @@ void main() {
     test('when not deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeletePost: (data) {
           result = true;
         },
@@ -802,7 +802,7 @@ void main() {
     test('when deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteRepost: (data) {
           expect(data, isA<RepoCommitDelete>());
 
@@ -824,7 +824,7 @@ void main() {
     test('when not deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteRepost: (data) {
           result = true;
         },
@@ -846,7 +846,7 @@ void main() {
     test('when deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteLike: (data) {
           expect(data, isA<RepoCommitDelete>());
 
@@ -868,7 +868,7 @@ void main() {
     test('when not deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteLike: (data) {
           result = true;
         },
@@ -890,7 +890,7 @@ void main() {
     test('when deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteGenerator: (data) {
           expect(data, isA<RepoCommitDelete>());
 
@@ -912,7 +912,7 @@ void main() {
     test('when not deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteGenerator: (data) {
           result = true;
         },
@@ -934,7 +934,7 @@ void main() {
     test('when deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteThreadgate: (data) {
           expect(data, isA<RepoCommitDelete>());
 
@@ -956,7 +956,7 @@ void main() {
     test('when not deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteThreadgate: (data) {
           result = true;
         },
@@ -978,7 +978,7 @@ void main() {
     test('when deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteFollow: (data) {
           expect(data, isA<RepoCommitDelete>());
 
@@ -1000,7 +1000,7 @@ void main() {
     test('when not deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteFollow: (data) {
           result = true;
         },
@@ -1022,7 +1022,7 @@ void main() {
     test('when deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteBlock: (data) {
           expect(data, isA<RepoCommitDelete>());
 
@@ -1044,7 +1044,7 @@ void main() {
     test('when not deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteBlock: (data) {
           result = true;
         },
@@ -1066,7 +1066,7 @@ void main() {
     test('when created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteList: (data) {
           expect(data, isA<RepoCommitDelete>());
 
@@ -1088,7 +1088,7 @@ void main() {
     test('when not created', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteList: (data) {
           result = true;
         },
@@ -1110,7 +1110,7 @@ void main() {
     test('when deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteListItem: (data) {
           expect(data, isA<RepoCommitDelete>());
 
@@ -1132,7 +1132,7 @@ void main() {
     test('when not deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteListItem: (data) {
           result = true;
         },
@@ -1154,7 +1154,7 @@ void main() {
     test('when deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteLabelerService: (data) {
           expect(data, isA<RepoCommitDelete>());
 
@@ -1176,7 +1176,7 @@ void main() {
     test('when not deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteLabelerService: (data) {
           result = true;
         },
@@ -1198,7 +1198,7 @@ void main() {
     test('when deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteBlockList: (data) {
           expect(data, isA<RepoCommitDelete>());
 
@@ -1220,7 +1220,7 @@ void main() {
     test('when not deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteBlockList: (data) {
           result = true;
         },
@@ -1242,7 +1242,7 @@ void main() {
     test('when deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteUnknown: (data) {
           expect(data, isA<RepoCommitDelete>());
 
@@ -1264,7 +1264,7 @@ void main() {
     test('when not deleted', () async {
       bool result = false;
 
-      final adaptor = RepoCommitAdaptor(
+      final adaptor = RepoCommitHandler(
         onDeleteUnknown: (data) {
           result = true;
         },
@@ -1283,34 +1283,35 @@ void main() {
   });
 }
 
-Commit _buildSubscribedRepoCommit(final RepoOp op) => Commit(
-  ops: [op],
-  did: 'aaaaaaa',
-  cursor: 1234,
-  rev: 'xxxxxxx',
-  isTooBig: false,
-  createdAt: DateTime.now(),
-);
+firehose.Commit _buildSubscribedRepoCommit(final firehose.RepoOp op) =>
+    firehose.Commit(
+      ops: [op],
+      repo: 'aaaaaaa',
+      seq: 1234,
+      rev: 'xxxxxxx',
+      tooBig: false,
+      time: DateTime.now(),
+    );
 
-RepoOp _buildCreateRepoOp(
+firehose.RepoOp _buildCreateRepoOp(
   final String uri,
   final Map<String, dynamic> record,
-) => RepoOp(
-  action: RepoAction.create,
+) => firehose.RepoOp(
+  action: 'create',
   uri: AtUri.parse(uri),
   cid: 'aaaa',
   record: record,
 );
 
-RepoOp _buildUpdateRepoOp(
+firehose.RepoOp _buildUpdateRepoOp(
   final String uri,
   final Map<String, dynamic> record,
-) => RepoOp(
-  action: RepoAction.update,
+) => firehose.RepoOp(
+  action: 'update',
   uri: AtUri.parse(uri),
   cid: 'aaaa',
   record: record,
 );
 
-RepoOp _buildDeleteRepoOp(final String uri) =>
-    RepoOp(action: RepoAction.delete, uri: AtUri.parse(uri));
+firehose.RepoOp _buildDeleteRepoOp(final String uri) =>
+    firehose.RepoOp(action: 'delete', uri: AtUri.parse(uri));

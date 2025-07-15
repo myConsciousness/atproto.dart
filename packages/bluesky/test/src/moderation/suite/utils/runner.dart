@@ -1,6 +1,5 @@
 // Package imports:
-import 'package:atproto/atproto.dart';
-import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:test/test.dart';
 
 // Project imports:
@@ -10,8 +9,8 @@ import 'package:bluesky/src/moderation/types/behaviors/moderation_prefs_labeler.
 import 'package:bluesky/src/moderation/types/moderation_ui.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_profile.dart';
-import 'package:bluesky/src/services/entities/actor_basic.dart';
-import 'package:bluesky/src/services/entities/actor_viewer.dart';
+import 'package:bluesky/src/services/types/app/bsky/actor/defs/profile_view_basic.dart';
+import 'package:bluesky/src/services/types/app/bsky/actor/defs/viewer_state.dart';
 import '../behaviors/suite_configuration.dart';
 import '../behaviors/suite_scenario.dart';
 import '../behaviors/suite_user.dart';
@@ -166,7 +165,7 @@ final class ModerationBehaviorSuiteRunner {
     );
   }
 
-  ActorBasic profileViewBasic({
+  ProfileViewBasic profileViewBasic({
     required String name,
     required Map<String, List<String>> scenarioLabels,
   }) {
@@ -187,14 +186,14 @@ final class ModerationBehaviorSuiteRunner {
 
     return m.profileViewBasic(
       handle: '$name.test',
-      viewer: ActorViewer(
-        isMuted: def.muted || def.mutedByList,
+      viewer: ViewerState(
+        muted: def.muted || def.mutedByList,
         mutedByList: def.mutedByList
             ? m.listViewBasic(name: 'Fake List')
             : null,
-        isBlockedBy: def.blockedBy,
+        blockedBy: def.blockedBy,
         blocking: def.blocking || def.blockingByList
-            ? AtUri('at://did:web:self.test/app.bsky.graph.block/fake')
+            ? 'at://did:web:self.test/app.bsky.graph.block/fake'
             : null,
         blockingByList: def.blockingByList
             ? m.listViewBasic(name: 'Fake List')

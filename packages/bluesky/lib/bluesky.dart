@@ -11,8 +11,3 @@ export 'package:bluesky/src/services/extensions/strong_ref.dart';
 export 'package:bluesky/src/services/utils/grouped_notifications.dart';
 export 'package:bluesky/src/services/utils/grouped_notification.dart';
 export 'package:bluesky/src/services/utils/notifications_grouper.dart';
-
-export 'package:bluesky/src/services/utils/repo_commit_adaptor.dart';
-export 'package:bluesky/src/services/utils/repo_commit_create.dart';
-export 'package:bluesky/src/services/utils/repo_commit_delete.dart';
-export 'package:bluesky/src/services/utils/repo_commit_update.dart';

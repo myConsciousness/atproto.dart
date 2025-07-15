@@ -2,6 +2,7 @@
 import 'package:atproto/com_atproto_label_defs.dart';
 
 // Project imports:
+import '../../../services/types/app/bsky/actor/defs/viewer_state.dart';
 import '../../decision.dart';
 import '../behaviors/moderation_opts.dart';
 import '../labels.dart';
@@ -19,24 +20,26 @@ ModerationDecision decideAccount(
 
   final decision = ModerationDecision.init(did: did, me: did == opts.userDid);
 
-  if (viewer?.muted ?? false) {
-    if (viewer?.mutedByList != null) {
-      decision.addMutedByList(viewer!.mutedByList!);
-    } else {
-      decision.addMuted();
+  if (viewer != null) {
+    if (viewer.isMuted) {
+      if (viewer.hasMutedByList) {
+        decision.addMutedByList(viewer.mutedByList!);
+      } else {
+        decision.addMuted();
+      }
     }
-  }
 
-  if (viewer?.blocking != null) {
-    if (viewer?.blockingByList != null) {
-      decision.addBlockingByList(viewer!.blockingByList!);
-    } else {
-      decision.addBlocking();
+    if (viewer.hasBlocking) {
+      if (viewer.hasBlockingByList) {
+        decision.addBlockingByList(viewer.blockingByList!);
+      } else {
+        decision.addBlocking();
+      }
     }
-  }
 
-  if (viewer?.blockedBy ?? false) {
-    decision.addBlockedBy();
+    if (viewer.isBlockedBy) {
+      decision.addBlockedBy();
+    }
   }
 
   for (final label in _filterAccountLabels(labels)) {

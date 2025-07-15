@@ -1,50 +1,55 @@
 // Package imports:
-import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:atproto/com_atproto_repo_createrecord.dart';
+import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/entities/actor_profile.dart';
-import 'package:bluesky/src/services/entities/actor_profiles.dart';
-import 'package:bluesky/src/services/entities/actors.dart';
-import 'package:bluesky/src/services/entities/actors_typeahead.dart';
-import 'package:bluesky/src/services/entities/preferences.dart';
+import 'package:bluesky/src/services/types/app/bsky/actor/defs/profile_view_detailed.dart';
+import 'package:bluesky/src/services/types/app/bsky/actor/getPreferences/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/actor/getProfiles/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/actor/getSuggestions/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/actor/searchActors/output.dart';
+import 'package:bluesky/src/services/types/app/bsky/actor/searchActorsTypeahead/output.dart';
 import 'service_suite.dart';
 
 void main() {
-  testActor<Actors>(
+  testActor<ActorSearchActorsOutput>(
     (m, s) => s.searchActors(term: m.query),
     id: appBskyActorSearchActors,
   );
 
-  testActor<ActorProfile>(
+  testActor<ProfileViewDetailed>(
     (m, s) => s.getProfile(actor: m.actor),
     id: appBskyActorGetProfile,
   );
 
-  testActor<ActorProfiles>(
+  testActor<ActorGetProfilesOutput>(
     (m, s) => s.getProfiles(actors: [m.actor]),
     id: appBskyActorGetProfiles,
   );
 
-  testActor<Actors>(
+  testActor<ActorGetSuggestionsOutput>(
     (m, s) => s.getSuggestions(),
     id: appBskyActorGetSuggestions,
   );
 
-  testActor<ActorsTypeahead>(
+  testActor<ActorSearchActorsTypeaheadOutput>(
     (m, s) => s.searchActorsTypeahead(term: m.query, limit: m.limit),
     id: appBskyActorSearchActorsTypeahead,
   );
 
-  testActor<atp.StrongRef>((m, s) => s.profile(), id: appBskyActorProfile);
+  testActor<RepoCreateRecordOutput>(
+    (m, s) => s.profile(),
+    id: appBskyActorProfile,
+  );
 
-  testActor<Preferences>(
+  testActor<ActorGetPreferencesOutput>(
     (m, s) => s.getPreferences(),
     id: appBskyActorGetPreferences,
   );
 
-  testActor<core.EmptyData>(
-    (m, s) => s.putPreferences([]),
+  testActor<EmptyData>(
+    (m, s) => s.putPreferences(preferences: const []),
     id: appBskyActorPutPreferences,
   );
 }

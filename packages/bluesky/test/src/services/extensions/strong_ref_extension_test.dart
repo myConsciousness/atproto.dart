@@ -1,28 +1,20 @@
 // Package imports:
-import 'package:atproto/atproto.dart';
-import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto/com_atproto_repo_strongref.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/post/union_main_embed.dart';
 import 'package:test/test.dart';
 
 // Project imports:
-import 'package:bluesky/src/services/entities/embed_record.dart';
 import 'package:bluesky/src/services/extensions/strong_ref.dart';
+import 'package:bluesky/src/services/types/app/bsky/embed/record/main.dart';
 
 void main() {
   test('.toEmbedRecord', () {
-    final ref = StrongRef(cid: 'aaaaa', uri: AtUri.make('test'));
+    final ref = RepoStrongRef(cid: 'aaaaa', uri: 'test');
 
     final embed = ref.toEmbedRecord();
-
-    final embedRecord = embed.when(
-      record: (data) => data,
-      images: (data) => null,
-      external: (data) => null,
-      recordWithMedia: (data) => null,
-      video: (data) => null,
-      unknown: (data) => null,
-    );
+    final embedRecord = embed.whenOrNull(embedRecord: (data) => data);
 
     expect(embedRecord, isA<EmbedRecord>());
-    expect(embedRecord?.ref == ref, isTrue);
+    expect(embedRecord?.record == ref, isTrue);
   });
 }

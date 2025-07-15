@@ -2,6 +2,7 @@
 import 'package:atproto/core.dart';
 
 // Project imports:
+import '../../../app_bsky_feed_post.dart' show UFeedPostEmbed;
 import '../types/app/bsky/embed/defs/aspect_ratio.dart';
 import '../types/app/bsky/embed/images/image.dart';
 import '../types/app/bsky/embed/images/main.dart';

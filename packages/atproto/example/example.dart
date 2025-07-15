@@ -1,6 +1,6 @@
 import 'package:atproto/atproto.dart';
 import 'package:atproto/core.dart';
-import 'package:atproto/src/tools/adaptors/sync_subscribe_repos_adaptor.dart';
+import 'package:atproto/firehose.dart' as firehose;
 
 /// https://atprotodart.com/docs/packages/atproto
 Future<void> main() async {
@@ -60,8 +60,15 @@ Future<void> main() async {
     //! You can use Stream API easily.
     final subscription = await atproto.sync.subscribeRepos();
     subscription.data.stream.listen((event) {
-      final repos = const SyncSubscribeReposAdaptor().execute(event);
-      print(repos);
+      final repos = const firehose.FirehoseAdaptor().execute(event);
+
+      if (firehose.isRepoCommit(repos)) {
+        final commit = firehose.Commit.fromJson(
+          const firehose.RepoCommitAdaptor().execute(repos)!,
+        );
+
+        print(commit);
+      }
     });
   } on UnauthorizedException catch (e) {
     print(e);

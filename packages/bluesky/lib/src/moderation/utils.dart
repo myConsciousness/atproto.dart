@@ -1,6 +1,3 @@
-// Package imports:
-import 'package:atproto_core/atproto_core.dart';
-
 // Project imports:
 import '../services/types/app/bsky/actor/defs/content_label_pref.dart';
 import '../services/types/app/bsky/actor/defs/muted_word.dart';
@@ -218,7 +215,7 @@ extension PreferencesExtension on ActorGetPreferencesOutput {
               )
               .toList(),
       mutedWords: mutedWords,
-      hiddenPosts: hiddenPosts.map((e) => AtUri.parse(e)).toList(),
+      hiddenPosts: hiddenPosts,
     );
   }
 

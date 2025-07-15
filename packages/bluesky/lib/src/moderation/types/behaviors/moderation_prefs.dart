@@ -1,5 +1,4 @@
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -17,6 +16,6 @@ abstract class ModerationPrefs with _$ModerationPrefs {
     required Map<String, LabelPreference> labels,
     required List<ModerationPrefsLabeler> labelers,
     required List<MutedWord> mutedWords,
-    required List<AtUri> hiddenPosts,
+    required List<String> hiddenPosts,
   }) = _ModerationPrefs;
 }
