@@ -56,7 +56,7 @@ extension EmbedImagesViewImageExtension on EmbedImagesViewImage {
 }
 
 final class EmbedImagesViewImageConverter
-    extends LexObjectConverter<EmbedImagesViewImage, Map<String, dynamic>> {
+    extends JsonConverter<EmbedImagesViewImage, Map<String, dynamic>> {
   const EmbedImagesViewImageConverter();
 
   @override

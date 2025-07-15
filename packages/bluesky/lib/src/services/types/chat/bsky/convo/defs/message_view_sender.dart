@@ -39,7 +39,7 @@ abstract class MessageViewSender with _$MessageViewSender {
 }
 
 final class MessageViewSenderConverter
-    extends LexObjectConverter<MessageViewSender, Map<String, dynamic>> {
+    extends JsonConverter<MessageViewSender, Map<String, dynamic>> {
   const MessageViewSenderConverter();
 
   @override

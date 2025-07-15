@@ -50,7 +50,7 @@ extension MessageInputExtension on MessageInput {
 }
 
 final class MessageInputConverter
-    extends LexObjectConverter<MessageInput, Map<String, dynamic>> {
+    extends JsonConverter<MessageInput, Map<String, dynamic>> {
   const MessageInputConverter();
 
   @override

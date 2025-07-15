@@ -40,7 +40,7 @@ abstract class LiveNowConfig with _$LiveNowConfig {
 }
 
 final class LiveNowConfigConverter
-    extends LexObjectConverter<LiveNowConfig, Map<String, dynamic>> {
+    extends JsonConverter<LiveNowConfig, Map<String, dynamic>> {
   const LiveNowConfigConverter();
 
   @override

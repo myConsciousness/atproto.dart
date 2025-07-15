@@ -73,7 +73,7 @@ extension ListViewBasicExtension on ListViewBasic {
 }
 
 final class ListViewBasicConverter
-    extends LexObjectConverter<ListViewBasic, Map<String, dynamic>> {
+    extends JsonConverter<ListViewBasic, Map<String, dynamic>> {
   const ListViewBasicConverter();
 
   @override

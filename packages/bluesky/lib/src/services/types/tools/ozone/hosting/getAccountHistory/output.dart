@@ -39,10 +39,7 @@ abstract class HostingGetAccountHistoryOutput
 
 final class HostingGetAccountHistoryOutputConverter
     extends
-        LexObjectConverter<
-          HostingGetAccountHistoryOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<HostingGetAccountHistoryOutput, Map<String, dynamic>> {
   const HostingGetAccountHistoryOutputConverter();
 
   @override

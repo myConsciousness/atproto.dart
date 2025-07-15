@@ -47,7 +47,7 @@ abstract class LogRemoveReaction with _$LogRemoveReaction {
 }
 
 final class LogRemoveReactionConverter
-    extends LexObjectConverter<LogRemoveReaction, Map<String, dynamic>> {
+    extends JsonConverter<LogRemoveReaction, Map<String, dynamic>> {
   const LogRemoveReactionConverter();
 
   @override

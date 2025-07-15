@@ -38,10 +38,7 @@ abstract class SignatureFindRelatedAccountsInput
 
 final class SignatureFindRelatedAccountsInputConverter
     extends
-        LexObjectConverter<
-          SignatureFindRelatedAccountsInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<SignatureFindRelatedAccountsInput, Map<String, dynamic>> {
   const SignatureFindRelatedAccountsInputConverter();
 
   @override

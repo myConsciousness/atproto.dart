@@ -45,7 +45,7 @@ abstract class LogDeleteMessage with _$LogDeleteMessage {
 }
 
 final class LogDeleteMessageConverter
-    extends LexObjectConverter<LogDeleteMessage, Map<String, dynamic>> {
+    extends JsonConverter<LogDeleteMessage, Map<String, dynamic>> {
   const LogDeleteMessageConverter();
 
   @override

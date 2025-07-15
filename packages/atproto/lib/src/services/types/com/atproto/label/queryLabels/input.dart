@@ -41,7 +41,7 @@ abstract class LabelQueryLabelsInput with _$LabelQueryLabelsInput {
 }
 
 final class LabelQueryLabelsInputConverter
-    extends LexObjectConverter<LabelQueryLabelsInput, Map<String, dynamic>> {
+    extends JsonConverter<LabelQueryLabelsInput, Map<String, dynamic>> {
   const LabelQueryLabelsInputConverter();
 
   @override

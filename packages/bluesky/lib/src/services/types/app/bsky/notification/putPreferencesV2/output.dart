@@ -39,7 +39,7 @@ abstract class NotificationPutPreferencesV2Output
 
 final class NotificationPutPreferencesV2OutputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           NotificationPutPreferencesV2Output,
           Map<String, dynamic>
         > {

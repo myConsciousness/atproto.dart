@@ -58,7 +58,7 @@ abstract class RepoPutRecordInput with _$RepoPutRecordInput {
 }
 
 final class RepoPutRecordInputConverter
-    extends LexObjectConverter<RepoPutRecordInput, Map<String, dynamic>> {
+    extends JsonConverter<RepoPutRecordInput, Map<String, dynamic>> {
   const RepoPutRecordInputConverter();
 
   @override

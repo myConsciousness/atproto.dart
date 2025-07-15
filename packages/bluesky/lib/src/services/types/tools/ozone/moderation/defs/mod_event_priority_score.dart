@@ -47,7 +47,7 @@ extension ModEventPriorityScoreExtension on ModEventPriorityScore {
 }
 
 final class ModEventPriorityScoreConverter
-    extends LexObjectConverter<ModEventPriorityScore, Map<String, dynamic>> {
+    extends JsonConverter<ModEventPriorityScore, Map<String, dynamic>> {
   const ModEventPriorityScoreConverter();
 
   @override

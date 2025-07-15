@@ -88,7 +88,7 @@ extension ViewerStateExtension on ViewerState {
 }
 
 final class ViewerStateConverter
-    extends LexObjectConverter<ViewerState, Map<String, dynamic>> {
+    extends JsonConverter<ViewerState, Map<String, dynamic>> {
   const ViewerStateConverter();
 
   @override

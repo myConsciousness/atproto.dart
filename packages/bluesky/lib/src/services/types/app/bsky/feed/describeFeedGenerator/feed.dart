@@ -37,8 +37,7 @@ abstract class Feed with _$Feed {
   }
 }
 
-final class FeedConverter
-    extends LexObjectConverter<Feed, Map<String, dynamic>> {
+final class FeedConverter extends JsonConverter<Feed, Map<String, dynamic>> {
   const FeedConverter();
 
   @override

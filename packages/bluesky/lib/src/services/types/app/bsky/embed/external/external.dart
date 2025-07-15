@@ -47,7 +47,7 @@ extension EmbedExternalExternalExtension on EmbedExternalExternal {
 }
 
 final class EmbedExternalExternalConverter
-    extends LexObjectConverter<EmbedExternalExternal, Map<String, dynamic>> {
+    extends JsonConverter<EmbedExternalExternal, Map<String, dynamic>> {
   const EmbedExternalExternalConverter();
 
   @override

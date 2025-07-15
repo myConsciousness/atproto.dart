@@ -39,7 +39,7 @@ abstract class UnspeccedGetTaggedSuggestionsOutput
 
 final class UnspeccedGetTaggedSuggestionsOutputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           UnspeccedGetTaggedSuggestionsOutput,
           Map<String, dynamic>
         > {

@@ -37,7 +37,7 @@ abstract class SetQuerySetsOutput with _$SetQuerySetsOutput {
 }
 
 final class SetQuerySetsOutputConverter
-    extends LexObjectConverter<SetQuerySetsOutput, Map<String, dynamic>> {
+    extends JsonConverter<SetQuerySetsOutput, Map<String, dynamic>> {
   const SetQuerySetsOutputConverter();
 
   @override

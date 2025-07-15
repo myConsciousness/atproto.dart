@@ -19,7 +19,7 @@ String getKnownProps(final List<LexProperty> properties) {
 
 String getObjectConverter(final String name, {String suffix = ''}) {
   return '''final class $name${suffix}Converter
-    extends LexObjectConverter<$name$suffix, Map<String, dynamic>> {
+    extends JsonConverter<$name$suffix, Map<String, dynamic>> {
   const $name${suffix}Converter();
 
   @override

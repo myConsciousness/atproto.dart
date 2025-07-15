@@ -40,7 +40,7 @@ abstract class RichtextFacetMention with _$RichtextFacetMention {
 }
 
 final class RichtextFacetMentionConverter
-    extends LexObjectConverter<RichtextFacetMention, Map<String, dynamic>> {
+    extends JsonConverter<RichtextFacetMention, Map<String, dynamic>> {
   const RichtextFacetMentionConverter();
 
   @override

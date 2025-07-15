@@ -79,7 +79,7 @@ extension RepoViewExtension on RepoView {
 }
 
 final class RepoViewConverter
-    extends LexObjectConverter<RepoView, Map<String, dynamic>> {
+    extends JsonConverter<RepoView, Map<String, dynamic>> {
   const RepoViewConverter();
 
   @override

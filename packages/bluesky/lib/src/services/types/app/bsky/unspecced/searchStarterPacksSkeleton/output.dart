@@ -44,7 +44,7 @@ abstract class UnspeccedSearchStarterPacksSkeletonOutput
 
 final class UnspeccedSearchStarterPacksSkeletonOutputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           UnspeccedSearchStarterPacksSkeletonOutput,
           Map<String, dynamic>
         > {

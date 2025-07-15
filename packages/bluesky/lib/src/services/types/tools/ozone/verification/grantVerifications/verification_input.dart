@@ -62,7 +62,7 @@ extension VerificationInputExtension on VerificationInput {
 }
 
 final class VerificationInputConverter
-    extends LexObjectConverter<VerificationInput, Map<String, dynamic>> {
+    extends JsonConverter<VerificationInput, Map<String, dynamic>> {
   const VerificationInputConverter();
 
   @override

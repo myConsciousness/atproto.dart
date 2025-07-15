@@ -37,7 +37,7 @@ abstract class TeamListMembersOutput with _$TeamListMembersOutput {
 }
 
 final class TeamListMembersOutputConverter
-    extends LexObjectConverter<TeamListMembersOutput, Map<String, dynamic>> {
+    extends JsonConverter<TeamListMembersOutput, Map<String, dynamic>> {
   const TeamListMembersOutputConverter();
 
   @override

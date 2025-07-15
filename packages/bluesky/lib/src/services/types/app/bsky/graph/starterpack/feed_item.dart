@@ -39,7 +39,7 @@ abstract class FeedItem with _$FeedItem {
 }
 
 final class FeedItemConverter
-    extends LexObjectConverter<FeedItem, Map<String, dynamic>> {
+    extends JsonConverter<FeedItem, Map<String, dynamic>> {
   const FeedItemConverter();
 
   @override

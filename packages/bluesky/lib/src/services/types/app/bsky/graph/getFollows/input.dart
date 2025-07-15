@@ -35,7 +35,7 @@ abstract class GraphGetFollowsInput with _$GraphGetFollowsInput {
 }
 
 final class GraphGetFollowsInputConverter
-    extends LexObjectConverter<GraphGetFollowsInput, Map<String, dynamic>> {
+    extends JsonConverter<GraphGetFollowsInput, Map<String, dynamic>> {
   const GraphGetFollowsInputConverter();
 
   @override

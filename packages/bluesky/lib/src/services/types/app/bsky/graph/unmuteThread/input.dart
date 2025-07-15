@@ -33,7 +33,7 @@ abstract class GraphUnmuteThreadInput with _$GraphUnmuteThreadInput {
 }
 
 final class GraphUnmuteThreadInputConverter
-    extends LexObjectConverter<GraphUnmuteThreadInput, Map<String, dynamic>> {
+    extends JsonConverter<GraphUnmuteThreadInput, Map<String, dynamic>> {
   const GraphUnmuteThreadInputConverter();
 
   @override

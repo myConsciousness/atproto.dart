@@ -39,10 +39,7 @@ abstract class ServerGetAccountInviteCodesInput
 
 final class ServerGetAccountInviteCodesInputConverter
     extends
-        LexObjectConverter<
-          ServerGetAccountInviteCodesInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<ServerGetAccountInviteCodesInput, Map<String, dynamic>> {
   const ServerGetAccountInviteCodesInputConverter();
 
   @override

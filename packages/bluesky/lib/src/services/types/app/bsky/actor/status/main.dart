@@ -54,7 +54,7 @@ abstract class ActorStatusRecord with _$ActorStatusRecord {
 }
 
 final class ActorStatusRecordConverter
-    extends LexObjectConverter<ActorStatusRecord, Map<String, dynamic>> {
+    extends JsonConverter<ActorStatusRecord, Map<String, dynamic>> {
   const ActorStatusRecordConverter();
 
   @override

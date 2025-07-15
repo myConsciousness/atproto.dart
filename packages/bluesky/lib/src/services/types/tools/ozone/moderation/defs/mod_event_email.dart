@@ -55,7 +55,7 @@ extension ModEventEmailExtension on ModEventEmail {
 }
 
 final class ModEventEmailConverter
-    extends LexObjectConverter<ModEventEmail, Map<String, dynamic>> {
+    extends JsonConverter<ModEventEmail, Map<String, dynamic>> {
   const ModEventEmailConverter();
 
   @override

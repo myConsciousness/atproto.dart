@@ -41,10 +41,7 @@ abstract class AdminUpdateSubjectStatusOutput
 
 final class AdminUpdateSubjectStatusOutputConverter
     extends
-        LexObjectConverter<
-          AdminUpdateSubjectStatusOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<AdminUpdateSubjectStatusOutput, Map<String, dynamic>> {
   const AdminUpdateSubjectStatusOutputConverter();
 
   @override

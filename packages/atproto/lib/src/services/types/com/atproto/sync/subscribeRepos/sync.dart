@@ -50,8 +50,7 @@ abstract class Sync with _$Sync {
   }
 }
 
-final class SyncConverter
-    extends LexObjectConverter<Sync, Map<String, dynamic>> {
+final class SyncConverter extends JsonConverter<Sync, Map<String, dynamic>> {
   const SyncConverter();
 
   @override

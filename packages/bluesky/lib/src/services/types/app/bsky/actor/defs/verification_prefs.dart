@@ -47,7 +47,7 @@ extension VerificationPrefsExtension on VerificationPrefs {
 }
 
 final class VerificationPrefsConverter
-    extends LexObjectConverter<VerificationPrefs, Map<String, dynamic>> {
+    extends JsonConverter<VerificationPrefs, Map<String, dynamic>> {
   const VerificationPrefsConverter();
 
   @override

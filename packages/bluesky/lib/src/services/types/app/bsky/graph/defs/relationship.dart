@@ -53,7 +53,7 @@ extension RelationshipExtension on Relationship {
 }
 
 final class RelationshipConverter
-    extends LexObjectConverter<Relationship, Map<String, dynamic>> {
+    extends JsonConverter<Relationship, Map<String, dynamic>> {
   const RelationshipConverter();
 
   @override

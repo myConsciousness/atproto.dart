@@ -42,7 +42,7 @@ abstract class SavedFeedsPrefV2 with _$SavedFeedsPrefV2 {
 }
 
 final class SavedFeedsPrefV2Converter
-    extends LexObjectConverter<SavedFeedsPrefV2, Map<String, dynamic>> {
+    extends JsonConverter<SavedFeedsPrefV2, Map<String, dynamic>> {
   const SavedFeedsPrefV2Converter();
 
   @override

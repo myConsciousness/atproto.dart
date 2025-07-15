@@ -49,7 +49,7 @@ extension AccountCreatedExtension on AccountCreated {
 }
 
 final class AccountCreatedConverter
-    extends LexObjectConverter<AccountCreated, Map<String, dynamic>> {
+    extends JsonConverter<AccountCreated, Map<String, dynamic>> {
   const AccountCreatedConverter();
 
   @override

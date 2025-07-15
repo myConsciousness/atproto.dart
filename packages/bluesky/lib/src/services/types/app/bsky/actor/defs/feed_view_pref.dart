@@ -76,7 +76,7 @@ extension FeedViewPrefExtension on FeedViewPref {
 }
 
 final class FeedViewPrefConverter
-    extends LexObjectConverter<FeedViewPref, Map<String, dynamic>> {
+    extends JsonConverter<FeedViewPref, Map<String, dynamic>> {
   const FeedViewPrefConverter();
 
   @override

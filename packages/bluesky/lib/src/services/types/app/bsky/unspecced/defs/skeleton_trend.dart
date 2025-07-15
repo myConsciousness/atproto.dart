@@ -62,7 +62,7 @@ extension SkeletonTrendExtension on SkeletonTrend {
 }
 
 final class SkeletonTrendConverter
-    extends LexObjectConverter<SkeletonTrend, Map<String, dynamic>> {
+    extends JsonConverter<SkeletonTrend, Map<String, dynamic>> {
   const SkeletonTrendConverter();
 
   @override

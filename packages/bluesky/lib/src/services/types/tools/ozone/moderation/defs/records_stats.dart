@@ -91,7 +91,7 @@ extension RecordsStatsExtension on RecordsStats {
 }
 
 final class RecordsStatsConverter
-    extends LexObjectConverter<RecordsStats, Map<String, dynamic>> {
+    extends JsonConverter<RecordsStats, Map<String, dynamic>> {
   const RecordsStatsConverter();
 
   @override

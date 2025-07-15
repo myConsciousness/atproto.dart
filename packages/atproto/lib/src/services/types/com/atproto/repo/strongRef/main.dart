@@ -41,7 +41,7 @@ abstract class RepoStrongRef with _$RepoStrongRef {
 }
 
 final class RepoStrongRefConverter
-    extends LexObjectConverter<RepoStrongRef, Map<String, dynamic>> {
+    extends JsonConverter<RepoStrongRef, Map<String, dynamic>> {
   const RepoStrongRefConverter();
 
   @override

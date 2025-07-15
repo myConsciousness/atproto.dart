@@ -39,10 +39,7 @@ abstract class NotificationGetPreferencesOutput
 
 final class NotificationGetPreferencesOutputConverter
     extends
-        LexObjectConverter<
-          NotificationGetPreferencesOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<NotificationGetPreferencesOutput, Map<String, dynamic>> {
   const NotificationGetPreferencesOutputConverter();
 
   @override

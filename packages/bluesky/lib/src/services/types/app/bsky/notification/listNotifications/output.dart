@@ -47,7 +47,7 @@ abstract class NotificationListNotificationsOutput
 
 final class NotificationListNotificationsOutputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           NotificationListNotificationsOutput,
           Map<String, dynamic>
         > {

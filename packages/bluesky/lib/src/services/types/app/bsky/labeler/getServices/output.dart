@@ -37,7 +37,7 @@ abstract class LabelerGetServicesOutput with _$LabelerGetServicesOutput {
 }
 
 final class LabelerGetServicesOutputConverter
-    extends LexObjectConverter<LabelerGetServicesOutput, Map<String, dynamic>> {
+    extends JsonConverter<LabelerGetServicesOutput, Map<String, dynamic>> {
   const LabelerGetServicesOutputConverter();
 
   @override

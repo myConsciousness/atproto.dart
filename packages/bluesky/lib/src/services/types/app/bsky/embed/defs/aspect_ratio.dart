@@ -41,7 +41,7 @@ abstract class AspectRatio with _$AspectRatio {
 }
 
 final class AspectRatioConverter
-    extends LexObjectConverter<AspectRatio, Map<String, dynamic>> {
+    extends JsonConverter<AspectRatio, Map<String, dynamic>> {
   const AspectRatioConverter();
 
   @override

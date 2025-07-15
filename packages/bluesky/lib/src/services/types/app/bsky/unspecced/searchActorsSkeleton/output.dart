@@ -43,7 +43,7 @@ abstract class UnspeccedSearchActorsSkeletonOutput
 
 final class UnspeccedSearchActorsSkeletonOutputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           UnspeccedSearchActorsSkeletonOutput,
           Map<String, dynamic>
         > {

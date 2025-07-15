@@ -55,7 +55,7 @@ extension AccountExtension on Account {
 }
 
 final class AccountConverter
-    extends LexObjectConverter<Account, Map<String, dynamic>> {
+    extends JsonConverter<Account, Map<String, dynamic>> {
   const AccountConverter();
 
   @override

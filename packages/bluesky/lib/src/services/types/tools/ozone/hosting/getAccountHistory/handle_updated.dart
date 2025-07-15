@@ -41,7 +41,7 @@ abstract class HandleUpdated with _$HandleUpdated {
 }
 
 final class HandleUpdatedConverter
-    extends LexObjectConverter<HandleUpdated, Map<String, dynamic>> {
+    extends JsonConverter<HandleUpdated, Map<String, dynamic>> {
   const HandleUpdatedConverter();
 
   @override

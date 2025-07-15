@@ -77,7 +77,7 @@ extension StarterPackViewExtension on StarterPackView {
 }
 
 final class StarterPackViewConverter
-    extends LexObjectConverter<StarterPackView, Map<String, dynamic>> {
+    extends JsonConverter<StarterPackView, Map<String, dynamic>> {
   const StarterPackViewConverter();
 
   @override

@@ -66,7 +66,7 @@ extension ModEventViewDetailExtension on ModEventViewDetail {
 }
 
 final class ModEventViewDetailConverter
-    extends LexObjectConverter<ModEventViewDetail, Map<String, dynamic>> {
+    extends JsonConverter<ModEventViewDetail, Map<String, dynamic>> {
   const ModEventViewDetailConverter();
 
   @override

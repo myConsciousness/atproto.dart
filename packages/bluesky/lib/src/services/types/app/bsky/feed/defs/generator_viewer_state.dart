@@ -44,7 +44,7 @@ extension GeneratorViewerStateExtension on GeneratorViewerState {
 }
 
 final class GeneratorViewerStateConverter
-    extends LexObjectConverter<GeneratorViewerState, Map<String, dynamic>> {
+    extends JsonConverter<GeneratorViewerState, Map<String, dynamic>> {
   const GeneratorViewerStateConverter();
 
   @override

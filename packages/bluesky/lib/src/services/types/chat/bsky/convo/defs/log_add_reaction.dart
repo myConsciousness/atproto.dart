@@ -46,7 +46,7 @@ abstract class LogAddReaction with _$LogAddReaction {
 }
 
 final class LogAddReactionConverter
-    extends LexObjectConverter<LogAddReaction, Map<String, dynamic>> {
+    extends JsonConverter<LogAddReaction, Map<String, dynamic>> {
   const LogAddReactionConverter();
 
   @override

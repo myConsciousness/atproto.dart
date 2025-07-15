@@ -40,10 +40,7 @@ abstract class ModerationGetMessageContextOutput
 
 final class ModerationGetMessageContextOutputConverter
     extends
-        LexObjectConverter<
-          ModerationGetMessageContextOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<ModerationGetMessageContextOutput, Map<String, dynamic>> {
   const ModerationGetMessageContextOutputConverter();
 
   @override

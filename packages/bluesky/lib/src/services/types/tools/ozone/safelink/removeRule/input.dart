@@ -44,7 +44,7 @@ abstract class SafelinkRemoveRuleInput with _$SafelinkRemoveRuleInput {
 }
 
 final class SafelinkRemoveRuleInputConverter
-    extends LexObjectConverter<SafelinkRemoveRuleInput, Map<String, dynamic>> {
+    extends JsonConverter<SafelinkRemoveRuleInput, Map<String, dynamic>> {
   const SafelinkRemoveRuleInputConverter();
 
   @override

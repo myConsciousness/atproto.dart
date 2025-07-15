@@ -34,8 +34,7 @@ abstract class SettingRemoveOptionsInput with _$SettingRemoveOptionsInput {
 }
 
 final class SettingRemoveOptionsInputConverter
-    extends
-        LexObjectConverter<SettingRemoveOptionsInput, Map<String, dynamic>> {
+    extends JsonConverter<SettingRemoveOptionsInput, Map<String, dynamic>> {
   const SettingRemoveOptionsInputConverter();
 
   @override

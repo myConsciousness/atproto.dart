@@ -45,7 +45,7 @@ abstract class DeletedMessageView with _$DeletedMessageView {
 }
 
 final class DeletedMessageViewConverter
-    extends LexObjectConverter<DeletedMessageView, Map<String, dynamic>> {
+    extends JsonConverter<DeletedMessageView, Map<String, dynamic>> {
   const DeletedMessageViewConverter();
 
   @override

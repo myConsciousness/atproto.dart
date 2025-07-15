@@ -34,7 +34,7 @@ abstract class SyncListHostsInput with _$SyncListHostsInput {
 }
 
 final class SyncListHostsInputConverter
-    extends LexObjectConverter<SyncListHostsInput, Map<String, dynamic>> {
+    extends JsonConverter<SyncListHostsInput, Map<String, dynamic>> {
   const SyncListHostsInputConverter();
 
   @override

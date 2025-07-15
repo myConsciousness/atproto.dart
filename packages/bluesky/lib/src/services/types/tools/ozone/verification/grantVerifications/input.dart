@@ -40,7 +40,7 @@ abstract class VerificationGrantVerificationsInput
 
 final class VerificationGrantVerificationsInputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           VerificationGrantVerificationsInput,
           Map<String, dynamic>
         > {

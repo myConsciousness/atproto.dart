@@ -41,7 +41,7 @@ abstract class RichtextFacetByteSlice with _$RichtextFacetByteSlice {
 }
 
 final class RichtextFacetByteSliceConverter
-    extends LexObjectConverter<RichtextFacetByteSlice, Map<String, dynamic>> {
+    extends JsonConverter<RichtextFacetByteSlice, Map<String, dynamic>> {
   const RichtextFacetByteSliceConverter();
 
   @override

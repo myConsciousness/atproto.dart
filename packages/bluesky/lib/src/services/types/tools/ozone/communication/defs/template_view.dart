@@ -76,7 +76,7 @@ extension TemplateViewExtension on TemplateView {
 }
 
 final class TemplateViewConverter
-    extends LexObjectConverter<TemplateView, Map<String, dynamic>> {
+    extends JsonConverter<TemplateView, Map<String, dynamic>> {
   const TemplateViewConverter();
 
   @override

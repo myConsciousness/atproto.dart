@@ -37,7 +37,7 @@ abstract class ServerUpdateEmailInput with _$ServerUpdateEmailInput {
 }
 
 final class ServerUpdateEmailInputConverter
-    extends LexObjectConverter<ServerUpdateEmailInput, Map<String, dynamic>> {
+    extends JsonConverter<ServerUpdateEmailInput, Map<String, dynamic>> {
   const ServerUpdateEmailInputConverter();
 
   @override

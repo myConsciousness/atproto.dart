@@ -36,8 +36,7 @@ abstract class AdminUpdateAccountEmailInput
 }
 
 final class AdminUpdateAccountEmailInputConverter
-    extends
-        LexObjectConverter<AdminUpdateAccountEmailInput, Map<String, dynamic>> {
+    extends JsonConverter<AdminUpdateAccountEmailInput, Map<String, dynamic>> {
   const AdminUpdateAccountEmailInputConverter();
 
   @override

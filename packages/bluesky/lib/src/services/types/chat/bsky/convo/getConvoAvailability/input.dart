@@ -35,10 +35,7 @@ abstract class ConvoGetConvoAvailabilityInput
 
 final class ConvoGetConvoAvailabilityInputConverter
     extends
-        LexObjectConverter<
-          ConvoGetConvoAvailabilityInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<ConvoGetConvoAvailabilityInput, Map<String, dynamic>> {
   const ConvoGetConvoAvailabilityInputConverter();
 
   @override

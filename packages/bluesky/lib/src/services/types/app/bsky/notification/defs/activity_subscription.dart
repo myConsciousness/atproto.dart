@@ -48,7 +48,7 @@ extension ActivitySubscriptionExtension on ActivitySubscription {
 }
 
 final class ActivitySubscriptionConverter
-    extends LexObjectConverter<ActivitySubscription, Map<String, dynamic>> {
+    extends JsonConverter<ActivitySubscription, Map<String, dynamic>> {
   const ActivitySubscriptionConverter();
 
   @override

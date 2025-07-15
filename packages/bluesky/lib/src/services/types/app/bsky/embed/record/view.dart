@@ -42,7 +42,7 @@ abstract class EmbedRecordView with _$EmbedRecordView {
 }
 
 final class EmbedRecordViewConverter
-    extends LexObjectConverter<EmbedRecordView, Map<String, dynamic>> {
+    extends JsonConverter<EmbedRecordView, Map<String, dynamic>> {
   const EmbedRecordViewConverter();
 
   @override

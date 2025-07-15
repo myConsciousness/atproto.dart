@@ -36,11 +36,7 @@ abstract class SignatureSearchAccountsOutput
 }
 
 final class SignatureSearchAccountsOutputConverter
-    extends
-        LexObjectConverter<
-          SignatureSearchAccountsOutput,
-          Map<String, dynamic>
-        > {
+    extends JsonConverter<SignatureSearchAccountsOutput, Map<String, dynamic>> {
   const SignatureSearchAccountsOutputConverter();
 
   @override

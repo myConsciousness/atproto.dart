@@ -47,8 +47,7 @@ abstract class AgeAssuranceOverrideEvent with _$AgeAssuranceOverrideEvent {
 }
 
 final class AgeAssuranceOverrideEventConverter
-    extends
-        LexObjectConverter<AgeAssuranceOverrideEvent, Map<String, dynamic>> {
+    extends JsonConverter<AgeAssuranceOverrideEvent, Map<String, dynamic>> {
   const AgeAssuranceOverrideEventConverter();
 
   @override

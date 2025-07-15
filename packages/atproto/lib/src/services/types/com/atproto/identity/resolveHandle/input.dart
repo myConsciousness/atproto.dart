@@ -34,8 +34,7 @@ abstract class IdentityResolveHandleInput with _$IdentityResolveHandleInput {
 }
 
 final class IdentityResolveHandleInputConverter
-    extends
-        LexObjectConverter<IdentityResolveHandleInput, Map<String, dynamic>> {
+    extends JsonConverter<IdentityResolveHandleInput, Map<String, dynamic>> {
   const IdentityResolveHandleInputConverter();
 
   @override

@@ -67,7 +67,7 @@ extension StatusViewExtension on StatusView {
 }
 
 final class StatusViewConverter
-    extends LexObjectConverter<StatusView, Map<String, dynamic>> {
+    extends JsonConverter<StatusView, Map<String, dynamic>> {
   const StatusViewConverter();
 
   @override

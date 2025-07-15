@@ -40,7 +40,7 @@ abstract class EmbedVideoCaption with _$EmbedVideoCaption {
 }
 
 final class EmbedVideoCaptionConverter
-    extends LexObjectConverter<EmbedVideoCaption, Map<String, dynamic>> {
+    extends JsonConverter<EmbedVideoCaption, Map<String, dynamic>> {
   const EmbedVideoCaptionConverter();
 
   @override

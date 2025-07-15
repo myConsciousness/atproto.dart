@@ -46,11 +46,7 @@ abstract class NotificationRegisterPushInput
 }
 
 final class NotificationRegisterPushInputConverter
-    extends
-        LexObjectConverter<
-          NotificationRegisterPushInput,
-          Map<String, dynamic>
-        > {
+    extends JsonConverter<NotificationRegisterPushInput, Map<String, dynamic>> {
   const NotificationRegisterPushInputConverter();
 
   @override

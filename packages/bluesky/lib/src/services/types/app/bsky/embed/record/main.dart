@@ -41,7 +41,7 @@ abstract class EmbedRecord with _$EmbedRecord {
 }
 
 final class EmbedRecordConverter
-    extends LexObjectConverter<EmbedRecord, Map<String, dynamic>> {
+    extends JsonConverter<EmbedRecord, Map<String, dynamic>> {
   const EmbedRecordConverter();
 
   @override

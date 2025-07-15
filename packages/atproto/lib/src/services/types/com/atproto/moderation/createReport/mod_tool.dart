@@ -48,7 +48,7 @@ extension ModToolExtension on ModTool {
 }
 
 final class ModToolConverter
-    extends LexObjectConverter<ModTool, Map<String, dynamic>> {
+    extends JsonConverter<ModTool, Map<String, dynamic>> {
   const ModToolConverter();
 
   @override

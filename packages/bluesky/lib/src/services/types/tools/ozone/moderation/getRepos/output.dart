@@ -37,7 +37,7 @@ abstract class ModerationGetReposOutput with _$ModerationGetReposOutput {
 }
 
 final class ModerationGetReposOutputConverter
-    extends LexObjectConverter<ModerationGetReposOutput, Map<String, dynamic>> {
+    extends JsonConverter<ModerationGetReposOutput, Map<String, dynamic>> {
   const ModerationGetReposOutputConverter();
 
   @override

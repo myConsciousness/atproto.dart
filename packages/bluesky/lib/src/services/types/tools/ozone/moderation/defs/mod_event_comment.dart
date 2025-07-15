@@ -50,7 +50,7 @@ extension ModEventCommentExtension on ModEventComment {
 }
 
 final class ModEventCommentConverter
-    extends LexObjectConverter<ModEventComment, Map<String, dynamic>> {
+    extends JsonConverter<ModEventComment, Map<String, dynamic>> {
   const ModEventCommentConverter();
 
   @override

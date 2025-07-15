@@ -75,7 +75,7 @@ extension ThreadItemPostExtension on ThreadItemPost {
 }
 
 final class ThreadItemPostConverter
-    extends LexObjectConverter<ThreadItemPost, Map<String, dynamic>> {
+    extends JsonConverter<ThreadItemPost, Map<String, dynamic>> {
   const ThreadItemPostConverter();
 
   @override

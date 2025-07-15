@@ -34,7 +34,7 @@ abstract class ServerConfirmEmailInput with _$ServerConfirmEmailInput {
 }
 
 final class ServerConfirmEmailInputConverter
-    extends LexObjectConverter<ServerConfirmEmailInput, Map<String, dynamic>> {
+    extends JsonConverter<ServerConfirmEmailInput, Map<String, dynamic>> {
   const ServerConfirmEmailInputConverter();
 
   @override

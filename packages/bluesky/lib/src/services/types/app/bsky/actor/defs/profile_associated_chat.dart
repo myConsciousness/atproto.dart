@@ -39,7 +39,7 @@ abstract class ProfileAssociatedChat with _$ProfileAssociatedChat {
 }
 
 final class ProfileAssociatedChatConverter
-    extends LexObjectConverter<ProfileAssociatedChat, Map<String, dynamic>> {
+    extends JsonConverter<ProfileAssociatedChat, Map<String, dynamic>> {
   const ProfileAssociatedChatConverter();
 
   @override

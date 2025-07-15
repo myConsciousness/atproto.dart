@@ -39,7 +39,7 @@ abstract class UnspeccedGetPostThreadOtherV2Output
 
 final class UnspeccedGetPostThreadOtherV2OutputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           UnspeccedGetPostThreadOtherV2Output,
           Map<String, dynamic>
         > {

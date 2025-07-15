@@ -41,7 +41,7 @@ abstract class Update with _$Update {
 }
 
 final class UpdateConverter
-    extends LexObjectConverter<Update, Map<String, dynamic>> {
+    extends JsonConverter<Update, Map<String, dynamic>> {
   const UpdateConverter();
 
   @override

@@ -35,7 +35,7 @@ abstract class TeamUpdateMemberInput with _$TeamUpdateMemberInput {
 }
 
 final class TeamUpdateMemberInputConverter
-    extends LexObjectConverter<TeamUpdateMemberInput, Map<String, dynamic>> {
+    extends JsonConverter<TeamUpdateMemberInput, Map<String, dynamic>> {
   const TeamUpdateMemberInputConverter();
 
   @override

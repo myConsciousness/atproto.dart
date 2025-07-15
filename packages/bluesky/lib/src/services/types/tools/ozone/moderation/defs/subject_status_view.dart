@@ -152,7 +152,7 @@ extension SubjectStatusViewExtension on SubjectStatusView {
 }
 
 final class SubjectStatusViewConverter
-    extends LexObjectConverter<SubjectStatusView, Map<String, dynamic>> {
+    extends JsonConverter<SubjectStatusView, Map<String, dynamic>> {
   const SubjectStatusViewConverter();
 
   @override

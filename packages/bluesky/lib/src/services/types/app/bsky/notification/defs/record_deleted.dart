@@ -38,7 +38,7 @@ abstract class RecordDeleted with _$RecordDeleted {
 }
 
 final class RecordDeletedConverter
-    extends LexObjectConverter<RecordDeleted, Map<String, dynamic>> {
+    extends JsonConverter<RecordDeleted, Map<String, dynamic>> {
   const RecordDeletedConverter();
 
   @override

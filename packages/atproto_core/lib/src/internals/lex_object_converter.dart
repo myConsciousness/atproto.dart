@@ -1,9 +1,7 @@
 // Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-abstract class LexObjectConverter<T, S> extends JsonConverter<T, S> {
-  const LexObjectConverter();
-
+extension JsonConverterExtension<T, S> on JsonConverter<T, S> {
   Map<String, dynamic> translate(
     final Map<String, dynamic> json,
     final List<String> props,

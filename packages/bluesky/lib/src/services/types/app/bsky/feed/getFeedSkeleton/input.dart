@@ -36,7 +36,7 @@ abstract class FeedGetFeedSkeletonInput with _$FeedGetFeedSkeletonInput {
 }
 
 final class FeedGetFeedSkeletonInputConverter
-    extends LexObjectConverter<FeedGetFeedSkeletonInput, Map<String, dynamic>> {
+    extends JsonConverter<FeedGetFeedSkeletonInput, Map<String, dynamic>> {
   const FeedGetFeedSkeletonInputConverter();
 
   @override

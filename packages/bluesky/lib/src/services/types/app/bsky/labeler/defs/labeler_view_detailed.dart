@@ -75,7 +75,7 @@ extension LabelerViewDetailedExtension on LabelerViewDetailed {
 }
 
 final class LabelerViewDetailedConverter
-    extends LexObjectConverter<LabelerViewDetailed, Map<String, dynamic>> {
+    extends JsonConverter<LabelerViewDetailed, Map<String, dynamic>> {
   const LabelerViewDetailedConverter();
 
   @override

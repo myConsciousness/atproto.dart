@@ -40,7 +40,7 @@ abstract class Delete with _$Delete {
 }
 
 final class DeleteConverter
-    extends LexObjectConverter<Delete, Map<String, dynamic>> {
+    extends JsonConverter<Delete, Map<String, dynamic>> {
   const DeleteConverter();
 
   @override

@@ -56,7 +56,7 @@ abstract class LabelerServiceRecord with _$LabelerServiceRecord {
 }
 
 final class LabelerServiceRecordConverter
-    extends LexObjectConverter<LabelerServiceRecord, Map<String, dynamic>> {
+    extends JsonConverter<LabelerServiceRecord, Map<String, dynamic>> {
   const LabelerServiceRecordConverter();
 
   @override

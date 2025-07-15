@@ -50,7 +50,7 @@ extension AgeAssuranceStateExtension on AgeAssuranceState {
 }
 
 final class AgeAssuranceStateConverter
-    extends LexObjectConverter<AgeAssuranceState, Map<String, dynamic>> {
+    extends JsonConverter<AgeAssuranceState, Map<String, dynamic>> {
   const AgeAssuranceStateConverter();
 
   @override

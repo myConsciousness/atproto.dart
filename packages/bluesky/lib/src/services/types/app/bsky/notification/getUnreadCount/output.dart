@@ -36,10 +36,7 @@ abstract class NotificationGetUnreadCountOutput
 
 final class NotificationGetUnreadCountOutputConverter
     extends
-        LexObjectConverter<
-          NotificationGetUnreadCountOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<NotificationGetUnreadCountOutput, Map<String, dynamic>> {
   const NotificationGetUnreadCountOutputConverter();
 
   @override

@@ -48,7 +48,7 @@ extension ModEventResolveAppealExtension on ModEventResolveAppeal {
 }
 
 final class ModEventResolveAppealConverter
-    extends LexObjectConverter<ModEventResolveAppeal, Map<String, dynamic>> {
+    extends JsonConverter<ModEventResolveAppeal, Map<String, dynamic>> {
   const ModEventResolveAppealConverter();
 
   @override

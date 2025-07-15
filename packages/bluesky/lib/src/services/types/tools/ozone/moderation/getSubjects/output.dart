@@ -36,8 +36,7 @@ abstract class ModerationGetSubjectsOutput with _$ModerationGetSubjectsOutput {
 }
 
 final class ModerationGetSubjectsOutputConverter
-    extends
-        LexObjectConverter<ModerationGetSubjectsOutput, Map<String, dynamic>> {
+    extends JsonConverter<ModerationGetSubjectsOutput, Map<String, dynamic>> {
   const ModerationGetSubjectsOutputConverter();
 
   @override

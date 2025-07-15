@@ -47,8 +47,7 @@ extension EmbedExternalViewExternalExtension on EmbedExternalViewExternal {
 }
 
 final class EmbedExternalViewExternalConverter
-    extends
-        LexObjectConverter<EmbedExternalViewExternal, Map<String, dynamic>> {
+    extends JsonConverter<EmbedExternalViewExternal, Map<String, dynamic>> {
   const EmbedExternalViewExternalConverter();
 
   @override

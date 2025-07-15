@@ -46,7 +46,7 @@ extension UpdateResultExtension on UpdateResult {
 }
 
 final class UpdateResultConverter
-    extends LexObjectConverter<UpdateResult, Map<String, dynamic>> {
+    extends JsonConverter<UpdateResult, Map<String, dynamic>> {
   const UpdateResultConverter();
 
   @override

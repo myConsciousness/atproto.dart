@@ -44,7 +44,7 @@ abstract class ProfileAssociatedActivitySubscription
 
 final class ProfileAssociatedActivitySubscriptionConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           ProfileAssociatedActivitySubscription,
           Map<String, dynamic>
         > {

@@ -47,7 +47,7 @@ abstract class Metadata with _$Metadata {
 }
 
 final class MetadataConverter
-    extends LexObjectConverter<Metadata, Map<String, dynamic>> {
+    extends JsonConverter<Metadata, Map<String, dynamic>> {
   const MetadataConverter();
 
   @override

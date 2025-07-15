@@ -50,7 +50,7 @@ extension IdentityExtension on Identity {
 }
 
 final class IdentityConverter
-    extends LexObjectConverter<Identity, Map<String, dynamic>> {
+    extends JsonConverter<Identity, Map<String, dynamic>> {
   const IdentityConverter();
 
   @override

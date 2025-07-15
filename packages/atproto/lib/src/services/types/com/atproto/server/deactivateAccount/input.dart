@@ -35,8 +35,7 @@ abstract class ServerDeactivateAccountInput
 }
 
 final class ServerDeactivateAccountInputConverter
-    extends
-        LexObjectConverter<ServerDeactivateAccountInput, Map<String, dynamic>> {
+    extends JsonConverter<ServerDeactivateAccountInput, Map<String, dynamic>> {
   const ServerDeactivateAccountInputConverter();
 
   @override

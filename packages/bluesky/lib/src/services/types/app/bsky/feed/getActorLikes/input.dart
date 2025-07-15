@@ -35,7 +35,7 @@ abstract class FeedGetActorLikesInput with _$FeedGetActorLikesInput {
 }
 
 final class FeedGetActorLikesInputConverter
-    extends LexObjectConverter<FeedGetActorLikesInput, Map<String, dynamic>> {
+    extends JsonConverter<FeedGetActorLikesInput, Map<String, dynamic>> {
   const FeedGetActorLikesInputConverter();
 
   @override

@@ -33,7 +33,7 @@ abstract class SyncGetHeadOutput with _$SyncGetHeadOutput {
 }
 
 final class SyncGetHeadOutputConverter
-    extends LexObjectConverter<SyncGetHeadOutput, Map<String, dynamic>> {
+    extends JsonConverter<SyncGetHeadOutput, Map<String, dynamic>> {
   const SyncGetHeadOutputConverter();
 
   @override

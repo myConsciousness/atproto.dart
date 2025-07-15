@@ -53,7 +53,7 @@ extension SkeletonFeedPostExtension on SkeletonFeedPost {
 }
 
 final class SkeletonFeedPostConverter
-    extends LexObjectConverter<SkeletonFeedPost, Map<String, dynamic>> {
+    extends JsonConverter<SkeletonFeedPost, Map<String, dynamic>> {
   const SkeletonFeedPostConverter();
 
   @override

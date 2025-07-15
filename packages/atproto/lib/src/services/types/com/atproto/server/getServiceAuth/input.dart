@@ -40,8 +40,7 @@ abstract class ServerGetServiceAuthInput with _$ServerGetServiceAuthInput {
 }
 
 final class ServerGetServiceAuthInputConverter
-    extends
-        LexObjectConverter<ServerGetServiceAuthInput, Map<String, dynamic>> {
+    extends JsonConverter<ServerGetServiceAuthInput, Map<String, dynamic>> {
   const ServerGetServiceAuthInputConverter();
 
   @override

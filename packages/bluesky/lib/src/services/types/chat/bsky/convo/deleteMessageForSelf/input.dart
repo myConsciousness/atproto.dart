@@ -36,10 +36,7 @@ abstract class ConvoDeleteMessageForSelfInput
 
 final class ConvoDeleteMessageForSelfInputConverter
     extends
-        LexObjectConverter<
-          ConvoDeleteMessageForSelfInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<ConvoDeleteMessageForSelfInput, Map<String, dynamic>> {
   const ConvoDeleteMessageForSelfInputConverter();
 
   @override

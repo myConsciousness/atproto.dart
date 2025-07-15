@@ -91,7 +91,7 @@ extension ProfileViewExtension on ProfileView {
 }
 
 final class ProfileViewConverter
-    extends LexObjectConverter<ProfileView, Map<String, dynamic>> {
+    extends JsonConverter<ProfileView, Map<String, dynamic>> {
   const ProfileViewConverter();
 
   @override

@@ -72,7 +72,7 @@ extension NotificationExtension on Notification {
 }
 
 final class NotificationConverter
-    extends LexObjectConverter<Notification, Map<String, dynamic>> {
+    extends JsonConverter<Notification, Map<String, dynamic>> {
   const NotificationConverter();
 
   @override

@@ -43,8 +43,7 @@ abstract class VideoGetUploadLimitsOutput with _$VideoGetUploadLimitsOutput {
 }
 
 final class VideoGetUploadLimitsOutputConverter
-    extends
-        LexObjectConverter<VideoGetUploadLimitsOutput, Map<String, dynamic>> {
+    extends JsonConverter<VideoGetUploadLimitsOutput, Map<String, dynamic>> {
   const VideoGetUploadLimitsOutputConverter();
 
   @override

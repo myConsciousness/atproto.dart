@@ -54,7 +54,7 @@ extension TrendingTopicExtension on TrendingTopic {
 }
 
 final class TrendingTopicConverter
-    extends LexObjectConverter<TrendingTopic, Map<String, dynamic>> {
+    extends JsonConverter<TrendingTopic, Map<String, dynamic>> {
   const TrendingTopicConverter();
 
   @override

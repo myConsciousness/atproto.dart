@@ -61,7 +61,7 @@ extension ModEventTakedownExtension on ModEventTakedown {
 }
 
 final class ModEventTakedownConverter
-    extends LexObjectConverter<ModEventTakedown, Map<String, dynamic>> {
+    extends JsonConverter<ModEventTakedown, Map<String, dynamic>> {
   const ModEventTakedownConverter();
 
   @override

@@ -57,7 +57,7 @@ extension ModEventLabelExtension on ModEventLabel {
 }
 
 final class ModEventLabelConverter
-    extends LexObjectConverter<ModEventLabel, Map<String, dynamic>> {
+    extends JsonConverter<ModEventLabel, Map<String, dynamic>> {
   const ModEventLabelConverter();
 
   @override

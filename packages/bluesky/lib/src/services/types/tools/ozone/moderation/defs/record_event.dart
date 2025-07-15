@@ -50,7 +50,7 @@ extension RecordEventExtension on RecordEvent {
 }
 
 final class RecordEventConverter
-    extends LexObjectConverter<RecordEvent, Map<String, dynamic>> {
+    extends JsonConverter<RecordEvent, Map<String, dynamic>> {
   const RecordEventConverter();
 
   @override

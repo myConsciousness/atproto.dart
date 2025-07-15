@@ -39,10 +39,7 @@ abstract class UnspeccedGetSuggestedUsersOutput
 
 final class UnspeccedGetSuggestedUsersOutputConverter
     extends
-        LexObjectConverter<
-          UnspeccedGetSuggestedUsersOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<UnspeccedGetSuggestedUsersOutput, Map<String, dynamic>> {
   const UnspeccedGetSuggestedUsersOutputConverter();
 
   @override

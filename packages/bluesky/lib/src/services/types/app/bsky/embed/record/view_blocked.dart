@@ -49,7 +49,7 @@ extension EmbedRecordViewBlockedExtension on EmbedRecordViewBlocked {
 }
 
 final class EmbedRecordViewBlockedConverter
-    extends LexObjectConverter<EmbedRecordViewBlocked, Map<String, dynamic>> {
+    extends JsonConverter<EmbedRecordViewBlocked, Map<String, dynamic>> {
   const EmbedRecordViewBlockedConverter();
 
   @override

@@ -38,7 +38,7 @@ abstract class UnspeccedGetSuggestedStarterPacksSkeletonInput
 
 final class UnspeccedGetSuggestedStarterPacksSkeletonInputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           UnspeccedGetSuggestedStarterPacksSkeletonInput,
           Map<String, dynamic>
         > {

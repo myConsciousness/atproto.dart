@@ -41,7 +41,7 @@ abstract class VideoDetails with _$VideoDetails {
 }
 
 final class VideoDetailsConverter
-    extends LexObjectConverter<VideoDetails, Map<String, dynamic>> {
+    extends JsonConverter<VideoDetails, Map<String, dynamic>> {
   const VideoDetailsConverter();
 
   @override

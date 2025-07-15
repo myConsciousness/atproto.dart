@@ -34,8 +34,7 @@ abstract class RepoListMissingBlobsInput with _$RepoListMissingBlobsInput {
 }
 
 final class RepoListMissingBlobsInputConverter
-    extends
-        LexObjectConverter<RepoListMissingBlobsInput, Map<String, dynamic>> {
+    extends JsonConverter<RepoListMissingBlobsInput, Map<String, dynamic>> {
   const RepoListMissingBlobsInputConverter();
 
   @override

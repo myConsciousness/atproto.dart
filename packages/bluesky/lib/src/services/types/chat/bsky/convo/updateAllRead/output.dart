@@ -34,7 +34,7 @@ abstract class ConvoUpdateAllReadOutput with _$ConvoUpdateAllReadOutput {
 }
 
 final class ConvoUpdateAllReadOutputConverter
-    extends LexObjectConverter<ConvoUpdateAllReadOutput, Map<String, dynamic>> {
+    extends JsonConverter<ConvoUpdateAllReadOutput, Map<String, dynamic>> {
   const ConvoUpdateAllReadOutputConverter();
 
   @override

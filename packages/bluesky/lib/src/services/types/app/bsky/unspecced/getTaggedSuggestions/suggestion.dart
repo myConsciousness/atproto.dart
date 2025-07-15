@@ -42,7 +42,7 @@ abstract class Suggestion with _$Suggestion {
 }
 
 final class SuggestionConverter
-    extends LexObjectConverter<Suggestion, Map<String, dynamic>> {
+    extends JsonConverter<Suggestion, Map<String, dynamic>> {
   const SuggestionConverter();
 
   @override

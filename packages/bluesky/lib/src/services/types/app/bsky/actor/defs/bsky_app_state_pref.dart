@@ -55,7 +55,7 @@ extension BskyAppStatePrefExtension on BskyAppStatePref {
 }
 
 final class BskyAppStatePrefConverter
-    extends LexObjectConverter<BskyAppStatePref, Map<String, dynamic>> {
+    extends JsonConverter<BskyAppStatePref, Map<String, dynamic>> {
   const BskyAppStatePrefConverter();
 
   @override

@@ -44,7 +44,7 @@ extension ViewerConfigExtension on ViewerConfig {
 }
 
 final class ViewerConfigConverter
-    extends LexObjectConverter<ViewerConfig, Map<String, dynamic>> {
+    extends JsonConverter<ViewerConfig, Map<String, dynamic>> {
   const ViewerConfigConverter();
 
   @override

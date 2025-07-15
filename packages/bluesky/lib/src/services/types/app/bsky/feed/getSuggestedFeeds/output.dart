@@ -37,8 +37,7 @@ abstract class FeedGetSuggestedFeedsOutput with _$FeedGetSuggestedFeedsOutput {
 }
 
 final class FeedGetSuggestedFeedsOutputConverter
-    extends
-        LexObjectConverter<FeedGetSuggestedFeedsOutput, Map<String, dynamic>> {
+    extends JsonConverter<FeedGetSuggestedFeedsOutput, Map<String, dynamic>> {
   const FeedGetSuggestedFeedsOutputConverter();
 
   @override

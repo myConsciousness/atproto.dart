@@ -40,7 +40,7 @@ abstract class LogAcceptConvo with _$LogAcceptConvo {
 }
 
 final class LogAcceptConvoConverter
-    extends LexObjectConverter<LogAcceptConvo, Map<String, dynamic>> {
+    extends JsonConverter<LogAcceptConvo, Map<String, dynamic>> {
   const LogAcceptConvoConverter();
 
   @override

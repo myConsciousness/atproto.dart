@@ -51,8 +51,7 @@ abstract class ModerationCreateReportOutput
 }
 
 final class ModerationCreateReportOutputConverter
-    extends
-        LexObjectConverter<ModerationCreateReportOutput, Map<String, dynamic>> {
+    extends JsonConverter<ModerationCreateReportOutput, Map<String, dynamic>> {
   const ModerationCreateReportOutputConverter();
 
   @override

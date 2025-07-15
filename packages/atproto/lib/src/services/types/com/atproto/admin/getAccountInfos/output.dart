@@ -36,8 +36,7 @@ abstract class AdminGetAccountInfosOutput with _$AdminGetAccountInfosOutput {
 }
 
 final class AdminGetAccountInfosOutputConverter
-    extends
-        LexObjectConverter<AdminGetAccountInfosOutput, Map<String, dynamic>> {
+    extends JsonConverter<AdminGetAccountInfosOutput, Map<String, dynamic>> {
   const AdminGetAccountInfosOutputConverter();
 
   @override

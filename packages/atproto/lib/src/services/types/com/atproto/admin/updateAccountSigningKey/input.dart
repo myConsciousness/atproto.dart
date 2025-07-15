@@ -39,10 +39,7 @@ abstract class AdminUpdateAccountSigningKeyInput
 
 final class AdminUpdateAccountSigningKeyInputConverter
     extends
-        LexObjectConverter<
-          AdminUpdateAccountSigningKeyInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<AdminUpdateAccountSigningKeyInput, Map<String, dynamic>> {
   const AdminUpdateAccountSigningKeyInputConverter();
 
   @override

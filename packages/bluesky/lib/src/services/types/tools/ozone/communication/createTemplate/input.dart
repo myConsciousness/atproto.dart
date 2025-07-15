@@ -55,10 +55,7 @@ abstract class CommunicationCreateTemplateInput
 
 final class CommunicationCreateTemplateInputConverter
     extends
-        LexObjectConverter<
-          CommunicationCreateTemplateInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<CommunicationCreateTemplateInput, Map<String, dynamic>> {
   const CommunicationCreateTemplateInputConverter();
 
   @override

@@ -43,7 +43,7 @@ abstract class BatchItem with _$BatchItem {
 }
 
 final class BatchItemConverter
-    extends LexObjectConverter<BatchItem, Map<String, dynamic>> {
+    extends JsonConverter<BatchItem, Map<String, dynamic>> {
   const BatchItemConverter();
 
   @override

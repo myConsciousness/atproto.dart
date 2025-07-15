@@ -33,7 +33,7 @@ abstract class ConvoGetLogInput with _$ConvoGetLogInput {
 }
 
 final class ConvoGetLogInputConverter
-    extends LexObjectConverter<ConvoGetLogInput, Map<String, dynamic>> {
+    extends JsonConverter<ConvoGetLogInput, Map<String, dynamic>> {
   const ConvoGetLogInputConverter();
 
   @override

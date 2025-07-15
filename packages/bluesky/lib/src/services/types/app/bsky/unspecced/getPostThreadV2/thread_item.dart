@@ -46,7 +46,7 @@ abstract class ThreadItem with _$ThreadItem {
 }
 
 final class ThreadItemConverter
-    extends LexObjectConverter<ThreadItem, Map<String, dynamic>> {
+    extends JsonConverter<ThreadItem, Map<String, dynamic>> {
   const ThreadItemConverter();
 
   @override

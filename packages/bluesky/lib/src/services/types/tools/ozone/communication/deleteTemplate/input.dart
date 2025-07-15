@@ -36,10 +36,7 @@ abstract class CommunicationDeleteTemplateInput
 
 final class CommunicationDeleteTemplateInputConverter
     extends
-        LexObjectConverter<
-          CommunicationDeleteTemplateInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<CommunicationDeleteTemplateInput, Map<String, dynamic>> {
   const CommunicationDeleteTemplateInputConverter();
 
   @override

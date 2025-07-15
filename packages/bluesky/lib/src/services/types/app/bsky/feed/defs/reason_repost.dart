@@ -52,7 +52,7 @@ extension ReasonRepostExtension on ReasonRepost {
 }
 
 final class ReasonRepostConverter
-    extends LexObjectConverter<ReasonRepost, Map<String, dynamic>> {
+    extends JsonConverter<ReasonRepost, Map<String, dynamic>> {
   const ReasonRepostConverter();
 
   @override

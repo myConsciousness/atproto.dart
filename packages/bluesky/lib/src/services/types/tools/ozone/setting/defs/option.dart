@@ -69,7 +69,7 @@ extension OptionExtension on Option {
 }
 
 final class OptionConverter
-    extends LexObjectConverter<Option, Map<String, dynamic>> {
+    extends JsonConverter<Option, Map<String, dynamic>> {
   const OptionConverter();
 
   @override

@@ -36,10 +36,7 @@ abstract class AdminUpdateAccountPasswordInput
 
 final class AdminUpdateAccountPasswordInputConverter
     extends
-        LexObjectConverter<
-          AdminUpdateAccountPasswordInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<AdminUpdateAccountPasswordInput, Map<String, dynamic>> {
   const AdminUpdateAccountPasswordInputConverter();
 
   @override

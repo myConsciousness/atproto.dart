@@ -40,7 +40,7 @@ abstract class VerificationListVerificationsOutput
 
 final class VerificationListVerificationsOutputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           VerificationListVerificationsOutput,
           Map<String, dynamic>
         > {

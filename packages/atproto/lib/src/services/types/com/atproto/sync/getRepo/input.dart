@@ -37,7 +37,7 @@ abstract class SyncGetRepoInput with _$SyncGetRepoInput {
 }
 
 final class SyncGetRepoInputConverter
-    extends LexObjectConverter<SyncGetRepoInput, Map<String, dynamic>> {
+    extends JsonConverter<SyncGetRepoInput, Map<String, dynamic>> {
   const SyncGetRepoInputConverter();
 
   @override

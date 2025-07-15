@@ -43,8 +43,7 @@ extension InfoExtension on Info {
   bool get hasNotMessage => !hasMessage;
 }
 
-final class InfoConverter
-    extends LexObjectConverter<Info, Map<String, dynamic>> {
+final class InfoConverter extends JsonConverter<Info, Map<String, dynamic>> {
   const InfoConverter();
 
   @override

@@ -45,7 +45,7 @@ extension EmbedRecordViewNotFoundExtension on EmbedRecordViewNotFound {
 }
 
 final class EmbedRecordViewNotFoundConverter
-    extends LexObjectConverter<EmbedRecordViewNotFound, Map<String, dynamic>> {
+    extends JsonConverter<EmbedRecordViewNotFound, Map<String, dynamic>> {
   const EmbedRecordViewNotFoundConverter();
 
   @override

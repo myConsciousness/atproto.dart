@@ -37,11 +37,7 @@ abstract class ServerCreateInviteCodesOutput
 }
 
 final class ServerCreateInviteCodesOutputConverter
-    extends
-        LexObjectConverter<
-          ServerCreateInviteCodesOutput,
-          Map<String, dynamic>
-        > {
+    extends JsonConverter<ServerCreateInviteCodesOutput, Map<String, dynamic>> {
   const ServerCreateInviteCodesOutputConverter();
 
   @override

@@ -35,8 +35,7 @@ abstract class GraphGetRelationshipsInput with _$GraphGetRelationshipsInput {
 }
 
 final class GraphGetRelationshipsInputConverter
-    extends
-        LexObjectConverter<GraphGetRelationshipsInput, Map<String, dynamic>> {
+    extends JsonConverter<GraphGetRelationshipsInput, Map<String, dynamic>> {
   const GraphGetRelationshipsInputConverter();
 
   @override

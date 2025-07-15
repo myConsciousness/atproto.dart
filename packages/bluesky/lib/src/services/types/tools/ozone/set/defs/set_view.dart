@@ -54,7 +54,7 @@ extension SetViewExtension on SetView {
 }
 
 final class SetViewConverter
-    extends LexObjectConverter<SetView, Map<String, dynamic>> {
+    extends JsonConverter<SetView, Map<String, dynamic>> {
   const SetViewConverter();
 
   @override

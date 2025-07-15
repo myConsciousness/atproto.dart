@@ -37,8 +37,7 @@ abstract class GraphSearchStarterPacksInput
 }
 
 final class GraphSearchStarterPacksInputConverter
-    extends
-        LexObjectConverter<GraphSearchStarterPacksInput, Map<String, dynamic>> {
+    extends JsonConverter<GraphSearchStarterPacksInput, Map<String, dynamic>> {
   const GraphSearchStarterPacksInputConverter();
 
   @override

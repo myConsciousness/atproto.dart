@@ -85,8 +85,7 @@ extension LabelExtension on Label {
   bool get hasNotSig => !hasSig;
 }
 
-final class LabelConverter
-    extends LexObjectConverter<Label, Map<String, dynamic>> {
+final class LabelConverter extends JsonConverter<Label, Map<String, dynamic>> {
   const LabelConverter();
 
   @override

@@ -48,7 +48,7 @@ extension ContentLabelPrefExtension on ContentLabelPref {
 }
 
 final class ContentLabelPrefConverter
-    extends LexObjectConverter<ContentLabelPref, Map<String, dynamic>> {
+    extends JsonConverter<ContentLabelPref, Map<String, dynamic>> {
   const ContentLabelPrefConverter();
 
   @override

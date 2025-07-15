@@ -37,7 +37,7 @@ abstract class ConvoListConvosOutput with _$ConvoListConvosOutput {
 }
 
 final class ConvoListConvosOutputConverter
-    extends LexObjectConverter<ConvoListConvosOutput, Map<String, dynamic>> {
+    extends JsonConverter<ConvoListConvosOutput, Map<String, dynamic>> {
   const ConvoListConvosOutputConverter();
 
   @override

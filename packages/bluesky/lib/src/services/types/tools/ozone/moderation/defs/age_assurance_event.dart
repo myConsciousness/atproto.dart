@@ -79,7 +79,7 @@ extension AgeAssuranceEventExtension on AgeAssuranceEvent {
 }
 
 final class AgeAssuranceEventConverter
-    extends LexObjectConverter<AgeAssuranceEvent, Map<String, dynamic>> {
+    extends JsonConverter<AgeAssuranceEvent, Map<String, dynamic>> {
   const AgeAssuranceEventConverter();
 
   @override

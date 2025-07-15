@@ -33,7 +33,7 @@ abstract class TeamDeleteMemberInput with _$TeamDeleteMemberInput {
 }
 
 final class TeamDeleteMemberInputConverter
-    extends LexObjectConverter<TeamDeleteMemberInput, Map<String, dynamic>> {
+    extends JsonConverter<TeamDeleteMemberInput, Map<String, dynamic>> {
   const TeamDeleteMemberInputConverter();
 
   @override

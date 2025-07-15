@@ -41,7 +41,7 @@ abstract class AccountCodes with _$AccountCodes {
 }
 
 final class AccountCodesConverter
-    extends LexObjectConverter<AccountCodes, Map<String, dynamic>> {
+    extends JsonConverter<AccountCodes, Map<String, dynamic>> {
   const AccountCodesConverter();
 
   @override

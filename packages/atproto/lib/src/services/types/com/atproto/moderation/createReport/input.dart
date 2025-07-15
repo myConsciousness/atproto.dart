@@ -50,8 +50,7 @@ abstract class ModerationCreateReportInput with _$ModerationCreateReportInput {
 }
 
 final class ModerationCreateReportInputConverter
-    extends
-        LexObjectConverter<ModerationCreateReportInput, Map<String, dynamic>> {
+    extends JsonConverter<ModerationCreateReportInput, Map<String, dynamic>> {
   const ModerationCreateReportInputConverter();
 
   @override

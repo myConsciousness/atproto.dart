@@ -39,7 +39,7 @@ abstract class LabelerPrefItem with _$LabelerPrefItem {
 }
 
 final class LabelerPrefItemConverter
-    extends LexObjectConverter<LabelerPrefItem, Map<String, dynamic>> {
+    extends JsonConverter<LabelerPrefItem, Map<String, dynamic>> {
   const LabelerPrefItemConverter();
 
   @override

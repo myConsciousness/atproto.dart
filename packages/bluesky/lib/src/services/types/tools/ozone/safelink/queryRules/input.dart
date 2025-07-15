@@ -60,7 +60,7 @@ abstract class SafelinkQueryRulesInput with _$SafelinkQueryRulesInput {
 }
 
 final class SafelinkQueryRulesInputConverter
-    extends LexObjectConverter<SafelinkQueryRulesInput, Map<String, dynamic>> {
+    extends JsonConverter<SafelinkQueryRulesInput, Map<String, dynamic>> {
   const SafelinkQueryRulesInputConverter();
 
   @override

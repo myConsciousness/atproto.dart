@@ -39,7 +39,7 @@ abstract class RecordViewNotFound with _$RecordViewNotFound {
 }
 
 final class RecordViewNotFoundConverter
-    extends LexObjectConverter<RecordViewNotFound, Map<String, dynamic>> {
+    extends JsonConverter<RecordViewNotFound, Map<String, dynamic>> {
   const RecordViewNotFoundConverter();
 
   @override

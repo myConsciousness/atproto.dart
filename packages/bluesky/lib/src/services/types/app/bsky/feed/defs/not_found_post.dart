@@ -45,7 +45,7 @@ extension NotFoundPostExtension on NotFoundPost {
 }
 
 final class NotFoundPostConverter
-    extends LexObjectConverter<NotFoundPost, Map<String, dynamic>> {
+    extends JsonConverter<NotFoundPost, Map<String, dynamic>> {
   const NotFoundPostConverter();
 
   @override

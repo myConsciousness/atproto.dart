@@ -34,7 +34,7 @@ abstract class TempFetchLabelsInput with _$TempFetchLabelsInput {
 }
 
 final class TempFetchLabelsInputConverter
-    extends LexObjectConverter<TempFetchLabelsInput, Map<String, dynamic>> {
+    extends JsonConverter<TempFetchLabelsInput, Map<String, dynamic>> {
   const TempFetchLabelsInputConverter();
 
   @override

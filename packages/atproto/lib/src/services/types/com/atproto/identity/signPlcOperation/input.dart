@@ -45,11 +45,7 @@ abstract class IdentitySignPlcOperationInput
 }
 
 final class IdentitySignPlcOperationInputConverter
-    extends
-        LexObjectConverter<
-          IdentitySignPlcOperationInput,
-          Map<String, dynamic>
-        > {
+    extends JsonConverter<IdentitySignPlcOperationInput, Map<String, dynamic>> {
   const IdentitySignPlcOperationInputConverter();
 
   @override

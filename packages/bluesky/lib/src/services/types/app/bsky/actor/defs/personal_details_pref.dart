@@ -46,7 +46,7 @@ extension PersonalDetailsPrefExtension on PersonalDetailsPref {
 }
 
 final class PersonalDetailsPrefConverter
-    extends LexObjectConverter<PersonalDetailsPref, Map<String, dynamic>> {
+    extends JsonConverter<PersonalDetailsPref, Map<String, dynamic>> {
   const PersonalDetailsPrefConverter();
 
   @override

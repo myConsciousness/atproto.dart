@@ -57,11 +57,7 @@ abstract class UnspeccedGetPostThreadV2Input
 }
 
 final class UnspeccedGetPostThreadV2InputConverter
-    extends
-        LexObjectConverter<
-          UnspeccedGetPostThreadV2Input,
-          Map<String, dynamic>
-        > {
+    extends JsonConverter<UnspeccedGetPostThreadV2Input, Map<String, dynamic>> {
   const UnspeccedGetPostThreadV2InputConverter();
 
   @override

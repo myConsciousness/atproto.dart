@@ -42,7 +42,7 @@ abstract class Labels with _$Labels {
 }
 
 final class LabelsConverter
-    extends LexObjectConverter<Labels, Map<String, dynamic>> {
+    extends JsonConverter<Labels, Map<String, dynamic>> {
   const LabelsConverter();
 
   @override

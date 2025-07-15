@@ -46,7 +46,7 @@ extension RepoBlobRefExtension on RepoBlobRef {
 }
 
 final class RepoBlobRefConverter
-    extends LexObjectConverter<RepoBlobRef, Map<String, dynamic>> {
+    extends JsonConverter<RepoBlobRef, Map<String, dynamic>> {
   const RepoBlobRefConverter();
 
   @override

@@ -53,7 +53,7 @@ extension AppPasswordExtension on AppPassword {
 }
 
 final class AppPasswordConverter
-    extends LexObjectConverter<AppPassword, Map<String, dynamic>> {
+    extends JsonConverter<AppPassword, Map<String, dynamic>> {
   const AppPasswordConverter();
 
   @override

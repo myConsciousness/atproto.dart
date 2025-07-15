@@ -35,7 +35,7 @@ abstract class AdminGetInviteCodesInput with _$AdminGetInviteCodesInput {
 }
 
 final class AdminGetInviteCodesInputConverter
-    extends LexObjectConverter<AdminGetInviteCodesInput, Map<String, dynamic>> {
+    extends JsonConverter<AdminGetInviteCodesInput, Map<String, dynamic>> {
   const AdminGetInviteCodesInputConverter();
 
   @override

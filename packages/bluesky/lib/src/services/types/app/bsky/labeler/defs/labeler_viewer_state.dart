@@ -44,7 +44,7 @@ extension LabelerViewerStateExtension on LabelerViewerState {
 }
 
 final class LabelerViewerStateConverter
-    extends LexObjectConverter<LabelerViewerState, Map<String, dynamic>> {
+    extends JsonConverter<LabelerViewerState, Map<String, dynamic>> {
   const LabelerViewerStateConverter();
 
   @override

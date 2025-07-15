@@ -57,7 +57,7 @@ abstract class RecordView with _$RecordView {
 }
 
 final class RecordViewConverter
-    extends LexObjectConverter<RecordView, Map<String, dynamic>> {
+    extends JsonConverter<RecordView, Map<String, dynamic>> {
   const RecordViewConverter();
 
   @override

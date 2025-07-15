@@ -47,7 +47,7 @@ abstract class RevokeError with _$RevokeError {
 }
 
 final class RevokeErrorConverter
-    extends LexObjectConverter<RevokeError, Map<String, dynamic>> {
+    extends JsonConverter<RevokeError, Map<String, dynamic>> {
   const RevokeErrorConverter();
 
   @override

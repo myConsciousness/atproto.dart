@@ -45,7 +45,7 @@ extension ChatPreferenceExtension on ChatPreference {
 }
 
 final class ChatPreferenceConverter
-    extends LexObjectConverter<ChatPreference, Map<String, dynamic>> {
+    extends JsonConverter<ChatPreference, Map<String, dynamic>> {
   const ChatPreferenceConverter();
 
   @override

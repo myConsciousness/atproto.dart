@@ -83,10 +83,7 @@ abstract class UnspeccedSearchPostsSkeletonInput
 
 final class UnspeccedSearchPostsSkeletonInputConverter
     extends
-        LexObjectConverter<
-          UnspeccedSearchPostsSkeletonInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<UnspeccedSearchPostsSkeletonInput, Map<String, dynamic>> {
   const UnspeccedSearchPostsSkeletonInputConverter();
 
   @override

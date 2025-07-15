@@ -61,7 +61,7 @@ extension InviteCodeExtension on InviteCode {
 }
 
 final class InviteCodeConverter
-    extends LexObjectConverter<InviteCode, Map<String, dynamic>> {
+    extends JsonConverter<InviteCode, Map<String, dynamic>> {
   const InviteCodeConverter();
 
   @override

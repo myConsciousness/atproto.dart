@@ -44,7 +44,7 @@ abstract class RepoPutRecordOutput with _$RepoPutRecordOutput {
 }
 
 final class RepoPutRecordOutputConverter
-    extends LexObjectConverter<RepoPutRecordOutput, Map<String, dynamic>> {
+    extends JsonConverter<RepoPutRecordOutput, Map<String, dynamic>> {
   const RepoPutRecordOutputConverter();
 
   @override

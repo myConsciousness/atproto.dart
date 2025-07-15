@@ -42,8 +42,7 @@ abstract class Event with _$Event {
   }
 }
 
-final class EventConverter
-    extends LexObjectConverter<Event, Map<String, dynamic>> {
+final class EventConverter extends JsonConverter<Event, Map<String, dynamic>> {
   const EventConverter();
 
   @override

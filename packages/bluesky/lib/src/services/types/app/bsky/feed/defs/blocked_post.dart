@@ -49,7 +49,7 @@ extension BlockedPostExtension on BlockedPost {
 }
 
 final class BlockedPostConverter
-    extends LexObjectConverter<BlockedPost, Map<String, dynamic>> {
+    extends JsonConverter<BlockedPost, Map<String, dynamic>> {
   const BlockedPostConverter();
 
   @override

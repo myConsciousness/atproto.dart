@@ -37,7 +37,7 @@ abstract class FeedGetFeedOutput with _$FeedGetFeedOutput {
 }
 
 final class FeedGetFeedOutputConverter
-    extends LexObjectConverter<FeedGetFeedOutput, Map<String, dynamic>> {
+    extends JsonConverter<FeedGetFeedOutput, Map<String, dynamic>> {
   const FeedGetFeedOutputConverter();
 
   @override

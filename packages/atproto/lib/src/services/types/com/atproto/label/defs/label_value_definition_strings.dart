@@ -49,8 +49,7 @@ abstract class LabelValueDefinitionStrings with _$LabelValueDefinitionStrings {
 }
 
 final class LabelValueDefinitionStringsConverter
-    extends
-        LexObjectConverter<LabelValueDefinitionStrings, Map<String, dynamic>> {
+    extends JsonConverter<LabelValueDefinitionStrings, Map<String, dynamic>> {
   const LabelValueDefinitionStringsConverter();
 
   @override

@@ -44,7 +44,7 @@ extension AdultContentPrefExtension on AdultContentPref {
 }
 
 final class AdultContentPrefConverter
-    extends LexObjectConverter<AdultContentPref, Map<String, dynamic>> {
+    extends JsonConverter<AdultContentPref, Map<String, dynamic>> {
   const AdultContentPrefConverter();
 
   @override

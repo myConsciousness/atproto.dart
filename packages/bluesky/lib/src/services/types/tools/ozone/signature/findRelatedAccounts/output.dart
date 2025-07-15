@@ -40,7 +40,7 @@ abstract class SignatureFindRelatedAccountsOutput
 
 final class SignatureFindRelatedAccountsOutputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           SignatureFindRelatedAccountsOutput,
           Map<String, dynamic>
         > {

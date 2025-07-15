@@ -40,7 +40,7 @@ abstract class ListRule with _$ListRule {
 }
 
 final class ListRuleConverter
-    extends LexObjectConverter<ListRule, Map<String, dynamic>> {
+    extends JsonConverter<ListRule, Map<String, dynamic>> {
   const ListRuleConverter();
 
   @override

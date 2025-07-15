@@ -38,7 +38,7 @@ abstract class SkeletonReasonPin with _$SkeletonReasonPin {
 }
 
 final class SkeletonReasonPinConverter
-    extends LexObjectConverter<SkeletonReasonPin, Map<String, dynamic>> {
+    extends JsonConverter<SkeletonReasonPin, Map<String, dynamic>> {
   const SkeletonReasonPinConverter();
 
   @override

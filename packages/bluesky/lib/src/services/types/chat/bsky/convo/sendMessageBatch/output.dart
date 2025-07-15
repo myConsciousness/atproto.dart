@@ -36,8 +36,7 @@ abstract class ConvoSendMessageBatchOutput with _$ConvoSendMessageBatchOutput {
 }
 
 final class ConvoSendMessageBatchOutputConverter
-    extends
-        LexObjectConverter<ConvoSendMessageBatchOutput, Map<String, dynamic>> {
+    extends JsonConverter<ConvoSendMessageBatchOutput, Map<String, dynamic>> {
   const ConvoSendMessageBatchOutputConverter();
 
   @override

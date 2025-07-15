@@ -55,7 +55,7 @@ abstract class SafelinkAddRuleInput with _$SafelinkAddRuleInput {
 }
 
 final class SafelinkAddRuleInputConverter
-    extends LexObjectConverter<SafelinkAddRuleInput, Map<String, dynamic>> {
+    extends JsonConverter<SafelinkAddRuleInput, Map<String, dynamic>> {
   const SafelinkAddRuleInputConverter();
 
   @override

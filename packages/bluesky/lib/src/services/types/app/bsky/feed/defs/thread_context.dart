@@ -45,7 +45,7 @@ extension ThreadContextExtension on ThreadContext {
 }
 
 final class ThreadContextConverter
-    extends LexObjectConverter<ThreadContext, Map<String, dynamic>> {
+    extends JsonConverter<ThreadContext, Map<String, dynamic>> {
   const ThreadContextConverter();
 
   @override

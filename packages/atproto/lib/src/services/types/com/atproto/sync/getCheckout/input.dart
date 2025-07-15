@@ -34,7 +34,7 @@ abstract class SyncGetCheckoutInput with _$SyncGetCheckoutInput {
 }
 
 final class SyncGetCheckoutInputConverter
-    extends LexObjectConverter<SyncGetCheckoutInput, Map<String, dynamic>> {
+    extends JsonConverter<SyncGetCheckoutInput, Map<String, dynamic>> {
   const SyncGetCheckoutInputConverter();
 
   @override

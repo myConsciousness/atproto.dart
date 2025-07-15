@@ -45,7 +45,7 @@ extension ModEventDivertExtension on ModEventDivert {
 }
 
 final class ModEventDivertConverter
-    extends LexObjectConverter<ModEventDivert, Map<String, dynamic>> {
+    extends JsonConverter<ModEventDivert, Map<String, dynamic>> {
   const ModEventDivertConverter();
 
   @override

@@ -34,8 +34,7 @@ abstract class LabelSubscribeLabelsInput with _$LabelSubscribeLabelsInput {
 }
 
 final class LabelSubscribeLabelsInputConverter
-    extends
-        LexObjectConverter<LabelSubscribeLabelsInput, Map<String, dynamic>> {
+    extends JsonConverter<LabelSubscribeLabelsInput, Map<String, dynamic>> {
   const LabelSubscribeLabelsInputConverter();
 
   @override

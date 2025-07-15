@@ -75,8 +75,7 @@ extension EventExtension on Event {
   bool get hasNotComment => !hasComment;
 }
 
-final class EventConverter
-    extends LexObjectConverter<Event, Map<String, dynamic>> {
+final class EventConverter extends JsonConverter<Event, Map<String, dynamic>> {
   const EventConverter();
 
   @override

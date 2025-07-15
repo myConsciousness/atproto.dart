@@ -42,8 +42,7 @@ abstract class Like with _$Like {
   }
 }
 
-final class LikeConverter
-    extends LexObjectConverter<Like, Map<String, dynamic>> {
+final class LikeConverter extends JsonConverter<Like, Map<String, dynamic>> {
   const LikeConverter();
 
   @override

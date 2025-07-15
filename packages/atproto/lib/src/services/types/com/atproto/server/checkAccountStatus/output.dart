@@ -53,10 +53,7 @@ abstract class ServerCheckAccountStatusOutput
 
 final class ServerCheckAccountStatusOutputConverter
     extends
-        LexObjectConverter<
-          ServerCheckAccountStatusOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<ServerCheckAccountStatusOutput, Map<String, dynamic>> {
   const ServerCheckAccountStatusOutputConverter();
 
   @override

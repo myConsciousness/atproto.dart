@@ -37,7 +37,7 @@ abstract class ConvoSendMessageInput with _$ConvoSendMessageInput {
 }
 
 final class ConvoSendMessageInputConverter
-    extends LexObjectConverter<ConvoSendMessageInput, Map<String, dynamic>> {
+    extends JsonConverter<ConvoSendMessageInput, Map<String, dynamic>> {
   const ConvoSendMessageInputConverter();
 
   @override

@@ -35,10 +35,7 @@ abstract class ServerRequestEmailUpdateOutput
 
 final class ServerRequestEmailUpdateOutputConverter
     extends
-        LexObjectConverter<
-          ServerRequestEmailUpdateOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<ServerRequestEmailUpdateOutput, Map<String, dynamic>> {
   const ServerRequestEmailUpdateOutputConverter();
 
   @override

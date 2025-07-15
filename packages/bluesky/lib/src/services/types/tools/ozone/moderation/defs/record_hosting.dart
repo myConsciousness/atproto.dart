@@ -56,7 +56,7 @@ extension RecordHostingExtension on RecordHosting {
 }
 
 final class RecordHostingConverter
-    extends LexObjectConverter<RecordHosting, Map<String, dynamic>> {
+    extends JsonConverter<RecordHosting, Map<String, dynamic>> {
   const RecordHostingConverter();
 
   @override

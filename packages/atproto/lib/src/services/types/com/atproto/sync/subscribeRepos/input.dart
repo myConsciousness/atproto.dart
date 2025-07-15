@@ -34,7 +34,7 @@ abstract class SyncSubscribeReposInput with _$SyncSubscribeReposInput {
 }
 
 final class SyncSubscribeReposInputConverter
-    extends LexObjectConverter<SyncSubscribeReposInput, Map<String, dynamic>> {
+    extends JsonConverter<SyncSubscribeReposInput, Map<String, dynamic>> {
   const SyncSubscribeReposInputConverter();
 
   @override

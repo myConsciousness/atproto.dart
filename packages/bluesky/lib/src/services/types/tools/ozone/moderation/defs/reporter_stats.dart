@@ -73,7 +73,7 @@ abstract class ReporterStats with _$ReporterStats {
 }
 
 final class ReporterStatsConverter
-    extends LexObjectConverter<ReporterStats, Map<String, dynamic>> {
+    extends JsonConverter<ReporterStats, Map<String, dynamic>> {
   const ReporterStatsConverter();
 
   @override

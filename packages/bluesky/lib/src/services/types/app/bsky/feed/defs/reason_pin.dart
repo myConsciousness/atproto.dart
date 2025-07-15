@@ -38,7 +38,7 @@ abstract class ReasonPin with _$ReasonPin {
 }
 
 final class ReasonPinConverter
-    extends LexObjectConverter<ReasonPin, Map<String, dynamic>> {
+    extends JsonConverter<ReasonPin, Map<String, dynamic>> {
   const ReasonPinConverter();
 
   @override

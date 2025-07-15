@@ -40,7 +40,7 @@ abstract class GraphFollowRecord with _$GraphFollowRecord {
 }
 
 final class GraphFollowRecordConverter
-    extends LexObjectConverter<GraphFollowRecord, Map<String, dynamic>> {
+    extends JsonConverter<GraphFollowRecord, Map<String, dynamic>> {
   const GraphFollowRecordConverter();
 
   @override

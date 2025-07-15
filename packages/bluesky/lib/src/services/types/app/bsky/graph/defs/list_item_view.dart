@@ -43,7 +43,7 @@ abstract class ListItemView with _$ListItemView {
 }
 
 final class ListItemViewConverter
-    extends LexObjectConverter<ListItemView, Map<String, dynamic>> {
+    extends JsonConverter<ListItemView, Map<String, dynamic>> {
   const ListItemViewConverter();
 
   @override

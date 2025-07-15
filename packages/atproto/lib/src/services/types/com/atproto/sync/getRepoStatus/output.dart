@@ -40,7 +40,7 @@ abstract class SyncGetRepoStatusOutput with _$SyncGetRepoStatusOutput {
 }
 
 final class SyncGetRepoStatusOutputConverter
-    extends LexObjectConverter<SyncGetRepoStatusOutput, Map<String, dynamic>> {
+    extends JsonConverter<SyncGetRepoStatusOutput, Map<String, dynamic>> {
   const SyncGetRepoStatusOutputConverter();
 
   @override

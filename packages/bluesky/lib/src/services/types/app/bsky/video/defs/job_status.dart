@@ -68,7 +68,7 @@ extension JobStatusExtension on JobStatus {
 }
 
 final class JobStatusConverter
-    extends LexObjectConverter<JobStatus, Map<String, dynamic>> {
+    extends JsonConverter<JobStatus, Map<String, dynamic>> {
   const JobStatusConverter();
 
   @override

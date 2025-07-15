@@ -43,7 +43,7 @@ abstract class EmbedImages with _$EmbedImages {
 }
 
 final class EmbedImagesConverter
-    extends LexObjectConverter<EmbedImages, Map<String, dynamic>> {
+    extends JsonConverter<EmbedImages, Map<String, dynamic>> {
   const EmbedImagesConverter();
 
   @override

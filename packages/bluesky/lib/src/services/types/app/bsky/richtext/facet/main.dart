@@ -47,7 +47,7 @@ abstract class RichtextFacet with _$RichtextFacet {
 }
 
 final class RichtextFacetConverter
-    extends LexObjectConverter<RichtextFacet, Map<String, dynamic>> {
+    extends JsonConverter<RichtextFacet, Map<String, dynamic>> {
   const RichtextFacetConverter();
 
   @override

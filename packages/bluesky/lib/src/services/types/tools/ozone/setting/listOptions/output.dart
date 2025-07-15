@@ -37,7 +37,7 @@ abstract class SettingListOptionsOutput with _$SettingListOptionsOutput {
 }
 
 final class SettingListOptionsOutputConverter
-    extends LexObjectConverter<SettingListOptionsOutput, Map<String, dynamic>> {
+    extends JsonConverter<SettingListOptionsOutput, Map<String, dynamic>> {
   const SettingListOptionsOutputConverter();
 
   @override

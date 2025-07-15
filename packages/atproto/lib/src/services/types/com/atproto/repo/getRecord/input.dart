@@ -43,7 +43,7 @@ abstract class RepoGetRecordInput with _$RepoGetRecordInput {
 }
 
 final class RepoGetRecordInputConverter
-    extends LexObjectConverter<RepoGetRecordInput, Map<String, dynamic>> {
+    extends JsonConverter<RepoGetRecordInput, Map<String, dynamic>> {
   const RepoGetRecordInputConverter();
 
   @override

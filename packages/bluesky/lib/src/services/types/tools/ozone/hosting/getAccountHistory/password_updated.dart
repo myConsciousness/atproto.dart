@@ -40,7 +40,7 @@ abstract class PasswordUpdated with _$PasswordUpdated {
 }
 
 final class PasswordUpdatedConverter
-    extends LexObjectConverter<PasswordUpdated, Map<String, dynamic>> {
+    extends JsonConverter<PasswordUpdated, Map<String, dynamic>> {
   const PasswordUpdatedConverter();
 
   @override

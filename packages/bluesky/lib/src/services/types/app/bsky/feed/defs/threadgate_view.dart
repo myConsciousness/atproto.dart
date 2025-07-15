@@ -54,7 +54,7 @@ extension ThreadgateViewExtension on ThreadgateView {
 }
 
 final class ThreadgateViewConverter
-    extends LexObjectConverter<ThreadgateView, Map<String, dynamic>> {
+    extends JsonConverter<ThreadgateView, Map<String, dynamic>> {
   const ThreadgateViewConverter();
 
   @override

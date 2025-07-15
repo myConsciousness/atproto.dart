@@ -33,7 +33,7 @@ abstract class GraphMuteActorListInput with _$GraphMuteActorListInput {
 }
 
 final class GraphMuteActorListInputConverter
-    extends LexObjectConverter<GraphMuteActorListInput, Map<String, dynamic>> {
+    extends JsonConverter<GraphMuteActorListInput, Map<String, dynamic>> {
   const GraphMuteActorListInputConverter();
 
   @override

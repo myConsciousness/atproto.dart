@@ -88,7 +88,7 @@ extension GeneratorViewExtension on GeneratorView {
 }
 
 final class GeneratorViewConverter
-    extends LexObjectConverter<GeneratorView, Map<String, dynamic>> {
+    extends JsonConverter<GeneratorView, Map<String, dynamic>> {
   const GeneratorViewConverter();
 
   @override

@@ -40,7 +40,7 @@ abstract class UnspeccedGetPopularFeedGeneratorsOutput
 
 final class UnspeccedGetPopularFeedGeneratorsOutputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           UnspeccedGetPopularFeedGeneratorsOutput,
           Map<String, dynamic>
         > {

@@ -60,7 +60,7 @@ extension ThreadViewPostExtension on ThreadViewPost {
 }
 
 final class ThreadViewPostConverter
-    extends LexObjectConverter<ThreadViewPost, Map<String, dynamic>> {
+    extends JsonConverter<ThreadViewPost, Map<String, dynamic>> {
   const ThreadViewPostConverter();
 
   @override

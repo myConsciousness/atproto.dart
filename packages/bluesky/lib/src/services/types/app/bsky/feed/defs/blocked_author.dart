@@ -48,7 +48,7 @@ extension BlockedAuthorExtension on BlockedAuthor {
 }
 
 final class BlockedAuthorConverter
-    extends LexObjectConverter<BlockedAuthor, Map<String, dynamic>> {
+    extends JsonConverter<BlockedAuthor, Map<String, dynamic>> {
   const BlockedAuthorConverter();
 
   @override

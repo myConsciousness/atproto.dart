@@ -39,11 +39,7 @@ abstract class GraphSearchStarterPacksOutput
 }
 
 final class GraphSearchStarterPacksOutputConverter
-    extends
-        LexObjectConverter<
-          GraphSearchStarterPacksOutput,
-          Map<String, dynamic>
-        > {
+    extends JsonConverter<GraphSearchStarterPacksOutput, Map<String, dynamic>> {
   const GraphSearchStarterPacksOutputConverter();
 
   @override

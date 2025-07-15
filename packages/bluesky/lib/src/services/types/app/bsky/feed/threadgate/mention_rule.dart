@@ -39,7 +39,7 @@ abstract class MentionRule with _$MentionRule {
 }
 
 final class MentionRuleConverter
-    extends LexObjectConverter<MentionRule, Map<String, dynamic>> {
+    extends JsonConverter<MentionRule, Map<String, dynamic>> {
   const MentionRuleConverter();
 
   @override

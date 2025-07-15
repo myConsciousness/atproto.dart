@@ -35,8 +35,7 @@ abstract class ModerationSearchReposInput with _$ModerationSearchReposInput {
 }
 
 final class ModerationSearchReposInputConverter
-    extends
-        LexObjectConverter<ModerationSearchReposInput, Map<String, dynamic>> {
+    extends JsonConverter<ModerationSearchReposInput, Map<String, dynamic>> {
   const ModerationSearchReposInputConverter();
 
   @override

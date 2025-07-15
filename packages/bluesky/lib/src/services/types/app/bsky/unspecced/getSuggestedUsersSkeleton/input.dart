@@ -41,7 +41,7 @@ abstract class UnspeccedGetSuggestedUsersSkeletonInput
 
 final class UnspeccedGetSuggestedUsersSkeletonInputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           UnspeccedGetSuggestedUsersSkeletonInput,
           Map<String, dynamic>
         > {

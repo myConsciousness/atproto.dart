@@ -39,7 +39,7 @@ abstract class ReactionViewSender with _$ReactionViewSender {
 }
 
 final class ReactionViewSenderConverter
-    extends LexObjectConverter<ReactionViewSender, Map<String, dynamic>> {
+    extends JsonConverter<ReactionViewSender, Map<String, dynamic>> {
   const ReactionViewSenderConverter();
 
   @override

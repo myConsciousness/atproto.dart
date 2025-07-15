@@ -35,7 +35,7 @@ abstract class SetAddValuesInput with _$SetAddValuesInput {
 }
 
 final class SetAddValuesInputConverter
-    extends LexObjectConverter<SetAddValuesInput, Map<String, dynamic>> {
+    extends JsonConverter<SetAddValuesInput, Map<String, dynamic>> {
   const SetAddValuesInputConverter();
 
   @override

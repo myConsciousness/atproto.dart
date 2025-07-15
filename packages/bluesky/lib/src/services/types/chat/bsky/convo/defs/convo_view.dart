@@ -71,7 +71,7 @@ extension ConvoViewExtension on ConvoView {
 }
 
 final class ConvoViewConverter
-    extends LexObjectConverter<ConvoView, Map<String, dynamic>> {
+    extends JsonConverter<ConvoView, Map<String, dynamic>> {
   const ConvoViewConverter();
 
   @override

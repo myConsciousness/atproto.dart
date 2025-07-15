@@ -42,7 +42,7 @@ abstract class ThreadItemBlocked with _$ThreadItemBlocked {
 }
 
 final class ThreadItemBlockedConverter
-    extends LexObjectConverter<ThreadItemBlocked, Map<String, dynamic>> {
+    extends JsonConverter<ThreadItemBlocked, Map<String, dynamic>> {
   const ThreadItemBlockedConverter();
 
   @override

@@ -50,7 +50,7 @@ abstract class RepoApplyWritesInput with _$RepoApplyWritesInput {
 }
 
 final class RepoApplyWritesInputConverter
-    extends LexObjectConverter<RepoApplyWritesInput, Map<String, dynamic>> {
+    extends JsonConverter<RepoApplyWritesInput, Map<String, dynamic>> {
   const RepoApplyWritesInputConverter();
 
   @override

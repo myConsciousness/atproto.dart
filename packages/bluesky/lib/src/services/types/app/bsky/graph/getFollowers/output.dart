@@ -38,7 +38,7 @@ abstract class GraphGetFollowersOutput with _$GraphGetFollowersOutput {
 }
 
 final class GraphGetFollowersOutputConverter
-    extends LexObjectConverter<GraphGetFollowersOutput, Map<String, dynamic>> {
+    extends JsonConverter<GraphGetFollowersOutput, Map<String, dynamic>> {
   const GraphGetFollowersOutputConverter();
 
   @override

@@ -34,7 +34,7 @@ abstract class SyncListBlobsOutput with _$SyncListBlobsOutput {
 }
 
 final class SyncListBlobsOutputConverter
-    extends LexObjectConverter<SyncListBlobsOutput, Map<String, dynamic>> {
+    extends JsonConverter<SyncListBlobsOutput, Map<String, dynamic>> {
   const SyncListBlobsOutputConverter();
 
   @override

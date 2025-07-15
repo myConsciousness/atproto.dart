@@ -34,8 +34,7 @@ abstract class SyncGetLatestCommitOutput with _$SyncGetLatestCommitOutput {
 }
 
 final class SyncGetLatestCommitOutputConverter
-    extends
-        LexObjectConverter<SyncGetLatestCommitOutput, Map<String, dynamic>> {
+    extends JsonConverter<SyncGetLatestCommitOutput, Map<String, dynamic>> {
   const SyncGetLatestCommitOutputConverter();
 
   @override

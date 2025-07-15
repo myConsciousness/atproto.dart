@@ -38,8 +38,7 @@ abstract class SafelinkQueryEventsOutput with _$SafelinkQueryEventsOutput {
 }
 
 final class SafelinkQueryEventsOutputConverter
-    extends
-        LexObjectConverter<SafelinkQueryEventsOutput, Map<String, dynamic>> {
+    extends JsonConverter<SafelinkQueryEventsOutput, Map<String, dynamic>> {
   const SafelinkQueryEventsOutputConverter();
 
   @override

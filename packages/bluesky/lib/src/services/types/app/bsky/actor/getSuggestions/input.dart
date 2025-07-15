@@ -34,7 +34,7 @@ abstract class ActorGetSuggestionsInput with _$ActorGetSuggestionsInput {
 }
 
 final class ActorGetSuggestionsInputConverter
-    extends LexObjectConverter<ActorGetSuggestionsInput, Map<String, dynamic>> {
+    extends JsonConverter<ActorGetSuggestionsInput, Map<String, dynamic>> {
   const ActorGetSuggestionsInputConverter();
 
   @override

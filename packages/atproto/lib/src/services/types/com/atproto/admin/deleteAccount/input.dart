@@ -33,7 +33,7 @@ abstract class AdminDeleteAccountInput with _$AdminDeleteAccountInput {
 }
 
 final class AdminDeleteAccountInputConverter
-    extends LexObjectConverter<AdminDeleteAccountInput, Map<String, dynamic>> {
+    extends JsonConverter<AdminDeleteAccountInput, Map<String, dynamic>> {
   const AdminDeleteAccountInputConverter();
 
   @override

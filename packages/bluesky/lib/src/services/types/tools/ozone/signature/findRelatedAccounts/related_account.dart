@@ -46,7 +46,7 @@ abstract class RelatedAccount with _$RelatedAccount {
 }
 
 final class RelatedAccountConverter
-    extends LexObjectConverter<RelatedAccount, Map<String, dynamic>> {
+    extends JsonConverter<RelatedAccount, Map<String, dynamic>> {
   const RelatedAccountConverter();
 
   @override

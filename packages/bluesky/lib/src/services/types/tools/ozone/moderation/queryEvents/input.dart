@@ -93,8 +93,7 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
 }
 
 final class ModerationQueryEventsInputConverter
-    extends
-        LexObjectConverter<ModerationQueryEventsInput, Map<String, dynamic>> {
+    extends JsonConverter<ModerationQueryEventsInput, Map<String, dynamic>> {
   const ModerationQueryEventsInputConverter();
 
   @override

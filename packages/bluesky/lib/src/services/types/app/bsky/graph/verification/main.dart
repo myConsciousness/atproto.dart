@@ -55,7 +55,7 @@ abstract class GraphVerificationRecord with _$GraphVerificationRecord {
 }
 
 final class GraphVerificationRecordConverter
-    extends LexObjectConverter<GraphVerificationRecord, Map<String, dynamic>> {
+    extends JsonConverter<GraphVerificationRecord, Map<String, dynamic>> {
   const GraphVerificationRecordConverter();
 
   @override

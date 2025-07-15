@@ -44,7 +44,7 @@ abstract class IdentityGetRecommendedDidCredentialsOutput
 
 final class IdentityGetRecommendedDidCredentialsOutputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           IdentityGetRecommendedDidCredentialsOutput,
           Map<String, dynamic>
         > {

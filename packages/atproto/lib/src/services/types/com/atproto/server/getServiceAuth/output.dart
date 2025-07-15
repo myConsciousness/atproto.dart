@@ -33,8 +33,7 @@ abstract class ServerGetServiceAuthOutput with _$ServerGetServiceAuthOutput {
 }
 
 final class ServerGetServiceAuthOutputConverter
-    extends
-        LexObjectConverter<ServerGetServiceAuthOutput, Map<String, dynamic>> {
+    extends JsonConverter<ServerGetServiceAuthOutput, Map<String, dynamic>> {
   const ServerGetServiceAuthOutputConverter();
 
   @override

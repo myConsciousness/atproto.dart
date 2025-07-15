@@ -49,7 +49,7 @@ extension ModEventTagExtension on ModEventTag {
 }
 
 final class ModEventTagConverter
-    extends LexObjectConverter<ModEventTag, Map<String, dynamic>> {
+    extends JsonConverter<ModEventTag, Map<String, dynamic>> {
   const ModEventTagConverter();
 
   @override

@@ -42,7 +42,7 @@ abstract class FeedLikeRecord with _$FeedLikeRecord {
 }
 
 final class FeedLikeRecordConverter
-    extends LexObjectConverter<FeedLikeRecord, Map<String, dynamic>> {
+    extends JsonConverter<FeedLikeRecord, Map<String, dynamic>> {
   const FeedLikeRecordConverter();
 
   @override

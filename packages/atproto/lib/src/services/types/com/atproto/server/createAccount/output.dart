@@ -45,8 +45,7 @@ abstract class ServerCreateAccountOutput with _$ServerCreateAccountOutput {
 }
 
 final class ServerCreateAccountOutputConverter
-    extends
-        LexObjectConverter<ServerCreateAccountOutput, Map<String, dynamic>> {
+    extends JsonConverter<ServerCreateAccountOutput, Map<String, dynamic>> {
   const ServerCreateAccountOutputConverter();
 
   @override

@@ -56,8 +56,7 @@ abstract class ServerDescribeServerOutput with _$ServerDescribeServerOutput {
 }
 
 final class ServerDescribeServerOutputConverter
-    extends
-        LexObjectConverter<ServerDescribeServerOutput, Map<String, dynamic>> {
+    extends JsonConverter<ServerDescribeServerOutput, Map<String, dynamic>> {
   const ServerDescribeServerOutputConverter();
 
   @override

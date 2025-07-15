@@ -62,7 +62,7 @@ extension BlobViewExtension on BlobView {
 }
 
 final class BlobViewConverter
-    extends LexObjectConverter<BlobView, Map<String, dynamic>> {
+    extends JsonConverter<BlobView, Map<String, dynamic>> {
   const BlobViewConverter();
 
   @override

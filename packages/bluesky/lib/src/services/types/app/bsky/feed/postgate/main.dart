@@ -53,7 +53,7 @@ abstract class FeedPostgateRecord with _$FeedPostgateRecord {
 }
 
 final class FeedPostgateRecordConverter
-    extends LexObjectConverter<FeedPostgateRecord, Map<String, dynamic>> {
+    extends JsonConverter<FeedPostgateRecord, Map<String, dynamic>> {
   const FeedPostgateRecordConverter();
 
   @override

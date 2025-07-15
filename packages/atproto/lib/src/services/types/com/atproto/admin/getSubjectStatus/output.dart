@@ -40,8 +40,7 @@ abstract class AdminGetSubjectStatusOutput with _$AdminGetSubjectStatusOutput {
 }
 
 final class AdminGetSubjectStatusOutputConverter
-    extends
-        LexObjectConverter<AdminGetSubjectStatusOutput, Map<String, dynamic>> {
+    extends JsonConverter<AdminGetSubjectStatusOutput, Map<String, dynamic>> {
   const AdminGetSubjectStatusOutputConverter();
 
   @override

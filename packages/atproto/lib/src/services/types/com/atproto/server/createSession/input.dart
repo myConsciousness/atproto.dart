@@ -44,7 +44,7 @@ abstract class ServerCreateSessionInput with _$ServerCreateSessionInput {
 }
 
 final class ServerCreateSessionInputConverter
-    extends LexObjectConverter<ServerCreateSessionInput, Map<String, dynamic>> {
+    extends JsonConverter<ServerCreateSessionInput, Map<String, dynamic>> {
   const ServerCreateSessionInputConverter();
 
   @override

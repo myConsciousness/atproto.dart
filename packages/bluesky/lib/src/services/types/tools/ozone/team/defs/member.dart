@@ -68,7 +68,7 @@ extension MemberExtension on Member {
 }
 
 final class MemberConverter
-    extends LexObjectConverter<Member, Map<String, dynamic>> {
+    extends JsonConverter<Member, Map<String, dynamic>> {
   const MemberConverter();
 
   @override

@@ -65,7 +65,7 @@ abstract class ActorProfileRecord with _$ActorProfileRecord {
 }
 
 final class ActorProfileRecordConverter
-    extends LexObjectConverter<ActorProfileRecord, Map<String, dynamic>> {
+    extends JsonConverter<ActorProfileRecord, Map<String, dynamic>> {
   const ActorProfileRecordConverter();
 
   @override

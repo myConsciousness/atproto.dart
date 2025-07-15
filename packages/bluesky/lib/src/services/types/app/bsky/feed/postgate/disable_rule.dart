@@ -39,7 +39,7 @@ abstract class DisableRule with _$DisableRule {
 }
 
 final class DisableRuleConverter
-    extends LexObjectConverter<DisableRule, Map<String, dynamic>> {
+    extends JsonConverter<DisableRule, Map<String, dynamic>> {
   const DisableRuleConverter();
 
   @override

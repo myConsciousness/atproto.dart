@@ -76,7 +76,7 @@ extension UrlRuleExtension on UrlRule {
 }
 
 final class UrlRuleConverter
-    extends LexObjectConverter<UrlRule, Map<String, dynamic>> {
+    extends JsonConverter<UrlRule, Map<String, dynamic>> {
   const UrlRuleConverter();
 
   @override

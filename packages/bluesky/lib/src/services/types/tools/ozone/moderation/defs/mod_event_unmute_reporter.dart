@@ -48,7 +48,7 @@ extension ModEventUnmuteReporterExtension on ModEventUnmuteReporter {
 }
 
 final class ModEventUnmuteReporterConverter
-    extends LexObjectConverter<ModEventUnmuteReporter, Map<String, dynamic>> {
+    extends JsonConverter<ModEventUnmuteReporter, Map<String, dynamic>> {
   const ModEventUnmuteReporterConverter();
 
   @override

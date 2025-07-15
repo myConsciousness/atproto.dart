@@ -44,7 +44,7 @@ abstract class MessageAndReactionView with _$MessageAndReactionView {
 }
 
 final class MessageAndReactionViewConverter
-    extends LexObjectConverter<MessageAndReactionView, Map<String, dynamic>> {
+    extends JsonConverter<MessageAndReactionView, Map<String, dynamic>> {
   const MessageAndReactionViewConverter();
 
   @override

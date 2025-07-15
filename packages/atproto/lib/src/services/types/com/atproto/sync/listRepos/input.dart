@@ -34,7 +34,7 @@ abstract class SyncListReposInput with _$SyncListReposInput {
 }
 
 final class SyncListReposInputConverter
-    extends LexObjectConverter<SyncListReposInput, Map<String, dynamic>> {
+    extends JsonConverter<SyncListReposInput, Map<String, dynamic>> {
   const SyncListReposInputConverter();
 
   @override

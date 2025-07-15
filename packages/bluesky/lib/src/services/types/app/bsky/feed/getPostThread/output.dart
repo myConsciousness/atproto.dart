@@ -39,7 +39,7 @@ abstract class FeedGetPostThreadOutput with _$FeedGetPostThreadOutput {
 }
 
 final class FeedGetPostThreadOutputConverter
-    extends LexObjectConverter<FeedGetPostThreadOutput, Map<String, dynamic>> {
+    extends JsonConverter<FeedGetPostThreadOutput, Map<String, dynamic>> {
   const FeedGetPostThreadOutputConverter();
 
   @override

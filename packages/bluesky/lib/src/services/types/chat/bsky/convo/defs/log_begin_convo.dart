@@ -40,7 +40,7 @@ abstract class LogBeginConvo with _$LogBeginConvo {
 }
 
 final class LogBeginConvoConverter
-    extends LexObjectConverter<LogBeginConvo, Map<String, dynamic>> {
+    extends JsonConverter<LogBeginConvo, Map<String, dynamic>> {
   const LogBeginConvoConverter();
 
   @override

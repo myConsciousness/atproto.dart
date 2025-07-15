@@ -157,8 +157,7 @@ abstract class ModerationQueryStatusesInput
 }
 
 final class ModerationQueryStatusesInputConverter
-    extends
-        LexObjectConverter<ModerationQueryStatusesInput, Map<String, dynamic>> {
+    extends JsonConverter<ModerationQueryStatusesInput, Map<String, dynamic>> {
   const ModerationQueryStatusesInputConverter();
 
   @override

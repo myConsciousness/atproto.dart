@@ -49,7 +49,7 @@ extension ModEventReverseTakedownExtension on ModEventReverseTakedown {
 }
 
 final class ModEventReverseTakedownConverter
-    extends LexObjectConverter<ModEventReverseTakedown, Map<String, dynamic>> {
+    extends JsonConverter<ModEventReverseTakedown, Map<String, dynamic>> {
   const ModEventReverseTakedownConverter();
 
   @override

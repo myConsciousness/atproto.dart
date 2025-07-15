@@ -33,7 +33,7 @@ abstract class AdminGetAccountInfoInput with _$AdminGetAccountInfoInput {
 }
 
 final class AdminGetAccountInfoInputConverter
-    extends LexObjectConverter<AdminGetAccountInfoInput, Map<String, dynamic>> {
+    extends JsonConverter<AdminGetAccountInfoInput, Map<String, dynamic>> {
   const AdminGetAccountInfoInputConverter();
 
   @override

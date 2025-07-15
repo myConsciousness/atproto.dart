@@ -79,7 +79,7 @@ extension CommitExtension on Commit {
 }
 
 final class CommitConverter
-    extends LexObjectConverter<Commit, Map<String, dynamic>> {
+    extends JsonConverter<Commit, Map<String, dynamic>> {
   const CommitConverter();
 
   @override

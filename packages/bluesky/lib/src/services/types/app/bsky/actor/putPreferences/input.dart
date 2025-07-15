@@ -36,7 +36,7 @@ abstract class ActorPutPreferencesInput with _$ActorPutPreferencesInput {
 }
 
 final class ActorPutPreferencesInputConverter
-    extends LexObjectConverter<ActorPutPreferencesInput, Map<String, dynamic>> {
+    extends JsonConverter<ActorPutPreferencesInput, Map<String, dynamic>> {
   const ActorPutPreferencesInputConverter();
 
   @override

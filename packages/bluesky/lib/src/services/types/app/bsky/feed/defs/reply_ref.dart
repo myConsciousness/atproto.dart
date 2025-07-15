@@ -53,7 +53,7 @@ extension ReplyRefExtension on ReplyRef {
 }
 
 final class ReplyRefConverter
-    extends LexObjectConverter<ReplyRef, Map<String, dynamic>> {
+    extends JsonConverter<ReplyRef, Map<String, dynamic>> {
   const ReplyRefConverter();
 
   @override

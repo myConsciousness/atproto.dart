@@ -56,7 +56,7 @@ extension ModEventReportExtension on ModEventReport {
 }
 
 final class ModEventReportConverter
-    extends LexObjectConverter<ModEventReport, Map<String, dynamic>> {
+    extends JsonConverter<ModEventReport, Map<String, dynamic>> {
   const ModEventReportConverter();
 
   @override

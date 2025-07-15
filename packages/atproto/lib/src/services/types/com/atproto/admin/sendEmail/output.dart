@@ -33,7 +33,7 @@ abstract class AdminSendEmailOutput with _$AdminSendEmailOutput {
 }
 
 final class AdminSendEmailOutputConverter
-    extends LexObjectConverter<AdminSendEmailOutput, Map<String, dynamic>> {
+    extends JsonConverter<AdminSendEmailOutput, Map<String, dynamic>> {
   const AdminSendEmailOutputConverter();
 
   @override

@@ -55,8 +55,7 @@ abstract class ServerCreateSessionOutput with _$ServerCreateSessionOutput {
 }
 
 final class ServerCreateSessionOutputConverter
-    extends
-        LexObjectConverter<ServerCreateSessionOutput, Map<String, dynamic>> {
+    extends JsonConverter<ServerCreateSessionOutput, Map<String, dynamic>> {
   const ServerCreateSessionOutputConverter();
 
   @override

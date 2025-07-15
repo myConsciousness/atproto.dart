@@ -51,7 +51,7 @@ extension ModEventMuteReporterExtension on ModEventMuteReporter {
 }
 
 final class ModEventMuteReporterConverter
-    extends LexObjectConverter<ModEventMuteReporter, Map<String, dynamic>> {
+    extends JsonConverter<ModEventMuteReporter, Map<String, dynamic>> {
   const ModEventMuteReporterConverter();
 
   @override

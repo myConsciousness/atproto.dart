@@ -39,10 +39,7 @@ abstract class CommunicationListTemplatesOutput
 
 final class CommunicationListTemplatesOutputConverter
     extends
-        LexObjectConverter<
-          CommunicationListTemplatesOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<CommunicationListTemplatesOutput, Map<String, dynamic>> {
   const CommunicationListTemplatesOutputConverter();
 
   @override

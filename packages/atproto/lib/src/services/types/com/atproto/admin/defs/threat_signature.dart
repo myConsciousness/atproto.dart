@@ -40,7 +40,7 @@ abstract class ThreatSignature with _$ThreatSignature {
 }
 
 final class ThreatSignatureConverter
-    extends LexObjectConverter<ThreatSignature, Map<String, dynamic>> {
+    extends JsonConverter<ThreatSignature, Map<String, dynamic>> {
   const ThreatSignatureConverter();
 
   @override

@@ -40,7 +40,7 @@ abstract class FeedSearchPostsOutput with _$FeedSearchPostsOutput {
 }
 
 final class FeedSearchPostsOutputConverter
-    extends LexObjectConverter<FeedSearchPostsOutput, Map<String, dynamic>> {
+    extends JsonConverter<FeedSearchPostsOutput, Map<String, dynamic>> {
   const FeedSearchPostsOutputConverter();
 
   @override

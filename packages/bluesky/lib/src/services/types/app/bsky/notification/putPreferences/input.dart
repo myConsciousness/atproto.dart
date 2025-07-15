@@ -35,10 +35,7 @@ abstract class NotificationPutPreferencesInput
 
 final class NotificationPutPreferencesInputConverter
     extends
-        LexObjectConverter<
-          NotificationPutPreferencesInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<NotificationPutPreferencesInput, Map<String, dynamic>> {
   const NotificationPutPreferencesInputConverter();
 
   @override

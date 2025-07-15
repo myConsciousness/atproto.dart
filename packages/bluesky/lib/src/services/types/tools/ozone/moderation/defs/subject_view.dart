@@ -70,7 +70,7 @@ extension SubjectViewExtension on SubjectView {
 }
 
 final class SubjectViewConverter
-    extends LexObjectConverter<SubjectView, Map<String, dynamic>> {
+    extends JsonConverter<SubjectView, Map<String, dynamic>> {
   const SubjectViewConverter();
 
   @override

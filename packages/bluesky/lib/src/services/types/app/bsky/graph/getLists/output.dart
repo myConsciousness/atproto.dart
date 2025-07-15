@@ -37,7 +37,7 @@ abstract class GraphGetListsOutput with _$GraphGetListsOutput {
 }
 
 final class GraphGetListsOutputConverter
-    extends LexObjectConverter<GraphGetListsOutput, Map<String, dynamic>> {
+    extends JsonConverter<GraphGetListsOutput, Map<String, dynamic>> {
   const GraphGetListsOutputConverter();
 
   @override

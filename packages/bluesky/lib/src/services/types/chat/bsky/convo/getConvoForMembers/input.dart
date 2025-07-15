@@ -34,8 +34,7 @@ abstract class ConvoGetConvoForMembersInput
 }
 
 final class ConvoGetConvoForMembersInputConverter
-    extends
-        LexObjectConverter<ConvoGetConvoForMembersInput, Map<String, dynamic>> {
+    extends JsonConverter<ConvoGetConvoForMembersInput, Map<String, dynamic>> {
   const ConvoGetConvoForMembersInputConverter();
 
   @override

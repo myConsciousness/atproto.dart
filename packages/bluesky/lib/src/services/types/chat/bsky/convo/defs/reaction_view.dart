@@ -44,7 +44,7 @@ abstract class ReactionView with _$ReactionView {
 }
 
 final class ReactionViewConverter
-    extends LexObjectConverter<ReactionView, Map<String, dynamic>> {
+    extends JsonConverter<ReactionView, Map<String, dynamic>> {
   const ReactionViewConverter();
 
   @override

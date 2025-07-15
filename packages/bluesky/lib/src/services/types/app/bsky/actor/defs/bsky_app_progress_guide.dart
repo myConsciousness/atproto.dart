@@ -40,7 +40,7 @@ abstract class BskyAppProgressGuide with _$BskyAppProgressGuide {
 }
 
 final class BskyAppProgressGuideConverter
-    extends LexObjectConverter<BskyAppProgressGuide, Map<String, dynamic>> {
+    extends JsonConverter<BskyAppProgressGuide, Map<String, dynamic>> {
   const BskyAppProgressGuideConverter();
 
   @override

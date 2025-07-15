@@ -51,7 +51,7 @@ extension ThreadViewPrefExtension on ThreadViewPref {
 }
 
 final class ThreadViewPrefConverter
-    extends LexObjectConverter<ThreadViewPref, Map<String, dynamic>> {
+    extends JsonConverter<ThreadViewPref, Map<String, dynamic>> {
   const ThreadViewPrefConverter();
 
   @override

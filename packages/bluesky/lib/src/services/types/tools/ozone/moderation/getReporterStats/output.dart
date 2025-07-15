@@ -39,10 +39,7 @@ abstract class ModerationGetReporterStatsOutput
 
 final class ModerationGetReporterStatsOutputConverter
     extends
-        LexObjectConverter<
-          ModerationGetReporterStatsOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<ModerationGetReporterStatsOutput, Map<String, dynamic>> {
   const ModerationGetReporterStatsOutputConverter();
 
   @override

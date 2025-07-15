@@ -42,10 +42,7 @@ abstract class UnspeccedInitAgeAssuranceInput
 
 final class UnspeccedInitAgeAssuranceInputConverter
     extends
-        LexObjectConverter<
-          UnspeccedInitAgeAssuranceInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<UnspeccedInitAgeAssuranceInput, Map<String, dynamic>> {
   const UnspeccedInitAgeAssuranceInputConverter();
 
   @override

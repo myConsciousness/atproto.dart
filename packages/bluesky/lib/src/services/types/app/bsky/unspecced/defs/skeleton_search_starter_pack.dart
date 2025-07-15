@@ -40,8 +40,7 @@ abstract class SkeletonSearchStarterPack with _$SkeletonSearchStarterPack {
 }
 
 final class SkeletonSearchStarterPackConverter
-    extends
-        LexObjectConverter<SkeletonSearchStarterPack, Map<String, dynamic>> {
+    extends JsonConverter<SkeletonSearchStarterPack, Map<String, dynamic>> {
   const SkeletonSearchStarterPackConverter();
 
   @override

@@ -40,10 +40,7 @@ abstract class ModerationGetMessageContextInput
 
 final class ModerationGetMessageContextInputConverter
     extends
-        LexObjectConverter<
-          ModerationGetMessageContextInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<ModerationGetMessageContextInput, Map<String, dynamic>> {
   const ModerationGetMessageContextInputConverter();
 
   @override

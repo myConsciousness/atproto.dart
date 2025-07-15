@@ -42,11 +42,7 @@ abstract class NotificationDeclarationRecord
 }
 
 final class NotificationDeclarationRecordConverter
-    extends
-        LexObjectConverter<
-          NotificationDeclarationRecord,
-          Map<String, dynamic>
-        > {
+    extends JsonConverter<NotificationDeclarationRecord, Map<String, dynamic>> {
   const NotificationDeclarationRecordConverter();
 
   @override

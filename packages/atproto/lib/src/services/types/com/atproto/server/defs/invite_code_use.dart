@@ -40,7 +40,7 @@ abstract class InviteCodeUse with _$InviteCodeUse {
 }
 
 final class InviteCodeUseConverter
-    extends LexObjectConverter<InviteCodeUse, Map<String, dynamic>> {
+    extends JsonConverter<InviteCodeUse, Map<String, dynamic>> {
   const InviteCodeUseConverter();
 
   @override

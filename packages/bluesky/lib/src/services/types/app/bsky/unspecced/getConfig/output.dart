@@ -37,7 +37,7 @@ abstract class UnspeccedGetConfigOutput with _$UnspeccedGetConfigOutput {
 }
 
 final class UnspeccedGetConfigOutputConverter
-    extends LexObjectConverter<UnspeccedGetConfigOutput, Map<String, dynamic>> {
+    extends JsonConverter<UnspeccedGetConfigOutput, Map<String, dynamic>> {
   const UnspeccedGetConfigOutputConverter();
 
   @override

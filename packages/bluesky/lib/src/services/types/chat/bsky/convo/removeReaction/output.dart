@@ -36,8 +36,7 @@ abstract class ConvoRemoveReactionOutput with _$ConvoRemoveReactionOutput {
 }
 
 final class ConvoRemoveReactionOutputConverter
-    extends
-        LexObjectConverter<ConvoRemoveReactionOutput, Map<String, dynamic>> {
+    extends JsonConverter<ConvoRemoveReactionOutput, Map<String, dynamic>> {
   const ConvoRemoveReactionOutputConverter();
 
   @override

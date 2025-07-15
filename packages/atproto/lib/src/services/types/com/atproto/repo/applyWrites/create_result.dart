@@ -46,7 +46,7 @@ extension CreateResultExtension on CreateResult {
 }
 
 final class CreateResultConverter
-    extends LexObjectConverter<CreateResult, Map<String, dynamic>> {
+    extends JsonConverter<CreateResult, Map<String, dynamic>> {
   const CreateResultConverter();
 
   @override

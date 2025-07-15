@@ -57,7 +57,7 @@ extension InteractionExtension on Interaction {
 }
 
 final class InteractionConverter
-    extends LexObjectConverter<Interaction, Map<String, dynamic>> {
+    extends JsonConverter<Interaction, Map<String, dynamic>> {
   const InteractionConverter();
 
   @override

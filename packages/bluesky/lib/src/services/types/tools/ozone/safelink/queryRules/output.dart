@@ -38,7 +38,7 @@ abstract class SafelinkQueryRulesOutput with _$SafelinkQueryRulesOutput {
 }
 
 final class SafelinkQueryRulesOutputConverter
-    extends LexObjectConverter<SafelinkQueryRulesOutput, Map<String, dynamic>> {
+    extends JsonConverter<SafelinkQueryRulesOutput, Map<String, dynamic>> {
   const SafelinkQueryRulesOutputConverter();
 
   @override

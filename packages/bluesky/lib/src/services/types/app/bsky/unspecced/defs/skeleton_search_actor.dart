@@ -39,7 +39,7 @@ abstract class SkeletonSearchActor with _$SkeletonSearchActor {
 }
 
 final class SkeletonSearchActorConverter
-    extends LexObjectConverter<SkeletonSearchActor, Map<String, dynamic>> {
+    extends JsonConverter<SkeletonSearchActor, Map<String, dynamic>> {
   const SkeletonSearchActorConverter();
 
   @override

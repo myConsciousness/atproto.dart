@@ -44,7 +44,7 @@ abstract class EmbedExternal with _$EmbedExternal {
 }
 
 final class EmbedExternalConverter
-    extends LexObjectConverter<EmbedExternal, Map<String, dynamic>> {
+    extends JsonConverter<EmbedExternal, Map<String, dynamic>> {
   const EmbedExternalConverter();
 
   @override

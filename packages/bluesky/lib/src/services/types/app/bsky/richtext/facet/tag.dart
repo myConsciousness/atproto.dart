@@ -40,7 +40,7 @@ abstract class RichtextFacetTag with _$RichtextFacetTag {
 }
 
 final class RichtextFacetTagConverter
-    extends LexObjectConverter<RichtextFacetTag, Map<String, dynamic>> {
+    extends JsonConverter<RichtextFacetTag, Map<String, dynamic>> {
   const RichtextFacetTagConverter();
 
   @override

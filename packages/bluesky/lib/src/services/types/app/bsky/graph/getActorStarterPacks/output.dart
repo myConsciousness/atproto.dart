@@ -40,10 +40,7 @@ abstract class GraphGetActorStarterPacksOutput
 
 final class GraphGetActorStarterPacksOutputConverter
     extends
-        LexObjectConverter<
-          GraphGetActorStarterPacksOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<GraphGetActorStarterPacksOutput, Map<String, dynamic>> {
   const GraphGetActorStarterPacksOutputConverter();
 
   @override

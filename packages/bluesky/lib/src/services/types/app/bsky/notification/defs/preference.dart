@@ -47,7 +47,7 @@ extension PreferenceExtension on Preference {
 }
 
 final class PreferenceConverter
-    extends LexObjectConverter<Preference, Map<String, dynamic>> {
+    extends JsonConverter<Preference, Map<String, dynamic>> {
   const PreferenceConverter();
 
   @override

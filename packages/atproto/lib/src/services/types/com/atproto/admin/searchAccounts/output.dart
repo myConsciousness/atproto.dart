@@ -37,8 +37,7 @@ abstract class AdminSearchAccountsOutput with _$AdminSearchAccountsOutput {
 }
 
 final class AdminSearchAccountsOutputConverter
-    extends
-        LexObjectConverter<AdminSearchAccountsOutput, Map<String, dynamic>> {
+    extends JsonConverter<AdminSearchAccountsOutput, Map<String, dynamic>> {
   const AdminSearchAccountsOutputConverter();
 
   @override

@@ -38,7 +38,7 @@ abstract class DeleteResult with _$DeleteResult {
 }
 
 final class DeleteResultConverter
-    extends LexObjectConverter<DeleteResult, Map<String, dynamic>> {
+    extends JsonConverter<DeleteResult, Map<String, dynamic>> {
   const DeleteResultConverter();
 
   @override

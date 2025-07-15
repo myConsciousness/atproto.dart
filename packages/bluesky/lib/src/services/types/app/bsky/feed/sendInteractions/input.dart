@@ -36,8 +36,7 @@ abstract class FeedSendInteractionsInput with _$FeedSendInteractionsInput {
 }
 
 final class FeedSendInteractionsInputConverter
-    extends
-        LexObjectConverter<FeedSendInteractionsInput, Map<String, dynamic>> {
+    extends JsonConverter<FeedSendInteractionsInput, Map<String, dynamic>> {
   const FeedSendInteractionsInputConverter();
 
   @override

@@ -69,7 +69,7 @@ extension FeedViewPostExtension on FeedViewPost {
 }
 
 final class FeedViewPostConverter
-    extends LexObjectConverter<FeedViewPost, Map<String, dynamic>> {
+    extends JsonConverter<FeedViewPost, Map<String, dynamic>> {
   const FeedViewPostConverter();
 
   @override

@@ -34,7 +34,7 @@ abstract class SyncNotifyOfUpdateInput with _$SyncNotifyOfUpdateInput {
 }
 
 final class SyncNotifyOfUpdateInputConverter
-    extends LexObjectConverter<SyncNotifyOfUpdateInput, Map<String, dynamic>> {
+    extends JsonConverter<SyncNotifyOfUpdateInput, Map<String, dynamic>> {
   const SyncNotifyOfUpdateInputConverter();
 
   @override

@@ -47,7 +47,7 @@ extension RepoOpExtension on RepoOp {
 }
 
 final class RepoOpConverter
-    extends LexObjectConverter<RepoOp, Map<String, dynamic>> {
+    extends JsonConverter<RepoOp, Map<String, dynamic>> {
   const RepoOpConverter();
 
   @override

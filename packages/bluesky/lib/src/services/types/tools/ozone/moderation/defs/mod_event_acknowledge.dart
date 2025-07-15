@@ -50,7 +50,7 @@ extension ModEventAcknowledgeExtension on ModEventAcknowledge {
 }
 
 final class ModEventAcknowledgeConverter
-    extends LexObjectConverter<ModEventAcknowledge, Map<String, dynamic>> {
+    extends JsonConverter<ModEventAcknowledge, Map<String, dynamic>> {
   const ModEventAcknowledgeConverter();
 
   @override

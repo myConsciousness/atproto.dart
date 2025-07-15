@@ -34,7 +34,7 @@ abstract class ServerResetPasswordInput with _$ServerResetPasswordInput {
 }
 
 final class ServerResetPasswordInputConverter
-    extends LexObjectConverter<ServerResetPasswordInput, Map<String, dynamic>> {
+    extends JsonConverter<ServerResetPasswordInput, Map<String, dynamic>> {
   const ServerResetPasswordInputConverter();
 
   @override

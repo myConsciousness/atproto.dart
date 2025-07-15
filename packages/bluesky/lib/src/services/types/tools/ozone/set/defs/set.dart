@@ -43,7 +43,7 @@ extension SetExtension on Set {
   bool get hasNotDescription => !hasDescription;
 }
 
-final class SetConverter extends LexObjectConverter<Set, Map<String, dynamic>> {
+final class SetConverter extends JsonConverter<Set, Map<String, dynamic>> {
   const SetConverter();
 
   @override

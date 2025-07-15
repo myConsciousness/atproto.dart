@@ -52,7 +52,7 @@ abstract class FeedThreadgateRecord with _$FeedThreadgateRecord {
 }
 
 final class FeedThreadgateRecordConverter
-    extends LexObjectConverter<FeedThreadgateRecord, Map<String, dynamic>> {
+    extends JsonConverter<FeedThreadgateRecord, Map<String, dynamic>> {
   const FeedThreadgateRecordConverter();
 
   @override

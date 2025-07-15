@@ -38,7 +38,7 @@ abstract class RepoListRecordsOutput with _$RepoListRecordsOutput {
 }
 
 final class RepoListRecordsOutputConverter
-    extends LexObjectConverter<RepoListRecordsOutput, Map<String, dynamic>> {
+    extends JsonConverter<RepoListRecordsOutput, Map<String, dynamic>> {
   const RepoListRecordsOutputConverter();
 
   @override

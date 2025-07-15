@@ -39,10 +39,7 @@ abstract class ServerGetAccountInviteCodesOutput
 
 final class ServerGetAccountInviteCodesOutputConverter
     extends
-        LexObjectConverter<
-          ServerGetAccountInviteCodesOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<ServerGetAccountInviteCodesOutput, Map<String, dynamic>> {
   const ServerGetAccountInviteCodesOutputConverter();
 
   @override

@@ -42,7 +42,7 @@ abstract class GraphBlockRecord with _$GraphBlockRecord {
 }
 
 final class GraphBlockRecordConverter
-    extends LexObjectConverter<GraphBlockRecord, Map<String, dynamic>> {
+    extends JsonConverter<GraphBlockRecord, Map<String, dynamic>> {
   const GraphBlockRecordConverter();
 
   @override

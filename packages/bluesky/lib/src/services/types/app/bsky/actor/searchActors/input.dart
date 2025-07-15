@@ -36,7 +36,7 @@ abstract class ActorSearchActorsInput with _$ActorSearchActorsInput {
 }
 
 final class ActorSearchActorsInputConverter
-    extends LexObjectConverter<ActorSearchActorsInput, Map<String, dynamic>> {
+    extends JsonConverter<ActorSearchActorsInput, Map<String, dynamic>> {
   const ActorSearchActorsInputConverter();
 
   @override

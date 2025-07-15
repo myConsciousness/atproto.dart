@@ -33,7 +33,7 @@ abstract class UnspeccedGetTrendsInput with _$UnspeccedGetTrendsInput {
 }
 
 final class UnspeccedGetTrendsInputConverter
-    extends LexObjectConverter<UnspeccedGetTrendsInput, Map<String, dynamic>> {
+    extends JsonConverter<UnspeccedGetTrendsInput, Map<String, dynamic>> {
   const UnspeccedGetTrendsInputConverter();
 
   @override

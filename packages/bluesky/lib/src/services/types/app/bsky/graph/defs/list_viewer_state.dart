@@ -47,7 +47,7 @@ extension ListViewerStateExtension on ListViewerState {
 }
 
 final class ListViewerStateConverter
-    extends LexObjectConverter<ListViewerState, Map<String, dynamic>> {
+    extends JsonConverter<ListViewerState, Map<String, dynamic>> {
   const ListViewerStateConverter();
 
   @override

@@ -40,7 +40,7 @@ abstract class RecordBlob with _$RecordBlob {
 }
 
 final class RecordBlobConverter
-    extends LexObjectConverter<RecordBlob, Map<String, dynamic>> {
+    extends JsonConverter<RecordBlob, Map<String, dynamic>> {
   const RecordBlobConverter();
 
   @override

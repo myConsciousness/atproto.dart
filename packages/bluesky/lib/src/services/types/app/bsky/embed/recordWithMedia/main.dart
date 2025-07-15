@@ -46,7 +46,7 @@ abstract class EmbedRecordWithMedia with _$EmbedRecordWithMedia {
 }
 
 final class EmbedRecordWithMediaConverter
-    extends LexObjectConverter<EmbedRecordWithMedia, Map<String, dynamic>> {
+    extends JsonConverter<EmbedRecordWithMedia, Map<String, dynamic>> {
   const EmbedRecordWithMediaConverter();
 
   @override

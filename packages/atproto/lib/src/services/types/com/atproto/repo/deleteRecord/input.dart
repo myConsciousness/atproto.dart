@@ -52,7 +52,7 @@ abstract class RepoDeleteRecordInput with _$RepoDeleteRecordInput {
 }
 
 final class RepoDeleteRecordInputConverter
-    extends LexObjectConverter<RepoDeleteRecordInput, Map<String, dynamic>> {
+    extends JsonConverter<RepoDeleteRecordInput, Map<String, dynamic>> {
   const RepoDeleteRecordInputConverter();
 
   @override

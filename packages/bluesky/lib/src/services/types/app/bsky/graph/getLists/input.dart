@@ -36,7 +36,7 @@ abstract class GraphGetListsInput with _$GraphGetListsInput {
 }
 
 final class GraphGetListsInputConverter
-    extends LexObjectConverter<GraphGetListsInput, Map<String, dynamic>> {
+    extends JsonConverter<GraphGetListsInput, Map<String, dynamic>> {
   const GraphGetListsInputConverter();
 
   @override

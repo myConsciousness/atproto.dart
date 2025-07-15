@@ -35,7 +35,7 @@ abstract class ConvoGetMessagesInput with _$ConvoGetMessagesInput {
 }
 
 final class ConvoGetMessagesInputConverter
-    extends LexObjectConverter<ConvoGetMessagesInput, Map<String, dynamic>> {
+    extends JsonConverter<ConvoGetMessagesInput, Map<String, dynamic>> {
   const ConvoGetMessagesInputConverter();
 
   @override

@@ -41,7 +41,7 @@ abstract class MessageRef with _$MessageRef {
 }
 
 final class MessageRefConverter
-    extends LexObjectConverter<MessageRef, Map<String, dynamic>> {
+    extends JsonConverter<MessageRef, Map<String, dynamic>> {
   const MessageRefConverter();
 
   @override

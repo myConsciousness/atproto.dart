@@ -66,7 +66,7 @@ extension MessageViewExtension on MessageView {
 }
 
 final class MessageViewConverter
-    extends LexObjectConverter<MessageView, Map<String, dynamic>> {
+    extends JsonConverter<MessageView, Map<String, dynamic>> {
   const MessageViewConverter();
 
   @override

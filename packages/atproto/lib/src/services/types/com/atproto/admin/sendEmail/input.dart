@@ -45,7 +45,7 @@ abstract class AdminSendEmailInput with _$AdminSendEmailInput {
 }
 
 final class AdminSendEmailInputConverter
-    extends LexObjectConverter<AdminSendEmailInput, Map<String, dynamic>> {
+    extends JsonConverter<AdminSendEmailInput, Map<String, dynamic>> {
   const AdminSendEmailInputConverter();
 
   @override

@@ -33,7 +33,7 @@ abstract class RepoUploadBlobOutput with _$RepoUploadBlobOutput {
 }
 
 final class RepoUploadBlobOutputConverter
-    extends LexObjectConverter<RepoUploadBlobOutput, Map<String, dynamic>> {
+    extends JsonConverter<RepoUploadBlobOutput, Map<String, dynamic>> {
   const RepoUploadBlobOutputConverter();
 
   @override

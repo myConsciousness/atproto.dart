@@ -33,7 +33,7 @@ abstract class IdentityResolveDidOutput with _$IdentityResolveDidOutput {
 }
 
 final class IdentityResolveDidOutputConverter
-    extends LexObjectConverter<IdentityResolveDidOutput, Map<String, dynamic>> {
+    extends JsonConverter<IdentityResolveDidOutput, Map<String, dynamic>> {
   const IdentityResolveDidOutputConverter();
 
   @override

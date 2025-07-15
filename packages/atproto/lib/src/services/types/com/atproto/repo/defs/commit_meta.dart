@@ -40,7 +40,7 @@ abstract class CommitMeta with _$CommitMeta {
 }
 
 final class CommitMetaConverter
-    extends LexObjectConverter<CommitMeta, Map<String, dynamic>> {
+    extends JsonConverter<CommitMeta, Map<String, dynamic>> {
   const CommitMetaConverter();
 
   @override

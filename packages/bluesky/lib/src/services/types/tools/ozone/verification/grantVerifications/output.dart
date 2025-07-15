@@ -41,7 +41,7 @@ abstract class VerificationGrantVerificationsOutput
 
 final class VerificationGrantVerificationsOutputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           VerificationGrantVerificationsOutput,
           Map<String, dynamic>
         > {

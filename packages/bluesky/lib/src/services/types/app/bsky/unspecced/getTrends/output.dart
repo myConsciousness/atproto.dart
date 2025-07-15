@@ -36,7 +36,7 @@ abstract class UnspeccedGetTrendsOutput with _$UnspeccedGetTrendsOutput {
 }
 
 final class UnspeccedGetTrendsOutputConverter
-    extends LexObjectConverter<UnspeccedGetTrendsOutput, Map<String, dynamic>> {
+    extends JsonConverter<UnspeccedGetTrendsOutput, Map<String, dynamic>> {
   const UnspeccedGetTrendsOutputConverter();
 
   @override

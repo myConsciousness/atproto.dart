@@ -39,11 +39,7 @@ abstract class ModerationQueryStatusesOutput
 }
 
 final class ModerationQueryStatusesOutputConverter
-    extends
-        LexObjectConverter<
-          ModerationQueryStatusesOutput,
-          Map<String, dynamic>
-        > {
+    extends JsonConverter<ModerationQueryStatusesOutput, Map<String, dynamic>> {
   const ModerationQueryStatusesOutputConverter();
 
   @override

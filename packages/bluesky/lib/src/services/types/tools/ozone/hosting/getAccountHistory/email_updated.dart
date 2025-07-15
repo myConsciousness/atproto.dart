@@ -40,7 +40,7 @@ abstract class EmailUpdated with _$EmailUpdated {
 }
 
 final class EmailUpdatedConverter
-    extends LexObjectConverter<EmailUpdated, Map<String, dynamic>> {
+    extends JsonConverter<EmailUpdated, Map<String, dynamic>> {
   const EmailUpdatedConverter();
 
   @override

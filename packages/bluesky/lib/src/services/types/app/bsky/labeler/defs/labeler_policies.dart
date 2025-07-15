@@ -42,7 +42,7 @@ abstract class LabelerPolicies with _$LabelerPolicies {
 }
 
 final class LabelerPoliciesConverter
-    extends LexObjectConverter<LabelerPolicies, Map<String, dynamic>> {
+    extends JsonConverter<LabelerPolicies, Map<String, dynamic>> {
   const LabelerPoliciesConverter();
 
   @override

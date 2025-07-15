@@ -59,7 +59,7 @@ extension AccountEventExtension on AccountEvent {
 }
 
 final class AccountEventConverter
-    extends LexObjectConverter<AccountEvent, Map<String, dynamic>> {
+    extends JsonConverter<AccountEvent, Map<String, dynamic>> {
   const AccountEventConverter();
 
   @override

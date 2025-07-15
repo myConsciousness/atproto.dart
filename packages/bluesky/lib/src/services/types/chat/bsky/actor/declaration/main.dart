@@ -39,7 +39,7 @@ abstract class ActorDeclarationRecord with _$ActorDeclarationRecord {
 }
 
 final class ActorDeclarationRecordConverter
-    extends LexObjectConverter<ActorDeclarationRecord, Map<String, dynamic>> {
+    extends JsonConverter<ActorDeclarationRecord, Map<String, dynamic>> {
   const ActorDeclarationRecordConverter();
 
   @override

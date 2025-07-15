@@ -34,8 +34,7 @@ abstract class FeedGetSuggestedFeedsInput with _$FeedGetSuggestedFeedsInput {
 }
 
 final class FeedGetSuggestedFeedsInputConverter
-    extends
-        LexObjectConverter<FeedGetSuggestedFeedsInput, Map<String, dynamic>> {
+    extends JsonConverter<FeedGetSuggestedFeedsInput, Map<String, dynamic>> {
   const FeedGetSuggestedFeedsInputConverter();
 
   @override

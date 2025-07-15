@@ -36,8 +36,7 @@ abstract class SettingUpsertOptionOutput with _$SettingUpsertOptionOutput {
 }
 
 final class SettingUpsertOptionOutputConverter
-    extends
-        LexObjectConverter<SettingUpsertOptionOutput, Map<String, dynamic>> {
+    extends JsonConverter<SettingUpsertOptionOutput, Map<String, dynamic>> {
   const SettingUpsertOptionOutputConverter();
 
   @override

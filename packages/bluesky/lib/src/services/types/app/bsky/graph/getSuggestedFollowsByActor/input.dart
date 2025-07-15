@@ -36,7 +36,7 @@ abstract class GraphGetSuggestedFollowsByActorInput
 
 final class GraphGetSuggestedFollowsByActorInputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           GraphGetSuggestedFollowsByActorInput,
           Map<String, dynamic>
         > {

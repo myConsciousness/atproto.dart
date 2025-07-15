@@ -44,7 +44,7 @@ extension ContactExtension on Contact {
 }
 
 final class ContactConverter
-    extends LexObjectConverter<Contact, Map<String, dynamic>> {
+    extends JsonConverter<Contact, Map<String, dynamic>> {
   const ContactConverter();
 
   @override

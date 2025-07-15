@@ -65,7 +65,7 @@ extension TrendViewExtension on TrendView {
 }
 
 final class TrendViewConverter
-    extends LexObjectConverter<TrendView, Map<String, dynamic>> {
+    extends JsonConverter<TrendView, Map<String, dynamic>> {
   const TrendViewConverter();
 
   @override

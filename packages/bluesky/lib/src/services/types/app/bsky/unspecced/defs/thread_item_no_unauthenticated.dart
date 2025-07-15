@@ -40,8 +40,7 @@ abstract class ThreadItemNoUnauthenticated with _$ThreadItemNoUnauthenticated {
 }
 
 final class ThreadItemNoUnauthenticatedConverter
-    extends
-        LexObjectConverter<ThreadItemNoUnauthenticated, Map<String, dynamic>> {
+    extends JsonConverter<ThreadItemNoUnauthenticated, Map<String, dynamic>> {
   const ThreadItemNoUnauthenticatedConverter();
 
   @override

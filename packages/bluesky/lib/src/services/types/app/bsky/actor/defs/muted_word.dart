@@ -68,7 +68,7 @@ extension MutedWordExtension on MutedWord {
 }
 
 final class MutedWordConverter
-    extends LexObjectConverter<MutedWord, Map<String, dynamic>> {
+    extends JsonConverter<MutedWord, Map<String, dynamic>> {
   const MutedWordConverter();
 
   @override

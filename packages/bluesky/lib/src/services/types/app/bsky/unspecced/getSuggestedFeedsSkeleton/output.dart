@@ -36,7 +36,7 @@ abstract class UnspeccedGetSuggestedFeedsSkeletonOutput
 
 final class UnspeccedGetSuggestedFeedsSkeletonOutputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           UnspeccedGetSuggestedFeedsSkeletonOutput,
           Map<String, dynamic>
         > {

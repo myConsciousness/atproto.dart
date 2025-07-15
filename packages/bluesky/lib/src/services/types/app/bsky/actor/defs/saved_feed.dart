@@ -47,7 +47,7 @@ extension SavedFeedExtension on SavedFeed {
 }
 
 final class SavedFeedConverter
-    extends LexObjectConverter<SavedFeed, Map<String, dynamic>> {
+    extends JsonConverter<SavedFeed, Map<String, dynamic>> {
   const SavedFeedConverter();
 
   @override

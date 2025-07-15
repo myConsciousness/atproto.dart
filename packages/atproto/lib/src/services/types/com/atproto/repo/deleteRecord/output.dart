@@ -36,7 +36,7 @@ abstract class RepoDeleteRecordOutput with _$RepoDeleteRecordOutput {
 }
 
 final class RepoDeleteRecordOutputConverter
-    extends LexObjectConverter<RepoDeleteRecordOutput, Map<String, dynamic>> {
+    extends JsonConverter<RepoDeleteRecordOutput, Map<String, dynamic>> {
   const RepoDeleteRecordOutputConverter();
 
   @override

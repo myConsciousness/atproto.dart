@@ -76,7 +76,7 @@ abstract class FeedSearchPostsInput with _$FeedSearchPostsInput {
 }
 
 final class FeedSearchPostsInputConverter
-    extends LexObjectConverter<FeedSearchPostsInput, Map<String, dynamic>> {
+    extends JsonConverter<FeedSearchPostsInput, Map<String, dynamic>> {
   const FeedSearchPostsInputConverter();
 
   @override

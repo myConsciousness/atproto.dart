@@ -34,8 +34,7 @@ abstract class IdentityRefreshIdentityInput
 }
 
 final class IdentityRefreshIdentityInputConverter
-    extends
-        LexObjectConverter<IdentityRefreshIdentityInput, Map<String, dynamic>> {
+    extends JsonConverter<IdentityRefreshIdentityInput, Map<String, dynamic>> {
   const IdentityRefreshIdentityInputConverter();
 
   @override

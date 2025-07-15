@@ -35,10 +35,7 @@ abstract class UnspeccedGetSuggestedFeedsInput
 
 final class UnspeccedGetSuggestedFeedsInputConverter
     extends
-        LexObjectConverter<
-          UnspeccedGetSuggestedFeedsInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<UnspeccedGetSuggestedFeedsInput, Map<String, dynamic>> {
   const UnspeccedGetSuggestedFeedsInputConverter();
 
   @override

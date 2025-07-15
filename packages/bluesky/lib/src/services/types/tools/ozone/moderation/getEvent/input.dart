@@ -33,7 +33,7 @@ abstract class ModerationGetEventInput with _$ModerationGetEventInput {
 }
 
 final class ModerationGetEventInputConverter
-    extends LexObjectConverter<ModerationGetEventInput, Map<String, dynamic>> {
+    extends JsonConverter<ModerationGetEventInput, Map<String, dynamic>> {
   const ModerationGetEventInputConverter();
 
   @override

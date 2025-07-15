@@ -39,7 +39,7 @@ abstract class RepoViewNotFound with _$RepoViewNotFound {
 }
 
 final class RepoViewNotFoundConverter
-    extends LexObjectConverter<RepoViewNotFound, Map<String, dynamic>> {
+    extends JsonConverter<RepoViewNotFound, Map<String, dynamic>> {
   const RepoViewNotFoundConverter();
 
   @override

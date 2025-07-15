@@ -61,7 +61,7 @@ extension IdentityEventExtension on IdentityEvent {
 }
 
 final class IdentityEventConverter
-    extends LexObjectConverter<IdentityEvent, Map<String, dynamic>> {
+    extends JsonConverter<IdentityEvent, Map<String, dynamic>> {
   const IdentityEventConverter();
 
   @override

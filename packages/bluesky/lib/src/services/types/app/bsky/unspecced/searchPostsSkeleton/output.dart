@@ -43,7 +43,7 @@ abstract class UnspeccedSearchPostsSkeletonOutput
 
 final class UnspeccedSearchPostsSkeletonOutputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           UnspeccedSearchPostsSkeletonOutput,
           Map<String, dynamic>
         > {

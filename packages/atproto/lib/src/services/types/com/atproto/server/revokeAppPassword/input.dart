@@ -34,8 +34,7 @@ abstract class ServerRevokeAppPasswordInput
 }
 
 final class ServerRevokeAppPasswordInputConverter
-    extends
-        LexObjectConverter<ServerRevokeAppPasswordInput, Map<String, dynamic>> {
+    extends JsonConverter<ServerRevokeAppPasswordInput, Map<String, dynamic>> {
   const ServerRevokeAppPasswordInputConverter();
 
   @override

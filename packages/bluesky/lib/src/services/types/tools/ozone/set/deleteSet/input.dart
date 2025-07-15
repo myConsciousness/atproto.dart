@@ -34,7 +34,7 @@ abstract class SetDeleteSetInput with _$SetDeleteSetInput {
 }
 
 final class SetDeleteSetInputConverter
-    extends LexObjectConverter<SetDeleteSetInput, Map<String, dynamic>> {
+    extends JsonConverter<SetDeleteSetInput, Map<String, dynamic>> {
   const SetDeleteSetInputConverter();
 
   @override

@@ -43,7 +43,7 @@ abstract class SettingUpsertOptionInput with _$SettingUpsertOptionInput {
 }
 
 final class SettingUpsertOptionInputConverter
-    extends LexObjectConverter<SettingUpsertOptionInput, Map<String, dynamic>> {
+    extends JsonConverter<SettingUpsertOptionInput, Map<String, dynamic>> {
   const SettingUpsertOptionInputConverter();
 
   @override

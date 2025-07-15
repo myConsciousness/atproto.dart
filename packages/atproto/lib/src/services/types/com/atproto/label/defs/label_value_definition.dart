@@ -73,7 +73,7 @@ extension LabelValueDefinitionExtension on LabelValueDefinition {
 }
 
 final class LabelValueDefinitionConverter
-    extends LexObjectConverter<LabelValueDefinition, Map<String, dynamic>> {
+    extends JsonConverter<LabelValueDefinition, Map<String, dynamic>> {
   const LabelValueDefinitionConverter();
 
   @override

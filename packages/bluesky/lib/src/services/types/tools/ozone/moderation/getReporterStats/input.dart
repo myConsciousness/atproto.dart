@@ -35,10 +35,7 @@ abstract class ModerationGetReporterStatsInput
 
 final class ModerationGetReporterStatsInputConverter
     extends
-        LexObjectConverter<
-          ModerationGetReporterStatsInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<ModerationGetReporterStatsInput, Map<String, dynamic>> {
   const ModerationGetReporterStatsInputConverter();
 
   @override

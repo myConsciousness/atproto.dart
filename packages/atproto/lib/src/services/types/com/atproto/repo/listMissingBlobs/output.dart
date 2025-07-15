@@ -37,8 +37,7 @@ abstract class RepoListMissingBlobsOutput with _$RepoListMissingBlobsOutput {
 }
 
 final class RepoListMissingBlobsOutputConverter
-    extends
-        LexObjectConverter<RepoListMissingBlobsOutput, Map<String, dynamic>> {
+    extends JsonConverter<RepoListMissingBlobsOutput, Map<String, dynamic>> {
   const RepoListMissingBlobsOutputConverter();
 
   @override

@@ -49,7 +49,7 @@ extension FilterablePreferenceExtension on FilterablePreference {
 }
 
 final class FilterablePreferenceConverter
-    extends LexObjectConverter<FilterablePreference, Map<String, dynamic>> {
+    extends JsonConverter<FilterablePreference, Map<String, dynamic>> {
   const FilterablePreferenceConverter();
 
   @override

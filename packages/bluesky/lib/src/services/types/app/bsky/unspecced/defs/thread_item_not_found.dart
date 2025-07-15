@@ -38,7 +38,7 @@ abstract class ThreadItemNotFound with _$ThreadItemNotFound {
 }
 
 final class ThreadItemNotFoundConverter
-    extends LexObjectConverter<ThreadItemNotFound, Map<String, dynamic>> {
+    extends JsonConverter<ThreadItemNotFound, Map<String, dynamic>> {
   const ThreadItemNotFoundConverter();
 
   @override

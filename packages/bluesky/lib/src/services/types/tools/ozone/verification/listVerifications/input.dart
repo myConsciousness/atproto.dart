@@ -63,7 +63,7 @@ abstract class VerificationListVerificationsInput
 
 final class VerificationListVerificationsInputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           VerificationListVerificationsInput,
           Map<String, dynamic>
         > {

@@ -38,8 +38,7 @@ abstract class GraphGetRelationshipsOutput with _$GraphGetRelationshipsOutput {
 }
 
 final class GraphGetRelationshipsOutputConverter
-    extends
-        LexObjectConverter<GraphGetRelationshipsOutput, Map<String, dynamic>> {
+    extends JsonConverter<GraphGetRelationshipsOutput, Map<String, dynamic>> {
   const GraphGetRelationshipsOutputConverter();
 
   @override

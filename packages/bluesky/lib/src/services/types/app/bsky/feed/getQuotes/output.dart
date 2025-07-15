@@ -39,7 +39,7 @@ abstract class FeedGetQuotesOutput with _$FeedGetQuotesOutput {
 }
 
 final class FeedGetQuotesOutputConverter
-    extends LexObjectConverter<FeedGetQuotesOutput, Map<String, dynamic>> {
+    extends JsonConverter<FeedGetQuotesOutput, Map<String, dynamic>> {
   const FeedGetQuotesOutputConverter();
 
   @override

@@ -36,8 +36,7 @@ abstract class ActorGetPreferencesOutput with _$ActorGetPreferencesOutput {
 }
 
 final class ActorGetPreferencesOutputConverter
-    extends
-        LexObjectConverter<ActorGetPreferencesOutput, Map<String, dynamic>> {
+    extends JsonConverter<ActorGetPreferencesOutput, Map<String, dynamic>> {
   const ActorGetPreferencesOutputConverter();
 
   @override

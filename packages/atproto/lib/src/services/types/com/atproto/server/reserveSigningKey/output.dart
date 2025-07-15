@@ -35,11 +35,7 @@ abstract class ServerReserveSigningKeyOutput
 }
 
 final class ServerReserveSigningKeyOutputConverter
-    extends
-        LexObjectConverter<
-          ServerReserveSigningKeyOutput,
-          Map<String, dynamic>
-        > {
+    extends JsonConverter<ServerReserveSigningKeyOutput, Map<String, dynamic>> {
   const ServerReserveSigningKeyOutputConverter();
 
   @override

@@ -81,7 +81,7 @@ extension ListViewExtension on ListView {
 }
 
 final class ListViewConverter
-    extends LexObjectConverter<ListView, Map<String, dynamic>> {
+    extends JsonConverter<ListView, Map<String, dynamic>> {
   const ListViewConverter();
 
   @override

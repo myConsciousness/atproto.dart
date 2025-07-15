@@ -53,8 +53,7 @@ abstract class PostInteractionSettingsPref with _$PostInteractionSettingsPref {
 }
 
 final class PostInteractionSettingsPrefConverter
-    extends
-        LexObjectConverter<PostInteractionSettingsPref, Map<String, dynamic>> {
+    extends JsonConverter<PostInteractionSettingsPref, Map<String, dynamic>> {
   const PostInteractionSettingsPrefConverter();
 
   @override

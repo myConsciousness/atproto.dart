@@ -58,7 +58,7 @@ extension EmbedVideoExtension on EmbedVideo {
 }
 
 final class EmbedVideoConverter
-    extends LexObjectConverter<EmbedVideo, Map<String, dynamic>> {
+    extends JsonConverter<EmbedVideo, Map<String, dynamic>> {
   const EmbedVideoConverter();
 
   @override

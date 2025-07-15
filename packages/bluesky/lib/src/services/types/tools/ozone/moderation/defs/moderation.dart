@@ -47,7 +47,7 @@ extension ModerationExtension on Moderation {
 }
 
 final class ModerationConverter
-    extends LexObjectConverter<Moderation, Map<String, dynamic>> {
+    extends JsonConverter<Moderation, Map<String, dynamic>> {
   const ModerationConverter();
 
   @override

@@ -36,8 +36,7 @@ abstract class ConvoSendMessageBatchInput with _$ConvoSendMessageBatchInput {
 }
 
 final class ConvoSendMessageBatchInputConverter
-    extends
-        LexObjectConverter<ConvoSendMessageBatchInput, Map<String, dynamic>> {
+    extends JsonConverter<ConvoSendMessageBatchInput, Map<String, dynamic>> {
   const ConvoSendMessageBatchInputConverter();
 
   @override

@@ -34,7 +34,7 @@ abstract class GraphGetMutesInput with _$GraphGetMutesInput {
 }
 
 final class GraphGetMutesInputConverter
-    extends LexObjectConverter<GraphGetMutesInput, Map<String, dynamic>> {
+    extends JsonConverter<GraphGetMutesInput, Map<String, dynamic>> {
   const GraphGetMutesInputConverter();
 
   @override

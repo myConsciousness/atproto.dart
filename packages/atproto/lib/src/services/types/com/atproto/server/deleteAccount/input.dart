@@ -35,7 +35,7 @@ abstract class ServerDeleteAccountInput with _$ServerDeleteAccountInput {
 }
 
 final class ServerDeleteAccountInputConverter
-    extends LexObjectConverter<ServerDeleteAccountInput, Map<String, dynamic>> {
+    extends JsonConverter<ServerDeleteAccountInput, Map<String, dynamic>> {
   const ServerDeleteAccountInputConverter();
 
   @override

@@ -59,7 +59,7 @@ abstract class GraphStarterpackRecord with _$GraphStarterpackRecord {
 }
 
 final class GraphStarterpackRecordConverter
-    extends LexObjectConverter<GraphStarterpackRecord, Map<String, dynamic>> {
+    extends JsonConverter<GraphStarterpackRecord, Map<String, dynamic>> {
   const GraphStarterpackRecordConverter();
 
   @override

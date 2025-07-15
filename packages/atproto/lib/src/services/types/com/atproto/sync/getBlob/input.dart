@@ -37,7 +37,7 @@ abstract class SyncGetBlobInput with _$SyncGetBlobInput {
 }
 
 final class SyncGetBlobInputConverter
-    extends LexObjectConverter<SyncGetBlobInput, Map<String, dynamic>> {
+    extends JsonConverter<SyncGetBlobInput, Map<String, dynamic>> {
   const SyncGetBlobInputConverter();
 
   @override

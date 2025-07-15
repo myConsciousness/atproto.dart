@@ -89,7 +89,7 @@ extension PostViewExtension on PostView {
 }
 
 final class PostViewConverter
-    extends LexObjectConverter<PostView, Map<String, dynamic>> {
+    extends JsonConverter<PostView, Map<String, dynamic>> {
   const PostViewConverter();
 
   @override

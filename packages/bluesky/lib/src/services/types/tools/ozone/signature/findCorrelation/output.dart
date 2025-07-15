@@ -38,10 +38,7 @@ abstract class SignatureFindCorrelationOutput
 
 final class SignatureFindCorrelationOutputConverter
     extends
-        LexObjectConverter<
-          SignatureFindCorrelationOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<SignatureFindCorrelationOutput, Map<String, dynamic>> {
   const SignatureFindCorrelationOutputConverter();
 
   @override

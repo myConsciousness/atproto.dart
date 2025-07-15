@@ -42,7 +42,7 @@ abstract class LabelersPref with _$LabelersPref {
 }
 
 final class LabelersPrefConverter
-    extends LexObjectConverter<LabelersPref, Map<String, dynamic>> {
+    extends JsonConverter<LabelersPref, Map<String, dynamic>> {
   const LabelersPrefConverter();
 
   @override

@@ -36,7 +36,7 @@ abstract class TempFetchLabelsOutput with _$TempFetchLabelsOutput {
 }
 
 final class TempFetchLabelsOutputConverter
-    extends LexObjectConverter<TempFetchLabelsOutput, Map<String, dynamic>> {
+    extends JsonConverter<TempFetchLabelsOutput, Map<String, dynamic>> {
   const TempFetchLabelsOutputConverter();
 
   @override

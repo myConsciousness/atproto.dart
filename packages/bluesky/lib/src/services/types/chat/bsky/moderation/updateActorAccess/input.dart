@@ -38,10 +38,7 @@ abstract class ModerationUpdateActorAccessInput
 
 final class ModerationUpdateActorAccessInputConverter
     extends
-        LexObjectConverter<
-          ModerationUpdateActorAccessInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<ModerationUpdateActorAccessInput, Map<String, dynamic>> {
   const ModerationUpdateActorAccessInputConverter();
 
   @override

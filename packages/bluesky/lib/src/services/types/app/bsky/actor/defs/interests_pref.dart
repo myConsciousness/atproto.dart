@@ -39,7 +39,7 @@ abstract class InterestsPref with _$InterestsPref {
 }
 
 final class InterestsPrefConverter
-    extends LexObjectConverter<InterestsPref, Map<String, dynamic>> {
+    extends JsonConverter<InterestsPref, Map<String, dynamic>> {
   const InterestsPrefConverter();
 
   @override

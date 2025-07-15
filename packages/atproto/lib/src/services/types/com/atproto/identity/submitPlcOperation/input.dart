@@ -35,10 +35,7 @@ abstract class IdentitySubmitPlcOperationInput
 
 final class IdentitySubmitPlcOperationInputConverter
     extends
-        LexObjectConverter<
-          IdentitySubmitPlcOperationInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<IdentitySubmitPlcOperationInput, Map<String, dynamic>> {
   const IdentitySubmitPlcOperationInputConverter();
 
   @override

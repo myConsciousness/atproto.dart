@@ -40,7 +40,7 @@ abstract class LogMuteConvo with _$LogMuteConvo {
 }
 
 final class LogMuteConvoConverter
-    extends LexObjectConverter<LogMuteConvo, Map<String, dynamic>> {
+    extends JsonConverter<LogMuteConvo, Map<String, dynamic>> {
   const LogMuteConvoConverter();
 
   @override

@@ -37,8 +37,7 @@ abstract class ServerListAppPasswordsOutput
 }
 
 final class ServerListAppPasswordsOutputConverter
-    extends
-        LexObjectConverter<ServerListAppPasswordsOutput, Map<String, dynamic>> {
+    extends JsonConverter<ServerListAppPasswordsOutput, Map<String, dynamic>> {
   const ServerListAppPasswordsOutputConverter();
 
   @override

@@ -45,8 +45,7 @@ extension LinksExtension on Links {
   bool get hasNotTermsOfService => !hasTermsOfService;
 }
 
-final class LinksConverter
-    extends LexObjectConverter<Links, Map<String, dynamic>> {
+final class LinksConverter extends JsonConverter<Links, Map<String, dynamic>> {
   const LinksConverter();
 
   @override

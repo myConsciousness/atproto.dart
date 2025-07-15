@@ -34,8 +34,7 @@ abstract class IdentityUpdateHandleInput with _$IdentityUpdateHandleInput {
 }
 
 final class IdentityUpdateHandleInputConverter
-    extends
-        LexObjectConverter<IdentityUpdateHandleInput, Map<String, dynamic>> {
+    extends JsonConverter<IdentityUpdateHandleInput, Map<String, dynamic>> {
   const IdentityUpdateHandleInputConverter();
 
   @override

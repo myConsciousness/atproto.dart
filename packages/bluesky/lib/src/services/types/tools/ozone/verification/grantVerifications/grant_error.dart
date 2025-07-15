@@ -47,7 +47,7 @@ abstract class GrantError with _$GrantError {
 }
 
 final class GrantErrorConverter
-    extends LexObjectConverter<GrantError, Map<String, dynamic>> {
+    extends JsonConverter<GrantError, Map<String, dynamic>> {
   const GrantErrorConverter();
 
   @override

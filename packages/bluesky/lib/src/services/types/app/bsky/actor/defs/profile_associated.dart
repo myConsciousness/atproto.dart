@@ -71,7 +71,7 @@ extension ProfileAssociatedExtension on ProfileAssociated {
 }
 
 final class ProfileAssociatedConverter
-    extends LexObjectConverter<ProfileAssociated, Map<String, dynamic>> {
+    extends JsonConverter<ProfileAssociated, Map<String, dynamic>> {
   const ProfileAssociatedConverter();
 
   @override

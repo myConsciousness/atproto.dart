@@ -34,7 +34,7 @@ abstract class SyncRequestCrawlInput with _$SyncRequestCrawlInput {
 }
 
 final class SyncRequestCrawlInputConverter
-    extends LexObjectConverter<SyncRequestCrawlInput, Map<String, dynamic>> {
+    extends JsonConverter<SyncRequestCrawlInput, Map<String, dynamic>> {
   const SyncRequestCrawlInputConverter();
 
   @override

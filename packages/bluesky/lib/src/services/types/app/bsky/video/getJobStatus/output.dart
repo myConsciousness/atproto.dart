@@ -36,7 +36,7 @@ abstract class VideoGetJobStatusOutput with _$VideoGetJobStatusOutput {
 }
 
 final class VideoGetJobStatusOutputConverter
-    extends LexObjectConverter<VideoGetJobStatusOutput, Map<String, dynamic>> {
+    extends JsonConverter<VideoGetJobStatusOutput, Map<String, dynamic>> {
   const VideoGetJobStatusOutputConverter();
 
   @override

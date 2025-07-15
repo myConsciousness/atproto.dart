@@ -41,7 +41,7 @@ abstract class EmailConfirmed with _$EmailConfirmed {
 }
 
 final class EmailConfirmedConverter
-    extends LexObjectConverter<EmailConfirmed, Map<String, dynamic>> {
+    extends JsonConverter<EmailConfirmed, Map<String, dynamic>> {
   const EmailConfirmedConverter();
 
   @override

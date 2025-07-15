@@ -33,7 +33,7 @@ abstract class ModerationGetReposInput with _$ModerationGetReposInput {
 }
 
 final class ModerationGetReposInputConverter
-    extends LexObjectConverter<ModerationGetReposInput, Map<String, dynamic>> {
+    extends JsonConverter<ModerationGetReposInput, Map<String, dynamic>> {
   const ModerationGetReposInputConverter();
 
   @override

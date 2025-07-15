@@ -39,8 +39,7 @@ abstract class TempCheckSignupQueueOutput with _$TempCheckSignupQueueOutput {
 }
 
 final class TempCheckSignupQueueOutputConverter
-    extends
-        LexObjectConverter<TempCheckSignupQueueOutput, Map<String, dynamic>> {
+    extends JsonConverter<TempCheckSignupQueueOutput, Map<String, dynamic>> {
   const TempCheckSignupQueueOutputConverter();
 
   @override

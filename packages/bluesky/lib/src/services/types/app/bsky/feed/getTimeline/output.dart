@@ -37,7 +37,7 @@ abstract class FeedGetTimelineOutput with _$FeedGetTimelineOutput {
 }
 
 final class FeedGetTimelineOutputConverter
-    extends LexObjectConverter<FeedGetTimelineOutput, Map<String, dynamic>> {
+    extends JsonConverter<FeedGetTimelineOutput, Map<String, dynamic>> {
   const FeedGetTimelineOutputConverter();
 
   @override

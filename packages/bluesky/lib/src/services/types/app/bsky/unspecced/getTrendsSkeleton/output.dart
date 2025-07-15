@@ -39,10 +39,7 @@ abstract class UnspeccedGetTrendsSkeletonOutput
 
 final class UnspeccedGetTrendsSkeletonOutputConverter
     extends
-        LexObjectConverter<
-          UnspeccedGetTrendsSkeletonOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<UnspeccedGetTrendsSkeletonOutput, Map<String, dynamic>> {
   const UnspeccedGetTrendsSkeletonOutputConverter();
 
   @override

@@ -42,7 +42,7 @@ abstract class EmbedImagesView with _$EmbedImagesView {
 }
 
 final class EmbedImagesViewConverter
-    extends LexObjectConverter<EmbedImagesView, Map<String, dynamic>> {
+    extends JsonConverter<EmbedImagesView, Map<String, dynamic>> {
   const EmbedImagesViewConverter();
 
   @override

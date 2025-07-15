@@ -35,7 +35,7 @@ abstract class SyncGetBlocksInput with _$SyncGetBlocksInput {
 }
 
 final class SyncGetBlocksInputConverter
-    extends LexObjectConverter<SyncGetBlocksInput, Map<String, dynamic>> {
+    extends JsonConverter<SyncGetBlocksInput, Map<String, dynamic>> {
   const SyncGetBlocksInputConverter();
 
   @override

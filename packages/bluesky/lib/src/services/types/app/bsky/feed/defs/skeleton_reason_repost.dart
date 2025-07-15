@@ -39,7 +39,7 @@ abstract class SkeletonReasonRepost with _$SkeletonReasonRepost {
 }
 
 final class SkeletonReasonRepostConverter
-    extends LexObjectConverter<SkeletonReasonRepost, Map<String, dynamic>> {
+    extends JsonConverter<SkeletonReasonRepost, Map<String, dynamic>> {
   const SkeletonReasonRepostConverter();
 
   @override

@@ -38,8 +38,7 @@ abstract class ServerCreateAppPasswordInput
 }
 
 final class ServerCreateAppPasswordInputConverter
-    extends
-        LexObjectConverter<ServerCreateAppPasswordInput, Map<String, dynamic>> {
+    extends JsonConverter<ServerCreateAppPasswordInput, Map<String, dynamic>> {
   const ServerCreateAppPasswordInputConverter();
 
   @override

@@ -42,7 +42,7 @@ abstract class FeedRepostRecord with _$FeedRepostRecord {
 }
 
 final class FeedRepostRecordConverter
-    extends LexObjectConverter<FeedRepostRecord, Map<String, dynamic>> {
+    extends JsonConverter<FeedRepostRecord, Map<String, dynamic>> {
   const FeedRepostRecordConverter();
 
   @override

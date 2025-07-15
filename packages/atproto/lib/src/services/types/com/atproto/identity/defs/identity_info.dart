@@ -43,7 +43,7 @@ abstract class IdentityInfo with _$IdentityInfo {
 }
 
 final class IdentityInfoConverter
-    extends LexObjectConverter<IdentityInfo, Map<String, dynamic>> {
+    extends JsonConverter<IdentityInfo, Map<String, dynamic>> {
   const IdentityInfoConverter();
 
   @override

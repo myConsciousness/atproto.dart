@@ -52,8 +52,7 @@ extension RepoExtension on Repo {
   bool get hasNotStatus => !hasStatus;
 }
 
-final class RepoConverter
-    extends LexObjectConverter<Repo, Map<String, dynamic>> {
+final class RepoConverter extends JsonConverter<Repo, Map<String, dynamic>> {
   const RepoConverter();
 
   @override

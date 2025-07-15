@@ -42,7 +42,7 @@ abstract class SelfLabel with _$SelfLabel {
 }
 
 final class SelfLabelConverter
-    extends LexObjectConverter<SelfLabel, Map<String, dynamic>> {
+    extends JsonConverter<SelfLabel, Map<String, dynamic>> {
   const SelfLabelConverter();
 
   @override

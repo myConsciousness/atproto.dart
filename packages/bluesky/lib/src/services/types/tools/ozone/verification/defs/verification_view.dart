@@ -111,7 +111,7 @@ extension VerificationViewExtension on VerificationView {
 }
 
 final class VerificationViewConverter
-    extends LexObjectConverter<VerificationView, Map<String, dynamic>> {
+    extends JsonConverter<VerificationView, Map<String, dynamic>> {
   const VerificationViewConverter();
 
   @override

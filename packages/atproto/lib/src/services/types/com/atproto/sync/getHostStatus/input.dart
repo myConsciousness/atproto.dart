@@ -34,7 +34,7 @@ abstract class SyncGetHostStatusInput with _$SyncGetHostStatusInput {
 }
 
 final class SyncGetHostStatusInputConverter
-    extends LexObjectConverter<SyncGetHostStatusInput, Map<String, dynamic>> {
+    extends JsonConverter<SyncGetHostStatusInput, Map<String, dynamic>> {
   const SyncGetHostStatusInputConverter();
 
   @override

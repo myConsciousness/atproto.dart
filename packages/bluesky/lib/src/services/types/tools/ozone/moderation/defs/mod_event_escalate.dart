@@ -44,7 +44,7 @@ extension ModEventEscalateExtension on ModEventEscalate {
 }
 
 final class ModEventEscalateConverter
-    extends LexObjectConverter<ModEventEscalate, Map<String, dynamic>> {
+    extends JsonConverter<ModEventEscalate, Map<String, dynamic>> {
   const ModEventEscalateConverter();
 
   @override

@@ -35,8 +35,7 @@ abstract class AdminGetSubjectStatusInput with _$AdminGetSubjectStatusInput {
 }
 
 final class AdminGetSubjectStatusInputConverter
-    extends
-        LexObjectConverter<AdminGetSubjectStatusInput, Map<String, dynamic>> {
+    extends JsonConverter<AdminGetSubjectStatusInput, Map<String, dynamic>> {
   const AdminGetSubjectStatusInputConverter();
 
   @override

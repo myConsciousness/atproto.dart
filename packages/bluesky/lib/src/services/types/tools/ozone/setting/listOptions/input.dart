@@ -45,7 +45,7 @@ abstract class SettingListOptionsInput with _$SettingListOptionsInput {
 }
 
 final class SettingListOptionsInputConverter
-    extends LexObjectConverter<SettingListOptionsInput, Map<String, dynamic>> {
+    extends JsonConverter<SettingListOptionsInput, Map<String, dynamic>> {
   const SettingListOptionsInputConverter();
 
   @override

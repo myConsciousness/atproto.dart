@@ -41,10 +41,7 @@ abstract class ModerationGetActorMetadataOutput
 
 final class ModerationGetActorMetadataOutputConverter
     extends
-        LexObjectConverter<
-          ModerationGetActorMetadataOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<ModerationGetActorMetadataOutput, Map<String, dynamic>> {
   const ModerationGetActorMetadataOutputConverter();
 
   @override

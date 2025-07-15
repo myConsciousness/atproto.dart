@@ -36,10 +36,7 @@ abstract class TempRequestPhoneVerificationInput
 
 final class TempRequestPhoneVerificationInputConverter
     extends
-        LexObjectConverter<
-          TempRequestPhoneVerificationInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<TempRequestPhoneVerificationInput, Map<String, dynamic>> {
   const TempRequestPhoneVerificationInputConverter();
 
   @override

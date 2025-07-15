@@ -40,7 +40,7 @@ abstract class RichtextFacetLink with _$RichtextFacetLink {
 }
 
 final class RichtextFacetLinkConverter
-    extends LexObjectConverter<RichtextFacetLink, Map<String, dynamic>> {
+    extends JsonConverter<RichtextFacetLink, Map<String, dynamic>> {
   const RichtextFacetLinkConverter();
 
   @override

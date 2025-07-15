@@ -46,7 +46,7 @@ extension NotFoundActorExtension on NotFoundActor {
 }
 
 final class NotFoundActorConverter
-    extends LexObjectConverter<NotFoundActor, Map<String, dynamic>> {
+    extends JsonConverter<NotFoundActor, Map<String, dynamic>> {
   const NotFoundActorConverter();
 
   @override

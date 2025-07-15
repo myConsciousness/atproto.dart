@@ -37,8 +37,7 @@ abstract class ModerationQueryEventsOutput with _$ModerationQueryEventsOutput {
 }
 
 final class ModerationQueryEventsOutputConverter
-    extends
-        LexObjectConverter<ModerationQueryEventsOutput, Map<String, dynamic>> {
+    extends JsonConverter<ModerationQueryEventsOutput, Map<String, dynamic>> {
   const ModerationQueryEventsOutputConverter();
 
   @override

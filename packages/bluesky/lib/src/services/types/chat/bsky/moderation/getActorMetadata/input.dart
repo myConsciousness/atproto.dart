@@ -35,10 +35,7 @@ abstract class ModerationGetActorMetadataInput
 
 final class ModerationGetActorMetadataInputConverter
     extends
-        LexObjectConverter<
-          ModerationGetActorMetadataInput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<ModerationGetActorMetadataInput, Map<String, dynamic>> {
   const ModerationGetActorMetadataInputConverter();
 
   @override

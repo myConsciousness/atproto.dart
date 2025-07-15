@@ -40,7 +40,7 @@ abstract class NotificationPutActivitySubscriptionOutput
 
 final class NotificationPutActivitySubscriptionOutputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           NotificationPutActivitySubscriptionOutput,
           Map<String, dynamic>
         > {

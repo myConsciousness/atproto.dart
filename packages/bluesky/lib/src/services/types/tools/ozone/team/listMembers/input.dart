@@ -43,7 +43,7 @@ abstract class TeamListMembersInput with _$TeamListMembersInput {
 }
 
 final class TeamListMembersInputConverter
-    extends LexObjectConverter<TeamListMembersInput, Map<String, dynamic>> {
+    extends JsonConverter<TeamListMembersInput, Map<String, dynamic>> {
   const TeamListMembersInputConverter();
 
   @override

@@ -63,7 +63,7 @@ abstract class FeedGeneratorRecord with _$FeedGeneratorRecord {
 }
 
 final class FeedGeneratorRecordConverter
-    extends LexObjectConverter<FeedGeneratorRecord, Map<String, dynamic>> {
+    extends JsonConverter<FeedGeneratorRecord, Map<String, dynamic>> {
   const FeedGeneratorRecordConverter();
 
   @override

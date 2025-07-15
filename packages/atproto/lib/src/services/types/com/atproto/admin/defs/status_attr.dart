@@ -47,7 +47,7 @@ extension StatusAttrExtension on StatusAttr {
 }
 
 final class StatusAttrConverter
-    extends LexObjectConverter<StatusAttr, Map<String, dynamic>> {
+    extends JsonConverter<StatusAttr, Map<String, dynamic>> {
   const StatusAttrConverter();
 
   @override

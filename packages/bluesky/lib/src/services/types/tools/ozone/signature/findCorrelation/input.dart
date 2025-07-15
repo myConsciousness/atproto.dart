@@ -34,11 +34,7 @@ abstract class SignatureFindCorrelationInput
 }
 
 final class SignatureFindCorrelationInputConverter
-    extends
-        LexObjectConverter<
-          SignatureFindCorrelationInput,
-          Map<String, dynamic>
-        > {
+    extends JsonConverter<SignatureFindCorrelationInput, Map<String, dynamic>> {
   const SignatureFindCorrelationInputConverter();
 
   @override

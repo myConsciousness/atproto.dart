@@ -53,7 +53,7 @@ abstract class VerificationState with _$VerificationState {
 }
 
 final class VerificationStateConverter
-    extends LexObjectConverter<VerificationState, Map<String, dynamic>> {
+    extends JsonConverter<VerificationState, Map<String, dynamic>> {
   const VerificationStateConverter();
 
   @override

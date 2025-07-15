@@ -38,7 +38,7 @@ abstract class RepoApplyWritesOutput with _$RepoApplyWritesOutput {
 }
 
 final class RepoApplyWritesOutputConverter
-    extends LexObjectConverter<RepoApplyWritesOutput, Map<String, dynamic>> {
+    extends JsonConverter<RepoApplyWritesOutput, Map<String, dynamic>> {
   const RepoApplyWritesOutputConverter();
 
   @override

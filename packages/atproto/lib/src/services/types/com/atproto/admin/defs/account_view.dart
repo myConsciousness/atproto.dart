@@ -82,7 +82,7 @@ extension AccountViewExtension on AccountView {
 }
 
 final class AccountViewConverter
-    extends LexObjectConverter<AccountView, Map<String, dynamic>> {
+    extends JsonConverter<AccountView, Map<String, dynamic>> {
   const AccountViewConverter();
 
   @override

@@ -51,7 +51,7 @@ abstract class ServerGetConfigOutput with _$ServerGetConfigOutput {
 }
 
 final class ServerGetConfigOutputConverter
-    extends LexObjectConverter<ServerGetConfigOutput, Map<String, dynamic>> {
+    extends JsonConverter<ServerGetConfigOutput, Map<String, dynamic>> {
   const ServerGetConfigOutputConverter();
 
   @override

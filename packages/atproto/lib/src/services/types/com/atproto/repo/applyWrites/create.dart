@@ -48,7 +48,7 @@ extension CreateExtension on Create {
 }
 
 final class CreateConverter
-    extends LexObjectConverter<Create, Map<String, dynamic>> {
+    extends JsonConverter<Create, Map<String, dynamic>> {
   const CreateConverter();
 
   @override

@@ -33,8 +33,7 @@ abstract class TempAddReservedHandleInput with _$TempAddReservedHandleInput {
 }
 
 final class TempAddReservedHandleInputConverter
-    extends
-        LexObjectConverter<TempAddReservedHandleInput, Map<String, dynamic>> {
+    extends JsonConverter<TempAddReservedHandleInput, Map<String, dynamic>> {
   const TempAddReservedHandleInputConverter();
 
   @override

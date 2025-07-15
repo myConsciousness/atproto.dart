@@ -61,8 +61,7 @@ extension HostExtension on Host {
   bool get hasNotStatus => !hasStatus;
 }
 
-final class HostConverter
-    extends LexObjectConverter<Host, Map<String, dynamic>> {
+final class HostConverter extends JsonConverter<Host, Map<String, dynamic>> {
   const HostConverter();
 
   @override

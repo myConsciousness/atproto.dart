@@ -72,7 +72,7 @@ abstract class Preferences with _$Preferences {
 }
 
 final class PreferencesConverter
-    extends LexObjectConverter<Preferences, Map<String, dynamic>> {
+    extends JsonConverter<Preferences, Map<String, dynamic>> {
   const PreferencesConverter();
 
   @override

@@ -36,7 +36,7 @@ abstract class VideoUploadVideoOutput with _$VideoUploadVideoOutput {
 }
 
 final class VideoUploadVideoOutputConverter
-    extends LexObjectConverter<VideoUploadVideoOutput, Map<String, dynamic>> {
+    extends JsonConverter<VideoUploadVideoOutput, Map<String, dynamic>> {
   const VideoUploadVideoOutputConverter();
 
   @override

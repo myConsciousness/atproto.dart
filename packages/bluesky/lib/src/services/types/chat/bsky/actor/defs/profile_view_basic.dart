@@ -78,7 +78,7 @@ extension ProfileViewBasicExtension on ProfileViewBasic {
 }
 
 final class ProfileViewBasicConverter
-    extends LexObjectConverter<ProfileViewBasic, Map<String, dynamic>> {
+    extends JsonConverter<ProfileViewBasic, Map<String, dynamic>> {
   const ProfileViewBasicConverter();
 
   @override

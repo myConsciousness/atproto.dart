@@ -43,7 +43,7 @@ abstract class VerificationRevokeVerificationsOutput
 
 final class VerificationRevokeVerificationsOutputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           VerificationRevokeVerificationsOutput,
           Map<String, dynamic>
         > {

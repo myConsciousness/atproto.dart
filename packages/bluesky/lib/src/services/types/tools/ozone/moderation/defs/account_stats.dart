@@ -73,7 +73,7 @@ extension AccountStatsExtension on AccountStats {
 }
 
 final class AccountStatsConverter
-    extends LexObjectConverter<AccountStats, Map<String, dynamic>> {
+    extends JsonConverter<AccountStats, Map<String, dynamic>> {
   const AccountStatsConverter();
 
   @override

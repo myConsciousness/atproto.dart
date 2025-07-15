@@ -44,7 +44,7 @@ abstract class KnownFollowers with _$KnownFollowers {
 }
 
 final class KnownFollowersConverter
-    extends LexObjectConverter<KnownFollowers, Map<String, dynamic>> {
+    extends JsonConverter<KnownFollowers, Map<String, dynamic>> {
   const KnownFollowersConverter();
 
   @override

@@ -38,7 +38,7 @@ abstract class UnspeccedGetPopularFeedGeneratorsInput
 
 final class UnspeccedGetPopularFeedGeneratorsInputConverter
     extends
-        LexObjectConverter<
+        JsonConverter<
           UnspeccedGetPopularFeedGeneratorsInput,
           Map<String, dynamic>
         > {

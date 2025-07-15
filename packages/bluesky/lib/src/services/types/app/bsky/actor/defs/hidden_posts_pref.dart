@@ -39,7 +39,7 @@ abstract class HiddenPostsPref with _$HiddenPostsPref {
 }
 
 final class HiddenPostsPrefConverter
-    extends LexObjectConverter<HiddenPostsPref, Map<String, dynamic>> {
+    extends JsonConverter<HiddenPostsPref, Map<String, dynamic>> {
   const HiddenPostsPrefConverter();
 
   @override

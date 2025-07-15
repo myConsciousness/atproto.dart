@@ -35,8 +35,7 @@ abstract class AdminDisableInviteCodesInput
 }
 
 final class AdminDisableInviteCodesInputConverter
-    extends
-        LexObjectConverter<AdminDisableInviteCodesInput, Map<String, dynamic>> {
+    extends JsonConverter<AdminDisableInviteCodesInput, Map<String, dynamic>> {
   const AdminDisableInviteCodesInputConverter();
 
   @override

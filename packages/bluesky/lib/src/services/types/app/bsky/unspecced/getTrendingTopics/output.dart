@@ -40,10 +40,7 @@ abstract class UnspeccedGetTrendingTopicsOutput
 
 final class UnspeccedGetTrendingTopicsOutputConverter
     extends
-        LexObjectConverter<
-          UnspeccedGetTrendingTopicsOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<UnspeccedGetTrendingTopicsOutput, Map<String, dynamic>> {
   const UnspeccedGetTrendingTopicsOutputConverter();
 
   @override

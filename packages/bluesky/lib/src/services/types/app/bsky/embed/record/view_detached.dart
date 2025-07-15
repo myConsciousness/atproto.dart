@@ -45,7 +45,7 @@ extension EmbedRecordViewDetachedExtension on EmbedRecordViewDetached {
 }
 
 final class EmbedRecordViewDetachedConverter
-    extends LexObjectConverter<EmbedRecordViewDetached, Map<String, dynamic>> {
+    extends JsonConverter<EmbedRecordViewDetached, Map<String, dynamic>> {
   const EmbedRecordViewDetachedConverter();
 
   @override

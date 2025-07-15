@@ -34,7 +34,7 @@ abstract class SyncGetHeadInput with _$SyncGetHeadInput {
 }
 
 final class SyncGetHeadInputConverter
-    extends LexObjectConverter<SyncGetHeadInput, Map<String, dynamic>> {
+    extends JsonConverter<SyncGetHeadInput, Map<String, dynamic>> {
   const SyncGetHeadInputConverter();
 
   @override

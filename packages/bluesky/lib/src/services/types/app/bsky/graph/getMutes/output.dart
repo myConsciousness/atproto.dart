@@ -37,7 +37,7 @@ abstract class GraphGetMutesOutput with _$GraphGetMutesOutput {
 }
 
 final class GraphGetMutesOutputConverter
-    extends LexObjectConverter<GraphGetMutesOutput, Map<String, dynamic>> {
+    extends JsonConverter<GraphGetMutesOutput, Map<String, dynamic>> {
   const GraphGetMutesOutputConverter();
 
   @override

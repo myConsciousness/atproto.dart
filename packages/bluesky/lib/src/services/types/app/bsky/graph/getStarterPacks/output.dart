@@ -37,8 +37,7 @@ abstract class GraphGetStarterPacksOutput with _$GraphGetStarterPacksOutput {
 }
 
 final class GraphGetStarterPacksOutputConverter
-    extends
-        LexObjectConverter<GraphGetStarterPacksOutput, Map<String, dynamic>> {
+    extends JsonConverter<GraphGetStarterPacksOutput, Map<String, dynamic>> {
   const GraphGetStarterPacksOutputConverter();
 
   @override

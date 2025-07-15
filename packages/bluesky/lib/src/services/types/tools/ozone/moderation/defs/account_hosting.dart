@@ -64,7 +64,7 @@ extension AccountHostingExtension on AccountHosting {
 }
 
 final class AccountHostingConverter
-    extends LexObjectConverter<AccountHosting, Map<String, dynamic>> {
+    extends JsonConverter<AccountHosting, Map<String, dynamic>> {
   const AccountHostingConverter();
 
   @override

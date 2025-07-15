@@ -50,7 +50,7 @@ abstract class ModerationEmitEventInput with _$ModerationEmitEventInput {
 }
 
 final class ModerationEmitEventInputConverter
-    extends LexObjectConverter<ModerationEmitEventInput, Map<String, dynamic>> {
+    extends JsonConverter<ModerationEmitEventInput, Map<String, dynamic>> {
   const ModerationEmitEventInputConverter();
 
   @override

@@ -39,10 +39,7 @@ abstract class ActorSearchActorsTypeaheadOutput
 
 final class ActorSearchActorsTypeaheadOutputConverter
     extends
-        LexObjectConverter<
-          ActorSearchActorsTypeaheadOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<ActorSearchActorsTypeaheadOutput, Map<String, dynamic>> {
   const ActorSearchActorsTypeaheadOutputConverter();
 
   @override

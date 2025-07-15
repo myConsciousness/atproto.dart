@@ -40,7 +40,7 @@ abstract class ImageDetails with _$ImageDetails {
 }
 
 final class ImageDetailsConverter
-    extends LexObjectConverter<ImageDetails, Map<String, dynamic>> {
+    extends JsonConverter<ImageDetails, Map<String, dynamic>> {
   const ImageDetailsConverter();
 
   @override

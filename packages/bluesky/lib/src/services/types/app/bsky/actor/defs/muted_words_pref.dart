@@ -42,7 +42,7 @@ abstract class MutedWordsPref with _$MutedWordsPref {
 }
 
 final class MutedWordsPrefConverter
-    extends LexObjectConverter<MutedWordsPref, Map<String, dynamic>> {
+    extends JsonConverter<MutedWordsPref, Map<String, dynamic>> {
   const MutedWordsPrefConverter();
 
   @override

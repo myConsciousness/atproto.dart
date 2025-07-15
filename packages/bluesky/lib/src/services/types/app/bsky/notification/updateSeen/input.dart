@@ -33,8 +33,7 @@ abstract class NotificationUpdateSeenInput with _$NotificationUpdateSeenInput {
 }
 
 final class NotificationUpdateSeenInputConverter
-    extends
-        LexObjectConverter<NotificationUpdateSeenInput, Map<String, dynamic>> {
+    extends JsonConverter<NotificationUpdateSeenInput, Map<String, dynamic>> {
   const NotificationUpdateSeenInputConverter();
 
   @override

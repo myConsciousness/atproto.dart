@@ -39,7 +39,7 @@ abstract class FollowingRule with _$FollowingRule {
 }
 
 final class FollowingRuleConverter
-    extends LexObjectConverter<FollowingRule, Map<String, dynamic>> {
+    extends JsonConverter<FollowingRule, Map<String, dynamic>> {
   const FollowingRuleConverter();
 
   @override

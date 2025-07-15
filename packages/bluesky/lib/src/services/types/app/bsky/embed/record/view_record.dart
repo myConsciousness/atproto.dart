@@ -78,7 +78,7 @@ extension EmbedRecordViewRecordExtension on EmbedRecordViewRecord {
 }
 
 final class EmbedRecordViewRecordConverter
-    extends LexObjectConverter<EmbedRecordViewRecord, Map<String, dynamic>> {
+    extends JsonConverter<EmbedRecordViewRecord, Map<String, dynamic>> {
   const EmbedRecordViewRecordConverter();
 
   @override

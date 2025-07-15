@@ -43,7 +43,7 @@ abstract class EmbedExternalView with _$EmbedExternalView {
 }
 
 final class EmbedExternalViewConverter
-    extends LexObjectConverter<EmbedExternalView, Map<String, dynamic>> {
+    extends JsonConverter<EmbedExternalView, Map<String, dynamic>> {
   const EmbedExternalViewConverter();
 
   @override

@@ -41,10 +41,7 @@ abstract class FeedDescribeFeedGeneratorOutput
 
 final class FeedDescribeFeedGeneratorOutputConverter
     extends
-        LexObjectConverter<
-          FeedDescribeFeedGeneratorOutput,
-          Map<String, dynamic>
-        > {
+        JsonConverter<FeedDescribeFeedGeneratorOutput, Map<String, dynamic>> {
   const FeedDescribeFeedGeneratorOutputConverter();
 
   @override

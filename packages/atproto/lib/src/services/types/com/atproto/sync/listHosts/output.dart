@@ -37,7 +37,7 @@ abstract class SyncListHostsOutput with _$SyncListHostsOutput {
 }
 
 final class SyncListHostsOutputConverter
-    extends LexObjectConverter<SyncListHostsOutput, Map<String, dynamic>> {
+    extends JsonConverter<SyncListHostsOutput, Map<String, dynamic>> {
   const SyncListHostsOutputConverter();
 
   @override

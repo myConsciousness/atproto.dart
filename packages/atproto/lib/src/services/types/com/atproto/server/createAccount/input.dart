@@ -59,7 +59,7 @@ abstract class ServerCreateAccountInput with _$ServerCreateAccountInput {
 }
 
 final class ServerCreateAccountInputConverter
-    extends LexObjectConverter<ServerCreateAccountInput, Map<String, dynamic>> {
+    extends JsonConverter<ServerCreateAccountInput, Map<String, dynamic>> {
   const ServerCreateAccountInputConverter();
 
   @override

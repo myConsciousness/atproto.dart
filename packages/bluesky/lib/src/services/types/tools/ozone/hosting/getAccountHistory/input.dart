@@ -37,11 +37,7 @@ abstract class HostingGetAccountHistoryInput
 }
 
 final class HostingGetAccountHistoryInputConverter
-    extends
-        LexObjectConverter<
-          HostingGetAccountHistoryInput,
-          Map<String, dynamic>
-        > {
+    extends JsonConverter<HostingGetAccountHistoryInput, Map<String, dynamic>> {
   const HostingGetAccountHistoryInputConverter();
 
   @override

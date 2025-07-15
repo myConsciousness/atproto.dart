@@ -45,7 +45,7 @@ abstract class LogCreateMessage with _$LogCreateMessage {
 }
 
 final class LogCreateMessageConverter
-    extends LexObjectConverter<LogCreateMessage, Map<String, dynamic>> {
+    extends JsonConverter<LogCreateMessage, Map<String, dynamic>> {
   const LogCreateMessageConverter();
 
   @override

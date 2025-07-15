@@ -44,7 +44,7 @@ extension ServiceConfigExtension on ServiceConfig {
 }
 
 final class ServiceConfigConverter
-    extends LexObjectConverter<ServiceConfig, Map<String, dynamic>> {
+    extends JsonConverter<ServiceConfig, Map<String, dynamic>> {
   const ServiceConfigConverter();
 
   @override

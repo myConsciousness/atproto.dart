@@ -54,7 +54,7 @@ extension NuxExtension on Nux {
   bool get hasNotExpiresAt => !hasExpiresAt;
 }
 
-final class NuxConverter extends LexObjectConverter<Nux, Map<String, dynamic>> {
+final class NuxConverter extends JsonConverter<Nux, Map<String, dynamic>> {
   const NuxConverter();
 
   @override

@@ -44,7 +44,7 @@ abstract class LogReadMessage with _$LogReadMessage {
 }
 
 final class LogReadMessageConverter
-    extends LexObjectConverter<LogReadMessage, Map<String, dynamic>> {
+    extends JsonConverter<LogReadMessage, Map<String, dynamic>> {
   const LogReadMessageConverter();
 
   @override

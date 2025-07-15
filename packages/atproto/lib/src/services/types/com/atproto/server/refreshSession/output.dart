@@ -49,8 +49,7 @@ abstract class ServerRefreshSessionOutput with _$ServerRefreshSessionOutput {
 }
 
 final class ServerRefreshSessionOutputConverter
-    extends
-        LexObjectConverter<ServerRefreshSessionOutput, Map<String, dynamic>> {
+    extends JsonConverter<ServerRefreshSessionOutput, Map<String, dynamic>> {
   const ServerRefreshSessionOutputConverter();
 
   @override

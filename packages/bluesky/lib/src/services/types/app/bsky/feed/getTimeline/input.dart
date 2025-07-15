@@ -36,7 +36,7 @@ abstract class FeedGetTimelineInput with _$FeedGetTimelineInput {
 }
 
 final class FeedGetTimelineInputConverter
-    extends LexObjectConverter<FeedGetTimelineInput, Map<String, dynamic>> {
+    extends JsonConverter<FeedGetTimelineInput, Map<String, dynamic>> {
   const FeedGetTimelineInputConverter();
 
   @override

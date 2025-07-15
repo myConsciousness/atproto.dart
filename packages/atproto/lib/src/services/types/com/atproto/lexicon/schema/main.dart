@@ -41,7 +41,7 @@ abstract class LexiconSchemaRecord with _$LexiconSchemaRecord {
 }
 
 final class LexiconSchemaRecordConverter
-    extends LexObjectConverter<LexiconSchemaRecord, Map<String, dynamic>> {
+    extends JsonConverter<LexiconSchemaRecord, Map<String, dynamic>> {
   const LexiconSchemaRecordConverter();
 
   @override

@@ -47,8 +47,7 @@ abstract class SubjectActivitySubscription with _$SubjectActivitySubscription {
 }
 
 final class SubjectActivitySubscriptionConverter
-    extends
-        LexObjectConverter<SubjectActivitySubscription, Map<String, dynamic>> {
+    extends JsonConverter<SubjectActivitySubscription, Map<String, dynamic>> {
   const SubjectActivitySubscriptionConverter();
 
   @override

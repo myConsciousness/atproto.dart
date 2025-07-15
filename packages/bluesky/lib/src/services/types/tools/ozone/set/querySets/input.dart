@@ -45,7 +45,7 @@ abstract class SetQuerySetsInput with _$SetQuerySetsInput {
 }
 
 final class SetQuerySetsInputConverter
-    extends LexObjectConverter<SetQuerySetsInput, Map<String, dynamic>> {
+    extends JsonConverter<SetQuerySetsInput, Map<String, dynamic>> {
   const SetQuerySetsInputConverter();
 
   @override

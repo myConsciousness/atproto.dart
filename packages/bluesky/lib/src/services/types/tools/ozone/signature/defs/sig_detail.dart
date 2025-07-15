@@ -40,7 +40,7 @@ abstract class SigDetail with _$SigDetail {
 }
 
 final class SigDetailConverter
-    extends LexObjectConverter<SigDetail, Map<String, dynamic>> {
+    extends JsonConverter<SigDetail, Map<String, dynamic>> {
   const SigDetailConverter();
 
   @override

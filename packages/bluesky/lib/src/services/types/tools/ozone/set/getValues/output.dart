@@ -38,7 +38,7 @@ abstract class SetGetValuesOutput with _$SetGetValuesOutput {
 }
 
 final class SetGetValuesOutputConverter
-    extends LexObjectConverter<SetGetValuesOutput, Map<String, dynamic>> {
+    extends JsonConverter<SetGetValuesOutput, Map<String, dynamic>> {
   const SetGetValuesOutputConverter();
 
   @override

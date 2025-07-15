@@ -33,7 +33,7 @@ abstract class ActorGetProfilesInput with _$ActorGetProfilesInput {
 }
 
 final class ActorGetProfilesInputConverter
-    extends LexObjectConverter<ActorGetProfilesInput, Map<String, dynamic>> {
+    extends JsonConverter<ActorGetProfilesInput, Map<String, dynamic>> {
   const ActorGetProfilesInputConverter();
 
   @override

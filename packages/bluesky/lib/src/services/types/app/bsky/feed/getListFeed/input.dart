@@ -36,7 +36,7 @@ abstract class FeedGetListFeedInput with _$FeedGetListFeedInput {
 }
 
 final class FeedGetListFeedInputConverter
-    extends LexObjectConverter<FeedGetListFeedInput, Map<String, dynamic>> {
+    extends JsonConverter<FeedGetListFeedInput, Map<String, dynamic>> {
   const FeedGetListFeedInputConverter();
 
   @override
