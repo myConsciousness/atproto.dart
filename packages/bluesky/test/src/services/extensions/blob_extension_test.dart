@@ -33,7 +33,9 @@ void main() {
 
     expect(embedImage, isA<UFeedPostEmbed>());
 
-    final image = embedImage.whenOrNull(unknown: (data) => null);
+    final image = embedImage.whenOrNull(
+      embedImages: (data) => data.images.first,
+    );
 
     expect(image?.alt, 'test');
     expect(image?.image == blob, isTrue);

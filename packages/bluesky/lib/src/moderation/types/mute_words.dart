@@ -3,6 +3,7 @@ import 'package:characters/characters.dart';
 
 // Project imports:
 import '../../services/types/app/bsky/actor/defs/muted_word.dart';
+import '../../services/types/app/bsky/actor/defs/muted_word_target.dart';
 import '../../services/types/app/bsky/richtext/facet/main.dart';
 import '../../services/types/app/bsky/richtext/facet/union_main_features.dart';
 
@@ -52,7 +53,12 @@ bool hasMutedWord({
     final postText = text.toLowerCase();
 
     if (tags.contains(mutedWord)) return true;
-    if (!mute.targets.contains('content')) continue;
+    if (!mute.targets.contains(
+      const MutedWordTarget.known(data: KnownMutedWordTarget.content),
+    )) {
+      continue;
+    }
+
     if ((mutedWord.characters.length == 1 || hasExceptionLanguage) &&
         postText.contains(mutedWord)) {
       return true;
