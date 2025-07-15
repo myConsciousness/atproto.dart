@@ -8,7 +8,7 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/atproto_core.dart' show Serializable, isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'subject_review_state.freezed.dart';
@@ -31,8 +31,18 @@ abstract class SubjectReviewState with _$SubjectReviewState {
   String toJson() => const SubjectReviewStateConverter().toJson(this);
 }
 
+extension SubjectReviewStateExtension on SubjectReviewState {
+  bool get isKnown => isA<SubjectReviewStateKnown>(this);
+  bool get isNotKnown => !isKnown;
+  KnownSubjectReviewState? get known =>
+      isKnown ? data as KnownSubjectReviewState : null;
+  bool get isUnknown => isA<SubjectReviewStateUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  String? get unknown => isUnknown ? data as String : null;
+}
+
 final class SubjectReviewStateConverter
-    extends LexKnownValuesConverter<SubjectReviewState, String> {
+    extends JsonConverter<SubjectReviewState, String> {
   const SubjectReviewStateConverter();
 
   @override

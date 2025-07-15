@@ -43,9 +43,11 @@ final class LexKnownValues extends LexType {
 
     final fileName = rule.getLexObjectFileName(defName);
 
+    final extensions = _getExtensions();
+
     return '''$kHeaderHint
 
-import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/atproto_core.dart' show Serializable, isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '$fileName.freezed.dart';
@@ -67,7 +69,11 @@ abstract class $name with _\$$name {
   String toJson() => const ${name}Converter().toJson(this);
 }
 
-final class ${name}Converter extends LexKnownValuesConverter<$name, String> {
+extension ${name}Extension on $name {
+  $extensions
+}
+
+final class ${name}Converter extends JsonConverter<$name, String> {
   const ${name}Converter();
 
   @override
@@ -114,5 +120,27 @@ enum Known$name implements Serializable{
   }
 }
 ''';
+  }
+
+  String _getExtensions() {
+    final buffer = StringBuffer();
+
+    buffer.writeln('bool get isKnown => isA<${name}Known>(this);');
+    buffer.writeln('bool get isNotKnown => !isKnown;');
+
+    buffer.writeln(
+      'Known$name? get known => '
+      'isKnown ? data as Known$name : null;',
+    );
+
+    buffer.writeln('bool get isUnknown => isA<${name}Unknown>(this);');
+    buffer.writeln('bool get isNotUnknown => !isUnknown;');
+
+    buffer.writeln(
+      'String? get unknown => '
+      'isUnknown ? data as String : null;',
+    );
+
+    return buffer.toString();
   }
 }

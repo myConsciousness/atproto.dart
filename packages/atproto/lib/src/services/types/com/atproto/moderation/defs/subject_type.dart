@@ -8,7 +8,7 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/atproto_core.dart' show Serializable, isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'subject_type.freezed.dart';
@@ -30,8 +30,16 @@ abstract class SubjectType with _$SubjectType {
   String toJson() => const SubjectTypeConverter().toJson(this);
 }
 
-final class SubjectTypeConverter
-    extends LexKnownValuesConverter<SubjectType, String> {
+extension SubjectTypeExtension on SubjectType {
+  bool get isKnown => isA<SubjectTypeKnown>(this);
+  bool get isNotKnown => !isKnown;
+  KnownSubjectType? get known => isKnown ? data as KnownSubjectType : null;
+  bool get isUnknown => isA<SubjectTypeUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  String? get unknown => isUnknown ? data as String : null;
+}
+
+final class SubjectTypeConverter extends JsonConverter<SubjectType, String> {
   const SubjectTypeConverter();
 
   @override

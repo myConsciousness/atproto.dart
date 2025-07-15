@@ -49,7 +49,7 @@ final class LexUnion extends LexType {
     final fileName = rule.getFileNameForUnion(lexiconId, defName, fieldName);
     final packagePaths = _getPackagePaths();
     final factories = _getUnionFactories();
-    final extensions = _getUnionExtensions();
+    final extensions = _getExtensions();
     final fromJson = _getFromJson();
     final toJson = _getToJson();
 
@@ -133,7 +133,7 @@ final class ${name}Converter implements JsonConverter<$name, Map<String, dynamic
     return buffer.toString();
   }
 
-  String _getUnionExtensions() {
+  String _getExtensions() {
     final buffer = StringBuffer();
 
     for (final ref in refs) {

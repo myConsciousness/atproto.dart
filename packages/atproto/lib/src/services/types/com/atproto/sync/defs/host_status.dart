@@ -8,7 +8,7 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/atproto_core.dart' show Serializable, isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'host_status.freezed.dart';
@@ -29,8 +29,16 @@ abstract class HostStatus with _$HostStatus {
   String toJson() => const HostStatusConverter().toJson(this);
 }
 
-final class HostStatusConverter
-    extends LexKnownValuesConverter<HostStatus, String> {
+extension HostStatusExtension on HostStatus {
+  bool get isKnown => isA<HostStatusKnown>(this);
+  bool get isNotKnown => !isKnown;
+  KnownHostStatus? get known => isKnown ? data as KnownHostStatus : null;
+  bool get isUnknown => isA<HostStatusUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  String? get unknown => isUnknown ? data as String : null;
+}
+
+final class HostStatusConverter extends JsonConverter<HostStatus, String> {
   const HostStatusConverter();
 
   @override

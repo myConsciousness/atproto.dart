@@ -8,7 +8,7 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/atproto_core.dart' show Serializable, isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'event_type.freezed.dart';
@@ -29,8 +29,16 @@ abstract class EventType with _$EventType {
   String toJson() => const EventTypeConverter().toJson(this);
 }
 
-final class EventTypeConverter
-    extends LexKnownValuesConverter<EventType, String> {
+extension EventTypeExtension on EventType {
+  bool get isKnown => isA<EventTypeKnown>(this);
+  bool get isNotKnown => !isKnown;
+  KnownEventType? get known => isKnown ? data as KnownEventType : null;
+  bool get isUnknown => isA<EventTypeUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  String? get unknown => isUnknown ? data as String : null;
+}
+
+final class EventTypeConverter extends JsonConverter<EventType, String> {
   const EventTypeConverter();
 
   @override

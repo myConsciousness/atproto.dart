@@ -8,7 +8,7 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/atproto_core.dart' show Serializable, isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'list_purpose.freezed.dart';
@@ -30,8 +30,16 @@ abstract class ListPurpose with _$ListPurpose {
   String toJson() => const ListPurposeConverter().toJson(this);
 }
 
-final class ListPurposeConverter
-    extends LexKnownValuesConverter<ListPurpose, String> {
+extension ListPurposeExtension on ListPurpose {
+  bool get isKnown => isA<ListPurposeKnown>(this);
+  bool get isNotKnown => !isKnown;
+  KnownListPurpose? get known => isKnown ? data as KnownListPurpose : null;
+  bool get isUnknown => isA<ListPurposeUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  String? get unknown => isUnknown ? data as String : null;
+}
+
+final class ListPurposeConverter extends JsonConverter<ListPurpose, String> {
   const ListPurposeConverter();
 
   @override
