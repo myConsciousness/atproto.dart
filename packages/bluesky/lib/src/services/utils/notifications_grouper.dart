@@ -19,9 +19,11 @@ sealed class NotificationsGrouper {
   /// Groups a list of notifications based on their `reason` and
   /// `reasonSubject`.
   ///
-  /// Takes a [Notifications] object containing an array of individual
-  /// notification items, and groups them into related sets. A set is considered
-  /// "related" if they share the same `reason` and `reasonSubject`.
+  /// Takes a [NotificationListNotificationsOutput] object containing an array
+  /// of individual notification items, and groups them into related sets.
+  ///
+  /// A set is considered "related" if they share the same `reason`
+  /// and `reasonSubject`.
   ///
   /// ## Notes
   /// - Notifications with the same `reason` and `reasonSubject` are
