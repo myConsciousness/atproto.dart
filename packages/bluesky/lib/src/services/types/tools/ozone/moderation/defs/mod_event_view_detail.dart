@@ -60,6 +60,11 @@ abstract class ModEventViewDetail with _$ModEventViewDetail {
   }
 }
 
+extension ModEventViewDetailExtension on ModEventViewDetail {
+  bool get hasModTool => modTool != null;
+  bool get hasNotModTool => !hasModTool;
+}
+
 final class ModEventViewDetailConverter
     extends LexObjectConverter<ModEventViewDetail, Map<String, dynamic>> {
   const ModEventViewDetailConverter();

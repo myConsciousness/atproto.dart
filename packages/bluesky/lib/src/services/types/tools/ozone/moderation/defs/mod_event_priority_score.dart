@@ -41,6 +41,11 @@ abstract class ModEventPriorityScore with _$ModEventPriorityScore {
   }
 }
 
+extension ModEventPriorityScoreExtension on ModEventPriorityScore {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+}
+
 final class ModEventPriorityScoreConverter
     extends LexObjectConverter<ModEventPriorityScore, Map<String, dynamic>> {
   const ModEventPriorityScoreConverter();

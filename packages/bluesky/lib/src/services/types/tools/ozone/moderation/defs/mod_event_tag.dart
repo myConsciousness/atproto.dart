@@ -43,6 +43,11 @@ abstract class ModEventTag with _$ModEventTag {
   }
 }
 
+extension ModEventTagExtension on ModEventTag {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+}
+
 final class ModEventTagConverter
     extends LexObjectConverter<ModEventTag, Map<String, dynamic>> {
   const ModEventTagConverter();

@@ -9,6 +9,7 @@
 
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -43,6 +44,11 @@ abstract class EmbedImagesImage with _$EmbedImagesImage {
     if (!object.containsKey('\$type')) return false;
     return object['\$type'] == 'app.bsky.embed.images#image';
   }
+}
+
+extension EmbedImagesImageExtension on EmbedImagesImage {
+  bool get hasAspectRatio => aspectRatio != null;
+  bool get hasNotAspectRatio => !hasAspectRatio;
 }
 
 final class EmbedImagesImageConverter

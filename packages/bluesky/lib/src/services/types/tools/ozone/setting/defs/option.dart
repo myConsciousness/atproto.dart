@@ -57,6 +57,17 @@ abstract class Option with _$Option {
   }
 }
 
+extension OptionExtension on Option {
+  bool get hasDescription => description != null;
+  bool get hasNotDescription => !hasDescription;
+  bool get hasCreatedAt => createdAt != null;
+  bool get hasNotCreatedAt => !hasCreatedAt;
+  bool get hasUpdatedAt => updatedAt != null;
+  bool get hasNotUpdatedAt => !hasUpdatedAt;
+  bool get hasManagerRole => managerRole != null;
+  bool get hasNotManagerRole => !hasManagerRole;
+}
+
 final class OptionConverter
     extends LexObjectConverter<Option, Map<String, dynamic>> {
   const OptionConverter();

@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ModerationSubjectFeedGenerator {
 
- FeedGeneratorView get data;
+ GeneratorView get data;
 /// Create a copy of ModerationSubjectFeedGenerator
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,12 +25,12 @@ $ModerationSubjectFeedGeneratorCopyWith<ModerationSubjectFeedGenerator> get copy
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationSubjectFeedGenerator&&const DeepCollectionEquality().equals(other.data, data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationSubjectFeedGenerator&&(identical(other.data, data) || other.data == data));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
@@ -45,11 +45,11 @@ abstract mixin class $ModerationSubjectFeedGeneratorCopyWith<$Res>  {
   factory $ModerationSubjectFeedGeneratorCopyWith(ModerationSubjectFeedGenerator value, $Res Function(ModerationSubjectFeedGenerator) _then) = _$ModerationSubjectFeedGeneratorCopyWithImpl;
 @useResult
 $Res call({
- FeedGeneratorView data
+ GeneratorView data
 });
 
 
-
+$GeneratorViewCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -62,13 +62,22 @@ class _$ModerationSubjectFeedGeneratorCopyWithImpl<$Res>
 
 /// Create a copy of ModerationSubjectFeedGenerator
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? data = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? data = null,}) {
   return _then(_self.copyWith(
-data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
-as FeedGeneratorView,
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as GeneratorView,
   ));
 }
-
+/// Create a copy of ModerationSubjectFeedGenerator
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$GeneratorViewCopyWith<$Res> get data {
+  
+  return $GeneratorViewCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 
@@ -150,7 +159,7 @@ return generatorView(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( FeedGeneratorView data)?  generatorView,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( GeneratorView data)?  generatorView,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case UModerationSubjectFeedGenerator() when generatorView != null:
 return generatorView(_that.data);case _:
@@ -171,7 +180,7 @@ return generatorView(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( FeedGeneratorView data)  generatorView,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( GeneratorView data)  generatorView,}) {final _that = this;
 switch (_that) {
 case UModerationSubjectFeedGenerator():
 return generatorView(_that.data);case _:
@@ -191,7 +200,7 @@ return generatorView(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( FeedGeneratorView data)?  generatorView,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( GeneratorView data)?  generatorView,}) {final _that = this;
 switch (_that) {
 case UModerationSubjectFeedGenerator() when generatorView != null:
 return generatorView(_that.data);case _:
@@ -209,7 +218,7 @@ class UModerationSubjectFeedGenerator implements ModerationSubjectFeedGenerator 
   const UModerationSubjectFeedGenerator({required this.data});
   
 
-@override final  FeedGeneratorView data;
+@override final  GeneratorView data;
 
 /// Create a copy of ModerationSubjectFeedGenerator
 /// with the given fields replaced by the non-null parameter values.
@@ -221,12 +230,12 @@ $UModerationSubjectFeedGeneratorCopyWith<UModerationSubjectFeedGenerator> get co
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectFeedGenerator&&const DeepCollectionEquality().equals(other.data, data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectFeedGenerator&&(identical(other.data, data) || other.data == data));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
@@ -241,11 +250,11 @@ abstract mixin class $UModerationSubjectFeedGeneratorCopyWith<$Res> implements $
   factory $UModerationSubjectFeedGeneratorCopyWith(UModerationSubjectFeedGenerator value, $Res Function(UModerationSubjectFeedGenerator) _then) = _$UModerationSubjectFeedGeneratorCopyWithImpl;
 @override @useResult
 $Res call({
- FeedGeneratorView data
+ GeneratorView data
 });
 
 
-
+@override $GeneratorViewCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -258,14 +267,23 @@ class _$UModerationSubjectFeedGeneratorCopyWithImpl<$Res>
 
 /// Create a copy of ModerationSubjectFeedGenerator
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
   return _then(UModerationSubjectFeedGenerator(
-data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
-as FeedGeneratorView,
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as GeneratorView,
   ));
 }
 
-
+/// Create a copy of ModerationSubjectFeedGenerator
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$GeneratorViewCopyWith<$Res> get data {
+  
+  return $GeneratorViewCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 // dart format on

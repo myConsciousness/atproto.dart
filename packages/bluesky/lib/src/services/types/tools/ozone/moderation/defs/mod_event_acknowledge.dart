@@ -42,6 +42,13 @@ abstract class ModEventAcknowledge with _$ModEventAcknowledge {
   }
 }
 
+extension ModEventAcknowledgeExtension on ModEventAcknowledge {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+  bool get isAcknowledgeAccountSubjects => acknowledgeAccountSubjects ?? false;
+  bool get isNotAcknowledgeAccountSubjects => !isAcknowledgeAccountSubjects;
+}
+
 final class ModEventAcknowledgeConverter
     extends LexObjectConverter<ModEventAcknowledge, Map<String, dynamic>> {
   const ModEventAcknowledgeConverter();

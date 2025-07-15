@@ -69,6 +69,17 @@ abstract class ListView with _$ListView {
   }
 }
 
+extension ListViewExtension on ListView {
+  bool get hasDescription => description != null;
+  bool get hasNotDescription => !hasDescription;
+  bool get hasAvatar => avatar != null;
+  bool get hasNotAvatar => !hasAvatar;
+  bool get hasListItemCount => listItemCount != null;
+  bool get hasNotListItemCount => !hasListItemCount;
+  bool get hasViewer => viewer != null;
+  bool get hasNotViewer => !hasViewer;
+}
+
 final class ListViewConverter
     extends LexObjectConverter<ListView, Map<String, dynamic>> {
   const ListViewConverter();

@@ -9,6 +9,7 @@
 
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -48,6 +49,13 @@ abstract class EmbedVideo with _$EmbedVideo {
     return object['\$type'] == 'app.bsky.embed.video' ||
         object['\$type'] == 'app.bsky.embed.video#main';
   }
+}
+
+extension EmbedVideoExtension on EmbedVideo {
+  bool get hasAlt => alt != null;
+  bool get hasNotAlt => !hasAlt;
+  bool get hasAspectRatio => aspectRatio != null;
+  bool get hasNotAspectRatio => !hasAspectRatio;
 }
 
 final class EmbedVideoConverter

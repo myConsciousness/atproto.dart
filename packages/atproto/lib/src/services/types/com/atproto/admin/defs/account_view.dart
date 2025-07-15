@@ -66,6 +66,21 @@ abstract class AccountView with _$AccountView {
   }
 }
 
+extension AccountViewExtension on AccountView {
+  bool get hasEmail => email != null;
+  bool get hasNotEmail => !hasEmail;
+  bool get hasInvitedBy => invitedBy != null;
+  bool get hasNotInvitedBy => !hasInvitedBy;
+  bool get isInvitesDisabled => invitesDisabled ?? false;
+  bool get isNotInvitesDisabled => !isInvitesDisabled;
+  bool get hasEmailConfirmedAt => emailConfirmedAt != null;
+  bool get hasNotEmailConfirmedAt => !hasEmailConfirmedAt;
+  bool get hasInviteNote => inviteNote != null;
+  bool get hasNotInviteNote => !hasInviteNote;
+  bool get hasDeactivatedAt => deactivatedAt != null;
+  bool get hasNotDeactivatedAt => !hasDeactivatedAt;
+}
+
 final class AccountViewConverter
     extends LexObjectConverter<AccountView, Map<String, dynamic>> {
   const AccountViewConverter();

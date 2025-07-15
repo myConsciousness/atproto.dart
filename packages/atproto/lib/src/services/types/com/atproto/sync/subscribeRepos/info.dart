@@ -38,6 +38,11 @@ abstract class Info with _$Info {
   }
 }
 
+extension InfoExtension on Info {
+  bool get hasMessage => message != null;
+  bool get hasNotMessage => !hasMessage;
+}
+
 final class InfoConverter
     extends LexObjectConverter<Info, Map<String, dynamic>> {
   const InfoConverter();

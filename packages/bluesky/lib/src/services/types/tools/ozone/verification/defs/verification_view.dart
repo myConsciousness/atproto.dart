@@ -93,6 +93,23 @@ abstract class VerificationView with _$VerificationView {
   }
 }
 
+extension VerificationViewExtension on VerificationView {
+  bool get hasRevokeReason => revokeReason != null;
+  bool get hasNotRevokeReason => !hasRevokeReason;
+  bool get hasRevokedAt => revokedAt != null;
+  bool get hasNotRevokedAt => !hasRevokedAt;
+  bool get hasRevokedBy => revokedBy != null;
+  bool get hasNotRevokedBy => !hasRevokedBy;
+  bool get hasSubjectProfile => subjectProfile != null;
+  bool get hasNotSubjectProfile => !hasSubjectProfile;
+  bool get hasIssuerProfile => issuerProfile != null;
+  bool get hasNotIssuerProfile => !hasIssuerProfile;
+  bool get hasSubjectRepo => subjectRepo != null;
+  bool get hasNotSubjectRepo => !hasSubjectRepo;
+  bool get hasIssuerRepo => issuerRepo != null;
+  bool get hasNotIssuerRepo => !hasIssuerRepo;
+}
+
 final class VerificationViewConverter
     extends LexObjectConverter<VerificationView, Map<String, dynamic>> {
   const VerificationViewConverter();

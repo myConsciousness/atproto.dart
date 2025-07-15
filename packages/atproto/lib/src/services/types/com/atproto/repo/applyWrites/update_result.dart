@@ -40,6 +40,11 @@ abstract class UpdateResult with _$UpdateResult {
   }
 }
 
+extension UpdateResultExtension on UpdateResult {
+  bool get hasValidationStatus => validationStatus != null;
+  bool get hasNotValidationStatus => !hasValidationStatus;
+}
+
 final class UpdateResultConverter
     extends LexObjectConverter<UpdateResult, Map<String, dynamic>> {
   const UpdateResultConverter();

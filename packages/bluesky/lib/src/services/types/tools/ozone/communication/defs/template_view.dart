@@ -66,6 +66,15 @@ abstract class TemplateView with _$TemplateView {
   }
 }
 
+extension TemplateViewExtension on TemplateView {
+  bool get hasSubject => subject != null;
+  bool get hasNotSubject => !hasSubject;
+  bool get isDisabled => disabled;
+  bool get isNotDisabled => !isDisabled;
+  bool get hasLang => lang != null;
+  bool get hasNotLang => !hasLang;
+}
+
 final class TemplateViewConverter
     extends LexObjectConverter<TemplateView, Map<String, dynamic>> {
   const TemplateViewConverter();

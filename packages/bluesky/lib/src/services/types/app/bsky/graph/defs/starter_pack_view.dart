@@ -67,6 +67,15 @@ abstract class StarterPackView with _$StarterPackView {
   }
 }
 
+extension StarterPackViewExtension on StarterPackView {
+  bool get hasList => list != null;
+  bool get hasNotList => !hasList;
+  bool get hasJoinedWeekCount => joinedWeekCount != null;
+  bool get hasNotJoinedWeekCount => !hasJoinedWeekCount;
+  bool get hasJoinedAllTimeCount => joinedAllTimeCount != null;
+  bool get hasNotJoinedAllTimeCount => !hasJoinedAllTimeCount;
+}
+
 final class StarterPackViewConverter
     extends LexObjectConverter<StarterPackView, Map<String, dynamic>> {
   const StarterPackViewConverter();

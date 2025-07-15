@@ -1,12 +1,16 @@
 import 'dart:io';
 
-import 'package:atproto/atproto.dart';
+import 'package:bluesky/atproto.dart';
+import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/bluesky_chat.dart';
+
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/atproto_oauth.dart';
 
-import 'package:bluesky/bluesky.dart';
-import 'package:bluesky/bluesky_chat.dart';
+import 'package:bluesky/app_bsky_embed_video.dart';
+import 'package:bluesky/app_bsky_feed_post.dart';
 import 'package:bluesky/chat_bsky_convo_defs.dart';
+
 import 'package:bluesky/moderation.dart';
 
 /// https://atprotodart.com/docs/packages/bluesky
@@ -84,12 +88,22 @@ Future<void> main() async {
     );
 
     //! Let's post cool stuff!
-    final createdRecord = await bsky.feed.post(text: 'Hello, Bluesky!');
+    final createdRecord = await bsky.feed.post(
+      text: 'Hello, Bluesky!',
+      embed: UFeedPostEmbed.embedVideo(
+        data: EmbedVideo(video: uploadedVideo.data.blob!),
+      ),
+    );
 
     print(createdRecord);
 
     //! And delete it.
-    await bsky.atproto.repo.deleteRecord(uri: createdRecord.data.uri);
+    final createdRecordUri = AtUri(createdRecord.data.uri);
+    await bsky.atproto.repo.deleteRecord(
+      repo: createdRecordUri.hostname,
+      collection: createdRecordUri.collection.toString(),
+      rkey: createdRecordUri.rkey,
+    );
 
     //! You can use Stream API easily.
     final subscription = await bsky.atproto.sync.subscribeRepos();

@@ -49,6 +49,17 @@ abstract class IdentityEvent with _$IdentityEvent {
   }
 }
 
+extension IdentityEventExtension on IdentityEvent {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+  bool get hasHandle => handle != null;
+  bool get hasNotHandle => !hasHandle;
+  bool get hasPdsHost => pdsHost != null;
+  bool get hasNotPdsHost => !hasPdsHost;
+  bool get isTombstone => tombstone ?? false;
+  bool get isNotTombstone => !isTombstone;
+}
+
 final class IdentityEventConverter
     extends LexObjectConverter<IdentityEvent, Map<String, dynamic>> {
   const IdentityEventConverter();

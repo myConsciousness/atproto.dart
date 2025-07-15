@@ -38,6 +38,11 @@ abstract class Set with _$Set {
   }
 }
 
+extension SetExtension on Set {
+  bool get hasDescription => description != null;
+  bool get hasNotDescription => !hasDescription;
+}
+
 final class SetConverter extends LexObjectConverter<Set, Map<String, dynamic>> {
   const SetConverter();
 

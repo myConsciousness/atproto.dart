@@ -2,14 +2,13 @@
 import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
-import '../services/constants/content_label_visibility.dart';
-import '../services/entities/content_label_preference.dart';
-import '../services/entities/labeler_service_view.dart';
-import '../services/entities/labeler_view_detailed.dart';
-import '../services/entities/muted_word.dart';
-import '../services/entities/preference.dart';
-import '../services/entities/preferences.dart';
-import '../services/labeler_service.dart';
+import '../services/types/app/bsky/actor/defs/content_label_pref.dart';
+import '../services/types/app/bsky/actor/defs/muted_word.dart';
+import '../services/types/app/bsky/actor/defs/union_preferences.dart';
+import '../services/types/app/bsky/actor/getPreferences/output.dart';
+import '../services/types/app/bsky/labeler/defs/labeler_view_detailed.dart';
+import '../services/types/app/bsky/labeler/getServices/union_main_views.dart';
+import '../services/types/app/bsky/labeler_service.dart';
 import 'types/behaviors/moderation_prefs.dart';
 import 'types/behaviors/moderation_prefs_labeler.dart';
 import 'types/const/labels.dart';
@@ -120,7 +119,7 @@ List<InterpretedLabelValueDefinition> getInterpretedLabelValueDefinitions(
                   LabelPreference.warn,
               severity: e.severity,
               blurs: e.blurs,
-              adultOnly: e.adultOnly,
+              adultOnly: e.adultOnly ?? true,
               definedBy: labelerView.creator.did,
             ),
           )
@@ -139,54 +138,48 @@ extension LabelerServiceExtension on LabelerService {
     final labelers = await getServices(
       dids: dids,
       detailed: true,
-      headers: getLabelerHeaders(prefs),
+      $headers: getLabelerHeaders(prefs),
     );
 
     final labelDefs = <String, List<InterpretedLabelValueDefinition>>{};
     for (final labeler in labelers.data.views) {
-      if (labeler is! ULabelerServiceViewLabelerViewDetailed) continue;
+      if (labeler.isNotLabelerViewDetailed) continue;
+      final labelerViewDetailed = labeler.labelerViewDetailed!;
 
-      labelDefs[labeler.data.creator.did] = getInterpretedLabelValueDefinitions(
-        labeler.data,
-      );
+      labelDefs[labelerViewDetailed.creator.did] =
+          getInterpretedLabelValueDefinitions(labelerViewDetailed);
     }
 
     return labelDefs;
   }
 }
 
-extension PreferencesExtension on Preferences {
+extension PreferencesExtension on ActorGetPreferencesOutput {
   ModerationPrefs getModerationPrefs({
     List<String> appLabelers = const [_kBskyLabelerDid],
   }) {
     bool adultContentEnabled = false;
     final labels = <String, LabelPreference>{};
     final mutedWords = <MutedWord>[];
-    final hiddenPosts = <AtUri>[];
+    final hiddenPosts = <String>[];
 
     final labelers = <Map<String, dynamic>>[];
-    final labelPrefs = <ContentLabelPreference>[];
+    final labelPrefs = <ContentLabelPref>[];
     for (final preference in preferences) {
-      switch (preference) {
-        case UPreferenceAdultContent():
-          adultContentEnabled = preference.data.isEnabled;
-          break;
-        case UPreferenceLabelersPref():
-          labelers.addAll(
-            preference.data.labelers.map(
-              (e) => {'did': e.did, 'labels': <String, LabelPreference>{}},
-            ),
-          );
-          break;
-        case UPreferenceMutedWords():
-          mutedWords.addAll(preference.data.items);
-          break;
-        case UPreferenceHiddenPosts():
-          hiddenPosts.addAll(preference.data.items);
-          break;
-        case UPreferenceContentLabel():
-          labelPrefs.add(preference.data);
-          break;
+      if (preference.isAdultContentPref) {
+        adultContentEnabled = preference.adultContentPref!.enabled;
+      } else if (preference.isLabelersPref) {
+        labelers.addAll(
+          preference.labelersPref!.labelers.map(
+            (e) => {'did': e.did, 'labels': <String, LabelPreference>{}},
+          ),
+        );
+      } else if (preference.isMutedWordsPref) {
+        mutedWords.addAll(preference.mutedWordsPref!.items);
+      } else if (preference.isHiddenPostsPref) {
+        hiddenPosts.addAll(preference.hiddenPostsPref!.items);
+      } else if (preference.isContentLabelPref) {
+        labelPrefs.add(preference.contentLabelPref!);
       }
     }
 
@@ -225,18 +218,16 @@ extension PreferencesExtension on Preferences {
               )
               .toList(),
       mutedWords: mutedWords,
-      hiddenPosts: hiddenPosts,
+      hiddenPosts: hiddenPosts.map((e) => AtUri.parse(e)).toList(),
     );
   }
 
-  LabelPreference _getModerationLabelPreference(
-    final ContentLabelVisibility visibility,
-  ) {
-    if (visibility == ContentLabelVisibility.show) {
+  LabelPreference _getModerationLabelPreference(final String visibility) {
+    if (visibility == 'show') {
       return LabelPreference.ignore;
     }
 
-    final preference = LabelPreference.valueOf(visibility.name);
+    final preference = LabelPreference.valueOf(visibility);
 
     return preference ?? LabelPreference.warn;
   }

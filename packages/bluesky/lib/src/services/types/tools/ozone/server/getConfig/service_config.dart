@@ -38,6 +38,11 @@ abstract class ServiceConfig with _$ServiceConfig {
   }
 }
 
+extension ServiceConfigExtension on ServiceConfig {
+  bool get hasUrl => url != null;
+  bool get hasNotUrl => !hasUrl;
+}
+
 final class ServiceConfigConverter
     extends LexObjectConverter<ServiceConfig, Map<String, dynamic>> {
   const ServiceConfigConverter();

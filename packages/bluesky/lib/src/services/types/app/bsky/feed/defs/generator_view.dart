@@ -72,6 +72,21 @@ abstract class GeneratorView with _$GeneratorView {
   }
 }
 
+extension GeneratorViewExtension on GeneratorView {
+  bool get hasDescription => description != null;
+  bool get hasNotDescription => !hasDescription;
+  bool get hasAvatar => avatar != null;
+  bool get hasNotAvatar => !hasAvatar;
+  bool get hasLikeCount => likeCount != null;
+  bool get hasNotLikeCount => !hasLikeCount;
+  bool get isAcceptsInteractions => acceptsInteractions ?? false;
+  bool get isNotAcceptsInteractions => !isAcceptsInteractions;
+  bool get hasViewer => viewer != null;
+  bool get hasNotViewer => !hasViewer;
+  bool get hasContentMode => contentMode != null;
+  bool get hasNotContentMode => !hasContentMode;
+}
+
 final class GeneratorViewConverter
     extends LexObjectConverter<GeneratorView, Map<String, dynamic>> {
   const GeneratorViewConverter();

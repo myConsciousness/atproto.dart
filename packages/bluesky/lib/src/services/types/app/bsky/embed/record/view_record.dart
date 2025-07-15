@@ -66,6 +66,17 @@ abstract class EmbedRecordViewRecord with _$EmbedRecordViewRecord {
   }
 }
 
+extension EmbedRecordViewRecordExtension on EmbedRecordViewRecord {
+  bool get hasReplyCount => replyCount != null;
+  bool get hasNotReplyCount => !hasReplyCount;
+  bool get hasRepostCount => repostCount != null;
+  bool get hasNotRepostCount => !hasRepostCount;
+  bool get hasLikeCount => likeCount != null;
+  bool get hasNotLikeCount => !hasLikeCount;
+  bool get hasQuoteCount => quoteCount != null;
+  bool get hasNotQuoteCount => !hasQuoteCount;
+}
+
 final class EmbedRecordViewRecordConverter
     extends LexObjectConverter<EmbedRecordViewRecord, Map<String, dynamic>> {
   const EmbedRecordViewRecordConverter();

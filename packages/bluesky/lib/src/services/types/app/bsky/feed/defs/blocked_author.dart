@@ -42,6 +42,11 @@ abstract class BlockedAuthor with _$BlockedAuthor {
   }
 }
 
+extension BlockedAuthorExtension on BlockedAuthor {
+  bool get hasViewer => viewer != null;
+  bool get hasNotViewer => !hasViewer;
+}
+
 final class BlockedAuthorConverter
     extends LexObjectConverter<BlockedAuthor, Map<String, dynamic>> {
   const BlockedAuthorConverter();

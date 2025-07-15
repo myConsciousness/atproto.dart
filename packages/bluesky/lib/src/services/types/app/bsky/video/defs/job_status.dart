@@ -9,6 +9,7 @@
 
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'job_status.freezed.dart';
@@ -54,6 +55,17 @@ abstract class JobStatus with _$JobStatus {
     if (!object.containsKey('\$type')) return false;
     return object['\$type'] == 'app.bsky.video.defs#jobStatus';
   }
+}
+
+extension JobStatusExtension on JobStatus {
+  bool get hasProgress => progress != null;
+  bool get hasNotProgress => !hasProgress;
+  bool get hasBlob => blob != null;
+  bool get hasNotBlob => !hasBlob;
+  bool get hasError => error != null;
+  bool get hasNotError => !hasError;
+  bool get hasMessage => message != null;
+  bool get hasNotMessage => !hasMessage;
 }
 
 final class JobStatusConverter

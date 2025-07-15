@@ -49,6 +49,11 @@ abstract class BskyAppStatePref with _$BskyAppStatePref {
   }
 }
 
+extension BskyAppStatePrefExtension on BskyAppStatePref {
+  bool get hasActiveProgressGuide => activeProgressGuide != null;
+  bool get hasNotActiveProgressGuide => !hasActiveProgressGuide;
+}
+
 final class BskyAppStatePrefConverter
     extends LexObjectConverter<BskyAppStatePref, Map<String, dynamic>> {
   const BskyAppStatePrefConverter();

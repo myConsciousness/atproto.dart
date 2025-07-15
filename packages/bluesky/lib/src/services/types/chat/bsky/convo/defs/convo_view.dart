@@ -59,6 +59,17 @@ abstract class ConvoView with _$ConvoView {
   }
 }
 
+extension ConvoViewExtension on ConvoView {
+  bool get hasLastMessage => lastMessage != null;
+  bool get hasNotLastMessage => !hasLastMessage;
+  bool get hasLastReaction => lastReaction != null;
+  bool get hasNotLastReaction => !hasLastReaction;
+  bool get isMuted => muted;
+  bool get isNotMuted => !isMuted;
+  bool get hasStatus => status != null;
+  bool get hasNotStatus => !hasStatus;
+}
+
 final class ConvoViewConverter
     extends LexObjectConverter<ConvoView, Map<String, dynamic>> {
   const ConvoViewConverter();

@@ -70,6 +70,11 @@ abstract class UrlRule with _$UrlRule {
   }
 }
 
+extension UrlRuleExtension on UrlRule {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+}
+
 final class UrlRuleConverter
     extends LexObjectConverter<UrlRule, Map<String, dynamic>> {
   const UrlRuleConverter();

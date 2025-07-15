@@ -38,6 +38,13 @@ abstract class Links with _$Links {
   }
 }
 
+extension LinksExtension on Links {
+  bool get hasPrivacyPolicy => privacyPolicy != null;
+  bool get hasNotPrivacyPolicy => !hasPrivacyPolicy;
+  bool get hasTermsOfService => termsOfService != null;
+  bool get hasNotTermsOfService => !hasTermsOfService;
+}
+
 final class LinksConverter
     extends LexObjectConverter<Links, Map<String, dynamic>> {
   const LinksConverter();

@@ -48,6 +48,13 @@ abstract class ModEventReport with _$ModEventReport {
   }
 }
 
+extension ModEventReportExtension on ModEventReport {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+  bool get isIsReporterMuted => isReporterMuted ?? false;
+  bool get isNotIsReporterMuted => !isIsReporterMuted;
+}
+
 final class ModEventReportConverter
     extends LexObjectConverter<ModEventReport, Map<String, dynamic>> {
   const ModEventReportConverter();

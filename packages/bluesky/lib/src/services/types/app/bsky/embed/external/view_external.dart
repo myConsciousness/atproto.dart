@@ -41,6 +41,11 @@ abstract class EmbedExternalViewExternal with _$EmbedExternalViewExternal {
   }
 }
 
+extension EmbedExternalViewExternalExtension on EmbedExternalViewExternal {
+  bool get hasThumb => thumb != null;
+  bool get hasNotThumb => !hasThumb;
+}
+
 final class EmbedExternalViewExternalConverter
     extends
         LexObjectConverter<EmbedExternalViewExternal, Map<String, dynamic>> {

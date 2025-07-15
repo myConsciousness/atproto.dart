@@ -1,8 +1,8 @@
 // Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_label_defs.dart' hide KnownLabelValue;
 
 // Project imports:
-import '../../bluesky.dart';
+import '../services/types/app/bsky/graph/defs/list_view_basic.dart';
 import 'types/behaviors/moderation_cause.dart';
 import 'types/behaviors/moderation_cause_block_other.dart';
 import 'types/behaviors/moderation_cause_blocked_by.dart';
@@ -127,14 +127,14 @@ final class ModerationDecision {
     required ModerationOpts opts,
   }) {
     InterpretedLabelValueDefinition? labelDef;
-    if (customLabelValueRegex.hasMatch(label.value)) {
+    if (customLabelValueRegex.hasMatch(label.val)) {
       labelDef =
           opts.labelDefs[label.src]
-              ?.where((e) => e.identifier == label.value)
+              ?.where((e) => e.identifier == label.val)
               .firstOrNull ??
-          kLabels[KnownLabelValue.valueOf(label.value)];
+          kLabels[KnownLabelValue.valueOf(label.val)];
     } else {
-      labelDef = kLabels[KnownLabelValue.valueOf(label.value)];
+      labelDef = kLabels[KnownLabelValue.valueOf(label.val)];
     }
 
     if (labelDef == null) {

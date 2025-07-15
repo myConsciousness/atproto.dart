@@ -40,6 +40,11 @@ abstract class PersonalDetailsPref with _$PersonalDetailsPref {
   }
 }
 
+extension PersonalDetailsPrefExtension on PersonalDetailsPref {
+  bool get hasBirthDate => birthDate != null;
+  bool get hasNotBirthDate => !hasBirthDate;
+}
+
 final class PersonalDetailsPrefConverter
     extends LexObjectConverter<PersonalDetailsPref, Map<String, dynamic>> {
   const PersonalDetailsPrefConverter();

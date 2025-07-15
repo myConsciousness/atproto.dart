@@ -47,6 +47,11 @@ abstract class ReplyRef with _$ReplyRef {
   }
 }
 
+extension ReplyRefExtension on ReplyRef {
+  bool get hasGrandparentAuthor => grandparentAuthor != null;
+  bool get hasNotGrandparentAuthor => !hasGrandparentAuthor;
+}
+
 final class ReplyRefConverter
     extends LexObjectConverter<ReplyRef, Map<String, dynamic>> {
   const ReplyRefConverter();

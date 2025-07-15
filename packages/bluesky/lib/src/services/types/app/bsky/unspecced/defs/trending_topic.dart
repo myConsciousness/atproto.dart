@@ -46,6 +46,13 @@ abstract class TrendingTopic with _$TrendingTopic {
   }
 }
 
+extension TrendingTopicExtension on TrendingTopic {
+  bool get hasDisplayName => displayName != null;
+  bool get hasNotDisplayName => !hasDisplayName;
+  bool get hasDescription => description != null;
+  bool get hasNotDescription => !hasDescription;
+}
+
 final class TrendingTopicConverter
     extends LexObjectConverter<TrendingTopic, Map<String, dynamic>> {
   const TrendingTopicConverter();

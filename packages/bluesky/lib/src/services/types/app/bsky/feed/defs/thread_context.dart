@@ -39,6 +39,11 @@ abstract class ThreadContext with _$ThreadContext {
   }
 }
 
+extension ThreadContextExtension on ThreadContext {
+  bool get hasRootAuthorLike => rootAuthorLike != null;
+  bool get hasNotRootAuthorLike => !hasRootAuthorLike;
+}
+
 final class ThreadContextConverter
     extends LexObjectConverter<ThreadContext, Map<String, dynamic>> {
   const ThreadContextConverter();

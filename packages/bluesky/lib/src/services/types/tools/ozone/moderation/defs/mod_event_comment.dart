@@ -42,6 +42,13 @@ abstract class ModEventComment with _$ModEventComment {
   }
 }
 
+extension ModEventCommentExtension on ModEventComment {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+  bool get isSticky => sticky ?? false;
+  bool get isNotSticky => !isSticky;
+}
+
 final class ModEventCommentConverter
     extends LexObjectConverter<ModEventComment, Map<String, dynamic>> {
   const ModEventCommentConverter();

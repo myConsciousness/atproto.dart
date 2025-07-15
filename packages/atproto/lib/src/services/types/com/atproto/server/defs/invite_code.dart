@@ -55,6 +55,11 @@ abstract class InviteCode with _$InviteCode {
   }
 }
 
+extension InviteCodeExtension on InviteCode {
+  bool get isDisabled => disabled;
+  bool get isNotDisabled => !isDisabled;
+}
+
 final class InviteCodeConverter
     extends LexObjectConverter<InviteCode, Map<String, dynamic>> {
   const InviteCodeConverter();

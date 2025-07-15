@@ -58,6 +58,15 @@ abstract class MutedWord with _$MutedWord {
   }
 }
 
+extension MutedWordExtension on MutedWord {
+  bool get hasId => id != null;
+  bool get hasNotId => !hasId;
+  bool get hasActorTarget => actorTarget != null;
+  bool get hasNotActorTarget => !hasActorTarget;
+  bool get hasExpiresAt => expiresAt != null;
+  bool get hasNotExpiresAt => !hasExpiresAt;
+}
+
 final class MutedWordConverter
     extends LexObjectConverter<MutedWord, Map<String, dynamic>> {
   const MutedWordConverter();

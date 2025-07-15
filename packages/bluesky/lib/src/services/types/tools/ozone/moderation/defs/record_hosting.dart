@@ -46,6 +46,15 @@ abstract class RecordHosting with _$RecordHosting {
   }
 }
 
+extension RecordHostingExtension on RecordHosting {
+  bool get hasUpdatedAt => updatedAt != null;
+  bool get hasNotUpdatedAt => !hasUpdatedAt;
+  bool get hasCreatedAt => createdAt != null;
+  bool get hasNotCreatedAt => !hasCreatedAt;
+  bool get hasDeletedAt => deletedAt != null;
+  bool get hasNotDeletedAt => !hasDeletedAt;
+}
+
 final class RecordHostingConverter
     extends LexObjectConverter<RecordHosting, Map<String, dynamic>> {
   const RecordHostingConverter();

@@ -45,6 +45,17 @@ abstract class Interaction with _$Interaction {
   }
 }
 
+extension InteractionExtension on Interaction {
+  bool get hasItem => item != null;
+  bool get hasNotItem => !hasItem;
+  bool get hasEvent => event != null;
+  bool get hasNotEvent => !hasEvent;
+  bool get hasFeedContext => feedContext != null;
+  bool get hasNotFeedContext => !hasFeedContext;
+  bool get hasReqId => reqId != null;
+  bool get hasNotReqId => !hasReqId;
+}
+
 final class InteractionConverter
     extends LexObjectConverter<Interaction, Map<String, dynamic>> {
   const InteractionConverter();

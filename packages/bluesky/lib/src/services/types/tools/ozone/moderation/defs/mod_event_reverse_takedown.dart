@@ -43,6 +43,11 @@ abstract class ModEventReverseTakedown with _$ModEventReverseTakedown {
   }
 }
 
+extension ModEventReverseTakedownExtension on ModEventReverseTakedown {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+}
+
 final class ModEventReverseTakedownConverter
     extends LexObjectConverter<ModEventReverseTakedown, Map<String, dynamic>> {
   const ModEventReverseTakedownConverter();

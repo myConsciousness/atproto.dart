@@ -40,6 +40,11 @@ abstract class RepoBlobRef with _$RepoBlobRef {
   }
 }
 
+extension RepoBlobRefExtension on RepoBlobRef {
+  bool get hasRecordUri => recordUri != null;
+  bool get hasNotRecordUri => !hasRecordUri;
+}
+
 final class RepoBlobRefConverter
     extends LexObjectConverter<RepoBlobRef, Map<String, dynamic>> {
   const RepoBlobRefConverter();

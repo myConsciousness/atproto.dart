@@ -40,6 +40,13 @@ abstract class ActivitySubscription with _$ActivitySubscription {
   }
 }
 
+extension ActivitySubscriptionExtension on ActivitySubscription {
+  bool get isPost => post;
+  bool get isNotPost => !isPost;
+  bool get isReply => reply;
+  bool get isNotReply => !isReply;
+}
+
 final class ActivitySubscriptionConverter
     extends LexObjectConverter<ActivitySubscription, Map<String, dynamic>> {
   const ActivitySubscriptionConverter();

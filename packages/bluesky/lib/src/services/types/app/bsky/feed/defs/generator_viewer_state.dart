@@ -38,6 +38,11 @@ abstract class GeneratorViewerState with _$GeneratorViewerState {
   }
 }
 
+extension GeneratorViewerStateExtension on GeneratorViewerState {
+  bool get hasLike => like != null;
+  bool get hasNotLike => !hasLike;
+}
+
 final class GeneratorViewerStateConverter
     extends LexObjectConverter<GeneratorViewerState, Map<String, dynamic>> {
   const GeneratorViewerStateConverter();

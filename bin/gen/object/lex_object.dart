@@ -73,6 +73,7 @@ final class LexObject extends LexType {
 
     final knownProps = getKnownProps(this.properties);
     final validateMethod = _getValidateMethod(id);
+    final extensions = _getExtensions();
     final converter = getObjectConverter(name);
 
     return '''$kHeaderHint
@@ -103,7 +104,56 @@ abstract class $name with _\$$name {
   $validateMethod
 }
 
+$extensions
+
 $converter
+''';
+  }
+
+  String _getExtensions() {
+    final extensions = StringBuffer();
+
+    for (final property in properties) {
+      if (rule.isDeprecated(property.description)) continue;
+      if (property.type.isArray) continue;
+
+      if (property.type.isBoolean) {
+        final isA = 'is${toFirstUpperCase(property.name)}';
+        final isNotA = 'isNot${toFirstUpperCase(property.name)}';
+
+        if (!_isKnownPropertyName(isA)) {
+          if (property.isRequired) {
+            extensions.writeln('bool get $isA => ${property.name};');
+          } else {
+            final defaultValue = property.defaultValue ?? false.toString();
+            extensions.writeln(
+              'bool get $isA => ${property.name} ?? $defaultValue;',
+            );
+          }
+        }
+        if (!_isKnownPropertyName(isNotA)) {
+          extensions.writeln('bool get $isNotA => !$isA;');
+        }
+      } else {
+        if (property.isRequired) continue;
+
+        final hasA = 'has${toFirstUpperCase(property.name)}';
+        final hasNotA = 'hasNot${toFirstUpperCase(property.name)}';
+
+        if (!_isKnownPropertyName(hasA)) {
+          extensions.writeln('bool get $hasA => ${property.name} != null;');
+        }
+        if (!_isKnownPropertyName(hasNotA)) {
+          extensions.writeln('bool get $hasNotA => !$hasA;');
+        }
+      }
+    }
+
+    if (extensions.isEmpty) return '';
+
+    return '''extension ${name}Extension on $name {
+${extensions.toString()}
+}
 ''';
   }
 
@@ -119,5 +169,15 @@ $converter
     buffer.writeln('}');
 
     return buffer.toString();
+  }
+
+  bool _isKnownPropertyName(final String name) {
+    for (final property in properties) {
+      if (property.name == name) {
+        return true;
+      }
+    }
+
+    return false;
   }
 }

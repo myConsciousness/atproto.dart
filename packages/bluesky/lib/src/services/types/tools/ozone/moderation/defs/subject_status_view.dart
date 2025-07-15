@@ -114,6 +114,43 @@ abstract class SubjectStatusView with _$SubjectStatusView {
   }
 }
 
+extension SubjectStatusViewExtension on SubjectStatusView {
+  bool get hasHosting => hosting != null;
+  bool get hasNotHosting => !hasHosting;
+  bool get hasSubjectRepoHandle => subjectRepoHandle != null;
+  bool get hasNotSubjectRepoHandle => !hasSubjectRepoHandle;
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+  bool get hasPriorityScore => priorityScore != null;
+  bool get hasNotPriorityScore => !hasPriorityScore;
+  bool get hasMuteUntil => muteUntil != null;
+  bool get hasNotMuteUntil => !hasMuteUntil;
+  bool get hasMuteReportingUntil => muteReportingUntil != null;
+  bool get hasNotMuteReportingUntil => !hasMuteReportingUntil;
+  bool get hasLastReviewedBy => lastReviewedBy != null;
+  bool get hasNotLastReviewedBy => !hasLastReviewedBy;
+  bool get hasLastReviewedAt => lastReviewedAt != null;
+  bool get hasNotLastReviewedAt => !hasLastReviewedAt;
+  bool get hasLastReportedAt => lastReportedAt != null;
+  bool get hasNotLastReportedAt => !hasLastReportedAt;
+  bool get hasLastAppealedAt => lastAppealedAt != null;
+  bool get hasNotLastAppealedAt => !hasLastAppealedAt;
+  bool get isTakendown => takendown ?? false;
+  bool get isNotTakendown => !isTakendown;
+  bool get isAppealed => appealed ?? false;
+  bool get isNotAppealed => !isAppealed;
+  bool get hasSuspendUntil => suspendUntil != null;
+  bool get hasNotSuspendUntil => !hasSuspendUntil;
+  bool get hasAccountStats => accountStats != null;
+  bool get hasNotAccountStats => !hasAccountStats;
+  bool get hasRecordsStats => recordsStats != null;
+  bool get hasNotRecordsStats => !hasRecordsStats;
+  bool get hasAgeAssuranceState => ageAssuranceState != null;
+  bool get hasNotAgeAssuranceState => !hasAgeAssuranceState;
+  bool get hasAgeAssuranceUpdatedBy => ageAssuranceUpdatedBy != null;
+  bool get hasNotAgeAssuranceUpdatedBy => !hasAgeAssuranceUpdatedBy;
+}
+
 final class SubjectStatusViewConverter
     extends LexObjectConverter<SubjectStatusView, Map<String, dynamic>> {
   const SubjectStatusViewConverter();

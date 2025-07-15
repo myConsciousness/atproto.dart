@@ -62,6 +62,19 @@ abstract class FeedViewPref with _$FeedViewPref {
   }
 }
 
+extension FeedViewPrefExtension on FeedViewPref {
+  bool get isHideReplies => hideReplies ?? false;
+  bool get isNotHideReplies => !isHideReplies;
+  bool get isHideRepliesByUnfollowed => hideRepliesByUnfollowed ?? false;
+  bool get isNotHideRepliesByUnfollowed => !isHideRepliesByUnfollowed;
+  bool get hasHideRepliesByLikeCount => hideRepliesByLikeCount != null;
+  bool get hasNotHideRepliesByLikeCount => !hasHideRepliesByLikeCount;
+  bool get isHideReposts => hideReposts ?? false;
+  bool get isNotHideReposts => !isHideReposts;
+  bool get isHideQuotePosts => hideQuotePosts ?? false;
+  bool get isNotHideQuotePosts => !isHideQuotePosts;
+}
+
 final class FeedViewPrefConverter
     extends LexObjectConverter<FeedViewPref, Map<String, dynamic>> {
   const FeedViewPrefConverter();

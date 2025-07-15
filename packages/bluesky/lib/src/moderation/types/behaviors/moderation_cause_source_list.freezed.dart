@@ -25,12 +25,12 @@ $ModerationCauseSourceListCopyWith<ModerationCauseSourceList> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationCauseSourceList&&const DeepCollectionEquality().equals(other.list, list));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationCauseSourceList&&(identical(other.list, list) || other.list == list));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(list));
+int get hashCode => Object.hash(runtimeType,list);
 
 @override
 String toString() {
@@ -49,7 +49,7 @@ $Res call({
 });
 
 
-
+$ListViewBasicCopyWith<$Res> get list;
 
 }
 /// @nodoc
@@ -62,13 +62,22 @@ class _$ModerationCauseSourceListCopyWithImpl<$Res>
 
 /// Create a copy of ModerationCauseSourceList
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? list = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? list = null,}) {
   return _then(_self.copyWith(
-list: freezed == list ? _self.list : list // ignore: cast_nullable_to_non_nullable
+list: null == list ? _self.list : list // ignore: cast_nullable_to_non_nullable
 as ListViewBasic,
   ));
 }
-
+/// Create a copy of ModerationCauseSourceList
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ListViewBasicCopyWith<$Res> get list {
+  
+  return $ListViewBasicCopyWith<$Res>(_self.list, (value) {
+    return _then(_self.copyWith(list: value));
+  });
+}
 }
 
 
@@ -221,12 +230,12 @@ _$ModerationCauseSourceListCopyWith<_ModerationCauseSourceList> get copyWith => 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModerationCauseSourceList&&const DeepCollectionEquality().equals(other.list, list));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModerationCauseSourceList&&(identical(other.list, list) || other.list == list));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(list));
+int get hashCode => Object.hash(runtimeType,list);
 
 @override
 String toString() {
@@ -245,7 +254,7 @@ $Res call({
 });
 
 
-
+@override $ListViewBasicCopyWith<$Res> get list;
 
 }
 /// @nodoc
@@ -258,14 +267,23 @@ class __$ModerationCauseSourceListCopyWithImpl<$Res>
 
 /// Create a copy of ModerationCauseSourceList
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? list = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? list = null,}) {
   return _then(_ModerationCauseSourceList(
-list: freezed == list ? _self.list : list // ignore: cast_nullable_to_non_nullable
+list: null == list ? _self.list : list // ignore: cast_nullable_to_non_nullable
 as ListViewBasic,
   ));
 }
 
-
+/// Create a copy of ModerationCauseSourceList
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ListViewBasicCopyWith<$Res> get list {
+  
+  return $ListViewBasicCopyWith<$Res>(_self.list, (value) {
+    return _then(_self.copyWith(list: value));
+  });
+}
 }
 
 // dart format on

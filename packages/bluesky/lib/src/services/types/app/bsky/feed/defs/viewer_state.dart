@@ -51,6 +51,21 @@ abstract class ViewerState with _$ViewerState {
   }
 }
 
+extension ViewerStateExtension on ViewerState {
+  bool get hasRepost => repost != null;
+  bool get hasNotRepost => !hasRepost;
+  bool get hasLike => like != null;
+  bool get hasNotLike => !hasLike;
+  bool get isThreadMuted => threadMuted ?? false;
+  bool get isNotThreadMuted => !isThreadMuted;
+  bool get isReplyDisabled => replyDisabled ?? false;
+  bool get isNotReplyDisabled => !isReplyDisabled;
+  bool get isEmbeddingDisabled => embeddingDisabled ?? false;
+  bool get isNotEmbeddingDisabled => !isEmbeddingDisabled;
+  bool get isPinned => pinned ?? false;
+  bool get isNotPinned => !isPinned;
+}
+
 final class ViewerStateConverter
     extends LexObjectConverter<ViewerState, Map<String, dynamic>> {
   const ViewerStateConverter();

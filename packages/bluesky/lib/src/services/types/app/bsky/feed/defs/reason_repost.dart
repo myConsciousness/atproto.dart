@@ -44,6 +44,13 @@ abstract class ReasonRepost with _$ReasonRepost {
   }
 }
 
+extension ReasonRepostExtension on ReasonRepost {
+  bool get hasUri => uri != null;
+  bool get hasNotUri => !hasUri;
+  bool get hasCid => cid != null;
+  bool get hasNotCid => !hasCid;
+}
+
 final class ReasonRepostConverter
     extends LexObjectConverter<ReasonRepost, Map<String, dynamic>> {
   const ReasonRepostConverter();

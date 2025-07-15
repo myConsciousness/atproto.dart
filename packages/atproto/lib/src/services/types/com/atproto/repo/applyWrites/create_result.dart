@@ -40,6 +40,11 @@ abstract class CreateResult with _$CreateResult {
   }
 }
 
+extension CreateResultExtension on CreateResult {
+  bool get hasValidationStatus => validationStatus != null;
+  bool get hasNotValidationStatus => !hasValidationStatus;
+}
+
 final class CreateResultConverter
     extends LexObjectConverter<CreateResult, Map<String, dynamic>> {
   const CreateResultConverter();

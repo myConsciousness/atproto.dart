@@ -39,6 +39,13 @@ abstract class Preference with _$Preference {
   }
 }
 
+extension PreferenceExtension on Preference {
+  bool get isList => list;
+  bool get isNotList => !isList;
+  bool get isPush => push;
+  bool get isNotPush => !isPush;
+}
+
 final class PreferenceConverter
     extends LexObjectConverter<Preference, Map<String, dynamic>> {
   const PreferenceConverter();

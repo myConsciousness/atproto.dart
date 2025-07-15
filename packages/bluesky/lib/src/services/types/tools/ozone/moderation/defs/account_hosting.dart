@@ -50,6 +50,19 @@ abstract class AccountHosting with _$AccountHosting {
   }
 }
 
+extension AccountHostingExtension on AccountHosting {
+  bool get hasUpdatedAt => updatedAt != null;
+  bool get hasNotUpdatedAt => !hasUpdatedAt;
+  bool get hasCreatedAt => createdAt != null;
+  bool get hasNotCreatedAt => !hasCreatedAt;
+  bool get hasDeletedAt => deletedAt != null;
+  bool get hasNotDeletedAt => !hasDeletedAt;
+  bool get hasDeactivatedAt => deactivatedAt != null;
+  bool get hasNotDeactivatedAt => !hasDeactivatedAt;
+  bool get hasReactivatedAt => reactivatedAt != null;
+  bool get hasNotReactivatedAt => !hasReactivatedAt;
+}
+
 final class AccountHostingConverter
     extends LexObjectConverter<AccountHosting, Map<String, dynamic>> {
   const AccountHostingConverter();

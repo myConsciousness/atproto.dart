@@ -43,6 +43,13 @@ abstract class ThreadViewPref with _$ThreadViewPref {
   }
 }
 
+extension ThreadViewPrefExtension on ThreadViewPref {
+  bool get hasSort => sort != null;
+  bool get hasNotSort => !hasSort;
+  bool get isPrioritizeFollowedUsers => prioritizeFollowedUsers ?? false;
+  bool get isNotPrioritizeFollowedUsers => !isPrioritizeFollowedUsers;
+}
+
 final class ThreadViewPrefConverter
     extends LexObjectConverter<ThreadViewPref, Map<String, dynamic>> {
   const ThreadViewPrefConverter();

@@ -42,6 +42,11 @@ abstract class Create with _$Create {
   }
 }
 
+extension CreateExtension on Create {
+  bool get hasRkey => rkey != null;
+  bool get hasNotRkey => !hasRkey;
+}
+
 final class CreateConverter
     extends LexObjectConverter<Create, Map<String, dynamic>> {
   const CreateConverter();

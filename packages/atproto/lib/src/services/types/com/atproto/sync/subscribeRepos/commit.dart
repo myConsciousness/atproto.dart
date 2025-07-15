@@ -73,6 +73,11 @@ abstract class Commit with _$Commit {
   }
 }
 
+extension CommitExtension on Commit {
+  bool get hasPrevData => prevData != null;
+  bool get hasNotPrevData => !hasPrevData;
+}
+
 final class CommitConverter
     extends LexObjectConverter<Commit, Map<String, dynamic>> {
   const CommitConverter();

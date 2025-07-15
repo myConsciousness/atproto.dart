@@ -54,6 +54,13 @@ abstract class SkeletonTrend with _$SkeletonTrend {
   }
 }
 
+extension SkeletonTrendExtension on SkeletonTrend {
+  bool get hasStatus => status != null;
+  bool get hasNotStatus => !hasStatus;
+  bool get hasCategory => category != null;
+  bool get hasNotCategory => !hasCategory;
+}
+
 final class SkeletonTrendConverter
     extends LexObjectConverter<SkeletonTrend, Map<String, dynamic>> {
   const SkeletonTrendConverter();

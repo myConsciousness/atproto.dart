@@ -64,6 +64,13 @@ abstract class Notification with _$Notification {
   }
 }
 
+extension NotificationExtension on Notification {
+  bool get hasReasonSubject => reasonSubject != null;
+  bool get hasNotReasonSubject => !hasReasonSubject;
+  bool get isIsRead => isRead;
+  bool get isNotIsRead => !isIsRead;
+}
+
 final class NotificationConverter
     extends LexObjectConverter<Notification, Map<String, dynamic>> {
   const NotificationConverter();

@@ -14,7 +14,7 @@ import 'moderation_cause_muted.dart';
 part 'moderation_cause.freezed.dart';
 
 @modObject
-class ModerationCause with _$ModerationCause {
+abstract class ModerationCause with _$ModerationCause {
   // ignore: unused_element
   const ModerationCause._();
 

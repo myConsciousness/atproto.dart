@@ -43,6 +43,13 @@ abstract class ModEventMuteReporter with _$ModEventMuteReporter {
   }
 }
 
+extension ModEventMuteReporterExtension on ModEventMuteReporter {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+  bool get hasDurationInHours => durationInHours != null;
+  bool get hasNotDurationInHours => !hasDurationInHours;
+}
+
 final class ModEventMuteReporterConverter
     extends LexObjectConverter<ModEventMuteReporter, Map<String, dynamic>> {
   const ModEventMuteReporterConverter();

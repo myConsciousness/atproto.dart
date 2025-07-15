@@ -41,6 +41,11 @@ abstract class VerificationPrefs with _$VerificationPrefs {
   }
 }
 
+extension VerificationPrefsExtension on VerificationPrefs {
+  bool get isHideBadges => hideBadges ?? false;
+  bool get isNotHideBadges => !isHideBadges;
+}
+
 final class VerificationPrefsConverter
     extends LexObjectConverter<VerificationPrefs, Map<String, dynamic>> {
   const VerificationPrefsConverter();

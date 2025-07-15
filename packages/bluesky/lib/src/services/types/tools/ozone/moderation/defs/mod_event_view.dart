@@ -61,6 +61,15 @@ abstract class ModEventView with _$ModEventView {
   }
 }
 
+extension ModEventViewExtension on ModEventView {
+  bool get hasCreatorHandle => creatorHandle != null;
+  bool get hasNotCreatorHandle => !hasCreatorHandle;
+  bool get hasSubjectHandle => subjectHandle != null;
+  bool get hasNotSubjectHandle => !hasSubjectHandle;
+  bool get hasModTool => modTool != null;
+  bool get hasNotModTool => !hasModTool;
+}
+
 final class ModEventViewConverter
     extends LexObjectConverter<ModEventView, Map<String, dynamic>> {
   const ModEventViewConverter();

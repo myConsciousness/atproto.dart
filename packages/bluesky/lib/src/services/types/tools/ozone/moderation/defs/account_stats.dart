@@ -59,6 +59,19 @@ abstract class AccountStats with _$AccountStats {
   }
 }
 
+extension AccountStatsExtension on AccountStats {
+  bool get hasReportCount => reportCount != null;
+  bool get hasNotReportCount => !hasReportCount;
+  bool get hasAppealCount => appealCount != null;
+  bool get hasNotAppealCount => !hasAppealCount;
+  bool get hasSuspendCount => suspendCount != null;
+  bool get hasNotSuspendCount => !hasSuspendCount;
+  bool get hasEscalateCount => escalateCount != null;
+  bool get hasNotEscalateCount => !hasEscalateCount;
+  bool get hasTakedownCount => takedownCount != null;
+  bool get hasNotTakedownCount => !hasTakedownCount;
+}
+
 final class AccountStatsConverter
     extends LexObjectConverter<AccountStats, Map<String, dynamic>> {
   const AccountStatsConverter();

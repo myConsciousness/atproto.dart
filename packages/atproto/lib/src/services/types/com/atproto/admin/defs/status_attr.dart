@@ -39,6 +39,13 @@ abstract class StatusAttr with _$StatusAttr {
   }
 }
 
+extension StatusAttrExtension on StatusAttr {
+  bool get isApplied => applied;
+  bool get isNotApplied => !isApplied;
+  bool get hasRef => ref != null;
+  bool get hasNotRef => !hasRef;
+}
+
 final class StatusAttrConverter
     extends LexObjectConverter<StatusAttr, Map<String, dynamic>> {
   const StatusAttrConverter();

@@ -17,6 +17,9 @@ final class DartType {
   final bool isUnion;
   final bool isNil;
 
+  bool get isBoolean => name == 'bool';
+  bool get isRef => ref != null;
+
   const DartType({
     required this.name,
     this.lexiconId,
@@ -32,52 +35,36 @@ final class DartType {
     this.isNil = false,
   });
 
-  bool isRef() {
-    return ref != null;
-  }
+  factory DartType.json({String? description}) =>
+      DartType(name: 'Map<String, dynamic>', description: description);
 
-  factory DartType.json({String? description}) => DartType(
-        name: 'Map<String, dynamic>',
-        description: description,
-      );
+  factory DartType.object({String? description}) =>
+      DartType(name: 'Object', description: description);
 
-  factory DartType.object({String? description}) => DartType(
-        name: 'Object',
-        description: description,
-      );
+  factory DartType.dateTime({String? description}) =>
+      DartType(name: 'DateTime', description: description);
 
-  factory DartType.dateTime({String? description}) => DartType(
-        name: 'DateTime',
-        description: description,
-      );
+  factory DartType.string({String? description}) =>
+      DartType(name: 'String', description: description);
 
-  factory DartType.string({String? description}) => DartType(
-        name: 'String',
-        description: description,
-      );
+  factory DartType.integer({String? description}) =>
+      DartType(name: 'int', description: description);
 
-  factory DartType.integer({String? description}) => DartType(
-        name: 'int',
-        description: description,
-      );
-
-  factory DartType.boolean({String? description}) => DartType(
-        name: 'bool',
-        description: description,
-      );
+  factory DartType.boolean({String? description}) =>
+      DartType(name: 'bool', description: description);
 
   factory DartType.uri({String? description}) => DartType(
-        name: 'AtUri',
-        annotation: '@AtUriConverter()',
-        description: description,
-      );
+    name: 'AtUri',
+    annotation: '@AtUriConverter()',
+    description: description,
+  );
 
   factory DartType.blob({String? description}) => DartType(
-        name: 'Blob',
-        annotation: '@BlobConverter()',
-        packagePath: 'package:atproto_core/atproto_core.dart',
-        description: description,
-      );
+    name: 'Blob',
+    annotation: '@BlobConverter()',
+    packagePath: 'package:atproto_core/atproto_core.dart',
+    description: description,
+  );
 
   factory DartType.array({
     String type = 'Object',
@@ -89,20 +76,19 @@ final class DartType {
     String? annotation,
     String? description,
     LexUnion? union,
-  }) =>
-      DartType(
-        name: type,
-        lexiconId: lexiconId,
-        ref: ref,
-        defName: defName,
-        fieldName: fieldName,
-        packagePath: packagePath,
-        annotation: annotation,
-        description: description,
-        union: union,
-        isArray: true,
-        isUnion: union != null,
-      );
+  }) => DartType(
+    name: type,
+    lexiconId: lexiconId,
+    ref: ref,
+    defName: defName,
+    fieldName: fieldName,
+    packagePath: packagePath,
+    annotation: annotation,
+    description: description,
+    union: union,
+    isArray: true,
+    isUnion: union != null,
+  );
 
   factory DartType.union({
     String type = 'Object',
@@ -112,24 +98,17 @@ final class DartType {
     String? packagePath,
     String? description,
     required LexUnion union,
-  }) =>
-      DartType(
-        name: type,
-        lexiconId: lexiconId,
-        defName: defName,
-        fieldName: fieldName,
-        packagePath: packagePath,
-        annotation: '@${type}Converter()',
-        description: description,
-        union: union,
-        isUnion: true,
-      );
+  }) => DartType(
+    name: type,
+    lexiconId: lexiconId,
+    defName: defName,
+    fieldName: fieldName,
+    packagePath: packagePath,
+    annotation: '@${type}Converter()',
+    description: description,
+    union: union,
+    isUnion: true,
+  );
 
-  factory DartType.nil({
-    String type = '',
-  }) =>
-      DartType(
-        name: type,
-        isNil: true,
-      );
+  factory DartType.nil({String type = ''}) => DartType(name: type, isNil: true);
 }

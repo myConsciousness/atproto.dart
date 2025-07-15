@@ -51,6 +51,15 @@ abstract class EmbedVideoView with _$EmbedVideoView {
   }
 }
 
+extension EmbedVideoViewExtension on EmbedVideoView {
+  bool get hasThumbnail => thumbnail != null;
+  bool get hasNotThumbnail => !hasThumbnail;
+  bool get hasAlt => alt != null;
+  bool get hasNotAlt => !hasAlt;
+  bool get hasAspectRatio => aspectRatio != null;
+  bool get hasNotAspectRatio => !hasAspectRatio;
+}
+
 final class EmbedVideoViewConverter
     extends LexObjectConverter<EmbedVideoView, Map<String, dynamic>> {
   const EmbedVideoViewConverter();

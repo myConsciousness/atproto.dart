@@ -57,6 +57,13 @@ abstract class TrendView with _$TrendView {
   }
 }
 
+extension TrendViewExtension on TrendView {
+  bool get hasStatus => status != null;
+  bool get hasNotStatus => !hasStatus;
+  bool get hasCategory => category != null;
+  bool get hasNotCategory => !hasCategory;
+}
+
 final class TrendViewConverter
     extends LexObjectConverter<TrendView, Map<String, dynamic>> {
   const TrendViewConverter();

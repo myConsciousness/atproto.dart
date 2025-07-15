@@ -1,9 +1,13 @@
 // Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:atproto/core.dart';
 
 // Project imports:
-import '../../../../bluesky.dart';
+import '../../../services/types/app/bsky/embed/record/union_view_record.dart';
+import '../../../services/types/app/bsky/embed/record/view_blocked.dart';
+import '../../../services/types/app/bsky/embed/record/view_record.dart';
+import '../../../services/types/app/bsky/feed/defs/union_post_view_embed.dart';
 import '../../decision.dart';
 import '../behaviors/moderation_opts.dart';
 import '../labels.dart';
@@ -31,7 +35,7 @@ ModerationDecision decidePost(
     decision.addLabel(target: LabelTarget.content, label: label, opts: opts);
   }
 
-  if (_hasHiddenPost(uri, embed, opts.prefs.hiddenPosts)) {
+  if (_hasHiddenPost(AtUri(uri), embed, opts.prefs.hiddenPosts)) {
     decision.addHidden();
   }
 
@@ -41,21 +45,27 @@ ModerationDecision decidePost(
 
   ModerationDecision? embedDecision;
   if (embed != null) {
-    if (embed is UEmbedViewRecord) {
-      final record = embed.data.record;
+    if (embed.isEmbedRecordView) {
+      final record = embed.embedRecordView!.record;
 
-      if (record is UEmbedViewRecordViewRecord) {
-        embedDecision = decideQuotedPost(record.data, opts);
-      } else if (record is UEmbedViewRecordViewBlocked) {
-        embedDecision = decideBlockedQuotedPost(record.data, opts);
+      if (record.isEmbedRecordViewRecord) {
+        embedDecision = decideQuotedPost(record.embedRecordViewRecord!, opts);
+      } else if (record.isEmbedRecordViewBlocked) {
+        embedDecision = decideBlockedQuotedPost(
+          record.embedRecordViewBlocked!,
+          opts,
+        );
       }
-    } else if (embed is UEmbedViewRecordWithMedia) {
-      final record = embed.data.record.record;
+    } else if (embed.isEmbedRecordWithMediaView) {
+      final record = embed.embedRecordWithMediaView!.record.record;
 
-      if (record is UEmbedViewRecordViewRecord) {
-        embedDecision = decideQuotedPost(record.data, opts);
-      } else if (record is UEmbedViewRecordViewBlocked) {
-        embedDecision = decideBlockedQuotedPost(record.data, opts);
+      if (record.isEmbedRecordViewRecord) {
+        embedDecision = decideQuotedPost(record.embedRecordViewRecord!, opts);
+      } else if (record.isEmbedRecordViewBlocked) {
+        embedDecision = decideBlockedQuotedPost(
+          record.embedRecordViewBlocked!,
+          opts,
+        );
       }
     }
   }
@@ -73,7 +83,7 @@ ModerationDecision decidePost(
 }
 
 ModerationDecision decideQuotedPost(
-  final EmbedViewRecordViewRecord subject,
+  final EmbedRecordViewRecord subject,
   final ModerationOpts opts,
 ) {
   final decision = ModerationDecision.init(
@@ -97,7 +107,7 @@ ModerationDecision decideQuotedPost(
 }
 
 ModerationDecision decideBlockedQuotedPost(
-  final EmbedViewRecordViewBlocked subject,
+  final EmbedRecordViewBlocked subject,
   final ModerationOpts opts,
 ) {
   final decision = ModerationDecision.init(

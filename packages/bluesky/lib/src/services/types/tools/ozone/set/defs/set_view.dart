@@ -48,6 +48,11 @@ abstract class SetView with _$SetView {
   }
 }
 
+extension SetViewExtension on SetView {
+  bool get hasDescription => description != null;
+  bool get hasNotDescription => !hasDescription;
+}
+
 final class SetViewConverter
     extends LexObjectConverter<SetView, Map<String, dynamic>> {
   const SetViewConverter();

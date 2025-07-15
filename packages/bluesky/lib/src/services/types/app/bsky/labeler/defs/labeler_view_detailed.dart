@@ -67,6 +67,13 @@ abstract class LabelerViewDetailed with _$LabelerViewDetailed {
   }
 }
 
+extension LabelerViewDetailedExtension on LabelerViewDetailed {
+  bool get hasLikeCount => likeCount != null;
+  bool get hasNotLikeCount => !hasLikeCount;
+  bool get hasViewer => viewer != null;
+  bool get hasNotViewer => !hasViewer;
+}
+
 final class LabelerViewDetailedConverter
     extends LexObjectConverter<LabelerViewDetailed, Map<String, dynamic>> {
   const LabelerViewDetailedConverter();

@@ -44,6 +44,11 @@ abstract class Identity with _$Identity {
   }
 }
 
+extension IdentityExtension on Identity {
+  bool get hasHandle => handle != null;
+  bool get hasNotHandle => !hasHandle;
+}
+
 final class IdentityConverter
     extends LexObjectConverter<Identity, Map<String, dynamic>> {
   const IdentityConverter();

@@ -61,6 +61,17 @@ abstract class ListViewBasic with _$ListViewBasic {
   }
 }
 
+extension ListViewBasicExtension on ListViewBasic {
+  bool get hasAvatar => avatar != null;
+  bool get hasNotAvatar => !hasAvatar;
+  bool get hasListItemCount => listItemCount != null;
+  bool get hasNotListItemCount => !hasListItemCount;
+  bool get hasViewer => viewer != null;
+  bool get hasNotViewer => !hasViewer;
+  bool get hasIndexedAt => indexedAt != null;
+  bool get hasNotIndexedAt => !hasIndexedAt;
+}
+
 final class ListViewBasicConverter
     extends LexObjectConverter<ListViewBasic, Map<String, dynamic>> {
   const ListViewBasicConverter();

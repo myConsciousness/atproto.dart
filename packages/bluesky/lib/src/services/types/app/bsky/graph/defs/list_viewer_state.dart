@@ -39,6 +39,13 @@ abstract class ListViewerState with _$ListViewerState {
   }
 }
 
+extension ListViewerStateExtension on ListViewerState {
+  bool get isMuted => muted ?? false;
+  bool get isNotMuted => !isMuted;
+  bool get hasBlocked => blocked != null;
+  bool get hasNotBlocked => !hasBlocked;
+}
+
 final class ListViewerStateConverter
     extends LexObjectConverter<ListViewerState, Map<String, dynamic>> {
   const ListViewerStateConverter();

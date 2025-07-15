@@ -1,9 +1,10 @@
 // Package imports:
 
 // Project imports:
-import '../../services/entities/facet.dart';
-import '../../services/entities/facet_feature.dart';
-import '../../services/entities/muted_word.dart';
+
+// Project imports:
+import '../../services/types/app/bsky/actor/defs/muted_word.dart';
+import '../../services/types/app/bsky/richtext/facet/main.dart';
 
 /// List of 2-letter lang codes for languages that either don't use spaces, or
 /// don't use spaces in a way conducive to word-based filtering.
@@ -29,7 +30,7 @@ final _spaceRegex = RegExp(r'\s', unicode: true);
 bool hasMutedWord({
   required List<MutedWord> mutedWords,
   required String text,
-  List<Facet>? facets,
+  List<RichtextFacet>? facets,
   List<String>? outlineTags,
   List<String>? languages,
 }) {
@@ -38,7 +39,10 @@ bool hasMutedWord({
     if (outlineTags != null) ...outlineTags.map((e) => e.toLowerCase()),
     if (facets != null)
       ...facets
-          .map((e) => e.features.whereType<UFacetFeatureTag>())
+          .map(
+            (e) =>
+                e.features.whereType<URichtextFacetFeaturesRichtextFacetTag>(),
+          )
           .where((e) => e.isNotEmpty)
           .map((e) => e.first.data.tag.toLowerCase()),
   }.toList();

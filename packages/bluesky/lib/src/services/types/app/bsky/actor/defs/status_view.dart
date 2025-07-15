@@ -57,6 +57,15 @@ abstract class StatusView with _$StatusView {
   }
 }
 
+extension StatusViewExtension on StatusView {
+  bool get hasEmbed => embed != null;
+  bool get hasNotEmbed => !hasEmbed;
+  bool get hasExpiresAt => expiresAt != null;
+  bool get hasNotExpiresAt => !hasExpiresAt;
+  bool get isIsActive => isActive ?? false;
+  bool get isNotIsActive => !isIsActive;
+}
+
 final class StatusViewConverter
     extends LexObjectConverter<StatusView, Map<String, dynamic>> {
   const StatusViewConverter();

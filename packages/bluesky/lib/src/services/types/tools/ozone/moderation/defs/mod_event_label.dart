@@ -49,6 +49,13 @@ abstract class ModEventLabel with _$ModEventLabel {
   }
 }
 
+extension ModEventLabelExtension on ModEventLabel {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+  bool get hasDurationInHours => durationInHours != null;
+  bool get hasNotDurationInHours => !hasDurationInHours;
+}
+
 final class ModEventLabelConverter
     extends LexObjectConverter<ModEventLabel, Map<String, dynamic>> {
   const ModEventLabelConverter();

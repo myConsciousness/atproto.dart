@@ -41,6 +41,11 @@ abstract class ModerationDetail with _$ModerationDetail {
   }
 }
 
+extension ModerationDetailExtension on ModerationDetail {
+  bool get hasSubjectStatus => subjectStatus != null;
+  bool get hasNotSubjectStatus => !hasSubjectStatus;
+}
+
 final class ModerationDetailConverter
     extends LexObjectConverter<ModerationDetail, Map<String, dynamic>> {
   const ModerationDetailConverter();

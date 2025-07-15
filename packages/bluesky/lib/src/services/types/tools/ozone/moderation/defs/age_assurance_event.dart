@@ -67,6 +67,17 @@ abstract class AgeAssuranceEvent with _$AgeAssuranceEvent {
   }
 }
 
+extension AgeAssuranceEventExtension on AgeAssuranceEvent {
+  bool get hasInitIp => initIp != null;
+  bool get hasNotInitIp => !hasInitIp;
+  bool get hasInitUa => initUa != null;
+  bool get hasNotInitUa => !hasInitUa;
+  bool get hasCompleteIp => completeIp != null;
+  bool get hasNotCompleteIp => !hasCompleteIp;
+  bool get hasCompleteUa => completeUa != null;
+  bool get hasNotCompleteUa => !hasCompleteUa;
+}
+
 final class AgeAssuranceEventConverter
     extends LexObjectConverter<AgeAssuranceEvent, Map<String, dynamic>> {
   const AgeAssuranceEventConverter();

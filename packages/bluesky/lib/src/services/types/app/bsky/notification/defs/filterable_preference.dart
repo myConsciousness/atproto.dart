@@ -41,6 +41,13 @@ abstract class FilterablePreference with _$FilterablePreference {
   }
 }
 
+extension FilterablePreferenceExtension on FilterablePreference {
+  bool get isList => list;
+  bool get isNotList => !isList;
+  bool get isPush => push;
+  bool get isNotPush => !isPush;
+}
+
 final class FilterablePreferenceConverter
     extends LexObjectConverter<FilterablePreference, Map<String, dynamic>> {
   const FilterablePreferenceConverter();

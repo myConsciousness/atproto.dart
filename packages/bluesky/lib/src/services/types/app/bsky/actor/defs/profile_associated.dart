@@ -55,6 +55,21 @@ abstract class ProfileAssociated with _$ProfileAssociated {
   }
 }
 
+extension ProfileAssociatedExtension on ProfileAssociated {
+  bool get hasLists => lists != null;
+  bool get hasNotLists => !hasLists;
+  bool get hasFeedgens => feedgens != null;
+  bool get hasNotFeedgens => !hasFeedgens;
+  bool get hasStarterPacks => starterPacks != null;
+  bool get hasNotStarterPacks => !hasStarterPacks;
+  bool get isLabeler => labeler ?? false;
+  bool get isNotLabeler => !isLabeler;
+  bool get hasChat => chat != null;
+  bool get hasNotChat => !hasChat;
+  bool get hasActivitySubscription => activitySubscription != null;
+  bool get hasNotActivitySubscription => !hasActivitySubscription;
+}
+
 final class ProfileAssociatedConverter
     extends LexObjectConverter<ProfileAssociated, Map<String, dynamic>> {
   const ProfileAssociatedConverter();

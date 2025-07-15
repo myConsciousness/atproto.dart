@@ -39,6 +39,11 @@ abstract class ChatPreference with _$ChatPreference {
   }
 }
 
+extension ChatPreferenceExtension on ChatPreference {
+  bool get isPush => push;
+  bool get isNotPush => !isPush;
+}
+
 final class ChatPreferenceConverter
     extends LexObjectConverter<ChatPreference, Map<String, dynamic>> {
   const ChatPreferenceConverter();

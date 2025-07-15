@@ -2,23 +2,24 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../services/entities/actor.dart';
-import '../../../services/entities/actor_basic.dart';
-import '../../../services/entities/actor_profile.dart';
+import '../../../services/types/app/bsky/actor/defs/profile_view.dart';
+import '../../../services/types/app/bsky/actor/defs/profile_view_basic.dart';
+import '../../../services/types/app/bsky/actor/defs/profile_view_detailed.dart';
 import '../mod_object.dart';
 
 part 'moderation_subject_profile.freezed.dart';
 
 @modObject
-class ModerationSubjectProfile with _$ModerationSubjectProfile {
+abstract class ModerationSubjectProfile with _$ModerationSubjectProfile {
   const factory ModerationSubjectProfile.profileViewBasic({
-    required ActorBasic data,
+    required ProfileViewBasic data,
   }) = UModerationSubjectProfileProfileViewBasic;
 
-  const factory ModerationSubjectProfile.profileView({required Actor data}) =
-      UModerationSubjectProfileProfileView;
+  const factory ModerationSubjectProfile.profileView({
+    required ProfileView data,
+  }) = UModerationSubjectProfileProfileView;
 
   const factory ModerationSubjectProfile.profileViewDetailed({
-    required ActorProfile data,
+    required ProfileViewDetailed data,
   }) = UModerationSubjectProfileProfileViewDetailed;
 }

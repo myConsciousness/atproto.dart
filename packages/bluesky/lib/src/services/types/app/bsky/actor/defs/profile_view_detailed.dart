@@ -83,6 +83,39 @@ abstract class ProfileViewDetailed with _$ProfileViewDetailed {
   }
 }
 
+extension ProfileViewDetailedExtension on ProfileViewDetailed {
+  bool get hasDisplayName => displayName != null;
+  bool get hasNotDisplayName => !hasDisplayName;
+  bool get hasDescription => description != null;
+  bool get hasNotDescription => !hasDescription;
+  bool get hasAvatar => avatar != null;
+  bool get hasNotAvatar => !hasAvatar;
+  bool get hasBanner => banner != null;
+  bool get hasNotBanner => !hasBanner;
+  bool get hasFollowersCount => followersCount != null;
+  bool get hasNotFollowersCount => !hasFollowersCount;
+  bool get hasFollowsCount => followsCount != null;
+  bool get hasNotFollowsCount => !hasFollowsCount;
+  bool get hasPostsCount => postsCount != null;
+  bool get hasNotPostsCount => !hasPostsCount;
+  bool get hasAssociated => associated != null;
+  bool get hasNotAssociated => !hasAssociated;
+  bool get hasJoinedViaStarterPack => joinedViaStarterPack != null;
+  bool get hasNotJoinedViaStarterPack => !hasJoinedViaStarterPack;
+  bool get hasIndexedAt => indexedAt != null;
+  bool get hasNotIndexedAt => !hasIndexedAt;
+  bool get hasCreatedAt => createdAt != null;
+  bool get hasNotCreatedAt => !hasCreatedAt;
+  bool get hasViewer => viewer != null;
+  bool get hasNotViewer => !hasViewer;
+  bool get hasPinnedPost => pinnedPost != null;
+  bool get hasNotPinnedPost => !hasPinnedPost;
+  bool get hasVerification => verification != null;
+  bool get hasNotVerification => !hasVerification;
+  bool get hasStatus => status != null;
+  bool get hasNotStatus => !hasStatus;
+}
+
 final class ProfileViewDetailedConverter
     extends LexObjectConverter<ProfileViewDetailed, Map<String, dynamic>> {
   const ProfileViewDetailedConverter();

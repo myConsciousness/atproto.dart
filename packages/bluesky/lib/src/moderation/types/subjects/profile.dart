@@ -1,5 +1,8 @@
 // Package imports:
 
+// Package imports:
+import 'package:atproto/com_atproto_label_defs.dart';
+
 // Project imports:
 import '../../decision.dart';
 import '../behaviors/moderation_opts.dart';
@@ -31,6 +34,6 @@ List<Label> _filterProfileLabels(final List<Label>? labels) {
   }
 
   return labels
-      .where((e) => e.uri.endsWith('/app.bsky.actor.profile/self'))
+      .where((e) => e.uri.toString().endsWith('/app.bsky.actor.profile/self'))
       .toList();
 }

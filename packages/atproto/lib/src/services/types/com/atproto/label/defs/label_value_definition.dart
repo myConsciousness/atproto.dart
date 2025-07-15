@@ -65,6 +65,13 @@ abstract class LabelValueDefinition with _$LabelValueDefinition {
   }
 }
 
+extension LabelValueDefinitionExtension on LabelValueDefinition {
+  bool get hasDefaultSetting => defaultSetting != null;
+  bool get hasNotDefaultSetting => !hasDefaultSetting;
+  bool get isAdultOnly => adultOnly ?? false;
+  bool get isNotAdultOnly => !isAdultOnly;
+}
+
 final class LabelValueDefinitionConverter
     extends LexObjectConverter<LabelValueDefinition, Map<String, dynamic>> {
   const LabelValueDefinitionConverter();

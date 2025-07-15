@@ -56,6 +56,11 @@ abstract class VerificationInput with _$VerificationInput {
   }
 }
 
+extension VerificationInputExtension on VerificationInput {
+  bool get hasCreatedAt => createdAt != null;
+  bool get hasNotCreatedAt => !hasCreatedAt;
+}
+
 final class VerificationInputConverter
     extends LexObjectConverter<VerificationInput, Map<String, dynamic>> {
   const VerificationInputConverter();

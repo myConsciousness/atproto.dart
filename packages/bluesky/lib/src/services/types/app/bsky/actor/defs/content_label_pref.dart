@@ -42,6 +42,11 @@ abstract class ContentLabelPref with _$ContentLabelPref {
   }
 }
 
+extension ContentLabelPrefExtension on ContentLabelPref {
+  bool get hasLabelerDid => labelerDid != null;
+  bool get hasNotLabelerDid => !hasLabelerDid;
+}
+
 final class ContentLabelPrefConverter
     extends LexObjectConverter<ContentLabelPref, Map<String, dynamic>> {
   const ContentLabelPrefConverter();

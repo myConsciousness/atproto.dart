@@ -38,6 +38,11 @@ abstract class ViewerConfig with _$ViewerConfig {
   }
 }
 
+extension ViewerConfigExtension on ViewerConfig {
+  bool get hasRole => role != null;
+  bool get hasNotRole => !hasRole;
+}
+
 final class ViewerConfigConverter
     extends LexObjectConverter<ViewerConfig, Map<String, dynamic>> {
   const ViewerConfigConverter();

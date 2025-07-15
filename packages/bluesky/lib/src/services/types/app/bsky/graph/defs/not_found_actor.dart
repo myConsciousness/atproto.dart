@@ -40,6 +40,11 @@ abstract class NotFoundActor with _$NotFoundActor {
   }
 }
 
+extension NotFoundActorExtension on NotFoundActor {
+  bool get isNotFound => notFound;
+  bool get isNotNotFound => !isNotFound;
+}
+
 final class NotFoundActorConverter
     extends LexObjectConverter<NotFoundActor, Map<String, dynamic>> {
   const NotFoundActorConverter();

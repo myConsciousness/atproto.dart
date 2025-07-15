@@ -45,6 +45,13 @@ abstract class SkeletonFeedPost with _$SkeletonFeedPost {
   }
 }
 
+extension SkeletonFeedPostExtension on SkeletonFeedPost {
+  bool get hasReason => reason != null;
+  bool get hasNotReason => !hasReason;
+  bool get hasFeedContext => feedContext != null;
+  bool get hasNotFeedContext => !hasFeedContext;
+}
+
 final class SkeletonFeedPostConverter
     extends LexObjectConverter<SkeletonFeedPost, Map<String, dynamic>> {
   const SkeletonFeedPostConverter();

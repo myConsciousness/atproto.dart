@@ -42,6 +42,11 @@ abstract class ModEventMute with _$ModEventMute {
   }
 }
 
+extension ModEventMuteExtension on ModEventMute {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+}
+
 final class ModEventMuteConverter
     extends LexObjectConverter<ModEventMute, Map<String, dynamic>> {
   const ModEventMuteConverter();

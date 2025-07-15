@@ -44,6 +44,11 @@ abstract class AgeAssuranceState with _$AgeAssuranceState {
   }
 }
 
+extension AgeAssuranceStateExtension on AgeAssuranceState {
+  bool get hasLastInitiatedAt => lastInitiatedAt != null;
+  bool get hasNotLastInitiatedAt => !hasLastInitiatedAt;
+}
+
 final class AgeAssuranceStateConverter
     extends LexObjectConverter<AgeAssuranceState, Map<String, dynamic>> {
   const AgeAssuranceStateConverter();

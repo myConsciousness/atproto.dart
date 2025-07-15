@@ -42,6 +42,11 @@ abstract class ModEventUnmuteReporter with _$ModEventUnmuteReporter {
   }
 }
 
+extension ModEventUnmuteReporterExtension on ModEventUnmuteReporter {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+}
+
 final class ModEventUnmuteReporterConverter
     extends LexObjectConverter<ModEventUnmuteReporter, Map<String, dynamic>> {
   const ModEventUnmuteReporterConverter();

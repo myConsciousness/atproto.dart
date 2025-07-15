@@ -49,6 +49,15 @@ abstract class AccountEvent with _$AccountEvent {
   }
 }
 
+extension AccountEventExtension on AccountEvent {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+  bool get isActive => active;
+  bool get isNotActive => !isActive;
+  bool get hasStatus => status != null;
+  bool get hasNotStatus => !hasStatus;
+}
+
 final class AccountEventConverter
     extends LexObjectConverter<AccountEvent, Map<String, dynamic>> {
   const AccountEventConverter();

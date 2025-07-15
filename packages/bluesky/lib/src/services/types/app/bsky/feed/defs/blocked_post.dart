@@ -43,6 +43,11 @@ abstract class BlockedPost with _$BlockedPost {
   }
 }
 
+extension BlockedPostExtension on BlockedPost {
+  bool get isBlocked => blocked;
+  bool get isNotBlocked => !isBlocked;
+}
+
 final class BlockedPostConverter
     extends LexObjectConverter<BlockedPost, Map<String, dynamic>> {
   const BlockedPostConverter();

@@ -41,6 +41,11 @@ abstract class RepoOp with _$RepoOp {
   }
 }
 
+extension RepoOpExtension on RepoOp {
+  bool get hasPrev => prev != null;
+  bool get hasNotPrev => !hasPrev;
+}
+
 final class RepoOpConverter
     extends LexObjectConverter<RepoOp, Map<String, dynamic>> {
   const RepoOpConverter();

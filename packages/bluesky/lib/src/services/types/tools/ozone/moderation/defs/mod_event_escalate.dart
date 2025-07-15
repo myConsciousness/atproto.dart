@@ -38,6 +38,11 @@ abstract class ModEventEscalate with _$ModEventEscalate {
   }
 }
 
+extension ModEventEscalateExtension on ModEventEscalate {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+}
+
 final class ModEventEscalateConverter
     extends LexObjectConverter<ModEventEscalate, Map<String, dynamic>> {
   const ModEventEscalateConverter();

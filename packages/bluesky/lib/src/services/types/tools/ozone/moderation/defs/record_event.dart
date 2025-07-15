@@ -42,6 +42,13 @@ abstract class RecordEvent with _$RecordEvent {
   }
 }
 
+extension RecordEventExtension on RecordEvent {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+  bool get hasCid => cid != null;
+  bool get hasNotCid => !hasCid;
+}
+
 final class RecordEventConverter
     extends LexObjectConverter<RecordEvent, Map<String, dynamic>> {
   const RecordEventConverter();

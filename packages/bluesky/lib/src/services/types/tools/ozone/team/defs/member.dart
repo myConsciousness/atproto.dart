@@ -54,6 +54,19 @@ abstract class Member with _$Member {
   }
 }
 
+extension MemberExtension on Member {
+  bool get isDisabled => disabled ?? false;
+  bool get isNotDisabled => !isDisabled;
+  bool get hasProfile => profile != null;
+  bool get hasNotProfile => !hasProfile;
+  bool get hasCreatedAt => createdAt != null;
+  bool get hasNotCreatedAt => !hasCreatedAt;
+  bool get hasUpdatedAt => updatedAt != null;
+  bool get hasNotUpdatedAt => !hasUpdatedAt;
+  bool get hasLastUpdatedBy => lastUpdatedBy != null;
+  bool get hasNotLastUpdatedBy => !hasLastUpdatedBy;
+}
+
 final class MemberConverter
     extends LexObjectConverter<Member, Map<String, dynamic>> {
   const MemberConverter();

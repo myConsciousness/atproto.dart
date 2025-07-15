@@ -1,5 +1,5 @@
 // Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -19,7 +19,7 @@ const _assertEvalPriority =
     'priority == 8';
 
 @modObject
-class ModerationCauseLabel with _$ModerationCauseLabel {
+abstract class ModerationCauseLabel with _$ModerationCauseLabel {
   const factory ModerationCauseLabel({
     required ModerationCauseSource source,
     required Label label,

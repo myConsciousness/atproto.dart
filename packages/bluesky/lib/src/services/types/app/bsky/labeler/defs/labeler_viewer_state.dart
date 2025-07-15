@@ -38,6 +38,11 @@ abstract class LabelerViewerState with _$LabelerViewerState {
   }
 }
 
+extension LabelerViewerStateExtension on LabelerViewerState {
+  bool get hasLike => like != null;
+  bool get hasNotLike => !hasLike;
+}
+
 final class LabelerViewerStateConverter
     extends LexObjectConverter<LabelerViewerState, Map<String, dynamic>> {
   const LabelerViewerStateConverter();

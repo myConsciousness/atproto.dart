@@ -25,12 +25,12 @@ $ModerationCauseLabelCopyWith<ModerationCauseLabel> get copyWith => _$Moderation
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationCauseLabel&&(identical(other.source, source) || other.source == source)&&const DeepCollectionEquality().equals(other.label, label)&&(identical(other.labelDef, labelDef) || other.labelDef == labelDef)&&(identical(other.target, target) || other.target == target)&&(identical(other.setting, setting) || other.setting == setting)&&const DeepCollectionEquality().equals(other.behavior, behavior)&&(identical(other.noOverride, noOverride) || other.noOverride == noOverride)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.downgraded, downgraded) || other.downgraded == downgraded));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationCauseLabel&&(identical(other.source, source) || other.source == source)&&(identical(other.label, label) || other.label == label)&&(identical(other.labelDef, labelDef) || other.labelDef == labelDef)&&(identical(other.target, target) || other.target == target)&&(identical(other.setting, setting) || other.setting == setting)&&const DeepCollectionEquality().equals(other.behavior, behavior)&&(identical(other.noOverride, noOverride) || other.noOverride == noOverride)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.downgraded, downgraded) || other.downgraded == downgraded));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,source,const DeepCollectionEquality().hash(label),labelDef,target,setting,const DeepCollectionEquality().hash(behavior),noOverride,priority,downgraded);
+int get hashCode => Object.hash(runtimeType,source,label,labelDef,target,setting,const DeepCollectionEquality().hash(behavior),noOverride,priority,downgraded);
 
 @override
 String toString() {
@@ -49,7 +49,7 @@ $Res call({
 });
 
 
-$ModerationCauseSourceCopyWith<$Res> get source;$InterpretedLabelValueDefinitionCopyWith<$Res> get labelDef;
+$ModerationCauseSourceCopyWith<$Res> get source;$LabelCopyWith<$Res> get label;$InterpretedLabelValueDefinitionCopyWith<$Res> get labelDef;
 
 }
 /// @nodoc
@@ -62,10 +62,10 @@ class _$ModerationCauseLabelCopyWithImpl<$Res>
 
 /// Create a copy of ModerationCauseLabel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? source = null,Object? label = freezed,Object? labelDef = null,Object? target = null,Object? setting = null,Object? behavior = null,Object? noOverride = null,Object? priority = null,Object? downgraded = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? source = null,Object? label = null,Object? labelDef = null,Object? target = null,Object? setting = null,Object? behavior = null,Object? noOverride = null,Object? priority = null,Object? downgraded = null,}) {
   return _then(_self.copyWith(
 source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
-as ModerationCauseSource,label: freezed == label ? _self.label : label // ignore: cast_nullable_to_non_nullable
+as ModerationCauseSource,label: null == label ? _self.label : label // ignore: cast_nullable_to_non_nullable
 as Label,labelDef: null == labelDef ? _self.labelDef : labelDef // ignore: cast_nullable_to_non_nullable
 as InterpretedLabelValueDefinition,target: null == target ? _self.target : target // ignore: cast_nullable_to_non_nullable
 as LabelTarget,setting: null == setting ? _self.setting : setting // ignore: cast_nullable_to_non_nullable
@@ -84,6 +84,15 @@ $ModerationCauseSourceCopyWith<$Res> get source {
   
   return $ModerationCauseSourceCopyWith<$Res>(_self.source, (value) {
     return _then(_self.copyWith(source: value));
+  });
+}/// Create a copy of ModerationCauseLabel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LabelCopyWith<$Res> get label {
+  
+  return $LabelCopyWith<$Res>(_self.label, (value) {
+    return _then(_self.copyWith(label: value));
   });
 }/// Create a copy of ModerationCauseLabel
 /// with the given fields replaced by the non-null parameter values.
@@ -261,12 +270,12 @@ _$ModerationCauseLabelCopyWith<_ModerationCauseLabel> get copyWith => __$Moderat
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModerationCauseLabel&&(identical(other.source, source) || other.source == source)&&const DeepCollectionEquality().equals(other.label, label)&&(identical(other.labelDef, labelDef) || other.labelDef == labelDef)&&(identical(other.target, target) || other.target == target)&&(identical(other.setting, setting) || other.setting == setting)&&const DeepCollectionEquality().equals(other._behavior, _behavior)&&(identical(other.noOverride, noOverride) || other.noOverride == noOverride)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.downgraded, downgraded) || other.downgraded == downgraded));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModerationCauseLabel&&(identical(other.source, source) || other.source == source)&&(identical(other.label, label) || other.label == label)&&(identical(other.labelDef, labelDef) || other.labelDef == labelDef)&&(identical(other.target, target) || other.target == target)&&(identical(other.setting, setting) || other.setting == setting)&&const DeepCollectionEquality().equals(other._behavior, _behavior)&&(identical(other.noOverride, noOverride) || other.noOverride == noOverride)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.downgraded, downgraded) || other.downgraded == downgraded));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,source,const DeepCollectionEquality().hash(label),labelDef,target,setting,const DeepCollectionEquality().hash(_behavior),noOverride,priority,downgraded);
+int get hashCode => Object.hash(runtimeType,source,label,labelDef,target,setting,const DeepCollectionEquality().hash(_behavior),noOverride,priority,downgraded);
 
 @override
 String toString() {
@@ -285,7 +294,7 @@ $Res call({
 });
 
 
-@override $ModerationCauseSourceCopyWith<$Res> get source;@override $InterpretedLabelValueDefinitionCopyWith<$Res> get labelDef;
+@override $ModerationCauseSourceCopyWith<$Res> get source;@override $LabelCopyWith<$Res> get label;@override $InterpretedLabelValueDefinitionCopyWith<$Res> get labelDef;
 
 }
 /// @nodoc
@@ -298,10 +307,10 @@ class __$ModerationCauseLabelCopyWithImpl<$Res>
 
 /// Create a copy of ModerationCauseLabel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? source = null,Object? label = freezed,Object? labelDef = null,Object? target = null,Object? setting = null,Object? behavior = null,Object? noOverride = null,Object? priority = null,Object? downgraded = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? source = null,Object? label = null,Object? labelDef = null,Object? target = null,Object? setting = null,Object? behavior = null,Object? noOverride = null,Object? priority = null,Object? downgraded = null,}) {
   return _then(_ModerationCauseLabel(
 source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
-as ModerationCauseSource,label: freezed == label ? _self.label : label // ignore: cast_nullable_to_non_nullable
+as ModerationCauseSource,label: null == label ? _self.label : label // ignore: cast_nullable_to_non_nullable
 as Label,labelDef: null == labelDef ? _self.labelDef : labelDef // ignore: cast_nullable_to_non_nullable
 as InterpretedLabelValueDefinition,target: null == target ? _self.target : target // ignore: cast_nullable_to_non_nullable
 as LabelTarget,setting: null == setting ? _self.setting : setting // ignore: cast_nullable_to_non_nullable
@@ -321,6 +330,15 @@ $ModerationCauseSourceCopyWith<$Res> get source {
   
   return $ModerationCauseSourceCopyWith<$Res>(_self.source, (value) {
     return _then(_self.copyWith(source: value));
+  });
+}/// Create a copy of ModerationCauseLabel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LabelCopyWith<$Res> get label {
+  
+  return $LabelCopyWith<$Res>(_self.label, (value) {
+    return _then(_self.copyWith(label: value));
   });
 }/// Create a copy of ModerationCauseLabel
 /// with the given fields replaced by the non-null parameter values.

@@ -43,6 +43,11 @@ abstract class EmbedRecordViewBlocked with _$EmbedRecordViewBlocked {
   }
 }
 
+extension EmbedRecordViewBlockedExtension on EmbedRecordViewBlocked {
+  bool get isBlocked => blocked;
+  bool get isNotBlocked => !isBlocked;
+}
+
 final class EmbedRecordViewBlockedConverter
     extends LexObjectConverter<EmbedRecordViewBlocked, Map<String, dynamic>> {
   const EmbedRecordViewBlockedConverter();

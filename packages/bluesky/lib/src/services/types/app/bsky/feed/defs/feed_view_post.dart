@@ -57,6 +57,17 @@ abstract class FeedViewPost with _$FeedViewPost {
   }
 }
 
+extension FeedViewPostExtension on FeedViewPost {
+  bool get hasReply => reply != null;
+  bool get hasNotReply => !hasReply;
+  bool get hasReason => reason != null;
+  bool get hasNotReason => !hasReason;
+  bool get hasFeedContext => feedContext != null;
+  bool get hasNotFeedContext => !hasFeedContext;
+  bool get hasReqId => reqId != null;
+  bool get hasNotReqId => !hasReqId;
+}
+
 final class FeedViewPostConverter
     extends LexObjectConverter<FeedViewPost, Map<String, dynamic>> {
   const FeedViewPostConverter();

@@ -45,6 +45,13 @@ abstract class Relationship with _$Relationship {
   }
 }
 
+extension RelationshipExtension on Relationship {
+  bool get hasFollowing => following != null;
+  bool get hasNotFollowing => !hasFollowing;
+  bool get hasFollowedBy => followedBy != null;
+  bool get hasNotFollowedBy => !hasFollowedBy;
+}
+
 final class RelationshipConverter
     extends LexObjectConverter<Relationship, Map<String, dynamic>> {
   const RelationshipConverter();

@@ -9,6 +9,7 @@
 
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'external.freezed.dart';
@@ -39,6 +40,11 @@ abstract class EmbedExternalExternal with _$EmbedExternalExternal {
     if (!object.containsKey('\$type')) return false;
     return object['\$type'] == 'app.bsky.embed.external#external';
   }
+}
+
+extension EmbedExternalExternalExtension on EmbedExternalExternal {
+  bool get hasThumb => thumb != null;
+  bool get hasNotThumb => !hasThumb;
 }
 
 final class EmbedExternalExternalConverter

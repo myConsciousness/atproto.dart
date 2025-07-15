@@ -72,6 +72,21 @@ abstract class RepoViewDetail with _$RepoViewDetail {
   }
 }
 
+extension RepoViewDetailExtension on RepoViewDetail {
+  bool get hasEmail => email != null;
+  bool get hasNotEmail => !hasEmail;
+  bool get hasInvitedBy => invitedBy != null;
+  bool get hasNotInvitedBy => !hasInvitedBy;
+  bool get isInvitesDisabled => invitesDisabled ?? false;
+  bool get isNotInvitesDisabled => !isInvitesDisabled;
+  bool get hasInviteNote => inviteNote != null;
+  bool get hasNotInviteNote => !hasInviteNote;
+  bool get hasEmailConfirmedAt => emailConfirmedAt != null;
+  bool get hasNotEmailConfirmedAt => !hasEmailConfirmedAt;
+  bool get hasDeactivatedAt => deactivatedAt != null;
+  bool get hasNotDeactivatedAt => !hasDeactivatedAt;
+}
+
 final class RepoViewDetailConverter
     extends LexObjectConverter<RepoViewDetail, Map<String, dynamic>> {
   const RepoViewDetailConverter();

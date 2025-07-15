@@ -45,6 +45,15 @@ abstract class Nux with _$Nux {
   }
 }
 
+extension NuxExtension on Nux {
+  bool get isCompleted => completed;
+  bool get isNotCompleted => !isCompleted;
+  bool get hasData => data != null;
+  bool get hasNotData => !hasData;
+  bool get hasExpiresAt => expiresAt != null;
+  bool get hasNotExpiresAt => !hasExpiresAt;
+}
+
 final class NuxConverter extends LexObjectConverter<Nux, Map<String, dynamic>> {
   const NuxConverter();
 

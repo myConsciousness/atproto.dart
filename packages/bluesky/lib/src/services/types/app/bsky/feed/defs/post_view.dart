@@ -71,6 +71,23 @@ abstract class PostView with _$PostView {
   }
 }
 
+extension PostViewExtension on PostView {
+  bool get hasEmbed => embed != null;
+  bool get hasNotEmbed => !hasEmbed;
+  bool get hasReplyCount => replyCount != null;
+  bool get hasNotReplyCount => !hasReplyCount;
+  bool get hasRepostCount => repostCount != null;
+  bool get hasNotRepostCount => !hasRepostCount;
+  bool get hasLikeCount => likeCount != null;
+  bool get hasNotLikeCount => !hasLikeCount;
+  bool get hasQuoteCount => quoteCount != null;
+  bool get hasNotQuoteCount => !hasQuoteCount;
+  bool get hasViewer => viewer != null;
+  bool get hasNotViewer => !hasViewer;
+  bool get hasThreadgate => threadgate != null;
+  bool get hasNotThreadgate => !hasThreadgate;
+}
+
 final class PostViewConverter
     extends LexObjectConverter<PostView, Map<String, dynamic>> {
   const PostViewConverter();

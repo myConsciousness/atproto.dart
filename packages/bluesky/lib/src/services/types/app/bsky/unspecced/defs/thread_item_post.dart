@@ -63,6 +63,17 @@ abstract class ThreadItemPost with _$ThreadItemPost {
   }
 }
 
+extension ThreadItemPostExtension on ThreadItemPost {
+  bool get isMoreParents => moreParents;
+  bool get isNotMoreParents => !isMoreParents;
+  bool get isOpThread => opThread;
+  bool get isNotOpThread => !isOpThread;
+  bool get isHiddenByThreadgate => hiddenByThreadgate;
+  bool get isNotHiddenByThreadgate => !isHiddenByThreadgate;
+  bool get isMutedByViewer => mutedByViewer;
+  bool get isNotMutedByViewer => !isMutedByViewer;
+}
+
 final class ThreadItemPostConverter
     extends LexObjectConverter<ThreadItemPost, Map<String, dynamic>> {
   const ThreadItemPostConverter();

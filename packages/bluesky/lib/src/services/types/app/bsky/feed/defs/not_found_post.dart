@@ -39,6 +39,11 @@ abstract class NotFoundPost with _$NotFoundPost {
   }
 }
 
+extension NotFoundPostExtension on NotFoundPost {
+  bool get isNotFound => notFound;
+  bool get isNotNotFound => !isNotFound;
+}
+
 final class NotFoundPostConverter
     extends LexObjectConverter<NotFoundPost, Map<String, dynamic>> {
   const NotFoundPostConverter();

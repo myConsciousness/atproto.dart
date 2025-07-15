@@ -14,12 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ModerationSubjectProfile {
 
- InvalidType get data;
-/// Create a copy of ModerationSubjectProfile
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$ModerationSubjectProfileCopyWith<ModerationSubjectProfile> get copyWith => _$ModerationSubjectProfileCopyWithImpl<ModerationSubjectProfile>(this as ModerationSubjectProfile, _$identity);
+ Object get data;
 
 
 
@@ -41,34 +36,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $ModerationSubjectProfileCopyWith<$Res>  {
-  factory $ModerationSubjectProfileCopyWith(ModerationSubjectProfile value, $Res Function(ModerationSubjectProfile) _then) = _$ModerationSubjectProfileCopyWithImpl;
-@useResult
-$Res call({
- InvalidType data
-});
-
-
-
-
-}
-/// @nodoc
-class _$ModerationSubjectProfileCopyWithImpl<$Res>
-    implements $ModerationSubjectProfileCopyWith<$Res> {
-  _$ModerationSubjectProfileCopyWithImpl(this._self, this._then);
-
-  final ModerationSubjectProfile _self;
-  final $Res Function(ModerationSubjectProfile) _then;
-
-/// Create a copy of ModerationSubjectProfile
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? data = freezed,}) {
-  return _then(_self.copyWith(
-data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
-as InvalidType,
-  ));
-}
-
+class $ModerationSubjectProfileCopyWith<$Res>  {
+$ModerationSubjectProfileCopyWith(ModerationSubjectProfile _, $Res Function(ModerationSubjectProfile) __);
 }
 
 
@@ -156,7 +125,7 @@ return profileViewDetailed(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( ActorBasic data)?  profileViewBasic,TResult Function( Actor data)?  profileView,TResult Function( ActorProfile data)?  profileViewDetailed,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( ProfileViewBasic data)?  profileViewBasic,TResult Function( ProfileView data)?  profileView,TResult Function( ProfileViewDetailed data)?  profileViewDetailed,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case UModerationSubjectProfileProfileViewBasic() when profileViewBasic != null:
 return profileViewBasic(_that.data);case UModerationSubjectProfileProfileView() when profileView != null:
@@ -179,7 +148,7 @@ return profileViewDetailed(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( ActorBasic data)  profileViewBasic,required TResult Function( Actor data)  profileView,required TResult Function( ActorProfile data)  profileViewDetailed,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( ProfileViewBasic data)  profileViewBasic,required TResult Function( ProfileView data)  profileView,required TResult Function( ProfileViewDetailed data)  profileViewDetailed,}) {final _that = this;
 switch (_that) {
 case UModerationSubjectProfileProfileViewBasic():
 return profileViewBasic(_that.data);case UModerationSubjectProfileProfileView():
@@ -201,7 +170,7 @@ return profileViewDetailed(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( ActorBasic data)?  profileViewBasic,TResult? Function( Actor data)?  profileView,TResult? Function( ActorProfile data)?  profileViewDetailed,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( ProfileViewBasic data)?  profileViewBasic,TResult? Function( ProfileView data)?  profileView,TResult? Function( ProfileViewDetailed data)?  profileViewDetailed,}) {final _that = this;
 switch (_that) {
 case UModerationSubjectProfileProfileViewBasic() when profileViewBasic != null:
 return profileViewBasic(_that.data);case UModerationSubjectProfileProfileView() when profileView != null:
@@ -221,11 +190,11 @@ class UModerationSubjectProfileProfileViewBasic implements ModerationSubjectProf
   const UModerationSubjectProfileProfileViewBasic({required this.data});
   
 
-@override final  ActorBasic data;
+@override final  ProfileViewBasic data;
 
 /// Create a copy of ModerationSubjectProfile
 /// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
+@JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
 $UModerationSubjectProfileProfileViewBasicCopyWith<UModerationSubjectProfileProfileViewBasic> get copyWith => _$UModerationSubjectProfileProfileViewBasicCopyWithImpl<UModerationSubjectProfileProfileViewBasic>(this, _$identity);
 
@@ -233,12 +202,12 @@ $UModerationSubjectProfileProfileViewBasicCopyWith<UModerationSubjectProfileProf
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectProfileProfileViewBasic&&const DeepCollectionEquality().equals(other.data, data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectProfileProfileViewBasic&&(identical(other.data, data) || other.data == data));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
@@ -251,13 +220,13 @@ String toString() {
 /// @nodoc
 abstract mixin class $UModerationSubjectProfileProfileViewBasicCopyWith<$Res> implements $ModerationSubjectProfileCopyWith<$Res> {
   factory $UModerationSubjectProfileProfileViewBasicCopyWith(UModerationSubjectProfileProfileViewBasic value, $Res Function(UModerationSubjectProfileProfileViewBasic) _then) = _$UModerationSubjectProfileProfileViewBasicCopyWithImpl;
-@override @useResult
+@useResult
 $Res call({
- ActorBasic data
+ ProfileViewBasic data
 });
 
 
-
+$ProfileViewBasicCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -270,14 +239,23 @@ class _$UModerationSubjectProfileProfileViewBasicCopyWithImpl<$Res>
 
 /// Create a copy of ModerationSubjectProfile
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,}) {
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
   return _then(UModerationSubjectProfileProfileViewBasic(
-data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
-as ActorBasic,
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ProfileViewBasic,
   ));
 }
 
-
+/// Create a copy of ModerationSubjectProfile
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ProfileViewBasicCopyWith<$Res> get data {
+  
+  return $ProfileViewBasicCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
@@ -287,11 +265,11 @@ class UModerationSubjectProfileProfileView implements ModerationSubjectProfile {
   const UModerationSubjectProfileProfileView({required this.data});
   
 
-@override final  Actor data;
+@override final  ProfileView data;
 
 /// Create a copy of ModerationSubjectProfile
 /// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
+@JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
 $UModerationSubjectProfileProfileViewCopyWith<UModerationSubjectProfileProfileView> get copyWith => _$UModerationSubjectProfileProfileViewCopyWithImpl<UModerationSubjectProfileProfileView>(this, _$identity);
 
@@ -299,12 +277,12 @@ $UModerationSubjectProfileProfileViewCopyWith<UModerationSubjectProfileProfileVi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectProfileProfileView&&const DeepCollectionEquality().equals(other.data, data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectProfileProfileView&&(identical(other.data, data) || other.data == data));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
@@ -317,13 +295,13 @@ String toString() {
 /// @nodoc
 abstract mixin class $UModerationSubjectProfileProfileViewCopyWith<$Res> implements $ModerationSubjectProfileCopyWith<$Res> {
   factory $UModerationSubjectProfileProfileViewCopyWith(UModerationSubjectProfileProfileView value, $Res Function(UModerationSubjectProfileProfileView) _then) = _$UModerationSubjectProfileProfileViewCopyWithImpl;
-@override @useResult
+@useResult
 $Res call({
- Actor data
+ ProfileView data
 });
 
 
-
+$ProfileViewCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -336,14 +314,23 @@ class _$UModerationSubjectProfileProfileViewCopyWithImpl<$Res>
 
 /// Create a copy of ModerationSubjectProfile
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,}) {
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
   return _then(UModerationSubjectProfileProfileView(
-data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
-as Actor,
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ProfileView,
   ));
 }
 
-
+/// Create a copy of ModerationSubjectProfile
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ProfileViewCopyWith<$Res> get data {
+  
+  return $ProfileViewCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
@@ -353,11 +340,11 @@ class UModerationSubjectProfileProfileViewDetailed implements ModerationSubjectP
   const UModerationSubjectProfileProfileViewDetailed({required this.data});
   
 
-@override final  ActorProfile data;
+@override final  ProfileViewDetailed data;
 
 /// Create a copy of ModerationSubjectProfile
 /// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
+@JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
 $UModerationSubjectProfileProfileViewDetailedCopyWith<UModerationSubjectProfileProfileViewDetailed> get copyWith => _$UModerationSubjectProfileProfileViewDetailedCopyWithImpl<UModerationSubjectProfileProfileViewDetailed>(this, _$identity);
 
@@ -365,12 +352,12 @@ $UModerationSubjectProfileProfileViewDetailedCopyWith<UModerationSubjectProfileP
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectProfileProfileViewDetailed&&const DeepCollectionEquality().equals(other.data, data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectProfileProfileViewDetailed&&(identical(other.data, data) || other.data == data));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
@@ -383,13 +370,13 @@ String toString() {
 /// @nodoc
 abstract mixin class $UModerationSubjectProfileProfileViewDetailedCopyWith<$Res> implements $ModerationSubjectProfileCopyWith<$Res> {
   factory $UModerationSubjectProfileProfileViewDetailedCopyWith(UModerationSubjectProfileProfileViewDetailed value, $Res Function(UModerationSubjectProfileProfileViewDetailed) _then) = _$UModerationSubjectProfileProfileViewDetailedCopyWithImpl;
-@override @useResult
+@useResult
 $Res call({
- ActorProfile data
+ ProfileViewDetailed data
 });
 
 
-
+$ProfileViewDetailedCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -402,14 +389,23 @@ class _$UModerationSubjectProfileProfileViewDetailedCopyWithImpl<$Res>
 
 /// Create a copy of ModerationSubjectProfile
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,}) {
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
   return _then(UModerationSubjectProfileProfileViewDetailed(
-data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
-as ActorProfile,
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ProfileViewDetailed,
   ));
 }
 
-
+/// Create a copy of ModerationSubjectProfile
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ProfileViewDetailedCopyWith<$Res> get data {
+  
+  return $ProfileViewDetailedCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 // dart format on

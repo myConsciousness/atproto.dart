@@ -47,6 +47,13 @@ abstract class ModEventEmail with _$ModEventEmail {
   }
 }
 
+extension ModEventEmailExtension on ModEventEmail {
+  bool get hasContent => content != null;
+  bool get hasNotContent => !hasContent;
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+}
+
 final class ModEventEmailConverter
     extends LexObjectConverter<ModEventEmail, Map<String, dynamic>> {
   const ModEventEmailConverter();

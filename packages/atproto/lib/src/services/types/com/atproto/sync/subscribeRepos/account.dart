@@ -47,6 +47,13 @@ abstract class Account with _$Account {
   }
 }
 
+extension AccountExtension on Account {
+  bool get isActive => active;
+  bool get isNotActive => !isActive;
+  bool get hasStatus => status != null;
+  bool get hasNotStatus => !hasStatus;
+}
+
 final class AccountConverter
     extends LexObjectConverter<Account, Map<String, dynamic>> {
   const AccountConverter();

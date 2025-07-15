@@ -52,6 +52,13 @@ abstract class ThreadViewPost with _$ThreadViewPost {
   }
 }
 
+extension ThreadViewPostExtension on ThreadViewPost {
+  bool get hasParent => parent != null;
+  bool get hasNotParent => !hasParent;
+  bool get hasThreadContext => threadContext != null;
+  bool get hasNotThreadContext => !hasThreadContext;
+}
+
 final class ThreadViewPostConverter
     extends LexObjectConverter<ThreadViewPost, Map<String, dynamic>> {
   const ThreadViewPostConverter();

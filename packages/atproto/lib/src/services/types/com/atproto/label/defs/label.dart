@@ -72,6 +72,19 @@ abstract class Label with _$Label {
   }
 }
 
+extension LabelExtension on Label {
+  bool get hasVer => ver != null;
+  bool get hasNotVer => !hasVer;
+  bool get hasCid => cid != null;
+  bool get hasNotCid => !hasCid;
+  bool get isNeg => neg ?? false;
+  bool get isNotNeg => !isNeg;
+  bool get hasExp => exp != null;
+  bool get hasNotExp => !hasExp;
+  bool get hasSig => sig != null;
+  bool get hasNotSig => !hasSig;
+}
+
 final class LabelConverter
     extends LexObjectConverter<Label, Map<String, dynamic>> {
   const LabelConverter();

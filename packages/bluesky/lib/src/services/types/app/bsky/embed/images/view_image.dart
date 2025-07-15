@@ -50,6 +50,11 @@ abstract class EmbedImagesViewImage with _$EmbedImagesViewImage {
   }
 }
 
+extension EmbedImagesViewImageExtension on EmbedImagesViewImage {
+  bool get hasAspectRatio => aspectRatio != null;
+  bool get hasNotAspectRatio => !hasAspectRatio;
+}
+
 final class EmbedImagesViewImageConverter
     extends LexObjectConverter<EmbedImagesViewImage, Map<String, dynamic>> {
   const EmbedImagesViewImageConverter();

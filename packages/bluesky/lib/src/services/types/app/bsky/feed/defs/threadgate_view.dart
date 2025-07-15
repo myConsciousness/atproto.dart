@@ -44,6 +44,15 @@ abstract class ThreadgateView with _$ThreadgateView {
   }
 }
 
+extension ThreadgateViewExtension on ThreadgateView {
+  bool get hasUri => uri != null;
+  bool get hasNotUri => !hasUri;
+  bool get hasCid => cid != null;
+  bool get hasNotCid => !hasCid;
+  bool get hasRecord => record != null;
+  bool get hasNotRecord => !hasRecord;
+}
+
 final class ThreadgateViewConverter
     extends LexObjectConverter<ThreadgateView, Map<String, dynamic>> {
   const ThreadgateViewConverter();

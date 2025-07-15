@@ -39,6 +39,11 @@ abstract class EmbedRecordViewDetached with _$EmbedRecordViewDetached {
   }
 }
 
+extension EmbedRecordViewDetachedExtension on EmbedRecordViewDetached {
+  bool get isDetached => detached;
+  bool get isNotDetached => !isDetached;
+}
+
 final class EmbedRecordViewDetachedConverter
     extends LexObjectConverter<EmbedRecordViewDetached, Map<String, dynamic>> {
   const EmbedRecordViewDetachedConverter();

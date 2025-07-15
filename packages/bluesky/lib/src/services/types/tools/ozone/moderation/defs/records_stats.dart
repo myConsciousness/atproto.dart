@@ -71,6 +71,25 @@ abstract class RecordsStats with _$RecordsStats {
   }
 }
 
+extension RecordsStatsExtension on RecordsStats {
+  bool get hasTotalReports => totalReports != null;
+  bool get hasNotTotalReports => !hasTotalReports;
+  bool get hasReportedCount => reportedCount != null;
+  bool get hasNotReportedCount => !hasReportedCount;
+  bool get hasEscalatedCount => escalatedCount != null;
+  bool get hasNotEscalatedCount => !hasEscalatedCount;
+  bool get hasAppealedCount => appealedCount != null;
+  bool get hasNotAppealedCount => !hasAppealedCount;
+  bool get hasSubjectCount => subjectCount != null;
+  bool get hasNotSubjectCount => !hasSubjectCount;
+  bool get hasPendingCount => pendingCount != null;
+  bool get hasNotPendingCount => !hasPendingCount;
+  bool get hasProcessedCount => processedCount != null;
+  bool get hasNotProcessedCount => !hasProcessedCount;
+  bool get hasTakendownCount => takendownCount != null;
+  bool get hasNotTakendownCount => !hasTakendownCount;
+}
+
 final class RecordsStatsConverter
     extends LexObjectConverter<RecordsStats, Map<String, dynamic>> {
   const RecordsStatsConverter();

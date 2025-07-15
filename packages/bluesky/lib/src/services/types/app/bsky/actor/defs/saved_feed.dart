@@ -41,6 +41,11 @@ abstract class SavedFeed with _$SavedFeed {
   }
 }
 
+extension SavedFeedExtension on SavedFeed {
+  bool get isPinned => pinned;
+  bool get isNotPinned => !isPinned;
+}
+
 final class SavedFeedConverter
     extends LexObjectConverter<SavedFeed, Map<String, dynamic>> {
   const SavedFeedConverter();

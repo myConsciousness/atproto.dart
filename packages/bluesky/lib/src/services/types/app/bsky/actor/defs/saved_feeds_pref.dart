@@ -40,6 +40,11 @@ abstract class SavedFeedsPref with _$SavedFeedsPref {
   }
 }
 
+extension SavedFeedsPrefExtension on SavedFeedsPref {
+  bool get hasTimelineIndex => timelineIndex != null;
+  bool get hasNotTimelineIndex => !hasTimelineIndex;
+}
+
 final class SavedFeedsPrefConverter
     extends LexObjectConverter<SavedFeedsPref, Map<String, dynamic>> {
   const SavedFeedsPrefConverter();

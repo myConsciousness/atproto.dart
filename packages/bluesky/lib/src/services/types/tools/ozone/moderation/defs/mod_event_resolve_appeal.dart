@@ -42,6 +42,11 @@ abstract class ModEventResolveAppeal with _$ModEventResolveAppeal {
   }
 }
 
+extension ModEventResolveAppealExtension on ModEventResolveAppeal {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+}
+
 final class ModEventResolveAppealConverter
     extends LexObjectConverter<ModEventResolveAppeal, Map<String, dynamic>> {
   const ModEventResolveAppealConverter();

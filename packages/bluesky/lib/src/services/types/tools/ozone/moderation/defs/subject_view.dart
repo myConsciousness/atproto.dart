@@ -58,6 +58,17 @@ abstract class SubjectView with _$SubjectView {
   }
 }
 
+extension SubjectViewExtension on SubjectView {
+  bool get hasStatus => status != null;
+  bool get hasNotStatus => !hasStatus;
+  bool get hasRepo => repo != null;
+  bool get hasNotRepo => !hasRepo;
+  bool get hasProfile => profile != null;
+  bool get hasNotProfile => !hasProfile;
+  bool get hasRecord => record != null;
+  bool get hasNotRecord => !hasRecord;
+}
+
 final class SubjectViewConverter
     extends LexObjectConverter<SubjectView, Map<String, dynamic>> {
   const SubjectViewConverter();

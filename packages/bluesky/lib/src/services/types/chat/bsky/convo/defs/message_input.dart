@@ -44,6 +44,11 @@ abstract class MessageInput with _$MessageInput {
   }
 }
 
+extension MessageInputExtension on MessageInput {
+  bool get hasEmbed => embed != null;
+  bool get hasNotEmbed => !hasEmbed;
+}
+
 final class MessageInputConverter
     extends LexObjectConverter<MessageInput, Map<String, dynamic>> {
   const MessageInputConverter();

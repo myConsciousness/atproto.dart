@@ -41,6 +41,13 @@ abstract class AccountCreated with _$AccountCreated {
   }
 }
 
+extension AccountCreatedExtension on AccountCreated {
+  bool get hasEmail => email != null;
+  bool get hasNotEmail => !hasEmail;
+  bool get hasHandle => handle != null;
+  bool get hasNotHandle => !hasHandle;
+}
+
 final class AccountCreatedConverter
     extends LexObjectConverter<AccountCreated, Map<String, dynamic>> {
   const AccountCreatedConverter();

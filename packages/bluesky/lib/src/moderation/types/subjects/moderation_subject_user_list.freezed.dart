@@ -14,12 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ModerationSubjectUserList {
 
- InvalidType get data;
-/// Create a copy of ModerationSubjectUserList
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$ModerationSubjectUserListCopyWith<ModerationSubjectUserList> get copyWith => _$ModerationSubjectUserListCopyWithImpl<ModerationSubjectUserList>(this as ModerationSubjectUserList, _$identity);
+ Object get data;
 
 
 
@@ -41,34 +36,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $ModerationSubjectUserListCopyWith<$Res>  {
-  factory $ModerationSubjectUserListCopyWith(ModerationSubjectUserList value, $Res Function(ModerationSubjectUserList) _then) = _$ModerationSubjectUserListCopyWithImpl;
-@useResult
-$Res call({
- InvalidType data
-});
-
-
-
-
-}
-/// @nodoc
-class _$ModerationSubjectUserListCopyWithImpl<$Res>
-    implements $ModerationSubjectUserListCopyWith<$Res> {
-  _$ModerationSubjectUserListCopyWithImpl(this._self, this._then);
-
-  final ModerationSubjectUserList _self;
-  final $Res Function(ModerationSubjectUserList) _then;
-
-/// Create a copy of ModerationSubjectUserList
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? data = freezed,}) {
-  return _then(_self.copyWith(
-data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
-as InvalidType,
-  ));
-}
-
+class $ModerationSubjectUserListCopyWith<$Res>  {
+$ModerationSubjectUserListCopyWith(ModerationSubjectUserList _, $Res Function(ModerationSubjectUserList) __);
 }
 
 
@@ -219,7 +188,7 @@ class UModerationSubjectUserListListViewBasic implements ModerationSubjectUserLi
 
 /// Create a copy of ModerationSubjectUserList
 /// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
+@JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
 $UModerationSubjectUserListListViewBasicCopyWith<UModerationSubjectUserListListViewBasic> get copyWith => _$UModerationSubjectUserListListViewBasicCopyWithImpl<UModerationSubjectUserListListViewBasic>(this, _$identity);
 
@@ -227,12 +196,12 @@ $UModerationSubjectUserListListViewBasicCopyWith<UModerationSubjectUserListListV
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectUserListListViewBasic&&const DeepCollectionEquality().equals(other.data, data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectUserListListViewBasic&&(identical(other.data, data) || other.data == data));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
@@ -245,13 +214,13 @@ String toString() {
 /// @nodoc
 abstract mixin class $UModerationSubjectUserListListViewBasicCopyWith<$Res> implements $ModerationSubjectUserListCopyWith<$Res> {
   factory $UModerationSubjectUserListListViewBasicCopyWith(UModerationSubjectUserListListViewBasic value, $Res Function(UModerationSubjectUserListListViewBasic) _then) = _$UModerationSubjectUserListListViewBasicCopyWithImpl;
-@override @useResult
+@useResult
 $Res call({
  ListViewBasic data
 });
 
 
-
+$ListViewBasicCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -264,14 +233,23 @@ class _$UModerationSubjectUserListListViewBasicCopyWithImpl<$Res>
 
 /// Create a copy of ModerationSubjectUserList
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,}) {
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
   return _then(UModerationSubjectUserListListViewBasic(
-data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as ListViewBasic,
   ));
 }
 
-
+/// Create a copy of ModerationSubjectUserList
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ListViewBasicCopyWith<$Res> get data {
+  
+  return $ListViewBasicCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
@@ -285,7 +263,7 @@ class UModerationSubjectUserListListView implements ModerationSubjectUserList {
 
 /// Create a copy of ModerationSubjectUserList
 /// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
+@JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
 $UModerationSubjectUserListListViewCopyWith<UModerationSubjectUserListListView> get copyWith => _$UModerationSubjectUserListListViewCopyWithImpl<UModerationSubjectUserListListView>(this, _$identity);
 
@@ -293,12 +271,12 @@ $UModerationSubjectUserListListViewCopyWith<UModerationSubjectUserListListView> 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectUserListListView&&const DeepCollectionEquality().equals(other.data, data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectUserListListView&&(identical(other.data, data) || other.data == data));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
@@ -311,13 +289,13 @@ String toString() {
 /// @nodoc
 abstract mixin class $UModerationSubjectUserListListViewCopyWith<$Res> implements $ModerationSubjectUserListCopyWith<$Res> {
   factory $UModerationSubjectUserListListViewCopyWith(UModerationSubjectUserListListView value, $Res Function(UModerationSubjectUserListListView) _then) = _$UModerationSubjectUserListListViewCopyWithImpl;
-@override @useResult
+@useResult
 $Res call({
  ListView data
 });
 
 
-
+$ListViewCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -330,14 +308,23 @@ class _$UModerationSubjectUserListListViewCopyWithImpl<$Res>
 
 /// Create a copy of ModerationSubjectUserList
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,}) {
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
   return _then(UModerationSubjectUserListListView(
-data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as ListView,
   ));
 }
 
-
+/// Create a copy of ModerationSubjectUserList
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ListViewCopyWith<$Res> get data {
+  
+  return $ListViewCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 // dart format on

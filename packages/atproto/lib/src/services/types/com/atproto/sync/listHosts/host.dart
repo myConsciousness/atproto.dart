@@ -52,6 +52,15 @@ abstract class Host with _$Host {
   }
 }
 
+extension HostExtension on Host {
+  bool get hasSeq => seq != null;
+  bool get hasNotSeq => !hasSeq;
+  bool get hasAccountCount => accountCount != null;
+  bool get hasNotAccountCount => !hasAccountCount;
+  bool get hasStatus => status != null;
+  bool get hasNotStatus => !hasStatus;
+}
+
 final class HostConverter
     extends LexObjectConverter<Host, Map<String, dynamic>> {
   const HostConverter();

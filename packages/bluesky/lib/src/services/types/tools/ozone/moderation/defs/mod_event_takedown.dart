@@ -51,6 +51,15 @@ abstract class ModEventTakedown with _$ModEventTakedown {
   }
 }
 
+extension ModEventTakedownExtension on ModEventTakedown {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+  bool get hasDurationInHours => durationInHours != null;
+  bool get hasNotDurationInHours => !hasDurationInHours;
+  bool get isAcknowledgeAccountSubjects => acknowledgeAccountSubjects ?? false;
+  bool get isNotAcknowledgeAccountSubjects => !isAcknowledgeAccountSubjects;
+}
+
 final class ModEventTakedownConverter
     extends LexObjectConverter<ModEventTakedown, Map<String, dynamic>> {
   const ModEventTakedownConverter();

@@ -62,6 +62,21 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
   }
 }
 
+extension ProfileViewBasicExtension on ProfileViewBasic {
+  bool get hasDisplayName => displayName != null;
+  bool get hasNotDisplayName => !hasDisplayName;
+  bool get hasAvatar => avatar != null;
+  bool get hasNotAvatar => !hasAvatar;
+  bool get hasAssociated => associated != null;
+  bool get hasNotAssociated => !hasAssociated;
+  bool get hasViewer => viewer != null;
+  bool get hasNotViewer => !hasViewer;
+  bool get isChatDisabled => chatDisabled ?? false;
+  bool get isNotChatDisabled => !isChatDisabled;
+  bool get hasVerification => verification != null;
+  bool get hasNotVerification => !hasVerification;
+}
+
 final class ProfileViewBasicConverter
     extends LexObjectConverter<ProfileViewBasic, Map<String, dynamic>> {
   const ProfileViewBasicConverter();

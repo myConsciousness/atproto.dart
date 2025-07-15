@@ -25,12 +25,12 @@ $ModerationSubjectNotificationCopyWith<ModerationSubjectNotification> get copyWi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationSubjectNotification&&const DeepCollectionEquality().equals(other.data, data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationSubjectNotification&&(identical(other.data, data) || other.data == data));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
@@ -49,7 +49,7 @@ $Res call({
 });
 
 
-
+$NotificationCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -62,13 +62,22 @@ class _$ModerationSubjectNotificationCopyWithImpl<$Res>
 
 /// Create a copy of ModerationSubjectNotification
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? data = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? data = null,}) {
   return _then(_self.copyWith(
-data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as Notification,
   ));
 }
-
+/// Create a copy of ModerationSubjectNotification
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$NotificationCopyWith<$Res> get data {
+  
+  return $NotificationCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 
@@ -221,12 +230,12 @@ $UModerationSubjectNotificationCopyWith<UModerationSubjectNotification> get copy
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectNotification&&const DeepCollectionEquality().equals(other.data, data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubjectNotification&&(identical(other.data, data) || other.data == data));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
@@ -245,7 +254,7 @@ $Res call({
 });
 
 
-
+@override $NotificationCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -258,14 +267,23 @@ class _$UModerationSubjectNotificationCopyWithImpl<$Res>
 
 /// Create a copy of ModerationSubjectNotification
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
   return _then(UModerationSubjectNotification(
-data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as Notification,
   ));
 }
 
-
+/// Create a copy of ModerationSubjectNotification
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$NotificationCopyWith<$Res> get data {
+  
+  return $NotificationCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 // dart format on

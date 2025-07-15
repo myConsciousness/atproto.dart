@@ -70,6 +70,11 @@ abstract class Event with _$Event {
   }
 }
 
+extension EventExtension on Event {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+}
+
 final class EventConverter
     extends LexObjectConverter<Event, Map<String, dynamic>> {
   const EventConverter();

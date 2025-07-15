@@ -50,6 +50,11 @@ abstract class VerificationView with _$VerificationView {
   }
 }
 
+extension VerificationViewExtension on VerificationView {
+  bool get isIsValid => isValid;
+  bool get isNotIsValid => !isIsValid;
+}
+
 final class VerificationViewConverter
     extends LexObjectConverter<VerificationView, Map<String, dynamic>> {
   const VerificationViewConverter();

@@ -42,6 +42,11 @@ abstract class ModTool with _$ModTool {
   }
 }
 
+extension ModToolExtension on ModTool {
+  bool get hasMeta => meta != null;
+  bool get hasNotMeta => !hasMeta;
+}
+
 final class ModToolConverter
     extends LexObjectConverter<ModTool, Map<String, dynamic>> {
   const ModToolConverter();

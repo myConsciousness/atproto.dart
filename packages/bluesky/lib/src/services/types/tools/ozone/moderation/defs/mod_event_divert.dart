@@ -39,6 +39,11 @@ abstract class ModEventDivert with _$ModEventDivert {
   }
 }
 
+extension ModEventDivertExtension on ModEventDivert {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+}
+
 final class ModEventDivertConverter
     extends LexObjectConverter<ModEventDivert, Map<String, dynamic>> {
   const ModEventDivertConverter();

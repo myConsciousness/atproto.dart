@@ -60,6 +60,11 @@ abstract class MessageView with _$MessageView {
   }
 }
 
+extension MessageViewExtension on MessageView {
+  bool get hasEmbed => embed != null;
+  bool get hasNotEmbed => !hasEmbed;
+}
+
 final class MessageViewConverter
     extends LexObjectConverter<MessageView, Map<String, dynamic>> {
   const MessageViewConverter();

@@ -66,6 +66,27 @@ abstract class ViewerState with _$ViewerState {
   }
 }
 
+extension ViewerStateExtension on ViewerState {
+  bool get isMuted => muted ?? false;
+  bool get isNotMuted => !isMuted;
+  bool get hasMutedByList => mutedByList != null;
+  bool get hasNotMutedByList => !hasMutedByList;
+  bool get isBlockedBy => blockedBy ?? false;
+  bool get isNotBlockedBy => !isBlockedBy;
+  bool get hasBlocking => blocking != null;
+  bool get hasNotBlocking => !hasBlocking;
+  bool get hasBlockingByList => blockingByList != null;
+  bool get hasNotBlockingByList => !hasBlockingByList;
+  bool get hasFollowing => following != null;
+  bool get hasNotFollowing => !hasFollowing;
+  bool get hasFollowedBy => followedBy != null;
+  bool get hasNotFollowedBy => !hasFollowedBy;
+  bool get hasKnownFollowers => knownFollowers != null;
+  bool get hasNotKnownFollowers => !hasKnownFollowers;
+  bool get hasActivitySubscription => activitySubscription != null;
+  bool get hasNotActivitySubscription => !hasActivitySubscription;
+}
+
 final class ViewerStateConverter
     extends LexObjectConverter<ViewerState, Map<String, dynamic>> {
   const ViewerStateConverter();

@@ -38,6 +38,11 @@ abstract class AdultContentPref with _$AdultContentPref {
   }
 }
 
+extension AdultContentPrefExtension on AdultContentPref {
+  bool get isEnabled => enabled;
+  bool get isNotEnabled => !isEnabled;
+}
+
 final class AdultContentPrefConverter
     extends LexObjectConverter<AdultContentPref, Map<String, dynamic>> {
   const AdultContentPrefConverter();

@@ -38,6 +38,11 @@ abstract class Contact with _$Contact {
   }
 }
 
+extension ContactExtension on Contact {
+  bool get hasEmail => email != null;
+  bool get hasNotEmail => !hasEmail;
+}
+
 final class ContactConverter
     extends LexObjectConverter<Contact, Map<String, dynamic>> {
   const ContactConverter();

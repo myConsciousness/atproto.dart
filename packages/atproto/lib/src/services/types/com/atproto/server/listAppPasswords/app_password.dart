@@ -41,6 +41,11 @@ abstract class AppPassword with _$AppPassword {
   }
 }
 
+extension AppPasswordExtension on AppPassword {
+  bool get isPrivileged => privileged ?? false;
+  bool get isNotPrivileged => !isPrivileged;
+}
+
 final class AppPasswordConverter
     extends LexObjectConverter<AppPassword, Map<String, dynamic>> {
   const AppPasswordConverter();

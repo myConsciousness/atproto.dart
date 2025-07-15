@@ -54,6 +54,13 @@ abstract class BlobView with _$BlobView {
   }
 }
 
+extension BlobViewExtension on BlobView {
+  bool get hasDetails => details != null;
+  bool get hasNotDetails => !hasDetails;
+  bool get hasModeration => moderation != null;
+  bool get hasNotModeration => !hasModeration;
+}
+
 final class BlobViewConverter
     extends LexObjectConverter<BlobView, Map<String, dynamic>> {
   const BlobViewConverter();

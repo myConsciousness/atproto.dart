@@ -39,6 +39,11 @@ abstract class EmbedRecordViewNotFound with _$EmbedRecordViewNotFound {
   }
 }
 
+extension EmbedRecordViewNotFoundExtension on EmbedRecordViewNotFound {
+  bool get isNotFound => notFound;
+  bool get isNotNotFound => !isNotFound;
+}
+
 final class EmbedRecordViewNotFoundConverter
     extends LexObjectConverter<EmbedRecordViewNotFound, Map<String, dynamic>> {
   const EmbedRecordViewNotFoundConverter();
