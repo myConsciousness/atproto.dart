@@ -14,9 +14,13 @@ ModerationDecision decideFeedGenerator(
   final ModerationSubjectFeedGenerator subject,
   final ModerationOpts opts,
 ) {
-  final (creator, labels) = subject.when(
-    generatorView: (data) => (data.createdBy, data.labels),
-  );
+  final (creator, labels) = switch (subject) {
+    UModerationSubjectFeedGenerator(data: final data) => (
+        data.createdBy,
+        data.labels
+      ),
+    _ => throw UnimplementedError(),
+  };
 
   final decision = ModerationDecision.init(
     did: creator.did,

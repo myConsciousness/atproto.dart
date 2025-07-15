@@ -8,12 +8,11 @@ part of 'threadgate_record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ThreadgateRecordImpl _$$ThreadgateRecordImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ThreadgateRecordImpl',
+_ThreadgateRecord _$ThreadgateRecordFromJson(Map json) => $checkedCreate(
+      '_ThreadgateRecord',
       json,
       ($checkedConvert) {
-        final val = _$ThreadgateRecordImpl(
+        final val = _ThreadgateRecord(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedThreadgate),
           postUri: $checkedConvert(
@@ -41,8 +40,7 @@ _$ThreadgateRecordImpl _$$ThreadgateRecordImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$ThreadgateRecordImplToJson(
-        _$ThreadgateRecordImpl instance) =>
+Map<String, dynamic> _$ThreadgateRecordToJson(_ThreadgateRecord instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'post': const AtUriConverter().toJson(instance.postUri),

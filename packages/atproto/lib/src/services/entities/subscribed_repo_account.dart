@@ -9,7 +9,7 @@ part 'subscribed_repo_account.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#account
 @freezed
-class Account with _$Account {
+abstract class Account with _$Account {
   @jsonSerializable
   const factory Account({
     required int seq,

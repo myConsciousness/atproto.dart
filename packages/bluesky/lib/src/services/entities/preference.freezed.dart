@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,13 +10,30 @@ part of 'preference.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Preference {
+
+  Object get data;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Preference &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'Preference(data: $data)';
+  }
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -137,32 +155,49 @@ mixin _$Preference {
 }
 
 /// @nodoc
-abstract class $PreferenceCopyWith<$Res> {
-  factory $PreferenceCopyWith(
-          Preference value, $Res Function(Preference) then) =
-      _$PreferenceCopyWithImpl<$Res, Preference>;
+class $PreferenceCopyWith<$Res> {
+  $PreferenceCopyWith(Preference _, $Res Function(Preference) __);
 }
 
 /// @nodoc
-class _$PreferenceCopyWithImpl<$Res, $Val extends Preference>
-    implements $PreferenceCopyWith<$Res> {
-  _$PreferenceCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+class UPreferenceAdultContent extends Preference {
+  const UPreferenceAdultContent({required this.data}) : super._();
+
+  @override
+  final AdultContentPreference data;
 
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UPreferenceAdultContentCopyWith<UPreferenceAdultContent> get copyWith =>
+      _$UPreferenceAdultContentCopyWithImpl<UPreferenceAdultContent>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UPreferenceAdultContent &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'Preference.adultContent(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$UPreferenceAdultContentImplCopyWith<$Res> {
-  factory _$$UPreferenceAdultContentImplCopyWith(
-          _$UPreferenceAdultContentImpl value,
-          $Res Function(_$UPreferenceAdultContentImpl) then) =
-      __$$UPreferenceAdultContentImplCopyWithImpl<$Res>;
+abstract mixin class $UPreferenceAdultContentCopyWith<$Res>
+    implements $PreferenceCopyWith<$Res> {
+  factory $UPreferenceAdultContentCopyWith(UPreferenceAdultContent value,
+          $Res Function(UPreferenceAdultContent) _then) =
+      _$UPreferenceAdultContentCopyWithImpl;
   @useResult
   $Res call({AdultContentPreference data});
 
@@ -170,24 +205,22 @@ abstract class _$$UPreferenceAdultContentImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferenceAdultContentImplCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceAdultContentImpl>
-    implements _$$UPreferenceAdultContentImplCopyWith<$Res> {
-  __$$UPreferenceAdultContentImplCopyWithImpl(
-      _$UPreferenceAdultContentImpl _value,
-      $Res Function(_$UPreferenceAdultContentImpl) _then)
-      : super(_value, _then);
+class _$UPreferenceAdultContentCopyWithImpl<$Res>
+    implements $UPreferenceAdultContentCopyWith<$Res> {
+  _$UPreferenceAdultContentCopyWithImpl(this._self, this._then);
+
+  final UPreferenceAdultContent _self;
+  final $Res Function(UPreferenceAdultContent) _then;
 
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferenceAdultContentImpl(
+    return _then(UPreferenceAdultContent(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as AdultContentPreference,
     ));
@@ -198,36 +231,42 @@ class __$$UPreferenceAdultContentImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $AdultContentPreferenceCopyWith<$Res> get data {
-    return $AdultContentPreferenceCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $AdultContentPreferenceCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UPreferenceAdultContentImpl extends UPreferenceAdultContent {
-  const _$UPreferenceAdultContentImpl({required this.data}) : super._();
+class UPreferenceContentLabel extends Preference {
+  const UPreferenceContentLabel({required this.data}) : super._();
 
   @override
-  final AdultContentPreference data;
+  final ContentLabelPreference data;
 
-  @override
-  String toString() {
-    return 'Preference.adultContent(data: $data)';
-  }
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UPreferenceContentLabelCopyWith<UPreferenceContentLabel> get copyWith =>
+      _$UPreferenceContentLabelCopyWithImpl<UPreferenceContentLabel>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferenceAdultContentImpl &&
+            other is UPreferenceContentLabel &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
+  @override
+  String toString() {
+    return 'Preference.contentLabel(data: $data)';
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -376,31 +415,16 @@ class _$UPreferenceAdultContentImpl extends UPreferenceAdultContent {
       return adultContent(this);
     }
     return orElse();
+
   }
 }
 
-abstract class UPreferenceAdultContent extends Preference {
-  const factory UPreferenceAdultContent(
-          {required final AdultContentPreference data}) =
-      _$UPreferenceAdultContentImpl;
-  const UPreferenceAdultContent._() : super._();
-
-  @override
-  AdultContentPreference get data;
-
-  /// Create a copy of Preference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferenceAdultContentImplCopyWith<_$UPreferenceAdultContentImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
 /// @nodoc
-abstract class _$$UPreferenceContentLabelImplCopyWith<$Res> {
-  factory _$$UPreferenceContentLabelImplCopyWith(
-          _$UPreferenceContentLabelImpl value,
-          $Res Function(_$UPreferenceContentLabelImpl) then) =
-      __$$UPreferenceContentLabelImplCopyWithImpl<$Res>;
+abstract mixin class $UPreferenceContentLabelCopyWith<$Res>
+    implements $PreferenceCopyWith<$Res> {
+  factory $UPreferenceContentLabelCopyWith(UPreferenceContentLabel value,
+          $Res Function(UPreferenceContentLabel) _then) =
+      _$UPreferenceContentLabelCopyWithImpl;
   @useResult
   $Res call({ContentLabelPreference data});
 
@@ -408,24 +432,22 @@ abstract class _$$UPreferenceContentLabelImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferenceContentLabelImplCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceContentLabelImpl>
-    implements _$$UPreferenceContentLabelImplCopyWith<$Res> {
-  __$$UPreferenceContentLabelImplCopyWithImpl(
-      _$UPreferenceContentLabelImpl _value,
-      $Res Function(_$UPreferenceContentLabelImpl) _then)
-      : super(_value, _then);
+class _$UPreferenceContentLabelCopyWithImpl<$Res>
+    implements $UPreferenceContentLabelCopyWith<$Res> {
+  _$UPreferenceContentLabelCopyWithImpl(this._self, this._then);
+
+  final UPreferenceContentLabel _self;
+  final $Res Function(UPreferenceContentLabel) _then;
 
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferenceContentLabelImpl(
+    return _then(UPreferenceContentLabel(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as ContentLabelPreference,
     ));
@@ -436,37 +458,45 @@ class __$$UPreferenceContentLabelImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $ContentLabelPreferenceCopyWith<$Res> get data {
-    return $ContentLabelPreferenceCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $ContentLabelPreferenceCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UPreferenceContentLabelImpl extends UPreferenceContentLabel {
-  const _$UPreferenceContentLabelImpl({required this.data}) : super._();
+class UPreferenceSavedFeeds extends Preference {
+  const UPreferenceSavedFeeds({required this.data}) : super._();
 
   @override
-  final ContentLabelPreference data;
+  final SavedFeedsPreference data;
 
-  @override
-  String toString() {
-    return 'Preference.contentLabel(data: $data)';
-  }
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UPreferenceSavedFeedsCopyWith<UPreferenceSavedFeeds> get copyWith =>
+      _$UPreferenceSavedFeedsCopyWithImpl<UPreferenceSavedFeeds>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferenceContentLabelImpl &&
+            other is UPreferenceSavedFeeds &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of Preference
+
+  @override
+  String toString() {
+    return 'Preference.savedFeeds(data: $data)';
+
+    /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -614,31 +644,17 @@ class _$UPreferenceContentLabelImpl extends UPreferenceContentLabel {
       return contentLabel(this);
     }
     return orElse();
+
+  
   }
 }
 
-abstract class UPreferenceContentLabel extends Preference {
-  const factory UPreferenceContentLabel(
-          {required final ContentLabelPreference data}) =
-      _$UPreferenceContentLabelImpl;
-  const UPreferenceContentLabel._() : super._();
-
-  @override
-  ContentLabelPreference get data;
-
-  /// Create a copy of Preference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferenceContentLabelImplCopyWith<_$UPreferenceContentLabelImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
 /// @nodoc
-abstract class _$$UPreferenceSavedFeedsImplCopyWith<$Res> {
-  factory _$$UPreferenceSavedFeedsImplCopyWith(
-          _$UPreferenceSavedFeedsImpl value,
-          $Res Function(_$UPreferenceSavedFeedsImpl) then) =
-      __$$UPreferenceSavedFeedsImplCopyWithImpl<$Res>;
+abstract mixin class $UPreferenceSavedFeedsCopyWith<$Res>
+    implements $PreferenceCopyWith<$Res> {
+  factory $UPreferenceSavedFeedsCopyWith(UPreferenceSavedFeeds value,
+          $Res Function(UPreferenceSavedFeeds) _then) =
+      _$UPreferenceSavedFeedsCopyWithImpl;
   @useResult
   $Res call({SavedFeedsPreference data});
 
@@ -646,23 +662,22 @@ abstract class _$$UPreferenceSavedFeedsImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferenceSavedFeedsImplCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceSavedFeedsImpl>
-    implements _$$UPreferenceSavedFeedsImplCopyWith<$Res> {
-  __$$UPreferenceSavedFeedsImplCopyWithImpl(_$UPreferenceSavedFeedsImpl _value,
-      $Res Function(_$UPreferenceSavedFeedsImpl) _then)
-      : super(_value, _then);
+class _$UPreferenceSavedFeedsCopyWithImpl<$Res>
+    implements $UPreferenceSavedFeedsCopyWith<$Res> {
+  _$UPreferenceSavedFeedsCopyWithImpl(this._self, this._then);
+
+  final UPreferenceSavedFeeds _self;
+  final $Res Function(UPreferenceSavedFeeds) _then;
 
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferenceSavedFeedsImpl(
+    return _then(UPreferenceSavedFeeds(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as SavedFeedsPreference,
     ));
@@ -673,37 +688,44 @@ class __$$UPreferenceSavedFeedsImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $SavedFeedsPreferenceCopyWith<$Res> get data {
-    return $SavedFeedsPreferenceCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $SavedFeedsPreferenceCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UPreferenceSavedFeedsImpl extends UPreferenceSavedFeeds {
-  const _$UPreferenceSavedFeedsImpl({required this.data}) : super._();
+class UPreferenceSavedFeedsV2 extends Preference {
+  const UPreferenceSavedFeedsV2({required this.data}) : super._();
 
   @override
-  final SavedFeedsPreference data;
+  final SavedFeedsPrefV2 data;
 
-  @override
-  String toString() {
-    return 'Preference.savedFeeds(data: $data)';
-  }
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UPreferenceSavedFeedsV2CopyWith<UPreferenceSavedFeedsV2> get copyWith =>
+      _$UPreferenceSavedFeedsV2CopyWithImpl<UPreferenceSavedFeedsV2>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferenceSavedFeedsImpl &&
+            other is UPreferenceSavedFeedsV2 &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of Preference
+  @override
+  String toString() {
+    return 'Preference.savedFeedsV2(data: $data)';
+
+    /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -851,30 +873,16 @@ class _$UPreferenceSavedFeedsImpl extends UPreferenceSavedFeeds {
       return savedFeeds(this);
     }
     return orElse();
+
   }
 }
 
-abstract class UPreferenceSavedFeeds extends Preference {
-  const factory UPreferenceSavedFeeds(
-      {required final SavedFeedsPreference data}) = _$UPreferenceSavedFeedsImpl;
-  const UPreferenceSavedFeeds._() : super._();
-
-  @override
-  SavedFeedsPreference get data;
-
-  /// Create a copy of Preference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferenceSavedFeedsImplCopyWith<_$UPreferenceSavedFeedsImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
 /// @nodoc
-abstract class _$$UPreferenceSavedFeedsV2ImplCopyWith<$Res> {
-  factory _$$UPreferenceSavedFeedsV2ImplCopyWith(
-          _$UPreferenceSavedFeedsV2Impl value,
-          $Res Function(_$UPreferenceSavedFeedsV2Impl) then) =
-      __$$UPreferenceSavedFeedsV2ImplCopyWithImpl<$Res>;
+abstract mixin class $UPreferenceSavedFeedsV2CopyWith<$Res>
+    implements $PreferenceCopyWith<$Res> {
+  factory $UPreferenceSavedFeedsV2CopyWith(UPreferenceSavedFeedsV2 value,
+          $Res Function(UPreferenceSavedFeedsV2) _then) =
+      _$UPreferenceSavedFeedsV2CopyWithImpl;
   @useResult
   $Res call({SavedFeedsPrefV2 data});
 
@@ -882,24 +890,22 @@ abstract class _$$UPreferenceSavedFeedsV2ImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferenceSavedFeedsV2ImplCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceSavedFeedsV2Impl>
-    implements _$$UPreferenceSavedFeedsV2ImplCopyWith<$Res> {
-  __$$UPreferenceSavedFeedsV2ImplCopyWithImpl(
-      _$UPreferenceSavedFeedsV2Impl _value,
-      $Res Function(_$UPreferenceSavedFeedsV2Impl) _then)
-      : super(_value, _then);
+class _$UPreferenceSavedFeedsV2CopyWithImpl<$Res>
+    implements $UPreferenceSavedFeedsV2CopyWith<$Res> {
+  _$UPreferenceSavedFeedsV2CopyWithImpl(this._self, this._then);
+
+  final UPreferenceSavedFeedsV2 _self;
+  final $Res Function(UPreferenceSavedFeedsV2) _then;
 
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferenceSavedFeedsV2Impl(
+    return _then(UPreferenceSavedFeedsV2(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as SavedFeedsPrefV2,
     ));
@@ -910,36 +916,42 @@ class __$$UPreferenceSavedFeedsV2ImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $SavedFeedsPrefV2CopyWith<$Res> get data {
-    return $SavedFeedsPrefV2CopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $SavedFeedsPrefV2CopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UPreferenceSavedFeedsV2Impl extends UPreferenceSavedFeedsV2 {
-  const _$UPreferenceSavedFeedsV2Impl({required this.data}) : super._();
+class UPreferencePersonalDetails extends Preference {
+  const UPreferencePersonalDetails({required this.data}) : super._();
 
   @override
-  final SavedFeedsPrefV2 data;
+  final PersonalDetailsPreference data;
 
-  @override
-  String toString() {
-    return 'Preference.savedFeedsV2(data: $data)';
-  }
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UPreferencePersonalDetailsCopyWith<UPreferencePersonalDetails>
+      get copyWith =>
+          _$UPreferencePersonalDetailsCopyWithImpl<UPreferencePersonalDetails>(
+              this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferenceSavedFeedsV2Impl &&
+            other is UPreferencePersonalDetails &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
-
+  @override
+  String toString() {
+    return 'Preference.personalDetails(data: $data)';
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1088,30 +1100,16 @@ class _$UPreferenceSavedFeedsV2Impl extends UPreferenceSavedFeedsV2 {
       return savedFeedsV2(this);
     }
     return orElse();
+
   }
 }
 
-abstract class UPreferenceSavedFeedsV2 extends Preference {
-  const factory UPreferenceSavedFeedsV2(
-      {required final SavedFeedsPrefV2 data}) = _$UPreferenceSavedFeedsV2Impl;
-  const UPreferenceSavedFeedsV2._() : super._();
-
-  @override
-  SavedFeedsPrefV2 get data;
-
-  /// Create a copy of Preference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferenceSavedFeedsV2ImplCopyWith<_$UPreferenceSavedFeedsV2Impl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
 /// @nodoc
-abstract class _$$UPreferencePersonalDetailsImplCopyWith<$Res> {
-  factory _$$UPreferencePersonalDetailsImplCopyWith(
-          _$UPreferencePersonalDetailsImpl value,
-          $Res Function(_$UPreferencePersonalDetailsImpl) then) =
-      __$$UPreferencePersonalDetailsImplCopyWithImpl<$Res>;
+abstract mixin class $UPreferencePersonalDetailsCopyWith<$Res>
+    implements $PreferenceCopyWith<$Res> {
+  factory $UPreferencePersonalDetailsCopyWith(UPreferencePersonalDetails value,
+          $Res Function(UPreferencePersonalDetails) _then) =
+      _$UPreferencePersonalDetailsCopyWithImpl;
   @useResult
   $Res call({PersonalDetailsPreference data});
 
@@ -1119,24 +1117,22 @@ abstract class _$$UPreferencePersonalDetailsImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferencePersonalDetailsImplCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferencePersonalDetailsImpl>
-    implements _$$UPreferencePersonalDetailsImplCopyWith<$Res> {
-  __$$UPreferencePersonalDetailsImplCopyWithImpl(
-      _$UPreferencePersonalDetailsImpl _value,
-      $Res Function(_$UPreferencePersonalDetailsImpl) _then)
-      : super(_value, _then);
+class _$UPreferencePersonalDetailsCopyWithImpl<$Res>
+    implements $UPreferencePersonalDetailsCopyWith<$Res> {
+  _$UPreferencePersonalDetailsCopyWithImpl(this._self, this._then);
+
+  final UPreferencePersonalDetails _self;
+  final $Res Function(UPreferencePersonalDetails) _then;
 
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferencePersonalDetailsImpl(
+    return _then(UPreferencePersonalDetails(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as PersonalDetailsPreference,
     ));
@@ -1147,40 +1143,43 @@ class __$$UPreferencePersonalDetailsImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $PersonalDetailsPreferenceCopyWith<$Res> get data {
-    return $PersonalDetailsPreferenceCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $PersonalDetailsPreferenceCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UPreferencePersonalDetailsImpl extends UPreferencePersonalDetails {
-  const _$UPreferencePersonalDetailsImpl({required this.data}) : super._();
+class UPreferenceFeedView extends Preference {
+  const UPreferenceFeedView({required this.data}) : super._();
 
   @override
-  final PersonalDetailsPreference data;
+  final FeedViewPreference data;
 
-  @override
-  String toString() {
-    return 'Preference.personalDetails(data: $data)';
-  }
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UPreferenceFeedViewCopyWith<UPreferenceFeedView> get copyWith =>
+      _$UPreferenceFeedViewCopyWithImpl<UPreferenceFeedView>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferencePersonalDetailsImpl &&
+            other is UPreferenceFeedView &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of Preference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
+  String toString() {
+    return 'Preference.feedView(data: $data)';
+  }
+
   @pragma('vm:prefer-inline')
   _$$UPreferencePersonalDetailsImplCopyWith<_$UPreferencePersonalDetailsImpl>
       get copyWith => __$$UPreferencePersonalDetailsImplCopyWithImpl<
@@ -1345,10 +1344,11 @@ abstract class UPreferencePersonalDetails extends Preference {
 }
 
 /// @nodoc
-abstract class _$$UPreferenceFeedViewImplCopyWith<$Res> {
-  factory _$$UPreferenceFeedViewImplCopyWith(_$UPreferenceFeedViewImpl value,
-          $Res Function(_$UPreferenceFeedViewImpl) then) =
-      __$$UPreferenceFeedViewImplCopyWithImpl<$Res>;
+abstract mixin class $UPreferenceFeedViewCopyWith<$Res>
+    implements $PreferenceCopyWith<$Res> {
+  factory $UPreferenceFeedViewCopyWith(
+          UPreferenceFeedView value, $Res Function(UPreferenceFeedView) _then) =
+      _$UPreferenceFeedViewCopyWithImpl;
   @useResult
   $Res call({FeedViewPreference data});
 
@@ -1356,23 +1356,22 @@ abstract class _$$UPreferenceFeedViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferenceFeedViewImplCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceFeedViewImpl>
-    implements _$$UPreferenceFeedViewImplCopyWith<$Res> {
-  __$$UPreferenceFeedViewImplCopyWithImpl(_$UPreferenceFeedViewImpl _value,
-      $Res Function(_$UPreferenceFeedViewImpl) _then)
-      : super(_value, _then);
+class _$UPreferenceFeedViewCopyWithImpl<$Res>
+    implements $UPreferenceFeedViewCopyWith<$Res> {
+  _$UPreferenceFeedViewCopyWithImpl(this._self, this._then);
+
+  final UPreferenceFeedView _self;
+  final $Res Function(UPreferenceFeedView) _then;
 
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferenceFeedViewImpl(
+    return _then(UPreferenceFeedView(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as FeedViewPreference,
     ));
@@ -1383,46 +1382,43 @@ class __$$UPreferenceFeedViewImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $FeedViewPreferenceCopyWith<$Res> get data {
-    return $FeedViewPreferenceCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $FeedViewPreferenceCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UPreferenceFeedViewImpl extends UPreferenceFeedView {
-  const _$UPreferenceFeedViewImpl({required this.data}) : super._();
+class UPreferenceThreadView extends Preference {
+  const UPreferenceThreadView({required this.data}) : super._();
 
   @override
-  final FeedViewPreference data;
+  final ThreadViewPreference data;
 
-  @override
-  String toString() {
-    return 'Preference.feedView(data: $data)';
-  }
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UPreferenceThreadViewCopyWith<UPreferenceThreadView> get copyWith =>
+      _$UPreferenceThreadViewCopyWithImpl<UPreferenceThreadView>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferenceFeedViewImpl &&
+            other is UPreferenceThreadView &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of Preference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UPreferenceFeedViewImplCopyWith<_$UPreferenceFeedViewImpl> get copyWith =>
-      __$$UPreferenceFeedViewImplCopyWithImpl<_$UPreferenceFeedViewImpl>(
-          this, _$identity);
+  String toString() {
+    return 'Preference.threadView(data: $data)';
 
-  @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(AdultContentPreference data) adultContent,
@@ -1564,27 +1560,12 @@ class _$UPreferenceFeedViewImpl extends UPreferenceFeedView {
   }
 }
 
-abstract class UPreferenceFeedView extends Preference {
-  const factory UPreferenceFeedView({required final FeedViewPreference data}) =
-      _$UPreferenceFeedViewImpl;
-  const UPreferenceFeedView._() : super._();
-
-  @override
-  FeedViewPreference get data;
-
-  /// Create a copy of Preference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferenceFeedViewImplCopyWith<_$UPreferenceFeedViewImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
 /// @nodoc
-abstract class _$$UPreferenceThreadViewImplCopyWith<$Res> {
-  factory _$$UPreferenceThreadViewImplCopyWith(
-          _$UPreferenceThreadViewImpl value,
-          $Res Function(_$UPreferenceThreadViewImpl) then) =
-      __$$UPreferenceThreadViewImplCopyWithImpl<$Res>;
+abstract mixin class $UPreferenceThreadViewCopyWith<$Res>
+    implements $PreferenceCopyWith<$Res> {
+  factory $UPreferenceThreadViewCopyWith(UPreferenceThreadView value,
+          $Res Function(UPreferenceThreadView) _then) =
+      _$UPreferenceThreadViewCopyWithImpl;
   @useResult
   $Res call({ThreadViewPreference data});
 
@@ -1592,23 +1573,22 @@ abstract class _$$UPreferenceThreadViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferenceThreadViewImplCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceThreadViewImpl>
-    implements _$$UPreferenceThreadViewImplCopyWith<$Res> {
-  __$$UPreferenceThreadViewImplCopyWithImpl(_$UPreferenceThreadViewImpl _value,
-      $Res Function(_$UPreferenceThreadViewImpl) _then)
-      : super(_value, _then);
+class _$UPreferenceThreadViewCopyWithImpl<$Res>
+    implements $UPreferenceThreadViewCopyWith<$Res> {
+  _$UPreferenceThreadViewCopyWithImpl(this._self, this._then);
+
+  final UPreferenceThreadView _self;
+  final $Res Function(UPreferenceThreadView) _then;
 
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferenceThreadViewImpl(
+    return _then(UPreferenceThreadView(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as ThreadViewPreference,
     ));
@@ -1619,35 +1599,43 @@ class __$$UPreferenceThreadViewImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $ThreadViewPreferenceCopyWith<$Res> get data {
-    return $ThreadViewPreferenceCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $ThreadViewPreferenceCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UPreferenceThreadViewImpl extends UPreferenceThreadView {
-  const _$UPreferenceThreadViewImpl({required this.data}) : super._();
+class UPreferenceInterests extends Preference {
+  const UPreferenceInterests({required this.data}) : super._();
 
   @override
-  final ThreadViewPreference data;
+  final InterestsPreference data;
 
-  @override
-  String toString() {
-    return 'Preference.threadView(data: $data)';
-  }
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UPreferenceInterestsCopyWith<UPreferenceInterests> get copyWith =>
+      _$UPreferenceInterestsCopyWithImpl<UPreferenceInterests>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferenceThreadViewImpl &&
+            other is UPreferenceInterests &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
+
+
+  @override
+  String toString() {
+    return 'Preference.interests(data: $data)';
 
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
@@ -1797,29 +1785,16 @@ class _$UPreferenceThreadViewImpl extends UPreferenceThreadView {
       return threadView(this);
     }
     return orElse();
+
   }
 }
 
-abstract class UPreferenceThreadView extends Preference {
-  const factory UPreferenceThreadView(
-      {required final ThreadViewPreference data}) = _$UPreferenceThreadViewImpl;
-  const UPreferenceThreadView._() : super._();
-
-  @override
-  ThreadViewPreference get data;
-
-  /// Create a copy of Preference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferenceThreadViewImplCopyWith<_$UPreferenceThreadViewImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
 /// @nodoc
-abstract class _$$UPreferenceInterestsImplCopyWith<$Res> {
-  factory _$$UPreferenceInterestsImplCopyWith(_$UPreferenceInterestsImpl value,
-          $Res Function(_$UPreferenceInterestsImpl) then) =
-      __$$UPreferenceInterestsImplCopyWithImpl<$Res>;
+abstract mixin class $UPreferenceInterestsCopyWith<$Res>
+    implements $PreferenceCopyWith<$Res> {
+  factory $UPreferenceInterestsCopyWith(UPreferenceInterests value,
+          $Res Function(UPreferenceInterests) _then) =
+      _$UPreferenceInterestsCopyWithImpl;
   @useResult
   $Res call({InterestsPreference data});
 
@@ -1827,23 +1802,22 @@ abstract class _$$UPreferenceInterestsImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferenceInterestsImplCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceInterestsImpl>
-    implements _$$UPreferenceInterestsImplCopyWith<$Res> {
-  __$$UPreferenceInterestsImplCopyWithImpl(_$UPreferenceInterestsImpl _value,
-      $Res Function(_$UPreferenceInterestsImpl) _then)
-      : super(_value, _then);
+class _$UPreferenceInterestsCopyWithImpl<$Res>
+    implements $UPreferenceInterestsCopyWith<$Res> {
+  _$UPreferenceInterestsCopyWithImpl(this._self, this._then);
+
+  final UPreferenceInterests _self;
+  final $Res Function(UPreferenceInterests) _then;
 
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferenceInterestsImpl(
+    return _then(UPreferenceInterests(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as InterestsPreference,
     ));
@@ -1854,36 +1828,43 @@ class __$$UPreferenceInterestsImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $InterestsPreferenceCopyWith<$Res> get data {
-    return $InterestsPreferenceCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $InterestsPreferenceCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UPreferenceInterestsImpl extends UPreferenceInterests {
-  const _$UPreferenceInterestsImpl({required this.data}) : super._();
+class UPreferenceMutedWords extends Preference {
+  const UPreferenceMutedWords({required this.data}) : super._();
 
   @override
-  final InterestsPreference data;
+  final MutedWordsPref data;
 
-  @override
-  String toString() {
-    return 'Preference.interests(data: $data)';
-  }
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UPreferenceMutedWordsCopyWith<UPreferenceMutedWords> get copyWith =>
+      _$UPreferenceMutedWordsCopyWithImpl<UPreferenceMutedWords>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferenceInterestsImpl &&
+            other is UPreferenceMutedWords &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
+
+  @override
+  String toString() {
+    return 'Preference.mutedWords(data: $data)';
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -2036,27 +2017,12 @@ class _$UPreferenceInterestsImpl extends UPreferenceInterests {
   }
 }
 
-abstract class UPreferenceInterests extends Preference {
-  const factory UPreferenceInterests(
-      {required final InterestsPreference data}) = _$UPreferenceInterestsImpl;
-  const UPreferenceInterests._() : super._();
-
-  @override
-  InterestsPreference get data;
-
-  /// Create a copy of Preference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferenceInterestsImplCopyWith<_$UPreferenceInterestsImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
 /// @nodoc
-abstract class _$$UPreferenceMutedWordsImplCopyWith<$Res> {
-  factory _$$UPreferenceMutedWordsImplCopyWith(
-          _$UPreferenceMutedWordsImpl value,
-          $Res Function(_$UPreferenceMutedWordsImpl) then) =
-      __$$UPreferenceMutedWordsImplCopyWithImpl<$Res>;
+abstract mixin class $UPreferenceMutedWordsCopyWith<$Res>
+    implements $PreferenceCopyWith<$Res> {
+  factory $UPreferenceMutedWordsCopyWith(UPreferenceMutedWords value,
+          $Res Function(UPreferenceMutedWords) _then) =
+      _$UPreferenceMutedWordsCopyWithImpl;
   @useResult
   $Res call({MutedWordsPref data});
 
@@ -2064,23 +2030,22 @@ abstract class _$$UPreferenceMutedWordsImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferenceMutedWordsImplCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceMutedWordsImpl>
-    implements _$$UPreferenceMutedWordsImplCopyWith<$Res> {
-  __$$UPreferenceMutedWordsImplCopyWithImpl(_$UPreferenceMutedWordsImpl _value,
-      $Res Function(_$UPreferenceMutedWordsImpl) _then)
-      : super(_value, _then);
+class _$UPreferenceMutedWordsCopyWithImpl<$Res>
+    implements $UPreferenceMutedWordsCopyWith<$Res> {
+  _$UPreferenceMutedWordsCopyWithImpl(this._self, this._then);
+
+  final UPreferenceMutedWords _self;
+  final $Res Function(UPreferenceMutedWords) _then;
 
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferenceMutedWordsImpl(
+    return _then(UPreferenceMutedWords(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as MutedWordsPref,
     ));
@@ -2091,40 +2056,42 @@ class __$$UPreferenceMutedWordsImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $MutedWordsPrefCopyWith<$Res> get data {
-    return $MutedWordsPrefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $MutedWordsPrefCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UPreferenceMutedWordsImpl extends UPreferenceMutedWords {
-  const _$UPreferenceMutedWordsImpl({required this.data}) : super._();
+class UPreferenceHiddenPosts extends Preference {
+  const UPreferenceHiddenPosts({required this.data}) : super._();
 
   @override
-  final MutedWordsPref data;
+  final HiddenPostsPref data;
 
-  @override
-  String toString() {
-    return 'Preference.mutedWords(data: $data)';
-  }
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UPreferenceHiddenPostsCopyWith<UPreferenceHiddenPosts> get copyWith =>
+      _$UPreferenceHiddenPostsCopyWithImpl<UPreferenceHiddenPosts>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferenceMutedWordsImpl &&
+            other is UPreferenceHiddenPosts &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of Preference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
+  String toString() {
+    return 'Preference.hiddenPosts(data: $data)';
   @pragma('vm:prefer-inline')
   _$$UPreferenceMutedWordsImplCopyWith<_$UPreferenceMutedWordsImpl>
       get copyWith => __$$UPreferenceMutedWordsImplCopyWithImpl<
@@ -2269,30 +2236,16 @@ class _$UPreferenceMutedWordsImpl extends UPreferenceMutedWords {
       return mutedWords(this);
     }
     return orElse();
+
   }
 }
 
-abstract class UPreferenceMutedWords extends Preference {
-  const factory UPreferenceMutedWords({required final MutedWordsPref data}) =
-      _$UPreferenceMutedWordsImpl;
-  const UPreferenceMutedWords._() : super._();
-
-  @override
-  MutedWordsPref get data;
-
-  /// Create a copy of Preference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferenceMutedWordsImplCopyWith<_$UPreferenceMutedWordsImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
 /// @nodoc
-abstract class _$$UPreferenceHiddenPostsImplCopyWith<$Res> {
-  factory _$$UPreferenceHiddenPostsImplCopyWith(
-          _$UPreferenceHiddenPostsImpl value,
-          $Res Function(_$UPreferenceHiddenPostsImpl) then) =
-      __$$UPreferenceHiddenPostsImplCopyWithImpl<$Res>;
+abstract mixin class $UPreferenceHiddenPostsCopyWith<$Res>
+    implements $PreferenceCopyWith<$Res> {
+  factory $UPreferenceHiddenPostsCopyWith(UPreferenceHiddenPosts value,
+          $Res Function(UPreferenceHiddenPosts) _then) =
+      _$UPreferenceHiddenPostsCopyWithImpl;
   @useResult
   $Res call({HiddenPostsPref data});
 
@@ -2300,24 +2253,22 @@ abstract class _$$UPreferenceHiddenPostsImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferenceHiddenPostsImplCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceHiddenPostsImpl>
-    implements _$$UPreferenceHiddenPostsImplCopyWith<$Res> {
-  __$$UPreferenceHiddenPostsImplCopyWithImpl(
-      _$UPreferenceHiddenPostsImpl _value,
-      $Res Function(_$UPreferenceHiddenPostsImpl) _then)
-      : super(_value, _then);
+class _$UPreferenceHiddenPostsCopyWithImpl<$Res>
+    implements $UPreferenceHiddenPostsCopyWith<$Res> {
+  _$UPreferenceHiddenPostsCopyWithImpl(this._self, this._then);
+
+  final UPreferenceHiddenPosts _self;
+  final $Res Function(UPreferenceHiddenPosts) _then;
 
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferenceHiddenPostsImpl(
+    return _then(UPreferenceHiddenPosts(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as HiddenPostsPref,
     ));
@@ -2328,36 +2279,42 @@ class __$$UPreferenceHiddenPostsImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $HiddenPostsPrefCopyWith<$Res> get data {
-    return $HiddenPostsPrefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $HiddenPostsPrefCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UPreferenceHiddenPostsImpl extends UPreferenceHiddenPosts {
-  const _$UPreferenceHiddenPostsImpl({required this.data}) : super._();
+class UPreferenceLabelersPref extends Preference {
+  const UPreferenceLabelersPref({required this.data}) : super._();
 
   @override
-  final HiddenPostsPref data;
+  final LabelersPref data;
 
-  @override
-  String toString() {
-    return 'Preference.hiddenPosts(data: $data)';
-  }
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UPreferenceLabelersPrefCopyWith<UPreferenceLabelersPref> get copyWith =>
+      _$UPreferenceLabelersPrefCopyWithImpl<UPreferenceLabelersPref>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferenceHiddenPostsImpl &&
+            other is UPreferenceLabelersPref &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
+  @override
+  String toString() {
+    return 'Preference.labelersPref(data: $data)';
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -2506,30 +2463,16 @@ class _$UPreferenceHiddenPostsImpl extends UPreferenceHiddenPosts {
       return hiddenPosts(this);
     }
     return orElse();
+
   }
 }
 
-abstract class UPreferenceHiddenPosts extends Preference {
-  const factory UPreferenceHiddenPosts({required final HiddenPostsPref data}) =
-      _$UPreferenceHiddenPostsImpl;
-  const UPreferenceHiddenPosts._() : super._();
-
-  @override
-  HiddenPostsPref get data;
-
-  /// Create a copy of Preference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferenceHiddenPostsImplCopyWith<_$UPreferenceHiddenPostsImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
 /// @nodoc
-abstract class _$$UPreferenceLabelersPrefImplCopyWith<$Res> {
-  factory _$$UPreferenceLabelersPrefImplCopyWith(
-          _$UPreferenceLabelersPrefImpl value,
-          $Res Function(_$UPreferenceLabelersPrefImpl) then) =
-      __$$UPreferenceLabelersPrefImplCopyWithImpl<$Res>;
+abstract mixin class $UPreferenceLabelersPrefCopyWith<$Res>
+    implements $PreferenceCopyWith<$Res> {
+  factory $UPreferenceLabelersPrefCopyWith(UPreferenceLabelersPref value,
+          $Res Function(UPreferenceLabelersPref) _then) =
+      _$UPreferenceLabelersPrefCopyWithImpl;
   @useResult
   $Res call({LabelersPref data});
 
@@ -2537,24 +2480,22 @@ abstract class _$$UPreferenceLabelersPrefImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferenceLabelersPrefImplCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceLabelersPrefImpl>
-    implements _$$UPreferenceLabelersPrefImplCopyWith<$Res> {
-  __$$UPreferenceLabelersPrefImplCopyWithImpl(
-      _$UPreferenceLabelersPrefImpl _value,
-      $Res Function(_$UPreferenceLabelersPrefImpl) _then)
-      : super(_value, _then);
+class _$UPreferenceLabelersPrefCopyWithImpl<$Res>
+    implements $UPreferenceLabelersPrefCopyWith<$Res> {
+  _$UPreferenceLabelersPrefCopyWithImpl(this._self, this._then);
+
+  final UPreferenceLabelersPref _self;
+  final $Res Function(UPreferenceLabelersPref) _then;
 
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferenceLabelersPrefImpl(
+    return _then(UPreferenceLabelersPref(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as LabelersPref,
     ));
@@ -2565,36 +2506,45 @@ class __$$UPreferenceLabelersPrefImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $LabelersPrefCopyWith<$Res> get data {
-    return $LabelersPrefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $LabelersPrefCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UPreferenceLabelersPrefImpl extends UPreferenceLabelersPref {
-  const _$UPreferenceLabelersPrefImpl({required this.data}) : super._();
+class UPreferencePostInteractionSettingsPref extends Preference {
+  const UPreferencePostInteractionSettingsPref({required this.data})
+      : super._();
 
   @override
-  final LabelersPref data;
+  final PostInteractionSettingsPref data;
 
-  @override
-  String toString() {
-    return 'Preference.labelersPref(data: $data)';
-  }
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UPreferencePostInteractionSettingsPrefCopyWith<
+          UPreferencePostInteractionSettingsPref>
+      get copyWith => _$UPreferencePostInteractionSettingsPrefCopyWithImpl<
+          UPreferencePostInteractionSettingsPref>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferenceLabelersPrefImpl &&
+            other is UPreferencePostInteractionSettingsPref &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
+
+  @override
+  String toString() {
+    return 'Preference.postInteractionSettingsPref(data: $data)';
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -2743,30 +2693,17 @@ class _$UPreferenceLabelersPrefImpl extends UPreferenceLabelersPref {
       return labelersPref(this);
     }
     return orElse();
+
   }
 }
 
-abstract class UPreferenceLabelersPref extends Preference {
-  const factory UPreferenceLabelersPref({required final LabelersPref data}) =
-      _$UPreferenceLabelersPrefImpl;
-  const UPreferenceLabelersPref._() : super._();
-
-  @override
-  LabelersPref get data;
-
-  /// Create a copy of Preference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferenceLabelersPrefImplCopyWith<_$UPreferenceLabelersPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
 /// @nodoc
-abstract class _$$UPreferencePostInteractionSettingsPrefImplCopyWith<$Res> {
-  factory _$$UPreferencePostInteractionSettingsPrefImplCopyWith(
-          _$UPreferencePostInteractionSettingsPrefImpl value,
-          $Res Function(_$UPreferencePostInteractionSettingsPrefImpl) then) =
-      __$$UPreferencePostInteractionSettingsPrefImplCopyWithImpl<$Res>;
+abstract mixin class $UPreferencePostInteractionSettingsPrefCopyWith<$Res>
+    implements $PreferenceCopyWith<$Res> {
+  factory $UPreferencePostInteractionSettingsPrefCopyWith(
+          UPreferencePostInteractionSettingsPref value,
+          $Res Function(UPreferencePostInteractionSettingsPref) _then) =
+      _$UPreferencePostInteractionSettingsPrefCopyWithImpl;
   @useResult
   $Res call({PostInteractionSettingsPref data});
 
@@ -2774,25 +2711,22 @@ abstract class _$$UPreferencePostInteractionSettingsPrefImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferencePostInteractionSettingsPrefImplCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res,
-        _$UPreferencePostInteractionSettingsPrefImpl>
-    implements _$$UPreferencePostInteractionSettingsPrefImplCopyWith<$Res> {
-  __$$UPreferencePostInteractionSettingsPrefImplCopyWithImpl(
-      _$UPreferencePostInteractionSettingsPrefImpl _value,
-      $Res Function(_$UPreferencePostInteractionSettingsPrefImpl) _then)
-      : super(_value, _then);
+class _$UPreferencePostInteractionSettingsPrefCopyWithImpl<$Res>
+    implements $UPreferencePostInteractionSettingsPrefCopyWith<$Res> {
+  _$UPreferencePostInteractionSettingsPrefCopyWithImpl(this._self, this._then);
+
+  final UPreferencePostInteractionSettingsPref _self;
+  final $Res Function(UPreferencePostInteractionSettingsPref) _then;
 
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferencePostInteractionSettingsPrefImpl(
+    return _then(UPreferencePostInteractionSettingsPref(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as PostInteractionSettingsPref,
     ));
@@ -2803,43 +2737,51 @@ class __$$UPreferencePostInteractionSettingsPrefImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $PostInteractionSettingsPrefCopyWith<$Res> get data {
-    return $PostInteractionSettingsPrefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $PostInteractionSettingsPrefCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UPreferencePostInteractionSettingsPrefImpl
-    extends UPreferencePostInteractionSettingsPref {
-  const _$UPreferencePostInteractionSettingsPrefImpl({required this.data})
-      : super._();
+class UPreferenceUnknown extends Preference {
+  const UPreferenceUnknown({required final Map<String, dynamic> data})
+      : _data = data,
+        super._();
 
+  final Map<String, dynamic> _data;
   @override
-  final PostInteractionSettingsPref data;
-
-  @override
-  String toString() {
-    return 'Preference.postInteractionSettingsPref(data: $data)';
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
   }
+
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+
+  $UPreferenceUnknownCopyWith<UPreferenceUnknown> get copyWith =>
+      _$UPreferenceUnknownCopyWithImpl<UPreferenceUnknown>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferencePostInteractionSettingsPrefImpl &&
-            (identical(other.data, data) || other.data == data));
+            other is UPreferenceUnknown &&
+            const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  /// Create a copy of Preference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
+  String toString() {
+    return 'Preference.unknown(data: $data)';
+=======
   _$$UPreferencePostInteractionSettingsPrefImplCopyWith<
           _$UPreferencePostInteractionSettingsPrefImpl>
       get copyWith =>
@@ -2985,27 +2927,16 @@ class _$UPreferencePostInteractionSettingsPrefImpl
       return postInteractionSettingsPref(this);
     }
     return orElse();
+
   }
 }
 
-abstract class UPreferencePostInteractionSettingsPref extends Preference {
-  const factory UPreferencePostInteractionSettingsPref(
-          {required final PostInteractionSettingsPref data}) =
-      _$UPreferencePostInteractionSettingsPrefImpl;
-  const UPreferencePostInteractionSettingsPref._() : super._();
-
-  @override
-  PostInteractionSettingsPref get data;
-
-  /// Create a copy of Preference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPreferencePostInteractionSettingsPrefImplCopyWith<
-          _$UPreferencePostInteractionSettingsPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
 /// @nodoc
+abstract mixin class $UPreferenceUnknownCopyWith<$Res>
+    implements $PreferenceCopyWith<$Res> {
+  factory $UPreferenceUnknownCopyWith(
+          UPreferenceUnknown value, $Res Function(UPreferenceUnknown) _then) =
+      _$UPreferenceUnknownCopyWithImpl;
 abstract class _$$UPreferenceVerificationPreferenceImplCopyWith<$Res> {
   factory _$$UPreferenceVerificationPreferenceImplCopyWith(
           _$UPreferenceVerificationPreferenceImpl value,
@@ -3253,33 +3184,34 @@ abstract class _$$UPreferenceUnknownImplCopyWith<$Res> {
   factory _$$UPreferenceUnknownImplCopyWith(_$UPreferenceUnknownImpl value,
           $Res Function(_$UPreferenceUnknownImpl) then) =
       __$$UPreferenceUnknownImplCopyWithImpl<$Res>;
+
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UPreferenceUnknownImplCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceUnknownImpl>
-    implements _$$UPreferenceUnknownImplCopyWith<$Res> {
-  __$$UPreferenceUnknownImplCopyWithImpl(_$UPreferenceUnknownImpl _value,
-      $Res Function(_$UPreferenceUnknownImpl) _then)
-      : super(_value, _then);
+class _$UPreferenceUnknownCopyWithImpl<$Res>
+    implements $UPreferenceUnknownCopyWith<$Res> {
+  _$UPreferenceUnknownCopyWithImpl(this._self, this._then);
+
+  final UPreferenceUnknown _self;
+  final $Res Function(UPreferenceUnknown) _then;
 
   /// Create a copy of Preference
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferenceUnknownImpl(
+    return _then(UPreferenceUnknown(
       data: null == data
-          ? _value._data
+          ? _self._data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
     ));
   }
 }
+
 
 /// @nodoc
 
@@ -3478,3 +3410,4 @@ abstract class UPreferenceUnknown extends Preference {
   _$$UPreferenceUnknownImplCopyWith<_$UPreferenceUnknownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+

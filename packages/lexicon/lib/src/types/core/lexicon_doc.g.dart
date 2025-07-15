@@ -8,11 +8,11 @@ part of 'lexicon_doc.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LexiconDocImpl _$$LexiconDocImplFromJson(Map json) => $checkedCreate(
-      r'_$LexiconDocImpl',
+_LexiconDoc _$LexiconDocFromJson(Map json) => $checkedCreate(
+      '_LexiconDoc',
       json,
       ($checkedConvert) {
-        final val = _$LexiconDocImpl(
+        final val = _LexiconDoc(
           lexicon: $checkedConvert('lexicon', (v) => (v as num).toInt()),
           id: $checkedConvert('id', (v) => nsidConverter.fromJson(v as String)),
           revision: $checkedConvert('revision', (v) => (v as num?)?.toInt()),
@@ -30,7 +30,7 @@ _$LexiconDocImpl _$$LexiconDocImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LexiconDocImplToJson(_$LexiconDocImpl instance) =>
+Map<String, dynamic> _$LexiconDocToJson(_LexiconDoc instance) =>
     <String, dynamic>{
       'lexicon': instance.lexicon,
       'id': nsidConverter.toJson(instance.id),

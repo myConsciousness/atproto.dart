@@ -12,7 +12,7 @@ part 'labels_by_query.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/queryLabels#output
 @freezed
-class LabelsByQuery with _$LabelsByQuery {
+abstract class LabelsByQuery with _$LabelsByQuery {
   @jsonSerializable
   const factory LabelsByQuery({
     required List<Label> labels,

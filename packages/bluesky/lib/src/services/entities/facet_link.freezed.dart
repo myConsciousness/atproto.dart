@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,135 +10,30 @@ part of 'facet_link.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-FacetLink _$FacetLinkFromJson(Map<String, dynamic> json) {
-  return _FacetLink.fromJson(json);
-}
 
 /// @nodoc
 mixin _$FacetLink {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  String get uri => throw _privateConstructorUsedError;
-
-  /// Serializes this FacetLink to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
+  String get uri;
 
   /// Create a copy of FacetLink
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $FacetLinkCopyWith<FacetLink> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$FacetLinkCopyWithImpl<FacetLink>(this as FacetLink, _$identity);
 
-/// @nodoc
-abstract class $FacetLinkCopyWith<$Res> {
-  factory $FacetLinkCopyWith(FacetLink value, $Res Function(FacetLink) then) =
-      _$FacetLinkCopyWithImpl<$Res, FacetLink>;
-  @useResult
-  $Res call({@typeKey String type, String uri});
-}
-
-/// @nodoc
-class _$FacetLinkCopyWithImpl<$Res, $Val extends FacetLink>
-    implements $FacetLinkCopyWith<$Res> {
-  _$FacetLinkCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of FacetLink
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? uri = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$FacetLinkImplCopyWith<$Res>
-    implements $FacetLinkCopyWith<$Res> {
-  factory _$$FacetLinkImplCopyWith(
-          _$FacetLinkImpl value, $Res Function(_$FacetLinkImpl) then) =
-      __$$FacetLinkImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@typeKey String type, String uri});
-}
-
-/// @nodoc
-class __$$FacetLinkImplCopyWithImpl<$Res>
-    extends _$FacetLinkCopyWithImpl<$Res, _$FacetLinkImpl>
-    implements _$$FacetLinkImplCopyWith<$Res> {
-  __$$FacetLinkImplCopyWithImpl(
-      _$FacetLinkImpl _value, $Res Function(_$FacetLinkImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of FacetLink
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? uri = null,
-  }) {
-    return _then(_$FacetLinkImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$FacetLinkImpl implements _FacetLink {
-  const _$FacetLinkImpl(
-      {@typeKey this.type = appBskyRichtextFacetLink, required this.uri});
-
-  factory _$FacetLinkImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FacetLinkImplFromJson(json);
-
-  @override
-  @typeKey
-  final String type;
-  @override
-  final String uri;
-
-  @override
-  String toString() {
-    return 'FacetLink(type: $type, uri: $uri)';
-  }
+  /// Serializes this FacetLink to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FacetLinkImpl &&
+            other is FacetLink &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri));
   }
@@ -146,40 +42,134 @@ class _$FacetLinkImpl implements _FacetLink {
   @override
   int get hashCode => Object.hash(runtimeType, type, uri);
 
-  /// Create a copy of FacetLink
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$FacetLinkImplCopyWith<_$FacetLinkImpl> get copyWith =>
-      __$$FacetLinkImplCopyWithImpl<_$FacetLinkImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FacetLinkImplToJson(
-      this,
-    );
+  String toString() {
+    return 'FacetLink(type: $type, uri: $uri)';
   }
 }
 
-abstract class _FacetLink implements FacetLink {
-  const factory _FacetLink(
-      {@typeKey final String type,
-      required final String uri}) = _$FacetLinkImpl;
+/// @nodoc
+abstract mixin class $FacetLinkCopyWith<$Res> {
+  factory $FacetLinkCopyWith(FacetLink value, $Res Function(FacetLink) _then) =
+      _$FacetLinkCopyWithImpl;
+  @useResult
+  $Res call({@typeKey String type, String uri});
+}
 
-  factory _FacetLink.fromJson(Map<String, dynamic> json) =
-      _$FacetLinkImpl.fromJson;
+/// @nodoc
+class _$FacetLinkCopyWithImpl<$Res> implements $FacetLinkCopyWith<$Res> {
+  _$FacetLinkCopyWithImpl(this._self, this._then);
+
+  final FacetLink _self;
+  final $Res Function(FacetLink) _then;
+
+  /// Create a copy of FacetLink
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? uri = null,
+  }) {
+    return _then(_self.copyWith(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      uri: null == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _FacetLink extends FacetLink {
+  const _FacetLink(
+      {@typeKey this.type = appBskyRichtextFacetLink, required this.uri})
+      : super._();
+  factory _FacetLink.fromJson(Map<String, dynamic> json) =>
+      _$FacetLinkFromJson(json);
 
   @override
   @typeKey
-  String get type;
+  final String type;
   @override
-  String get uri;
+  final String uri;
 
   /// Create a copy of FacetLink
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FacetLinkImplCopyWith<_$FacetLinkImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$FacetLinkCopyWith<_FacetLink> get copyWith =>
+      __$FacetLinkCopyWithImpl<_FacetLink>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$FacetLinkToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _FacetLink &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.uri, uri) || other.uri == uri));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, uri);
+
+  @override
+  String toString() {
+    return 'FacetLink(type: $type, uri: $uri)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$FacetLinkCopyWith<$Res>
+    implements $FacetLinkCopyWith<$Res> {
+  factory _$FacetLinkCopyWith(
+          _FacetLink value, $Res Function(_FacetLink) _then) =
+      __$FacetLinkCopyWithImpl;
+  @override
+  @useResult
+  $Res call({@typeKey String type, String uri});
+}
+
+/// @nodoc
+class __$FacetLinkCopyWithImpl<$Res> implements _$FacetLinkCopyWith<$Res> {
+  __$FacetLinkCopyWithImpl(this._self, this._then);
+
+  final _FacetLink _self;
+  final $Res Function(_FacetLink) _then;
+
+  /// Create a copy of FacetLink
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? uri = null,
+  }) {
+    return _then(_FacetLink(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      uri: null == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

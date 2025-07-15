@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,117 +10,73 @@ part of 'lex_integer.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LexInteger _$LexIntegerFromJson(Map<String, dynamic> json) {
-  return _LexInteger.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LexInteger {
-  String get type => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
+  String get type;
+  String? get description;
   @JsonKey(name: 'default')
-  int? get defaultValue => throw _privateConstructorUsedError;
-  int? get minimum => throw _privateConstructorUsedError;
-  int? get maximum => throw _privateConstructorUsedError;
+  int? get defaultValue;
+  int? get minimum;
+  int? get maximum;
   @JsonKey(name: 'enum')
-  List<int>? get enumValues => throw _privateConstructorUsedError;
+  List<int>? get enumValues;
   @JsonKey(name: 'const')
-  int? get constValue => throw _privateConstructorUsedError;
-
-  /// Serializes this LexInteger to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  int? get constValue;
 
   /// Create a copy of LexInteger
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $LexIntegerCopyWith<LexInteger> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $LexIntegerCopyWith<$Res> {
-  factory $LexIntegerCopyWith(
-          LexInteger value, $Res Function(LexInteger) then) =
-      _$LexIntegerCopyWithImpl<$Res, LexInteger>;
-  @useResult
-  $Res call(
-      {String type,
-      String? description,
-      @JsonKey(name: 'default') int? defaultValue,
-      int? minimum,
-      int? maximum,
-      @JsonKey(name: 'enum') List<int>? enumValues,
-      @JsonKey(name: 'const') int? constValue});
-}
-
-/// @nodoc
-class _$LexIntegerCopyWithImpl<$Res, $Val extends LexInteger>
-    implements $LexIntegerCopyWith<$Res> {
-  _$LexIntegerCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of LexInteger
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $LexIntegerCopyWith<LexInteger> get copyWith =>
+      _$LexIntegerCopyWithImpl<LexInteger>(this as LexInteger, _$identity);
+
+  /// Serializes this LexInteger to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? description = freezed,
-    Object? defaultValue = freezed,
-    Object? minimum = freezed,
-    Object? maximum = freezed,
-    Object? enumValues = freezed,
-    Object? constValue = freezed,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      defaultValue: freezed == defaultValue
-          ? _value.defaultValue
-          : defaultValue // ignore: cast_nullable_to_non_nullable
-              as int?,
-      minimum: freezed == minimum
-          ? _value.minimum
-          : minimum // ignore: cast_nullable_to_non_nullable
-              as int?,
-      maximum: freezed == maximum
-          ? _value.maximum
-          : maximum // ignore: cast_nullable_to_non_nullable
-              as int?,
-      enumValues: freezed == enumValues
-          ? _value.enumValues
-          : enumValues // ignore: cast_nullable_to_non_nullable
-              as List<int>?,
-      constValue: freezed == constValue
-          ? _value.constValue
-          : constValue // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LexInteger &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.defaultValue, defaultValue) ||
+                other.defaultValue == defaultValue) &&
+            (identical(other.minimum, minimum) || other.minimum == minimum) &&
+            (identical(other.maximum, maximum) || other.maximum == maximum) &&
+            const DeepCollectionEquality()
+                .equals(other.enumValues, enumValues) &&
+            (identical(other.constValue, constValue) ||
+                other.constValue == constValue));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      description,
+      defaultValue,
+      minimum,
+      maximum,
+      const DeepCollectionEquality().hash(enumValues),
+      constValue);
+
+  @override
+  String toString() {
+    return 'LexInteger(type: $type, description: $description, defaultValue: $defaultValue, minimum: $minimum, maximum: $maximum, enumValues: $enumValues, constValue: $constValue)';
   }
 }
 
 /// @nodoc
-abstract class _$$LexIntegerImplCopyWith<$Res>
-    implements $LexIntegerCopyWith<$Res> {
-  factory _$$LexIntegerImplCopyWith(
-          _$LexIntegerImpl value, $Res Function(_$LexIntegerImpl) then) =
-      __$$LexIntegerImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $LexIntegerCopyWith<$Res> {
+  factory $LexIntegerCopyWith(
+          LexInteger value, $Res Function(LexInteger) _then) =
+      _$LexIntegerCopyWithImpl;
   @useResult
   $Res call(
       {String type,
@@ -132,12 +89,11 @@ abstract class _$$LexIntegerImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$LexIntegerImplCopyWithImpl<$Res>
-    extends _$LexIntegerCopyWithImpl<$Res, _$LexIntegerImpl>
-    implements _$$LexIntegerImplCopyWith<$Res> {
-  __$$LexIntegerImplCopyWithImpl(
-      _$LexIntegerImpl _value, $Res Function(_$LexIntegerImpl) _then)
-      : super(_value, _then);
+class _$LexIntegerCopyWithImpl<$Res> implements $LexIntegerCopyWith<$Res> {
+  _$LexIntegerCopyWithImpl(this._self, this._then);
+
+  final LexInteger _self;
+  final $Res Function(LexInteger) _then;
 
   /// Create a copy of LexInteger
   /// with the given fields replaced by the non-null parameter values.
@@ -152,33 +108,33 @@ class __$$LexIntegerImplCopyWithImpl<$Res>
     Object? enumValues = freezed,
     Object? constValue = freezed,
   }) {
-    return _then(_$LexIntegerImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       description: freezed == description
-          ? _value.description
+          ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
       defaultValue: freezed == defaultValue
-          ? _value.defaultValue
+          ? _self.defaultValue
           : defaultValue // ignore: cast_nullable_to_non_nullable
               as int?,
       minimum: freezed == minimum
-          ? _value.minimum
+          ? _self.minimum
           : minimum // ignore: cast_nullable_to_non_nullable
               as int?,
       maximum: freezed == maximum
-          ? _value.maximum
+          ? _self.maximum
           : maximum // ignore: cast_nullable_to_non_nullable
               as int?,
       enumValues: freezed == enumValues
-          ? _value._enumValues
+          ? _self.enumValues
           : enumValues // ignore: cast_nullable_to_non_nullable
               as List<int>?,
       constValue: freezed == constValue
-          ? _value.constValue
+          ? _self.constValue
           : constValue // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
@@ -188,8 +144,8 @@ class __$$LexIntegerImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$LexIntegerImpl implements _LexInteger {
-  const _$LexIntegerImpl(
+class _LexInteger implements LexInteger {
+  const _LexInteger(
       {this.type = 'integer',
       this.description,
       @JsonKey(name: 'default') this.defaultValue,
@@ -198,9 +154,8 @@ class _$LexIntegerImpl implements _LexInteger {
       @JsonKey(name: 'enum') final List<int>? enumValues,
       @JsonKey(name: 'const') this.constValue})
       : _enumValues = enumValues;
-
-  factory _$LexIntegerImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LexIntegerImplFromJson(json);
+  factory _LexInteger.fromJson(Map<String, dynamic> json) =>
+      _$LexIntegerFromJson(json);
 
   @override
   @JsonKey()
@@ -229,16 +184,26 @@ class _$LexIntegerImpl implements _LexInteger {
   @JsonKey(name: 'const')
   final int? constValue;
 
+  /// Create a copy of LexInteger
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'LexInteger(type: $type, description: $description, defaultValue: $defaultValue, minimum: $minimum, maximum: $maximum, enumValues: $enumValues, constValue: $constValue)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LexIntegerCopyWith<_LexInteger> get copyWith =>
+      __$LexIntegerCopyWithImpl<_LexInteger>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LexIntegerToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LexIntegerImpl &&
+            other is _LexInteger &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -264,57 +229,81 @@ class _$LexIntegerImpl implements _LexInteger {
       const DeepCollectionEquality().hash(_enumValues),
       constValue);
 
-  /// Create a copy of LexInteger
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LexIntegerImplCopyWith<_$LexIntegerImpl> get copyWith =>
-      __$$LexIntegerImplCopyWithImpl<_$LexIntegerImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LexIntegerImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LexInteger(type: $type, description: $description, defaultValue: $defaultValue, minimum: $minimum, maximum: $maximum, enumValues: $enumValues, constValue: $constValue)';
   }
 }
 
-abstract class _LexInteger implements LexInteger {
-  const factory _LexInteger(
-      {final String type,
-      final String? description,
-      @JsonKey(name: 'default') final int? defaultValue,
-      final int? minimum,
-      final int? maximum,
-      @JsonKey(name: 'enum') final List<int>? enumValues,
-      @JsonKey(name: 'const') final int? constValue}) = _$LexIntegerImpl;
+/// @nodoc
+abstract mixin class _$LexIntegerCopyWith<$Res>
+    implements $LexIntegerCopyWith<$Res> {
+  factory _$LexIntegerCopyWith(
+          _LexInteger value, $Res Function(_LexInteger) _then) =
+      __$LexIntegerCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String type,
+      String? description,
+      @JsonKey(name: 'default') int? defaultValue,
+      int? minimum,
+      int? maximum,
+      @JsonKey(name: 'enum') List<int>? enumValues,
+      @JsonKey(name: 'const') int? constValue});
+}
 
-  factory _LexInteger.fromJson(Map<String, dynamic> json) =
-      _$LexIntegerImpl.fromJson;
+/// @nodoc
+class __$LexIntegerCopyWithImpl<$Res> implements _$LexIntegerCopyWith<$Res> {
+  __$LexIntegerCopyWithImpl(this._self, this._then);
 
-  @override
-  String get type;
-  @override
-  String? get description;
-  @override
-  @JsonKey(name: 'default')
-  int? get defaultValue;
-  @override
-  int? get minimum;
-  @override
-  int? get maximum;
-  @override
-  @JsonKey(name: 'enum')
-  List<int>? get enumValues;
-  @override
-  @JsonKey(name: 'const')
-  int? get constValue;
+  final _LexInteger _self;
+  final $Res Function(_LexInteger) _then;
 
   /// Create a copy of LexInteger
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LexIntegerImplCopyWith<_$LexIntegerImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? description = freezed,
+    Object? defaultValue = freezed,
+    Object? minimum = freezed,
+    Object? maximum = freezed,
+    Object? enumValues = freezed,
+    Object? constValue = freezed,
+  }) {
+    return _then(_LexInteger(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: freezed == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      defaultValue: freezed == defaultValue
+          ? _self.defaultValue
+          : defaultValue // ignore: cast_nullable_to_non_nullable
+              as int?,
+      minimum: freezed == minimum
+          ? _self.minimum
+          : minimum // ignore: cast_nullable_to_non_nullable
+              as int?,
+      maximum: freezed == maximum
+          ? _self.maximum
+          : maximum // ignore: cast_nullable_to_non_nullable
+              as int?,
+      enumValues: freezed == enumValues
+          ? _self._enumValues
+          : enumValues // ignore: cast_nullable_to_non_nullable
+              as List<int>?,
+      constValue: freezed == constValue
+          ? _self.constValue
+          : constValue // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
 }
+
+// dart format on

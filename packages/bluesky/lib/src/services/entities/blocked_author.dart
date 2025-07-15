@@ -14,7 +14,7 @@ part 'blocked_author.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#blockedauthor
 @freezed
-class BlockedAuthor with _$BlockedAuthor {
+abstract class BlockedAuthor with _$BlockedAuthor {
   const factory BlockedAuthor({
     @typeKey @Default(appBskyFeedDefsBlockedAuthor) String type,
     required String did,

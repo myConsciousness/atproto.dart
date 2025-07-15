@@ -8,11 +8,11 @@ part of 'strong_ref_param.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StrongRefParamImpl _$$StrongRefParamImplFromJson(Map json) => $checkedCreate(
-      r'_$StrongRefParamImpl',
+_StrongRefParam _$StrongRefParamFromJson(Map json) => $checkedCreate(
+      '_StrongRefParam',
       json,
       ($checkedConvert) {
-        final val = _$StrongRefParamImpl(
+        final val = _StrongRefParam(
           cid: $checkedConvert('cid', (v) => v as String),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
@@ -30,8 +30,7 @@ _$StrongRefParamImpl _$$StrongRefParamImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$StrongRefParamImplToJson(
-        _$StrongRefParamImpl instance) =>
+Map<String, dynamic> _$StrongRefParamToJson(_StrongRefParam instance) =>
     <String, dynamic>{
       'cid': instance.cid,
       'uri': const AtUriConverter().toJson(instance.uri),

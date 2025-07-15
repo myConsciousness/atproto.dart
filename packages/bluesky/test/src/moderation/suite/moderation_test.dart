@@ -1,5 +1,6 @@
 // Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:bluesky/moderation.dart';
 import 'package:test/test.dart';
 
 // Project imports:
@@ -284,34 +285,35 @@ void main() {
       );
 
       expect(
-        actual
-            .getUI(ModerationBehaviorContext.contentList)
-            .filters
-            .first
-            .whenOrNull(label: (data) => data.label.value),
+        switch (
+            actual.getUI(ModerationBehaviorContext.contentList).filters.first) {
+          UModerationCauseLabel(data: final data) => data.label.value,
+          _ => throw UnimplementedError(),
+        },
         '!hide',
       );
       expect(
-        actual
-            .getUI(ModerationBehaviorContext.contentList)
-            .filters[1]
-            .whenOrNull(label: (data) => data.label.value),
+        switch (
+            actual.getUI(ModerationBehaviorContext.contentList).filters[1]) {
+          UModerationCauseLabel(data: final data) => data.label.value,
+          _ => throw UnimplementedError(),
+        },
         'porn',
       );
       expect(
-        actual
-            .getUI(ModerationBehaviorContext.contentList)
-            .blurs
-            .first
-            .whenOrNull(label: (data) => data.label.value),
+        switch (
+            actual.getUI(ModerationBehaviorContext.contentList).blurs.first) {
+          UModerationCauseLabel(data: final data) => data.label.value,
+          _ => throw UnimplementedError(),
+        },
         '!hide',
       );
       expect(
-        actual
-            .getUI(ModerationBehaviorContext.contentMedia)
-            .blurs
-            .first
-            .whenOrNull(label: (data) => data.label.value),
+        switch (
+            actual.getUI(ModerationBehaviorContext.contentMedia).blurs.first) {
+          UModerationCauseLabel(data: final data) => data.label.value,
+          _ => throw UnimplementedError(),
+        },
         'porn',
       );
     });

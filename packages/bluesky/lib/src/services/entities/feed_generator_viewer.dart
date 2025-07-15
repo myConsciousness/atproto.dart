@@ -11,7 +11,7 @@ part 'feed_generator_viewer.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#generatorviewerstate
 @freezed
-class FeedGeneratorViewer with _$FeedGeneratorViewer {
+abstract class FeedGeneratorViewer with _$FeedGeneratorViewer {
   @jsonSerializable
   const factory FeedGeneratorViewer({
     @AtUriConverter() AtUri? like,

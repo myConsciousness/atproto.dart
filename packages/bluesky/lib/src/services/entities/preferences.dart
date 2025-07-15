@@ -12,7 +12,7 @@ part 'preferences.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getpreferences/#output
 @freezed
-class Preferences with _$Preferences {
+abstract class Preferences with _$Preferences {
   const factory Preferences({
     @preferenceConverter required List<Preference> preferences,
   }) = _Preferences;

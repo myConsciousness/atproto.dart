@@ -8,13 +8,12 @@ part of 'embed_view_record_view_blocked.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EmbedViewRecordViewBlockedImpl _$$EmbedViewRecordViewBlockedImplFromJson(
-        Map json) =>
+_EmbedViewRecordViewBlocked _$EmbedViewRecordViewBlockedFromJson(Map json) =>
     $checkedCreate(
-      r'_$EmbedViewRecordViewBlockedImpl',
+      '_EmbedViewRecordViewBlocked',
       json,
       ($checkedConvert) {
-        final val = _$EmbedViewRecordViewBlockedImpl(
+        final val = _EmbedViewRecordViewBlocked(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedRecordViewBlocked),
           uri: $checkedConvert(
@@ -30,8 +29,8 @@ _$EmbedViewRecordViewBlockedImpl _$$EmbedViewRecordViewBlockedImplFromJson(
       fieldKeyMap: const {'type': r'$type', 'isBlocked': 'blocked'},
     );
 
-Map<String, dynamic> _$$EmbedViewRecordViewBlockedImplToJson(
-        _$EmbedViewRecordViewBlockedImpl instance) =>
+Map<String, dynamic> _$EmbedViewRecordViewBlockedToJson(
+        _EmbedViewRecordViewBlocked instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'uri': const AtUriConverter().toJson(instance.uri),

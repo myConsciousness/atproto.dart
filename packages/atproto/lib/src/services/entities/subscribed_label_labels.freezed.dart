@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,93 +10,63 @@ part of 'subscribed_label_labels.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SubscribedLabelLabels _$SubscribedLabelLabelsFromJson(
-    Map<String, dynamic> json) {
-  return _SubscribedLabelLabels.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SubscribedLabelLabels {
   @JsonKey(name: 'seq')
-  int get sequence => throw _privateConstructorUsedError;
-  List<Label> get labels => throw _privateConstructorUsedError;
-
-  /// Serializes this SubscribedLabelLabels to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  int get sequence;
+  List<Label> get labels;
 
   /// Create a copy of SubscribedLabelLabels
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SubscribedLabelLabelsCopyWith<SubscribedLabelLabels> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SubscribedLabelLabelsCopyWith<$Res> {
-  factory $SubscribedLabelLabelsCopyWith(SubscribedLabelLabels value,
-          $Res Function(SubscribedLabelLabels) then) =
-      _$SubscribedLabelLabelsCopyWithImpl<$Res, SubscribedLabelLabels>;
-  @useResult
-  $Res call({@JsonKey(name: 'seq') int sequence, List<Label> labels});
-}
-
-/// @nodoc
-class _$SubscribedLabelLabelsCopyWithImpl<$Res,
-        $Val extends SubscribedLabelLabels>
-    implements $SubscribedLabelLabelsCopyWith<$Res> {
-  _$SubscribedLabelLabelsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SubscribedLabelLabels
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $SubscribedLabelLabelsCopyWith<SubscribedLabelLabels> get copyWith =>
+      _$SubscribedLabelLabelsCopyWithImpl<SubscribedLabelLabels>(
+          this as SubscribedLabelLabels, _$identity);
+
+  /// Serializes this SubscribedLabelLabels to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? sequence = null,
-    Object? labels = null,
-  }) {
-    return _then(_value.copyWith(
-      sequence: null == sequence
-          ? _value.sequence
-          : sequence // ignore: cast_nullable_to_non_nullable
-              as int,
-      labels: null == labels
-          ? _value.labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SubscribedLabelLabels &&
+            (identical(other.sequence, sequence) ||
+                other.sequence == sequence) &&
+            const DeepCollectionEquality().equals(other.labels, labels));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, sequence, const DeepCollectionEquality().hash(labels));
+
+  @override
+  String toString() {
+    return 'SubscribedLabelLabels(sequence: $sequence, labels: $labels)';
   }
 }
 
 /// @nodoc
-abstract class _$$SubscribedLabelLabelsImplCopyWith<$Res>
-    implements $SubscribedLabelLabelsCopyWith<$Res> {
-  factory _$$SubscribedLabelLabelsImplCopyWith(
-          _$SubscribedLabelLabelsImpl value,
-          $Res Function(_$SubscribedLabelLabelsImpl) then) =
-      __$$SubscribedLabelLabelsImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SubscribedLabelLabelsCopyWith<$Res> {
+  factory $SubscribedLabelLabelsCopyWith(SubscribedLabelLabels value,
+          $Res Function(SubscribedLabelLabels) _then) =
+      _$SubscribedLabelLabelsCopyWithImpl;
   @useResult
   $Res call({@JsonKey(name: 'seq') int sequence, List<Label> labels});
 }
 
 /// @nodoc
-class __$$SubscribedLabelLabelsImplCopyWithImpl<$Res>
-    extends _$SubscribedLabelLabelsCopyWithImpl<$Res,
-        _$SubscribedLabelLabelsImpl>
-    implements _$$SubscribedLabelLabelsImplCopyWith<$Res> {
-  __$$SubscribedLabelLabelsImplCopyWithImpl(_$SubscribedLabelLabelsImpl _value,
-      $Res Function(_$SubscribedLabelLabelsImpl) _then)
-      : super(_value, _then);
+class _$SubscribedLabelLabelsCopyWithImpl<$Res>
+    implements $SubscribedLabelLabelsCopyWith<$Res> {
+  _$SubscribedLabelLabelsCopyWithImpl(this._self, this._then);
+
+  final SubscribedLabelLabels _self;
+  final $Res Function(SubscribedLabelLabels) _then;
 
   /// Create a copy of SubscribedLabelLabels
   /// with the given fields replaced by the non-null parameter values.
@@ -105,13 +76,13 @@ class __$$SubscribedLabelLabelsImplCopyWithImpl<$Res>
     Object? sequence = null,
     Object? labels = null,
   }) {
-    return _then(_$SubscribedLabelLabelsImpl(
+    return _then(_self.copyWith(
       sequence: null == sequence
-          ? _value.sequence
+          ? _self.sequence
           : sequence // ignore: cast_nullable_to_non_nullable
               as int,
       labels: null == labels
-          ? _value._labels
+          ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>,
     ));
@@ -121,14 +92,13 @@ class __$$SubscribedLabelLabelsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$SubscribedLabelLabelsImpl implements _SubscribedLabelLabels {
-  const _$SubscribedLabelLabelsImpl(
+class _SubscribedLabelLabels implements SubscribedLabelLabels {
+  const _SubscribedLabelLabels(
       {@JsonKey(name: 'seq') required this.sequence,
       required final List<Label> labels})
       : _labels = labels;
-
-  factory _$SubscribedLabelLabelsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SubscribedLabelLabelsImplFromJson(json);
+  factory _SubscribedLabelLabels.fromJson(Map<String, dynamic> json) =>
+      _$SubscribedLabelLabelsFromJson(json);
 
   @override
   @JsonKey(name: 'seq')
@@ -141,16 +111,27 @@ class _$SubscribedLabelLabelsImpl implements _SubscribedLabelLabels {
     return EqualUnmodifiableListView(_labels);
   }
 
+  /// Create a copy of SubscribedLabelLabels
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SubscribedLabelLabels(sequence: $sequence, labels: $labels)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SubscribedLabelLabelsCopyWith<_SubscribedLabelLabels> get copyWith =>
+      __$SubscribedLabelLabelsCopyWithImpl<_SubscribedLabelLabels>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SubscribedLabelLabelsToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SubscribedLabelLabelsImpl &&
+            other is _SubscribedLabelLabels &&
             (identical(other.sequence, sequence) ||
                 other.sequence == sequence) &&
             const DeepCollectionEquality().equals(other._labels, _labels));
@@ -161,41 +142,50 @@ class _$SubscribedLabelLabelsImpl implements _SubscribedLabelLabels {
   int get hashCode => Object.hash(
       runtimeType, sequence, const DeepCollectionEquality().hash(_labels));
 
-  /// Create a copy of SubscribedLabelLabels
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SubscribedLabelLabelsImplCopyWith<_$SubscribedLabelLabelsImpl>
-      get copyWith => __$$SubscribedLabelLabelsImplCopyWithImpl<
-          _$SubscribedLabelLabelsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SubscribedLabelLabelsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SubscribedLabelLabels(sequence: $sequence, labels: $labels)';
   }
 }
 
-abstract class _SubscribedLabelLabels implements SubscribedLabelLabels {
-  const factory _SubscribedLabelLabels(
-      {@JsonKey(name: 'seq') required final int sequence,
-      required final List<Label> labels}) = _$SubscribedLabelLabelsImpl;
-
-  factory _SubscribedLabelLabels.fromJson(Map<String, dynamic> json) =
-      _$SubscribedLabelLabelsImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$SubscribedLabelLabelsCopyWith<$Res>
+    implements $SubscribedLabelLabelsCopyWith<$Res> {
+  factory _$SubscribedLabelLabelsCopyWith(_SubscribedLabelLabels value,
+          $Res Function(_SubscribedLabelLabels) _then) =
+      __$SubscribedLabelLabelsCopyWithImpl;
   @override
-  @JsonKey(name: 'seq')
-  int get sequence;
-  @override
-  List<Label> get labels;
+  @useResult
+  $Res call({@JsonKey(name: 'seq') int sequence, List<Label> labels});
+}
+
+/// @nodoc
+class __$SubscribedLabelLabelsCopyWithImpl<$Res>
+    implements _$SubscribedLabelLabelsCopyWith<$Res> {
+  __$SubscribedLabelLabelsCopyWithImpl(this._self, this._then);
+
+  final _SubscribedLabelLabels _self;
+  final $Res Function(_SubscribedLabelLabels) _then;
 
   /// Create a copy of SubscribedLabelLabels
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SubscribedLabelLabelsImplCopyWith<_$SubscribedLabelLabelsImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? sequence = null,
+    Object? labels = null,
+  }) {
+    return _then(_SubscribedLabelLabels(
+      sequence: null == sequence
+          ? _self.sequence
+          : sequence // ignore: cast_nullable_to_non_nullable
+              as int,
+      labels: null == labels
+          ? _self._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>,
+    ));
+  }
 }
+
+// dart format on

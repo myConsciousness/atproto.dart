@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,166 +10,32 @@ part of 'reason_repost.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ReasonRepost _$ReasonRepostFromJson(Map<String, dynamic> json) {
-  return _ReasonRepost.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ReasonRepost {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  ActorBasic get by => throw _privateConstructorUsedError;
-  DateTime get indexedAt => throw _privateConstructorUsedError;
-
-  /// Serializes this ReasonRepost to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
+  ActorBasic get by;
+  DateTime get indexedAt;
 
   /// Create a copy of ReasonRepost
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ReasonRepostCopyWith<ReasonRepost> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$ReasonRepostCopyWithImpl<ReasonRepost>(
+          this as ReasonRepost, _$identity);
 
-/// @nodoc
-abstract class $ReasonRepostCopyWith<$Res> {
-  factory $ReasonRepostCopyWith(
-          ReasonRepost value, $Res Function(ReasonRepost) then) =
-      _$ReasonRepostCopyWithImpl<$Res, ReasonRepost>;
-  @useResult
-  $Res call({@typeKey String type, ActorBasic by, DateTime indexedAt});
-
-  $ActorBasicCopyWith<$Res> get by;
-}
-
-/// @nodoc
-class _$ReasonRepostCopyWithImpl<$Res, $Val extends ReasonRepost>
-    implements $ReasonRepostCopyWith<$Res> {
-  _$ReasonRepostCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ReasonRepost
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? by = null,
-    Object? indexedAt = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      by: null == by
-          ? _value.by
-          : by // ignore: cast_nullable_to_non_nullable
-              as ActorBasic,
-      indexedAt: null == indexedAt
-          ? _value.indexedAt
-          : indexedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
-  }
-
-  /// Create a copy of ReasonRepost
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ActorBasicCopyWith<$Res> get by {
-    return $ActorBasicCopyWith<$Res>(_value.by, (value) {
-      return _then(_value.copyWith(by: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$ReasonRepostImplCopyWith<$Res>
-    implements $ReasonRepostCopyWith<$Res> {
-  factory _$$ReasonRepostImplCopyWith(
-          _$ReasonRepostImpl value, $Res Function(_$ReasonRepostImpl) then) =
-      __$$ReasonRepostImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@typeKey String type, ActorBasic by, DateTime indexedAt});
-
-  @override
-  $ActorBasicCopyWith<$Res> get by;
-}
-
-/// @nodoc
-class __$$ReasonRepostImplCopyWithImpl<$Res>
-    extends _$ReasonRepostCopyWithImpl<$Res, _$ReasonRepostImpl>
-    implements _$$ReasonRepostImplCopyWith<$Res> {
-  __$$ReasonRepostImplCopyWithImpl(
-      _$ReasonRepostImpl _value, $Res Function(_$ReasonRepostImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ReasonRepost
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? by = null,
-    Object? indexedAt = null,
-  }) {
-    return _then(_$ReasonRepostImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      by: null == by
-          ? _value.by
-          : by // ignore: cast_nullable_to_non_nullable
-              as ActorBasic,
-      indexedAt: null == indexedAt
-          ? _value.indexedAt
-          : indexedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ReasonRepostImpl implements _ReasonRepost {
-  const _$ReasonRepostImpl(
-      {@typeKey this.type = appBskyFeedDefsReasonRepost,
-      required this.by,
-      required this.indexedAt});
-
-  factory _$ReasonRepostImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ReasonRepostImplFromJson(json);
-
-  @override
-  @typeKey
-  final String type;
-  @override
-  final ActorBasic by;
-  @override
-  final DateTime indexedAt;
-
-  @override
-  String toString() {
-    return 'ReasonRepost(type: $type, by: $by, indexedAt: $indexedAt)';
-  }
+  /// Serializes this ReasonRepost to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ReasonRepostImpl &&
+            other is ReasonRepost &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.by, by) || other.by == by) &&
             (identical(other.indexedAt, indexedAt) ||
@@ -179,43 +46,176 @@ class _$ReasonRepostImpl implements _ReasonRepost {
   @override
   int get hashCode => Object.hash(runtimeType, type, by, indexedAt);
 
-  /// Create a copy of ReasonRepost
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ReasonRepostImplCopyWith<_$ReasonRepostImpl> get copyWith =>
-      __$$ReasonRepostImplCopyWithImpl<_$ReasonRepostImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ReasonRepostImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ReasonRepost(type: $type, by: $by, indexedAt: $indexedAt)';
   }
 }
 
-abstract class _ReasonRepost implements ReasonRepost {
-  const factory _ReasonRepost(
-      {@typeKey final String type,
-      required final ActorBasic by,
-      required final DateTime indexedAt}) = _$ReasonRepostImpl;
+/// @nodoc
+abstract mixin class $ReasonRepostCopyWith<$Res> {
+  factory $ReasonRepostCopyWith(
+          ReasonRepost value, $Res Function(ReasonRepost) _then) =
+      _$ReasonRepostCopyWithImpl;
+  @useResult
+  $Res call({@typeKey String type, ActorBasic by, DateTime indexedAt});
 
-  factory _ReasonRepost.fromJson(Map<String, dynamic> json) =
-      _$ReasonRepostImpl.fromJson;
+  $ActorBasicCopyWith<$Res> get by;
+}
+
+/// @nodoc
+class _$ReasonRepostCopyWithImpl<$Res> implements $ReasonRepostCopyWith<$Res> {
+  _$ReasonRepostCopyWithImpl(this._self, this._then);
+
+  final ReasonRepost _self;
+  final $Res Function(ReasonRepost) _then;
+
+  /// Create a copy of ReasonRepost
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? by = null,
+    Object? indexedAt = null,
+  }) {
+    return _then(_self.copyWith(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      by: null == by
+          ? _self.by
+          : by // ignore: cast_nullable_to_non_nullable
+              as ActorBasic,
+      indexedAt: null == indexedAt
+          ? _self.indexedAt
+          : indexedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+
+  /// Create a copy of ReasonRepost
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorBasicCopyWith<$Res> get by {
+    return $ActorBasicCopyWith<$Res>(_self.by, (value) {
+      return _then(_self.copyWith(by: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _ReasonRepost implements ReasonRepost {
+  const _ReasonRepost(
+      {@typeKey this.type = appBskyFeedDefsReasonRepost,
+      required this.by,
+      required this.indexedAt});
+  factory _ReasonRepost.fromJson(Map<String, dynamic> json) =>
+      _$ReasonRepostFromJson(json);
 
   @override
   @typeKey
-  String get type;
+  final String type;
   @override
-  ActorBasic get by;
+  final ActorBasic by;
   @override
-  DateTime get indexedAt;
+  final DateTime indexedAt;
 
   /// Create a copy of ReasonRepost
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ReasonRepostImplCopyWith<_$ReasonRepostImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$ReasonRepostCopyWith<_ReasonRepost> get copyWith =>
+      __$ReasonRepostCopyWithImpl<_ReasonRepost>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ReasonRepostToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ReasonRepost &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.by, by) || other.by == by) &&
+            (identical(other.indexedAt, indexedAt) ||
+                other.indexedAt == indexedAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, by, indexedAt);
+
+  @override
+  String toString() {
+    return 'ReasonRepost(type: $type, by: $by, indexedAt: $indexedAt)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$ReasonRepostCopyWith<$Res>
+    implements $ReasonRepostCopyWith<$Res> {
+  factory _$ReasonRepostCopyWith(
+          _ReasonRepost value, $Res Function(_ReasonRepost) _then) =
+      __$ReasonRepostCopyWithImpl;
+  @override
+  @useResult
+  $Res call({@typeKey String type, ActorBasic by, DateTime indexedAt});
+
+  @override
+  $ActorBasicCopyWith<$Res> get by;
+}
+
+/// @nodoc
+class __$ReasonRepostCopyWithImpl<$Res>
+    implements _$ReasonRepostCopyWith<$Res> {
+  __$ReasonRepostCopyWithImpl(this._self, this._then);
+
+  final _ReasonRepost _self;
+  final $Res Function(_ReasonRepost) _then;
+
+  /// Create a copy of ReasonRepost
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? by = null,
+    Object? indexedAt = null,
+  }) {
+    return _then(_ReasonRepost(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      by: null == by
+          ? _self.by
+          : by // ignore: cast_nullable_to_non_nullable
+              as ActorBasic,
+      indexedAt: null == indexedAt
+          ? _self.indexedAt
+          : indexedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+
+  /// Create a copy of ReasonRepost
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorBasicCopyWith<$Res> get by {
+    return $ActorBasicCopyWith<$Res>(_self.by, (value) {
+      return _then(_self.copyWith(by: value));
+    });
+  }
+}
+
+// dart format on

@@ -9,7 +9,7 @@ part 'post_viewer.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#viewerstate
 @freezed
-class PostViewer with _$PostViewer {
+abstract class PostViewer with _$PostViewer {
   // ignore: unused_element
   const PostViewer._();
 

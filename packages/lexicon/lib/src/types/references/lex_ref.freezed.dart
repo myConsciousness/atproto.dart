@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,145 +10,30 @@ part of 'lex_ref.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LexRef _$LexRefFromJson(Map<String, dynamic> json) {
-  return _LexRef.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LexRef {
-  String get type => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  String? get ref => throw _privateConstructorUsedError;
-
-  /// Serializes this LexRef to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
+  String? get description;
+  String? get ref;
 
   /// Create a copy of LexRef
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $LexRefCopyWith<LexRef> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $LexRefCopyWith<$Res> {
-  factory $LexRefCopyWith(LexRef value, $Res Function(LexRef) then) =
-      _$LexRefCopyWithImpl<$Res, LexRef>;
-  @useResult
-  $Res call({String type, String? description, String? ref});
-}
-
-/// @nodoc
-class _$LexRefCopyWithImpl<$Res, $Val extends LexRef>
-    implements $LexRefCopyWith<$Res> {
-  _$LexRefCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of LexRef
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? description = freezed,
-    Object? ref = freezed,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      ref: freezed == ref
-          ? _value.ref
-          : ref // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
-}
+  $LexRefCopyWith<LexRef> get copyWith =>
+      _$LexRefCopyWithImpl<LexRef>(this as LexRef, _$identity);
 
-/// @nodoc
-abstract class _$$LexRefImplCopyWith<$Res> implements $LexRefCopyWith<$Res> {
-  factory _$$LexRefImplCopyWith(
-          _$LexRefImpl value, $Res Function(_$LexRefImpl) then) =
-      __$$LexRefImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String type, String? description, String? ref});
-}
-
-/// @nodoc
-class __$$LexRefImplCopyWithImpl<$Res>
-    extends _$LexRefCopyWithImpl<$Res, _$LexRefImpl>
-    implements _$$LexRefImplCopyWith<$Res> {
-  __$$LexRefImplCopyWithImpl(
-      _$LexRefImpl _value, $Res Function(_$LexRefImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of LexRef
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? description = freezed,
-    Object? ref = freezed,
-  }) {
-    return _then(_$LexRefImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      ref: freezed == ref
-          ? _value.ref
-          : ref // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(includeIfNull: false)
-class _$LexRefImpl implements _LexRef {
-  const _$LexRefImpl({this.type = 'ref', this.description, this.ref});
-
-  factory _$LexRefImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LexRefImplFromJson(json);
-
-  @override
-  @JsonKey()
-  final String type;
-  @override
-  final String? description;
-  @override
-  final String? ref;
-
-  @override
-  String toString() {
-    return 'LexRef(type: $type, description: $description, ref: $ref)';
-  }
+  /// Serializes this LexRef to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LexRefImpl &&
+            other is LexRef &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -158,41 +44,144 @@ class _$LexRefImpl implements _LexRef {
   @override
   int get hashCode => Object.hash(runtimeType, type, description, ref);
 
-  /// Create a copy of LexRef
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LexRefImplCopyWith<_$LexRefImpl> get copyWith =>
-      __$$LexRefImplCopyWithImpl<_$LexRefImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LexRefImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LexRef(type: $type, description: $description, ref: $ref)';
   }
 }
 
-abstract class _LexRef implements LexRef {
-  const factory _LexRef(
-      {final String type,
-      final String? description,
-      final String? ref}) = _$LexRefImpl;
+/// @nodoc
+abstract mixin class $LexRefCopyWith<$Res> {
+  factory $LexRefCopyWith(LexRef value, $Res Function(LexRef) _then) =
+      _$LexRefCopyWithImpl;
+  @useResult
+  $Res call({String type, String? description, String? ref});
+}
 
-  factory _LexRef.fromJson(Map<String, dynamic> json) = _$LexRefImpl.fromJson;
+/// @nodoc
+class _$LexRefCopyWithImpl<$Res> implements $LexRefCopyWith<$Res> {
+  _$LexRefCopyWithImpl(this._self, this._then);
+
+  final LexRef _self;
+  final $Res Function(LexRef) _then;
+
+  /// Create a copy of LexRef
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? description = freezed,
+    Object? ref = freezed,
+  }) {
+    return _then(_self.copyWith(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: freezed == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      ref: freezed == ref
+          ? _self.ref
+          : ref // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(includeIfNull: false)
+class _LexRef implements LexRef {
+  const _LexRef({this.type = 'ref', this.description, this.ref});
+  factory _LexRef.fromJson(Map<String, dynamic> json) => _$LexRefFromJson(json);
 
   @override
-  String get type;
+  @JsonKey()
+  final String type;
   @override
-  String? get description;
+  final String? description;
   @override
-  String? get ref;
+  final String? ref;
 
   /// Create a copy of LexRef
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LexRefImplCopyWith<_$LexRefImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$LexRefCopyWith<_LexRef> get copyWith =>
+      __$LexRefCopyWithImpl<_LexRef>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LexRefToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _LexRef &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.ref, ref) || other.ref == ref));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, description, ref);
+
+  @override
+  String toString() {
+    return 'LexRef(type: $type, description: $description, ref: $ref)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$LexRefCopyWith<$Res> implements $LexRefCopyWith<$Res> {
+  factory _$LexRefCopyWith(_LexRef value, $Res Function(_LexRef) _then) =
+      __$LexRefCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String type, String? description, String? ref});
+}
+
+/// @nodoc
+class __$LexRefCopyWithImpl<$Res> implements _$LexRefCopyWith<$Res> {
+  __$LexRefCopyWithImpl(this._self, this._then);
+
+  final _LexRef _self;
+  final $Res Function(_LexRef) _then;
+
+  /// Create a copy of LexRef
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? description = freezed,
+    Object? ref = freezed,
+  }) {
+    return _then(_LexRef(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: freezed == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      ref: freezed == ref
+          ? _self.ref
+          : ref // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+// dart format on

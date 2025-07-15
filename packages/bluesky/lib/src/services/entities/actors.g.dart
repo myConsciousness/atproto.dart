@@ -8,11 +8,11 @@ part of 'actors.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorsImpl _$$ActorsImplFromJson(Map json) => $checkedCreate(
-      r'_$ActorsImpl',
+_Actors _$ActorsFromJson(Map json) => $checkedCreate(
+      '_Actors',
       json,
       ($checkedConvert) {
-        final val = _$ActorsImpl(
+        final val = _Actors(
           actors: $checkedConvert(
               'actors',
               (v) => (v as List<dynamic>)
@@ -26,8 +26,7 @@ _$ActorsImpl _$$ActorsImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$ActorsImplToJson(_$ActorsImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ActorsToJson(_Actors instance) => <String, dynamic>{
       'actors': instance.actors.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,
       'recId': instance.recId,

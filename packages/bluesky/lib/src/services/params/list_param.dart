@@ -12,7 +12,7 @@ part 'list_param.freezed.dart';
 part 'list_param.g.dart';
 
 @freezed
-class ListParam with _$ListParam {
+abstract class ListParam with _$ListParam {
   @jsonSerializable
   const factory ListParam({
     required String purpose,

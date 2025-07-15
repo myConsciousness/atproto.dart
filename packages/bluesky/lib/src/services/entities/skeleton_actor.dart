@@ -8,7 +8,7 @@ part 'skeleton_actor.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/defs#skeletonsearchactor
 @freezed
-class SkeletonActor with _$SkeletonActor {
+abstract class SkeletonActor with _$SkeletonActor {
   const factory SkeletonActor({
     required String did,
   }) = _SkeletonActor;

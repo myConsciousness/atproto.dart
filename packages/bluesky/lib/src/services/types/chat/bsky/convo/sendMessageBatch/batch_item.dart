@@ -10,7 +10,7 @@ part 'batch_item.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessageBatch/#batchitem
 @freezed
-class BatchItem with _$BatchItem {
+abstract class BatchItem with _$BatchItem {
   @jsonSerializable
   const factory BatchItem({
     required String convoId,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,109 +10,71 @@ part of 'repo_info.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-RepoInfo _$RepoInfoFromJson(Map<String, dynamic> json) {
-  return _RepoInfo.fromJson(json);
-}
 
 /// @nodoc
 mixin _$RepoInfo {
   /// The handle identifier of the repository.
-  String get handle => throw _privateConstructorUsedError;
+  String get handle;
 
   /// The DID (Decentralized Identifier) of the repository.
-  String get did => throw _privateConstructorUsedError;
+  String get did;
 
   /// The parsed DID document.
-  Map<String, dynamic> get didDoc => throw _privateConstructorUsedError;
+  Map<String, dynamic> get didDoc;
 
   /// A list of collections included in the repository.
-  List<String> get collections => throw _privateConstructorUsedError;
+  List<String> get collections;
 
   /// A boolean value indicating if the handle is correct.
   @JsonKey(name: 'handleIsCorrect')
-  bool get hasCorrectHandle => throw _privateConstructorUsedError;
-
-  /// Serializes this RepoInfo to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  bool get hasCorrectHandle;
 
   /// Create a copy of RepoInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $RepoInfoCopyWith<RepoInfo> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RepoInfoCopyWith<$Res> {
-  factory $RepoInfoCopyWith(RepoInfo value, $Res Function(RepoInfo) then) =
-      _$RepoInfoCopyWithImpl<$Res, RepoInfo>;
-  @useResult
-  $Res call(
-      {String handle,
-      String did,
-      Map<String, dynamic> didDoc,
-      List<String> collections,
-      @JsonKey(name: 'handleIsCorrect') bool hasCorrectHandle});
-}
-
-/// @nodoc
-class _$RepoInfoCopyWithImpl<$Res, $Val extends RepoInfo>
-    implements $RepoInfoCopyWith<$Res> {
-  _$RepoInfoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of RepoInfo
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $RepoInfoCopyWith<RepoInfo> get copyWith =>
+      _$RepoInfoCopyWithImpl<RepoInfo>(this as RepoInfo, _$identity);
+
+  /// Serializes this RepoInfo to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? handle = null,
-    Object? did = null,
-    Object? didDoc = null,
-    Object? collections = null,
-    Object? hasCorrectHandle = null,
-  }) {
-    return _then(_value.copyWith(
-      handle: null == handle
-          ? _value.handle
-          : handle // ignore: cast_nullable_to_non_nullable
-              as String,
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      didDoc: null == didDoc
-          ? _value.didDoc
-          : didDoc // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      collections: null == collections
-          ? _value.collections
-          : collections // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      hasCorrectHandle: null == hasCorrectHandle
-          ? _value.hasCorrectHandle
-          : hasCorrectHandle // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is RepoInfo &&
+            (identical(other.handle, handle) || other.handle == handle) &&
+            (identical(other.did, did) || other.did == did) &&
+            const DeepCollectionEquality().equals(other.didDoc, didDoc) &&
+            const DeepCollectionEquality()
+                .equals(other.collections, collections) &&
+            (identical(other.hasCorrectHandle, hasCorrectHandle) ||
+                other.hasCorrectHandle == hasCorrectHandle));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      handle,
+      did,
+      const DeepCollectionEquality().hash(didDoc),
+      const DeepCollectionEquality().hash(collections),
+      hasCorrectHandle);
+
+  @override
+  String toString() {
+    return 'RepoInfo(handle: $handle, did: $did, didDoc: $didDoc, collections: $collections, hasCorrectHandle: $hasCorrectHandle)';
   }
 }
 
 /// @nodoc
-abstract class _$$RepoInfoImplCopyWith<$Res>
-    implements $RepoInfoCopyWith<$Res> {
-  factory _$$RepoInfoImplCopyWith(
-          _$RepoInfoImpl value, $Res Function(_$RepoInfoImpl) then) =
-      __$$RepoInfoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $RepoInfoCopyWith<$Res> {
+  factory $RepoInfoCopyWith(RepoInfo value, $Res Function(RepoInfo) _then) =
+      _$RepoInfoCopyWithImpl;
   @useResult
   $Res call(
       {String handle,
@@ -122,12 +85,11 @@ abstract class _$$RepoInfoImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$RepoInfoImplCopyWithImpl<$Res>
-    extends _$RepoInfoCopyWithImpl<$Res, _$RepoInfoImpl>
-    implements _$$RepoInfoImplCopyWith<$Res> {
-  __$$RepoInfoImplCopyWithImpl(
-      _$RepoInfoImpl _value, $Res Function(_$RepoInfoImpl) _then)
-      : super(_value, _then);
+class _$RepoInfoCopyWithImpl<$Res> implements $RepoInfoCopyWith<$Res> {
+  _$RepoInfoCopyWithImpl(this._self, this._then);
+
+  final RepoInfo _self;
+  final $Res Function(RepoInfo) _then;
 
   /// Create a copy of RepoInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -140,25 +102,25 @@ class __$$RepoInfoImplCopyWithImpl<$Res>
     Object? collections = null,
     Object? hasCorrectHandle = null,
   }) {
-    return _then(_$RepoInfoImpl(
+    return _then(_self.copyWith(
       handle: null == handle
-          ? _value.handle
+          ? _self.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String,
       did: null == did
-          ? _value.did
+          ? _self.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
       didDoc: null == didDoc
-          ? _value._didDoc
+          ? _self.didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
       collections: null == collections
-          ? _value._collections
+          ? _self.collections
           : collections // ignore: cast_nullable_to_non_nullable
               as List<String>,
       hasCorrectHandle: null == hasCorrectHandle
-          ? _value.hasCorrectHandle
+          ? _self.hasCorrectHandle
           : hasCorrectHandle // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
@@ -167,8 +129,8 @@ class __$$RepoInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$RepoInfoImpl implements _RepoInfo {
-  const _$RepoInfoImpl(
+class _RepoInfo implements RepoInfo {
+  const _RepoInfo(
       {required this.handle,
       required this.did,
       required final Map<String, dynamic> didDoc,
@@ -176,9 +138,8 @@ class _$RepoInfoImpl implements _RepoInfo {
       @JsonKey(name: 'handleIsCorrect') this.hasCorrectHandle = false})
       : _didDoc = didDoc,
         _collections = collections;
-
-  factory _$RepoInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RepoInfoImplFromJson(json);
+  factory _RepoInfo.fromJson(Map<String, dynamic> json) =>
+      _$RepoInfoFromJson(json);
 
   /// The handle identifier of the repository.
   @override
@@ -215,16 +176,26 @@ class _$RepoInfoImpl implements _RepoInfo {
   @JsonKey(name: 'handleIsCorrect')
   final bool hasCorrectHandle;
 
+  /// Create a copy of RepoInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'RepoInfo(handle: $handle, did: $did, didDoc: $didDoc, collections: $collections, hasCorrectHandle: $hasCorrectHandle)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$RepoInfoCopyWith<_RepoInfo> get copyWith =>
+      __$RepoInfoCopyWithImpl<_RepoInfo>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$RepoInfoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RepoInfoImpl &&
+            other is _RepoInfo &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.did, did) || other.did == did) &&
             const DeepCollectionEquality().equals(other._didDoc, _didDoc) &&
@@ -244,59 +215,68 @@ class _$RepoInfoImpl implements _RepoInfo {
       const DeepCollectionEquality().hash(_collections),
       hasCorrectHandle);
 
-  /// Create a copy of RepoInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$RepoInfoImplCopyWith<_$RepoInfoImpl> get copyWith =>
-      __$$RepoInfoImplCopyWithImpl<_$RepoInfoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RepoInfoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'RepoInfo(handle: $handle, did: $did, didDoc: $didDoc, collections: $collections, hasCorrectHandle: $hasCorrectHandle)';
   }
 }
 
-abstract class _RepoInfo implements RepoInfo {
-  const factory _RepoInfo(
-          {required final String handle,
-          required final String did,
-          required final Map<String, dynamic> didDoc,
-          required final List<String> collections,
-          @JsonKey(name: 'handleIsCorrect') final bool hasCorrectHandle}) =
-      _$RepoInfoImpl;
-
-  factory _RepoInfo.fromJson(Map<String, dynamic> json) =
-      _$RepoInfoImpl.fromJson;
-
-  /// The handle identifier of the repository.
+/// @nodoc
+abstract mixin class _$RepoInfoCopyWith<$Res>
+    implements $RepoInfoCopyWith<$Res> {
+  factory _$RepoInfoCopyWith(_RepoInfo value, $Res Function(_RepoInfo) _then) =
+      __$RepoInfoCopyWithImpl;
   @override
-  String get handle;
+  @useResult
+  $Res call(
+      {String handle,
+      String did,
+      Map<String, dynamic> didDoc,
+      List<String> collections,
+      @JsonKey(name: 'handleIsCorrect') bool hasCorrectHandle});
+}
 
-  /// The DID (Decentralized Identifier) of the repository.
-  @override
-  String get did;
+/// @nodoc
+class __$RepoInfoCopyWithImpl<$Res> implements _$RepoInfoCopyWith<$Res> {
+  __$RepoInfoCopyWithImpl(this._self, this._then);
 
-  /// The parsed DID document.
-  @override
-  Map<String, dynamic> get didDoc;
-
-  /// A list of collections included in the repository.
-  @override
-  List<String> get collections;
-
-  /// A boolean value indicating if the handle is correct.
-  @override
-  @JsonKey(name: 'handleIsCorrect')
-  bool get hasCorrectHandle;
+  final _RepoInfo _self;
+  final $Res Function(_RepoInfo) _then;
 
   /// Create a copy of RepoInfo
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RepoInfoImplCopyWith<_$RepoInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? handle = null,
+    Object? did = null,
+    Object? didDoc = null,
+    Object? collections = null,
+    Object? hasCorrectHandle = null,
+  }) {
+    return _then(_RepoInfo(
+      handle: null == handle
+          ? _self.handle
+          : handle // ignore: cast_nullable_to_non_nullable
+              as String,
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      didDoc: null == didDoc
+          ? _self._didDoc
+          : didDoc // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+      collections: null == collections
+          ? _self._collections
+          : collections // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      hasCorrectHandle: null == hasCorrectHandle
+          ? _self.hasCorrectHandle
+          : hasCorrectHandle // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
+
+// dart format on

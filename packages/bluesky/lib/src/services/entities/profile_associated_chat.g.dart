@@ -8,13 +8,12 @@ part of 'profile_associated_chat.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorProfileAssociatedChatImpl _$$ActorProfileAssociatedChatImplFromJson(
-        Map json) =>
+_ActorProfileAssociatedChat _$ActorProfileAssociatedChatFromJson(Map json) =>
     $checkedCreate(
-      r'_$ActorProfileAssociatedChatImpl',
+      '_ActorProfileAssociatedChat',
       json,
       ($checkedConvert) {
-        final val = _$ActorProfileAssociatedChatImpl(
+        final val = _ActorProfileAssociatedChat(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyActorDefsProfileAssociatedChat),
           allowIncoming: $checkedConvert('allowIncoming', (v) => v as String),
@@ -24,8 +23,8 @@ _$ActorProfileAssociatedChatImpl _$$ActorProfileAssociatedChatImplFromJson(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ActorProfileAssociatedChatImplToJson(
-        _$ActorProfileAssociatedChatImpl instance) =>
+Map<String, dynamic> _$ActorProfileAssociatedChatToJson(
+        _ActorProfileAssociatedChat instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'allowIncoming': instance.allowIncoming,

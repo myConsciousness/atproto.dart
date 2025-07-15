@@ -8,11 +8,11 @@ part of 'batch_item.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BatchItemImpl _$$BatchItemImplFromJson(Map json) => $checkedCreate(
-      r'_$BatchItemImpl',
+_BatchItem _$BatchItemFromJson(Map json) => $checkedCreate(
+      '_BatchItem',
       json,
       ($checkedConvert) {
-        final val = _$BatchItemImpl(
+        final val = _BatchItem(
           convoId: $checkedConvert('convoId', (v) => v as String),
           message: $checkedConvert(
               'message',
@@ -23,7 +23,7 @@ _$BatchItemImpl _$$BatchItemImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$BatchItemImplToJson(_$BatchItemImpl instance) =>
+Map<String, dynamic> _$BatchItemToJson(_BatchItem instance) =>
     <String, dynamic>{
       'convoId': instance.convoId,
       'message': instance.message.toJson(),

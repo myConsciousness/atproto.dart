@@ -6,7 +6,7 @@ part 'created_invite_code.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createinvitecode/#output
 @freezed
-class CreatedInviteCode with _$CreatedInviteCode {
+abstract class CreatedInviteCode with _$CreatedInviteCode {
   const factory CreatedInviteCode({
     required String code,
   }) = _CreatedInviteCode;

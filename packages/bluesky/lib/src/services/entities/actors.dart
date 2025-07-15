@@ -11,7 +11,7 @@ part 'actors.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors#output
 @freezed
-class Actors with _$Actors {
+abstract class Actors with _$Actors {
   const factory Actors({
     required List<Actor> actors,
     String? cursor,

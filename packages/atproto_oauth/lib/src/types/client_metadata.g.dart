@@ -6,9 +6,8 @@ part of 'client_metadata.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OAuthClientMetadataImpl _$$OAuthClientMetadataImplFromJson(
-        Map<String, dynamic> json) =>
-    _$OAuthClientMetadataImpl(
+_OAuthClientMetadata _$OAuthClientMetadataFromJson(Map<String, dynamic> json) =>
+    _OAuthClientMetadata(
       clientId: json['client_id'] as String,
       applicationType: json['application_type'] as String,
       clientName: json['client_name'] as String,
@@ -34,8 +33,8 @@ _$OAuthClientMetadataImpl _$$OAuthClientMetadataImplFromJson(
       tokenEndpointAuthMethod: json['token_endpoint_auth_method'] as String,
     );
 
-Map<String, dynamic> _$$OAuthClientMetadataImplToJson(
-        _$OAuthClientMetadataImpl instance) =>
+Map<String, dynamic> _$OAuthClientMetadataToJson(
+        _OAuthClientMetadata instance) =>
     <String, dynamic>{
       'client_id': instance.clientId,
       'application_type': instance.applicationType,

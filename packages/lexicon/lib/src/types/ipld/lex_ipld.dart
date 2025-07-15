@@ -11,7 +11,7 @@ import 'lex_cid_link.dart';
 part 'lex_ipld.freezed.dart';
 
 @freezed
-class LexIpld with _$LexIpld {
+abstract class LexIpld with _$LexIpld {
   // ignore: unused_element
   const LexIpld._();
 

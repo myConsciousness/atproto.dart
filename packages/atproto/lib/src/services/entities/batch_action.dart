@@ -10,7 +10,7 @@ part 'batch_action.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applywrites/#input
 @freezed
-class BatchAction with _$BatchAction {
+abstract class BatchAction with _$BatchAction {
   const factory BatchAction.create({
     required CreateAction data,
   }) = UBatchActionCreate;

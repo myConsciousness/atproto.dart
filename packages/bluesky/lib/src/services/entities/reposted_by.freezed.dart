@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,94 +10,55 @@ part of 'reposted_by.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-RepostedBy _$RepostedByFromJson(Map<String, dynamic> json) {
-  return _RepostedBy.fromJson(json);
-}
 
 /// @nodoc
 mixin _$RepostedBy {
-  List<Actor> get repostedBy => throw _privateConstructorUsedError;
+  List<Actor> get repostedBy;
   @AtUriConverter()
-  AtUri get uri => throw _privateConstructorUsedError;
-  String? get cid => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-
-  /// Serializes this RepostedBy to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri get uri;
+  String? get cid;
+  String? get cursor;
 
   /// Create a copy of RepostedBy
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $RepostedByCopyWith<RepostedBy> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RepostedByCopyWith<$Res> {
-  factory $RepostedByCopyWith(
-          RepostedBy value, $Res Function(RepostedBy) then) =
-      _$RepostedByCopyWithImpl<$Res, RepostedBy>;
-  @useResult
-  $Res call(
-      {List<Actor> repostedBy,
-      @AtUriConverter() AtUri uri,
-      String? cid,
-      String? cursor});
-}
-
-/// @nodoc
-class _$RepostedByCopyWithImpl<$Res, $Val extends RepostedBy>
-    implements $RepostedByCopyWith<$Res> {
-  _$RepostedByCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of RepostedBy
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $RepostedByCopyWith<RepostedBy> get copyWith =>
+      _$RepostedByCopyWithImpl<RepostedBy>(this as RepostedBy, _$identity);
+
+  /// Serializes this RepostedBy to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? repostedBy = null,
-    Object? uri = null,
-    Object? cid = freezed,
-    Object? cursor = freezed,
-  }) {
-    return _then(_value.copyWith(
-      repostedBy: null == repostedBy
-          ? _value.repostedBy
-          : repostedBy // ignore: cast_nullable_to_non_nullable
-              as List<Actor>,
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-      cid: freezed == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is RepostedBy &&
+            const DeepCollectionEquality()
+                .equals(other.repostedBy, repostedBy) &&
+            (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.cid, cid) || other.cid == cid) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(repostedBy), uri, cid, cursor);
+
+  @override
+  String toString() {
+    return 'RepostedBy(repostedBy: $repostedBy, uri: $uri, cid: $cid, cursor: $cursor)';
   }
 }
 
 /// @nodoc
-abstract class _$$RepostedByImplCopyWith<$Res>
-    implements $RepostedByCopyWith<$Res> {
-  factory _$$RepostedByImplCopyWith(
-          _$RepostedByImpl value, $Res Function(_$RepostedByImpl) then) =
-      __$$RepostedByImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $RepostedByCopyWith<$Res> {
+  factory $RepostedByCopyWith(
+          RepostedBy value, $Res Function(RepostedBy) _then) =
+      _$RepostedByCopyWithImpl;
   @useResult
   $Res call(
       {List<Actor> repostedBy,
@@ -106,12 +68,11 @@ abstract class _$$RepostedByImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$RepostedByImplCopyWithImpl<$Res>
-    extends _$RepostedByCopyWithImpl<$Res, _$RepostedByImpl>
-    implements _$$RepostedByImplCopyWith<$Res> {
-  __$$RepostedByImplCopyWithImpl(
-      _$RepostedByImpl _value, $Res Function(_$RepostedByImpl) _then)
-      : super(_value, _then);
+class _$RepostedByCopyWithImpl<$Res> implements $RepostedByCopyWith<$Res> {
+  _$RepostedByCopyWithImpl(this._self, this._then);
+
+  final RepostedBy _self;
+  final $Res Function(RepostedBy) _then;
 
   /// Create a copy of RepostedBy
   /// with the given fields replaced by the non-null parameter values.
@@ -123,21 +84,21 @@ class __$$RepostedByImplCopyWithImpl<$Res>
     Object? cid = freezed,
     Object? cursor = freezed,
   }) {
-    return _then(_$RepostedByImpl(
+    return _then(_self.copyWith(
       repostedBy: null == repostedBy
-          ? _value._repostedBy
+          ? _self.repostedBy
           : repostedBy // ignore: cast_nullable_to_non_nullable
               as List<Actor>,
       uri: null == uri
-          ? _value.uri
+          ? _self.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
       cid: freezed == cid
-          ? _value.cid
+          ? _self.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String?,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -146,16 +107,15 @@ class __$$RepostedByImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$RepostedByImpl implements _RepostedBy {
-  const _$RepostedByImpl(
+class _RepostedBy implements RepostedBy {
+  const _RepostedBy(
       {required final List<Actor> repostedBy,
       @AtUriConverter() required this.uri,
       this.cid,
       this.cursor})
       : _repostedBy = repostedBy;
-
-  factory _$RepostedByImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RepostedByImplFromJson(json);
+  factory _RepostedBy.fromJson(Map<String, dynamic> json) =>
+      _$RepostedByFromJson(json);
 
   final List<Actor> _repostedBy;
   @override
@@ -173,16 +133,26 @@ class _$RepostedByImpl implements _RepostedBy {
   @override
   final String? cursor;
 
+  /// Create a copy of RepostedBy
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'RepostedBy(repostedBy: $repostedBy, uri: $uri, cid: $cid, cursor: $cursor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$RepostedByCopyWith<_RepostedBy> get copyWith =>
+      __$RepostedByCopyWithImpl<_RepostedBy>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$RepostedByToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RepostedByImpl &&
+            other is _RepostedBy &&
             const DeepCollectionEquality()
                 .equals(other._repostedBy, _repostedBy) &&
             (identical(other.uri, uri) || other.uri == uri) &&
@@ -195,46 +165,63 @@ class _$RepostedByImpl implements _RepostedBy {
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_repostedBy), uri, cid, cursor);
 
-  /// Create a copy of RepostedBy
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$RepostedByImplCopyWith<_$RepostedByImpl> get copyWith =>
-      __$$RepostedByImplCopyWithImpl<_$RepostedByImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RepostedByImplToJson(
-      this,
-    );
+  String toString() {
+    return 'RepostedBy(repostedBy: $repostedBy, uri: $uri, cid: $cid, cursor: $cursor)';
   }
 }
 
-abstract class _RepostedBy implements RepostedBy {
-  const factory _RepostedBy(
-      {required final List<Actor> repostedBy,
-      @AtUriConverter() required final AtUri uri,
-      final String? cid,
-      final String? cursor}) = _$RepostedByImpl;
+/// @nodoc
+abstract mixin class _$RepostedByCopyWith<$Res>
+    implements $RepostedByCopyWith<$Res> {
+  factory _$RepostedByCopyWith(
+          _RepostedBy value, $Res Function(_RepostedBy) _then) =
+      __$RepostedByCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {List<Actor> repostedBy,
+      @AtUriConverter() AtUri uri,
+      String? cid,
+      String? cursor});
+}
 
-  factory _RepostedBy.fromJson(Map<String, dynamic> json) =
-      _$RepostedByImpl.fromJson;
+/// @nodoc
+class __$RepostedByCopyWithImpl<$Res> implements _$RepostedByCopyWith<$Res> {
+  __$RepostedByCopyWithImpl(this._self, this._then);
 
-  @override
-  List<Actor> get repostedBy;
-  @override
-  @AtUriConverter()
-  AtUri get uri;
-  @override
-  String? get cid;
-  @override
-  String? get cursor;
+  final _RepostedBy _self;
+  final $Res Function(_RepostedBy) _then;
 
   /// Create a copy of RepostedBy
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RepostedByImplCopyWith<_$RepostedByImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? repostedBy = null,
+    Object? uri = null,
+    Object? cid = freezed,
+    Object? cursor = freezed,
+  }) {
+    return _then(_RepostedBy(
+      repostedBy: null == repostedBy
+          ? _self._repostedBy
+          : repostedBy // ignore: cast_nullable_to_non_nullable
+              as List<Actor>,
+      uri: null == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      cid: freezed == cid
+          ? _self.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

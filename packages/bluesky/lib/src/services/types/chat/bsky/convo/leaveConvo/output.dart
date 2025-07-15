@@ -7,7 +7,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/leaveConvo/#main
 @freezed
-class LeaveConvoOutput with _$LeaveConvoOutput {
+abstract class LeaveConvoOutput with _$LeaveConvoOutput {
   @jsonSerializable
   const factory LeaveConvoOutput({
     required String convoId,

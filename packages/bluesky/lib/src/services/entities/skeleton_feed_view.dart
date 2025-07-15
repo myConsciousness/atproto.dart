@@ -13,7 +13,7 @@ part 'skeleton_feed_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#skeletonfeedpost
 @freezed
-class SkeletonFeedView with _$SkeletonFeedView {
+abstract class SkeletonFeedView with _$SkeletonFeedView {
   @jsonSerializable
   const factory SkeletonFeedView({
     @AtUriConverter() required AtUri post,

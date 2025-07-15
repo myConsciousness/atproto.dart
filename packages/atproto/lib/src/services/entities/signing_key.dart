@@ -6,7 +6,7 @@ part 'signing_key.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/reservesigningkey/#output
 @freezed
-class SigningKey with _$SigningKey {
+abstract class SigningKey with _$SigningKey {
   const factory SigningKey({
     required String signingKey,
   }) = _SigningKey;

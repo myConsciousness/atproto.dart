@@ -10,7 +10,7 @@ part 'lex_string.freezed.dart';
 part 'lex_string.g.dart';
 
 @freezed
-class LexString with _$LexString {
+abstract class LexString with _$LexString {
   @JsonSerializable(includeIfNull: false)
   const factory LexString({
     @Default('string') String type,

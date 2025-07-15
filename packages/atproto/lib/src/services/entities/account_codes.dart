@@ -6,7 +6,7 @@ part 'account_codes.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createinvitecodes/#output
 @freezed
-class AccountCodes with _$AccountCodes {
+abstract class AccountCodes with _$AccountCodes {
   const factory AccountCodes({
     required String account,
     required List<String> codes,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,52 @@ part of 'thread_list_rule.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ThreadListRule _$ThreadListRuleFromJson(Map<String, dynamic> json) {
-  return _ThreadListRule.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ThreadListRule {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @JsonKey(name: 'list')
   @AtUriConverter()
-  AtUri get listUri => throw _privateConstructorUsedError;
-
-  /// Serializes this ThreadListRule to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri get listUri;
 
   /// Create a copy of ThreadListRule
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ThreadListRuleCopyWith<ThreadListRule> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ThreadListRuleCopyWith<$Res> {
-  factory $ThreadListRuleCopyWith(
-          ThreadListRule value, $Res Function(ThreadListRule) then) =
-      _$ThreadListRuleCopyWithImpl<$Res, ThreadListRule>;
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      @JsonKey(name: 'list') @AtUriConverter() AtUri listUri});
-}
-
-/// @nodoc
-class _$ThreadListRuleCopyWithImpl<$Res, $Val extends ThreadListRule>
-    implements $ThreadListRuleCopyWith<$Res> {
-  _$ThreadListRuleCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ThreadListRule
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ThreadListRuleCopyWith<ThreadListRule> get copyWith =>
+      _$ThreadListRuleCopyWithImpl<ThreadListRule>(
+          this as ThreadListRule, _$identity);
+
+  /// Serializes this ThreadListRule to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? listUri = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      listUri: null == listUri
-          ? _value.listUri
-          : listUri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ThreadListRule &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.listUri, listUri) || other.listUri == listUri));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, listUri);
+
+  @override
+  String toString() {
+    return 'ThreadListRule(type: $type, listUri: $listUri)';
   }
 }
 
 /// @nodoc
-abstract class _$$ThreadListRuleImplCopyWith<$Res>
-    implements $ThreadListRuleCopyWith<$Res> {
-  factory _$$ThreadListRuleImplCopyWith(_$ThreadListRuleImpl value,
-          $Res Function(_$ThreadListRuleImpl) then) =
-      __$$ThreadListRuleImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ThreadListRuleCopyWith<$Res> {
+  factory $ThreadListRuleCopyWith(
+          ThreadListRule value, $Res Function(ThreadListRule) _then) =
+      _$ThreadListRuleCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -92,12 +63,12 @@ abstract class _$$ThreadListRuleImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ThreadListRuleImplCopyWithImpl<$Res>
-    extends _$ThreadListRuleCopyWithImpl<$Res, _$ThreadListRuleImpl>
-    implements _$$ThreadListRuleImplCopyWith<$Res> {
-  __$$ThreadListRuleImplCopyWithImpl(
-      _$ThreadListRuleImpl _value, $Res Function(_$ThreadListRuleImpl) _then)
-      : super(_value, _then);
+class _$ThreadListRuleCopyWithImpl<$Res>
+    implements $ThreadListRuleCopyWith<$Res> {
+  _$ThreadListRuleCopyWithImpl(this._self, this._then);
+
+  final ThreadListRule _self;
+  final $Res Function(ThreadListRule) _then;
 
   /// Create a copy of ThreadListRule
   /// with the given fields replaced by the non-null parameter values.
@@ -107,13 +78,13 @@ class __$$ThreadListRuleImplCopyWithImpl<$Res>
     Object? type = null,
     Object? listUri = null,
   }) {
-    return _then(_$ThreadListRuleImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       listUri: null == listUri
-          ? _value.listUri
+          ? _self.listUri
           : listUri // ignore: cast_nullable_to_non_nullable
               as AtUri,
     ));
@@ -123,13 +94,12 @@ class __$$ThreadListRuleImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ThreadListRuleImpl implements _ThreadListRule {
-  const _$ThreadListRuleImpl(
+class _ThreadListRule implements ThreadListRule {
+  const _ThreadListRule(
       {@typeKey this.type = appBskyFeedThreadgateListRule,
       @JsonKey(name: 'list') @AtUriConverter() required this.listUri});
-
-  factory _$ThreadListRuleImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ThreadListRuleImplFromJson(json);
+  factory _ThreadListRule.fromJson(Map<String, dynamic> json) =>
+      _$ThreadListRuleFromJson(json);
 
   @override
   @typeKey
@@ -139,16 +109,26 @@ class _$ThreadListRuleImpl implements _ThreadListRule {
   @AtUriConverter()
   final AtUri listUri;
 
+  /// Create a copy of ThreadListRule
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ThreadListRule(type: $type, listUri: $listUri)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ThreadListRuleCopyWith<_ThreadListRule> get copyWith =>
+      __$ThreadListRuleCopyWithImpl<_ThreadListRule>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ThreadListRuleToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ThreadListRuleImpl &&
+            other is _ThreadListRule &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.listUri, listUri) || other.listUri == listUri));
   }
@@ -157,45 +137,52 @@ class _$ThreadListRuleImpl implements _ThreadListRule {
   @override
   int get hashCode => Object.hash(runtimeType, type, listUri);
 
-  /// Create a copy of ThreadListRule
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ThreadListRuleImplCopyWith<_$ThreadListRuleImpl> get copyWith =>
-      __$$ThreadListRuleImplCopyWithImpl<_$ThreadListRuleImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ThreadListRuleImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ThreadListRule(type: $type, listUri: $listUri)';
   }
 }
 
-abstract class _ThreadListRule implements ThreadListRule {
-  const factory _ThreadListRule(
-      {@typeKey final String type,
-      @JsonKey(name: 'list')
-      @AtUriConverter()
-      required final AtUri listUri}) = _$ThreadListRuleImpl;
-
-  factory _ThreadListRule.fromJson(Map<String, dynamic> json) =
-      _$ThreadListRuleImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$ThreadListRuleCopyWith<$Res>
+    implements $ThreadListRuleCopyWith<$Res> {
+  factory _$ThreadListRuleCopyWith(
+          _ThreadListRule value, $Res Function(_ThreadListRule) _then) =
+      __$ThreadListRuleCopyWithImpl;
   @override
-  @typeKey
-  String get type;
-  @override
-  @JsonKey(name: 'list')
-  @AtUriConverter()
-  AtUri get listUri;
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @JsonKey(name: 'list') @AtUriConverter() AtUri listUri});
+}
+
+/// @nodoc
+class __$ThreadListRuleCopyWithImpl<$Res>
+    implements _$ThreadListRuleCopyWith<$Res> {
+  __$ThreadListRuleCopyWithImpl(this._self, this._then);
+
+  final _ThreadListRule _self;
+  final $Res Function(_ThreadListRule) _then;
 
   /// Create a copy of ThreadListRule
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ThreadListRuleImplCopyWith<_$ThreadListRuleImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? listUri = null,
+  }) {
+    return _then(_ThreadListRule(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      listUri: null == listUri
+          ? _self.listUri
+          : listUri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+    ));
+  }
 }
+
+// dart format on

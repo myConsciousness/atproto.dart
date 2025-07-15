@@ -15,7 +15,7 @@ part 'embed_view_record_with_media.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#view
 @freezed
-class EmbedViewRecordWithMedia with _$EmbedViewRecordWithMedia {
+abstract class EmbedViewRecordWithMedia with _$EmbedViewRecordWithMedia {
   const factory EmbedViewRecordWithMedia({
     @typeKey @Default(appBskyEmbedRecordWithMediaView) String type,
     required EmbedViewRecord record,

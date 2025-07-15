@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,58 @@ part of 'auditable_log.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-AuditableLog _$AuditableLogFromJson(Map<String, dynamic> json) {
-  return _AuditableLog.fromJson(json);
-}
 
 /// @nodoc
 mixin _$AuditableLog {
-  List<ExportedOperation> get log => throw _privateConstructorUsedError;
-
-  /// Serializes this AuditableLog to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<ExportedOperation> get log;
 
   /// Create a copy of AuditableLog
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $AuditableLogCopyWith<AuditableLog> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $AuditableLogCopyWith<$Res> {
-  factory $AuditableLogCopyWith(
-          AuditableLog value, $Res Function(AuditableLog) then) =
-      _$AuditableLogCopyWithImpl<$Res, AuditableLog>;
-  @useResult
-  $Res call({List<ExportedOperation> log});
-}
-
-/// @nodoc
-class _$AuditableLogCopyWithImpl<$Res, $Val extends AuditableLog>
-    implements $AuditableLogCopyWith<$Res> {
-  _$AuditableLogCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of AuditableLog
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $AuditableLogCopyWith<AuditableLog> get copyWith =>
+      _$AuditableLogCopyWithImpl<AuditableLog>(
+          this as AuditableLog, _$identity);
+
+  /// Serializes this AuditableLog to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? log = null,
-  }) {
-    return _then(_value.copyWith(
-      log: null == log
-          ? _value.log
-          : log // ignore: cast_nullable_to_non_nullable
-              as List<ExportedOperation>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is AuditableLog &&
+            const DeepCollectionEquality().equals(other.log, log));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(log));
+
+  @override
+  String toString() {
+    return 'AuditableLog(log: $log)';
   }
 }
 
 /// @nodoc
-abstract class _$$AuditableLogImplCopyWith<$Res>
-    implements $AuditableLogCopyWith<$Res> {
-  factory _$$AuditableLogImplCopyWith(
-          _$AuditableLogImpl value, $Res Function(_$AuditableLogImpl) then) =
-      __$$AuditableLogImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $AuditableLogCopyWith<$Res> {
+  factory $AuditableLogCopyWith(
+          AuditableLog value, $Res Function(AuditableLog) _then) =
+      _$AuditableLogCopyWithImpl;
   @useResult
   $Res call({List<ExportedOperation> log});
 }
 
 /// @nodoc
-class __$$AuditableLogImplCopyWithImpl<$Res>
-    extends _$AuditableLogCopyWithImpl<$Res, _$AuditableLogImpl>
-    implements _$$AuditableLogImplCopyWith<$Res> {
-  __$$AuditableLogImplCopyWithImpl(
-      _$AuditableLogImpl _value, $Res Function(_$AuditableLogImpl) _then)
-      : super(_value, _then);
+class _$AuditableLogCopyWithImpl<$Res> implements $AuditableLogCopyWith<$Res> {
+  _$AuditableLogCopyWithImpl(this._self, this._then);
+
+  final AuditableLog _self;
+  final $Res Function(AuditableLog) _then;
 
   /// Create a copy of AuditableLog
   /// with the given fields replaced by the non-null parameter values.
@@ -93,9 +70,9 @@ class __$$AuditableLogImplCopyWithImpl<$Res>
   $Res call({
     Object? log = null,
   }) {
-    return _then(_$AuditableLogImpl(
+    return _then(_self.copyWith(
       log: null == log
-          ? _value._log
+          ? _self.log
           : log // ignore: cast_nullable_to_non_nullable
               as List<ExportedOperation>,
     ));
@@ -105,12 +82,11 @@ class __$$AuditableLogImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$AuditableLogImpl implements _AuditableLog {
-  const _$AuditableLogImpl({required final List<ExportedOperation> log})
+class _AuditableLog implements AuditableLog {
+  const _AuditableLog({required final List<ExportedOperation> log})
       : _log = log;
-
-  factory _$AuditableLogImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AuditableLogImplFromJson(json);
+  factory _AuditableLog.fromJson(Map<String, dynamic> json) =>
+      _$AuditableLogFromJson(json);
 
   final List<ExportedOperation> _log;
   @override
@@ -120,16 +96,26 @@ class _$AuditableLogImpl implements _AuditableLog {
     return EqualUnmodifiableListView(_log);
   }
 
+  /// Create a copy of AuditableLog
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'AuditableLog(log: $log)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$AuditableLogCopyWith<_AuditableLog> get copyWith =>
+      __$AuditableLogCopyWithImpl<_AuditableLog>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$AuditableLogToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AuditableLogImpl &&
+            other is _AuditableLog &&
             const DeepCollectionEquality().equals(other._log, _log));
   }
 
@@ -138,36 +124,45 @@ class _$AuditableLogImpl implements _AuditableLog {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_log));
 
-  /// Create a copy of AuditableLog
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$AuditableLogImplCopyWith<_$AuditableLogImpl> get copyWith =>
-      __$$AuditableLogImplCopyWithImpl<_$AuditableLogImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AuditableLogImplToJson(
-      this,
-    );
+  String toString() {
+    return 'AuditableLog(log: $log)';
   }
 }
 
-abstract class _AuditableLog implements AuditableLog {
-  const factory _AuditableLog({required final List<ExportedOperation> log}) =
-      _$AuditableLogImpl;
-
-  factory _AuditableLog.fromJson(Map<String, dynamic> json) =
-      _$AuditableLogImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$AuditableLogCopyWith<$Res>
+    implements $AuditableLogCopyWith<$Res> {
+  factory _$AuditableLogCopyWith(
+          _AuditableLog value, $Res Function(_AuditableLog) _then) =
+      __$AuditableLogCopyWithImpl;
   @override
-  List<ExportedOperation> get log;
+  @useResult
+  $Res call({List<ExportedOperation> log});
+}
+
+/// @nodoc
+class __$AuditableLogCopyWithImpl<$Res>
+    implements _$AuditableLogCopyWith<$Res> {
+  __$AuditableLogCopyWithImpl(this._self, this._then);
+
+  final _AuditableLog _self;
+  final $Res Function(_AuditableLog) _then;
 
   /// Create a copy of AuditableLog
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AuditableLogImplCopyWith<_$AuditableLogImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? log = null,
+  }) {
+    return _then(_AuditableLog(
+      log: null == log
+          ? _self._log
+          : log // ignore: cast_nullable_to_non_nullable
+              as List<ExportedOperation>,
+    ));
+  }
 }
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,87 +10,59 @@ part of 'context.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$OAuthContext {
-  String get codeVerifier => throw _privateConstructorUsedError;
-  String get state => throw _privateConstructorUsedError;
-  String get dpopNonce => throw _privateConstructorUsedError;
+  String get codeVerifier;
+  String get state;
+  String get dpopNonce;
 
   /// Create a copy of OAuthContext
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $OAuthContextCopyWith<OAuthContext> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $OAuthContextCopyWith<$Res> {
-  factory $OAuthContextCopyWith(
-          OAuthContext value, $Res Function(OAuthContext) then) =
-      _$OAuthContextCopyWithImpl<$Res, OAuthContext>;
-  @useResult
-  $Res call({String codeVerifier, String state, String dpopNonce});
-}
-
-/// @nodoc
-class _$OAuthContextCopyWithImpl<$Res, $Val extends OAuthContext>
-    implements $OAuthContextCopyWith<$Res> {
-  _$OAuthContextCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of OAuthContext
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $OAuthContextCopyWith<OAuthContext> get copyWith =>
+      _$OAuthContextCopyWithImpl<OAuthContext>(
+          this as OAuthContext, _$identity);
+
   @override
-  $Res call({
-    Object? codeVerifier = null,
-    Object? state = null,
-    Object? dpopNonce = null,
-  }) {
-    return _then(_value.copyWith(
-      codeVerifier: null == codeVerifier
-          ? _value.codeVerifier
-          : codeVerifier // ignore: cast_nullable_to_non_nullable
-              as String,
-      state: null == state
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as String,
-      dpopNonce: null == dpopNonce
-          ? _value.dpopNonce
-          : dpopNonce // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is OAuthContext &&
+            (identical(other.codeVerifier, codeVerifier) ||
+                other.codeVerifier == codeVerifier) &&
+            (identical(other.state, state) || other.state == state) &&
+            (identical(other.dpopNonce, dpopNonce) ||
+                other.dpopNonce == dpopNonce));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, codeVerifier, state, dpopNonce);
+
+  @override
+  String toString() {
+    return 'OAuthContext(codeVerifier: $codeVerifier, state: $state, dpopNonce: $dpopNonce)';
   }
 }
 
 /// @nodoc
-abstract class _$$OAuthContextImplCopyWith<$Res>
-    implements $OAuthContextCopyWith<$Res> {
-  factory _$$OAuthContextImplCopyWith(
-          _$OAuthContextImpl value, $Res Function(_$OAuthContextImpl) then) =
-      __$$OAuthContextImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $OAuthContextCopyWith<$Res> {
+  factory $OAuthContextCopyWith(
+          OAuthContext value, $Res Function(OAuthContext) _then) =
+      _$OAuthContextCopyWithImpl;
   @useResult
   $Res call({String codeVerifier, String state, String dpopNonce});
 }
 
 /// @nodoc
-class __$$OAuthContextImplCopyWithImpl<$Res>
-    extends _$OAuthContextCopyWithImpl<$Res, _$OAuthContextImpl>
-    implements _$$OAuthContextImplCopyWith<$Res> {
-  __$$OAuthContextImplCopyWithImpl(
-      _$OAuthContextImpl _value, $Res Function(_$OAuthContextImpl) _then)
-      : super(_value, _then);
+class _$OAuthContextCopyWithImpl<$Res> implements $OAuthContextCopyWith<$Res> {
+  _$OAuthContextCopyWithImpl(this._self, this._then);
+
+  final OAuthContext _self;
+  final $Res Function(OAuthContext) _then;
 
   /// Create a copy of OAuthContext
   /// with the given fields replaced by the non-null parameter values.
@@ -100,17 +73,17 @@ class __$$OAuthContextImplCopyWithImpl<$Res>
     Object? state = null,
     Object? dpopNonce = null,
   }) {
-    return _then(_$OAuthContextImpl(
+    return _then(_self.copyWith(
       codeVerifier: null == codeVerifier
-          ? _value.codeVerifier
+          ? _self.codeVerifier
           : codeVerifier // ignore: cast_nullable_to_non_nullable
               as String,
       state: null == state
-          ? _value.state
+          ? _self.state
           : state // ignore: cast_nullable_to_non_nullable
               as String,
       dpopNonce: null == dpopNonce
-          ? _value.dpopNonce
+          ? _self.dpopNonce
           : dpopNonce // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -120,8 +93,8 @@ class __$$OAuthContextImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$OAuthContextImpl implements _OAuthContext {
-  const _$OAuthContextImpl(
+class _OAuthContext implements OAuthContext {
+  const _OAuthContext(
       {required this.codeVerifier,
       required this.state,
       required this.dpopNonce});
@@ -133,16 +106,19 @@ class _$OAuthContextImpl implements _OAuthContext {
   @override
   final String dpopNonce;
 
+  /// Create a copy of OAuthContext
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'OAuthContext(codeVerifier: $codeVerifier, state: $state, dpopNonce: $dpopNonce)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$OAuthContextCopyWith<_OAuthContext> get copyWith =>
+      __$OAuthContextCopyWithImpl<_OAuthContext>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OAuthContextImpl &&
+            other is _OAuthContext &&
             (identical(other.codeVerifier, codeVerifier) ||
                 other.codeVerifier == codeVerifier) &&
             (identical(other.state, state) || other.state == state) &&
@@ -153,32 +129,55 @@ class _$OAuthContextImpl implements _OAuthContext {
   @override
   int get hashCode => Object.hash(runtimeType, codeVerifier, state, dpopNonce);
 
+  @override
+  String toString() {
+    return 'OAuthContext(codeVerifier: $codeVerifier, state: $state, dpopNonce: $dpopNonce)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$OAuthContextCopyWith<$Res>
+    implements $OAuthContextCopyWith<$Res> {
+  factory _$OAuthContextCopyWith(
+          _OAuthContext value, $Res Function(_OAuthContext) _then) =
+      __$OAuthContextCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String codeVerifier, String state, String dpopNonce});
+}
+
+/// @nodoc
+class __$OAuthContextCopyWithImpl<$Res>
+    implements _$OAuthContextCopyWith<$Res> {
+  __$OAuthContextCopyWithImpl(this._self, this._then);
+
+  final _OAuthContext _self;
+  final $Res Function(_OAuthContext) _then;
+
   /// Create a copy of OAuthContext
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$OAuthContextImplCopyWith<_$OAuthContextImpl> get copyWith =>
-      __$$OAuthContextImplCopyWithImpl<_$OAuthContextImpl>(this, _$identity);
+  $Res call({
+    Object? codeVerifier = null,
+    Object? state = null,
+    Object? dpopNonce = null,
+  }) {
+    return _then(_OAuthContext(
+      codeVerifier: null == codeVerifier
+          ? _self.codeVerifier
+          : codeVerifier // ignore: cast_nullable_to_non_nullable
+              as String,
+      state: null == state
+          ? _self.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String,
+      dpopNonce: null == dpopNonce
+          ? _self.dpopNonce
+          : dpopNonce // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
-abstract class _OAuthContext implements OAuthContext {
-  const factory _OAuthContext(
-      {required final String codeVerifier,
-      required final String state,
-      required final String dpopNonce}) = _$OAuthContextImpl;
-
-  @override
-  String get codeVerifier;
-  @override
-  String get state;
-  @override
-  String get dpopNonce;
-
-  /// Create a copy of OAuthContext
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$OAuthContextImplCopyWith<_$OAuthContextImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

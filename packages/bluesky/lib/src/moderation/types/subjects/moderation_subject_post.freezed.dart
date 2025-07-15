@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,59 +10,43 @@ part of 'moderation_subject_post.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ModerationSubjectPost {
-  Post get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Post data) postView,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Post data)? postView,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Post data)? postView,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationSubjectPostPostView value) postView,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationSubjectPostPostView value)? postView,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationSubjectPostPostView value)? postView,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Post get data;
 
   /// Create a copy of ModerationSubjectPost
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ModerationSubjectPostCopyWith<ModerationSubjectPost> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$ModerationSubjectPostCopyWithImpl<ModerationSubjectPost>(
+          this as ModerationSubjectPost, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ModerationSubjectPost &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'ModerationSubjectPost(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $ModerationSubjectPostCopyWith<$Res> {
+abstract mixin class $ModerationSubjectPostCopyWith<$Res> {
   factory $ModerationSubjectPostCopyWith(ModerationSubjectPost value,
-          $Res Function(ModerationSubjectPost) then) =
-      _$ModerationSubjectPostCopyWithImpl<$Res, ModerationSubjectPost>;
+          $Res Function(ModerationSubjectPost) _then) =
+      _$ModerationSubjectPostCopyWithImpl;
   @useResult
   $Res call({Post data});
 
@@ -69,15 +54,12 @@ abstract class $ModerationSubjectPostCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ModerationSubjectPostCopyWithImpl<$Res,
-        $Val extends ModerationSubjectPost>
+class _$ModerationSubjectPostCopyWithImpl<$Res>
     implements $ModerationSubjectPostCopyWith<$Res> {
-  _$ModerationSubjectPostCopyWithImpl(this._value, this._then);
+  _$ModerationSubjectPostCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ModerationSubjectPost _self;
+  final $Res Function(ModerationSubjectPost) _then;
 
   /// Create a copy of ModerationSubjectPost
   /// with the given fields replaced by the non-null parameter values.
@@ -86,12 +68,12 @@ class _$ModerationSubjectPostCopyWithImpl<$Res,
   $Res call({
     Object? data = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as Post,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of ModerationSubjectPost
@@ -99,19 +81,53 @@ class _$ModerationSubjectPostCopyWithImpl<$Res,
   @override
   @pragma('vm:prefer-inline')
   $PostCopyWith<$Res> get data {
-    return $PostCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value) as $Val);
+    return $PostCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$UModerationSubjectPostPostViewImplCopyWith<$Res>
+
+class UModerationSubjectPostPostView implements ModerationSubjectPost {
+  const UModerationSubjectPostPostView({required this.data});
+
+  @override
+  final Post data;
+
+  /// Create a copy of ModerationSubjectPost
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UModerationSubjectPostPostViewCopyWith<UModerationSubjectPostPostView>
+      get copyWith => _$UModerationSubjectPostPostViewCopyWithImpl<
+          UModerationSubjectPostPostView>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UModerationSubjectPostPostView &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'ModerationSubjectPost.postView(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UModerationSubjectPostPostViewCopyWith<$Res>
     implements $ModerationSubjectPostCopyWith<$Res> {
-  factory _$$UModerationSubjectPostPostViewImplCopyWith(
-          _$UModerationSubjectPostPostViewImpl value,
-          $Res Function(_$UModerationSubjectPostPostViewImpl) then) =
-      __$$UModerationSubjectPostPostViewImplCopyWithImpl<$Res>;
+  factory $UModerationSubjectPostPostViewCopyWith(
+          UModerationSubjectPostPostView value,
+          $Res Function(UModerationSubjectPostPostView) _then) =
+      _$UModerationSubjectPostPostViewCopyWithImpl;
   @override
   @useResult
   $Res call({Post data});
@@ -121,135 +137,37 @@ abstract class _$$UModerationSubjectPostPostViewImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$UModerationSubjectPostPostViewImplCopyWithImpl<$Res>
-    extends _$ModerationSubjectPostCopyWithImpl<$Res,
-        _$UModerationSubjectPostPostViewImpl>
-    implements _$$UModerationSubjectPostPostViewImplCopyWith<$Res> {
-  __$$UModerationSubjectPostPostViewImplCopyWithImpl(
-      _$UModerationSubjectPostPostViewImpl _value,
-      $Res Function(_$UModerationSubjectPostPostViewImpl) _then)
-      : super(_value, _then);
+class _$UModerationSubjectPostPostViewCopyWithImpl<$Res>
+    implements $UModerationSubjectPostPostViewCopyWith<$Res> {
+  _$UModerationSubjectPostPostViewCopyWithImpl(this._self, this._then);
+
+  final UModerationSubjectPostPostView _self;
+  final $Res Function(UModerationSubjectPostPostView) _then;
 
   /// Create a copy of ModerationSubjectPost
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UModerationSubjectPostPostViewImpl(
+    return _then(UModerationSubjectPostPostView(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as Post,
     ));
   }
-}
-
-/// @nodoc
-
-class _$UModerationSubjectPostPostViewImpl
-    implements UModerationSubjectPostPostView {
-  const _$UModerationSubjectPostPostViewImpl({required this.data});
-
-  @override
-  final Post data;
-
-  @override
-  String toString() {
-    return 'ModerationSubjectPost.postView(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationSubjectPostPostViewImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
   /// Create a copy of ModerationSubjectPost
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$UModerationSubjectPostPostViewImplCopyWith<
-          _$UModerationSubjectPostPostViewImpl>
-      get copyWith => __$$UModerationSubjectPostPostViewImplCopyWithImpl<
-          _$UModerationSubjectPostPostViewImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Post data) postView,
-  }) {
-    return postView(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Post data)? postView,
-  }) {
-    return postView?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Post data)? postView,
-    required TResult orElse(),
-  }) {
-    if (postView != null) {
-      return postView(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationSubjectPostPostView value) postView,
-  }) {
-    return postView(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationSubjectPostPostView value)? postView,
-  }) {
-    return postView?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationSubjectPostPostView value)? postView,
-    required TResult orElse(),
-  }) {
-    if (postView != null) {
-      return postView(this);
-    }
-    return orElse();
+  $PostCopyWith<$Res> get data {
+    return $PostCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
+    });
   }
 }
 
-abstract class UModerationSubjectPostPostView implements ModerationSubjectPost {
-  const factory UModerationSubjectPostPostView({required final Post data}) =
-      _$UModerationSubjectPostPostViewImpl;
-
-  @override
-  Post get data;
-
-  /// Create a copy of ModerationSubjectPost
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationSubjectPostPostViewImplCopyWith<
-          _$UModerationSubjectPostPostViewImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

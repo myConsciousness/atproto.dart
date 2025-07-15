@@ -8,12 +8,11 @@ part of 'feed_item.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StarterpackFeedItemImpl _$$StarterpackFeedItemImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$StarterpackFeedItemImpl',
+_StarterpackFeedItem _$StarterpackFeedItemFromJson(Map json) => $checkedCreate(
+      '_StarterpackFeedItem',
       json,
       ($checkedConvert) {
-        final val = _$StarterpackFeedItemImpl(
+        final val = _StarterpackFeedItem(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyGraphStarterpackFeedItem),
           uri: $checkedConvert(
@@ -24,8 +23,8 @@ _$StarterpackFeedItemImpl _$$StarterpackFeedItemImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$StarterpackFeedItemImplToJson(
-        _$StarterpackFeedItemImpl instance) =>
+Map<String, dynamic> _$StarterpackFeedItemToJson(
+        _StarterpackFeedItem instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'uri': const AtUriConverter().toJson(instance.uri),

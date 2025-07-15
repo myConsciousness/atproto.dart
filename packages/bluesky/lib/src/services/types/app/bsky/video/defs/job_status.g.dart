@@ -8,11 +8,11 @@ part of 'job_status.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$JobStatusImpl _$$JobStatusImplFromJson(Map json) => $checkedCreate(
-      r'_$JobStatusImpl',
+_JobStatus _$JobStatusFromJson(Map json) => $checkedCreate(
+      '_JobStatus',
       json,
       ($checkedConvert) {
-        final val = _$JobStatusImpl(
+        final val = _JobStatus(
           jobId: $checkedConvert('jobId', (v) => v as String),
           did: $checkedConvert('did', (v) => v as String),
           state: $checkedConvert('state', (v) => v as String),
@@ -28,7 +28,7 @@ _$JobStatusImpl _$$JobStatusImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$JobStatusImplToJson(_$JobStatusImpl instance) =>
+Map<String, dynamic> _$JobStatusToJson(_JobStatus instance) =>
     <String, dynamic>{
       'jobId': instance.jobId,
       'did': instance.did,

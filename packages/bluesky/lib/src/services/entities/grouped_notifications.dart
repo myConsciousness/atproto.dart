@@ -8,7 +8,7 @@ part 'grouped_notifications.freezed.dart';
 part 'grouped_notifications.g.dart';
 
 @freezed
-class GroupedNotifications with _$GroupedNotifications {
+abstract class GroupedNotifications with _$GroupedNotifications {
   const factory GroupedNotifications({
     required List<GroupedNotification> notifications,
     String? cursor,

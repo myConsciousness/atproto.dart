@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,89 +10,55 @@ part of 'not_found_post.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-NotFoundPost _$NotFoundPostFromJson(Map<String, dynamic> json) {
-  return _NotFoundPost.fromJson(json);
-}
 
 /// @nodoc
 mixin _$NotFoundPost {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @AtUriConverter()
-  AtUri get uri => throw _privateConstructorUsedError;
+  AtUri get uri;
   @JsonKey(name: 'notFound')
-  bool get isNotFound => throw _privateConstructorUsedError;
-
-  /// Serializes this NotFoundPost to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  bool get isNotFound;
 
   /// Create a copy of NotFoundPost
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $NotFoundPostCopyWith<NotFoundPost> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $NotFoundPostCopyWith<$Res> {
-  factory $NotFoundPostCopyWith(
-          NotFoundPost value, $Res Function(NotFoundPost) then) =
-      _$NotFoundPostCopyWithImpl<$Res, NotFoundPost>;
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      @AtUriConverter() AtUri uri,
-      @JsonKey(name: 'notFound') bool isNotFound});
-}
-
-/// @nodoc
-class _$NotFoundPostCopyWithImpl<$Res, $Val extends NotFoundPost>
-    implements $NotFoundPostCopyWith<$Res> {
-  _$NotFoundPostCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of NotFoundPost
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $NotFoundPostCopyWith<NotFoundPost> get copyWith =>
+      _$NotFoundPostCopyWithImpl<NotFoundPost>(
+          this as NotFoundPost, _$identity);
+
+  /// Serializes this NotFoundPost to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? uri = null,
-    Object? isNotFound = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-      isNotFound: null == isNotFound
-          ? _value.isNotFound
-          : isNotFound // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is NotFoundPost &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.isNotFound, isNotFound) ||
+                other.isNotFound == isNotFound));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, uri, isNotFound);
+
+  @override
+  String toString() {
+    return 'NotFoundPost(type: $type, uri: $uri, isNotFound: $isNotFound)';
   }
 }
 
 /// @nodoc
-abstract class _$$NotFoundPostImplCopyWith<$Res>
-    implements $NotFoundPostCopyWith<$Res> {
-  factory _$$NotFoundPostImplCopyWith(
-          _$NotFoundPostImpl value, $Res Function(_$NotFoundPostImpl) then) =
-      __$$NotFoundPostImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $NotFoundPostCopyWith<$Res> {
+  factory $NotFoundPostCopyWith(
+          NotFoundPost value, $Res Function(NotFoundPost) _then) =
+      _$NotFoundPostCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -100,12 +67,11 @@ abstract class _$$NotFoundPostImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$NotFoundPostImplCopyWithImpl<$Res>
-    extends _$NotFoundPostCopyWithImpl<$Res, _$NotFoundPostImpl>
-    implements _$$NotFoundPostImplCopyWith<$Res> {
-  __$$NotFoundPostImplCopyWithImpl(
-      _$NotFoundPostImpl _value, $Res Function(_$NotFoundPostImpl) _then)
-      : super(_value, _then);
+class _$NotFoundPostCopyWithImpl<$Res> implements $NotFoundPostCopyWith<$Res> {
+  _$NotFoundPostCopyWithImpl(this._self, this._then);
+
+  final NotFoundPost _self;
+  final $Res Function(NotFoundPost) _then;
 
   /// Create a copy of NotFoundPost
   /// with the given fields replaced by the non-null parameter values.
@@ -116,17 +82,17 @@ class __$$NotFoundPostImplCopyWithImpl<$Res>
     Object? uri = null,
     Object? isNotFound = null,
   }) {
-    return _then(_$NotFoundPostImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       uri: null == uri
-          ? _value.uri
+          ? _self.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
       isNotFound: null == isNotFound
-          ? _value.isNotFound
+          ? _self.isNotFound
           : isNotFound // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
@@ -135,14 +101,13 @@ class __$$NotFoundPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$NotFoundPostImpl implements _NotFoundPost {
-  const _$NotFoundPostImpl(
+class _NotFoundPost implements NotFoundPost {
+  const _NotFoundPost(
       {@typeKey this.type = appBskyFeedDefsNotFoundPost,
       @AtUriConverter() required this.uri,
       @JsonKey(name: 'notFound') this.isNotFound = true});
-
-  factory _$NotFoundPostImpl.fromJson(Map<String, dynamic> json) =>
-      _$$NotFoundPostImplFromJson(json);
+  factory _NotFoundPost.fromJson(Map<String, dynamic> json) =>
+      _$NotFoundPostFromJson(json);
 
   @override
   @typeKey
@@ -154,16 +119,26 @@ class _$NotFoundPostImpl implements _NotFoundPost {
   @JsonKey(name: 'notFound')
   final bool isNotFound;
 
+  /// Create a copy of NotFoundPost
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'NotFoundPost(type: $type, uri: $uri, isNotFound: $isNotFound)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$NotFoundPostCopyWith<_NotFoundPost> get copyWith =>
+      __$NotFoundPostCopyWithImpl<_NotFoundPost>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$NotFoundPostToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NotFoundPostImpl &&
+            other is _NotFoundPost &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.isNotFound, isNotFound) ||
@@ -174,45 +149,58 @@ class _$NotFoundPostImpl implements _NotFoundPost {
   @override
   int get hashCode => Object.hash(runtimeType, type, uri, isNotFound);
 
-  /// Create a copy of NotFoundPost
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$NotFoundPostImplCopyWith<_$NotFoundPostImpl> get copyWith =>
-      __$$NotFoundPostImplCopyWithImpl<_$NotFoundPostImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$NotFoundPostImplToJson(
-      this,
-    );
+  String toString() {
+    return 'NotFoundPost(type: $type, uri: $uri, isNotFound: $isNotFound)';
   }
 }
 
-abstract class _NotFoundPost implements NotFoundPost {
-  const factory _NotFoundPost(
-      {@typeKey final String type,
-      @AtUriConverter() required final AtUri uri,
-      @JsonKey(name: 'notFound') final bool isNotFound}) = _$NotFoundPostImpl;
+/// @nodoc
+abstract mixin class _$NotFoundPostCopyWith<$Res>
+    implements $NotFoundPostCopyWith<$Res> {
+  factory _$NotFoundPostCopyWith(
+          _NotFoundPost value, $Res Function(_NotFoundPost) _then) =
+      __$NotFoundPostCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @AtUriConverter() AtUri uri,
+      @JsonKey(name: 'notFound') bool isNotFound});
+}
 
-  factory _NotFoundPost.fromJson(Map<String, dynamic> json) =
-      _$NotFoundPostImpl.fromJson;
+/// @nodoc
+class __$NotFoundPostCopyWithImpl<$Res>
+    implements _$NotFoundPostCopyWith<$Res> {
+  __$NotFoundPostCopyWithImpl(this._self, this._then);
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  @AtUriConverter()
-  AtUri get uri;
-  @override
-  @JsonKey(name: 'notFound')
-  bool get isNotFound;
+  final _NotFoundPost _self;
+  final $Res Function(_NotFoundPost) _then;
 
   /// Create a copy of NotFoundPost
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$NotFoundPostImplCopyWith<_$NotFoundPostImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? uri = null,
+    Object? isNotFound = null,
+  }) {
+    return _then(_NotFoundPost(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      uri: null == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      isNotFound: null == isNotFound
+          ? _self.isNotFound
+          : isNotFound // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,91 +10,61 @@ part of 'self_label.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SelfLabel _$SelfLabelFromJson(Map<String, dynamic> json) {
-  return _SelfLabel.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SelfLabel {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
 
   /// The short string name of the value or type of this label.
   @JsonKey(name: 'val')
-  String get value => throw _privateConstructorUsedError;
-
-  /// Serializes this SelfLabel to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get value;
 
   /// Create a copy of SelfLabel
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SelfLabelCopyWith<SelfLabel> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SelfLabelCopyWith<$Res> {
-  factory $SelfLabelCopyWith(SelfLabel value, $Res Function(SelfLabel) then) =
-      _$SelfLabelCopyWithImpl<$Res, SelfLabel>;
-  @useResult
-  $Res call({@typeKey String type, @JsonKey(name: 'val') String value});
-}
-
-/// @nodoc
-class _$SelfLabelCopyWithImpl<$Res, $Val extends SelfLabel>
-    implements $SelfLabelCopyWith<$Res> {
-  _$SelfLabelCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SelfLabel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $SelfLabelCopyWith<SelfLabel> get copyWith =>
+      _$SelfLabelCopyWithImpl<SelfLabel>(this as SelfLabel, _$identity);
+
+  /// Serializes this SelfLabel to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? value = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SelfLabel &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, value);
+
+  @override
+  String toString() {
+    return 'SelfLabel(type: $type, value: $value)';
   }
 }
 
 /// @nodoc
-abstract class _$$SelfLabelImplCopyWith<$Res>
-    implements $SelfLabelCopyWith<$Res> {
-  factory _$$SelfLabelImplCopyWith(
-          _$SelfLabelImpl value, $Res Function(_$SelfLabelImpl) then) =
-      __$$SelfLabelImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SelfLabelCopyWith<$Res> {
+  factory $SelfLabelCopyWith(SelfLabel value, $Res Function(SelfLabel) _then) =
+      _$SelfLabelCopyWithImpl;
   @useResult
   $Res call({@typeKey String type, @JsonKey(name: 'val') String value});
 }
 
 /// @nodoc
-class __$$SelfLabelImplCopyWithImpl<$Res>
-    extends _$SelfLabelCopyWithImpl<$Res, _$SelfLabelImpl>
-    implements _$$SelfLabelImplCopyWith<$Res> {
-  __$$SelfLabelImplCopyWithImpl(
-      _$SelfLabelImpl _value, $Res Function(_$SelfLabelImpl) _then)
-      : super(_value, _then);
+class _$SelfLabelCopyWithImpl<$Res> implements $SelfLabelCopyWith<$Res> {
+  _$SelfLabelCopyWithImpl(this._self, this._then);
+
+  final SelfLabel _self;
+  final $Res Function(SelfLabel) _then;
 
   /// Create a copy of SelfLabel
   /// with the given fields replaced by the non-null parameter values.
@@ -103,13 +74,13 @@ class __$$SelfLabelImplCopyWithImpl<$Res>
     Object? type = null,
     Object? value = null,
   }) {
-    return _then(_$SelfLabelImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       value: null == value
-          ? _value.value
+          ? _self.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -118,13 +89,12 @@ class __$$SelfLabelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SelfLabelImpl implements _SelfLabel {
-  const _$SelfLabelImpl(
+class _SelfLabel implements SelfLabel {
+  const _SelfLabel(
       {@typeKey this.type = comAtprotoLabelDefsSelfLabel,
       @JsonKey(name: 'val') required this.value});
-
-  factory _$SelfLabelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SelfLabelImplFromJson(json);
+  factory _SelfLabel.fromJson(Map<String, dynamic> json) =>
+      _$SelfLabelFromJson(json);
 
   @override
   @typeKey
@@ -135,16 +105,26 @@ class _$SelfLabelImpl implements _SelfLabel {
   @JsonKey(name: 'val')
   final String value;
 
+  /// Create a copy of SelfLabel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SelfLabel(type: $type, value: $value)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SelfLabelCopyWith<_SelfLabel> get copyWith =>
+      __$SelfLabelCopyWithImpl<_SelfLabel>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SelfLabelToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SelfLabelImpl &&
+            other is _SelfLabel &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.value, value) || other.value == value));
   }
@@ -153,43 +133,49 @@ class _$SelfLabelImpl implements _SelfLabel {
   @override
   int get hashCode => Object.hash(runtimeType, type, value);
 
-  /// Create a copy of SelfLabel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SelfLabelImplCopyWith<_$SelfLabelImpl> get copyWith =>
-      __$$SelfLabelImplCopyWithImpl<_$SelfLabelImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SelfLabelImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SelfLabel(type: $type, value: $value)';
   }
 }
 
-abstract class _SelfLabel implements SelfLabel {
-  const factory _SelfLabel(
-      {@typeKey final String type,
-      @JsonKey(name: 'val') required final String value}) = _$SelfLabelImpl;
-
-  factory _SelfLabel.fromJson(Map<String, dynamic> json) =
-      _$SelfLabelImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$SelfLabelCopyWith<$Res>
+    implements $SelfLabelCopyWith<$Res> {
+  factory _$SelfLabelCopyWith(
+          _SelfLabel value, $Res Function(_SelfLabel) _then) =
+      __$SelfLabelCopyWithImpl;
   @override
-  @typeKey
-  String get type;
+  @useResult
+  $Res call({@typeKey String type, @JsonKey(name: 'val') String value});
+}
 
-  /// The short string name of the value or type of this label.
-  @override
-  @JsonKey(name: 'val')
-  String get value;
+/// @nodoc
+class __$SelfLabelCopyWithImpl<$Res> implements _$SelfLabelCopyWith<$Res> {
+  __$SelfLabelCopyWithImpl(this._self, this._then);
+
+  final _SelfLabel _self;
+  final $Res Function(_SelfLabel) _then;
 
   /// Create a copy of SelfLabel
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SelfLabelImplCopyWith<_$SelfLabelImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? value = null,
+  }) {
+    return _then(_SelfLabel(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      value: null == value
+          ? _self.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

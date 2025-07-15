@@ -8,7 +8,7 @@ part 'verification_method.freezed.dart';
 part 'verification_method.g.dart';
 
 @freezed
-class VerificationMethod with _$VerificationMethod {
+abstract class VerificationMethod with _$VerificationMethod {
   /// Creates an instance of [VerificationMethod].
   @jsonSerializable
   const factory VerificationMethod({

@@ -8,11 +8,11 @@ part of 'missing_blobs.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MissingBlobsImpl _$$MissingBlobsImplFromJson(Map json) => $checkedCreate(
-      r'_$MissingBlobsImpl',
+_MissingBlobs _$MissingBlobsFromJson(Map json) => $checkedCreate(
+      '_MissingBlobs',
       json,
       ($checkedConvert) {
-        final val = _$MissingBlobsImpl(
+        final val = _MissingBlobs(
           blobs: $checkedConvert(
               'blobs',
               (v) => (v as List<dynamic>)
@@ -25,7 +25,7 @@ _$MissingBlobsImpl _$$MissingBlobsImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$MissingBlobsImplToJson(_$MissingBlobsImpl instance) =>
+Map<String, dynamic> _$MissingBlobsToJson(_MissingBlobs instance) =>
     <String, dynamic>{
       'blobs': instance.blobs.map((e) => e.toJson()).toList(),
       if (instance.cursor case final value?) 'cursor': value,

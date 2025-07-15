@@ -11,7 +11,7 @@ part 'suggestions_skeleton.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/suggestionsskeleton/#output
 @freezed
-class SuggestionsSkeleton with _$SuggestionsSkeleton {
+abstract class SuggestionsSkeleton with _$SuggestionsSkeleton {
   const factory SuggestionsSkeleton({
     required List<SkeletonActor> actors,
     String? cursor,

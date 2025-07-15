@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,88 +10,60 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GetMessageContextOutput _$GetMessageContextOutputFromJson(
-    Map<String, dynamic> json) {
-  return _GetMessageContextOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GetMessageContextOutput {
   @unionConvoMessageViewConverter
-  List<UConvoMessageView> get messages => throw _privateConstructorUsedError;
-
-  /// Serializes this GetMessageContextOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<UConvoMessageView> get messages;
 
   /// Create a copy of GetMessageContextOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $GetMessageContextOutputCopyWith<GetMessageContextOutput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $GetMessageContextOutputCopyWith<$Res> {
-  factory $GetMessageContextOutputCopyWith(GetMessageContextOutput value,
-          $Res Function(GetMessageContextOutput) then) =
-      _$GetMessageContextOutputCopyWithImpl<$Res, GetMessageContextOutput>;
-  @useResult
-  $Res call({@unionConvoMessageViewConverter List<UConvoMessageView> messages});
-}
-
-/// @nodoc
-class _$GetMessageContextOutputCopyWithImpl<$Res,
-        $Val extends GetMessageContextOutput>
-    implements $GetMessageContextOutputCopyWith<$Res> {
-  _$GetMessageContextOutputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of GetMessageContextOutput
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $GetMessageContextOutputCopyWith<GetMessageContextOutput> get copyWith =>
+      _$GetMessageContextOutputCopyWithImpl<GetMessageContextOutput>(
+          this as GetMessageContextOutput, _$identity);
+
+  /// Serializes this GetMessageContextOutput to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? messages = null,
-  }) {
-    return _then(_value.copyWith(
-      messages: null == messages
-          ? _value.messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as List<UConvoMessageView>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetMessageContextOutput &&
+            const DeepCollectionEquality().equals(other.messages, messages));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(messages));
+
+  @override
+  String toString() {
+    return 'GetMessageContextOutput(messages: $messages)';
   }
 }
 
 /// @nodoc
-abstract class _$$GetMessageContextOutputImplCopyWith<$Res>
-    implements $GetMessageContextOutputCopyWith<$Res> {
-  factory _$$GetMessageContextOutputImplCopyWith(
-          _$GetMessageContextOutputImpl value,
-          $Res Function(_$GetMessageContextOutputImpl) then) =
-      __$$GetMessageContextOutputImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $GetMessageContextOutputCopyWith<$Res> {
+  factory $GetMessageContextOutputCopyWith(GetMessageContextOutput value,
+          $Res Function(GetMessageContextOutput) _then) =
+      _$GetMessageContextOutputCopyWithImpl;
   @useResult
   $Res call({@unionConvoMessageViewConverter List<UConvoMessageView> messages});
 }
 
 /// @nodoc
-class __$$GetMessageContextOutputImplCopyWithImpl<$Res>
-    extends _$GetMessageContextOutputCopyWithImpl<$Res,
-        _$GetMessageContextOutputImpl>
-    implements _$$GetMessageContextOutputImplCopyWith<$Res> {
-  __$$GetMessageContextOutputImplCopyWithImpl(
-      _$GetMessageContextOutputImpl _value,
-      $Res Function(_$GetMessageContextOutputImpl) _then)
-      : super(_value, _then);
+class _$GetMessageContextOutputCopyWithImpl<$Res>
+    implements $GetMessageContextOutputCopyWith<$Res> {
+  _$GetMessageContextOutputCopyWithImpl(this._self, this._then);
+
+  final GetMessageContextOutput _self;
+  final $Res Function(GetMessageContextOutput) _then;
 
   /// Create a copy of GetMessageContextOutput
   /// with the given fields replaced by the non-null parameter values.
@@ -99,9 +72,9 @@ class __$$GetMessageContextOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? messages = null,
   }) {
-    return _then(_$GetMessageContextOutputImpl(
+    return _then(_self.copyWith(
       messages: null == messages
-          ? _value._messages
+          ? _self.messages
           : messages // ignore: cast_nullable_to_non_nullable
               as List<UConvoMessageView>,
     ));
@@ -111,14 +84,13 @@ class __$$GetMessageContextOutputImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$GetMessageContextOutputImpl implements _GetMessageContextOutput {
-  const _$GetMessageContextOutputImpl(
+class _GetMessageContextOutput implements GetMessageContextOutput {
+  const _GetMessageContextOutput(
       {@unionConvoMessageViewConverter
       required final List<UConvoMessageView> messages})
       : _messages = messages;
-
-  factory _$GetMessageContextOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GetMessageContextOutputImplFromJson(json);
+  factory _GetMessageContextOutput.fromJson(Map<String, dynamic> json) =>
+      _$GetMessageContextOutputFromJson(json);
 
   final List<UConvoMessageView> _messages;
   @override
@@ -129,16 +101,27 @@ class _$GetMessageContextOutputImpl implements _GetMessageContextOutput {
     return EqualUnmodifiableListView(_messages);
   }
 
+  /// Create a copy of GetMessageContextOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'GetMessageContextOutput(messages: $messages)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$GetMessageContextOutputCopyWith<_GetMessageContextOutput> get copyWith =>
+      __$GetMessageContextOutputCopyWithImpl<_GetMessageContextOutput>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$GetMessageContextOutputToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetMessageContextOutputImpl &&
+            other is _GetMessageContextOutput &&
             const DeepCollectionEquality().equals(other._messages, _messages));
   }
 
@@ -147,40 +130,45 @@ class _$GetMessageContextOutputImpl implements _GetMessageContextOutput {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_messages));
 
-  /// Create a copy of GetMessageContextOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetMessageContextOutputImplCopyWith<_$GetMessageContextOutputImpl>
-      get copyWith => __$$GetMessageContextOutputImplCopyWithImpl<
-          _$GetMessageContextOutputImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GetMessageContextOutputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'GetMessageContextOutput(messages: $messages)';
   }
 }
 
-abstract class _GetMessageContextOutput implements GetMessageContextOutput {
-  const factory _GetMessageContextOutput(
-          {@unionConvoMessageViewConverter
-          required final List<UConvoMessageView> messages}) =
-      _$GetMessageContextOutputImpl;
-
-  factory _GetMessageContextOutput.fromJson(Map<String, dynamic> json) =
-      _$GetMessageContextOutputImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$GetMessageContextOutputCopyWith<$Res>
+    implements $GetMessageContextOutputCopyWith<$Res> {
+  factory _$GetMessageContextOutputCopyWith(_GetMessageContextOutput value,
+          $Res Function(_GetMessageContextOutput) _then) =
+      __$GetMessageContextOutputCopyWithImpl;
   @override
-  @unionConvoMessageViewConverter
-  List<UConvoMessageView> get messages;
+  @useResult
+  $Res call({@unionConvoMessageViewConverter List<UConvoMessageView> messages});
+}
+
+/// @nodoc
+class __$GetMessageContextOutputCopyWithImpl<$Res>
+    implements _$GetMessageContextOutputCopyWith<$Res> {
+  __$GetMessageContextOutputCopyWithImpl(this._self, this._then);
+
+  final _GetMessageContextOutput _self;
+  final $Res Function(_GetMessageContextOutput) _then;
 
   /// Create a copy of GetMessageContextOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetMessageContextOutputImplCopyWith<_$GetMessageContextOutputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? messages = null,
+  }) {
+    return _then(_GetMessageContextOutput(
+      messages: null == messages
+          ? _self._messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as List<UConvoMessageView>,
+    ));
+  }
 }
+
+// dart format on

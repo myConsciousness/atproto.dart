@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,90 +10,63 @@ part of 'hidden_posts_pref.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-HiddenPostsPref _$HiddenPostsPrefFromJson(Map<String, dynamic> json) {
-  return _HiddenPostsPref.fromJson(json);
-}
 
 /// @nodoc
 mixin _$HiddenPostsPref {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @AtUriConverter()
-  List<AtUri> get items => throw _privateConstructorUsedError;
-
-  /// Serializes this HiddenPostsPref to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<AtUri> get items;
 
   /// Create a copy of HiddenPostsPref
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $HiddenPostsPrefCopyWith<HiddenPostsPref> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $HiddenPostsPrefCopyWith<$Res> {
-  factory $HiddenPostsPrefCopyWith(
-          HiddenPostsPref value, $Res Function(HiddenPostsPref) then) =
-      _$HiddenPostsPrefCopyWithImpl<$Res, HiddenPostsPref>;
-  @useResult
-  $Res call({@typeKey String type, @AtUriConverter() List<AtUri> items});
-}
-
-/// @nodoc
-class _$HiddenPostsPrefCopyWithImpl<$Res, $Val extends HiddenPostsPref>
-    implements $HiddenPostsPrefCopyWith<$Res> {
-  _$HiddenPostsPrefCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of HiddenPostsPref
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $HiddenPostsPrefCopyWith<HiddenPostsPref> get copyWith =>
+      _$HiddenPostsPrefCopyWithImpl<HiddenPostsPref>(
+          this as HiddenPostsPref, _$identity);
+
+  /// Serializes this HiddenPostsPref to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? items = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      items: null == items
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
-              as List<AtUri>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is HiddenPostsPref &&
+            (identical(other.type, type) || other.type == type) &&
+            const DeepCollectionEquality().equals(other.items, items));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, type, const DeepCollectionEquality().hash(items));
+
+  @override
+  String toString() {
+    return 'HiddenPostsPref(type: $type, items: $items)';
   }
 }
 
 /// @nodoc
-abstract class _$$HiddenPostsPrefImplCopyWith<$Res>
-    implements $HiddenPostsPrefCopyWith<$Res> {
-  factory _$$HiddenPostsPrefImplCopyWith(_$HiddenPostsPrefImpl value,
-          $Res Function(_$HiddenPostsPrefImpl) then) =
-      __$$HiddenPostsPrefImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $HiddenPostsPrefCopyWith<$Res> {
+  factory $HiddenPostsPrefCopyWith(
+          HiddenPostsPref value, $Res Function(HiddenPostsPref) _then) =
+      _$HiddenPostsPrefCopyWithImpl;
   @useResult
   $Res call({@typeKey String type, @AtUriConverter() List<AtUri> items});
 }
 
 /// @nodoc
-class __$$HiddenPostsPrefImplCopyWithImpl<$Res>
-    extends _$HiddenPostsPrefCopyWithImpl<$Res, _$HiddenPostsPrefImpl>
-    implements _$$HiddenPostsPrefImplCopyWith<$Res> {
-  __$$HiddenPostsPrefImplCopyWithImpl(
-      _$HiddenPostsPrefImpl _value, $Res Function(_$HiddenPostsPrefImpl) _then)
-      : super(_value, _then);
+class _$HiddenPostsPrefCopyWithImpl<$Res>
+    implements $HiddenPostsPrefCopyWith<$Res> {
+  _$HiddenPostsPrefCopyWithImpl(this._self, this._then);
+
+  final HiddenPostsPref _self;
+  final $Res Function(HiddenPostsPref) _then;
 
   /// Create a copy of HiddenPostsPref
   /// with the given fields replaced by the non-null parameter values.
@@ -102,13 +76,13 @@ class __$$HiddenPostsPrefImplCopyWithImpl<$Res>
     Object? type = null,
     Object? items = null,
   }) {
-    return _then(_$HiddenPostsPrefImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       items: null == items
-          ? _value._items
+          ? _self.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<AtUri>,
     ));
@@ -117,14 +91,13 @@ class __$$HiddenPostsPrefImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
-  const _$HiddenPostsPrefImpl(
+class _HiddenPostsPref implements HiddenPostsPref {
+  const _HiddenPostsPref(
       {@typeKey this.type = appBskyActorDefsHiddenPostsPref,
       @AtUriConverter() required final List<AtUri> items})
       : _items = items;
-
-  factory _$HiddenPostsPrefImpl.fromJson(Map<String, dynamic> json) =>
-      _$$HiddenPostsPrefImplFromJson(json);
+  factory _HiddenPostsPref.fromJson(Map<String, dynamic> json) =>
+      _$HiddenPostsPrefFromJson(json);
 
   @override
   @typeKey
@@ -138,16 +111,26 @@ class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
     return EqualUnmodifiableListView(_items);
   }
 
+  /// Create a copy of HiddenPostsPref
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'HiddenPostsPref(type: $type, items: $items)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$HiddenPostsPrefCopyWith<_HiddenPostsPref> get copyWith =>
+      __$HiddenPostsPrefCopyWithImpl<_HiddenPostsPref>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$HiddenPostsPrefToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HiddenPostsPrefImpl &&
+            other is _HiddenPostsPref &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._items, _items));
   }
@@ -157,43 +140,50 @@ class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
   int get hashCode => Object.hash(
       runtimeType, type, const DeepCollectionEquality().hash(_items));
 
-  /// Create a copy of HiddenPostsPref
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$HiddenPostsPrefImplCopyWith<_$HiddenPostsPrefImpl> get copyWith =>
-      __$$HiddenPostsPrefImplCopyWithImpl<_$HiddenPostsPrefImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$HiddenPostsPrefImplToJson(
-      this,
-    );
+  String toString() {
+    return 'HiddenPostsPref(type: $type, items: $items)';
   }
 }
 
-abstract class _HiddenPostsPref implements HiddenPostsPref {
-  const factory _HiddenPostsPref(
-          {@typeKey final String type,
-          @AtUriConverter() required final List<AtUri> items}) =
-      _$HiddenPostsPrefImpl;
-
-  factory _HiddenPostsPref.fromJson(Map<String, dynamic> json) =
-      _$HiddenPostsPrefImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$HiddenPostsPrefCopyWith<$Res>
+    implements $HiddenPostsPrefCopyWith<$Res> {
+  factory _$HiddenPostsPrefCopyWith(
+          _HiddenPostsPref value, $Res Function(_HiddenPostsPref) _then) =
+      __$HiddenPostsPrefCopyWithImpl;
   @override
-  @typeKey
-  String get type;
-  @override
-  @AtUriConverter()
-  List<AtUri> get items;
+  @useResult
+  $Res call({@typeKey String type, @AtUriConverter() List<AtUri> items});
+}
+
+/// @nodoc
+class __$HiddenPostsPrefCopyWithImpl<$Res>
+    implements _$HiddenPostsPrefCopyWith<$Res> {
+  __$HiddenPostsPrefCopyWithImpl(this._self, this._then);
+
+  final _HiddenPostsPref _self;
+  final $Res Function(_HiddenPostsPref) _then;
 
   /// Create a copy of HiddenPostsPref
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$HiddenPostsPrefImplCopyWith<_$HiddenPostsPrefImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? items = null,
+  }) {
+    return _then(_HiddenPostsPref(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      items: null == items
+          ? _self._items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<AtUri>,
+    ));
+  }
 }
+
+// dart format on

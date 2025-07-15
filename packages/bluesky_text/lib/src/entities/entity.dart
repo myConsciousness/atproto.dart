@@ -10,7 +10,7 @@ part 'entity.freezed.dart';
 part 'entity.g.dart';
 
 @freezed
-class Entity with _$Entity implements Facetable {
+abstract class Entity with _$Entity implements Facetable {
   // ignore: unused_element
   const Entity._();
 

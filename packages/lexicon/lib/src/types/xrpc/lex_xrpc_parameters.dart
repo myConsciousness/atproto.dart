@@ -11,7 +11,7 @@ part 'lex_xrpc_parameters.freezed.dart';
 part 'lex_xrpc_parameters.g.dart';
 
 @freezed
-class LexXrpcParameters with _$LexXrpcParameters {
+abstract class LexXrpcParameters with _$LexXrpcParameters {
   @JsonSerializable(includeIfNull: false)
   const factory LexXrpcParameters({
     @Default('params') String type,

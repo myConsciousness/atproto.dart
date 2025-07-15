@@ -15,7 +15,7 @@ part 'embed.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post/#input
 @freezed
-class Embed with _$Embed {
+abstract class Embed with _$Embed {
   const Embed._();
 
   const factory Embed.record({

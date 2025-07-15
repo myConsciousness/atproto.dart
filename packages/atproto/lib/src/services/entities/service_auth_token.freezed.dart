@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,58 @@ part of 'service_auth_token.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ServiceAuthToken _$ServiceAuthTokenFromJson(Map<String, dynamic> json) {
-  return _ServiceAuthToken.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ServiceAuthToken {
-  String get token => throw _privateConstructorUsedError;
-
-  /// Serializes this ServiceAuthToken to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get token;
 
   /// Create a copy of ServiceAuthToken
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ServiceAuthTokenCopyWith<ServiceAuthToken> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ServiceAuthTokenCopyWith<$Res> {
-  factory $ServiceAuthTokenCopyWith(
-          ServiceAuthToken value, $Res Function(ServiceAuthToken) then) =
-      _$ServiceAuthTokenCopyWithImpl<$Res, ServiceAuthToken>;
-  @useResult
-  $Res call({String token});
-}
-
-/// @nodoc
-class _$ServiceAuthTokenCopyWithImpl<$Res, $Val extends ServiceAuthToken>
-    implements $ServiceAuthTokenCopyWith<$Res> {
-  _$ServiceAuthTokenCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ServiceAuthToken
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ServiceAuthTokenCopyWith<ServiceAuthToken> get copyWith =>
+      _$ServiceAuthTokenCopyWithImpl<ServiceAuthToken>(
+          this as ServiceAuthToken, _$identity);
+
+  /// Serializes this ServiceAuthToken to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? token = null,
-  }) {
-    return _then(_value.copyWith(
-      token: null == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ServiceAuthToken &&
+            (identical(other.token, token) || other.token == token));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, token);
+
+  @override
+  String toString() {
+    return 'ServiceAuthToken(token: $token)';
   }
 }
 
 /// @nodoc
-abstract class _$$ServiceAuthTokenImplCopyWith<$Res>
-    implements $ServiceAuthTokenCopyWith<$Res> {
-  factory _$$ServiceAuthTokenImplCopyWith(_$ServiceAuthTokenImpl value,
-          $Res Function(_$ServiceAuthTokenImpl) then) =
-      __$$ServiceAuthTokenImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ServiceAuthTokenCopyWith<$Res> {
+  factory $ServiceAuthTokenCopyWith(
+          ServiceAuthToken value, $Res Function(ServiceAuthToken) _then) =
+      _$ServiceAuthTokenCopyWithImpl;
   @useResult
   $Res call({String token});
 }
 
 /// @nodoc
-class __$$ServiceAuthTokenImplCopyWithImpl<$Res>
-    extends _$ServiceAuthTokenCopyWithImpl<$Res, _$ServiceAuthTokenImpl>
-    implements _$$ServiceAuthTokenImplCopyWith<$Res> {
-  __$$ServiceAuthTokenImplCopyWithImpl(_$ServiceAuthTokenImpl _value,
-      $Res Function(_$ServiceAuthTokenImpl) _then)
-      : super(_value, _then);
+class _$ServiceAuthTokenCopyWithImpl<$Res>
+    implements $ServiceAuthTokenCopyWith<$Res> {
+  _$ServiceAuthTokenCopyWithImpl(this._self, this._then);
+
+  final ServiceAuthToken _self;
+  final $Res Function(ServiceAuthToken) _then;
 
   /// Create a copy of ServiceAuthToken
   /// with the given fields replaced by the non-null parameter values.
@@ -93,9 +70,9 @@ class __$$ServiceAuthTokenImplCopyWithImpl<$Res>
   $Res call({
     Object? token = null,
   }) {
-    return _then(_$ServiceAuthTokenImpl(
+    return _then(_self.copyWith(
       token: null == token
-          ? _value.token
+          ? _self.token
           : token // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -105,25 +82,34 @@ class __$$ServiceAuthTokenImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ServiceAuthTokenImpl implements _ServiceAuthToken {
-  const _$ServiceAuthTokenImpl({required this.token});
-
-  factory _$ServiceAuthTokenImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ServiceAuthTokenImplFromJson(json);
+class _ServiceAuthToken implements ServiceAuthToken {
+  const _ServiceAuthToken({required this.token});
+  factory _ServiceAuthToken.fromJson(Map<String, dynamic> json) =>
+      _$ServiceAuthTokenFromJson(json);
 
   @override
   final String token;
 
+  /// Create a copy of ServiceAuthToken
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ServiceAuthToken(token: $token)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ServiceAuthTokenCopyWith<_ServiceAuthToken> get copyWith =>
+      __$ServiceAuthTokenCopyWithImpl<_ServiceAuthToken>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ServiceAuthTokenToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ServiceAuthTokenImpl &&
+            other is _ServiceAuthToken &&
             (identical(other.token, token) || other.token == token));
   }
 
@@ -131,37 +117,45 @@ class _$ServiceAuthTokenImpl implements _ServiceAuthToken {
   @override
   int get hashCode => Object.hash(runtimeType, token);
 
-  /// Create a copy of ServiceAuthToken
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ServiceAuthTokenImplCopyWith<_$ServiceAuthTokenImpl> get copyWith =>
-      __$$ServiceAuthTokenImplCopyWithImpl<_$ServiceAuthTokenImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ServiceAuthTokenImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ServiceAuthToken(token: $token)';
   }
 }
 
-abstract class _ServiceAuthToken implements ServiceAuthToken {
-  const factory _ServiceAuthToken({required final String token}) =
-      _$ServiceAuthTokenImpl;
-
-  factory _ServiceAuthToken.fromJson(Map<String, dynamic> json) =
-      _$ServiceAuthTokenImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$ServiceAuthTokenCopyWith<$Res>
+    implements $ServiceAuthTokenCopyWith<$Res> {
+  factory _$ServiceAuthTokenCopyWith(
+          _ServiceAuthToken value, $Res Function(_ServiceAuthToken) _then) =
+      __$ServiceAuthTokenCopyWithImpl;
   @override
-  String get token;
+  @useResult
+  $Res call({String token});
+}
+
+/// @nodoc
+class __$ServiceAuthTokenCopyWithImpl<$Res>
+    implements _$ServiceAuthTokenCopyWith<$Res> {
+  __$ServiceAuthTokenCopyWithImpl(this._self, this._then);
+
+  final _ServiceAuthToken _self;
+  final $Res Function(_ServiceAuthToken) _then;
 
   /// Create a copy of ServiceAuthToken
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ServiceAuthTokenImplCopyWith<_$ServiceAuthTokenImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? token = null,
+  }) {
+    return _then(_ServiceAuthToken(
+      token: null == token
+          ? _self.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

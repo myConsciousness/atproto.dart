@@ -8,12 +8,11 @@ part of 'thread_following_rule.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ThreadFollowingRuleImpl _$$ThreadFollowingRuleImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ThreadFollowingRuleImpl',
+_ThreadFollowingRule _$ThreadFollowingRuleFromJson(Map json) => $checkedCreate(
+      '_ThreadFollowingRule',
       json,
       ($checkedConvert) {
-        final val = _$ThreadFollowingRuleImpl(
+        final val = _ThreadFollowingRule(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyFeedThreadgateFollowingRule),
         );
@@ -22,8 +21,8 @@ _$ThreadFollowingRuleImpl _$$ThreadFollowingRuleImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ThreadFollowingRuleImplToJson(
-        _$ThreadFollowingRuleImpl instance) =>
+Map<String, dynamic> _$ThreadFollowingRuleToJson(
+        _ThreadFollowingRule instance) =>
     <String, dynamic>{
       r'$type': instance.type,
     };

@@ -12,7 +12,7 @@ part 'lists.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getlists/#output
 @freezed
-class Lists with _$Lists {
+abstract class Lists with _$Lists {
   // ignore: unused_element
   const Lists._();
 

@@ -6,7 +6,7 @@ part 'account.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createaccount/#output
 @freezed
-class CreateAccountOutput with _$CreateAccountOutput {
+abstract class CreateAccountOutput with _$CreateAccountOutput {
   const factory CreateAccountOutput({
     required String accessJwt,
     required String refreshJwt,

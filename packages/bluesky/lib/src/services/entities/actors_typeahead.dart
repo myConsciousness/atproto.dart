@@ -9,7 +9,7 @@ part 'actors_typeahead.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchactorstypeahead/#output
 @freezed
-class ActorsTypeahead with _$ActorsTypeahead {
+abstract class ActorsTypeahead with _$ActorsTypeahead {
   const factory ActorsTypeahead({
     required List<ActorBasic> actors,
   }) = _ActorsTypeahead;

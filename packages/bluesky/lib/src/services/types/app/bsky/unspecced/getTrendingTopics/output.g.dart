@@ -8,13 +8,12 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetTrendingTopicsOutputImpl _$$GetTrendingTopicsOutputImplFromJson(
-        Map json) =>
+_GetTrendingTopicsOutput _$GetTrendingTopicsOutputFromJson(Map json) =>
     $checkedCreate(
-      r'_$GetTrendingTopicsOutputImpl',
+      '_GetTrendingTopicsOutput',
       json,
       ($checkedConvert) {
-        final val = _$GetTrendingTopicsOutputImpl(
+        final val = _GetTrendingTopicsOutput(
           topics: $checkedConvert(
               'topics',
               (v) => (v as List<dynamic>)
@@ -32,8 +31,8 @@ _$GetTrendingTopicsOutputImpl _$$GetTrendingTopicsOutputImplFromJson(
       },
     );
 
-Map<String, dynamic> _$$GetTrendingTopicsOutputImplToJson(
-        _$GetTrendingTopicsOutputImpl instance) =>
+Map<String, dynamic> _$GetTrendingTopicsOutputToJson(
+        _GetTrendingTopicsOutput instance) =>
     <String, dynamic>{
       'topics': instance.topics.map((e) => e.toJson()).toList(),
       'suggested': instance.suggested.map((e) => e.toJson()).toList(),

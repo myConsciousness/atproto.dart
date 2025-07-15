@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,162 +10,31 @@ part of 'saved_feed.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SavedFeed _$SavedFeedFromJson(Map<String, dynamic> json) {
-  return _SavedFeed.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SavedFeed {
-  String get id => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
-  String get value => throw _privateConstructorUsedError;
-  bool get pinned => throw _privateConstructorUsedError;
-
-  /// Serializes this SavedFeed to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get id;
+  String get type;
+  String get value;
+  bool get pinned;
 
   /// Create a copy of SavedFeed
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $SavedFeedCopyWith<SavedFeed> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$SavedFeedCopyWithImpl<SavedFeed>(this as SavedFeed, _$identity);
 
-/// @nodoc
-abstract class $SavedFeedCopyWith<$Res> {
-  factory $SavedFeedCopyWith(SavedFeed value, $Res Function(SavedFeed) then) =
-      _$SavedFeedCopyWithImpl<$Res, SavedFeed>;
-  @useResult
-  $Res call({String id, String type, String value, bool pinned});
-}
-
-/// @nodoc
-class _$SavedFeedCopyWithImpl<$Res, $Val extends SavedFeed>
-    implements $SavedFeedCopyWith<$Res> {
-  _$SavedFeedCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SavedFeed
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? type = null,
-    Object? value = null,
-    Object? pinned = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-      pinned: null == pinned
-          ? _value.pinned
-          : pinned // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$SavedFeedImplCopyWith<$Res>
-    implements $SavedFeedCopyWith<$Res> {
-  factory _$$SavedFeedImplCopyWith(
-          _$SavedFeedImpl value, $Res Function(_$SavedFeedImpl) then) =
-      __$$SavedFeedImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String id, String type, String value, bool pinned});
-}
-
-/// @nodoc
-class __$$SavedFeedImplCopyWithImpl<$Res>
-    extends _$SavedFeedCopyWithImpl<$Res, _$SavedFeedImpl>
-    implements _$$SavedFeedImplCopyWith<$Res> {
-  __$$SavedFeedImplCopyWithImpl(
-      _$SavedFeedImpl _value, $Res Function(_$SavedFeedImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SavedFeed
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? type = null,
-    Object? value = null,
-    Object? pinned = null,
-  }) {
-    return _then(_$SavedFeedImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-      pinned: null == pinned
-          ? _value.pinned
-          : pinned // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$SavedFeedImpl implements _SavedFeed {
-  const _$SavedFeedImpl(
-      {required this.id,
-      required this.type,
-      required this.value,
-      required this.pinned});
-
-  factory _$SavedFeedImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SavedFeedImplFromJson(json);
-
-  @override
-  final String id;
-  @override
-  final String type;
-  @override
-  final String value;
-  @override
-  final bool pinned;
-
-  @override
-  String toString() {
-    return 'SavedFeed(id: $id, type: $type, value: $value, pinned: $pinned)';
-  }
+  /// Serializes this SavedFeed to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SavedFeedImpl &&
+            other is SavedFeed &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.value, value) || other.value == value) &&
@@ -175,45 +45,161 @@ class _$SavedFeedImpl implements _SavedFeed {
   @override
   int get hashCode => Object.hash(runtimeType, id, type, value, pinned);
 
-  /// Create a copy of SavedFeed
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SavedFeedImplCopyWith<_$SavedFeedImpl> get copyWith =>
-      __$$SavedFeedImplCopyWithImpl<_$SavedFeedImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SavedFeedImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SavedFeed(id: $id, type: $type, value: $value, pinned: $pinned)';
   }
 }
 
-abstract class _SavedFeed implements SavedFeed {
-  const factory _SavedFeed(
-      {required final String id,
-      required final String type,
-      required final String value,
-      required final bool pinned}) = _$SavedFeedImpl;
+/// @nodoc
+abstract mixin class $SavedFeedCopyWith<$Res> {
+  factory $SavedFeedCopyWith(SavedFeed value, $Res Function(SavedFeed) _then) =
+      _$SavedFeedCopyWithImpl;
+  @useResult
+  $Res call({String id, String type, String value, bool pinned});
+}
 
-  factory _SavedFeed.fromJson(Map<String, dynamic> json) =
-      _$SavedFeedImpl.fromJson;
+/// @nodoc
+class _$SavedFeedCopyWithImpl<$Res> implements $SavedFeedCopyWith<$Res> {
+  _$SavedFeedCopyWithImpl(this._self, this._then);
+
+  final SavedFeed _self;
+  final $Res Function(SavedFeed) _then;
+
+  /// Create a copy of SavedFeed
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? type = null,
+    Object? value = null,
+    Object? pinned = null,
+  }) {
+    return _then(_self.copyWith(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      value: null == value
+          ? _self.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+      pinned: null == pinned
+          ? _self.pinned
+          : pinned // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _SavedFeed implements SavedFeed {
+  const _SavedFeed(
+      {required this.id,
+      required this.type,
+      required this.value,
+      required this.pinned});
+  factory _SavedFeed.fromJson(Map<String, dynamic> json) =>
+      _$SavedFeedFromJson(json);
 
   @override
-  String get id;
+  final String id;
   @override
-  String get type;
+  final String type;
   @override
-  String get value;
+  final String value;
   @override
-  bool get pinned;
+  final bool pinned;
 
   /// Create a copy of SavedFeed
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SavedFeedImplCopyWith<_$SavedFeedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$SavedFeedCopyWith<_SavedFeed> get copyWith =>
+      __$SavedFeedCopyWithImpl<_SavedFeed>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SavedFeedToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _SavedFeed &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.pinned, pinned) || other.pinned == pinned));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, type, value, pinned);
+
+  @override
+  String toString() {
+    return 'SavedFeed(id: $id, type: $type, value: $value, pinned: $pinned)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$SavedFeedCopyWith<$Res>
+    implements $SavedFeedCopyWith<$Res> {
+  factory _$SavedFeedCopyWith(
+          _SavedFeed value, $Res Function(_SavedFeed) _then) =
+      __$SavedFeedCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String id, String type, String value, bool pinned});
+}
+
+/// @nodoc
+class __$SavedFeedCopyWithImpl<$Res> implements _$SavedFeedCopyWith<$Res> {
+  __$SavedFeedCopyWithImpl(this._self, this._then);
+
+  final _SavedFeed _self;
+  final $Res Function(_SavedFeed) _then;
+
+  /// Create a copy of SavedFeed
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? type = null,
+    Object? value = null,
+    Object? pinned = null,
+  }) {
+    return _then(_SavedFeed(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      value: null == value
+          ? _self.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+      pinned: null == pinned
+          ? _self.pinned
+          : pinned // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+// dart format on

@@ -8,11 +8,11 @@ part of 'account_status.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AccountStatusImpl _$$AccountStatusImplFromJson(Map json) => $checkedCreate(
-      r'_$AccountStatusImpl',
+_AccountStatus _$AccountStatusFromJson(Map json) => $checkedCreate(
+      '_AccountStatus',
       json,
       ($checkedConvert) {
-        final val = _$AccountStatusImpl(
+        final val = _AccountStatus(
           activated: $checkedConvert('activated', (v) => v as bool),
           validDid: $checkedConvert('validDid', (v) => v as bool),
           repoCommit: $checkedConvert('repoCommit', (v) => v as String),
@@ -31,7 +31,7 @@ _$AccountStatusImpl _$$AccountStatusImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$AccountStatusImplToJson(_$AccountStatusImpl instance) =>
+Map<String, dynamic> _$AccountStatusToJson(_AccountStatus instance) =>
     <String, dynamic>{
       'activated': instance.activated,
       'validDid': instance.validDid,

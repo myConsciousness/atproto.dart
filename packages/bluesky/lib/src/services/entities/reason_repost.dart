@@ -13,7 +13,7 @@ part 'reason_repost.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#reasonrepost
 @freezed
-class ReasonRepost with _$ReasonRepost {
+abstract class ReasonRepost with _$ReasonRepost {
   const factory ReasonRepost({
     @typeKey @Default(appBskyFeedDefsReasonRepost) String type,
     required ActorBasic by,

@@ -11,7 +11,7 @@ part 'skeleton_reason.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#skeletonfeedpost
 @freezed
-class SkeletonReason with _$SkeletonReason {
+abstract class SkeletonReason with _$SkeletonReason {
   factory SkeletonReason.repost({
     required SkeletonReasonRepost data,
   }) = USkeletonReasonRepost;

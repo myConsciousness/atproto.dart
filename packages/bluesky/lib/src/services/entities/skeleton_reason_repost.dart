@@ -12,7 +12,7 @@ part 'skeleton_reason_repost.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#skeletonreasonrepost
 @freezed
-class SkeletonReasonRepost with _$SkeletonReasonRepost {
+abstract class SkeletonReasonRepost with _$SkeletonReasonRepost {
   const factory SkeletonReasonRepost({
     @typeKey @Default(appBskyFeedDefsSkeletonReasonRepost) String type,
     @AtUriConverter() required AtUri repost,

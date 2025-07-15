@@ -8,12 +8,11 @@ part of 'create_operation_v1.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CreateOperationV1Impl _$$CreateOperationV1ImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$CreateOperationV1Impl',
+_CreateOperationV1 _$CreateOperationV1FromJson(Map json) => $checkedCreate(
+      '_CreateOperationV1',
       json,
       ($checkedConvert) {
-        final val = _$CreateOperationV1Impl(
+        final val = _CreateOperationV1(
           sig: $checkedConvert('sig', (v) => v as String),
           type: $checkedConvert('type', (v) => v as String? ?? 'create'),
           signingKey: $checkedConvert('signingKey', (v) => v as String),
@@ -26,8 +25,7 @@ _$CreateOperationV1Impl _$$CreateOperationV1ImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$CreateOperationV1ImplToJson(
-        _$CreateOperationV1Impl instance) =>
+Map<String, dynamic> _$CreateOperationV1ToJson(_CreateOperationV1 instance) =>
     <String, dynamic>{
       'sig': instance.sig,
       'type': instance.type,

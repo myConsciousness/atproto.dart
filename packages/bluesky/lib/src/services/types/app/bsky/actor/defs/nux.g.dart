@@ -8,11 +8,11 @@ part of 'nux.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$NuxImpl _$$NuxImplFromJson(Map json) => $checkedCreate(
-      r'_$NuxImpl',
+_Nux _$NuxFromJson(Map json) => $checkedCreate(
+      '_Nux',
       json,
       ($checkedConvert) {
-        final val = _$NuxImpl(
+        final val = _Nux(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorDefsNux),
           id: $checkedConvert('id', (v) => v as String),
@@ -26,7 +26,7 @@ _$NuxImpl _$$NuxImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$NuxImplToJson(_$NuxImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$NuxToJson(_Nux instance) => <String, dynamic>{
       r'$type': instance.type,
       'id': instance.id,
       'completed': instance.completed,

@@ -8,13 +8,12 @@ part of 'suite_user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ModerationTestSuiteUserImpl _$$ModerationTestSuiteUserImplFromJson(
-        Map json) =>
+_ModerationTestSuiteUser _$ModerationTestSuiteUserFromJson(Map json) =>
     $checkedCreate(
-      r'_$ModerationTestSuiteUserImpl',
+      '_ModerationTestSuiteUser',
       json,
       ($checkedConvert) {
-        final val = _$ModerationTestSuiteUserImpl(
+        final val = _ModerationTestSuiteUser(
           blocking: $checkedConvert('blocking', (v) => v as bool? ?? false),
           blockingByList:
               $checkedConvert('blockingByList', (v) => v as bool? ?? false),
@@ -27,8 +26,8 @@ _$ModerationTestSuiteUserImpl _$$ModerationTestSuiteUserImplFromJson(
       },
     );
 
-Map<String, dynamic> _$$ModerationTestSuiteUserImplToJson(
-        _$ModerationTestSuiteUserImpl instance) =>
+Map<String, dynamic> _$ModerationTestSuiteUserToJson(
+        _ModerationTestSuiteUser instance) =>
     <String, dynamic>{
       'blocking': instance.blocking,
       'blockingByList': instance.blockingByList,

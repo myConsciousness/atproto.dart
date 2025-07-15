@@ -8,12 +8,11 @@ part of 'record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StarterpackRecordImpl _$$StarterpackRecordImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$StarterpackRecordImpl',
+_StarterpackRecord _$StarterpackRecordFromJson(Map json) => $checkedCreate(
+      '_StarterpackRecord',
       json,
       ($checkedConvert) {
-        final val = _$StarterpackRecordImpl(
+        final val = _StarterpackRecord(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyGraphStarterpack),
           name: $checkedConvert('name', (v) => v as String),
@@ -40,8 +39,7 @@ _$StarterpackRecordImpl _$$StarterpackRecordImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$StarterpackRecordImplToJson(
-        _$StarterpackRecordImpl instance) =>
+Map<String, dynamic> _$StarterpackRecordToJson(_StarterpackRecord instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'name': instance.name,

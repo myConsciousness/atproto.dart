@@ -10,7 +10,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getMessageContext/#output
 @freezed
-class GetMessageContextOutput with _$GetMessageContextOutput {
+abstract class GetMessageContextOutput with _$GetMessageContextOutput {
   @jsonSerializable
   const factory GetMessageContextOutput({
     @unionConvoMessageViewConverter required List<UConvoMessageView> messages,

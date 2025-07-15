@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,113 +10,67 @@ part of 'suite_scenario.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ModerationTestSuiteScenario _$ModerationTestSuiteScenarioFromJson(
-    Map<String, dynamic> json) {
-  return _ModerationTestSuiteScenario.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ModerationTestSuiteScenario {
-  String get cfg => throw _privateConstructorUsedError;
-  String get subject => throw _privateConstructorUsedError;
-  String get author => throw _privateConstructorUsedError;
-  String? get quoteAuthor => throw _privateConstructorUsedError;
-  Map<String, List<String>> get labels => throw _privateConstructorUsedError;
-  Map<String, List<ModerationTestSuiteResultFlag>> get behaviors =>
-      throw _privateConstructorUsedError;
-
-  /// Serializes this ModerationTestSuiteScenario to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get cfg;
+  String get subject;
+  String get author;
+  String? get quoteAuthor;
+  Map<String, List<String>> get labels;
+  Map<String, List<ModerationTestSuiteResultFlag>> get behaviors;
 
   /// Create a copy of ModerationTestSuiteScenario
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ModerationTestSuiteScenarioCopyWith<ModerationTestSuiteScenario>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ModerationTestSuiteScenarioCopyWith<$Res> {
-  factory $ModerationTestSuiteScenarioCopyWith(
-          ModerationTestSuiteScenario value,
-          $Res Function(ModerationTestSuiteScenario) then) =
-      _$ModerationTestSuiteScenarioCopyWithImpl<$Res,
-          ModerationTestSuiteScenario>;
-  @useResult
-  $Res call(
-      {String cfg,
-      String subject,
-      String author,
-      String? quoteAuthor,
-      Map<String, List<String>> labels,
-      Map<String, List<ModerationTestSuiteResultFlag>> behaviors});
-}
-
-/// @nodoc
-class _$ModerationTestSuiteScenarioCopyWithImpl<$Res,
-        $Val extends ModerationTestSuiteScenario>
-    implements $ModerationTestSuiteScenarioCopyWith<$Res> {
-  _$ModerationTestSuiteScenarioCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ModerationTestSuiteScenario
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ModerationTestSuiteScenarioCopyWith<ModerationTestSuiteScenario>
+      get copyWith => _$ModerationTestSuiteScenarioCopyWithImpl<
+              ModerationTestSuiteScenario>(
+          this as ModerationTestSuiteScenario, _$identity);
+
+  /// Serializes this ModerationTestSuiteScenario to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? cfg = null,
-    Object? subject = null,
-    Object? author = null,
-    Object? quoteAuthor = freezed,
-    Object? labels = null,
-    Object? behaviors = null,
-  }) {
-    return _then(_value.copyWith(
-      cfg: null == cfg
-          ? _value.cfg
-          : cfg // ignore: cast_nullable_to_non_nullable
-              as String,
-      subject: null == subject
-          ? _value.subject
-          : subject // ignore: cast_nullable_to_non_nullable
-              as String,
-      author: null == author
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
-              as String,
-      quoteAuthor: freezed == quoteAuthor
-          ? _value.quoteAuthor
-          : quoteAuthor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      labels: null == labels
-          ? _value.labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<String>>,
-      behaviors: null == behaviors
-          ? _value.behaviors
-          : behaviors // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<ModerationTestSuiteResultFlag>>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ModerationTestSuiteScenario &&
+            (identical(other.cfg, cfg) || other.cfg == cfg) &&
+            (identical(other.subject, subject) || other.subject == subject) &&
+            (identical(other.author, author) || other.author == author) &&
+            (identical(other.quoteAuthor, quoteAuthor) ||
+                other.quoteAuthor == quoteAuthor) &&
+            const DeepCollectionEquality().equals(other.labels, labels) &&
+            const DeepCollectionEquality().equals(other.behaviors, behaviors));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      cfg,
+      subject,
+      author,
+      quoteAuthor,
+      const DeepCollectionEquality().hash(labels),
+      const DeepCollectionEquality().hash(behaviors));
+
+  @override
+  String toString() {
+    return 'ModerationTestSuiteScenario(cfg: $cfg, subject: $subject, author: $author, quoteAuthor: $quoteAuthor, labels: $labels, behaviors: $behaviors)';
   }
 }
 
 /// @nodoc
-abstract class _$$ModerationTestSuiteScenarioImplCopyWith<$Res>
-    implements $ModerationTestSuiteScenarioCopyWith<$Res> {
-  factory _$$ModerationTestSuiteScenarioImplCopyWith(
-          _$ModerationTestSuiteScenarioImpl value,
-          $Res Function(_$ModerationTestSuiteScenarioImpl) then) =
-      __$$ModerationTestSuiteScenarioImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ModerationTestSuiteScenarioCopyWith<$Res> {
+  factory $ModerationTestSuiteScenarioCopyWith(
+          ModerationTestSuiteScenario value,
+          $Res Function(ModerationTestSuiteScenario) _then) =
+      _$ModerationTestSuiteScenarioCopyWithImpl;
   @useResult
   $Res call(
       {String cfg,
@@ -127,14 +82,12 @@ abstract class _$$ModerationTestSuiteScenarioImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ModerationTestSuiteScenarioImplCopyWithImpl<$Res>
-    extends _$ModerationTestSuiteScenarioCopyWithImpl<$Res,
-        _$ModerationTestSuiteScenarioImpl>
-    implements _$$ModerationTestSuiteScenarioImplCopyWith<$Res> {
-  __$$ModerationTestSuiteScenarioImplCopyWithImpl(
-      _$ModerationTestSuiteScenarioImpl _value,
-      $Res Function(_$ModerationTestSuiteScenarioImpl) _then)
-      : super(_value, _then);
+class _$ModerationTestSuiteScenarioCopyWithImpl<$Res>
+    implements $ModerationTestSuiteScenarioCopyWith<$Res> {
+  _$ModerationTestSuiteScenarioCopyWithImpl(this._self, this._then);
+
+  final ModerationTestSuiteScenario _self;
+  final $Res Function(ModerationTestSuiteScenario) _then;
 
   /// Create a copy of ModerationTestSuiteScenario
   /// with the given fields replaced by the non-null parameter values.
@@ -148,29 +101,29 @@ class __$$ModerationTestSuiteScenarioImplCopyWithImpl<$Res>
     Object? labels = null,
     Object? behaviors = null,
   }) {
-    return _then(_$ModerationTestSuiteScenarioImpl(
+    return _then(_self.copyWith(
       cfg: null == cfg
-          ? _value.cfg
+          ? _self.cfg
           : cfg // ignore: cast_nullable_to_non_nullable
               as String,
       subject: null == subject
-          ? _value.subject
+          ? _self.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as String,
       author: null == author
-          ? _value.author
+          ? _self.author
           : author // ignore: cast_nullable_to_non_nullable
               as String,
       quoteAuthor: freezed == quoteAuthor
-          ? _value.quoteAuthor
+          ? _self.quoteAuthor
           : quoteAuthor // ignore: cast_nullable_to_non_nullable
               as String?,
       labels: null == labels
-          ? _value._labels
+          ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as Map<String, List<String>>,
       behaviors: null == behaviors
-          ? _value._behaviors
+          ? _self.behaviors
           : behaviors // ignore: cast_nullable_to_non_nullable
               as Map<String, List<ModerationTestSuiteResultFlag>>,
     ));
@@ -179,9 +132,8 @@ class __$$ModerationTestSuiteScenarioImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ModerationTestSuiteScenarioImpl
-    implements _ModerationTestSuiteScenario {
-  const _$ModerationTestSuiteScenarioImpl(
+class _ModerationTestSuiteScenario implements ModerationTestSuiteScenario {
+  const _ModerationTestSuiteScenario(
       {required this.cfg,
       required this.subject,
       required this.author,
@@ -191,10 +143,8 @@ class _$ModerationTestSuiteScenarioImpl
           const {}})
       : _labels = labels,
         _behaviors = behaviors;
-
-  factory _$ModerationTestSuiteScenarioImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$ModerationTestSuiteScenarioImplFromJson(json);
+  factory _ModerationTestSuiteScenario.fromJson(Map<String, dynamic> json) =>
+      _$ModerationTestSuiteScenarioFromJson(json);
 
   @override
   final String cfg;
@@ -222,16 +172,27 @@ class _$ModerationTestSuiteScenarioImpl
     return EqualUnmodifiableMapView(_behaviors);
   }
 
+  /// Create a copy of ModerationTestSuiteScenario
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ModerationTestSuiteScenario(cfg: $cfg, subject: $subject, author: $author, quoteAuthor: $quoteAuthor, labels: $labels, behaviors: $behaviors)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ModerationTestSuiteScenarioCopyWith<_ModerationTestSuiteScenario>
+      get copyWith => __$ModerationTestSuiteScenarioCopyWithImpl<
+          _ModerationTestSuiteScenario>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ModerationTestSuiteScenarioToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ModerationTestSuiteScenarioImpl &&
+            other is _ModerationTestSuiteScenario &&
             (identical(other.cfg, cfg) || other.cfg == cfg) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.author, author) || other.author == author) &&
@@ -253,54 +214,77 @@ class _$ModerationTestSuiteScenarioImpl
       const DeepCollectionEquality().hash(_labels),
       const DeepCollectionEquality().hash(_behaviors));
 
-  /// Create a copy of ModerationTestSuiteScenario
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ModerationTestSuiteScenarioImplCopyWith<_$ModerationTestSuiteScenarioImpl>
-      get copyWith => __$$ModerationTestSuiteScenarioImplCopyWithImpl<
-          _$ModerationTestSuiteScenarioImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ModerationTestSuiteScenarioImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ModerationTestSuiteScenario(cfg: $cfg, subject: $subject, author: $author, quoteAuthor: $quoteAuthor, labels: $labels, behaviors: $behaviors)';
   }
 }
 
-abstract class _ModerationTestSuiteScenario
-    implements ModerationTestSuiteScenario {
-  const factory _ModerationTestSuiteScenario(
-          {required final String cfg,
-          required final String subject,
-          required final String author,
-          final String? quoteAuthor,
-          final Map<String, List<String>> labels,
-          final Map<String, List<ModerationTestSuiteResultFlag>> behaviors}) =
-      _$ModerationTestSuiteScenarioImpl;
+/// @nodoc
+abstract mixin class _$ModerationTestSuiteScenarioCopyWith<$Res>
+    implements $ModerationTestSuiteScenarioCopyWith<$Res> {
+  factory _$ModerationTestSuiteScenarioCopyWith(
+          _ModerationTestSuiteScenario value,
+          $Res Function(_ModerationTestSuiteScenario) _then) =
+      __$ModerationTestSuiteScenarioCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String cfg,
+      String subject,
+      String author,
+      String? quoteAuthor,
+      Map<String, List<String>> labels,
+      Map<String, List<ModerationTestSuiteResultFlag>> behaviors});
+}
 
-  factory _ModerationTestSuiteScenario.fromJson(Map<String, dynamic> json) =
-      _$ModerationTestSuiteScenarioImpl.fromJson;
+/// @nodoc
+class __$ModerationTestSuiteScenarioCopyWithImpl<$Res>
+    implements _$ModerationTestSuiteScenarioCopyWith<$Res> {
+  __$ModerationTestSuiteScenarioCopyWithImpl(this._self, this._then);
 
-  @override
-  String get cfg;
-  @override
-  String get subject;
-  @override
-  String get author;
-  @override
-  String? get quoteAuthor;
-  @override
-  Map<String, List<String>> get labels;
-  @override
-  Map<String, List<ModerationTestSuiteResultFlag>> get behaviors;
+  final _ModerationTestSuiteScenario _self;
+  final $Res Function(_ModerationTestSuiteScenario) _then;
 
   /// Create a copy of ModerationTestSuiteScenario
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ModerationTestSuiteScenarioImplCopyWith<_$ModerationTestSuiteScenarioImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? cfg = null,
+    Object? subject = null,
+    Object? author = null,
+    Object? quoteAuthor = freezed,
+    Object? labels = null,
+    Object? behaviors = null,
+  }) {
+    return _then(_ModerationTestSuiteScenario(
+      cfg: null == cfg
+          ? _self.cfg
+          : cfg // ignore: cast_nullable_to_non_nullable
+              as String,
+      subject: null == subject
+          ? _self.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String,
+      author: null == author
+          ? _self.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String,
+      quoteAuthor: freezed == quoteAuthor
+          ? _self.quoteAuthor
+          : quoteAuthor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      labels: null == labels
+          ? _self._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Map<String, List<String>>,
+      behaviors: null == behaviors
+          ? _self._behaviors
+          : behaviors // ignore: cast_nullable_to_non_nullable
+              as Map<String, List<ModerationTestSuiteResultFlag>>,
+    ));
+  }
 }
+
+// dart format on

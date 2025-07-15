@@ -8,7 +8,7 @@ part 'repo_info.g.dart';
 
 /// Represents detailed information about a repository.
 @freezed
-class RepoInfo with _$RepoInfo {
+abstract class RepoInfo with _$RepoInfo {
   /// Creates a new instance of [RepoInfo].
   ///
   /// All parameters are required.

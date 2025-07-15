@@ -8,12 +8,11 @@ part of 'embed_video_caption.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EmbedVideoCaptionImpl _$$EmbedVideoCaptionImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$EmbedVideoCaptionImpl',
+_EmbedVideoCaption _$EmbedVideoCaptionFromJson(Map json) => $checkedCreate(
+      '_EmbedVideoCaption',
       json,
       ($checkedConvert) {
-        final val = _$EmbedVideoCaptionImpl(
+        final val = _EmbedVideoCaption(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedVideoCaption),
           lang: $checkedConvert('lang', (v) => v as String),
@@ -25,8 +24,7 @@ _$EmbedVideoCaptionImpl _$$EmbedVideoCaptionImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$EmbedVideoCaptionImplToJson(
-        _$EmbedVideoCaptionImpl instance) =>
+Map<String, dynamic> _$EmbedVideoCaptionToJson(_EmbedVideoCaption instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'lang': instance.lang,

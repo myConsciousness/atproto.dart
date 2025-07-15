@@ -12,7 +12,7 @@ part 'embed_record_view_detached.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record/#viewdetached
 @freezed
-class EmbedRecordViewDetached with _$EmbedRecordViewDetached {
+abstract class EmbedRecordViewDetached with _$EmbedRecordViewDetached {
   @jsonSerializable
   const factory EmbedRecordViewDetached({
     @typeKey @Default(appBskyEmbedRecordViewDetached) String type,

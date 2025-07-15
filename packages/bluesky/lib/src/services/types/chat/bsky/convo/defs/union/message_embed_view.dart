@@ -10,7 +10,7 @@ import '../../../../../../entities/embed_view_record_view.dart';
 part 'message_embed_view.freezed.dart';
 
 @freezed
-class UConvoMessageEmbedView with _$UConvoMessageEmbedView {
+abstract class UConvoMessageEmbedView with _$UConvoMessageEmbedView {
   // ignore: unused_element
   const UConvoMessageEmbedView._();
 
@@ -52,8 +52,13 @@ final class _UConvoMessageEmbedViewConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UConvoMessageEmbedView object) => object.when(
-        recordView: (data) => embedViewRecordViewConverter.toJson(data),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(UConvoMessageEmbedView object) =>
+      switch (object) {
+        UConvoMessageEmbedViewRecordView(data: final data) =>
+          embedViewRecordViewConverter.toJson(data),
+        UConvoMessageEmbedUnknown(data: final data) => data,
+        // Add wildcard case for switch exhaustiveness
+        _ => throw UnimplementedError(
+            'Unknown UConvoMessageEmbedView type: ${object.runtimeType}'),
+      };
 }

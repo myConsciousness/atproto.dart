@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,41 +10,76 @@ part of 'actor.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Actor _$ActorFromJson(Map<String, dynamic> json) {
-  return _Actor.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Actor {
-  String get did => throw _privateConstructorUsedError;
-  String get handle => throw _privateConstructorUsedError;
-  String? get displayName => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  String? get avatar => throw _privateConstructorUsedError;
-  ProfileAssociated? get associated => throw _privateConstructorUsedError;
-  ActorViewer get viewer => throw _privateConstructorUsedError;
-  ActorVerification get verification => throw _privateConstructorUsedError;
-  List<Label>? get labels => throw _privateConstructorUsedError;
-  DateTime? get indexedAt => throw _privateConstructorUsedError;
+  String get did;
+  String get handle;
+  String? get displayName;
+  String? get description;
+  String? get avatar;
+  ProfileAssociated? get associated;
+  ActorViewer get viewer;
+  List<Label>? get labels;
+  DateTime? get indexedAt;
 
-  /// Serializes this Actor to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
   /// Create a copy of Actor
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ActorCopyWith<Actor> get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $ActorCopyWith<Actor> get copyWith =>
+      _$ActorCopyWithImpl<Actor>(this as Actor, _$identity);
+
+  /// Serializes this Actor to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Actor &&
+            (identical(other.did, did) || other.did == did) &&
+            (identical(other.handle, handle) || other.handle == handle) &&
+            (identical(other.displayName, displayName) ||
+                other.displayName == displayName) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.associated, associated) ||
+                other.associated == associated) &&
+            (identical(other.viewer, viewer) || other.viewer == viewer) &&
+            const DeepCollectionEquality().equals(other.labels, labels) &&
+            (identical(other.indexedAt, indexedAt) ||
+                other.indexedAt == indexedAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      did,
+      handle,
+      displayName,
+      description,
+      avatar,
+      associated,
+      viewer,
+      const DeepCollectionEquality().hash(labels),
+      indexedAt);
+
+  @override
+  String toString() {
+    return 'Actor(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, indexedAt: $indexedAt)';
+  }
 }
 
 /// @nodoc
-abstract class $ActorCopyWith<$Res> {
-  factory $ActorCopyWith(Actor value, $Res Function(Actor) then) =
-      _$ActorCopyWithImpl<$Res, Actor>;
+abstract mixin class $ActorCopyWith<$Res> {
+  factory $ActorCopyWith(Actor value, $Res Function(Actor) _then) =
+      _$ActorCopyWithImpl;
   @useResult
   $Res call(
       {String did,
@@ -63,14 +99,11 @@ abstract class $ActorCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ActorCopyWithImpl<$Res, $Val extends Actor>
-    implements $ActorCopyWith<$Res> {
-  _$ActorCopyWithImpl(this._value, this._then);
+class _$ActorCopyWithImpl<$Res> implements $ActorCopyWith<$Res> {
+  _$ActorCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Actor _self;
+  final $Res Function(Actor) _then;
 
   /// Create a copy of Actor
   /// with the given fields replaced by the non-null parameter values.
@@ -88,33 +121,33 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
     Object? labels = freezed,
     Object? indexedAt = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       did: null == did
-          ? _value.did
+          ? _self.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
       handle: null == handle
-          ? _value.handle
+          ? _self.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String,
       displayName: freezed == displayName
-          ? _value.displayName
+          ? _self.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
               as String?,
       description: freezed == description
-          ? _value.description
+          ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
       avatar: freezed == avatar
-          ? _value.avatar
+          ? _self.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
       associated: freezed == associated
-          ? _value.associated
+          ? _self.associated
           : associated // ignore: cast_nullable_to_non_nullable
               as ProfileAssociated?,
       viewer: null == viewer
-          ? _value.viewer
+          ? _self.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
       verification: null == verification
@@ -122,14 +155,14 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
           : verification // ignore: cast_nullable_to_non_nullable
               as ActorVerification,
       labels: freezed == labels
-          ? _value.labels
+          ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
       indexedAt: freezed == indexedAt
-          ? _value.indexedAt
+          ? _self.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of Actor
@@ -137,12 +170,12 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
   @override
   @pragma('vm:prefer-inline')
   $ProfileAssociatedCopyWith<$Res>? get associated {
-    if (_value.associated == null) {
+    if (_self.associated == null) {
       return null;
     }
 
-    return $ProfileAssociatedCopyWith<$Res>(_value.associated!, (value) {
-      return _then(_value.copyWith(associated: value) as $Val);
+    return $ProfileAssociatedCopyWith<$Res>(_self.associated!, (value) {
+      return _then(_self.copyWith(associated: value));
     });
   }
 
@@ -151,8 +184,8 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
   @override
   @pragma('vm:prefer-inline')
   $ActorViewerCopyWith<$Res> get viewer {
-    return $ActorViewerCopyWith<$Res>(_value.viewer, (value) {
-      return _then(_value.copyWith(viewer: value) as $Val);
+    return $ActorViewerCopyWith<$Res>(_self.viewer, (value) {
+      return _then(_self.copyWith(viewer: value));
     });
   }
 
@@ -263,11 +296,9 @@ class __$$ActorImplCopyWithImpl<$Res>
   }
 }
 
-/// @nodoc
-
 @jsonSerializable
-class _$ActorImpl extends _Actor {
-  const _$ActorImpl(
+class _Actor extends Actor {
+  const _Actor(
       {required this.did,
       required this.handle,
       this.displayName,
@@ -280,9 +311,7 @@ class _$ActorImpl extends _Actor {
       this.indexedAt})
       : _labels = labels,
         super._();
-
-  factory _$ActorImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActorImplFromJson(json);
+  factory _Actor.fromJson(Map<String, dynamic> json) => _$ActorFromJson(json);
 
   @override
   final String did;
@@ -315,7 +344,19 @@ class _$ActorImpl extends _Actor {
   @override
   final DateTime? indexedAt;
 
+  /// Create a copy of Actor
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ActorCopyWith<_Actor> get copyWith =>
+      __$ActorCopyWithImpl<_Actor>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ActorToJson(
+      this,
+    );
   String toString() {
     return 'Actor(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, associated: $associated, viewer: $viewer, verification: $verification, labels: $labels, indexedAt: $indexedAt)';
   }
@@ -324,7 +365,7 @@ class _$ActorImpl extends _Actor {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActorImpl &&
+            other is _Actor &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.displayName, displayName) ||
@@ -357,23 +398,18 @@ class _$ActorImpl extends _Actor {
       const DeepCollectionEquality().hash(_labels),
       indexedAt);
 
-  /// Create a copy of Actor
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ActorImplCopyWith<_$ActorImpl> get copyWith =>
-      __$$ActorImplCopyWithImpl<_$ActorImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ActorImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Actor(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, indexedAt: $indexedAt)';
   }
 }
 
-abstract class _Actor extends Actor {
+/// @nodoc
+abstract mixin class _$ActorCopyWith<$Res> implements $ActorCopyWith<$Res> {
+  factory _$ActorCopyWith(_Actor value, $Res Function(_Actor) _then) =
+      __$ActorCopyWithImpl;
+
+  abstract class _Actor extends Actor {
   const factory _Actor(
       {required final String did,
       required final String handle,
@@ -397,23 +433,115 @@ abstract class _Actor extends Actor {
   String? get displayName;
   @override
   String? get description;
+
   @override
-  String? get avatar;
+  @useResult
+  $Res call(
+      {String did,
+      String handle,
+      String? displayName,
+      String? description,
+      String? avatar,
+      ProfileAssociated? associated,
+      ActorViewer viewer,
+      List<Label>? labels,
+      DateTime? indexedAt});
+
   @override
-  ProfileAssociated? get associated;
+  $ProfileAssociatedCopyWith<$Res>? get associated;
   @override
-  ActorViewer get viewer;
-  @override
-  ActorVerification get verification;
-  @override
-  List<Label>? get labels;
-  @override
-  DateTime? get indexedAt;
+  $ActorViewerCopyWith<$Res> get viewer;
+}
+
+/// @nodoc
+class __$ActorCopyWithImpl<$Res> implements _$ActorCopyWith<$Res> {
+  __$ActorCopyWithImpl(this._self, this._then);
+
+  final _Actor _self;
+  final $Res Function(_Actor) _then;
 
   /// Create a copy of Actor
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ActorImplCopyWith<_$ActorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? did = null,
+    Object? handle = null,
+    Object? displayName = freezed,
+    Object? description = freezed,
+    Object? avatar = freezed,
+    Object? associated = freezed,
+    Object? viewer = null,
+    Object? labels = freezed,
+    Object? indexedAt = freezed,
+  }) {
+    return _then(_Actor(
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      handle: null == handle
+          ? _self.handle
+          : handle // ignore: cast_nullable_to_non_nullable
+              as String,
+      displayName: freezed == displayName
+          ? _self.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      avatar: freezed == avatar
+          ? _self.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String?,
+      associated: freezed == associated
+          ? _self.associated
+          : associated // ignore: cast_nullable_to_non_nullable
+              as ProfileAssociated?,
+      viewer: null == viewer
+          ? _self.viewer
+          : viewer // ignore: cast_nullable_to_non_nullable
+              as ActorViewer,
+      labels: freezed == labels
+          ? _self._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
+      indexedAt: freezed == indexedAt
+          ? _self.indexedAt
+          : indexedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ));
+  }
+
+  /// Create a copy of Actor
+  /// with the given fields replaced by the non-null parameter values.
+
+  ActorVerification get verification;
+  @override
+  List<Label>? get labels;
+  @override
+  @pragma('vm:prefer-inline')
+  $ProfileAssociatedCopyWith<$Res>? get associated {
+    if (_self.associated == null) {
+      return null;
+    }
+
+    return $ProfileAssociatedCopyWith<$Res>(_self.associated!, (value) {
+      return _then(_self.copyWith(associated: value));
+    });
+  }
+
+  /// Create a copy of Actor
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorViewerCopyWith<$Res> get viewer {
+    return $ActorViewerCopyWith<$Res>(_self.viewer, (value) {
+      return _then(_self.copyWith(viewer: value));
+    });
+  }
 }
+
+// dart format on

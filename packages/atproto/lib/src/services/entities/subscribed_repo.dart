@@ -18,7 +18,7 @@ part 'subscribed_repo.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#output
 @freezed
-class SubscribedRepo with _$SubscribedRepo {
+abstract class SubscribedRepo with _$SubscribedRepo {
   const factory SubscribedRepo.commit({
     required Commit data,
   }) = USubscribedRepoCommit;

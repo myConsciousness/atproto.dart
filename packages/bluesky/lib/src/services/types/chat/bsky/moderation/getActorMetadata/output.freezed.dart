@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,194 +10,31 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GetActorMetadataOutput _$GetActorMetadataOutputFromJson(
-    Map<String, dynamic> json) {
-  return _GetActorMetadataOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GetActorMetadataOutput {
-  Metadata get day => throw _privateConstructorUsedError;
-  Metadata get month => throw _privateConstructorUsedError;
-  Metadata get all => throw _privateConstructorUsedError;
-
-  /// Serializes this GetActorMetadataOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Metadata get day;
+  Metadata get month;
+  Metadata get all;
 
   /// Create a copy of GetActorMetadataOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $GetActorMetadataOutputCopyWith<GetActorMetadataOutput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$GetActorMetadataOutputCopyWithImpl<GetActorMetadataOutput>(
+          this as GetActorMetadataOutput, _$identity);
 
-/// @nodoc
-abstract class $GetActorMetadataOutputCopyWith<$Res> {
-  factory $GetActorMetadataOutputCopyWith(GetActorMetadataOutput value,
-          $Res Function(GetActorMetadataOutput) then) =
-      _$GetActorMetadataOutputCopyWithImpl<$Res, GetActorMetadataOutput>;
-  @useResult
-  $Res call({Metadata day, Metadata month, Metadata all});
-
-  $MetadataCopyWith<$Res> get day;
-  $MetadataCopyWith<$Res> get month;
-  $MetadataCopyWith<$Res> get all;
-}
-
-/// @nodoc
-class _$GetActorMetadataOutputCopyWithImpl<$Res,
-        $Val extends GetActorMetadataOutput>
-    implements $GetActorMetadataOutputCopyWith<$Res> {
-  _$GetActorMetadataOutputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of GetActorMetadataOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? day = null,
-    Object? month = null,
-    Object? all = null,
-  }) {
-    return _then(_value.copyWith(
-      day: null == day
-          ? _value.day
-          : day // ignore: cast_nullable_to_non_nullable
-              as Metadata,
-      month: null == month
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
-              as Metadata,
-      all: null == all
-          ? _value.all
-          : all // ignore: cast_nullable_to_non_nullable
-              as Metadata,
-    ) as $Val);
-  }
-
-  /// Create a copy of GetActorMetadataOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MetadataCopyWith<$Res> get day {
-    return $MetadataCopyWith<$Res>(_value.day, (value) {
-      return _then(_value.copyWith(day: value) as $Val);
-    });
-  }
-
-  /// Create a copy of GetActorMetadataOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MetadataCopyWith<$Res> get month {
-    return $MetadataCopyWith<$Res>(_value.month, (value) {
-      return _then(_value.copyWith(month: value) as $Val);
-    });
-  }
-
-  /// Create a copy of GetActorMetadataOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MetadataCopyWith<$Res> get all {
-    return $MetadataCopyWith<$Res>(_value.all, (value) {
-      return _then(_value.copyWith(all: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$GetActorMetadataOutputImplCopyWith<$Res>
-    implements $GetActorMetadataOutputCopyWith<$Res> {
-  factory _$$GetActorMetadataOutputImplCopyWith(
-          _$GetActorMetadataOutputImpl value,
-          $Res Function(_$GetActorMetadataOutputImpl) then) =
-      __$$GetActorMetadataOutputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Metadata day, Metadata month, Metadata all});
-
-  @override
-  $MetadataCopyWith<$Res> get day;
-  @override
-  $MetadataCopyWith<$Res> get month;
-  @override
-  $MetadataCopyWith<$Res> get all;
-}
-
-/// @nodoc
-class __$$GetActorMetadataOutputImplCopyWithImpl<$Res>
-    extends _$GetActorMetadataOutputCopyWithImpl<$Res,
-        _$GetActorMetadataOutputImpl>
-    implements _$$GetActorMetadataOutputImplCopyWith<$Res> {
-  __$$GetActorMetadataOutputImplCopyWithImpl(
-      _$GetActorMetadataOutputImpl _value,
-      $Res Function(_$GetActorMetadataOutputImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of GetActorMetadataOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? day = null,
-    Object? month = null,
-    Object? all = null,
-  }) {
-    return _then(_$GetActorMetadataOutputImpl(
-      day: null == day
-          ? _value.day
-          : day // ignore: cast_nullable_to_non_nullable
-              as Metadata,
-      month: null == month
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
-              as Metadata,
-      all: null == all
-          ? _value.all
-          : all // ignore: cast_nullable_to_non_nullable
-              as Metadata,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$GetActorMetadataOutputImpl implements _GetActorMetadataOutput {
-  const _$GetActorMetadataOutputImpl(
-      {required this.day, required this.month, required this.all});
-
-  factory _$GetActorMetadataOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GetActorMetadataOutputImplFromJson(json);
-
-  @override
-  final Metadata day;
-  @override
-  final Metadata month;
-  @override
-  final Metadata all;
-
-  @override
-  String toString() {
-    return 'GetActorMetadataOutput(day: $day, month: $month, all: $all)';
-  }
+  /// Serializes this GetActorMetadataOutput to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetActorMetadataOutputImpl &&
+            other is GetActorMetadataOutput &&
             (identical(other.day, day) || other.day == day) &&
             (identical(other.month, month) || other.month == month) &&
             (identical(other.all, all) || other.all == all));
@@ -206,43 +44,221 @@ class _$GetActorMetadataOutputImpl implements _GetActorMetadataOutput {
   @override
   int get hashCode => Object.hash(runtimeType, day, month, all);
 
-  /// Create a copy of GetActorMetadataOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetActorMetadataOutputImplCopyWith<_$GetActorMetadataOutputImpl>
-      get copyWith => __$$GetActorMetadataOutputImplCopyWithImpl<
-          _$GetActorMetadataOutputImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GetActorMetadataOutputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'GetActorMetadataOutput(day: $day, month: $month, all: $all)';
   }
 }
 
-abstract class _GetActorMetadataOutput implements GetActorMetadataOutput {
-  const factory _GetActorMetadataOutput(
-      {required final Metadata day,
-      required final Metadata month,
-      required final Metadata all}) = _$GetActorMetadataOutputImpl;
+/// @nodoc
+abstract mixin class $GetActorMetadataOutputCopyWith<$Res> {
+  factory $GetActorMetadataOutputCopyWith(GetActorMetadataOutput value,
+          $Res Function(GetActorMetadataOutput) _then) =
+      _$GetActorMetadataOutputCopyWithImpl;
+  @useResult
+  $Res call({Metadata day, Metadata month, Metadata all});
 
-  factory _GetActorMetadataOutput.fromJson(Map<String, dynamic> json) =
-      _$GetActorMetadataOutputImpl.fromJson;
+  $MetadataCopyWith<$Res> get day;
+  $MetadataCopyWith<$Res> get month;
+  $MetadataCopyWith<$Res> get all;
+}
+
+/// @nodoc
+class _$GetActorMetadataOutputCopyWithImpl<$Res>
+    implements $GetActorMetadataOutputCopyWith<$Res> {
+  _$GetActorMetadataOutputCopyWithImpl(this._self, this._then);
+
+  final GetActorMetadataOutput _self;
+  final $Res Function(GetActorMetadataOutput) _then;
+
+  /// Create a copy of GetActorMetadataOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? day = null,
+    Object? month = null,
+    Object? all = null,
+  }) {
+    return _then(_self.copyWith(
+      day: null == day
+          ? _self.day
+          : day // ignore: cast_nullable_to_non_nullable
+              as Metadata,
+      month: null == month
+          ? _self.month
+          : month // ignore: cast_nullable_to_non_nullable
+              as Metadata,
+      all: null == all
+          ? _self.all
+          : all // ignore: cast_nullable_to_non_nullable
+              as Metadata,
+    ));
+  }
+
+  /// Create a copy of GetActorMetadataOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MetadataCopyWith<$Res> get day {
+    return $MetadataCopyWith<$Res>(_self.day, (value) {
+      return _then(_self.copyWith(day: value));
+    });
+  }
+
+  /// Create a copy of GetActorMetadataOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MetadataCopyWith<$Res> get month {
+    return $MetadataCopyWith<$Res>(_self.month, (value) {
+      return _then(_self.copyWith(month: value));
+    });
+  }
+
+  /// Create a copy of GetActorMetadataOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MetadataCopyWith<$Res> get all {
+    return $MetadataCopyWith<$Res>(_self.all, (value) {
+      return _then(_self.copyWith(all: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _GetActorMetadataOutput implements GetActorMetadataOutput {
+  const _GetActorMetadataOutput(
+      {required this.day, required this.month, required this.all});
+  factory _GetActorMetadataOutput.fromJson(Map<String, dynamic> json) =>
+      _$GetActorMetadataOutputFromJson(json);
 
   @override
-  Metadata get day;
+  final Metadata day;
   @override
-  Metadata get month;
+  final Metadata month;
   @override
-  Metadata get all;
+  final Metadata all;
 
   /// Create a copy of GetActorMetadataOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetActorMetadataOutputImplCopyWith<_$GetActorMetadataOutputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$GetActorMetadataOutputCopyWith<_GetActorMetadataOutput> get copyWith =>
+      __$GetActorMetadataOutputCopyWithImpl<_GetActorMetadataOutput>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$GetActorMetadataOutputToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _GetActorMetadataOutput &&
+            (identical(other.day, day) || other.day == day) &&
+            (identical(other.month, month) || other.month == month) &&
+            (identical(other.all, all) || other.all == all));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, day, month, all);
+
+  @override
+  String toString() {
+    return 'GetActorMetadataOutput(day: $day, month: $month, all: $all)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$GetActorMetadataOutputCopyWith<$Res>
+    implements $GetActorMetadataOutputCopyWith<$Res> {
+  factory _$GetActorMetadataOutputCopyWith(_GetActorMetadataOutput value,
+          $Res Function(_GetActorMetadataOutput) _then) =
+      __$GetActorMetadataOutputCopyWithImpl;
+  @override
+  @useResult
+  $Res call({Metadata day, Metadata month, Metadata all});
+
+  @override
+  $MetadataCopyWith<$Res> get day;
+  @override
+  $MetadataCopyWith<$Res> get month;
+  @override
+  $MetadataCopyWith<$Res> get all;
+}
+
+/// @nodoc
+class __$GetActorMetadataOutputCopyWithImpl<$Res>
+    implements _$GetActorMetadataOutputCopyWith<$Res> {
+  __$GetActorMetadataOutputCopyWithImpl(this._self, this._then);
+
+  final _GetActorMetadataOutput _self;
+  final $Res Function(_GetActorMetadataOutput) _then;
+
+  /// Create a copy of GetActorMetadataOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? day = null,
+    Object? month = null,
+    Object? all = null,
+  }) {
+    return _then(_GetActorMetadataOutput(
+      day: null == day
+          ? _self.day
+          : day // ignore: cast_nullable_to_non_nullable
+              as Metadata,
+      month: null == month
+          ? _self.month
+          : month // ignore: cast_nullable_to_non_nullable
+              as Metadata,
+      all: null == all
+          ? _self.all
+          : all // ignore: cast_nullable_to_non_nullable
+              as Metadata,
+    ));
+  }
+
+  /// Create a copy of GetActorMetadataOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MetadataCopyWith<$Res> get day {
+    return $MetadataCopyWith<$Res>(_self.day, (value) {
+      return _then(_self.copyWith(day: value));
+    });
+  }
+
+  /// Create a copy of GetActorMetadataOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MetadataCopyWith<$Res> get month {
+    return $MetadataCopyWith<$Res>(_self.month, (value) {
+      return _then(_self.copyWith(month: value));
+    });
+  }
+
+  /// Create a copy of GetActorMetadataOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MetadataCopyWith<$Res> get all {
+    return $MetadataCopyWith<$Res>(_self.all, (value) {
+      return _then(_self.copyWith(all: value));
+    });
+  }
+}
+
+// dart format on

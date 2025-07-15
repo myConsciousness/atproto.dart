@@ -15,7 +15,7 @@ part 'labeler_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/defs/#labelerview
 @freezed
-class LabelerView with _$LabelerView {
+abstract class LabelerView with _$LabelerView {
   @jsonSerializable
   const factory LabelerView({
     @typeKey @Default(appBskyLabelerDefsLabelerView) String type,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,85 +10,60 @@ part of 'operation_log.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-OperationLog _$OperationLogFromJson(Map<String, dynamic> json) {
-  return _OperationLog.fromJson(json);
-}
 
 /// @nodoc
 mixin _$OperationLog {
   @compatibleOpOrTombstoneConverter
-  List<CompatibleOpOrTombstone> get log => throw _privateConstructorUsedError;
-
-  /// Serializes this OperationLog to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<CompatibleOpOrTombstone> get log;
 
   /// Create a copy of OperationLog
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $OperationLogCopyWith<OperationLog> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $OperationLogCopyWith<$Res> {
-  factory $OperationLogCopyWith(
-          OperationLog value, $Res Function(OperationLog) then) =
-      _$OperationLogCopyWithImpl<$Res, OperationLog>;
-  @useResult
-  $Res call(
-      {@compatibleOpOrTombstoneConverter List<CompatibleOpOrTombstone> log});
-}
-
-/// @nodoc
-class _$OperationLogCopyWithImpl<$Res, $Val extends OperationLog>
-    implements $OperationLogCopyWith<$Res> {
-  _$OperationLogCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of OperationLog
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $OperationLogCopyWith<OperationLog> get copyWith =>
+      _$OperationLogCopyWithImpl<OperationLog>(
+          this as OperationLog, _$identity);
+
+  /// Serializes this OperationLog to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? log = null,
-  }) {
-    return _then(_value.copyWith(
-      log: null == log
-          ? _value.log
-          : log // ignore: cast_nullable_to_non_nullable
-              as List<CompatibleOpOrTombstone>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is OperationLog &&
+            const DeepCollectionEquality().equals(other.log, log));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(log));
+
+  @override
+  String toString() {
+    return 'OperationLog(log: $log)';
   }
 }
 
 /// @nodoc
-abstract class _$$OperationLogImplCopyWith<$Res>
-    implements $OperationLogCopyWith<$Res> {
-  factory _$$OperationLogImplCopyWith(
-          _$OperationLogImpl value, $Res Function(_$OperationLogImpl) then) =
-      __$$OperationLogImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $OperationLogCopyWith<$Res> {
+  factory $OperationLogCopyWith(
+          OperationLog value, $Res Function(OperationLog) _then) =
+      _$OperationLogCopyWithImpl;
   @useResult
   $Res call(
       {@compatibleOpOrTombstoneConverter List<CompatibleOpOrTombstone> log});
 }
 
 /// @nodoc
-class __$$OperationLogImplCopyWithImpl<$Res>
-    extends _$OperationLogCopyWithImpl<$Res, _$OperationLogImpl>
-    implements _$$OperationLogImplCopyWith<$Res> {
-  __$$OperationLogImplCopyWithImpl(
-      _$OperationLogImpl _value, $Res Function(_$OperationLogImpl) _then)
-      : super(_value, _then);
+class _$OperationLogCopyWithImpl<$Res> implements $OperationLogCopyWith<$Res> {
+  _$OperationLogCopyWithImpl(this._self, this._then);
+
+  final OperationLog _self;
+  final $Res Function(OperationLog) _then;
 
   /// Create a copy of OperationLog
   /// with the given fields replaced by the non-null parameter values.
@@ -96,9 +72,9 @@ class __$$OperationLogImplCopyWithImpl<$Res>
   $Res call({
     Object? log = null,
   }) {
-    return _then(_$OperationLogImpl(
+    return _then(_self.copyWith(
       log: null == log
-          ? _value._log
+          ? _self.log
           : log // ignore: cast_nullable_to_non_nullable
               as List<CompatibleOpOrTombstone>,
     ));
@@ -108,14 +84,13 @@ class __$$OperationLogImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$OperationLogImpl implements _OperationLog {
-  const _$OperationLogImpl(
+class _OperationLog implements OperationLog {
+  const _OperationLog(
       {@compatibleOpOrTombstoneConverter
       required final List<CompatibleOpOrTombstone> log})
       : _log = log;
-
-  factory _$OperationLogImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OperationLogImplFromJson(json);
+  factory _OperationLog.fromJson(Map<String, dynamic> json) =>
+      _$OperationLogFromJson(json);
 
   final List<CompatibleOpOrTombstone> _log;
   @override
@@ -126,16 +101,26 @@ class _$OperationLogImpl implements _OperationLog {
     return EqualUnmodifiableListView(_log);
   }
 
+  /// Create a copy of OperationLog
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'OperationLog(log: $log)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$OperationLogCopyWith<_OperationLog> get copyWith =>
+      __$OperationLogCopyWithImpl<_OperationLog>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$OperationLogToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OperationLogImpl &&
+            other is _OperationLog &&
             const DeepCollectionEquality().equals(other._log, _log));
   }
 
@@ -144,38 +129,46 @@ class _$OperationLogImpl implements _OperationLog {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_log));
 
-  /// Create a copy of OperationLog
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$OperationLogImplCopyWith<_$OperationLogImpl> get copyWith =>
-      __$$OperationLogImplCopyWithImpl<_$OperationLogImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$OperationLogImplToJson(
-      this,
-    );
+  String toString() {
+    return 'OperationLog(log: $log)';
   }
 }
 
-abstract class _OperationLog implements OperationLog {
-  const factory _OperationLog(
-      {@compatibleOpOrTombstoneConverter
-      required final List<CompatibleOpOrTombstone> log}) = _$OperationLogImpl;
-
-  factory _OperationLog.fromJson(Map<String, dynamic> json) =
-      _$OperationLogImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$OperationLogCopyWith<$Res>
+    implements $OperationLogCopyWith<$Res> {
+  factory _$OperationLogCopyWith(
+          _OperationLog value, $Res Function(_OperationLog) _then) =
+      __$OperationLogCopyWithImpl;
   @override
-  @compatibleOpOrTombstoneConverter
-  List<CompatibleOpOrTombstone> get log;
+  @useResult
+  $Res call(
+      {@compatibleOpOrTombstoneConverter List<CompatibleOpOrTombstone> log});
+}
+
+/// @nodoc
+class __$OperationLogCopyWithImpl<$Res>
+    implements _$OperationLogCopyWith<$Res> {
+  __$OperationLogCopyWithImpl(this._self, this._then);
+
+  final _OperationLog _self;
+  final $Res Function(_OperationLog) _then;
 
   /// Create a copy of OperationLog
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$OperationLogImplCopyWith<_$OperationLogImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? log = null,
+  }) {
+    return _then(_OperationLog(
+      log: null == log
+          ? _self._log
+          : log // ignore: cast_nullable_to_non_nullable
+              as List<CompatibleOpOrTombstone>,
+    ));
+  }
 }
+
+// dart format on

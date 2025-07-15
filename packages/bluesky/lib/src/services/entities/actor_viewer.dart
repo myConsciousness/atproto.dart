@@ -13,7 +13,7 @@ part 'actor_viewer.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#viewerstate
 @freezed
-class ActorViewer with _$ActorViewer {
+abstract class ActorViewer with _$ActorViewer {
   // ignore: unused_element
   const ActorViewer._();
 

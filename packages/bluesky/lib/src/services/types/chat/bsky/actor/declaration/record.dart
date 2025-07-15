@@ -7,7 +7,7 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/declaration/#main
 @freezed
-class DeclarationRecord with _$DeclarationRecord {
+abstract class DeclarationRecord with _$DeclarationRecord {
   @jsonSerializable
   const factory DeclarationRecord({
     required String allowIncoming,

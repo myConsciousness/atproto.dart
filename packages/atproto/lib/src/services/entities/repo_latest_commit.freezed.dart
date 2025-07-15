@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,133 +10,30 @@ part of 'repo_latest_commit.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-RepoLatestCommit _$RepoLatestCommitFromJson(Map<String, dynamic> json) {
-  return _RepoLatestCommit.fromJson(json);
-}
 
 /// @nodoc
 mixin _$RepoLatestCommit {
-  String get cid => throw _privateConstructorUsedError;
-  String get rev => throw _privateConstructorUsedError;
-
-  /// Serializes this RepoLatestCommit to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get cid;
+  String get rev;
 
   /// Create a copy of RepoLatestCommit
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $RepoLatestCommitCopyWith<RepoLatestCommit> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$RepoLatestCommitCopyWithImpl<RepoLatestCommit>(
+          this as RepoLatestCommit, _$identity);
 
-/// @nodoc
-abstract class $RepoLatestCommitCopyWith<$Res> {
-  factory $RepoLatestCommitCopyWith(
-          RepoLatestCommit value, $Res Function(RepoLatestCommit) then) =
-      _$RepoLatestCommitCopyWithImpl<$Res, RepoLatestCommit>;
-  @useResult
-  $Res call({String cid, String rev});
-}
-
-/// @nodoc
-class _$RepoLatestCommitCopyWithImpl<$Res, $Val extends RepoLatestCommit>
-    implements $RepoLatestCommitCopyWith<$Res> {
-  _$RepoLatestCommitCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of RepoLatestCommit
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cid = null,
-    Object? rev = null,
-  }) {
-    return _then(_value.copyWith(
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
-      rev: null == rev
-          ? _value.rev
-          : rev // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$RepoLatestCommitImplCopyWith<$Res>
-    implements $RepoLatestCommitCopyWith<$Res> {
-  factory _$$RepoLatestCommitImplCopyWith(_$RepoLatestCommitImpl value,
-          $Res Function(_$RepoLatestCommitImpl) then) =
-      __$$RepoLatestCommitImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String cid, String rev});
-}
-
-/// @nodoc
-class __$$RepoLatestCommitImplCopyWithImpl<$Res>
-    extends _$RepoLatestCommitCopyWithImpl<$Res, _$RepoLatestCommitImpl>
-    implements _$$RepoLatestCommitImplCopyWith<$Res> {
-  __$$RepoLatestCommitImplCopyWithImpl(_$RepoLatestCommitImpl _value,
-      $Res Function(_$RepoLatestCommitImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of RepoLatestCommit
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cid = null,
-    Object? rev = null,
-  }) {
-    return _then(_$RepoLatestCommitImpl(
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
-      rev: null == rev
-          ? _value.rev
-          : rev // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$RepoLatestCommitImpl implements _RepoLatestCommit {
-  const _$RepoLatestCommitImpl({required this.cid, required this.rev});
-
-  factory _$RepoLatestCommitImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RepoLatestCommitImplFromJson(json);
-
-  @override
-  final String cid;
-  @override
-  final String rev;
-
-  @override
-  String toString() {
-    return 'RepoLatestCommit(cid: $cid, rev: $rev)';
-  }
+  /// Serializes this RepoLatestCommit to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RepoLatestCommitImpl &&
+            other is RepoLatestCommit &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.rev, rev) || other.rev == rev));
   }
@@ -144,40 +42,134 @@ class _$RepoLatestCommitImpl implements _RepoLatestCommit {
   @override
   int get hashCode => Object.hash(runtimeType, cid, rev);
 
-  /// Create a copy of RepoLatestCommit
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$RepoLatestCommitImplCopyWith<_$RepoLatestCommitImpl> get copyWith =>
-      __$$RepoLatestCommitImplCopyWithImpl<_$RepoLatestCommitImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RepoLatestCommitImplToJson(
-      this,
-    );
+  String toString() {
+    return 'RepoLatestCommit(cid: $cid, rev: $rev)';
   }
 }
 
-abstract class _RepoLatestCommit implements RepoLatestCommit {
-  const factory _RepoLatestCommit(
-      {required final String cid,
-      required final String rev}) = _$RepoLatestCommitImpl;
+/// @nodoc
+abstract mixin class $RepoLatestCommitCopyWith<$Res> {
+  factory $RepoLatestCommitCopyWith(
+          RepoLatestCommit value, $Res Function(RepoLatestCommit) _then) =
+      _$RepoLatestCommitCopyWithImpl;
+  @useResult
+  $Res call({String cid, String rev});
+}
 
-  factory _RepoLatestCommit.fromJson(Map<String, dynamic> json) =
-      _$RepoLatestCommitImpl.fromJson;
+/// @nodoc
+class _$RepoLatestCommitCopyWithImpl<$Res>
+    implements $RepoLatestCommitCopyWith<$Res> {
+  _$RepoLatestCommitCopyWithImpl(this._self, this._then);
+
+  final RepoLatestCommit _self;
+  final $Res Function(RepoLatestCommit) _then;
+
+  /// Create a copy of RepoLatestCommit
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? cid = null,
+    Object? rev = null,
+  }) {
+    return _then(_self.copyWith(
+      cid: null == cid
+          ? _self.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
+      rev: null == rev
+          ? _self.rev
+          : rev // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _RepoLatestCommit implements RepoLatestCommit {
+  const _RepoLatestCommit({required this.cid, required this.rev});
+  factory _RepoLatestCommit.fromJson(Map<String, dynamic> json) =>
+      _$RepoLatestCommitFromJson(json);
 
   @override
-  String get cid;
+  final String cid;
   @override
-  String get rev;
+  final String rev;
 
   /// Create a copy of RepoLatestCommit
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RepoLatestCommitImplCopyWith<_$RepoLatestCommitImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$RepoLatestCommitCopyWith<_RepoLatestCommit> get copyWith =>
+      __$RepoLatestCommitCopyWithImpl<_RepoLatestCommit>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$RepoLatestCommitToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _RepoLatestCommit &&
+            (identical(other.cid, cid) || other.cid == cid) &&
+            (identical(other.rev, rev) || other.rev == rev));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, cid, rev);
+
+  @override
+  String toString() {
+    return 'RepoLatestCommit(cid: $cid, rev: $rev)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$RepoLatestCommitCopyWith<$Res>
+    implements $RepoLatestCommitCopyWith<$Res> {
+  factory _$RepoLatestCommitCopyWith(
+          _RepoLatestCommit value, $Res Function(_RepoLatestCommit) _then) =
+      __$RepoLatestCommitCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String cid, String rev});
+}
+
+/// @nodoc
+class __$RepoLatestCommitCopyWithImpl<$Res>
+    implements _$RepoLatestCommitCopyWith<$Res> {
+  __$RepoLatestCommitCopyWithImpl(this._self, this._then);
+
+  final _RepoLatestCommit _self;
+  final $Res Function(_RepoLatestCommit) _then;
+
+  /// Create a copy of RepoLatestCommit
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? cid = null,
+    Object? rev = null,
+  }) {
+    return _then(_RepoLatestCommit(
+      cid: null == cid
+          ? _self.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
+      rev: null == rev
+          ? _self.rev
+          : rev // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

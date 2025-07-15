@@ -10,7 +10,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/listConvos/#main
 @freezed
-class ListConvosOutput with _$ListConvosOutput {
+abstract class ListConvosOutput with _$ListConvosOutput {
   @jsonSerializable
   const factory ListConvosOutput({
     required List<ConvoView> convos,

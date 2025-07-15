@@ -7,7 +7,7 @@ part 'lex_cid_link.freezed.dart';
 part 'lex_cid_link.g.dart';
 
 @freezed
-class LexCidLink with _$LexCidLink {
+abstract class LexCidLink with _$LexCidLink {
   @JsonSerializable(includeIfNull: false)
   const factory LexCidLink({
     @Default('cid-link') String type,

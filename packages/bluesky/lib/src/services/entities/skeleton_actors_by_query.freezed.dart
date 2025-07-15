@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,101 +10,67 @@ part of 'skeleton_actors_by_query.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SkeletonActorsByQuery _$SkeletonActorsByQueryFromJson(
-    Map<String, dynamic> json) {
-  return _SkeletonActorsByQuery.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SkeletonActorsByQuery {
-  List<SkeletonActor> get actors => throw _privateConstructorUsedError;
+  List<SkeletonActor> get actors;
 
   /// Count of search hits. optional, may be rounded/truncated,
   /// and may not be possible to paginate through all hits.
-  int get hitsTotal => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-
-  /// Serializes this SkeletonActorsByQuery to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  int get hitsTotal;
+  String? get cursor;
 
   /// Create a copy of SkeletonActorsByQuery
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SkeletonActorsByQueryCopyWith<SkeletonActorsByQuery> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SkeletonActorsByQueryCopyWith<$Res> {
-  factory $SkeletonActorsByQueryCopyWith(SkeletonActorsByQuery value,
-          $Res Function(SkeletonActorsByQuery) then) =
-      _$SkeletonActorsByQueryCopyWithImpl<$Res, SkeletonActorsByQuery>;
-  @useResult
-  $Res call({List<SkeletonActor> actors, int hitsTotal, String? cursor});
-}
-
-/// @nodoc
-class _$SkeletonActorsByQueryCopyWithImpl<$Res,
-        $Val extends SkeletonActorsByQuery>
-    implements $SkeletonActorsByQueryCopyWith<$Res> {
-  _$SkeletonActorsByQueryCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SkeletonActorsByQuery
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $SkeletonActorsByQueryCopyWith<SkeletonActorsByQuery> get copyWith =>
+      _$SkeletonActorsByQueryCopyWithImpl<SkeletonActorsByQuery>(
+          this as SkeletonActorsByQuery, _$identity);
+
+  /// Serializes this SkeletonActorsByQuery to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? actors = null,
-    Object? hitsTotal = null,
-    Object? cursor = freezed,
-  }) {
-    return _then(_value.copyWith(
-      actors: null == actors
-          ? _value.actors
-          : actors // ignore: cast_nullable_to_non_nullable
-              as List<SkeletonActor>,
-      hitsTotal: null == hitsTotal
-          ? _value.hitsTotal
-          : hitsTotal // ignore: cast_nullable_to_non_nullable
-              as int,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SkeletonActorsByQuery &&
+            const DeepCollectionEquality().equals(other.actors, actors) &&
+            (identical(other.hitsTotal, hitsTotal) ||
+                other.hitsTotal == hitsTotal) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(actors), hitsTotal, cursor);
+
+  @override
+  String toString() {
+    return 'SkeletonActorsByQuery(actors: $actors, hitsTotal: $hitsTotal, cursor: $cursor)';
   }
 }
 
 /// @nodoc
-abstract class _$$SkeletonActorsByQueryImplCopyWith<$Res>
-    implements $SkeletonActorsByQueryCopyWith<$Res> {
-  factory _$$SkeletonActorsByQueryImplCopyWith(
-          _$SkeletonActorsByQueryImpl value,
-          $Res Function(_$SkeletonActorsByQueryImpl) then) =
-      __$$SkeletonActorsByQueryImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SkeletonActorsByQueryCopyWith<$Res> {
+  factory $SkeletonActorsByQueryCopyWith(SkeletonActorsByQuery value,
+          $Res Function(SkeletonActorsByQuery) _then) =
+      _$SkeletonActorsByQueryCopyWithImpl;
   @useResult
   $Res call({List<SkeletonActor> actors, int hitsTotal, String? cursor});
 }
 
 /// @nodoc
-class __$$SkeletonActorsByQueryImplCopyWithImpl<$Res>
-    extends _$SkeletonActorsByQueryCopyWithImpl<$Res,
-        _$SkeletonActorsByQueryImpl>
-    implements _$$SkeletonActorsByQueryImplCopyWith<$Res> {
-  __$$SkeletonActorsByQueryImplCopyWithImpl(_$SkeletonActorsByQueryImpl _value,
-      $Res Function(_$SkeletonActorsByQueryImpl) _then)
-      : super(_value, _then);
+class _$SkeletonActorsByQueryCopyWithImpl<$Res>
+    implements $SkeletonActorsByQueryCopyWith<$Res> {
+  _$SkeletonActorsByQueryCopyWithImpl(this._self, this._then);
+
+  final SkeletonActorsByQuery _self;
+  final $Res Function(SkeletonActorsByQuery) _then;
 
   /// Create a copy of SkeletonActorsByQuery
   /// with the given fields replaced by the non-null parameter values.
@@ -114,17 +81,17 @@ class __$$SkeletonActorsByQueryImplCopyWithImpl<$Res>
     Object? hitsTotal = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$SkeletonActorsByQueryImpl(
+    return _then(_self.copyWith(
       actors: null == actors
-          ? _value._actors
+          ? _self.actors
           : actors // ignore: cast_nullable_to_non_nullable
               as List<SkeletonActor>,
       hitsTotal: null == hitsTotal
-          ? _value.hitsTotal
+          ? _self.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
               as int,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -133,15 +100,14 @@ class __$$SkeletonActorsByQueryImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SkeletonActorsByQueryImpl implements _SkeletonActorsByQuery {
-  const _$SkeletonActorsByQueryImpl(
+class _SkeletonActorsByQuery implements SkeletonActorsByQuery {
+  const _SkeletonActorsByQuery(
       {required final List<SkeletonActor> actors,
       this.hitsTotal = 0,
       this.cursor})
       : _actors = actors;
-
-  factory _$SkeletonActorsByQueryImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SkeletonActorsByQueryImplFromJson(json);
+  factory _SkeletonActorsByQuery.fromJson(Map<String, dynamic> json) =>
+      _$SkeletonActorsByQueryFromJson(json);
 
   final List<SkeletonActor> _actors;
   @override
@@ -159,16 +125,27 @@ class _$SkeletonActorsByQueryImpl implements _SkeletonActorsByQuery {
   @override
   final String? cursor;
 
+  /// Create a copy of SkeletonActorsByQuery
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SkeletonActorsByQuery(actors: $actors, hitsTotal: $hitsTotal, cursor: $cursor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SkeletonActorsByQueryCopyWith<_SkeletonActorsByQuery> get copyWith =>
+      __$SkeletonActorsByQueryCopyWithImpl<_SkeletonActorsByQuery>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SkeletonActorsByQueryToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SkeletonActorsByQueryImpl &&
+            other is _SkeletonActorsByQuery &&
             const DeepCollectionEquality().equals(other._actors, _actors) &&
             (identical(other.hitsTotal, hitsTotal) ||
                 other.hitsTotal == hitsTotal) &&
@@ -180,46 +157,55 @@ class _$SkeletonActorsByQueryImpl implements _SkeletonActorsByQuery {
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_actors), hitsTotal, cursor);
 
-  /// Create a copy of SkeletonActorsByQuery
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SkeletonActorsByQueryImplCopyWith<_$SkeletonActorsByQueryImpl>
-      get copyWith => __$$SkeletonActorsByQueryImplCopyWithImpl<
-          _$SkeletonActorsByQueryImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SkeletonActorsByQueryImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SkeletonActorsByQuery(actors: $actors, hitsTotal: $hitsTotal, cursor: $cursor)';
   }
 }
 
-abstract class _SkeletonActorsByQuery implements SkeletonActorsByQuery {
-  const factory _SkeletonActorsByQuery(
-      {required final List<SkeletonActor> actors,
-      final int hitsTotal,
-      final String? cursor}) = _$SkeletonActorsByQueryImpl;
-
-  factory _SkeletonActorsByQuery.fromJson(Map<String, dynamic> json) =
-      _$SkeletonActorsByQueryImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$SkeletonActorsByQueryCopyWith<$Res>
+    implements $SkeletonActorsByQueryCopyWith<$Res> {
+  factory _$SkeletonActorsByQueryCopyWith(_SkeletonActorsByQuery value,
+          $Res Function(_SkeletonActorsByQuery) _then) =
+      __$SkeletonActorsByQueryCopyWithImpl;
   @override
-  List<SkeletonActor> get actors;
+  @useResult
+  $Res call({List<SkeletonActor> actors, int hitsTotal, String? cursor});
+}
 
-  /// Count of search hits. optional, may be rounded/truncated,
-  /// and may not be possible to paginate through all hits.
-  @override
-  int get hitsTotal;
-  @override
-  String? get cursor;
+/// @nodoc
+class __$SkeletonActorsByQueryCopyWithImpl<$Res>
+    implements _$SkeletonActorsByQueryCopyWith<$Res> {
+  __$SkeletonActorsByQueryCopyWithImpl(this._self, this._then);
+
+  final _SkeletonActorsByQuery _self;
+  final $Res Function(_SkeletonActorsByQuery) _then;
 
   /// Create a copy of SkeletonActorsByQuery
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SkeletonActorsByQueryImplCopyWith<_$SkeletonActorsByQueryImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? actors = null,
+    Object? hitsTotal = null,
+    Object? cursor = freezed,
+  }) {
+    return _then(_SkeletonActorsByQuery(
+      actors: null == actors
+          ? _self._actors
+          : actors // ignore: cast_nullable_to_non_nullable
+              as List<SkeletonActor>,
+      hitsTotal: null == hitsTotal
+          ? _self.hitsTotal
+          : hitsTotal // ignore: cast_nullable_to_non_nullable
+              as int,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

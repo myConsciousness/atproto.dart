@@ -7,7 +7,7 @@ part 'log_begin_convo.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#logbeginconvo
 @freezed
-class LogBeginConvo with _$LogBeginConvo {
+abstract class LogBeginConvo with _$LogBeginConvo {
   @jsonSerializable
   const factory LogBeginConvo({
     required String rev,

@@ -8,12 +8,11 @@ part of 'skeleton_feed_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SkeletonFeedViewImpl _$$SkeletonFeedViewImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$SkeletonFeedViewImpl',
+_SkeletonFeedView _$SkeletonFeedViewFromJson(Map json) => $checkedCreate(
+      '_SkeletonFeedView',
       json,
       ($checkedConvert) {
-        final val = _$SkeletonFeedViewImpl(
+        final val = _SkeletonFeedView(
           post: $checkedConvert(
               'post', (v) => const AtUriConverter().fromJson(v as String)),
           reason: $checkedConvert(
@@ -27,8 +26,7 @@ _$SkeletonFeedViewImpl _$$SkeletonFeedViewImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$SkeletonFeedViewImplToJson(
-        _$SkeletonFeedViewImpl instance) =>
+Map<String, dynamic> _$SkeletonFeedViewToJson(_SkeletonFeedView instance) =>
     <String, dynamic>{
       'post': const AtUriConverter().toJson(instance.post),
       if (_$JsonConverterToJson<Map<String, dynamic>, SkeletonReason>(

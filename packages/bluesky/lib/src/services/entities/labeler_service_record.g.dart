@@ -8,12 +8,12 @@ part of 'labeler_service_record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LabelerServiceRecordImpl _$$LabelerServiceRecordImplFromJson(Map json) =>
+_LabelerServiceRecord _$LabelerServiceRecordFromJson(Map json) =>
     $checkedCreate(
-      r'_$LabelerServiceRecordImpl',
+      '_LabelerServiceRecord',
       json,
       ($checkedConvert) {
-        final val = _$LabelerServiceRecordImpl(
+        final val = _LabelerServiceRecord(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyLabelerService),
           policies: $checkedConvert(
@@ -33,8 +33,8 @@ _$LabelerServiceRecordImpl _$$LabelerServiceRecordImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$LabelerServiceRecordImplToJson(
-        _$LabelerServiceRecordImpl instance) =>
+Map<String, dynamic> _$LabelerServiceRecordToJson(
+        _LabelerServiceRecord instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'policies': instance.policies.toJson(),

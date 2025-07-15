@@ -162,15 +162,18 @@ final class RepoService {
         body: {
           'repo': _ctx.session?.did ?? _ctx.oAuthSession?.sub,
           'writes': actions
-              .map((e) => e.when(
-                    create: (data) => data.toJson(),
-                    update: (data) => data.toJson(),
-                    delete: (data) => {
-                      core.objectType: data.type,
-                      'collection': data.uri.collection.toString(),
-                      'rkey': data.uri.rkey,
-                    },
-                  ))
+              .map((e) => switch (e) {
+                    UBatchActionCreate(data: final data) => data.toJson(),
+                    UBatchActionUpdate(data: final data) => data.toJson(),
+                    UBatchActionDelete(data: final data) => {
+                        core.objectType: data.type,
+                        'collection': data.uri.collection.toString(),
+                        'rkey': data.uri.rkey,
+                      },
+                    _ => throw UnimplementedError(
+                        'Unknown BatchAction type: ${e.runtimeType}',
+                      ),
+                  })
               .toList(),
           'validate': validate,
           'swapCommit': swapCommitCid,
@@ -210,7 +213,7 @@ extension RepoServiceExtension on RepoService {
     String? swapCommitCid,
   }) async =>
       await applyWrites(
-        actions: actions.map((e) => BatchAction.create(data: e)).toList(),
+        actions: actions.map((e) => UBatchActionCreate(data: e)).toList(),
         validate: validate,
         swapCommitCid: swapCommitCid,
       );

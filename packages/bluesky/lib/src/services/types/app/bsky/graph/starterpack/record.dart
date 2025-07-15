@@ -14,7 +14,7 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/starterpack/#main
 @freezed
-class StarterpackRecord with _$StarterpackRecord {
+abstract class StarterpackRecord with _$StarterpackRecord {
   @jsonSerializable
   const factory StarterpackRecord({
     @typeKey @Default(appBskyGraphStarterpack) String type,

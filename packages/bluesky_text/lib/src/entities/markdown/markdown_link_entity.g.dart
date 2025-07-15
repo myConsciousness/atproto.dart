@@ -8,12 +8,11 @@ part of 'markdown_link_entity.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MarkdownLinkEntityImpl _$$MarkdownLinkEntityImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$MarkdownLinkEntityImpl',
+_MarkdownLinkEntity _$MarkdownLinkEntityFromJson(Map json) => $checkedCreate(
+      '_MarkdownLinkEntity',
       json,
       ($checkedConvert) {
-        final val = _$MarkdownLinkEntityImpl(
+        final val = _MarkdownLinkEntity(
           text: $checkedConvert('text', (v) => v as String),
           url: $checkedConvert('url', (v) => v as String),
           indices: $checkedConvert('indices',
@@ -23,8 +22,7 @@ _$MarkdownLinkEntityImpl _$$MarkdownLinkEntityImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$MarkdownLinkEntityImplToJson(
-        _$MarkdownLinkEntityImpl instance) =>
+Map<String, dynamic> _$MarkdownLinkEntityToJson(_MarkdownLinkEntity instance) =>
     <String, dynamic>{
       'text': instance.text,
       'url': instance.url,

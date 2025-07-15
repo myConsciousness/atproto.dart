@@ -12,7 +12,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getQuotes/#output
 @freezed
-class GetQuotesOutput with _$GetQuotesOutput {
+abstract class GetQuotesOutput with _$GetQuotesOutput {
   @jsonSerializable
   const factory GetQuotesOutput({
     @AtUriConverter() required AtUri uri,

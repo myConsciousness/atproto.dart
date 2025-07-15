@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,96 +10,57 @@ part of 'list_item_record.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ListItemRecord _$ListItemRecordFromJson(Map<String, dynamic> json) {
-  return _ListItemRecord.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ListItemRecord {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @AtUriConverter()
-  AtUri get list => throw _privateConstructorUsedError;
+  AtUri get list;
   @JsonKey(name: 'subject')
-  String get did => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-
-  /// Serializes this ListItemRecord to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get did;
+  DateTime get createdAt;
 
   /// Create a copy of ListItemRecord
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ListItemRecordCopyWith<ListItemRecord> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ListItemRecordCopyWith<$Res> {
-  factory $ListItemRecordCopyWith(
-          ListItemRecord value, $Res Function(ListItemRecord) then) =
-      _$ListItemRecordCopyWithImpl<$Res, ListItemRecord>;
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      @AtUriConverter() AtUri list,
-      @JsonKey(name: 'subject') String did,
-      DateTime createdAt});
-}
-
-/// @nodoc
-class _$ListItemRecordCopyWithImpl<$Res, $Val extends ListItemRecord>
-    implements $ListItemRecordCopyWith<$Res> {
-  _$ListItemRecordCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ListItemRecord
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ListItemRecordCopyWith<ListItemRecord> get copyWith =>
+      _$ListItemRecordCopyWithImpl<ListItemRecord>(
+          this as ListItemRecord, _$identity);
+
+  /// Serializes this ListItemRecord to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? list = null,
-    Object? did = null,
-    Object? createdAt = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      list: null == list
-          ? _value.list
-          : list // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ListItemRecord &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.list, list) || other.list == list) &&
+            (identical(other.did, did) || other.did == did) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, list, did, createdAt);
+
+  @override
+  String toString() {
+    return 'ListItemRecord(type: $type, list: $list, did: $did, createdAt: $createdAt)';
   }
 }
 
 /// @nodoc
-abstract class _$$ListItemRecordImplCopyWith<$Res>
-    implements $ListItemRecordCopyWith<$Res> {
-  factory _$$ListItemRecordImplCopyWith(_$ListItemRecordImpl value,
-          $Res Function(_$ListItemRecordImpl) then) =
-      __$$ListItemRecordImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ListItemRecordCopyWith<$Res> {
+  factory $ListItemRecordCopyWith(
+          ListItemRecord value, $Res Function(ListItemRecord) _then) =
+      _$ListItemRecordCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -108,12 +70,12 @@ abstract class _$$ListItemRecordImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ListItemRecordImplCopyWithImpl<$Res>
-    extends _$ListItemRecordCopyWithImpl<$Res, _$ListItemRecordImpl>
-    implements _$$ListItemRecordImplCopyWith<$Res> {
-  __$$ListItemRecordImplCopyWithImpl(
-      _$ListItemRecordImpl _value, $Res Function(_$ListItemRecordImpl) _then)
-      : super(_value, _then);
+class _$ListItemRecordCopyWithImpl<$Res>
+    implements $ListItemRecordCopyWith<$Res> {
+  _$ListItemRecordCopyWithImpl(this._self, this._then);
+
+  final ListItemRecord _self;
+  final $Res Function(ListItemRecord) _then;
 
   /// Create a copy of ListItemRecord
   /// with the given fields replaced by the non-null parameter values.
@@ -125,21 +87,21 @@ class __$$ListItemRecordImplCopyWithImpl<$Res>
     Object? did = null,
     Object? createdAt = null,
   }) {
-    return _then(_$ListItemRecordImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       list: null == list
-          ? _value.list
+          ? _self.list
           : list // ignore: cast_nullable_to_non_nullable
               as AtUri,
       did: null == did
-          ? _value.did
+          ? _self.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
       createdAt: null == createdAt
-          ? _value.createdAt
+          ? _self.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
@@ -149,15 +111,14 @@ class __$$ListItemRecordImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ListItemRecordImpl implements _ListItemRecord {
-  const _$ListItemRecordImpl(
+class _ListItemRecord implements ListItemRecord {
+  const _ListItemRecord(
       {@typeKey this.type = appBskyGraphListitem,
       @AtUriConverter() required this.list,
       @JsonKey(name: 'subject') required this.did,
       required this.createdAt});
-
-  factory _$ListItemRecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ListItemRecordImplFromJson(json);
+  factory _ListItemRecord.fromJson(Map<String, dynamic> json) =>
+      _$ListItemRecordFromJson(json);
 
   @override
   @typeKey
@@ -171,16 +132,26 @@ class _$ListItemRecordImpl implements _ListItemRecord {
   @override
   final DateTime createdAt;
 
+  /// Create a copy of ListItemRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ListItemRecord(type: $type, list: $list, did: $did, createdAt: $createdAt)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ListItemRecordCopyWith<_ListItemRecord> get copyWith =>
+      __$ListItemRecordCopyWithImpl<_ListItemRecord>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ListItemRecordToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ListItemRecordImpl &&
+            other is _ListItemRecord &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.list, list) || other.list == list) &&
             (identical(other.did, did) || other.did == did) &&
@@ -192,49 +163,64 @@ class _$ListItemRecordImpl implements _ListItemRecord {
   @override
   int get hashCode => Object.hash(runtimeType, type, list, did, createdAt);
 
-  /// Create a copy of ListItemRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ListItemRecordImplCopyWith<_$ListItemRecordImpl> get copyWith =>
-      __$$ListItemRecordImplCopyWithImpl<_$ListItemRecordImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ListItemRecordImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ListItemRecord(type: $type, list: $list, did: $did, createdAt: $createdAt)';
   }
 }
 
-abstract class _ListItemRecord implements ListItemRecord {
-  const factory _ListItemRecord(
-      {@typeKey final String type,
-      @AtUriConverter() required final AtUri list,
-      @JsonKey(name: 'subject') required final String did,
-      required final DateTime createdAt}) = _$ListItemRecordImpl;
+/// @nodoc
+abstract mixin class _$ListItemRecordCopyWith<$Res>
+    implements $ListItemRecordCopyWith<$Res> {
+  factory _$ListItemRecordCopyWith(
+          _ListItemRecord value, $Res Function(_ListItemRecord) _then) =
+      __$ListItemRecordCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @AtUriConverter() AtUri list,
+      @JsonKey(name: 'subject') String did,
+      DateTime createdAt});
+}
 
-  factory _ListItemRecord.fromJson(Map<String, dynamic> json) =
-      _$ListItemRecordImpl.fromJson;
+/// @nodoc
+class __$ListItemRecordCopyWithImpl<$Res>
+    implements _$ListItemRecordCopyWith<$Res> {
+  __$ListItemRecordCopyWithImpl(this._self, this._then);
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  @AtUriConverter()
-  AtUri get list;
-  @override
-  @JsonKey(name: 'subject')
-  String get did;
-  @override
-  DateTime get createdAt;
+  final _ListItemRecord _self;
+  final $Res Function(_ListItemRecord) _then;
 
   /// Create a copy of ListItemRecord
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ListItemRecordImplCopyWith<_$ListItemRecordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? list = null,
+    Object? did = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_ListItemRecord(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      list: null == list
+          ? _self.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
 }
+
+// dart format on

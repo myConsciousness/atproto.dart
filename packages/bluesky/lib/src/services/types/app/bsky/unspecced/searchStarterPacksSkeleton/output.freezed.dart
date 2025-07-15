@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,92 +10,56 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SearchStarterPacksSkeletonOutput _$SearchStarterPacksSkeletonOutputFromJson(
-    Map<String, dynamic> json) {
-  return _SearchStarterPacksSkeletonOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SearchStarterPacksSkeletonOutput {
-  String? get cursor => throw _privateConstructorUsedError;
-  int get hitsTotal => throw _privateConstructorUsedError;
-  List<SkeletonSearchStarterPack> get starterPacks =>
-      throw _privateConstructorUsedError;
-
-  /// Serializes this SearchStarterPacksSkeletonOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get cursor;
+  int get hitsTotal;
+  List<SkeletonSearchStarterPack> get starterPacks;
 
   /// Create a copy of SearchStarterPacksSkeletonOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SearchStarterPacksSkeletonOutputCopyWith<SearchStarterPacksSkeletonOutput>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SearchStarterPacksSkeletonOutputCopyWith<$Res> {
-  factory $SearchStarterPacksSkeletonOutputCopyWith(
-          SearchStarterPacksSkeletonOutput value,
-          $Res Function(SearchStarterPacksSkeletonOutput) then) =
-      _$SearchStarterPacksSkeletonOutputCopyWithImpl<$Res,
-          SearchStarterPacksSkeletonOutput>;
-  @useResult
-  $Res call(
-      {String? cursor,
-      int hitsTotal,
-      List<SkeletonSearchStarterPack> starterPacks});
-}
-
-/// @nodoc
-class _$SearchStarterPacksSkeletonOutputCopyWithImpl<$Res,
-        $Val extends SearchStarterPacksSkeletonOutput>
-    implements $SearchStarterPacksSkeletonOutputCopyWith<$Res> {
-  _$SearchStarterPacksSkeletonOutputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SearchStarterPacksSkeletonOutput
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $SearchStarterPacksSkeletonOutputCopyWith<SearchStarterPacksSkeletonOutput>
+      get copyWith => _$SearchStarterPacksSkeletonOutputCopyWithImpl<
+              SearchStarterPacksSkeletonOutput>(
+          this as SearchStarterPacksSkeletonOutput, _$identity);
+
+  /// Serializes this SearchStarterPacksSkeletonOutput to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? cursor = freezed,
-    Object? hitsTotal = null,
-    Object? starterPacks = null,
-  }) {
-    return _then(_value.copyWith(
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      hitsTotal: null == hitsTotal
-          ? _value.hitsTotal
-          : hitsTotal // ignore: cast_nullable_to_non_nullable
-              as int,
-      starterPacks: null == starterPacks
-          ? _value.starterPacks
-          : starterPacks // ignore: cast_nullable_to_non_nullable
-              as List<SkeletonSearchStarterPack>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SearchStarterPacksSkeletonOutput &&
+            (identical(other.cursor, cursor) || other.cursor == cursor) &&
+            (identical(other.hitsTotal, hitsTotal) ||
+                other.hitsTotal == hitsTotal) &&
+            const DeepCollectionEquality()
+                .equals(other.starterPacks, starterPacks));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, cursor, hitsTotal,
+      const DeepCollectionEquality().hash(starterPacks));
+
+  @override
+  String toString() {
+    return 'SearchStarterPacksSkeletonOutput(cursor: $cursor, hitsTotal: $hitsTotal, starterPacks: $starterPacks)';
   }
 }
 
 /// @nodoc
-abstract class _$$SearchStarterPacksSkeletonOutputImplCopyWith<$Res>
-    implements $SearchStarterPacksSkeletonOutputCopyWith<$Res> {
-  factory _$$SearchStarterPacksSkeletonOutputImplCopyWith(
-          _$SearchStarterPacksSkeletonOutputImpl value,
-          $Res Function(_$SearchStarterPacksSkeletonOutputImpl) then) =
-      __$$SearchStarterPacksSkeletonOutputImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SearchStarterPacksSkeletonOutputCopyWith<$Res> {
+  factory $SearchStarterPacksSkeletonOutputCopyWith(
+          SearchStarterPacksSkeletonOutput value,
+          $Res Function(SearchStarterPacksSkeletonOutput) _then) =
+      _$SearchStarterPacksSkeletonOutputCopyWithImpl;
   @useResult
   $Res call(
       {String? cursor,
@@ -103,14 +68,12 @@ abstract class _$$SearchStarterPacksSkeletonOutputImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SearchStarterPacksSkeletonOutputImplCopyWithImpl<$Res>
-    extends _$SearchStarterPacksSkeletonOutputCopyWithImpl<$Res,
-        _$SearchStarterPacksSkeletonOutputImpl>
-    implements _$$SearchStarterPacksSkeletonOutputImplCopyWith<$Res> {
-  __$$SearchStarterPacksSkeletonOutputImplCopyWithImpl(
-      _$SearchStarterPacksSkeletonOutputImpl _value,
-      $Res Function(_$SearchStarterPacksSkeletonOutputImpl) _then)
-      : super(_value, _then);
+class _$SearchStarterPacksSkeletonOutputCopyWithImpl<$Res>
+    implements $SearchStarterPacksSkeletonOutputCopyWith<$Res> {
+  _$SearchStarterPacksSkeletonOutputCopyWithImpl(this._self, this._then);
+
+  final SearchStarterPacksSkeletonOutput _self;
+  final $Res Function(SearchStarterPacksSkeletonOutput) _then;
 
   /// Create a copy of SearchStarterPacksSkeletonOutput
   /// with the given fields replaced by the non-null parameter values.
@@ -121,17 +84,17 @@ class __$$SearchStarterPacksSkeletonOutputImplCopyWithImpl<$Res>
     Object? hitsTotal = null,
     Object? starterPacks = null,
   }) {
-    return _then(_$SearchStarterPacksSkeletonOutputImpl(
+    return _then(_self.copyWith(
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
       hitsTotal: null == hitsTotal
-          ? _value.hitsTotal
+          ? _self.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
               as int,
       starterPacks: null == starterPacks
-          ? _value._starterPacks
+          ? _self.starterPacks
           : starterPacks // ignore: cast_nullable_to_non_nullable
               as List<SkeletonSearchStarterPack>,
     ));
@@ -141,17 +104,16 @@ class __$$SearchStarterPacksSkeletonOutputImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$SearchStarterPacksSkeletonOutputImpl
-    implements _SearchStarterPacksSkeletonOutput {
-  const _$SearchStarterPacksSkeletonOutputImpl(
+class _SearchStarterPacksSkeletonOutput
+    implements SearchStarterPacksSkeletonOutput {
+  const _SearchStarterPacksSkeletonOutput(
       {this.cursor,
       this.hitsTotal = 0,
       required final List<SkeletonSearchStarterPack> starterPacks})
       : _starterPacks = starterPacks;
-
-  factory _$SearchStarterPacksSkeletonOutputImpl.fromJson(
+  factory _SearchStarterPacksSkeletonOutput.fromJson(
           Map<String, dynamic> json) =>
-      _$$SearchStarterPacksSkeletonOutputImplFromJson(json);
+      _$SearchStarterPacksSkeletonOutputFromJson(json);
 
   @override
   final String? cursor;
@@ -166,16 +128,27 @@ class _$SearchStarterPacksSkeletonOutputImpl
     return EqualUnmodifiableListView(_starterPacks);
   }
 
+  /// Create a copy of SearchStarterPacksSkeletonOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SearchStarterPacksSkeletonOutput(cursor: $cursor, hitsTotal: $hitsTotal, starterPacks: $starterPacks)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SearchStarterPacksSkeletonOutputCopyWith<_SearchStarterPacksSkeletonOutput>
+      get copyWith => __$SearchStarterPacksSkeletonOutputCopyWithImpl<
+          _SearchStarterPacksSkeletonOutput>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SearchStarterPacksSkeletonOutputToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SearchStarterPacksSkeletonOutputImpl &&
+            other is _SearchStarterPacksSkeletonOutput &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
             (identical(other.hitsTotal, hitsTotal) ||
                 other.hitsTotal == hitsTotal) &&
@@ -188,48 +161,59 @@ class _$SearchStarterPacksSkeletonOutputImpl
   int get hashCode => Object.hash(runtimeType, cursor, hitsTotal,
       const DeepCollectionEquality().hash(_starterPacks));
 
-  /// Create a copy of SearchStarterPacksSkeletonOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SearchStarterPacksSkeletonOutputImplCopyWith<
-          _$SearchStarterPacksSkeletonOutputImpl>
-      get copyWith => __$$SearchStarterPacksSkeletonOutputImplCopyWithImpl<
-          _$SearchStarterPacksSkeletonOutputImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SearchStarterPacksSkeletonOutputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SearchStarterPacksSkeletonOutput(cursor: $cursor, hitsTotal: $hitsTotal, starterPacks: $starterPacks)';
   }
 }
 
-abstract class _SearchStarterPacksSkeletonOutput
-    implements SearchStarterPacksSkeletonOutput {
-  const factory _SearchStarterPacksSkeletonOutput(
-          {final String? cursor,
-          final int hitsTotal,
-          required final List<SkeletonSearchStarterPack> starterPacks}) =
-      _$SearchStarterPacksSkeletonOutputImpl;
+/// @nodoc
+abstract mixin class _$SearchStarterPacksSkeletonOutputCopyWith<$Res>
+    implements $SearchStarterPacksSkeletonOutputCopyWith<$Res> {
+  factory _$SearchStarterPacksSkeletonOutputCopyWith(
+          _SearchStarterPacksSkeletonOutput value,
+          $Res Function(_SearchStarterPacksSkeletonOutput) _then) =
+      __$SearchStarterPacksSkeletonOutputCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String? cursor,
+      int hitsTotal,
+      List<SkeletonSearchStarterPack> starterPacks});
+}
 
-  factory _SearchStarterPacksSkeletonOutput.fromJson(
-          Map<String, dynamic> json) =
-      _$SearchStarterPacksSkeletonOutputImpl.fromJson;
+/// @nodoc
+class __$SearchStarterPacksSkeletonOutputCopyWithImpl<$Res>
+    implements _$SearchStarterPacksSkeletonOutputCopyWith<$Res> {
+  __$SearchStarterPacksSkeletonOutputCopyWithImpl(this._self, this._then);
 
-  @override
-  String? get cursor;
-  @override
-  int get hitsTotal;
-  @override
-  List<SkeletonSearchStarterPack> get starterPacks;
+  final _SearchStarterPacksSkeletonOutput _self;
+  final $Res Function(_SearchStarterPacksSkeletonOutput) _then;
 
   /// Create a copy of SearchStarterPacksSkeletonOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SearchStarterPacksSkeletonOutputImplCopyWith<
-          _$SearchStarterPacksSkeletonOutputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? cursor = freezed,
+    Object? hitsTotal = null,
+    Object? starterPacks = null,
+  }) {
+    return _then(_SearchStarterPacksSkeletonOutput(
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      hitsTotal: null == hitsTotal
+          ? _self.hitsTotal
+          : hitsTotal // ignore: cast_nullable_to_non_nullable
+              as int,
+      starterPacks: null == starterPacks
+          ? _self._starterPacks
+          : starterPacks // ignore: cast_nullable_to_non_nullable
+              as List<SkeletonSearchStarterPack>,
+    ));
+  }
 }
+
+// dart format on

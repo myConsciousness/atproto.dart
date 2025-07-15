@@ -21,7 +21,7 @@ part 'preference.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#preferences
 @freezed
-class Preference with _$Preference {
+abstract class Preference with _$Preference {
   const Preference._();
 
   const factory Preference.adultContent({

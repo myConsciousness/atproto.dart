@@ -1,6 +1,8 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 // Package imports:
+import 'dart:math';
+
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
@@ -98,7 +100,10 @@ void main() {
     final data = response.data;
     expect(data.log.length, 5);
 
-    final log = data.log.last.whenOrNull(op: (data) => data)!;
+    final log = switch (data.log.last) {
+      UCompatibleOpOrTombstoneOp(data: final op) => op,
+      _ => throw UnimplementedError(),
+    };
     expect(log.sig,
         'rH2by5P2J-YyS27JZfbqvkYLTaVX_ZGKYm820fW4GFARr8N_Zzhf_hyeT0NkC0qpphVGZuqWaKt2n9sHLiGMbg');
     expect(log.prev,
@@ -143,7 +148,10 @@ void main() {
     expect(exportedOp.isNullified, isFalse);
     expect(exportedOp.createdAt.toIso8601String(), '2023-03-09T23:37:45.973Z');
 
-    final op = exportedOp.operation.whenOrNull(op: (data) => data)!;
+    final op = switch (exportedOp.operation) {
+      UCompatibleOpOrTombstoneOp(data: final op) => op,
+      _ => throw UnimplementedError(),
+    };
     expect(op.sig,
         'rH2by5P2J-YyS27JZfbqvkYLTaVX_ZGKYm820fW4GFARr8N_Zzhf_hyeT0NkC0qpphVGZuqWaKt2n9sHLiGMbg');
     expect(
@@ -178,7 +186,10 @@ void main() {
 
     expect(response, isA<core.Response<CompatibleOpOrTombstone>>());
 
-    final op = response.data.whenOrNull(op: (data) => data)!;
+    final op = switch (response.data) {
+      UCompatibleOpOrTombstoneOp(data: final op) => op,
+      _ => throw UnimplementedError(),
+    };
     expect(op.sig,
         'rH2by5P2J-YyS27JZfbqvkYLTaVX_ZGKYm820fW4GFARr8N_Zzhf_hyeT0NkC0qpphVGZuqWaKt2n9sHLiGMbg');
     expect(

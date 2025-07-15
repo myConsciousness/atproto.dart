@@ -8,12 +8,11 @@ part of 'subscribed_label_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SubscribedLabelInfoImpl _$$SubscribedLabelInfoImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$SubscribedLabelInfoImpl',
+_SubscribedLabelInfo _$SubscribedLabelInfoFromJson(Map json) => $checkedCreate(
+      '_SubscribedLabelInfo',
       json,
       ($checkedConvert) {
-        final val = _$SubscribedLabelInfoImpl(
+        final val = _SubscribedLabelInfo(
           name: $checkedConvert('name', (v) => v as String),
           message: $checkedConvert('message', (v) => v as String?),
         );
@@ -21,8 +20,8 @@ _$SubscribedLabelInfoImpl _$$SubscribedLabelInfoImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$SubscribedLabelInfoImplToJson(
-        _$SubscribedLabelInfoImpl instance) =>
+Map<String, dynamic> _$SubscribedLabelInfoToJson(
+        _SubscribedLabelInfo instance) =>
     <String, dynamic>{
       'name': instance.name,
       if (instance.message case final value?) 'message': value,

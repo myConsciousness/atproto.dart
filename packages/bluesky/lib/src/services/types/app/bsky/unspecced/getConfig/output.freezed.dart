@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,59 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GetConfigOutput _$GetConfigOutputFromJson(Map<String, dynamic> json) {
-  return _GetConfigOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GetConfigOutput {
-  bool get checkEmailConfirmed => throw _privateConstructorUsedError;
-
-  /// Serializes this GetConfigOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  bool get checkEmailConfirmed;
 
   /// Create a copy of GetConfigOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $GetConfigOutputCopyWith<GetConfigOutput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $GetConfigOutputCopyWith<$Res> {
-  factory $GetConfigOutputCopyWith(
-          GetConfigOutput value, $Res Function(GetConfigOutput) then) =
-      _$GetConfigOutputCopyWithImpl<$Res, GetConfigOutput>;
-  @useResult
-  $Res call({bool checkEmailConfirmed});
-}
-
-/// @nodoc
-class _$GetConfigOutputCopyWithImpl<$Res, $Val extends GetConfigOutput>
-    implements $GetConfigOutputCopyWith<$Res> {
-  _$GetConfigOutputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of GetConfigOutput
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $GetConfigOutputCopyWith<GetConfigOutput> get copyWith =>
+      _$GetConfigOutputCopyWithImpl<GetConfigOutput>(
+          this as GetConfigOutput, _$identity);
+
+  /// Serializes this GetConfigOutput to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? checkEmailConfirmed = null,
-  }) {
-    return _then(_value.copyWith(
-      checkEmailConfirmed: null == checkEmailConfirmed
-          ? _value.checkEmailConfirmed
-          : checkEmailConfirmed // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetConfigOutput &&
+            (identical(other.checkEmailConfirmed, checkEmailConfirmed) ||
+                other.checkEmailConfirmed == checkEmailConfirmed));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, checkEmailConfirmed);
+
+  @override
+  String toString() {
+    return 'GetConfigOutput(checkEmailConfirmed: $checkEmailConfirmed)';
   }
 }
 
 /// @nodoc
-abstract class _$$GetConfigOutputImplCopyWith<$Res>
-    implements $GetConfigOutputCopyWith<$Res> {
-  factory _$$GetConfigOutputImplCopyWith(_$GetConfigOutputImpl value,
-          $Res Function(_$GetConfigOutputImpl) then) =
-      __$$GetConfigOutputImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $GetConfigOutputCopyWith<$Res> {
+  factory $GetConfigOutputCopyWith(
+          GetConfigOutput value, $Res Function(GetConfigOutput) _then) =
+      _$GetConfigOutputCopyWithImpl;
   @useResult
   $Res call({bool checkEmailConfirmed});
 }
 
 /// @nodoc
-class __$$GetConfigOutputImplCopyWithImpl<$Res>
-    extends _$GetConfigOutputCopyWithImpl<$Res, _$GetConfigOutputImpl>
-    implements _$$GetConfigOutputImplCopyWith<$Res> {
-  __$$GetConfigOutputImplCopyWithImpl(
-      _$GetConfigOutputImpl _value, $Res Function(_$GetConfigOutputImpl) _then)
-      : super(_value, _then);
+class _$GetConfigOutputCopyWithImpl<$Res>
+    implements $GetConfigOutputCopyWith<$Res> {
+  _$GetConfigOutputCopyWithImpl(this._self, this._then);
+
+  final GetConfigOutput _self;
+  final $Res Function(GetConfigOutput) _then;
 
   /// Create a copy of GetConfigOutput
   /// with the given fields replaced by the non-null parameter values.
@@ -93,9 +71,9 @@ class __$$GetConfigOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? checkEmailConfirmed = null,
   }) {
-    return _then(_$GetConfigOutputImpl(
+    return _then(_self.copyWith(
       checkEmailConfirmed: null == checkEmailConfirmed
-          ? _value.checkEmailConfirmed
+          ? _self.checkEmailConfirmed
           : checkEmailConfirmed // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
@@ -105,26 +83,35 @@ class __$$GetConfigOutputImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$GetConfigOutputImpl implements _GetConfigOutput {
-  const _$GetConfigOutputImpl({this.checkEmailConfirmed = false});
-
-  factory _$GetConfigOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GetConfigOutputImplFromJson(json);
+class _GetConfigOutput implements GetConfigOutput {
+  const _GetConfigOutput({this.checkEmailConfirmed = false});
+  factory _GetConfigOutput.fromJson(Map<String, dynamic> json) =>
+      _$GetConfigOutputFromJson(json);
 
   @override
   @JsonKey()
   final bool checkEmailConfirmed;
 
+  /// Create a copy of GetConfigOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'GetConfigOutput(checkEmailConfirmed: $checkEmailConfirmed)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$GetConfigOutputCopyWith<_GetConfigOutput> get copyWith =>
+      __$GetConfigOutputCopyWithImpl<_GetConfigOutput>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$GetConfigOutputToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetConfigOutputImpl &&
+            other is _GetConfigOutput &&
             (identical(other.checkEmailConfirmed, checkEmailConfirmed) ||
                 other.checkEmailConfirmed == checkEmailConfirmed));
   }
@@ -133,37 +120,45 @@ class _$GetConfigOutputImpl implements _GetConfigOutput {
   @override
   int get hashCode => Object.hash(runtimeType, checkEmailConfirmed);
 
-  /// Create a copy of GetConfigOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetConfigOutputImplCopyWith<_$GetConfigOutputImpl> get copyWith =>
-      __$$GetConfigOutputImplCopyWithImpl<_$GetConfigOutputImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GetConfigOutputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'GetConfigOutput(checkEmailConfirmed: $checkEmailConfirmed)';
   }
 }
 
-abstract class _GetConfigOutput implements GetConfigOutput {
-  const factory _GetConfigOutput({final bool checkEmailConfirmed}) =
-      _$GetConfigOutputImpl;
-
-  factory _GetConfigOutput.fromJson(Map<String, dynamic> json) =
-      _$GetConfigOutputImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$GetConfigOutputCopyWith<$Res>
+    implements $GetConfigOutputCopyWith<$Res> {
+  factory _$GetConfigOutputCopyWith(
+          _GetConfigOutput value, $Res Function(_GetConfigOutput) _then) =
+      __$GetConfigOutputCopyWithImpl;
   @override
-  bool get checkEmailConfirmed;
+  @useResult
+  $Res call({bool checkEmailConfirmed});
+}
+
+/// @nodoc
+class __$GetConfigOutputCopyWithImpl<$Res>
+    implements _$GetConfigOutputCopyWith<$Res> {
+  __$GetConfigOutputCopyWithImpl(this._self, this._then);
+
+  final _GetConfigOutput _self;
+  final $Res Function(_GetConfigOutput) _then;
 
   /// Create a copy of GetConfigOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetConfigOutputImplCopyWith<_$GetConfigOutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? checkEmailConfirmed = null,
+  }) {
+    return _then(_GetConfigOutput(
+      checkEmailConfirmed: null == checkEmailConfirmed
+          ? _self.checkEmailConfirmed
+          : checkEmailConfirmed // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
+
+// dart format on

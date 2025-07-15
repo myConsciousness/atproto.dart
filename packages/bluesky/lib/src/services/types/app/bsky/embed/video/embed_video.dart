@@ -14,7 +14,7 @@ part 'embed_video.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/video/#main
 @freezed
-class EmbedVideo with _$EmbedVideo {
+abstract class EmbedVideo with _$EmbedVideo {
   @jsonSerializable
   const factory EmbedVideo({
     @typeKey @Default(appBskyEmbedVideo) String type,

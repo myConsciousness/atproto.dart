@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,95 +10,61 @@ part of 'strong_ref.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StrongRef _$StrongRefFromJson(Map<String, dynamic> json) {
-  return _StrongRef.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StrongRef {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  String get cid => throw _privateConstructorUsedError;
+  String get type;
+  String get cid;
   @AtUriConverter()
-  AtUri get uri => throw _privateConstructorUsedError;
-
-  /// Serializes this StrongRef to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri get uri;
 
   /// Create a copy of StrongRef
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StrongRefCopyWith<StrongRef> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StrongRefCopyWith<$Res> {
-  factory $StrongRefCopyWith(StrongRef value, $Res Function(StrongRef) then) =
-      _$StrongRefCopyWithImpl<$Res, StrongRef>;
-  @useResult
-  $Res call({@typeKey String type, String cid, @AtUriConverter() AtUri uri});
-}
-
-/// @nodoc
-class _$StrongRefCopyWithImpl<$Res, $Val extends StrongRef>
-    implements $StrongRefCopyWith<$Res> {
-  _$StrongRefCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StrongRef
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $StrongRefCopyWith<StrongRef> get copyWith =>
+      _$StrongRefCopyWithImpl<StrongRef>(this as StrongRef, _$identity);
+
+  /// Serializes this StrongRef to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? cid = null,
-    Object? uri = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StrongRef &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.cid, cid) || other.cid == cid) &&
+            (identical(other.uri, uri) || other.uri == uri));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, cid, uri);
+
+  @override
+  String toString() {
+    return 'StrongRef(type: $type, cid: $cid, uri: $uri)';
   }
 }
 
 /// @nodoc
-abstract class _$$StrongRefImplCopyWith<$Res>
-    implements $StrongRefCopyWith<$Res> {
-  factory _$$StrongRefImplCopyWith(
-          _$StrongRefImpl value, $Res Function(_$StrongRefImpl) then) =
-      __$$StrongRefImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $StrongRefCopyWith<$Res> {
+  factory $StrongRefCopyWith(StrongRef value, $Res Function(StrongRef) _then) =
+      _$StrongRefCopyWithImpl;
   @useResult
   $Res call({@typeKey String type, String cid, @AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
-class __$$StrongRefImplCopyWithImpl<$Res>
-    extends _$StrongRefCopyWithImpl<$Res, _$StrongRefImpl>
-    implements _$$StrongRefImplCopyWith<$Res> {
-  __$$StrongRefImplCopyWithImpl(
-      _$StrongRefImpl _value, $Res Function(_$StrongRefImpl) _then)
-      : super(_value, _then);
+class _$StrongRefCopyWithImpl<$Res> implements $StrongRefCopyWith<$Res> {
+  _$StrongRefCopyWithImpl(this._self, this._then);
+
+  final StrongRef _self;
+  final $Res Function(StrongRef) _then;
 
   /// Create a copy of StrongRef
   /// with the given fields replaced by the non-null parameter values.
@@ -108,17 +75,17 @@ class __$$StrongRefImplCopyWithImpl<$Res>
     Object? cid = null,
     Object? uri = null,
   }) {
-    return _then(_$StrongRefImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       cid: null == cid
-          ? _value.cid
+          ? _self.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String,
       uri: null == uri
-          ? _value.uri
+          ? _self.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
     ));
@@ -127,14 +94,13 @@ class __$$StrongRefImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$StrongRefImpl implements _StrongRef {
-  const _$StrongRefImpl(
+class _StrongRef implements StrongRef {
+  const _StrongRef(
       {@typeKey this.type = comAtprotoRepoStrongRef,
       required this.cid,
       @AtUriConverter() required this.uri});
-
-  factory _$StrongRefImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StrongRefImplFromJson(json);
+  factory _StrongRef.fromJson(Map<String, dynamic> json) =>
+      _$StrongRefFromJson(json);
 
   @override
   @typeKey
@@ -145,16 +111,26 @@ class _$StrongRefImpl implements _StrongRef {
   @AtUriConverter()
   final AtUri uri;
 
+  /// Create a copy of StrongRef
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StrongRef(type: $type, cid: $cid, uri: $uri)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StrongRefCopyWith<_StrongRef> get copyWith =>
+      __$StrongRefCopyWithImpl<_StrongRef>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StrongRefToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StrongRefImpl &&
+            other is _StrongRef &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.uri, uri) || other.uri == uri));
@@ -164,44 +140,54 @@ class _$StrongRefImpl implements _StrongRef {
   @override
   int get hashCode => Object.hash(runtimeType, type, cid, uri);
 
-  /// Create a copy of StrongRef
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StrongRefImplCopyWith<_$StrongRefImpl> get copyWith =>
-      __$$StrongRefImplCopyWithImpl<_$StrongRefImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StrongRefImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StrongRef(type: $type, cid: $cid, uri: $uri)';
   }
 }
 
-abstract class _StrongRef implements StrongRef {
-  const factory _StrongRef(
-      {@typeKey final String type,
-      required final String cid,
-      @AtUriConverter() required final AtUri uri}) = _$StrongRefImpl;
+/// @nodoc
+abstract mixin class _$StrongRefCopyWith<$Res>
+    implements $StrongRefCopyWith<$Res> {
+  factory _$StrongRefCopyWith(
+          _StrongRef value, $Res Function(_StrongRef) _then) =
+      __$StrongRefCopyWithImpl;
+  @override
+  @useResult
+  $Res call({@typeKey String type, String cid, @AtUriConverter() AtUri uri});
+}
 
-  factory _StrongRef.fromJson(Map<String, dynamic> json) =
-      _$StrongRefImpl.fromJson;
+/// @nodoc
+class __$StrongRefCopyWithImpl<$Res> implements _$StrongRefCopyWith<$Res> {
+  __$StrongRefCopyWithImpl(this._self, this._then);
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  String get cid;
-  @override
-  @AtUriConverter()
-  AtUri get uri;
+  final _StrongRef _self;
+  final $Res Function(_StrongRef) _then;
 
   /// Create a copy of StrongRef
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StrongRefImplCopyWith<_$StrongRefImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? cid = null,
+    Object? uri = null,
+  }) {
+    return _then(_StrongRef(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      cid: null == cid
+          ? _self.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
+      uri: null == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+    ));
+  }
 }
+
+// dart format on

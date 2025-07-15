@@ -8,12 +8,11 @@ part of 'feed_generator_viewer.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedGeneratorViewerImpl _$$FeedGeneratorViewerImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$FeedGeneratorViewerImpl',
+_FeedGeneratorViewer _$FeedGeneratorViewerFromJson(Map json) => $checkedCreate(
+      '_FeedGeneratorViewer',
       json,
       ($checkedConvert) {
-        final val = _$FeedGeneratorViewerImpl(
+        final val = _FeedGeneratorViewer(
           like: $checkedConvert(
               'like',
               (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -23,8 +22,8 @@ _$FeedGeneratorViewerImpl _$$FeedGeneratorViewerImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$FeedGeneratorViewerImplToJson(
-        _$FeedGeneratorViewerImpl instance) =>
+Map<String, dynamic> _$FeedGeneratorViewerToJson(
+        _FeedGeneratorViewer instance) =>
     <String, dynamic>{
       if (_$JsonConverterToJson<String, AtUri>(
               instance.like, const AtUriConverter().toJson)

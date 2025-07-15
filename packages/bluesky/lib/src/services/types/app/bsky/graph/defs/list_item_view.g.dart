@@ -8,11 +8,11 @@ part of 'list_item_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ListItemViewImpl _$$ListItemViewImplFromJson(Map json) => $checkedCreate(
-      r'_$ListItemViewImpl',
+_ListItemView _$ListItemViewFromJson(Map json) => $checkedCreate(
+      '_ListItemView',
       json,
       ($checkedConvert) {
-        final val = _$ListItemViewImpl(
+        final val = _ListItemView(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyGraphDefsListItemView),
           uri: $checkedConvert(
@@ -25,7 +25,7 @@ _$ListItemViewImpl _$$ListItemViewImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ListItemViewImplToJson(_$ListItemViewImpl instance) =>
+Map<String, dynamic> _$ListItemViewToJson(_ListItemView instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'uri': const AtUriConverter().toJson(instance.uri),

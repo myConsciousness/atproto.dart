@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,123 +10,29 @@ part of 'email_update.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-EmailUpdate _$EmailUpdateFromJson(Map<String, dynamic> json) {
-  return _EmailUpdate.fromJson(json);
-}
 
 /// @nodoc
 mixin _$EmailUpdate {
   @JsonKey(name: 'tokenRequired')
-  bool get isTokenRequired => throw _privateConstructorUsedError;
-
-  /// Serializes this EmailUpdate to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  bool get isTokenRequired;
 
   /// Create a copy of EmailUpdate
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $EmailUpdateCopyWith<EmailUpdate> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$EmailUpdateCopyWithImpl<EmailUpdate>(this as EmailUpdate, _$identity);
 
-/// @nodoc
-abstract class $EmailUpdateCopyWith<$Res> {
-  factory $EmailUpdateCopyWith(
-          EmailUpdate value, $Res Function(EmailUpdate) then) =
-      _$EmailUpdateCopyWithImpl<$Res, EmailUpdate>;
-  @useResult
-  $Res call({@JsonKey(name: 'tokenRequired') bool isTokenRequired});
-}
-
-/// @nodoc
-class _$EmailUpdateCopyWithImpl<$Res, $Val extends EmailUpdate>
-    implements $EmailUpdateCopyWith<$Res> {
-  _$EmailUpdateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of EmailUpdate
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? isTokenRequired = null,
-  }) {
-    return _then(_value.copyWith(
-      isTokenRequired: null == isTokenRequired
-          ? _value.isTokenRequired
-          : isTokenRequired // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$EmailUpdateImplCopyWith<$Res>
-    implements $EmailUpdateCopyWith<$Res> {
-  factory _$$EmailUpdateImplCopyWith(
-          _$EmailUpdateImpl value, $Res Function(_$EmailUpdateImpl) then) =
-      __$$EmailUpdateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@JsonKey(name: 'tokenRequired') bool isTokenRequired});
-}
-
-/// @nodoc
-class __$$EmailUpdateImplCopyWithImpl<$Res>
-    extends _$EmailUpdateCopyWithImpl<$Res, _$EmailUpdateImpl>
-    implements _$$EmailUpdateImplCopyWith<$Res> {
-  __$$EmailUpdateImplCopyWithImpl(
-      _$EmailUpdateImpl _value, $Res Function(_$EmailUpdateImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of EmailUpdate
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? isTokenRequired = null,
-  }) {
-    return _then(_$EmailUpdateImpl(
-      isTokenRequired: null == isTokenRequired
-          ? _value.isTokenRequired
-          : isTokenRequired // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$EmailUpdateImpl implements _EmailUpdate {
-  const _$EmailUpdateImpl(
-      {@JsonKey(name: 'tokenRequired') required this.isTokenRequired});
-
-  factory _$EmailUpdateImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EmailUpdateImplFromJson(json);
-
-  @override
-  @JsonKey(name: 'tokenRequired')
-  final bool isTokenRequired;
-
-  @override
-  String toString() {
-    return 'EmailUpdate(isTokenRequired: $isTokenRequired)';
-  }
+  /// Serializes this EmailUpdate to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EmailUpdateImpl &&
+            other is EmailUpdate &&
             (identical(other.isTokenRequired, isTokenRequired) ||
                 other.isTokenRequired == isTokenRequired));
   }
@@ -134,38 +41,122 @@ class _$EmailUpdateImpl implements _EmailUpdate {
   @override
   int get hashCode => Object.hash(runtimeType, isTokenRequired);
 
-  /// Create a copy of EmailUpdate
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$EmailUpdateImplCopyWith<_$EmailUpdateImpl> get copyWith =>
-      __$$EmailUpdateImplCopyWithImpl<_$EmailUpdateImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$EmailUpdateImplToJson(
-      this,
-    );
+  String toString() {
+    return 'EmailUpdate(isTokenRequired: $isTokenRequired)';
   }
 }
 
-abstract class _EmailUpdate implements EmailUpdate {
-  const factory _EmailUpdate(
-      {@JsonKey(name: 'tokenRequired')
-      required final bool isTokenRequired}) = _$EmailUpdateImpl;
+/// @nodoc
+abstract mixin class $EmailUpdateCopyWith<$Res> {
+  factory $EmailUpdateCopyWith(
+          EmailUpdate value, $Res Function(EmailUpdate) _then) =
+      _$EmailUpdateCopyWithImpl;
+  @useResult
+  $Res call({@JsonKey(name: 'tokenRequired') bool isTokenRequired});
+}
 
-  factory _EmailUpdate.fromJson(Map<String, dynamic> json) =
-      _$EmailUpdateImpl.fromJson;
+/// @nodoc
+class _$EmailUpdateCopyWithImpl<$Res> implements $EmailUpdateCopyWith<$Res> {
+  _$EmailUpdateCopyWithImpl(this._self, this._then);
+
+  final EmailUpdate _self;
+  final $Res Function(EmailUpdate) _then;
+
+  /// Create a copy of EmailUpdate
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isTokenRequired = null,
+  }) {
+    return _then(_self.copyWith(
+      isTokenRequired: null == isTokenRequired
+          ? _self.isTokenRequired
+          : isTokenRequired // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _EmailUpdate implements EmailUpdate {
+  const _EmailUpdate(
+      {@JsonKey(name: 'tokenRequired') required this.isTokenRequired});
+  factory _EmailUpdate.fromJson(Map<String, dynamic> json) =>
+      _$EmailUpdateFromJson(json);
 
   @override
   @JsonKey(name: 'tokenRequired')
-  bool get isTokenRequired;
+  final bool isTokenRequired;
 
   /// Create a copy of EmailUpdate
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$EmailUpdateImplCopyWith<_$EmailUpdateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$EmailUpdateCopyWith<_EmailUpdate> get copyWith =>
+      __$EmailUpdateCopyWithImpl<_EmailUpdate>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$EmailUpdateToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _EmailUpdate &&
+            (identical(other.isTokenRequired, isTokenRequired) ||
+                other.isTokenRequired == isTokenRequired));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, isTokenRequired);
+
+  @override
+  String toString() {
+    return 'EmailUpdate(isTokenRequired: $isTokenRequired)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$EmailUpdateCopyWith<$Res>
+    implements $EmailUpdateCopyWith<$Res> {
+  factory _$EmailUpdateCopyWith(
+          _EmailUpdate value, $Res Function(_EmailUpdate) _then) =
+      __$EmailUpdateCopyWithImpl;
+  @override
+  @useResult
+  $Res call({@JsonKey(name: 'tokenRequired') bool isTokenRequired});
+}
+
+/// @nodoc
+class __$EmailUpdateCopyWithImpl<$Res> implements _$EmailUpdateCopyWith<$Res> {
+  __$EmailUpdateCopyWithImpl(this._self, this._then);
+
+  final _EmailUpdate _self;
+  final $Res Function(_EmailUpdate) _then;
+
+  /// Create a copy of EmailUpdate
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? isTokenRequired = null,
+  }) {
+    return _then(_EmailUpdate(
+      isTokenRequired: null == isTokenRequired
+          ? _self.isTokenRequired
+          : isTokenRequired // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+// dart format on

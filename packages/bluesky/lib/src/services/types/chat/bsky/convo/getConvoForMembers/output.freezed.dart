@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,141 +10,29 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GetConvoForMembersOutput _$GetConvoForMembersOutputFromJson(
-    Map<String, dynamic> json) {
-  return _GetConvoForMembersOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GetConvoForMembersOutput {
-  ConvoView get convo => throw _privateConstructorUsedError;
-
-  /// Serializes this GetConvoForMembersOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  ConvoView get convo;
 
   /// Create a copy of GetConvoForMembersOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $GetConvoForMembersOutputCopyWith<GetConvoForMembersOutput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$GetConvoForMembersOutputCopyWithImpl<GetConvoForMembersOutput>(
+          this as GetConvoForMembersOutput, _$identity);
 
-/// @nodoc
-abstract class $GetConvoForMembersOutputCopyWith<$Res> {
-  factory $GetConvoForMembersOutputCopyWith(GetConvoForMembersOutput value,
-          $Res Function(GetConvoForMembersOutput) then) =
-      _$GetConvoForMembersOutputCopyWithImpl<$Res, GetConvoForMembersOutput>;
-  @useResult
-  $Res call({ConvoView convo});
-
-  $ConvoViewCopyWith<$Res> get convo;
-}
-
-/// @nodoc
-class _$GetConvoForMembersOutputCopyWithImpl<$Res,
-        $Val extends GetConvoForMembersOutput>
-    implements $GetConvoForMembersOutputCopyWith<$Res> {
-  _$GetConvoForMembersOutputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of GetConvoForMembersOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? convo = null,
-  }) {
-    return _then(_value.copyWith(
-      convo: null == convo
-          ? _value.convo
-          : convo // ignore: cast_nullable_to_non_nullable
-              as ConvoView,
-    ) as $Val);
-  }
-
-  /// Create a copy of GetConvoForMembersOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ConvoViewCopyWith<$Res> get convo {
-    return $ConvoViewCopyWith<$Res>(_value.convo, (value) {
-      return _then(_value.copyWith(convo: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$GetConvoForMembersOutputImplCopyWith<$Res>
-    implements $GetConvoForMembersOutputCopyWith<$Res> {
-  factory _$$GetConvoForMembersOutputImplCopyWith(
-          _$GetConvoForMembersOutputImpl value,
-          $Res Function(_$GetConvoForMembersOutputImpl) then) =
-      __$$GetConvoForMembersOutputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({ConvoView convo});
-
-  @override
-  $ConvoViewCopyWith<$Res> get convo;
-}
-
-/// @nodoc
-class __$$GetConvoForMembersOutputImplCopyWithImpl<$Res>
-    extends _$GetConvoForMembersOutputCopyWithImpl<$Res,
-        _$GetConvoForMembersOutputImpl>
-    implements _$$GetConvoForMembersOutputImplCopyWith<$Res> {
-  __$$GetConvoForMembersOutputImplCopyWithImpl(
-      _$GetConvoForMembersOutputImpl _value,
-      $Res Function(_$GetConvoForMembersOutputImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of GetConvoForMembersOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? convo = null,
-  }) {
-    return _then(_$GetConvoForMembersOutputImpl(
-      convo: null == convo
-          ? _value.convo
-          : convo // ignore: cast_nullable_to_non_nullable
-              as ConvoView,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$GetConvoForMembersOutputImpl implements _GetConvoForMembersOutput {
-  const _$GetConvoForMembersOutputImpl({required this.convo});
-
-  factory _$GetConvoForMembersOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GetConvoForMembersOutputImplFromJson(json);
-
-  @override
-  final ConvoView convo;
-
-  @override
-  String toString() {
-    return 'GetConvoForMembersOutput(convo: $convo)';
-  }
+  /// Serializes this GetConvoForMembersOutput to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetConvoForMembersOutputImpl &&
+            other is GetConvoForMembersOutput &&
             (identical(other.convo, convo) || other.convo == convo));
   }
 
@@ -151,37 +40,148 @@ class _$GetConvoForMembersOutputImpl implements _GetConvoForMembersOutput {
   @override
   int get hashCode => Object.hash(runtimeType, convo);
 
-  /// Create a copy of GetConvoForMembersOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetConvoForMembersOutputImplCopyWith<_$GetConvoForMembersOutputImpl>
-      get copyWith => __$$GetConvoForMembersOutputImplCopyWithImpl<
-          _$GetConvoForMembersOutputImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GetConvoForMembersOutputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'GetConvoForMembersOutput(convo: $convo)';
   }
 }
 
-abstract class _GetConvoForMembersOutput implements GetConvoForMembersOutput {
-  const factory _GetConvoForMembersOutput({required final ConvoView convo}) =
-      _$GetConvoForMembersOutputImpl;
+/// @nodoc
+abstract mixin class $GetConvoForMembersOutputCopyWith<$Res> {
+  factory $GetConvoForMembersOutputCopyWith(GetConvoForMembersOutput value,
+          $Res Function(GetConvoForMembersOutput) _then) =
+      _$GetConvoForMembersOutputCopyWithImpl;
+  @useResult
+  $Res call({ConvoView convo});
 
-  factory _GetConvoForMembersOutput.fromJson(Map<String, dynamic> json) =
-      _$GetConvoForMembersOutputImpl.fromJson;
+  $ConvoViewCopyWith<$Res> get convo;
+}
+
+/// @nodoc
+class _$GetConvoForMembersOutputCopyWithImpl<$Res>
+    implements $GetConvoForMembersOutputCopyWith<$Res> {
+  _$GetConvoForMembersOutputCopyWithImpl(this._self, this._then);
+
+  final GetConvoForMembersOutput _self;
+  final $Res Function(GetConvoForMembersOutput) _then;
+
+  /// Create a copy of GetConvoForMembersOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? convo = null,
+  }) {
+    return _then(_self.copyWith(
+      convo: null == convo
+          ? _self.convo
+          : convo // ignore: cast_nullable_to_non_nullable
+              as ConvoView,
+    ));
+  }
+
+  /// Create a copy of GetConvoForMembersOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ConvoViewCopyWith<$Res> get convo {
+    return $ConvoViewCopyWith<$Res>(_self.convo, (value) {
+      return _then(_self.copyWith(convo: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _GetConvoForMembersOutput implements GetConvoForMembersOutput {
+  const _GetConvoForMembersOutput({required this.convo});
+  factory _GetConvoForMembersOutput.fromJson(Map<String, dynamic> json) =>
+      _$GetConvoForMembersOutputFromJson(json);
 
   @override
-  ConvoView get convo;
+  final ConvoView convo;
 
   /// Create a copy of GetConvoForMembersOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetConvoForMembersOutputImplCopyWith<_$GetConvoForMembersOutputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$GetConvoForMembersOutputCopyWith<_GetConvoForMembersOutput> get copyWith =>
+      __$GetConvoForMembersOutputCopyWithImpl<_GetConvoForMembersOutput>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$GetConvoForMembersOutputToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _GetConvoForMembersOutput &&
+            (identical(other.convo, convo) || other.convo == convo));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, convo);
+
+  @override
+  String toString() {
+    return 'GetConvoForMembersOutput(convo: $convo)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$GetConvoForMembersOutputCopyWith<$Res>
+    implements $GetConvoForMembersOutputCopyWith<$Res> {
+  factory _$GetConvoForMembersOutputCopyWith(_GetConvoForMembersOutput value,
+          $Res Function(_GetConvoForMembersOutput) _then) =
+      __$GetConvoForMembersOutputCopyWithImpl;
+  @override
+  @useResult
+  $Res call({ConvoView convo});
+
+  @override
+  $ConvoViewCopyWith<$Res> get convo;
+}
+
+/// @nodoc
+class __$GetConvoForMembersOutputCopyWithImpl<$Res>
+    implements _$GetConvoForMembersOutputCopyWith<$Res> {
+  __$GetConvoForMembersOutputCopyWithImpl(this._self, this._then);
+
+  final _GetConvoForMembersOutput _self;
+  final $Res Function(_GetConvoForMembersOutput) _then;
+
+  /// Create a copy of GetConvoForMembersOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? convo = null,
+  }) {
+    return _then(_GetConvoForMembersOutput(
+      convo: null == convo
+          ? _self.convo
+          : convo // ignore: cast_nullable_to_non_nullable
+              as ConvoView,
+    ));
+  }
+
+  /// Create a copy of GetConvoForMembersOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ConvoViewCopyWith<$Res> get convo {
+    return $ConvoViewCopyWith<$Res>(_self.convo, (value) {
+      return _then(_self.copyWith(convo: value));
+    });
+  }
+}
+
+// dart format on

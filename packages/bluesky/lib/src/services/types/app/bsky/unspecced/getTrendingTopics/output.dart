@@ -12,7 +12,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTrendingTopics/#output
 @freezed
-class GetTrendingTopicsOutput with _$GetTrendingTopicsOutput {
+abstract class GetTrendingTopicsOutput with _$GetTrendingTopicsOutput {
   @jsonSerializable
   const factory GetTrendingTopicsOutput({
     required List<TrendingTopic> topics,

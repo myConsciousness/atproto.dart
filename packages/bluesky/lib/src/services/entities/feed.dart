@@ -12,7 +12,7 @@ part 'feed.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getauthorfeed/#output
 @freezed
-class Feed with _$Feed {
+abstract class Feed with _$Feed {
   @jsonSerializable
   const factory Feed({
     required List<FeedView> feed,

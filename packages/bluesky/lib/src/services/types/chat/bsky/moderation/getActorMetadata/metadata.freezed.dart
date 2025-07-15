@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,165 +10,31 @@ part of 'metadata.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Metadata _$MetadataFromJson(Map<String, dynamic> json) {
-  return _Metadata.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Metadata {
-  int get messagesSent => throw _privateConstructorUsedError;
-  int get messagesReceived => throw _privateConstructorUsedError;
-  int get convos => throw _privateConstructorUsedError;
-  int get convosStarted => throw _privateConstructorUsedError;
-
-  /// Serializes this Metadata to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  int get messagesSent;
+  int get messagesReceived;
+  int get convos;
+  int get convosStarted;
 
   /// Create a copy of Metadata
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $MetadataCopyWith<Metadata> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$MetadataCopyWithImpl<Metadata>(this as Metadata, _$identity);
 
-/// @nodoc
-abstract class $MetadataCopyWith<$Res> {
-  factory $MetadataCopyWith(Metadata value, $Res Function(Metadata) then) =
-      _$MetadataCopyWithImpl<$Res, Metadata>;
-  @useResult
-  $Res call(
-      {int messagesSent, int messagesReceived, int convos, int convosStarted});
-}
-
-/// @nodoc
-class _$MetadataCopyWithImpl<$Res, $Val extends Metadata>
-    implements $MetadataCopyWith<$Res> {
-  _$MetadataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Metadata
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? messagesSent = null,
-    Object? messagesReceived = null,
-    Object? convos = null,
-    Object? convosStarted = null,
-  }) {
-    return _then(_value.copyWith(
-      messagesSent: null == messagesSent
-          ? _value.messagesSent
-          : messagesSent // ignore: cast_nullable_to_non_nullable
-              as int,
-      messagesReceived: null == messagesReceived
-          ? _value.messagesReceived
-          : messagesReceived // ignore: cast_nullable_to_non_nullable
-              as int,
-      convos: null == convos
-          ? _value.convos
-          : convos // ignore: cast_nullable_to_non_nullable
-              as int,
-      convosStarted: null == convosStarted
-          ? _value.convosStarted
-          : convosStarted // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$MetadataImplCopyWith<$Res>
-    implements $MetadataCopyWith<$Res> {
-  factory _$$MetadataImplCopyWith(
-          _$MetadataImpl value, $Res Function(_$MetadataImpl) then) =
-      __$$MetadataImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {int messagesSent, int messagesReceived, int convos, int convosStarted});
-}
-
-/// @nodoc
-class __$$MetadataImplCopyWithImpl<$Res>
-    extends _$MetadataCopyWithImpl<$Res, _$MetadataImpl>
-    implements _$$MetadataImplCopyWith<$Res> {
-  __$$MetadataImplCopyWithImpl(
-      _$MetadataImpl _value, $Res Function(_$MetadataImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Metadata
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? messagesSent = null,
-    Object? messagesReceived = null,
-    Object? convos = null,
-    Object? convosStarted = null,
-  }) {
-    return _then(_$MetadataImpl(
-      messagesSent: null == messagesSent
-          ? _value.messagesSent
-          : messagesSent // ignore: cast_nullable_to_non_nullable
-              as int,
-      messagesReceived: null == messagesReceived
-          ? _value.messagesReceived
-          : messagesReceived // ignore: cast_nullable_to_non_nullable
-              as int,
-      convos: null == convos
-          ? _value.convos
-          : convos // ignore: cast_nullable_to_non_nullable
-              as int,
-      convosStarted: null == convosStarted
-          ? _value.convosStarted
-          : convosStarted // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$MetadataImpl implements _Metadata {
-  const _$MetadataImpl(
-      {required this.messagesSent,
-      required this.messagesReceived,
-      required this.convos,
-      required this.convosStarted});
-
-  factory _$MetadataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MetadataImplFromJson(json);
-
-  @override
-  final int messagesSent;
-  @override
-  final int messagesReceived;
-  @override
-  final int convos;
-  @override
-  final int convosStarted;
-
-  @override
-  String toString() {
-    return 'Metadata(messagesSent: $messagesSent, messagesReceived: $messagesReceived, convos: $convos, convosStarted: $convosStarted)';
-  }
+  /// Serializes this Metadata to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MetadataImpl &&
+            other is Metadata &&
             (identical(other.messagesSent, messagesSent) ||
                 other.messagesSent == messagesSent) &&
             (identical(other.messagesReceived, messagesReceived) ||
@@ -182,45 +49,167 @@ class _$MetadataImpl implements _Metadata {
   int get hashCode => Object.hash(
       runtimeType, messagesSent, messagesReceived, convos, convosStarted);
 
-  /// Create a copy of Metadata
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MetadataImplCopyWith<_$MetadataImpl> get copyWith =>
-      __$$MetadataImplCopyWithImpl<_$MetadataImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MetadataImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Metadata(messagesSent: $messagesSent, messagesReceived: $messagesReceived, convos: $convos, convosStarted: $convosStarted)';
   }
 }
 
-abstract class _Metadata implements Metadata {
-  const factory _Metadata(
-      {required final int messagesSent,
-      required final int messagesReceived,
-      required final int convos,
-      required final int convosStarted}) = _$MetadataImpl;
+/// @nodoc
+abstract mixin class $MetadataCopyWith<$Res> {
+  factory $MetadataCopyWith(Metadata value, $Res Function(Metadata) _then) =
+      _$MetadataCopyWithImpl;
+  @useResult
+  $Res call(
+      {int messagesSent, int messagesReceived, int convos, int convosStarted});
+}
 
-  factory _Metadata.fromJson(Map<String, dynamic> json) =
-      _$MetadataImpl.fromJson;
+/// @nodoc
+class _$MetadataCopyWithImpl<$Res> implements $MetadataCopyWith<$Res> {
+  _$MetadataCopyWithImpl(this._self, this._then);
+
+  final Metadata _self;
+  final $Res Function(Metadata) _then;
+
+  /// Create a copy of Metadata
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? messagesSent = null,
+    Object? messagesReceived = null,
+    Object? convos = null,
+    Object? convosStarted = null,
+  }) {
+    return _then(_self.copyWith(
+      messagesSent: null == messagesSent
+          ? _self.messagesSent
+          : messagesSent // ignore: cast_nullable_to_non_nullable
+              as int,
+      messagesReceived: null == messagesReceived
+          ? _self.messagesReceived
+          : messagesReceived // ignore: cast_nullable_to_non_nullable
+              as int,
+      convos: null == convos
+          ? _self.convos
+          : convos // ignore: cast_nullable_to_non_nullable
+              as int,
+      convosStarted: null == convosStarted
+          ? _self.convosStarted
+          : convosStarted // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _Metadata implements Metadata {
+  const _Metadata(
+      {required this.messagesSent,
+      required this.messagesReceived,
+      required this.convos,
+      required this.convosStarted});
+  factory _Metadata.fromJson(Map<String, dynamic> json) =>
+      _$MetadataFromJson(json);
 
   @override
-  int get messagesSent;
+  final int messagesSent;
   @override
-  int get messagesReceived;
+  final int messagesReceived;
   @override
-  int get convos;
+  final int convos;
   @override
-  int get convosStarted;
+  final int convosStarted;
 
   /// Create a copy of Metadata
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MetadataImplCopyWith<_$MetadataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$MetadataCopyWith<_Metadata> get copyWith =>
+      __$MetadataCopyWithImpl<_Metadata>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$MetadataToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Metadata &&
+            (identical(other.messagesSent, messagesSent) ||
+                other.messagesSent == messagesSent) &&
+            (identical(other.messagesReceived, messagesReceived) ||
+                other.messagesReceived == messagesReceived) &&
+            (identical(other.convos, convos) || other.convos == convos) &&
+            (identical(other.convosStarted, convosStarted) ||
+                other.convosStarted == convosStarted));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, messagesSent, messagesReceived, convos, convosStarted);
+
+  @override
+  String toString() {
+    return 'Metadata(messagesSent: $messagesSent, messagesReceived: $messagesReceived, convos: $convos, convosStarted: $convosStarted)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$MetadataCopyWith<$Res>
+    implements $MetadataCopyWith<$Res> {
+  factory _$MetadataCopyWith(_Metadata value, $Res Function(_Metadata) _then) =
+      __$MetadataCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {int messagesSent, int messagesReceived, int convos, int convosStarted});
+}
+
+/// @nodoc
+class __$MetadataCopyWithImpl<$Res> implements _$MetadataCopyWith<$Res> {
+  __$MetadataCopyWithImpl(this._self, this._then);
+
+  final _Metadata _self;
+  final $Res Function(_Metadata) _then;
+
+  /// Create a copy of Metadata
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? messagesSent = null,
+    Object? messagesReceived = null,
+    Object? convos = null,
+    Object? convosStarted = null,
+  }) {
+    return _then(_Metadata(
+      messagesSent: null == messagesSent
+          ? _self.messagesSent
+          : messagesSent // ignore: cast_nullable_to_non_nullable
+              as int,
+      messagesReceived: null == messagesReceived
+          ? _self.messagesReceived
+          : messagesReceived // ignore: cast_nullable_to_non_nullable
+              as int,
+      convos: null == convos
+          ? _self.convos
+          : convos // ignore: cast_nullable_to_non_nullable
+              as int,
+      convosStarted: null == convosStarted
+          ? _self.convosStarted
+          : convosStarted // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+// dart format on

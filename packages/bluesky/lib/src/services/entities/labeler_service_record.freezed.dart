@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,207 +10,33 @@ part of 'labeler_service_record.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LabelerServiceRecord _$LabelerServiceRecordFromJson(Map<String, dynamic> json) {
-  return _LabelerServiceRecord.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LabelerServiceRecord {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  LabelerPolicies get policies => throw _privateConstructorUsedError;
-  SelfLabels? get labels => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-
-  /// Serializes this LabelerServiceRecord to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
+  LabelerPolicies get policies;
+  SelfLabels? get labels;
+  DateTime get createdAt;
 
   /// Create a copy of LabelerServiceRecord
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $LabelerServiceRecordCopyWith<LabelerServiceRecord> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$LabelerServiceRecordCopyWithImpl<LabelerServiceRecord>(
+          this as LabelerServiceRecord, _$identity);
 
-/// @nodoc
-abstract class $LabelerServiceRecordCopyWith<$Res> {
-  factory $LabelerServiceRecordCopyWith(LabelerServiceRecord value,
-          $Res Function(LabelerServiceRecord) then) =
-      _$LabelerServiceRecordCopyWithImpl<$Res, LabelerServiceRecord>;
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      LabelerPolicies policies,
-      SelfLabels? labels,
-      DateTime createdAt});
-
-  $LabelerPoliciesCopyWith<$Res> get policies;
-  $SelfLabelsCopyWith<$Res>? get labels;
-}
-
-/// @nodoc
-class _$LabelerServiceRecordCopyWithImpl<$Res,
-        $Val extends LabelerServiceRecord>
-    implements $LabelerServiceRecordCopyWith<$Res> {
-  _$LabelerServiceRecordCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of LabelerServiceRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? policies = null,
-    Object? labels = freezed,
-    Object? createdAt = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      policies: null == policies
-          ? _value.policies
-          : policies // ignore: cast_nullable_to_non_nullable
-              as LabelerPolicies,
-      labels: freezed == labels
-          ? _value.labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as SelfLabels?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
-  }
-
-  /// Create a copy of LabelerServiceRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LabelerPoliciesCopyWith<$Res> get policies {
-    return $LabelerPoliciesCopyWith<$Res>(_value.policies, (value) {
-      return _then(_value.copyWith(policies: value) as $Val);
-    });
-  }
-
-  /// Create a copy of LabelerServiceRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $SelfLabelsCopyWith<$Res>? get labels {
-    if (_value.labels == null) {
-      return null;
-    }
-
-    return $SelfLabelsCopyWith<$Res>(_value.labels!, (value) {
-      return _then(_value.copyWith(labels: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$LabelerServiceRecordImplCopyWith<$Res>
-    implements $LabelerServiceRecordCopyWith<$Res> {
-  factory _$$LabelerServiceRecordImplCopyWith(_$LabelerServiceRecordImpl value,
-          $Res Function(_$LabelerServiceRecordImpl) then) =
-      __$$LabelerServiceRecordImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      LabelerPolicies policies,
-      SelfLabels? labels,
-      DateTime createdAt});
-
-  @override
-  $LabelerPoliciesCopyWith<$Res> get policies;
-  @override
-  $SelfLabelsCopyWith<$Res>? get labels;
-}
-
-/// @nodoc
-class __$$LabelerServiceRecordImplCopyWithImpl<$Res>
-    extends _$LabelerServiceRecordCopyWithImpl<$Res, _$LabelerServiceRecordImpl>
-    implements _$$LabelerServiceRecordImplCopyWith<$Res> {
-  __$$LabelerServiceRecordImplCopyWithImpl(_$LabelerServiceRecordImpl _value,
-      $Res Function(_$LabelerServiceRecordImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of LabelerServiceRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? policies = null,
-    Object? labels = freezed,
-    Object? createdAt = null,
-  }) {
-    return _then(_$LabelerServiceRecordImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      policies: null == policies
-          ? _value.policies
-          : policies // ignore: cast_nullable_to_non_nullable
-              as LabelerPolicies,
-      labels: freezed == labels
-          ? _value.labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as SelfLabels?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$LabelerServiceRecordImpl implements _LabelerServiceRecord {
-  const _$LabelerServiceRecordImpl(
-      {@typeKey this.type = appBskyLabelerService,
-      required this.policies,
-      this.labels,
-      required this.createdAt});
-
-  factory _$LabelerServiceRecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LabelerServiceRecordImplFromJson(json);
-
-  @override
-  @typeKey
-  final String type;
-  @override
-  final LabelerPolicies policies;
-  @override
-  final SelfLabels? labels;
-  @override
-  final DateTime createdAt;
-
-  @override
-  String toString() {
-    return 'LabelerServiceRecord(type: $type, policies: $policies, labels: $labels, createdAt: $createdAt)';
-  }
+  /// Serializes this LabelerServiceRecord to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LabelerServiceRecordImpl &&
+            other is LabelerServiceRecord &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.policies, policies) ||
                 other.policies == policies) &&
@@ -223,48 +50,234 @@ class _$LabelerServiceRecordImpl implements _LabelerServiceRecord {
   int get hashCode =>
       Object.hash(runtimeType, type, policies, labels, createdAt);
 
-  /// Create a copy of LabelerServiceRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LabelerServiceRecordImplCopyWith<_$LabelerServiceRecordImpl>
-      get copyWith =>
-          __$$LabelerServiceRecordImplCopyWithImpl<_$LabelerServiceRecordImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LabelerServiceRecordImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LabelerServiceRecord(type: $type, policies: $policies, labels: $labels, createdAt: $createdAt)';
   }
 }
 
-abstract class _LabelerServiceRecord implements LabelerServiceRecord {
-  const factory _LabelerServiceRecord(
-      {@typeKey final String type,
-      required final LabelerPolicies policies,
-      final SelfLabels? labels,
-      required final DateTime createdAt}) = _$LabelerServiceRecordImpl;
+/// @nodoc
+abstract mixin class $LabelerServiceRecordCopyWith<$Res> {
+  factory $LabelerServiceRecordCopyWith(LabelerServiceRecord value,
+          $Res Function(LabelerServiceRecord) _then) =
+      _$LabelerServiceRecordCopyWithImpl;
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      LabelerPolicies policies,
+      SelfLabels? labels,
+      DateTime createdAt});
 
-  factory _LabelerServiceRecord.fromJson(Map<String, dynamic> json) =
-      _$LabelerServiceRecordImpl.fromJson;
+  $LabelerPoliciesCopyWith<$Res> get policies;
+  $SelfLabelsCopyWith<$Res>? get labels;
+}
+
+/// @nodoc
+class _$LabelerServiceRecordCopyWithImpl<$Res>
+    implements $LabelerServiceRecordCopyWith<$Res> {
+  _$LabelerServiceRecordCopyWithImpl(this._self, this._then);
+
+  final LabelerServiceRecord _self;
+  final $Res Function(LabelerServiceRecord) _then;
+
+  /// Create a copy of LabelerServiceRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? policies = null,
+    Object? labels = freezed,
+    Object? createdAt = null,
+  }) {
+    return _then(_self.copyWith(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      policies: null == policies
+          ? _self.policies
+          : policies // ignore: cast_nullable_to_non_nullable
+              as LabelerPolicies,
+      labels: freezed == labels
+          ? _self.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as SelfLabels?,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+
+  /// Create a copy of LabelerServiceRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LabelerPoliciesCopyWith<$Res> get policies {
+    return $LabelerPoliciesCopyWith<$Res>(_self.policies, (value) {
+      return _then(_self.copyWith(policies: value));
+    });
+  }
+
+  /// Create a copy of LabelerServiceRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SelfLabelsCopyWith<$Res>? get labels {
+    if (_self.labels == null) {
+      return null;
+    }
+
+    return $SelfLabelsCopyWith<$Res>(_self.labels!, (value) {
+      return _then(_self.copyWith(labels: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _LabelerServiceRecord implements LabelerServiceRecord {
+  const _LabelerServiceRecord(
+      {@typeKey this.type = appBskyLabelerService,
+      required this.policies,
+      this.labels,
+      required this.createdAt});
+  factory _LabelerServiceRecord.fromJson(Map<String, dynamic> json) =>
+      _$LabelerServiceRecordFromJson(json);
 
   @override
   @typeKey
-  String get type;
+  final String type;
   @override
-  LabelerPolicies get policies;
+  final LabelerPolicies policies;
   @override
-  SelfLabels? get labels;
+  final SelfLabels? labels;
   @override
-  DateTime get createdAt;
+  final DateTime createdAt;
 
   /// Create a copy of LabelerServiceRecord
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LabelerServiceRecordImplCopyWith<_$LabelerServiceRecordImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$LabelerServiceRecordCopyWith<_LabelerServiceRecord> get copyWith =>
+      __$LabelerServiceRecordCopyWithImpl<_LabelerServiceRecord>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LabelerServiceRecordToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _LabelerServiceRecord &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.policies, policies) ||
+                other.policies == policies) &&
+            (identical(other.labels, labels) || other.labels == labels) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, type, policies, labels, createdAt);
+
+  @override
+  String toString() {
+    return 'LabelerServiceRecord(type: $type, policies: $policies, labels: $labels, createdAt: $createdAt)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$LabelerServiceRecordCopyWith<$Res>
+    implements $LabelerServiceRecordCopyWith<$Res> {
+  factory _$LabelerServiceRecordCopyWith(_LabelerServiceRecord value,
+          $Res Function(_LabelerServiceRecord) _then) =
+      __$LabelerServiceRecordCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      LabelerPolicies policies,
+      SelfLabels? labels,
+      DateTime createdAt});
+
+  @override
+  $LabelerPoliciesCopyWith<$Res> get policies;
+  @override
+  $SelfLabelsCopyWith<$Res>? get labels;
+}
+
+/// @nodoc
+class __$LabelerServiceRecordCopyWithImpl<$Res>
+    implements _$LabelerServiceRecordCopyWith<$Res> {
+  __$LabelerServiceRecordCopyWithImpl(this._self, this._then);
+
+  final _LabelerServiceRecord _self;
+  final $Res Function(_LabelerServiceRecord) _then;
+
+  /// Create a copy of LabelerServiceRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? policies = null,
+    Object? labels = freezed,
+    Object? createdAt = null,
+  }) {
+    return _then(_LabelerServiceRecord(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      policies: null == policies
+          ? _self.policies
+          : policies // ignore: cast_nullable_to_non_nullable
+              as LabelerPolicies,
+      labels: freezed == labels
+          ? _self.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as SelfLabels?,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+
+  /// Create a copy of LabelerServiceRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LabelerPoliciesCopyWith<$Res> get policies {
+    return $LabelerPoliciesCopyWith<$Res>(_self.policies, (value) {
+      return _then(_self.copyWith(policies: value));
+    });
+  }
+
+  /// Create a copy of LabelerServiceRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SelfLabelsCopyWith<$Res>? get labels {
+    if (_self.labels == null) {
+      return null;
+    }
+
+    return $SelfLabelsCopyWith<$Res>(_self.labels!, (value) {
+      return _then(_self.copyWith(labels: value));
+    });
+  }
+}
+
+// dart format on

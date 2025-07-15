@@ -13,7 +13,7 @@ part 'create_action.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#create
 @freezed
-class CreateAction with _$CreateAction {
+abstract class CreateAction with _$CreateAction {
   @jsonSerializable
   const factory CreateAction({
     @typeKey @Default(comAtprotoRepoApplyWritesCreate) String type,

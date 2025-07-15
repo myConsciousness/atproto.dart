@@ -8,11 +8,11 @@ part of 'labeler_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LabelerViewImpl _$$LabelerViewImplFromJson(Map json) => $checkedCreate(
-      r'_$LabelerViewImpl',
+_LabelerView _$LabelerViewFromJson(Map json) => $checkedCreate(
+      '_LabelerView',
       json,
       ($checkedConvert) {
-        final val = _$LabelerViewImpl(
+        final val = _LabelerView(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyLabelerDefsLabelerView),
           uri: $checkedConvert(
@@ -42,7 +42,7 @@ _$LabelerViewImpl _$$LabelerViewImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$LabelerViewImplToJson(_$LabelerViewImpl instance) =>
+Map<String, dynamic> _$LabelerViewToJson(_LabelerView instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'uri': const AtUriConverter().toJson(instance.uri),

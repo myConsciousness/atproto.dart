@@ -8,11 +8,11 @@ part of 'generator_links.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GeneratorLinksImpl _$$GeneratorLinksImplFromJson(Map json) => $checkedCreate(
-      r'_$GeneratorLinksImpl',
+_GeneratorLinks _$GeneratorLinksFromJson(Map json) => $checkedCreate(
+      '_GeneratorLinks',
       json,
       ($checkedConvert) {
-        final val = _$GeneratorLinksImpl(
+        final val = _GeneratorLinks(
           privacyPolicy: $checkedConvert('privacyPolicy', (v) => v as String?),
           termsOfService:
               $checkedConvert('termsOfService', (v) => v as String?),
@@ -21,8 +21,7 @@ _$GeneratorLinksImpl _$$GeneratorLinksImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$GeneratorLinksImplToJson(
-        _$GeneratorLinksImpl instance) =>
+Map<String, dynamic> _$GeneratorLinksToJson(_GeneratorLinks instance) =>
     <String, dynamic>{
       if (instance.privacyPolicy case final value?) 'privacyPolicy': value,
       if (instance.termsOfService case final value?) 'termsOfService': value,

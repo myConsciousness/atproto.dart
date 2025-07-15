@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,137 +10,31 @@ part of 'labeler_pref_item.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LabelerPrefItem _$LabelerPrefItemFromJson(Map<String, dynamic> json) {
-  return _LabelerPrefItem.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LabelerPrefItem {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  String get did => throw _privateConstructorUsedError;
-
-  /// Serializes this LabelerPrefItem to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
+  String get did;
 
   /// Create a copy of LabelerPrefItem
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $LabelerPrefItemCopyWith<LabelerPrefItem> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$LabelerPrefItemCopyWithImpl<LabelerPrefItem>(
+          this as LabelerPrefItem, _$identity);
 
-/// @nodoc
-abstract class $LabelerPrefItemCopyWith<$Res> {
-  factory $LabelerPrefItemCopyWith(
-          LabelerPrefItem value, $Res Function(LabelerPrefItem) then) =
-      _$LabelerPrefItemCopyWithImpl<$Res, LabelerPrefItem>;
-  @useResult
-  $Res call({@typeKey String type, String did});
-}
-
-/// @nodoc
-class _$LabelerPrefItemCopyWithImpl<$Res, $Val extends LabelerPrefItem>
-    implements $LabelerPrefItemCopyWith<$Res> {
-  _$LabelerPrefItemCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of LabelerPrefItem
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? did = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$LabelerPrefItemImplCopyWith<$Res>
-    implements $LabelerPrefItemCopyWith<$Res> {
-  factory _$$LabelerPrefItemImplCopyWith(_$LabelerPrefItemImpl value,
-          $Res Function(_$LabelerPrefItemImpl) then) =
-      __$$LabelerPrefItemImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@typeKey String type, String did});
-}
-
-/// @nodoc
-class __$$LabelerPrefItemImplCopyWithImpl<$Res>
-    extends _$LabelerPrefItemCopyWithImpl<$Res, _$LabelerPrefItemImpl>
-    implements _$$LabelerPrefItemImplCopyWith<$Res> {
-  __$$LabelerPrefItemImplCopyWithImpl(
-      _$LabelerPrefItemImpl _value, $Res Function(_$LabelerPrefItemImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of LabelerPrefItem
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? did = null,
-  }) {
-    return _then(_$LabelerPrefItemImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$LabelerPrefItemImpl implements _LabelerPrefItem {
-  const _$LabelerPrefItemImpl(
-      {@typeKey this.type = appBskyActorDefsLabelerPrefItem,
-      required this.did});
-
-  factory _$LabelerPrefItemImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LabelerPrefItemImplFromJson(json);
-
-  @override
-  @typeKey
-  final String type;
-  @override
-  final String did;
-
-  @override
-  String toString() {
-    return 'LabelerPrefItem(type: $type, did: $did)';
-  }
+  /// Serializes this LabelerPrefItem to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LabelerPrefItemImpl &&
+            other is LabelerPrefItem &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.did, did) || other.did == did));
   }
@@ -148,41 +43,137 @@ class _$LabelerPrefItemImpl implements _LabelerPrefItem {
   @override
   int get hashCode => Object.hash(runtimeType, type, did);
 
-  /// Create a copy of LabelerPrefItem
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LabelerPrefItemImplCopyWith<_$LabelerPrefItemImpl> get copyWith =>
-      __$$LabelerPrefItemImplCopyWithImpl<_$LabelerPrefItemImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LabelerPrefItemImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LabelerPrefItem(type: $type, did: $did)';
   }
 }
 
-abstract class _LabelerPrefItem implements LabelerPrefItem {
-  const factory _LabelerPrefItem(
-      {@typeKey final String type,
-      required final String did}) = _$LabelerPrefItemImpl;
+/// @nodoc
+abstract mixin class $LabelerPrefItemCopyWith<$Res> {
+  factory $LabelerPrefItemCopyWith(
+          LabelerPrefItem value, $Res Function(LabelerPrefItem) _then) =
+      _$LabelerPrefItemCopyWithImpl;
+  @useResult
+  $Res call({@typeKey String type, String did});
+}
 
-  factory _LabelerPrefItem.fromJson(Map<String, dynamic> json) =
-      _$LabelerPrefItemImpl.fromJson;
+/// @nodoc
+class _$LabelerPrefItemCopyWithImpl<$Res>
+    implements $LabelerPrefItemCopyWith<$Res> {
+  _$LabelerPrefItemCopyWithImpl(this._self, this._then);
+
+  final LabelerPrefItem _self;
+  final $Res Function(LabelerPrefItem) _then;
+
+  /// Create a copy of LabelerPrefItem
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? did = null,
+  }) {
+    return _then(_self.copyWith(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _LabelerPrefItem implements LabelerPrefItem {
+  const _LabelerPrefItem(
+      {@typeKey this.type = appBskyActorDefsLabelerPrefItem,
+      required this.did});
+  factory _LabelerPrefItem.fromJson(Map<String, dynamic> json) =>
+      _$LabelerPrefItemFromJson(json);
 
   @override
   @typeKey
-  String get type;
+  final String type;
   @override
-  String get did;
+  final String did;
 
   /// Create a copy of LabelerPrefItem
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LabelerPrefItemImplCopyWith<_$LabelerPrefItemImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$LabelerPrefItemCopyWith<_LabelerPrefItem> get copyWith =>
+      __$LabelerPrefItemCopyWithImpl<_LabelerPrefItem>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LabelerPrefItemToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _LabelerPrefItem &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.did, did) || other.did == did));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, did);
+
+  @override
+  String toString() {
+    return 'LabelerPrefItem(type: $type, did: $did)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$LabelerPrefItemCopyWith<$Res>
+    implements $LabelerPrefItemCopyWith<$Res> {
+  factory _$LabelerPrefItemCopyWith(
+          _LabelerPrefItem value, $Res Function(_LabelerPrefItem) _then) =
+      __$LabelerPrefItemCopyWithImpl;
+  @override
+  @useResult
+  $Res call({@typeKey String type, String did});
+}
+
+/// @nodoc
+class __$LabelerPrefItemCopyWithImpl<$Res>
+    implements _$LabelerPrefItemCopyWith<$Res> {
+  __$LabelerPrefItemCopyWithImpl(this._self, this._then);
+
+  final _LabelerPrefItem _self;
+  final $Res Function(_LabelerPrefItem) _then;
+
+  /// Create a copy of LabelerPrefItem
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? did = null,
+  }) {
+    return _then(_LabelerPrefItem(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

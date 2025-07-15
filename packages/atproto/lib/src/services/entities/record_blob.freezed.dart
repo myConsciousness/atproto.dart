@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,137 +10,30 @@ part of 'record_blob.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-RecordBlob _$RecordBlobFromJson(Map<String, dynamic> json) {
-  return _RecordBlob.fromJson(json);
-}
 
 /// @nodoc
 mixin _$RecordBlob {
-  String get cid => throw _privateConstructorUsedError;
+  String get cid;
   @AtUriConverter()
-  AtUri get recordUri => throw _privateConstructorUsedError;
-
-  /// Serializes this RecordBlob to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri get recordUri;
 
   /// Create a copy of RecordBlob
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $RecordBlobCopyWith<RecordBlob> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$RecordBlobCopyWithImpl<RecordBlob>(this as RecordBlob, _$identity);
 
-/// @nodoc
-abstract class $RecordBlobCopyWith<$Res> {
-  factory $RecordBlobCopyWith(
-          RecordBlob value, $Res Function(RecordBlob) then) =
-      _$RecordBlobCopyWithImpl<$Res, RecordBlob>;
-  @useResult
-  $Res call({String cid, @AtUriConverter() AtUri recordUri});
-}
-
-/// @nodoc
-class _$RecordBlobCopyWithImpl<$Res, $Val extends RecordBlob>
-    implements $RecordBlobCopyWith<$Res> {
-  _$RecordBlobCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of RecordBlob
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cid = null,
-    Object? recordUri = null,
-  }) {
-    return _then(_value.copyWith(
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
-      recordUri: null == recordUri
-          ? _value.recordUri
-          : recordUri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$RecordBlobImplCopyWith<$Res>
-    implements $RecordBlobCopyWith<$Res> {
-  factory _$$RecordBlobImplCopyWith(
-          _$RecordBlobImpl value, $Res Function(_$RecordBlobImpl) then) =
-      __$$RecordBlobImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String cid, @AtUriConverter() AtUri recordUri});
-}
-
-/// @nodoc
-class __$$RecordBlobImplCopyWithImpl<$Res>
-    extends _$RecordBlobCopyWithImpl<$Res, _$RecordBlobImpl>
-    implements _$$RecordBlobImplCopyWith<$Res> {
-  __$$RecordBlobImplCopyWithImpl(
-      _$RecordBlobImpl _value, $Res Function(_$RecordBlobImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of RecordBlob
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cid = null,
-    Object? recordUri = null,
-  }) {
-    return _then(_$RecordBlobImpl(
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
-      recordUri: null == recordUri
-          ? _value.recordUri
-          : recordUri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$RecordBlobImpl implements _RecordBlob {
-  const _$RecordBlobImpl(
-      {required this.cid, @AtUriConverter() required this.recordUri});
-
-  factory _$RecordBlobImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RecordBlobImplFromJson(json);
-
-  @override
-  final String cid;
-  @override
-  @AtUriConverter()
-  final AtUri recordUri;
-
-  @override
-  String toString() {
-    return 'RecordBlob(cid: $cid, recordUri: $recordUri)';
-  }
+  /// Serializes this RecordBlob to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RecordBlobImpl &&
+            other is RecordBlob &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.recordUri, recordUri) ||
                 other.recordUri == recordUri));
@@ -149,40 +43,136 @@ class _$RecordBlobImpl implements _RecordBlob {
   @override
   int get hashCode => Object.hash(runtimeType, cid, recordUri);
 
-  /// Create a copy of RecordBlob
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$RecordBlobImplCopyWith<_$RecordBlobImpl> get copyWith =>
-      __$$RecordBlobImplCopyWithImpl<_$RecordBlobImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RecordBlobImplToJson(
-      this,
-    );
+  String toString() {
+    return 'RecordBlob(cid: $cid, recordUri: $recordUri)';
   }
 }
 
-abstract class _RecordBlob implements RecordBlob {
-  const factory _RecordBlob(
-      {required final String cid,
-      @AtUriConverter() required final AtUri recordUri}) = _$RecordBlobImpl;
+/// @nodoc
+abstract mixin class $RecordBlobCopyWith<$Res> {
+  factory $RecordBlobCopyWith(
+          RecordBlob value, $Res Function(RecordBlob) _then) =
+      _$RecordBlobCopyWithImpl;
+  @useResult
+  $Res call({String cid, @AtUriConverter() AtUri recordUri});
+}
 
-  factory _RecordBlob.fromJson(Map<String, dynamic> json) =
-      _$RecordBlobImpl.fromJson;
+/// @nodoc
+class _$RecordBlobCopyWithImpl<$Res> implements $RecordBlobCopyWith<$Res> {
+  _$RecordBlobCopyWithImpl(this._self, this._then);
+
+  final RecordBlob _self;
+  final $Res Function(RecordBlob) _then;
+
+  /// Create a copy of RecordBlob
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? cid = null,
+    Object? recordUri = null,
+  }) {
+    return _then(_self.copyWith(
+      cid: null == cid
+          ? _self.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
+      recordUri: null == recordUri
+          ? _self.recordUri
+          : recordUri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+    ));
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _RecordBlob implements RecordBlob {
+  const _RecordBlob(
+      {required this.cid, @AtUriConverter() required this.recordUri});
+  factory _RecordBlob.fromJson(Map<String, dynamic> json) =>
+      _$RecordBlobFromJson(json);
 
   @override
-  String get cid;
+  final String cid;
   @override
   @AtUriConverter()
-  AtUri get recordUri;
+  final AtUri recordUri;
 
   /// Create a copy of RecordBlob
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RecordBlobImplCopyWith<_$RecordBlobImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$RecordBlobCopyWith<_RecordBlob> get copyWith =>
+      __$RecordBlobCopyWithImpl<_RecordBlob>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$RecordBlobToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _RecordBlob &&
+            (identical(other.cid, cid) || other.cid == cid) &&
+            (identical(other.recordUri, recordUri) ||
+                other.recordUri == recordUri));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, cid, recordUri);
+
+  @override
+  String toString() {
+    return 'RecordBlob(cid: $cid, recordUri: $recordUri)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$RecordBlobCopyWith<$Res>
+    implements $RecordBlobCopyWith<$Res> {
+  factory _$RecordBlobCopyWith(
+          _RecordBlob value, $Res Function(_RecordBlob) _then) =
+      __$RecordBlobCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String cid, @AtUriConverter() AtUri recordUri});
+}
+
+/// @nodoc
+class __$RecordBlobCopyWithImpl<$Res> implements _$RecordBlobCopyWith<$Res> {
+  __$RecordBlobCopyWithImpl(this._self, this._then);
+
+  final _RecordBlob _self;
+  final $Res Function(_RecordBlob) _then;
+
+  /// Create a copy of RecordBlob
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? cid = null,
+    Object? recordUri = null,
+  }) {
+    return _then(_RecordBlob(
+      cid: null == cid
+          ? _self.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
+      recordUri: null == recordUri
+          ? _self.recordUri
+          : recordUri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+    ));
+  }
+}
+
+// dart format on

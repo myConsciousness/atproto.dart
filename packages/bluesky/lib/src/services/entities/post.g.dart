@@ -8,11 +8,11 @@ part of 'post.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PostImpl _$$PostImplFromJson(Map json) => $checkedCreate(
-      r'_$PostImpl',
+_Post _$PostFromJson(Map json) => $checkedCreate(
+      '_Post',
       json,
       ($checkedConvert) {
-        final val = _$PostImpl(
+        final val = _Post(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsPostView),
           record: $checkedConvert('record',
@@ -59,8 +59,7 @@ _$PostImpl _$$PostImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$PostToJson(_Post instance) => <String, dynamic>{
       r'$type': instance.type,
       'record': postRecordConverter.toJson(instance.record),
       'author': instance.author.toJson(),

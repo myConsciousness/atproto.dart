@@ -10,7 +10,7 @@ import '../mod_object.dart';
 part 'moderation_subject_profile.freezed.dart';
 
 @modObject
-class ModerationSubjectProfile with _$ModerationSubjectProfile {
+abstract class ModerationSubjectProfile with _$ModerationSubjectProfile {
   const factory ModerationSubjectProfile.profileViewBasic({
     required ActorBasic data,
   }) = UModerationSubjectProfileProfileViewBasic;

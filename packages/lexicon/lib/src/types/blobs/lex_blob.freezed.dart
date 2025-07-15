@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,99 +10,64 @@ part of 'lex_blob.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LexBlob _$LexBlobFromJson(Map<String, dynamic> json) {
-  return _LexBlob.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LexBlob {
-  String get type => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  List<String>? get accept => throw _privateConstructorUsedError;
-  int? get maxSize => throw _privateConstructorUsedError;
-
-  /// Serializes this LexBlob to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
+  String? get description;
+  List<String>? get accept;
+  int? get maxSize;
 
   /// Create a copy of LexBlob
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $LexBlobCopyWith<LexBlob> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $LexBlobCopyWith<$Res> {
-  factory $LexBlobCopyWith(LexBlob value, $Res Function(LexBlob) then) =
-      _$LexBlobCopyWithImpl<$Res, LexBlob>;
-  @useResult
-  $Res call(
-      {String type, String? description, List<String>? accept, int? maxSize});
-}
-
-/// @nodoc
-class _$LexBlobCopyWithImpl<$Res, $Val extends LexBlob>
-    implements $LexBlobCopyWith<$Res> {
-  _$LexBlobCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of LexBlob
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $LexBlobCopyWith<LexBlob> get copyWith =>
+      _$LexBlobCopyWithImpl<LexBlob>(this as LexBlob, _$identity);
+
+  /// Serializes this LexBlob to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? description = freezed,
-    Object? accept = freezed,
-    Object? maxSize = freezed,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      accept: freezed == accept
-          ? _value.accept
-          : accept // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      maxSize: freezed == maxSize
-          ? _value.maxSize
-          : maxSize // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LexBlob &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            const DeepCollectionEquality().equals(other.accept, accept) &&
+            (identical(other.maxSize, maxSize) || other.maxSize == maxSize));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, description,
+      const DeepCollectionEquality().hash(accept), maxSize);
+
+  @override
+  String toString() {
+    return 'LexBlob(type: $type, description: $description, accept: $accept, maxSize: $maxSize)';
   }
 }
 
 /// @nodoc
-abstract class _$$LexBlobImplCopyWith<$Res> implements $LexBlobCopyWith<$Res> {
-  factory _$$LexBlobImplCopyWith(
-          _$LexBlobImpl value, $Res Function(_$LexBlobImpl) then) =
-      __$$LexBlobImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $LexBlobCopyWith<$Res> {
+  factory $LexBlobCopyWith(LexBlob value, $Res Function(LexBlob) _then) =
+      _$LexBlobCopyWithImpl;
   @useResult
   $Res call(
       {String type, String? description, List<String>? accept, int? maxSize});
 }
 
 /// @nodoc
-class __$$LexBlobImplCopyWithImpl<$Res>
-    extends _$LexBlobCopyWithImpl<$Res, _$LexBlobImpl>
-    implements _$$LexBlobImplCopyWith<$Res> {
-  __$$LexBlobImplCopyWithImpl(
-      _$LexBlobImpl _value, $Res Function(_$LexBlobImpl) _then)
-      : super(_value, _then);
+class _$LexBlobCopyWithImpl<$Res> implements $LexBlobCopyWith<$Res> {
+  _$LexBlobCopyWithImpl(this._self, this._then);
+
+  final LexBlob _self;
+  final $Res Function(LexBlob) _then;
 
   /// Create a copy of LexBlob
   /// with the given fields replaced by the non-null parameter values.
@@ -113,21 +79,21 @@ class __$$LexBlobImplCopyWithImpl<$Res>
     Object? accept = freezed,
     Object? maxSize = freezed,
   }) {
-    return _then(_$LexBlobImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       description: freezed == description
-          ? _value.description
+          ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
       accept: freezed == accept
-          ? _value._accept
+          ? _self.accept
           : accept // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       maxSize: freezed == maxSize
-          ? _value.maxSize
+          ? _self.maxSize
           : maxSize // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
@@ -137,16 +103,15 @@ class __$$LexBlobImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$LexBlobImpl implements _LexBlob {
-  const _$LexBlobImpl(
+class _LexBlob implements LexBlob {
+  const _LexBlob(
       {this.type = 'blob',
       this.description,
       final List<String>? accept,
       this.maxSize})
       : _accept = accept;
-
-  factory _$LexBlobImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LexBlobImplFromJson(json);
+  factory _LexBlob.fromJson(Map<String, dynamic> json) =>
+      _$LexBlobFromJson(json);
 
   @override
   @JsonKey()
@@ -166,16 +131,26 @@ class _$LexBlobImpl implements _LexBlob {
   @override
   final int? maxSize;
 
+  /// Create a copy of LexBlob
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'LexBlob(type: $type, description: $description, accept: $accept, maxSize: $maxSize)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LexBlobCopyWith<_LexBlob> get copyWith =>
+      __$LexBlobCopyWithImpl<_LexBlob>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LexBlobToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LexBlobImpl &&
+            other is _LexBlob &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -188,44 +163,58 @@ class _$LexBlobImpl implements _LexBlob {
   int get hashCode => Object.hash(runtimeType, type, description,
       const DeepCollectionEquality().hash(_accept), maxSize);
 
-  /// Create a copy of LexBlob
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LexBlobImplCopyWith<_$LexBlobImpl> get copyWith =>
-      __$$LexBlobImplCopyWithImpl<_$LexBlobImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LexBlobImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LexBlob(type: $type, description: $description, accept: $accept, maxSize: $maxSize)';
   }
 }
 
-abstract class _LexBlob implements LexBlob {
-  const factory _LexBlob(
-      {final String type,
-      final String? description,
-      final List<String>? accept,
-      final int? maxSize}) = _$LexBlobImpl;
+/// @nodoc
+abstract mixin class _$LexBlobCopyWith<$Res> implements $LexBlobCopyWith<$Res> {
+  factory _$LexBlobCopyWith(_LexBlob value, $Res Function(_LexBlob) _then) =
+      __$LexBlobCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String type, String? description, List<String>? accept, int? maxSize});
+}
 
-  factory _LexBlob.fromJson(Map<String, dynamic> json) = _$LexBlobImpl.fromJson;
+/// @nodoc
+class __$LexBlobCopyWithImpl<$Res> implements _$LexBlobCopyWith<$Res> {
+  __$LexBlobCopyWithImpl(this._self, this._then);
 
-  @override
-  String get type;
-  @override
-  String? get description;
-  @override
-  List<String>? get accept;
-  @override
-  int? get maxSize;
+  final _LexBlob _self;
+  final $Res Function(_LexBlob) _then;
 
   /// Create a copy of LexBlob
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LexBlobImplCopyWith<_$LexBlobImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? description = freezed,
+    Object? accept = freezed,
+    Object? maxSize = freezed,
+  }) {
+    return _then(_LexBlob(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: freezed == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      accept: freezed == accept
+          ? _self._accept
+          : accept // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      maxSize: freezed == maxSize
+          ? _self.maxSize
+          : maxSize // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
 }
+
+// dart format on

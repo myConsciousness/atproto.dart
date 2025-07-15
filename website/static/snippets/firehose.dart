@@ -1,4 +1,5 @@
 import 'package:bluesky/bluesky.dart';
+import 'package:atproto/atproto.dart';
 
 Future<void> main(List<String> args) async {
   /* SNIPPET START */
@@ -17,16 +18,25 @@ Future<void> main(List<String> args) async {
   );
 
   await for (final event in subscription.data.stream) {
-    event.when(
-      commit: repoCommitAdaptor.execute,
-      identity: print,
-      account: print,
-      handle: print,
-      migrate: print,
-      tombstone: print,
-      info: print,
-      unknown: print,
-    );
+    // Use switch expression for pattern matching
+    switch (event) {
+      case USubscribedRepoCommit(data: final data):
+        repoCommitAdaptor.execute(data);
+      case USubscribedRepoIdentity(data: final data):
+        print(data);
+      case USubscribedRepoAccount(data: final data):
+        print(data);
+      case USubscribedRepoHandle(data: final data):
+        print(data);
+      case USubscribedRepoMigrate(data: final data):
+        print(data);
+      case USubscribedRepoTombstone(data: final data):
+        print(data);
+      case USubscribedRepoInfo(data: final data):
+        print(data);
+      case USubscribedRepoUnknown(data: final data):
+        print(data);
+    }
   }
 
   /* SNIPPET END */

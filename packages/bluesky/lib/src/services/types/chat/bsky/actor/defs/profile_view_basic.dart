@@ -14,7 +14,7 @@ part 'profile_view_basic.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/defs/#profileviewbasic
 @freezed
-class ProfileViewBasic with _$ProfileViewBasic {
+abstract class ProfileViewBasic with _$ProfileViewBasic {
   @jsonSerializable
   const factory ProfileViewBasic({
     required String did,

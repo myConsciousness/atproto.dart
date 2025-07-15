@@ -8,11 +8,11 @@ part of 'session.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SessionImpl _$$SessionImplFromJson(Map json) => $checkedCreate(
-      r'_$SessionImpl',
+_Session _$SessionFromJson(Map json) => $checkedCreate(
+      '_Session',
       json,
       ($checkedConvert) {
-        final val = _$SessionImpl(
+        final val = _Session(
           did: $checkedConvert('did', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
           email: $checkedConvert('email', (v) => v as String?),
@@ -34,8 +34,7 @@ _$SessionImpl _$$SessionImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$SessionToJson(_Session instance) => <String, dynamic>{
       'did': instance.did,
       'handle': instance.handle,
       if (instance.email case final value?) 'email': value,

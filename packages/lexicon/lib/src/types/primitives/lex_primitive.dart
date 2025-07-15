@@ -13,7 +13,7 @@ import 'lex_unknown.dart';
 part 'lex_primitive.freezed.dart';
 
 @freezed
-class LexPrimitive with _$LexPrimitive {
+abstract class LexPrimitive with _$LexPrimitive {
   // ignore: unused_element
   const LexPrimitive._();
 

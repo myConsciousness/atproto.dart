@@ -11,7 +11,7 @@ part 'muted_words_pref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#mutedWordsPref
 @freezed
-class MutedWordsPref with _$MutedWordsPref {
+abstract class MutedWordsPref with _$MutedWordsPref {
   const factory MutedWordsPref({
     @typeKey @Default(appBskyActorDefsMutedWordsPref) String type,
     required List<MutedWord> items,

@@ -9,7 +9,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/video/getUploadLimits/#output
 @freezed
-class GetUploadLimitsOutput with _$GetUploadLimitsOutput {
+abstract class GetUploadLimitsOutput with _$GetUploadLimitsOutput {
   @jsonSerializable
   const factory GetUploadLimitsOutput({
     required bool canUpload,

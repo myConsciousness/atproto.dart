@@ -8,12 +8,11 @@ part of 'feed_generator_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedGeneratorViewImpl _$$FeedGeneratorViewImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$FeedGeneratorViewImpl',
+_FeedGeneratorView _$FeedGeneratorViewFromJson(Map json) => $checkedCreate(
+      '_FeedGeneratorView',
       json,
       ($checkedConvert) {
-        final val = _$FeedGeneratorViewImpl(
+        final val = _FeedGeneratorView(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsGeneratorView),
           uri: $checkedConvert(
@@ -56,8 +55,7 @@ _$FeedGeneratorViewImpl _$$FeedGeneratorViewImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type', 'createdBy': 'creator'},
     );
 
-Map<String, dynamic> _$$FeedGeneratorViewImplToJson(
-        _$FeedGeneratorViewImpl instance) =>
+Map<String, dynamic> _$FeedGeneratorViewToJson(_FeedGeneratorView instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'uri': const AtUriConverter().toJson(instance.uri),

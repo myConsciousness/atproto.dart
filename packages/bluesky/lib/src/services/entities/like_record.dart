@@ -16,7 +16,7 @@ part 'like_record.g.dart';
 /// An object representing the records in the created
 /// [appBskyFeedLike].
 @freezed
-class LikeRecord with _$LikeRecord {
+abstract class LikeRecord with _$LikeRecord {
   @jsonSerializable
   const factory LikeRecord({
     @typeKey @Default(appBskyFeedLike) String type,

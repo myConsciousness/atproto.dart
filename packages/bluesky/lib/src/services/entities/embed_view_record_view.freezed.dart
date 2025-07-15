@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,129 +10,77 @@ part of 'embed_view_record_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$EmbedViewRecordView {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EmbedViewRecordViewRecord data) record,
-    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
-    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
-    required TResult Function(EmbedRecordViewDetached data) viewDetached,
-    required TResult Function(FeedGeneratorView data) generatorView,
-    required TResult Function(ListView data) listView,
-    required TResult Function(LabelerView data) labelerView,
-    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedViewRecordViewRecord data)? record,
-    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult? Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult? Function(FeedGeneratorView data)? generatorView,
-    TResult? Function(ListView data)? listView,
-    TResult? Function(LabelerView data)? labelerView,
-    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedViewRecordViewRecord data)? record,
-    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult Function(FeedGeneratorView data)? generatorView,
-    TResult Function(ListView data)? listView,
-    TResult Function(LabelerView data)? labelerView,
-    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedViewRecordViewRecord value) record,
-    required TResult Function(UEmbedViewRecordViewNotFound value) notFound,
-    required TResult Function(UEmbedViewRecordViewBlocked value) blocked,
-    required TResult Function(UEmbedViewRecordViewViewDetached value)
-        viewDetached,
-    required TResult Function(UEmbedViewRecordViewGeneratorView value)
-        generatorView,
-    required TResult Function(UEmbedViewRecordViewListView value) listView,
-    required TResult Function(UEmbedViewRecordViewLabelerView value)
-        labelerView,
-    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
-        starterPackViewBasic,
-    required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedViewRecordViewRecord value)? record,
-    TResult? Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult? Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult? Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult? Function(UEmbedViewRecordViewListView value)? listView,
-    TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedViewRecordViewRecord value)? record,
-    TResult Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult Function(UEmbedViewRecordViewListView value)? listView,
-    TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Object get data;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is EmbedViewRecordView &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'EmbedViewRecordView(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $EmbedViewRecordViewCopyWith<$Res> {
-  factory $EmbedViewRecordViewCopyWith(
-          EmbedViewRecordView value, $Res Function(EmbedViewRecordView) then) =
-      _$EmbedViewRecordViewCopyWithImpl<$Res, EmbedViewRecordView>;
+class $EmbedViewRecordViewCopyWith<$Res> {
+  $EmbedViewRecordViewCopyWith(
+      EmbedViewRecordView _, $Res Function(EmbedViewRecordView) __);
 }
 
 /// @nodoc
-class _$EmbedViewRecordViewCopyWithImpl<$Res, $Val extends EmbedViewRecordView>
-    implements $EmbedViewRecordViewCopyWith<$Res> {
-  _$EmbedViewRecordViewCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+class UEmbedViewRecordViewRecord implements EmbedViewRecordView {
+  const UEmbedViewRecordViewRecord({required this.data});
+
+  @override
+  final EmbedViewRecordViewRecord data;
 
   /// Create a copy of EmbedViewRecordView
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UEmbedViewRecordViewRecordCopyWith<UEmbedViewRecordViewRecord>
+      get copyWith =>
+          _$UEmbedViewRecordViewRecordCopyWithImpl<UEmbedViewRecordViewRecord>(
+              this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UEmbedViewRecordViewRecord &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'EmbedViewRecordView.record(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$UEmbedViewRecordViewRecordImplCopyWith<$Res> {
-  factory _$$UEmbedViewRecordViewRecordImplCopyWith(
-          _$UEmbedViewRecordViewRecordImpl value,
-          $Res Function(_$UEmbedViewRecordViewRecordImpl) then) =
-      __$$UEmbedViewRecordViewRecordImplCopyWithImpl<$Res>;
+abstract mixin class $UEmbedViewRecordViewRecordCopyWith<$Res>
+    implements $EmbedViewRecordViewCopyWith<$Res> {
+  factory $UEmbedViewRecordViewRecordCopyWith(UEmbedViewRecordViewRecord value,
+          $Res Function(UEmbedViewRecordViewRecord) _then) =
+      _$UEmbedViewRecordViewRecordCopyWithImpl;
   @useResult
   $Res call({EmbedViewRecordViewRecord data});
 
@@ -139,25 +88,22 @@ abstract class _$$UEmbedViewRecordViewRecordImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedViewRecordViewRecordImplCopyWithImpl<$Res>
-    extends _$EmbedViewRecordViewCopyWithImpl<$Res,
-        _$UEmbedViewRecordViewRecordImpl>
-    implements _$$UEmbedViewRecordViewRecordImplCopyWith<$Res> {
-  __$$UEmbedViewRecordViewRecordImplCopyWithImpl(
-      _$UEmbedViewRecordViewRecordImpl _value,
-      $Res Function(_$UEmbedViewRecordViewRecordImpl) _then)
-      : super(_value, _then);
+class _$UEmbedViewRecordViewRecordCopyWithImpl<$Res>
+    implements $UEmbedViewRecordViewRecordCopyWith<$Res> {
+  _$UEmbedViewRecordViewRecordCopyWithImpl(this._self, this._then);
+
+  final UEmbedViewRecordViewRecord _self;
+  final $Res Function(UEmbedViewRecordViewRecord) _then;
 
   /// Create a copy of EmbedViewRecordView
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedViewRecordViewRecordImpl(
+    return _then(UEmbedViewRecordViewRecord(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as EmbedViewRecordViewRecord,
     ));
@@ -168,177 +114,52 @@ class __$$UEmbedViewRecordViewRecordImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $EmbedViewRecordViewRecordCopyWith<$Res> get data {
-    return $EmbedViewRecordViewRecordCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $EmbedViewRecordViewRecordCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UEmbedViewRecordViewRecordImpl implements UEmbedViewRecordViewRecord {
-  const _$UEmbedViewRecordViewRecordImpl({required this.data});
+class UEmbedViewRecordViewNotFound implements EmbedViewRecordView {
+  const UEmbedViewRecordViewNotFound({required this.data});
 
   @override
-  final EmbedViewRecordViewRecord data;
+  final EmbedViewRecordViewNotFound data;
 
-  @override
-  String toString() {
-    return 'EmbedViewRecordView.record(data: $data)';
-  }
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UEmbedViewRecordViewNotFoundCopyWith<UEmbedViewRecordViewNotFound>
+      get copyWith => _$UEmbedViewRecordViewNotFoundCopyWithImpl<
+          UEmbedViewRecordViewNotFound>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedViewRecordViewRecordImpl &&
+            other is UEmbedViewRecordViewNotFound &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UEmbedViewRecordViewRecordImplCopyWith<_$UEmbedViewRecordViewRecordImpl>
-      get copyWith => __$$UEmbedViewRecordViewRecordImplCopyWithImpl<
-          _$UEmbedViewRecordViewRecordImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EmbedViewRecordViewRecord data) record,
-    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
-    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
-    required TResult Function(EmbedRecordViewDetached data) viewDetached,
-    required TResult Function(FeedGeneratorView data) generatorView,
-    required TResult Function(ListView data) listView,
-    required TResult Function(LabelerView data) labelerView,
-    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return record(data);
+  String toString() {
+    return 'EmbedViewRecordView.notFound(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedViewRecordViewRecord data)? record,
-    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult? Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult? Function(FeedGeneratorView data)? generatorView,
-    TResult? Function(ListView data)? listView,
-    TResult? Function(LabelerView data)? labelerView,
-    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return record?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedViewRecordViewRecord data)? record,
-    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult Function(FeedGeneratorView data)? generatorView,
-    TResult Function(ListView data)? listView,
-    TResult Function(LabelerView data)? labelerView,
-    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (record != null) {
-      return record(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedViewRecordViewRecord value) record,
-    required TResult Function(UEmbedViewRecordViewNotFound value) notFound,
-    required TResult Function(UEmbedViewRecordViewBlocked value) blocked,
-    required TResult Function(UEmbedViewRecordViewViewDetached value)
-        viewDetached,
-    required TResult Function(UEmbedViewRecordViewGeneratorView value)
-        generatorView,
-    required TResult Function(UEmbedViewRecordViewListView value) listView,
-    required TResult Function(UEmbedViewRecordViewLabelerView value)
-        labelerView,
-    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
-        starterPackViewBasic,
-    required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
-  }) {
-    return record(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedViewRecordViewRecord value)? record,
-    TResult? Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult? Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult? Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult? Function(UEmbedViewRecordViewListView value)? listView,
-    TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
-  }) {
-    return record?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedViewRecordViewRecord value)? record,
-    TResult Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult Function(UEmbedViewRecordViewListView value)? listView,
-    TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (record != null) {
-      return record(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UEmbedViewRecordViewRecord implements EmbedViewRecordView {
-  const factory UEmbedViewRecordViewRecord(
-          {required final EmbedViewRecordViewRecord data}) =
-      _$UEmbedViewRecordViewRecordImpl;
-
-  @override
-  EmbedViewRecordViewRecord get data;
-
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UEmbedViewRecordViewRecordImplCopyWith<_$UEmbedViewRecordViewRecordImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedViewRecordViewNotFoundImplCopyWith<$Res> {
-  factory _$$UEmbedViewRecordViewNotFoundImplCopyWith(
-          _$UEmbedViewRecordViewNotFoundImpl value,
-          $Res Function(_$UEmbedViewRecordViewNotFoundImpl) then) =
-      __$$UEmbedViewRecordViewNotFoundImplCopyWithImpl<$Res>;
+abstract mixin class $UEmbedViewRecordViewNotFoundCopyWith<$Res>
+    implements $EmbedViewRecordViewCopyWith<$Res> {
+  factory $UEmbedViewRecordViewNotFoundCopyWith(
+          UEmbedViewRecordViewNotFound value,
+          $Res Function(UEmbedViewRecordViewNotFound) _then) =
+      _$UEmbedViewRecordViewNotFoundCopyWithImpl;
   @useResult
   $Res call({EmbedViewRecordViewNotFound data});
 
@@ -346,25 +167,22 @@ abstract class _$$UEmbedViewRecordViewNotFoundImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedViewRecordViewNotFoundImplCopyWithImpl<$Res>
-    extends _$EmbedViewRecordViewCopyWithImpl<$Res,
-        _$UEmbedViewRecordViewNotFoundImpl>
-    implements _$$UEmbedViewRecordViewNotFoundImplCopyWith<$Res> {
-  __$$UEmbedViewRecordViewNotFoundImplCopyWithImpl(
-      _$UEmbedViewRecordViewNotFoundImpl _value,
-      $Res Function(_$UEmbedViewRecordViewNotFoundImpl) _then)
-      : super(_value, _then);
+class _$UEmbedViewRecordViewNotFoundCopyWithImpl<$Res>
+    implements $UEmbedViewRecordViewNotFoundCopyWith<$Res> {
+  _$UEmbedViewRecordViewNotFoundCopyWithImpl(this._self, this._then);
+
+  final UEmbedViewRecordViewNotFound _self;
+  final $Res Function(UEmbedViewRecordViewNotFound) _then;
 
   /// Create a copy of EmbedViewRecordView
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedViewRecordViewNotFoundImpl(
+    return _then(UEmbedViewRecordViewNotFound(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as EmbedViewRecordViewNotFound,
     ));
@@ -375,180 +193,52 @@ class __$$UEmbedViewRecordViewNotFoundImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $EmbedViewRecordViewNotFoundCopyWith<$Res> get data {
-    return $EmbedViewRecordViewNotFoundCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $EmbedViewRecordViewNotFoundCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UEmbedViewRecordViewNotFoundImpl
-    implements UEmbedViewRecordViewNotFound {
-  const _$UEmbedViewRecordViewNotFoundImpl({required this.data});
+class UEmbedViewRecordViewBlocked implements EmbedViewRecordView {
+  const UEmbedViewRecordViewBlocked({required this.data});
 
   @override
-  final EmbedViewRecordViewNotFound data;
+  final EmbedViewRecordViewBlocked data;
 
-  @override
-  String toString() {
-    return 'EmbedViewRecordView.notFound(data: $data)';
-  }
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UEmbedViewRecordViewBlockedCopyWith<UEmbedViewRecordViewBlocked>
+      get copyWith => _$UEmbedViewRecordViewBlockedCopyWithImpl<
+          UEmbedViewRecordViewBlocked>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedViewRecordViewNotFoundImpl &&
+            other is UEmbedViewRecordViewBlocked &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UEmbedViewRecordViewNotFoundImplCopyWith<
-          _$UEmbedViewRecordViewNotFoundImpl>
-      get copyWith => __$$UEmbedViewRecordViewNotFoundImplCopyWithImpl<
-          _$UEmbedViewRecordViewNotFoundImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EmbedViewRecordViewRecord data) record,
-    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
-    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
-    required TResult Function(EmbedRecordViewDetached data) viewDetached,
-    required TResult Function(FeedGeneratorView data) generatorView,
-    required TResult Function(ListView data) listView,
-    required TResult Function(LabelerView data) labelerView,
-    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return notFound(data);
+  String toString() {
+    return 'EmbedViewRecordView.blocked(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedViewRecordViewRecord data)? record,
-    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult? Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult? Function(FeedGeneratorView data)? generatorView,
-    TResult? Function(ListView data)? listView,
-    TResult? Function(LabelerView data)? labelerView,
-    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return notFound?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedViewRecordViewRecord data)? record,
-    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult Function(FeedGeneratorView data)? generatorView,
-    TResult Function(ListView data)? listView,
-    TResult Function(LabelerView data)? labelerView,
-    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (notFound != null) {
-      return notFound(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedViewRecordViewRecord value) record,
-    required TResult Function(UEmbedViewRecordViewNotFound value) notFound,
-    required TResult Function(UEmbedViewRecordViewBlocked value) blocked,
-    required TResult Function(UEmbedViewRecordViewViewDetached value)
-        viewDetached,
-    required TResult Function(UEmbedViewRecordViewGeneratorView value)
-        generatorView,
-    required TResult Function(UEmbedViewRecordViewListView value) listView,
-    required TResult Function(UEmbedViewRecordViewLabelerView value)
-        labelerView,
-    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
-        starterPackViewBasic,
-    required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
-  }) {
-    return notFound(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedViewRecordViewRecord value)? record,
-    TResult? Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult? Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult? Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult? Function(UEmbedViewRecordViewListView value)? listView,
-    TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
-  }) {
-    return notFound?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedViewRecordViewRecord value)? record,
-    TResult Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult Function(UEmbedViewRecordViewListView value)? listView,
-    TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (notFound != null) {
-      return notFound(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UEmbedViewRecordViewNotFound implements EmbedViewRecordView {
-  const factory UEmbedViewRecordViewNotFound(
-          {required final EmbedViewRecordViewNotFound data}) =
-      _$UEmbedViewRecordViewNotFoundImpl;
-
-  @override
-  EmbedViewRecordViewNotFound get data;
-
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UEmbedViewRecordViewNotFoundImplCopyWith<
-          _$UEmbedViewRecordViewNotFoundImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedViewRecordViewBlockedImplCopyWith<$Res> {
-  factory _$$UEmbedViewRecordViewBlockedImplCopyWith(
-          _$UEmbedViewRecordViewBlockedImpl value,
-          $Res Function(_$UEmbedViewRecordViewBlockedImpl) then) =
-      __$$UEmbedViewRecordViewBlockedImplCopyWithImpl<$Res>;
+abstract mixin class $UEmbedViewRecordViewBlockedCopyWith<$Res>
+    implements $EmbedViewRecordViewCopyWith<$Res> {
+  factory $UEmbedViewRecordViewBlockedCopyWith(
+          UEmbedViewRecordViewBlocked value,
+          $Res Function(UEmbedViewRecordViewBlocked) _then) =
+      _$UEmbedViewRecordViewBlockedCopyWithImpl;
   @useResult
   $Res call({EmbedViewRecordViewBlocked data});
 
@@ -556,25 +246,22 @@ abstract class _$$UEmbedViewRecordViewBlockedImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedViewRecordViewBlockedImplCopyWithImpl<$Res>
-    extends _$EmbedViewRecordViewCopyWithImpl<$Res,
-        _$UEmbedViewRecordViewBlockedImpl>
-    implements _$$UEmbedViewRecordViewBlockedImplCopyWith<$Res> {
-  __$$UEmbedViewRecordViewBlockedImplCopyWithImpl(
-      _$UEmbedViewRecordViewBlockedImpl _value,
-      $Res Function(_$UEmbedViewRecordViewBlockedImpl) _then)
-      : super(_value, _then);
+class _$UEmbedViewRecordViewBlockedCopyWithImpl<$Res>
+    implements $UEmbedViewRecordViewBlockedCopyWith<$Res> {
+  _$UEmbedViewRecordViewBlockedCopyWithImpl(this._self, this._then);
+
+  final UEmbedViewRecordViewBlocked _self;
+  final $Res Function(UEmbedViewRecordViewBlocked) _then;
 
   /// Create a copy of EmbedViewRecordView
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedViewRecordViewBlockedImpl(
+    return _then(UEmbedViewRecordViewBlocked(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as EmbedViewRecordViewBlocked,
     ));
@@ -585,177 +272,52 @@ class __$$UEmbedViewRecordViewBlockedImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $EmbedViewRecordViewBlockedCopyWith<$Res> get data {
-    return $EmbedViewRecordViewBlockedCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $EmbedViewRecordViewBlockedCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UEmbedViewRecordViewBlockedImpl implements UEmbedViewRecordViewBlocked {
-  const _$UEmbedViewRecordViewBlockedImpl({required this.data});
+class UEmbedViewRecordViewViewDetached implements EmbedViewRecordView {
+  const UEmbedViewRecordViewViewDetached({required this.data});
 
   @override
-  final EmbedViewRecordViewBlocked data;
+  final EmbedRecordViewDetached data;
 
-  @override
-  String toString() {
-    return 'EmbedViewRecordView.blocked(data: $data)';
-  }
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UEmbedViewRecordViewViewDetachedCopyWith<UEmbedViewRecordViewViewDetached>
+      get copyWith => _$UEmbedViewRecordViewViewDetachedCopyWithImpl<
+          UEmbedViewRecordViewViewDetached>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedViewRecordViewBlockedImpl &&
+            other is UEmbedViewRecordViewViewDetached &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UEmbedViewRecordViewBlockedImplCopyWith<_$UEmbedViewRecordViewBlockedImpl>
-      get copyWith => __$$UEmbedViewRecordViewBlockedImplCopyWithImpl<
-          _$UEmbedViewRecordViewBlockedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EmbedViewRecordViewRecord data) record,
-    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
-    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
-    required TResult Function(EmbedRecordViewDetached data) viewDetached,
-    required TResult Function(FeedGeneratorView data) generatorView,
-    required TResult Function(ListView data) listView,
-    required TResult Function(LabelerView data) labelerView,
-    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return blocked(data);
+  String toString() {
+    return 'EmbedViewRecordView.viewDetached(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedViewRecordViewRecord data)? record,
-    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult? Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult? Function(FeedGeneratorView data)? generatorView,
-    TResult? Function(ListView data)? listView,
-    TResult? Function(LabelerView data)? labelerView,
-    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return blocked?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedViewRecordViewRecord data)? record,
-    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult Function(FeedGeneratorView data)? generatorView,
-    TResult Function(ListView data)? listView,
-    TResult Function(LabelerView data)? labelerView,
-    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (blocked != null) {
-      return blocked(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedViewRecordViewRecord value) record,
-    required TResult Function(UEmbedViewRecordViewNotFound value) notFound,
-    required TResult Function(UEmbedViewRecordViewBlocked value) blocked,
-    required TResult Function(UEmbedViewRecordViewViewDetached value)
-        viewDetached,
-    required TResult Function(UEmbedViewRecordViewGeneratorView value)
-        generatorView,
-    required TResult Function(UEmbedViewRecordViewListView value) listView,
-    required TResult Function(UEmbedViewRecordViewLabelerView value)
-        labelerView,
-    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
-        starterPackViewBasic,
-    required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
-  }) {
-    return blocked(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedViewRecordViewRecord value)? record,
-    TResult? Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult? Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult? Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult? Function(UEmbedViewRecordViewListView value)? listView,
-    TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
-  }) {
-    return blocked?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedViewRecordViewRecord value)? record,
-    TResult Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult Function(UEmbedViewRecordViewListView value)? listView,
-    TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (blocked != null) {
-      return blocked(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UEmbedViewRecordViewBlocked implements EmbedViewRecordView {
-  const factory UEmbedViewRecordViewBlocked(
-          {required final EmbedViewRecordViewBlocked data}) =
-      _$UEmbedViewRecordViewBlockedImpl;
-
-  @override
-  EmbedViewRecordViewBlocked get data;
-
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UEmbedViewRecordViewBlockedImplCopyWith<_$UEmbedViewRecordViewBlockedImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedViewRecordViewViewDetachedImplCopyWith<$Res> {
-  factory _$$UEmbedViewRecordViewViewDetachedImplCopyWith(
-          _$UEmbedViewRecordViewViewDetachedImpl value,
-          $Res Function(_$UEmbedViewRecordViewViewDetachedImpl) then) =
-      __$$UEmbedViewRecordViewViewDetachedImplCopyWithImpl<$Res>;
+abstract mixin class $UEmbedViewRecordViewViewDetachedCopyWith<$Res>
+    implements $EmbedViewRecordViewCopyWith<$Res> {
+  factory $UEmbedViewRecordViewViewDetachedCopyWith(
+          UEmbedViewRecordViewViewDetached value,
+          $Res Function(UEmbedViewRecordViewViewDetached) _then) =
+      _$UEmbedViewRecordViewViewDetachedCopyWithImpl;
   @useResult
   $Res call({EmbedRecordViewDetached data});
 
@@ -763,25 +325,22 @@ abstract class _$$UEmbedViewRecordViewViewDetachedImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedViewRecordViewViewDetachedImplCopyWithImpl<$Res>
-    extends _$EmbedViewRecordViewCopyWithImpl<$Res,
-        _$UEmbedViewRecordViewViewDetachedImpl>
-    implements _$$UEmbedViewRecordViewViewDetachedImplCopyWith<$Res> {
-  __$$UEmbedViewRecordViewViewDetachedImplCopyWithImpl(
-      _$UEmbedViewRecordViewViewDetachedImpl _value,
-      $Res Function(_$UEmbedViewRecordViewViewDetachedImpl) _then)
-      : super(_value, _then);
+class _$UEmbedViewRecordViewViewDetachedCopyWithImpl<$Res>
+    implements $UEmbedViewRecordViewViewDetachedCopyWith<$Res> {
+  _$UEmbedViewRecordViewViewDetachedCopyWithImpl(this._self, this._then);
+
+  final UEmbedViewRecordViewViewDetached _self;
+  final $Res Function(UEmbedViewRecordViewViewDetached) _then;
 
   /// Create a copy of EmbedViewRecordView
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedViewRecordViewViewDetachedImpl(
+    return _then(UEmbedViewRecordViewViewDetached(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as EmbedRecordViewDetached,
     ));
@@ -792,180 +351,52 @@ class __$$UEmbedViewRecordViewViewDetachedImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $EmbedRecordViewDetachedCopyWith<$Res> get data {
-    return $EmbedRecordViewDetachedCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $EmbedRecordViewDetachedCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UEmbedViewRecordViewViewDetachedImpl
-    implements UEmbedViewRecordViewViewDetached {
-  const _$UEmbedViewRecordViewViewDetachedImpl({required this.data});
+class UEmbedViewRecordViewGeneratorView implements EmbedViewRecordView {
+  const UEmbedViewRecordViewGeneratorView({required this.data});
 
   @override
-  final EmbedRecordViewDetached data;
+  final FeedGeneratorView data;
 
-  @override
-  String toString() {
-    return 'EmbedViewRecordView.viewDetached(data: $data)';
-  }
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UEmbedViewRecordViewGeneratorViewCopyWith<UEmbedViewRecordViewGeneratorView>
+      get copyWith => _$UEmbedViewRecordViewGeneratorViewCopyWithImpl<
+          UEmbedViewRecordViewGeneratorView>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedViewRecordViewViewDetachedImpl &&
+            other is UEmbedViewRecordViewGeneratorView &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UEmbedViewRecordViewViewDetachedImplCopyWith<
-          _$UEmbedViewRecordViewViewDetachedImpl>
-      get copyWith => __$$UEmbedViewRecordViewViewDetachedImplCopyWithImpl<
-          _$UEmbedViewRecordViewViewDetachedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EmbedViewRecordViewRecord data) record,
-    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
-    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
-    required TResult Function(EmbedRecordViewDetached data) viewDetached,
-    required TResult Function(FeedGeneratorView data) generatorView,
-    required TResult Function(ListView data) listView,
-    required TResult Function(LabelerView data) labelerView,
-    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return viewDetached(data);
+  String toString() {
+    return 'EmbedViewRecordView.generatorView(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedViewRecordViewRecord data)? record,
-    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult? Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult? Function(FeedGeneratorView data)? generatorView,
-    TResult? Function(ListView data)? listView,
-    TResult? Function(LabelerView data)? labelerView,
-    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return viewDetached?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedViewRecordViewRecord data)? record,
-    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult Function(FeedGeneratorView data)? generatorView,
-    TResult Function(ListView data)? listView,
-    TResult Function(LabelerView data)? labelerView,
-    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (viewDetached != null) {
-      return viewDetached(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedViewRecordViewRecord value) record,
-    required TResult Function(UEmbedViewRecordViewNotFound value) notFound,
-    required TResult Function(UEmbedViewRecordViewBlocked value) blocked,
-    required TResult Function(UEmbedViewRecordViewViewDetached value)
-        viewDetached,
-    required TResult Function(UEmbedViewRecordViewGeneratorView value)
-        generatorView,
-    required TResult Function(UEmbedViewRecordViewListView value) listView,
-    required TResult Function(UEmbedViewRecordViewLabelerView value)
-        labelerView,
-    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
-        starterPackViewBasic,
-    required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
-  }) {
-    return viewDetached(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedViewRecordViewRecord value)? record,
-    TResult? Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult? Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult? Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult? Function(UEmbedViewRecordViewListView value)? listView,
-    TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
-  }) {
-    return viewDetached?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedViewRecordViewRecord value)? record,
-    TResult Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult Function(UEmbedViewRecordViewListView value)? listView,
-    TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (viewDetached != null) {
-      return viewDetached(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UEmbedViewRecordViewViewDetached implements EmbedViewRecordView {
-  const factory UEmbedViewRecordViewViewDetached(
-          {required final EmbedRecordViewDetached data}) =
-      _$UEmbedViewRecordViewViewDetachedImpl;
-
-  @override
-  EmbedRecordViewDetached get data;
-
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UEmbedViewRecordViewViewDetachedImplCopyWith<
-          _$UEmbedViewRecordViewViewDetachedImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedViewRecordViewGeneratorViewImplCopyWith<$Res> {
-  factory _$$UEmbedViewRecordViewGeneratorViewImplCopyWith(
-          _$UEmbedViewRecordViewGeneratorViewImpl value,
-          $Res Function(_$UEmbedViewRecordViewGeneratorViewImpl) then) =
-      __$$UEmbedViewRecordViewGeneratorViewImplCopyWithImpl<$Res>;
+abstract mixin class $UEmbedViewRecordViewGeneratorViewCopyWith<$Res>
+    implements $EmbedViewRecordViewCopyWith<$Res> {
+  factory $UEmbedViewRecordViewGeneratorViewCopyWith(
+          UEmbedViewRecordViewGeneratorView value,
+          $Res Function(UEmbedViewRecordViewGeneratorView) _then) =
+      _$UEmbedViewRecordViewGeneratorViewCopyWithImpl;
   @useResult
   $Res call({FeedGeneratorView data});
 
@@ -973,25 +404,22 @@ abstract class _$$UEmbedViewRecordViewGeneratorViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedViewRecordViewGeneratorViewImplCopyWithImpl<$Res>
-    extends _$EmbedViewRecordViewCopyWithImpl<$Res,
-        _$UEmbedViewRecordViewGeneratorViewImpl>
-    implements _$$UEmbedViewRecordViewGeneratorViewImplCopyWith<$Res> {
-  __$$UEmbedViewRecordViewGeneratorViewImplCopyWithImpl(
-      _$UEmbedViewRecordViewGeneratorViewImpl _value,
-      $Res Function(_$UEmbedViewRecordViewGeneratorViewImpl) _then)
-      : super(_value, _then);
+class _$UEmbedViewRecordViewGeneratorViewCopyWithImpl<$Res>
+    implements $UEmbedViewRecordViewGeneratorViewCopyWith<$Res> {
+  _$UEmbedViewRecordViewGeneratorViewCopyWithImpl(this._self, this._then);
+
+  final UEmbedViewRecordViewGeneratorView _self;
+  final $Res Function(UEmbedViewRecordViewGeneratorView) _then;
 
   /// Create a copy of EmbedViewRecordView
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedViewRecordViewGeneratorViewImpl(
+    return _then(UEmbedViewRecordViewGeneratorView(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as FeedGeneratorView,
     ));
@@ -1002,181 +430,52 @@ class __$$UEmbedViewRecordViewGeneratorViewImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $FeedGeneratorViewCopyWith<$Res> get data {
-    return $FeedGeneratorViewCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $FeedGeneratorViewCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UEmbedViewRecordViewGeneratorViewImpl
-    implements UEmbedViewRecordViewGeneratorView {
-  const _$UEmbedViewRecordViewGeneratorViewImpl({required this.data});
+class UEmbedViewRecordViewListView implements EmbedViewRecordView {
+  const UEmbedViewRecordViewListView({required this.data});
 
   @override
-  final FeedGeneratorView data;
+  final ListView data;
 
-  @override
-  String toString() {
-    return 'EmbedViewRecordView.generatorView(data: $data)';
-  }
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UEmbedViewRecordViewListViewCopyWith<UEmbedViewRecordViewListView>
+      get copyWith => _$UEmbedViewRecordViewListViewCopyWithImpl<
+          UEmbedViewRecordViewListView>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedViewRecordViewGeneratorViewImpl &&
+            other is UEmbedViewRecordViewListView &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UEmbedViewRecordViewGeneratorViewImplCopyWith<
-          _$UEmbedViewRecordViewGeneratorViewImpl>
-      get copyWith => __$$UEmbedViewRecordViewGeneratorViewImplCopyWithImpl<
-          _$UEmbedViewRecordViewGeneratorViewImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EmbedViewRecordViewRecord data) record,
-    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
-    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
-    required TResult Function(EmbedRecordViewDetached data) viewDetached,
-    required TResult Function(FeedGeneratorView data) generatorView,
-    required TResult Function(ListView data) listView,
-    required TResult Function(LabelerView data) labelerView,
-    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return generatorView(data);
+  String toString() {
+    return 'EmbedViewRecordView.listView(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedViewRecordViewRecord data)? record,
-    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult? Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult? Function(FeedGeneratorView data)? generatorView,
-    TResult? Function(ListView data)? listView,
-    TResult? Function(LabelerView data)? labelerView,
-    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return generatorView?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedViewRecordViewRecord data)? record,
-    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult Function(FeedGeneratorView data)? generatorView,
-    TResult Function(ListView data)? listView,
-    TResult Function(LabelerView data)? labelerView,
-    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (generatorView != null) {
-      return generatorView(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedViewRecordViewRecord value) record,
-    required TResult Function(UEmbedViewRecordViewNotFound value) notFound,
-    required TResult Function(UEmbedViewRecordViewBlocked value) blocked,
-    required TResult Function(UEmbedViewRecordViewViewDetached value)
-        viewDetached,
-    required TResult Function(UEmbedViewRecordViewGeneratorView value)
-        generatorView,
-    required TResult Function(UEmbedViewRecordViewListView value) listView,
-    required TResult Function(UEmbedViewRecordViewLabelerView value)
-        labelerView,
-    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
-        starterPackViewBasic,
-    required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
-  }) {
-    return generatorView(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedViewRecordViewRecord value)? record,
-    TResult? Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult? Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult? Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult? Function(UEmbedViewRecordViewListView value)? listView,
-    TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
-  }) {
-    return generatorView?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedViewRecordViewRecord value)? record,
-    TResult Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult Function(UEmbedViewRecordViewListView value)? listView,
-    TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (generatorView != null) {
-      return generatorView(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UEmbedViewRecordViewGeneratorView
-    implements EmbedViewRecordView {
-  const factory UEmbedViewRecordViewGeneratorView(
-          {required final FeedGeneratorView data}) =
-      _$UEmbedViewRecordViewGeneratorViewImpl;
-
-  @override
-  FeedGeneratorView get data;
-
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UEmbedViewRecordViewGeneratorViewImplCopyWith<
-          _$UEmbedViewRecordViewGeneratorViewImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedViewRecordViewListViewImplCopyWith<$Res> {
-  factory _$$UEmbedViewRecordViewListViewImplCopyWith(
-          _$UEmbedViewRecordViewListViewImpl value,
-          $Res Function(_$UEmbedViewRecordViewListViewImpl) then) =
-      __$$UEmbedViewRecordViewListViewImplCopyWithImpl<$Res>;
+abstract mixin class $UEmbedViewRecordViewListViewCopyWith<$Res>
+    implements $EmbedViewRecordViewCopyWith<$Res> {
+  factory $UEmbedViewRecordViewListViewCopyWith(
+          UEmbedViewRecordViewListView value,
+          $Res Function(UEmbedViewRecordViewListView) _then) =
+      _$UEmbedViewRecordViewListViewCopyWithImpl;
   @useResult
   $Res call({ListView data});
 
@@ -1184,25 +483,22 @@ abstract class _$$UEmbedViewRecordViewListViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedViewRecordViewListViewImplCopyWithImpl<$Res>
-    extends _$EmbedViewRecordViewCopyWithImpl<$Res,
-        _$UEmbedViewRecordViewListViewImpl>
-    implements _$$UEmbedViewRecordViewListViewImplCopyWith<$Res> {
-  __$$UEmbedViewRecordViewListViewImplCopyWithImpl(
-      _$UEmbedViewRecordViewListViewImpl _value,
-      $Res Function(_$UEmbedViewRecordViewListViewImpl) _then)
-      : super(_value, _then);
+class _$UEmbedViewRecordViewListViewCopyWithImpl<$Res>
+    implements $UEmbedViewRecordViewListViewCopyWith<$Res> {
+  _$UEmbedViewRecordViewListViewCopyWithImpl(this._self, this._then);
+
+  final UEmbedViewRecordViewListView _self;
+  final $Res Function(UEmbedViewRecordViewListView) _then;
 
   /// Create a copy of EmbedViewRecordView
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedViewRecordViewListViewImpl(
+    return _then(UEmbedViewRecordViewListView(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as ListView,
     ));
@@ -1213,179 +509,52 @@ class __$$UEmbedViewRecordViewListViewImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $ListViewCopyWith<$Res> get data {
-    return $ListViewCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $ListViewCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UEmbedViewRecordViewListViewImpl
-    implements UEmbedViewRecordViewListView {
-  const _$UEmbedViewRecordViewListViewImpl({required this.data});
+class UEmbedViewRecordViewLabelerView implements EmbedViewRecordView {
+  const UEmbedViewRecordViewLabelerView({required this.data});
 
   @override
-  final ListView data;
+  final LabelerView data;
 
-  @override
-  String toString() {
-    return 'EmbedViewRecordView.listView(data: $data)';
-  }
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UEmbedViewRecordViewLabelerViewCopyWith<UEmbedViewRecordViewLabelerView>
+      get copyWith => _$UEmbedViewRecordViewLabelerViewCopyWithImpl<
+          UEmbedViewRecordViewLabelerView>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedViewRecordViewListViewImpl &&
+            other is UEmbedViewRecordViewLabelerView &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UEmbedViewRecordViewListViewImplCopyWith<
-          _$UEmbedViewRecordViewListViewImpl>
-      get copyWith => __$$UEmbedViewRecordViewListViewImplCopyWithImpl<
-          _$UEmbedViewRecordViewListViewImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EmbedViewRecordViewRecord data) record,
-    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
-    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
-    required TResult Function(EmbedRecordViewDetached data) viewDetached,
-    required TResult Function(FeedGeneratorView data) generatorView,
-    required TResult Function(ListView data) listView,
-    required TResult Function(LabelerView data) labelerView,
-    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return listView(data);
+  String toString() {
+    return 'EmbedViewRecordView.labelerView(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedViewRecordViewRecord data)? record,
-    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult? Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult? Function(FeedGeneratorView data)? generatorView,
-    TResult? Function(ListView data)? listView,
-    TResult? Function(LabelerView data)? labelerView,
-    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return listView?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedViewRecordViewRecord data)? record,
-    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult Function(FeedGeneratorView data)? generatorView,
-    TResult Function(ListView data)? listView,
-    TResult Function(LabelerView data)? labelerView,
-    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (listView != null) {
-      return listView(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedViewRecordViewRecord value) record,
-    required TResult Function(UEmbedViewRecordViewNotFound value) notFound,
-    required TResult Function(UEmbedViewRecordViewBlocked value) blocked,
-    required TResult Function(UEmbedViewRecordViewViewDetached value)
-        viewDetached,
-    required TResult Function(UEmbedViewRecordViewGeneratorView value)
-        generatorView,
-    required TResult Function(UEmbedViewRecordViewListView value) listView,
-    required TResult Function(UEmbedViewRecordViewLabelerView value)
-        labelerView,
-    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
-        starterPackViewBasic,
-    required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
-  }) {
-    return listView(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedViewRecordViewRecord value)? record,
-    TResult? Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult? Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult? Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult? Function(UEmbedViewRecordViewListView value)? listView,
-    TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
-  }) {
-    return listView?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedViewRecordViewRecord value)? record,
-    TResult Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult Function(UEmbedViewRecordViewListView value)? listView,
-    TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (listView != null) {
-      return listView(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UEmbedViewRecordViewListView implements EmbedViewRecordView {
-  const factory UEmbedViewRecordViewListView({required final ListView data}) =
-      _$UEmbedViewRecordViewListViewImpl;
-
-  @override
-  ListView get data;
-
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UEmbedViewRecordViewListViewImplCopyWith<
-          _$UEmbedViewRecordViewListViewImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedViewRecordViewLabelerViewImplCopyWith<$Res> {
-  factory _$$UEmbedViewRecordViewLabelerViewImplCopyWith(
-          _$UEmbedViewRecordViewLabelerViewImpl value,
-          $Res Function(_$UEmbedViewRecordViewLabelerViewImpl) then) =
-      __$$UEmbedViewRecordViewLabelerViewImplCopyWithImpl<$Res>;
+abstract mixin class $UEmbedViewRecordViewLabelerViewCopyWith<$Res>
+    implements $EmbedViewRecordViewCopyWith<$Res> {
+  factory $UEmbedViewRecordViewLabelerViewCopyWith(
+          UEmbedViewRecordViewLabelerView value,
+          $Res Function(UEmbedViewRecordViewLabelerView) _then) =
+      _$UEmbedViewRecordViewLabelerViewCopyWithImpl;
   @useResult
   $Res call({LabelerView data});
 
@@ -1393,25 +562,22 @@ abstract class _$$UEmbedViewRecordViewLabelerViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedViewRecordViewLabelerViewImplCopyWithImpl<$Res>
-    extends _$EmbedViewRecordViewCopyWithImpl<$Res,
-        _$UEmbedViewRecordViewLabelerViewImpl>
-    implements _$$UEmbedViewRecordViewLabelerViewImplCopyWith<$Res> {
-  __$$UEmbedViewRecordViewLabelerViewImplCopyWithImpl(
-      _$UEmbedViewRecordViewLabelerViewImpl _value,
-      $Res Function(_$UEmbedViewRecordViewLabelerViewImpl) _then)
-      : super(_value, _then);
+class _$UEmbedViewRecordViewLabelerViewCopyWithImpl<$Res>
+    implements $UEmbedViewRecordViewLabelerViewCopyWith<$Res> {
+  _$UEmbedViewRecordViewLabelerViewCopyWithImpl(this._self, this._then);
+
+  final UEmbedViewRecordViewLabelerView _self;
+  final $Res Function(UEmbedViewRecordViewLabelerView) _then;
 
   /// Create a copy of EmbedViewRecordView
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedViewRecordViewLabelerViewImpl(
+    return _then(UEmbedViewRecordViewLabelerView(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as LabelerView,
     ));
@@ -1422,180 +588,53 @@ class __$$UEmbedViewRecordViewLabelerViewImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $LabelerViewCopyWith<$Res> get data {
-    return $LabelerViewCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $LabelerViewCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UEmbedViewRecordViewLabelerViewImpl
-    implements UEmbedViewRecordViewLabelerView {
-  const _$UEmbedViewRecordViewLabelerViewImpl({required this.data});
+class UEmbedViewRecordViewStarterPackViewBasic implements EmbedViewRecordView {
+  const UEmbedViewRecordViewStarterPackViewBasic({required this.data});
 
   @override
-  final LabelerView data;
+  final StarterPackViewBasic data;
 
-  @override
-  String toString() {
-    return 'EmbedViewRecordView.labelerView(data: $data)';
-  }
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UEmbedViewRecordViewStarterPackViewBasicCopyWith<
+          UEmbedViewRecordViewStarterPackViewBasic>
+      get copyWith => _$UEmbedViewRecordViewStarterPackViewBasicCopyWithImpl<
+          UEmbedViewRecordViewStarterPackViewBasic>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedViewRecordViewLabelerViewImpl &&
+            other is UEmbedViewRecordViewStarterPackViewBasic &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UEmbedViewRecordViewLabelerViewImplCopyWith<
-          _$UEmbedViewRecordViewLabelerViewImpl>
-      get copyWith => __$$UEmbedViewRecordViewLabelerViewImplCopyWithImpl<
-          _$UEmbedViewRecordViewLabelerViewImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EmbedViewRecordViewRecord data) record,
-    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
-    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
-    required TResult Function(EmbedRecordViewDetached data) viewDetached,
-    required TResult Function(FeedGeneratorView data) generatorView,
-    required TResult Function(ListView data) listView,
-    required TResult Function(LabelerView data) labelerView,
-    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return labelerView(data);
+  String toString() {
+    return 'EmbedViewRecordView.starterPackViewBasic(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedViewRecordViewRecord data)? record,
-    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult? Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult? Function(FeedGeneratorView data)? generatorView,
-    TResult? Function(ListView data)? listView,
-    TResult? Function(LabelerView data)? labelerView,
-    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return labelerView?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedViewRecordViewRecord data)? record,
-    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult Function(FeedGeneratorView data)? generatorView,
-    TResult Function(ListView data)? listView,
-    TResult Function(LabelerView data)? labelerView,
-    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (labelerView != null) {
-      return labelerView(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedViewRecordViewRecord value) record,
-    required TResult Function(UEmbedViewRecordViewNotFound value) notFound,
-    required TResult Function(UEmbedViewRecordViewBlocked value) blocked,
-    required TResult Function(UEmbedViewRecordViewViewDetached value)
-        viewDetached,
-    required TResult Function(UEmbedViewRecordViewGeneratorView value)
-        generatorView,
-    required TResult Function(UEmbedViewRecordViewListView value) listView,
-    required TResult Function(UEmbedViewRecordViewLabelerView value)
-        labelerView,
-    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
-        starterPackViewBasic,
-    required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
-  }) {
-    return labelerView(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedViewRecordViewRecord value)? record,
-    TResult? Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult? Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult? Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult? Function(UEmbedViewRecordViewListView value)? listView,
-    TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
-  }) {
-    return labelerView?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedViewRecordViewRecord value)? record,
-    TResult Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult Function(UEmbedViewRecordViewListView value)? listView,
-    TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (labelerView != null) {
-      return labelerView(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UEmbedViewRecordViewLabelerView implements EmbedViewRecordView {
-  const factory UEmbedViewRecordViewLabelerView(
-          {required final LabelerView data}) =
-      _$UEmbedViewRecordViewLabelerViewImpl;
-
-  @override
-  LabelerView get data;
-
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UEmbedViewRecordViewLabelerViewImplCopyWith<
-          _$UEmbedViewRecordViewLabelerViewImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWith<$Res> {
-  factory _$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWith(
-          _$UEmbedViewRecordViewStarterPackViewBasicImpl value,
-          $Res Function(_$UEmbedViewRecordViewStarterPackViewBasicImpl) then) =
-      __$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWithImpl<$Res>;
+abstract mixin class $UEmbedViewRecordViewStarterPackViewBasicCopyWith<$Res>
+    implements $EmbedViewRecordViewCopyWith<$Res> {
+  factory $UEmbedViewRecordViewStarterPackViewBasicCopyWith(
+          UEmbedViewRecordViewStarterPackViewBasic value,
+          $Res Function(UEmbedViewRecordViewStarterPackViewBasic) _then) =
+      _$UEmbedViewRecordViewStarterPackViewBasicCopyWithImpl;
   @useResult
   $Res call({StarterPackViewBasic data});
 
@@ -1603,25 +642,23 @@ abstract class _$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWithImpl<$Res>
-    extends _$EmbedViewRecordViewCopyWithImpl<$Res,
-        _$UEmbedViewRecordViewStarterPackViewBasicImpl>
-    implements _$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWith<$Res> {
-  __$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWithImpl(
-      _$UEmbedViewRecordViewStarterPackViewBasicImpl _value,
-      $Res Function(_$UEmbedViewRecordViewStarterPackViewBasicImpl) _then)
-      : super(_value, _then);
+class _$UEmbedViewRecordViewStarterPackViewBasicCopyWithImpl<$Res>
+    implements $UEmbedViewRecordViewStarterPackViewBasicCopyWith<$Res> {
+  _$UEmbedViewRecordViewStarterPackViewBasicCopyWithImpl(
+      this._self, this._then);
+
+  final UEmbedViewRecordViewStarterPackViewBasic _self;
+  final $Res Function(UEmbedViewRecordViewStarterPackViewBasic) _then;
 
   /// Create a copy of EmbedViewRecordView
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedViewRecordViewStarterPackViewBasicImpl(
+    return _then(UEmbedViewRecordViewStarterPackViewBasic(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as StarterPackViewBasic,
     ));
@@ -1632,217 +669,16 @@ class __$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $StarterPackViewBasicCopyWith<$Res> get data {
-    return $StarterPackViewBasicCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $StarterPackViewBasicCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UEmbedViewRecordViewStarterPackViewBasicImpl
-    implements UEmbedViewRecordViewStarterPackViewBasic {
-  const _$UEmbedViewRecordViewStarterPackViewBasicImpl({required this.data});
-
-  @override
-  final StarterPackViewBasic data;
-
-  @override
-  String toString() {
-    return 'EmbedViewRecordView.starterPackViewBasic(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UEmbedViewRecordViewStarterPackViewBasicImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWith<
-          _$UEmbedViewRecordViewStarterPackViewBasicImpl>
-      get copyWith =>
-          __$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWithImpl<
-              _$UEmbedViewRecordViewStarterPackViewBasicImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EmbedViewRecordViewRecord data) record,
-    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
-    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
-    required TResult Function(EmbedRecordViewDetached data) viewDetached,
-    required TResult Function(FeedGeneratorView data) generatorView,
-    required TResult Function(ListView data) listView,
-    required TResult Function(LabelerView data) labelerView,
-    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return starterPackViewBasic(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedViewRecordViewRecord data)? record,
-    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult? Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult? Function(FeedGeneratorView data)? generatorView,
-    TResult? Function(ListView data)? listView,
-    TResult? Function(LabelerView data)? labelerView,
-    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return starterPackViewBasic?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedViewRecordViewRecord data)? record,
-    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult Function(FeedGeneratorView data)? generatorView,
-    TResult Function(ListView data)? listView,
-    TResult Function(LabelerView data)? labelerView,
-    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (starterPackViewBasic != null) {
-      return starterPackViewBasic(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedViewRecordViewRecord value) record,
-    required TResult Function(UEmbedViewRecordViewNotFound value) notFound,
-    required TResult Function(UEmbedViewRecordViewBlocked value) blocked,
-    required TResult Function(UEmbedViewRecordViewViewDetached value)
-        viewDetached,
-    required TResult Function(UEmbedViewRecordViewGeneratorView value)
-        generatorView,
-    required TResult Function(UEmbedViewRecordViewListView value) listView,
-    required TResult Function(UEmbedViewRecordViewLabelerView value)
-        labelerView,
-    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
-        starterPackViewBasic,
-    required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
-  }) {
-    return starterPackViewBasic(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedViewRecordViewRecord value)? record,
-    TResult? Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult? Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult? Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult? Function(UEmbedViewRecordViewListView value)? listView,
-    TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
-  }) {
-    return starterPackViewBasic?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedViewRecordViewRecord value)? record,
-    TResult Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult Function(UEmbedViewRecordViewListView value)? listView,
-    TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (starterPackViewBasic != null) {
-      return starterPackViewBasic(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UEmbedViewRecordViewStarterPackViewBasic
-    implements EmbedViewRecordView {
-  const factory UEmbedViewRecordViewStarterPackViewBasic(
-          {required final StarterPackViewBasic data}) =
-      _$UEmbedViewRecordViewStarterPackViewBasicImpl;
-
-  @override
-  StarterPackViewBasic get data;
-
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWith<
-          _$UEmbedViewRecordViewStarterPackViewBasicImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UEmbedViewRecordViewUnknownImplCopyWith<$Res> {
-  factory _$$UEmbedViewRecordViewUnknownImplCopyWith(
-          _$UEmbedViewRecordViewUnknownImpl value,
-          $Res Function(_$UEmbedViewRecordViewUnknownImpl) then) =
-      __$$UEmbedViewRecordViewUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
-}
-
-/// @nodoc
-class __$$UEmbedViewRecordViewUnknownImplCopyWithImpl<$Res>
-    extends _$EmbedViewRecordViewCopyWithImpl<$Res,
-        _$UEmbedViewRecordViewUnknownImpl>
-    implements _$$UEmbedViewRecordViewUnknownImplCopyWith<$Res> {
-  __$$UEmbedViewRecordViewUnknownImplCopyWithImpl(
-      _$UEmbedViewRecordViewUnknownImpl _value,
-      $Res Function(_$UEmbedViewRecordViewUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UEmbedViewRecordViewUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$UEmbedViewRecordViewUnknownImpl implements UEmbedViewRecordViewUnknown {
-  const _$UEmbedViewRecordViewUnknownImpl(
-      {required final Map<String, dynamic> data})
+class UEmbedViewRecordViewUnknown implements EmbedViewRecordView {
+  const UEmbedViewRecordViewUnknown({required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -1853,16 +689,19 @@ class _$UEmbedViewRecordViewUnknownImpl implements UEmbedViewRecordViewUnknown {
     return EqualUnmodifiableMapView(_data);
   }
 
-  @override
-  String toString() {
-    return 'EmbedViewRecordView.unknown(data: $data)';
-  }
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UEmbedViewRecordViewUnknownCopyWith<UEmbedViewRecordViewUnknown>
+      get copyWith => _$UEmbedViewRecordViewUnknownCopyWithImpl<
+          UEmbedViewRecordViewUnknown>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedViewRecordViewUnknownImpl &&
+            other is UEmbedViewRecordViewUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -1870,137 +709,44 @@ class _$UEmbedViewRecordViewUnknownImpl implements UEmbedViewRecordViewUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
+  @override
+  String toString() {
+    return 'EmbedViewRecordView.unknown(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UEmbedViewRecordViewUnknownCopyWith<$Res>
+    implements $EmbedViewRecordViewCopyWith<$Res> {
+  factory $UEmbedViewRecordViewUnknownCopyWith(
+          UEmbedViewRecordViewUnknown value,
+          $Res Function(UEmbedViewRecordViewUnknown) _then) =
+      _$UEmbedViewRecordViewUnknownCopyWithImpl;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class _$UEmbedViewRecordViewUnknownCopyWithImpl<$Res>
+    implements $UEmbedViewRecordViewUnknownCopyWith<$Res> {
+  _$UEmbedViewRecordViewUnknownCopyWithImpl(this._self, this._then);
+
+  final UEmbedViewRecordViewUnknown _self;
+  final $Res Function(UEmbedViewRecordViewUnknown) _then;
+
   /// Create a copy of EmbedViewRecordView
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$UEmbedViewRecordViewUnknownImplCopyWith<_$UEmbedViewRecordViewUnknownImpl>
-      get copyWith => __$$UEmbedViewRecordViewUnknownImplCopyWithImpl<
-          _$UEmbedViewRecordViewUnknownImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EmbedViewRecordViewRecord data) record,
-    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
-    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
-    required TResult Function(EmbedRecordViewDetached data) viewDetached,
-    required TResult Function(FeedGeneratorView data) generatorView,
-    required TResult Function(ListView data) listView,
-    required TResult Function(LabelerView data) labelerView,
-    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
-    required TResult Function(Map<String, dynamic> data) unknown,
+  $Res call({
+    Object? data = null,
   }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedViewRecordViewRecord data)? record,
-    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult? Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult? Function(FeedGeneratorView data)? generatorView,
-    TResult? Function(ListView data)? listView,
-    TResult? Function(LabelerView data)? labelerView,
-    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedViewRecordViewRecord data)? record,
-    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
-    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
-    TResult Function(EmbedRecordViewDetached data)? viewDetached,
-    TResult Function(FeedGeneratorView data)? generatorView,
-    TResult Function(ListView data)? listView,
-    TResult Function(LabelerView data)? labelerView,
-    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedViewRecordViewRecord value) record,
-    required TResult Function(UEmbedViewRecordViewNotFound value) notFound,
-    required TResult Function(UEmbedViewRecordViewBlocked value) blocked,
-    required TResult Function(UEmbedViewRecordViewViewDetached value)
-        viewDetached,
-    required TResult Function(UEmbedViewRecordViewGeneratorView value)
-        generatorView,
-    required TResult Function(UEmbedViewRecordViewListView value) listView,
-    required TResult Function(UEmbedViewRecordViewLabelerView value)
-        labelerView,
-    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
-        starterPackViewBasic,
-    required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedViewRecordViewRecord value)? record,
-    TResult? Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult? Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult? Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult? Function(UEmbedViewRecordViewListView value)? listView,
-    TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedViewRecordViewRecord value)? record,
-    TResult Function(UEmbedViewRecordViewNotFound value)? notFound,
-    TResult Function(UEmbedViewRecordViewBlocked value)? blocked,
-    TResult Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
-    TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
-    TResult Function(UEmbedViewRecordViewListView value)? listView,
-    TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
-    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
-        starterPackViewBasic,
-    TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
+    return _then(UEmbedViewRecordViewUnknown(
+      data: null == data
+          ? _self._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
   }
 }
 
-abstract class UEmbedViewRecordViewUnknown implements EmbedViewRecordView {
-  const factory UEmbedViewRecordViewUnknown(
-          {required final Map<String, dynamic> data}) =
-      _$UEmbedViewRecordViewUnknownImpl;
-
-  @override
-  Map<String, dynamic> get data;
-
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UEmbedViewRecordViewUnknownImplCopyWith<_$UEmbedViewRecordViewUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

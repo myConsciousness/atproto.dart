@@ -11,7 +11,7 @@ part 'self_labels.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#selflabels
 @freezed
-class SelfLabels with _$SelfLabels {
+abstract class SelfLabels with _$SelfLabels {
   const factory SelfLabels({
     @typeKey @Default(comAtprotoLabelDefsSelfLabels) String type,
     required List<SelfLabel> values,

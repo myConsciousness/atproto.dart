@@ -8,11 +8,11 @@ part of 'lex_string.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LexStringImpl _$$LexStringImplFromJson(Map json) => $checkedCreate(
-      r'_$LexStringImpl',
+_LexString _$LexStringFromJson(Map json) => $checkedCreate(
+      '_LexString',
       json,
       ($checkedConvert) {
-        final val = _$LexStringImpl(
+        final val = _LexString(
           type: $checkedConvert('type', (v) => v as String? ?? 'string'),
           format: $checkedConvert('format',
               (v) => $enumDecodeNullable(_$LexStringFormatEnumMap, v)),
@@ -39,7 +39,7 @@ _$LexStringImpl _$$LexStringImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LexStringImplToJson(_$LexStringImpl instance) =>
+Map<String, dynamic> _$LexStringToJson(_LexString instance) =>
     <String, dynamic>{
       'type': instance.type,
       if (_$LexStringFormatEnumMap[instance.format] case final value?)

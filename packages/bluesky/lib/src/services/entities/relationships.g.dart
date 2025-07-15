@@ -8,11 +8,11 @@ part of 'relationships.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RelationshipsImpl _$$RelationshipsImplFromJson(Map json) => $checkedCreate(
-      r'_$RelationshipsImpl',
+_Relationships _$RelationshipsFromJson(Map json) => $checkedCreate(
+      '_Relationships',
       json,
       ($checkedConvert) {
-        final val = _$RelationshipsImpl(
+        final val = _Relationships(
           relationships: $checkedConvert(
               'relationships',
               (v) => (v as List<dynamic>)
@@ -24,7 +24,7 @@ _$RelationshipsImpl _$$RelationshipsImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$RelationshipsImplToJson(_$RelationshipsImpl instance) =>
+Map<String, dynamic> _$RelationshipsToJson(_Relationships instance) =>
     <String, dynamic>{
       'relationships':
           instance.relationships.map(relationshipConverter.toJson).toList(),

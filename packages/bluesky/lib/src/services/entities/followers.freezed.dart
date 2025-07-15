@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,35 +10,50 @@ part of 'followers.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Followers _$FollowersFromJson(Map<String, dynamic> json) {
-  return _Followers.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Followers {
-  Actor get subject => throw _privateConstructorUsedError;
-  List<Actor> get followers => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-
-  /// Serializes this Followers to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Actor get subject;
+  List<Actor> get followers;
+  String? get cursor;
 
   /// Create a copy of Followers
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $FollowersCopyWith<Followers> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$FollowersCopyWithImpl<Followers>(this as Followers, _$identity);
+
+  /// Serializes this Followers to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Followers &&
+            (identical(other.subject, subject) || other.subject == subject) &&
+            const DeepCollectionEquality().equals(other.followers, followers) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, subject,
+      const DeepCollectionEquality().hash(followers), cursor);
+
+  @override
+  String toString() {
+    return 'Followers(subject: $subject, followers: $followers, cursor: $cursor)';
+  }
 }
 
 /// @nodoc
-abstract class $FollowersCopyWith<$Res> {
-  factory $FollowersCopyWith(Followers value, $Res Function(Followers) then) =
-      _$FollowersCopyWithImpl<$Res, Followers>;
+abstract mixin class $FollowersCopyWith<$Res> {
+  factory $FollowersCopyWith(Followers value, $Res Function(Followers) _then) =
+      _$FollowersCopyWithImpl;
   @useResult
   $Res call({Actor subject, List<Actor> followers, String? cursor});
 
@@ -45,14 +61,11 @@ abstract class $FollowersCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FollowersCopyWithImpl<$Res, $Val extends Followers>
-    implements $FollowersCopyWith<$Res> {
-  _$FollowersCopyWithImpl(this._value, this._then);
+class _$FollowersCopyWithImpl<$Res> implements $FollowersCopyWith<$Res> {
+  _$FollowersCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Followers _self;
+  final $Res Function(Followers) _then;
 
   /// Create a copy of Followers
   /// with the given fields replaced by the non-null parameter values.
@@ -63,20 +76,20 @@ class _$FollowersCopyWithImpl<$Res, $Val extends Followers>
     Object? followers = null,
     Object? cursor = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       subject: null == subject
-          ? _value.subject
+          ? _self.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as Actor,
       followers: null == followers
-          ? _value.followers
+          ? _self.followers
           : followers // ignore: cast_nullable_to_non_nullable
               as List<Actor>,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of Followers
@@ -84,71 +97,22 @@ class _$FollowersCopyWithImpl<$Res, $Val extends Followers>
   @override
   @pragma('vm:prefer-inline')
   $ActorCopyWith<$Res> get subject {
-    return $ActorCopyWith<$Res>(_value.subject, (value) {
-      return _then(_value.copyWith(subject: value) as $Val);
+    return $ActorCopyWith<$Res>(_self.subject, (value) {
+      return _then(_self.copyWith(subject: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$FollowersImplCopyWith<$Res>
-    implements $FollowersCopyWith<$Res> {
-  factory _$$FollowersImplCopyWith(
-          _$FollowersImpl value, $Res Function(_$FollowersImpl) then) =
-      __$$FollowersImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Actor subject, List<Actor> followers, String? cursor});
-
-  @override
-  $ActorCopyWith<$Res> get subject;
-}
-
-/// @nodoc
-class __$$FollowersImplCopyWithImpl<$Res>
-    extends _$FollowersCopyWithImpl<$Res, _$FollowersImpl>
-    implements _$$FollowersImplCopyWith<$Res> {
-  __$$FollowersImplCopyWithImpl(
-      _$FollowersImpl _value, $Res Function(_$FollowersImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Followers
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? subject = null,
-    Object? followers = null,
-    Object? cursor = freezed,
-  }) {
-    return _then(_$FollowersImpl(
-      subject: null == subject
-          ? _value.subject
-          : subject // ignore: cast_nullable_to_non_nullable
-              as Actor,
-      followers: null == followers
-          ? _value._followers
-          : followers // ignore: cast_nullable_to_non_nullable
-              as List<Actor>,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$FollowersImpl implements _Followers {
-  const _$FollowersImpl(
+class _Followers implements Followers {
+  const _Followers(
       {required this.subject,
       required final List<Actor> followers,
       this.cursor})
       : _followers = followers;
-
-  factory _$FollowersImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FollowersImplFromJson(json);
+  factory _Followers.fromJson(Map<String, dynamic> json) =>
+      _$FollowersFromJson(json);
 
   @override
   final Actor subject;
@@ -163,16 +127,26 @@ class _$FollowersImpl implements _Followers {
   @override
   final String? cursor;
 
+  /// Create a copy of Followers
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Followers(subject: $subject, followers: $followers, cursor: $cursor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$FollowersCopyWith<_Followers> get copyWith =>
+      __$FollowersCopyWithImpl<_Followers>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$FollowersToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FollowersImpl &&
+            other is _Followers &&
             (identical(other.subject, subject) || other.subject == subject) &&
             const DeepCollectionEquality()
                 .equals(other._followers, _followers) &&
@@ -184,42 +158,67 @@ class _$FollowersImpl implements _Followers {
   int get hashCode => Object.hash(runtimeType, subject,
       const DeepCollectionEquality().hash(_followers), cursor);
 
-  /// Create a copy of Followers
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$FollowersImplCopyWith<_$FollowersImpl> get copyWith =>
-      __$$FollowersImplCopyWithImpl<_$FollowersImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FollowersImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Followers(subject: $subject, followers: $followers, cursor: $cursor)';
   }
 }
 
-abstract class _Followers implements Followers {
-  const factory _Followers(
-      {required final Actor subject,
-      required final List<Actor> followers,
-      final String? cursor}) = _$FollowersImpl;
+/// @nodoc
+abstract mixin class _$FollowersCopyWith<$Res>
+    implements $FollowersCopyWith<$Res> {
+  factory _$FollowersCopyWith(
+          _Followers value, $Res Function(_Followers) _then) =
+      __$FollowersCopyWithImpl;
+  @override
+  @useResult
+  $Res call({Actor subject, List<Actor> followers, String? cursor});
 
-  factory _Followers.fromJson(Map<String, dynamic> json) =
-      _$FollowersImpl.fromJson;
+  @override
+  $ActorCopyWith<$Res> get subject;
+}
 
-  @override
-  Actor get subject;
-  @override
-  List<Actor> get followers;
-  @override
-  String? get cursor;
+/// @nodoc
+class __$FollowersCopyWithImpl<$Res> implements _$FollowersCopyWith<$Res> {
+  __$FollowersCopyWithImpl(this._self, this._then);
+
+  final _Followers _self;
+  final $Res Function(_Followers) _then;
 
   /// Create a copy of Followers
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FollowersImplCopyWith<_$FollowersImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? subject = null,
+    Object? followers = null,
+    Object? cursor = freezed,
+  }) {
+    return _then(_Followers(
+      subject: null == subject
+          ? _self.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as Actor,
+      followers: null == followers
+          ? _self._followers
+          : followers // ignore: cast_nullable_to_non_nullable
+              as List<Actor>,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+
+  /// Create a copy of Followers
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorCopyWith<$Res> get subject {
+    return $ActorCopyWith<$Res>(_self.subject, (value) {
+      return _then(_self.copyWith(subject: value));
+    });
+  }
 }
+
+// dart format on

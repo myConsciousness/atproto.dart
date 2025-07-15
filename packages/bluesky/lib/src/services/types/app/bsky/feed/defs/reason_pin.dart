@@ -12,7 +12,7 @@ part 'reason_pin.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#reasonpin
 @freezed
-class ReasonPin with _$ReasonPin {
+abstract class ReasonPin with _$ReasonPin {
   @jsonSerializable
   const factory ReasonPin({
     @typeKey @Default(appBskyFeedDefsReasonPin) String type,

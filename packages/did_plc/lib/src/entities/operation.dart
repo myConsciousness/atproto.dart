@@ -8,7 +8,7 @@ part 'operation.freezed.dart';
 part 'operation.g.dart';
 
 @freezed
-class Operation with _$Operation {
+abstract class Operation with _$Operation {
   /// Creates an instance of [Operation].
   @jsonSerializable
   const factory Operation({

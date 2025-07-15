@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,38 +10,53 @@ part of 'list_item_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ListItemView _$ListItemViewFromJson(Map<String, dynamic> json) {
-  return _ListItemView.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ListItemView {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @AtUriConverter()
-  AtUri get uri => throw _privateConstructorUsedError;
-  Actor get subject => throw _privateConstructorUsedError;
-
-  /// Serializes this ListItemView to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri get uri;
+  Actor get subject;
 
   /// Create a copy of ListItemView
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ListItemViewCopyWith<ListItemView> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$ListItemViewCopyWithImpl<ListItemView>(
+          this as ListItemView, _$identity);
+
+  /// Serializes this ListItemView to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ListItemView &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.subject, subject) || other.subject == subject));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, uri, subject);
+
+  @override
+  String toString() {
+    return 'ListItemView(type: $type, uri: $uri, subject: $subject)';
+  }
 }
 
 /// @nodoc
-abstract class $ListItemViewCopyWith<$Res> {
+abstract mixin class $ListItemViewCopyWith<$Res> {
   factory $ListItemViewCopyWith(
-          ListItemView value, $Res Function(ListItemView) then) =
-      _$ListItemViewCopyWithImpl<$Res, ListItemView>;
+          ListItemView value, $Res Function(ListItemView) _then) =
+      _$ListItemViewCopyWithImpl;
   @useResult
   $Res call({@typeKey String type, @AtUriConverter() AtUri uri, Actor subject});
 
@@ -48,14 +64,11 @@ abstract class $ListItemViewCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ListItemViewCopyWithImpl<$Res, $Val extends ListItemView>
-    implements $ListItemViewCopyWith<$Res> {
-  _$ListItemViewCopyWithImpl(this._value, this._then);
+class _$ListItemViewCopyWithImpl<$Res> implements $ListItemViewCopyWith<$Res> {
+  _$ListItemViewCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ListItemView _self;
+  final $Res Function(ListItemView) _then;
 
   /// Create a copy of ListItemView
   /// with the given fields replaced by the non-null parameter values.
@@ -66,20 +79,20 @@ class _$ListItemViewCopyWithImpl<$Res, $Val extends ListItemView>
     Object? uri = null,
     Object? subject = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       uri: null == uri
-          ? _value.uri
+          ? _self.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
       subject: null == subject
-          ? _value.subject
+          ? _self.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as Actor,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of ListItemView
@@ -87,71 +100,22 @@ class _$ListItemViewCopyWithImpl<$Res, $Val extends ListItemView>
   @override
   @pragma('vm:prefer-inline')
   $ActorCopyWith<$Res> get subject {
-    return $ActorCopyWith<$Res>(_value.subject, (value) {
-      return _then(_value.copyWith(subject: value) as $Val);
+    return $ActorCopyWith<$Res>(_self.subject, (value) {
+      return _then(_self.copyWith(subject: value));
     });
-  }
-}
-
-/// @nodoc
-abstract class _$$ListItemViewImplCopyWith<$Res>
-    implements $ListItemViewCopyWith<$Res> {
-  factory _$$ListItemViewImplCopyWith(
-          _$ListItemViewImpl value, $Res Function(_$ListItemViewImpl) then) =
-      __$$ListItemViewImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@typeKey String type, @AtUriConverter() AtUri uri, Actor subject});
-
-  @override
-  $ActorCopyWith<$Res> get subject;
-}
-
-/// @nodoc
-class __$$ListItemViewImplCopyWithImpl<$Res>
-    extends _$ListItemViewCopyWithImpl<$Res, _$ListItemViewImpl>
-    implements _$$ListItemViewImplCopyWith<$Res> {
-  __$$ListItemViewImplCopyWithImpl(
-      _$ListItemViewImpl _value, $Res Function(_$ListItemViewImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ListItemView
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? uri = null,
-    Object? subject = null,
-  }) {
-    return _then(_$ListItemViewImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-      subject: null == subject
-          ? _value.subject
-          : subject // ignore: cast_nullable_to_non_nullable
-              as Actor,
-    ));
   }
 }
 
 /// @nodoc
 
 @jsonSerializable
-class _$ListItemViewImpl implements _ListItemView {
-  const _$ListItemViewImpl(
+class _ListItemView implements ListItemView {
+  const _ListItemView(
       {@typeKey this.type = appBskyGraphDefsListItemView,
       @AtUriConverter() required this.uri,
       required this.subject});
-
-  factory _$ListItemViewImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ListItemViewImplFromJson(json);
+  factory _ListItemView.fromJson(Map<String, dynamic> json) =>
+      _$ListItemViewFromJson(json);
 
   @override
   @typeKey
@@ -162,16 +126,26 @@ class _$ListItemViewImpl implements _ListItemView {
   @override
   final Actor subject;
 
+  /// Create a copy of ListItemView
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ListItemView(type: $type, uri: $uri, subject: $subject)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ListItemViewCopyWith<_ListItemView> get copyWith =>
+      __$ListItemViewCopyWithImpl<_ListItemView>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ListItemViewToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ListItemViewImpl &&
+            other is _ListItemView &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.subject, subject) || other.subject == subject));
@@ -181,44 +155,68 @@ class _$ListItemViewImpl implements _ListItemView {
   @override
   int get hashCode => Object.hash(runtimeType, type, uri, subject);
 
-  /// Create a copy of ListItemView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ListItemViewImplCopyWith<_$ListItemViewImpl> get copyWith =>
-      __$$ListItemViewImplCopyWithImpl<_$ListItemViewImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ListItemViewImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ListItemView(type: $type, uri: $uri, subject: $subject)';
   }
 }
 
-abstract class _ListItemView implements ListItemView {
-  const factory _ListItemView(
-      {@typeKey final String type,
-      @AtUriConverter() required final AtUri uri,
-      required final Actor subject}) = _$ListItemViewImpl;
+/// @nodoc
+abstract mixin class _$ListItemViewCopyWith<$Res>
+    implements $ListItemViewCopyWith<$Res> {
+  factory _$ListItemViewCopyWith(
+          _ListItemView value, $Res Function(_ListItemView) _then) =
+      __$ListItemViewCopyWithImpl;
+  @override
+  @useResult
+  $Res call({@typeKey String type, @AtUriConverter() AtUri uri, Actor subject});
 
-  factory _ListItemView.fromJson(Map<String, dynamic> json) =
-      _$ListItemViewImpl.fromJson;
+  @override
+  $ActorCopyWith<$Res> get subject;
+}
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  @AtUriConverter()
-  AtUri get uri;
-  @override
-  Actor get subject;
+/// @nodoc
+class __$ListItemViewCopyWithImpl<$Res>
+    implements _$ListItemViewCopyWith<$Res> {
+  __$ListItemViewCopyWithImpl(this._self, this._then);
+
+  final _ListItemView _self;
+  final $Res Function(_ListItemView) _then;
 
   /// Create a copy of ListItemView
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ListItemViewImplCopyWith<_$ListItemViewImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? uri = null,
+    Object? subject = null,
+  }) {
+    return _then(_ListItemView(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      uri: null == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      subject: null == subject
+          ? _self.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as Actor,
+    ));
+  }
+
+  /// Create a copy of ListItemView
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorCopyWith<$Res> get subject {
+    return $ActorCopyWith<$Res>(_self.subject, (value) {
+      return _then(_self.copyWith(subject: value));
+    });
+  }
 }
+
+// dart format on

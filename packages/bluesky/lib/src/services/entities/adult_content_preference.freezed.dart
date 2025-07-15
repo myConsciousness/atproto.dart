@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,145 +10,32 @@ part of 'adult_content_preference.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-AdultContentPreference _$AdultContentPreferenceFromJson(
-    Map<String, dynamic> json) {
-  return _AdultContentPreference.fromJson(json);
-}
 
 /// @nodoc
 mixin _$AdultContentPreference {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @JsonKey(name: 'enabled')
-  bool get isEnabled => throw _privateConstructorUsedError;
-
-  /// Serializes this AdultContentPreference to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  bool get isEnabled;
 
   /// Create a copy of AdultContentPreference
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $AdultContentPreferenceCopyWith<AdultContentPreference> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$AdultContentPreferenceCopyWithImpl<AdultContentPreference>(
+          this as AdultContentPreference, _$identity);
 
-/// @nodoc
-abstract class $AdultContentPreferenceCopyWith<$Res> {
-  factory $AdultContentPreferenceCopyWith(AdultContentPreference value,
-          $Res Function(AdultContentPreference) then) =
-      _$AdultContentPreferenceCopyWithImpl<$Res, AdultContentPreference>;
-  @useResult
-  $Res call({@typeKey String type, @JsonKey(name: 'enabled') bool isEnabled});
-}
-
-/// @nodoc
-class _$AdultContentPreferenceCopyWithImpl<$Res,
-        $Val extends AdultContentPreference>
-    implements $AdultContentPreferenceCopyWith<$Res> {
-  _$AdultContentPreferenceCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of AdultContentPreference
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? isEnabled = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      isEnabled: null == isEnabled
-          ? _value.isEnabled
-          : isEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$AdultContentPreferenceImplCopyWith<$Res>
-    implements $AdultContentPreferenceCopyWith<$Res> {
-  factory _$$AdultContentPreferenceImplCopyWith(
-          _$AdultContentPreferenceImpl value,
-          $Res Function(_$AdultContentPreferenceImpl) then) =
-      __$$AdultContentPreferenceImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@typeKey String type, @JsonKey(name: 'enabled') bool isEnabled});
-}
-
-/// @nodoc
-class __$$AdultContentPreferenceImplCopyWithImpl<$Res>
-    extends _$AdultContentPreferenceCopyWithImpl<$Res,
-        _$AdultContentPreferenceImpl>
-    implements _$$AdultContentPreferenceImplCopyWith<$Res> {
-  __$$AdultContentPreferenceImplCopyWithImpl(
-      _$AdultContentPreferenceImpl _value,
-      $Res Function(_$AdultContentPreferenceImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AdultContentPreference
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? isEnabled = null,
-  }) {
-    return _then(_$AdultContentPreferenceImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      isEnabled: null == isEnabled
-          ? _value.isEnabled
-          : isEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$AdultContentPreferenceImpl implements _AdultContentPreference {
-  const _$AdultContentPreferenceImpl(
-      {@typeKey this.type = appBskyActorDefsAdultContentPref,
-      @JsonKey(name: 'enabled') this.isEnabled = false});
-
-  factory _$AdultContentPreferenceImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AdultContentPreferenceImplFromJson(json);
-
-  @override
-  @typeKey
-  final String type;
-  @override
-  @JsonKey(name: 'enabled')
-  final bool isEnabled;
-
-  @override
-  String toString() {
-    return 'AdultContentPreference(type: $type, isEnabled: $isEnabled)';
-  }
+  /// Serializes this AdultContentPreference to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AdultContentPreferenceImpl &&
+            other is AdultContentPreference &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.isEnabled, isEnabled) ||
                 other.isEnabled == isEnabled));
@@ -157,43 +45,141 @@ class _$AdultContentPreferenceImpl implements _AdultContentPreference {
   @override
   int get hashCode => Object.hash(runtimeType, type, isEnabled);
 
-  /// Create a copy of AdultContentPreference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$AdultContentPreferenceImplCopyWith<_$AdultContentPreferenceImpl>
-      get copyWith => __$$AdultContentPreferenceImplCopyWithImpl<
-          _$AdultContentPreferenceImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AdultContentPreferenceImplToJson(
-      this,
-    );
+  String toString() {
+    return 'AdultContentPreference(type: $type, isEnabled: $isEnabled)';
   }
 }
 
-abstract class _AdultContentPreference implements AdultContentPreference {
-  const factory _AdultContentPreference(
-          {@typeKey final String type,
-          @JsonKey(name: 'enabled') final bool isEnabled}) =
-      _$AdultContentPreferenceImpl;
+/// @nodoc
+abstract mixin class $AdultContentPreferenceCopyWith<$Res> {
+  factory $AdultContentPreferenceCopyWith(AdultContentPreference value,
+          $Res Function(AdultContentPreference) _then) =
+      _$AdultContentPreferenceCopyWithImpl;
+  @useResult
+  $Res call({@typeKey String type, @JsonKey(name: 'enabled') bool isEnabled});
+}
 
-  factory _AdultContentPreference.fromJson(Map<String, dynamic> json) =
-      _$AdultContentPreferenceImpl.fromJson;
+/// @nodoc
+class _$AdultContentPreferenceCopyWithImpl<$Res>
+    implements $AdultContentPreferenceCopyWith<$Res> {
+  _$AdultContentPreferenceCopyWithImpl(this._self, this._then);
+
+  final AdultContentPreference _self;
+  final $Res Function(AdultContentPreference) _then;
+
+  /// Create a copy of AdultContentPreference
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? isEnabled = null,
+  }) {
+    return _then(_self.copyWith(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      isEnabled: null == isEnabled
+          ? _self.isEnabled
+          : isEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _AdultContentPreference implements AdultContentPreference {
+  const _AdultContentPreference(
+      {@typeKey this.type = appBskyActorDefsAdultContentPref,
+      @JsonKey(name: 'enabled') this.isEnabled = false});
+  factory _AdultContentPreference.fromJson(Map<String, dynamic> json) =>
+      _$AdultContentPreferenceFromJson(json);
 
   @override
   @typeKey
-  String get type;
+  final String type;
   @override
   @JsonKey(name: 'enabled')
-  bool get isEnabled;
+  final bool isEnabled;
 
   /// Create a copy of AdultContentPreference
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AdultContentPreferenceImplCopyWith<_$AdultContentPreferenceImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$AdultContentPreferenceCopyWith<_AdultContentPreference> get copyWith =>
+      __$AdultContentPreferenceCopyWithImpl<_AdultContentPreference>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$AdultContentPreferenceToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _AdultContentPreference &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.isEnabled, isEnabled) ||
+                other.isEnabled == isEnabled));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, isEnabled);
+
+  @override
+  String toString() {
+    return 'AdultContentPreference(type: $type, isEnabled: $isEnabled)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$AdultContentPreferenceCopyWith<$Res>
+    implements $AdultContentPreferenceCopyWith<$Res> {
+  factory _$AdultContentPreferenceCopyWith(_AdultContentPreference value,
+          $Res Function(_AdultContentPreference) _then) =
+      __$AdultContentPreferenceCopyWithImpl;
+  @override
+  @useResult
+  $Res call({@typeKey String type, @JsonKey(name: 'enabled') bool isEnabled});
+}
+
+/// @nodoc
+class __$AdultContentPreferenceCopyWithImpl<$Res>
+    implements _$AdultContentPreferenceCopyWith<$Res> {
+  __$AdultContentPreferenceCopyWithImpl(this._self, this._then);
+
+  final _AdultContentPreference _self;
+  final $Res Function(_AdultContentPreference) _then;
+
+  /// Create a copy of AdultContentPreference
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? isEnabled = null,
+  }) {
+    return _then(_AdultContentPreference(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      isEnabled: null == isEnabled
+          ? _self.isEnabled
+          : isEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+// dart format on
