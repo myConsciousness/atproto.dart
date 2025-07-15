@@ -13,7 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../app/bsky/graph/defs/list_purpose.dart';
-import '../../../../app/bsky/richtext/facet//main.dart';
+import '../../../../app/bsky/richtext/facet/main.dart';
 import './union_main_labels.dart';
 
 part 'main.freezed.dart';

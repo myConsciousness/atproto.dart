@@ -274,7 +274,7 @@ String getPackageRelativePath(final String lexiconId, final String ref) {
       final parts = ref.split('#');
       return '../../../../${_getFileDir(parts[0])}';
     } else {
-      return '../../../../${_getFileDir(ref)}/';
+      return '../../../../${_getFileDir(ref)}';
     }
   } else {
     if (ref.contains('#')) {

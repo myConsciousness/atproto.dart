@@ -14,7 +14,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import '../../../../com/atproto/admin/defs/repo_blob_ref.dart';
 import '../../../../com/atproto/admin/defs/repo_ref.dart';
-import '../../../../com/atproto/repo/strongRef//main.dart';
+import '../../../../com/atproto/repo/strongRef/main.dart';
 
 part 'union_main_subject.freezed.dart';
 

@@ -12,7 +12,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../app/bsky/embed/record//main.dart';
+import '../../../../app/bsky/embed/record/main.dart';
 import './union_main_media.dart';
 
 part 'main.freezed.dart';

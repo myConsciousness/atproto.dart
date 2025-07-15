@@ -14,7 +14,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../app/bsky/actor/defs/profile_view.dart';
-import '../../../../app/bsky/richtext/facet//main.dart';
+import '../../../../app/bsky/richtext/facet/main.dart';
 import './list_purpose.dart';
 import './list_viewer_state.dart';
 
