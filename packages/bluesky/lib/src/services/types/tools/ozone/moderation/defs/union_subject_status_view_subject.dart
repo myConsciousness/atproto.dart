@@ -10,6 +10,7 @@
 // Package imports:
 import 'package:atproto/com_atproto_admin_defs.dart';
 import 'package:atproto/com_atproto_repo_strongref.dart';
+import 'package:atproto_core/atproto_core.dart' show isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -40,6 +41,23 @@ abstract class USubjectStatusViewSubject with _$USubjectStatusViewSubject {
 
   Map<String, dynamic> toJson() =>
       const USubjectStatusViewSubjectConverter().toJson(this);
+}
+
+extension USubjectStatusViewSubjectExtension on USubjectStatusViewSubject {
+  bool get isRepoRef => isA<USubjectStatusViewSubjectRepoRef>(this);
+  bool get isNotRepoRef => !isRepoRef;
+  RepoRef? get repoRef => isRepoRef ? data as RepoRef : null;
+  bool get isRepoStrongRef => isA<USubjectStatusViewSubjectRepoStrongRef>(this);
+  bool get isNotRepoStrongRef => !isRepoStrongRef;
+  RepoStrongRef? get repoStrongRef =>
+      isRepoStrongRef ? data as RepoStrongRef : null;
+  bool get isMessageRef => isA<USubjectStatusViewSubjectMessageRef>(this);
+  bool get isNotMessageRef => !isMessageRef;
+  MessageRef? get messageRef => isMessageRef ? data as MessageRef : null;
+  bool get isUnknown => isA<USubjectStatusViewSubjectUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  Map<String, dynamic>? get unknown =>
+      isUnknown ? data as Map<String, dynamic> : null;
 }
 
 final class USubjectStatusViewSubjectConverter

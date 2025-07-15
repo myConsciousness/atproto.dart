@@ -8,6 +8,7 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
+import 'package:atproto_core/atproto_core.dart' show isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -76,6 +77,72 @@ abstract class UPreferences with _$UPreferences {
       UPreferencesUnknown;
 
   Map<String, dynamic> toJson() => const UPreferencesConverter().toJson(this);
+}
+
+extension UPreferencesExtension on UPreferences {
+  bool get isAdultContentPref => isA<UPreferencesAdultContentPref>(this);
+  bool get isNotAdultContentPref => !isAdultContentPref;
+  AdultContentPref? get adultContentPref =>
+      isAdultContentPref ? data as AdultContentPref : null;
+  bool get isContentLabelPref => isA<UPreferencesContentLabelPref>(this);
+  bool get isNotContentLabelPref => !isContentLabelPref;
+  ContentLabelPref? get contentLabelPref =>
+      isContentLabelPref ? data as ContentLabelPref : null;
+  bool get isSavedFeedsPref => isA<UPreferencesSavedFeedsPref>(this);
+  bool get isNotSavedFeedsPref => !isSavedFeedsPref;
+  SavedFeedsPref? get savedFeedsPref =>
+      isSavedFeedsPref ? data as SavedFeedsPref : null;
+  bool get isSavedFeedsPrefV2 => isA<UPreferencesSavedFeedsPrefV2>(this);
+  bool get isNotSavedFeedsPrefV2 => !isSavedFeedsPrefV2;
+  SavedFeedsPrefV2? get savedFeedsPrefV2 =>
+      isSavedFeedsPrefV2 ? data as SavedFeedsPrefV2 : null;
+  bool get isPersonalDetailsPref => isA<UPreferencesPersonalDetailsPref>(this);
+  bool get isNotPersonalDetailsPref => !isPersonalDetailsPref;
+  PersonalDetailsPref? get personalDetailsPref =>
+      isPersonalDetailsPref ? data as PersonalDetailsPref : null;
+  bool get isFeedViewPref => isA<UPreferencesFeedViewPref>(this);
+  bool get isNotFeedViewPref => !isFeedViewPref;
+  FeedViewPref? get feedViewPref =>
+      isFeedViewPref ? data as FeedViewPref : null;
+  bool get isThreadViewPref => isA<UPreferencesThreadViewPref>(this);
+  bool get isNotThreadViewPref => !isThreadViewPref;
+  ThreadViewPref? get threadViewPref =>
+      isThreadViewPref ? data as ThreadViewPref : null;
+  bool get isInterestsPref => isA<UPreferencesInterestsPref>(this);
+  bool get isNotInterestsPref => !isInterestsPref;
+  InterestsPref? get interestsPref =>
+      isInterestsPref ? data as InterestsPref : null;
+  bool get isMutedWordsPref => isA<UPreferencesMutedWordsPref>(this);
+  bool get isNotMutedWordsPref => !isMutedWordsPref;
+  MutedWordsPref? get mutedWordsPref =>
+      isMutedWordsPref ? data as MutedWordsPref : null;
+  bool get isHiddenPostsPref => isA<UPreferencesHiddenPostsPref>(this);
+  bool get isNotHiddenPostsPref => !isHiddenPostsPref;
+  HiddenPostsPref? get hiddenPostsPref =>
+      isHiddenPostsPref ? data as HiddenPostsPref : null;
+  bool get isBskyAppStatePref => isA<UPreferencesBskyAppStatePref>(this);
+  bool get isNotBskyAppStatePref => !isBskyAppStatePref;
+  BskyAppStatePref? get bskyAppStatePref =>
+      isBskyAppStatePref ? data as BskyAppStatePref : null;
+  bool get isLabelersPref => isA<UPreferencesLabelersPref>(this);
+  bool get isNotLabelersPref => !isLabelersPref;
+  LabelersPref? get labelersPref =>
+      isLabelersPref ? data as LabelersPref : null;
+  bool get isPostInteractionSettingsPref =>
+      isA<UPreferencesPostInteractionSettingsPref>(this);
+  bool get isNotPostInteractionSettingsPref => !isPostInteractionSettingsPref;
+  PostInteractionSettingsPref? get postInteractionSettingsPref =>
+      isPostInteractionSettingsPref
+      ? data as PostInteractionSettingsPref
+      : null;
+  bool get isVerificationPrefs => isA<UPreferencesVerificationPrefs>(this);
+  bool get isNotVerificationPrefs => !isVerificationPrefs;
+  VerificationPrefs? get verificationPrefs =>
+      isVerificationPrefs ? data as VerificationPrefs : null;
+  bool get isUnknown => isA<UPreferencesUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  Map<String, dynamic>? get unknown =>
+      isUnknown ? data as Map<String, dynamic> : null;
 }
 
 final class UPreferencesConverter

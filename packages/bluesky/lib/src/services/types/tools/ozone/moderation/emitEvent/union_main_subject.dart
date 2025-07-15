@@ -10,6 +10,7 @@
 // Package imports:
 import 'package:atproto/com_atproto_admin_defs.dart';
 import 'package:atproto/com_atproto_repo_strongref.dart';
+import 'package:atproto_core/atproto_core.dart' show isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'union_main_subject.freezed.dart';
@@ -34,6 +35,21 @@ abstract class UModerationEmitEventSubject with _$UModerationEmitEventSubject {
 
   Map<String, dynamic> toJson() =>
       const UModerationEmitEventSubjectConverter().toJson(this);
+}
+
+extension UModerationEmitEventSubjectExtension on UModerationEmitEventSubject {
+  bool get isRepoRef => isA<UModerationEmitEventSubjectRepoRef>(this);
+  bool get isNotRepoRef => !isRepoRef;
+  RepoRef? get repoRef => isRepoRef ? data as RepoRef : null;
+  bool get isRepoStrongRef =>
+      isA<UModerationEmitEventSubjectRepoStrongRef>(this);
+  bool get isNotRepoStrongRef => !isRepoStrongRef;
+  RepoStrongRef? get repoStrongRef =>
+      isRepoStrongRef ? data as RepoStrongRef : null;
+  bool get isUnknown => isA<UModerationEmitEventSubjectUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  Map<String, dynamic>? get unknown =>
+      isUnknown ? data as Map<String, dynamic> : null;
 }
 
 final class UModerationEmitEventSubjectConverter

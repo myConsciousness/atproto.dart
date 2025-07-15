@@ -8,6 +8,7 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
+import 'package:atproto_core/atproto_core.dart' show isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -42,6 +43,33 @@ abstract class UEventDetails with _$UEventDetails {
       UEventDetailsUnknown;
 
   Map<String, dynamic> toJson() => const UEventDetailsConverter().toJson(this);
+}
+
+extension UEventDetailsExtension on UEventDetails {
+  bool get isAccountCreated => isA<UEventDetailsAccountCreated>(this);
+  bool get isNotAccountCreated => !isAccountCreated;
+  AccountCreated? get accountCreated =>
+      isAccountCreated ? data as AccountCreated : null;
+  bool get isEmailUpdated => isA<UEventDetailsEmailUpdated>(this);
+  bool get isNotEmailUpdated => !isEmailUpdated;
+  EmailUpdated? get emailUpdated =>
+      isEmailUpdated ? data as EmailUpdated : null;
+  bool get isEmailConfirmed => isA<UEventDetailsEmailConfirmed>(this);
+  bool get isNotEmailConfirmed => !isEmailConfirmed;
+  EmailConfirmed? get emailConfirmed =>
+      isEmailConfirmed ? data as EmailConfirmed : null;
+  bool get isPasswordUpdated => isA<UEventDetailsPasswordUpdated>(this);
+  bool get isNotPasswordUpdated => !isPasswordUpdated;
+  PasswordUpdated? get passwordUpdated =>
+      isPasswordUpdated ? data as PasswordUpdated : null;
+  bool get isHandleUpdated => isA<UEventDetailsHandleUpdated>(this);
+  bool get isNotHandleUpdated => !isHandleUpdated;
+  HandleUpdated? get handleUpdated =>
+      isHandleUpdated ? data as HandleUpdated : null;
+  bool get isUnknown => isA<UEventDetailsUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  Map<String, dynamic>? get unknown =>
+      isUnknown ? data as Map<String, dynamic> : null;
 }
 
 final class UEventDetailsConverter

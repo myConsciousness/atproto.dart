@@ -49,12 +49,14 @@ final class LexUnion extends LexType {
     final fileName = rule.getFileNameForUnion(lexiconId, defName, fieldName);
     final packagePaths = _getPackagePaths();
     final factories = _getUnionFactories();
+    final extensions = _getUnionExtensions();
     final fromJson = _getFromJson();
     final toJson = _getToJson();
 
     return '''$kHeaderHint
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:atproto_core/atproto_core.dart' show isA;
 
 $packagePaths
 
@@ -73,6 +75,10 @@ abstract class $name with _\$$name {
   }) = ${name}Unknown;
 
   Map<String, dynamic> toJson() => const ${name}Converter().toJson(this);
+}
+
+extension ${name}Extension on $name {
+  $extensions
 }
 
 final class ${name}Converter implements JsonConverter<$name, Map<String, dynamic>> {
@@ -123,6 +129,36 @@ final class ${name}Converter implements JsonConverter<$name, Map<String, dynamic
       buffer.writeln('  required $objectName data,');
       buffer.writeln('}) = $name$objectName;');
     }
+
+    return buffer.toString();
+  }
+
+  String _getUnionExtensions() {
+    final buffer = StringBuffer();
+
+    for (final ref in refs) {
+      final objectName = rule.getLexObjectNameFromRef(
+        lexiconId,
+        ref,
+        mainVariants,
+      );
+
+      buffer.writeln('bool get is$objectName => isA<$name$objectName>(this);');
+      buffer.writeln('bool get isNot$objectName => !is$objectName;');
+
+      buffer.writeln(
+        '$objectName? get ${toFirstLowerCase(objectName)} => '
+        'is$objectName ? data as $objectName : null;',
+      );
+    }
+
+    buffer.writeln('bool get isUnknown => isA<${name}Unknown>(this);');
+    buffer.writeln('bool get isNotUnknown => !isUnknown;');
+
+    buffer.writeln(
+      'Map<String, dynamic>? get unknown => '
+      'isUnknown ? data as Map<String, dynamic> : null;',
+    );
 
     return buffer.toString();
   }

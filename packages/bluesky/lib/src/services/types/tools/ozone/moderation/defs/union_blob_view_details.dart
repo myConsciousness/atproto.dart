@@ -8,6 +8,7 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
+import 'package:atproto_core/atproto_core.dart' show isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -34,6 +35,21 @@ abstract class UBlobViewDetails with _$UBlobViewDetails {
 
   Map<String, dynamic> toJson() =>
       const UBlobViewDetailsConverter().toJson(this);
+}
+
+extension UBlobViewDetailsExtension on UBlobViewDetails {
+  bool get isImageDetails => isA<UBlobViewDetailsImageDetails>(this);
+  bool get isNotImageDetails => !isImageDetails;
+  ImageDetails? get imageDetails =>
+      isImageDetails ? data as ImageDetails : null;
+  bool get isVideoDetails => isA<UBlobViewDetailsVideoDetails>(this);
+  bool get isNotVideoDetails => !isVideoDetails;
+  VideoDetails? get videoDetails =>
+      isVideoDetails ? data as VideoDetails : null;
+  bool get isUnknown => isA<UBlobViewDetailsUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  Map<String, dynamic>? get unknown =>
+      isUnknown ? data as Map<String, dynamic> : null;
 }
 
 final class UBlobViewDetailsConverter

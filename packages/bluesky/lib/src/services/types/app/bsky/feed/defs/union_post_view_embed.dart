@@ -8,6 +8,7 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
+import 'package:atproto_core/atproto_core.dart' show isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -46,6 +47,34 @@ abstract class UPostViewEmbed with _$UPostViewEmbed {
       UPostViewEmbedUnknown;
 
   Map<String, dynamic> toJson() => const UPostViewEmbedConverter().toJson(this);
+}
+
+extension UPostViewEmbedExtension on UPostViewEmbed {
+  bool get isEmbedImagesView => isA<UPostViewEmbedEmbedImagesView>(this);
+  bool get isNotEmbedImagesView => !isEmbedImagesView;
+  EmbedImagesView? get embedImagesView =>
+      isEmbedImagesView ? data as EmbedImagesView : null;
+  bool get isEmbedVideoView => isA<UPostViewEmbedEmbedVideoView>(this);
+  bool get isNotEmbedVideoView => !isEmbedVideoView;
+  EmbedVideoView? get embedVideoView =>
+      isEmbedVideoView ? data as EmbedVideoView : null;
+  bool get isEmbedExternalView => isA<UPostViewEmbedEmbedExternalView>(this);
+  bool get isNotEmbedExternalView => !isEmbedExternalView;
+  EmbedExternalView? get embedExternalView =>
+      isEmbedExternalView ? data as EmbedExternalView : null;
+  bool get isEmbedRecordView => isA<UPostViewEmbedEmbedRecordView>(this);
+  bool get isNotEmbedRecordView => !isEmbedRecordView;
+  EmbedRecordView? get embedRecordView =>
+      isEmbedRecordView ? data as EmbedRecordView : null;
+  bool get isEmbedRecordWithMediaView =>
+      isA<UPostViewEmbedEmbedRecordWithMediaView>(this);
+  bool get isNotEmbedRecordWithMediaView => !isEmbedRecordWithMediaView;
+  EmbedRecordWithMediaView? get embedRecordWithMediaView =>
+      isEmbedRecordWithMediaView ? data as EmbedRecordWithMediaView : null;
+  bool get isUnknown => isA<UPostViewEmbedUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  Map<String, dynamic>? get unknown =>
+      isUnknown ? data as Map<String, dynamic> : null;
 }
 
 final class UPostViewEmbedConverter

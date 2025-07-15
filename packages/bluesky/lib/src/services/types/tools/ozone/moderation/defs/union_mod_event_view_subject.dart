@@ -10,6 +10,7 @@
 // Package imports:
 import 'package:atproto/com_atproto_admin_defs.dart';
 import 'package:atproto/com_atproto_repo_strongref.dart';
+import 'package:atproto_core/atproto_core.dart' show isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -39,6 +40,23 @@ abstract class UModEventViewSubject with _$UModEventViewSubject {
 
   Map<String, dynamic> toJson() =>
       const UModEventViewSubjectConverter().toJson(this);
+}
+
+extension UModEventViewSubjectExtension on UModEventViewSubject {
+  bool get isRepoRef => isA<UModEventViewSubjectRepoRef>(this);
+  bool get isNotRepoRef => !isRepoRef;
+  RepoRef? get repoRef => isRepoRef ? data as RepoRef : null;
+  bool get isRepoStrongRef => isA<UModEventViewSubjectRepoStrongRef>(this);
+  bool get isNotRepoStrongRef => !isRepoStrongRef;
+  RepoStrongRef? get repoStrongRef =>
+      isRepoStrongRef ? data as RepoStrongRef : null;
+  bool get isMessageRef => isA<UModEventViewSubjectMessageRef>(this);
+  bool get isNotMessageRef => !isMessageRef;
+  MessageRef? get messageRef => isMessageRef ? data as MessageRef : null;
+  bool get isUnknown => isA<UModEventViewSubjectUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  Map<String, dynamic>? get unknown =>
+      isUnknown ? data as Map<String, dynamic> : null;
 }
 
 final class UModEventViewSubjectConverter

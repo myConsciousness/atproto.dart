@@ -8,6 +8,7 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
+import 'package:atproto_core/atproto_core.dart' show isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -113,6 +114,109 @@ abstract class UModerationEmitEventEvent with _$UModerationEmitEventEvent {
 
   Map<String, dynamic> toJson() =>
       const UModerationEmitEventEventConverter().toJson(this);
+}
+
+extension UModerationEmitEventEventExtension on UModerationEmitEventEvent {
+  bool get isModEventTakedown =>
+      isA<UModerationEmitEventEventModEventTakedown>(this);
+  bool get isNotModEventTakedown => !isModEventTakedown;
+  ModEventTakedown? get modEventTakedown =>
+      isModEventTakedown ? data as ModEventTakedown : null;
+  bool get isModEventAcknowledge =>
+      isA<UModerationEmitEventEventModEventAcknowledge>(this);
+  bool get isNotModEventAcknowledge => !isModEventAcknowledge;
+  ModEventAcknowledge? get modEventAcknowledge =>
+      isModEventAcknowledge ? data as ModEventAcknowledge : null;
+  bool get isModEventEscalate =>
+      isA<UModerationEmitEventEventModEventEscalate>(this);
+  bool get isNotModEventEscalate => !isModEventEscalate;
+  ModEventEscalate? get modEventEscalate =>
+      isModEventEscalate ? data as ModEventEscalate : null;
+  bool get isModEventComment =>
+      isA<UModerationEmitEventEventModEventComment>(this);
+  bool get isNotModEventComment => !isModEventComment;
+  ModEventComment? get modEventComment =>
+      isModEventComment ? data as ModEventComment : null;
+  bool get isModEventLabel => isA<UModerationEmitEventEventModEventLabel>(this);
+  bool get isNotModEventLabel => !isModEventLabel;
+  ModEventLabel? get modEventLabel =>
+      isModEventLabel ? data as ModEventLabel : null;
+  bool get isModEventReport =>
+      isA<UModerationEmitEventEventModEventReport>(this);
+  bool get isNotModEventReport => !isModEventReport;
+  ModEventReport? get modEventReport =>
+      isModEventReport ? data as ModEventReport : null;
+  bool get isModEventMute => isA<UModerationEmitEventEventModEventMute>(this);
+  bool get isNotModEventMute => !isModEventMute;
+  ModEventMute? get modEventMute =>
+      isModEventMute ? data as ModEventMute : null;
+  bool get isModEventUnmute =>
+      isA<UModerationEmitEventEventModEventUnmute>(this);
+  bool get isNotModEventUnmute => !isModEventUnmute;
+  ModEventUnmute? get modEventUnmute =>
+      isModEventUnmute ? data as ModEventUnmute : null;
+  bool get isModEventMuteReporter =>
+      isA<UModerationEmitEventEventModEventMuteReporter>(this);
+  bool get isNotModEventMuteReporter => !isModEventMuteReporter;
+  ModEventMuteReporter? get modEventMuteReporter =>
+      isModEventMuteReporter ? data as ModEventMuteReporter : null;
+  bool get isModEventUnmuteReporter =>
+      isA<UModerationEmitEventEventModEventUnmuteReporter>(this);
+  bool get isNotModEventUnmuteReporter => !isModEventUnmuteReporter;
+  ModEventUnmuteReporter? get modEventUnmuteReporter =>
+      isModEventUnmuteReporter ? data as ModEventUnmuteReporter : null;
+  bool get isModEventReverseTakedown =>
+      isA<UModerationEmitEventEventModEventReverseTakedown>(this);
+  bool get isNotModEventReverseTakedown => !isModEventReverseTakedown;
+  ModEventReverseTakedown? get modEventReverseTakedown =>
+      isModEventReverseTakedown ? data as ModEventReverseTakedown : null;
+  bool get isModEventResolveAppeal =>
+      isA<UModerationEmitEventEventModEventResolveAppeal>(this);
+  bool get isNotModEventResolveAppeal => !isModEventResolveAppeal;
+  ModEventResolveAppeal? get modEventResolveAppeal =>
+      isModEventResolveAppeal ? data as ModEventResolveAppeal : null;
+  bool get isModEventEmail => isA<UModerationEmitEventEventModEventEmail>(this);
+  bool get isNotModEventEmail => !isModEventEmail;
+  ModEventEmail? get modEventEmail =>
+      isModEventEmail ? data as ModEventEmail : null;
+  bool get isModEventDivert =>
+      isA<UModerationEmitEventEventModEventDivert>(this);
+  bool get isNotModEventDivert => !isModEventDivert;
+  ModEventDivert? get modEventDivert =>
+      isModEventDivert ? data as ModEventDivert : null;
+  bool get isModEventTag => isA<UModerationEmitEventEventModEventTag>(this);
+  bool get isNotModEventTag => !isModEventTag;
+  ModEventTag? get modEventTag => isModEventTag ? data as ModEventTag : null;
+  bool get isAccountEvent => isA<UModerationEmitEventEventAccountEvent>(this);
+  bool get isNotAccountEvent => !isAccountEvent;
+  AccountEvent? get accountEvent =>
+      isAccountEvent ? data as AccountEvent : null;
+  bool get isIdentityEvent => isA<UModerationEmitEventEventIdentityEvent>(this);
+  bool get isNotIdentityEvent => !isIdentityEvent;
+  IdentityEvent? get identityEvent =>
+      isIdentityEvent ? data as IdentityEvent : null;
+  bool get isRecordEvent => isA<UModerationEmitEventEventRecordEvent>(this);
+  bool get isNotRecordEvent => !isRecordEvent;
+  RecordEvent? get recordEvent => isRecordEvent ? data as RecordEvent : null;
+  bool get isModEventPriorityScore =>
+      isA<UModerationEmitEventEventModEventPriorityScore>(this);
+  bool get isNotModEventPriorityScore => !isModEventPriorityScore;
+  ModEventPriorityScore? get modEventPriorityScore =>
+      isModEventPriorityScore ? data as ModEventPriorityScore : null;
+  bool get isAgeAssuranceEvent =>
+      isA<UModerationEmitEventEventAgeAssuranceEvent>(this);
+  bool get isNotAgeAssuranceEvent => !isAgeAssuranceEvent;
+  AgeAssuranceEvent? get ageAssuranceEvent =>
+      isAgeAssuranceEvent ? data as AgeAssuranceEvent : null;
+  bool get isAgeAssuranceOverrideEvent =>
+      isA<UModerationEmitEventEventAgeAssuranceOverrideEvent>(this);
+  bool get isNotAgeAssuranceOverrideEvent => !isAgeAssuranceOverrideEvent;
+  AgeAssuranceOverrideEvent? get ageAssuranceOverrideEvent =>
+      isAgeAssuranceOverrideEvent ? data as AgeAssuranceOverrideEvent : null;
+  bool get isUnknown => isA<UModerationEmitEventEventUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  Map<String, dynamic>? get unknown =>
+      isUnknown ? data as Map<String, dynamic> : null;
 }
 
 final class UModerationEmitEventEventConverter

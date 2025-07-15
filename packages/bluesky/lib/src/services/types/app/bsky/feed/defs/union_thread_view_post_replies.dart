@@ -8,6 +8,7 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
+import 'package:atproto_core/atproto_core.dart' show isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -41,6 +42,24 @@ abstract class UThreadViewPostReplies with _$UThreadViewPostReplies {
 
   Map<String, dynamic> toJson() =>
       const UThreadViewPostRepliesConverter().toJson(this);
+}
+
+extension UThreadViewPostRepliesExtension on UThreadViewPostReplies {
+  bool get isThreadViewPost => isA<UThreadViewPostRepliesThreadViewPost>(this);
+  bool get isNotThreadViewPost => !isThreadViewPost;
+  ThreadViewPost? get threadViewPost =>
+      isThreadViewPost ? data as ThreadViewPost : null;
+  bool get isNotFoundPost => isA<UThreadViewPostRepliesNotFoundPost>(this);
+  bool get isNotNotFoundPost => !isNotFoundPost;
+  NotFoundPost? get notFoundPost =>
+      isNotFoundPost ? data as NotFoundPost : null;
+  bool get isBlockedPost => isA<UThreadViewPostRepliesBlockedPost>(this);
+  bool get isNotBlockedPost => !isBlockedPost;
+  BlockedPost? get blockedPost => isBlockedPost ? data as BlockedPost : null;
+  bool get isUnknown => isA<UThreadViewPostRepliesUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  Map<String, dynamic>? get unknown =>
+      isUnknown ? data as Map<String, dynamic> : null;
 }
 
 final class UThreadViewPostRepliesConverter

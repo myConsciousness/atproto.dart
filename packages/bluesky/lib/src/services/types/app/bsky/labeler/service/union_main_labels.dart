@@ -9,6 +9,7 @@
 
 // Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
+import 'package:atproto_core/atproto_core.dart' show isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'union_main_labels.freezed.dart';
@@ -30,6 +31,16 @@ abstract class ULabelerServiceLabels with _$ULabelerServiceLabels {
 
   Map<String, dynamic> toJson() =>
       const ULabelerServiceLabelsConverter().toJson(this);
+}
+
+extension ULabelerServiceLabelsExtension on ULabelerServiceLabels {
+  bool get isSelfLabels => isA<ULabelerServiceLabelsSelfLabels>(this);
+  bool get isNotSelfLabels => !isSelfLabels;
+  SelfLabels? get selfLabels => isSelfLabels ? data as SelfLabels : null;
+  bool get isUnknown => isA<ULabelerServiceLabelsUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  Map<String, dynamic>? get unknown =>
+      isUnknown ? data as Map<String, dynamic> : null;
 }
 
 final class ULabelerServiceLabelsConverter

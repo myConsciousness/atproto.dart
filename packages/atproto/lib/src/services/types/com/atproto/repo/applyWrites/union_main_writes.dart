@@ -8,6 +8,7 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
+import 'package:atproto_core/atproto_core.dart' show isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -38,6 +39,22 @@ abstract class URepoApplyWritesWrites with _$URepoApplyWritesWrites {
 
   Map<String, dynamic> toJson() =>
       const URepoApplyWritesWritesConverter().toJson(this);
+}
+
+extension URepoApplyWritesWritesExtension on URepoApplyWritesWrites {
+  bool get isCreate => isA<URepoApplyWritesWritesCreate>(this);
+  bool get isNotCreate => !isCreate;
+  Create? get create => isCreate ? data as Create : null;
+  bool get isUpdate => isA<URepoApplyWritesWritesUpdate>(this);
+  bool get isNotUpdate => !isUpdate;
+  Update? get update => isUpdate ? data as Update : null;
+  bool get isDelete => isA<URepoApplyWritesWritesDelete>(this);
+  bool get isNotDelete => !isDelete;
+  Delete? get delete => isDelete ? data as Delete : null;
+  bool get isUnknown => isA<URepoApplyWritesWritesUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  Map<String, dynamic>? get unknown =>
+      isUnknown ? data as Map<String, dynamic> : null;
 }
 
 final class URepoApplyWritesWritesConverter

@@ -9,6 +9,7 @@
 
 // Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
+import 'package:atproto_core/atproto_core.dart' show isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'union_main_labels.freezed.dart';
@@ -29,6 +30,16 @@ abstract class UFeedPostLabels with _$UFeedPostLabels {
 
   Map<String, dynamic> toJson() =>
       const UFeedPostLabelsConverter().toJson(this);
+}
+
+extension UFeedPostLabelsExtension on UFeedPostLabels {
+  bool get isSelfLabels => isA<UFeedPostLabelsSelfLabels>(this);
+  bool get isNotSelfLabels => !isSelfLabels;
+  SelfLabels? get selfLabels => isSelfLabels ? data as SelfLabels : null;
+  bool get isUnknown => isA<UFeedPostLabelsUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  Map<String, dynamic>? get unknown =>
+      isUnknown ? data as Map<String, dynamic> : null;
 }
 
 final class UFeedPostLabelsConverter

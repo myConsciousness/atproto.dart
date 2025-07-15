@@ -8,6 +8,7 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
+import 'package:atproto_core/atproto_core.dart' show isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -65,6 +66,53 @@ abstract class UConvoGetLogLogs with _$UConvoGetLogLogs {
 
   Map<String, dynamic> toJson() =>
       const UConvoGetLogLogsConverter().toJson(this);
+}
+
+extension UConvoGetLogLogsExtension on UConvoGetLogLogs {
+  bool get isLogBeginConvo => isA<UConvoGetLogLogsLogBeginConvo>(this);
+  bool get isNotLogBeginConvo => !isLogBeginConvo;
+  LogBeginConvo? get logBeginConvo =>
+      isLogBeginConvo ? data as LogBeginConvo : null;
+  bool get isLogAcceptConvo => isA<UConvoGetLogLogsLogAcceptConvo>(this);
+  bool get isNotLogAcceptConvo => !isLogAcceptConvo;
+  LogAcceptConvo? get logAcceptConvo =>
+      isLogAcceptConvo ? data as LogAcceptConvo : null;
+  bool get isLogLeaveConvo => isA<UConvoGetLogLogsLogLeaveConvo>(this);
+  bool get isNotLogLeaveConvo => !isLogLeaveConvo;
+  LogLeaveConvo? get logLeaveConvo =>
+      isLogLeaveConvo ? data as LogLeaveConvo : null;
+  bool get isLogMuteConvo => isA<UConvoGetLogLogsLogMuteConvo>(this);
+  bool get isNotLogMuteConvo => !isLogMuteConvo;
+  LogMuteConvo? get logMuteConvo =>
+      isLogMuteConvo ? data as LogMuteConvo : null;
+  bool get isLogUnmuteConvo => isA<UConvoGetLogLogsLogUnmuteConvo>(this);
+  bool get isNotLogUnmuteConvo => !isLogUnmuteConvo;
+  LogUnmuteConvo? get logUnmuteConvo =>
+      isLogUnmuteConvo ? data as LogUnmuteConvo : null;
+  bool get isLogCreateMessage => isA<UConvoGetLogLogsLogCreateMessage>(this);
+  bool get isNotLogCreateMessage => !isLogCreateMessage;
+  LogCreateMessage? get logCreateMessage =>
+      isLogCreateMessage ? data as LogCreateMessage : null;
+  bool get isLogDeleteMessage => isA<UConvoGetLogLogsLogDeleteMessage>(this);
+  bool get isNotLogDeleteMessage => !isLogDeleteMessage;
+  LogDeleteMessage? get logDeleteMessage =>
+      isLogDeleteMessage ? data as LogDeleteMessage : null;
+  bool get isLogReadMessage => isA<UConvoGetLogLogsLogReadMessage>(this);
+  bool get isNotLogReadMessage => !isLogReadMessage;
+  LogReadMessage? get logReadMessage =>
+      isLogReadMessage ? data as LogReadMessage : null;
+  bool get isLogAddReaction => isA<UConvoGetLogLogsLogAddReaction>(this);
+  bool get isNotLogAddReaction => !isLogAddReaction;
+  LogAddReaction? get logAddReaction =>
+      isLogAddReaction ? data as LogAddReaction : null;
+  bool get isLogRemoveReaction => isA<UConvoGetLogLogsLogRemoveReaction>(this);
+  bool get isNotLogRemoveReaction => !isLogRemoveReaction;
+  LogRemoveReaction? get logRemoveReaction =>
+      isLogRemoveReaction ? data as LogRemoveReaction : null;
+  bool get isUnknown => isA<UConvoGetLogLogsUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  Map<String, dynamic>? get unknown =>
+      isUnknown ? data as Map<String, dynamic> : null;
 }
 
 final class UConvoGetLogLogsConverter
