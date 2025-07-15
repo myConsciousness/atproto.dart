@@ -1,6 +1,7 @@
-// Project imports:
+// Package imports:
 import 'package:characters/characters.dart';
 
+// Project imports:
 import '../../services/types/app/bsky/actor/defs/muted_word.dart';
 import '../../services/types/app/bsky/richtext/facet/main.dart';
 import '../../services/types/app/bsky/richtext/facet/union_main_features.dart';

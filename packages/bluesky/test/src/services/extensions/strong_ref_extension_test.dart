@@ -1,11 +1,11 @@
 // Package imports:
 import 'package:atproto/com_atproto_repo_strongref.dart';
-import 'package:bluesky/src/services/types/app/bsky/feed/post/union_main_embed.dart';
 import 'package:test/test.dart';
 
 // Project imports:
 import 'package:bluesky/src/services/extensions/strong_ref.dart';
 import 'package:bluesky/src/services/types/app/bsky/embed/record/main.dart';
+import 'package:bluesky/src/services/types/app/bsky/feed/post/union_main_embed.dart';
 
 void main() {
   test('.toEmbedRecord', () {

@@ -1,5 +1,8 @@
 import 'dart:io';
 
+import 'package:bluesky/app_bsky_embed_video.dart';
+import 'package:bluesky/app_bsky_feed_post.dart';
+import 'package:bluesky/chat_bsky_convo_defs.dart';
 import 'package:bluesky/atproto.dart';
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/bluesky_chat.dart';
@@ -8,6 +11,7 @@ import 'package:bluesky/firehose.dart' as firehose;
 
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/atproto_oauth.dart';
+import 'package:bluesky/moderation.dart';
 
 /// https://atprotodart.com/docs/packages/bluesky
 Future<void> main() async {
@@ -84,10 +88,13 @@ Future<void> main() async {
     );
 
     //! Let's post cool stuff!
-    final createdRecord = await bsky.feed.post(
+    await bsky.feed.post(
       text: 'Hello, Bluesky!',
-      embed: Embed.video(data: EmbedVideo(video: uploadedVideo.data.blob!)),
+      embed: UFeedPostEmbed.embedVideo(
+        data: EmbedVideo(video: uploadedVideo.data.jobStatus.blob!),
+      ),
     );
+
     //! You can use Stream API easily.
     final subscription = await bsky.atproto.sync.subscribeRepos();
 
