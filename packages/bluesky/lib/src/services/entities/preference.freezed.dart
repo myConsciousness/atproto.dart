@@ -15,6 +15,7 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$Preference {
+
   Object get data;
 
   @override
@@ -33,6 +34,124 @@ mixin _$Preference {
   String toString() {
     return 'Preference(data: $data)';
   }
+  Object get data => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(SavedFeedsPrefV2 data) savedFeedsV2,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(LabelersPref data) labelersPref,
+    required TResult Function(PostInteractionSettingsPref data)
+        postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(LabelersPref data)? labelersPref,
+    TResult? Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(LabelersPref data)? labelersPref,
+    TResult Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceSavedFeedsV2 value) savedFeedsV2,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceLabelersPref value) labelersPref,
+    required TResult Function(UPreferencePostInteractionSettingsPref value)
+        postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult? Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -148,6 +267,155 @@ class UPreferenceContentLabel extends Preference {
   @override
   String toString() {
     return 'Preference.contentLabel(data: $data)';
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPreferenceAdultContentImplCopyWith<_$UPreferenceAdultContentImpl>
+      get copyWith => __$$UPreferenceAdultContentImplCopyWithImpl<
+          _$UPreferenceAdultContentImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(SavedFeedsPrefV2 data) savedFeedsV2,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(LabelersPref data) labelersPref,
+    required TResult Function(PostInteractionSettingsPref data)
+        postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return adultContent(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(LabelersPref data)? labelersPref,
+    TResult? Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return adultContent?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(LabelersPref data)? labelersPref,
+    TResult Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (adultContent != null) {
+      return adultContent(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceSavedFeedsV2 value) savedFeedsV2,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceLabelersPref value) labelersPref,
+    required TResult Function(UPreferencePostInteractionSettingsPref value)
+        postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return adultContent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult? Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return adultContent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (adultContent != null) {
+      return adultContent(this);
+    }
+    return orElse();
+
   }
 }
 
@@ -223,9 +491,161 @@ class UPreferenceSavedFeeds extends Preference {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
+
   @override
   String toString() {
     return 'Preference.savedFeeds(data: $data)';
+
+    /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPreferenceContentLabelImplCopyWith<_$UPreferenceContentLabelImpl>
+      get copyWith => __$$UPreferenceContentLabelImplCopyWithImpl<
+          _$UPreferenceContentLabelImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(SavedFeedsPrefV2 data) savedFeedsV2,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(LabelersPref data) labelersPref,
+    required TResult Function(PostInteractionSettingsPref data)
+        postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return contentLabel(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(LabelersPref data)? labelersPref,
+    TResult? Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return contentLabel?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(LabelersPref data)? labelersPref,
+    TResult Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (contentLabel != null) {
+      return contentLabel(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceSavedFeedsV2 value) savedFeedsV2,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceLabelersPref value) labelersPref,
+    required TResult Function(UPreferencePostInteractionSettingsPref value)
+        postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return contentLabel(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult? Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return contentLabel?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (contentLabel != null) {
+      return contentLabel(this);
+    }
+    return orElse();
+
+  
   }
 }
 
@@ -304,6 +724,156 @@ class UPreferenceSavedFeedsV2 extends Preference {
   @override
   String toString() {
     return 'Preference.savedFeedsV2(data: $data)';
+
+    /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPreferenceSavedFeedsImplCopyWith<_$UPreferenceSavedFeedsImpl>
+      get copyWith => __$$UPreferenceSavedFeedsImplCopyWithImpl<
+          _$UPreferenceSavedFeedsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(SavedFeedsPrefV2 data) savedFeedsV2,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(LabelersPref data) labelersPref,
+    required TResult Function(PostInteractionSettingsPref data)
+        postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return savedFeeds(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(LabelersPref data)? labelersPref,
+    TResult? Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return savedFeeds?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(LabelersPref data)? labelersPref,
+    TResult Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (savedFeeds != null) {
+      return savedFeeds(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceSavedFeedsV2 value) savedFeedsV2,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceLabelersPref value) labelersPref,
+    required TResult Function(UPreferencePostInteractionSettingsPref value)
+        postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return savedFeeds(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult? Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return savedFeeds?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (savedFeeds != null) {
+      return savedFeeds(this);
+    }
+    return orElse();
+
   }
 }
 
@@ -379,10 +949,158 @@ class UPreferencePersonalDetails extends Preference {
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
-
   @override
   String toString() {
     return 'Preference.personalDetails(data: $data)';
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPreferenceSavedFeedsV2ImplCopyWith<_$UPreferenceSavedFeedsV2Impl>
+      get copyWith => __$$UPreferenceSavedFeedsV2ImplCopyWithImpl<
+          _$UPreferenceSavedFeedsV2Impl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(SavedFeedsPrefV2 data) savedFeedsV2,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(LabelersPref data) labelersPref,
+    required TResult Function(PostInteractionSettingsPref data)
+        postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return savedFeedsV2(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(LabelersPref data)? labelersPref,
+    TResult? Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return savedFeedsV2?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(LabelersPref data)? labelersPref,
+    TResult Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (savedFeedsV2 != null) {
+      return savedFeedsV2(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceSavedFeedsV2 value) savedFeedsV2,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceLabelersPref value) labelersPref,
+    required TResult Function(UPreferencePostInteractionSettingsPref value)
+        postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return savedFeedsV2(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult? Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return savedFeedsV2?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (savedFeedsV2 != null) {
+      return savedFeedsV2(this);
+    }
+    return orElse();
+
   }
 }
 
@@ -461,6 +1179,168 @@ class UPreferenceFeedView extends Preference {
   String toString() {
     return 'Preference.feedView(data: $data)';
   }
+
+  @pragma('vm:prefer-inline')
+  _$$UPreferencePersonalDetailsImplCopyWith<_$UPreferencePersonalDetailsImpl>
+      get copyWith => __$$UPreferencePersonalDetailsImplCopyWithImpl<
+          _$UPreferencePersonalDetailsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(SavedFeedsPrefV2 data) savedFeedsV2,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(LabelersPref data) labelersPref,
+    required TResult Function(PostInteractionSettingsPref data)
+        postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return personalDetails(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(LabelersPref data)? labelersPref,
+    TResult? Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return personalDetails?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(LabelersPref data)? labelersPref,
+    TResult Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (personalDetails != null) {
+      return personalDetails(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceSavedFeedsV2 value) savedFeedsV2,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceLabelersPref value) labelersPref,
+    required TResult Function(UPreferencePostInteractionSettingsPref value)
+        postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return personalDetails(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult? Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return personalDetails?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (personalDetails != null) {
+      return personalDetails(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UPreferencePersonalDetails extends Preference {
+  const factory UPreferencePersonalDetails(
+          {required final PersonalDetailsPreference data}) =
+      _$UPreferencePersonalDetailsImpl;
+  const UPreferencePersonalDetails._() : super._();
+
+  @override
+  PersonalDetailsPreference get data;
+
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UPreferencePersonalDetailsImplCopyWith<_$UPreferencePersonalDetailsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -538,6 +1418,145 @@ class UPreferenceThreadView extends Preference {
   @override
   String toString() {
     return 'Preference.threadView(data: $data)';
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(SavedFeedsPrefV2 data) savedFeedsV2,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(LabelersPref data) labelersPref,
+    required TResult Function(PostInteractionSettingsPref data)
+        postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return feedView(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(LabelersPref data)? labelersPref,
+    TResult? Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return feedView?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(LabelersPref data)? labelersPref,
+    TResult Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (feedView != null) {
+      return feedView(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceSavedFeedsV2 value) savedFeedsV2,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceLabelersPref value) labelersPref,
+    required TResult Function(UPreferencePostInteractionSettingsPref value)
+        postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return feedView(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult? Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return feedView?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (feedView != null) {
+      return feedView(this);
+    }
+    return orElse();
   }
 }
 
@@ -613,9 +1632,160 @@ class UPreferenceInterests extends Preference {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
+
   @override
   String toString() {
     return 'Preference.interests(data: $data)';
+
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPreferenceThreadViewImplCopyWith<_$UPreferenceThreadViewImpl>
+      get copyWith => __$$UPreferenceThreadViewImplCopyWithImpl<
+          _$UPreferenceThreadViewImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(SavedFeedsPrefV2 data) savedFeedsV2,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(LabelersPref data) labelersPref,
+    required TResult Function(PostInteractionSettingsPref data)
+        postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return threadView(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(LabelersPref data)? labelersPref,
+    TResult? Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return threadView?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(LabelersPref data)? labelersPref,
+    TResult Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (threadView != null) {
+      return threadView(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceSavedFeedsV2 value) savedFeedsV2,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceLabelersPref value) labelersPref,
+    required TResult Function(UPreferencePostInteractionSettingsPref value)
+        postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return threadView(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult? Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return threadView?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (threadView != null) {
+      return threadView(this);
+    }
+    return orElse();
+
   }
 }
 
@@ -691,9 +1861,159 @@ class UPreferenceMutedWords extends Preference {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
+
   @override
   String toString() {
     return 'Preference.mutedWords(data: $data)';
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPreferenceInterestsImplCopyWith<_$UPreferenceInterestsImpl>
+      get copyWith =>
+          __$$UPreferenceInterestsImplCopyWithImpl<_$UPreferenceInterestsImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(SavedFeedsPrefV2 data) savedFeedsV2,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(LabelersPref data) labelersPref,
+    required TResult Function(PostInteractionSettingsPref data)
+        postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return interests(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(LabelersPref data)? labelersPref,
+    TResult? Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return interests?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(LabelersPref data)? labelersPref,
+    TResult Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (interests != null) {
+      return interests(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceSavedFeedsV2 value) savedFeedsV2,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceLabelersPref value) labelersPref,
+    required TResult Function(UPreferencePostInteractionSettingsPref value)
+        postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return interests(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult? Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return interests?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (interests != null) {
+      return interests(this);
+    }
+    return orElse();
   }
 }
 
@@ -772,6 +2092,151 @@ class UPreferenceHiddenPosts extends Preference {
   @override
   String toString() {
     return 'Preference.hiddenPosts(data: $data)';
+  @pragma('vm:prefer-inline')
+  _$$UPreferenceMutedWordsImplCopyWith<_$UPreferenceMutedWordsImpl>
+      get copyWith => __$$UPreferenceMutedWordsImplCopyWithImpl<
+          _$UPreferenceMutedWordsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(SavedFeedsPrefV2 data) savedFeedsV2,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(LabelersPref data) labelersPref,
+    required TResult Function(PostInteractionSettingsPref data)
+        postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return mutedWords(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(LabelersPref data)? labelersPref,
+    TResult? Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return mutedWords?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(LabelersPref data)? labelersPref,
+    TResult Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (mutedWords != null) {
+      return mutedWords(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceSavedFeedsV2 value) savedFeedsV2,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceLabelersPref value) labelersPref,
+    required TResult Function(UPreferencePostInteractionSettingsPref value)
+        postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return mutedWords(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult? Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return mutedWords?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (mutedWords != null) {
+      return mutedWords(this);
+    }
+    return orElse();
+
   }
 }
 
@@ -850,6 +2315,155 @@ class UPreferenceLabelersPref extends Preference {
   @override
   String toString() {
     return 'Preference.labelersPref(data: $data)';
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPreferenceHiddenPostsImplCopyWith<_$UPreferenceHiddenPostsImpl>
+      get copyWith => __$$UPreferenceHiddenPostsImplCopyWithImpl<
+          _$UPreferenceHiddenPostsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(SavedFeedsPrefV2 data) savedFeedsV2,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(LabelersPref data) labelersPref,
+    required TResult Function(PostInteractionSettingsPref data)
+        postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return hiddenPosts(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(LabelersPref data)? labelersPref,
+    TResult? Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return hiddenPosts?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(LabelersPref data)? labelersPref,
+    TResult Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (hiddenPosts != null) {
+      return hiddenPosts(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceSavedFeedsV2 value) savedFeedsV2,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceLabelersPref value) labelersPref,
+    required TResult Function(UPreferencePostInteractionSettingsPref value)
+        postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return hiddenPosts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult? Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return hiddenPosts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (hiddenPosts != null) {
+      return hiddenPosts(this);
+    }
+    return orElse();
+
   }
 }
 
@@ -927,9 +2541,159 @@ class UPreferencePostInteractionSettingsPref extends Preference {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
+
   @override
   String toString() {
     return 'Preference.postInteractionSettingsPref(data: $data)';
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPreferenceLabelersPrefImplCopyWith<_$UPreferenceLabelersPrefImpl>
+      get copyWith => __$$UPreferenceLabelersPrefImplCopyWithImpl<
+          _$UPreferenceLabelersPrefImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(SavedFeedsPrefV2 data) savedFeedsV2,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(LabelersPref data) labelersPref,
+    required TResult Function(PostInteractionSettingsPref data)
+        postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return labelersPref(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(LabelersPref data)? labelersPref,
+    TResult? Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return labelersPref?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(LabelersPref data)? labelersPref,
+    TResult Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (labelersPref != null) {
+      return labelersPref(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceSavedFeedsV2 value) savedFeedsV2,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceLabelersPref value) labelersPref,
+    required TResult Function(UPreferencePostInteractionSettingsPref value)
+        postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return labelersPref(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult? Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return labelersPref?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (labelersPref != null) {
+      return labelersPref(this);
+    }
+    return orElse();
+
   }
 }
 
@@ -998,6 +2762,7 @@ class UPreferenceUnknown extends Preference {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+
   $UPreferenceUnknownCopyWith<UPreferenceUnknown> get copyWith =>
       _$UPreferenceUnknownCopyWithImpl<UPreferenceUnknown>(this, _$identity);
 
@@ -1016,6 +2781,153 @@ class UPreferenceUnknown extends Preference {
   @override
   String toString() {
     return 'Preference.unknown(data: $data)';
+=======
+  _$$UPreferencePostInteractionSettingsPrefImplCopyWith<
+          _$UPreferencePostInteractionSettingsPrefImpl>
+      get copyWith =>
+          __$$UPreferencePostInteractionSettingsPrefImplCopyWithImpl<
+              _$UPreferencePostInteractionSettingsPrefImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(SavedFeedsPrefV2 data) savedFeedsV2,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(LabelersPref data) labelersPref,
+    required TResult Function(PostInteractionSettingsPref data)
+        postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return postInteractionSettingsPref(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(LabelersPref data)? labelersPref,
+    TResult? Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return postInteractionSettingsPref?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(LabelersPref data)? labelersPref,
+    TResult Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (postInteractionSettingsPref != null) {
+      return postInteractionSettingsPref(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceSavedFeedsV2 value) savedFeedsV2,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceLabelersPref value) labelersPref,
+    required TResult Function(UPreferencePostInteractionSettingsPref value)
+        postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return postInteractionSettingsPref(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult? Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return postInteractionSettingsPref?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (postInteractionSettingsPref != null) {
+      return postInteractionSettingsPref(this);
+    }
+    return orElse();
+
   }
 }
 
@@ -1025,6 +2937,254 @@ abstract mixin class $UPreferenceUnknownCopyWith<$Res>
   factory $UPreferenceUnknownCopyWith(
           UPreferenceUnknown value, $Res Function(UPreferenceUnknown) _then) =
       _$UPreferenceUnknownCopyWithImpl;
+abstract class _$$UPreferenceVerificationPreferenceImplCopyWith<$Res> {
+  factory _$$UPreferenceVerificationPreferenceImplCopyWith(
+          _$UPreferenceVerificationPreferenceImpl value,
+          $Res Function(_$UPreferenceVerificationPreferenceImpl) then) =
+      __$$UPreferenceVerificationPreferenceImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({VerificationPreference data});
+
+  $VerificationPreferenceCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UPreferenceVerificationPreferenceImplCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res,
+        _$UPreferenceVerificationPreferenceImpl>
+    implements _$$UPreferenceVerificationPreferenceImplCopyWith<$Res> {
+  __$$UPreferenceVerificationPreferenceImplCopyWithImpl(
+      _$UPreferenceVerificationPreferenceImpl _value,
+      $Res Function(_$UPreferenceVerificationPreferenceImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UPreferenceVerificationPreferenceImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as VerificationPreference,
+    ));
+  }
+
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $VerificationPreferenceCopyWith<$Res> get data {
+    return $VerificationPreferenceCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UPreferenceVerificationPreferenceImpl
+    extends UPreferenceVerificationPreference {
+  const _$UPreferenceVerificationPreferenceImpl({required this.data})
+      : super._();
+
+  @override
+  final VerificationPreference data;
+
+  @override
+  String toString() {
+    return 'Preference.verification(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UPreferenceVerificationPreferenceImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPreferenceVerificationPreferenceImplCopyWith<
+          _$UPreferenceVerificationPreferenceImpl>
+      get copyWith => __$$UPreferenceVerificationPreferenceImplCopyWithImpl<
+          _$UPreferenceVerificationPreferenceImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(SavedFeedsPrefV2 data) savedFeedsV2,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(LabelersPref data) labelersPref,
+    required TResult Function(PostInteractionSettingsPref data)
+        postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return verification(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(LabelersPref data)? labelersPref,
+    TResult? Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return verification?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(LabelersPref data)? labelersPref,
+    TResult Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (verification != null) {
+      return verification(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceSavedFeedsV2 value) savedFeedsV2,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceLabelersPref value) labelersPref,
+    required TResult Function(UPreferencePostInteractionSettingsPref value)
+        postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return verification(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult? Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return verification?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (verification != null) {
+      return verification(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UPreferenceVerificationPreference extends Preference {
+  const factory UPreferenceVerificationPreference(
+          {required final VerificationPreference data}) =
+      _$UPreferenceVerificationPreferenceImpl;
+  const UPreferenceVerificationPreference._() : super._();
+
+  @override
+  VerificationPreference get data;
+
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UPreferenceVerificationPreferenceImplCopyWith<
+          _$UPreferenceVerificationPreferenceImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UPreferenceUnknownImplCopyWith<$Res> {
+  factory _$$UPreferenceUnknownImplCopyWith(_$UPreferenceUnknownImpl value,
+          $Res Function(_$UPreferenceUnknownImpl) then) =
+      __$$UPreferenceUnknownImplCopyWithImpl<$Res>;
+
   @useResult
   $Res call({Map<String, dynamic> data});
 }
@@ -1052,4 +3212,202 @@ class _$UPreferenceUnknownCopyWithImpl<$Res>
   }
 }
 
-// dart format on
+
+/// @nodoc
+
+class _$UPreferenceUnknownImpl extends UPreferenceUnknown {
+  const _$UPreferenceUnknownImpl({required final Map<String, dynamic> data})
+      : _data = data,
+        super._();
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'Preference.unknown(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UPreferenceUnknownImpl &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPreferenceUnknownImplCopyWith<_$UPreferenceUnknownImpl> get copyWith =>
+      __$$UPreferenceUnknownImplCopyWithImpl<_$UPreferenceUnknownImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(SavedFeedsPrefV2 data) savedFeedsV2,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(LabelersPref data) labelersPref,
+    required TResult Function(PostInteractionSettingsPref data)
+        postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return unknown(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(LabelersPref data)? labelersPref,
+    TResult? Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return unknown?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(LabelersPref data)? labelersPref,
+    TResult Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceSavedFeedsV2 value) savedFeedsV2,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceLabelersPref value) labelersPref,
+    required TResult Function(UPreferencePostInteractionSettingsPref value)
+        postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return unknown(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult? Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return unknown?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UPreferenceUnknown extends Preference {
+  const factory UPreferenceUnknown({required final Map<String, dynamic> data}) =
+      _$UPreferenceUnknownImpl;
+  const UPreferenceUnknown._() : super._();
+
+  @override
+  Map<String, dynamic> get data;
+
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UPreferenceUnknownImplCopyWith<_$UPreferenceUnknownImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+

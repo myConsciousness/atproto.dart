@@ -4,10 +4,12 @@ export 'package:bluesky/src/services/types/chat/bsky/convo/defs/log_begin_convo.
 export 'package:bluesky/src/services/types/chat/bsky/convo/defs/log_create_message.dart';
 export 'package:bluesky/src/services/types/chat/bsky/convo/defs/log_delete_message.dart';
 export 'package:bluesky/src/services/types/chat/bsky/convo/defs/log_leave_convo.dart';
-export 'package:bluesky/src/services/types/chat/bsky/convo/defs/message_ref.dart';
-export 'package:bluesky/src/services/types/chat/bsky/convo/defs/message_view_sender.dart';
-export 'package:bluesky/src/services/types/chat/bsky/convo/defs/message_view.dart';
 export 'package:bluesky/src/services/types/chat/bsky/convo/defs/message_input.dart';
+export 'package:bluesky/src/services/types/chat/bsky/convo/defs/message_ref.dart';
+export 'package:bluesky/src/services/types/chat/bsky/convo/defs/message_view.dart';
+export 'package:bluesky/src/services/types/chat/bsky/convo/defs/message_view_sender.dart';
+export 'package:bluesky/src/services/types/chat/bsky/convo/defs/reaction_view.dart';
+export 'package:bluesky/src/services/types/chat/bsky/convo/defs/reaction_view_sender.dart';
 export 'package:bluesky/src/services/types/chat/bsky/convo/defs/union/log.dart';
 export 'package:bluesky/src/services/types/chat/bsky/convo/defs/union/message_embed.dart';
 export 'package:bluesky/src/services/types/chat/bsky/convo/defs/union/message_view.dart';

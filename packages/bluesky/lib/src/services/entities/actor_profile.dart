@@ -6,6 +6,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import 'actor_verification.dart';
 import 'actor_viewer.dart';
 import 'defaults.dart';
 import 'profile_associated.dart';
@@ -32,6 +33,7 @@ abstract class ActorProfile with _$ActorProfile {
     @Default(0) int postsCount,
     ProfileAssociated? associated,
     @Default(defaultActorViewer) ActorViewer viewer,
+    @Default(defaultActorVerification) ActorVerification verification,
     List<Label>? labels,
     DateTime? createdAt,
     DateTime? indexedAt,

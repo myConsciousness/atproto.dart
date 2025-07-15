@@ -34,6 +34,12 @@ _ActorBasic _$ActorBasicFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Label.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
+          verification: $checkedConvert(
+              'verification',
+              (v) => v == null
+                  ? defaultActorVerification
+                  : ActorVerification.fromJson(
+                      Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
@@ -49,4 +55,5 @@ Map<String, dynamic> _$ActorBasicToJson(_ActorBasic instance) =>
       'viewer': instance.viewer.toJson(),
       if (instance.labels?.map((e) => e.toJson()).toList() case final value?)
         'labels': value,
+      'verification': instance.verification.toJson(),
     };

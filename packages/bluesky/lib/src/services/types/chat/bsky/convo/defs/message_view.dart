@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import '../../../../../entities/facet.dart';
 import 'message_view_sender.dart';
+import 'reaction_view.dart';
 import 'union/message_embed_view.dart';
 
 part 'message_view.freezed.dart';
@@ -20,6 +21,7 @@ abstract class MessageView with _$MessageView {
     required String text,
     List<Facet>? facets,
     @unionConvoMessageEmbedViewConverter UConvoMessageEmbedView? embed,
+    List<ReactionView>? reactions,
     required MessageViewSender sender,
     required DateTime sentAt,
   }) = _MessageView;

@@ -1,4 +1,6 @@
 // Package imports:
+
+// Package imports:
 import 'package:test/test.dart';
 
 // Project imports:
@@ -14,7 +16,8 @@ void main() {
       'avatar':
           'https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg',
       'viewer': {'muted': false, 'blockedBy': false},
-      'labels': []
+      'labels': [],
+      'verification': {},
     };
 
     final actual = ActorBasic.fromJson(expected).toActor();

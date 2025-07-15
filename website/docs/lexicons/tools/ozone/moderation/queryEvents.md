@@ -31,6 +31,8 @@ List moderation events related to a subject.
 | **removedTags** | array | - | ❌ | - |
 | **reportTypes** | array | - | ❌ | - |
 | **policies** | array | - | ❌ | If specified, only events where the action policies match any of the given policies are returned |
+| **modTool** | array | - | ❌ | - |
+| **ageAssuranceState** | string | pending<br/>assured<br/>unknown<br/>reset<br/>blocked | ❌ | If specified, only events where the age assurance state matches the given value are returned |
 | **cursor** | string | - | ❌ | - |
 
 ### Output

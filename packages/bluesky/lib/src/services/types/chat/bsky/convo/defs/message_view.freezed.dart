@@ -24,6 +24,7 @@ mixin _$MessageView {
   MessageViewSender get sender;
   DateTime get sentAt;
 
+
   /// Create a copy of MessageView
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -71,6 +72,7 @@ abstract mixin class $MessageViewCopyWith<$Res> {
       String text,
       List<Facet>? facets,
       @unionConvoMessageEmbedViewConverter UConvoMessageEmbedView? embed,
+      List<ReactionView>? reactions,
       MessageViewSender sender,
       DateTime sentAt});
 
@@ -95,6 +97,7 @@ class _$MessageViewCopyWithImpl<$Res> implements $MessageViewCopyWith<$Res> {
     Object? text = null,
     Object? facets = freezed,
     Object? embed = freezed,
+    Object? reactions = freezed,
     Object? sender = null,
     Object? sentAt = null,
   }) {
@@ -119,6 +122,10 @@ class _$MessageViewCopyWithImpl<$Res> implements $MessageViewCopyWith<$Res> {
           ? _self.embed
           : embed // ignore: cast_nullable_to_non_nullable
               as UConvoMessageEmbedView?,
+      reactions: freezed == reactions
+          ? _value.reactions
+          : reactions // ignore: cast_nullable_to_non_nullable
+              as List<ReactionView>?,
       sender: null == sender
           ? _self.sender
           : sender // ignore: cast_nullable_to_non_nullable
@@ -156,6 +163,90 @@ class _$MessageViewCopyWithImpl<$Res> implements $MessageViewCopyWith<$Res> {
 }
 
 /// @nodoc
+abstract class _$$MessageViewImplCopyWith<$Res>
+    implements $MessageViewCopyWith<$Res> {
+  factory _$$MessageViewImplCopyWith(
+          _$MessageViewImpl value, $Res Function(_$MessageViewImpl) then) =
+      __$$MessageViewImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String id,
+      String rev,
+      String text,
+      List<Facet>? facets,
+      @unionConvoMessageEmbedViewConverter UConvoMessageEmbedView? embed,
+      List<ReactionView>? reactions,
+      MessageViewSender sender,
+      DateTime sentAt});
+
+  @override
+  $UConvoMessageEmbedViewCopyWith<$Res>? get embed;
+  @override
+  $MessageViewSenderCopyWith<$Res> get sender;
+}
+
+/// @nodoc
+class __$$MessageViewImplCopyWithImpl<$Res>
+    extends _$MessageViewCopyWithImpl<$Res, _$MessageViewImpl>
+    implements _$$MessageViewImplCopyWith<$Res> {
+  __$$MessageViewImplCopyWithImpl(
+      _$MessageViewImpl _value, $Res Function(_$MessageViewImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MessageView
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? rev = null,
+    Object? text = null,
+    Object? facets = freezed,
+    Object? embed = freezed,
+    Object? reactions = freezed,
+    Object? sender = null,
+    Object? sentAt = null,
+  }) {
+    return _then(_$MessageViewImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      rev: null == rev
+          ? _value.rev
+          : rev // ignore: cast_nullable_to_non_nullable
+              as String,
+      text: null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      facets: freezed == facets
+          ? _value._facets
+          : facets // ignore: cast_nullable_to_non_nullable
+              as List<Facet>?,
+      embed: freezed == embed
+          ? _value.embed
+          : embed // ignore: cast_nullable_to_non_nullable
+              as UConvoMessageEmbedView?,
+      reactions: freezed == reactions
+          ? _value._reactions
+          : reactions // ignore: cast_nullable_to_non_nullable
+              as List<ReactionView>?,
+      sender: null == sender
+          ? _value.sender
+          : sender // ignore: cast_nullable_to_non_nullable
+              as MessageViewSender,
+      sentAt: null == sentAt
+          ? _value.sentAt
+          : sentAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
 
 @jsonSerializable
 class _MessageView implements MessageView {
@@ -165,11 +256,10 @@ class _MessageView implements MessageView {
       required this.text,
       final List<Facet>? facets,
       @unionConvoMessageEmbedViewConverter this.embed,
+      final List<ReactionView>? reactions,
       required this.sender,
       required this.sentAt})
-      : _facets = facets;
-  factory _MessageView.fromJson(Map<String, dynamic> json) =>
-      _$MessageViewFromJson(json);
+
 
   @override
   final String id;
@@ -190,6 +280,16 @@ class _MessageView implements MessageView {
   @override
   @unionConvoMessageEmbedViewConverter
   final UConvoMessageEmbedView? embed;
+  final List<ReactionView>? _reactions;
+  @override
+  List<ReactionView>? get reactions {
+    final value = _reactions;
+    if (value == null) return null;
+    if (_reactions is EqualUnmodifiableListView) return _reactions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final MessageViewSender sender;
   @override
@@ -220,14 +320,24 @@ class _MessageView implements MessageView {
             (identical(other.text, text) || other.text == text) &&
             const DeepCollectionEquality().equals(other._facets, _facets) &&
             (identical(other.embed, embed) || other.embed == embed) &&
+            const DeepCollectionEquality()
+                .equals(other._reactions, _reactions) &&
             (identical(other.sender, sender) || other.sender == sender) &&
             (identical(other.sentAt, sentAt) || other.sentAt == sentAt));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, rev, text,
-      const DeepCollectionEquality().hash(_facets), embed, sender, sentAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      rev,
+      text,
+      const DeepCollectionEquality().hash(_facets),
+      embed,
+      const DeepCollectionEquality().hash(_reactions),
+      sender,
+      sentAt);
 
   @override
   String toString() {
@@ -235,12 +345,33 @@ class _MessageView implements MessageView {
   }
 }
 
+
 /// @nodoc
 abstract mixin class _$MessageViewCopyWith<$Res>
     implements $MessageViewCopyWith<$Res> {
   factory _$MessageViewCopyWith(
           _MessageView value, $Res Function(_MessageView) _then) =
       __$MessageViewCopyWithImpl;
+
+abstract class _MessageView implements MessageView {
+  const factory _MessageView(
+      {required final String id,
+      required final String rev,
+      required final String text,
+      final List<Facet>? facets,
+      @unionConvoMessageEmbedViewConverter final UConvoMessageEmbedView? embed,
+      final List<ReactionView>? reactions,
+      required final MessageViewSender sender,
+      required final DateTime sentAt}) = _$MessageViewImpl;
+
+  factory _MessageView.fromJson(Map<String, dynamic> json) =
+      _$MessageViewImpl.fromJson;
+
+  @override
+  String get id;
+  @override
+  String get rev;
+
   @override
   @useResult
   $Res call(
@@ -268,6 +399,7 @@ class __$MessageViewCopyWithImpl<$Res> implements _$MessageViewCopyWith<$Res> {
   /// Create a copy of MessageView
   /// with the given fields replaced by the non-null parameter values.
   @override
+
   @pragma('vm:prefer-inline')
   $Res call({
     Object? id = null,

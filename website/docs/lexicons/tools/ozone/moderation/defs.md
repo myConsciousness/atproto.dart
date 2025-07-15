@@ -10,31 +10,33 @@ description: tools.ozone.moderation.defs
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
-| **event** | union of <br/>[#modEventTakedown](#modeventtakedown)<br/>[#modEventReverseTakedown](#modeventreversetakedown)<br/>[#modEventComment](#modeventcomment)<br/>[#modEventReport](#modeventreport)<br/>[#modEventLabel](#modeventlabel)<br/>[#modEventAcknowledge](#modeventacknowledge)<br/>[#modEventEscalate](#modeventescalate)<br/>[#modEventMute](#modeventmute)<br/>[#modEventUnmute](#modeventunmute)<br/>[#modEventMuteReporter](#modeventmutereporter)<br/>[#modEventUnmuteReporter](#modeventunmutereporter)<br/>[#modEventEmail](#modeventemail)<br/>[#modEventResolveAppeal](#modeventresolveappeal)<br/>[#modEventDivert](#modeventdivert)<br/>[#modEventTag](#modeventtag)<br/>[#accountEvent](#accountevent)<br/>[#identityEvent](#identityevent)<br/>[#recordEvent](#recordevent)<br/>[#modEventPriorityScore](#modeventpriorityscore) | - | ✅ | - |
+| **event** | union of <br/>[#modEventTakedown](#modeventtakedown)<br/>[#modEventReverseTakedown](#modeventreversetakedown)<br/>[#modEventComment](#modeventcomment)<br/>[#modEventReport](#modeventreport)<br/>[#modEventLabel](#modeventlabel)<br/>[#modEventAcknowledge](#modeventacknowledge)<br/>[#modEventEscalate](#modeventescalate)<br/>[#modEventMute](#modeventmute)<br/>[#modEventUnmute](#modeventunmute)<br/>[#modEventMuteReporter](#modeventmutereporter)<br/>[#modEventUnmuteReporter](#modeventunmutereporter)<br/>[#modEventEmail](#modeventemail)<br/>[#modEventResolveAppeal](#modeventresolveappeal)<br/>[#modEventDivert](#modeventdivert)<br/>[#modEventTag](#modeventtag)<br/>[#accountEvent](#accountevent)<br/>[#identityEvent](#identityevent)<br/>[#recordEvent](#recordevent)<br/>[#modEventPriorityScore](#modeventpriorityscore)<br/>[#ageAssuranceEvent](#ageassuranceevent)<br/>[#ageAssuranceOverrideEvent](#ageassuranceoverrideevent) | - | ✅ | - |
 | **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main)<br/>[chat.bsky.convo.defs#messageRef](../../../../lexicons/chat/bsky/convo/defs.md#messageref) | - | ✅ | - |
 | **subjectBlobCids** | array of string | - | ✅ | - |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **creatorHandle** | string | - | ❌ | - |
 | **subjectHandle** | string | - | ❌ | - |
+| **modTool** | [#modTool](#modtool) | - | ❌ | - |
 
 ## #modEventViewDetail
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
-| **event** | union of <br/>[#modEventTakedown](#modeventtakedown)<br/>[#modEventReverseTakedown](#modeventreversetakedown)<br/>[#modEventComment](#modeventcomment)<br/>[#modEventReport](#modeventreport)<br/>[#modEventLabel](#modeventlabel)<br/>[#modEventAcknowledge](#modeventacknowledge)<br/>[#modEventEscalate](#modeventescalate)<br/>[#modEventMute](#modeventmute)<br/>[#modEventUnmute](#modeventunmute)<br/>[#modEventMuteReporter](#modeventmutereporter)<br/>[#modEventUnmuteReporter](#modeventunmutereporter)<br/>[#modEventEmail](#modeventemail)<br/>[#modEventResolveAppeal](#modeventresolveappeal)<br/>[#modEventDivert](#modeventdivert)<br/>[#modEventTag](#modeventtag)<br/>[#accountEvent](#accountevent)<br/>[#identityEvent](#identityevent)<br/>[#recordEvent](#recordevent)<br/>[#modEventPriorityScore](#modeventpriorityscore) | - | ✅ | - |
+| **event** | union of <br/>[#modEventTakedown](#modeventtakedown)<br/>[#modEventReverseTakedown](#modeventreversetakedown)<br/>[#modEventComment](#modeventcomment)<br/>[#modEventReport](#modeventreport)<br/>[#modEventLabel](#modeventlabel)<br/>[#modEventAcknowledge](#modeventacknowledge)<br/>[#modEventEscalate](#modeventescalate)<br/>[#modEventMute](#modeventmute)<br/>[#modEventUnmute](#modeventunmute)<br/>[#modEventMuteReporter](#modeventmutereporter)<br/>[#modEventUnmuteReporter](#modeventunmutereporter)<br/>[#modEventEmail](#modeventemail)<br/>[#modEventResolveAppeal](#modeventresolveappeal)<br/>[#modEventDivert](#modeventdivert)<br/>[#modEventTag](#modeventtag)<br/>[#accountEvent](#accountevent)<br/>[#identityEvent](#identityevent)<br/>[#recordEvent](#recordevent)<br/>[#modEventPriorityScore](#modeventpriorityscore)<br/>[#ageAssuranceEvent](#ageassuranceevent)<br/>[#ageAssuranceOverrideEvent](#ageassuranceoverrideevent) | - | ✅ | - |
 | **subject** | union of <br/>[#repoView](#repoview)<br/>[#repoViewNotFound](#repoviewnotfound)<br/>[#recordView](#recordview)<br/>[#recordViewNotFound](#recordviewnotfound) | - | ✅ | - |
 | **subjectBlobs** | array of [#blobView](#blobview) | - | ✅ | - |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+| **modTool** | [#modTool](#modtool) | - | ❌ | - |
 
 ## #subjectStatusView
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
-| **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |
+| **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main)<br/>[chat.bsky.convo.defs#messageRef](../../../../lexicons/chat/bsky/convo/defs.md#messageref) | - | ✅ | - |
 | **hosting** | union of <br/>[#accountHosting](#accounthosting)<br/>[#recordHosting](#recordhosting) | - | ❌ | - |
 | **subjectBlobCids** | array of string | - | ❌ | - |
 | **subjectRepoHandle** | string | - | ❌ | - |
@@ -55,6 +57,8 @@ description: tools.ozone.moderation.defs
 | **tags** | array of string | - | ❌ | - |
 | **accountStats** | [#accountStats](#accountstats) | - | ❌ | - |
 | **recordsStats** | [#recordsStats](#recordsstats) | - | ❌ | - |
+| **ageAssuranceState** | string | pending<br/>assured<br/>unknown<br/>reset<br/>blocked | ❌ | Current age assurance state of the subject. |
+| **ageAssuranceUpdatedBy** | string | admin<br/>user | ❌ | Whether or not the last successful update to age assurance was made by the user or admin. |
 
 ## #subjectView
 
@@ -183,6 +187,29 @@ Set priority score of the subject. Higher score means higher priority.
 | --- | --- | --- | :---: | --- |
 | **comment** | string | - | ❌ | - |
 | **score** | integer | - | ✅ | - |
+
+## #ageAssuranceEvent
+
+Age assurance info coming directly from users. Only works on DID subjects.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | The date and time of this write operation. |
+| **status** | string | unknown<br/>pending<br/>assured | ✅ | The status of the age assurance process. |
+| **attemptId** | string | - | ✅ | The unique identifier for this instance of the age assurance flow, in UUID format. |
+| **initIp** | string | - | ❌ | The IP address used when initiating the AA flow. |
+| **initUa** | string | - | ❌ | The user agent used when initiating the AA flow. |
+| **completeIp** | string | - | ❌ | The IP address used when completing the AA flow. |
+| **completeUa** | string | - | ❌ | The user agent used when completing the AA flow. |
+
+## #ageAssuranceOverrideEvent
+
+Age assurance status override by moderators. Only works on DID subjects.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **status** | string | assured<br/>reset<br/>blocked | ✅ | The status to be set for the user decided by a moderator, overriding whatever value the user had previously. Use reset to default to original state. |
+| **comment** | string | - | ✅ | Comment describing the reason for the override. |
 
 ## #modEventAcknowledge
 
@@ -436,3 +463,12 @@ Logs lifecycle event on a record subject. Normally captured by automod from the 
 | **takendownRecordCount** | integer | - | ✅ | The total number of records taken down as a result of the user's reports. |
 | **labeledAccountCount** | integer | - | ✅ | The total number of accounts labeled as a result of the user's reports. |
 | **labeledRecordCount** | integer | - | ✅ | The total number of records labeled as a result of the user's reports. |
+
+## #modTool
+
+Moderation tool information for tracing the source of the action
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **name** | string | - | ✅ | Name/identifier of the source (e.g., 'automod', 'ozone/workspace') |
+| **meta** | unknown | - | ❌ | Additional arbitrary metadata about the source |

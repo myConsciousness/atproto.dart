@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import 'actor.dart';
+import 'actor_verification.dart';
 import 'actor_viewer.dart';
 import 'defaults.dart';
 import 'profile_associated.dart';
@@ -29,6 +30,7 @@ abstract class ActorBasic with _$ActorBasic {
     ProfileAssociated? associated,
     @Default(defaultActorViewer) ActorViewer viewer,
     List<Label>? labels,
+    @Default(defaultActorVerification) ActorVerification verification,
   }) = _ActorBasic;
 
   factory ActorBasic.fromJson(Map<String, Object?> json) =>

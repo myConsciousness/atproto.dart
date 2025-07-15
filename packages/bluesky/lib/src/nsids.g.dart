@@ -37,6 +37,12 @@ const appBskyActorSearchActors = NSID(ids.appBskyActorSearchActors);
 const appBskyActorSearchActorsTypeahead =
     NSID(ids.appBskyActorSearchActorsTypeahead);
 
+/// `app.bsky.actor.status`
+const appBskyActorStatus = NSID(ids.appBskyActorStatus);
+
+/// `app.bsky.actor.status#live`
+const appBskyActorStatusLive = NSID(ids.appBskyActorStatusLive);
+
 /// `app.bsky.embed.external`
 const appBskyEmbedExternal = NSID(ids.appBskyEmbedExternal);
 
@@ -294,15 +300,29 @@ const appBskyGraphUnmuteActorList = NSID(ids.appBskyGraphUnmuteActorList);
 /// `app.bsky.graph.unmuteThread`
 const appBskyGraphUnmuteThread = NSID(ids.appBskyGraphUnmuteThread);
 
+/// `app.bsky.graph.verification`
+const appBskyGraphVerification = NSID(ids.appBskyGraphVerification);
+
 /// `app.bsky.labeler.getServices`
 const appBskyLabelerGetServices = NSID(ids.appBskyLabelerGetServices);
 
 /// `app.bsky.labeler.service`
 const appBskyLabelerService = NSID(ids.appBskyLabelerService);
 
+/// `app.bsky.notification.declaration`
+const appBskyNotificationDeclaration = NSID(ids.appBskyNotificationDeclaration);
+
+/// `app.bsky.notification.getPreferences`
+const appBskyNotificationGetPreferences =
+    NSID(ids.appBskyNotificationGetPreferences);
+
 /// `app.bsky.notification.getUnreadCount`
 const appBskyNotificationGetUnreadCount =
     NSID(ids.appBskyNotificationGetUnreadCount);
+
+/// `app.bsky.notification.listActivitySubscriptions`
+const appBskyNotificationListActivitySubscriptions =
+    NSID(ids.appBskyNotificationListActivitySubscriptions);
 
 /// `app.bsky.notification.listNotifications`
 const appBskyNotificationListNotifications =
@@ -312,9 +332,17 @@ const appBskyNotificationListNotifications =
 const appBskyNotificationListNotificationsNotification =
     NSID(ids.appBskyNotificationListNotificationsNotification);
 
+/// `app.bsky.notification.putActivitySubscription`
+const appBskyNotificationPutActivitySubscription =
+    NSID(ids.appBskyNotificationPutActivitySubscription);
+
 /// `app.bsky.notification.putPreferences`
 const appBskyNotificationPutPreferences =
     NSID(ids.appBskyNotificationPutPreferences);
+
+/// `app.bsky.notification.putPreferencesV2`
+const appBskyNotificationPutPreferencesV2 =
+    NSID(ids.appBskyNotificationPutPreferencesV2);
 
 /// `app.bsky.notification.registerPush`
 const appBskyNotificationRegisterPush =
@@ -338,12 +366,60 @@ const appBskyRichtextFacetMention = NSID(ids.appBskyRichtextFacetMention);
 /// `app.bsky.richtext.facet#tag`
 const appBskyRichtextFacetTag = NSID(ids.appBskyRichtextFacetTag);
 
+/// `app.bsky.unspecced.getAgeAssuranceState`
+const appBskyUnspeccedGetAgeAssuranceState =
+    NSID(ids.appBskyUnspeccedGetAgeAssuranceState);
+
 /// `app.bsky.unspecced.getConfig`
 const appBskyUnspeccedGetConfig = NSID(ids.appBskyUnspeccedGetConfig);
+
+/// `app.bsky.unspecced.getConfig#liveNowConfig`
+const appBskyUnspeccedGetConfigLiveNowConfig =
+    NSID(ids.appBskyUnspeccedGetConfigLiveNowConfig);
 
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators =
     NSID(ids.appBskyUnspeccedGetPopularFeedGenerators);
+
+/// `app.bsky.unspecced.getPostThreadOtherV2`
+const appBskyUnspeccedGetPostThreadOtherV2 =
+    NSID(ids.appBskyUnspeccedGetPostThreadOtherV2);
+
+/// `app.bsky.unspecced.getPostThreadOtherV2#threadItem`
+const appBskyUnspeccedGetPostThreadOtherV2ThreadItem =
+    NSID(ids.appBskyUnspeccedGetPostThreadOtherV2ThreadItem);
+
+/// `app.bsky.unspecced.getPostThreadV2`
+const appBskyUnspeccedGetPostThreadV2 =
+    NSID(ids.appBskyUnspeccedGetPostThreadV2);
+
+/// `app.bsky.unspecced.getPostThreadV2#threadItem`
+const appBskyUnspeccedGetPostThreadV2ThreadItem =
+    NSID(ids.appBskyUnspeccedGetPostThreadV2ThreadItem);
+
+/// `app.bsky.unspecced.getSuggestedFeeds`
+const appBskyUnspeccedGetSuggestedFeeds =
+    NSID(ids.appBskyUnspeccedGetSuggestedFeeds);
+
+/// `app.bsky.unspecced.getSuggestedFeedsSkeleton`
+const appBskyUnspeccedGetSuggestedFeedsSkeleton =
+    NSID(ids.appBskyUnspeccedGetSuggestedFeedsSkeleton);
+
+/// `app.bsky.unspecced.getSuggestedStarterPacks`
+const appBskyUnspeccedGetSuggestedStarterPacks =
+    NSID(ids.appBskyUnspeccedGetSuggestedStarterPacks);
+
+/// `app.bsky.unspecced.getSuggestedStarterPacksSkeleton`
+const appBskyUnspeccedGetSuggestedStarterPacksSkeleton =
+    NSID(ids.appBskyUnspeccedGetSuggestedStarterPacksSkeleton);
+
+/// `app.bsky.unspecced.getSuggestedUsers`
+const appBskyUnspeccedGetSuggestedUsers =
+    NSID(ids.appBskyUnspeccedGetSuggestedUsers);
+
+/// `app.bsky.unspecced.getSuggestedUsersSkeleton`
+const appBskyUnspeccedGetSuggestedUsersSkeleton =
+    NSID(ids.appBskyUnspeccedGetSuggestedUsersSkeleton);
 
 /// `app.bsky.unspecced.getSuggestionsSkeleton`
 const appBskyUnspeccedGetSuggestionsSkeleton =
@@ -360,6 +436,17 @@ const appBskyUnspeccedGetTaggedSuggestionsSuggestion =
 /// `app.bsky.unspecced.getTrendingTopics`
 const appBskyUnspeccedGetTrendingTopics =
     NSID(ids.appBskyUnspeccedGetTrendingTopics);
+
+/// `app.bsky.unspecced.getTrends`
+const appBskyUnspeccedGetTrends = NSID(ids.appBskyUnspeccedGetTrends);
+
+/// `app.bsky.unspecced.getTrendsSkeleton`
+const appBskyUnspeccedGetTrendsSkeleton =
+    NSID(ids.appBskyUnspeccedGetTrendsSkeleton);
+
+/// `app.bsky.unspecced.initAgeAssurance`
+const appBskyUnspeccedInitAgeAssurance =
+    NSID(ids.appBskyUnspeccedInitAgeAssurance);
 
 /// `app.bsky.unspecced.searchActorsSkeleton`
 const appBskyUnspeccedSearchActorsSkeleton =

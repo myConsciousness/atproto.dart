@@ -39,7 +39,9 @@ final class _UConvoMessageEmbedViewConverter
 
       if (type == appBskyEmbedRecordView) {
         return UConvoMessageEmbedView.recordView(
-          data: embedViewRecordViewConverter.fromJson(json),
+          data: embedViewRecordViewConverter.fromJson(
+            json['record'] as Map<String, dynamic>,
+          ),
         );
       }
 

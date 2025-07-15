@@ -25,6 +25,7 @@ mixin _$Actor {
   List<Label>? get labels;
   DateTime? get indexedAt;
 
+
   /// Create a copy of Actor
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -88,11 +89,13 @@ abstract mixin class $ActorCopyWith<$Res> {
       String? avatar,
       ProfileAssociated? associated,
       ActorViewer viewer,
+      ActorVerification verification,
       List<Label>? labels,
       DateTime? indexedAt});
 
   $ProfileAssociatedCopyWith<$Res>? get associated;
   $ActorViewerCopyWith<$Res> get viewer;
+  $ActorVerificationCopyWith<$Res> get verification;
 }
 
 /// @nodoc
@@ -114,6 +117,7 @@ class _$ActorCopyWithImpl<$Res> implements $ActorCopyWith<$Res> {
     Object? avatar = freezed,
     Object? associated = freezed,
     Object? viewer = null,
+    Object? verification = null,
     Object? labels = freezed,
     Object? indexedAt = freezed,
   }) {
@@ -146,6 +150,10 @@ class _$ActorCopyWithImpl<$Res> implements $ActorCopyWith<$Res> {
           ? _self.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
+      verification: null == verification
+          ? _value.verification
+          : verification // ignore: cast_nullable_to_non_nullable
+              as ActorVerification,
       labels: freezed == labels
           ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -180,9 +188,113 @@ class _$ActorCopyWithImpl<$Res> implements $ActorCopyWith<$Res> {
       return _then(_self.copyWith(viewer: value));
     });
   }
+
+  /// Create a copy of Actor
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorVerificationCopyWith<$Res> get verification {
+    return $ActorVerificationCopyWith<$Res>(_value.verification, (value) {
+      return _then(_value.copyWith(verification: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
+abstract class _$$ActorImplCopyWith<$Res> implements $ActorCopyWith<$Res> {
+  factory _$$ActorImplCopyWith(
+          _$ActorImpl value, $Res Function(_$ActorImpl) then) =
+      __$$ActorImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String did,
+      String handle,
+      String? displayName,
+      String? description,
+      String? avatar,
+      ProfileAssociated? associated,
+      ActorViewer viewer,
+      ActorVerification verification,
+      List<Label>? labels,
+      DateTime? indexedAt});
+
+  @override
+  $ProfileAssociatedCopyWith<$Res>? get associated;
+  @override
+  $ActorViewerCopyWith<$Res> get viewer;
+  @override
+  $ActorVerificationCopyWith<$Res> get verification;
+}
+
+/// @nodoc
+class __$$ActorImplCopyWithImpl<$Res>
+    extends _$ActorCopyWithImpl<$Res, _$ActorImpl>
+    implements _$$ActorImplCopyWith<$Res> {
+  __$$ActorImplCopyWithImpl(
+      _$ActorImpl _value, $Res Function(_$ActorImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Actor
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? did = null,
+    Object? handle = null,
+    Object? displayName = freezed,
+    Object? description = freezed,
+    Object? avatar = freezed,
+    Object? associated = freezed,
+    Object? viewer = null,
+    Object? verification = null,
+    Object? labels = freezed,
+    Object? indexedAt = freezed,
+  }) {
+    return _then(_$ActorImpl(
+      did: null == did
+          ? _value.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      handle: null == handle
+          ? _value.handle
+          : handle // ignore: cast_nullable_to_non_nullable
+              as String,
+      displayName: freezed == displayName
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      avatar: freezed == avatar
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String?,
+      associated: freezed == associated
+          ? _value.associated
+          : associated // ignore: cast_nullable_to_non_nullable
+              as ProfileAssociated?,
+      viewer: null == viewer
+          ? _value.viewer
+          : viewer // ignore: cast_nullable_to_non_nullable
+              as ActorViewer,
+      verification: null == verification
+          ? _value.verification
+          : verification // ignore: cast_nullable_to_non_nullable
+              as ActorVerification,
+      labels: freezed == labels
+          ? _value._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
+      indexedAt: freezed == indexedAt
+          ? _value.indexedAt
+          : indexedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ));
+  }
+}
 
 @jsonSerializable
 class _Actor extends Actor {
@@ -194,6 +306,7 @@ class _Actor extends Actor {
       this.avatar,
       this.associated,
       this.viewer = defaultActorViewer,
+      this.verification = defaultActorVerification,
       final List<Label>? labels,
       this.indexedAt})
       : _labels = labels,
@@ -215,6 +328,9 @@ class _Actor extends Actor {
   @override
   @JsonKey()
   final ActorViewer viewer;
+  @override
+  @JsonKey()
+  final ActorVerification verification;
   final List<Label>? _labels;
   @override
   List<Label>? get labels {
@@ -241,6 +357,8 @@ class _Actor extends Actor {
     return _$ActorToJson(
       this,
     );
+  String toString() {
+    return 'Actor(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, associated: $associated, viewer: $viewer, verification: $verification, labels: $labels, indexedAt: $indexedAt)';
   }
 
   @override
@@ -258,6 +376,8 @@ class _Actor extends Actor {
             (identical(other.associated, associated) ||
                 other.associated == associated) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
+            (identical(other.verification, verification) ||
+                other.verification == verification) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
@@ -274,6 +394,7 @@ class _Actor extends Actor {
       avatar,
       associated,
       viewer,
+      verification,
       const DeepCollectionEquality().hash(_labels),
       indexedAt);
 
@@ -287,6 +408,32 @@ class _Actor extends Actor {
 abstract mixin class _$ActorCopyWith<$Res> implements $ActorCopyWith<$Res> {
   factory _$ActorCopyWith(_Actor value, $Res Function(_Actor) _then) =
       __$ActorCopyWithImpl;
+
+  abstract class _Actor extends Actor {
+  const factory _Actor(
+      {required final String did,
+      required final String handle,
+      final String? displayName,
+      final String? description,
+      final String? avatar,
+      final ProfileAssociated? associated,
+      final ActorViewer viewer,
+      final ActorVerification verification,
+      final List<Label>? labels,
+      final DateTime? indexedAt}) = _$ActorImpl;
+  const _Actor._() : super._();
+
+  factory _Actor.fromJson(Map<String, dynamic> json) = _$ActorImpl.fromJson;
+
+  @override
+  String get did;
+  @override
+  String get handle;
+  @override
+  String? get displayName;
+  @override
+  String? get description;
+
   @override
   @useResult
   $Res call(
@@ -370,6 +517,10 @@ class __$ActorCopyWithImpl<$Res> implements _$ActorCopyWith<$Res> {
 
   /// Create a copy of Actor
   /// with the given fields replaced by the non-null parameter values.
+
+  ActorVerification get verification;
+  @override
+  List<Label>? get labels;
   @override
   @pragma('vm:prefer-inline')
   $ProfileAssociatedCopyWith<$Res>? get associated {

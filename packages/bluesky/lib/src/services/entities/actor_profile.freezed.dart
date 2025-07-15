@@ -15,6 +15,7 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$ActorProfile {
+
   String get did;
   String get handle;
   String? get displayName;
@@ -30,6 +31,7 @@ mixin _$ActorProfile {
   DateTime? get createdAt;
   DateTime? get indexedAt;
   StrongRef? get pinnedPost;
+
 
   /// Create a copy of ActorProfile
   /// with the given fields replaced by the non-null parameter values.
@@ -117,6 +119,7 @@ abstract mixin class $ActorProfileCopyWith<$Res> {
       int postsCount,
       ProfileAssociated? associated,
       ActorViewer viewer,
+      ActorVerification verification,
       List<Label>? labels,
       DateTime? createdAt,
       DateTime? indexedAt,
@@ -124,6 +127,7 @@ abstract mixin class $ActorProfileCopyWith<$Res> {
 
   $ProfileAssociatedCopyWith<$Res>? get associated;
   $ActorViewerCopyWith<$Res> get viewer;
+  $ActorVerificationCopyWith<$Res> get verification;
   $StrongRefCopyWith<$Res>? get pinnedPost;
 }
 
@@ -150,6 +154,7 @@ class _$ActorProfileCopyWithImpl<$Res> implements $ActorProfileCopyWith<$Res> {
     Object? postsCount = null,
     Object? associated = freezed,
     Object? viewer = null,
+    Object? verification = null,
     Object? labels = freezed,
     Object? createdAt = freezed,
     Object? indexedAt = freezed,
@@ -200,6 +205,10 @@ class _$ActorProfileCopyWithImpl<$Res> implements $ActorProfileCopyWith<$Res> {
           ? _self.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
+      verification: null == verification
+          ? _value.verification
+          : verification // ignore: cast_nullable_to_non_nullable
+              as ActorVerification,
       labels: freezed == labels
           ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -247,6 +256,16 @@ class _$ActorProfileCopyWithImpl<$Res> implements $ActorProfileCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $ActorVerificationCopyWith<$Res> get verification {
+    return $ActorVerificationCopyWith<$Res>(_value.verification, (value) {
+      return _then(_value.copyWith(verification: value) as $Val);
+    });
+  }
+
+  /// Create a copy of ActorProfile
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $StrongRefCopyWith<$Res>? get pinnedPost {
     if (_self.pinnedPost == null) {
       return null;
@@ -259,7 +278,141 @@ class _$ActorProfileCopyWithImpl<$Res> implements $ActorProfileCopyWith<$Res> {
 }
 
 /// @nodoc
+abstract class _$$ActorProfileImplCopyWith<$Res>
+    implements $ActorProfileCopyWith<$Res> {
+  factory _$$ActorProfileImplCopyWith(
+          _$ActorProfileImpl value, $Res Function(_$ActorProfileImpl) then) =
+      __$$ActorProfileImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String did,
+      String handle,
+      String? displayName,
+      String? description,
+      String? avatar,
+      String? banner,
+      int followsCount,
+      int followersCount,
+      int postsCount,
+      ProfileAssociated? associated,
+      ActorViewer viewer,
+      ActorVerification verification,
+      List<Label>? labels,
+      DateTime? createdAt,
+      DateTime? indexedAt,
+      StrongRef? pinnedPost});
 
+  @override
+  $ProfileAssociatedCopyWith<$Res>? get associated;
+  @override
+  $ActorViewerCopyWith<$Res> get viewer;
+  @override
+  $ActorVerificationCopyWith<$Res> get verification;
+  @override
+  $StrongRefCopyWith<$Res>? get pinnedPost;
+}
+
+/// @nodoc
+class __$$ActorProfileImplCopyWithImpl<$Res>
+    extends _$ActorProfileCopyWithImpl<$Res, _$ActorProfileImpl>
+    implements _$$ActorProfileImplCopyWith<$Res> {
+  __$$ActorProfileImplCopyWithImpl(
+      _$ActorProfileImpl _value, $Res Function(_$ActorProfileImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ActorProfile
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? did = null,
+    Object? handle = null,
+    Object? displayName = freezed,
+    Object? description = freezed,
+    Object? avatar = freezed,
+    Object? banner = freezed,
+    Object? followsCount = null,
+    Object? followersCount = null,
+    Object? postsCount = null,
+    Object? associated = freezed,
+    Object? viewer = null,
+    Object? verification = null,
+    Object? labels = freezed,
+    Object? createdAt = freezed,
+    Object? indexedAt = freezed,
+    Object? pinnedPost = freezed,
+  }) {
+    return _then(_$ActorProfileImpl(
+      did: null == did
+          ? _value.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      handle: null == handle
+          ? _value.handle
+          : handle // ignore: cast_nullable_to_non_nullable
+              as String,
+      displayName: freezed == displayName
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      avatar: freezed == avatar
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String?,
+      banner: freezed == banner
+          ? _value.banner
+          : banner // ignore: cast_nullable_to_non_nullable
+              as String?,
+      followsCount: null == followsCount
+          ? _value.followsCount
+          : followsCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      followersCount: null == followersCount
+          ? _value.followersCount
+          : followersCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      postsCount: null == postsCount
+          ? _value.postsCount
+          : postsCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      associated: freezed == associated
+          ? _value.associated
+          : associated // ignore: cast_nullable_to_non_nullable
+              as ProfileAssociated?,
+      viewer: null == viewer
+          ? _value.viewer
+          : viewer // ignore: cast_nullable_to_non_nullable
+              as ActorViewer,
+      verification: null == verification
+          ? _value.verification
+          : verification // ignore: cast_nullable_to_non_nullable
+              as ActorVerification,
+      labels: freezed == labels
+          ? _value._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      indexedAt: freezed == indexedAt
+          ? _value.indexedAt
+          : indexedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      pinnedPost: freezed == pinnedPost
+          ? _value.pinnedPost
+          : pinnedPost // ignore: cast_nullable_to_non_nullable
+              as StrongRef?,
+    ));
+  }
+}
+
+/// @nodoc
 @jsonSerializable
 class _ActorProfile extends ActorProfile {
   const _ActorProfile(
@@ -274,6 +427,7 @@ class _ActorProfile extends ActorProfile {
       this.postsCount = 0,
       this.associated,
       this.viewer = defaultActorViewer,
+      this.verification = defaultActorVerification,
       final List<Label>? labels,
       this.createdAt,
       this.indexedAt,
@@ -309,6 +463,9 @@ class _ActorProfile extends ActorProfile {
   @override
   @JsonKey()
   final ActorViewer viewer;
+  @override
+  @JsonKey()
+  final ActorVerification verification;
   final List<Label>? _labels;
   @override
   List<Label>? get labels {
@@ -339,6 +496,9 @@ class _ActorProfile extends ActorProfile {
     return _$ActorProfileToJson(
       this,
     );
+
+  String toString() {
+    return 'ActorProfile(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followsCount: $followsCount, followersCount: $followersCount, postsCount: $postsCount, associated: $associated, viewer: $viewer, verification: $verification, labels: $labels, createdAt: $createdAt, indexedAt: $indexedAt, pinnedPost: $pinnedPost)';
   }
 
   @override
@@ -363,6 +523,8 @@ class _ActorProfile extends ActorProfile {
             (identical(other.associated, associated) ||
                 other.associated == associated) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
+            (identical(other.verification, verification) ||
+                other.verification == verification) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -387,6 +549,7 @@ class _ActorProfile extends ActorProfile {
       postsCount,
       associated,
       viewer,
+      verification,
       const DeepCollectionEquality().hash(_labels),
       createdAt,
       indexedAt,
@@ -404,6 +567,47 @@ abstract mixin class _$ActorProfileCopyWith<$Res>
   factory _$ActorProfileCopyWith(
           _ActorProfile value, $Res Function(_ActorProfile) _then) =
       __$ActorProfileCopyWithImpl;
+
+abstract class _ActorProfile extends ActorProfile {
+  const factory _ActorProfile(
+      {required final String did,
+      required final String handle,
+      final String? displayName,
+      final String? description,
+      final String? avatar,
+      final String? banner,
+      final int followsCount,
+      final int followersCount,
+      final int postsCount,
+      final ProfileAssociated? associated,
+      final ActorViewer viewer,
+      final ActorVerification verification,
+      final List<Label>? labels,
+      final DateTime? createdAt,
+      final DateTime? indexedAt,
+      final StrongRef? pinnedPost}) = _$ActorProfileImpl;
+  const _ActorProfile._() : super._();
+
+  factory _ActorProfile.fromJson(Map<String, dynamic> json) =
+      _$ActorProfileImpl.fromJson;
+
+  @override
+  String get did;
+  @override
+  String get handle;
+  @override
+  String? get displayName;
+  @override
+  String? get description;
+  @override
+  String? get avatar;
+  @override
+  String? get banner;
+  @override
+  int get followsCount;
+  @override
+  int get followersCount;
+
   @override
   @useResult
   $Res call(
@@ -428,6 +632,7 @@ abstract mixin class _$ActorProfileCopyWith<$Res>
   @override
   $ActorViewerCopyWith<$Res> get viewer;
   @override
+
   $StrongRefCopyWith<$Res>? get pinnedPost;
 }
 
@@ -441,6 +646,11 @@ class __$ActorProfileCopyWithImpl<$Res>
 
   /// Create a copy of ActorProfile
   /// with the given fields replaced by the non-null parameter values.
+
+  ActorVerification get verification;
+  @override
+  List<Label>? get labels;
+
   @override
   @pragma('vm:prefer-inline')
   $Res call({
