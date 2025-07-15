@@ -61,11 +61,11 @@ scripts:
       dart run ./bin/generate_lexicon_ids.dart
       dart run ./bin/gen/code_gen.dart
       cd packages/atproto
-      dart fix --apply
       dart run build_runner build --delete-conflicting-outputs
+      dart fix --apply
       cd ../../packages/bluesky
-      dart fix --apply
       dart run build_runner build --delete-conflicting-outputs
+      dart fix --apply
       cd ../../
       melos fmt
     description: Generate code for atproto and blueksy based on lexicons.

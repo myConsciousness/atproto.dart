@@ -34,8 +34,7 @@ extension UVerificationViewIssuerProfileExtension
     on UVerificationViewIssuerProfile {
   bool get isUnknown => isA<UVerificationViewIssuerProfileUnknown>(this);
   bool get isNotUnknown => !isUnknown;
-  Map<String, dynamic>? get unknown =>
-      isUnknown ? data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknown => isUnknown ? data : null;
 }
 
 final class UVerificationViewIssuerProfileConverter
