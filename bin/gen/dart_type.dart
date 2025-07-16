@@ -1,4 +1,5 @@
 import 'object/lex_union.dart';
+import 'object/lex_known_values.dart';
 
 final class DartType {
   final String name;
@@ -12,6 +13,7 @@ final class DartType {
   final String? fieldName;
 
   final LexUnion? union;
+  final LexKnownValues? knownValues;
 
   final bool isArray;
   final bool isUnion;
@@ -30,6 +32,7 @@ final class DartType {
     this.annotation,
     this.description,
     this.union,
+    this.knownValues,
     this.isArray = false,
     this.isUnion = false,
     this.isNil = false,
