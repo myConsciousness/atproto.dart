@@ -50,9 +50,14 @@ String getExtensions(
     if (rule.isDeprecated(property.description)) continue;
     if (property.type.isArray) continue;
 
+    final functionName = toFirstUpperCase(property.name);
+
     if (property.type.isBoolean) {
-      final isA = 'is${toFirstUpperCase(property.name)}';
-      final isNotA = 'isNot${toFirstUpperCase(property.name)}';
+      final prefix = splitByUpperCase(property.name).first;
+      if (prefix == 'has') continue;
+
+      final isA = 'is$functionName';
+      final isNotA = 'isNot$functionName';
 
       if (!_isKnownPropertyName(isA, properties)) {
         if (property.isRequired) {
@@ -68,23 +73,29 @@ String getExtensions(
         extensions.writeln('bool get $isNotA => !$isA;');
       }
     } else {
+      final prefix = splitByUpperCase(property.name).first;
+      if (prefix == 'is') continue;
       if (property.isRequired) continue;
 
-      final hasA = 'has${toFirstUpperCase(property.name)}';
-      final hasNotA = 'hasNot${toFirstUpperCase(property.name)}';
+      final hasA = 'has$functionName';
+      final hasNotA = 'hasNot$functionName';
 
       if (!_isKnownPropertyName(hasA, properties)) {
         extensions.writeln('bool get $hasA => ${property.name} != null;');
       }
       if (!_isKnownPropertyName(hasNotA, properties)) {
-        extensions.writeln('bool get $hasNotA => !$hasA;');
+        if (_isKnownPropertyName(hasA, properties)) {
+          extensions.writeln('bool get $hasNotA => !($hasA ?? false);');
+        } else {
+          extensions.writeln('bool get $hasNotA => !$hasA;');
+        }
       }
     }
   }
 
   if (extensions.isEmpty) return '';
 
-  return '''extension ${name}${suffix}Extension on $name$suffix {
+  return '''extension $name${suffix}Extension on $name$suffix {
 ${extensions.toString()}
 }
 ''';

@@ -26,6 +26,15 @@ abstract class ReasonType with _$ReasonType {
 
   const factory ReasonType.unknown({required String data}) = ReasonTypeUnknown;
 
+  static ReasonType? valueOf(final String? value) {
+    if (value == null) return null;
+    final knownValue = KnownReasonType.valueOf(value);
+
+    return knownValue != null
+        ? ReasonType.known(data: knownValue)
+        : ReasonType.unknown(data: value);
+  }
+
   String toJson() => const ReasonTypeConverter().toJson(this);
 }
 

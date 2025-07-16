@@ -26,6 +26,15 @@ abstract class LabelValue with _$LabelValue {
 
   const factory LabelValue.unknown({required String data}) = LabelValueUnknown;
 
+  static LabelValue? valueOf(final String? value) {
+    if (value == null) return null;
+    final knownValue = KnownLabelValue.valueOf(value);
+
+    return knownValue != null
+        ? LabelValue.known(data: knownValue)
+        : LabelValue.unknown(data: value);
+  }
+
   String toJson() => const LabelValueConverter().toJson(this);
 }
 

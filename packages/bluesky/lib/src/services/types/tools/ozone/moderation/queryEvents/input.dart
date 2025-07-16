@@ -109,9 +109,7 @@ extension ModerationQueryEventsInputExtension on ModerationQueryEventsInput {
   bool get isNotIncludeAllUserRecords => !isIncludeAllUserRecords;
   bool get hasLimit => limit != null;
   bool get hasNotLimit => !hasLimit;
-  bool get isHasComment => hasComment ?? false;
-  bool get isNotHasComment => !isHasComment;
-  bool get hasNotComment => !hasComment;
+  bool get hasNotComment => !(hasComment ?? false);
   bool get hasAgeAssuranceState => ageAssuranceState != null;
   bool get hasNotAgeAssuranceState => !hasAgeAssuranceState;
   bool get hasCursor => cursor != null;

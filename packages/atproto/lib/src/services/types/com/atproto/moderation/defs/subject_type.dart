@@ -27,6 +27,15 @@ abstract class SubjectType with _$SubjectType {
   const factory SubjectType.unknown({required String data}) =
       SubjectTypeUnknown;
 
+  static SubjectType? valueOf(final String? value) {
+    if (value == null) return null;
+    final knownValue = KnownSubjectType.valueOf(value);
+
+    return knownValue != null
+        ? SubjectType.known(data: knownValue)
+        : SubjectType.unknown(data: value);
+  }
+
   String toJson() => const SubjectTypeConverter().toJson(this);
 }
 

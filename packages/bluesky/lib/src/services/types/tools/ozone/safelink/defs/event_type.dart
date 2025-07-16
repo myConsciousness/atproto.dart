@@ -26,6 +26,15 @@ abstract class EventType with _$EventType {
 
   const factory EventType.unknown({required String data}) = EventTypeUnknown;
 
+  static EventType? valueOf(final String? value) {
+    if (value == null) return null;
+    final knownValue = KnownEventType.valueOf(value);
+
+    return knownValue != null
+        ? EventType.known(data: knownValue)
+        : EventType.unknown(data: value);
+  }
+
   String toJson() => const EventTypeConverter().toJson(this);
 }
 

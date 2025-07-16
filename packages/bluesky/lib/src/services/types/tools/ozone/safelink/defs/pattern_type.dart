@@ -27,6 +27,15 @@ abstract class PatternType with _$PatternType {
   const factory PatternType.unknown({required String data}) =
       PatternTypeUnknown;
 
+  static PatternType? valueOf(final String? value) {
+    if (value == null) return null;
+    final knownValue = KnownPatternType.valueOf(value);
+
+    return knownValue != null
+        ? PatternType.known(data: knownValue)
+        : PatternType.unknown(data: value);
+  }
+
   String toJson() => const PatternTypeConverter().toJson(this);
 }
 

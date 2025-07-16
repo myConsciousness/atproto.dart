@@ -45,8 +45,6 @@ extension UnspeccedGetPostThreadV2OutputExtension
     on UnspeccedGetPostThreadV2Output {
   bool get hasThreadgate => threadgate != null;
   bool get hasNotThreadgate => !hasThreadgate;
-  bool get isHasOtherReplies => hasOtherReplies;
-  bool get isNotHasOtherReplies => !isHasOtherReplies;
 }
 
 final class UnspeccedGetPostThreadV2OutputConverter

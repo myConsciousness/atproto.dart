@@ -66,6 +66,13 @@ abstract class $name with _\$$name {
     required String data,
   }) = ${name}Unknown;
 
+  static $name? valueOf(final String? value) {
+    if (value == null) return null;
+    final knownValue = Known$name.valueOf(value);
+
+    return knownValue != null ? $name.known(data: knownValue) : $name.unknown(data: value);
+  }
+
   String toJson() => const ${name}Converter().toJson(this);
 }
 

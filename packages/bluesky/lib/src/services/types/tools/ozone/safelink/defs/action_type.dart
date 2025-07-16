@@ -26,6 +26,15 @@ abstract class ActionType with _$ActionType {
 
   const factory ActionType.unknown({required String data}) = ActionTypeUnknown;
 
+  static ActionType? valueOf(final String? value) {
+    if (value == null) return null;
+    final knownValue = KnownActionType.valueOf(value);
+
+    return knownValue != null
+        ? ActionType.known(data: knownValue)
+        : ActionType.unknown(data: value);
+  }
+
   String toJson() => const ActionTypeConverter().toJson(this);
 }
 

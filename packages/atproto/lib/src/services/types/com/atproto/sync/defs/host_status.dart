@@ -26,6 +26,15 @@ abstract class HostStatus with _$HostStatus {
 
   const factory HostStatus.unknown({required String data}) = HostStatusUnknown;
 
+  static HostStatus? valueOf(final String? value) {
+    if (value == null) return null;
+    final knownValue = KnownHostStatus.valueOf(value);
+
+    return knownValue != null
+        ? HostStatus.known(data: knownValue)
+        : HostStatus.unknown(data: value);
+  }
+
   String toJson() => const HostStatusConverter().toJson(this);
 }
 

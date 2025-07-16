@@ -27,6 +27,15 @@ abstract class ListPurpose with _$ListPurpose {
   const factory ListPurpose.unknown({required String data}) =
       ListPurposeUnknown;
 
+  static ListPurpose? valueOf(final String? value) {
+    if (value == null) return null;
+    final knownValue = KnownListPurpose.valueOf(value);
+
+    return knownValue != null
+        ? ListPurpose.known(data: knownValue)
+        : ListPurpose.unknown(data: value);
+  }
+
   String toJson() => const ListPurposeConverter().toJson(this);
 }
 

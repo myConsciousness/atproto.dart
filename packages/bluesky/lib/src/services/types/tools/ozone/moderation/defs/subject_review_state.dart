@@ -28,6 +28,15 @@ abstract class SubjectReviewState with _$SubjectReviewState {
   const factory SubjectReviewState.unknown({required String data}) =
       SubjectReviewStateUnknown;
 
+  static SubjectReviewState? valueOf(final String? value) {
+    if (value == null) return null;
+    final knownValue = KnownSubjectReviewState.valueOf(value);
+
+    return knownValue != null
+        ? SubjectReviewState.known(data: knownValue)
+        : SubjectReviewState.unknown(data: value);
+  }
+
   String toJson() => const SubjectReviewStateConverter().toJson(this);
 }
 

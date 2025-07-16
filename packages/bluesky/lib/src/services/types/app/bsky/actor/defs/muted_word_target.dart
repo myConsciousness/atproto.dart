@@ -27,6 +27,15 @@ abstract class MutedWordTarget with _$MutedWordTarget {
   const factory MutedWordTarget.unknown({required String data}) =
       MutedWordTargetUnknown;
 
+  static MutedWordTarget? valueOf(final String? value) {
+    if (value == null) return null;
+    final knownValue = KnownMutedWordTarget.valueOf(value);
+
+    return knownValue != null
+        ? MutedWordTarget.known(data: knownValue)
+        : MutedWordTarget.unknown(data: value);
+  }
+
   String toJson() => const MutedWordTargetConverter().toJson(this);
 }
 
