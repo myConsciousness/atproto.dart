@@ -18,9 +18,9 @@ ModerationDecision decideNotification(
 ) {
   final (author, labels) = switch (subject) {
     UModerationSubjectNotification(data: final data) => (
-        data.author,
-        data.labels
-      ),
+      data.author,
+      data.labels,
+    ),
     _ => throw UnimplementedError(),
   };
 

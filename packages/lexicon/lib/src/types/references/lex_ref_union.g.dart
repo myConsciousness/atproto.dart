@@ -8,9 +8,9 @@ part of 'lex_ref_union.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LexRefUnionImpl _$$LexRefUnionImplFromJson(Map json) =>
-    $checkedCreate(r'_$LexRefUnionImpl', json, ($checkedConvert) {
-      final val = _$LexRefUnionImpl(
+_LexRefUnion _$LexRefUnionFromJson(Map json) =>
+    $checkedCreate('_LexRefUnion', json, ($checkedConvert) {
+      final val = _LexRefUnion(
         type: $checkedConvert('type', (v) => v as String? ?? 'union'),
         description: $checkedConvert('description', (v) => v as String?),
         refs: $checkedConvert(
@@ -22,7 +22,7 @@ _$LexRefUnionImpl _$$LexRefUnionImplFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$$LexRefUnionImplToJson(_$LexRefUnionImpl instance) =>
+Map<String, dynamic> _$LexRefUnionToJson(_LexRefUnion instance) =>
     <String, dynamic>{
       'type': instance.type,
       if (instance.description case final value?) 'description': value,

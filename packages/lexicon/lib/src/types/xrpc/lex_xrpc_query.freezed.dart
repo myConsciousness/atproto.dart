@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,305 +9,337 @@ part of 'lex_xrpc_query.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-LexXrpcQuery _$LexXrpcQueryFromJson(Map<String, dynamic> json) {
-  return _LexXrpcQuery.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LexXrpcQuery {
-  String get type => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  LexXrpcParameters? get parameters => throw _privateConstructorUsedError;
-  LexXrpcBody? get output => throw _privateConstructorUsedError;
-  List<LexXrpcError>? get errors => throw _privateConstructorUsedError;
+
+ String get type; String? get description; LexXrpcParameters? get parameters; LexXrpcBody? get output; List<LexXrpcError>? get errors;
+/// Create a copy of LexXrpcQuery
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$LexXrpcQueryCopyWith<LexXrpcQuery> get copyWith => _$LexXrpcQueryCopyWithImpl<LexXrpcQuery>(this as LexXrpcQuery, _$identity);
 
   /// Serializes this LexXrpcQuery to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of LexXrpcQuery
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $LexXrpcQueryCopyWith<LexXrpcQuery> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LexXrpcQuery&&(identical(other.type, type) || other.type == type)&&(identical(other.description, description) || other.description == description)&&(identical(other.parameters, parameters) || other.parameters == parameters)&&(identical(other.output, output) || other.output == output)&&const DeepCollectionEquality().equals(other.errors, errors));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,type,description,parameters,output,const DeepCollectionEquality().hash(errors));
+
+@override
+String toString() {
+  return 'LexXrpcQuery(type: $type, description: $description, parameters: $parameters, output: $output, errors: $errors)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $LexXrpcQueryCopyWith<$Res> {
-  factory $LexXrpcQueryCopyWith(
-    LexXrpcQuery value,
-    $Res Function(LexXrpcQuery) then,
-  ) = _$LexXrpcQueryCopyWithImpl<$Res, LexXrpcQuery>;
-  @useResult
-  $Res call({
-    String type,
-    String? description,
-    LexXrpcParameters? parameters,
-    LexXrpcBody? output,
-    List<LexXrpcError>? errors,
-  });
+abstract mixin class $LexXrpcQueryCopyWith<$Res>  {
+  factory $LexXrpcQueryCopyWith(LexXrpcQuery value, $Res Function(LexXrpcQuery) _then) = _$LexXrpcQueryCopyWithImpl;
+@useResult
+$Res call({
+ String type, String? description, LexXrpcParameters? parameters, LexXrpcBody? output, List<LexXrpcError>? errors
+});
 
-  $LexXrpcParametersCopyWith<$Res>? get parameters;
-  $LexXrpcBodyCopyWith<$Res>? get output;
+
+$LexXrpcParametersCopyWith<$Res>? get parameters;$LexXrpcBodyCopyWith<$Res>? get output;
+
 }
-
 /// @nodoc
-class _$LexXrpcQueryCopyWithImpl<$Res, $Val extends LexXrpcQuery>
+class _$LexXrpcQueryCopyWithImpl<$Res>
     implements $LexXrpcQueryCopyWith<$Res> {
-  _$LexXrpcQueryCopyWithImpl(this._value, this._then);
+  _$LexXrpcQueryCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final LexXrpcQuery _self;
+  final $Res Function(LexXrpcQuery) _then;
 
-  /// Create a copy of LexXrpcQuery
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? description = freezed,
-    Object? parameters = freezed,
-    Object? output = freezed,
-    Object? errors = freezed,
-  }) {
-    return _then(
-      _value.copyWith(
-            type: null == type
-                ? _value.type
-                : type // ignore: cast_nullable_to_non_nullable
-                      as String,
-            description: freezed == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                      as String?,
-            parameters: freezed == parameters
-                ? _value.parameters
-                : parameters // ignore: cast_nullable_to_non_nullable
-                      as LexXrpcParameters?,
-            output: freezed == output
-                ? _value.output
-                : output // ignore: cast_nullable_to_non_nullable
-                      as LexXrpcBody?,
-            errors: freezed == errors
-                ? _value.errors
-                : errors // ignore: cast_nullable_to_non_nullable
-                      as List<LexXrpcError>?,
-          )
-          as $Val,
-    );
-  }
-
-  /// Create a copy of LexXrpcQuery
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LexXrpcParametersCopyWith<$Res>? get parameters {
-    if (_value.parameters == null) {
-      return null;
-    }
-
-    return $LexXrpcParametersCopyWith<$Res>(_value.parameters!, (value) {
-      return _then(_value.copyWith(parameters: value) as $Val);
-    });
-  }
-
-  /// Create a copy of LexXrpcQuery
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LexXrpcBodyCopyWith<$Res>? get output {
-    if (_value.output == null) {
-      return null;
-    }
-
-    return $LexXrpcBodyCopyWith<$Res>(_value.output!, (value) {
-      return _then(_value.copyWith(output: value) as $Val);
-    });
-  }
+/// Create a copy of LexXrpcQuery
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? description = freezed,Object? parameters = freezed,Object? output = freezed,Object? errors = freezed,}) {
+  return _then(_self.copyWith(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,parameters: freezed == parameters ? _self.parameters : parameters // ignore: cast_nullable_to_non_nullable
+as LexXrpcParameters?,output: freezed == output ? _self.output : output // ignore: cast_nullable_to_non_nullable
+as LexXrpcBody?,errors: freezed == errors ? _self.errors : errors // ignore: cast_nullable_to_non_nullable
+as List<LexXrpcError>?,
+  ));
 }
+/// Create a copy of LexXrpcQuery
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexXrpcParametersCopyWith<$Res>? get parameters {
+    if (_self.parameters == null) {
+    return null;
+  }
 
-/// @nodoc
-abstract class _$$LexXrpcQueryImplCopyWith<$Res>
-    implements $LexXrpcQueryCopyWith<$Res> {
-  factory _$$LexXrpcQueryImplCopyWith(
-    _$LexXrpcQueryImpl value,
-    $Res Function(_$LexXrpcQueryImpl) then,
-  ) = __$$LexXrpcQueryImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({
-    String type,
-    String? description,
-    LexXrpcParameters? parameters,
-    LexXrpcBody? output,
-    List<LexXrpcError>? errors,
+  return $LexXrpcParametersCopyWith<$Res>(_self.parameters!, (value) {
+    return _then(_self.copyWith(parameters: value));
   });
+}/// Create a copy of LexXrpcQuery
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexXrpcBodyCopyWith<$Res>? get output {
+    if (_self.output == null) {
+    return null;
+  }
 
-  @override
-  $LexXrpcParametersCopyWith<$Res>? get parameters;
-  @override
-  $LexXrpcBodyCopyWith<$Res>? get output;
+  return $LexXrpcBodyCopyWith<$Res>(_self.output!, (value) {
+    return _then(_self.copyWith(output: value));
+  });
+}
 }
 
-/// @nodoc
-class __$$LexXrpcQueryImplCopyWithImpl<$Res>
-    extends _$LexXrpcQueryCopyWithImpl<$Res, _$LexXrpcQueryImpl>
-    implements _$$LexXrpcQueryImplCopyWith<$Res> {
-  __$$LexXrpcQueryImplCopyWithImpl(
-    _$LexXrpcQueryImpl _value,
-    $Res Function(_$LexXrpcQueryImpl) _then,
-  ) : super(_value, _then);
 
-  /// Create a copy of LexXrpcQuery
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? description = freezed,
-    Object? parameters = freezed,
-    Object? output = freezed,
-    Object? errors = freezed,
-  }) {
-    return _then(
-      _$LexXrpcQueryImpl(
-        type: null == type
-            ? _value.type
-            : type // ignore: cast_nullable_to_non_nullable
-                  as String,
-        description: freezed == description
-            ? _value.description
-            : description // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        parameters: freezed == parameters
-            ? _value.parameters
-            : parameters // ignore: cast_nullable_to_non_nullable
-                  as LexXrpcParameters?,
-        output: freezed == output
-            ? _value.output
-            : output // ignore: cast_nullable_to_non_nullable
-                  as LexXrpcBody?,
-        errors: freezed == errors
-            ? _value._errors
-            : errors // ignore: cast_nullable_to_non_nullable
-                  as List<LexXrpcError>?,
-      ),
-    );
-  }
+/// Adds pattern-matching-related methods to [LexXrpcQuery].
+extension LexXrpcQueryPatterns on LexXrpcQuery {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _LexXrpcQuery value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _LexXrpcQuery() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _LexXrpcQuery value)  $default,){
+final _that = this;
+switch (_that) {
+case _LexXrpcQuery():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _LexXrpcQuery value)?  $default,){
+final _that = this;
+switch (_that) {
+case _LexXrpcQuery() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  String? description,  LexXrpcParameters? parameters,  LexXrpcBody? output,  List<LexXrpcError>? errors)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _LexXrpcQuery() when $default != null:
+return $default(_that.type,_that.description,_that.parameters,_that.output,_that.errors);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  String? description,  LexXrpcParameters? parameters,  LexXrpcBody? output,  List<LexXrpcError>? errors)  $default,) {final _that = this;
+switch (_that) {
+case _LexXrpcQuery():
+return $default(_that.type,_that.description,_that.parameters,_that.output,_that.errors);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  String? description,  LexXrpcParameters? parameters,  LexXrpcBody? output,  List<LexXrpcError>? errors)?  $default,) {final _that = this;
+switch (_that) {
+case _LexXrpcQuery() when $default != null:
+return $default(_that.type,_that.description,_that.parameters,_that.output,_that.errors);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$LexXrpcQueryImpl implements _LexXrpcQuery {
-  const _$LexXrpcQueryImpl({
-    this.type = 'query',
-    this.description,
-    this.parameters,
-    this.output,
-    final List<LexXrpcError>? errors,
-  }) : _errors = errors;
+class _LexXrpcQuery implements LexXrpcQuery {
+  const _LexXrpcQuery({this.type = 'query', this.description, this.parameters, this.output, final  List<LexXrpcError>? errors}): _errors = errors;
+  factory _LexXrpcQuery.fromJson(Map<String, dynamic> json) => _$LexXrpcQueryFromJson(json);
 
-  factory _$LexXrpcQueryImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LexXrpcQueryImplFromJson(json);
-
-  @override
-  @JsonKey()
-  final String type;
-  @override
-  final String? description;
-  @override
-  final LexXrpcParameters? parameters;
-  @override
-  final LexXrpcBody? output;
-  final List<LexXrpcError>? _errors;
-  @override
-  List<LexXrpcError>? get errors {
-    final value = _errors;
-    if (value == null) return null;
-    if (_errors is EqualUnmodifiableListView) return _errors;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  String toString() {
-    return 'LexXrpcQuery(type: $type, description: $description, parameters: $parameters, output: $output, errors: $errors)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LexXrpcQueryImpl &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.parameters, parameters) ||
-                other.parameters == parameters) &&
-            (identical(other.output, output) || other.output == output) &&
-            const DeepCollectionEquality().equals(other._errors, _errors));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    type,
-    description,
-    parameters,
-    output,
-    const DeepCollectionEquality().hash(_errors),
-  );
-
-  /// Create a copy of LexXrpcQuery
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LexXrpcQueryImplCopyWith<_$LexXrpcQueryImpl> get copyWith =>
-      __$$LexXrpcQueryImplCopyWithImpl<_$LexXrpcQueryImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LexXrpcQueryImplToJson(this);
-  }
+@override@JsonKey() final  String type;
+@override final  String? description;
+@override final  LexXrpcParameters? parameters;
+@override final  LexXrpcBody? output;
+ final  List<LexXrpcError>? _errors;
+@override List<LexXrpcError>? get errors {
+  final value = _errors;
+  if (value == null) return null;
+  if (_errors is EqualUnmodifiableListView) return _errors;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
 }
 
-abstract class _LexXrpcQuery implements LexXrpcQuery {
-  const factory _LexXrpcQuery({
-    final String type,
-    final String? description,
-    final LexXrpcParameters? parameters,
-    final LexXrpcBody? output,
-    final List<LexXrpcError>? errors,
-  }) = _$LexXrpcQueryImpl;
 
-  factory _LexXrpcQuery.fromJson(Map<String, dynamic> json) =
-      _$LexXrpcQueryImpl.fromJson;
+/// Create a copy of LexXrpcQuery
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$LexXrpcQueryCopyWith<_LexXrpcQuery> get copyWith => __$LexXrpcQueryCopyWithImpl<_LexXrpcQuery>(this, _$identity);
 
-  @override
-  String get type;
-  @override
-  String? get description;
-  @override
-  LexXrpcParameters? get parameters;
-  @override
-  LexXrpcBody? get output;
-  @override
-  List<LexXrpcError>? get errors;
-
-  /// Create a copy of LexXrpcQuery
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LexXrpcQueryImplCopyWith<_$LexXrpcQueryImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$LexXrpcQueryToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LexXrpcQuery&&(identical(other.type, type) || other.type == type)&&(identical(other.description, description) || other.description == description)&&(identical(other.parameters, parameters) || other.parameters == parameters)&&(identical(other.output, output) || other.output == output)&&const DeepCollectionEquality().equals(other._errors, _errors));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,type,description,parameters,output,const DeepCollectionEquality().hash(_errors));
+
+@override
+String toString() {
+  return 'LexXrpcQuery(type: $type, description: $description, parameters: $parameters, output: $output, errors: $errors)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$LexXrpcQueryCopyWith<$Res> implements $LexXrpcQueryCopyWith<$Res> {
+  factory _$LexXrpcQueryCopyWith(_LexXrpcQuery value, $Res Function(_LexXrpcQuery) _then) = __$LexXrpcQueryCopyWithImpl;
+@override @useResult
+$Res call({
+ String type, String? description, LexXrpcParameters? parameters, LexXrpcBody? output, List<LexXrpcError>? errors
+});
+
+
+@override $LexXrpcParametersCopyWith<$Res>? get parameters;@override $LexXrpcBodyCopyWith<$Res>? get output;
+
+}
+/// @nodoc
+class __$LexXrpcQueryCopyWithImpl<$Res>
+    implements _$LexXrpcQueryCopyWith<$Res> {
+  __$LexXrpcQueryCopyWithImpl(this._self, this._then);
+
+  final _LexXrpcQuery _self;
+  final $Res Function(_LexXrpcQuery) _then;
+
+/// Create a copy of LexXrpcQuery
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? description = freezed,Object? parameters = freezed,Object? output = freezed,Object? errors = freezed,}) {
+  return _then(_LexXrpcQuery(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,parameters: freezed == parameters ? _self.parameters : parameters // ignore: cast_nullable_to_non_nullable
+as LexXrpcParameters?,output: freezed == output ? _self.output : output // ignore: cast_nullable_to_non_nullable
+as LexXrpcBody?,errors: freezed == errors ? _self._errors : errors // ignore: cast_nullable_to_non_nullable
+as List<LexXrpcError>?,
+  ));
+}
+
+/// Create a copy of LexXrpcQuery
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexXrpcParametersCopyWith<$Res>? get parameters {
+    if (_self.parameters == null) {
+    return null;
+  }
+
+  return $LexXrpcParametersCopyWith<$Res>(_self.parameters!, (value) {
+    return _then(_self.copyWith(parameters: value));
+  });
+}/// Create a copy of LexXrpcQuery
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexXrpcBodyCopyWith<$Res>? get output {
+    if (_self.output == null) {
+    return null;
+  }
+
+  return $LexXrpcBodyCopyWith<$Res>(_self.output!, (value) {
+    return _then(_self.copyWith(output: value));
+  });
+}
+}
+
+// dart format on

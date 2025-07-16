@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,338 +9,311 @@ part of 'operation.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-Operation _$OperationFromJson(Map<String, dynamic> json) {
-  return _Operation.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Operation {
-  String get sig => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
-  Map<String, dynamic> get services => throw _privateConstructorUsedError;
-  List<String> get alsoKnownAs => throw _privateConstructorUsedError;
-  List<String> get rotationKeys => throw _privateConstructorUsedError;
-  Map<String, dynamic> get verificationMethods =>
-      throw _privateConstructorUsedError;
-  String? get prev => throw _privateConstructorUsedError;
+
+ String get sig; String get type; Map<String, dynamic> get services; List<String> get alsoKnownAs; List<String> get rotationKeys; Map<String, dynamic> get verificationMethods; String? get prev;
+/// Create a copy of Operation
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$OperationCopyWith<Operation> get copyWith => _$OperationCopyWithImpl<Operation>(this as Operation, _$identity);
 
   /// Serializes this Operation to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of Operation
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $OperationCopyWith<Operation> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Operation&&(identical(other.sig, sig) || other.sig == sig)&&(identical(other.type, type) || other.type == type)&&const DeepCollectionEquality().equals(other.services, services)&&const DeepCollectionEquality().equals(other.alsoKnownAs, alsoKnownAs)&&const DeepCollectionEquality().equals(other.rotationKeys, rotationKeys)&&const DeepCollectionEquality().equals(other.verificationMethods, verificationMethods)&&(identical(other.prev, prev) || other.prev == prev));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,sig,type,const DeepCollectionEquality().hash(services),const DeepCollectionEquality().hash(alsoKnownAs),const DeepCollectionEquality().hash(rotationKeys),const DeepCollectionEquality().hash(verificationMethods),prev);
+
+@override
+String toString() {
+  return 'Operation(sig: $sig, type: $type, services: $services, alsoKnownAs: $alsoKnownAs, rotationKeys: $rotationKeys, verificationMethods: $verificationMethods, prev: $prev)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $OperationCopyWith<$Res> {
-  factory $OperationCopyWith(Operation value, $Res Function(Operation) then) =
-      _$OperationCopyWithImpl<$Res, Operation>;
-  @useResult
-  $Res call({
-    String sig,
-    String type,
-    Map<String, dynamic> services,
-    List<String> alsoKnownAs,
-    List<String> rotationKeys,
-    Map<String, dynamic> verificationMethods,
-    String? prev,
-  });
-}
+abstract mixin class $OperationCopyWith<$Res>  {
+  factory $OperationCopyWith(Operation value, $Res Function(Operation) _then) = _$OperationCopyWithImpl;
+@useResult
+$Res call({
+ String sig, String type, Map<String, dynamic> services, List<String> alsoKnownAs, List<String> rotationKeys, Map<String, dynamic> verificationMethods, String? prev
+});
 
+
+
+
+}
 /// @nodoc
-class _$OperationCopyWithImpl<$Res, $Val extends Operation>
+class _$OperationCopyWithImpl<$Res>
     implements $OperationCopyWith<$Res> {
-  _$OperationCopyWithImpl(this._value, this._then);
+  _$OperationCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Operation _self;
+  final $Res Function(Operation) _then;
 
-  /// Create a copy of Operation
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? sig = null,
-    Object? type = null,
-    Object? services = null,
-    Object? alsoKnownAs = null,
-    Object? rotationKeys = null,
-    Object? verificationMethods = null,
-    Object? prev = freezed,
-  }) {
-    return _then(
-      _value.copyWith(
-            sig: null == sig
-                ? _value.sig
-                : sig // ignore: cast_nullable_to_non_nullable
-                      as String,
-            type: null == type
-                ? _value.type
-                : type // ignore: cast_nullable_to_non_nullable
-                      as String,
-            services: null == services
-                ? _value.services
-                : services // ignore: cast_nullable_to_non_nullable
-                      as Map<String, dynamic>,
-            alsoKnownAs: null == alsoKnownAs
-                ? _value.alsoKnownAs
-                : alsoKnownAs // ignore: cast_nullable_to_non_nullable
-                      as List<String>,
-            rotationKeys: null == rotationKeys
-                ? _value.rotationKeys
-                : rotationKeys // ignore: cast_nullable_to_non_nullable
-                      as List<String>,
-            verificationMethods: null == verificationMethods
-                ? _value.verificationMethods
-                : verificationMethods // ignore: cast_nullable_to_non_nullable
-                      as Map<String, dynamic>,
-            prev: freezed == prev
-                ? _value.prev
-                : prev // ignore: cast_nullable_to_non_nullable
-                      as String?,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of Operation
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? sig = null,Object? type = null,Object? services = null,Object? alsoKnownAs = null,Object? rotationKeys = null,Object? verificationMethods = null,Object? prev = freezed,}) {
+  return _then(_self.copyWith(
+sig: null == sig ? _self.sig : sig // ignore: cast_nullable_to_non_nullable
+as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,services: null == services ? _self.services : services // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,alsoKnownAs: null == alsoKnownAs ? _self.alsoKnownAs : alsoKnownAs // ignore: cast_nullable_to_non_nullable
+as List<String>,rotationKeys: null == rotationKeys ? _self.rotationKeys : rotationKeys // ignore: cast_nullable_to_non_nullable
+as List<String>,verificationMethods: null == verificationMethods ? _self.verificationMethods : verificationMethods // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,prev: freezed == prev ? _self.prev : prev // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$OperationImplCopyWith<$Res>
-    implements $OperationCopyWith<$Res> {
-  factory _$$OperationImplCopyWith(
-    _$OperationImpl value,
-    $Res Function(_$OperationImpl) then,
-  ) = __$$OperationImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({
-    String sig,
-    String type,
-    Map<String, dynamic> services,
-    List<String> alsoKnownAs,
-    List<String> rotationKeys,
-    Map<String, dynamic> verificationMethods,
-    String? prev,
-  });
 }
 
-/// @nodoc
-class __$$OperationImplCopyWithImpl<$Res>
-    extends _$OperationCopyWithImpl<$Res, _$OperationImpl>
-    implements _$$OperationImplCopyWith<$Res> {
-  __$$OperationImplCopyWithImpl(
-    _$OperationImpl _value,
-    $Res Function(_$OperationImpl) _then,
-  ) : super(_value, _then);
 
-  /// Create a copy of Operation
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? sig = null,
-    Object? type = null,
-    Object? services = null,
-    Object? alsoKnownAs = null,
-    Object? rotationKeys = null,
-    Object? verificationMethods = null,
-    Object? prev = freezed,
-  }) {
-    return _then(
-      _$OperationImpl(
-        sig: null == sig
-            ? _value.sig
-            : sig // ignore: cast_nullable_to_non_nullable
-                  as String,
-        type: null == type
-            ? _value.type
-            : type // ignore: cast_nullable_to_non_nullable
-                  as String,
-        services: null == services
-            ? _value._services
-            : services // ignore: cast_nullable_to_non_nullable
-                  as Map<String, dynamic>,
-        alsoKnownAs: null == alsoKnownAs
-            ? _value._alsoKnownAs
-            : alsoKnownAs // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        rotationKeys: null == rotationKeys
-            ? _value._rotationKeys
-            : rotationKeys // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        verificationMethods: null == verificationMethods
-            ? _value._verificationMethods
-            : verificationMethods // ignore: cast_nullable_to_non_nullable
-                  as Map<String, dynamic>,
-        prev: freezed == prev
-            ? _value.prev
-            : prev // ignore: cast_nullable_to_non_nullable
-                  as String?,
-      ),
-    );
-  }
+/// Adds pattern-matching-related methods to [Operation].
+extension OperationPatterns on Operation {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Operation value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _Operation() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Operation value)  $default,){
+final _that = this;
+switch (_that) {
+case _Operation():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Operation value)?  $default,){
+final _that = this;
+switch (_that) {
+case _Operation() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String sig,  String type,  Map<String, dynamic> services,  List<String> alsoKnownAs,  List<String> rotationKeys,  Map<String, dynamic> verificationMethods,  String? prev)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _Operation() when $default != null:
+return $default(_that.sig,_that.type,_that.services,_that.alsoKnownAs,_that.rotationKeys,_that.verificationMethods,_that.prev);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String sig,  String type,  Map<String, dynamic> services,  List<String> alsoKnownAs,  List<String> rotationKeys,  Map<String, dynamic> verificationMethods,  String? prev)  $default,) {final _that = this;
+switch (_that) {
+case _Operation():
+return $default(_that.sig,_that.type,_that.services,_that.alsoKnownAs,_that.rotationKeys,_that.verificationMethods,_that.prev);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String sig,  String type,  Map<String, dynamic> services,  List<String> alsoKnownAs,  List<String> rotationKeys,  Map<String, dynamic> verificationMethods,  String? prev)?  $default,) {final _that = this;
+switch (_that) {
+case _Operation() when $default != null:
+return $default(_that.sig,_that.type,_that.services,_that.alsoKnownAs,_that.rotationKeys,_that.verificationMethods,_that.prev);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 
 @jsonSerializable
-class _$OperationImpl implements _Operation {
-  const _$OperationImpl({
-    required this.sig,
-    this.type = 'plc_operation',
-    required final Map<String, dynamic> services,
-    required final List<String> alsoKnownAs,
-    required final List<String> rotationKeys,
-    required final Map<String, dynamic> verificationMethods,
-    this.prev,
-  }) : _services = services,
-       _alsoKnownAs = alsoKnownAs,
-       _rotationKeys = rotationKeys,
-       _verificationMethods = verificationMethods;
+class _Operation implements Operation {
+  const _Operation({required this.sig, this.type = 'plc_operation', required final  Map<String, dynamic> services, required final  List<String> alsoKnownAs, required final  List<String> rotationKeys, required final  Map<String, dynamic> verificationMethods, this.prev}): _services = services,_alsoKnownAs = alsoKnownAs,_rotationKeys = rotationKeys,_verificationMethods = verificationMethods;
+  factory _Operation.fromJson(Map<String, dynamic> json) => _$OperationFromJson(json);
 
-  factory _$OperationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OperationImplFromJson(json);
-
-  @override
-  final String sig;
-  @override
-  @JsonKey()
-  final String type;
-  final Map<String, dynamic> _services;
-  @override
-  Map<String, dynamic> get services {
-    if (_services is EqualUnmodifiableMapView) return _services;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_services);
-  }
-
-  final List<String> _alsoKnownAs;
-  @override
-  List<String> get alsoKnownAs {
-    if (_alsoKnownAs is EqualUnmodifiableListView) return _alsoKnownAs;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_alsoKnownAs);
-  }
-
-  final List<String> _rotationKeys;
-  @override
-  List<String> get rotationKeys {
-    if (_rotationKeys is EqualUnmodifiableListView) return _rotationKeys;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_rotationKeys);
-  }
-
-  final Map<String, dynamic> _verificationMethods;
-  @override
-  Map<String, dynamic> get verificationMethods {
-    if (_verificationMethods is EqualUnmodifiableMapView)
-      return _verificationMethods;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_verificationMethods);
-  }
-
-  @override
-  final String? prev;
-
-  @override
-  String toString() {
-    return 'Operation(sig: $sig, type: $type, services: $services, alsoKnownAs: $alsoKnownAs, rotationKeys: $rotationKeys, verificationMethods: $verificationMethods, prev: $prev)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$OperationImpl &&
-            (identical(other.sig, sig) || other.sig == sig) &&
-            (identical(other.type, type) || other.type == type) &&
-            const DeepCollectionEquality().equals(other._services, _services) &&
-            const DeepCollectionEquality().equals(
-              other._alsoKnownAs,
-              _alsoKnownAs,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._rotationKeys,
-              _rotationKeys,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._verificationMethods,
-              _verificationMethods,
-            ) &&
-            (identical(other.prev, prev) || other.prev == prev));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    sig,
-    type,
-    const DeepCollectionEquality().hash(_services),
-    const DeepCollectionEquality().hash(_alsoKnownAs),
-    const DeepCollectionEquality().hash(_rotationKeys),
-    const DeepCollectionEquality().hash(_verificationMethods),
-    prev,
-  );
-
-  /// Create a copy of Operation
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$OperationImplCopyWith<_$OperationImpl> get copyWith =>
-      __$$OperationImplCopyWithImpl<_$OperationImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$OperationImplToJson(this);
-  }
+@override final  String sig;
+@override@JsonKey() final  String type;
+ final  Map<String, dynamic> _services;
+@override Map<String, dynamic> get services {
+  if (_services is EqualUnmodifiableMapView) return _services;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_services);
 }
 
-abstract class _Operation implements Operation {
-  const factory _Operation({
-    required final String sig,
-    final String type,
-    required final Map<String, dynamic> services,
-    required final List<String> alsoKnownAs,
-    required final List<String> rotationKeys,
-    required final Map<String, dynamic> verificationMethods,
-    final String? prev,
-  }) = _$OperationImpl;
-
-  factory _Operation.fromJson(Map<String, dynamic> json) =
-      _$OperationImpl.fromJson;
-
-  @override
-  String get sig;
-  @override
-  String get type;
-  @override
-  Map<String, dynamic> get services;
-  @override
-  List<String> get alsoKnownAs;
-  @override
-  List<String> get rotationKeys;
-  @override
-  Map<String, dynamic> get verificationMethods;
-  @override
-  String? get prev;
-
-  /// Create a copy of Operation
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$OperationImplCopyWith<_$OperationImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+ final  List<String> _alsoKnownAs;
+@override List<String> get alsoKnownAs {
+  if (_alsoKnownAs is EqualUnmodifiableListView) return _alsoKnownAs;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_alsoKnownAs);
 }
+
+ final  List<String> _rotationKeys;
+@override List<String> get rotationKeys {
+  if (_rotationKeys is EqualUnmodifiableListView) return _rotationKeys;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_rotationKeys);
+}
+
+ final  Map<String, dynamic> _verificationMethods;
+@override Map<String, dynamic> get verificationMethods {
+  if (_verificationMethods is EqualUnmodifiableMapView) return _verificationMethods;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_verificationMethods);
+}
+
+@override final  String? prev;
+
+/// Create a copy of Operation
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$OperationCopyWith<_Operation> get copyWith => __$OperationCopyWithImpl<_Operation>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$OperationToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Operation&&(identical(other.sig, sig) || other.sig == sig)&&(identical(other.type, type) || other.type == type)&&const DeepCollectionEquality().equals(other._services, _services)&&const DeepCollectionEquality().equals(other._alsoKnownAs, _alsoKnownAs)&&const DeepCollectionEquality().equals(other._rotationKeys, _rotationKeys)&&const DeepCollectionEquality().equals(other._verificationMethods, _verificationMethods)&&(identical(other.prev, prev) || other.prev == prev));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,sig,type,const DeepCollectionEquality().hash(_services),const DeepCollectionEquality().hash(_alsoKnownAs),const DeepCollectionEquality().hash(_rotationKeys),const DeepCollectionEquality().hash(_verificationMethods),prev);
+
+@override
+String toString() {
+  return 'Operation(sig: $sig, type: $type, services: $services, alsoKnownAs: $alsoKnownAs, rotationKeys: $rotationKeys, verificationMethods: $verificationMethods, prev: $prev)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$OperationCopyWith<$Res> implements $OperationCopyWith<$Res> {
+  factory _$OperationCopyWith(_Operation value, $Res Function(_Operation) _then) = __$OperationCopyWithImpl;
+@override @useResult
+$Res call({
+ String sig, String type, Map<String, dynamic> services, List<String> alsoKnownAs, List<String> rotationKeys, Map<String, dynamic> verificationMethods, String? prev
+});
+
+
+
+
+}
+/// @nodoc
+class __$OperationCopyWithImpl<$Res>
+    implements _$OperationCopyWith<$Res> {
+  __$OperationCopyWithImpl(this._self, this._then);
+
+  final _Operation _self;
+  final $Res Function(_Operation) _then;
+
+/// Create a copy of Operation
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? sig = null,Object? type = null,Object? services = null,Object? alsoKnownAs = null,Object? rotationKeys = null,Object? verificationMethods = null,Object? prev = freezed,}) {
+  return _then(_Operation(
+sig: null == sig ? _self.sig : sig // ignore: cast_nullable_to_non_nullable
+as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,services: null == services ? _self._services : services // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,alsoKnownAs: null == alsoKnownAs ? _self._alsoKnownAs : alsoKnownAs // ignore: cast_nullable_to_non_nullable
+as List<String>,rotationKeys: null == rotationKeys ? _self._rotationKeys : rotationKeys // ignore: cast_nullable_to_non_nullable
+as List<String>,verificationMethods: null == verificationMethods ? _self._verificationMethods : verificationMethods // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,prev: freezed == prev ? _self.prev : prev // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+// dart format on

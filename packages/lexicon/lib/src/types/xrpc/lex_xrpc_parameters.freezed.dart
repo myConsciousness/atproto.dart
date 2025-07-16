@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,277 +9,294 @@ part of 'lex_xrpc_parameters.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-LexXrpcParameters _$LexXrpcParametersFromJson(Map<String, dynamic> json) {
-  return _LexXrpcParameters.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LexXrpcParameters {
-  String get type => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  @JsonKey(name: 'required')
-  List<String>? get requiredProperties => throw _privateConstructorUsedError;
-  @LexXrpcParametersPropertyConverter()
-  Map<String, LexXrpcParametersProperty>? get properties =>
-      throw _privateConstructorUsedError;
+
+ String get type; String? get description;@JsonKey(name: 'required') List<String>? get requiredProperties;@LexXrpcParametersPropertyConverter() Map<String, LexXrpcParametersProperty>? get properties;
+/// Create a copy of LexXrpcParameters
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$LexXrpcParametersCopyWith<LexXrpcParameters> get copyWith => _$LexXrpcParametersCopyWithImpl<LexXrpcParameters>(this as LexXrpcParameters, _$identity);
 
   /// Serializes this LexXrpcParameters to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of LexXrpcParameters
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $LexXrpcParametersCopyWith<LexXrpcParameters> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LexXrpcParameters&&(identical(other.type, type) || other.type == type)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.requiredProperties, requiredProperties)&&const DeepCollectionEquality().equals(other.properties, properties));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,type,description,const DeepCollectionEquality().hash(requiredProperties),const DeepCollectionEquality().hash(properties));
+
+@override
+String toString() {
+  return 'LexXrpcParameters(type: $type, description: $description, requiredProperties: $requiredProperties, properties: $properties)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $LexXrpcParametersCopyWith<$Res> {
-  factory $LexXrpcParametersCopyWith(
-    LexXrpcParameters value,
-    $Res Function(LexXrpcParameters) then,
-  ) = _$LexXrpcParametersCopyWithImpl<$Res, LexXrpcParameters>;
-  @useResult
-  $Res call({
-    String type,
-    String? description,
-    @JsonKey(name: 'required') List<String>? requiredProperties,
-    @LexXrpcParametersPropertyConverter()
-    Map<String, LexXrpcParametersProperty>? properties,
-  });
-}
+abstract mixin class $LexXrpcParametersCopyWith<$Res>  {
+  factory $LexXrpcParametersCopyWith(LexXrpcParameters value, $Res Function(LexXrpcParameters) _then) = _$LexXrpcParametersCopyWithImpl;
+@useResult
+$Res call({
+ String type, String? description,@JsonKey(name: 'required') List<String>? requiredProperties,@LexXrpcParametersPropertyConverter() Map<String, LexXrpcParametersProperty>? properties
+});
 
+
+
+
+}
 /// @nodoc
-class _$LexXrpcParametersCopyWithImpl<$Res, $Val extends LexXrpcParameters>
+class _$LexXrpcParametersCopyWithImpl<$Res>
     implements $LexXrpcParametersCopyWith<$Res> {
-  _$LexXrpcParametersCopyWithImpl(this._value, this._then);
+  _$LexXrpcParametersCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final LexXrpcParameters _self;
+  final $Res Function(LexXrpcParameters) _then;
 
-  /// Create a copy of LexXrpcParameters
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? description = freezed,
-    Object? requiredProperties = freezed,
-    Object? properties = freezed,
-  }) {
-    return _then(
-      _value.copyWith(
-            type: null == type
-                ? _value.type
-                : type // ignore: cast_nullable_to_non_nullable
-                      as String,
-            description: freezed == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                      as String?,
-            requiredProperties: freezed == requiredProperties
-                ? _value.requiredProperties
-                : requiredProperties // ignore: cast_nullable_to_non_nullable
-                      as List<String>?,
-            properties: freezed == properties
-                ? _value.properties
-                : properties // ignore: cast_nullable_to_non_nullable
-                      as Map<String, LexXrpcParametersProperty>?,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of LexXrpcParameters
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? description = freezed,Object? requiredProperties = freezed,Object? properties = freezed,}) {
+  return _then(_self.copyWith(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,requiredProperties: freezed == requiredProperties ? _self.requiredProperties : requiredProperties // ignore: cast_nullable_to_non_nullable
+as List<String>?,properties: freezed == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
+as Map<String, LexXrpcParametersProperty>?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$LexXrpcParametersImplCopyWith<$Res>
-    implements $LexXrpcParametersCopyWith<$Res> {
-  factory _$$LexXrpcParametersImplCopyWith(
-    _$LexXrpcParametersImpl value,
-    $Res Function(_$LexXrpcParametersImpl) then,
-  ) = __$$LexXrpcParametersImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({
-    String type,
-    String? description,
-    @JsonKey(name: 'required') List<String>? requiredProperties,
-    @LexXrpcParametersPropertyConverter()
-    Map<String, LexXrpcParametersProperty>? properties,
-  });
 }
 
-/// @nodoc
-class __$$LexXrpcParametersImplCopyWithImpl<$Res>
-    extends _$LexXrpcParametersCopyWithImpl<$Res, _$LexXrpcParametersImpl>
-    implements _$$LexXrpcParametersImplCopyWith<$Res> {
-  __$$LexXrpcParametersImplCopyWithImpl(
-    _$LexXrpcParametersImpl _value,
-    $Res Function(_$LexXrpcParametersImpl) _then,
-  ) : super(_value, _then);
 
-  /// Create a copy of LexXrpcParameters
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? description = freezed,
-    Object? requiredProperties = freezed,
-    Object? properties = freezed,
-  }) {
-    return _then(
-      _$LexXrpcParametersImpl(
-        type: null == type
-            ? _value.type
-            : type // ignore: cast_nullable_to_non_nullable
-                  as String,
-        description: freezed == description
-            ? _value.description
-            : description // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        requiredProperties: freezed == requiredProperties
-            ? _value._requiredProperties
-            : requiredProperties // ignore: cast_nullable_to_non_nullable
-                  as List<String>?,
-        properties: freezed == properties
-            ? _value._properties
-            : properties // ignore: cast_nullable_to_non_nullable
-                  as Map<String, LexXrpcParametersProperty>?,
-      ),
-    );
-  }
+/// Adds pattern-matching-related methods to [LexXrpcParameters].
+extension LexXrpcParametersPatterns on LexXrpcParameters {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _LexXrpcParameters value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _LexXrpcParameters() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _LexXrpcParameters value)  $default,){
+final _that = this;
+switch (_that) {
+case _LexXrpcParameters():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _LexXrpcParameters value)?  $default,){
+final _that = this;
+switch (_that) {
+case _LexXrpcParameters() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  String? description, @JsonKey(name: 'required')  List<String>? requiredProperties, @LexXrpcParametersPropertyConverter()  Map<String, LexXrpcParametersProperty>? properties)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _LexXrpcParameters() when $default != null:
+return $default(_that.type,_that.description,_that.requiredProperties,_that.properties);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  String? description, @JsonKey(name: 'required')  List<String>? requiredProperties, @LexXrpcParametersPropertyConverter()  Map<String, LexXrpcParametersProperty>? properties)  $default,) {final _that = this;
+switch (_that) {
+case _LexXrpcParameters():
+return $default(_that.type,_that.description,_that.requiredProperties,_that.properties);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  String? description, @JsonKey(name: 'required')  List<String>? requiredProperties, @LexXrpcParametersPropertyConverter()  Map<String, LexXrpcParametersProperty>? properties)?  $default,) {final _that = this;
+switch (_that) {
+case _LexXrpcParameters() when $default != null:
+return $default(_that.type,_that.description,_that.requiredProperties,_that.properties);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$LexXrpcParametersImpl implements _LexXrpcParameters {
-  const _$LexXrpcParametersImpl({
-    this.type = 'params',
-    this.description,
-    @JsonKey(name: 'required') final List<String>? requiredProperties,
-    @LexXrpcParametersPropertyConverter()
-    final Map<String, LexXrpcParametersProperty>? properties,
-  }) : _requiredProperties = requiredProperties,
-       _properties = properties;
+class _LexXrpcParameters implements LexXrpcParameters {
+  const _LexXrpcParameters({this.type = 'params', this.description, @JsonKey(name: 'required') final  List<String>? requiredProperties, @LexXrpcParametersPropertyConverter() final  Map<String, LexXrpcParametersProperty>? properties}): _requiredProperties = requiredProperties,_properties = properties;
+  factory _LexXrpcParameters.fromJson(Map<String, dynamic> json) => _$LexXrpcParametersFromJson(json);
 
-  factory _$LexXrpcParametersImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LexXrpcParametersImplFromJson(json);
-
-  @override
-  @JsonKey()
-  final String type;
-  @override
-  final String? description;
-  final List<String>? _requiredProperties;
-  @override
-  @JsonKey(name: 'required')
-  List<String>? get requiredProperties {
-    final value = _requiredProperties;
-    if (value == null) return null;
-    if (_requiredProperties is EqualUnmodifiableListView)
-      return _requiredProperties;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final Map<String, LexXrpcParametersProperty>? _properties;
-  @override
-  @LexXrpcParametersPropertyConverter()
-  Map<String, LexXrpcParametersProperty>? get properties {
-    final value = _properties;
-    if (value == null) return null;
-    if (_properties is EqualUnmodifiableMapView) return _properties;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  String toString() {
-    return 'LexXrpcParameters(type: $type, description: $description, requiredProperties: $requiredProperties, properties: $properties)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LexXrpcParametersImpl &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            const DeepCollectionEquality().equals(
-              other._requiredProperties,
-              _requiredProperties,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._properties,
-              _properties,
-            ));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    type,
-    description,
-    const DeepCollectionEquality().hash(_requiredProperties),
-    const DeepCollectionEquality().hash(_properties),
-  );
-
-  /// Create a copy of LexXrpcParameters
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LexXrpcParametersImplCopyWith<_$LexXrpcParametersImpl> get copyWith =>
-      __$$LexXrpcParametersImplCopyWithImpl<_$LexXrpcParametersImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LexXrpcParametersImplToJson(this);
-  }
+@override@JsonKey() final  String type;
+@override final  String? description;
+ final  List<String>? _requiredProperties;
+@override@JsonKey(name: 'required') List<String>? get requiredProperties {
+  final value = _requiredProperties;
+  if (value == null) return null;
+  if (_requiredProperties is EqualUnmodifiableListView) return _requiredProperties;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
 }
 
-abstract class _LexXrpcParameters implements LexXrpcParameters {
-  const factory _LexXrpcParameters({
-    final String type,
-    final String? description,
-    @JsonKey(name: 'required') final List<String>? requiredProperties,
-    @LexXrpcParametersPropertyConverter()
-    final Map<String, LexXrpcParametersProperty>? properties,
-  }) = _$LexXrpcParametersImpl;
-
-  factory _LexXrpcParameters.fromJson(Map<String, dynamic> json) =
-      _$LexXrpcParametersImpl.fromJson;
-
-  @override
-  String get type;
-  @override
-  String? get description;
-  @override
-  @JsonKey(name: 'required')
-  List<String>? get requiredProperties;
-  @override
-  @LexXrpcParametersPropertyConverter()
-  Map<String, LexXrpcParametersProperty>? get properties;
-
-  /// Create a copy of LexXrpcParameters
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LexXrpcParametersImplCopyWith<_$LexXrpcParametersImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+ final  Map<String, LexXrpcParametersProperty>? _properties;
+@override@LexXrpcParametersPropertyConverter() Map<String, LexXrpcParametersProperty>? get properties {
+  final value = _properties;
+  if (value == null) return null;
+  if (_properties is EqualUnmodifiableMapView) return _properties;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
 }
+
+
+/// Create a copy of LexXrpcParameters
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$LexXrpcParametersCopyWith<_LexXrpcParameters> get copyWith => __$LexXrpcParametersCopyWithImpl<_LexXrpcParameters>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$LexXrpcParametersToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LexXrpcParameters&&(identical(other.type, type) || other.type == type)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._requiredProperties, _requiredProperties)&&const DeepCollectionEquality().equals(other._properties, _properties));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,type,description,const DeepCollectionEquality().hash(_requiredProperties),const DeepCollectionEquality().hash(_properties));
+
+@override
+String toString() {
+  return 'LexXrpcParameters(type: $type, description: $description, requiredProperties: $requiredProperties, properties: $properties)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$LexXrpcParametersCopyWith<$Res> implements $LexXrpcParametersCopyWith<$Res> {
+  factory _$LexXrpcParametersCopyWith(_LexXrpcParameters value, $Res Function(_LexXrpcParameters) _then) = __$LexXrpcParametersCopyWithImpl;
+@override @useResult
+$Res call({
+ String type, String? description,@JsonKey(name: 'required') List<String>? requiredProperties,@LexXrpcParametersPropertyConverter() Map<String, LexXrpcParametersProperty>? properties
+});
+
+
+
+
+}
+/// @nodoc
+class __$LexXrpcParametersCopyWithImpl<$Res>
+    implements _$LexXrpcParametersCopyWith<$Res> {
+  __$LexXrpcParametersCopyWithImpl(this._self, this._then);
+
+  final _LexXrpcParameters _self;
+  final $Res Function(_LexXrpcParameters) _then;
+
+/// Create a copy of LexXrpcParameters
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? description = freezed,Object? requiredProperties = freezed,Object? properties = freezed,}) {
+  return _then(_LexXrpcParameters(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,requiredProperties: freezed == requiredProperties ? _self._requiredProperties : requiredProperties // ignore: cast_nullable_to_non_nullable
+as List<String>?,properties: freezed == properties ? _self._properties : properties // ignore: cast_nullable_to_non_nullable
+as Map<String, LexXrpcParametersProperty>?,
+  ));
+}
+
+
+}
+
+// dart format on

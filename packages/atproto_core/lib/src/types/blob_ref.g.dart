@@ -8,13 +8,12 @@ part of 'blob_ref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BlobRefImpl _$$BlobRefImplFromJson(Map json) =>
-    $checkedCreate(r'_$BlobRefImpl', json, ($checkedConvert) {
-      final val = _$BlobRefImpl(
-        link: $checkedConvert(r'$link', (v) => v as String),
-      );
+_BlobRef _$BlobRefFromJson(Map json) =>
+    $checkedCreate('_BlobRef', json, ($checkedConvert) {
+      final val = _BlobRef(link: $checkedConvert(r'$link', (v) => v as String));
       return val;
     }, fieldKeyMap: const {'link': r'$link'});
 
-Map<String, dynamic> _$$BlobRefImplToJson(_$BlobRefImpl instance) =>
-    <String, dynamic>{r'$link': instance.link};
+Map<String, dynamic> _$BlobRefToJson(_BlobRef instance) => <String, dynamic>{
+  r'$link': instance.link,
+};

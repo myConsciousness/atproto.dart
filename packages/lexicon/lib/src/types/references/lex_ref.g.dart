@@ -8,9 +8,9 @@ part of 'lex_ref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LexRefImpl _$$LexRefImplFromJson(Map json) =>
-    $checkedCreate(r'_$LexRefImpl', json, ($checkedConvert) {
-      final val = _$LexRefImpl(
+_LexRef _$LexRefFromJson(Map json) =>
+    $checkedCreate('_LexRef', json, ($checkedConvert) {
+      final val = _LexRef(
         type: $checkedConvert('type', (v) => v as String? ?? 'ref'),
         description: $checkedConvert('description', (v) => v as String?),
         ref: $checkedConvert('ref', (v) => v as String?),
@@ -18,9 +18,8 @@ _$LexRefImpl _$$LexRefImplFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$$LexRefImplToJson(_$LexRefImpl instance) =>
-    <String, dynamic>{
-      'type': instance.type,
-      if (instance.description case final value?) 'description': value,
-      if (instance.ref case final value?) 'ref': value,
-    };
+Map<String, dynamic> _$LexRefToJson(_LexRef instance) => <String, dynamic>{
+  'type': instance.type,
+  if (instance.description case final value?) 'description': value,
+  if (instance.ref case final value?) 'ref': value,
+};

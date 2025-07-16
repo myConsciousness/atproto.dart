@@ -14,20 +14,20 @@ ModerationDecision decideAccount(
 ) {
   final (did, viewer, labels) = switch (subject) {
     UModerationSubjectProfileProfileViewBasic(data: final data) => (
-        data.did,
-        data.viewer,
-        data.labels
-      ),
+      data.did,
+      data.viewer,
+      data.labels,
+    ),
     UModerationSubjectProfileProfileView(data: final data) => (
-        data.did,
-        data.viewer,
-        data.labels
-      ),
+      data.did,
+      data.viewer,
+      data.labels,
+    ),
     UModerationSubjectProfileProfileViewDetailed(data: final data) => (
-        data.did,
-        data.viewer,
-        data.labels
-      ),
+      data.did,
+      data.viewer,
+      data.labels,
+    ),
     _ => throw UnimplementedError(),
   };
 

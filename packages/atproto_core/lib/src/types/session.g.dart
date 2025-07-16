@@ -8,9 +8,9 @@ part of 'session.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SessionImpl _$$SessionImplFromJson(Map json) =>
-    $checkedCreate(r'_$SessionImpl', json, ($checkedConvert) {
-      final val = _$SessionImpl(
+_Session _$SessionFromJson(Map json) =>
+    $checkedCreate('_Session', json, ($checkedConvert) {
+      final val = _Session(
         did: $checkedConvert('did', (v) => v as String),
         handle: $checkedConvert('handle', (v) => v as String),
         email: $checkedConvert('email', (v) => v as String?),
@@ -34,16 +34,15 @@ _$SessionImpl _$$SessionImplFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) =>
-    <String, dynamic>{
-      'did': instance.did,
-      'handle': instance.handle,
-      if (instance.email case final value?) 'email': value,
-      'emailConfirmed': instance.emailConfirmed,
-      'emailAuthFactor': instance.emailAuthFactor,
-      'accessJwt': instance.accessJwt,
-      'refreshJwt': instance.refreshJwt,
-      if (instance.didDoc case final value?) 'didDoc': value,
-      'active': instance.active,
-      if (instance.status case final value?) 'status': value,
-    };
+Map<String, dynamic> _$SessionToJson(_Session instance) => <String, dynamic>{
+  'did': instance.did,
+  'handle': instance.handle,
+  if (instance.email case final value?) 'email': value,
+  'emailConfirmed': instance.emailConfirmed,
+  'emailAuthFactor': instance.emailAuthFactor,
+  'accessJwt': instance.accessJwt,
+  'refreshJwt': instance.refreshJwt,
+  if (instance.didDoc case final value?) 'didDoc': value,
+  'active': instance.active,
+  if (instance.status case final value?) 'status': value,
+};

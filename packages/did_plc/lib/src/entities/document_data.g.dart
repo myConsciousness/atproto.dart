@@ -8,9 +8,9 @@ part of 'document_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DocumentDataImpl _$$DocumentDataImplFromJson(Map json) =>
-    $checkedCreate(r'_$DocumentDataImpl', json, ($checkedConvert) {
-      final val = _$DocumentDataImpl(
+_DocumentData _$DocumentDataFromJson(Map json) =>
+    $checkedCreate('_DocumentData', json, ($checkedConvert) {
+      final val = _DocumentData(
         did: $checkedConvert('did', (v) => v as String),
         verificationMethods: $checkedConvert(
           'verificationMethods',
@@ -32,7 +32,7 @@ _$DocumentDataImpl _$$DocumentDataImplFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$$DocumentDataImplToJson(_$DocumentDataImpl instance) =>
+Map<String, dynamic> _$DocumentDataToJson(_DocumentData instance) =>
     <String, dynamic>{
       'did': instance.did,
       'verificationMethods': instance.verificationMethods,

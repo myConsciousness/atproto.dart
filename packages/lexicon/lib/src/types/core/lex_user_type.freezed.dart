@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,3409 +9,1294 @@ part of 'lex_user_type.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
 /// @nodoc
 mixin _$LexUserType {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexRecord data) record,
-    required TResult Function(LexXrpcQuery data) xrpcQuery,
-    required TResult Function(LexXrpcProcedure data) xrpcProcedure,
-    required TResult Function(LexXrpcSubscription data) xrpcSubscription,
-    required TResult Function(LexBlob data) blob,
-    required TResult Function(LexArray data) array,
-    required TResult Function(LexToken data) token,
-    required TResult Function(LexObject data) object,
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexBytes data) bytes,
-    required TResult Function(LexCidLink data) cidLink,
-    required TResult Function(LexUnknown data) unknown,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexRecord data)? record,
-    TResult? Function(LexXrpcQuery data)? xrpcQuery,
-    TResult? Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult? Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult? Function(LexBlob data)? blob,
-    TResult? Function(LexArray data)? array,
-    TResult? Function(LexToken data)? token,
-    TResult? Function(LexObject data)? object,
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexBytes data)? bytes,
-    TResult? Function(LexCidLink data)? cidLink,
-    TResult? Function(LexUnknown data)? unknown,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexRecord data)? record,
-    TResult Function(LexXrpcQuery data)? xrpcQuery,
-    TResult Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult Function(LexBlob data)? blob,
-    TResult Function(LexArray data)? array,
-    TResult Function(LexToken data)? token,
-    TResult Function(LexObject data)? object,
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexBytes data)? bytes,
-    TResult Function(LexCidLink data)? cidLink,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexUserTypeRecord value) record,
-    required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
-    required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
-    required TResult Function(ULexUserTypeXrpcSubscription value)
-    xrpcSubscription,
-    required TResult Function(ULexUserTypeBlob value) blob,
-    required TResult Function(ULexUserTypeArray value) array,
-    required TResult Function(ULexUserTypeToken value) token,
-    required TResult Function(ULexUserTypeObject value) object,
-    required TResult Function(ULexUserTypeBoolean value) boolean,
-    required TResult Function(ULexUserTypeInteger value) integer,
-    required TResult Function(ULexUserTypeString value) string,
-    required TResult Function(ULexUserTypeBytes value) bytes,
-    required TResult Function(ULexUserTypeCidLink value) cidLink,
-    required TResult Function(ULexUserTypeUnknown value) unknown,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexUserTypeRecord value)? record,
-    TResult? Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult? Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult? Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult? Function(ULexUserTypeBlob value)? blob,
-    TResult? Function(ULexUserTypeArray value)? array,
-    TResult? Function(ULexUserTypeToken value)? token,
-    TResult? Function(ULexUserTypeObject value)? object,
-    TResult? Function(ULexUserTypeBoolean value)? boolean,
-    TResult? Function(ULexUserTypeInteger value)? integer,
-    TResult? Function(ULexUserTypeString value)? string,
-    TResult? Function(ULexUserTypeBytes value)? bytes,
-    TResult? Function(ULexUserTypeCidLink value)? cidLink,
-    TResult? Function(ULexUserTypeUnknown value)? unknown,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexUserTypeRecord value)? record,
-    TResult Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult Function(ULexUserTypeBlob value)? blob,
-    TResult Function(ULexUserTypeArray value)? array,
-    TResult Function(ULexUserTypeToken value)? token,
-    TResult Function(ULexUserTypeObject value)? object,
-    TResult Function(ULexUserTypeBoolean value)? boolean,
-    TResult Function(ULexUserTypeInteger value)? integer,
-    TResult Function(ULexUserTypeString value)? string,
-    TResult Function(ULexUserTypeBytes value)? bytes,
-    TResult Function(ULexUserTypeCidLink value)? cidLink,
-    TResult Function(ULexUserTypeUnknown value)? unknown,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+
+ Object get data;
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LexUserType&&const DeepCollectionEquality().equals(other.data, data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'LexUserType(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $LexUserTypeCopyWith<$Res> {
-  factory $LexUserTypeCopyWith(
-    LexUserType value,
-    $Res Function(LexUserType) then,
-  ) = _$LexUserTypeCopyWithImpl<$Res, LexUserType>;
+class $LexUserTypeCopyWith<$Res>  {
+$LexUserTypeCopyWith(LexUserType _, $Res Function(LexUserType) __);
 }
 
-/// @nodoc
-class _$LexUserTypeCopyWithImpl<$Res, $Val extends LexUserType>
-    implements $LexUserTypeCopyWith<$Res> {
-  _$LexUserTypeCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// Adds pattern-matching-related methods to [LexUserType].
+extension LexUserTypePatterns on LexUserType {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( ULexUserTypeRecord value)?  record,TResult Function( ULexUserTypeXrpcQuery value)?  xrpcQuery,TResult Function( ULexUserTypeXrpcProcedure value)?  xrpcProcedure,TResult Function( ULexUserTypeXrpcSubscription value)?  xrpcSubscription,TResult Function( ULexUserTypeBlob value)?  blob,TResult Function( ULexUserTypeArray value)?  array,TResult Function( ULexUserTypeToken value)?  token,TResult Function( ULexUserTypeObject value)?  object,TResult Function( ULexUserTypeBoolean value)?  boolean,TResult Function( ULexUserTypeInteger value)?  integer,TResult Function( ULexUserTypeString value)?  string,TResult Function( ULexUserTypeBytes value)?  bytes,TResult Function( ULexUserTypeCidLink value)?  cidLink,TResult Function( ULexUserTypeUnknown value)?  unknown,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case ULexUserTypeRecord() when record != null:
+return record(_that);case ULexUserTypeXrpcQuery() when xrpcQuery != null:
+return xrpcQuery(_that);case ULexUserTypeXrpcProcedure() when xrpcProcedure != null:
+return xrpcProcedure(_that);case ULexUserTypeXrpcSubscription() when xrpcSubscription != null:
+return xrpcSubscription(_that);case ULexUserTypeBlob() when blob != null:
+return blob(_that);case ULexUserTypeArray() when array != null:
+return array(_that);case ULexUserTypeToken() when token != null:
+return token(_that);case ULexUserTypeObject() when object != null:
+return object(_that);case ULexUserTypeBoolean() when boolean != null:
+return boolean(_that);case ULexUserTypeInteger() when integer != null:
+return integer(_that);case ULexUserTypeString() when string != null:
+return string(_that);case ULexUserTypeBytes() when bytes != null:
+return bytes(_that);case ULexUserTypeCidLink() when cidLink != null:
+return cidLink(_that);case ULexUserTypeUnknown() when unknown != null:
+return unknown(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( ULexUserTypeRecord value)  record,required TResult Function( ULexUserTypeXrpcQuery value)  xrpcQuery,required TResult Function( ULexUserTypeXrpcProcedure value)  xrpcProcedure,required TResult Function( ULexUserTypeXrpcSubscription value)  xrpcSubscription,required TResult Function( ULexUserTypeBlob value)  blob,required TResult Function( ULexUserTypeArray value)  array,required TResult Function( ULexUserTypeToken value)  token,required TResult Function( ULexUserTypeObject value)  object,required TResult Function( ULexUserTypeBoolean value)  boolean,required TResult Function( ULexUserTypeInteger value)  integer,required TResult Function( ULexUserTypeString value)  string,required TResult Function( ULexUserTypeBytes value)  bytes,required TResult Function( ULexUserTypeCidLink value)  cidLink,required TResult Function( ULexUserTypeUnknown value)  unknown,}){
+final _that = this;
+switch (_that) {
+case ULexUserTypeRecord():
+return record(_that);case ULexUserTypeXrpcQuery():
+return xrpcQuery(_that);case ULexUserTypeXrpcProcedure():
+return xrpcProcedure(_that);case ULexUserTypeXrpcSubscription():
+return xrpcSubscription(_that);case ULexUserTypeBlob():
+return blob(_that);case ULexUserTypeArray():
+return array(_that);case ULexUserTypeToken():
+return token(_that);case ULexUserTypeObject():
+return object(_that);case ULexUserTypeBoolean():
+return boolean(_that);case ULexUserTypeInteger():
+return integer(_that);case ULexUserTypeString():
+return string(_that);case ULexUserTypeBytes():
+return bytes(_that);case ULexUserTypeCidLink():
+return cidLink(_that);case ULexUserTypeUnknown():
+return unknown(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( ULexUserTypeRecord value)?  record,TResult? Function( ULexUserTypeXrpcQuery value)?  xrpcQuery,TResult? Function( ULexUserTypeXrpcProcedure value)?  xrpcProcedure,TResult? Function( ULexUserTypeXrpcSubscription value)?  xrpcSubscription,TResult? Function( ULexUserTypeBlob value)?  blob,TResult? Function( ULexUserTypeArray value)?  array,TResult? Function( ULexUserTypeToken value)?  token,TResult? Function( ULexUserTypeObject value)?  object,TResult? Function( ULexUserTypeBoolean value)?  boolean,TResult? Function( ULexUserTypeInteger value)?  integer,TResult? Function( ULexUserTypeString value)?  string,TResult? Function( ULexUserTypeBytes value)?  bytes,TResult? Function( ULexUserTypeCidLink value)?  cidLink,TResult? Function( ULexUserTypeUnknown value)?  unknown,}){
+final _that = this;
+switch (_that) {
+case ULexUserTypeRecord() when record != null:
+return record(_that);case ULexUserTypeXrpcQuery() when xrpcQuery != null:
+return xrpcQuery(_that);case ULexUserTypeXrpcProcedure() when xrpcProcedure != null:
+return xrpcProcedure(_that);case ULexUserTypeXrpcSubscription() when xrpcSubscription != null:
+return xrpcSubscription(_that);case ULexUserTypeBlob() when blob != null:
+return blob(_that);case ULexUserTypeArray() when array != null:
+return array(_that);case ULexUserTypeToken() when token != null:
+return token(_that);case ULexUserTypeObject() when object != null:
+return object(_that);case ULexUserTypeBoolean() when boolean != null:
+return boolean(_that);case ULexUserTypeInteger() when integer != null:
+return integer(_that);case ULexUserTypeString() when string != null:
+return string(_that);case ULexUserTypeBytes() when bytes != null:
+return bytes(_that);case ULexUserTypeCidLink() when cidLink != null:
+return cidLink(_that);case ULexUserTypeUnknown() when unknown != null:
+return unknown(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( LexRecord data)?  record,TResult Function( LexXrpcQuery data)?  xrpcQuery,TResult Function( LexXrpcProcedure data)?  xrpcProcedure,TResult Function( LexXrpcSubscription data)?  xrpcSubscription,TResult Function( LexBlob data)?  blob,TResult Function( LexArray data)?  array,TResult Function( LexToken data)?  token,TResult Function( LexObject data)?  object,TResult Function( LexBoolean data)?  boolean,TResult Function( LexInteger data)?  integer,TResult Function( LexString data)?  string,TResult Function( LexBytes data)?  bytes,TResult Function( LexCidLink data)?  cidLink,TResult Function( LexUnknown data)?  unknown,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case ULexUserTypeRecord() when record != null:
+return record(_that.data);case ULexUserTypeXrpcQuery() when xrpcQuery != null:
+return xrpcQuery(_that.data);case ULexUserTypeXrpcProcedure() when xrpcProcedure != null:
+return xrpcProcedure(_that.data);case ULexUserTypeXrpcSubscription() when xrpcSubscription != null:
+return xrpcSubscription(_that.data);case ULexUserTypeBlob() when blob != null:
+return blob(_that.data);case ULexUserTypeArray() when array != null:
+return array(_that.data);case ULexUserTypeToken() when token != null:
+return token(_that.data);case ULexUserTypeObject() when object != null:
+return object(_that.data);case ULexUserTypeBoolean() when boolean != null:
+return boolean(_that.data);case ULexUserTypeInteger() when integer != null:
+return integer(_that.data);case ULexUserTypeString() when string != null:
+return string(_that.data);case ULexUserTypeBytes() when bytes != null:
+return bytes(_that.data);case ULexUserTypeCidLink() when cidLink != null:
+return cidLink(_that.data);case ULexUserTypeUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( LexRecord data)  record,required TResult Function( LexXrpcQuery data)  xrpcQuery,required TResult Function( LexXrpcProcedure data)  xrpcProcedure,required TResult Function( LexXrpcSubscription data)  xrpcSubscription,required TResult Function( LexBlob data)  blob,required TResult Function( LexArray data)  array,required TResult Function( LexToken data)  token,required TResult Function( LexObject data)  object,required TResult Function( LexBoolean data)  boolean,required TResult Function( LexInteger data)  integer,required TResult Function( LexString data)  string,required TResult Function( LexBytes data)  bytes,required TResult Function( LexCidLink data)  cidLink,required TResult Function( LexUnknown data)  unknown,}) {final _that = this;
+switch (_that) {
+case ULexUserTypeRecord():
+return record(_that.data);case ULexUserTypeXrpcQuery():
+return xrpcQuery(_that.data);case ULexUserTypeXrpcProcedure():
+return xrpcProcedure(_that.data);case ULexUserTypeXrpcSubscription():
+return xrpcSubscription(_that.data);case ULexUserTypeBlob():
+return blob(_that.data);case ULexUserTypeArray():
+return array(_that.data);case ULexUserTypeToken():
+return token(_that.data);case ULexUserTypeObject():
+return object(_that.data);case ULexUserTypeBoolean():
+return boolean(_that.data);case ULexUserTypeInteger():
+return integer(_that.data);case ULexUserTypeString():
+return string(_that.data);case ULexUserTypeBytes():
+return bytes(_that.data);case ULexUserTypeCidLink():
+return cidLink(_that.data);case ULexUserTypeUnknown():
+return unknown(_that.data);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( LexRecord data)?  record,TResult? Function( LexXrpcQuery data)?  xrpcQuery,TResult? Function( LexXrpcProcedure data)?  xrpcProcedure,TResult? Function( LexXrpcSubscription data)?  xrpcSubscription,TResult? Function( LexBlob data)?  blob,TResult? Function( LexArray data)?  array,TResult? Function( LexToken data)?  token,TResult? Function( LexObject data)?  object,TResult? Function( LexBoolean data)?  boolean,TResult? Function( LexInteger data)?  integer,TResult? Function( LexString data)?  string,TResult? Function( LexBytes data)?  bytes,TResult? Function( LexCidLink data)?  cidLink,TResult? Function( LexUnknown data)?  unknown,}) {final _that = this;
+switch (_that) {
+case ULexUserTypeRecord() when record != null:
+return record(_that.data);case ULexUserTypeXrpcQuery() when xrpcQuery != null:
+return xrpcQuery(_that.data);case ULexUserTypeXrpcProcedure() when xrpcProcedure != null:
+return xrpcProcedure(_that.data);case ULexUserTypeXrpcSubscription() when xrpcSubscription != null:
+return xrpcSubscription(_that.data);case ULexUserTypeBlob() when blob != null:
+return blob(_that.data);case ULexUserTypeArray() when array != null:
+return array(_that.data);case ULexUserTypeToken() when token != null:
+return token(_that.data);case ULexUserTypeObject() when object != null:
+return object(_that.data);case ULexUserTypeBoolean() when boolean != null:
+return boolean(_that.data);case ULexUserTypeInteger() when integer != null:
+return integer(_that.data);case ULexUserTypeString() when string != null:
+return string(_that.data);case ULexUserTypeBytes() when bytes != null:
+return bytes(_that.data);case ULexUserTypeCidLink() when cidLink != null:
+return cidLink(_that.data);case ULexUserTypeUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-abstract class _$$ULexUserTypeRecordImplCopyWith<$Res> {
-  factory _$$ULexUserTypeRecordImplCopyWith(
-    _$ULexUserTypeRecordImpl value,
-    $Res Function(_$ULexUserTypeRecordImpl) then,
-  ) = __$$ULexUserTypeRecordImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LexRecord data});
-
-  $LexRecordCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$ULexUserTypeRecordImplCopyWithImpl<$Res>
-    extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeRecordImpl>
-    implements _$$ULexUserTypeRecordImplCopyWith<$Res> {
-  __$$ULexUserTypeRecordImplCopyWithImpl(
-    _$ULexUserTypeRecordImpl _value,
-    $Res Function(_$ULexUserTypeRecordImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? data = null}) {
-    return _then(
-      _$ULexUserTypeRecordImpl(
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as LexRecord,
-      ),
-    );
-  }
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LexRecordCopyWith<$Res> get data {
-    return $LexRecordCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$ULexUserTypeRecordImpl extends ULexUserTypeRecord {
-  const _$ULexUserTypeRecordImpl({required this.data}) : super._();
-
-  @override
-  final LexRecord data;
-
-  @override
-  String toString() {
-    return 'LexUserType.record(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ULexUserTypeRecordImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ULexUserTypeRecordImplCopyWith<_$ULexUserTypeRecordImpl> get copyWith =>
-      __$$ULexUserTypeRecordImplCopyWithImpl<_$ULexUserTypeRecordImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexRecord data) record,
-    required TResult Function(LexXrpcQuery data) xrpcQuery,
-    required TResult Function(LexXrpcProcedure data) xrpcProcedure,
-    required TResult Function(LexXrpcSubscription data) xrpcSubscription,
-    required TResult Function(LexBlob data) blob,
-    required TResult Function(LexArray data) array,
-    required TResult Function(LexToken data) token,
-    required TResult Function(LexObject data) object,
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexBytes data) bytes,
-    required TResult Function(LexCidLink data) cidLink,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return record(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexRecord data)? record,
-    TResult? Function(LexXrpcQuery data)? xrpcQuery,
-    TResult? Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult? Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult? Function(LexBlob data)? blob,
-    TResult? Function(LexArray data)? array,
-    TResult? Function(LexToken data)? token,
-    TResult? Function(LexObject data)? object,
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexBytes data)? bytes,
-    TResult? Function(LexCidLink data)? cidLink,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return record?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexRecord data)? record,
-    TResult Function(LexXrpcQuery data)? xrpcQuery,
-    TResult Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult Function(LexBlob data)? blob,
-    TResult Function(LexArray data)? array,
-    TResult Function(LexToken data)? token,
-    TResult Function(LexObject data)? object,
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexBytes data)? bytes,
-    TResult Function(LexCidLink data)? cidLink,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (record != null) {
-      return record(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexUserTypeRecord value) record,
-    required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
-    required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
-    required TResult Function(ULexUserTypeXrpcSubscription value)
-    xrpcSubscription,
-    required TResult Function(ULexUserTypeBlob value) blob,
-    required TResult Function(ULexUserTypeArray value) array,
-    required TResult Function(ULexUserTypeToken value) token,
-    required TResult Function(ULexUserTypeObject value) object,
-    required TResult Function(ULexUserTypeBoolean value) boolean,
-    required TResult Function(ULexUserTypeInteger value) integer,
-    required TResult Function(ULexUserTypeString value) string,
-    required TResult Function(ULexUserTypeBytes value) bytes,
-    required TResult Function(ULexUserTypeCidLink value) cidLink,
-    required TResult Function(ULexUserTypeUnknown value) unknown,
-  }) {
-    return record(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexUserTypeRecord value)? record,
-    TResult? Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult? Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult? Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult? Function(ULexUserTypeBlob value)? blob,
-    TResult? Function(ULexUserTypeArray value)? array,
-    TResult? Function(ULexUserTypeToken value)? token,
-    TResult? Function(ULexUserTypeObject value)? object,
-    TResult? Function(ULexUserTypeBoolean value)? boolean,
-    TResult? Function(ULexUserTypeInteger value)? integer,
-    TResult? Function(ULexUserTypeString value)? string,
-    TResult? Function(ULexUserTypeBytes value)? bytes,
-    TResult? Function(ULexUserTypeCidLink value)? cidLink,
-    TResult? Function(ULexUserTypeUnknown value)? unknown,
-  }) {
-    return record?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexUserTypeRecord value)? record,
-    TResult Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult Function(ULexUserTypeBlob value)? blob,
-    TResult Function(ULexUserTypeArray value)? array,
-    TResult Function(ULexUserTypeToken value)? token,
-    TResult Function(ULexUserTypeObject value)? object,
-    TResult Function(ULexUserTypeBoolean value)? boolean,
-    TResult Function(ULexUserTypeInteger value)? integer,
-    TResult Function(ULexUserTypeString value)? string,
-    TResult Function(ULexUserTypeBytes value)? bytes,
-    TResult Function(ULexUserTypeCidLink value)? cidLink,
-    TResult Function(ULexUserTypeUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (record != null) {
-      return record(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ULexUserTypeRecord extends LexUserType {
-  const factory ULexUserTypeRecord({required final LexRecord data}) =
-      _$ULexUserTypeRecordImpl;
-  const ULexUserTypeRecord._() : super._();
-
-  @override
-  LexRecord get data;
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexUserTypeRecordImplCopyWith<_$ULexUserTypeRecordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ULexUserTypeXrpcQueryImplCopyWith<$Res> {
-  factory _$$ULexUserTypeXrpcQueryImplCopyWith(
-    _$ULexUserTypeXrpcQueryImpl value,
-    $Res Function(_$ULexUserTypeXrpcQueryImpl) then,
-  ) = __$$ULexUserTypeXrpcQueryImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LexXrpcQuery data});
-
-  $LexXrpcQueryCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$ULexUserTypeXrpcQueryImplCopyWithImpl<$Res>
-    extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeXrpcQueryImpl>
-    implements _$$ULexUserTypeXrpcQueryImplCopyWith<$Res> {
-  __$$ULexUserTypeXrpcQueryImplCopyWithImpl(
-    _$ULexUserTypeXrpcQueryImpl _value,
-    $Res Function(_$ULexUserTypeXrpcQueryImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? data = null}) {
-    return _then(
-      _$ULexUserTypeXrpcQueryImpl(
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as LexXrpcQuery,
-      ),
-    );
-  }
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LexXrpcQueryCopyWith<$Res> get data {
-    return $LexXrpcQueryCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
 }
 
 /// @nodoc
 
-class _$ULexUserTypeXrpcQueryImpl extends ULexUserTypeXrpcQuery {
-  const _$ULexUserTypeXrpcQueryImpl({required this.data}) : super._();
 
-  @override
-  final LexXrpcQuery data;
+class ULexUserTypeRecord extends LexUserType {
+  const ULexUserTypeRecord({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'LexUserType.xrpcQuery(data: $data)';
-  }
+@override final  LexRecord data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ULexUserTypeXrpcQueryImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ULexUserTypeRecordCopyWith<ULexUserTypeRecord> get copyWith => _$ULexUserTypeRecordCopyWithImpl<ULexUserTypeRecord>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ULexUserTypeXrpcQueryImplCopyWith<_$ULexUserTypeXrpcQueryImpl>
-  get copyWith =>
-      __$$ULexUserTypeXrpcQueryImplCopyWithImpl<_$ULexUserTypeXrpcQueryImpl>(
-        this,
-        _$identity,
-      );
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexRecord data) record,
-    required TResult Function(LexXrpcQuery data) xrpcQuery,
-    required TResult Function(LexXrpcProcedure data) xrpcProcedure,
-    required TResult Function(LexXrpcSubscription data) xrpcSubscription,
-    required TResult Function(LexBlob data) blob,
-    required TResult Function(LexArray data) array,
-    required TResult Function(LexToken data) token,
-    required TResult Function(LexObject data) object,
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexBytes data) bytes,
-    required TResult Function(LexCidLink data) cidLink,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return xrpcQuery(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexRecord data)? record,
-    TResult? Function(LexXrpcQuery data)? xrpcQuery,
-    TResult? Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult? Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult? Function(LexBlob data)? blob,
-    TResult? Function(LexArray data)? array,
-    TResult? Function(LexToken data)? token,
-    TResult? Function(LexObject data)? object,
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexBytes data)? bytes,
-    TResult? Function(LexCidLink data)? cidLink,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return xrpcQuery?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexRecord data)? record,
-    TResult Function(LexXrpcQuery data)? xrpcQuery,
-    TResult Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult Function(LexBlob data)? blob,
-    TResult Function(LexArray data)? array,
-    TResult Function(LexToken data)? token,
-    TResult Function(LexObject data)? object,
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexBytes data)? bytes,
-    TResult Function(LexCidLink data)? cidLink,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (xrpcQuery != null) {
-      return xrpcQuery(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexUserTypeRecord value) record,
-    required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
-    required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
-    required TResult Function(ULexUserTypeXrpcSubscription value)
-    xrpcSubscription,
-    required TResult Function(ULexUserTypeBlob value) blob,
-    required TResult Function(ULexUserTypeArray value) array,
-    required TResult Function(ULexUserTypeToken value) token,
-    required TResult Function(ULexUserTypeObject value) object,
-    required TResult Function(ULexUserTypeBoolean value) boolean,
-    required TResult Function(ULexUserTypeInteger value) integer,
-    required TResult Function(ULexUserTypeString value) string,
-    required TResult Function(ULexUserTypeBytes value) bytes,
-    required TResult Function(ULexUserTypeCidLink value) cidLink,
-    required TResult Function(ULexUserTypeUnknown value) unknown,
-  }) {
-    return xrpcQuery(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexUserTypeRecord value)? record,
-    TResult? Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult? Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult? Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult? Function(ULexUserTypeBlob value)? blob,
-    TResult? Function(ULexUserTypeArray value)? array,
-    TResult? Function(ULexUserTypeToken value)? token,
-    TResult? Function(ULexUserTypeObject value)? object,
-    TResult? Function(ULexUserTypeBoolean value)? boolean,
-    TResult? Function(ULexUserTypeInteger value)? integer,
-    TResult? Function(ULexUserTypeString value)? string,
-    TResult? Function(ULexUserTypeBytes value)? bytes,
-    TResult? Function(ULexUserTypeCidLink value)? cidLink,
-    TResult? Function(ULexUserTypeUnknown value)? unknown,
-  }) {
-    return xrpcQuery?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexUserTypeRecord value)? record,
-    TResult Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult Function(ULexUserTypeBlob value)? blob,
-    TResult Function(ULexUserTypeArray value)? array,
-    TResult Function(ULexUserTypeToken value)? token,
-    TResult Function(ULexUserTypeObject value)? object,
-    TResult Function(ULexUserTypeBoolean value)? boolean,
-    TResult Function(ULexUserTypeInteger value)? integer,
-    TResult Function(ULexUserTypeString value)? string,
-    TResult Function(ULexUserTypeBytes value)? bytes,
-    TResult Function(ULexUserTypeCidLink value)? cidLink,
-    TResult Function(ULexUserTypeUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (xrpcQuery != null) {
-      return xrpcQuery(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ULexUserTypeRecord&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class ULexUserTypeXrpcQuery extends LexUserType {
-  const factory ULexUserTypeXrpcQuery({required final LexXrpcQuery data}) =
-      _$ULexUserTypeXrpcQueryImpl;
-  const ULexUserTypeXrpcQuery._() : super._();
 
-  @override
-  LexXrpcQuery get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexUserTypeXrpcQueryImplCopyWith<_$ULexUserTypeXrpcQueryImpl>
-  get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'LexUserType.record(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$ULexUserTypeXrpcProcedureImplCopyWith<$Res> {
-  factory _$$ULexUserTypeXrpcProcedureImplCopyWith(
-    _$ULexUserTypeXrpcProcedureImpl value,
-    $Res Function(_$ULexUserTypeXrpcProcedureImpl) then,
-  ) = __$$ULexUserTypeXrpcProcedureImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LexXrpcProcedure data});
+abstract mixin class $ULexUserTypeRecordCopyWith<$Res> implements $LexUserTypeCopyWith<$Res> {
+  factory $ULexUserTypeRecordCopyWith(ULexUserTypeRecord value, $Res Function(ULexUserTypeRecord) _then) = _$ULexUserTypeRecordCopyWithImpl;
+@useResult
+$Res call({
+ LexRecord data
+});
 
-  $LexXrpcProcedureCopyWith<$Res> get data;
+
+$LexRecordCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$ULexUserTypeRecordCopyWithImpl<$Res>
+    implements $ULexUserTypeRecordCopyWith<$Res> {
+  _$ULexUserTypeRecordCopyWithImpl(this._self, this._then);
+
+  final ULexUserTypeRecord _self;
+  final $Res Function(ULexUserTypeRecord) _then;
+
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ULexUserTypeRecord(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as LexRecord,
+  ));
 }
 
-/// @nodoc
-class __$$ULexUserTypeXrpcProcedureImplCopyWithImpl<$Res>
-    extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeXrpcProcedureImpl>
-    implements _$$ULexUserTypeXrpcProcedureImplCopyWith<$Res> {
-  __$$ULexUserTypeXrpcProcedureImplCopyWithImpl(
-    _$ULexUserTypeXrpcProcedureImpl _value,
-    $Res Function(_$ULexUserTypeXrpcProcedureImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? data = null}) {
-    return _then(
-      _$ULexUserTypeXrpcProcedureImpl(
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as LexXrpcProcedure,
-      ),
-    );
-  }
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LexXrpcProcedureCopyWith<$Res> get data {
-    return $LexXrpcProcedureCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexRecordCopyWith<$Res> get data {
+  
+  return $LexRecordCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$ULexUserTypeXrpcProcedureImpl extends ULexUserTypeXrpcProcedure {
-  const _$ULexUserTypeXrpcProcedureImpl({required this.data}) : super._();
 
-  @override
-  final LexXrpcProcedure data;
+class ULexUserTypeXrpcQuery extends LexUserType {
+  const ULexUserTypeXrpcQuery({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'LexUserType.xrpcProcedure(data: $data)';
-  }
+@override final  LexXrpcQuery data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ULexUserTypeXrpcProcedureImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ULexUserTypeXrpcQueryCopyWith<ULexUserTypeXrpcQuery> get copyWith => _$ULexUserTypeXrpcQueryCopyWithImpl<ULexUserTypeXrpcQuery>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ULexUserTypeXrpcProcedureImplCopyWith<_$ULexUserTypeXrpcProcedureImpl>
-  get copyWith =>
-      __$$ULexUserTypeXrpcProcedureImplCopyWithImpl<
-        _$ULexUserTypeXrpcProcedureImpl
-      >(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexRecord data) record,
-    required TResult Function(LexXrpcQuery data) xrpcQuery,
-    required TResult Function(LexXrpcProcedure data) xrpcProcedure,
-    required TResult Function(LexXrpcSubscription data) xrpcSubscription,
-    required TResult Function(LexBlob data) blob,
-    required TResult Function(LexArray data) array,
-    required TResult Function(LexToken data) token,
-    required TResult Function(LexObject data) object,
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexBytes data) bytes,
-    required TResult Function(LexCidLink data) cidLink,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return xrpcProcedure(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexRecord data)? record,
-    TResult? Function(LexXrpcQuery data)? xrpcQuery,
-    TResult? Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult? Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult? Function(LexBlob data)? blob,
-    TResult? Function(LexArray data)? array,
-    TResult? Function(LexToken data)? token,
-    TResult? Function(LexObject data)? object,
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexBytes data)? bytes,
-    TResult? Function(LexCidLink data)? cidLink,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return xrpcProcedure?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexRecord data)? record,
-    TResult Function(LexXrpcQuery data)? xrpcQuery,
-    TResult Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult Function(LexBlob data)? blob,
-    TResult Function(LexArray data)? array,
-    TResult Function(LexToken data)? token,
-    TResult Function(LexObject data)? object,
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexBytes data)? bytes,
-    TResult Function(LexCidLink data)? cidLink,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (xrpcProcedure != null) {
-      return xrpcProcedure(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexUserTypeRecord value) record,
-    required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
-    required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
-    required TResult Function(ULexUserTypeXrpcSubscription value)
-    xrpcSubscription,
-    required TResult Function(ULexUserTypeBlob value) blob,
-    required TResult Function(ULexUserTypeArray value) array,
-    required TResult Function(ULexUserTypeToken value) token,
-    required TResult Function(ULexUserTypeObject value) object,
-    required TResult Function(ULexUserTypeBoolean value) boolean,
-    required TResult Function(ULexUserTypeInteger value) integer,
-    required TResult Function(ULexUserTypeString value) string,
-    required TResult Function(ULexUserTypeBytes value) bytes,
-    required TResult Function(ULexUserTypeCidLink value) cidLink,
-    required TResult Function(ULexUserTypeUnknown value) unknown,
-  }) {
-    return xrpcProcedure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexUserTypeRecord value)? record,
-    TResult? Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult? Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult? Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult? Function(ULexUserTypeBlob value)? blob,
-    TResult? Function(ULexUserTypeArray value)? array,
-    TResult? Function(ULexUserTypeToken value)? token,
-    TResult? Function(ULexUserTypeObject value)? object,
-    TResult? Function(ULexUserTypeBoolean value)? boolean,
-    TResult? Function(ULexUserTypeInteger value)? integer,
-    TResult? Function(ULexUserTypeString value)? string,
-    TResult? Function(ULexUserTypeBytes value)? bytes,
-    TResult? Function(ULexUserTypeCidLink value)? cidLink,
-    TResult? Function(ULexUserTypeUnknown value)? unknown,
-  }) {
-    return xrpcProcedure?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexUserTypeRecord value)? record,
-    TResult Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult Function(ULexUserTypeBlob value)? blob,
-    TResult Function(ULexUserTypeArray value)? array,
-    TResult Function(ULexUserTypeToken value)? token,
-    TResult Function(ULexUserTypeObject value)? object,
-    TResult Function(ULexUserTypeBoolean value)? boolean,
-    TResult Function(ULexUserTypeInteger value)? integer,
-    TResult Function(ULexUserTypeString value)? string,
-    TResult Function(ULexUserTypeBytes value)? bytes,
-    TResult Function(ULexUserTypeCidLink value)? cidLink,
-    TResult Function(ULexUserTypeUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (xrpcProcedure != null) {
-      return xrpcProcedure(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ULexUserTypeXrpcQuery&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class ULexUserTypeXrpcProcedure extends LexUserType {
-  const factory ULexUserTypeXrpcProcedure({
-    required final LexXrpcProcedure data,
-  }) = _$ULexUserTypeXrpcProcedureImpl;
-  const ULexUserTypeXrpcProcedure._() : super._();
 
-  @override
-  LexXrpcProcedure get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexUserTypeXrpcProcedureImplCopyWith<_$ULexUserTypeXrpcProcedureImpl>
-  get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'LexUserType.xrpcQuery(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$ULexUserTypeXrpcSubscriptionImplCopyWith<$Res> {
-  factory _$$ULexUserTypeXrpcSubscriptionImplCopyWith(
-    _$ULexUserTypeXrpcSubscriptionImpl value,
-    $Res Function(_$ULexUserTypeXrpcSubscriptionImpl) then,
-  ) = __$$ULexUserTypeXrpcSubscriptionImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LexXrpcSubscription data});
+abstract mixin class $ULexUserTypeXrpcQueryCopyWith<$Res> implements $LexUserTypeCopyWith<$Res> {
+  factory $ULexUserTypeXrpcQueryCopyWith(ULexUserTypeXrpcQuery value, $Res Function(ULexUserTypeXrpcQuery) _then) = _$ULexUserTypeXrpcQueryCopyWithImpl;
+@useResult
+$Res call({
+ LexXrpcQuery data
+});
 
-  $LexXrpcSubscriptionCopyWith<$Res> get data;
+
+$LexXrpcQueryCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$ULexUserTypeXrpcQueryCopyWithImpl<$Res>
+    implements $ULexUserTypeXrpcQueryCopyWith<$Res> {
+  _$ULexUserTypeXrpcQueryCopyWithImpl(this._self, this._then);
+
+  final ULexUserTypeXrpcQuery _self;
+  final $Res Function(ULexUserTypeXrpcQuery) _then;
+
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ULexUserTypeXrpcQuery(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as LexXrpcQuery,
+  ));
 }
 
-/// @nodoc
-class __$$ULexUserTypeXrpcSubscriptionImplCopyWithImpl<$Res>
-    extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeXrpcSubscriptionImpl>
-    implements _$$ULexUserTypeXrpcSubscriptionImplCopyWith<$Res> {
-  __$$ULexUserTypeXrpcSubscriptionImplCopyWithImpl(
-    _$ULexUserTypeXrpcSubscriptionImpl _value,
-    $Res Function(_$ULexUserTypeXrpcSubscriptionImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? data = null}) {
-    return _then(
-      _$ULexUserTypeXrpcSubscriptionImpl(
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as LexXrpcSubscription,
-      ),
-    );
-  }
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LexXrpcSubscriptionCopyWith<$Res> get data {
-    return $LexXrpcSubscriptionCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexXrpcQueryCopyWith<$Res> get data {
+  
+  return $LexXrpcQueryCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$ULexUserTypeXrpcSubscriptionImpl extends ULexUserTypeXrpcSubscription {
-  const _$ULexUserTypeXrpcSubscriptionImpl({required this.data}) : super._();
 
-  @override
-  final LexXrpcSubscription data;
+class ULexUserTypeXrpcProcedure extends LexUserType {
+  const ULexUserTypeXrpcProcedure({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'LexUserType.xrpcSubscription(data: $data)';
-  }
+@override final  LexXrpcProcedure data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ULexUserTypeXrpcSubscriptionImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ULexUserTypeXrpcProcedureCopyWith<ULexUserTypeXrpcProcedure> get copyWith => _$ULexUserTypeXrpcProcedureCopyWithImpl<ULexUserTypeXrpcProcedure>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ULexUserTypeXrpcSubscriptionImplCopyWith<
-    _$ULexUserTypeXrpcSubscriptionImpl
-  >
-  get copyWith =>
-      __$$ULexUserTypeXrpcSubscriptionImplCopyWithImpl<
-        _$ULexUserTypeXrpcSubscriptionImpl
-      >(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexRecord data) record,
-    required TResult Function(LexXrpcQuery data) xrpcQuery,
-    required TResult Function(LexXrpcProcedure data) xrpcProcedure,
-    required TResult Function(LexXrpcSubscription data) xrpcSubscription,
-    required TResult Function(LexBlob data) blob,
-    required TResult Function(LexArray data) array,
-    required TResult Function(LexToken data) token,
-    required TResult Function(LexObject data) object,
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexBytes data) bytes,
-    required TResult Function(LexCidLink data) cidLink,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return xrpcSubscription(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexRecord data)? record,
-    TResult? Function(LexXrpcQuery data)? xrpcQuery,
-    TResult? Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult? Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult? Function(LexBlob data)? blob,
-    TResult? Function(LexArray data)? array,
-    TResult? Function(LexToken data)? token,
-    TResult? Function(LexObject data)? object,
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexBytes data)? bytes,
-    TResult? Function(LexCidLink data)? cidLink,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return xrpcSubscription?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexRecord data)? record,
-    TResult Function(LexXrpcQuery data)? xrpcQuery,
-    TResult Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult Function(LexBlob data)? blob,
-    TResult Function(LexArray data)? array,
-    TResult Function(LexToken data)? token,
-    TResult Function(LexObject data)? object,
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexBytes data)? bytes,
-    TResult Function(LexCidLink data)? cidLink,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (xrpcSubscription != null) {
-      return xrpcSubscription(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexUserTypeRecord value) record,
-    required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
-    required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
-    required TResult Function(ULexUserTypeXrpcSubscription value)
-    xrpcSubscription,
-    required TResult Function(ULexUserTypeBlob value) blob,
-    required TResult Function(ULexUserTypeArray value) array,
-    required TResult Function(ULexUserTypeToken value) token,
-    required TResult Function(ULexUserTypeObject value) object,
-    required TResult Function(ULexUserTypeBoolean value) boolean,
-    required TResult Function(ULexUserTypeInteger value) integer,
-    required TResult Function(ULexUserTypeString value) string,
-    required TResult Function(ULexUserTypeBytes value) bytes,
-    required TResult Function(ULexUserTypeCidLink value) cidLink,
-    required TResult Function(ULexUserTypeUnknown value) unknown,
-  }) {
-    return xrpcSubscription(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexUserTypeRecord value)? record,
-    TResult? Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult? Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult? Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult? Function(ULexUserTypeBlob value)? blob,
-    TResult? Function(ULexUserTypeArray value)? array,
-    TResult? Function(ULexUserTypeToken value)? token,
-    TResult? Function(ULexUserTypeObject value)? object,
-    TResult? Function(ULexUserTypeBoolean value)? boolean,
-    TResult? Function(ULexUserTypeInteger value)? integer,
-    TResult? Function(ULexUserTypeString value)? string,
-    TResult? Function(ULexUserTypeBytes value)? bytes,
-    TResult? Function(ULexUserTypeCidLink value)? cidLink,
-    TResult? Function(ULexUserTypeUnknown value)? unknown,
-  }) {
-    return xrpcSubscription?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexUserTypeRecord value)? record,
-    TResult Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult Function(ULexUserTypeBlob value)? blob,
-    TResult Function(ULexUserTypeArray value)? array,
-    TResult Function(ULexUserTypeToken value)? token,
-    TResult Function(ULexUserTypeObject value)? object,
-    TResult Function(ULexUserTypeBoolean value)? boolean,
-    TResult Function(ULexUserTypeInteger value)? integer,
-    TResult Function(ULexUserTypeString value)? string,
-    TResult Function(ULexUserTypeBytes value)? bytes,
-    TResult Function(ULexUserTypeCidLink value)? cidLink,
-    TResult Function(ULexUserTypeUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (xrpcSubscription != null) {
-      return xrpcSubscription(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ULexUserTypeXrpcProcedure&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class ULexUserTypeXrpcSubscription extends LexUserType {
-  const factory ULexUserTypeXrpcSubscription({
-    required final LexXrpcSubscription data,
-  }) = _$ULexUserTypeXrpcSubscriptionImpl;
-  const ULexUserTypeXrpcSubscription._() : super._();
 
-  @override
-  LexXrpcSubscription get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexUserTypeXrpcSubscriptionImplCopyWith<
-    _$ULexUserTypeXrpcSubscriptionImpl
-  >
-  get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'LexUserType.xrpcProcedure(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$ULexUserTypeBlobImplCopyWith<$Res> {
-  factory _$$ULexUserTypeBlobImplCopyWith(
-    _$ULexUserTypeBlobImpl value,
-    $Res Function(_$ULexUserTypeBlobImpl) then,
-  ) = __$$ULexUserTypeBlobImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LexBlob data});
+abstract mixin class $ULexUserTypeXrpcProcedureCopyWith<$Res> implements $LexUserTypeCopyWith<$Res> {
+  factory $ULexUserTypeXrpcProcedureCopyWith(ULexUserTypeXrpcProcedure value, $Res Function(ULexUserTypeXrpcProcedure) _then) = _$ULexUserTypeXrpcProcedureCopyWithImpl;
+@useResult
+$Res call({
+ LexXrpcProcedure data
+});
 
-  $LexBlobCopyWith<$Res> get data;
+
+$LexXrpcProcedureCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$ULexUserTypeXrpcProcedureCopyWithImpl<$Res>
+    implements $ULexUserTypeXrpcProcedureCopyWith<$Res> {
+  _$ULexUserTypeXrpcProcedureCopyWithImpl(this._self, this._then);
+
+  final ULexUserTypeXrpcProcedure _self;
+  final $Res Function(ULexUserTypeXrpcProcedure) _then;
+
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ULexUserTypeXrpcProcedure(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as LexXrpcProcedure,
+  ));
 }
 
-/// @nodoc
-class __$$ULexUserTypeBlobImplCopyWithImpl<$Res>
-    extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeBlobImpl>
-    implements _$$ULexUserTypeBlobImplCopyWith<$Res> {
-  __$$ULexUserTypeBlobImplCopyWithImpl(
-    _$ULexUserTypeBlobImpl _value,
-    $Res Function(_$ULexUserTypeBlobImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? data = null}) {
-    return _then(
-      _$ULexUserTypeBlobImpl(
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as LexBlob,
-      ),
-    );
-  }
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LexBlobCopyWith<$Res> get data {
-    return $LexBlobCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexXrpcProcedureCopyWith<$Res> get data {
+  
+  return $LexXrpcProcedureCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$ULexUserTypeBlobImpl extends ULexUserTypeBlob {
-  const _$ULexUserTypeBlobImpl({required this.data}) : super._();
 
-  @override
-  final LexBlob data;
+class ULexUserTypeXrpcSubscription extends LexUserType {
+  const ULexUserTypeXrpcSubscription({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'LexUserType.blob(data: $data)';
-  }
+@override final  LexXrpcSubscription data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ULexUserTypeBlobImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ULexUserTypeXrpcSubscriptionCopyWith<ULexUserTypeXrpcSubscription> get copyWith => _$ULexUserTypeXrpcSubscriptionCopyWithImpl<ULexUserTypeXrpcSubscription>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ULexUserTypeBlobImplCopyWith<_$ULexUserTypeBlobImpl> get copyWith =>
-      __$$ULexUserTypeBlobImplCopyWithImpl<_$ULexUserTypeBlobImpl>(
-        this,
-        _$identity,
-      );
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexRecord data) record,
-    required TResult Function(LexXrpcQuery data) xrpcQuery,
-    required TResult Function(LexXrpcProcedure data) xrpcProcedure,
-    required TResult Function(LexXrpcSubscription data) xrpcSubscription,
-    required TResult Function(LexBlob data) blob,
-    required TResult Function(LexArray data) array,
-    required TResult Function(LexToken data) token,
-    required TResult Function(LexObject data) object,
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexBytes data) bytes,
-    required TResult Function(LexCidLink data) cidLink,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return blob(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexRecord data)? record,
-    TResult? Function(LexXrpcQuery data)? xrpcQuery,
-    TResult? Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult? Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult? Function(LexBlob data)? blob,
-    TResult? Function(LexArray data)? array,
-    TResult? Function(LexToken data)? token,
-    TResult? Function(LexObject data)? object,
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexBytes data)? bytes,
-    TResult? Function(LexCidLink data)? cidLink,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return blob?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexRecord data)? record,
-    TResult Function(LexXrpcQuery data)? xrpcQuery,
-    TResult Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult Function(LexBlob data)? blob,
-    TResult Function(LexArray data)? array,
-    TResult Function(LexToken data)? token,
-    TResult Function(LexObject data)? object,
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexBytes data)? bytes,
-    TResult Function(LexCidLink data)? cidLink,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (blob != null) {
-      return blob(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexUserTypeRecord value) record,
-    required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
-    required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
-    required TResult Function(ULexUserTypeXrpcSubscription value)
-    xrpcSubscription,
-    required TResult Function(ULexUserTypeBlob value) blob,
-    required TResult Function(ULexUserTypeArray value) array,
-    required TResult Function(ULexUserTypeToken value) token,
-    required TResult Function(ULexUserTypeObject value) object,
-    required TResult Function(ULexUserTypeBoolean value) boolean,
-    required TResult Function(ULexUserTypeInteger value) integer,
-    required TResult Function(ULexUserTypeString value) string,
-    required TResult Function(ULexUserTypeBytes value) bytes,
-    required TResult Function(ULexUserTypeCidLink value) cidLink,
-    required TResult Function(ULexUserTypeUnknown value) unknown,
-  }) {
-    return blob(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexUserTypeRecord value)? record,
-    TResult? Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult? Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult? Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult? Function(ULexUserTypeBlob value)? blob,
-    TResult? Function(ULexUserTypeArray value)? array,
-    TResult? Function(ULexUserTypeToken value)? token,
-    TResult? Function(ULexUserTypeObject value)? object,
-    TResult? Function(ULexUserTypeBoolean value)? boolean,
-    TResult? Function(ULexUserTypeInteger value)? integer,
-    TResult? Function(ULexUserTypeString value)? string,
-    TResult? Function(ULexUserTypeBytes value)? bytes,
-    TResult? Function(ULexUserTypeCidLink value)? cidLink,
-    TResult? Function(ULexUserTypeUnknown value)? unknown,
-  }) {
-    return blob?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexUserTypeRecord value)? record,
-    TResult Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult Function(ULexUserTypeBlob value)? blob,
-    TResult Function(ULexUserTypeArray value)? array,
-    TResult Function(ULexUserTypeToken value)? token,
-    TResult Function(ULexUserTypeObject value)? object,
-    TResult Function(ULexUserTypeBoolean value)? boolean,
-    TResult Function(ULexUserTypeInteger value)? integer,
-    TResult Function(ULexUserTypeString value)? string,
-    TResult Function(ULexUserTypeBytes value)? bytes,
-    TResult Function(ULexUserTypeCidLink value)? cidLink,
-    TResult Function(ULexUserTypeUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (blob != null) {
-      return blob(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ULexUserTypeXrpcSubscription&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class ULexUserTypeBlob extends LexUserType {
-  const factory ULexUserTypeBlob({required final LexBlob data}) =
-      _$ULexUserTypeBlobImpl;
-  const ULexUserTypeBlob._() : super._();
 
-  @override
-  LexBlob get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexUserTypeBlobImplCopyWith<_$ULexUserTypeBlobImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'LexUserType.xrpcSubscription(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$ULexUserTypeArrayImplCopyWith<$Res> {
-  factory _$$ULexUserTypeArrayImplCopyWith(
-    _$ULexUserTypeArrayImpl value,
-    $Res Function(_$ULexUserTypeArrayImpl) then,
-  ) = __$$ULexUserTypeArrayImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LexArray data});
+abstract mixin class $ULexUserTypeXrpcSubscriptionCopyWith<$Res> implements $LexUserTypeCopyWith<$Res> {
+  factory $ULexUserTypeXrpcSubscriptionCopyWith(ULexUserTypeXrpcSubscription value, $Res Function(ULexUserTypeXrpcSubscription) _then) = _$ULexUserTypeXrpcSubscriptionCopyWithImpl;
+@useResult
+$Res call({
+ LexXrpcSubscription data
+});
 
-  $LexArrayCopyWith<$Res> get data;
+
+$LexXrpcSubscriptionCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$ULexUserTypeXrpcSubscriptionCopyWithImpl<$Res>
+    implements $ULexUserTypeXrpcSubscriptionCopyWith<$Res> {
+  _$ULexUserTypeXrpcSubscriptionCopyWithImpl(this._self, this._then);
+
+  final ULexUserTypeXrpcSubscription _self;
+  final $Res Function(ULexUserTypeXrpcSubscription) _then;
+
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ULexUserTypeXrpcSubscription(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as LexXrpcSubscription,
+  ));
 }
 
-/// @nodoc
-class __$$ULexUserTypeArrayImplCopyWithImpl<$Res>
-    extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeArrayImpl>
-    implements _$$ULexUserTypeArrayImplCopyWith<$Res> {
-  __$$ULexUserTypeArrayImplCopyWithImpl(
-    _$ULexUserTypeArrayImpl _value,
-    $Res Function(_$ULexUserTypeArrayImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? data = null}) {
-    return _then(
-      _$ULexUserTypeArrayImpl(
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as LexArray,
-      ),
-    );
-  }
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LexArrayCopyWith<$Res> get data {
-    return $LexArrayCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexXrpcSubscriptionCopyWith<$Res> get data {
+  
+  return $LexXrpcSubscriptionCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$ULexUserTypeArrayImpl extends ULexUserTypeArray {
-  const _$ULexUserTypeArrayImpl({required this.data}) : super._();
 
-  @override
-  final LexArray data;
+class ULexUserTypeBlob extends LexUserType {
+  const ULexUserTypeBlob({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'LexUserType.array(data: $data)';
-  }
+@override final  LexBlob data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ULexUserTypeArrayImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ULexUserTypeBlobCopyWith<ULexUserTypeBlob> get copyWith => _$ULexUserTypeBlobCopyWithImpl<ULexUserTypeBlob>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ULexUserTypeArrayImplCopyWith<_$ULexUserTypeArrayImpl> get copyWith =>
-      __$$ULexUserTypeArrayImplCopyWithImpl<_$ULexUserTypeArrayImpl>(
-        this,
-        _$identity,
-      );
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexRecord data) record,
-    required TResult Function(LexXrpcQuery data) xrpcQuery,
-    required TResult Function(LexXrpcProcedure data) xrpcProcedure,
-    required TResult Function(LexXrpcSubscription data) xrpcSubscription,
-    required TResult Function(LexBlob data) blob,
-    required TResult Function(LexArray data) array,
-    required TResult Function(LexToken data) token,
-    required TResult Function(LexObject data) object,
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexBytes data) bytes,
-    required TResult Function(LexCidLink data) cidLink,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return array(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexRecord data)? record,
-    TResult? Function(LexXrpcQuery data)? xrpcQuery,
-    TResult? Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult? Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult? Function(LexBlob data)? blob,
-    TResult? Function(LexArray data)? array,
-    TResult? Function(LexToken data)? token,
-    TResult? Function(LexObject data)? object,
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexBytes data)? bytes,
-    TResult? Function(LexCidLink data)? cidLink,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return array?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexRecord data)? record,
-    TResult Function(LexXrpcQuery data)? xrpcQuery,
-    TResult Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult Function(LexBlob data)? blob,
-    TResult Function(LexArray data)? array,
-    TResult Function(LexToken data)? token,
-    TResult Function(LexObject data)? object,
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexBytes data)? bytes,
-    TResult Function(LexCidLink data)? cidLink,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (array != null) {
-      return array(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexUserTypeRecord value) record,
-    required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
-    required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
-    required TResult Function(ULexUserTypeXrpcSubscription value)
-    xrpcSubscription,
-    required TResult Function(ULexUserTypeBlob value) blob,
-    required TResult Function(ULexUserTypeArray value) array,
-    required TResult Function(ULexUserTypeToken value) token,
-    required TResult Function(ULexUserTypeObject value) object,
-    required TResult Function(ULexUserTypeBoolean value) boolean,
-    required TResult Function(ULexUserTypeInteger value) integer,
-    required TResult Function(ULexUserTypeString value) string,
-    required TResult Function(ULexUserTypeBytes value) bytes,
-    required TResult Function(ULexUserTypeCidLink value) cidLink,
-    required TResult Function(ULexUserTypeUnknown value) unknown,
-  }) {
-    return array(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexUserTypeRecord value)? record,
-    TResult? Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult? Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult? Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult? Function(ULexUserTypeBlob value)? blob,
-    TResult? Function(ULexUserTypeArray value)? array,
-    TResult? Function(ULexUserTypeToken value)? token,
-    TResult? Function(ULexUserTypeObject value)? object,
-    TResult? Function(ULexUserTypeBoolean value)? boolean,
-    TResult? Function(ULexUserTypeInteger value)? integer,
-    TResult? Function(ULexUserTypeString value)? string,
-    TResult? Function(ULexUserTypeBytes value)? bytes,
-    TResult? Function(ULexUserTypeCidLink value)? cidLink,
-    TResult? Function(ULexUserTypeUnknown value)? unknown,
-  }) {
-    return array?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexUserTypeRecord value)? record,
-    TResult Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult Function(ULexUserTypeBlob value)? blob,
-    TResult Function(ULexUserTypeArray value)? array,
-    TResult Function(ULexUserTypeToken value)? token,
-    TResult Function(ULexUserTypeObject value)? object,
-    TResult Function(ULexUserTypeBoolean value)? boolean,
-    TResult Function(ULexUserTypeInteger value)? integer,
-    TResult Function(ULexUserTypeString value)? string,
-    TResult Function(ULexUserTypeBytes value)? bytes,
-    TResult Function(ULexUserTypeCidLink value)? cidLink,
-    TResult Function(ULexUserTypeUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (array != null) {
-      return array(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ULexUserTypeBlob&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class ULexUserTypeArray extends LexUserType {
-  const factory ULexUserTypeArray({required final LexArray data}) =
-      _$ULexUserTypeArrayImpl;
-  const ULexUserTypeArray._() : super._();
 
-  @override
-  LexArray get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexUserTypeArrayImplCopyWith<_$ULexUserTypeArrayImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'LexUserType.blob(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$ULexUserTypeTokenImplCopyWith<$Res> {
-  factory _$$ULexUserTypeTokenImplCopyWith(
-    _$ULexUserTypeTokenImpl value,
-    $Res Function(_$ULexUserTypeTokenImpl) then,
-  ) = __$$ULexUserTypeTokenImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LexToken data});
+abstract mixin class $ULexUserTypeBlobCopyWith<$Res> implements $LexUserTypeCopyWith<$Res> {
+  factory $ULexUserTypeBlobCopyWith(ULexUserTypeBlob value, $Res Function(ULexUserTypeBlob) _then) = _$ULexUserTypeBlobCopyWithImpl;
+@useResult
+$Res call({
+ LexBlob data
+});
 
-  $LexTokenCopyWith<$Res> get data;
+
+$LexBlobCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$ULexUserTypeBlobCopyWithImpl<$Res>
+    implements $ULexUserTypeBlobCopyWith<$Res> {
+  _$ULexUserTypeBlobCopyWithImpl(this._self, this._then);
+
+  final ULexUserTypeBlob _self;
+  final $Res Function(ULexUserTypeBlob) _then;
+
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ULexUserTypeBlob(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as LexBlob,
+  ));
 }
 
-/// @nodoc
-class __$$ULexUserTypeTokenImplCopyWithImpl<$Res>
-    extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeTokenImpl>
-    implements _$$ULexUserTypeTokenImplCopyWith<$Res> {
-  __$$ULexUserTypeTokenImplCopyWithImpl(
-    _$ULexUserTypeTokenImpl _value,
-    $Res Function(_$ULexUserTypeTokenImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? data = null}) {
-    return _then(
-      _$ULexUserTypeTokenImpl(
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as LexToken,
-      ),
-    );
-  }
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LexTokenCopyWith<$Res> get data {
-    return $LexTokenCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexBlobCopyWith<$Res> get data {
+  
+  return $LexBlobCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$ULexUserTypeTokenImpl extends ULexUserTypeToken {
-  const _$ULexUserTypeTokenImpl({required this.data}) : super._();
 
-  @override
-  final LexToken data;
+class ULexUserTypeArray extends LexUserType {
+  const ULexUserTypeArray({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'LexUserType.token(data: $data)';
-  }
+@override final  LexArray data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ULexUserTypeTokenImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ULexUserTypeArrayCopyWith<ULexUserTypeArray> get copyWith => _$ULexUserTypeArrayCopyWithImpl<ULexUserTypeArray>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ULexUserTypeTokenImplCopyWith<_$ULexUserTypeTokenImpl> get copyWith =>
-      __$$ULexUserTypeTokenImplCopyWithImpl<_$ULexUserTypeTokenImpl>(
-        this,
-        _$identity,
-      );
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexRecord data) record,
-    required TResult Function(LexXrpcQuery data) xrpcQuery,
-    required TResult Function(LexXrpcProcedure data) xrpcProcedure,
-    required TResult Function(LexXrpcSubscription data) xrpcSubscription,
-    required TResult Function(LexBlob data) blob,
-    required TResult Function(LexArray data) array,
-    required TResult Function(LexToken data) token,
-    required TResult Function(LexObject data) object,
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexBytes data) bytes,
-    required TResult Function(LexCidLink data) cidLink,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return token(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexRecord data)? record,
-    TResult? Function(LexXrpcQuery data)? xrpcQuery,
-    TResult? Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult? Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult? Function(LexBlob data)? blob,
-    TResult? Function(LexArray data)? array,
-    TResult? Function(LexToken data)? token,
-    TResult? Function(LexObject data)? object,
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexBytes data)? bytes,
-    TResult? Function(LexCidLink data)? cidLink,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return token?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexRecord data)? record,
-    TResult Function(LexXrpcQuery data)? xrpcQuery,
-    TResult Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult Function(LexBlob data)? blob,
-    TResult Function(LexArray data)? array,
-    TResult Function(LexToken data)? token,
-    TResult Function(LexObject data)? object,
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexBytes data)? bytes,
-    TResult Function(LexCidLink data)? cidLink,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (token != null) {
-      return token(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexUserTypeRecord value) record,
-    required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
-    required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
-    required TResult Function(ULexUserTypeXrpcSubscription value)
-    xrpcSubscription,
-    required TResult Function(ULexUserTypeBlob value) blob,
-    required TResult Function(ULexUserTypeArray value) array,
-    required TResult Function(ULexUserTypeToken value) token,
-    required TResult Function(ULexUserTypeObject value) object,
-    required TResult Function(ULexUserTypeBoolean value) boolean,
-    required TResult Function(ULexUserTypeInteger value) integer,
-    required TResult Function(ULexUserTypeString value) string,
-    required TResult Function(ULexUserTypeBytes value) bytes,
-    required TResult Function(ULexUserTypeCidLink value) cidLink,
-    required TResult Function(ULexUserTypeUnknown value) unknown,
-  }) {
-    return token(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexUserTypeRecord value)? record,
-    TResult? Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult? Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult? Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult? Function(ULexUserTypeBlob value)? blob,
-    TResult? Function(ULexUserTypeArray value)? array,
-    TResult? Function(ULexUserTypeToken value)? token,
-    TResult? Function(ULexUserTypeObject value)? object,
-    TResult? Function(ULexUserTypeBoolean value)? boolean,
-    TResult? Function(ULexUserTypeInteger value)? integer,
-    TResult? Function(ULexUserTypeString value)? string,
-    TResult? Function(ULexUserTypeBytes value)? bytes,
-    TResult? Function(ULexUserTypeCidLink value)? cidLink,
-    TResult? Function(ULexUserTypeUnknown value)? unknown,
-  }) {
-    return token?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexUserTypeRecord value)? record,
-    TResult Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult Function(ULexUserTypeBlob value)? blob,
-    TResult Function(ULexUserTypeArray value)? array,
-    TResult Function(ULexUserTypeToken value)? token,
-    TResult Function(ULexUserTypeObject value)? object,
-    TResult Function(ULexUserTypeBoolean value)? boolean,
-    TResult Function(ULexUserTypeInteger value)? integer,
-    TResult Function(ULexUserTypeString value)? string,
-    TResult Function(ULexUserTypeBytes value)? bytes,
-    TResult Function(ULexUserTypeCidLink value)? cidLink,
-    TResult Function(ULexUserTypeUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (token != null) {
-      return token(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ULexUserTypeArray&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class ULexUserTypeToken extends LexUserType {
-  const factory ULexUserTypeToken({required final LexToken data}) =
-      _$ULexUserTypeTokenImpl;
-  const ULexUserTypeToken._() : super._();
 
-  @override
-  LexToken get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexUserTypeTokenImplCopyWith<_$ULexUserTypeTokenImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'LexUserType.array(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$ULexUserTypeObjectImplCopyWith<$Res> {
-  factory _$$ULexUserTypeObjectImplCopyWith(
-    _$ULexUserTypeObjectImpl value,
-    $Res Function(_$ULexUserTypeObjectImpl) then,
-  ) = __$$ULexUserTypeObjectImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LexObject data});
+abstract mixin class $ULexUserTypeArrayCopyWith<$Res> implements $LexUserTypeCopyWith<$Res> {
+  factory $ULexUserTypeArrayCopyWith(ULexUserTypeArray value, $Res Function(ULexUserTypeArray) _then) = _$ULexUserTypeArrayCopyWithImpl;
+@useResult
+$Res call({
+ LexArray data
+});
 
-  $LexObjectCopyWith<$Res> get data;
+
+$LexArrayCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$ULexUserTypeArrayCopyWithImpl<$Res>
+    implements $ULexUserTypeArrayCopyWith<$Res> {
+  _$ULexUserTypeArrayCopyWithImpl(this._self, this._then);
+
+  final ULexUserTypeArray _self;
+  final $Res Function(ULexUserTypeArray) _then;
+
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ULexUserTypeArray(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as LexArray,
+  ));
 }
 
-/// @nodoc
-class __$$ULexUserTypeObjectImplCopyWithImpl<$Res>
-    extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeObjectImpl>
-    implements _$$ULexUserTypeObjectImplCopyWith<$Res> {
-  __$$ULexUserTypeObjectImplCopyWithImpl(
-    _$ULexUserTypeObjectImpl _value,
-    $Res Function(_$ULexUserTypeObjectImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? data = null}) {
-    return _then(
-      _$ULexUserTypeObjectImpl(
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as LexObject,
-      ),
-    );
-  }
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LexObjectCopyWith<$Res> get data {
-    return $LexObjectCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexArrayCopyWith<$Res> get data {
+  
+  return $LexArrayCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$ULexUserTypeObjectImpl extends ULexUserTypeObject {
-  const _$ULexUserTypeObjectImpl({required this.data}) : super._();
 
-  @override
-  final LexObject data;
+class ULexUserTypeToken extends LexUserType {
+  const ULexUserTypeToken({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'LexUserType.object(data: $data)';
-  }
+@override final  LexToken data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ULexUserTypeObjectImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ULexUserTypeTokenCopyWith<ULexUserTypeToken> get copyWith => _$ULexUserTypeTokenCopyWithImpl<ULexUserTypeToken>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ULexUserTypeObjectImplCopyWith<_$ULexUserTypeObjectImpl> get copyWith =>
-      __$$ULexUserTypeObjectImplCopyWithImpl<_$ULexUserTypeObjectImpl>(
-        this,
-        _$identity,
-      );
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexRecord data) record,
-    required TResult Function(LexXrpcQuery data) xrpcQuery,
-    required TResult Function(LexXrpcProcedure data) xrpcProcedure,
-    required TResult Function(LexXrpcSubscription data) xrpcSubscription,
-    required TResult Function(LexBlob data) blob,
-    required TResult Function(LexArray data) array,
-    required TResult Function(LexToken data) token,
-    required TResult Function(LexObject data) object,
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexBytes data) bytes,
-    required TResult Function(LexCidLink data) cidLink,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return object(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexRecord data)? record,
-    TResult? Function(LexXrpcQuery data)? xrpcQuery,
-    TResult? Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult? Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult? Function(LexBlob data)? blob,
-    TResult? Function(LexArray data)? array,
-    TResult? Function(LexToken data)? token,
-    TResult? Function(LexObject data)? object,
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexBytes data)? bytes,
-    TResult? Function(LexCidLink data)? cidLink,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return object?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexRecord data)? record,
-    TResult Function(LexXrpcQuery data)? xrpcQuery,
-    TResult Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult Function(LexBlob data)? blob,
-    TResult Function(LexArray data)? array,
-    TResult Function(LexToken data)? token,
-    TResult Function(LexObject data)? object,
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexBytes data)? bytes,
-    TResult Function(LexCidLink data)? cidLink,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (object != null) {
-      return object(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexUserTypeRecord value) record,
-    required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
-    required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
-    required TResult Function(ULexUserTypeXrpcSubscription value)
-    xrpcSubscription,
-    required TResult Function(ULexUserTypeBlob value) blob,
-    required TResult Function(ULexUserTypeArray value) array,
-    required TResult Function(ULexUserTypeToken value) token,
-    required TResult Function(ULexUserTypeObject value) object,
-    required TResult Function(ULexUserTypeBoolean value) boolean,
-    required TResult Function(ULexUserTypeInteger value) integer,
-    required TResult Function(ULexUserTypeString value) string,
-    required TResult Function(ULexUserTypeBytes value) bytes,
-    required TResult Function(ULexUserTypeCidLink value) cidLink,
-    required TResult Function(ULexUserTypeUnknown value) unknown,
-  }) {
-    return object(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexUserTypeRecord value)? record,
-    TResult? Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult? Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult? Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult? Function(ULexUserTypeBlob value)? blob,
-    TResult? Function(ULexUserTypeArray value)? array,
-    TResult? Function(ULexUserTypeToken value)? token,
-    TResult? Function(ULexUserTypeObject value)? object,
-    TResult? Function(ULexUserTypeBoolean value)? boolean,
-    TResult? Function(ULexUserTypeInteger value)? integer,
-    TResult? Function(ULexUserTypeString value)? string,
-    TResult? Function(ULexUserTypeBytes value)? bytes,
-    TResult? Function(ULexUserTypeCidLink value)? cidLink,
-    TResult? Function(ULexUserTypeUnknown value)? unknown,
-  }) {
-    return object?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexUserTypeRecord value)? record,
-    TResult Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult Function(ULexUserTypeBlob value)? blob,
-    TResult Function(ULexUserTypeArray value)? array,
-    TResult Function(ULexUserTypeToken value)? token,
-    TResult Function(ULexUserTypeObject value)? object,
-    TResult Function(ULexUserTypeBoolean value)? boolean,
-    TResult Function(ULexUserTypeInteger value)? integer,
-    TResult Function(ULexUserTypeString value)? string,
-    TResult Function(ULexUserTypeBytes value)? bytes,
-    TResult Function(ULexUserTypeCidLink value)? cidLink,
-    TResult Function(ULexUserTypeUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (object != null) {
-      return object(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ULexUserTypeToken&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class ULexUserTypeObject extends LexUserType {
-  const factory ULexUserTypeObject({required final LexObject data}) =
-      _$ULexUserTypeObjectImpl;
-  const ULexUserTypeObject._() : super._();
 
-  @override
-  LexObject get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexUserTypeObjectImplCopyWith<_$ULexUserTypeObjectImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'LexUserType.token(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$ULexUserTypeBooleanImplCopyWith<$Res> {
-  factory _$$ULexUserTypeBooleanImplCopyWith(
-    _$ULexUserTypeBooleanImpl value,
-    $Res Function(_$ULexUserTypeBooleanImpl) then,
-  ) = __$$ULexUserTypeBooleanImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LexBoolean data});
+abstract mixin class $ULexUserTypeTokenCopyWith<$Res> implements $LexUserTypeCopyWith<$Res> {
+  factory $ULexUserTypeTokenCopyWith(ULexUserTypeToken value, $Res Function(ULexUserTypeToken) _then) = _$ULexUserTypeTokenCopyWithImpl;
+@useResult
+$Res call({
+ LexToken data
+});
 
-  $LexBooleanCopyWith<$Res> get data;
+
+$LexTokenCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$ULexUserTypeTokenCopyWithImpl<$Res>
+    implements $ULexUserTypeTokenCopyWith<$Res> {
+  _$ULexUserTypeTokenCopyWithImpl(this._self, this._then);
+
+  final ULexUserTypeToken _self;
+  final $Res Function(ULexUserTypeToken) _then;
+
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ULexUserTypeToken(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as LexToken,
+  ));
 }
 
-/// @nodoc
-class __$$ULexUserTypeBooleanImplCopyWithImpl<$Res>
-    extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeBooleanImpl>
-    implements _$$ULexUserTypeBooleanImplCopyWith<$Res> {
-  __$$ULexUserTypeBooleanImplCopyWithImpl(
-    _$ULexUserTypeBooleanImpl _value,
-    $Res Function(_$ULexUserTypeBooleanImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? data = null}) {
-    return _then(
-      _$ULexUserTypeBooleanImpl(
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as LexBoolean,
-      ),
-    );
-  }
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LexBooleanCopyWith<$Res> get data {
-    return $LexBooleanCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexTokenCopyWith<$Res> get data {
+  
+  return $LexTokenCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$ULexUserTypeBooleanImpl extends ULexUserTypeBoolean {
-  const _$ULexUserTypeBooleanImpl({required this.data}) : super._();
 
-  @override
-  final LexBoolean data;
+class ULexUserTypeObject extends LexUserType {
+  const ULexUserTypeObject({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'LexUserType.boolean(data: $data)';
-  }
+@override final  LexObject data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ULexUserTypeBooleanImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ULexUserTypeObjectCopyWith<ULexUserTypeObject> get copyWith => _$ULexUserTypeObjectCopyWithImpl<ULexUserTypeObject>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ULexUserTypeBooleanImplCopyWith<_$ULexUserTypeBooleanImpl> get copyWith =>
-      __$$ULexUserTypeBooleanImplCopyWithImpl<_$ULexUserTypeBooleanImpl>(
-        this,
-        _$identity,
-      );
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexRecord data) record,
-    required TResult Function(LexXrpcQuery data) xrpcQuery,
-    required TResult Function(LexXrpcProcedure data) xrpcProcedure,
-    required TResult Function(LexXrpcSubscription data) xrpcSubscription,
-    required TResult Function(LexBlob data) blob,
-    required TResult Function(LexArray data) array,
-    required TResult Function(LexToken data) token,
-    required TResult Function(LexObject data) object,
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexBytes data) bytes,
-    required TResult Function(LexCidLink data) cidLink,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return boolean(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexRecord data)? record,
-    TResult? Function(LexXrpcQuery data)? xrpcQuery,
-    TResult? Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult? Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult? Function(LexBlob data)? blob,
-    TResult? Function(LexArray data)? array,
-    TResult? Function(LexToken data)? token,
-    TResult? Function(LexObject data)? object,
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexBytes data)? bytes,
-    TResult? Function(LexCidLink data)? cidLink,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return boolean?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexRecord data)? record,
-    TResult Function(LexXrpcQuery data)? xrpcQuery,
-    TResult Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult Function(LexBlob data)? blob,
-    TResult Function(LexArray data)? array,
-    TResult Function(LexToken data)? token,
-    TResult Function(LexObject data)? object,
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexBytes data)? bytes,
-    TResult Function(LexCidLink data)? cidLink,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (boolean != null) {
-      return boolean(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexUserTypeRecord value) record,
-    required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
-    required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
-    required TResult Function(ULexUserTypeXrpcSubscription value)
-    xrpcSubscription,
-    required TResult Function(ULexUserTypeBlob value) blob,
-    required TResult Function(ULexUserTypeArray value) array,
-    required TResult Function(ULexUserTypeToken value) token,
-    required TResult Function(ULexUserTypeObject value) object,
-    required TResult Function(ULexUserTypeBoolean value) boolean,
-    required TResult Function(ULexUserTypeInteger value) integer,
-    required TResult Function(ULexUserTypeString value) string,
-    required TResult Function(ULexUserTypeBytes value) bytes,
-    required TResult Function(ULexUserTypeCidLink value) cidLink,
-    required TResult Function(ULexUserTypeUnknown value) unknown,
-  }) {
-    return boolean(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexUserTypeRecord value)? record,
-    TResult? Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult? Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult? Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult? Function(ULexUserTypeBlob value)? blob,
-    TResult? Function(ULexUserTypeArray value)? array,
-    TResult? Function(ULexUserTypeToken value)? token,
-    TResult? Function(ULexUserTypeObject value)? object,
-    TResult? Function(ULexUserTypeBoolean value)? boolean,
-    TResult? Function(ULexUserTypeInteger value)? integer,
-    TResult? Function(ULexUserTypeString value)? string,
-    TResult? Function(ULexUserTypeBytes value)? bytes,
-    TResult? Function(ULexUserTypeCidLink value)? cidLink,
-    TResult? Function(ULexUserTypeUnknown value)? unknown,
-  }) {
-    return boolean?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexUserTypeRecord value)? record,
-    TResult Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult Function(ULexUserTypeBlob value)? blob,
-    TResult Function(ULexUserTypeArray value)? array,
-    TResult Function(ULexUserTypeToken value)? token,
-    TResult Function(ULexUserTypeObject value)? object,
-    TResult Function(ULexUserTypeBoolean value)? boolean,
-    TResult Function(ULexUserTypeInteger value)? integer,
-    TResult Function(ULexUserTypeString value)? string,
-    TResult Function(ULexUserTypeBytes value)? bytes,
-    TResult Function(ULexUserTypeCidLink value)? cidLink,
-    TResult Function(ULexUserTypeUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (boolean != null) {
-      return boolean(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ULexUserTypeObject&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class ULexUserTypeBoolean extends LexUserType {
-  const factory ULexUserTypeBoolean({required final LexBoolean data}) =
-      _$ULexUserTypeBooleanImpl;
-  const ULexUserTypeBoolean._() : super._();
 
-  @override
-  LexBoolean get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexUserTypeBooleanImplCopyWith<_$ULexUserTypeBooleanImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'LexUserType.object(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$ULexUserTypeIntegerImplCopyWith<$Res> {
-  factory _$$ULexUserTypeIntegerImplCopyWith(
-    _$ULexUserTypeIntegerImpl value,
-    $Res Function(_$ULexUserTypeIntegerImpl) then,
-  ) = __$$ULexUserTypeIntegerImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LexInteger data});
+abstract mixin class $ULexUserTypeObjectCopyWith<$Res> implements $LexUserTypeCopyWith<$Res> {
+  factory $ULexUserTypeObjectCopyWith(ULexUserTypeObject value, $Res Function(ULexUserTypeObject) _then) = _$ULexUserTypeObjectCopyWithImpl;
+@useResult
+$Res call({
+ LexObject data
+});
 
-  $LexIntegerCopyWith<$Res> get data;
+
+$LexObjectCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$ULexUserTypeObjectCopyWithImpl<$Res>
+    implements $ULexUserTypeObjectCopyWith<$Res> {
+  _$ULexUserTypeObjectCopyWithImpl(this._self, this._then);
+
+  final ULexUserTypeObject _self;
+  final $Res Function(ULexUserTypeObject) _then;
+
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ULexUserTypeObject(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as LexObject,
+  ));
 }
 
-/// @nodoc
-class __$$ULexUserTypeIntegerImplCopyWithImpl<$Res>
-    extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeIntegerImpl>
-    implements _$$ULexUserTypeIntegerImplCopyWith<$Res> {
-  __$$ULexUserTypeIntegerImplCopyWithImpl(
-    _$ULexUserTypeIntegerImpl _value,
-    $Res Function(_$ULexUserTypeIntegerImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? data = null}) {
-    return _then(
-      _$ULexUserTypeIntegerImpl(
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as LexInteger,
-      ),
-    );
-  }
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LexIntegerCopyWith<$Res> get data {
-    return $LexIntegerCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexObjectCopyWith<$Res> get data {
+  
+  return $LexObjectCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$ULexUserTypeIntegerImpl extends ULexUserTypeInteger {
-  const _$ULexUserTypeIntegerImpl({required this.data}) : super._();
 
-  @override
-  final LexInteger data;
+class ULexUserTypeBoolean extends LexUserType {
+  const ULexUserTypeBoolean({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'LexUserType.integer(data: $data)';
-  }
+@override final  LexBoolean data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ULexUserTypeIntegerImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ULexUserTypeBooleanCopyWith<ULexUserTypeBoolean> get copyWith => _$ULexUserTypeBooleanCopyWithImpl<ULexUserTypeBoolean>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ULexUserTypeIntegerImplCopyWith<_$ULexUserTypeIntegerImpl> get copyWith =>
-      __$$ULexUserTypeIntegerImplCopyWithImpl<_$ULexUserTypeIntegerImpl>(
-        this,
-        _$identity,
-      );
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexRecord data) record,
-    required TResult Function(LexXrpcQuery data) xrpcQuery,
-    required TResult Function(LexXrpcProcedure data) xrpcProcedure,
-    required TResult Function(LexXrpcSubscription data) xrpcSubscription,
-    required TResult Function(LexBlob data) blob,
-    required TResult Function(LexArray data) array,
-    required TResult Function(LexToken data) token,
-    required TResult Function(LexObject data) object,
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexBytes data) bytes,
-    required TResult Function(LexCidLink data) cidLink,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return integer(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexRecord data)? record,
-    TResult? Function(LexXrpcQuery data)? xrpcQuery,
-    TResult? Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult? Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult? Function(LexBlob data)? blob,
-    TResult? Function(LexArray data)? array,
-    TResult? Function(LexToken data)? token,
-    TResult? Function(LexObject data)? object,
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexBytes data)? bytes,
-    TResult? Function(LexCidLink data)? cidLink,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return integer?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexRecord data)? record,
-    TResult Function(LexXrpcQuery data)? xrpcQuery,
-    TResult Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult Function(LexBlob data)? blob,
-    TResult Function(LexArray data)? array,
-    TResult Function(LexToken data)? token,
-    TResult Function(LexObject data)? object,
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexBytes data)? bytes,
-    TResult Function(LexCidLink data)? cidLink,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (integer != null) {
-      return integer(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexUserTypeRecord value) record,
-    required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
-    required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
-    required TResult Function(ULexUserTypeXrpcSubscription value)
-    xrpcSubscription,
-    required TResult Function(ULexUserTypeBlob value) blob,
-    required TResult Function(ULexUserTypeArray value) array,
-    required TResult Function(ULexUserTypeToken value) token,
-    required TResult Function(ULexUserTypeObject value) object,
-    required TResult Function(ULexUserTypeBoolean value) boolean,
-    required TResult Function(ULexUserTypeInteger value) integer,
-    required TResult Function(ULexUserTypeString value) string,
-    required TResult Function(ULexUserTypeBytes value) bytes,
-    required TResult Function(ULexUserTypeCidLink value) cidLink,
-    required TResult Function(ULexUserTypeUnknown value) unknown,
-  }) {
-    return integer(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexUserTypeRecord value)? record,
-    TResult? Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult? Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult? Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult? Function(ULexUserTypeBlob value)? blob,
-    TResult? Function(ULexUserTypeArray value)? array,
-    TResult? Function(ULexUserTypeToken value)? token,
-    TResult? Function(ULexUserTypeObject value)? object,
-    TResult? Function(ULexUserTypeBoolean value)? boolean,
-    TResult? Function(ULexUserTypeInteger value)? integer,
-    TResult? Function(ULexUserTypeString value)? string,
-    TResult? Function(ULexUserTypeBytes value)? bytes,
-    TResult? Function(ULexUserTypeCidLink value)? cidLink,
-    TResult? Function(ULexUserTypeUnknown value)? unknown,
-  }) {
-    return integer?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexUserTypeRecord value)? record,
-    TResult Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult Function(ULexUserTypeBlob value)? blob,
-    TResult Function(ULexUserTypeArray value)? array,
-    TResult Function(ULexUserTypeToken value)? token,
-    TResult Function(ULexUserTypeObject value)? object,
-    TResult Function(ULexUserTypeBoolean value)? boolean,
-    TResult Function(ULexUserTypeInteger value)? integer,
-    TResult Function(ULexUserTypeString value)? string,
-    TResult Function(ULexUserTypeBytes value)? bytes,
-    TResult Function(ULexUserTypeCidLink value)? cidLink,
-    TResult Function(ULexUserTypeUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (integer != null) {
-      return integer(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ULexUserTypeBoolean&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class ULexUserTypeInteger extends LexUserType {
-  const factory ULexUserTypeInteger({required final LexInteger data}) =
-      _$ULexUserTypeIntegerImpl;
-  const ULexUserTypeInteger._() : super._();
 
-  @override
-  LexInteger get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexUserTypeIntegerImplCopyWith<_$ULexUserTypeIntegerImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'LexUserType.boolean(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$ULexUserTypeStringImplCopyWith<$Res> {
-  factory _$$ULexUserTypeStringImplCopyWith(
-    _$ULexUserTypeStringImpl value,
-    $Res Function(_$ULexUserTypeStringImpl) then,
-  ) = __$$ULexUserTypeStringImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LexString data});
+abstract mixin class $ULexUserTypeBooleanCopyWith<$Res> implements $LexUserTypeCopyWith<$Res> {
+  factory $ULexUserTypeBooleanCopyWith(ULexUserTypeBoolean value, $Res Function(ULexUserTypeBoolean) _then) = _$ULexUserTypeBooleanCopyWithImpl;
+@useResult
+$Res call({
+ LexBoolean data
+});
 
-  $LexStringCopyWith<$Res> get data;
+
+$LexBooleanCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$ULexUserTypeBooleanCopyWithImpl<$Res>
+    implements $ULexUserTypeBooleanCopyWith<$Res> {
+  _$ULexUserTypeBooleanCopyWithImpl(this._self, this._then);
+
+  final ULexUserTypeBoolean _self;
+  final $Res Function(ULexUserTypeBoolean) _then;
+
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ULexUserTypeBoolean(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as LexBoolean,
+  ));
 }
 
-/// @nodoc
-class __$$ULexUserTypeStringImplCopyWithImpl<$Res>
-    extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeStringImpl>
-    implements _$$ULexUserTypeStringImplCopyWith<$Res> {
-  __$$ULexUserTypeStringImplCopyWithImpl(
-    _$ULexUserTypeStringImpl _value,
-    $Res Function(_$ULexUserTypeStringImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? data = null}) {
-    return _then(
-      _$ULexUserTypeStringImpl(
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as LexString,
-      ),
-    );
-  }
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LexStringCopyWith<$Res> get data {
-    return $LexStringCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexBooleanCopyWith<$Res> get data {
+  
+  return $LexBooleanCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$ULexUserTypeStringImpl extends ULexUserTypeString {
-  const _$ULexUserTypeStringImpl({required this.data}) : super._();
 
-  @override
-  final LexString data;
+class ULexUserTypeInteger extends LexUserType {
+  const ULexUserTypeInteger({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'LexUserType.string(data: $data)';
-  }
+@override final  LexInteger data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ULexUserTypeStringImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ULexUserTypeIntegerCopyWith<ULexUserTypeInteger> get copyWith => _$ULexUserTypeIntegerCopyWithImpl<ULexUserTypeInteger>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ULexUserTypeStringImplCopyWith<_$ULexUserTypeStringImpl> get copyWith =>
-      __$$ULexUserTypeStringImplCopyWithImpl<_$ULexUserTypeStringImpl>(
-        this,
-        _$identity,
-      );
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexRecord data) record,
-    required TResult Function(LexXrpcQuery data) xrpcQuery,
-    required TResult Function(LexXrpcProcedure data) xrpcProcedure,
-    required TResult Function(LexXrpcSubscription data) xrpcSubscription,
-    required TResult Function(LexBlob data) blob,
-    required TResult Function(LexArray data) array,
-    required TResult Function(LexToken data) token,
-    required TResult Function(LexObject data) object,
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexBytes data) bytes,
-    required TResult Function(LexCidLink data) cidLink,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return string(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexRecord data)? record,
-    TResult? Function(LexXrpcQuery data)? xrpcQuery,
-    TResult? Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult? Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult? Function(LexBlob data)? blob,
-    TResult? Function(LexArray data)? array,
-    TResult? Function(LexToken data)? token,
-    TResult? Function(LexObject data)? object,
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexBytes data)? bytes,
-    TResult? Function(LexCidLink data)? cidLink,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return string?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexRecord data)? record,
-    TResult Function(LexXrpcQuery data)? xrpcQuery,
-    TResult Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult Function(LexBlob data)? blob,
-    TResult Function(LexArray data)? array,
-    TResult Function(LexToken data)? token,
-    TResult Function(LexObject data)? object,
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexBytes data)? bytes,
-    TResult Function(LexCidLink data)? cidLink,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (string != null) {
-      return string(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexUserTypeRecord value) record,
-    required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
-    required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
-    required TResult Function(ULexUserTypeXrpcSubscription value)
-    xrpcSubscription,
-    required TResult Function(ULexUserTypeBlob value) blob,
-    required TResult Function(ULexUserTypeArray value) array,
-    required TResult Function(ULexUserTypeToken value) token,
-    required TResult Function(ULexUserTypeObject value) object,
-    required TResult Function(ULexUserTypeBoolean value) boolean,
-    required TResult Function(ULexUserTypeInteger value) integer,
-    required TResult Function(ULexUserTypeString value) string,
-    required TResult Function(ULexUserTypeBytes value) bytes,
-    required TResult Function(ULexUserTypeCidLink value) cidLink,
-    required TResult Function(ULexUserTypeUnknown value) unknown,
-  }) {
-    return string(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexUserTypeRecord value)? record,
-    TResult? Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult? Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult? Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult? Function(ULexUserTypeBlob value)? blob,
-    TResult? Function(ULexUserTypeArray value)? array,
-    TResult? Function(ULexUserTypeToken value)? token,
-    TResult? Function(ULexUserTypeObject value)? object,
-    TResult? Function(ULexUserTypeBoolean value)? boolean,
-    TResult? Function(ULexUserTypeInteger value)? integer,
-    TResult? Function(ULexUserTypeString value)? string,
-    TResult? Function(ULexUserTypeBytes value)? bytes,
-    TResult? Function(ULexUserTypeCidLink value)? cidLink,
-    TResult? Function(ULexUserTypeUnknown value)? unknown,
-  }) {
-    return string?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexUserTypeRecord value)? record,
-    TResult Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult Function(ULexUserTypeBlob value)? blob,
-    TResult Function(ULexUserTypeArray value)? array,
-    TResult Function(ULexUserTypeToken value)? token,
-    TResult Function(ULexUserTypeObject value)? object,
-    TResult Function(ULexUserTypeBoolean value)? boolean,
-    TResult Function(ULexUserTypeInteger value)? integer,
-    TResult Function(ULexUserTypeString value)? string,
-    TResult Function(ULexUserTypeBytes value)? bytes,
-    TResult Function(ULexUserTypeCidLink value)? cidLink,
-    TResult Function(ULexUserTypeUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (string != null) {
-      return string(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ULexUserTypeInteger&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class ULexUserTypeString extends LexUserType {
-  const factory ULexUserTypeString({required final LexString data}) =
-      _$ULexUserTypeStringImpl;
-  const ULexUserTypeString._() : super._();
 
-  @override
-  LexString get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexUserTypeStringImplCopyWith<_$ULexUserTypeStringImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'LexUserType.integer(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$ULexUserTypeBytesImplCopyWith<$Res> {
-  factory _$$ULexUserTypeBytesImplCopyWith(
-    _$ULexUserTypeBytesImpl value,
-    $Res Function(_$ULexUserTypeBytesImpl) then,
-  ) = __$$ULexUserTypeBytesImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LexBytes data});
+abstract mixin class $ULexUserTypeIntegerCopyWith<$Res> implements $LexUserTypeCopyWith<$Res> {
+  factory $ULexUserTypeIntegerCopyWith(ULexUserTypeInteger value, $Res Function(ULexUserTypeInteger) _then) = _$ULexUserTypeIntegerCopyWithImpl;
+@useResult
+$Res call({
+ LexInteger data
+});
 
-  $LexBytesCopyWith<$Res> get data;
+
+$LexIntegerCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$ULexUserTypeIntegerCopyWithImpl<$Res>
+    implements $ULexUserTypeIntegerCopyWith<$Res> {
+  _$ULexUserTypeIntegerCopyWithImpl(this._self, this._then);
+
+  final ULexUserTypeInteger _self;
+  final $Res Function(ULexUserTypeInteger) _then;
+
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ULexUserTypeInteger(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as LexInteger,
+  ));
 }
 
-/// @nodoc
-class __$$ULexUserTypeBytesImplCopyWithImpl<$Res>
-    extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeBytesImpl>
-    implements _$$ULexUserTypeBytesImplCopyWith<$Res> {
-  __$$ULexUserTypeBytesImplCopyWithImpl(
-    _$ULexUserTypeBytesImpl _value,
-    $Res Function(_$ULexUserTypeBytesImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? data = null}) {
-    return _then(
-      _$ULexUserTypeBytesImpl(
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as LexBytes,
-      ),
-    );
-  }
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LexBytesCopyWith<$Res> get data {
-    return $LexBytesCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexIntegerCopyWith<$Res> get data {
+  
+  return $LexIntegerCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$ULexUserTypeBytesImpl extends ULexUserTypeBytes {
-  const _$ULexUserTypeBytesImpl({required this.data}) : super._();
 
-  @override
-  final LexBytes data;
+class ULexUserTypeString extends LexUserType {
+  const ULexUserTypeString({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'LexUserType.bytes(data: $data)';
-  }
+@override final  LexString data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ULexUserTypeBytesImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ULexUserTypeStringCopyWith<ULexUserTypeString> get copyWith => _$ULexUserTypeStringCopyWithImpl<ULexUserTypeString>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ULexUserTypeBytesImplCopyWith<_$ULexUserTypeBytesImpl> get copyWith =>
-      __$$ULexUserTypeBytesImplCopyWithImpl<_$ULexUserTypeBytesImpl>(
-        this,
-        _$identity,
-      );
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexRecord data) record,
-    required TResult Function(LexXrpcQuery data) xrpcQuery,
-    required TResult Function(LexXrpcProcedure data) xrpcProcedure,
-    required TResult Function(LexXrpcSubscription data) xrpcSubscription,
-    required TResult Function(LexBlob data) blob,
-    required TResult Function(LexArray data) array,
-    required TResult Function(LexToken data) token,
-    required TResult Function(LexObject data) object,
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexBytes data) bytes,
-    required TResult Function(LexCidLink data) cidLink,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return bytes(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexRecord data)? record,
-    TResult? Function(LexXrpcQuery data)? xrpcQuery,
-    TResult? Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult? Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult? Function(LexBlob data)? blob,
-    TResult? Function(LexArray data)? array,
-    TResult? Function(LexToken data)? token,
-    TResult? Function(LexObject data)? object,
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexBytes data)? bytes,
-    TResult? Function(LexCidLink data)? cidLink,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return bytes?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexRecord data)? record,
-    TResult Function(LexXrpcQuery data)? xrpcQuery,
-    TResult Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult Function(LexBlob data)? blob,
-    TResult Function(LexArray data)? array,
-    TResult Function(LexToken data)? token,
-    TResult Function(LexObject data)? object,
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexBytes data)? bytes,
-    TResult Function(LexCidLink data)? cidLink,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (bytes != null) {
-      return bytes(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexUserTypeRecord value) record,
-    required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
-    required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
-    required TResult Function(ULexUserTypeXrpcSubscription value)
-    xrpcSubscription,
-    required TResult Function(ULexUserTypeBlob value) blob,
-    required TResult Function(ULexUserTypeArray value) array,
-    required TResult Function(ULexUserTypeToken value) token,
-    required TResult Function(ULexUserTypeObject value) object,
-    required TResult Function(ULexUserTypeBoolean value) boolean,
-    required TResult Function(ULexUserTypeInteger value) integer,
-    required TResult Function(ULexUserTypeString value) string,
-    required TResult Function(ULexUserTypeBytes value) bytes,
-    required TResult Function(ULexUserTypeCidLink value) cidLink,
-    required TResult Function(ULexUserTypeUnknown value) unknown,
-  }) {
-    return bytes(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexUserTypeRecord value)? record,
-    TResult? Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult? Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult? Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult? Function(ULexUserTypeBlob value)? blob,
-    TResult? Function(ULexUserTypeArray value)? array,
-    TResult? Function(ULexUserTypeToken value)? token,
-    TResult? Function(ULexUserTypeObject value)? object,
-    TResult? Function(ULexUserTypeBoolean value)? boolean,
-    TResult? Function(ULexUserTypeInteger value)? integer,
-    TResult? Function(ULexUserTypeString value)? string,
-    TResult? Function(ULexUserTypeBytes value)? bytes,
-    TResult? Function(ULexUserTypeCidLink value)? cidLink,
-    TResult? Function(ULexUserTypeUnknown value)? unknown,
-  }) {
-    return bytes?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexUserTypeRecord value)? record,
-    TResult Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult Function(ULexUserTypeBlob value)? blob,
-    TResult Function(ULexUserTypeArray value)? array,
-    TResult Function(ULexUserTypeToken value)? token,
-    TResult Function(ULexUserTypeObject value)? object,
-    TResult Function(ULexUserTypeBoolean value)? boolean,
-    TResult Function(ULexUserTypeInteger value)? integer,
-    TResult Function(ULexUserTypeString value)? string,
-    TResult Function(ULexUserTypeBytes value)? bytes,
-    TResult Function(ULexUserTypeCidLink value)? cidLink,
-    TResult Function(ULexUserTypeUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (bytes != null) {
-      return bytes(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ULexUserTypeString&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class ULexUserTypeBytes extends LexUserType {
-  const factory ULexUserTypeBytes({required final LexBytes data}) =
-      _$ULexUserTypeBytesImpl;
-  const ULexUserTypeBytes._() : super._();
 
-  @override
-  LexBytes get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexUserTypeBytesImplCopyWith<_$ULexUserTypeBytesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'LexUserType.string(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$ULexUserTypeCidLinkImplCopyWith<$Res> {
-  factory _$$ULexUserTypeCidLinkImplCopyWith(
-    _$ULexUserTypeCidLinkImpl value,
-    $Res Function(_$ULexUserTypeCidLinkImpl) then,
-  ) = __$$ULexUserTypeCidLinkImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LexCidLink data});
+abstract mixin class $ULexUserTypeStringCopyWith<$Res> implements $LexUserTypeCopyWith<$Res> {
+  factory $ULexUserTypeStringCopyWith(ULexUserTypeString value, $Res Function(ULexUserTypeString) _then) = _$ULexUserTypeStringCopyWithImpl;
+@useResult
+$Res call({
+ LexString data
+});
 
-  $LexCidLinkCopyWith<$Res> get data;
+
+$LexStringCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$ULexUserTypeStringCopyWithImpl<$Res>
+    implements $ULexUserTypeStringCopyWith<$Res> {
+  _$ULexUserTypeStringCopyWithImpl(this._self, this._then);
+
+  final ULexUserTypeString _self;
+  final $Res Function(ULexUserTypeString) _then;
+
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ULexUserTypeString(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as LexString,
+  ));
 }
 
-/// @nodoc
-class __$$ULexUserTypeCidLinkImplCopyWithImpl<$Res>
-    extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeCidLinkImpl>
-    implements _$$ULexUserTypeCidLinkImplCopyWith<$Res> {
-  __$$ULexUserTypeCidLinkImplCopyWithImpl(
-    _$ULexUserTypeCidLinkImpl _value,
-    $Res Function(_$ULexUserTypeCidLinkImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? data = null}) {
-    return _then(
-      _$ULexUserTypeCidLinkImpl(
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as LexCidLink,
-      ),
-    );
-  }
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LexCidLinkCopyWith<$Res> get data {
-    return $LexCidLinkCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexStringCopyWith<$Res> get data {
+  
+  return $LexStringCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$ULexUserTypeCidLinkImpl extends ULexUserTypeCidLink {
-  const _$ULexUserTypeCidLinkImpl({required this.data}) : super._();
 
-  @override
-  final LexCidLink data;
+class ULexUserTypeBytes extends LexUserType {
+  const ULexUserTypeBytes({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'LexUserType.cidLink(data: $data)';
-  }
+@override final  LexBytes data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ULexUserTypeCidLinkImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ULexUserTypeBytesCopyWith<ULexUserTypeBytes> get copyWith => _$ULexUserTypeBytesCopyWithImpl<ULexUserTypeBytes>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ULexUserTypeCidLinkImplCopyWith<_$ULexUserTypeCidLinkImpl> get copyWith =>
-      __$$ULexUserTypeCidLinkImplCopyWithImpl<_$ULexUserTypeCidLinkImpl>(
-        this,
-        _$identity,
-      );
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexRecord data) record,
-    required TResult Function(LexXrpcQuery data) xrpcQuery,
-    required TResult Function(LexXrpcProcedure data) xrpcProcedure,
-    required TResult Function(LexXrpcSubscription data) xrpcSubscription,
-    required TResult Function(LexBlob data) blob,
-    required TResult Function(LexArray data) array,
-    required TResult Function(LexToken data) token,
-    required TResult Function(LexObject data) object,
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexBytes data) bytes,
-    required TResult Function(LexCidLink data) cidLink,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return cidLink(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexRecord data)? record,
-    TResult? Function(LexXrpcQuery data)? xrpcQuery,
-    TResult? Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult? Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult? Function(LexBlob data)? blob,
-    TResult? Function(LexArray data)? array,
-    TResult? Function(LexToken data)? token,
-    TResult? Function(LexObject data)? object,
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexBytes data)? bytes,
-    TResult? Function(LexCidLink data)? cidLink,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return cidLink?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexRecord data)? record,
-    TResult Function(LexXrpcQuery data)? xrpcQuery,
-    TResult Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult Function(LexBlob data)? blob,
-    TResult Function(LexArray data)? array,
-    TResult Function(LexToken data)? token,
-    TResult Function(LexObject data)? object,
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexBytes data)? bytes,
-    TResult Function(LexCidLink data)? cidLink,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (cidLink != null) {
-      return cidLink(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexUserTypeRecord value) record,
-    required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
-    required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
-    required TResult Function(ULexUserTypeXrpcSubscription value)
-    xrpcSubscription,
-    required TResult Function(ULexUserTypeBlob value) blob,
-    required TResult Function(ULexUserTypeArray value) array,
-    required TResult Function(ULexUserTypeToken value) token,
-    required TResult Function(ULexUserTypeObject value) object,
-    required TResult Function(ULexUserTypeBoolean value) boolean,
-    required TResult Function(ULexUserTypeInteger value) integer,
-    required TResult Function(ULexUserTypeString value) string,
-    required TResult Function(ULexUserTypeBytes value) bytes,
-    required TResult Function(ULexUserTypeCidLink value) cidLink,
-    required TResult Function(ULexUserTypeUnknown value) unknown,
-  }) {
-    return cidLink(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexUserTypeRecord value)? record,
-    TResult? Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult? Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult? Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult? Function(ULexUserTypeBlob value)? blob,
-    TResult? Function(ULexUserTypeArray value)? array,
-    TResult? Function(ULexUserTypeToken value)? token,
-    TResult? Function(ULexUserTypeObject value)? object,
-    TResult? Function(ULexUserTypeBoolean value)? boolean,
-    TResult? Function(ULexUserTypeInteger value)? integer,
-    TResult? Function(ULexUserTypeString value)? string,
-    TResult? Function(ULexUserTypeBytes value)? bytes,
-    TResult? Function(ULexUserTypeCidLink value)? cidLink,
-    TResult? Function(ULexUserTypeUnknown value)? unknown,
-  }) {
-    return cidLink?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexUserTypeRecord value)? record,
-    TResult Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult Function(ULexUserTypeBlob value)? blob,
-    TResult Function(ULexUserTypeArray value)? array,
-    TResult Function(ULexUserTypeToken value)? token,
-    TResult Function(ULexUserTypeObject value)? object,
-    TResult Function(ULexUserTypeBoolean value)? boolean,
-    TResult Function(ULexUserTypeInteger value)? integer,
-    TResult Function(ULexUserTypeString value)? string,
-    TResult Function(ULexUserTypeBytes value)? bytes,
-    TResult Function(ULexUserTypeCidLink value)? cidLink,
-    TResult Function(ULexUserTypeUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (cidLink != null) {
-      return cidLink(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ULexUserTypeBytes&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class ULexUserTypeCidLink extends LexUserType {
-  const factory ULexUserTypeCidLink({required final LexCidLink data}) =
-      _$ULexUserTypeCidLinkImpl;
-  const ULexUserTypeCidLink._() : super._();
 
-  @override
-  LexCidLink get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexUserTypeCidLinkImplCopyWith<_$ULexUserTypeCidLinkImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'LexUserType.bytes(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$ULexUserTypeUnknownImplCopyWith<$Res> {
-  factory _$$ULexUserTypeUnknownImplCopyWith(
-    _$ULexUserTypeUnknownImpl value,
-    $Res Function(_$ULexUserTypeUnknownImpl) then,
-  ) = __$$ULexUserTypeUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LexUnknown data});
+abstract mixin class $ULexUserTypeBytesCopyWith<$Res> implements $LexUserTypeCopyWith<$Res> {
+  factory $ULexUserTypeBytesCopyWith(ULexUserTypeBytes value, $Res Function(ULexUserTypeBytes) _then) = _$ULexUserTypeBytesCopyWithImpl;
+@useResult
+$Res call({
+ LexBytes data
+});
 
-  $LexUnknownCopyWith<$Res> get data;
+
+$LexBytesCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$ULexUserTypeBytesCopyWithImpl<$Res>
+    implements $ULexUserTypeBytesCopyWith<$Res> {
+  _$ULexUserTypeBytesCopyWithImpl(this._self, this._then);
+
+  final ULexUserTypeBytes _self;
+  final $Res Function(ULexUserTypeBytes) _then;
+
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ULexUserTypeBytes(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as LexBytes,
+  ));
 }
 
-/// @nodoc
-class __$$ULexUserTypeUnknownImplCopyWithImpl<$Res>
-    extends _$LexUserTypeCopyWithImpl<$Res, _$ULexUserTypeUnknownImpl>
-    implements _$$ULexUserTypeUnknownImplCopyWith<$Res> {
-  __$$ULexUserTypeUnknownImplCopyWithImpl(
-    _$ULexUserTypeUnknownImpl _value,
-    $Res Function(_$ULexUserTypeUnknownImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? data = null}) {
-    return _then(
-      _$ULexUserTypeUnknownImpl(
-        data: null == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as LexUnknown,
-      ),
-    );
-  }
-
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LexUnknownCopyWith<$Res> get data {
-    return $LexUnknownCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexBytesCopyWith<$Res> get data {
+  
+  return $LexBytesCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$ULexUserTypeUnknownImpl extends ULexUserTypeUnknown {
-  const _$ULexUserTypeUnknownImpl({required this.data}) : super._();
 
-  @override
-  final LexUnknown data;
+class ULexUserTypeCidLink extends LexUserType {
+  const ULexUserTypeCidLink({required this.data}): super._();
+  
 
-  @override
-  String toString() {
-    return 'LexUserType.unknown(data: $data)';
-  }
+@override final  LexCidLink data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ULexUserTypeUnknownImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ULexUserTypeCidLinkCopyWith<ULexUserTypeCidLink> get copyWith => _$ULexUserTypeCidLinkCopyWithImpl<ULexUserTypeCidLink>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ULexUserTypeUnknownImplCopyWith<_$ULexUserTypeUnknownImpl> get copyWith =>
-      __$$ULexUserTypeUnknownImplCopyWithImpl<_$ULexUserTypeUnknownImpl>(
-        this,
-        _$identity,
-      );
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexRecord data) record,
-    required TResult Function(LexXrpcQuery data) xrpcQuery,
-    required TResult Function(LexXrpcProcedure data) xrpcProcedure,
-    required TResult Function(LexXrpcSubscription data) xrpcSubscription,
-    required TResult Function(LexBlob data) blob,
-    required TResult Function(LexArray data) array,
-    required TResult Function(LexToken data) token,
-    required TResult Function(LexObject data) object,
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexBytes data) bytes,
-    required TResult Function(LexCidLink data) cidLink,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexRecord data)? record,
-    TResult? Function(LexXrpcQuery data)? xrpcQuery,
-    TResult? Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult? Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult? Function(LexBlob data)? blob,
-    TResult? Function(LexArray data)? array,
-    TResult? Function(LexToken data)? token,
-    TResult? Function(LexObject data)? object,
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexBytes data)? bytes,
-    TResult? Function(LexCidLink data)? cidLink,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexRecord data)? record,
-    TResult Function(LexXrpcQuery data)? xrpcQuery,
-    TResult Function(LexXrpcProcedure data)? xrpcProcedure,
-    TResult Function(LexXrpcSubscription data)? xrpcSubscription,
-    TResult Function(LexBlob data)? blob,
-    TResult Function(LexArray data)? array,
-    TResult Function(LexToken data)? token,
-    TResult Function(LexObject data)? object,
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexBytes data)? bytes,
-    TResult Function(LexCidLink data)? cidLink,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexUserTypeRecord value) record,
-    required TResult Function(ULexUserTypeXrpcQuery value) xrpcQuery,
-    required TResult Function(ULexUserTypeXrpcProcedure value) xrpcProcedure,
-    required TResult Function(ULexUserTypeXrpcSubscription value)
-    xrpcSubscription,
-    required TResult Function(ULexUserTypeBlob value) blob,
-    required TResult Function(ULexUserTypeArray value) array,
-    required TResult Function(ULexUserTypeToken value) token,
-    required TResult Function(ULexUserTypeObject value) object,
-    required TResult Function(ULexUserTypeBoolean value) boolean,
-    required TResult Function(ULexUserTypeInteger value) integer,
-    required TResult Function(ULexUserTypeString value) string,
-    required TResult Function(ULexUserTypeBytes value) bytes,
-    required TResult Function(ULexUserTypeCidLink value) cidLink,
-    required TResult Function(ULexUserTypeUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexUserTypeRecord value)? record,
-    TResult? Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult? Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult? Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult? Function(ULexUserTypeBlob value)? blob,
-    TResult? Function(ULexUserTypeArray value)? array,
-    TResult? Function(ULexUserTypeToken value)? token,
-    TResult? Function(ULexUserTypeObject value)? object,
-    TResult? Function(ULexUserTypeBoolean value)? boolean,
-    TResult? Function(ULexUserTypeInteger value)? integer,
-    TResult? Function(ULexUserTypeString value)? string,
-    TResult? Function(ULexUserTypeBytes value)? bytes,
-    TResult? Function(ULexUserTypeCidLink value)? cidLink,
-    TResult? Function(ULexUserTypeUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexUserTypeRecord value)? record,
-    TResult Function(ULexUserTypeXrpcQuery value)? xrpcQuery,
-    TResult Function(ULexUserTypeXrpcProcedure value)? xrpcProcedure,
-    TResult Function(ULexUserTypeXrpcSubscription value)? xrpcSubscription,
-    TResult Function(ULexUserTypeBlob value)? blob,
-    TResult Function(ULexUserTypeArray value)? array,
-    TResult Function(ULexUserTypeToken value)? token,
-    TResult Function(ULexUserTypeObject value)? object,
-    TResult Function(ULexUserTypeBoolean value)? boolean,
-    TResult Function(ULexUserTypeInteger value)? integer,
-    TResult Function(ULexUserTypeString value)? string,
-    TResult Function(ULexUserTypeBytes value)? bytes,
-    TResult Function(ULexUserTypeCidLink value)? cidLink,
-    TResult Function(ULexUserTypeUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ULexUserTypeCidLink&&(identical(other.data, data) || other.data == data));
 }
 
-abstract class ULexUserTypeUnknown extends LexUserType {
-  const factory ULexUserTypeUnknown({required final LexUnknown data}) =
-      _$ULexUserTypeUnknownImpl;
-  const ULexUserTypeUnknown._() : super._();
 
-  @override
-  LexUnknown get data;
+@override
+int get hashCode => Object.hash(runtimeType,data);
 
-  /// Create a copy of LexUserType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexUserTypeUnknownImplCopyWith<_$ULexUserTypeUnknownImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'LexUserType.cidLink(data: $data)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class $ULexUserTypeCidLinkCopyWith<$Res> implements $LexUserTypeCopyWith<$Res> {
+  factory $ULexUserTypeCidLinkCopyWith(ULexUserTypeCidLink value, $Res Function(ULexUserTypeCidLink) _then) = _$ULexUserTypeCidLinkCopyWithImpl;
+@useResult
+$Res call({
+ LexCidLink data
+});
+
+
+$LexCidLinkCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$ULexUserTypeCidLinkCopyWithImpl<$Res>
+    implements $ULexUserTypeCidLinkCopyWith<$Res> {
+  _$ULexUserTypeCidLinkCopyWithImpl(this._self, this._then);
+
+  final ULexUserTypeCidLink _self;
+  final $Res Function(ULexUserTypeCidLink) _then;
+
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ULexUserTypeCidLink(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as LexCidLink,
+  ));
+}
+
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexCidLinkCopyWith<$Res> get data {
+  
+  return $LexCidLinkCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+
+
+class ULexUserTypeUnknown extends LexUserType {
+  const ULexUserTypeUnknown({required this.data}): super._();
+  
+
+@override final  LexUnknown data;
+
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ULexUserTypeUnknownCopyWith<ULexUserTypeUnknown> get copyWith => _$ULexUserTypeUnknownCopyWithImpl<ULexUserTypeUnknown>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ULexUserTypeUnknown&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'LexUserType.unknown(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $ULexUserTypeUnknownCopyWith<$Res> implements $LexUserTypeCopyWith<$Res> {
+  factory $ULexUserTypeUnknownCopyWith(ULexUserTypeUnknown value, $Res Function(ULexUserTypeUnknown) _then) = _$ULexUserTypeUnknownCopyWithImpl;
+@useResult
+$Res call({
+ LexUnknown data
+});
+
+
+$LexUnknownCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$ULexUserTypeUnknownCopyWithImpl<$Res>
+    implements $ULexUserTypeUnknownCopyWith<$Res> {
+  _$ULexUserTypeUnknownCopyWithImpl(this._self, this._then);
+
+  final ULexUserTypeUnknown _self;
+  final $Res Function(ULexUserTypeUnknown) _then;
+
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ULexUserTypeUnknown(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as LexUnknown,
+  ));
+}
+
+/// Create a copy of LexUserType
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexUnknownCopyWith<$Res> get data {
+  
+  return $LexUnknownCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+// dart format on

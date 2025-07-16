@@ -8,9 +8,9 @@ part of 'verification_method.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$VerificationMethodImpl _$$VerificationMethodImplFromJson(Map json) =>
-    $checkedCreate(r'_$VerificationMethodImpl', json, ($checkedConvert) {
-      final val = _$VerificationMethodImpl(
+_VerificationMethod _$VerificationMethodFromJson(Map json) =>
+    $checkedCreate('_VerificationMethod', json, ($checkedConvert) {
+      final val = _VerificationMethod(
         id: $checkedConvert('id', (v) => v as String),
         type: $checkedConvert('type', (v) => v as String),
         controller: $checkedConvert('controller', (v) => v as String),
@@ -22,11 +22,10 @@ _$VerificationMethodImpl _$$VerificationMethodImplFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$$VerificationMethodImplToJson(
-  _$VerificationMethodImpl instance,
-) => <String, dynamic>{
-  'id': instance.id,
-  'type': instance.type,
-  'controller': instance.controller,
-  'publicKeyMultibase': instance.publicKeyMultibase,
-};
+Map<String, dynamic> _$VerificationMethodToJson(_VerificationMethod instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'type': instance.type,
+      'controller': instance.controller,
+      'publicKeyMultibase': instance.publicKeyMultibase,
+    };

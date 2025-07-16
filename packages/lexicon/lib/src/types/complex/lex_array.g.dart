@@ -8,9 +8,9 @@ part of 'lex_array.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LexArrayImpl _$$LexArrayImplFromJson(Map json) =>
-    $checkedCreate(r'_$LexArrayImpl', json, ($checkedConvert) {
-      final val = _$LexArrayImpl(
+_LexArray _$LexArrayFromJson(Map json) =>
+    $checkedCreate('_LexArray', json, ($checkedConvert) {
+      final val = _LexArray(
         type: $checkedConvert('type', (v) => v as String? ?? 'array'),
         description: $checkedConvert('description', (v) => v as String?),
         items: $checkedConvert(
@@ -24,11 +24,10 @@ _$LexArrayImpl _$$LexArrayImplFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$$LexArrayImplToJson(_$LexArrayImpl instance) =>
-    <String, dynamic>{
-      'type': instance.type,
-      if (instance.description case final value?) 'description': value,
-      'items': const LexArrayItemConverter().toJson(instance.items),
-      if (instance.minLength case final value?) 'minLength': value,
-      if (instance.maxLength case final value?) 'maxLength': value,
-    };
+Map<String, dynamic> _$LexArrayToJson(_LexArray instance) => <String, dynamic>{
+  'type': instance.type,
+  if (instance.description case final value?) 'description': value,
+  'items': const LexArrayItemConverter().toJson(instance.items),
+  if (instance.minLength case final value?) 'minLength': value,
+  if (instance.maxLength case final value?) 'maxLength': value,
+};

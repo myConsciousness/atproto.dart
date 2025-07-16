@@ -8,9 +8,9 @@ part of 'lex_primitive_array.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LexPrimitiveArrayImpl _$$LexPrimitiveArrayImplFromJson(Map json) =>
-    $checkedCreate(r'_$LexPrimitiveArrayImpl', json, ($checkedConvert) {
-      final val = _$LexPrimitiveArrayImpl(
+_LexPrimitiveArray _$LexPrimitiveArrayFromJson(Map json) =>
+    $checkedCreate('_LexPrimitiveArray', json, ($checkedConvert) {
+      final val = _LexPrimitiveArray(
         type: $checkedConvert('type', (v) => v as String? ?? 'array'),
         description: $checkedConvert('description', (v) => v as String?),
         items: $checkedConvert(
@@ -24,12 +24,11 @@ _$LexPrimitiveArrayImpl _$$LexPrimitiveArrayImplFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$$LexPrimitiveArrayImplToJson(
-  _$LexPrimitiveArrayImpl instance,
-) => <String, dynamic>{
-  'type': instance.type,
-  if (instance.description case final value?) 'description': value,
-  'items': const LexPrimitiveConverter().toJson(instance.items),
-  if (instance.minLength case final value?) 'minLength': value,
-  if (instance.maxLength case final value?) 'maxLength': value,
-};
+Map<String, dynamic> _$LexPrimitiveArrayToJson(_LexPrimitiveArray instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      if (instance.description case final value?) 'description': value,
+      'items': const LexPrimitiveConverter().toJson(instance.items),
+      if (instance.minLength case final value?) 'minLength': value,
+      if (instance.maxLength case final value?) 'maxLength': value,
+    };

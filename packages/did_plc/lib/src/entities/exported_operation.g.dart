@@ -8,10 +8,10 @@ part of 'exported_operation.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ExportedOperationImpl _$$ExportedOperationImplFromJson(
+_ExportedOperation _$ExportedOperationFromJson(
   Map json,
-) => $checkedCreate(r'_$ExportedOperationImpl', json, ($checkedConvert) {
-  final val = _$ExportedOperationImpl(
+) => $checkedCreate('_ExportedOperation', json, ($checkedConvert) {
+  final val = _ExportedOperation(
     did: $checkedConvert('did', (v) => v as String),
     cid: $checkedConvert('cid', (v) => v as String),
     operation: $checkedConvert(
@@ -25,12 +25,11 @@ _$ExportedOperationImpl _$$ExportedOperationImplFromJson(
   return val;
 }, fieldKeyMap: const {'isNullified': 'nullified'});
 
-Map<String, dynamic> _$$ExportedOperationImplToJson(
-  _$ExportedOperationImpl instance,
-) => <String, dynamic>{
-  'did': instance.did,
-  'cid': instance.cid,
-  'operation': compatibleOpOrTombstoneConverter.toJson(instance.operation),
-  'nullified': instance.isNullified,
-  'createdAt': instance.createdAt.toIso8601String(),
-};
+Map<String, dynamic> _$ExportedOperationToJson(_ExportedOperation instance) =>
+    <String, dynamic>{
+      'did': instance.did,
+      'cid': instance.cid,
+      'operation': compatibleOpOrTombstoneConverter.toJson(instance.operation),
+      'nullified': instance.isNullified,
+      'createdAt': instance.createdAt.toIso8601String(),
+    };

@@ -15,17 +15,17 @@ ModerationDecision decideProfile(
 ) {
   final (did, labels) = switch (subject) {
     UModerationSubjectProfileProfileViewBasic(data: final data) => (
-        data.did,
-        data.labels
-      ),
+      data.did,
+      data.labels,
+    ),
     UModerationSubjectProfileProfileView(data: final data) => (
-        data.did,
-        data.labels
-      ),
+      data.did,
+      data.labels,
+    ),
     UModerationSubjectProfileProfileViewDetailed(data: final data) => (
-        data.did,
-        data.labels
-      ),
+      data.did,
+      data.labels,
+    ),
     _ => throw UnimplementedError(),
   };
 

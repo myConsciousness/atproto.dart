@@ -8,16 +8,16 @@ part of 'lex_xrpc_error.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LexXrpcErrorImpl _$$LexXrpcErrorImplFromJson(Map json) =>
-    $checkedCreate(r'_$LexXrpcErrorImpl', json, ($checkedConvert) {
-      final val = _$LexXrpcErrorImpl(
+_LexXrpcError _$LexXrpcErrorFromJson(Map json) =>
+    $checkedCreate('_LexXrpcError', json, ($checkedConvert) {
+      final val = _LexXrpcError(
         name: $checkedConvert('name', (v) => v as String),
         description: $checkedConvert('description', (v) => v as String?),
       );
       return val;
     });
 
-Map<String, dynamic> _$$LexXrpcErrorImplToJson(_$LexXrpcErrorImpl instance) =>
+Map<String, dynamic> _$LexXrpcErrorToJson(_LexXrpcError instance) =>
     <String, dynamic>{
       'name': instance.name,
       if (instance.description case final value?) 'description': value,

@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,233 +9,296 @@ part of 'blob.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-Blob _$BlobFromJson(Map<String, dynamic> json) {
-  return _Blob.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Blob {
-  @typeKey
-  String get type => throw _privateConstructorUsedError;
-  String get mimeType => throw _privateConstructorUsedError;
-  int get size => throw _privateConstructorUsedError;
-  BlobRef get ref => throw _privateConstructorUsedError;
+
+@typeKey String get type; String get mimeType; int get size; BlobRef get ref;
+/// Create a copy of Blob
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$BlobCopyWith<Blob> get copyWith => _$BlobCopyWithImpl<Blob>(this as Blob, _$identity);
 
   /// Serializes this Blob to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of Blob
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $BlobCopyWith<Blob> get copyWith => throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Blob&&(identical(other.type, type) || other.type == type)&&(identical(other.mimeType, mimeType) || other.mimeType == mimeType)&&(identical(other.size, size) || other.size == size)&&(identical(other.ref, ref) || other.ref == ref));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,type,mimeType,size,ref);
+
+@override
+String toString() {
+  return 'Blob(type: $type, mimeType: $mimeType, size: $size, ref: $ref)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $BlobCopyWith<$Res> {
-  factory $BlobCopyWith(Blob value, $Res Function(Blob) then) =
-      _$BlobCopyWithImpl<$Res, Blob>;
-  @useResult
-  $Res call({@typeKey String type, String mimeType, int size, BlobRef ref});
+abstract mixin class $BlobCopyWith<$Res>  {
+  factory $BlobCopyWith(Blob value, $Res Function(Blob) _then) = _$BlobCopyWithImpl;
+@useResult
+$Res call({
+@typeKey String type, String mimeType, int size, BlobRef ref
+});
 
-  $BlobRefCopyWith<$Res> get ref;
+
+$BlobRefCopyWith<$Res> get ref;
+
 }
-
 /// @nodoc
-class _$BlobCopyWithImpl<$Res, $Val extends Blob>
+class _$BlobCopyWithImpl<$Res>
     implements $BlobCopyWith<$Res> {
-  _$BlobCopyWithImpl(this._value, this._then);
+  _$BlobCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Blob _self;
+  final $Res Function(Blob) _then;
 
-  /// Create a copy of Blob
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? mimeType = null,
-    Object? size = null,
-    Object? ref = null,
-  }) {
-    return _then(
-      _value.copyWith(
-            type: null == type
-                ? _value.type
-                : type // ignore: cast_nullable_to_non_nullable
-                      as String,
-            mimeType: null == mimeType
-                ? _value.mimeType
-                : mimeType // ignore: cast_nullable_to_non_nullable
-                      as String,
-            size: null == size
-                ? _value.size
-                : size // ignore: cast_nullable_to_non_nullable
-                      as int,
-            ref: null == ref
-                ? _value.ref
-                : ref // ignore: cast_nullable_to_non_nullable
-                      as BlobRef,
-          )
-          as $Val,
-    );
-  }
-
-  /// Create a copy of Blob
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $BlobRefCopyWith<$Res> get ref {
-    return $BlobRefCopyWith<$Res>(_value.ref, (value) {
-      return _then(_value.copyWith(ref: value) as $Val);
-    });
-  }
+/// Create a copy of Blob
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? mimeType = null,Object? size = null,Object? ref = null,}) {
+  return _then(_self.copyWith(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,mimeType: null == mimeType ? _self.mimeType : mimeType // ignore: cast_nullable_to_non_nullable
+as String,size: null == size ? _self.size : size // ignore: cast_nullable_to_non_nullable
+as int,ref: null == ref ? _self.ref : ref // ignore: cast_nullable_to_non_nullable
+as BlobRef,
+  ));
+}
+/// Create a copy of Blob
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$BlobRefCopyWith<$Res> get ref {
+  
+  return $BlobRefCopyWith<$Res>(_self.ref, (value) {
+    return _then(_self.copyWith(ref: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$BlobImplCopyWith<$Res> implements $BlobCopyWith<$Res> {
-  factory _$$BlobImplCopyWith(
-    _$BlobImpl value,
-    $Res Function(_$BlobImpl) then,
-  ) = __$$BlobImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@typeKey String type, String mimeType, int size, BlobRef ref});
 
-  @override
-  $BlobRefCopyWith<$Res> get ref;
+/// Adds pattern-matching-related methods to [Blob].
+extension BlobPatterns on Blob {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Blob value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _Blob() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Blob value)  $default,){
+final _that = this;
+switch (_that) {
+case _Blob():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Blob value)?  $default,){
+final _that = this;
+switch (_that) {
+case _Blob() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@typeKey  String type,  String mimeType,  int size,  BlobRef ref)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _Blob() when $default != null:
+return $default(_that.type,_that.mimeType,_that.size,_that.ref);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@typeKey  String type,  String mimeType,  int size,  BlobRef ref)  $default,) {final _that = this;
+switch (_that) {
+case _Blob():
+return $default(_that.type,_that.mimeType,_that.size,_that.ref);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@typeKey  String type,  String mimeType,  int size,  BlobRef ref)?  $default,) {final _that = this;
+switch (_that) {
+case _Blob() when $default != null:
+return $default(_that.type,_that.mimeType,_that.size,_that.ref);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-class __$$BlobImplCopyWithImpl<$Res>
-    extends _$BlobCopyWithImpl<$Res, _$BlobImpl>
-    implements _$$BlobImplCopyWith<$Res> {
-  __$$BlobImplCopyWithImpl(_$BlobImpl _value, $Res Function(_$BlobImpl) _then)
-    : super(_value, _then);
-
-  /// Create a copy of Blob
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? mimeType = null,
-    Object? size = null,
-    Object? ref = null,
-  }) {
-    return _then(
-      _$BlobImpl(
-        type: null == type
-            ? _value.type
-            : type // ignore: cast_nullable_to_non_nullable
-                  as String,
-        mimeType: null == mimeType
-            ? _value.mimeType
-            : mimeType // ignore: cast_nullable_to_non_nullable
-                  as String,
-        size: null == size
-            ? _value.size
-            : size // ignore: cast_nullable_to_non_nullable
-                  as int,
-        ref: null == ref
-            ? _value.ref
-            : ref // ignore: cast_nullable_to_non_nullable
-                  as BlobRef,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$BlobImpl implements _Blob {
-  const _$BlobImpl({
-    @typeKey this.type = 'blob',
-    required this.mimeType,
-    required this.size,
-    required this.ref,
+
+class _Blob implements Blob {
+  const _Blob({@typeKey this.type = 'blob', required this.mimeType, required this.size, required this.ref});
+  factory _Blob.fromJson(Map<String, dynamic> json) => _$BlobFromJson(json);
+
+@override@typeKey final  String type;
+@override final  String mimeType;
+@override final  int size;
+@override final  BlobRef ref;
+
+/// Create a copy of Blob
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$BlobCopyWith<_Blob> get copyWith => __$BlobCopyWithImpl<_Blob>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$BlobToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Blob&&(identical(other.type, type) || other.type == type)&&(identical(other.mimeType, mimeType) || other.mimeType == mimeType)&&(identical(other.size, size) || other.size == size)&&(identical(other.ref, ref) || other.ref == ref));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,type,mimeType,size,ref);
+
+@override
+String toString() {
+  return 'Blob(type: $type, mimeType: $mimeType, size: $size, ref: $ref)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$BlobCopyWith<$Res> implements $BlobCopyWith<$Res> {
+  factory _$BlobCopyWith(_Blob value, $Res Function(_Blob) _then) = __$BlobCopyWithImpl;
+@override @useResult
+$Res call({
+@typeKey String type, String mimeType, int size, BlobRef ref
+});
+
+
+@override $BlobRefCopyWith<$Res> get ref;
+
+}
+/// @nodoc
+class __$BlobCopyWithImpl<$Res>
+    implements _$BlobCopyWith<$Res> {
+  __$BlobCopyWithImpl(this._self, this._then);
+
+  final _Blob _self;
+  final $Res Function(_Blob) _then;
+
+/// Create a copy of Blob
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? mimeType = null,Object? size = null,Object? ref = null,}) {
+  return _then(_Blob(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,mimeType: null == mimeType ? _self.mimeType : mimeType // ignore: cast_nullable_to_non_nullable
+as String,size: null == size ? _self.size : size // ignore: cast_nullable_to_non_nullable
+as int,ref: null == ref ? _self.ref : ref // ignore: cast_nullable_to_non_nullable
+as BlobRef,
+  ));
+}
+
+/// Create a copy of Blob
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$BlobRefCopyWith<$Res> get ref {
+  
+  return $BlobRefCopyWith<$Res>(_self.ref, (value) {
+    return _then(_self.copyWith(ref: value));
   });
-
-  factory _$BlobImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BlobImplFromJson(json);
-
-  @override
-  @typeKey
-  final String type;
-  @override
-  final String mimeType;
-  @override
-  final int size;
-  @override
-  final BlobRef ref;
-
-  @override
-  String toString() {
-    return 'Blob(type: $type, mimeType: $mimeType, size: $size, ref: $ref)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$BlobImpl &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.mimeType, mimeType) ||
-                other.mimeType == mimeType) &&
-            (identical(other.size, size) || other.size == size) &&
-            (identical(other.ref, ref) || other.ref == ref));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, type, mimeType, size, ref);
-
-  /// Create a copy of Blob
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$BlobImplCopyWith<_$BlobImpl> get copyWith =>
-      __$$BlobImplCopyWithImpl<_$BlobImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BlobImplToJson(this);
-  }
+}
 }
 
-abstract class _Blob implements Blob {
-  const factory _Blob({
-    @typeKey final String type,
-    required final String mimeType,
-    required final int size,
-    required final BlobRef ref,
-  }) = _$BlobImpl;
-
-  factory _Blob.fromJson(Map<String, dynamic> json) = _$BlobImpl.fromJson;
-
-  @override
-  @typeKey
-  String get type;
-  @override
-  String get mimeType;
-  @override
-  int get size;
-  @override
-  BlobRef get ref;
-
-  /// Create a copy of Blob
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BlobImplCopyWith<_$BlobImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

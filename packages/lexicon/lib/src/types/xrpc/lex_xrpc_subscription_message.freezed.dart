@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,227 +9,296 @@ part of 'lex_xrpc_subscription_message.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-LexXrpcSubscriptionMessage _$LexXrpcSubscriptionMessageFromJson(
-  Map<String, dynamic> json,
-) {
-  return _LexXrpcSubscriptionMessage.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LexXrpcSubscriptionMessage {
-  String? get description => throw _privateConstructorUsedError;
-  @LexXrpcSchemaConverter()
-  LexXrpcSchema? get schema => throw _privateConstructorUsedError;
+
+ String? get description;@LexXrpcSchemaConverter() LexXrpcSchema? get schema;
+/// Create a copy of LexXrpcSubscriptionMessage
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$LexXrpcSubscriptionMessageCopyWith<LexXrpcSubscriptionMessage> get copyWith => _$LexXrpcSubscriptionMessageCopyWithImpl<LexXrpcSubscriptionMessage>(this as LexXrpcSubscriptionMessage, _$identity);
 
   /// Serializes this LexXrpcSubscriptionMessage to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of LexXrpcSubscriptionMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $LexXrpcSubscriptionMessageCopyWith<LexXrpcSubscriptionMessage>
-  get copyWith => throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LexXrpcSubscriptionMessage&&(identical(other.description, description) || other.description == description)&&(identical(other.schema, schema) || other.schema == schema));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,description,schema);
+
+@override
+String toString() {
+  return 'LexXrpcSubscriptionMessage(description: $description, schema: $schema)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $LexXrpcSubscriptionMessageCopyWith<$Res> {
-  factory $LexXrpcSubscriptionMessageCopyWith(
-    LexXrpcSubscriptionMessage value,
-    $Res Function(LexXrpcSubscriptionMessage) then,
-  ) =
-      _$LexXrpcSubscriptionMessageCopyWithImpl<
-        $Res,
-        LexXrpcSubscriptionMessage
-      >;
-  @useResult
-  $Res call({
-    String? description,
-    @LexXrpcSchemaConverter() LexXrpcSchema? schema,
-  });
+abstract mixin class $LexXrpcSubscriptionMessageCopyWith<$Res>  {
+  factory $LexXrpcSubscriptionMessageCopyWith(LexXrpcSubscriptionMessage value, $Res Function(LexXrpcSubscriptionMessage) _then) = _$LexXrpcSubscriptionMessageCopyWithImpl;
+@useResult
+$Res call({
+ String? description,@LexXrpcSchemaConverter() LexXrpcSchema? schema
+});
 
-  $LexXrpcSchemaCopyWith<$Res>? get schema;
+
+$LexXrpcSchemaCopyWith<$Res>? get schema;
+
 }
-
 /// @nodoc
-class _$LexXrpcSubscriptionMessageCopyWithImpl<
-  $Res,
-  $Val extends LexXrpcSubscriptionMessage
->
+class _$LexXrpcSubscriptionMessageCopyWithImpl<$Res>
     implements $LexXrpcSubscriptionMessageCopyWith<$Res> {
-  _$LexXrpcSubscriptionMessageCopyWithImpl(this._value, this._then);
+  _$LexXrpcSubscriptionMessageCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final LexXrpcSubscriptionMessage _self;
+  final $Res Function(LexXrpcSubscriptionMessage) _then;
 
-  /// Create a copy of LexXrpcSubscriptionMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? description = freezed, Object? schema = freezed}) {
-    return _then(
-      _value.copyWith(
-            description: freezed == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                      as String?,
-            schema: freezed == schema
-                ? _value.schema
-                : schema // ignore: cast_nullable_to_non_nullable
-                      as LexXrpcSchema?,
-          )
-          as $Val,
-    );
-  }
-
-  /// Create a copy of LexXrpcSubscriptionMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LexXrpcSchemaCopyWith<$Res>? get schema {
-    if (_value.schema == null) {
-      return null;
-    }
-
-    return $LexXrpcSchemaCopyWith<$Res>(_value.schema!, (value) {
-      return _then(_value.copyWith(schema: value) as $Val);
-    });
-  }
+/// Create a copy of LexXrpcSubscriptionMessage
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? description = freezed,Object? schema = freezed,}) {
+  return _then(_self.copyWith(
+description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,schema: freezed == schema ? _self.schema : schema // ignore: cast_nullable_to_non_nullable
+as LexXrpcSchema?,
+  ));
 }
+/// Create a copy of LexXrpcSubscriptionMessage
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexXrpcSchemaCopyWith<$Res>? get schema {
+    if (_self.schema == null) {
+    return null;
+  }
 
-/// @nodoc
-abstract class _$$LexXrpcSubscriptionMessageImplCopyWith<$Res>
-    implements $LexXrpcSubscriptionMessageCopyWith<$Res> {
-  factory _$$LexXrpcSubscriptionMessageImplCopyWith(
-    _$LexXrpcSubscriptionMessageImpl value,
-    $Res Function(_$LexXrpcSubscriptionMessageImpl) then,
-  ) = __$$LexXrpcSubscriptionMessageImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({
-    String? description,
-    @LexXrpcSchemaConverter() LexXrpcSchema? schema,
+  return $LexXrpcSchemaCopyWith<$Res>(_self.schema!, (value) {
+    return _then(_self.copyWith(schema: value));
   });
-
-  @override
-  $LexXrpcSchemaCopyWith<$Res>? get schema;
+}
 }
 
-/// @nodoc
-class __$$LexXrpcSubscriptionMessageImplCopyWithImpl<$Res>
-    extends
-        _$LexXrpcSubscriptionMessageCopyWithImpl<
-          $Res,
-          _$LexXrpcSubscriptionMessageImpl
-        >
-    implements _$$LexXrpcSubscriptionMessageImplCopyWith<$Res> {
-  __$$LexXrpcSubscriptionMessageImplCopyWithImpl(
-    _$LexXrpcSubscriptionMessageImpl _value,
-    $Res Function(_$LexXrpcSubscriptionMessageImpl) _then,
-  ) : super(_value, _then);
 
-  /// Create a copy of LexXrpcSubscriptionMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? description = freezed, Object? schema = freezed}) {
-    return _then(
-      _$LexXrpcSubscriptionMessageImpl(
-        description: freezed == description
-            ? _value.description
-            : description // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        schema: freezed == schema
-            ? _value.schema
-            : schema // ignore: cast_nullable_to_non_nullable
-                  as LexXrpcSchema?,
-      ),
-    );
-  }
+/// Adds pattern-matching-related methods to [LexXrpcSubscriptionMessage].
+extension LexXrpcSubscriptionMessagePatterns on LexXrpcSubscriptionMessage {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _LexXrpcSubscriptionMessage value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _LexXrpcSubscriptionMessage() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _LexXrpcSubscriptionMessage value)  $default,){
+final _that = this;
+switch (_that) {
+case _LexXrpcSubscriptionMessage():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _LexXrpcSubscriptionMessage value)?  $default,){
+final _that = this;
+switch (_that) {
+case _LexXrpcSubscriptionMessage() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? description, @LexXrpcSchemaConverter()  LexXrpcSchema? schema)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _LexXrpcSubscriptionMessage() when $default != null:
+return $default(_that.description,_that.schema);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? description, @LexXrpcSchemaConverter()  LexXrpcSchema? schema)  $default,) {final _that = this;
+switch (_that) {
+case _LexXrpcSubscriptionMessage():
+return $default(_that.description,_that.schema);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? description, @LexXrpcSchemaConverter()  LexXrpcSchema? schema)?  $default,) {final _that = this;
+switch (_that) {
+case _LexXrpcSubscriptionMessage() when $default != null:
+return $default(_that.description,_that.schema);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$LexXrpcSubscriptionMessageImpl implements _LexXrpcSubscriptionMessage {
-  const _$LexXrpcSubscriptionMessageImpl({
-    this.description,
-    @LexXrpcSchemaConverter() this.schema,
+class _LexXrpcSubscriptionMessage implements LexXrpcSubscriptionMessage {
+  const _LexXrpcSubscriptionMessage({this.description, @LexXrpcSchemaConverter() this.schema});
+  factory _LexXrpcSubscriptionMessage.fromJson(Map<String, dynamic> json) => _$LexXrpcSubscriptionMessageFromJson(json);
+
+@override final  String? description;
+@override@LexXrpcSchemaConverter() final  LexXrpcSchema? schema;
+
+/// Create a copy of LexXrpcSubscriptionMessage
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$LexXrpcSubscriptionMessageCopyWith<_LexXrpcSubscriptionMessage> get copyWith => __$LexXrpcSubscriptionMessageCopyWithImpl<_LexXrpcSubscriptionMessage>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$LexXrpcSubscriptionMessageToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LexXrpcSubscriptionMessage&&(identical(other.description, description) || other.description == description)&&(identical(other.schema, schema) || other.schema == schema));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,description,schema);
+
+@override
+String toString() {
+  return 'LexXrpcSubscriptionMessage(description: $description, schema: $schema)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$LexXrpcSubscriptionMessageCopyWith<$Res> implements $LexXrpcSubscriptionMessageCopyWith<$Res> {
+  factory _$LexXrpcSubscriptionMessageCopyWith(_LexXrpcSubscriptionMessage value, $Res Function(_LexXrpcSubscriptionMessage) _then) = __$LexXrpcSubscriptionMessageCopyWithImpl;
+@override @useResult
+$Res call({
+ String? description,@LexXrpcSchemaConverter() LexXrpcSchema? schema
+});
+
+
+@override $LexXrpcSchemaCopyWith<$Res>? get schema;
+
+}
+/// @nodoc
+class __$LexXrpcSubscriptionMessageCopyWithImpl<$Res>
+    implements _$LexXrpcSubscriptionMessageCopyWith<$Res> {
+  __$LexXrpcSubscriptionMessageCopyWithImpl(this._self, this._then);
+
+  final _LexXrpcSubscriptionMessage _self;
+  final $Res Function(_LexXrpcSubscriptionMessage) _then;
+
+/// Create a copy of LexXrpcSubscriptionMessage
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? description = freezed,Object? schema = freezed,}) {
+  return _then(_LexXrpcSubscriptionMessage(
+description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,schema: freezed == schema ? _self.schema : schema // ignore: cast_nullable_to_non_nullable
+as LexXrpcSchema?,
+  ));
+}
+
+/// Create a copy of LexXrpcSubscriptionMessage
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LexXrpcSchemaCopyWith<$Res>? get schema {
+    if (_self.schema == null) {
+    return null;
+  }
+
+  return $LexXrpcSchemaCopyWith<$Res>(_self.schema!, (value) {
+    return _then(_self.copyWith(schema: value));
   });
-
-  factory _$LexXrpcSubscriptionMessageImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$LexXrpcSubscriptionMessageImplFromJson(json);
-
-  @override
-  final String? description;
-  @override
-  @LexXrpcSchemaConverter()
-  final LexXrpcSchema? schema;
-
-  @override
-  String toString() {
-    return 'LexXrpcSubscriptionMessage(description: $description, schema: $schema)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LexXrpcSubscriptionMessageImpl &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.schema, schema) || other.schema == schema));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, description, schema);
-
-  /// Create a copy of LexXrpcSubscriptionMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LexXrpcSubscriptionMessageImplCopyWith<_$LexXrpcSubscriptionMessageImpl>
-  get copyWith =>
-      __$$LexXrpcSubscriptionMessageImplCopyWithImpl<
-        _$LexXrpcSubscriptionMessageImpl
-      >(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LexXrpcSubscriptionMessageImplToJson(this);
-  }
+}
 }
 
-abstract class _LexXrpcSubscriptionMessage
-    implements LexXrpcSubscriptionMessage {
-  const factory _LexXrpcSubscriptionMessage({
-    final String? description,
-    @LexXrpcSchemaConverter() final LexXrpcSchema? schema,
-  }) = _$LexXrpcSubscriptionMessageImpl;
-
-  factory _LexXrpcSubscriptionMessage.fromJson(Map<String, dynamic> json) =
-      _$LexXrpcSubscriptionMessageImpl.fromJson;
-
-  @override
-  String? get description;
-  @override
-  @LexXrpcSchemaConverter()
-  LexXrpcSchema? get schema;
-
-  /// Create a copy of LexXrpcSubscriptionMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LexXrpcSubscriptionMessageImplCopyWith<_$LexXrpcSubscriptionMessageImpl>
-  get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,225 +9,278 @@ part of 'lex_bytes.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-LexBytes _$LexBytesFromJson(Map<String, dynamic> json) {
-  return _LexBytes.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LexBytes {
-  String get type => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  int? get maxLength => throw _privateConstructorUsedError;
-  int? get minLength => throw _privateConstructorUsedError;
+
+ String get type; String? get description; int? get maxLength; int? get minLength;
+/// Create a copy of LexBytes
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$LexBytesCopyWith<LexBytes> get copyWith => _$LexBytesCopyWithImpl<LexBytes>(this as LexBytes, _$identity);
 
   /// Serializes this LexBytes to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of LexBytes
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $LexBytesCopyWith<LexBytes> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LexBytes&&(identical(other.type, type) || other.type == type)&&(identical(other.description, description) || other.description == description)&&(identical(other.maxLength, maxLength) || other.maxLength == maxLength)&&(identical(other.minLength, minLength) || other.minLength == minLength));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,type,description,maxLength,minLength);
+
+@override
+String toString() {
+  return 'LexBytes(type: $type, description: $description, maxLength: $maxLength, minLength: $minLength)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $LexBytesCopyWith<$Res> {
-  factory $LexBytesCopyWith(LexBytes value, $Res Function(LexBytes) then) =
-      _$LexBytesCopyWithImpl<$Res, LexBytes>;
-  @useResult
-  $Res call({String type, String? description, int? maxLength, int? minLength});
-}
+abstract mixin class $LexBytesCopyWith<$Res>  {
+  factory $LexBytesCopyWith(LexBytes value, $Res Function(LexBytes) _then) = _$LexBytesCopyWithImpl;
+@useResult
+$Res call({
+ String type, String? description, int? maxLength, int? minLength
+});
 
+
+
+
+}
 /// @nodoc
-class _$LexBytesCopyWithImpl<$Res, $Val extends LexBytes>
+class _$LexBytesCopyWithImpl<$Res>
     implements $LexBytesCopyWith<$Res> {
-  _$LexBytesCopyWithImpl(this._value, this._then);
+  _$LexBytesCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final LexBytes _self;
+  final $Res Function(LexBytes) _then;
 
-  /// Create a copy of LexBytes
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? description = freezed,
-    Object? maxLength = freezed,
-    Object? minLength = freezed,
-  }) {
-    return _then(
-      _value.copyWith(
-            type: null == type
-                ? _value.type
-                : type // ignore: cast_nullable_to_non_nullable
-                      as String,
-            description: freezed == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                      as String?,
-            maxLength: freezed == maxLength
-                ? _value.maxLength
-                : maxLength // ignore: cast_nullable_to_non_nullable
-                      as int?,
-            minLength: freezed == minLength
-                ? _value.minLength
-                : minLength // ignore: cast_nullable_to_non_nullable
-                      as int?,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of LexBytes
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? description = freezed,Object? maxLength = freezed,Object? minLength = freezed,}) {
+  return _then(_self.copyWith(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,maxLength: freezed == maxLength ? _self.maxLength : maxLength // ignore: cast_nullable_to_non_nullable
+as int?,minLength: freezed == minLength ? _self.minLength : minLength // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$LexBytesImplCopyWith<$Res>
-    implements $LexBytesCopyWith<$Res> {
-  factory _$$LexBytesImplCopyWith(
-    _$LexBytesImpl value,
-    $Res Function(_$LexBytesImpl) then,
-  ) = __$$LexBytesImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String type, String? description, int? maxLength, int? minLength});
 }
 
-/// @nodoc
-class __$$LexBytesImplCopyWithImpl<$Res>
-    extends _$LexBytesCopyWithImpl<$Res, _$LexBytesImpl>
-    implements _$$LexBytesImplCopyWith<$Res> {
-  __$$LexBytesImplCopyWithImpl(
-    _$LexBytesImpl _value,
-    $Res Function(_$LexBytesImpl) _then,
-  ) : super(_value, _then);
 
-  /// Create a copy of LexBytes
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? description = freezed,
-    Object? maxLength = freezed,
-    Object? minLength = freezed,
-  }) {
-    return _then(
-      _$LexBytesImpl(
-        type: null == type
-            ? _value.type
-            : type // ignore: cast_nullable_to_non_nullable
-                  as String,
-        description: freezed == description
-            ? _value.description
-            : description // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        maxLength: freezed == maxLength
-            ? _value.maxLength
-            : maxLength // ignore: cast_nullable_to_non_nullable
-                  as int?,
-        minLength: freezed == minLength
-            ? _value.minLength
-            : minLength // ignore: cast_nullable_to_non_nullable
-                  as int?,
-      ),
-    );
-  }
+/// Adds pattern-matching-related methods to [LexBytes].
+extension LexBytesPatterns on LexBytes {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _LexBytes value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _LexBytes() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _LexBytes value)  $default,){
+final _that = this;
+switch (_that) {
+case _LexBytes():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _LexBytes value)?  $default,){
+final _that = this;
+switch (_that) {
+case _LexBytes() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  String? description,  int? maxLength,  int? minLength)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _LexBytes() when $default != null:
+return $default(_that.type,_that.description,_that.maxLength,_that.minLength);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  String? description,  int? maxLength,  int? minLength)  $default,) {final _that = this;
+switch (_that) {
+case _LexBytes():
+return $default(_that.type,_that.description,_that.maxLength,_that.minLength);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  String? description,  int? maxLength,  int? minLength)?  $default,) {final _that = this;
+switch (_that) {
+case _LexBytes() when $default != null:
+return $default(_that.type,_that.description,_that.maxLength,_that.minLength);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$LexBytesImpl implements _LexBytes {
-  const _$LexBytesImpl({
-    this.type = 'bytes',
-    this.description,
-    this.maxLength,
-    this.minLength,
-  });
+class _LexBytes implements LexBytes {
+  const _LexBytes({this.type = 'bytes', this.description, this.maxLength, this.minLength});
+  factory _LexBytes.fromJson(Map<String, dynamic> json) => _$LexBytesFromJson(json);
 
-  factory _$LexBytesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LexBytesImplFromJson(json);
+@override@JsonKey() final  String type;
+@override final  String? description;
+@override final  int? maxLength;
+@override final  int? minLength;
 
-  @override
-  @JsonKey()
-  final String type;
-  @override
-  final String? description;
-  @override
-  final int? maxLength;
-  @override
-  final int? minLength;
+/// Create a copy of LexBytes
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$LexBytesCopyWith<_LexBytes> get copyWith => __$LexBytesCopyWithImpl<_LexBytes>(this, _$identity);
 
-  @override
-  String toString() {
-    return 'LexBytes(type: $type, description: $description, maxLength: $maxLength, minLength: $minLength)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LexBytesImpl &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.maxLength, maxLength) ||
-                other.maxLength == maxLength) &&
-            (identical(other.minLength, minLength) ||
-                other.minLength == minLength));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, type, description, maxLength, minLength);
-
-  /// Create a copy of LexBytes
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LexBytesImplCopyWith<_$LexBytesImpl> get copyWith =>
-      __$$LexBytesImplCopyWithImpl<_$LexBytesImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LexBytesImplToJson(this);
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$LexBytesToJson(this, );
 }
 
-abstract class _LexBytes implements LexBytes {
-  const factory _LexBytes({
-    final String type,
-    final String? description,
-    final int? maxLength,
-    final int? minLength,
-  }) = _$LexBytesImpl;
-
-  factory _LexBytes.fromJson(Map<String, dynamic> json) =
-      _$LexBytesImpl.fromJson;
-
-  @override
-  String get type;
-  @override
-  String? get description;
-  @override
-  int? get maxLength;
-  @override
-  int? get minLength;
-
-  /// Create a copy of LexBytes
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LexBytesImplCopyWith<_$LexBytesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LexBytes&&(identical(other.type, type) || other.type == type)&&(identical(other.description, description) || other.description == description)&&(identical(other.maxLength, maxLength) || other.maxLength == maxLength)&&(identical(other.minLength, minLength) || other.minLength == minLength));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,type,description,maxLength,minLength);
+
+@override
+String toString() {
+  return 'LexBytes(type: $type, description: $description, maxLength: $maxLength, minLength: $minLength)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$LexBytesCopyWith<$Res> implements $LexBytesCopyWith<$Res> {
+  factory _$LexBytesCopyWith(_LexBytes value, $Res Function(_LexBytes) _then) = __$LexBytesCopyWithImpl;
+@override @useResult
+$Res call({
+ String type, String? description, int? maxLength, int? minLength
+});
+
+
+
+
+}
+/// @nodoc
+class __$LexBytesCopyWithImpl<$Res>
+    implements _$LexBytesCopyWith<$Res> {
+  __$LexBytesCopyWithImpl(this._self, this._then);
+
+  final _LexBytes _self;
+  final $Res Function(_LexBytes) _then;
+
+/// Create a copy of LexBytes
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? description = freezed,Object? maxLength = freezed,Object? minLength = freezed,}) {
+  return _then(_LexBytes(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,maxLength: freezed == maxLength ? _self.maxLength : maxLength // ignore: cast_nullable_to_non_nullable
+as int?,minLength: freezed == minLength ? _self.minLength : minLength // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
+}
+
+
+}
+
+// dart format on
