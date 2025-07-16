@@ -21,12 +21,6 @@ final class LexInput extends LexType {
   final String? ref;
 
   @override
-  List<LexType> get nested => properties
-      .where((e) => e.type.union != null)
-      .map((e) => e.type.union!)
-      .toList();
-
-  @override
   LexTypeState get state => LexTypeState.input;
 
   const LexInput({

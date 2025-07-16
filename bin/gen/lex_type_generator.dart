@@ -25,18 +25,16 @@ final class _LexTypeGenerator {
   final List<String> services;
   final List<String> packages;
 
-  const _LexTypeGenerator(
-    this.services,
-    this.packages,
-  );
+  const _LexTypeGenerator(this.services, this.packages);
 
   List<LexType> execute() {
     _cleanWorkspace();
 
     final types = <LexType>[];
-    final filteredLexicons = _filterLexicons(lexicons, services)
-        .map(lex.LexiconDoc.fromJson)
-        .toList();
+    final filteredLexicons = _filterLexicons(
+      lexicons,
+      services,
+    ).map(lex.LexiconDoc.fromJson).toList();
 
     final mainVariants = _checkMainVariants(filteredLexicons);
 
@@ -46,28 +44,20 @@ final class _LexTypeGenerator {
       for (final def in doc.defs.entries) {
         if (def.value is lex.ULexUserTypeObject) {
           final data = def.value.data as lex.LexObject;
-          if (rule.isDeprecated(data.description)) {
-            continue;
-          }
+          if (rule.isDeprecated(data.description)) continue;
 
-          final template = generateLexObject(
-            doc.id,
-            def.key,
-            def.value.data as lex.LexObject,
-            mainVariants,
+          _aggregateTypes(
+            types,
+            generateLexObject(
+              doc.id,
+              def.key,
+              def.value.data as lex.LexObject,
+              mainVariants,
+            ),
           );
-
-          types.add(template);
-
-          final nested = template.nested;
-          if (nested.isNotEmpty) {
-            types.addAll(nested);
-          }
         } else if (def.value is lex.ULexUserTypeArray) {
           final data = def.value.data as lex.LexArray;
-          if (rule.isDeprecated(data.description)) {
-            continue;
-          }
+          if (rule.isDeprecated(data.description)) continue;
 
           final refVariant = data.items.whenOrNull(refVariant: (data) => data);
           if (refVariant == null) continue;
@@ -75,42 +65,33 @@ final class _LexTypeGenerator {
           final refUnion = refVariant.whenOrNull(refUnion: (data) => data);
           if (refUnion == null) continue;
 
-          final template = generateLexUnion(
-            doc.id,
-            def.key,
-            '',
-            refUnion,
-            mainVariants,
+          _aggregateTypes(
+            types,
+            generateLexUnion(doc.id, def.key, '', refUnion, mainVariants),
           );
-
-          types.add(template);
         } else if (def.value is lex.ULexUserTypeRecord) {
           final data = def.value.data as lex.LexRecord;
-          if (rule.isDeprecated(data.description)) {
-            continue;
-          }
+          if (rule.isDeprecated(data.description)) continue;
 
-          final template = generateLexRecord(
-            doc.id,
-            def.key,
-            def.value.data as lex.LexRecord,
-            mainVariants,
+          _aggregateTypes(
+            types,
+            generateLexRecord(
+              doc.id,
+              def.key,
+              def.value.data as lex.LexRecord,
+              mainVariants,
+            ),
           );
-
-          types.add(template);
-
-          final nested = template.nested;
-          if (nested.isNotEmpty) {
-            types.addAll(nested);
-          }
         } else if (def.value is lex.ULexUserTypeString) {
-          final template = generateLexKnownValues(
-            doc.id,
-            def.key,
-            def.value.data as lex.LexString,
+          _aggregateTypes(
+            types,
+            generateLexKnownValues(
+              doc.id,
+              def.key,
+              def.value.data as lex.LexString,
+              mainVariants,
+            ),
           );
-
-          types.add(template);
         } else if (def.value is lex.ULexUserTypeXrpcQuery) {
           final type = generateLexXrpcQuery(
             doc.id,
@@ -121,22 +102,8 @@ final class _LexTypeGenerator {
 
           if (type == null) continue;
 
-          if (type.$1 != null) {
-            types.add(type.$1!);
-
-            final nested = type.$1!.nested;
-            if (nested.isNotEmpty) {
-              types.addAll(nested);
-            }
-          }
-          if (type.$2 != null) {
-            types.add(type.$2!);
-
-            final nested = type.$2!.nested;
-            if (nested.isNotEmpty) {
-              types.addAll(nested);
-            }
-          }
+          _aggregateTypes(types, type.$1);
+          _aggregateTypes(types, type.$2);
         } else if (def.value is lex.ULexUserTypeXrpcProcedure) {
           final type = generateLexXrpcProcedure(
             doc.id,
@@ -147,22 +114,8 @@ final class _LexTypeGenerator {
 
           if (type == null) continue;
 
-          if (type.$1 != null) {
-            types.add(type.$1!);
-
-            final nested = type.$1!.nested;
-            if (nested.isNotEmpty) {
-              types.addAll(nested);
-            }
-          }
-          if (type.$2 != null) {
-            types.add(type.$2!);
-
-            final nested = type.$2!.nested;
-            if (nested.isNotEmpty) {
-              types.addAll(nested);
-            }
-          }
+          _aggregateTypes(types, type.$1);
+          _aggregateTypes(types, type.$2);
         } else if (def.value is lex.ULexUserTypeXrpcSubscription) {
           final type = generateLexXrpcSubscription(
             doc.id,
@@ -173,20 +126,8 @@ final class _LexTypeGenerator {
 
           if (type == null) continue;
 
-          if (type.$1 != null) {
-            types.add(type.$1!);
-
-            final nested = type.$1!.nested;
-            if (nested.isNotEmpty) {
-              types.addAll(nested);
-            }
-          }
-          if (type.$2 != null) {
-            final nested = type.$2!.nested;
-            if (nested.isNotEmpty) {
-              types.addAll(nested);
-            }
-          }
+          _aggregateTypes(types, type.$1);
+          _aggregateTypes(types, type.$2);
         }
       }
     }
@@ -259,5 +200,18 @@ final class _LexTypeGenerator {
     }
 
     return mainVariants.toList();
+  }
+
+  void _aggregateTypes(final List<LexType> types, final LexType? type) {
+    if (type == null) return;
+
+    if (type.state != LexTypeState.message) {
+      types.add(type);
+    }
+
+    final nested = type.getNestedTypes();
+    if (nested.isNotEmpty) {
+      types.addAll(nested);
+    }
   }
 }

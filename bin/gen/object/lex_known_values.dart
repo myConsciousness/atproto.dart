@@ -10,10 +10,8 @@ final class LexKnownValues extends LexType {
   final String defName;
 
   final String name;
+  final String? fieldName;
   final List<String> values;
-
-  @override
-  List<LexType> get nested => const [];
 
   @override
   LexTypeState get state => LexTypeState.knownValues;
@@ -23,7 +21,21 @@ final class LexKnownValues extends LexType {
     required this.defName,
     required this.name,
     required this.values,
+    this.fieldName,
   });
+
+  @override
+  String getFilePath() {
+    return rule.getFilePath(lexiconId, defName, state, fieldName: fieldName);
+  }
+
+  @override
+  String getFileName() {
+    final fileName = rule.getLexObjectFileName(defName);
+    final suffix = rule.getLexObjectFileName(fieldName);
+
+    return '$fileName$suffix';
+  }
 
   @override
   String getTypeName() {

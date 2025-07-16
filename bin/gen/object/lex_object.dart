@@ -17,12 +17,6 @@ final class LexObject extends LexType {
   final List<LexProperty> properties;
 
   @override
-  List<LexType> get nested => properties
-      .where((e) => e.type.union != null)
-      .map((e) => e.type.union!)
-      .toList();
-
-  @override
   LexTypeState get state => LexTypeState.object;
 
   const LexObject({

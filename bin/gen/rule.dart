@@ -53,9 +53,9 @@ String getLexUnionName(
 }
 
 /// Ex: profile_view_basic
-String getLexObjectFileName(final String? defName) {
-  if (defName == null) return '';
-  return splitByUpperCase(defName).join('_').toLowerCase();
+String getLexObjectFileName(final String? value) {
+  if (value == null) return '';
+  return splitByUpperCase(value).join('_').toLowerCase();
 }
 
 /// Ex: union_richtext_facet_features
@@ -84,14 +84,21 @@ String getLexOutputObjectFileName() {
 String getFilePath(
   final String lexiconId,
   final String defName,
-  final LexTypeState state,
-) {
+  final LexTypeState state, {
+  final String? fieldName,
+}) {
   if (state == LexTypeState.input) {
     return '${getHomeDir(lexiconId)}/${_getFileDir(lexiconId)}/input.dart';
   } else if (state == LexTypeState.output) {
     return '${getHomeDir(lexiconId)}/${_getFileDir(lexiconId)}/output.dart';
   } else {
-    return '${getHomeDir(lexiconId)}/${_getFileDir(lexiconId)}/${getLexObjectFileName(defName)}.dart';
+    if (fieldName == null) {
+      final fileName = getLexObjectFileName(defName);
+      final suffix = getLexObjectFileName(fieldName);
+      return '${getHomeDir(lexiconId)}/${_getFileDir(lexiconId)}/$fileName$suffix.dart';
+    } else {
+      return '${getHomeDir(lexiconId)}/${_getFileDir(lexiconId)}/${getLexObjectFileName(defName)}.dart';
+    }
   }
 }
 

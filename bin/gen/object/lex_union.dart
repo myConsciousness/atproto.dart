@@ -15,9 +15,6 @@ final class LexUnion extends LexType {
   final List<String> mainVariants;
 
   @override
-  List<LexType> get nested => const [];
-
-  @override
   LexTypeState get state => LexTypeState.union;
 
   const LexUnion({

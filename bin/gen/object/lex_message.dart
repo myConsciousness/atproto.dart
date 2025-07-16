@@ -13,7 +13,14 @@ final class LexMessage extends LexType {
   final LexUnion union;
 
   @override
-  List<LexType> get nested => [union];
+  List<LexType> getNestedTypes() {
+    return [union];
+  }
+
+  @override
+  bool isShouldNotBeGenerated() {
+    return true;
+  }
 
   @override
   LexTypeState get state => LexTypeState.message;
@@ -26,8 +33,6 @@ final class LexMessage extends LexType {
 
   @override
   String format() {
-    throw UnsupportedError(
-      'format() not allowed for subscription message',
-    );
+    throw UnsupportedError('format() not allowed for subscription message');
   }
 }

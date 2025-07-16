@@ -9,7 +9,7 @@ enum LexTypeState {
   output,
   input,
   message,
-  union;
+  union,
 }
 
 abstract class LexType {
@@ -17,7 +17,16 @@ abstract class LexType {
   String get lexiconId;
   String get defName;
 
-  List<LexType> get nested;
+  List<LexType> getNestedTypes() {
+    final properties = getProperties();
+
+    return [
+      ...properties
+          .where((e) => e.type.union != null)
+          .map((e) => e.type.union!)
+          .toList(),
+    ];
+  }
 
   const LexType();
 
