@@ -35,6 +35,14 @@ abstract class UnspeccedGetSuggestedUsersInput
       _$UnspeccedGetSuggestedUsersInputFromJson(json);
 }
 
+extension UnspeccedGetSuggestedUsersInputExtension
+    on UnspeccedGetSuggestedUsersInput {
+  bool get hasCategory => category != null;
+  bool get hasNotCategory => !hasCategory;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+}
+
 final class UnspeccedGetSuggestedUsersInputConverter
     extends
         JsonConverter<UnspeccedGetSuggestedUsersInput, Map<String, dynamic>> {

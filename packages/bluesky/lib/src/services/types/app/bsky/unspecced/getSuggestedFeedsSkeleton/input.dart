@@ -36,6 +36,14 @@ abstract class UnspeccedGetSuggestedFeedsSkeletonInput
   ) => _$UnspeccedGetSuggestedFeedsSkeletonInputFromJson(json);
 }
 
+extension UnspeccedGetSuggestedFeedsSkeletonInputExtension
+    on UnspeccedGetSuggestedFeedsSkeletonInput {
+  bool get hasViewer => viewer != null;
+  bool get hasNotViewer => !hasViewer;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+}
+
 final class UnspeccedGetSuggestedFeedsSkeletonInputConverter
     extends
         JsonConverter<

@@ -35,6 +35,17 @@ abstract class ConvoListConvosInput with _$ConvoListConvosInput {
       _$ConvoListConvosInputFromJson(json);
 }
 
+extension ConvoListConvosInputExtension on ConvoListConvosInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasReadState => readState != null;
+  bool get hasNotReadState => !hasReadState;
+  bool get hasStatus => status != null;
+  bool get hasNotStatus => !hasStatus;
+}
+
 final class ConvoListConvosInputConverter
     extends JsonConverter<ConvoListConvosInput, Map<String, dynamic>> {
   const ConvoListConvosInputConverter();

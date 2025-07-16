@@ -43,6 +43,14 @@ abstract class GraphGetSuggestedFollowsByActorOutput
   ) => _$GraphGetSuggestedFollowsByActorOutputFromJson(json);
 }
 
+extension GraphGetSuggestedFollowsByActorOutputExtension
+    on GraphGetSuggestedFollowsByActorOutput {
+  bool get isIsFallback => isFallback ?? false;
+  bool get isNotIsFallback => !isIsFallback;
+  bool get hasRecId => recId != null;
+  bool get hasNotRecId => !hasRecId;
+}
+
 final class GraphGetSuggestedFollowsByActorOutputConverter
     extends
         JsonConverter<

@@ -58,6 +58,11 @@ abstract class GraphStarterpackRecord with _$GraphStarterpackRecord {
   }
 }
 
+extension GraphStarterpackRecordExtension on GraphStarterpackRecord {
+  bool get hasDescription => description != null;
+  bool get hasNotDescription => !hasDescription;
+}
+
 final class GraphStarterpackRecordConverter
     extends JsonConverter<GraphStarterpackRecord, Map<String, dynamic>> {
   const GraphStarterpackRecordConverter();

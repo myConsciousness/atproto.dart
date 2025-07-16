@@ -35,6 +35,13 @@ abstract class FeedGetFeedSkeletonInput with _$FeedGetFeedSkeletonInput {
       _$FeedGetFeedSkeletonInputFromJson(json);
 }
 
+extension FeedGetFeedSkeletonInputExtension on FeedGetFeedSkeletonInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class FeedGetFeedSkeletonInputConverter
     extends JsonConverter<FeedGetFeedSkeletonInput, Map<String, dynamic>> {
   const FeedGetFeedSkeletonInputConverter();

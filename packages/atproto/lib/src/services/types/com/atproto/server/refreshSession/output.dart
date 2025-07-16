@@ -48,6 +48,15 @@ abstract class ServerRefreshSessionOutput with _$ServerRefreshSessionOutput {
       _$ServerRefreshSessionOutputFromJson(json);
 }
 
+extension ServerRefreshSessionOutputExtension on ServerRefreshSessionOutput {
+  bool get hasDidDoc => didDoc != null;
+  bool get hasNotDidDoc => !hasDidDoc;
+  bool get isActive => active ?? false;
+  bool get isNotActive => !isActive;
+  bool get hasStatus => status != null;
+  bool get hasNotStatus => !hasStatus;
+}
+
 final class ServerRefreshSessionOutputConverter
     extends JsonConverter<ServerRefreshSessionOutput, Map<String, dynamic>> {
   const ServerRefreshSessionOutputConverter();

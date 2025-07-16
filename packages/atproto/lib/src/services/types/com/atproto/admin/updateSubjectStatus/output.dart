@@ -39,6 +39,12 @@ abstract class AdminUpdateSubjectStatusOutput
       _$AdminUpdateSubjectStatusOutputFromJson(json);
 }
 
+extension AdminUpdateSubjectStatusOutputExtension
+    on AdminUpdateSubjectStatusOutput {
+  bool get hasTakedown => takedown != null;
+  bool get hasNotTakedown => !hasTakedown;
+}
+
 final class AdminUpdateSubjectStatusOutputConverter
     extends
         JsonConverter<AdminUpdateSubjectStatusOutput, Map<String, dynamic>> {

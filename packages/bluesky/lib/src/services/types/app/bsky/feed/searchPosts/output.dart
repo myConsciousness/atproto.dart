@@ -39,6 +39,13 @@ abstract class FeedSearchPostsOutput with _$FeedSearchPostsOutput {
       _$FeedSearchPostsOutputFromJson(json);
 }
 
+extension FeedSearchPostsOutputExtension on FeedSearchPostsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasHitsTotal => hitsTotal != null;
+  bool get hasNotHitsTotal => !hasHitsTotal;
+}
+
 final class FeedSearchPostsOutputConverter
     extends JsonConverter<FeedSearchPostsOutput, Map<String, dynamic>> {
   const FeedSearchPostsOutputConverter();

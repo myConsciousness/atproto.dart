@@ -36,6 +36,14 @@ abstract class HostingGetAccountHistoryInput
       _$HostingGetAccountHistoryInputFromJson(json);
 }
 
+extension HostingGetAccountHistoryInputExtension
+    on HostingGetAccountHistoryInput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+}
+
 final class HostingGetAccountHistoryInputConverter
     extends JsonConverter<HostingGetAccountHistoryInput, Map<String, dynamic>> {
   const HostingGetAccountHistoryInputConverter();

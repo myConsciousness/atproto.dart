@@ -57,6 +57,15 @@ abstract class RepoPutRecordInput with _$RepoPutRecordInput {
       _$RepoPutRecordInputFromJson(json);
 }
 
+extension RepoPutRecordInputExtension on RepoPutRecordInput {
+  bool get isValidate => validate ?? false;
+  bool get isNotValidate => !isValidate;
+  bool get hasSwapRecord => swapRecord != null;
+  bool get hasNotSwapRecord => !hasSwapRecord;
+  bool get hasSwapCommit => swapCommit != null;
+  bool get hasNotSwapCommit => !hasSwapCommit;
+}
+
 final class RepoPutRecordInputConverter
     extends JsonConverter<RepoPutRecordInput, Map<String, dynamic>> {
   const RepoPutRecordInputConverter();

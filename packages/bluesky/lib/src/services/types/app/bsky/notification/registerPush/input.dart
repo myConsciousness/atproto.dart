@@ -45,6 +45,12 @@ abstract class NotificationRegisterPushInput
       _$NotificationRegisterPushInputFromJson(json);
 }
 
+extension NotificationRegisterPushInputExtension
+    on NotificationRegisterPushInput {
+  bool get isAgeRestricted => ageRestricted ?? false;
+  bool get isNotAgeRestricted => !isAgeRestricted;
+}
+
 final class NotificationRegisterPushInputConverter
     extends JsonConverter<NotificationRegisterPushInput, Map<String, dynamic>> {
   const NotificationRegisterPushInputConverter();

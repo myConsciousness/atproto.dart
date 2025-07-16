@@ -56,6 +56,20 @@ abstract class UnspeccedGetPostThreadV2Input
       _$UnspeccedGetPostThreadV2InputFromJson(json);
 }
 
+extension UnspeccedGetPostThreadV2InputExtension
+    on UnspeccedGetPostThreadV2Input {
+  bool get isAbove => above ?? false;
+  bool get isNotAbove => !isAbove;
+  bool get hasBelow => below != null;
+  bool get hasNotBelow => !hasBelow;
+  bool get hasBranchingFactor => branchingFactor != null;
+  bool get hasNotBranchingFactor => !hasBranchingFactor;
+  bool get isPrioritizeFollowedUsers => prioritizeFollowedUsers ?? false;
+  bool get isNotPrioritizeFollowedUsers => !isPrioritizeFollowedUsers;
+  bool get hasSort => sort != null;
+  bool get hasNotSort => !hasSort;
+}
+
 final class UnspeccedGetPostThreadV2InputConverter
     extends JsonConverter<UnspeccedGetPostThreadV2Input, Map<String, dynamic>> {
   const UnspeccedGetPostThreadV2InputConverter();

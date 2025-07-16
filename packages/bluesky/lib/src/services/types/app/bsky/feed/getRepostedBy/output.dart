@@ -38,6 +38,13 @@ abstract class FeedGetRepostedByOutput with _$FeedGetRepostedByOutput {
       _$FeedGetRepostedByOutputFromJson(json);
 }
 
+extension FeedGetRepostedByOutputExtension on FeedGetRepostedByOutput {
+  bool get hasCid => cid != null;
+  bool get hasNotCid => !hasCid;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class FeedGetRepostedByOutputConverter
     extends JsonConverter<FeedGetRepostedByOutput, Map<String, dynamic>> {
   const FeedGetRepostedByOutputConverter();

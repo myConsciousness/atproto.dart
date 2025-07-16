@@ -44,6 +44,11 @@ abstract class ServerCreateAccountOutput with _$ServerCreateAccountOutput {
       _$ServerCreateAccountOutputFromJson(json);
 }
 
+extension ServerCreateAccountOutputExtension on ServerCreateAccountOutput {
+  bool get hasDidDoc => didDoc != null;
+  bool get hasNotDidDoc => !hasDidDoc;
+}
+
 final class ServerCreateAccountOutputConverter
     extends JsonConverter<ServerCreateAccountOutput, Map<String, dynamic>> {
   const ServerCreateAccountOutputConverter();

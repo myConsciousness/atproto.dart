@@ -34,6 +34,15 @@ abstract class AdminGetInviteCodesInput with _$AdminGetInviteCodesInput {
       _$AdminGetInviteCodesInputFromJson(json);
 }
 
+extension AdminGetInviteCodesInputExtension on AdminGetInviteCodesInput {
+  bool get hasSort => sort != null;
+  bool get hasNotSort => !hasSort;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class AdminGetInviteCodesInputConverter
     extends JsonConverter<AdminGetInviteCodesInput, Map<String, dynamic>> {
   const AdminGetInviteCodesInputConverter();

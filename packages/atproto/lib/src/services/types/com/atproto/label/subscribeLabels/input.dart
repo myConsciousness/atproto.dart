@@ -33,6 +33,11 @@ abstract class LabelSubscribeLabelsInput with _$LabelSubscribeLabelsInput {
       _$LabelSubscribeLabelsInputFromJson(json);
 }
 
+extension LabelSubscribeLabelsInputExtension on LabelSubscribeLabelsInput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class LabelSubscribeLabelsInputConverter
     extends JsonConverter<LabelSubscribeLabelsInput, Map<String, dynamic>> {
   const LabelSubscribeLabelsInputConverter();

@@ -37,6 +37,11 @@ abstract class GraphGetRelationshipsOutput with _$GraphGetRelationshipsOutput {
       _$GraphGetRelationshipsOutputFromJson(json);
 }
 
+extension GraphGetRelationshipsOutputExtension on GraphGetRelationshipsOutput {
+  bool get hasActor => actor != null;
+  bool get hasNotActor => !hasActor;
+}
+
 final class GraphGetRelationshipsOutputConverter
     extends JsonConverter<GraphGetRelationshipsOutput, Map<String, dynamic>> {
   const GraphGetRelationshipsOutputConverter();

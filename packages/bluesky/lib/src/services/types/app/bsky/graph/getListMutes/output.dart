@@ -36,6 +36,11 @@ abstract class GraphGetListMutesOutput with _$GraphGetListMutesOutput {
       _$GraphGetListMutesOutputFromJson(json);
 }
 
+extension GraphGetListMutesOutputExtension on GraphGetListMutesOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class GraphGetListMutesOutputConverter
     extends JsonConverter<GraphGetListMutesOutput, Map<String, dynamic>> {
   const GraphGetListMutesOutputConverter();

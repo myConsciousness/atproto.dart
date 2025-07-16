@@ -36,6 +36,11 @@ abstract class SyncListHostsOutput with _$SyncListHostsOutput {
       _$SyncListHostsOutputFromJson(json);
 }
 
+extension SyncListHostsOutputExtension on SyncListHostsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class SyncListHostsOutputConverter
     extends JsonConverter<SyncListHostsOutput, Map<String, dynamic>> {
   const SyncListHostsOutputConverter();

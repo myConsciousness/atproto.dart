@@ -32,6 +32,11 @@ abstract class ConvoGetLogInput with _$ConvoGetLogInput {
       _$ConvoGetLogInputFromJson(json);
 }
 
+extension ConvoGetLogInputExtension on ConvoGetLogInput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class ConvoGetLogInputConverter
     extends JsonConverter<ConvoGetLogInput, Map<String, dynamic>> {
   const ConvoGetLogInputConverter();

@@ -36,6 +36,11 @@ abstract class TeamListMembersOutput with _$TeamListMembersOutput {
       _$TeamListMembersOutputFromJson(json);
 }
 
+extension TeamListMembersOutputExtension on TeamListMembersOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class TeamListMembersOutputConverter
     extends JsonConverter<TeamListMembersOutput, Map<String, dynamic>> {
   const TeamListMembersOutputConverter();

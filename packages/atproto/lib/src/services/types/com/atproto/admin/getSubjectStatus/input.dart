@@ -34,6 +34,15 @@ abstract class AdminGetSubjectStatusInput with _$AdminGetSubjectStatusInput {
       _$AdminGetSubjectStatusInputFromJson(json);
 }
 
+extension AdminGetSubjectStatusInputExtension on AdminGetSubjectStatusInput {
+  bool get hasDid => did != null;
+  bool get hasNotDid => !hasDid;
+  bool get hasUri => uri != null;
+  bool get hasNotUri => !hasUri;
+  bool get hasBlob => blob != null;
+  bool get hasNotBlob => !hasBlob;
+}
+
 final class AdminGetSubjectStatusInputConverter
     extends JsonConverter<AdminGetSubjectStatusInput, Map<String, dynamic>> {
   const AdminGetSubjectStatusInputConverter();

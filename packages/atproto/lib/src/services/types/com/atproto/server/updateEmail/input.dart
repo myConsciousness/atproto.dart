@@ -36,6 +36,13 @@ abstract class ServerUpdateEmailInput with _$ServerUpdateEmailInput {
       _$ServerUpdateEmailInputFromJson(json);
 }
 
+extension ServerUpdateEmailInputExtension on ServerUpdateEmailInput {
+  bool get isEmailAuthFactor => emailAuthFactor ?? false;
+  bool get isNotEmailAuthFactor => !isEmailAuthFactor;
+  bool get hasToken => token != null;
+  bool get hasNotToken => !hasToken;
+}
+
 final class ServerUpdateEmailInputConverter
     extends JsonConverter<ServerUpdateEmailInput, Map<String, dynamic>> {
   const ServerUpdateEmailInputConverter();

@@ -36,6 +36,14 @@ abstract class GraphSearchStarterPacksInput
       _$GraphSearchStarterPacksInputFromJson(json);
 }
 
+extension GraphSearchStarterPacksInputExtension
+    on GraphSearchStarterPacksInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class GraphSearchStarterPacksInputConverter
     extends JsonConverter<GraphSearchStarterPacksInput, Map<String, dynamic>> {
   const GraphSearchStarterPacksInputConverter();

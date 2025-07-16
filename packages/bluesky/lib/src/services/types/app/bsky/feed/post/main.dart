@@ -64,6 +64,15 @@ abstract class FeedPostRecord with _$FeedPostRecord {
   }
 }
 
+extension FeedPostRecordExtension on FeedPostRecord {
+  bool get hasReply => reply != null;
+  bool get hasNotReply => !hasReply;
+  bool get hasEmbed => embed != null;
+  bool get hasNotEmbed => !hasEmbed;
+  bool get hasLabels => labels != null;
+  bool get hasNotLabels => !hasLabels;
+}
+
 final class FeedPostRecordConverter
     extends JsonConverter<FeedPostRecord, Map<String, dynamic>> {
   const FeedPostRecordConverter();

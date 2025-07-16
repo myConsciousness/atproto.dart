@@ -33,6 +33,13 @@ abstract class ActorGetSuggestionsInput with _$ActorGetSuggestionsInput {
       _$ActorGetSuggestionsInputFromJson(json);
 }
 
+extension ActorGetSuggestionsInputExtension on ActorGetSuggestionsInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class ActorGetSuggestionsInputConverter
     extends JsonConverter<ActorGetSuggestionsInput, Map<String, dynamic>> {
   const ActorGetSuggestionsInputConverter();

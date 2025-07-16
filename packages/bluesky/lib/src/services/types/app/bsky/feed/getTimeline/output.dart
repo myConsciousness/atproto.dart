@@ -36,6 +36,11 @@ abstract class FeedGetTimelineOutput with _$FeedGetTimelineOutput {
       _$FeedGetTimelineOutputFromJson(json);
 }
 
+extension FeedGetTimelineOutputExtension on FeedGetTimelineOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class FeedGetTimelineOutputConverter
     extends JsonConverter<FeedGetTimelineOutput, Map<String, dynamic>> {
   const FeedGetTimelineOutputConverter();

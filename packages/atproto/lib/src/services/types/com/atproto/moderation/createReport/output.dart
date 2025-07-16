@@ -50,6 +50,12 @@ abstract class ModerationCreateReportOutput
       _$ModerationCreateReportOutputFromJson(json);
 }
 
+extension ModerationCreateReportOutputExtension
+    on ModerationCreateReportOutput {
+  bool get hasReason => reason != null;
+  bool get hasNotReason => !hasReason;
+}
+
 final class ModerationCreateReportOutputConverter
     extends JsonConverter<ModerationCreateReportOutput, Map<String, dynamic>> {
   const ModerationCreateReportOutputConverter();

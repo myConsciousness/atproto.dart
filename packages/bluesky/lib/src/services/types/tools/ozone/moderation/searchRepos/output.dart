@@ -36,6 +36,11 @@ abstract class ModerationSearchReposOutput with _$ModerationSearchReposOutput {
       _$ModerationSearchReposOutputFromJson(json);
 }
 
+extension ModerationSearchReposOutputExtension on ModerationSearchReposOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class ModerationSearchReposOutputConverter
     extends JsonConverter<ModerationSearchReposOutput, Map<String, dynamic>> {
   const ModerationSearchReposOutputConverter();

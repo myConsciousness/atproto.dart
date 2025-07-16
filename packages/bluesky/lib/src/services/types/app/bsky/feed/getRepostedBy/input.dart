@@ -38,6 +38,15 @@ abstract class FeedGetRepostedByInput with _$FeedGetRepostedByInput {
       _$FeedGetRepostedByInputFromJson(json);
 }
 
+extension FeedGetRepostedByInputExtension on FeedGetRepostedByInput {
+  bool get hasCid => cid != null;
+  bool get hasNotCid => !hasCid;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class FeedGetRepostedByInputConverter
     extends JsonConverter<FeedGetRepostedByInput, Map<String, dynamic>> {
   const FeedGetRepostedByInputConverter();

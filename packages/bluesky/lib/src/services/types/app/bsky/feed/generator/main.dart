@@ -62,6 +62,19 @@ abstract class FeedGeneratorRecord with _$FeedGeneratorRecord {
   }
 }
 
+extension FeedGeneratorRecordExtension on FeedGeneratorRecord {
+  bool get hasDescription => description != null;
+  bool get hasNotDescription => !hasDescription;
+  bool get hasAvatar => avatar != null;
+  bool get hasNotAvatar => !hasAvatar;
+  bool get isAcceptsInteractions => acceptsInteractions ?? false;
+  bool get isNotAcceptsInteractions => !isAcceptsInteractions;
+  bool get hasLabels => labels != null;
+  bool get hasNotLabels => !hasLabels;
+  bool get hasContentMode => contentMode != null;
+  bool get hasNotContentMode => !hasContentMode;
+}
+
 final class FeedGeneratorRecordConverter
     extends JsonConverter<FeedGeneratorRecord, Map<String, dynamic>> {
   const FeedGeneratorRecordConverter();

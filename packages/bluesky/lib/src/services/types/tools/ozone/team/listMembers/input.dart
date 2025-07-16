@@ -42,6 +42,17 @@ abstract class TeamListMembersInput with _$TeamListMembersInput {
       _$TeamListMembersInputFromJson(json);
 }
 
+extension TeamListMembersInputExtension on TeamListMembersInput {
+  bool get hasQ => q != null;
+  bool get hasNotQ => !hasQ;
+  bool get isDisabled => disabled ?? false;
+  bool get isNotDisabled => !isDisabled;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class TeamListMembersInputConverter
     extends JsonConverter<TeamListMembersInput, Map<String, dynamic>> {
   const TeamListMembersInputConverter();

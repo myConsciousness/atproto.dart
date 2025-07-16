@@ -59,6 +59,22 @@ abstract class CommunicationUpdateTemplateInput
   ) => _$CommunicationUpdateTemplateInputFromJson(json);
 }
 
+extension CommunicationUpdateTemplateInputExtension
+    on CommunicationUpdateTemplateInput {
+  bool get hasName => name != null;
+  bool get hasNotName => !hasName;
+  bool get hasLang => lang != null;
+  bool get hasNotLang => !hasLang;
+  bool get hasContentMarkdown => contentMarkdown != null;
+  bool get hasNotContentMarkdown => !hasContentMarkdown;
+  bool get hasSubject => subject != null;
+  bool get hasNotSubject => !hasSubject;
+  bool get hasUpdatedBy => updatedBy != null;
+  bool get hasNotUpdatedBy => !hasUpdatedBy;
+  bool get isDisabled => disabled ?? false;
+  bool get isNotDisabled => !isDisabled;
+}
+
 final class CommunicationUpdateTemplateInputConverter
     extends
         JsonConverter<CommunicationUpdateTemplateInput, Map<String, dynamic>> {

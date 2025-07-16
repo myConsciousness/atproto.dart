@@ -33,6 +33,11 @@ abstract class ServerCreateInviteCodeInput with _$ServerCreateInviteCodeInput {
       _$ServerCreateInviteCodeInputFromJson(json);
 }
 
+extension ServerCreateInviteCodeInputExtension on ServerCreateInviteCodeInput {
+  bool get hasForAccount => forAccount != null;
+  bool get hasNotForAccount => !hasForAccount;
+}
+
 final class ServerCreateInviteCodeInputConverter
     extends JsonConverter<ServerCreateInviteCodeInput, Map<String, dynamic>> {
   const ServerCreateInviteCodeInputConverter();

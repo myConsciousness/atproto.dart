@@ -36,6 +36,11 @@ abstract class SyncGetRepoInput with _$SyncGetRepoInput {
       _$SyncGetRepoInputFromJson(json);
 }
 
+extension SyncGetRepoInputExtension on SyncGetRepoInput {
+  bool get hasSince => since != null;
+  bool get hasNotSince => !hasSince;
+}
+
 final class SyncGetRepoInputConverter
     extends JsonConverter<SyncGetRepoInput, Map<String, dynamic>> {
   const SyncGetRepoInputConverter();

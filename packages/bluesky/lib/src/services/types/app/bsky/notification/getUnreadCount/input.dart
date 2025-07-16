@@ -34,6 +34,14 @@ abstract class NotificationGetUnreadCountInput
       _$NotificationGetUnreadCountInputFromJson(json);
 }
 
+extension NotificationGetUnreadCountInputExtension
+    on NotificationGetUnreadCountInput {
+  bool get isPriority => priority ?? false;
+  bool get isNotPriority => !isPriority;
+  bool get hasSeenAt => seenAt != null;
+  bool get hasNotSeenAt => !hasSeenAt;
+}
+
 final class NotificationGetUnreadCountInputConverter
     extends
         JsonConverter<NotificationGetUnreadCountInput, Map<String, dynamic>> {

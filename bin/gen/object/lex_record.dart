@@ -65,6 +65,7 @@ final class LexRecord extends LexType {
 
     final knownProps = getKnownProps(this.properties);
     final validateMethod = _getValidateMethod(id);
+    final extensions = getExtensions(name, this.properties, suffix: 'Record');
     final converter = getObjectConverter(name, suffix: 'Record');
 
     return '''$kHeaderHint
@@ -93,6 +94,8 @@ abstract class ${name}Record with _\$${name}Record {
 
   $validateMethod
 }
+
+$extensions
 
 $converter
 ''';

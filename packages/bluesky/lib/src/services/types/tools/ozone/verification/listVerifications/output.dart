@@ -38,6 +38,12 @@ abstract class VerificationListVerificationsOutput
   ) => _$VerificationListVerificationsOutputFromJson(json);
 }
 
+extension VerificationListVerificationsOutputExtension
+    on VerificationListVerificationsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class VerificationListVerificationsOutputConverter
     extends
         JsonConverter<

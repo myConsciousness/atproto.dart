@@ -44,6 +44,17 @@ abstract class FeedGetAuthorFeedInput with _$FeedGetAuthorFeedInput {
       _$FeedGetAuthorFeedInputFromJson(json);
 }
 
+extension FeedGetAuthorFeedInputExtension on FeedGetAuthorFeedInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasFilter => filter != null;
+  bool get hasNotFilter => !hasFilter;
+  bool get isIncludePins => includePins ?? false;
+  bool get isNotIncludePins => !isIncludePins;
+}
+
 final class FeedGetAuthorFeedInputConverter
     extends JsonConverter<FeedGetAuthorFeedInput, Map<String, dynamic>> {
   const FeedGetAuthorFeedInputConverter();

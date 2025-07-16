@@ -38,6 +38,12 @@ abstract class GraphSearchStarterPacksOutput
       _$GraphSearchStarterPacksOutputFromJson(json);
 }
 
+extension GraphSearchStarterPacksOutputExtension
+    on GraphSearchStarterPacksOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class GraphSearchStarterPacksOutputConverter
     extends JsonConverter<GraphSearchStarterPacksOutput, Map<String, dynamic>> {
   const GraphSearchStarterPacksOutputConverter();

@@ -36,6 +36,11 @@ abstract class ActorSearchActorsOutput with _$ActorSearchActorsOutput {
       _$ActorSearchActorsOutputFromJson(json);
 }
 
+extension ActorSearchActorsOutputExtension on ActorSearchActorsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class ActorSearchActorsOutputConverter
     extends JsonConverter<ActorSearchActorsOutput, Map<String, dynamic>> {
   const ActorSearchActorsOutputConverter();

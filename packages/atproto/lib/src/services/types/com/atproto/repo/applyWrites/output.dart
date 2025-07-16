@@ -37,6 +37,11 @@ abstract class RepoApplyWritesOutput with _$RepoApplyWritesOutput {
       _$RepoApplyWritesOutputFromJson(json);
 }
 
+extension RepoApplyWritesOutputExtension on RepoApplyWritesOutput {
+  bool get hasCommit => commit != null;
+  bool get hasNotCommit => !hasCommit;
+}
+
 final class RepoApplyWritesOutputConverter
     extends JsonConverter<RepoApplyWritesOutput, Map<String, dynamic>> {
   const RepoApplyWritesOutputConverter();

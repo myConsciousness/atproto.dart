@@ -33,6 +33,11 @@ abstract class SyncSubscribeReposInput with _$SyncSubscribeReposInput {
       _$SyncSubscribeReposInputFromJson(json);
 }
 
+extension SyncSubscribeReposInputExtension on SyncSubscribeReposInput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class SyncSubscribeReposInputConverter
     extends JsonConverter<SyncSubscribeReposInput, Map<String, dynamic>> {
   const SyncSubscribeReposInputConverter();

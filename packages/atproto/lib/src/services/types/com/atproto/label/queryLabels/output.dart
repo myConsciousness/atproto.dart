@@ -36,6 +36,11 @@ abstract class LabelQueryLabelsOutput with _$LabelQueryLabelsOutput {
       _$LabelQueryLabelsOutputFromJson(json);
 }
 
+extension LabelQueryLabelsOutputExtension on LabelQueryLabelsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class LabelQueryLabelsOutputConverter
     extends JsonConverter<LabelQueryLabelsOutput, Map<String, dynamic>> {
   const LabelQueryLabelsOutputConverter();

@@ -36,6 +36,11 @@ abstract class FeedGetSuggestedFeedsOutput with _$FeedGetSuggestedFeedsOutput {
       _$FeedGetSuggestedFeedsOutputFromJson(json);
 }
 
+extension FeedGetSuggestedFeedsOutputExtension on FeedGetSuggestedFeedsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class FeedGetSuggestedFeedsOutputConverter
     extends JsonConverter<FeedGetSuggestedFeedsOutput, Map<String, dynamic>> {
   const FeedGetSuggestedFeedsOutputConverter();

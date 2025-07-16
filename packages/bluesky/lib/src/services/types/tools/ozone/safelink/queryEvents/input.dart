@@ -49,6 +49,17 @@ abstract class SafelinkQueryEventsInput with _$SafelinkQueryEventsInput {
       _$SafelinkQueryEventsInputFromJson(json);
 }
 
+extension SafelinkQueryEventsInputExtension on SafelinkQueryEventsInput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasPatternType => patternType != null;
+  bool get hasNotPatternType => !hasPatternType;
+  bool get hasSortDirection => sortDirection != null;
+  bool get hasNotSortDirection => !hasSortDirection;
+}
+
 final class SafelinkQueryEventsInputConverter
     extends JsonConverter<SafelinkQueryEventsInput, Map<String, dynamic>> {
   const SafelinkQueryEventsInputConverter();

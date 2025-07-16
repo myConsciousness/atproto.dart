@@ -35,6 +35,15 @@ abstract class FeedGetTimelineInput with _$FeedGetTimelineInput {
       _$FeedGetTimelineInputFromJson(json);
 }
 
+extension FeedGetTimelineInputExtension on FeedGetTimelineInput {
+  bool get hasAlgorithm => algorithm != null;
+  bool get hasNotAlgorithm => !hasAlgorithm;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class FeedGetTimelineInputConverter
     extends JsonConverter<FeedGetTimelineInput, Map<String, dynamic>> {
   const FeedGetTimelineInputConverter();

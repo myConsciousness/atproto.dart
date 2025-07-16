@@ -36,6 +36,11 @@ abstract class FeedGetActorLikesOutput with _$FeedGetActorLikesOutput {
       _$FeedGetActorLikesOutputFromJson(json);
 }
 
+extension FeedGetActorLikesOutputExtension on FeedGetActorLikesOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class FeedGetActorLikesOutputConverter
     extends JsonConverter<FeedGetActorLikesOutput, Map<String, dynamic>> {
   const FeedGetActorLikesOutputConverter();

@@ -36,6 +36,11 @@ abstract class GraphGetBlocksOutput with _$GraphGetBlocksOutput {
       _$GraphGetBlocksOutputFromJson(json);
 }
 
+extension GraphGetBlocksOutputExtension on GraphGetBlocksOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class GraphGetBlocksOutputConverter
     extends JsonConverter<GraphGetBlocksOutput, Map<String, dynamic>> {
   const GraphGetBlocksOutputConverter();

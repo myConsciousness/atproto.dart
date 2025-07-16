@@ -36,6 +36,12 @@ abstract class AdminEnableAccountInvitesInput
       _$AdminEnableAccountInvitesInputFromJson(json);
 }
 
+extension AdminEnableAccountInvitesInputExtension
+    on AdminEnableAccountInvitesInput {
+  bool get hasNote => note != null;
+  bool get hasNotNote => !hasNote;
+}
+
 final class AdminEnableAccountInvitesInputConverter
     extends
         JsonConverter<AdminEnableAccountInvitesInput, Map<String, dynamic>> {

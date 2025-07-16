@@ -53,6 +53,15 @@ abstract class RepoCreateRecordInput with _$RepoCreateRecordInput {
       _$RepoCreateRecordInputFromJson(json);
 }
 
+extension RepoCreateRecordInputExtension on RepoCreateRecordInput {
+  bool get hasRkey => rkey != null;
+  bool get hasNotRkey => !hasRkey;
+  bool get isValidate => validate ?? false;
+  bool get isNotValidate => !isValidate;
+  bool get hasSwapCommit => swapCommit != null;
+  bool get hasNotSwapCommit => !hasSwapCommit;
+}
+
 final class RepoCreateRecordInputConverter
     extends JsonConverter<RepoCreateRecordInput, Map<String, dynamic>> {
   const RepoCreateRecordInputConverter();

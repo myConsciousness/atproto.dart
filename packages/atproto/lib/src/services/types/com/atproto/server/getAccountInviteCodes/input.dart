@@ -37,6 +37,14 @@ abstract class ServerGetAccountInviteCodesInput
   ) => _$ServerGetAccountInviteCodesInputFromJson(json);
 }
 
+extension ServerGetAccountInviteCodesInputExtension
+    on ServerGetAccountInviteCodesInput {
+  bool get isIncludeUsed => includeUsed ?? false;
+  bool get isNotIncludeUsed => !isIncludeUsed;
+  bool get isCreateAvailable => createAvailable ?? false;
+  bool get isNotCreateAvailable => !isCreateAvailable;
+}
+
 final class ServerGetAccountInviteCodesInputConverter
     extends
         JsonConverter<ServerGetAccountInviteCodesInput, Map<String, dynamic>> {

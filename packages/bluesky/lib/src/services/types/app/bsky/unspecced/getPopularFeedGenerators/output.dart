@@ -38,6 +38,12 @@ abstract class UnspeccedGetPopularFeedGeneratorsOutput
   ) => _$UnspeccedGetPopularFeedGeneratorsOutputFromJson(json);
 }
 
+extension UnspeccedGetPopularFeedGeneratorsOutputExtension
+    on UnspeccedGetPopularFeedGeneratorsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class UnspeccedGetPopularFeedGeneratorsOutputConverter
     extends
         JsonConverter<

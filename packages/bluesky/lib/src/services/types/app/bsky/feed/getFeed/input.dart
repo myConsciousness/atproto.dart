@@ -34,6 +34,13 @@ abstract class FeedGetFeedInput with _$FeedGetFeedInput {
       _$FeedGetFeedInputFromJson(json);
 }
 
+extension FeedGetFeedInputExtension on FeedGetFeedInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class FeedGetFeedInputConverter
     extends JsonConverter<FeedGetFeedInput, Map<String, dynamic>> {
   const FeedGetFeedInputConverter();

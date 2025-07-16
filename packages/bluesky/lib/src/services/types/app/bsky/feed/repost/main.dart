@@ -41,6 +41,11 @@ abstract class FeedRepostRecord with _$FeedRepostRecord {
   }
 }
 
+extension FeedRepostRecordExtension on FeedRepostRecord {
+  bool get hasVia => via != null;
+  bool get hasNotVia => !hasVia;
+}
+
 final class FeedRepostRecordConverter
     extends JsonConverter<FeedRepostRecord, Map<String, dynamic>> {
   const FeedRepostRecordConverter();

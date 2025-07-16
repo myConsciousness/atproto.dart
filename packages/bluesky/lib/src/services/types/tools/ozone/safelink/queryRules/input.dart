@@ -59,6 +59,21 @@ abstract class SafelinkQueryRulesInput with _$SafelinkQueryRulesInput {
       _$SafelinkQueryRulesInputFromJson(json);
 }
 
+extension SafelinkQueryRulesInputExtension on SafelinkQueryRulesInput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasPatternType => patternType != null;
+  bool get hasNotPatternType => !hasPatternType;
+  bool get hasReason => reason != null;
+  bool get hasNotReason => !hasReason;
+  bool get hasCreatedBy => createdBy != null;
+  bool get hasNotCreatedBy => !hasCreatedBy;
+  bool get hasSortDirection => sortDirection != null;
+  bool get hasNotSortDirection => !hasSortDirection;
+}
+
 final class SafelinkQueryRulesInputConverter
     extends JsonConverter<SafelinkQueryRulesInput, Map<String, dynamic>> {
   const SafelinkQueryRulesInputConverter();

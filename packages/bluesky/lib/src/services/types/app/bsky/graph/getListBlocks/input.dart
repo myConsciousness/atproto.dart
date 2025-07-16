@@ -33,6 +33,13 @@ abstract class GraphGetListBlocksInput with _$GraphGetListBlocksInput {
       _$GraphGetListBlocksInputFromJson(json);
 }
 
+extension GraphGetListBlocksInputExtension on GraphGetListBlocksInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class GraphGetListBlocksInputConverter
     extends JsonConverter<GraphGetListBlocksInput, Map<String, dynamic>> {
   const GraphGetListBlocksInputConverter();

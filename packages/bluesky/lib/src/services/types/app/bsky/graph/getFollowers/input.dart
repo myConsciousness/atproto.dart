@@ -34,6 +34,13 @@ abstract class GraphGetFollowersInput with _$GraphGetFollowersInput {
       _$GraphGetFollowersInputFromJson(json);
 }
 
+extension GraphGetFollowersInputExtension on GraphGetFollowersInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class GraphGetFollowersInputConverter
     extends JsonConverter<GraphGetFollowersInput, Map<String, dynamic>> {
   const GraphGetFollowersInputConverter();

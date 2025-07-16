@@ -39,6 +39,16 @@ abstract class UnspeccedGetSuggestedUsersSkeletonInput
   ) => _$UnspeccedGetSuggestedUsersSkeletonInputFromJson(json);
 }
 
+extension UnspeccedGetSuggestedUsersSkeletonInputExtension
+    on UnspeccedGetSuggestedUsersSkeletonInput {
+  bool get hasViewer => viewer != null;
+  bool get hasNotViewer => !hasViewer;
+  bool get hasCategory => category != null;
+  bool get hasNotCategory => !hasCategory;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+}
+
 final class UnspeccedGetSuggestedUsersSkeletonInputConverter
     extends
         JsonConverter<

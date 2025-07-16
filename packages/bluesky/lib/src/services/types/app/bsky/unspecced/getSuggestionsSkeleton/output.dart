@@ -49,6 +49,16 @@ abstract class UnspeccedGetSuggestionsSkeletonOutput
   ) => _$UnspeccedGetSuggestionsSkeletonOutputFromJson(json);
 }
 
+extension UnspeccedGetSuggestionsSkeletonOutputExtension
+    on UnspeccedGetSuggestionsSkeletonOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasRelativeToDid => relativeToDid != null;
+  bool get hasNotRelativeToDid => !hasRelativeToDid;
+  bool get hasRecId => recId != null;
+  bool get hasNotRecId => !hasRecId;
+}
+
 final class UnspeccedGetSuggestionsSkeletonOutputConverter
     extends
         JsonConverter<

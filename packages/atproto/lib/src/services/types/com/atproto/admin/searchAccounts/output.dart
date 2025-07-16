@@ -36,6 +36,11 @@ abstract class AdminSearchAccountsOutput with _$AdminSearchAccountsOutput {
       _$AdminSearchAccountsOutputFromJson(json);
 }
 
+extension AdminSearchAccountsOutputExtension on AdminSearchAccountsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class AdminSearchAccountsOutputConverter
     extends JsonConverter<AdminSearchAccountsOutput, Map<String, dynamic>> {
   const AdminSearchAccountsOutputConverter();

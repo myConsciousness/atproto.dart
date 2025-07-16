@@ -35,6 +35,12 @@ abstract class SignatureSearchAccountsOutput
       _$SignatureSearchAccountsOutputFromJson(json);
 }
 
+extension SignatureSearchAccountsOutputExtension
+    on SignatureSearchAccountsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class SignatureSearchAccountsOutputConverter
     extends JsonConverter<SignatureSearchAccountsOutput, Map<String, dynamic>> {
   const SignatureSearchAccountsOutputConverter();

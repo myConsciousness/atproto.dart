@@ -36,6 +36,11 @@ abstract class RepoListMissingBlobsOutput with _$RepoListMissingBlobsOutput {
       _$RepoListMissingBlobsOutputFromJson(json);
 }
 
+extension RepoListMissingBlobsOutputExtension on RepoListMissingBlobsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class RepoListMissingBlobsOutputConverter
     extends JsonConverter<RepoListMissingBlobsOutput, Map<String, dynamic>> {
   const RepoListMissingBlobsOutputConverter();

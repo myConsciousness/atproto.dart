@@ -43,6 +43,13 @@ abstract class RepoCreateRecordOutput with _$RepoCreateRecordOutput {
       _$RepoCreateRecordOutputFromJson(json);
 }
 
+extension RepoCreateRecordOutputExtension on RepoCreateRecordOutput {
+  bool get hasCommit => commit != null;
+  bool get hasNotCommit => !hasCommit;
+  bool get hasValidationStatus => validationStatus != null;
+  bool get hasNotValidationStatus => !hasValidationStatus;
+}
+
 final class RepoCreateRecordOutputConverter
     extends JsonConverter<RepoCreateRecordOutput, Map<String, dynamic>> {
   const RepoCreateRecordOutputConverter();

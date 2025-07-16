@@ -36,6 +36,14 @@ abstract class ModerationUpdateActorAccessInput
   ) => _$ModerationUpdateActorAccessInputFromJson(json);
 }
 
+extension ModerationUpdateActorAccessInputExtension
+    on ModerationUpdateActorAccessInput {
+  bool get isAllowAccess => allowAccess;
+  bool get isNotAllowAccess => !isAllowAccess;
+  bool get hasRef => ref != null;
+  bool get hasNotRef => !hasRef;
+}
+
 final class ModerationUpdateActorAccessInputConverter
     extends
         JsonConverter<ModerationUpdateActorAccessInput, Map<String, dynamic>> {

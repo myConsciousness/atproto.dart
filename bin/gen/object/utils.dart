@@ -1,4 +1,5 @@
 import 'lex_property.dart';
+import '../utils.dart';
 import '../rule.dart' as rule;
 
 String getKnownProps(final List<LexProperty> properties) {
@@ -36,4 +37,68 @@ String getObjectConverter(final String name, {String suffix = ''}) {
       );
 }
 ''';
+}
+
+String getExtensions(
+  final String name,
+  final List<LexProperty> properties, {
+  String suffix = '',
+}) {
+  final extensions = StringBuffer();
+
+  for (final property in properties) {
+    if (rule.isDeprecated(property.description)) continue;
+    if (property.type.isArray) continue;
+
+    if (property.type.isBoolean) {
+      final isA = 'is${toFirstUpperCase(property.name)}';
+      final isNotA = 'isNot${toFirstUpperCase(property.name)}';
+
+      if (!_isKnownPropertyName(isA, properties)) {
+        if (property.isRequired) {
+          extensions.writeln('bool get $isA => ${property.name};');
+        } else {
+          final defaultValue = property.defaultValue ?? false.toString();
+          extensions.writeln(
+            'bool get $isA => ${property.name} ?? $defaultValue;',
+          );
+        }
+      }
+      if (!_isKnownPropertyName(isNotA, properties)) {
+        extensions.writeln('bool get $isNotA => !$isA;');
+      }
+    } else {
+      if (property.isRequired) continue;
+
+      final hasA = 'has${toFirstUpperCase(property.name)}';
+      final hasNotA = 'hasNot${toFirstUpperCase(property.name)}';
+
+      if (!_isKnownPropertyName(hasA, properties)) {
+        extensions.writeln('bool get $hasA => ${property.name} != null;');
+      }
+      if (!_isKnownPropertyName(hasNotA, properties)) {
+        extensions.writeln('bool get $hasNotA => !$hasA;');
+      }
+    }
+  }
+
+  if (extensions.isEmpty) return '';
+
+  return '''extension ${name}${suffix}Extension on $name$suffix {
+${extensions.toString()}
+}
+''';
+}
+
+bool _isKnownPropertyName(
+  final String name,
+  final List<LexProperty> properties,
+) {
+  for (final property in properties) {
+    if (property.name == name) {
+      return true;
+    }
+  }
+
+  return false;
 }

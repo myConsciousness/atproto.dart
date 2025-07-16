@@ -34,6 +34,12 @@ abstract class UnspeccedGetSuggestedStarterPacksInput
   ) => _$UnspeccedGetSuggestedStarterPacksInputFromJson(json);
 }
 
+extension UnspeccedGetSuggestedStarterPacksInputExtension
+    on UnspeccedGetSuggestedStarterPacksInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+}
+
 final class UnspeccedGetSuggestedStarterPacksInputConverter
     extends
         JsonConverter<

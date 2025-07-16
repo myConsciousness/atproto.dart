@@ -42,6 +42,11 @@ abstract class RepoGetRecordInput with _$RepoGetRecordInput {
       _$RepoGetRecordInputFromJson(json);
 }
 
+extension RepoGetRecordInputExtension on RepoGetRecordInput {
+  bool get hasCid => cid != null;
+  bool get hasNotCid => !hasCid;
+}
+
 final class RepoGetRecordInputConverter
     extends JsonConverter<RepoGetRecordInput, Map<String, dynamic>> {
   const RepoGetRecordInputConverter();

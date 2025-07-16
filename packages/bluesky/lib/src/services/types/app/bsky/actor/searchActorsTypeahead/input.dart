@@ -35,6 +35,14 @@ abstract class ActorSearchActorsTypeaheadInput
       _$ActorSearchActorsTypeaheadInputFromJson(json);
 }
 
+extension ActorSearchActorsTypeaheadInputExtension
+    on ActorSearchActorsTypeaheadInput {
+  bool get hasQ => q != null;
+  bool get hasNotQ => !hasQ;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+}
+
 final class ActorSearchActorsTypeaheadInputConverter
     extends
         JsonConverter<ActorSearchActorsTypeaheadInput, Map<String, dynamic>> {

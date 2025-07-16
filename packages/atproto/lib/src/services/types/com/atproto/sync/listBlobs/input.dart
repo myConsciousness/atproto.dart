@@ -38,6 +38,15 @@ abstract class SyncListBlobsInput with _$SyncListBlobsInput {
       _$SyncListBlobsInputFromJson(json);
 }
 
+extension SyncListBlobsInputExtension on SyncListBlobsInput {
+  bool get hasSince => since != null;
+  bool get hasNotSince => !hasSince;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class SyncListBlobsInputConverter
     extends JsonConverter<SyncListBlobsInput, Map<String, dynamic>> {
   const SyncListBlobsInputConverter();

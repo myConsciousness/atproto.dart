@@ -41,6 +41,14 @@ abstract class UnspeccedSearchActorsSkeletonOutput
   ) => _$UnspeccedSearchActorsSkeletonOutputFromJson(json);
 }
 
+extension UnspeccedSearchActorsSkeletonOutputExtension
+    on UnspeccedSearchActorsSkeletonOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasHitsTotal => hitsTotal != null;
+  bool get hasNotHitsTotal => !hasHitsTotal;
+}
+
 final class UnspeccedSearchActorsSkeletonOutputConverter
     extends
         JsonConverter<

@@ -49,6 +49,11 @@ abstract class ModerationEmitEventInput with _$ModerationEmitEventInput {
       _$ModerationEmitEventInputFromJson(json);
 }
 
+extension ModerationEmitEventInputExtension on ModerationEmitEventInput {
+  bool get hasModTool => modTool != null;
+  bool get hasNotModTool => !hasModTool;
+}
+
 final class ModerationEmitEventInputConverter
     extends JsonConverter<ModerationEmitEventInput, Map<String, dynamic>> {
   const ModerationEmitEventInputConverter();

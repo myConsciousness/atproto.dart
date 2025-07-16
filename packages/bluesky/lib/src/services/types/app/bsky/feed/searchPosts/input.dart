@@ -75,6 +75,29 @@ abstract class FeedSearchPostsInput with _$FeedSearchPostsInput {
       _$FeedSearchPostsInputFromJson(json);
 }
 
+extension FeedSearchPostsInputExtension on FeedSearchPostsInput {
+  bool get hasSort => sort != null;
+  bool get hasNotSort => !hasSort;
+  bool get hasSince => since != null;
+  bool get hasNotSince => !hasSince;
+  bool get hasUntil => until != null;
+  bool get hasNotUntil => !hasUntil;
+  bool get hasMentions => mentions != null;
+  bool get hasNotMentions => !hasMentions;
+  bool get hasAuthor => author != null;
+  bool get hasNotAuthor => !hasAuthor;
+  bool get hasLang => lang != null;
+  bool get hasNotLang => !hasLang;
+  bool get hasDomain => domain != null;
+  bool get hasNotDomain => !hasDomain;
+  bool get hasUrl => url != null;
+  bool get hasNotUrl => !hasUrl;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class FeedSearchPostsInputConverter
     extends JsonConverter<FeedSearchPostsInput, Map<String, dynamic>> {
   const FeedSearchPostsInputConverter();

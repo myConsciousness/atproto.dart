@@ -36,6 +36,11 @@ abstract class GraphGetListsOutput with _$GraphGetListsOutput {
       _$GraphGetListsOutputFromJson(json);
 }
 
+extension GraphGetListsOutputExtension on GraphGetListsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class GraphGetListsOutputConverter
     extends JsonConverter<GraphGetListsOutput, Map<String, dynamic>> {
   const GraphGetListsOutputConverter();

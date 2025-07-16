@@ -33,6 +33,13 @@ abstract class FeedGetSuggestedFeedsInput with _$FeedGetSuggestedFeedsInput {
       _$FeedGetSuggestedFeedsInputFromJson(json);
 }
 
+extension FeedGetSuggestedFeedsInputExtension on FeedGetSuggestedFeedsInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class FeedGetSuggestedFeedsInputConverter
     extends JsonConverter<FeedGetSuggestedFeedsInput, Map<String, dynamic>> {
   const FeedGetSuggestedFeedsInputConverter();

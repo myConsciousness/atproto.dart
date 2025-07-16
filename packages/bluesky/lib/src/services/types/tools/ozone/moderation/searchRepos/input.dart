@@ -34,6 +34,15 @@ abstract class ModerationSearchReposInput with _$ModerationSearchReposInput {
       _$ModerationSearchReposInputFromJson(json);
 }
 
+extension ModerationSearchReposInputExtension on ModerationSearchReposInput {
+  bool get hasQ => q != null;
+  bool get hasNotQ => !hasQ;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class ModerationSearchReposInputConverter
     extends JsonConverter<ModerationSearchReposInput, Map<String, dynamic>> {
   const ModerationSearchReposInputConverter();

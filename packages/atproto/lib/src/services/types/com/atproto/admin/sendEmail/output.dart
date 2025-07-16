@@ -32,6 +32,11 @@ abstract class AdminSendEmailOutput with _$AdminSendEmailOutput {
       _$AdminSendEmailOutputFromJson(json);
 }
 
+extension AdminSendEmailOutputExtension on AdminSendEmailOutput {
+  bool get isSent => sent;
+  bool get isNotSent => !isSent;
+}
+
 final class AdminSendEmailOutputConverter
     extends JsonConverter<AdminSendEmailOutput, Map<String, dynamic>> {
   const AdminSendEmailOutputConverter();

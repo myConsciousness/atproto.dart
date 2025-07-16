@@ -45,6 +45,16 @@ abstract class NotificationListNotificationsOutput
   ) => _$NotificationListNotificationsOutputFromJson(json);
 }
 
+extension NotificationListNotificationsOutputExtension
+    on NotificationListNotificationsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get isPriority => priority ?? false;
+  bool get isNotPriority => !isPriority;
+  bool get hasSeenAt => seenAt != null;
+  bool get hasNotSeenAt => !hasSeenAt;
+}
+
 final class NotificationListNotificationsOutputConverter
     extends
         JsonConverter<

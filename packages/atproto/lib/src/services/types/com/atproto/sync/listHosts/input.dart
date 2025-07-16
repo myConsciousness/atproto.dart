@@ -33,6 +33,13 @@ abstract class SyncListHostsInput with _$SyncListHostsInput {
       _$SyncListHostsInputFromJson(json);
 }
 
+extension SyncListHostsInputExtension on SyncListHostsInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class SyncListHostsInputConverter
     extends JsonConverter<SyncListHostsInput, Map<String, dynamic>> {
   const SyncListHostsInputConverter();

@@ -55,6 +55,17 @@ abstract class ServerDescribeServerOutput with _$ServerDescribeServerOutput {
       _$ServerDescribeServerOutputFromJson(json);
 }
 
+extension ServerDescribeServerOutputExtension on ServerDescribeServerOutput {
+  bool get isInviteCodeRequired => inviteCodeRequired ?? false;
+  bool get isNotInviteCodeRequired => !isInviteCodeRequired;
+  bool get isPhoneVerificationRequired => phoneVerificationRequired ?? false;
+  bool get isNotPhoneVerificationRequired => !isPhoneVerificationRequired;
+  bool get hasLinks => links != null;
+  bool get hasNotLinks => !hasLinks;
+  bool get hasContact => contact != null;
+  bool get hasNotContact => !hasContact;
+}
+
 final class ServerDescribeServerOutputConverter
     extends JsonConverter<ServerDescribeServerOutput, Map<String, dynamic>> {
   const ServerDescribeServerOutputConverter();

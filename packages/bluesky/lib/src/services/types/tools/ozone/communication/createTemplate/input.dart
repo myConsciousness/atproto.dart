@@ -53,6 +53,14 @@ abstract class CommunicationCreateTemplateInput
   ) => _$CommunicationCreateTemplateInputFromJson(json);
 }
 
+extension CommunicationCreateTemplateInputExtension
+    on CommunicationCreateTemplateInput {
+  bool get hasLang => lang != null;
+  bool get hasNotLang => !hasLang;
+  bool get hasCreatedBy => createdBy != null;
+  bool get hasNotCreatedBy => !hasCreatedBy;
+}
+
 final class CommunicationCreateTemplateInputConverter
     extends
         JsonConverter<CommunicationCreateTemplateInput, Map<String, dynamic>> {

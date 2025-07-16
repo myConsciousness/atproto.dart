@@ -37,6 +37,12 @@ abstract class HostingGetAccountHistoryOutput
       _$HostingGetAccountHistoryOutputFromJson(json);
 }
 
+extension HostingGetAccountHistoryOutputExtension
+    on HostingGetAccountHistoryOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class HostingGetAccountHistoryOutputConverter
     extends
         JsonConverter<HostingGetAccountHistoryOutput, Map<String, dynamic>> {

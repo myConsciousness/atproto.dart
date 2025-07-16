@@ -37,6 +37,14 @@ abstract class ConvoGetConvoAvailabilityOutput
       _$ConvoGetConvoAvailabilityOutputFromJson(json);
 }
 
+extension ConvoGetConvoAvailabilityOutputExtension
+    on ConvoGetConvoAvailabilityOutput {
+  bool get isCanChat => canChat;
+  bool get isNotCanChat => !isCanChat;
+  bool get hasConvo => convo != null;
+  bool get hasNotConvo => !hasConvo;
+}
+
 final class ConvoGetConvoAvailabilityOutputConverter
     extends
         JsonConverter<ConvoGetConvoAvailabilityOutput, Map<String, dynamic>> {

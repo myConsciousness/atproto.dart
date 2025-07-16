@@ -36,6 +36,11 @@ abstract class AdminGetInviteCodesOutput with _$AdminGetInviteCodesOutput {
       _$AdminGetInviteCodesOutputFromJson(json);
 }
 
+extension AdminGetInviteCodesOutputExtension on AdminGetInviteCodesOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class AdminGetInviteCodesOutputConverter
     extends JsonConverter<AdminGetInviteCodesOutput, Map<String, dynamic>> {
   const AdminGetInviteCodesOutputConverter();

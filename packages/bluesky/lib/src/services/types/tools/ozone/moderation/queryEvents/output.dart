@@ -36,6 +36,11 @@ abstract class ModerationQueryEventsOutput with _$ModerationQueryEventsOutput {
       _$ModerationQueryEventsOutputFromJson(json);
 }
 
+extension ModerationQueryEventsOutputExtension on ModerationQueryEventsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class ModerationQueryEventsOutputConverter
     extends JsonConverter<ModerationQueryEventsOutput, Map<String, dynamic>> {
   const ModerationQueryEventsOutputConverter();

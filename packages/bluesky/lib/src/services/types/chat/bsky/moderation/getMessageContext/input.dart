@@ -38,6 +38,16 @@ abstract class ModerationGetMessageContextInput
   ) => _$ModerationGetMessageContextInputFromJson(json);
 }
 
+extension ModerationGetMessageContextInputExtension
+    on ModerationGetMessageContextInput {
+  bool get hasConvoId => convoId != null;
+  bool get hasNotConvoId => !hasConvoId;
+  bool get hasBefore => before != null;
+  bool get hasNotBefore => !hasBefore;
+  bool get hasAfter => after != null;
+  bool get hasNotAfter => !hasAfter;
+}
+
 final class ModerationGetMessageContextInputConverter
     extends
         JsonConverter<ModerationGetMessageContextInput, Map<String, dynamic>> {

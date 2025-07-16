@@ -34,6 +34,12 @@ abstract class ServerReserveSigningKeyInput
       _$ServerReserveSigningKeyInputFromJson(json);
 }
 
+extension ServerReserveSigningKeyInputExtension
+    on ServerReserveSigningKeyInput {
+  bool get hasDid => did != null;
+  bool get hasNotDid => !hasDid;
+}
+
 final class ServerReserveSigningKeyInputConverter
     extends JsonConverter<ServerReserveSigningKeyInput, Map<String, dynamic>> {
   const ServerReserveSigningKeyInputConverter();

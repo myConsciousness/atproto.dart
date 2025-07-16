@@ -39,6 +39,13 @@ abstract class ServerGetServiceAuthInput with _$ServerGetServiceAuthInput {
       _$ServerGetServiceAuthInputFromJson(json);
 }
 
+extension ServerGetServiceAuthInputExtension on ServerGetServiceAuthInput {
+  bool get hasExp => exp != null;
+  bool get hasNotExp => !hasExp;
+  bool get hasLxm => lxm != null;
+  bool get hasNotLxm => !hasLxm;
+}
+
 final class ServerGetServiceAuthInputConverter
     extends JsonConverter<ServerGetServiceAuthInput, Map<String, dynamic>> {
   const ServerGetServiceAuthInputConverter();

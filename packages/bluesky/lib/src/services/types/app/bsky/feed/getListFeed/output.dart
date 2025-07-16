@@ -36,6 +36,11 @@ abstract class FeedGetListFeedOutput with _$FeedGetListFeedOutput {
       _$FeedGetListFeedOutputFromJson(json);
 }
 
+extension FeedGetListFeedOutputExtension on FeedGetListFeedOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class FeedGetListFeedOutputConverter
     extends JsonConverter<FeedGetListFeedOutput, Map<String, dynamic>> {
   const FeedGetListFeedOutputConverter();

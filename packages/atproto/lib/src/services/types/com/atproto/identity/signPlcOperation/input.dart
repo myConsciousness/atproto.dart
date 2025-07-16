@@ -44,6 +44,16 @@ abstract class IdentitySignPlcOperationInput
       _$IdentitySignPlcOperationInputFromJson(json);
 }
 
+extension IdentitySignPlcOperationInputExtension
+    on IdentitySignPlcOperationInput {
+  bool get hasToken => token != null;
+  bool get hasNotToken => !hasToken;
+  bool get hasVerificationMethods => verificationMethods != null;
+  bool get hasNotVerificationMethods => !hasVerificationMethods;
+  bool get hasServices => services != null;
+  bool get hasNotServices => !hasServices;
+}
+
 final class IdentitySignPlcOperationInputConverter
     extends JsonConverter<IdentitySignPlcOperationInput, Map<String, dynamic>> {
   const IdentitySignPlcOperationInputConverter();

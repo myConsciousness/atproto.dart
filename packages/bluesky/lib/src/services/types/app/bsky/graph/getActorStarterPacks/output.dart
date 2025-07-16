@@ -38,6 +38,12 @@ abstract class GraphGetActorStarterPacksOutput
       _$GraphGetActorStarterPacksOutputFromJson(json);
 }
 
+extension GraphGetActorStarterPacksOutputExtension
+    on GraphGetActorStarterPacksOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class GraphGetActorStarterPacksOutputConverter
     extends
         JsonConverter<GraphGetActorStarterPacksOutput, Map<String, dynamic>> {

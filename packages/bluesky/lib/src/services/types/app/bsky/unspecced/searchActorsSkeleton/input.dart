@@ -51,6 +51,18 @@ abstract class UnspeccedSearchActorsSkeletonInput
   ) => _$UnspeccedSearchActorsSkeletonInputFromJson(json);
 }
 
+extension UnspeccedSearchActorsSkeletonInputExtension
+    on UnspeccedSearchActorsSkeletonInput {
+  bool get hasViewer => viewer != null;
+  bool get hasNotViewer => !hasViewer;
+  bool get isTypeahead => typeahead ?? false;
+  bool get isNotTypeahead => !isTypeahead;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class UnspeccedSearchActorsSkeletonInputConverter
     extends
         JsonConverter<

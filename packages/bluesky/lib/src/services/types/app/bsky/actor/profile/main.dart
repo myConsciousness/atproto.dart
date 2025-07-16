@@ -64,6 +64,25 @@ abstract class ActorProfileRecord with _$ActorProfileRecord {
   }
 }
 
+extension ActorProfileRecordExtension on ActorProfileRecord {
+  bool get hasDisplayName => displayName != null;
+  bool get hasNotDisplayName => !hasDisplayName;
+  bool get hasDescription => description != null;
+  bool get hasNotDescription => !hasDescription;
+  bool get hasAvatar => avatar != null;
+  bool get hasNotAvatar => !hasAvatar;
+  bool get hasBanner => banner != null;
+  bool get hasNotBanner => !hasBanner;
+  bool get hasLabels => labels != null;
+  bool get hasNotLabels => !hasLabels;
+  bool get hasJoinedViaStarterPack => joinedViaStarterPack != null;
+  bool get hasNotJoinedViaStarterPack => !hasJoinedViaStarterPack;
+  bool get hasPinnedPost => pinnedPost != null;
+  bool get hasNotPinnedPost => !hasPinnedPost;
+  bool get hasCreatedAt => createdAt != null;
+  bool get hasNotCreatedAt => !hasCreatedAt;
+}
+
 final class ActorProfileRecordConverter
     extends JsonConverter<ActorProfileRecord, Map<String, dynamic>> {
   const ActorProfileRecordConverter();

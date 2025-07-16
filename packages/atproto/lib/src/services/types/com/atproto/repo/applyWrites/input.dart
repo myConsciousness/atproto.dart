@@ -49,6 +49,13 @@ abstract class RepoApplyWritesInput with _$RepoApplyWritesInput {
       _$RepoApplyWritesInputFromJson(json);
 }
 
+extension RepoApplyWritesInputExtension on RepoApplyWritesInput {
+  bool get isValidate => validate ?? false;
+  bool get isNotValidate => !isValidate;
+  bool get hasSwapCommit => swapCommit != null;
+  bool get hasNotSwapCommit => !hasSwapCommit;
+}
+
 final class RepoApplyWritesInputConverter
     extends JsonConverter<RepoApplyWritesInput, Map<String, dynamic>> {
   const RepoApplyWritesInputConverter();

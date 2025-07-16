@@ -34,6 +34,11 @@ abstract class RepoGetRecordOutput with _$RepoGetRecordOutput {
       _$RepoGetRecordOutputFromJson(json);
 }
 
+extension RepoGetRecordOutputExtension on RepoGetRecordOutput {
+  bool get hasCid => cid != null;
+  bool get hasNotCid => !hasCid;
+}
+
 final class RepoGetRecordOutputConverter
     extends JsonConverter<RepoGetRecordOutput, Map<String, dynamic>> {
   const RepoGetRecordOutputConverter();

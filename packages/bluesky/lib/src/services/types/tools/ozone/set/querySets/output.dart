@@ -36,6 +36,11 @@ abstract class SetQuerySetsOutput with _$SetQuerySetsOutput {
       _$SetQuerySetsOutputFromJson(json);
 }
 
+extension SetQuerySetsOutputExtension on SetQuerySetsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class SetQuerySetsOutputConverter
     extends JsonConverter<SetQuerySetsOutput, Map<String, dynamic>> {
   const SetQuerySetsOutputConverter();

@@ -51,6 +51,14 @@ abstract class ServerCheckAccountStatusOutput
       _$ServerCheckAccountStatusOutputFromJson(json);
 }
 
+extension ServerCheckAccountStatusOutputExtension
+    on ServerCheckAccountStatusOutput {
+  bool get isActivated => activated;
+  bool get isNotActivated => !isActivated;
+  bool get isValidDid => validDid;
+  bool get isNotValidDid => !isValidDid;
+}
+
 final class ServerCheckAccountStatusOutputConverter
     extends
         JsonConverter<ServerCheckAccountStatusOutput, Map<String, dynamic>> {

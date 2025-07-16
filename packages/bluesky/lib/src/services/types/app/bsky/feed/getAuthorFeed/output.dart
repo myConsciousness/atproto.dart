@@ -36,6 +36,11 @@ abstract class FeedGetAuthorFeedOutput with _$FeedGetAuthorFeedOutput {
       _$FeedGetAuthorFeedOutputFromJson(json);
 }
 
+extension FeedGetAuthorFeedOutputExtension on FeedGetAuthorFeedOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class FeedGetAuthorFeedOutputConverter
     extends JsonConverter<FeedGetAuthorFeedOutput, Map<String, dynamic>> {
   const FeedGetAuthorFeedOutputConverter();

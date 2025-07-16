@@ -35,6 +35,14 @@ abstract class SignatureSearchAccountsInput
       _$SignatureSearchAccountsInputFromJson(json);
 }
 
+extension SignatureSearchAccountsInputExtension
+    on SignatureSearchAccountsInput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+}
+
 final class SignatureSearchAccountsInputConverter
     extends JsonConverter<SignatureSearchAccountsInput, Map<String, dynamic>> {
   const SignatureSearchAccountsInputConverter();

@@ -44,6 +44,11 @@ abstract class RepoDescribeRepoOutput with _$RepoDescribeRepoOutput {
       _$RepoDescribeRepoOutputFromJson(json);
 }
 
+extension RepoDescribeRepoOutputExtension on RepoDescribeRepoOutput {
+  bool get isHandleIsCorrect => handleIsCorrect;
+  bool get isNotHandleIsCorrect => !isHandleIsCorrect;
+}
+
 final class RepoDescribeRepoOutputConverter
     extends JsonConverter<RepoDescribeRepoOutput, Map<String, dynamic>> {
   const RepoDescribeRepoOutputConverter();

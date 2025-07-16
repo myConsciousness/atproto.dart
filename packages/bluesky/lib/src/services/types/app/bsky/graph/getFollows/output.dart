@@ -37,6 +37,11 @@ abstract class GraphGetFollowsOutput with _$GraphGetFollowsOutput {
       _$GraphGetFollowsOutputFromJson(json);
 }
 
+extension GraphGetFollowsOutputExtension on GraphGetFollowsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class GraphGetFollowsOutputConverter
     extends JsonConverter<GraphGetFollowsOutput, Map<String, dynamic>> {
   const GraphGetFollowsOutputConverter();

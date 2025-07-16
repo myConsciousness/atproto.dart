@@ -43,6 +43,13 @@ abstract class SafelinkRemoveRuleInput with _$SafelinkRemoveRuleInput {
       _$SafelinkRemoveRuleInputFromJson(json);
 }
 
+extension SafelinkRemoveRuleInputExtension on SafelinkRemoveRuleInput {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+  bool get hasCreatedBy => createdBy != null;
+  bool get hasNotCreatedBy => !hasCreatedBy;
+}
+
 final class SafelinkRemoveRuleInputConverter
     extends JsonConverter<SafelinkRemoveRuleInput, Map<String, dynamic>> {
   const SafelinkRemoveRuleInputConverter();

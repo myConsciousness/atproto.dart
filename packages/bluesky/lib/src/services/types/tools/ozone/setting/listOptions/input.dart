@@ -44,6 +44,17 @@ abstract class SettingListOptionsInput with _$SettingListOptionsInput {
       _$SettingListOptionsInputFromJson(json);
 }
 
+extension SettingListOptionsInputExtension on SettingListOptionsInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasScope => scope != null;
+  bool get hasNotScope => !hasScope;
+  bool get hasPrefix => prefix != null;
+  bool get hasNotPrefix => !hasPrefix;
+}
+
 final class SettingListOptionsInputConverter
     extends JsonConverter<SettingListOptionsInput, Map<String, dynamic>> {
   const SettingListOptionsInputConverter();

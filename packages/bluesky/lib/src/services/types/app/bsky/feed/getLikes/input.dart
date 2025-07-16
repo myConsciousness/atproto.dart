@@ -38,6 +38,15 @@ abstract class FeedGetLikesInput with _$FeedGetLikesInput {
       _$FeedGetLikesInputFromJson(json);
 }
 
+extension FeedGetLikesInputExtension on FeedGetLikesInput {
+  bool get hasCid => cid != null;
+  bool get hasNotCid => !hasCid;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class FeedGetLikesInputConverter
     extends JsonConverter<FeedGetLikesInput, Map<String, dynamic>> {
   const FeedGetLikesInputConverter();

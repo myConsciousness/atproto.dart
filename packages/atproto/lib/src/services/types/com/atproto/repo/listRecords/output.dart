@@ -37,6 +37,11 @@ abstract class RepoListRecordsOutput with _$RepoListRecordsOutput {
       _$RepoListRecordsOutputFromJson(json);
 }
 
+extension RepoListRecordsOutputExtension on RepoListRecordsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class RepoListRecordsOutputConverter
     extends JsonConverter<RepoListRecordsOutput, Map<String, dynamic>> {
   const RepoListRecordsOutputConverter();

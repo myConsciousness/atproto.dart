@@ -35,6 +35,15 @@ abstract class ActorSearchActorsInput with _$ActorSearchActorsInput {
       _$ActorSearchActorsInputFromJson(json);
 }
 
+extension ActorSearchActorsInputExtension on ActorSearchActorsInput {
+  bool get hasQ => q != null;
+  bool get hasNotQ => !hasQ;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class ActorSearchActorsInputConverter
     extends JsonConverter<ActorSearchActorsInput, Map<String, dynamic>> {
   const ActorSearchActorsInputConverter();

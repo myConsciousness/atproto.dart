@@ -58,6 +58,25 @@ abstract class ServerCreateAccountInput with _$ServerCreateAccountInput {
       _$ServerCreateAccountInputFromJson(json);
 }
 
+extension ServerCreateAccountInputExtension on ServerCreateAccountInput {
+  bool get hasEmail => email != null;
+  bool get hasNotEmail => !hasEmail;
+  bool get hasDid => did != null;
+  bool get hasNotDid => !hasDid;
+  bool get hasInviteCode => inviteCode != null;
+  bool get hasNotInviteCode => !hasInviteCode;
+  bool get hasVerificationCode => verificationCode != null;
+  bool get hasNotVerificationCode => !hasVerificationCode;
+  bool get hasVerificationPhone => verificationPhone != null;
+  bool get hasNotVerificationPhone => !hasVerificationPhone;
+  bool get hasPassword => password != null;
+  bool get hasNotPassword => !hasPassword;
+  bool get hasRecoveryKey => recoveryKey != null;
+  bool get hasNotRecoveryKey => !hasRecoveryKey;
+  bool get hasPlcOp => plcOp != null;
+  bool get hasNotPlcOp => !hasPlcOp;
+}
+
 final class ServerCreateAccountInputConverter
     extends JsonConverter<ServerCreateAccountInput, Map<String, dynamic>> {
   const ServerCreateAccountInputConverter();

@@ -40,6 +40,13 @@ abstract class LabelQueryLabelsInput with _$LabelQueryLabelsInput {
       _$LabelQueryLabelsInputFromJson(json);
 }
 
+extension LabelQueryLabelsInputExtension on LabelQueryLabelsInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class LabelQueryLabelsInputConverter
     extends JsonConverter<LabelQueryLabelsInput, Map<String, dynamic>> {
   const LabelQueryLabelsInputConverter();

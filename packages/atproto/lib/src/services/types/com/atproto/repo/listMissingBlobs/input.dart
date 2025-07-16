@@ -33,6 +33,13 @@ abstract class RepoListMissingBlobsInput with _$RepoListMissingBlobsInput {
       _$RepoListMissingBlobsInputFromJson(json);
 }
 
+extension RepoListMissingBlobsInputExtension on RepoListMissingBlobsInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class RepoListMissingBlobsInputConverter
     extends JsonConverter<RepoListMissingBlobsInput, Map<String, dynamic>> {
   const RepoListMissingBlobsInputConverter();

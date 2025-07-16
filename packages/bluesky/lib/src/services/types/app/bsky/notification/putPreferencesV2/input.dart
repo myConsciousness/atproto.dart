@@ -65,6 +65,36 @@ abstract class NotificationPutPreferencesV2Input
   ) => _$NotificationPutPreferencesV2InputFromJson(json);
 }
 
+extension NotificationPutPreferencesV2InputExtension
+    on NotificationPutPreferencesV2Input {
+  bool get hasChat => chat != null;
+  bool get hasNotChat => !hasChat;
+  bool get hasFollow => follow != null;
+  bool get hasNotFollow => !hasFollow;
+  bool get hasLike => like != null;
+  bool get hasNotLike => !hasLike;
+  bool get hasLikeViaRepost => likeViaRepost != null;
+  bool get hasNotLikeViaRepost => !hasLikeViaRepost;
+  bool get hasMention => mention != null;
+  bool get hasNotMention => !hasMention;
+  bool get hasQuote => quote != null;
+  bool get hasNotQuote => !hasQuote;
+  bool get hasReply => reply != null;
+  bool get hasNotReply => !hasReply;
+  bool get hasRepost => repost != null;
+  bool get hasNotRepost => !hasRepost;
+  bool get hasRepostViaRepost => repostViaRepost != null;
+  bool get hasNotRepostViaRepost => !hasRepostViaRepost;
+  bool get hasStarterpackJoined => starterpackJoined != null;
+  bool get hasNotStarterpackJoined => !hasStarterpackJoined;
+  bool get hasSubscribedPost => subscribedPost != null;
+  bool get hasNotSubscribedPost => !hasSubscribedPost;
+  bool get hasUnverified => unverified != null;
+  bool get hasNotUnverified => !hasUnverified;
+  bool get hasVerified => verified != null;
+  bool get hasNotVerified => !hasVerified;
+}
+
 final class NotificationPutPreferencesV2InputConverter
     extends
         JsonConverter<NotificationPutPreferencesV2Input, Map<String, dynamic>> {

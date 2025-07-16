@@ -39,6 +39,13 @@ abstract class AdminGetSubjectStatusOutput with _$AdminGetSubjectStatusOutput {
       _$AdminGetSubjectStatusOutputFromJson(json);
 }
 
+extension AdminGetSubjectStatusOutputExtension on AdminGetSubjectStatusOutput {
+  bool get hasTakedown => takedown != null;
+  bool get hasNotTakedown => !hasTakedown;
+  bool get hasDeactivated => deactivated != null;
+  bool get hasNotDeactivated => !hasDeactivated;
+}
+
 final class AdminGetSubjectStatusOutputConverter
     extends JsonConverter<AdminGetSubjectStatusOutput, Map<String, dynamic>> {
   const AdminGetSubjectStatusOutputConverter();

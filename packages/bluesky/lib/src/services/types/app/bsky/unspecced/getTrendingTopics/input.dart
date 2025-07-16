@@ -35,6 +35,14 @@ abstract class UnspeccedGetTrendingTopicsInput
       _$UnspeccedGetTrendingTopicsInputFromJson(json);
 }
 
+extension UnspeccedGetTrendingTopicsInputExtension
+    on UnspeccedGetTrendingTopicsInput {
+  bool get hasViewer => viewer != null;
+  bool get hasNotViewer => !hasViewer;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+}
+
 final class UnspeccedGetTrendingTopicsInputConverter
     extends
         JsonConverter<UnspeccedGetTrendingTopicsInput, Map<String, dynamic>> {

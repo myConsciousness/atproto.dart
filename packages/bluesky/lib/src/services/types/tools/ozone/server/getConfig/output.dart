@@ -50,6 +50,21 @@ abstract class ServerGetConfigOutput with _$ServerGetConfigOutput {
       _$ServerGetConfigOutputFromJson(json);
 }
 
+extension ServerGetConfigOutputExtension on ServerGetConfigOutput {
+  bool get hasAppview => appview != null;
+  bool get hasNotAppview => !hasAppview;
+  bool get hasPds => pds != null;
+  bool get hasNotPds => !hasPds;
+  bool get hasBlobDivert => blobDivert != null;
+  bool get hasNotBlobDivert => !hasBlobDivert;
+  bool get hasChat => chat != null;
+  bool get hasNotChat => !hasChat;
+  bool get hasViewer => viewer != null;
+  bool get hasNotViewer => !hasViewer;
+  bool get hasVerifierDid => verifierDid != null;
+  bool get hasNotVerifierDid => !hasVerifierDid;
+}
+
 final class ServerGetConfigOutputConverter
     extends JsonConverter<ServerGetConfigOutput, Map<String, dynamic>> {
   const ServerGetConfigOutputConverter();

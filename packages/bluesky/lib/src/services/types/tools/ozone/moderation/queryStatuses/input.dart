@@ -156,6 +156,70 @@ abstract class ModerationQueryStatusesInput
       _$ModerationQueryStatusesInputFromJson(json);
 }
 
+extension ModerationQueryStatusesInputExtension
+    on ModerationQueryStatusesInput {
+  bool get hasQueueCount => queueCount != null;
+  bool get hasNotQueueCount => !hasQueueCount;
+  bool get hasQueueIndex => queueIndex != null;
+  bool get hasNotQueueIndex => !hasQueueIndex;
+  bool get hasQueueSeed => queueSeed != null;
+  bool get hasNotQueueSeed => !hasQueueSeed;
+  bool get isIncludeAllUserRecords => includeAllUserRecords ?? false;
+  bool get isNotIncludeAllUserRecords => !isIncludeAllUserRecords;
+  bool get hasSubject => subject != null;
+  bool get hasNotSubject => !hasSubject;
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+  bool get hasReportedAfter => reportedAfter != null;
+  bool get hasNotReportedAfter => !hasReportedAfter;
+  bool get hasReportedBefore => reportedBefore != null;
+  bool get hasNotReportedBefore => !hasReportedBefore;
+  bool get hasReviewedAfter => reviewedAfter != null;
+  bool get hasNotReviewedAfter => !hasReviewedAfter;
+  bool get hasHostingDeletedAfter => hostingDeletedAfter != null;
+  bool get hasNotHostingDeletedAfter => !hasHostingDeletedAfter;
+  bool get hasHostingDeletedBefore => hostingDeletedBefore != null;
+  bool get hasNotHostingDeletedBefore => !hasHostingDeletedBefore;
+  bool get hasHostingUpdatedAfter => hostingUpdatedAfter != null;
+  bool get hasNotHostingUpdatedAfter => !hasHostingUpdatedAfter;
+  bool get hasHostingUpdatedBefore => hostingUpdatedBefore != null;
+  bool get hasNotHostingUpdatedBefore => !hasHostingUpdatedBefore;
+  bool get hasReviewedBefore => reviewedBefore != null;
+  bool get hasNotReviewedBefore => !hasReviewedBefore;
+  bool get isIncludeMuted => includeMuted ?? false;
+  bool get isNotIncludeMuted => !isIncludeMuted;
+  bool get isOnlyMuted => onlyMuted ?? false;
+  bool get isNotOnlyMuted => !isOnlyMuted;
+  bool get hasReviewState => reviewState != null;
+  bool get hasNotReviewState => !hasReviewState;
+  bool get hasLastReviewedBy => lastReviewedBy != null;
+  bool get hasNotLastReviewedBy => !hasLastReviewedBy;
+  bool get hasSortField => sortField != null;
+  bool get hasNotSortField => !hasSortField;
+  bool get hasSortDirection => sortDirection != null;
+  bool get hasNotSortDirection => !hasSortDirection;
+  bool get isTakendown => takendown ?? false;
+  bool get isNotTakendown => !isTakendown;
+  bool get isAppealed => appealed ?? false;
+  bool get isNotAppealed => !isAppealed;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasSubjectType => subjectType != null;
+  bool get hasNotSubjectType => !hasSubjectType;
+  bool get hasMinAccountSuspendCount => minAccountSuspendCount != null;
+  bool get hasNotMinAccountSuspendCount => !hasMinAccountSuspendCount;
+  bool get hasMinReportedRecordsCount => minReportedRecordsCount != null;
+  bool get hasNotMinReportedRecordsCount => !hasMinReportedRecordsCount;
+  bool get hasMinTakendownRecordsCount => minTakendownRecordsCount != null;
+  bool get hasNotMinTakendownRecordsCount => !hasMinTakendownRecordsCount;
+  bool get hasMinPriorityScore => minPriorityScore != null;
+  bool get hasNotMinPriorityScore => !hasMinPriorityScore;
+  bool get hasAgeAssuranceState => ageAssuranceState != null;
+  bool get hasNotAgeAssuranceState => !hasAgeAssuranceState;
+}
+
 final class ModerationQueryStatusesInputConverter
     extends JsonConverter<ModerationQueryStatusesInput, Map<String, dynamic>> {
   const ModerationQueryStatusesInputConverter();

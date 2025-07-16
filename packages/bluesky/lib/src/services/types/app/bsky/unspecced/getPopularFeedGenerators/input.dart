@@ -36,6 +36,16 @@ abstract class UnspeccedGetPopularFeedGeneratorsInput
   ) => _$UnspeccedGetPopularFeedGeneratorsInputFromJson(json);
 }
 
+extension UnspeccedGetPopularFeedGeneratorsInputExtension
+    on UnspeccedGetPopularFeedGeneratorsInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasQuery => query != null;
+  bool get hasNotQuery => !hasQuery;
+}
+
 final class UnspeccedGetPopularFeedGeneratorsInputConverter
     extends
         JsonConverter<

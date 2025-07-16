@@ -38,6 +38,12 @@ abstract class VerificationRevokeVerificationsInput
   ) => _$VerificationRevokeVerificationsInputFromJson(json);
 }
 
+extension VerificationRevokeVerificationsInputExtension
+    on VerificationRevokeVerificationsInput {
+  bool get hasRevokeReason => revokeReason != null;
+  bool get hasNotRevokeReason => !hasRevokeReason;
+}
+
 final class VerificationRevokeVerificationsInputConverter
     extends
         JsonConverter<

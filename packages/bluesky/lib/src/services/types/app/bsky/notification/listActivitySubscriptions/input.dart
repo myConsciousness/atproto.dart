@@ -35,6 +35,14 @@ abstract class NotificationListActivitySubscriptionsInput
   ) => _$NotificationListActivitySubscriptionsInputFromJson(json);
 }
 
+extension NotificationListActivitySubscriptionsInputExtension
+    on NotificationListActivitySubscriptionsInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class NotificationListActivitySubscriptionsInputConverter
     extends
         JsonConverter<

@@ -54,6 +54,13 @@ abstract class SafelinkUpdateRuleInput with _$SafelinkUpdateRuleInput {
       _$SafelinkUpdateRuleInputFromJson(json);
 }
 
+extension SafelinkUpdateRuleInputExtension on SafelinkUpdateRuleInput {
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+  bool get hasCreatedBy => createdBy != null;
+  bool get hasNotCreatedBy => !hasCreatedBy;
+}
+
 final class SafelinkUpdateRuleInputConverter
     extends JsonConverter<SafelinkUpdateRuleInput, Map<String, dynamic>> {
   const SafelinkUpdateRuleInputConverter();

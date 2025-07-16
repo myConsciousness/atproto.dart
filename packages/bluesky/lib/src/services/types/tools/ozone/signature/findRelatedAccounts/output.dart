@@ -38,6 +38,12 @@ abstract class SignatureFindRelatedAccountsOutput
   ) => _$SignatureFindRelatedAccountsOutputFromJson(json);
 }
 
+extension SignatureFindRelatedAccountsOutputExtension
+    on SignatureFindRelatedAccountsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class SignatureFindRelatedAccountsOutputConverter
     extends
         JsonConverter<

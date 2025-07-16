@@ -45,6 +45,18 @@ abstract class NotificationListNotificationsInput
   ) => _$NotificationListNotificationsInputFromJson(json);
 }
 
+extension NotificationListNotificationsInputExtension
+    on NotificationListNotificationsInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get isPriority => priority ?? false;
+  bool get isNotPriority => !isPriority;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasSeenAt => seenAt != null;
+  bool get hasNotSeenAt => !hasSeenAt;
+}
+
 final class NotificationListNotificationsInputConverter
     extends
         JsonConverter<

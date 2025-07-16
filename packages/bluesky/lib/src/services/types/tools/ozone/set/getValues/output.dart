@@ -37,6 +37,11 @@ abstract class SetGetValuesOutput with _$SetGetValuesOutput {
       _$SetGetValuesOutputFromJson(json);
 }
 
+extension SetGetValuesOutputExtension on SetGetValuesOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class SetGetValuesOutputConverter
     extends JsonConverter<SetGetValuesOutput, Map<String, dynamic>> {
   const SetGetValuesOutputConverter();

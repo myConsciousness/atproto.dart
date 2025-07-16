@@ -36,6 +36,11 @@ abstract class ConvoListConvosOutput with _$ConvoListConvosOutput {
       _$ConvoListConvosOutputFromJson(json);
 }
 
+extension ConvoListConvosOutputExtension on ConvoListConvosOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class ConvoListConvosOutputConverter
     extends JsonConverter<ConvoListConvosOutput, Map<String, dynamic>> {
   const ConvoListConvosOutputConverter();

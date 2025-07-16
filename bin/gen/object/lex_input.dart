@@ -91,17 +91,18 @@ final class LexInput extends LexType {
     }
 
     final packages = StringBuffer();
-    for (final packagePath in this
-        .properties
-        .where((e) => e.type.packagePath != null)
-        .map((e) => e.type.packagePath)
-        .toSet()
-        .toList()) {
+    for (final packagePath
+        in this.properties
+            .where((e) => e.type.packagePath != null)
+            .map((e) => e.type.packagePath)
+            .toSet()
+            .toList()) {
       packages.writeln("import '$packagePath';");
     }
 
     final typeName = getTypeName();
     final knownProps = getKnownProps(this.properties);
+    final extensions = getExtensions(name, this.properties, suffix: 'Input');
     final converter = getObjectConverter(name, suffix: 'Input');
 
     return '''$kHeaderHint
@@ -128,6 +129,8 @@ abstract class $typeName with _\$$typeName {
 
   factory $typeName.fromJson(Map<String, Object?> json) => _\$${typeName}FromJson(json);
 }
+
+$extensions
 
 $converter
 ''';

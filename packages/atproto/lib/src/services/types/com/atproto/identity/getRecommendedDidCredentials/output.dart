@@ -42,6 +42,14 @@ abstract class IdentityGetRecommendedDidCredentialsOutput
   ) => _$IdentityGetRecommendedDidCredentialsOutputFromJson(json);
 }
 
+extension IdentityGetRecommendedDidCredentialsOutputExtension
+    on IdentityGetRecommendedDidCredentialsOutput {
+  bool get hasVerificationMethods => verificationMethods != null;
+  bool get hasNotVerificationMethods => !hasVerificationMethods;
+  bool get hasServices => services != null;
+  bool get hasNotServices => !hasServices;
+}
+
 final class IdentityGetRecommendedDidCredentialsOutputConverter
     extends
         JsonConverter<

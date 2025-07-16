@@ -33,6 +33,11 @@ abstract class ModerationGetRecordInput with _$ModerationGetRecordInput {
       _$ModerationGetRecordInputFromJson(json);
 }
 
+extension ModerationGetRecordInputExtension on ModerationGetRecordInput {
+  bool get hasCid => cid != null;
+  bool get hasNotCid => !hasCid;
+}
+
 final class ModerationGetRecordInputConverter
     extends JsonConverter<ModerationGetRecordInput, Map<String, dynamic>> {
   const ModerationGetRecordInputConverter();

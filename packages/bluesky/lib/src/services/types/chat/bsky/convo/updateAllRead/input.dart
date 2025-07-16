@@ -32,6 +32,11 @@ abstract class ConvoUpdateAllReadInput with _$ConvoUpdateAllReadInput {
       _$ConvoUpdateAllReadInputFromJson(json);
 }
 
+extension ConvoUpdateAllReadInputExtension on ConvoUpdateAllReadInput {
+  bool get hasStatus => status != null;
+  bool get hasNotStatus => !hasStatus;
+}
+
 final class ConvoUpdateAllReadInputConverter
     extends JsonConverter<ConvoUpdateAllReadInput, Map<String, dynamic>> {
   const ConvoUpdateAllReadInputConverter();

@@ -38,6 +38,13 @@ abstract class FeedGetQuotesOutput with _$FeedGetQuotesOutput {
       _$FeedGetQuotesOutputFromJson(json);
 }
 
+extension FeedGetQuotesOutputExtension on FeedGetQuotesOutput {
+  bool get hasCid => cid != null;
+  bool get hasNotCid => !hasCid;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class FeedGetQuotesOutputConverter
     extends JsonConverter<FeedGetQuotesOutput, Map<String, dynamic>> {
   const FeedGetQuotesOutputConverter();

@@ -33,6 +33,12 @@ abstract class NotificationPutPreferencesInput
       _$NotificationPutPreferencesInputFromJson(json);
 }
 
+extension NotificationPutPreferencesInputExtension
+    on NotificationPutPreferencesInput {
+  bool get isPriority => priority;
+  bool get isNotPriority => !isPriority;
+}
+
 final class NotificationPutPreferencesInputConverter
     extends
         JsonConverter<NotificationPutPreferencesInput, Map<String, dynamic>> {

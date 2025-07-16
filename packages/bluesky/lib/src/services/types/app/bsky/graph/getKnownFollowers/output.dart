@@ -38,6 +38,12 @@ abstract class GraphGetKnownFollowersOutput
       _$GraphGetKnownFollowersOutputFromJson(json);
 }
 
+extension GraphGetKnownFollowersOutputExtension
+    on GraphGetKnownFollowersOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class GraphGetKnownFollowersOutputConverter
     extends JsonConverter<GraphGetKnownFollowersOutput, Map<String, dynamic>> {
   const GraphGetKnownFollowersOutputConverter();

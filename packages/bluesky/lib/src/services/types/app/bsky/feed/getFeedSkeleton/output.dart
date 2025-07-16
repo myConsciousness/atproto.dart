@@ -39,6 +39,13 @@ abstract class FeedGetFeedSkeletonOutput with _$FeedGetFeedSkeletonOutput {
       _$FeedGetFeedSkeletonOutputFromJson(json);
 }
 
+extension FeedGetFeedSkeletonOutputExtension on FeedGetFeedSkeletonOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasReqId => reqId != null;
+  bool get hasNotReqId => !hasReqId;
+}
+
 final class FeedGetFeedSkeletonOutputConverter
     extends JsonConverter<FeedGetFeedSkeletonOutput, Map<String, dynamic>> {
   const FeedGetFeedSkeletonOutputConverter();

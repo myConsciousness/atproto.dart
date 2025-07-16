@@ -61,6 +61,22 @@ abstract class VerificationListVerificationsInput
   ) => _$VerificationListVerificationsInputFromJson(json);
 }
 
+extension VerificationListVerificationsInputExtension
+    on VerificationListVerificationsInput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCreatedAfter => createdAfter != null;
+  bool get hasNotCreatedAfter => !hasCreatedAfter;
+  bool get hasCreatedBefore => createdBefore != null;
+  bool get hasNotCreatedBefore => !hasCreatedBefore;
+  bool get hasSortDirection => sortDirection != null;
+  bool get hasNotSortDirection => !hasSortDirection;
+  bool get isIsRevoked => isRevoked ?? false;
+  bool get isNotIsRevoked => !isIsRevoked;
+}
+
 final class VerificationListVerificationsInputConverter
     extends
         JsonConverter<

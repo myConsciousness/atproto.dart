@@ -39,6 +39,13 @@ abstract class FeedGetPostThreadInput with _$FeedGetPostThreadInput {
       _$FeedGetPostThreadInputFromJson(json);
 }
 
+extension FeedGetPostThreadInputExtension on FeedGetPostThreadInput {
+  bool get hasDepth => depth != null;
+  bool get hasNotDepth => !hasDepth;
+  bool get hasParentHeight => parentHeight != null;
+  bool get hasNotParentHeight => !hasParentHeight;
+}
+
 final class FeedGetPostThreadInputConverter
     extends JsonConverter<FeedGetPostThreadInput, Map<String, dynamic>> {
   const FeedGetPostThreadInputConverter();

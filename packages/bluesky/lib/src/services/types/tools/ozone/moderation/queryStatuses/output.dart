@@ -38,6 +38,12 @@ abstract class ModerationQueryStatusesOutput
       _$ModerationQueryStatusesOutputFromJson(json);
 }
 
+extension ModerationQueryStatusesOutputExtension
+    on ModerationQueryStatusesOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class ModerationQueryStatusesOutputConverter
     extends JsonConverter<ModerationQueryStatusesOutput, Map<String, dynamic>> {
   const ModerationQueryStatusesOutputConverter();

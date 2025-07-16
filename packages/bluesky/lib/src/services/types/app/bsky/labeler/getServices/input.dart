@@ -33,6 +33,11 @@ abstract class LabelerGetServicesInput with _$LabelerGetServicesInput {
       _$LabelerGetServicesInputFromJson(json);
 }
 
+extension LabelerGetServicesInputExtension on LabelerGetServicesInput {
+  bool get isDetailed => detailed ?? false;
+  bool get isNotDetailed => !isDetailed;
+}
+
 final class LabelerGetServicesInputConverter
     extends JsonConverter<LabelerGetServicesInput, Map<String, dynamic>> {
   const LabelerGetServicesInputConverter();

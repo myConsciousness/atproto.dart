@@ -37,6 +37,12 @@ abstract class ServerCreateAppPasswordInput
       _$ServerCreateAppPasswordInputFromJson(json);
 }
 
+extension ServerCreateAppPasswordInputExtension
+    on ServerCreateAppPasswordInput {
+  bool get isPrivileged => privileged ?? false;
+  bool get isNotPrivileged => !isPrivileged;
+}
+
 final class ServerCreateAppPasswordInputConverter
     extends JsonConverter<ServerCreateAppPasswordInput, Map<String, dynamic>> {
   const ServerCreateAppPasswordInputConverter();

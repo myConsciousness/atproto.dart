@@ -38,6 +38,12 @@ abstract class UnspeccedGetPostThreadOtherV2Input
   ) => _$UnspeccedGetPostThreadOtherV2InputFromJson(json);
 }
 
+extension UnspeccedGetPostThreadOtherV2InputExtension
+    on UnspeccedGetPostThreadOtherV2Input {
+  bool get isPrioritizeFollowedUsers => prioritizeFollowedUsers ?? false;
+  bool get isNotPrioritizeFollowedUsers => !isPrioritizeFollowedUsers;
+}
+
 final class UnspeccedGetPostThreadOtherV2InputConverter
     extends
         JsonConverter<

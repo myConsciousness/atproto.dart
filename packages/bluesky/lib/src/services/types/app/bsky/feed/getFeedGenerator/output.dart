@@ -41,6 +41,13 @@ abstract class FeedGetFeedGeneratorOutput with _$FeedGetFeedGeneratorOutput {
       _$FeedGetFeedGeneratorOutputFromJson(json);
 }
 
+extension FeedGetFeedGeneratorOutputExtension on FeedGetFeedGeneratorOutput {
+  bool get isIsOnline => isOnline;
+  bool get isNotIsOnline => !isIsOnline;
+  bool get isIsValid => isValid;
+  bool get isNotIsValid => !isIsValid;
+}
+
 final class FeedGetFeedGeneratorOutputConverter
     extends JsonConverter<FeedGetFeedGeneratorOutput, Map<String, dynamic>> {
   const FeedGetFeedGeneratorOutputConverter();

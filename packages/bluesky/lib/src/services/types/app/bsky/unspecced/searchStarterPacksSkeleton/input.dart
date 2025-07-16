@@ -42,6 +42,16 @@ abstract class UnspeccedSearchStarterPacksSkeletonInput
   ) => _$UnspeccedSearchStarterPacksSkeletonInputFromJson(json);
 }
 
+extension UnspeccedSearchStarterPacksSkeletonInputExtension
+    on UnspeccedSearchStarterPacksSkeletonInput {
+  bool get hasViewer => viewer != null;
+  bool get hasNotViewer => !hasViewer;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class UnspeccedSearchStarterPacksSkeletonInputConverter
     extends
         JsonConverter<

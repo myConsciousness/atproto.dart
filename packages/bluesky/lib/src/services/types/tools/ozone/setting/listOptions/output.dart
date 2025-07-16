@@ -36,6 +36,11 @@ abstract class SettingListOptionsOutput with _$SettingListOptionsOutput {
       _$SettingListOptionsOutputFromJson(json);
 }
 
+extension SettingListOptionsOutputExtension on SettingListOptionsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class SettingListOptionsOutputConverter
     extends JsonConverter<SettingListOptionsOutput, Map<String, dynamic>> {
   const SettingListOptionsOutputConverter();

@@ -54,6 +54,21 @@ abstract class ServerCreateSessionOutput with _$ServerCreateSessionOutput {
       _$ServerCreateSessionOutputFromJson(json);
 }
 
+extension ServerCreateSessionOutputExtension on ServerCreateSessionOutput {
+  bool get hasDidDoc => didDoc != null;
+  bool get hasNotDidDoc => !hasDidDoc;
+  bool get hasEmail => email != null;
+  bool get hasNotEmail => !hasEmail;
+  bool get isEmailConfirmed => emailConfirmed ?? false;
+  bool get isNotEmailConfirmed => !isEmailConfirmed;
+  bool get isEmailAuthFactor => emailAuthFactor ?? false;
+  bool get isNotEmailAuthFactor => !isEmailAuthFactor;
+  bool get isActive => active ?? false;
+  bool get isNotActive => !isActive;
+  bool get hasStatus => status != null;
+  bool get hasNotStatus => !hasStatus;
+}
+
 final class ServerCreateSessionOutputConverter
     extends JsonConverter<ServerCreateSessionOutput, Map<String, dynamic>> {
   const ServerCreateSessionOutputConverter();

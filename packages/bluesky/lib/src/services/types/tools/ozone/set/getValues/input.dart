@@ -34,6 +34,13 @@ abstract class SetGetValuesInput with _$SetGetValuesInput {
       _$SetGetValuesInputFromJson(json);
 }
 
+extension SetGetValuesInputExtension on SetGetValuesInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class SetGetValuesInputConverter
     extends JsonConverter<SetGetValuesInput, Map<String, dynamic>> {
   const SetGetValuesInputConverter();

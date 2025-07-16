@@ -38,6 +38,12 @@ abstract class NotificationPutActivitySubscriptionOutput
   ) => _$NotificationPutActivitySubscriptionOutputFromJson(json);
 }
 
+extension NotificationPutActivitySubscriptionOutputExtension
+    on NotificationPutActivitySubscriptionOutput {
+  bool get hasActivitySubscription => activitySubscription != null;
+  bool get hasNotActivitySubscription => !hasActivitySubscription;
+}
+
 final class NotificationPutActivitySubscriptionOutputConverter
     extends
         JsonConverter<

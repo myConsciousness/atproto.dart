@@ -44,6 +44,19 @@ abstract class SetQuerySetsInput with _$SetQuerySetsInput {
       _$SetQuerySetsInputFromJson(json);
 }
 
+extension SetQuerySetsInputExtension on SetQuerySetsInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasNamePrefix => namePrefix != null;
+  bool get hasNotNamePrefix => !hasNamePrefix;
+  bool get hasSortBy => sortBy != null;
+  bool get hasNotSortBy => !hasSortBy;
+  bool get hasSortDirection => sortDirection != null;
+  bool get hasNotSortDirection => !hasSortDirection;
+}
+
 final class SetQuerySetsInputConverter
     extends JsonConverter<SetQuerySetsInput, Map<String, dynamic>> {
   const SetQuerySetsInputConverter();

@@ -34,6 +34,15 @@ abstract class AdminSearchAccountsInput with _$AdminSearchAccountsInput {
       _$AdminSearchAccountsInputFromJson(json);
 }
 
+extension AdminSearchAccountsInputExtension on AdminSearchAccountsInput {
+  bool get hasEmail => email != null;
+  bool get hasNotEmail => !hasEmail;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+}
+
 final class AdminSearchAccountsInputConverter
     extends JsonConverter<AdminSearchAccountsInput, Map<String, dynamic>> {
   const AdminSearchAccountsInputConverter();

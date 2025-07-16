@@ -39,6 +39,15 @@ abstract class SyncGetRepoStatusOutput with _$SyncGetRepoStatusOutput {
       _$SyncGetRepoStatusOutputFromJson(json);
 }
 
+extension SyncGetRepoStatusOutputExtension on SyncGetRepoStatusOutput {
+  bool get isActive => active;
+  bool get isNotActive => !isActive;
+  bool get hasStatus => status != null;
+  bool get hasNotStatus => !hasStatus;
+  bool get hasRev => rev != null;
+  bool get hasNotRev => !hasRev;
+}
+
 final class SyncGetRepoStatusOutputConverter
     extends JsonConverter<SyncGetRepoStatusOutput, Map<String, dynamic>> {
   const SyncGetRepoStatusOutputConverter();

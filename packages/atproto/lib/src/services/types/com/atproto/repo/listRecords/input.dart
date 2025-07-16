@@ -49,6 +49,15 @@ abstract class RepoListRecordsInput with _$RepoListRecordsInput {
       _$RepoListRecordsInputFromJson(json);
 }
 
+extension RepoListRecordsInputExtension on RepoListRecordsInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get isReverse => reverse ?? false;
+  bool get isNotReverse => !isReverse;
+}
+
 final class RepoListRecordsInputConverter
     extends JsonConverter<RepoListRecordsInput, Map<String, dynamic>> {
   const RepoListRecordsInputConverter();

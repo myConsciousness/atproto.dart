@@ -37,6 +37,14 @@ abstract class SyncListReposByCollectionInput
       _$SyncListReposByCollectionInputFromJson(json);
 }
 
+extension SyncListReposByCollectionInputExtension
+    on SyncListReposByCollectionInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class SyncListReposByCollectionInputConverter
     extends
         JsonConverter<SyncListReposByCollectionInput, Map<String, dynamic>> {

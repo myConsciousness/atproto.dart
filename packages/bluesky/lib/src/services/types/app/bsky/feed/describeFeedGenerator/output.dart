@@ -39,6 +39,12 @@ abstract class FeedDescribeFeedGeneratorOutput
       _$FeedDescribeFeedGeneratorOutputFromJson(json);
 }
 
+extension FeedDescribeFeedGeneratorOutputExtension
+    on FeedDescribeFeedGeneratorOutput {
+  bool get hasLinks => links != null;
+  bool get hasNotLinks => !hasLinks;
+}
+
 final class FeedDescribeFeedGeneratorOutputConverter
     extends
         JsonConverter<FeedDescribeFeedGeneratorOutput, Map<String, dynamic>> {

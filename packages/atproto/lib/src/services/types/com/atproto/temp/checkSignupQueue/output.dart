@@ -38,6 +38,15 @@ abstract class TempCheckSignupQueueOutput with _$TempCheckSignupQueueOutput {
       _$TempCheckSignupQueueOutputFromJson(json);
 }
 
+extension TempCheckSignupQueueOutputExtension on TempCheckSignupQueueOutput {
+  bool get isActivated => activated;
+  bool get isNotActivated => !isActivated;
+  bool get hasPlaceInQueue => placeInQueue != null;
+  bool get hasNotPlaceInQueue => !hasPlaceInQueue;
+  bool get hasEstimatedTimeMs => estimatedTimeMs != null;
+  bool get hasNotEstimatedTimeMs => !hasEstimatedTimeMs;
+}
+
 final class TempCheckSignupQueueOutputConverter
     extends JsonConverter<TempCheckSignupQueueOutput, Map<String, dynamic>> {
   const TempCheckSignupQueueOutputConverter();

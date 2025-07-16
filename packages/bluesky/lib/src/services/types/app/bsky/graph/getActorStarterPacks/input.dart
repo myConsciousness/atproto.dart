@@ -35,6 +35,14 @@ abstract class GraphGetActorStarterPacksInput
       _$GraphGetActorStarterPacksInputFromJson(json);
 }
 
+extension GraphGetActorStarterPacksInputExtension
+    on GraphGetActorStarterPacksInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class GraphGetActorStarterPacksInputConverter
     extends
         JsonConverter<GraphGetActorStarterPacksInput, Map<String, dynamic>> {

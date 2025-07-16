@@ -37,6 +37,11 @@ abstract class SafelinkQueryEventsOutput with _$SafelinkQueryEventsOutput {
       _$SafelinkQueryEventsOutputFromJson(json);
 }
 
+extension SafelinkQueryEventsOutputExtension on SafelinkQueryEventsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class SafelinkQueryEventsOutputConverter
     extends JsonConverter<SafelinkQueryEventsOutput, Map<String, dynamic>> {
   const SafelinkQueryEventsOutputConverter();

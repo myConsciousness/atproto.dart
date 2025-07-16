@@ -33,6 +33,12 @@ abstract class ServerRequestEmailUpdateOutput
       _$ServerRequestEmailUpdateOutputFromJson(json);
 }
 
+extension ServerRequestEmailUpdateOutputExtension
+    on ServerRequestEmailUpdateOutput {
+  bool get isTokenRequired => tokenRequired;
+  bool get isNotTokenRequired => !isTokenRequired;
+}
+
 final class ServerRequestEmailUpdateOutputConverter
     extends
         JsonConverter<ServerRequestEmailUpdateOutput, Map<String, dynamic>> {

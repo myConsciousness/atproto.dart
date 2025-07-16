@@ -33,6 +33,13 @@ abstract class TempFetchLabelsInput with _$TempFetchLabelsInput {
       _$TempFetchLabelsInputFromJson(json);
 }
 
+extension TempFetchLabelsInputExtension on TempFetchLabelsInput {
+  bool get hasSince => since != null;
+  bool get hasNotSince => !hasSince;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+}
+
 final class TempFetchLabelsInputConverter
     extends JsonConverter<TempFetchLabelsInput, Map<String, dynamic>> {
   const TempFetchLabelsInputConverter();

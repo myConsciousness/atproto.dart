@@ -34,6 +34,12 @@ abstract class ServerDeactivateAccountInput
       _$ServerDeactivateAccountInputFromJson(json);
 }
 
+extension ServerDeactivateAccountInputExtension
+    on ServerDeactivateAccountInput {
+  bool get hasDeleteAfter => deleteAfter != null;
+  bool get hasNotDeleteAfter => !hasDeleteAfter;
+}
+
 final class ServerDeactivateAccountInputConverter
     extends JsonConverter<ServerDeactivateAccountInput, Map<String, dynamic>> {
   const ServerDeactivateAccountInputConverter();

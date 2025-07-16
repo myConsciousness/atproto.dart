@@ -32,6 +32,11 @@ abstract class UnspeccedGetTrendsInput with _$UnspeccedGetTrendsInput {
       _$UnspeccedGetTrendsInputFromJson(json);
 }
 
+extension UnspeccedGetTrendsInputExtension on UnspeccedGetTrendsInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+}
+
 final class UnspeccedGetTrendsInputConverter
     extends JsonConverter<UnspeccedGetTrendsInput, Map<String, dynamic>> {
   const UnspeccedGetTrendsInputConverter();

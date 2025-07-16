@@ -33,6 +33,11 @@ abstract class ConvoAcceptConvoOutput with _$ConvoAcceptConvoOutput {
       _$ConvoAcceptConvoOutputFromJson(json);
 }
 
+extension ConvoAcceptConvoOutputExtension on ConvoAcceptConvoOutput {
+  bool get hasRev => rev != null;
+  bool get hasNotRev => !hasRev;
+}
+
 final class ConvoAcceptConvoOutputConverter
     extends JsonConverter<ConvoAcceptConvoOutput, Map<String, dynamic>> {
   const ConvoAcceptConvoOutputConverter();

@@ -36,6 +36,11 @@ abstract class SyncListReposOutput with _$SyncListReposOutput {
       _$SyncListReposOutputFromJson(json);
 }
 
+extension SyncListReposOutputExtension on SyncListReposOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class SyncListReposOutputConverter
     extends JsonConverter<SyncListReposOutput, Map<String, dynamic>> {
   const SyncListReposOutputConverter();

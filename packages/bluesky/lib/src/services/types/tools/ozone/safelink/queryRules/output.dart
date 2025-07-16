@@ -37,6 +37,11 @@ abstract class SafelinkQueryRulesOutput with _$SafelinkQueryRulesOutput {
       _$SafelinkQueryRulesOutputFromJson(json);
 }
 
+extension SafelinkQueryRulesOutputExtension on SafelinkQueryRulesOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class SafelinkQueryRulesOutputConverter
     extends JsonConverter<SafelinkQueryRulesOutput, Map<String, dynamic>> {
   const SafelinkQueryRulesOutputConverter();

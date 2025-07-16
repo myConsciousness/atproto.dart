@@ -43,6 +43,13 @@ abstract class ServerCreateSessionInput with _$ServerCreateSessionInput {
       _$ServerCreateSessionInputFromJson(json);
 }
 
+extension ServerCreateSessionInputExtension on ServerCreateSessionInput {
+  bool get hasAuthFactorToken => authFactorToken != null;
+  bool get hasNotAuthFactorToken => !hasAuthFactorToken;
+  bool get isAllowTakendown => allowTakendown ?? false;
+  bool get isNotAllowTakendown => !isAllowTakendown;
+}
+
 final class ServerCreateSessionInputConverter
     extends JsonConverter<ServerCreateSessionInput, Map<String, dynamic>> {
   const ServerCreateSessionInputConverter();

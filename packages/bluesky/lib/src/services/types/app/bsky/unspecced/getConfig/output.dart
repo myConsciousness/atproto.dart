@@ -36,6 +36,11 @@ abstract class UnspeccedGetConfigOutput with _$UnspeccedGetConfigOutput {
       _$UnspeccedGetConfigOutputFromJson(json);
 }
 
+extension UnspeccedGetConfigOutputExtension on UnspeccedGetConfigOutput {
+  bool get isCheckEmailConfirmed => checkEmailConfirmed ?? false;
+  bool get isNotCheckEmailConfirmed => !isCheckEmailConfirmed;
+}
+
 final class UnspeccedGetConfigOutputConverter
     extends JsonConverter<UnspeccedGetConfigOutput, Map<String, dynamic>> {
   const UnspeccedGetConfigOutputConverter();

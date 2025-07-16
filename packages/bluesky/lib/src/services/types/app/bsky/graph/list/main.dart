@@ -61,6 +61,15 @@ abstract class GraphListRecord with _$GraphListRecord {
   }
 }
 
+extension GraphListRecordExtension on GraphListRecord {
+  bool get hasDescription => description != null;
+  bool get hasNotDescription => !hasDescription;
+  bool get hasAvatar => avatar != null;
+  bool get hasNotAvatar => !hasAvatar;
+  bool get hasLabels => labels != null;
+  bool get hasNotLabels => !hasLabels;
+}
+
 final class GraphListRecordConverter
     extends JsonConverter<GraphListRecord, Map<String, dynamic>> {
   const GraphListRecordConverter();

@@ -53,6 +53,13 @@ abstract class ActorStatusRecord with _$ActorStatusRecord {
   }
 }
 
+extension ActorStatusRecordExtension on ActorStatusRecord {
+  bool get hasEmbed => embed != null;
+  bool get hasNotEmbed => !hasEmbed;
+  bool get hasDurationMinutes => durationMinutes != null;
+  bool get hasNotDurationMinutes => !hasDurationMinutes;
+}
+
 final class ActorStatusRecordConverter
     extends JsonConverter<ActorStatusRecord, Map<String, dynamic>> {
   const ActorStatusRecordConverter();

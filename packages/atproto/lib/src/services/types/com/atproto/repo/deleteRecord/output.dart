@@ -35,6 +35,11 @@ abstract class RepoDeleteRecordOutput with _$RepoDeleteRecordOutput {
       _$RepoDeleteRecordOutputFromJson(json);
 }
 
+extension RepoDeleteRecordOutputExtension on RepoDeleteRecordOutput {
+  bool get hasCommit => commit != null;
+  bool get hasNotCommit => !hasCommit;
+}
+
 final class RepoDeleteRecordOutputConverter
     extends JsonConverter<RepoDeleteRecordOutput, Map<String, dynamic>> {
   const RepoDeleteRecordOutputConverter();

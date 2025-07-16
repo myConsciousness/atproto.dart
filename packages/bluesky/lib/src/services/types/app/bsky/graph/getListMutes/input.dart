@@ -33,6 +33,13 @@ abstract class GraphGetListMutesInput with _$GraphGetListMutesInput {
       _$GraphGetListMutesInputFromJson(json);
 }
 
+extension GraphGetListMutesInputExtension on GraphGetListMutesInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class GraphGetListMutesInputConverter
     extends JsonConverter<GraphGetListMutesInput, Map<String, dynamic>> {
   const GraphGetListMutesInputConverter();

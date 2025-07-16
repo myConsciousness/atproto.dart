@@ -33,6 +33,13 @@ abstract class SyncListReposInput with _$SyncListReposInput {
       _$SyncListReposInputFromJson(json);
 }
 
+extension SyncListReposInputExtension on SyncListReposInput {
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class SyncListReposInputConverter
     extends JsonConverter<SyncListReposInput, Map<String, dynamic>> {
   const SyncListReposInputConverter();

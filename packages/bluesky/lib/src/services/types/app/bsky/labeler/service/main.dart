@@ -55,6 +55,11 @@ abstract class LabelerServiceRecord with _$LabelerServiceRecord {
   }
 }
 
+extension LabelerServiceRecordExtension on LabelerServiceRecord {
+  bool get hasLabels => labels != null;
+  bool get hasNotLabels => !hasLabels;
+}
+
 final class LabelerServiceRecordConverter
     extends JsonConverter<LabelerServiceRecord, Map<String, dynamic>> {
   const LabelerServiceRecordConverter();

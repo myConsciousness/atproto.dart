@@ -44,6 +44,13 @@ abstract class AdminSendEmailInput with _$AdminSendEmailInput {
       _$AdminSendEmailInputFromJson(json);
 }
 
+extension AdminSendEmailInputExtension on AdminSendEmailInput {
+  bool get hasSubject => subject != null;
+  bool get hasNotSubject => !hasSubject;
+  bool get hasComment => comment != null;
+  bool get hasNotComment => !hasComment;
+}
+
 final class AdminSendEmailInputConverter
     extends JsonConverter<AdminSendEmailInput, Map<String, dynamic>> {
   const AdminSendEmailInputConverter();

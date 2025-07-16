@@ -41,6 +41,11 @@ abstract class FeedLikeRecord with _$FeedLikeRecord {
   }
 }
 
+extension FeedLikeRecordExtension on FeedLikeRecord {
+  bool get hasVia => via != null;
+  bool get hasNotVia => !hasVia;
+}
+
 final class FeedLikeRecordConverter
     extends JsonConverter<FeedLikeRecord, Map<String, dynamic>> {
   const FeedLikeRecordConverter();

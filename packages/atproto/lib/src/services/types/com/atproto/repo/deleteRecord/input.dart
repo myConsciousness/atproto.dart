@@ -51,6 +51,13 @@ abstract class RepoDeleteRecordInput with _$RepoDeleteRecordInput {
       _$RepoDeleteRecordInputFromJson(json);
 }
 
+extension RepoDeleteRecordInputExtension on RepoDeleteRecordInput {
+  bool get hasSwapRecord => swapRecord != null;
+  bool get hasNotSwapRecord => !hasSwapRecord;
+  bool get hasSwapCommit => swapCommit != null;
+  bool get hasNotSwapCommit => !hasSwapCommit;
+}
+
 final class RepoDeleteRecordInputConverter
     extends JsonConverter<RepoDeleteRecordInput, Map<String, dynamic>> {
   const RepoDeleteRecordInputConverter();

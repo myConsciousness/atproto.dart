@@ -34,6 +34,13 @@ abstract class TeamUpdateMemberInput with _$TeamUpdateMemberInput {
       _$TeamUpdateMemberInputFromJson(json);
 }
 
+extension TeamUpdateMemberInputExtension on TeamUpdateMemberInput {
+  bool get isDisabled => disabled ?? false;
+  bool get isNotDisabled => !isDisabled;
+  bool get hasRole => role != null;
+  bool get hasNotRole => !hasRole;
+}
+
 final class TeamUpdateMemberInputConverter
     extends JsonConverter<TeamUpdateMemberInput, Map<String, dynamic>> {
   const TeamUpdateMemberInputConverter();

@@ -37,6 +37,11 @@ abstract class ConvoGetMessagesOutput with _$ConvoGetMessagesOutput {
       _$ConvoGetMessagesOutputFromJson(json);
 }
 
+extension ConvoGetMessagesOutputExtension on ConvoGetMessagesOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class ConvoGetMessagesOutputConverter
     extends JsonConverter<ConvoGetMessagesOutput, Map<String, dynamic>> {
   const ConvoGetMessagesOutputConverter();

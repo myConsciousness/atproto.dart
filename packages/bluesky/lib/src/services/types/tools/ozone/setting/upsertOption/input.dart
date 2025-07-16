@@ -42,6 +42,13 @@ abstract class SettingUpsertOptionInput with _$SettingUpsertOptionInput {
       _$SettingUpsertOptionInputFromJson(json);
 }
 
+extension SettingUpsertOptionInputExtension on SettingUpsertOptionInput {
+  bool get hasDescription => description != null;
+  bool get hasNotDescription => !hasDescription;
+  bool get hasManagerRole => managerRole != null;
+  bool get hasNotManagerRole => !hasManagerRole;
+}
+
 final class SettingUpsertOptionInputConverter
     extends JsonConverter<SettingUpsertOptionInput, Map<String, dynamic>> {
   const SettingUpsertOptionInputConverter();

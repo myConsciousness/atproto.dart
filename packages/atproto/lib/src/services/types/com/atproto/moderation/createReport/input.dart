@@ -49,6 +49,13 @@ abstract class ModerationCreateReportInput with _$ModerationCreateReportInput {
       _$ModerationCreateReportInputFromJson(json);
 }
 
+extension ModerationCreateReportInputExtension on ModerationCreateReportInput {
+  bool get hasReason => reason != null;
+  bool get hasNotReason => !hasReason;
+  bool get hasModTool => modTool != null;
+  bool get hasNotModTool => !hasModTool;
+}
+
 final class ModerationCreateReportInputConverter
     extends JsonConverter<ModerationCreateReportInput, Map<String, dynamic>> {
   const ModerationCreateReportInputConverter();

@@ -92,6 +92,32 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
       _$ModerationQueryEventsInputFromJson(json);
 }
 
+extension ModerationQueryEventsInputExtension on ModerationQueryEventsInput {
+  bool get hasCreatedBy => createdBy != null;
+  bool get hasNotCreatedBy => !hasCreatedBy;
+  bool get hasSortDirection => sortDirection != null;
+  bool get hasNotSortDirection => !hasSortDirection;
+  bool get hasCreatedAfter => createdAfter != null;
+  bool get hasNotCreatedAfter => !hasCreatedAfter;
+  bool get hasCreatedBefore => createdBefore != null;
+  bool get hasNotCreatedBefore => !hasCreatedBefore;
+  bool get hasSubject => subject != null;
+  bool get hasNotSubject => !hasSubject;
+  bool get hasSubjectType => subjectType != null;
+  bool get hasNotSubjectType => !hasSubjectType;
+  bool get isIncludeAllUserRecords => includeAllUserRecords ?? false;
+  bool get isNotIncludeAllUserRecords => !isIncludeAllUserRecords;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+  bool get isHasComment => hasComment ?? false;
+  bool get isNotHasComment => !isHasComment;
+  bool get hasNotComment => !hasComment;
+  bool get hasAgeAssuranceState => ageAssuranceState != null;
+  bool get hasNotAgeAssuranceState => !hasAgeAssuranceState;
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class ModerationQueryEventsInputConverter
     extends JsonConverter<ModerationQueryEventsInput, Map<String, dynamic>> {
   const ModerationQueryEventsInputConverter();

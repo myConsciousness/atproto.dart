@@ -38,6 +38,11 @@ abstract class FeedGetPostThreadOutput with _$FeedGetPostThreadOutput {
       _$FeedGetPostThreadOutputFromJson(json);
 }
 
+extension FeedGetPostThreadOutputExtension on FeedGetPostThreadOutput {
+  bool get hasThreadgate => threadgate != null;
+  bool get hasNotThreadgate => !hasThreadgate;
+}
+
 final class FeedGetPostThreadOutputConverter
     extends JsonConverter<FeedGetPostThreadOutput, Map<String, dynamic>> {
   const FeedGetPostThreadOutputConverter();

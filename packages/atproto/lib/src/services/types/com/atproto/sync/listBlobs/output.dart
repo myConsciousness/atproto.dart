@@ -33,6 +33,11 @@ abstract class SyncListBlobsOutput with _$SyncListBlobsOutput {
       _$SyncListBlobsOutputFromJson(json);
 }
 
+extension SyncListBlobsOutputExtension on SyncListBlobsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class SyncListBlobsOutputConverter
     extends JsonConverter<SyncListBlobsOutput, Map<String, dynamic>> {
   const SyncListBlobsOutputConverter();

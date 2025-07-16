@@ -39,6 +39,13 @@ abstract class ActorGetSuggestionsOutput with _$ActorGetSuggestionsOutput {
       _$ActorGetSuggestionsOutputFromJson(json);
 }
 
+extension ActorGetSuggestionsOutputExtension on ActorGetSuggestionsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasRecId => recId != null;
+  bool get hasNotRecId => !hasRecId;
+}
+
 final class ActorGetSuggestionsOutputConverter
     extends JsonConverter<ActorGetSuggestionsOutput, Map<String, dynamic>> {
   const ActorGetSuggestionsOutputConverter();

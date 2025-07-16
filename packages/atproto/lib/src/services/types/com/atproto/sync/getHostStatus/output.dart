@@ -47,6 +47,15 @@ abstract class SyncGetHostStatusOutput with _$SyncGetHostStatusOutput {
       _$SyncGetHostStatusOutputFromJson(json);
 }
 
+extension SyncGetHostStatusOutputExtension on SyncGetHostStatusOutput {
+  bool get hasSeq => seq != null;
+  bool get hasNotSeq => !hasSeq;
+  bool get hasAccountCount => accountCount != null;
+  bool get hasNotAccountCount => !hasAccountCount;
+  bool get hasStatus => status != null;
+  bool get hasNotStatus => !hasStatus;
+}
+
 final class SyncGetHostStatusOutputConverter
     extends JsonConverter<SyncGetHostStatusOutput, Map<String, dynamic>> {
   const SyncGetHostStatusOutputConverter();

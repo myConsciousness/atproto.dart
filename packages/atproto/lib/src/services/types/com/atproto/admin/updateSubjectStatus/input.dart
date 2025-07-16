@@ -40,6 +40,14 @@ abstract class AdminUpdateSubjectStatusInput
       _$AdminUpdateSubjectStatusInputFromJson(json);
 }
 
+extension AdminUpdateSubjectStatusInputExtension
+    on AdminUpdateSubjectStatusInput {
+  bool get hasTakedown => takedown != null;
+  bool get hasNotTakedown => !hasTakedown;
+  bool get hasDeactivated => deactivated != null;
+  bool get hasNotDeactivated => !hasDeactivated;
+}
+
 final class AdminUpdateSubjectStatusInputConverter
     extends JsonConverter<AdminUpdateSubjectStatusInput, Map<String, dynamic>> {
   const AdminUpdateSubjectStatusInputConverter();

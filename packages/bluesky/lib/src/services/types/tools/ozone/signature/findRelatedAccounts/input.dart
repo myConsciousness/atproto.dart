@@ -36,6 +36,14 @@ abstract class SignatureFindRelatedAccountsInput
   ) => _$SignatureFindRelatedAccountsInputFromJson(json);
 }
 
+extension SignatureFindRelatedAccountsInputExtension
+    on SignatureFindRelatedAccountsInput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+  bool get hasLimit => limit != null;
+  bool get hasNotLimit => !hasLimit;
+}
+
 final class SignatureFindRelatedAccountsInputConverter
     extends
         JsonConverter<SignatureFindRelatedAccountsInput, Map<String, dynamic>> {

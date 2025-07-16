@@ -42,6 +42,19 @@ abstract class VideoGetUploadLimitsOutput with _$VideoGetUploadLimitsOutput {
       _$VideoGetUploadLimitsOutputFromJson(json);
 }
 
+extension VideoGetUploadLimitsOutputExtension on VideoGetUploadLimitsOutput {
+  bool get isCanUpload => canUpload;
+  bool get isNotCanUpload => !isCanUpload;
+  bool get hasRemainingDailyVideos => remainingDailyVideos != null;
+  bool get hasNotRemainingDailyVideos => !hasRemainingDailyVideos;
+  bool get hasRemainingDailyBytes => remainingDailyBytes != null;
+  bool get hasNotRemainingDailyBytes => !hasRemainingDailyBytes;
+  bool get hasMessage => message != null;
+  bool get hasNotMessage => !hasMessage;
+  bool get hasError => error != null;
+  bool get hasNotError => !hasError;
+}
+
 final class VideoGetUploadLimitsOutputConverter
     extends JsonConverter<VideoGetUploadLimitsOutput, Map<String, dynamic>> {
   const VideoGetUploadLimitsOutputConverter();

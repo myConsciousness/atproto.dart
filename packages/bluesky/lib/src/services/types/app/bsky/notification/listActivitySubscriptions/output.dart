@@ -38,6 +38,12 @@ abstract class NotificationListActivitySubscriptionsOutput
   ) => _$NotificationListActivitySubscriptionsOutputFromJson(json);
 }
 
+extension NotificationListActivitySubscriptionsOutputExtension
+    on NotificationListActivitySubscriptionsOutput {
+  bool get hasCursor => cursor != null;
+  bool get hasNotCursor => !hasCursor;
+}
+
 final class NotificationListActivitySubscriptionsOutputConverter
     extends
         JsonConverter<
