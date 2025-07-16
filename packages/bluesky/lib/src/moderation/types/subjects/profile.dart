@@ -13,11 +13,21 @@ ModerationDecision decideProfile(
   final ModerationSubjectProfile subject,
   final ModerationOpts opts,
 ) {
-  final (did, labels) = subject.when(
-    profileViewBasic: (data) => (data.did, data.labels),
-    profileView: (data) => (data.did, data.labels),
-    profileViewDetailed: (data) => (data.did, data.labels),
-  );
+  final (did, labels) = switch (subject) {
+    UModerationSubjectProfileProfileViewBasic(data: final data) => (
+        data.did,
+        data.labels
+      ),
+    UModerationSubjectProfileProfileView(data: final data) => (
+        data.did,
+        data.labels
+      ),
+    UModerationSubjectProfileProfileViewDetailed(data: final data) => (
+        data.did,
+        data.labels
+      ),
+    _ => throw UnimplementedError(),
+  };
 
   final decision = ModerationDecision.init(did: did, me: did == opts.userDid);
 

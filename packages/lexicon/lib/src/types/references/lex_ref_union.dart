@@ -7,7 +7,7 @@ part 'lex_ref_union.freezed.dart';
 part 'lex_ref_union.g.dart';
 
 @freezed
-class LexRefUnion with _$LexRefUnion {
+abstract class LexRefUnion with _$LexRefUnion {
   @JsonSerializable(includeIfNull: false)
   const factory LexRefUnion({
     @Default('union') String type,

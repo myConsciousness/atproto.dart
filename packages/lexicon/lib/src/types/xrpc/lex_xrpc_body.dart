@@ -11,7 +11,7 @@ part 'lex_xrpc_body.freezed.dart';
 part 'lex_xrpc_body.g.dart';
 
 @freezed
-class LexXrpcBody with _$LexXrpcBody {
+abstract class LexXrpcBody with _$LexXrpcBody {
   @JsonSerializable(includeIfNull: false)
   const factory LexXrpcBody({
     String? description,

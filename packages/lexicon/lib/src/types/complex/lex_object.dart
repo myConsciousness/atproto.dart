@@ -11,7 +11,7 @@ part 'lex_object.freezed.dart';
 part 'lex_object.g.dart';
 
 @freezed
-class LexObject with _$LexObject {
+abstract class LexObject with _$LexObject {
   @JsonSerializable(includeIfNull: false)
   const factory LexObject({
     @Default('object') String type,

@@ -13,7 +13,7 @@ part 'lexicon_doc.freezed.dart';
 part 'lexicon_doc.g.dart';
 
 @freezed
-class LexiconDoc with _$LexiconDoc {
+abstract class LexiconDoc with _$LexiconDoc {
   @JsonSerializable(includeIfNull: false)
   const factory LexiconDoc({
     required int lexicon,

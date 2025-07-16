@@ -7,7 +7,7 @@ part 'lex_blob.freezed.dart';
 part 'lex_blob.g.dart';
 
 @freezed
-class LexBlob with _$LexBlob {
+abstract class LexBlob with _$LexBlob {
   @JsonSerializable(includeIfNull: false)
   const factory LexBlob({
     @Default('blob') String type,

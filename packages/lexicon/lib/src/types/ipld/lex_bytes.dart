@@ -7,7 +7,7 @@ part 'lex_bytes.freezed.dart';
 part 'lex_bytes.g.dart';
 
 @freezed
-class LexBytes with _$LexBytes {
+abstract class LexBytes with _$LexBytes {
   @JsonSerializable(includeIfNull: false)
   const factory LexBytes({
     @Default('bytes') String type,

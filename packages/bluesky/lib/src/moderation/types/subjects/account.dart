@@ -12,11 +12,24 @@ ModerationDecision decideAccount(
   final ModerationSubjectProfile subject,
   final ModerationOpts opts,
 ) {
-  final (did, viewer, labels) = subject.when(
-    profileViewBasic: (data) => (data.did, data.viewer, data.labels),
-    profileView: (data) => (data.did, data.viewer, data.labels),
-    profileViewDetailed: (data) => (data.did, data.viewer, data.labels),
-  );
+  final (did, viewer, labels) = switch (subject) {
+    UModerationSubjectProfileProfileViewBasic(data: final data) => (
+        data.did,
+        data.viewer,
+        data.labels
+      ),
+    UModerationSubjectProfileProfileView(data: final data) => (
+        data.did,
+        data.viewer,
+        data.labels
+      ),
+    UModerationSubjectProfileProfileViewDetailed(data: final data) => (
+        data.did,
+        data.viewer,
+        data.labels
+      ),
+    _ => throw UnimplementedError(),
+  };
 
   final decision = ModerationDecision.init(did: did, me: did == opts.userDid);
 

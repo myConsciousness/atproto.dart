@@ -23,7 +23,7 @@ import '../xrpc/lex_xrpc_subscription.dart';
 part 'lex_user_type.freezed.dart';
 
 @freezed
-class LexUserType with _$LexUserType {
+abstract class LexUserType with _$LexUserType {
   // ignore: unused_element
   const LexUserType._();
 
