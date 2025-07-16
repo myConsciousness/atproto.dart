@@ -90,7 +90,9 @@ enum KnownHostStatus implements Serializable {
     return valueOf(value) != null;
   }
 
-  static KnownHostStatus? valueOf(final String value) {
+  static KnownHostStatus? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final v in values) {
       if (v.value == value) {
         return v;

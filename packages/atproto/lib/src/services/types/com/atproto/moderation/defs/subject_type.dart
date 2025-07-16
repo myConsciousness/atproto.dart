@@ -87,7 +87,9 @@ enum KnownSubjectType implements Serializable {
     return valueOf(value) != null;
   }
 
-  static KnownSubjectType? valueOf(final String value) {
+  static KnownSubjectType? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final v in values) {
       if (v.value == value) {
         return v;

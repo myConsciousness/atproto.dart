@@ -86,7 +86,9 @@ enum KnownEventType implements Serializable {
     return valueOf(value) != null;
   }
 
-  static KnownEventType? valueOf(final String value) {
+  static KnownEventType? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final v in values) {
       if (v.value == value) {
         return v;
