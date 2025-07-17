@@ -22,6 +22,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// A declaration of a Bluesky account profile.
 @freezed
 abstract class ActorProfileRecord with _$ActorProfileRecord {
   static const knownProps = <String>[

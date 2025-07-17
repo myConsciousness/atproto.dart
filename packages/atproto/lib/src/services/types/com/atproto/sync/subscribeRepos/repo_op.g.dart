@@ -15,7 +15,10 @@ _RepoOp _$RepoOpFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'com.atproto.sync.subscribeRepos#repoOp',
         ),
-        action: $checkedConvert('action', (v) => v as String),
+        action: $checkedConvert(
+          'action',
+          (v) => const RepoOpActionConverter().fromJson(v as String),
+        ),
         path: $checkedConvert('path', (v) => v as String),
         cid: $checkedConvert('cid', (v) => Map<String, dynamic>.from(v as Map)),
         prev: $checkedConvert(
@@ -32,7 +35,7 @@ _RepoOp _$RepoOpFromJson(Map json) =>
 
 Map<String, dynamic> _$RepoOpToJson(_RepoOp instance) => <String, dynamic>{
   r'$type': instance.$type,
-  'action': instance.action,
+  'action': const RepoOpActionConverter().toJson(instance.action),
   'path': instance.path,
   'cid': instance.cid,
   'prev': instance.prev,

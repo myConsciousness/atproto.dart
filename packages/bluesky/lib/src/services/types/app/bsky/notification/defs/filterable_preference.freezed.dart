@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FilterablePreference {
 
- String get $type; String get include; bool get list; bool get push; Map<String, dynamic>? get $unknown;
+ String get $type;@FilterablePreferenceIncludeConverter() FilterablePreferenceInclude get include; bool get list; bool get push; Map<String, dynamic>? get $unknown;
 /// Create a copy of FilterablePreference
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $FilterablePreferenceCopyWith<$Res>  {
   factory $FilterablePreferenceCopyWith(FilterablePreference value, $Res Function(FilterablePreference) _then) = _$FilterablePreferenceCopyWithImpl;
 @useResult
 $Res call({
- String $type, String include, bool list, bool push, Map<String, dynamic>? $unknown
+ String $type,@FilterablePreferenceIncludeConverter() FilterablePreferenceInclude include, bool list, bool push, Map<String, dynamic>? $unknown
 });
 
 
-
+$FilterablePreferenceIncludeCopyWith<$Res> get include;
 
 }
 /// @nodoc
@@ -69,13 +69,22 @@ class _$FilterablePreferenceCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,include: null == include ? _self.include : include // ignore: cast_nullable_to_non_nullable
-as String,list: null == list ? _self.list : list // ignore: cast_nullable_to_non_nullable
+as FilterablePreferenceInclude,list: null == list ? _self.list : list // ignore: cast_nullable_to_non_nullable
 as bool,push: null == push ? _self.push : push // ignore: cast_nullable_to_non_nullable
 as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of FilterablePreference
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$FilterablePreferenceIncludeCopyWith<$Res> get include {
+  
+  return $FilterablePreferenceIncludeCopyWith<$Res>(_self.include, (value) {
+    return _then(_self.copyWith(include: value));
+  });
+}
 }
 
 
@@ -157,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String include,  bool list,  bool push,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @FilterablePreferenceIncludeConverter()  FilterablePreferenceInclude include,  bool list,  bool push,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FilterablePreference() when $default != null:
 return $default(_that.$type,_that.include,_that.list,_that.push,_that.$unknown);case _:
@@ -178,7 +187,7 @@ return $default(_that.$type,_that.include,_that.list,_that.push,_that.$unknown);
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String include,  bool list,  bool push,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @FilterablePreferenceIncludeConverter()  FilterablePreferenceInclude include,  bool list,  bool push,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FilterablePreference():
 return $default(_that.$type,_that.include,_that.list,_that.push,_that.$unknown);case _:
@@ -198,7 +207,7 @@ return $default(_that.$type,_that.include,_that.list,_that.push,_that.$unknown);
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String include,  bool list,  bool push,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @FilterablePreferenceIncludeConverter()  FilterablePreferenceInclude include,  bool list,  bool push,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FilterablePreference() when $default != null:
 return $default(_that.$type,_that.include,_that.list,_that.push,_that.$unknown);case _:
@@ -213,11 +222,11 @@ return $default(_that.$type,_that.include,_that.list,_that.push,_that.$unknown);
 @JsonSerializable()
 
 class _FilterablePreference implements FilterablePreference {
-  const _FilterablePreference({this.$type = 'app.bsky.notification.defs#filterablePreference', required this.include, required this.list, required this.push, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FilterablePreference({this.$type = 'app.bsky.notification.defs#filterablePreference', @FilterablePreferenceIncludeConverter() required this.include, required this.list, required this.push, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FilterablePreference.fromJson(Map<String, dynamic> json) => _$FilterablePreferenceFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String include;
+@override@FilterablePreferenceIncludeConverter() final  FilterablePreferenceInclude include;
 @override final  bool list;
 @override final  bool push;
  final  Map<String, dynamic>? _$unknown;
@@ -263,11 +272,11 @@ abstract mixin class _$FilterablePreferenceCopyWith<$Res> implements $Filterable
   factory _$FilterablePreferenceCopyWith(_FilterablePreference value, $Res Function(_FilterablePreference) _then) = __$FilterablePreferenceCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String include, bool list, bool push, Map<String, dynamic>? $unknown
+ String $type,@FilterablePreferenceIncludeConverter() FilterablePreferenceInclude include, bool list, bool push, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $FilterablePreferenceIncludeCopyWith<$Res> get include;
 
 }
 /// @nodoc
@@ -284,14 +293,23 @@ class __$FilterablePreferenceCopyWithImpl<$Res>
   return _then(_FilterablePreference(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,include: null == include ? _self.include : include // ignore: cast_nullable_to_non_nullable
-as String,list: null == list ? _self.list : list // ignore: cast_nullable_to_non_nullable
+as FilterablePreferenceInclude,list: null == list ? _self.list : list // ignore: cast_nullable_to_non_nullable
 as bool,push: null == push ? _self.push : push // ignore: cast_nullable_to_non_nullable
 as bool,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of FilterablePreference
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$FilterablePreferenceIncludeCopyWith<$Res> get include {
+  
+  return $FilterablePreferenceIncludeCopyWith<$Res>(_self.include, (value) {
+    return _then(_self.copyWith(include: value));
+  });
+}
 }
 
 // dart format on

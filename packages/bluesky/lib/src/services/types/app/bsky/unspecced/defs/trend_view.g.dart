@@ -21,7 +21,13 @@ _TrendView _$TrendViewFromJson(Map json) => $checkedCreate('_TrendView', json, (
     link: $checkedConvert('link', (v) => v as String),
     startedAt: $checkedConvert('startedAt', (v) => DateTime.parse(v as String)),
     postCount: $checkedConvert('postCount', (v) => (v as num).toInt()),
-    status: $checkedConvert('status', (v) => v as String?),
+    status: $checkedConvert(
+      'status',
+      (v) => _$JsonConverterFromJson<String, TrendViewStatus>(
+        v,
+        const TrendViewStatusConverter().fromJson,
+      ),
+    ),
     category: $checkedConvert('category', (v) => v as String?),
     actors: $checkedConvert(
       'actors',
@@ -49,10 +55,23 @@ Map<String, dynamic> _$TrendViewToJson(_TrendView instance) =>
       'link': instance.link,
       'startedAt': instance.startedAt.toIso8601String(),
       'postCount': instance.postCount,
-      'status': instance.status,
+      'status': _$JsonConverterToJson<String, TrendViewStatus>(
+        instance.status,
+        const TrendViewStatusConverter().toJson,
+      ),
       'category': instance.category,
       'actors': instance.actors
           .map(const ProfileViewBasicConverter().toJson)
           .toList(),
       r'$unknown': instance.$unknown,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

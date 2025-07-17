@@ -54,7 +54,7 @@ final class LexParameter {
     buffer.write(' ');
     if (type.name == 'DateTime') {
       buffer.write('_ctx.toUtcIso8601String($name)');
-    } else if (type.isRef || type.isUnion) {
+    } else if (type.isRef || type.isUnion || type.isKnownValues) {
       if (type.isArray) {
         buffer.write('$name.map((e) => e.toJson()).toList()');
       } else {

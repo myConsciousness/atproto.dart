@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ConvoUpdateAllReadInput {
 
- String? get status; Map<String, dynamic>? get $unknown;
+@ConvoUpdateAllReadStatusConverter() ConvoUpdateAllReadStatus? get status; Map<String, dynamic>? get $unknown;
 /// Create a copy of ConvoUpdateAllReadInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $ConvoUpdateAllReadInputCopyWith<$Res>  {
   factory $ConvoUpdateAllReadInputCopyWith(ConvoUpdateAllReadInput value, $Res Function(ConvoUpdateAllReadInput) _then) = _$ConvoUpdateAllReadInputCopyWithImpl;
 @useResult
 $Res call({
- String? status, Map<String, dynamic>? $unknown
+@ConvoUpdateAllReadStatusConverter() ConvoUpdateAllReadStatus? status, Map<String, dynamic>? $unknown
 });
 
 
-
+$ConvoUpdateAllReadStatusCopyWith<$Res>? get status;
 
 }
 /// @nodoc
@@ -68,11 +68,23 @@ class _$ConvoUpdateAllReadInputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? status = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ConvoUpdateAllReadStatus?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of ConvoUpdateAllReadInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ConvoUpdateAllReadStatusCopyWith<$Res>? get status {
+    if (_self.status == null) {
+    return null;
+  }
 
+  return $ConvoUpdateAllReadStatusCopyWith<$Res>(_self.status!, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 
@@ -154,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@ConvoUpdateAllReadStatusConverter()  ConvoUpdateAllReadStatus? status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ConvoUpdateAllReadInput() when $default != null:
 return $default(_that.status,_that.$unknown);case _:
@@ -175,7 +187,7 @@ return $default(_that.status,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@ConvoUpdateAllReadStatusConverter()  ConvoUpdateAllReadStatus? status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ConvoUpdateAllReadInput():
 return $default(_that.status,_that.$unknown);case _:
@@ -195,7 +207,7 @@ return $default(_that.status,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@ConvoUpdateAllReadStatusConverter()  ConvoUpdateAllReadStatus? status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ConvoUpdateAllReadInput() when $default != null:
 return $default(_that.status,_that.$unknown);case _:
@@ -210,10 +222,10 @@ return $default(_that.status,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ConvoUpdateAllReadInput implements ConvoUpdateAllReadInput {
-  const _ConvoUpdateAllReadInput({this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ConvoUpdateAllReadInput({@ConvoUpdateAllReadStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoUpdateAllReadInput.fromJson(Map<String, dynamic> json) => _$ConvoUpdateAllReadInputFromJson(json);
 
-@override final  String? status;
+@override@ConvoUpdateAllReadStatusConverter() final  ConvoUpdateAllReadStatus? status;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -257,11 +269,11 @@ abstract mixin class _$ConvoUpdateAllReadInputCopyWith<$Res> implements $ConvoUp
   factory _$ConvoUpdateAllReadInputCopyWith(_ConvoUpdateAllReadInput value, $Res Function(_ConvoUpdateAllReadInput) _then) = __$ConvoUpdateAllReadInputCopyWithImpl;
 @override @useResult
 $Res call({
- String? status, Map<String, dynamic>? $unknown
+@ConvoUpdateAllReadStatusConverter() ConvoUpdateAllReadStatus? status, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $ConvoUpdateAllReadStatusCopyWith<$Res>? get status;
 
 }
 /// @nodoc
@@ -277,12 +289,24 @@ class __$ConvoUpdateAllReadInputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? status = freezed,Object? $unknown = freezed,}) {
   return _then(_ConvoUpdateAllReadInput(
 status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ConvoUpdateAllReadStatus?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of ConvoUpdateAllReadInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ConvoUpdateAllReadStatusCopyWith<$Res>? get status {
+    if (_self.status == null) {
+    return null;
+  }
 
+  return $ConvoUpdateAllReadStatusCopyWith<$Res>(_self.status!, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 // dart format on

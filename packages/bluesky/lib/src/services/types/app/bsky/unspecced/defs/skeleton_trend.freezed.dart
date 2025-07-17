@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SkeletonTrend {
 
- String get $type; String get topic; String get displayName; String get link; DateTime get startedAt; int get postCount; String? get status; String? get category; List<String> get dids; Map<String, dynamic>? get $unknown;
+ String get $type; String get topic; String get displayName; String get link; DateTime get startedAt; int get postCount;@SkeletonTrendStatusConverter() SkeletonTrendStatus? get status; String? get category; List<String> get dids; Map<String, dynamic>? get $unknown;
 /// Create a copy of SkeletonTrend
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $SkeletonTrendCopyWith<$Res>  {
   factory $SkeletonTrendCopyWith(SkeletonTrend value, $Res Function(SkeletonTrend) _then) = _$SkeletonTrendCopyWithImpl;
 @useResult
 $Res call({
- String $type, String topic, String displayName, String link, DateTime startedAt, int postCount, String? status, String? category, List<String> dids, Map<String, dynamic>? $unknown
+ String $type, String topic, String displayName, String link, DateTime startedAt, int postCount,@SkeletonTrendStatusConverter() SkeletonTrendStatus? status, String? category, List<String> dids, Map<String, dynamic>? $unknown
 });
 
 
-
+$SkeletonTrendStatusCopyWith<$Res>? get status;
 
 }
 /// @nodoc
@@ -74,13 +74,25 @@ as String,link: null == link ? _self.link : link // ignore: cast_nullable_to_non
 as String,startedAt: null == startedAt ? _self.startedAt : startedAt // ignore: cast_nullable_to_non_nullable
 as DateTime,postCount: null == postCount ? _self.postCount : postCount // ignore: cast_nullable_to_non_nullable
 as int,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String?,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
+as SkeletonTrendStatus?,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
 as String?,dids: null == dids ? _self.dids : dids // ignore: cast_nullable_to_non_nullable
 as List<String>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of SkeletonTrend
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SkeletonTrendStatusCopyWith<$Res>? get status {
+    if (_self.status == null) {
+    return null;
+  }
 
+  return $SkeletonTrendStatusCopyWith<$Res>(_self.status!, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 
@@ -162,7 +174,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String topic,  String displayName,  String link,  DateTime startedAt,  int postCount,  String? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String topic,  String displayName,  String link,  DateTime startedAt,  int postCount, @SkeletonTrendStatusConverter()  SkeletonTrendStatus? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SkeletonTrend() when $default != null:
 return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.startedAt,_that.postCount,_that.status,_that.category,_that.dids,_that.$unknown);case _:
@@ -183,7 +195,7 @@ return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.start
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String topic,  String displayName,  String link,  DateTime startedAt,  int postCount,  String? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String topic,  String displayName,  String link,  DateTime startedAt,  int postCount, @SkeletonTrendStatusConverter()  SkeletonTrendStatus? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SkeletonTrend():
 return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.startedAt,_that.postCount,_that.status,_that.category,_that.dids,_that.$unknown);case _:
@@ -203,7 +215,7 @@ return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.start
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String topic,  String displayName,  String link,  DateTime startedAt,  int postCount,  String? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String topic,  String displayName,  String link,  DateTime startedAt,  int postCount, @SkeletonTrendStatusConverter()  SkeletonTrendStatus? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SkeletonTrend() when $default != null:
 return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.startedAt,_that.postCount,_that.status,_that.category,_that.dids,_that.$unknown);case _:
@@ -218,7 +230,7 @@ return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.start
 @JsonSerializable()
 
 class _SkeletonTrend implements SkeletonTrend {
-  const _SkeletonTrend({this.$type = 'app.bsky.unspecced.defs#skeletonTrend', required this.topic, required this.displayName, required this.link, required this.startedAt, required this.postCount, this.status, this.category, required final  List<String> dids, final  Map<String, dynamic>? $unknown}): _dids = dids,_$unknown = $unknown;
+  const _SkeletonTrend({this.$type = 'app.bsky.unspecced.defs#skeletonTrend', required this.topic, required this.displayName, required this.link, required this.startedAt, required this.postCount, @SkeletonTrendStatusConverter() this.status, this.category, required final  List<String> dids, final  Map<String, dynamic>? $unknown}): _dids = dids,_$unknown = $unknown;
   factory _SkeletonTrend.fromJson(Map<String, dynamic> json) => _$SkeletonTrendFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -227,7 +239,7 @@ class _SkeletonTrend implements SkeletonTrend {
 @override final  String link;
 @override final  DateTime startedAt;
 @override final  int postCount;
-@override final  String? status;
+@override@SkeletonTrendStatusConverter() final  SkeletonTrendStatus? status;
 @override final  String? category;
  final  List<String> _dids;
 @override List<String> get dids {
@@ -279,11 +291,11 @@ abstract mixin class _$SkeletonTrendCopyWith<$Res> implements $SkeletonTrendCopy
   factory _$SkeletonTrendCopyWith(_SkeletonTrend value, $Res Function(_SkeletonTrend) _then) = __$SkeletonTrendCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String topic, String displayName, String link, DateTime startedAt, int postCount, String? status, String? category, List<String> dids, Map<String, dynamic>? $unknown
+ String $type, String topic, String displayName, String link, DateTime startedAt, int postCount,@SkeletonTrendStatusConverter() SkeletonTrendStatus? status, String? category, List<String> dids, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $SkeletonTrendStatusCopyWith<$Res>? get status;
 
 }
 /// @nodoc
@@ -305,14 +317,26 @@ as String,link: null == link ? _self.link : link // ignore: cast_nullable_to_non
 as String,startedAt: null == startedAt ? _self.startedAt : startedAt // ignore: cast_nullable_to_non_nullable
 as DateTime,postCount: null == postCount ? _self.postCount : postCount // ignore: cast_nullable_to_non_nullable
 as int,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String?,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
+as SkeletonTrendStatus?,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
 as String?,dids: null == dids ? _self._dids : dids // ignore: cast_nullable_to_non_nullable
 as List<String>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of SkeletonTrend
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SkeletonTrendStatusCopyWith<$Res>? get status {
+    if (_self.status == null) {
+    return null;
+  }
 
+  return $SkeletonTrendStatusCopyWith<$Res>(_self.status!, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 // dart format on

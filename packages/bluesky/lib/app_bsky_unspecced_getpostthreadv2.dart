@@ -12,6 +12,7 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/types/app/bsky/unspecced/getPostThreadV2/input.dart';
+export 'package:bluesky/src/services/types/app/bsky/unspecced/getPostThreadV2/main_sort.dart';
 export 'package:bluesky/src/services/types/app/bsky/unspecced/getPostThreadV2/output.dart';
 export 'package:bluesky/src/services/types/app/bsky/unspecced/getPostThreadV2/thread_item.dart';
 export 'package:bluesky/src/services/types/app/bsky/unspecced/getPostThreadV2/union_thread_item_value.dart';

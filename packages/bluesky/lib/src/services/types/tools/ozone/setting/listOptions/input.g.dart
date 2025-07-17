@@ -13,7 +13,13 @@ _SettingListOptionsInput _$SettingListOptionsInputFromJson(Map json) =>
       final val = _SettingListOptionsInput(
         limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
         cursor: $checkedConvert('cursor', (v) => v as String?),
-        scope: $checkedConvert('scope', (v) => v as String?),
+        scope: $checkedConvert(
+          'scope',
+          (v) => _$JsonConverterFromJson<String, SettingListOptionsScope>(
+            v,
+            const SettingListOptionsScopeConverter().fromJson,
+          ),
+        ),
         prefix: $checkedConvert('prefix', (v) => v as String?),
         keys: $checkedConvert(
           'keys',
@@ -32,8 +38,21 @@ Map<String, dynamic> _$SettingListOptionsInputToJson(
 ) => <String, dynamic>{
   'limit': instance.limit,
   'cursor': instance.cursor,
-  'scope': instance.scope,
+  'scope': _$JsonConverterToJson<String, SettingListOptionsScope>(
+    instance.scope,
+    const SettingListOptionsScopeConverter().toJson,
+  ),
   'prefix': instance.prefix,
   'keys': instance.keys,
   r'$unknown': instance.$unknown,
 };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

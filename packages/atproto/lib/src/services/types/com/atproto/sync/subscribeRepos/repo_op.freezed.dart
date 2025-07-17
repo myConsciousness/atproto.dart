@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RepoOp {
 
- String get $type; String get action; String get path; Map<String, dynamic> get cid; Map<String, dynamic>? get prev; Map<String, dynamic>? get $unknown;
+ String get $type;@RepoOpActionConverter() RepoOpAction get action; String get path; Map<String, dynamic> get cid; Map<String, dynamic>? get prev; Map<String, dynamic>? get $unknown;
 /// Create a copy of RepoOp
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $RepoOpCopyWith<$Res>  {
   factory $RepoOpCopyWith(RepoOp value, $Res Function(RepoOp) _then) = _$RepoOpCopyWithImpl;
 @useResult
 $Res call({
- String $type, String action, String path, Map<String, dynamic> cid, Map<String, dynamic>? prev, Map<String, dynamic>? $unknown
+ String $type,@RepoOpActionConverter() RepoOpAction action, String path, Map<String, dynamic> cid, Map<String, dynamic>? prev, Map<String, dynamic>? $unknown
 });
 
 
-
+$RepoOpActionCopyWith<$Res> get action;
 
 }
 /// @nodoc
@@ -69,14 +69,23 @@ class _$RepoOpCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
-as String,path: null == path ? _self.path : path // ignore: cast_nullable_to_non_nullable
+as RepoOpAction,path: null == path ? _self.path : path // ignore: cast_nullable_to_non_nullable
 as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>,prev: freezed == prev ? _self.prev : prev // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of RepoOp
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RepoOpActionCopyWith<$Res> get action {
+  
+  return $RepoOpActionCopyWith<$Res>(_self.action, (value) {
+    return _then(_self.copyWith(action: value));
+  });
+}
 }
 
 
@@ -158,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String action,  String path,  Map<String, dynamic> cid,  Map<String, dynamic>? prev,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @RepoOpActionConverter()  RepoOpAction action,  String path,  Map<String, dynamic> cid,  Map<String, dynamic>? prev,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RepoOp() when $default != null:
 return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$unknown);case _:
@@ -179,7 +188,7 @@ return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String action,  String path,  Map<String, dynamic> cid,  Map<String, dynamic>? prev,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @RepoOpActionConverter()  RepoOpAction action,  String path,  Map<String, dynamic> cid,  Map<String, dynamic>? prev,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _RepoOp():
 return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$unknown);case _:
@@ -199,7 +208,7 @@ return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String action,  String path,  Map<String, dynamic> cid,  Map<String, dynamic>? prev,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @RepoOpActionConverter()  RepoOpAction action,  String path,  Map<String, dynamic> cid,  Map<String, dynamic>? prev,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _RepoOp() when $default != null:
 return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$unknown);case _:
@@ -214,11 +223,11 @@ return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$
 @JsonSerializable()
 
 class _RepoOp implements RepoOp {
-  const _RepoOp({this.$type = 'com.atproto.sync.subscribeRepos#repoOp', required this.action, required this.path, required final  Map<String, dynamic> cid, final  Map<String, dynamic>? prev, final  Map<String, dynamic>? $unknown}): _cid = cid,_prev = prev,_$unknown = $unknown;
+  const _RepoOp({this.$type = 'com.atproto.sync.subscribeRepos#repoOp', @RepoOpActionConverter() required this.action, required this.path, required final  Map<String, dynamic> cid, final  Map<String, dynamic>? prev, final  Map<String, dynamic>? $unknown}): _cid = cid,_prev = prev,_$unknown = $unknown;
   factory _RepoOp.fromJson(Map<String, dynamic> json) => _$RepoOpFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String action;
+@override@RepoOpActionConverter() final  RepoOpAction action;
 @override final  String path;
  final  Map<String, dynamic> _cid;
 @override Map<String, dynamic> get cid {
@@ -279,11 +288,11 @@ abstract mixin class _$RepoOpCopyWith<$Res> implements $RepoOpCopyWith<$Res> {
   factory _$RepoOpCopyWith(_RepoOp value, $Res Function(_RepoOp) _then) = __$RepoOpCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String action, String path, Map<String, dynamic> cid, Map<String, dynamic>? prev, Map<String, dynamic>? $unknown
+ String $type,@RepoOpActionConverter() RepoOpAction action, String path, Map<String, dynamic> cid, Map<String, dynamic>? prev, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $RepoOpActionCopyWith<$Res> get action;
 
 }
 /// @nodoc
@@ -300,7 +309,7 @@ class __$RepoOpCopyWithImpl<$Res>
   return _then(_RepoOp(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
-as String,path: null == path ? _self.path : path // ignore: cast_nullable_to_non_nullable
+as RepoOpAction,path: null == path ? _self.path : path // ignore: cast_nullable_to_non_nullable
 as String,cid: null == cid ? _self._cid : cid // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>,prev: freezed == prev ? _self._prev : prev // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -308,7 +317,16 @@ as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of RepoOp
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RepoOpActionCopyWith<$Res> get action {
+  
+  return $RepoOpActionCopyWith<$Res>(_self.action, (value) {
+    return _then(_self.copyWith(action: value));
+  });
+}
 }
 
 // dart format on

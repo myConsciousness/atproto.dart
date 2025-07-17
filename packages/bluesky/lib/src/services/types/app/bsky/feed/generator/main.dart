@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../app/bsky/richtext/facet/main.dart';
+import './main_content_mode.dart';
 import './union_main_labels.dart';
 
 part 'main.freezed.dart';
@@ -22,6 +23,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Record declaring of the existence of a feed generator, and containing metadata about it. The record can exist in any repository.
 @freezed
 abstract class FeedGeneratorRecord with _$FeedGeneratorRecord {
   static const knownProps = <String>[
@@ -47,7 +49,7 @@ abstract class FeedGeneratorRecord with _$FeedGeneratorRecord {
     /// Declaration that a feed accepts feedback interactions from a client through app.bsky.feed.sendInteractions
     bool? acceptsInteractions,
     @UFeedGeneratorLabelsConverter() UFeedGeneratorLabels? labels,
-    String? contentMode,
+    @FeedGeneratorContentModeConverter() FeedGeneratorContentMode? contentMode,
     required DateTime createdAt,
 
     Map<String, dynamic>? $unknown,

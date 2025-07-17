@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_status.dart';
+
 part 'input.freezed.dart';
 part 'input.g.dart';
 
@@ -23,7 +26,7 @@ abstract class ConvoUpdateAllReadInput with _$ConvoUpdateAllReadInput {
   static const knownProps = <String>['status'];
 
   const factory ConvoUpdateAllReadInput({
-    String? status,
+    @ConvoUpdateAllReadStatusConverter() ConvoUpdateAllReadStatus? status,
 
     Map<String, dynamic>? $unknown,
   }) = _ConvoUpdateAllReadInput;

@@ -17,7 +17,7 @@ mixin _$AgeAssuranceState {
 
  String get $type;/// The timestamp when this state was last updated.
  DateTime? get lastInitiatedAt;/// The status of the age assurance process.
- String get status; Map<String, dynamic>? get $unknown;
+@AgeAssuranceStateStatusConverter() AgeAssuranceStateStatus get status; Map<String, dynamic>? get $unknown;
 /// Create a copy of AgeAssuranceState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -50,11 +50,11 @@ abstract mixin class $AgeAssuranceStateCopyWith<$Res>  {
   factory $AgeAssuranceStateCopyWith(AgeAssuranceState value, $Res Function(AgeAssuranceState) _then) = _$AgeAssuranceStateCopyWithImpl;
 @useResult
 $Res call({
- String $type, DateTime? lastInitiatedAt, String status, Map<String, dynamic>? $unknown
+ String $type, DateTime? lastInitiatedAt,@AgeAssuranceStateStatusConverter() AgeAssuranceStateStatus status, Map<String, dynamic>? $unknown
 });
 
 
-
+$AgeAssuranceStateStatusCopyWith<$Res> get status;
 
 }
 /// @nodoc
@@ -72,11 +72,20 @@ class _$AgeAssuranceStateCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,lastInitiatedAt: freezed == lastInitiatedAt ? _self.lastInitiatedAt : lastInitiatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AgeAssuranceStateStatus,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of AgeAssuranceState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AgeAssuranceStateStatusCopyWith<$Res> get status {
+  
+  return $AgeAssuranceStateStatusCopyWith<$Res>(_self.status, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 
@@ -158,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime? lastInitiatedAt,  String status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime? lastInitiatedAt, @AgeAssuranceStateStatusConverter()  AgeAssuranceStateStatus status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AgeAssuranceState() when $default != null:
 return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.$unknown);case _:
@@ -179,7 +188,7 @@ return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.$unknown);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime? lastInitiatedAt,  String status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime? lastInitiatedAt, @AgeAssuranceStateStatusConverter()  AgeAssuranceStateStatus status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AgeAssuranceState():
 return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.$unknown);case _:
@@ -199,7 +208,7 @@ return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.$unknown);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime? lastInitiatedAt,  String status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime? lastInitiatedAt, @AgeAssuranceStateStatusConverter()  AgeAssuranceStateStatus status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AgeAssuranceState() when $default != null:
 return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.$unknown);case _:
@@ -214,14 +223,14 @@ return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.$unknown);c
 @JsonSerializable()
 
 class _AgeAssuranceState implements AgeAssuranceState {
-  const _AgeAssuranceState({this.$type = 'app.bsky.unspecced.defs#ageAssuranceState', this.lastInitiatedAt, required this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AgeAssuranceState({this.$type = 'app.bsky.unspecced.defs#ageAssuranceState', this.lastInitiatedAt, @AgeAssuranceStateStatusConverter() required this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AgeAssuranceState.fromJson(Map<String, dynamic> json) => _$AgeAssuranceStateFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The timestamp when this state was last updated.
 @override final  DateTime? lastInitiatedAt;
 /// The status of the age assurance process.
-@override final  String status;
+@override@AgeAssuranceStateStatusConverter() final  AgeAssuranceStateStatus status;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -265,11 +274,11 @@ abstract mixin class _$AgeAssuranceStateCopyWith<$Res> implements $AgeAssuranceS
   factory _$AgeAssuranceStateCopyWith(_AgeAssuranceState value, $Res Function(_AgeAssuranceState) _then) = __$AgeAssuranceStateCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, DateTime? lastInitiatedAt, String status, Map<String, dynamic>? $unknown
+ String $type, DateTime? lastInitiatedAt,@AgeAssuranceStateStatusConverter() AgeAssuranceStateStatus status, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $AgeAssuranceStateStatusCopyWith<$Res> get status;
 
 }
 /// @nodoc
@@ -287,12 +296,21 @@ class __$AgeAssuranceStateCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,lastInitiatedAt: freezed == lastInitiatedAt ? _self.lastInitiatedAt : lastInitiatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AgeAssuranceStateStatus,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of AgeAssuranceState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AgeAssuranceStateStatusCopyWith<$Res> get status {
+  
+  return $AgeAssuranceStateStatusCopyWith<$Res>(_self.status, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 // dart format on

@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './viewer_config_role.dart';
+
 part 'viewer_config.freezed.dart';
 part 'viewer_config.g.dart';
 
@@ -24,7 +27,7 @@ abstract class ViewerConfig with _$ViewerConfig {
 
   const factory ViewerConfig({
     @Default('tools.ozone.server.getConfig#viewerConfig') String $type,
-    String? role,
+    @ViewerConfigRoleConverter() ViewerConfigRole? role,
 
     Map<String, dynamic>? $unknown,
   }) = _ViewerConfig;

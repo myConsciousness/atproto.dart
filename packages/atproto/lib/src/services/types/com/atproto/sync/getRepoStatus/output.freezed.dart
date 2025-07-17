@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$SyncGetRepoStatusOutput {
 
  String get did; bool get active;/// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
- String? get status;/// Optional field, the current rev of the repo, if active=true
+@SyncGetRepoStatusStatusConverter() SyncGetRepoStatusStatus? get status;/// Optional field, the current rev of the repo, if active=true
  String? get rev; Map<String, dynamic>? get $unknown;
 /// Create a copy of SyncGetRepoStatusOutput
 /// with the given fields replaced by the non-null parameter values.
@@ -50,11 +50,11 @@ abstract mixin class $SyncGetRepoStatusOutputCopyWith<$Res>  {
   factory $SyncGetRepoStatusOutputCopyWith(SyncGetRepoStatusOutput value, $Res Function(SyncGetRepoStatusOutput) _then) = _$SyncGetRepoStatusOutputCopyWithImpl;
 @useResult
 $Res call({
- String did, bool active, String? status, String? rev, Map<String, dynamic>? $unknown
+ String did, bool active,@SyncGetRepoStatusStatusConverter() SyncGetRepoStatusStatus? status, String? rev, Map<String, dynamic>? $unknown
 });
 
 
-
+$SyncGetRepoStatusStatusCopyWith<$Res>? get status;
 
 }
 /// @nodoc
@@ -72,12 +72,24 @@ class _$SyncGetRepoStatusOutputCopyWithImpl<$Res>
 did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,active: null == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String?,rev: freezed == rev ? _self.rev : rev // ignore: cast_nullable_to_non_nullable
+as SyncGetRepoStatusStatus?,rev: freezed == rev ? _self.rev : rev // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of SyncGetRepoStatusOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SyncGetRepoStatusStatusCopyWith<$Res>? get status {
+    if (_self.status == null) {
+    return null;
+  }
 
+  return $SyncGetRepoStatusStatusCopyWith<$Res>(_self.status!, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 
@@ -159,7 +171,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String did,  bool active,  String? status,  String? rev,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String did,  bool active, @SyncGetRepoStatusStatusConverter()  SyncGetRepoStatusStatus? status,  String? rev,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SyncGetRepoStatusOutput() when $default != null:
 return $default(_that.did,_that.active,_that.status,_that.rev,_that.$unknown);case _:
@@ -180,7 +192,7 @@ return $default(_that.did,_that.active,_that.status,_that.rev,_that.$unknown);ca
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String did,  bool active,  String? status,  String? rev,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String did,  bool active, @SyncGetRepoStatusStatusConverter()  SyncGetRepoStatusStatus? status,  String? rev,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SyncGetRepoStatusOutput():
 return $default(_that.did,_that.active,_that.status,_that.rev,_that.$unknown);case _:
@@ -200,7 +212,7 @@ return $default(_that.did,_that.active,_that.status,_that.rev,_that.$unknown);ca
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String did,  bool active,  String? status,  String? rev,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String did,  bool active, @SyncGetRepoStatusStatusConverter()  SyncGetRepoStatusStatus? status,  String? rev,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SyncGetRepoStatusOutput() when $default != null:
 return $default(_that.did,_that.active,_that.status,_that.rev,_that.$unknown);case _:
@@ -215,13 +227,13 @@ return $default(_that.did,_that.active,_that.status,_that.rev,_that.$unknown);ca
 @JsonSerializable()
 
 class _SyncGetRepoStatusOutput implements SyncGetRepoStatusOutput {
-  const _SyncGetRepoStatusOutput({required this.did, required this.active, this.status, this.rev, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SyncGetRepoStatusOutput({required this.did, required this.active, @SyncGetRepoStatusStatusConverter() this.status, this.rev, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncGetRepoStatusOutput.fromJson(Map<String, dynamic> json) => _$SyncGetRepoStatusOutputFromJson(json);
 
 @override final  String did;
 @override final  bool active;
 /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-@override final  String? status;
+@override@SyncGetRepoStatusStatusConverter() final  SyncGetRepoStatusStatus? status;
 /// Optional field, the current rev of the repo, if active=true
 @override final  String? rev;
  final  Map<String, dynamic>? _$unknown;
@@ -267,11 +279,11 @@ abstract mixin class _$SyncGetRepoStatusOutputCopyWith<$Res> implements $SyncGet
   factory _$SyncGetRepoStatusOutputCopyWith(_SyncGetRepoStatusOutput value, $Res Function(_SyncGetRepoStatusOutput) _then) = __$SyncGetRepoStatusOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String did, bool active, String? status, String? rev, Map<String, dynamic>? $unknown
+ String did, bool active,@SyncGetRepoStatusStatusConverter() SyncGetRepoStatusStatus? status, String? rev, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $SyncGetRepoStatusStatusCopyWith<$Res>? get status;
 
 }
 /// @nodoc
@@ -289,13 +301,25 @@ class __$SyncGetRepoStatusOutputCopyWithImpl<$Res>
 did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,active: null == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String?,rev: freezed == rev ? _self.rev : rev // ignore: cast_nullable_to_non_nullable
+as SyncGetRepoStatusStatus?,rev: freezed == rev ? _self.rev : rev // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of SyncGetRepoStatusOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SyncGetRepoStatusStatusCopyWith<$Res>? get status {
+    if (_self.status == null) {
+    return null;
+  }
 
+  return $SyncGetRepoStatusStatusCopyWith<$Res>(_self.status!, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 // dart format on

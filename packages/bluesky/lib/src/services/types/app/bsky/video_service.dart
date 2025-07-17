@@ -24,6 +24,7 @@ import 'video/uploadVideo/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `app.bsky.video.*`
 final class VideoService {
   VideoService(this._ctx);
 

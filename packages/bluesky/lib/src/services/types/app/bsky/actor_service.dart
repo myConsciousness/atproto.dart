@@ -24,12 +24,14 @@ import 'actor/getSuggestions/output.dart';
 import 'actor/profile/union_main_labels.dart';
 import 'actor/searchActors/output.dart';
 import 'actor/searchActorsTypeahead/output.dart';
+import 'actor/status/main_status.dart';
 import 'actor/status/union_main_embed.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
+/// `app.bsky.actor.*`
 final class ActorService {
   ActorService(this._ctx);
 
@@ -129,8 +131,10 @@ final class ActorService {
     parameters: {'actors': actors, ...?$unknown},
     to: const ActorGetProfilesOutputConverter().fromJson,
   );
+
+  /// A declaration of a Bluesky account status.
   Future<XRPCResponse<RepoCreateRecordOutput>> status({
-    required String status,
+    required ActorStatusStatus status,
     UActorStatusEmbed? embed,
     int? durationMinutes,
     DateTime? createdAt,
@@ -142,7 +146,7 @@ final class ActorService {
     collection: ids.appBskyActorStatus,
     rkey: $rey,
     record: {
-      'status': status,
+      'status': status.toJson(),
       if (embed != null) 'embed': embed.toJson(),
       if (durationMinutes != null) 'durationMinutes': durationMinutes,
       'createdAt': _ctx.toUtcIso8601String(createdAt),
@@ -160,6 +164,8 @@ final class ActorService {
     parameters: {...?$unknown},
     to: const ActorGetPreferencesOutputConverter().fromJson,
   );
+
+  /// A declaration of a Bluesky account profile.
   Future<XRPCResponse<RepoCreateRecordOutput>> profile({
     String? displayName,
     String? description,

@@ -17,7 +17,7 @@ mixin _$UnspeccedSearchPostsSkeletonInput {
 
 /// Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
  String get q;/// Specifies the ranking order of results.
- String? get sort;/// Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).
+@UnspeccedSearchPostsSkeletonSortConverter() UnspeccedSearchPostsSkeletonSort? get sort;/// Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).
  String? get since;/// Filter results for posts before the indicated datetime (not inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYY-MM-DD).
  String? get until;/// Filter to posts which mention the given account. Handles are resolved to DID before query-time. Only matches rich-text facet mentions.
  String? get mentions;/// Filter to posts by the given account. Handles are resolved to DID before query-time.
@@ -59,11 +59,11 @@ abstract mixin class $UnspeccedSearchPostsSkeletonInputCopyWith<$Res>  {
   factory $UnspeccedSearchPostsSkeletonInputCopyWith(UnspeccedSearchPostsSkeletonInput value, $Res Function(UnspeccedSearchPostsSkeletonInput) _then) = _$UnspeccedSearchPostsSkeletonInputCopyWithImpl;
 @useResult
 $Res call({
- String q, String? sort, String? since, String? until, String? mentions, String? author, String? lang, String? domain,@AtUriConverter() AtUri? url, List<String>? tag, String? viewer, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String q,@UnspeccedSearchPostsSkeletonSortConverter() UnspeccedSearchPostsSkeletonSort? sort, String? since, String? until, String? mentions, String? author, String? lang, String? domain,@AtUriConverter() AtUri? url, List<String>? tag, String? viewer, int? limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
-
+$UnspeccedSearchPostsSkeletonSortCopyWith<$Res>? get sort;
 
 }
 /// @nodoc
@@ -80,7 +80,7 @@ class _$UnspeccedSearchPostsSkeletonInputCopyWithImpl<$Res>
   return _then(_self.copyWith(
 q: null == q ? _self.q : q // ignore: cast_nullable_to_non_nullable
 as String,sort: freezed == sort ? _self.sort : sort // ignore: cast_nullable_to_non_nullable
-as String?,since: freezed == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
+as UnspeccedSearchPostsSkeletonSort?,since: freezed == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
 as String?,until: freezed == until ? _self.until : until // ignore: cast_nullable_to_non_nullable
 as String?,mentions: freezed == mentions ? _self.mentions : mentions // ignore: cast_nullable_to_non_nullable
 as String?,author: freezed == author ? _self.author : author // ignore: cast_nullable_to_non_nullable
@@ -95,7 +95,19 @@ as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: 
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of UnspeccedSearchPostsSkeletonInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UnspeccedSearchPostsSkeletonSortCopyWith<$Res>? get sort {
+    if (_self.sort == null) {
+    return null;
+  }
 
+  return $UnspeccedSearchPostsSkeletonSortCopyWith<$Res>(_self.sort!, (value) {
+    return _then(_self.copyWith(sort: value));
+  });
+}
 }
 
 
@@ -177,7 +189,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String q,  String? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  String? viewer,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String q, @UnspeccedSearchPostsSkeletonSortConverter()  UnspeccedSearchPostsSkeletonSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  String? viewer,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedSearchPostsSkeletonInput() when $default != null:
 return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.author,_that.lang,_that.domain,_that.url,_that.tag,_that.viewer,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -198,7 +210,7 @@ return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String q,  String? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  String? viewer,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String q, @UnspeccedSearchPostsSkeletonSortConverter()  UnspeccedSearchPostsSkeletonSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  String? viewer,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedSearchPostsSkeletonInput():
 return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.author,_that.lang,_that.domain,_that.url,_that.tag,_that.viewer,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -218,7 +230,7 @@ return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String q,  String? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  String? viewer,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String q, @UnspeccedSearchPostsSkeletonSortConverter()  UnspeccedSearchPostsSkeletonSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  String? viewer,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedSearchPostsSkeletonInput() when $default != null:
 return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.author,_that.lang,_that.domain,_that.url,_that.tag,_that.viewer,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -233,13 +245,13 @@ return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.
 @JsonSerializable()
 
 class _UnspeccedSearchPostsSkeletonInput implements UnspeccedSearchPostsSkeletonInput {
-  const _UnspeccedSearchPostsSkeletonInput({required this.q, this.sort, this.since, this.until, this.mentions, this.author, this.lang, this.domain, @AtUriConverter() this.url, final  List<String>? tag, this.viewer, this.limit, this.cursor, final  Map<String, dynamic>? $unknown}): _tag = tag,_$unknown = $unknown;
+  const _UnspeccedSearchPostsSkeletonInput({required this.q, @UnspeccedSearchPostsSkeletonSortConverter() this.sort, this.since, this.until, this.mentions, this.author, this.lang, this.domain, @AtUriConverter() this.url, final  List<String>? tag, this.viewer, this.limit, this.cursor, final  Map<String, dynamic>? $unknown}): _tag = tag,_$unknown = $unknown;
   factory _UnspeccedSearchPostsSkeletonInput.fromJson(Map<String, dynamic> json) => _$UnspeccedSearchPostsSkeletonInputFromJson(json);
 
 /// Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
 @override final  String q;
 /// Specifies the ranking order of results.
-@override final  String? sort;
+@override@UnspeccedSearchPostsSkeletonSortConverter() final  UnspeccedSearchPostsSkeletonSort? sort;
 /// Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).
 @override final  String? since;
 /// Filter results for posts before the indicated datetime (not inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYY-MM-DD).
@@ -311,11 +323,11 @@ abstract mixin class _$UnspeccedSearchPostsSkeletonInputCopyWith<$Res> implement
   factory _$UnspeccedSearchPostsSkeletonInputCopyWith(_UnspeccedSearchPostsSkeletonInput value, $Res Function(_UnspeccedSearchPostsSkeletonInput) _then) = __$UnspeccedSearchPostsSkeletonInputCopyWithImpl;
 @override @useResult
 $Res call({
- String q, String? sort, String? since, String? until, String? mentions, String? author, String? lang, String? domain,@AtUriConverter() AtUri? url, List<String>? tag, String? viewer, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String q,@UnspeccedSearchPostsSkeletonSortConverter() UnspeccedSearchPostsSkeletonSort? sort, String? since, String? until, String? mentions, String? author, String? lang, String? domain,@AtUriConverter() AtUri? url, List<String>? tag, String? viewer, int? limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $UnspeccedSearchPostsSkeletonSortCopyWith<$Res>? get sort;
 
 }
 /// @nodoc
@@ -332,7 +344,7 @@ class __$UnspeccedSearchPostsSkeletonInputCopyWithImpl<$Res>
   return _then(_UnspeccedSearchPostsSkeletonInput(
 q: null == q ? _self.q : q // ignore: cast_nullable_to_non_nullable
 as String,sort: freezed == sort ? _self.sort : sort // ignore: cast_nullable_to_non_nullable
-as String?,since: freezed == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
+as UnspeccedSearchPostsSkeletonSort?,since: freezed == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
 as String?,until: freezed == until ? _self.until : until // ignore: cast_nullable_to_non_nullable
 as String?,mentions: freezed == mentions ? _self.mentions : mentions // ignore: cast_nullable_to_non_nullable
 as String?,author: freezed == author ? _self.author : author // ignore: cast_nullable_to_non_nullable
@@ -348,7 +360,19 @@ as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of UnspeccedSearchPostsSkeletonInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UnspeccedSearchPostsSkeletonSortCopyWith<$Res>? get sort {
+    if (_self.sort == null) {
+    return null;
+  }
 
+  return $UnspeccedSearchPostsSkeletonSortCopyWith<$Res>(_self.sort!, (value) {
+    return _then(_self.copyWith(sort: value));
+  });
+}
 }
 
 // dart format on

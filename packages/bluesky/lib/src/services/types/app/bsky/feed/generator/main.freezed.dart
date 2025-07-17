@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$FeedGeneratorRecord {
 
  String get $type; String get did; String get displayName; String? get description;@RichtextFacetConverter() List<RichtextFacet>? get descriptionFacets;@BlobConverter() Blob? get avatar;/// Declaration that a feed accepts feedback interactions from a client through app.bsky.feed.sendInteractions
- bool? get acceptsInteractions;@UFeedGeneratorLabelsConverter() UFeedGeneratorLabels? get labels; String? get contentMode; DateTime get createdAt; Map<String, dynamic>? get $unknown;
+ bool? get acceptsInteractions;@UFeedGeneratorLabelsConverter() UFeedGeneratorLabels? get labels;@FeedGeneratorContentModeConverter() FeedGeneratorContentMode? get contentMode; DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedGeneratorRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,11 +49,11 @@ abstract mixin class $FeedGeneratorRecordCopyWith<$Res>  {
   factory $FeedGeneratorRecordCopyWith(FeedGeneratorRecord value, $Res Function(FeedGeneratorRecord) _then) = _$FeedGeneratorRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type, String did, String displayName, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,@BlobConverter() Blob? avatar, bool? acceptsInteractions,@UFeedGeneratorLabelsConverter() UFeedGeneratorLabels? labels, String? contentMode, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String did, String displayName, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,@BlobConverter() Blob? avatar, bool? acceptsInteractions,@UFeedGeneratorLabelsConverter() UFeedGeneratorLabels? labels,@FeedGeneratorContentModeConverter() FeedGeneratorContentMode? contentMode, DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
-$BlobCopyWith<$Res>? get avatar;$UFeedGeneratorLabelsCopyWith<$Res>? get labels;
+$BlobCopyWith<$Res>? get avatar;$UFeedGeneratorLabelsCopyWith<$Res>? get labels;$FeedGeneratorContentModeCopyWith<$Res>? get contentMode;
 
 }
 /// @nodoc
@@ -77,7 +77,7 @@ as List<RichtextFacet>?,avatar: freezed == avatar ? _self.avatar : avatar // ign
 as Blob?,acceptsInteractions: freezed == acceptsInteractions ? _self.acceptsInteractions : acceptsInteractions // ignore: cast_nullable_to_non_nullable
 as bool?,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
 as UFeedGeneratorLabels?,contentMode: freezed == contentMode ? _self.contentMode : contentMode // ignore: cast_nullable_to_non_nullable
-as String?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as FeedGeneratorContentMode?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -105,6 +105,18 @@ $UFeedGeneratorLabelsCopyWith<$Res>? get labels {
 
   return $UFeedGeneratorLabelsCopyWith<$Res>(_self.labels!, (value) {
     return _then(_self.copyWith(labels: value));
+  });
+}/// Create a copy of FeedGeneratorRecord
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$FeedGeneratorContentModeCopyWith<$Res>? get contentMode {
+    if (_self.contentMode == null) {
+    return null;
+  }
+
+  return $FeedGeneratorContentModeCopyWith<$Res>(_self.contentMode!, (value) {
+    return _then(_self.copyWith(contentMode: value));
   });
 }
 }
@@ -188,7 +200,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  String displayName,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @BlobConverter()  Blob? avatar,  bool? acceptsInteractions, @UFeedGeneratorLabelsConverter()  UFeedGeneratorLabels? labels,  String? contentMode,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  String displayName,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @BlobConverter()  Blob? avatar,  bool? acceptsInteractions, @UFeedGeneratorLabelsConverter()  UFeedGeneratorLabels? labels, @FeedGeneratorContentModeConverter()  FeedGeneratorContentMode? contentMode,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedGeneratorRecord() when $default != null:
 return $default(_that.$type,_that.did,_that.displayName,_that.description,_that.descriptionFacets,_that.avatar,_that.acceptsInteractions,_that.labels,_that.contentMode,_that.createdAt,_that.$unknown);case _:
@@ -209,7 +221,7 @@ return $default(_that.$type,_that.did,_that.displayName,_that.description,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  String displayName,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @BlobConverter()  Blob? avatar,  bool? acceptsInteractions, @UFeedGeneratorLabelsConverter()  UFeedGeneratorLabels? labels,  String? contentMode,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  String displayName,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @BlobConverter()  Blob? avatar,  bool? acceptsInteractions, @UFeedGeneratorLabelsConverter()  UFeedGeneratorLabels? labels, @FeedGeneratorContentModeConverter()  FeedGeneratorContentMode? contentMode,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedGeneratorRecord():
 return $default(_that.$type,_that.did,_that.displayName,_that.description,_that.descriptionFacets,_that.avatar,_that.acceptsInteractions,_that.labels,_that.contentMode,_that.createdAt,_that.$unknown);case _:
@@ -229,7 +241,7 @@ return $default(_that.$type,_that.did,_that.displayName,_that.description,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  String displayName,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @BlobConverter()  Blob? avatar,  bool? acceptsInteractions, @UFeedGeneratorLabelsConverter()  UFeedGeneratorLabels? labels,  String? contentMode,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  String displayName,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @BlobConverter()  Blob? avatar,  bool? acceptsInteractions, @UFeedGeneratorLabelsConverter()  UFeedGeneratorLabels? labels, @FeedGeneratorContentModeConverter()  FeedGeneratorContentMode? contentMode,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedGeneratorRecord() when $default != null:
 return $default(_that.$type,_that.did,_that.displayName,_that.description,_that.descriptionFacets,_that.avatar,_that.acceptsInteractions,_that.labels,_that.contentMode,_that.createdAt,_that.$unknown);case _:
@@ -244,7 +256,7 @@ return $default(_that.$type,_that.did,_that.displayName,_that.description,_that.
 @JsonSerializable()
 
 class _FeedGeneratorRecord implements FeedGeneratorRecord {
-  const _FeedGeneratorRecord({this.$type = 'app.bsky.feed.generator', required this.did, required this.displayName, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @BlobConverter() this.avatar, this.acceptsInteractions, @UFeedGeneratorLabelsConverter() this.labels, this.contentMode, required this.createdAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_$unknown = $unknown;
+  const _FeedGeneratorRecord({this.$type = 'app.bsky.feed.generator', required this.did, required this.displayName, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @BlobConverter() this.avatar, this.acceptsInteractions, @UFeedGeneratorLabelsConverter() this.labels, @FeedGeneratorContentModeConverter() this.contentMode, required this.createdAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_$unknown = $unknown;
   factory _FeedGeneratorRecord.fromJson(Map<String, dynamic> json) => _$FeedGeneratorRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -264,7 +276,7 @@ class _FeedGeneratorRecord implements FeedGeneratorRecord {
 /// Declaration that a feed accepts feedback interactions from a client through app.bsky.feed.sendInteractions
 @override final  bool? acceptsInteractions;
 @override@UFeedGeneratorLabelsConverter() final  UFeedGeneratorLabels? labels;
-@override final  String? contentMode;
+@override@FeedGeneratorContentModeConverter() final  FeedGeneratorContentMode? contentMode;
 @override final  DateTime createdAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -309,11 +321,11 @@ abstract mixin class _$FeedGeneratorRecordCopyWith<$Res> implements $FeedGenerat
   factory _$FeedGeneratorRecordCopyWith(_FeedGeneratorRecord value, $Res Function(_FeedGeneratorRecord) _then) = __$FeedGeneratorRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String did, String displayName, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,@BlobConverter() Blob? avatar, bool? acceptsInteractions,@UFeedGeneratorLabelsConverter() UFeedGeneratorLabels? labels, String? contentMode, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String did, String displayName, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,@BlobConverter() Blob? avatar, bool? acceptsInteractions,@UFeedGeneratorLabelsConverter() UFeedGeneratorLabels? labels,@FeedGeneratorContentModeConverter() FeedGeneratorContentMode? contentMode, DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
-@override $BlobCopyWith<$Res>? get avatar;@override $UFeedGeneratorLabelsCopyWith<$Res>? get labels;
+@override $BlobCopyWith<$Res>? get avatar;@override $UFeedGeneratorLabelsCopyWith<$Res>? get labels;@override $FeedGeneratorContentModeCopyWith<$Res>? get contentMode;
 
 }
 /// @nodoc
@@ -337,7 +349,7 @@ as List<RichtextFacet>?,avatar: freezed == avatar ? _self.avatar : avatar // ign
 as Blob?,acceptsInteractions: freezed == acceptsInteractions ? _self.acceptsInteractions : acceptsInteractions // ignore: cast_nullable_to_non_nullable
 as bool?,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
 as UFeedGeneratorLabels?,contentMode: freezed == contentMode ? _self.contentMode : contentMode // ignore: cast_nullable_to_non_nullable
-as String?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as FeedGeneratorContentMode?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -366,6 +378,18 @@ $UFeedGeneratorLabelsCopyWith<$Res>? get labels {
 
   return $UFeedGeneratorLabelsCopyWith<$Res>(_self.labels!, (value) {
     return _then(_self.copyWith(labels: value));
+  });
+}/// Create a copy of FeedGeneratorRecord
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$FeedGeneratorContentModeCopyWith<$Res>? get contentMode {
+    if (_self.contentMode == null) {
+    return null;
+  }
+
+  return $FeedGeneratorContentModeCopyWith<$Res>(_self.contentMode!, (value) {
+    return _then(_self.copyWith(contentMode: value));
   });
 }
 }

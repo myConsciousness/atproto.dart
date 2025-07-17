@@ -17,7 +17,7 @@ mixin _$AgeAssuranceEvent {
 
  String get $type;/// The date and time of this write operation.
  DateTime get createdAt;/// The status of the age assurance process.
- String get status;/// The unique identifier for this instance of the age assurance flow, in UUID format.
+@AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus get status;/// The unique identifier for this instance of the age assurance flow, in UUID format.
  String get attemptId;/// The IP address used when initiating the AA flow.
  String? get initIp;/// The user agent used when initiating the AA flow.
  String? get initUa;/// The IP address used when completing the AA flow.
@@ -55,11 +55,11 @@ abstract mixin class $AgeAssuranceEventCopyWith<$Res>  {
   factory $AgeAssuranceEventCopyWith(AgeAssuranceEvent value, $Res Function(AgeAssuranceEvent) _then) = _$AgeAssuranceEventCopyWithImpl;
 @useResult
 $Res call({
- String $type, DateTime createdAt, String status, String attemptId, String? initIp, String? initUa, String? completeIp, String? completeUa, Map<String, dynamic>? $unknown
+ String $type, DateTime createdAt,@AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus status, String attemptId, String? initIp, String? initUa, String? completeIp, String? completeUa, Map<String, dynamic>? $unknown
 });
 
 
-
+$AgeAssuranceEventStatusCopyWith<$Res> get status;
 
 }
 /// @nodoc
@@ -77,7 +77,7 @@ class _$AgeAssuranceEventCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String,attemptId: null == attemptId ? _self.attemptId : attemptId // ignore: cast_nullable_to_non_nullable
+as AgeAssuranceEventStatus,attemptId: null == attemptId ? _self.attemptId : attemptId // ignore: cast_nullable_to_non_nullable
 as String,initIp: freezed == initIp ? _self.initIp : initIp // ignore: cast_nullable_to_non_nullable
 as String?,initUa: freezed == initUa ? _self.initUa : initUa // ignore: cast_nullable_to_non_nullable
 as String?,completeIp: freezed == completeIp ? _self.completeIp : completeIp // ignore: cast_nullable_to_non_nullable
@@ -86,7 +86,16 @@ as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: 
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of AgeAssuranceEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AgeAssuranceEventStatusCopyWith<$Res> get status {
+  
+  return $AgeAssuranceEventStatusCopyWith<$Res>(_self.status, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 
@@ -168,7 +177,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt,  String status,  String attemptId,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status,  String attemptId,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AgeAssuranceEvent() when $default != null:
 return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.initIp,_that.initUa,_that.completeIp,_that.completeUa,_that.$unknown);case _:
@@ -189,7 +198,7 @@ return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.i
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt,  String status,  String attemptId,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status,  String attemptId,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AgeAssuranceEvent():
 return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.initIp,_that.initUa,_that.completeIp,_that.completeUa,_that.$unknown);case _:
@@ -209,7 +218,7 @@ return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.i
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime createdAt,  String status,  String attemptId,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime createdAt, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status,  String attemptId,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AgeAssuranceEvent() when $default != null:
 return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.initIp,_that.initUa,_that.completeIp,_that.completeUa,_that.$unknown);case _:
@@ -224,14 +233,14 @@ return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.i
 @JsonSerializable()
 
 class _AgeAssuranceEvent implements AgeAssuranceEvent {
-  const _AgeAssuranceEvent({this.$type = 'tools.ozone.moderation.defs#ageAssuranceEvent', required this.createdAt, required this.status, required this.attemptId, this.initIp, this.initUa, this.completeIp, this.completeUa, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AgeAssuranceEvent({this.$type = 'tools.ozone.moderation.defs#ageAssuranceEvent', required this.createdAt, @AgeAssuranceEventStatusConverter() required this.status, required this.attemptId, this.initIp, this.initUa, this.completeIp, this.completeUa, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AgeAssuranceEvent.fromJson(Map<String, dynamic> json) => _$AgeAssuranceEventFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The date and time of this write operation.
 @override final  DateTime createdAt;
 /// The status of the age assurance process.
-@override final  String status;
+@override@AgeAssuranceEventStatusConverter() final  AgeAssuranceEventStatus status;
 /// The unique identifier for this instance of the age assurance flow, in UUID format.
 @override final  String attemptId;
 /// The IP address used when initiating the AA flow.
@@ -285,11 +294,11 @@ abstract mixin class _$AgeAssuranceEventCopyWith<$Res> implements $AgeAssuranceE
   factory _$AgeAssuranceEventCopyWith(_AgeAssuranceEvent value, $Res Function(_AgeAssuranceEvent) _then) = __$AgeAssuranceEventCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, DateTime createdAt, String status, String attemptId, String? initIp, String? initUa, String? completeIp, String? completeUa, Map<String, dynamic>? $unknown
+ String $type, DateTime createdAt,@AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus status, String attemptId, String? initIp, String? initUa, String? completeIp, String? completeUa, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $AgeAssuranceEventStatusCopyWith<$Res> get status;
 
 }
 /// @nodoc
@@ -307,7 +316,7 @@ class __$AgeAssuranceEventCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String,attemptId: null == attemptId ? _self.attemptId : attemptId // ignore: cast_nullable_to_non_nullable
+as AgeAssuranceEventStatus,attemptId: null == attemptId ? _self.attemptId : attemptId // ignore: cast_nullable_to_non_nullable
 as String,initIp: freezed == initIp ? _self.initIp : initIp // ignore: cast_nullable_to_non_nullable
 as String?,initUa: freezed == initUa ? _self.initUa : initUa // ignore: cast_nullable_to_non_nullable
 as String?,completeIp: freezed == completeIp ? _self.completeIp : completeIp // ignore: cast_nullable_to_non_nullable
@@ -317,7 +326,16 @@ as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of AgeAssuranceEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AgeAssuranceEventStatusCopyWith<$Res> get status {
+  
+  return $AgeAssuranceEventStatusCopyWith<$Res>(_self.status, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 // dart format on

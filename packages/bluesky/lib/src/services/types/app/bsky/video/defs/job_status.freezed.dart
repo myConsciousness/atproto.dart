@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$JobStatus {
 
  String get $type; String get jobId; String get did;/// The state of the video processing job. All values not listed as a known value indicate that the job is in process.
- String get state;/// Progress within the current processing state.
+@JobStatusStateConverter() JobStatusState get state;/// Progress within the current processing state.
  int? get progress;@BlobConverter() Blob? get blob; String? get error; String? get message; Map<String, dynamic>? get $unknown;
 /// Create a copy of JobStatus
 /// with the given fields replaced by the non-null parameter values.
@@ -50,11 +50,11 @@ abstract mixin class $JobStatusCopyWith<$Res>  {
   factory $JobStatusCopyWith(JobStatus value, $Res Function(JobStatus) _then) = _$JobStatusCopyWithImpl;
 @useResult
 $Res call({
- String $type, String jobId, String did, String state, int? progress,@BlobConverter() Blob? blob, String? error, String? message, Map<String, dynamic>? $unknown
+ String $type, String jobId, String did,@JobStatusStateConverter() JobStatusState state, int? progress,@BlobConverter() Blob? blob, String? error, String? message, Map<String, dynamic>? $unknown
 });
 
 
-$BlobCopyWith<$Res>? get blob;
+$JobStatusStateCopyWith<$Res> get state;$BlobCopyWith<$Res>? get blob;
 
 }
 /// @nodoc
@@ -73,7 +73,7 @@ $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nulla
 as String,jobId: null == jobId ? _self.jobId : jobId // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,state: null == state ? _self.state : state // ignore: cast_nullable_to_non_nullable
-as String,progress: freezed == progress ? _self.progress : progress // ignore: cast_nullable_to_non_nullable
+as JobStatusState,progress: freezed == progress ? _self.progress : progress // ignore: cast_nullable_to_non_nullable
 as int?,blob: freezed == blob ? _self.blob : blob // ignore: cast_nullable_to_non_nullable
 as Blob?,error: freezed == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
 as String?,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
@@ -82,6 +82,15 @@ as Map<String, dynamic>?,
   ));
 }
 /// Create a copy of JobStatus
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$JobStatusStateCopyWith<$Res> get state {
+  
+  return $JobStatusStateCopyWith<$Res>(_self.state, (value) {
+    return _then(_self.copyWith(state: value));
+  });
+}/// Create a copy of JobStatus
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -175,7 +184,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String jobId,  String did,  String state,  int? progress, @BlobConverter()  Blob? blob,  String? error,  String? message,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String jobId,  String did, @JobStatusStateConverter()  JobStatusState state,  int? progress, @BlobConverter()  Blob? blob,  String? error,  String? message,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _JobStatus() when $default != null:
 return $default(_that.$type,_that.jobId,_that.did,_that.state,_that.progress,_that.blob,_that.error,_that.message,_that.$unknown);case _:
@@ -196,7 +205,7 @@ return $default(_that.$type,_that.jobId,_that.did,_that.state,_that.progress,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String jobId,  String did,  String state,  int? progress, @BlobConverter()  Blob? blob,  String? error,  String? message,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String jobId,  String did, @JobStatusStateConverter()  JobStatusState state,  int? progress, @BlobConverter()  Blob? blob,  String? error,  String? message,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _JobStatus():
 return $default(_that.$type,_that.jobId,_that.did,_that.state,_that.progress,_that.blob,_that.error,_that.message,_that.$unknown);case _:
@@ -216,7 +225,7 @@ return $default(_that.$type,_that.jobId,_that.did,_that.state,_that.progress,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String jobId,  String did,  String state,  int? progress, @BlobConverter()  Blob? blob,  String? error,  String? message,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String jobId,  String did, @JobStatusStateConverter()  JobStatusState state,  int? progress, @BlobConverter()  Blob? blob,  String? error,  String? message,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _JobStatus() when $default != null:
 return $default(_that.$type,_that.jobId,_that.did,_that.state,_that.progress,_that.blob,_that.error,_that.message,_that.$unknown);case _:
@@ -231,14 +240,14 @@ return $default(_that.$type,_that.jobId,_that.did,_that.state,_that.progress,_th
 @JsonSerializable()
 
 class _JobStatus implements JobStatus {
-  const _JobStatus({this.$type = 'app.bsky.video.defs#jobStatus', required this.jobId, required this.did, required this.state, this.progress, @BlobConverter() this.blob, this.error, this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _JobStatus({this.$type = 'app.bsky.video.defs#jobStatus', required this.jobId, required this.did, @JobStatusStateConverter() required this.state, this.progress, @BlobConverter() this.blob, this.error, this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _JobStatus.fromJson(Map<String, dynamic> json) => _$JobStatusFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String jobId;
 @override final  String did;
 /// The state of the video processing job. All values not listed as a known value indicate that the job is in process.
-@override final  String state;
+@override@JobStatusStateConverter() final  JobStatusState state;
 /// Progress within the current processing state.
 @override final  int? progress;
 @override@BlobConverter() final  Blob? blob;
@@ -287,11 +296,11 @@ abstract mixin class _$JobStatusCopyWith<$Res> implements $JobStatusCopyWith<$Re
   factory _$JobStatusCopyWith(_JobStatus value, $Res Function(_JobStatus) _then) = __$JobStatusCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String jobId, String did, String state, int? progress,@BlobConverter() Blob? blob, String? error, String? message, Map<String, dynamic>? $unknown
+ String $type, String jobId, String did,@JobStatusStateConverter() JobStatusState state, int? progress,@BlobConverter() Blob? blob, String? error, String? message, Map<String, dynamic>? $unknown
 });
 
 
-@override $BlobCopyWith<$Res>? get blob;
+@override $JobStatusStateCopyWith<$Res> get state;@override $BlobCopyWith<$Res>? get blob;
 
 }
 /// @nodoc
@@ -310,7 +319,7 @@ $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nulla
 as String,jobId: null == jobId ? _self.jobId : jobId // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,state: null == state ? _self.state : state // ignore: cast_nullable_to_non_nullable
-as String,progress: freezed == progress ? _self.progress : progress // ignore: cast_nullable_to_non_nullable
+as JobStatusState,progress: freezed == progress ? _self.progress : progress // ignore: cast_nullable_to_non_nullable
 as int?,blob: freezed == blob ? _self.blob : blob // ignore: cast_nullable_to_non_nullable
 as Blob?,error: freezed == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
 as String?,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
@@ -320,6 +329,15 @@ as Map<String, dynamic>?,
 }
 
 /// Create a copy of JobStatus
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$JobStatusStateCopyWith<$Res> get state {
+  
+  return $JobStatusStateCopyWith<$Res>(_self.state, (value) {
+    return _then(_self.copyWith(state: value));
+  });
+}/// Create a copy of JobStatus
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')

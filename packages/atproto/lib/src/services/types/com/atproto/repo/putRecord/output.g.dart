@@ -22,7 +22,10 @@ _RepoPutRecordOutput _$RepoPutRecordOutputFromJson(Map json) =>
         ),
         validationStatus: $checkedConvert(
           'validationStatus',
-          (v) => v as String?,
+          (v) => _$JsonConverterFromJson<String, RepoPutRecordValidationStatus>(
+            v,
+            const RepoPutRecordValidationStatusConverter().fromJson,
+          ),
         ),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -41,7 +44,11 @@ Map<String, dynamic> _$RepoPutRecordOutputToJson(
     instance.commit,
     const CommitMetaConverter().toJson,
   ),
-  'validationStatus': instance.validationStatus,
+  'validationStatus':
+      _$JsonConverterToJson<String, RepoPutRecordValidationStatus>(
+        instance.validationStatus,
+        const RepoPutRecordValidationStatusConverter().toJson,
+      ),
   r'$unknown': instance.$unknown,
 };
 

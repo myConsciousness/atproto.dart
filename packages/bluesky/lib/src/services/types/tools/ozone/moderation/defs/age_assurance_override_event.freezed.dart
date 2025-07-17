@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$AgeAssuranceOverrideEvent {
 
  String get $type;/// The status to be set for the user decided by a moderator, overriding whatever value the user had previously. Use reset to default to original state.
- String get status;/// Comment describing the reason for the override.
+@AgeAssuranceOverrideEventStatusConverter() AgeAssuranceOverrideEventStatus get status;/// Comment describing the reason for the override.
  String get comment; Map<String, dynamic>? get $unknown;
 /// Create a copy of AgeAssuranceOverrideEvent
 /// with the given fields replaced by the non-null parameter values.
@@ -50,11 +50,11 @@ abstract mixin class $AgeAssuranceOverrideEventCopyWith<$Res>  {
   factory $AgeAssuranceOverrideEventCopyWith(AgeAssuranceOverrideEvent value, $Res Function(AgeAssuranceOverrideEvent) _then) = _$AgeAssuranceOverrideEventCopyWithImpl;
 @useResult
 $Res call({
- String $type, String status, String comment, Map<String, dynamic>? $unknown
+ String $type,@AgeAssuranceOverrideEventStatusConverter() AgeAssuranceOverrideEventStatus status, String comment, Map<String, dynamic>? $unknown
 });
 
 
-
+$AgeAssuranceOverrideEventStatusCopyWith<$Res> get status;
 
 }
 /// @nodoc
@@ -71,12 +71,21 @@ class _$AgeAssuranceOverrideEventCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String,comment: null == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
+as AgeAssuranceOverrideEventStatus,comment: null == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of AgeAssuranceOverrideEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AgeAssuranceOverrideEventStatusCopyWith<$Res> get status {
+  
+  return $AgeAssuranceOverrideEventStatusCopyWith<$Res>(_self.status, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 
@@ -158,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String status,  String comment,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AgeAssuranceOverrideEventStatusConverter()  AgeAssuranceOverrideEventStatus status,  String comment,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AgeAssuranceOverrideEvent() when $default != null:
 return $default(_that.$type,_that.status,_that.comment,_that.$unknown);case _:
@@ -179,7 +188,7 @@ return $default(_that.$type,_that.status,_that.comment,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String status,  String comment,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AgeAssuranceOverrideEventStatusConverter()  AgeAssuranceOverrideEventStatus status,  String comment,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AgeAssuranceOverrideEvent():
 return $default(_that.$type,_that.status,_that.comment,_that.$unknown);case _:
@@ -199,7 +208,7 @@ return $default(_that.$type,_that.status,_that.comment,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String status,  String comment,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AgeAssuranceOverrideEventStatusConverter()  AgeAssuranceOverrideEventStatus status,  String comment,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AgeAssuranceOverrideEvent() when $default != null:
 return $default(_that.$type,_that.status,_that.comment,_that.$unknown);case _:
@@ -214,12 +223,12 @@ return $default(_that.$type,_that.status,_that.comment,_that.$unknown);case _:
 @JsonSerializable()
 
 class _AgeAssuranceOverrideEvent implements AgeAssuranceOverrideEvent {
-  const _AgeAssuranceOverrideEvent({this.$type = 'tools.ozone.moderation.defs#ageAssuranceOverrideEvent', required this.status, required this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AgeAssuranceOverrideEvent({this.$type = 'tools.ozone.moderation.defs#ageAssuranceOverrideEvent', @AgeAssuranceOverrideEventStatusConverter() required this.status, required this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AgeAssuranceOverrideEvent.fromJson(Map<String, dynamic> json) => _$AgeAssuranceOverrideEventFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The status to be set for the user decided by a moderator, overriding whatever value the user had previously. Use reset to default to original state.
-@override final  String status;
+@override@AgeAssuranceOverrideEventStatusConverter() final  AgeAssuranceOverrideEventStatus status;
 /// Comment describing the reason for the override.
 @override final  String comment;
  final  Map<String, dynamic>? _$unknown;
@@ -265,11 +274,11 @@ abstract mixin class _$AgeAssuranceOverrideEventCopyWith<$Res> implements $AgeAs
   factory _$AgeAssuranceOverrideEventCopyWith(_AgeAssuranceOverrideEvent value, $Res Function(_AgeAssuranceOverrideEvent) _then) = __$AgeAssuranceOverrideEventCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String status, String comment, Map<String, dynamic>? $unknown
+ String $type,@AgeAssuranceOverrideEventStatusConverter() AgeAssuranceOverrideEventStatus status, String comment, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $AgeAssuranceOverrideEventStatusCopyWith<$Res> get status;
 
 }
 /// @nodoc
@@ -286,13 +295,22 @@ class __$AgeAssuranceOverrideEventCopyWithImpl<$Res>
   return _then(_AgeAssuranceOverrideEvent(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String,comment: null == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
+as AgeAssuranceOverrideEventStatus,comment: null == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of AgeAssuranceOverrideEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AgeAssuranceOverrideEventStatusCopyWith<$Res> get status {
+  
+  return $AgeAssuranceOverrideEventStatusCopyWith<$Res>(_self.status, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 // dart format on

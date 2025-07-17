@@ -55,11 +55,11 @@ extension PatternTypePatterns on PatternType {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( PatternTypeKnown value)?  known,TResult Function( PatternTypeUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( PatternTypeKnownValue value)?  knownValue,TResult Function( PatternTypeUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case PatternTypeKnown() when known != null:
-return known(_that);case PatternTypeUnknown() when unknown != null:
+case PatternTypeKnownValue() when knownValue != null:
+return knownValue(_that);case PatternTypeUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -78,11 +78,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( PatternTypeKnown value)  known,required TResult Function( PatternTypeUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( PatternTypeKnownValue value)  knownValue,required TResult Function( PatternTypeUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
-case PatternTypeKnown():
-return known(_that);case PatternTypeUnknown():
+case PatternTypeKnownValue():
+return knownValue(_that);case PatternTypeUnknown():
 return unknown(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -100,11 +100,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( PatternTypeKnown value)?  known,TResult? Function( PatternTypeUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( PatternTypeKnownValue value)?  knownValue,TResult? Function( PatternTypeUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
-case PatternTypeKnown() when known != null:
-return known(_that);case PatternTypeUnknown() when unknown != null:
+case PatternTypeKnownValue() when knownValue != null:
+return knownValue(_that);case PatternTypeUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -122,10 +122,10 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownPatternType data)?  known,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownPatternType data)?  knownValue,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case PatternTypeKnown() when known != null:
-return known(_that.data);case PatternTypeUnknown() when unknown != null:
+case PatternTypeKnownValue() when knownValue != null:
+return knownValue(_that.data);case PatternTypeUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -144,10 +144,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownPatternType data)  known,required TResult Function( String data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownPatternType data)  knownValue,required TResult Function( String data)  unknown,}) {final _that = this;
 switch (_that) {
-case PatternTypeKnown():
-return known(_that.data);case PatternTypeUnknown():
+case PatternTypeKnownValue():
+return knownValue(_that.data);case PatternTypeUnknown():
 return unknown(_that.data);case _:
   throw StateError('Unexpected subclass');
 
@@ -165,10 +165,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownPatternType data)?  known,TResult? Function( String data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownPatternType data)?  knownValue,TResult? Function( String data)?  unknown,}) {final _that = this;
 switch (_that) {
-case PatternTypeKnown() when known != null:
-return known(_that.data);case PatternTypeUnknown() when unknown != null:
+case PatternTypeKnownValue() when knownValue != null:
+return knownValue(_that.data);case PatternTypeUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -180,8 +180,8 @@ return unknown(_that.data);case _:
 /// @nodoc
 
 
-class PatternTypeKnown extends PatternType {
-  const PatternTypeKnown({required this.data}): super._();
+class PatternTypeKnownValue extends PatternType {
+  const PatternTypeKnownValue({required this.data}): super._();
   
 
 @override final  KnownPatternType data;
@@ -190,13 +190,13 @@ class PatternTypeKnown extends PatternType {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$PatternTypeKnownCopyWith<PatternTypeKnown> get copyWith => _$PatternTypeKnownCopyWithImpl<PatternTypeKnown>(this, _$identity);
+$PatternTypeKnownValueCopyWith<PatternTypeKnownValue> get copyWith => _$PatternTypeKnownValueCopyWithImpl<PatternTypeKnownValue>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PatternTypeKnown&&(identical(other.data, data) || other.data == data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PatternTypeKnownValue&&(identical(other.data, data) || other.data == data));
 }
 
 
@@ -205,15 +205,15 @@ int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'PatternType.known(data: $data)';
+  return 'PatternType.knownValue(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $PatternTypeKnownCopyWith<$Res> implements $PatternTypeCopyWith<$Res> {
-  factory $PatternTypeKnownCopyWith(PatternTypeKnown value, $Res Function(PatternTypeKnown) _then) = _$PatternTypeKnownCopyWithImpl;
+abstract mixin class $PatternTypeKnownValueCopyWith<$Res> implements $PatternTypeCopyWith<$Res> {
+  factory $PatternTypeKnownValueCopyWith(PatternTypeKnownValue value, $Res Function(PatternTypeKnownValue) _then) = _$PatternTypeKnownValueCopyWithImpl;
 @useResult
 $Res call({
  KnownPatternType data
@@ -224,17 +224,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$PatternTypeKnownCopyWithImpl<$Res>
-    implements $PatternTypeKnownCopyWith<$Res> {
-  _$PatternTypeKnownCopyWithImpl(this._self, this._then);
+class _$PatternTypeKnownValueCopyWithImpl<$Res>
+    implements $PatternTypeKnownValueCopyWith<$Res> {
+  _$PatternTypeKnownValueCopyWithImpl(this._self, this._then);
 
-  final PatternTypeKnown _self;
-  final $Res Function(PatternTypeKnown) _then;
+  final PatternTypeKnownValue _self;
+  final $Res Function(PatternTypeKnownValue) _then;
 
 /// Create a copy of PatternType
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
-  return _then(PatternTypeKnown(
+  return _then(PatternTypeKnownValue(
 data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as KnownPatternType,
   ));

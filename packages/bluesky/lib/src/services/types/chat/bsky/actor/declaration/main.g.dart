@@ -15,7 +15,12 @@ _ActorDeclarationRecord _$ActorDeclarationRecordFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'chat.bsky.actor.declaration',
         ),
-        allowIncoming: $checkedConvert('allowIncoming', (v) => v as String),
+        allowIncoming: $checkedConvert(
+          'allowIncoming',
+          (v) => const ActorDeclarationAllowIncomingConverter().fromJson(
+            v as String,
+          ),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -28,6 +33,8 @@ Map<String, dynamic> _$ActorDeclarationRecordToJson(
   _ActorDeclarationRecord instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'allowIncoming': instance.allowIncoming,
+  'allowIncoming': const ActorDeclarationAllowIncomingConverter().toJson(
+    instance.allowIncoming,
+  ),
   r'$unknown': instance.$unknown,
 };

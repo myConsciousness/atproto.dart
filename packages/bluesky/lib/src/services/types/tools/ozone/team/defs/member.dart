@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import 'package:bluesky/app_bsky_actor_defs.dart';
+import './member_role.dart';
 
 part 'member.freezed.dart';
 part 'member.g.dart';
@@ -41,7 +42,7 @@ abstract class Member with _$Member {
     DateTime? createdAt,
     DateTime? updatedAt,
     String? lastUpdatedBy,
-    required String role,
+    @MemberRoleConverter() required MemberRole role,
 
     Map<String, dynamic>? $unknown,
   }) = _Member;

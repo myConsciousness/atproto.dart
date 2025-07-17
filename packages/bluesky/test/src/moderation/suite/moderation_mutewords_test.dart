@@ -25,7 +25,9 @@ void main() {
           mutedWords: [
             MutedWord(
               value: 'outlineTag',
-              targets: [MutedWordTarget.known(data: KnownMutedWordTarget.tag)],
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.tag),
+              ],
             ),
           ],
           text: text.value,
@@ -45,7 +47,9 @@ void main() {
           mutedWords: [
             MutedWord(
               value: 'inlineTag',
-              targets: [MutedWordTarget.known(data: KnownMutedWordTarget.tag)],
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.tag),
+              ],
             ),
           ],
           text: text.value,
@@ -66,7 +70,7 @@ void main() {
             MutedWord(
               value: 'inlineTag',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -87,7 +91,9 @@ void main() {
           mutedWords: [
             MutedWord(
               value: 'inlineTag',
-              targets: [MutedWordTarget.known(data: KnownMutedWordTarget.tag)],
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.tag),
+              ],
             ),
           ],
           text: text.value,
@@ -107,7 +113,9 @@ void main() {
           mutedWords: [
             MutedWord(
               value: 'inlineTag',
-              targets: [MutedWordTarget.known(data: KnownMutedWordTarget.tag)],
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.tag),
+              ],
             ),
           ],
           text: text.value,
@@ -130,7 +138,7 @@ void main() {
             MutedWord(
               value: '希',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -152,7 +160,7 @@ void main() {
             MutedWord(
               value: '☠︎',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -174,7 +182,7 @@ void main() {
             MutedWord(
               value: 'politics',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -196,7 +204,7 @@ void main() {
             MutedWord(
               value: 'dart',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -220,7 +228,7 @@ void main() {
             MutedWord(
               value: 'dart',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -242,7 +250,7 @@ void main() {
             MutedWord(
               value: 'ai',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -264,7 +272,7 @@ void main() {
             MutedWord(
               value: 'brain',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -286,7 +294,7 @@ void main() {
             MutedWord(
               value: ':)',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -310,7 +318,7 @@ void main() {
             MutedWord(
               value: 'yay!',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -332,7 +340,7 @@ void main() {
             MutedWord(
               value: 'yay',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -354,7 +362,7 @@ void main() {
             MutedWord(
               value: 'y!ppee',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -376,7 +384,7 @@ void main() {
             MutedWord(
               value: 'y!ppee!',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -400,7 +408,7 @@ void main() {
             MutedWord(
               value: "Bluesky's",
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -422,7 +430,7 @@ void main() {
             MutedWord(
               value: 'Bluesky',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -444,7 +452,7 @@ void main() {
             MutedWord(
               value: 'blueskys',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -468,7 +476,7 @@ void main() {
             MutedWord(
               value: 'S@assy',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -490,7 +498,7 @@ void main() {
             MutedWord(
               value: 's@assy',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -514,7 +522,7 @@ void main() {
             MutedWord(
               value: 'new york times',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -538,7 +546,7 @@ void main() {
             MutedWord(
               value: '!command',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -560,7 +568,7 @@ void main() {
             MutedWord(
               value: 'command',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -582,7 +590,7 @@ void main() {
             MutedWord(
               value: '!command',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -606,7 +614,7 @@ void main() {
             MutedWord(
               value: 'e/acc',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -628,7 +636,7 @@ void main() {
             MutedWord(
               value: 'acc',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -652,7 +660,7 @@ void main() {
             MutedWord(
               value: 'super-bad',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -674,7 +682,7 @@ void main() {
             MutedWord(
               value: 'super',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -696,7 +704,7 @@ void main() {
             MutedWord(
               value: 'bad',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -718,7 +726,7 @@ void main() {
             MutedWord(
               value: 'super bad',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -740,7 +748,7 @@ void main() {
             MutedWord(
               value: 'superbad',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -764,7 +772,7 @@ void main() {
             MutedWord(
               value: 'idk what this would be',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -786,7 +794,7 @@ void main() {
             MutedWord(
               value: 'idk what this would be for',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -808,7 +816,7 @@ void main() {
             MutedWord(
               value: 'idk',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -830,7 +838,7 @@ void main() {
             MutedWord(
               value: 'idkwhatthiswouldbe',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -854,7 +862,7 @@ void main() {
             MutedWord(
               value: 'context(iykyk)',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -876,7 +884,7 @@ void main() {
             MutedWord(
               value: 'context',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -898,7 +906,7 @@ void main() {
             MutedWord(
               value: 'iykyk',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -920,7 +928,7 @@ void main() {
             MutedWord(
               value: '(iykyk)',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -944,7 +952,7 @@ void main() {
             MutedWord(
               value: '🦋',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -971,7 +979,7 @@ void main() {
             MutedWord(
               value: 'stop worrying',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -996,7 +1004,7 @@ void main() {
             MutedWord(
               value: 'turtles, or how',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -1022,7 +1030,7 @@ void main() {
             MutedWord(
               value: 'インターネット',
               targets: [
-                MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
               ],
             ),
           ],
@@ -1055,7 +1063,9 @@ void main() {
               MutedWord(
                 value: 'words',
                 targets: [
-                  MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                  MutedWordTarget.knownValue(
+                    data: KnownMutedWordTarget.content,
+                  ),
                 ],
               ),
             ],
@@ -1085,7 +1095,9 @@ void main() {
               MutedWord(
                 value: 'words',
                 targets: [
-                  MutedWordTarget.known(data: KnownMutedWordTarget.content),
+                  MutedWordTarget.knownValue(
+                    data: KnownMutedWordTarget.content,
+                  ),
                 ],
               ),
             ],
@@ -1121,7 +1133,7 @@ void main() {
               MutedWord(
                 value: 'words',
                 targets: [
-                  MutedWordTarget.known(data: KnownMutedWordTarget.tag),
+                  MutedWordTarget.knownValue(data: KnownMutedWordTarget.tag),
                 ],
               ),
             ],

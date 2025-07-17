@@ -19,6 +19,7 @@ import 'hosting/getAccountHistory/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `tools.ozone.hosting.*`
 final class HostingService {
   HostingService(this._ctx);
 
@@ -27,7 +28,7 @@ final class HostingService {
   /// Get account history, e.g. log of updated email addresses or other identity information.
   Future<XRPCResponse<HostingGetAccountHistoryOutput>> getAccountHistory({
     required String did,
-    List<String>? events,
+    List<HostingGetAccountHistoryEvents>? events,
     String? cursor,
     int? limit,
     Map<String, String>? $headers,
@@ -37,7 +38,7 @@ final class HostingService {
     headers: $headers,
     parameters: {
       'did': did,
-      if (events != null) 'events': events,
+      if (events != null) 'events': events.map((e) => e.toJson()).toList(),
       if (cursor != null) 'cursor': cursor,
       if (limit != null) 'limit': limit,
       ...?$unknown,

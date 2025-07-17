@@ -15,7 +15,10 @@ _ChatPreference _$ChatPreferenceFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.notification.defs#chatPreference',
         ),
-        include: $checkedConvert('include', (v) => v as String),
+        include: $checkedConvert(
+          'include',
+          (v) => const ChatPreferenceIncludeConverter().fromJson(v as String),
+        ),
         push: $checkedConvert('push', (v) => v as bool),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -25,10 +28,11 @@ _ChatPreference _$ChatPreferenceFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$ChatPreferenceToJson(_ChatPreference instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'include': instance.include,
-      'push': instance.push,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$ChatPreferenceToJson(
+  _ChatPreference instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'include': const ChatPreferenceIncludeConverter().toJson(instance.include),
+  'push': instance.push,
+  r'$unknown': instance.$unknown,
+};

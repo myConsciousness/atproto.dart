@@ -17,6 +17,7 @@ import 'unspecced/defs/age_assurance_state.dart';
 import 'unspecced/getConfig/output.dart';
 import 'unspecced/getPopularFeedGenerators/output.dart';
 import 'unspecced/getPostThreadOtherV2/output.dart';
+import 'unspecced/getPostThreadV2/main_sort.dart';
 import 'unspecced/getPostThreadV2/output.dart';
 import 'unspecced/getSuggestedFeeds/output.dart';
 import 'unspecced/getSuggestedFeedsSkeleton/output.dart';
@@ -30,6 +31,7 @@ import 'unspecced/getTrendingTopics/output.dart';
 import 'unspecced/getTrends/output.dart';
 import 'unspecced/getTrendsSkeleton/output.dart';
 import 'unspecced/searchActorsSkeleton/output.dart';
+import 'unspecced/searchPostsSkeleton/main_sort.dart';
 import 'unspecced/searchPostsSkeleton/output.dart';
 import 'unspecced/searchStarterPacksSkeleton/output.dart';
 
@@ -37,6 +39,7 @@ import 'unspecced/searchStarterPacksSkeleton/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `app.bsky.unspecced.*`
 final class UnspeccedService {
   UnspeccedService(this._ctx);
 
@@ -177,7 +180,7 @@ final class UnspeccedService {
     int? below,
     int? branchingFactor,
     bool? prioritizeFollowedUsers,
-    String? sort,
+    UnspeccedGetPostThreadV2Sort? sort,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.get(
@@ -190,7 +193,7 @@ final class UnspeccedService {
       if (branchingFactor != null) 'branchingFactor': branchingFactor,
       if (prioritizeFollowedUsers != null)
         'prioritizeFollowedUsers': prioritizeFollowedUsers,
-      if (sort != null) 'sort': sort,
+      if (sort != null) 'sort': sort.toJson(),
       ...?$unknown,
     },
     to: const UnspeccedGetPostThreadV2OutputConverter().fromJson,
@@ -257,7 +260,7 @@ final class UnspeccedService {
   /// Backend Posts search, returns only skeleton
   Future<XRPCResponse<UnspeccedSearchPostsSkeletonOutput>> searchPostsSkeleton({
     required String q,
-    String? sort,
+    UnspeccedSearchPostsSkeletonSort? sort,
     String? since,
     String? until,
     String? mentions,
@@ -276,7 +279,7 @@ final class UnspeccedService {
     headers: $headers,
     parameters: {
       'q': q,
-      if (sort != null) 'sort': sort,
+      if (sort != null) 'sort': sort.toJson(),
       if (since != null) 'since': since,
       if (until != null) 'until': until,
       if (mentions != null) 'mentions': mentions,

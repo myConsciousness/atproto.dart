@@ -32,6 +32,7 @@ import 'server/reserveSigningKey/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `com.atproto.server.*`
 final class ServerService {
   ServerService(this._ctx);
 

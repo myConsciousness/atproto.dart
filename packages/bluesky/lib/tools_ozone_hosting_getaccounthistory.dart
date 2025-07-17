@@ -12,6 +12,7 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/types/tools/ozone/hosting/getAccountHistory/input.dart';
+export 'package:bluesky/src/services/types/tools/ozone/hosting/getAccountHistory/main_events.dart';
 export 'package:bluesky/src/services/types/tools/ozone/hosting/getAccountHistory/output.dart';
 export 'package:bluesky/src/services/types/tools/ozone/hosting/getAccountHistory/event.dart';
 export 'package:bluesky/src/services/types/tools/ozone/hosting/getAccountHistory/union_event_details.dart';

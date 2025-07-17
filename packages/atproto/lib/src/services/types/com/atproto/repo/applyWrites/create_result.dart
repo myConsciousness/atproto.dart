@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './create_result_validation_status.dart';
+
 part 'create_result.freezed.dart';
 part 'create_result.g.dart';
 
@@ -26,7 +29,8 @@ abstract class CreateResult with _$CreateResult {
     @Default('com.atproto.repo.applyWrites#createResult') String $type,
     required String uri,
     required String cid,
-    String? validationStatus,
+    @CreateResultValidationStatusConverter()
+    CreateResultValidationStatus? validationStatus,
 
     Map<String, dynamic>? $unknown,
   }) = _CreateResult;

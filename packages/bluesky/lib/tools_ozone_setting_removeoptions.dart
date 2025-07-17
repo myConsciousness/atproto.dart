@@ -12,3 +12,4 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/types/tools/ozone/setting/removeOptions/input.dart';
+export 'package:bluesky/src/services/types/tools/ozone/setting/removeOptions/main_scope.dart';

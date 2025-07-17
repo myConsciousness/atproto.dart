@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './profile_associated_chat_allow_incoming.dart';
+
 part 'profile_associated_chat.freezed.dart';
 part 'profile_associated_chat.g.dart';
 
@@ -24,7 +27,8 @@ abstract class ProfileAssociatedChat with _$ProfileAssociatedChat {
 
   const factory ProfileAssociatedChat({
     @Default('app.bsky.actor.defs#profileAssociatedChat') String $type,
-    required String allowIncoming,
+    @ProfileAssociatedChatAllowIncomingConverter()
+    required ProfileAssociatedChatAllowIncoming allowIncoming,
 
     Map<String, dynamic>? $unknown,
   }) = _ProfileAssociatedChat;

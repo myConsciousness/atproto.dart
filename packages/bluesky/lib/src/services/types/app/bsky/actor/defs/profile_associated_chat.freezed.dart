@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ProfileAssociatedChat {
 
- String get $type; String get allowIncoming; Map<String, dynamic>? get $unknown;
+ String get $type;@ProfileAssociatedChatAllowIncomingConverter() ProfileAssociatedChatAllowIncoming get allowIncoming; Map<String, dynamic>? get $unknown;
 /// Create a copy of ProfileAssociatedChat
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $ProfileAssociatedChatCopyWith<$Res>  {
   factory $ProfileAssociatedChatCopyWith(ProfileAssociatedChat value, $Res Function(ProfileAssociatedChat) _then) = _$ProfileAssociatedChatCopyWithImpl;
 @useResult
 $Res call({
- String $type, String allowIncoming, Map<String, dynamic>? $unknown
+ String $type,@ProfileAssociatedChatAllowIncomingConverter() ProfileAssociatedChatAllowIncoming allowIncoming, Map<String, dynamic>? $unknown
 });
 
 
-
+$ProfileAssociatedChatAllowIncomingCopyWith<$Res> get allowIncoming;
 
 }
 /// @nodoc
@@ -69,11 +69,20 @@ class _$ProfileAssociatedChatCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,allowIncoming: null == allowIncoming ? _self.allowIncoming : allowIncoming // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ProfileAssociatedChatAllowIncoming,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of ProfileAssociatedChat
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ProfileAssociatedChatAllowIncomingCopyWith<$Res> get allowIncoming {
+  
+  return $ProfileAssociatedChatAllowIncomingCopyWith<$Res>(_self.allowIncoming, (value) {
+    return _then(_self.copyWith(allowIncoming: value));
+  });
+}
 }
 
 
@@ -155,7 +164,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String allowIncoming,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ProfileAssociatedChatAllowIncomingConverter()  ProfileAssociatedChatAllowIncoming allowIncoming,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProfileAssociatedChat() when $default != null:
 return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
@@ -176,7 +185,7 @@ return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String allowIncoming,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ProfileAssociatedChatAllowIncomingConverter()  ProfileAssociatedChatAllowIncoming allowIncoming,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ProfileAssociatedChat():
 return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
@@ -196,7 +205,7 @@ return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String allowIncoming,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ProfileAssociatedChatAllowIncomingConverter()  ProfileAssociatedChatAllowIncoming allowIncoming,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ProfileAssociatedChat() when $default != null:
 return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
@@ -211,11 +220,11 @@ return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ProfileAssociatedChat implements ProfileAssociatedChat {
-  const _ProfileAssociatedChat({this.$type = 'app.bsky.actor.defs#profileAssociatedChat', required this.allowIncoming, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ProfileAssociatedChat({this.$type = 'app.bsky.actor.defs#profileAssociatedChat', @ProfileAssociatedChatAllowIncomingConverter() required this.allowIncoming, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ProfileAssociatedChat.fromJson(Map<String, dynamic> json) => _$ProfileAssociatedChatFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String allowIncoming;
+@override@ProfileAssociatedChatAllowIncomingConverter() final  ProfileAssociatedChatAllowIncoming allowIncoming;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,11 +268,11 @@ abstract mixin class _$ProfileAssociatedChatCopyWith<$Res> implements $ProfileAs
   factory _$ProfileAssociatedChatCopyWith(_ProfileAssociatedChat value, $Res Function(_ProfileAssociatedChat) _then) = __$ProfileAssociatedChatCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String allowIncoming, Map<String, dynamic>? $unknown
+ String $type,@ProfileAssociatedChatAllowIncomingConverter() ProfileAssociatedChatAllowIncoming allowIncoming, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $ProfileAssociatedChatAllowIncomingCopyWith<$Res> get allowIncoming;
 
 }
 /// @nodoc
@@ -280,12 +289,21 @@ class __$ProfileAssociatedChatCopyWithImpl<$Res>
   return _then(_ProfileAssociatedChat(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,allowIncoming: null == allowIncoming ? _self.allowIncoming : allowIncoming // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ProfileAssociatedChatAllowIncoming,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of ProfileAssociatedChat
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ProfileAssociatedChatAllowIncomingCopyWith<$Res> get allowIncoming {
+  
+  return $ProfileAssociatedChatAllowIncomingCopyWith<$Res>(_self.allowIncoming, (value) {
+    return _then(_self.copyWith(allowIncoming: value));
+  });
+}
 }
 
 // dart format on

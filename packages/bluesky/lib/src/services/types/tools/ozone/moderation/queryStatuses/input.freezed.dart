@@ -37,12 +37,12 @@ mixin _$ModerationQueryStatusesInput {
  bool? get takendown;/// Get subjects in unresolved appealed status
  bool? get appealed; int? get limit;/// Items in this array are applied with OR filters. To apply AND filter, put all tags in the same string and separate using && characters
  List<String>? get tags; List<String>? get excludeTags; String? get cursor; List<String>? get collections;/// If specified, subjects of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
- String? get subjectType;/// If specified, only subjects that belong to an account that has at least this many suspensions will be returned.
+@ModerationQueryStatusesSubjectTypeConverter() ModerationQueryStatusesSubjectType? get subjectType;/// If specified, only subjects that belong to an account that has at least this many suspensions will be returned.
  int? get minAccountSuspendCount;/// If specified, only subjects that belong to an account that has at least this many reported records will be returned.
  int? get minReportedRecordsCount;/// If specified, only subjects that belong to an account that has at least this many taken down records will be returned.
  int? get minTakendownRecordsCount;/// If specified, only subjects that have priority score value above the given value will be returned.
  int? get minPriorityScore;/// If specified, only subjects with the given age assurance state will be returned.
- String? get ageAssuranceState; Map<String, dynamic>? get $unknown;
+@ModerationQueryStatusesAgeAssuranceStateConverter() ModerationQueryStatusesAgeAssuranceState? get ageAssuranceState; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModerationQueryStatusesInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -75,11 +75,11 @@ abstract mixin class $ModerationQueryStatusesInputCopyWith<$Res>  {
   factory $ModerationQueryStatusesInputCopyWith(ModerationQueryStatusesInput value, $Res Function(ModerationQueryStatusesInput) _then) = _$ModerationQueryStatusesInputCopyWithImpl;
 @useResult
 $Res call({
- int? queueCount, int? queueIndex, String? queueSeed, bool? includeAllUserRecords,@AtUriConverter() AtUri? subject, String? comment, DateTime? reportedAfter, DateTime? reportedBefore, DateTime? reviewedAfter, DateTime? hostingDeletedAfter, DateTime? hostingDeletedBefore, DateTime? hostingUpdatedAfter, DateTime? hostingUpdatedBefore, List<String>? hostingStatuses, DateTime? reviewedBefore, bool? includeMuted, bool? onlyMuted, String? reviewState,@AtUriConverter() List<AtUri>? ignoreSubjects, String? lastReviewedBy, String? sortField, String? sortDirection, bool? takendown, bool? appealed, int? limit, List<String>? tags, List<String>? excludeTags, String? cursor, List<String>? collections, String? subjectType, int? minAccountSuspendCount, int? minReportedRecordsCount, int? minTakendownRecordsCount, int? minPriorityScore, String? ageAssuranceState, Map<String, dynamic>? $unknown
+ int? queueCount, int? queueIndex, String? queueSeed, bool? includeAllUserRecords,@AtUriConverter() AtUri? subject, String? comment, DateTime? reportedAfter, DateTime? reportedBefore, DateTime? reviewedAfter, DateTime? hostingDeletedAfter, DateTime? hostingDeletedBefore, DateTime? hostingUpdatedAfter, DateTime? hostingUpdatedBefore, List<String>? hostingStatuses, DateTime? reviewedBefore, bool? includeMuted, bool? onlyMuted, String? reviewState,@AtUriConverter() List<AtUri>? ignoreSubjects, String? lastReviewedBy, String? sortField, String? sortDirection, bool? takendown, bool? appealed, int? limit, List<String>? tags, List<String>? excludeTags, String? cursor, List<String>? collections,@ModerationQueryStatusesSubjectTypeConverter() ModerationQueryStatusesSubjectType? subjectType, int? minAccountSuspendCount, int? minReportedRecordsCount, int? minTakendownRecordsCount, int? minPriorityScore,@ModerationQueryStatusesAgeAssuranceStateConverter() ModerationQueryStatusesAgeAssuranceState? ageAssuranceState, Map<String, dynamic>? $unknown
 });
 
 
-
+$ModerationQueryStatusesSubjectTypeCopyWith<$Res>? get subjectType;$ModerationQueryStatusesAgeAssuranceStateCopyWith<$Res>? get ageAssuranceState;
 
 }
 /// @nodoc
@@ -124,16 +124,40 @@ as List<String>?,excludeTags: freezed == excludeTags ? _self.excludeTags : exclu
 as List<String>?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,collections: freezed == collections ? _self.collections : collections // ignore: cast_nullable_to_non_nullable
 as List<String>?,subjectType: freezed == subjectType ? _self.subjectType : subjectType // ignore: cast_nullable_to_non_nullable
-as String?,minAccountSuspendCount: freezed == minAccountSuspendCount ? _self.minAccountSuspendCount : minAccountSuspendCount // ignore: cast_nullable_to_non_nullable
+as ModerationQueryStatusesSubjectType?,minAccountSuspendCount: freezed == minAccountSuspendCount ? _self.minAccountSuspendCount : minAccountSuspendCount // ignore: cast_nullable_to_non_nullable
 as int?,minReportedRecordsCount: freezed == minReportedRecordsCount ? _self.minReportedRecordsCount : minReportedRecordsCount // ignore: cast_nullable_to_non_nullable
 as int?,minTakendownRecordsCount: freezed == minTakendownRecordsCount ? _self.minTakendownRecordsCount : minTakendownRecordsCount // ignore: cast_nullable_to_non_nullable
 as int?,minPriorityScore: freezed == minPriorityScore ? _self.minPriorityScore : minPriorityScore // ignore: cast_nullable_to_non_nullable
 as int?,ageAssuranceState: freezed == ageAssuranceState ? _self.ageAssuranceState : ageAssuranceState // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ModerationQueryStatusesAgeAssuranceState?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of ModerationQueryStatusesInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModerationQueryStatusesSubjectTypeCopyWith<$Res>? get subjectType {
+    if (_self.subjectType == null) {
+    return null;
+  }
 
+  return $ModerationQueryStatusesSubjectTypeCopyWith<$Res>(_self.subjectType!, (value) {
+    return _then(_self.copyWith(subjectType: value));
+  });
+}/// Create a copy of ModerationQueryStatusesInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModerationQueryStatusesAgeAssuranceStateCopyWith<$Res>? get ageAssuranceState {
+    if (_self.ageAssuranceState == null) {
+    return null;
+  }
+
+  return $ModerationQueryStatusesAgeAssuranceStateCopyWith<$Res>(_self.ageAssuranceState!, (value) {
+    return _then(_self.copyWith(ageAssuranceState: value));
+  });
+}
 }
 
 
@@ -215,7 +239,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? queueCount,  int? queueIndex,  String? queueSeed,  bool? includeAllUserRecords, @AtUriConverter()  AtUri? subject,  String? comment,  DateTime? reportedAfter,  DateTime? reportedBefore,  DateTime? reviewedAfter,  DateTime? hostingDeletedAfter,  DateTime? hostingDeletedBefore,  DateTime? hostingUpdatedAfter,  DateTime? hostingUpdatedBefore,  List<String>? hostingStatuses,  DateTime? reviewedBefore,  bool? includeMuted,  bool? onlyMuted,  String? reviewState, @AtUriConverter()  List<AtUri>? ignoreSubjects,  String? lastReviewedBy,  String? sortField,  String? sortDirection,  bool? takendown,  bool? appealed,  int? limit,  List<String>? tags,  List<String>? excludeTags,  String? cursor,  List<String>? collections,  String? subjectType,  int? minAccountSuspendCount,  int? minReportedRecordsCount,  int? minTakendownRecordsCount,  int? minPriorityScore,  String? ageAssuranceState,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? queueCount,  int? queueIndex,  String? queueSeed,  bool? includeAllUserRecords, @AtUriConverter()  AtUri? subject,  String? comment,  DateTime? reportedAfter,  DateTime? reportedBefore,  DateTime? reviewedAfter,  DateTime? hostingDeletedAfter,  DateTime? hostingDeletedBefore,  DateTime? hostingUpdatedAfter,  DateTime? hostingUpdatedBefore,  List<String>? hostingStatuses,  DateTime? reviewedBefore,  bool? includeMuted,  bool? onlyMuted,  String? reviewState, @AtUriConverter()  List<AtUri>? ignoreSubjects,  String? lastReviewedBy,  String? sortField,  String? sortDirection,  bool? takendown,  bool? appealed,  int? limit,  List<String>? tags,  List<String>? excludeTags,  String? cursor,  List<String>? collections, @ModerationQueryStatusesSubjectTypeConverter()  ModerationQueryStatusesSubjectType? subjectType,  int? minAccountSuspendCount,  int? minReportedRecordsCount,  int? minTakendownRecordsCount,  int? minPriorityScore, @ModerationQueryStatusesAgeAssuranceStateConverter()  ModerationQueryStatusesAgeAssuranceState? ageAssuranceState,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModerationQueryStatusesInput() when $default != null:
 return $default(_that.queueCount,_that.queueIndex,_that.queueSeed,_that.includeAllUserRecords,_that.subject,_that.comment,_that.reportedAfter,_that.reportedBefore,_that.reviewedAfter,_that.hostingDeletedAfter,_that.hostingDeletedBefore,_that.hostingUpdatedAfter,_that.hostingUpdatedBefore,_that.hostingStatuses,_that.reviewedBefore,_that.includeMuted,_that.onlyMuted,_that.reviewState,_that.ignoreSubjects,_that.lastReviewedBy,_that.sortField,_that.sortDirection,_that.takendown,_that.appealed,_that.limit,_that.tags,_that.excludeTags,_that.cursor,_that.collections,_that.subjectType,_that.minAccountSuspendCount,_that.minReportedRecordsCount,_that.minTakendownRecordsCount,_that.minPriorityScore,_that.ageAssuranceState,_that.$unknown);case _:
@@ -236,7 +260,7 @@ return $default(_that.queueCount,_that.queueIndex,_that.queueSeed,_that.includeA
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? queueCount,  int? queueIndex,  String? queueSeed,  bool? includeAllUserRecords, @AtUriConverter()  AtUri? subject,  String? comment,  DateTime? reportedAfter,  DateTime? reportedBefore,  DateTime? reviewedAfter,  DateTime? hostingDeletedAfter,  DateTime? hostingDeletedBefore,  DateTime? hostingUpdatedAfter,  DateTime? hostingUpdatedBefore,  List<String>? hostingStatuses,  DateTime? reviewedBefore,  bool? includeMuted,  bool? onlyMuted,  String? reviewState, @AtUriConverter()  List<AtUri>? ignoreSubjects,  String? lastReviewedBy,  String? sortField,  String? sortDirection,  bool? takendown,  bool? appealed,  int? limit,  List<String>? tags,  List<String>? excludeTags,  String? cursor,  List<String>? collections,  String? subjectType,  int? minAccountSuspendCount,  int? minReportedRecordsCount,  int? minTakendownRecordsCount,  int? minPriorityScore,  String? ageAssuranceState,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? queueCount,  int? queueIndex,  String? queueSeed,  bool? includeAllUserRecords, @AtUriConverter()  AtUri? subject,  String? comment,  DateTime? reportedAfter,  DateTime? reportedBefore,  DateTime? reviewedAfter,  DateTime? hostingDeletedAfter,  DateTime? hostingDeletedBefore,  DateTime? hostingUpdatedAfter,  DateTime? hostingUpdatedBefore,  List<String>? hostingStatuses,  DateTime? reviewedBefore,  bool? includeMuted,  bool? onlyMuted,  String? reviewState, @AtUriConverter()  List<AtUri>? ignoreSubjects,  String? lastReviewedBy,  String? sortField,  String? sortDirection,  bool? takendown,  bool? appealed,  int? limit,  List<String>? tags,  List<String>? excludeTags,  String? cursor,  List<String>? collections, @ModerationQueryStatusesSubjectTypeConverter()  ModerationQueryStatusesSubjectType? subjectType,  int? minAccountSuspendCount,  int? minReportedRecordsCount,  int? minTakendownRecordsCount,  int? minPriorityScore, @ModerationQueryStatusesAgeAssuranceStateConverter()  ModerationQueryStatusesAgeAssuranceState? ageAssuranceState,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModerationQueryStatusesInput():
 return $default(_that.queueCount,_that.queueIndex,_that.queueSeed,_that.includeAllUserRecords,_that.subject,_that.comment,_that.reportedAfter,_that.reportedBefore,_that.reviewedAfter,_that.hostingDeletedAfter,_that.hostingDeletedBefore,_that.hostingUpdatedAfter,_that.hostingUpdatedBefore,_that.hostingStatuses,_that.reviewedBefore,_that.includeMuted,_that.onlyMuted,_that.reviewState,_that.ignoreSubjects,_that.lastReviewedBy,_that.sortField,_that.sortDirection,_that.takendown,_that.appealed,_that.limit,_that.tags,_that.excludeTags,_that.cursor,_that.collections,_that.subjectType,_that.minAccountSuspendCount,_that.minReportedRecordsCount,_that.minTakendownRecordsCount,_that.minPriorityScore,_that.ageAssuranceState,_that.$unknown);case _:
@@ -256,7 +280,7 @@ return $default(_that.queueCount,_that.queueIndex,_that.queueSeed,_that.includeA
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? queueCount,  int? queueIndex,  String? queueSeed,  bool? includeAllUserRecords, @AtUriConverter()  AtUri? subject,  String? comment,  DateTime? reportedAfter,  DateTime? reportedBefore,  DateTime? reviewedAfter,  DateTime? hostingDeletedAfter,  DateTime? hostingDeletedBefore,  DateTime? hostingUpdatedAfter,  DateTime? hostingUpdatedBefore,  List<String>? hostingStatuses,  DateTime? reviewedBefore,  bool? includeMuted,  bool? onlyMuted,  String? reviewState, @AtUriConverter()  List<AtUri>? ignoreSubjects,  String? lastReviewedBy,  String? sortField,  String? sortDirection,  bool? takendown,  bool? appealed,  int? limit,  List<String>? tags,  List<String>? excludeTags,  String? cursor,  List<String>? collections,  String? subjectType,  int? minAccountSuspendCount,  int? minReportedRecordsCount,  int? minTakendownRecordsCount,  int? minPriorityScore,  String? ageAssuranceState,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? queueCount,  int? queueIndex,  String? queueSeed,  bool? includeAllUserRecords, @AtUriConverter()  AtUri? subject,  String? comment,  DateTime? reportedAfter,  DateTime? reportedBefore,  DateTime? reviewedAfter,  DateTime? hostingDeletedAfter,  DateTime? hostingDeletedBefore,  DateTime? hostingUpdatedAfter,  DateTime? hostingUpdatedBefore,  List<String>? hostingStatuses,  DateTime? reviewedBefore,  bool? includeMuted,  bool? onlyMuted,  String? reviewState, @AtUriConverter()  List<AtUri>? ignoreSubjects,  String? lastReviewedBy,  String? sortField,  String? sortDirection,  bool? takendown,  bool? appealed,  int? limit,  List<String>? tags,  List<String>? excludeTags,  String? cursor,  List<String>? collections, @ModerationQueryStatusesSubjectTypeConverter()  ModerationQueryStatusesSubjectType? subjectType,  int? minAccountSuspendCount,  int? minReportedRecordsCount,  int? minTakendownRecordsCount,  int? minPriorityScore, @ModerationQueryStatusesAgeAssuranceStateConverter()  ModerationQueryStatusesAgeAssuranceState? ageAssuranceState,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModerationQueryStatusesInput() when $default != null:
 return $default(_that.queueCount,_that.queueIndex,_that.queueSeed,_that.includeAllUserRecords,_that.subject,_that.comment,_that.reportedAfter,_that.reportedBefore,_that.reviewedAfter,_that.hostingDeletedAfter,_that.hostingDeletedBefore,_that.hostingUpdatedAfter,_that.hostingUpdatedBefore,_that.hostingStatuses,_that.reviewedBefore,_that.includeMuted,_that.onlyMuted,_that.reviewState,_that.ignoreSubjects,_that.lastReviewedBy,_that.sortField,_that.sortDirection,_that.takendown,_that.appealed,_that.limit,_that.tags,_that.excludeTags,_that.cursor,_that.collections,_that.subjectType,_that.minAccountSuspendCount,_that.minReportedRecordsCount,_that.minTakendownRecordsCount,_that.minPriorityScore,_that.ageAssuranceState,_that.$unknown);case _:
@@ -271,7 +295,7 @@ return $default(_that.queueCount,_that.queueIndex,_that.queueSeed,_that.includeA
 @JsonSerializable()
 
 class _ModerationQueryStatusesInput implements ModerationQueryStatusesInput {
-  const _ModerationQueryStatusesInput({this.queueCount, this.queueIndex, this.queueSeed, this.includeAllUserRecords, @AtUriConverter() this.subject, this.comment, this.reportedAfter, this.reportedBefore, this.reviewedAfter, this.hostingDeletedAfter, this.hostingDeletedBefore, this.hostingUpdatedAfter, this.hostingUpdatedBefore, final  List<String>? hostingStatuses, this.reviewedBefore, this.includeMuted, this.onlyMuted, this.reviewState, @AtUriConverter() final  List<AtUri>? ignoreSubjects, this.lastReviewedBy, this.sortField, this.sortDirection, this.takendown, this.appealed, this.limit, final  List<String>? tags, final  List<String>? excludeTags, this.cursor, final  List<String>? collections, this.subjectType, this.minAccountSuspendCount, this.minReportedRecordsCount, this.minTakendownRecordsCount, this.minPriorityScore, this.ageAssuranceState, final  Map<String, dynamic>? $unknown}): _hostingStatuses = hostingStatuses,_ignoreSubjects = ignoreSubjects,_tags = tags,_excludeTags = excludeTags,_collections = collections,_$unknown = $unknown;
+  const _ModerationQueryStatusesInput({this.queueCount, this.queueIndex, this.queueSeed, this.includeAllUserRecords, @AtUriConverter() this.subject, this.comment, this.reportedAfter, this.reportedBefore, this.reviewedAfter, this.hostingDeletedAfter, this.hostingDeletedBefore, this.hostingUpdatedAfter, this.hostingUpdatedBefore, final  List<String>? hostingStatuses, this.reviewedBefore, this.includeMuted, this.onlyMuted, this.reviewState, @AtUriConverter() final  List<AtUri>? ignoreSubjects, this.lastReviewedBy, this.sortField, this.sortDirection, this.takendown, this.appealed, this.limit, final  List<String>? tags, final  List<String>? excludeTags, this.cursor, final  List<String>? collections, @ModerationQueryStatusesSubjectTypeConverter() this.subjectType, this.minAccountSuspendCount, this.minReportedRecordsCount, this.minTakendownRecordsCount, this.minPriorityScore, @ModerationQueryStatusesAgeAssuranceStateConverter() this.ageAssuranceState, final  Map<String, dynamic>? $unknown}): _hostingStatuses = hostingStatuses,_ignoreSubjects = ignoreSubjects,_tags = tags,_excludeTags = excludeTags,_collections = collections,_$unknown = $unknown;
   factory _ModerationQueryStatusesInput.fromJson(Map<String, dynamic> json) => _$ModerationQueryStatusesInputFromJson(json);
 
 /// Number of queues being used by moderators. Subjects will be split among all queues.
@@ -366,7 +390,7 @@ class _ModerationQueryStatusesInput implements ModerationQueryStatusesInput {
 }
 
 /// If specified, subjects of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
-@override final  String? subjectType;
+@override@ModerationQueryStatusesSubjectTypeConverter() final  ModerationQueryStatusesSubjectType? subjectType;
 /// If specified, only subjects that belong to an account that has at least this many suspensions will be returned.
 @override final  int? minAccountSuspendCount;
 /// If specified, only subjects that belong to an account that has at least this many reported records will be returned.
@@ -376,7 +400,7 @@ class _ModerationQueryStatusesInput implements ModerationQueryStatusesInput {
 /// If specified, only subjects that have priority score value above the given value will be returned.
 @override final  int? minPriorityScore;
 /// If specified, only subjects with the given age assurance state will be returned.
-@override final  String? ageAssuranceState;
+@override@ModerationQueryStatusesAgeAssuranceStateConverter() final  ModerationQueryStatusesAgeAssuranceState? ageAssuranceState;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -420,11 +444,11 @@ abstract mixin class _$ModerationQueryStatusesInputCopyWith<$Res> implements $Mo
   factory _$ModerationQueryStatusesInputCopyWith(_ModerationQueryStatusesInput value, $Res Function(_ModerationQueryStatusesInput) _then) = __$ModerationQueryStatusesInputCopyWithImpl;
 @override @useResult
 $Res call({
- int? queueCount, int? queueIndex, String? queueSeed, bool? includeAllUserRecords,@AtUriConverter() AtUri? subject, String? comment, DateTime? reportedAfter, DateTime? reportedBefore, DateTime? reviewedAfter, DateTime? hostingDeletedAfter, DateTime? hostingDeletedBefore, DateTime? hostingUpdatedAfter, DateTime? hostingUpdatedBefore, List<String>? hostingStatuses, DateTime? reviewedBefore, bool? includeMuted, bool? onlyMuted, String? reviewState,@AtUriConverter() List<AtUri>? ignoreSubjects, String? lastReviewedBy, String? sortField, String? sortDirection, bool? takendown, bool? appealed, int? limit, List<String>? tags, List<String>? excludeTags, String? cursor, List<String>? collections, String? subjectType, int? minAccountSuspendCount, int? minReportedRecordsCount, int? minTakendownRecordsCount, int? minPriorityScore, String? ageAssuranceState, Map<String, dynamic>? $unknown
+ int? queueCount, int? queueIndex, String? queueSeed, bool? includeAllUserRecords,@AtUriConverter() AtUri? subject, String? comment, DateTime? reportedAfter, DateTime? reportedBefore, DateTime? reviewedAfter, DateTime? hostingDeletedAfter, DateTime? hostingDeletedBefore, DateTime? hostingUpdatedAfter, DateTime? hostingUpdatedBefore, List<String>? hostingStatuses, DateTime? reviewedBefore, bool? includeMuted, bool? onlyMuted, String? reviewState,@AtUriConverter() List<AtUri>? ignoreSubjects, String? lastReviewedBy, String? sortField, String? sortDirection, bool? takendown, bool? appealed, int? limit, List<String>? tags, List<String>? excludeTags, String? cursor, List<String>? collections,@ModerationQueryStatusesSubjectTypeConverter() ModerationQueryStatusesSubjectType? subjectType, int? minAccountSuspendCount, int? minReportedRecordsCount, int? minTakendownRecordsCount, int? minPriorityScore,@ModerationQueryStatusesAgeAssuranceStateConverter() ModerationQueryStatusesAgeAssuranceState? ageAssuranceState, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $ModerationQueryStatusesSubjectTypeCopyWith<$Res>? get subjectType;@override $ModerationQueryStatusesAgeAssuranceStateCopyWith<$Res>? get ageAssuranceState;
 
 }
 /// @nodoc
@@ -469,17 +493,41 @@ as List<String>?,excludeTags: freezed == excludeTags ? _self._excludeTags : excl
 as List<String>?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,collections: freezed == collections ? _self._collections : collections // ignore: cast_nullable_to_non_nullable
 as List<String>?,subjectType: freezed == subjectType ? _self.subjectType : subjectType // ignore: cast_nullable_to_non_nullable
-as String?,minAccountSuspendCount: freezed == minAccountSuspendCount ? _self.minAccountSuspendCount : minAccountSuspendCount // ignore: cast_nullable_to_non_nullable
+as ModerationQueryStatusesSubjectType?,minAccountSuspendCount: freezed == minAccountSuspendCount ? _self.minAccountSuspendCount : minAccountSuspendCount // ignore: cast_nullable_to_non_nullable
 as int?,minReportedRecordsCount: freezed == minReportedRecordsCount ? _self.minReportedRecordsCount : minReportedRecordsCount // ignore: cast_nullable_to_non_nullable
 as int?,minTakendownRecordsCount: freezed == minTakendownRecordsCount ? _self.minTakendownRecordsCount : minTakendownRecordsCount // ignore: cast_nullable_to_non_nullable
 as int?,minPriorityScore: freezed == minPriorityScore ? _self.minPriorityScore : minPriorityScore // ignore: cast_nullable_to_non_nullable
 as int?,ageAssuranceState: freezed == ageAssuranceState ? _self.ageAssuranceState : ageAssuranceState // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ModerationQueryStatusesAgeAssuranceState?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of ModerationQueryStatusesInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModerationQueryStatusesSubjectTypeCopyWith<$Res>? get subjectType {
+    if (_self.subjectType == null) {
+    return null;
+  }
 
+  return $ModerationQueryStatusesSubjectTypeCopyWith<$Res>(_self.subjectType!, (value) {
+    return _then(_self.copyWith(subjectType: value));
+  });
+}/// Create a copy of ModerationQueryStatusesInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModerationQueryStatusesAgeAssuranceStateCopyWith<$Res>? get ageAssuranceState {
+    if (_self.ageAssuranceState == null) {
+    return null;
+  }
+
+  return $ModerationQueryStatusesAgeAssuranceStateCopyWith<$Res>(_self.ageAssuranceState!, (value) {
+    return _then(_self.copyWith(ageAssuranceState: value));
+  });
+}
 }
 
 // dart format on

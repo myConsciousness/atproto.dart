@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$NotificationDeclarationRecord {
 
  String get $type;/// A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.
- String get allowSubscriptions; Map<String, dynamic>? get $unknown;
+@NotificationDeclarationAllowSubscriptionsConverter() NotificationDeclarationAllowSubscriptions get allowSubscriptions; Map<String, dynamic>? get $unknown;
 /// Create a copy of NotificationDeclarationRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,11 +49,11 @@ abstract mixin class $NotificationDeclarationRecordCopyWith<$Res>  {
   factory $NotificationDeclarationRecordCopyWith(NotificationDeclarationRecord value, $Res Function(NotificationDeclarationRecord) _then) = _$NotificationDeclarationRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type, String allowSubscriptions, Map<String, dynamic>? $unknown
+ String $type,@NotificationDeclarationAllowSubscriptionsConverter() NotificationDeclarationAllowSubscriptions allowSubscriptions, Map<String, dynamic>? $unknown
 });
 
 
-
+$NotificationDeclarationAllowSubscriptionsCopyWith<$Res> get allowSubscriptions;
 
 }
 /// @nodoc
@@ -70,11 +70,20 @@ class _$NotificationDeclarationRecordCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,allowSubscriptions: null == allowSubscriptions ? _self.allowSubscriptions : allowSubscriptions // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as NotificationDeclarationAllowSubscriptions,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of NotificationDeclarationRecord
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$NotificationDeclarationAllowSubscriptionsCopyWith<$Res> get allowSubscriptions {
+  
+  return $NotificationDeclarationAllowSubscriptionsCopyWith<$Res>(_self.allowSubscriptions, (value) {
+    return _then(_self.copyWith(allowSubscriptions: value));
+  });
+}
 }
 
 
@@ -156,7 +165,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String allowSubscriptions,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @NotificationDeclarationAllowSubscriptionsConverter()  NotificationDeclarationAllowSubscriptions allowSubscriptions,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _NotificationDeclarationRecord() when $default != null:
 return $default(_that.$type,_that.allowSubscriptions,_that.$unknown);case _:
@@ -177,7 +186,7 @@ return $default(_that.$type,_that.allowSubscriptions,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String allowSubscriptions,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @NotificationDeclarationAllowSubscriptionsConverter()  NotificationDeclarationAllowSubscriptions allowSubscriptions,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _NotificationDeclarationRecord():
 return $default(_that.$type,_that.allowSubscriptions,_that.$unknown);case _:
@@ -197,7 +206,7 @@ return $default(_that.$type,_that.allowSubscriptions,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String allowSubscriptions,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @NotificationDeclarationAllowSubscriptionsConverter()  NotificationDeclarationAllowSubscriptions allowSubscriptions,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _NotificationDeclarationRecord() when $default != null:
 return $default(_that.$type,_that.allowSubscriptions,_that.$unknown);case _:
@@ -212,12 +221,12 @@ return $default(_that.$type,_that.allowSubscriptions,_that.$unknown);case _:
 @JsonSerializable()
 
 class _NotificationDeclarationRecord implements NotificationDeclarationRecord {
-  const _NotificationDeclarationRecord({this.$type = 'app.bsky.notification.declaration', required this.allowSubscriptions, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _NotificationDeclarationRecord({this.$type = 'app.bsky.notification.declaration', @NotificationDeclarationAllowSubscriptionsConverter() required this.allowSubscriptions, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationDeclarationRecord.fromJson(Map<String, dynamic> json) => _$NotificationDeclarationRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.
-@override final  String allowSubscriptions;
+@override@NotificationDeclarationAllowSubscriptionsConverter() final  NotificationDeclarationAllowSubscriptions allowSubscriptions;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -261,11 +270,11 @@ abstract mixin class _$NotificationDeclarationRecordCopyWith<$Res> implements $N
   factory _$NotificationDeclarationRecordCopyWith(_NotificationDeclarationRecord value, $Res Function(_NotificationDeclarationRecord) _then) = __$NotificationDeclarationRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String allowSubscriptions, Map<String, dynamic>? $unknown
+ String $type,@NotificationDeclarationAllowSubscriptionsConverter() NotificationDeclarationAllowSubscriptions allowSubscriptions, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $NotificationDeclarationAllowSubscriptionsCopyWith<$Res> get allowSubscriptions;
 
 }
 /// @nodoc
@@ -282,12 +291,21 @@ class __$NotificationDeclarationRecordCopyWithImpl<$Res>
   return _then(_NotificationDeclarationRecord(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,allowSubscriptions: null == allowSubscriptions ? _self.allowSubscriptions : allowSubscriptions // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as NotificationDeclarationAllowSubscriptions,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of NotificationDeclarationRecord
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$NotificationDeclarationAllowSubscriptionsCopyWith<$Res> get allowSubscriptions {
+  
+  return $NotificationDeclarationAllowSubscriptionsCopyWith<$Res>(_self.allowSubscriptions, (value) {
+    return _then(_self.copyWith(allowSubscriptions: value));
+  });
+}
 }
 
 // dart format on

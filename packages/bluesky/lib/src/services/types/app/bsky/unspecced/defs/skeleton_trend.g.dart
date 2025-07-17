@@ -23,7 +23,13 @@ _SkeletonTrend _$SkeletonTrendFromJson(Map json) =>
           (v) => DateTime.parse(v as String),
         ),
         postCount: $checkedConvert('postCount', (v) => (v as num).toInt()),
-        status: $checkedConvert('status', (v) => v as String?),
+        status: $checkedConvert(
+          'status',
+          (v) => _$JsonConverterFromJson<String, SkeletonTrendStatus>(
+            v,
+            const SkeletonTrendStatusConverter().fromJson,
+          ),
+        ),
         category: $checkedConvert('category', (v) => v as String?),
         dids: $checkedConvert(
           'dids',
@@ -45,8 +51,21 @@ Map<String, dynamic> _$SkeletonTrendToJson(_SkeletonTrend instance) =>
       'link': instance.link,
       'startedAt': instance.startedAt.toIso8601String(),
       'postCount': instance.postCount,
-      'status': instance.status,
+      'status': _$JsonConverterToJson<String, SkeletonTrendStatus>(
+        instance.status,
+        const SkeletonTrendStatusConverter().toJson,
+      ),
       'category': instance.category,
       'dids': instance.dids,
       r'$unknown': instance.$unknown,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

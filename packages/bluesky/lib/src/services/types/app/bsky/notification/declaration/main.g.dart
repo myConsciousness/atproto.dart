@@ -18,7 +18,8 @@ _NotificationDeclarationRecord _$NotificationDeclarationRecordFromJson(
     ),
     allowSubscriptions: $checkedConvert(
       'allowSubscriptions',
-      (v) => v as String,
+      (v) => const NotificationDeclarationAllowSubscriptionsConverter()
+          .fromJson(v as String),
     ),
     $unknown: $checkedConvert(
       r'$unknown',
@@ -32,6 +33,9 @@ Map<String, dynamic> _$NotificationDeclarationRecordToJson(
   _NotificationDeclarationRecord instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'allowSubscriptions': instance.allowSubscriptions,
+  'allowSubscriptions':
+      const NotificationDeclarationAllowSubscriptionsConverter().toJson(
+        instance.allowSubscriptions,
+      ),
   r'$unknown': instance.$unknown,
 };

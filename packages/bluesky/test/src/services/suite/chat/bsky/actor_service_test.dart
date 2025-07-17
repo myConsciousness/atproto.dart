@@ -4,11 +4,16 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:
 import 'package:bluesky/src/ids.g.dart';
+import 'package:bluesky/src/services/types/chat/bsky/actor/declaration/main_allow_incoming.dart';
 import 'service_suite.dart';
 
 void main() {
   testActor<RepoCreateRecordOutput>(
-    (m, s) => s.declaration(allowIncoming: 'test'),
+    (m, s) => s.declaration(
+      allowIncoming: const ActorDeclarationAllowIncoming.knownValue(
+        data: KnownActorDeclarationAllowIncoming.following,
+      ),
+    ),
     id: chatBskyActorDeclaration,
   );
 

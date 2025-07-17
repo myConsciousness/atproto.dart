@@ -18,9 +18,11 @@ import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
 import 'feed/defs/interaction.dart';
 import 'feed/describeFeedGenerator/output.dart';
+import 'feed/generator/main_content_mode.dart';
 import 'feed/generator/union_main_labels.dart';
 import 'feed/getActorFeeds/output.dart';
 import 'feed/getActorLikes/output.dart';
+import 'feed/getAuthorFeed/main_filter.dart';
 import 'feed/getAuthorFeed/output.dart';
 import 'feed/getFeed/output.dart';
 import 'feed/getFeedGenerator/output.dart';
@@ -38,6 +40,7 @@ import 'feed/post/reply_ref.dart';
 import 'feed/post/union_main_embed.dart';
 import 'feed/post/union_main_labels.dart';
 import 'feed/postgate/union_main_embedding_rules.dart';
+import 'feed/searchPosts/main_sort.dart';
 import 'feed/searchPosts/output.dart';
 import 'feed/threadgate/union_main_allow.dart';
 import 'richtext/facet/main.dart';
@@ -46,11 +49,13 @@ import 'richtext/facet/main.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `app.bsky.feed.*`
 final class FeedService {
   FeedService(this._ctx);
 
   final z.ServiceContext _ctx;
 
+  /// Record declaring of the existence of a feed generator, and containing metadata about it. The record can exist in any repository.
   Future<XRPCResponse<RepoCreateRecordOutput>> generator({
     required String did,
     required String displayName,
@@ -59,7 +64,7 @@ final class FeedService {
     Blob? avatar,
     bool? acceptsInteractions,
     UFeedGeneratorLabels? labels,
-    String? contentMode,
+    FeedGeneratorContentMode? contentMode,
     DateTime? createdAt,
     String? $rey,
     Map<String, String>? $headers,
@@ -78,7 +83,7 @@ final class FeedService {
       if (acceptsInteractions != null)
         'acceptsInteractions': acceptsInteractions,
       if (labels != null) 'labels': labels.toJson(),
-      if (contentMode != null) 'contentMode': contentMode,
+      if (contentMode != null) 'contentMode': contentMode.toJson(),
       'createdAt': _ctx.toUtcIso8601String(createdAt),
       ...?$unknown,
     },
@@ -146,7 +151,7 @@ final class FeedService {
     required String actor,
     int? limit,
     String? cursor,
-    String? filter,
+    FeedGetAuthorFeedFilter? filter,
     bool? includePins,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -157,7 +162,7 @@ final class FeedService {
       'actor': actor,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      if (filter != null) 'filter': filter,
+      if (filter != null) 'filter': filter.toJson(),
       if (includePins != null) 'includePins': includePins,
       ...?$unknown,
     },
@@ -184,6 +189,8 @@ final class FeedService {
     },
     to: const FeedGetLikesOutputConverter().fromJson,
   );
+
+  /// Record defining interaction rules for a post. The record key (rkey) of the postgate record must match the record key of the post, and that record must be in the same repository.
   Future<XRPCResponse<RepoCreateRecordOutput>> postgate({
     DateTime? createdAt,
     required String post,
@@ -206,6 +213,8 @@ final class FeedService {
       ...?$unknown,
     },
   );
+
+  /// Record defining interaction gating rules for a thread (aka, reply controls). The record key (rkey) of the threadgate record must match the record key of the thread's root post, and that record must be in the same repository.
   Future<XRPCResponse<RepoCreateRecordOutput>> threadgate({
     required String post,
     List<UFeedThreadgateAllow>? allow,
@@ -264,6 +273,8 @@ final class FeedService {
     },
     to: const FeedGetActorLikesOutputConverter().fromJson,
   );
+
+  /// Record declaring a 'like' of a piece of subject content.
   Future<XRPCResponse<RepoCreateRecordOutput>> like({
     required RepoStrongRef subject,
     DateTime? createdAt,
@@ -303,6 +314,8 @@ final class FeedService {
     },
     to: const FeedGetRepostedByOutputConverter().fromJson,
   );
+
+  /// Record representing a 'repost' of an existing Bluesky post.
   Future<XRPCResponse<RepoCreateRecordOutput>> repost({
     required RepoStrongRef subject,
     DateTime? createdAt,
@@ -336,7 +349,7 @@ final class FeedService {
   /// Find posts matching search criteria, returning views of those posts. Note that this API endpoint may require authentication (eg, not public) for some service providers and implementations.
   Future<XRPCResponse<FeedSearchPostsOutput>> searchPosts({
     required String q,
-    String? sort,
+    FeedSearchPostsSort? sort,
     String? since,
     String? until,
     String? mentions,
@@ -354,7 +367,7 @@ final class FeedService {
     headers: $headers,
     parameters: {
       'q': q,
-      if (sort != null) 'sort': sort,
+      if (sort != null) 'sort': sort.toJson(),
       if (since != null) 'since': since,
       if (until != null) 'until': until,
       if (mentions != null) 'mentions': mentions,
@@ -495,6 +508,8 @@ final class FeedService {
     },
     to: const FeedGetActorFeedsOutputConverter().fromJson,
   );
+
+  /// Record containing a Bluesky post.
   Future<XRPCResponse<RepoCreateRecordOutput>> post({
     required String text,
     List<RichtextFacet>? facets,

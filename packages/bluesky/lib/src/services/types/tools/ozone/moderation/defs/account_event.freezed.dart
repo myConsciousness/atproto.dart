@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$AccountEvent {
 
  String get $type; String? get comment;/// Indicates that the account has a repository which can be fetched from the host that emitted this event.
- bool get active; String? get status; DateTime get timestamp; Map<String, dynamic>? get $unknown;
+ bool get active;@AccountEventStatusConverter() AccountEventStatus? get status; DateTime get timestamp; Map<String, dynamic>? get $unknown;
 /// Create a copy of AccountEvent
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,11 +49,11 @@ abstract mixin class $AccountEventCopyWith<$Res>  {
   factory $AccountEventCopyWith(AccountEvent value, $Res Function(AccountEvent) _then) = _$AccountEventCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? comment, bool active, String? status, DateTime timestamp, Map<String, dynamic>? $unknown
+ String $type, String? comment, bool active,@AccountEventStatusConverter() AccountEventStatus? status, DateTime timestamp, Map<String, dynamic>? $unknown
 });
 
 
-
+$AccountEventStatusCopyWith<$Res>? get status;
 
 }
 /// @nodoc
@@ -72,12 +72,24 @@ $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nulla
 as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,active: null == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String?,timestamp: null == timestamp ? _self.timestamp : timestamp // ignore: cast_nullable_to_non_nullable
+as AccountEventStatus?,timestamp: null == timestamp ? _self.timestamp : timestamp // ignore: cast_nullable_to_non_nullable
 as DateTime,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of AccountEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AccountEventStatusCopyWith<$Res>? get status {
+    if (_self.status == null) {
+    return null;
+  }
 
+  return $AccountEventStatusCopyWith<$Res>(_self.status!, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 
@@ -159,7 +171,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  bool active,  String? status,  DateTime timestamp,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  bool active, @AccountEventStatusConverter()  AccountEventStatus? status,  DateTime timestamp,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AccountEvent() when $default != null:
 return $default(_that.$type,_that.comment,_that.active,_that.status,_that.timestamp,_that.$unknown);case _:
@@ -180,7 +192,7 @@ return $default(_that.$type,_that.comment,_that.active,_that.status,_that.timest
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  bool active,  String? status,  DateTime timestamp,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  bool active, @AccountEventStatusConverter()  AccountEventStatus? status,  DateTime timestamp,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AccountEvent():
 return $default(_that.$type,_that.comment,_that.active,_that.status,_that.timestamp,_that.$unknown);case _:
@@ -200,7 +212,7 @@ return $default(_that.$type,_that.comment,_that.active,_that.status,_that.timest
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  bool active,  String? status,  DateTime timestamp,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  bool active, @AccountEventStatusConverter()  AccountEventStatus? status,  DateTime timestamp,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AccountEvent() when $default != null:
 return $default(_that.$type,_that.comment,_that.active,_that.status,_that.timestamp,_that.$unknown);case _:
@@ -215,14 +227,14 @@ return $default(_that.$type,_that.comment,_that.active,_that.status,_that.timest
 @JsonSerializable()
 
 class _AccountEvent implements AccountEvent {
-  const _AccountEvent({this.$type = 'tools.ozone.moderation.defs#accountEvent', this.comment, required this.active, this.status, required this.timestamp, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AccountEvent({this.$type = 'tools.ozone.moderation.defs#accountEvent', this.comment, required this.active, @AccountEventStatusConverter() this.status, required this.timestamp, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AccountEvent.fromJson(Map<String, dynamic> json) => _$AccountEventFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String? comment;
 /// Indicates that the account has a repository which can be fetched from the host that emitted this event.
 @override final  bool active;
-@override final  String? status;
+@override@AccountEventStatusConverter() final  AccountEventStatus? status;
 @override final  DateTime timestamp;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -267,11 +279,11 @@ abstract mixin class _$AccountEventCopyWith<$Res> implements $AccountEventCopyWi
   factory _$AccountEventCopyWith(_AccountEvent value, $Res Function(_AccountEvent) _then) = __$AccountEventCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? comment, bool active, String? status, DateTime timestamp, Map<String, dynamic>? $unknown
+ String $type, String? comment, bool active,@AccountEventStatusConverter() AccountEventStatus? status, DateTime timestamp, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $AccountEventStatusCopyWith<$Res>? get status;
 
 }
 /// @nodoc
@@ -290,13 +302,25 @@ $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nulla
 as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,active: null == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String?,timestamp: null == timestamp ? _self.timestamp : timestamp // ignore: cast_nullable_to_non_nullable
+as AccountEventStatus?,timestamp: null == timestamp ? _self.timestamp : timestamp // ignore: cast_nullable_to_non_nullable
 as DateTime,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of AccountEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AccountEventStatusCopyWith<$Res>? get status {
+    if (_self.status == null) {
+    return null;
+  }
 
+  return $AccountEventStatusCopyWith<$Res>(_self.status!, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 // dart format on

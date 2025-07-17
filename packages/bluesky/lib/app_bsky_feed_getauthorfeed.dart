@@ -12,4 +12,5 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/types/app/bsky/feed/getAuthorFeed/input.dart';
+export 'package:bluesky/src/services/types/app/bsky/feed/getAuthorFeed/main_filter.dart';
 export 'package:bluesky/src/services/types/app/bsky/feed/getAuthorFeed/output.dart';

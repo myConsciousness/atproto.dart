@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './interaction_event.dart';
+
 part 'interaction.freezed.dart';
 part 'interaction.g.dart';
 
@@ -25,7 +28,7 @@ abstract class Interaction with _$Interaction {
   const factory Interaction({
     @Default('app.bsky.feed.defs#interaction') String $type,
     String? item,
-    String? event,
+    @InteractionEventConverter() InteractionEvent? event,
 
     /// Context on a feed item that was originally supplied by the feed generator on getFeedSkeleton.
     String? feedContext,

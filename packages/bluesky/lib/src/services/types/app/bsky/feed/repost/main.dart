@@ -19,6 +19,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Record representing a 'repost' of an existing Bluesky post.
 @freezed
 abstract class FeedRepostRecord with _$FeedRepostRecord {
   static const knownProps = <String>['subject', 'createdAt', 'via'];

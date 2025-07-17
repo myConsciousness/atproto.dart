@@ -55,11 +55,11 @@ extension SubjectReviewStatePatterns on SubjectReviewState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( SubjectReviewStateKnown value)?  known,TResult Function( SubjectReviewStateUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( SubjectReviewStateKnownValue value)?  knownValue,TResult Function( SubjectReviewStateUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case SubjectReviewStateKnown() when known != null:
-return known(_that);case SubjectReviewStateUnknown() when unknown != null:
+case SubjectReviewStateKnownValue() when knownValue != null:
+return knownValue(_that);case SubjectReviewStateUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -78,11 +78,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( SubjectReviewStateKnown value)  known,required TResult Function( SubjectReviewStateUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( SubjectReviewStateKnownValue value)  knownValue,required TResult Function( SubjectReviewStateUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
-case SubjectReviewStateKnown():
-return known(_that);case SubjectReviewStateUnknown():
+case SubjectReviewStateKnownValue():
+return knownValue(_that);case SubjectReviewStateUnknown():
 return unknown(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -100,11 +100,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( SubjectReviewStateKnown value)?  known,TResult? Function( SubjectReviewStateUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( SubjectReviewStateKnownValue value)?  knownValue,TResult? Function( SubjectReviewStateUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
-case SubjectReviewStateKnown() when known != null:
-return known(_that);case SubjectReviewStateUnknown() when unknown != null:
+case SubjectReviewStateKnownValue() when knownValue != null:
+return knownValue(_that);case SubjectReviewStateUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -122,10 +122,10 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownSubjectReviewState data)?  known,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownSubjectReviewState data)?  knownValue,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case SubjectReviewStateKnown() when known != null:
-return known(_that.data);case SubjectReviewStateUnknown() when unknown != null:
+case SubjectReviewStateKnownValue() when knownValue != null:
+return knownValue(_that.data);case SubjectReviewStateUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -144,10 +144,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownSubjectReviewState data)  known,required TResult Function( String data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownSubjectReviewState data)  knownValue,required TResult Function( String data)  unknown,}) {final _that = this;
 switch (_that) {
-case SubjectReviewStateKnown():
-return known(_that.data);case SubjectReviewStateUnknown():
+case SubjectReviewStateKnownValue():
+return knownValue(_that.data);case SubjectReviewStateUnknown():
 return unknown(_that.data);case _:
   throw StateError('Unexpected subclass');
 
@@ -165,10 +165,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownSubjectReviewState data)?  known,TResult? Function( String data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownSubjectReviewState data)?  knownValue,TResult? Function( String data)?  unknown,}) {final _that = this;
 switch (_that) {
-case SubjectReviewStateKnown() when known != null:
-return known(_that.data);case SubjectReviewStateUnknown() when unknown != null:
+case SubjectReviewStateKnownValue() when knownValue != null:
+return knownValue(_that.data);case SubjectReviewStateUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -180,8 +180,8 @@ return unknown(_that.data);case _:
 /// @nodoc
 
 
-class SubjectReviewStateKnown extends SubjectReviewState {
-  const SubjectReviewStateKnown({required this.data}): super._();
+class SubjectReviewStateKnownValue extends SubjectReviewState {
+  const SubjectReviewStateKnownValue({required this.data}): super._();
   
 
 @override final  KnownSubjectReviewState data;
@@ -190,13 +190,13 @@ class SubjectReviewStateKnown extends SubjectReviewState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$SubjectReviewStateKnownCopyWith<SubjectReviewStateKnown> get copyWith => _$SubjectReviewStateKnownCopyWithImpl<SubjectReviewStateKnown>(this, _$identity);
+$SubjectReviewStateKnownValueCopyWith<SubjectReviewStateKnownValue> get copyWith => _$SubjectReviewStateKnownValueCopyWithImpl<SubjectReviewStateKnownValue>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectReviewStateKnown&&(identical(other.data, data) || other.data == data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectReviewStateKnownValue&&(identical(other.data, data) || other.data == data));
 }
 
 
@@ -205,15 +205,15 @@ int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'SubjectReviewState.known(data: $data)';
+  return 'SubjectReviewState.knownValue(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $SubjectReviewStateKnownCopyWith<$Res> implements $SubjectReviewStateCopyWith<$Res> {
-  factory $SubjectReviewStateKnownCopyWith(SubjectReviewStateKnown value, $Res Function(SubjectReviewStateKnown) _then) = _$SubjectReviewStateKnownCopyWithImpl;
+abstract mixin class $SubjectReviewStateKnownValueCopyWith<$Res> implements $SubjectReviewStateCopyWith<$Res> {
+  factory $SubjectReviewStateKnownValueCopyWith(SubjectReviewStateKnownValue value, $Res Function(SubjectReviewStateKnownValue) _then) = _$SubjectReviewStateKnownValueCopyWithImpl;
 @useResult
 $Res call({
  KnownSubjectReviewState data
@@ -224,17 +224,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$SubjectReviewStateKnownCopyWithImpl<$Res>
-    implements $SubjectReviewStateKnownCopyWith<$Res> {
-  _$SubjectReviewStateKnownCopyWithImpl(this._self, this._then);
+class _$SubjectReviewStateKnownValueCopyWithImpl<$Res>
+    implements $SubjectReviewStateKnownValueCopyWith<$Res> {
+  _$SubjectReviewStateKnownValueCopyWithImpl(this._self, this._then);
 
-  final SubjectReviewStateKnown _self;
-  final $Res Function(SubjectReviewStateKnown) _then;
+  final SubjectReviewStateKnownValue _self;
+  final $Res Function(SubjectReviewStateKnownValue) _then;
 
 /// Create a copy of SubjectReviewState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
-  return _then(SubjectReviewStateKnown(
+  return _then(SubjectReviewStateKnownValue(
 data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as KnownSubjectReviewState,
   ));

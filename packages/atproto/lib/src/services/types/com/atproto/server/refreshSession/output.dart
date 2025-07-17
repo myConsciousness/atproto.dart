@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_status.dart';
+
 part 'output.freezed.dart';
 part 'output.g.dart';
 
@@ -39,7 +42,7 @@ abstract class ServerRefreshSessionOutput with _$ServerRefreshSessionOutput {
     bool? active,
 
     /// Hosting status of the account. If not specified, then assume 'active'.
-    String? status,
+    @ServerRefreshSessionStatusConverter() ServerRefreshSessionStatus? status,
 
     Map<String, dynamic>? $unknown,
   }) = _ServerRefreshSessionOutput;

@@ -29,6 +29,7 @@ export 'package:bluesky/src/services/types/app/bsky/feed/defs/not_found_post.dar
 export 'package:bluesky/src/services/types/app/bsky/feed/defs/blocked_post.dart';
 export 'package:bluesky/src/services/types/app/bsky/feed/defs/blocked_author.dart';
 export 'package:bluesky/src/services/types/app/bsky/feed/defs/generator_view.dart';
+export 'package:bluesky/src/services/types/app/bsky/feed/defs/generator_view_content_mode.dart';
 export 'package:bluesky/src/services/types/app/bsky/feed/defs/generator_viewer_state.dart';
 export 'package:bluesky/src/services/types/app/bsky/feed/defs/skeleton_feed_post.dart';
 export 'package:bluesky/src/services/types/app/bsky/feed/defs/union_skeleton_feed_post_reason.dart';
@@ -36,3 +37,4 @@ export 'package:bluesky/src/services/types/app/bsky/feed/defs/skeleton_reason_re
 export 'package:bluesky/src/services/types/app/bsky/feed/defs/skeleton_reason_pin.dart';
 export 'package:bluesky/src/services/types/app/bsky/feed/defs/threadgate_view.dart';
 export 'package:bluesky/src/services/types/app/bsky/feed/defs/interaction.dart';
+export 'package:bluesky/src/services/types/app/bsky/feed/defs/interaction_event.dart';

@@ -21,6 +21,7 @@ import 'set/querySets/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `tools.ozone.set.*`
 final class SetService {
   SetService(this._ctx);
 

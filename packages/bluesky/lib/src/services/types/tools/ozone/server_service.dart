@@ -19,6 +19,7 @@ import 'server/getConfig/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `tools.ozone.server.*`
 final class ServerService {
   ServerService(this._ctx);
 

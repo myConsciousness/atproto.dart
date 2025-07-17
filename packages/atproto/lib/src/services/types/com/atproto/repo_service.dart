@@ -31,6 +31,7 @@ import 'repo/uploadBlob/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `com.atproto.repo.*`
 final class RepoService {
   RepoService(this._ctx);
 

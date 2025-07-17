@@ -19,7 +19,13 @@ _Account _$AccountFromJson(Map json) =>
         did: $checkedConvert('did', (v) => v as String),
         time: $checkedConvert('time', (v) => DateTime.parse(v as String)),
         active: $checkedConvert('active', (v) => v as bool),
-        status: $checkedConvert('status', (v) => v as String?),
+        status: $checkedConvert(
+          'status',
+          (v) => _$JsonConverterFromJson<String, AccountStatus>(
+            v,
+            const AccountStatusConverter().fromJson,
+          ),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -34,6 +40,19 @@ Map<String, dynamic> _$AccountToJson(_Account instance) => <String, dynamic>{
   'did': instance.did,
   'time': instance.time.toIso8601String(),
   'active': instance.active,
-  'status': instance.status,
+  'status': _$JsonConverterToJson<String, AccountStatus>(
+    instance.status,
+    const AccountStatusConverter().toJson,
+  ),
   r'$unknown': instance.$unknown,
 };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

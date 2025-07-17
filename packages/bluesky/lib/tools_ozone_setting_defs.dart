@@ -12,3 +12,5 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/types/tools/ozone/setting/defs/option.dart';
+export 'package:bluesky/src/services/types/tools/ozone/setting/defs/option_manager_role.dart';
+export 'package:bluesky/src/services/types/tools/ozone/setting/defs/option_scope.dart';

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RecordEvent {
 
- String get $type; String? get comment; String get op; String? get cid; DateTime get timestamp; Map<String, dynamic>? get $unknown;
+ String get $type; String? get comment;@RecordEventOpConverter() RecordEventOp get op; String? get cid; DateTime get timestamp; Map<String, dynamic>? get $unknown;
 /// Create a copy of RecordEvent
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $RecordEventCopyWith<$Res>  {
   factory $RecordEventCopyWith(RecordEvent value, $Res Function(RecordEvent) _then) = _$RecordEventCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? comment, String op, String? cid, DateTime timestamp, Map<String, dynamic>? $unknown
+ String $type, String? comment,@RecordEventOpConverter() RecordEventOp op, String? cid, DateTime timestamp, Map<String, dynamic>? $unknown
 });
 
 
-
+$RecordEventOpCopyWith<$Res> get op;
 
 }
 /// @nodoc
@@ -70,13 +70,22 @@ class _$RecordEventCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,op: null == op ? _self.op : op // ignore: cast_nullable_to_non_nullable
-as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as RecordEventOp,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,timestamp: null == timestamp ? _self.timestamp : timestamp // ignore: cast_nullable_to_non_nullable
 as DateTime,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of RecordEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RecordEventOpCopyWith<$Res> get op {
+  
+  return $RecordEventOpCopyWith<$Res>(_self.op, (value) {
+    return _then(_self.copyWith(op: value));
+  });
+}
 }
 
 
@@ -158,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  String op,  String? cid,  DateTime timestamp,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment, @RecordEventOpConverter()  RecordEventOp op,  String? cid,  DateTime timestamp,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RecordEvent() when $default != null:
 return $default(_that.$type,_that.comment,_that.op,_that.cid,_that.timestamp,_that.$unknown);case _:
@@ -179,7 +188,7 @@ return $default(_that.$type,_that.comment,_that.op,_that.cid,_that.timestamp,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  String op,  String? cid,  DateTime timestamp,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment, @RecordEventOpConverter()  RecordEventOp op,  String? cid,  DateTime timestamp,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _RecordEvent():
 return $default(_that.$type,_that.comment,_that.op,_that.cid,_that.timestamp,_that.$unknown);case _:
@@ -199,7 +208,7 @@ return $default(_that.$type,_that.comment,_that.op,_that.cid,_that.timestamp,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  String op,  String? cid,  DateTime timestamp,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment, @RecordEventOpConverter()  RecordEventOp op,  String? cid,  DateTime timestamp,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _RecordEvent() when $default != null:
 return $default(_that.$type,_that.comment,_that.op,_that.cid,_that.timestamp,_that.$unknown);case _:
@@ -214,12 +223,12 @@ return $default(_that.$type,_that.comment,_that.op,_that.cid,_that.timestamp,_th
 @JsonSerializable()
 
 class _RecordEvent implements RecordEvent {
-  const _RecordEvent({this.$type = 'tools.ozone.moderation.defs#recordEvent', this.comment, required this.op, this.cid, required this.timestamp, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RecordEvent({this.$type = 'tools.ozone.moderation.defs#recordEvent', this.comment, @RecordEventOpConverter() required this.op, this.cid, required this.timestamp, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RecordEvent.fromJson(Map<String, dynamic> json) => _$RecordEventFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String? comment;
-@override final  String op;
+@override@RecordEventOpConverter() final  RecordEventOp op;
 @override final  String? cid;
 @override final  DateTime timestamp;
  final  Map<String, dynamic>? _$unknown;
@@ -265,11 +274,11 @@ abstract mixin class _$RecordEventCopyWith<$Res> implements $RecordEventCopyWith
   factory _$RecordEventCopyWith(_RecordEvent value, $Res Function(_RecordEvent) _then) = __$RecordEventCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? comment, String op, String? cid, DateTime timestamp, Map<String, dynamic>? $unknown
+ String $type, String? comment,@RecordEventOpConverter() RecordEventOp op, String? cid, DateTime timestamp, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $RecordEventOpCopyWith<$Res> get op;
 
 }
 /// @nodoc
@@ -287,14 +296,23 @@ class __$RecordEventCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,op: null == op ? _self.op : op // ignore: cast_nullable_to_non_nullable
-as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as RecordEventOp,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,timestamp: null == timestamp ? _self.timestamp : timestamp // ignore: cast_nullable_to_non_nullable
 as DateTime,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of RecordEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RecordEventOpCopyWith<$Res> get op {
+  
+  return $RecordEventOpCopyWith<$Res>(_self.op, (value) {
+    return _then(_self.copyWith(op: value));
+  });
+}
 }
 
 // dart format on

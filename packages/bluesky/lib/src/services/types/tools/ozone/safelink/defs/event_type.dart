@@ -21,8 +21,8 @@ part 'event_type.freezed.dart';
 abstract class EventType with _$EventType {
   const EventType._();
 
-  const factory EventType.known({required KnownEventType data}) =
-      EventTypeKnown;
+  const factory EventType.knownValue({required KnownEventType data}) =
+      EventTypeKnownValue;
 
   const factory EventType.unknown({required String data}) = EventTypeUnknown;
 
@@ -31,7 +31,7 @@ abstract class EventType with _$EventType {
     final knownValue = KnownEventType.valueOf(value);
 
     return knownValue != null
-        ? EventType.known(data: knownValue)
+        ? EventType.knownValue(data: knownValue)
         : EventType.unknown(data: value);
   }
 
@@ -39,9 +39,10 @@ abstract class EventType with _$EventType {
 }
 
 extension EventTypeExtension on EventType {
-  bool get isKnown => isA<EventTypeKnown>(this);
-  bool get isNotKnown => !isKnown;
-  KnownEventType? get known => isKnown ? data as KnownEventType : null;
+  bool get isKnownValue => isA<EventTypeKnownValue>(this);
+  bool get isNotKnownValue => !isKnownValue;
+  KnownEventType? get knownValue =>
+      isKnownValue ? data as KnownEventType : null;
   bool get isUnknown => isA<EventTypeUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   String? get unknown => isUnknown ? data as String : null;
@@ -55,7 +56,7 @@ final class EventTypeConverter extends JsonConverter<EventType, String> {
     try {
       final knownValue = KnownEventType.valueOf(json);
       if (knownValue != null) {
-        return EventType.known(data: knownValue);
+        return EventType.knownValue(data: knownValue);
       }
 
       return EventType.unknown(data: json);
@@ -66,7 +67,7 @@ final class EventTypeConverter extends JsonConverter<EventType, String> {
 
   @override
   String toJson(EventType object) =>
-      object.when(known: (data) => data.value, unknown: (data) => data);
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownEventType implements Serializable {
@@ -94,6 +95,7 @@ enum KnownEventType implements Serializable {
         return v;
       }
     }
+
     return null;
   }
 }

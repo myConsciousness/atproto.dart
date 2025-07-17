@@ -9,13 +9,7 @@ LexRecord generateLexRecord(
   final String defName,
   final lex.LexRecord record,
   final List<String> mainVariants,
-) =>
-    _LexRecordGenerator(
-      lexiconId,
-      defName,
-      record,
-      mainVariants,
-    ).execute();
+) => _LexRecordGenerator(lexiconId, defName, record, mainVariants).execute();
 
 final class _LexRecordGenerator {
   final lex.NSID lexiconId;
@@ -35,6 +29,7 @@ final class _LexRecordGenerator {
       lexiconId: lexiconId.toString(),
       defName: defName,
       name: rule.getLexObjectName(lexiconId.toString(), defName, mainVariants),
+      description: record.description,
       properties: generateLexProperties(
         lexiconId,
         defName,

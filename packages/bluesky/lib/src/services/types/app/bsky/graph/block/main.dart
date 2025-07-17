@@ -18,6 +18,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Record declaring a 'block' relationship against another account. NOTE: blocks are public in Bluesky; see blog posts for details.
 @freezed
 abstract class GraphBlockRecord with _$GraphBlockRecord {
   static const knownProps = <String>['subject', 'createdAt'];

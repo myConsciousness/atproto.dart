@@ -17,7 +17,12 @@ _AgeAssuranceOverrideEvent _$AgeAssuranceOverrideEventFromJson(Map json) =>
               v as String? ??
               'tools.ozone.moderation.defs#ageAssuranceOverrideEvent',
         ),
-        status: $checkedConvert('status', (v) => v as String),
+        status: $checkedConvert(
+          'status',
+          (v) => const AgeAssuranceOverrideEventStatusConverter().fromJson(
+            v as String,
+          ),
+        ),
         comment: $checkedConvert('comment', (v) => v as String),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -31,7 +36,9 @@ Map<String, dynamic> _$AgeAssuranceOverrideEventToJson(
   _AgeAssuranceOverrideEvent instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'status': instance.status,
+  'status': const AgeAssuranceOverrideEventStatusConverter().toJson(
+    instance.status,
+  ),
   'comment': instance.comment,
   r'$unknown': instance.$unknown,
 };

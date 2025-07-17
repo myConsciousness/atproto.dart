@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_scope.dart';
+
 part 'input.freezed.dart';
 part 'input.g.dart';
 
@@ -24,7 +27,8 @@ abstract class SettingRemoveOptionsInput with _$SettingRemoveOptionsInput {
 
   const factory SettingRemoveOptionsInput({
     required List<String> keys,
-    required String scope,
+    @SettingRemoveOptionsScopeConverter()
+    required SettingRemoveOptionsScope scope,
 
     Map<String, dynamic>? $unknown,
   }) = _SettingRemoveOptionsInput;

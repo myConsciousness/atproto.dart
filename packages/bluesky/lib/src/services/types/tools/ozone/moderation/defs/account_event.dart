@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './account_event_status.dart';
+
 part 'account_event.freezed.dart';
 part 'account_event.g.dart';
 
@@ -34,7 +37,7 @@ abstract class AccountEvent with _$AccountEvent {
 
     /// Indicates that the account has a repository which can be fetched from the host that emitted this event.
     required bool active,
-    String? status,
+    @AccountEventStatusConverter() AccountEventStatus? status,
     required DateTime timestamp,
 
     Map<String, dynamic>? $unknown,

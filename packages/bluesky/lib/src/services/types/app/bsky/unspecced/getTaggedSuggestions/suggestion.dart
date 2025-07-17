@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './suggestion_subject_type.dart';
+
 part 'suggestion.freezed.dart';
 part 'suggestion.g.dart';
 
@@ -25,7 +28,8 @@ abstract class Suggestion with _$Suggestion {
   const factory Suggestion({
     @Default('app.bsky.unspecced.getTaggedSuggestions#suggestion') String $type,
     required String tag,
-    required String subjectType,
+    @SuggestionSubjectTypeConverter()
+    required SuggestionSubjectType subjectType,
     @AtUriConverter() required AtUri subject,
 
     Map<String, dynamic>? $unknown,

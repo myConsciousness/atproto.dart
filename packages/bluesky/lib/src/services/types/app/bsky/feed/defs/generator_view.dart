@@ -15,6 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import '../../../../app/bsky/actor/defs/profile_view.dart';
 import '../../../../app/bsky/richtext/facet/main.dart';
+import './generator_view_content_mode.dart';
 import './generator_viewer_state.dart';
 
 part 'generator_view.freezed.dart';
@@ -57,7 +58,7 @@ abstract class GeneratorView with _$GeneratorView {
     bool? acceptsInteractions,
     @LabelConverter() List<Label>? labels,
     @GeneratorViewerStateConverter() GeneratorViewerState? viewer,
-    String? contentMode,
+    @GeneratorViewContentModeConverter() GeneratorViewContentMode? contentMode,
     required DateTime indexedAt,
 
     Map<String, dynamic>? $unknown,

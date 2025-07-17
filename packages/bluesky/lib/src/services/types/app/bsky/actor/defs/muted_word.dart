@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../app/bsky/actor/defs/muted_word_target.dart';
+import './muted_word_actor_target.dart';
 
 part 'muted_word.freezed.dart';
 part 'muted_word.g.dart';
@@ -41,7 +42,7 @@ abstract class MutedWord with _$MutedWord {
     @MutedWordTargetConverter() required List<MutedWordTarget> targets,
 
     /// Groups of users to apply the muted word to. If undefined, applies to all users.
-    String? actorTarget,
+    @MutedWordActorTargetConverter() MutedWordActorTarget? actorTarget,
 
     /// The date and time at which the muted word will expire and no longer be applied.
     DateTime? expiresAt,

@@ -48,7 +48,13 @@ _FeedGeneratorRecord _$FeedGeneratorRecordFromJson(
             const UFeedGeneratorLabelsConverter().fromJson,
           ),
     ),
-    contentMode: $checkedConvert('contentMode', (v) => v as String?),
+    contentMode: $checkedConvert(
+      'contentMode',
+      (v) => _$JsonConverterFromJson<String, FeedGeneratorContentMode>(
+        v,
+        const FeedGeneratorContentModeConverter().fromJson,
+      ),
+    ),
     createdAt: $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
     $unknown: $checkedConvert(
       r'$unknown',
@@ -77,7 +83,10 @@ Map<String, dynamic> _$FeedGeneratorRecordToJson(
     instance.labels,
     const UFeedGeneratorLabelsConverter().toJson,
   ),
-  'contentMode': instance.contentMode,
+  'contentMode': _$JsonConverterToJson<String, FeedGeneratorContentMode>(
+    instance.contentMode,
+    const FeedGeneratorContentModeConverter().toJson,
+  ),
   'createdAt': instance.createdAt.toIso8601String(),
   r'$unknown': instance.$unknown,
 };

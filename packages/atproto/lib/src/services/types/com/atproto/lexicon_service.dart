@@ -19,11 +19,13 @@ import '../../../service_context.dart' as z;
 // LexGenerator
 // **************************************************************************
 
+/// `com.atproto.lexicon.*`
 final class LexiconService {
   LexiconService(this._ctx);
 
   final z.ServiceContext _ctx;
 
+  /// Representation of Lexicon schemas themselves, when published as atproto records. Note that the schema language is not defined in Lexicon; this meta schema currently only includes a single version field ('lexicon'). See the atproto specifications for description of the other expected top-level fields ('id', 'defs', etc).
   Future<XRPCResponse<RepoCreateRecordOutput>> schema({
     required int lexicon,
     String? $rey,

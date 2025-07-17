@@ -55,11 +55,11 @@ extension SubjectTypePatterns on SubjectType {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( SubjectTypeKnown value)?  known,TResult Function( SubjectTypeUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( SubjectTypeKnownValue value)?  knownValue,TResult Function( SubjectTypeUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case SubjectTypeKnown() when known != null:
-return known(_that);case SubjectTypeUnknown() when unknown != null:
+case SubjectTypeKnownValue() when knownValue != null:
+return knownValue(_that);case SubjectTypeUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -78,11 +78,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( SubjectTypeKnown value)  known,required TResult Function( SubjectTypeUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( SubjectTypeKnownValue value)  knownValue,required TResult Function( SubjectTypeUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
-case SubjectTypeKnown():
-return known(_that);case SubjectTypeUnknown():
+case SubjectTypeKnownValue():
+return knownValue(_that);case SubjectTypeUnknown():
 return unknown(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -100,11 +100,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( SubjectTypeKnown value)?  known,TResult? Function( SubjectTypeUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( SubjectTypeKnownValue value)?  knownValue,TResult? Function( SubjectTypeUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
-case SubjectTypeKnown() when known != null:
-return known(_that);case SubjectTypeUnknown() when unknown != null:
+case SubjectTypeKnownValue() when knownValue != null:
+return knownValue(_that);case SubjectTypeUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -122,10 +122,10 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownSubjectType data)?  known,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownSubjectType data)?  knownValue,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case SubjectTypeKnown() when known != null:
-return known(_that.data);case SubjectTypeUnknown() when unknown != null:
+case SubjectTypeKnownValue() when knownValue != null:
+return knownValue(_that.data);case SubjectTypeUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -144,10 +144,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownSubjectType data)  known,required TResult Function( String data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownSubjectType data)  knownValue,required TResult Function( String data)  unknown,}) {final _that = this;
 switch (_that) {
-case SubjectTypeKnown():
-return known(_that.data);case SubjectTypeUnknown():
+case SubjectTypeKnownValue():
+return knownValue(_that.data);case SubjectTypeUnknown():
 return unknown(_that.data);case _:
   throw StateError('Unexpected subclass');
 
@@ -165,10 +165,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownSubjectType data)?  known,TResult? Function( String data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownSubjectType data)?  knownValue,TResult? Function( String data)?  unknown,}) {final _that = this;
 switch (_that) {
-case SubjectTypeKnown() when known != null:
-return known(_that.data);case SubjectTypeUnknown() when unknown != null:
+case SubjectTypeKnownValue() when knownValue != null:
+return knownValue(_that.data);case SubjectTypeUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -180,8 +180,8 @@ return unknown(_that.data);case _:
 /// @nodoc
 
 
-class SubjectTypeKnown extends SubjectType {
-  const SubjectTypeKnown({required this.data}): super._();
+class SubjectTypeKnownValue extends SubjectType {
+  const SubjectTypeKnownValue({required this.data}): super._();
   
 
 @override final  KnownSubjectType data;
@@ -190,13 +190,13 @@ class SubjectTypeKnown extends SubjectType {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$SubjectTypeKnownCopyWith<SubjectTypeKnown> get copyWith => _$SubjectTypeKnownCopyWithImpl<SubjectTypeKnown>(this, _$identity);
+$SubjectTypeKnownValueCopyWith<SubjectTypeKnownValue> get copyWith => _$SubjectTypeKnownValueCopyWithImpl<SubjectTypeKnownValue>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectTypeKnown&&(identical(other.data, data) || other.data == data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectTypeKnownValue&&(identical(other.data, data) || other.data == data));
 }
 
 
@@ -205,15 +205,15 @@ int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'SubjectType.known(data: $data)';
+  return 'SubjectType.knownValue(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $SubjectTypeKnownCopyWith<$Res> implements $SubjectTypeCopyWith<$Res> {
-  factory $SubjectTypeKnownCopyWith(SubjectTypeKnown value, $Res Function(SubjectTypeKnown) _then) = _$SubjectTypeKnownCopyWithImpl;
+abstract mixin class $SubjectTypeKnownValueCopyWith<$Res> implements $SubjectTypeCopyWith<$Res> {
+  factory $SubjectTypeKnownValueCopyWith(SubjectTypeKnownValue value, $Res Function(SubjectTypeKnownValue) _then) = _$SubjectTypeKnownValueCopyWithImpl;
 @useResult
 $Res call({
  KnownSubjectType data
@@ -224,17 +224,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$SubjectTypeKnownCopyWithImpl<$Res>
-    implements $SubjectTypeKnownCopyWith<$Res> {
-  _$SubjectTypeKnownCopyWithImpl(this._self, this._then);
+class _$SubjectTypeKnownValueCopyWithImpl<$Res>
+    implements $SubjectTypeKnownValueCopyWith<$Res> {
+  _$SubjectTypeKnownValueCopyWithImpl(this._self, this._then);
 
-  final SubjectTypeKnown _self;
-  final $Res Function(SubjectTypeKnown) _then;
+  final SubjectTypeKnownValue _self;
+  final $Res Function(SubjectTypeKnownValue) _then;
 
 /// Create a copy of SubjectType
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
-  return _then(SubjectTypeKnown(
+  return _then(SubjectTypeKnownValue(
 data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as KnownSubjectType,
   ));

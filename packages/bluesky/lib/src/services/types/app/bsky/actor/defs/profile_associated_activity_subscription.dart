@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './profile_associated_activity_subscription_allow_subscriptions.dart';
+
 part 'profile_associated_activity_subscription.freezed.dart';
 part 'profile_associated_activity_subscription.g.dart';
 
@@ -26,7 +29,9 @@ abstract class ProfileAssociatedActivitySubscription
   const factory ProfileAssociatedActivitySubscription({
     @Default('app.bsky.actor.defs#profileAssociatedActivitySubscription')
     String $type,
-    required String allowSubscriptions,
+    @ProfileAssociatedActivitySubscriptionAllowSubscriptionsConverter()
+    required ProfileAssociatedActivitySubscriptionAllowSubscriptions
+    allowSubscriptions,
 
     Map<String, dynamic>? $unknown,
   }) = _ProfileAssociatedActivitySubscription;

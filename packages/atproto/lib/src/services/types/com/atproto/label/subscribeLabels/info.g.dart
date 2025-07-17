@@ -15,7 +15,10 @@ _Info _$InfoFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'com.atproto.label.subscribeLabels#info',
         ),
-        name: $checkedConvert('name', (v) => v as String),
+        name: $checkedConvert(
+          'name',
+          (v) => const InfoNameConverter().fromJson(v as String),
+        ),
         message: $checkedConvert('message', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -27,7 +30,7 @@ _Info _$InfoFromJson(Map json) =>
 
 Map<String, dynamic> _$InfoToJson(_Info instance) => <String, dynamic>{
   r'$type': instance.$type,
-  'name': instance.name,
+  'name': const InfoNameConverter().toJson(instance.name),
   'message': instance.message,
   r'$unknown': instance.$unknown,
 };

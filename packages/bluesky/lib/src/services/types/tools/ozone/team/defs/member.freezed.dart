@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Member {
 
- String get $type; String get did; bool? get disabled;@ProfileViewDetailedConverter() ProfileViewDetailed? get profile; DateTime? get createdAt; DateTime? get updatedAt; String? get lastUpdatedBy; String get role; Map<String, dynamic>? get $unknown;
+ String get $type; String get did; bool? get disabled;@ProfileViewDetailedConverter() ProfileViewDetailed? get profile; DateTime? get createdAt; DateTime? get updatedAt; String? get lastUpdatedBy;@MemberRoleConverter() MemberRole get role; Map<String, dynamic>? get $unknown;
 /// Create a copy of Member
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $MemberCopyWith<$Res>  {
   factory $MemberCopyWith(Member value, $Res Function(Member) _then) = _$MemberCopyWithImpl;
 @useResult
 $Res call({
- String $type, String did, bool? disabled,@ProfileViewDetailedConverter() ProfileViewDetailed? profile, DateTime? createdAt, DateTime? updatedAt, String? lastUpdatedBy, String role, Map<String, dynamic>? $unknown
+ String $type, String did, bool? disabled,@ProfileViewDetailedConverter() ProfileViewDetailed? profile, DateTime? createdAt, DateTime? updatedAt, String? lastUpdatedBy,@MemberRoleConverter() MemberRole role, Map<String, dynamic>? $unknown
 });
 
 
-$ProfileViewDetailedCopyWith<$Res>? get profile;
+$ProfileViewDetailedCopyWith<$Res>? get profile;$MemberRoleCopyWith<$Res> get role;
 
 }
 /// @nodoc
@@ -75,7 +75,7 @@ as ProfileViewDetailed?,createdAt: freezed == createdAt ? _self.createdAt : crea
 as DateTime?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,lastUpdatedBy: freezed == lastUpdatedBy ? _self.lastUpdatedBy : lastUpdatedBy // ignore: cast_nullable_to_non_nullable
 as String?,role: null == role ? _self.role : role // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as MemberRole,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -90,6 +90,15 @@ $ProfileViewDetailedCopyWith<$Res>? get profile {
 
   return $ProfileViewDetailedCopyWith<$Res>(_self.profile!, (value) {
     return _then(_self.copyWith(profile: value));
+  });
+}/// Create a copy of Member
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$MemberRoleCopyWith<$Res> get role {
+  
+  return $MemberRoleCopyWith<$Res>(_self.role, (value) {
+    return _then(_self.copyWith(role: value));
   });
 }
 }
@@ -173,7 +182,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  bool? disabled, @ProfileViewDetailedConverter()  ProfileViewDetailed? profile,  DateTime? createdAt,  DateTime? updatedAt,  String? lastUpdatedBy,  String role,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  bool? disabled, @ProfileViewDetailedConverter()  ProfileViewDetailed? profile,  DateTime? createdAt,  DateTime? updatedAt,  String? lastUpdatedBy, @MemberRoleConverter()  MemberRole role,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Member() when $default != null:
 return $default(_that.$type,_that.did,_that.disabled,_that.profile,_that.createdAt,_that.updatedAt,_that.lastUpdatedBy,_that.role,_that.$unknown);case _:
@@ -194,7 +203,7 @@ return $default(_that.$type,_that.did,_that.disabled,_that.profile,_that.created
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  bool? disabled, @ProfileViewDetailedConverter()  ProfileViewDetailed? profile,  DateTime? createdAt,  DateTime? updatedAt,  String? lastUpdatedBy,  String role,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  bool? disabled, @ProfileViewDetailedConverter()  ProfileViewDetailed? profile,  DateTime? createdAt,  DateTime? updatedAt,  String? lastUpdatedBy, @MemberRoleConverter()  MemberRole role,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Member():
 return $default(_that.$type,_that.did,_that.disabled,_that.profile,_that.createdAt,_that.updatedAt,_that.lastUpdatedBy,_that.role,_that.$unknown);case _:
@@ -214,7 +223,7 @@ return $default(_that.$type,_that.did,_that.disabled,_that.profile,_that.created
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  bool? disabled, @ProfileViewDetailedConverter()  ProfileViewDetailed? profile,  DateTime? createdAt,  DateTime? updatedAt,  String? lastUpdatedBy,  String role,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  bool? disabled, @ProfileViewDetailedConverter()  ProfileViewDetailed? profile,  DateTime? createdAt,  DateTime? updatedAt,  String? lastUpdatedBy, @MemberRoleConverter()  MemberRole role,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Member() when $default != null:
 return $default(_that.$type,_that.did,_that.disabled,_that.profile,_that.createdAt,_that.updatedAt,_that.lastUpdatedBy,_that.role,_that.$unknown);case _:
@@ -229,7 +238,7 @@ return $default(_that.$type,_that.did,_that.disabled,_that.profile,_that.created
 @JsonSerializable()
 
 class _Member implements Member {
-  const _Member({this.$type = 'tools.ozone.team.defs#member', required this.did, this.disabled, @ProfileViewDetailedConverter() this.profile, this.createdAt, this.updatedAt, this.lastUpdatedBy, required this.role, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Member({this.$type = 'tools.ozone.team.defs#member', required this.did, this.disabled, @ProfileViewDetailedConverter() this.profile, this.createdAt, this.updatedAt, this.lastUpdatedBy, @MemberRoleConverter() required this.role, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Member.fromJson(Map<String, dynamic> json) => _$MemberFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -239,7 +248,7 @@ class _Member implements Member {
 @override final  DateTime? createdAt;
 @override final  DateTime? updatedAt;
 @override final  String? lastUpdatedBy;
-@override final  String role;
+@override@MemberRoleConverter() final  MemberRole role;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -283,11 +292,11 @@ abstract mixin class _$MemberCopyWith<$Res> implements $MemberCopyWith<$Res> {
   factory _$MemberCopyWith(_Member value, $Res Function(_Member) _then) = __$MemberCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String did, bool? disabled,@ProfileViewDetailedConverter() ProfileViewDetailed? profile, DateTime? createdAt, DateTime? updatedAt, String? lastUpdatedBy, String role, Map<String, dynamic>? $unknown
+ String $type, String did, bool? disabled,@ProfileViewDetailedConverter() ProfileViewDetailed? profile, DateTime? createdAt, DateTime? updatedAt, String? lastUpdatedBy,@MemberRoleConverter() MemberRole role, Map<String, dynamic>? $unknown
 });
 
 
-@override $ProfileViewDetailedCopyWith<$Res>? get profile;
+@override $ProfileViewDetailedCopyWith<$Res>? get profile;@override $MemberRoleCopyWith<$Res> get role;
 
 }
 /// @nodoc
@@ -310,7 +319,7 @@ as ProfileViewDetailed?,createdAt: freezed == createdAt ? _self.createdAt : crea
 as DateTime?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,lastUpdatedBy: freezed == lastUpdatedBy ? _self.lastUpdatedBy : lastUpdatedBy // ignore: cast_nullable_to_non_nullable
 as String?,role: null == role ? _self.role : role // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as MemberRole,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -326,6 +335,15 @@ $ProfileViewDetailedCopyWith<$Res>? get profile {
 
   return $ProfileViewDetailedCopyWith<$Res>(_self.profile!, (value) {
     return _then(_self.copyWith(profile: value));
+  });
+}/// Create a copy of Member
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$MemberRoleCopyWith<$Res> get role {
+  
+  return $MemberRoleCopyWith<$Res>(_self.role, (value) {
+    return _then(_self.copyWith(role: value));
   });
 }
 }

@@ -18,6 +18,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Representation of Lexicon schemas themselves, when published as atproto records. Note that the schema language is not defined in Lexicon; this meta schema currently only includes a single version field ('lexicon'). See the atproto specifications for description of the other expected top-level fields ('id', 'defs', etc).
 @freezed
 abstract class LexiconSchemaRecord with _$LexiconSchemaRecord {
   static const knownProps = <String>['lexicon'];

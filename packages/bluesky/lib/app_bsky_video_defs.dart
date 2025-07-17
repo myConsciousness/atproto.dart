@@ -12,3 +12,4 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/types/app/bsky/video/defs/job_status.dart';
+export 'package:bluesky/src/services/types/app/bsky/video/defs/job_status_state.dart';

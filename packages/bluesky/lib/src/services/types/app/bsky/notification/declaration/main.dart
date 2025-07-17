@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_allow_subscriptions.dart';
+
 part 'main.freezed.dart';
 part 'main.g.dart';
 
@@ -18,6 +21,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// A declaration of the user's choices related to notifications that can be produced by them.
 @freezed
 abstract class NotificationDeclarationRecord
     with _$NotificationDeclarationRecord {
@@ -27,7 +31,8 @@ abstract class NotificationDeclarationRecord
     @Default('app.bsky.notification.declaration') String $type,
 
     /// A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.
-    required String allowSubscriptions,
+    @NotificationDeclarationAllowSubscriptionsConverter()
+    required NotificationDeclarationAllowSubscriptions allowSubscriptions,
 
     Map<String, dynamic>? $unknown,
   }) = _NotificationDeclarationRecord;

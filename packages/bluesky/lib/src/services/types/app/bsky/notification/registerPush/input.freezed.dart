@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$NotificationRegisterPushInput {
 
- String get serviceDid; String get token; String get platform; String get appId;/// Set to true when the actor is age restricted
+ String get serviceDid; String get token;@NotificationRegisterPushPlatformConverter() NotificationRegisterPushPlatform get platform; String get appId;/// Set to true when the actor is age restricted
  bool? get ageRestricted; Map<String, dynamic>? get $unknown;
 /// Create a copy of NotificationRegisterPushInput
 /// with the given fields replaced by the non-null parameter values.
@@ -49,11 +49,11 @@ abstract mixin class $NotificationRegisterPushInputCopyWith<$Res>  {
   factory $NotificationRegisterPushInputCopyWith(NotificationRegisterPushInput value, $Res Function(NotificationRegisterPushInput) _then) = _$NotificationRegisterPushInputCopyWithImpl;
 @useResult
 $Res call({
- String serviceDid, String token, String platform, String appId, bool? ageRestricted, Map<String, dynamic>? $unknown
+ String serviceDid, String token,@NotificationRegisterPushPlatformConverter() NotificationRegisterPushPlatform platform, String appId, bool? ageRestricted, Map<String, dynamic>? $unknown
 });
 
 
-
+$NotificationRegisterPushPlatformCopyWith<$Res> get platform;
 
 }
 /// @nodoc
@@ -71,13 +71,22 @@ class _$NotificationRegisterPushInputCopyWithImpl<$Res>
 serviceDid: null == serviceDid ? _self.serviceDid : serviceDid // ignore: cast_nullable_to_non_nullable
 as String,token: null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
 as String,platform: null == platform ? _self.platform : platform // ignore: cast_nullable_to_non_nullable
-as String,appId: null == appId ? _self.appId : appId // ignore: cast_nullable_to_non_nullable
+as NotificationRegisterPushPlatform,appId: null == appId ? _self.appId : appId // ignore: cast_nullable_to_non_nullable
 as String,ageRestricted: freezed == ageRestricted ? _self.ageRestricted : ageRestricted // ignore: cast_nullable_to_non_nullable
 as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of NotificationRegisterPushInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$NotificationRegisterPushPlatformCopyWith<$Res> get platform {
+  
+  return $NotificationRegisterPushPlatformCopyWith<$Res>(_self.platform, (value) {
+    return _then(_self.copyWith(platform: value));
+  });
+}
 }
 
 
@@ -159,7 +168,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String serviceDid,  String token,  String platform,  String appId,  bool? ageRestricted,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String serviceDid,  String token, @NotificationRegisterPushPlatformConverter()  NotificationRegisterPushPlatform platform,  String appId,  bool? ageRestricted,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _NotificationRegisterPushInput() when $default != null:
 return $default(_that.serviceDid,_that.token,_that.platform,_that.appId,_that.ageRestricted,_that.$unknown);case _:
@@ -180,7 +189,7 @@ return $default(_that.serviceDid,_that.token,_that.platform,_that.appId,_that.ag
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String serviceDid,  String token,  String platform,  String appId,  bool? ageRestricted,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String serviceDid,  String token, @NotificationRegisterPushPlatformConverter()  NotificationRegisterPushPlatform platform,  String appId,  bool? ageRestricted,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _NotificationRegisterPushInput():
 return $default(_that.serviceDid,_that.token,_that.platform,_that.appId,_that.ageRestricted,_that.$unknown);case _:
@@ -200,7 +209,7 @@ return $default(_that.serviceDid,_that.token,_that.platform,_that.appId,_that.ag
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String serviceDid,  String token,  String platform,  String appId,  bool? ageRestricted,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String serviceDid,  String token, @NotificationRegisterPushPlatformConverter()  NotificationRegisterPushPlatform platform,  String appId,  bool? ageRestricted,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _NotificationRegisterPushInput() when $default != null:
 return $default(_that.serviceDid,_that.token,_that.platform,_that.appId,_that.ageRestricted,_that.$unknown);case _:
@@ -215,12 +224,12 @@ return $default(_that.serviceDid,_that.token,_that.platform,_that.appId,_that.ag
 @JsonSerializable()
 
 class _NotificationRegisterPushInput implements NotificationRegisterPushInput {
-  const _NotificationRegisterPushInput({required this.serviceDid, required this.token, required this.platform, required this.appId, this.ageRestricted, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _NotificationRegisterPushInput({required this.serviceDid, required this.token, @NotificationRegisterPushPlatformConverter() required this.platform, required this.appId, this.ageRestricted, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationRegisterPushInput.fromJson(Map<String, dynamic> json) => _$NotificationRegisterPushInputFromJson(json);
 
 @override final  String serviceDid;
 @override final  String token;
-@override final  String platform;
+@override@NotificationRegisterPushPlatformConverter() final  NotificationRegisterPushPlatform platform;
 @override final  String appId;
 /// Set to true when the actor is age restricted
 @override final  bool? ageRestricted;
@@ -267,11 +276,11 @@ abstract mixin class _$NotificationRegisterPushInputCopyWith<$Res> implements $N
   factory _$NotificationRegisterPushInputCopyWith(_NotificationRegisterPushInput value, $Res Function(_NotificationRegisterPushInput) _then) = __$NotificationRegisterPushInputCopyWithImpl;
 @override @useResult
 $Res call({
- String serviceDid, String token, String platform, String appId, bool? ageRestricted, Map<String, dynamic>? $unknown
+ String serviceDid, String token,@NotificationRegisterPushPlatformConverter() NotificationRegisterPushPlatform platform, String appId, bool? ageRestricted, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $NotificationRegisterPushPlatformCopyWith<$Res> get platform;
 
 }
 /// @nodoc
@@ -289,14 +298,23 @@ class __$NotificationRegisterPushInputCopyWithImpl<$Res>
 serviceDid: null == serviceDid ? _self.serviceDid : serviceDid // ignore: cast_nullable_to_non_nullable
 as String,token: null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
 as String,platform: null == platform ? _self.platform : platform // ignore: cast_nullable_to_non_nullable
-as String,appId: null == appId ? _self.appId : appId // ignore: cast_nullable_to_non_nullable
+as NotificationRegisterPushPlatform,appId: null == appId ? _self.appId : appId // ignore: cast_nullable_to_non_nullable
 as String,ageRestricted: freezed == ageRestricted ? _self.ageRestricted : ageRestricted // ignore: cast_nullable_to_non_nullable
 as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of NotificationRegisterPushInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$NotificationRegisterPushPlatformCopyWith<$Res> get platform {
+  
+  return $NotificationRegisterPushPlatformCopyWith<$Res>(_self.platform, (value) {
+    return _then(_self.copyWith(platform: value));
+  });
+}
 }
 
 // dart format on

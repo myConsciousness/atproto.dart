@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ViewerConfig {
 
- String get $type; String? get role; Map<String, dynamic>? get $unknown;
+ String get $type;@ViewerConfigRoleConverter() ViewerConfigRole? get role; Map<String, dynamic>? get $unknown;
 /// Create a copy of ViewerConfig
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $ViewerConfigCopyWith<$Res>  {
   factory $ViewerConfigCopyWith(ViewerConfig value, $Res Function(ViewerConfig) _then) = _$ViewerConfigCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? role, Map<String, dynamic>? $unknown
+ String $type,@ViewerConfigRoleConverter() ViewerConfigRole? role, Map<String, dynamic>? $unknown
 });
 
 
-
+$ViewerConfigRoleCopyWith<$Res>? get role;
 
 }
 /// @nodoc
@@ -69,11 +69,23 @@ class _$ViewerConfigCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,role: freezed == role ? _self.role : role // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ViewerConfigRole?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of ViewerConfig
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ViewerConfigRoleCopyWith<$Res>? get role {
+    if (_self.role == null) {
+    return null;
+  }
 
+  return $ViewerConfigRoleCopyWith<$Res>(_self.role!, (value) {
+    return _then(_self.copyWith(role: value));
+  });
+}
 }
 
 
@@ -155,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? role,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ViewerConfigRoleConverter()  ViewerConfigRole? role,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ViewerConfig() when $default != null:
 return $default(_that.$type,_that.role,_that.$unknown);case _:
@@ -176,7 +188,7 @@ return $default(_that.$type,_that.role,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? role,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ViewerConfigRoleConverter()  ViewerConfigRole? role,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ViewerConfig():
 return $default(_that.$type,_that.role,_that.$unknown);case _:
@@ -196,7 +208,7 @@ return $default(_that.$type,_that.role,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? role,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ViewerConfigRoleConverter()  ViewerConfigRole? role,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ViewerConfig() when $default != null:
 return $default(_that.$type,_that.role,_that.$unknown);case _:
@@ -211,11 +223,11 @@ return $default(_that.$type,_that.role,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ViewerConfig implements ViewerConfig {
-  const _ViewerConfig({this.$type = 'tools.ozone.server.getConfig#viewerConfig', this.role, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ViewerConfig({this.$type = 'tools.ozone.server.getConfig#viewerConfig', @ViewerConfigRoleConverter() this.role, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ViewerConfig.fromJson(Map<String, dynamic> json) => _$ViewerConfigFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String? role;
+@override@ViewerConfigRoleConverter() final  ViewerConfigRole? role;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,11 +271,11 @@ abstract mixin class _$ViewerConfigCopyWith<$Res> implements $ViewerConfigCopyWi
   factory _$ViewerConfigCopyWith(_ViewerConfig value, $Res Function(_ViewerConfig) _then) = __$ViewerConfigCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? role, Map<String, dynamic>? $unknown
+ String $type,@ViewerConfigRoleConverter() ViewerConfigRole? role, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $ViewerConfigRoleCopyWith<$Res>? get role;
 
 }
 /// @nodoc
@@ -280,12 +292,24 @@ class __$ViewerConfigCopyWithImpl<$Res>
   return _then(_ViewerConfig(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,role: freezed == role ? _self.role : role // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ViewerConfigRole?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of ViewerConfig
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ViewerConfigRoleCopyWith<$Res>? get role {
+    if (_self.role == null) {
+    return null;
+  }
 
+  return $ViewerConfigRoleCopyWith<$Res>(_self.role!, (value) {
+    return _then(_self.copyWith(role: value));
+  });
+}
 }
 
 // dart format on

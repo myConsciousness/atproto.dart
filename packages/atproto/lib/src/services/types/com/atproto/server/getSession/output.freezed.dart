@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$ServerGetSessionOutput {
 
  String get handle; String get did; String? get email; bool? get emailConfirmed; bool? get emailAuthFactor; Map<String, dynamic>? get didDoc; bool? get active;/// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
- String? get status; Map<String, dynamic>? get $unknown;
+@ServerGetSessionStatusConverter() ServerGetSessionStatus? get status; Map<String, dynamic>? get $unknown;
 /// Create a copy of ServerGetSessionOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,11 +49,11 @@ abstract mixin class $ServerGetSessionOutputCopyWith<$Res>  {
   factory $ServerGetSessionOutputCopyWith(ServerGetSessionOutput value, $Res Function(ServerGetSessionOutput) _then) = _$ServerGetSessionOutputCopyWithImpl;
 @useResult
 $Res call({
- String handle, String did, String? email, bool? emailConfirmed, bool? emailAuthFactor, Map<String, dynamic>? didDoc, bool? active, String? status, Map<String, dynamic>? $unknown
+ String handle, String did, String? email, bool? emailConfirmed, bool? emailAuthFactor, Map<String, dynamic>? didDoc, bool? active,@ServerGetSessionStatusConverter() ServerGetSessionStatus? status, Map<String, dynamic>? $unknown
 });
 
 
-
+$ServerGetSessionStatusCopyWith<$Res>? get status;
 
 }
 /// @nodoc
@@ -76,11 +76,23 @@ as bool?,emailAuthFactor: freezed == emailAuthFactor ? _self.emailAuthFactor : e
 as bool?,didDoc: freezed == didDoc ? _self.didDoc : didDoc // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool?,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ServerGetSessionStatus?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of ServerGetSessionOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ServerGetSessionStatusCopyWith<$Res>? get status {
+    if (_self.status == null) {
+    return null;
+  }
 
+  return $ServerGetSessionStatusCopyWith<$Res>(_self.status!, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 
@@ -162,7 +174,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String handle,  String did,  String? email,  bool? emailConfirmed,  bool? emailAuthFactor,  Map<String, dynamic>? didDoc,  bool? active,  String? status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String handle,  String did,  String? email,  bool? emailConfirmed,  bool? emailAuthFactor,  Map<String, dynamic>? didDoc,  bool? active, @ServerGetSessionStatusConverter()  ServerGetSessionStatus? status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ServerGetSessionOutput() when $default != null:
 return $default(_that.handle,_that.did,_that.email,_that.emailConfirmed,_that.emailAuthFactor,_that.didDoc,_that.active,_that.status,_that.$unknown);case _:
@@ -183,7 +195,7 @@ return $default(_that.handle,_that.did,_that.email,_that.emailConfirmed,_that.em
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String handle,  String did,  String? email,  bool? emailConfirmed,  bool? emailAuthFactor,  Map<String, dynamic>? didDoc,  bool? active,  String? status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String handle,  String did,  String? email,  bool? emailConfirmed,  bool? emailAuthFactor,  Map<String, dynamic>? didDoc,  bool? active, @ServerGetSessionStatusConverter()  ServerGetSessionStatus? status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ServerGetSessionOutput():
 return $default(_that.handle,_that.did,_that.email,_that.emailConfirmed,_that.emailAuthFactor,_that.didDoc,_that.active,_that.status,_that.$unknown);case _:
@@ -203,7 +215,7 @@ return $default(_that.handle,_that.did,_that.email,_that.emailConfirmed,_that.em
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String handle,  String did,  String? email,  bool? emailConfirmed,  bool? emailAuthFactor,  Map<String, dynamic>? didDoc,  bool? active,  String? status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String handle,  String did,  String? email,  bool? emailConfirmed,  bool? emailAuthFactor,  Map<String, dynamic>? didDoc,  bool? active, @ServerGetSessionStatusConverter()  ServerGetSessionStatus? status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ServerGetSessionOutput() when $default != null:
 return $default(_that.handle,_that.did,_that.email,_that.emailConfirmed,_that.emailAuthFactor,_that.didDoc,_that.active,_that.status,_that.$unknown);case _:
@@ -218,7 +230,7 @@ return $default(_that.handle,_that.did,_that.email,_that.emailConfirmed,_that.em
 @JsonSerializable()
 
 class _ServerGetSessionOutput implements ServerGetSessionOutput {
-  const _ServerGetSessionOutput({required this.handle, required this.did, this.email, this.emailConfirmed, this.emailAuthFactor, final  Map<String, dynamic>? didDoc, this.active, this.status, final  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_$unknown = $unknown;
+  const _ServerGetSessionOutput({required this.handle, required this.did, this.email, this.emailConfirmed, this.emailAuthFactor, final  Map<String, dynamic>? didDoc, this.active, @ServerGetSessionStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_$unknown = $unknown;
   factory _ServerGetSessionOutput.fromJson(Map<String, dynamic> json) => _$ServerGetSessionOutputFromJson(json);
 
 @override final  String handle;
@@ -237,7 +249,7 @@ class _ServerGetSessionOutput implements ServerGetSessionOutput {
 
 @override final  bool? active;
 /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-@override final  String? status;
+@override@ServerGetSessionStatusConverter() final  ServerGetSessionStatus? status;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -281,11 +293,11 @@ abstract mixin class _$ServerGetSessionOutputCopyWith<$Res> implements $ServerGe
   factory _$ServerGetSessionOutputCopyWith(_ServerGetSessionOutput value, $Res Function(_ServerGetSessionOutput) _then) = __$ServerGetSessionOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String handle, String did, String? email, bool? emailConfirmed, bool? emailAuthFactor, Map<String, dynamic>? didDoc, bool? active, String? status, Map<String, dynamic>? $unknown
+ String handle, String did, String? email, bool? emailConfirmed, bool? emailAuthFactor, Map<String, dynamic>? didDoc, bool? active,@ServerGetSessionStatusConverter() ServerGetSessionStatus? status, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $ServerGetSessionStatusCopyWith<$Res>? get status;
 
 }
 /// @nodoc
@@ -308,12 +320,24 @@ as bool?,emailAuthFactor: freezed == emailAuthFactor ? _self.emailAuthFactor : e
 as bool?,didDoc: freezed == didDoc ? _self._didDoc : didDoc // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool?,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ServerGetSessionStatus?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of ServerGetSessionOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ServerGetSessionStatusCopyWith<$Res>? get status {
+    if (_self.status == null) {
+    return null;
+  }
 
+  return $ServerGetSessionStatusCopyWith<$Res>(_self.status!, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 // dart format on

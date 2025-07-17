@@ -23,6 +23,7 @@ import 'identity/signPlcOperation/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `com.atproto.identity.*`
 final class IdentityService {
   IdentityService(this._ctx);
 

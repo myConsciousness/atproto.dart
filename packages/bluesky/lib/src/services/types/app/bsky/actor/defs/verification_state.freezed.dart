@@ -16,8 +16,8 @@ T _$identity<T>(T value) => value;
 mixin _$VerificationState {
 
  String get $type;@VerificationViewConverter() List<VerificationView> get verifications;/// The user's status as a verified account.
- String get verifiedStatus;/// The user's status as a trusted verifier.
- String get trustedVerifierStatus; Map<String, dynamic>? get $unknown;
+@VerificationStateVerifiedStatusConverter() VerificationStateVerifiedStatus get verifiedStatus;/// The user's status as a trusted verifier.
+@VerificationStateTrustedVerifierStatusConverter() VerificationStateTrustedVerifierStatus get trustedVerifierStatus; Map<String, dynamic>? get $unknown;
 /// Create a copy of VerificationState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -50,11 +50,11 @@ abstract mixin class $VerificationStateCopyWith<$Res>  {
   factory $VerificationStateCopyWith(VerificationState value, $Res Function(VerificationState) _then) = _$VerificationStateCopyWithImpl;
 @useResult
 $Res call({
- String $type,@VerificationViewConverter() List<VerificationView> verifications, String verifiedStatus, String trustedVerifierStatus, Map<String, dynamic>? $unknown
+ String $type,@VerificationViewConverter() List<VerificationView> verifications,@VerificationStateVerifiedStatusConverter() VerificationStateVerifiedStatus verifiedStatus,@VerificationStateTrustedVerifierStatusConverter() VerificationStateTrustedVerifierStatus trustedVerifierStatus, Map<String, dynamic>? $unknown
 });
 
 
-
+$VerificationStateVerifiedStatusCopyWith<$Res> get verifiedStatus;$VerificationStateTrustedVerifierStatusCopyWith<$Res> get trustedVerifierStatus;
 
 }
 /// @nodoc
@@ -72,12 +72,30 @@ class _$VerificationStateCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,verifications: null == verifications ? _self.verifications : verifications // ignore: cast_nullable_to_non_nullable
 as List<VerificationView>,verifiedStatus: null == verifiedStatus ? _self.verifiedStatus : verifiedStatus // ignore: cast_nullable_to_non_nullable
-as String,trustedVerifierStatus: null == trustedVerifierStatus ? _self.trustedVerifierStatus : trustedVerifierStatus // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as VerificationStateVerifiedStatus,trustedVerifierStatus: null == trustedVerifierStatus ? _self.trustedVerifierStatus : trustedVerifierStatus // ignore: cast_nullable_to_non_nullable
+as VerificationStateTrustedVerifierStatus,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of VerificationState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$VerificationStateVerifiedStatusCopyWith<$Res> get verifiedStatus {
+  
+  return $VerificationStateVerifiedStatusCopyWith<$Res>(_self.verifiedStatus, (value) {
+    return _then(_self.copyWith(verifiedStatus: value));
+  });
+}/// Create a copy of VerificationState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$VerificationStateTrustedVerifierStatusCopyWith<$Res> get trustedVerifierStatus {
+  
+  return $VerificationStateTrustedVerifierStatusCopyWith<$Res>(_self.trustedVerifierStatus, (value) {
+    return _then(_self.copyWith(trustedVerifierStatus: value));
+  });
+}
 }
 
 
@@ -159,7 +177,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @VerificationViewConverter()  List<VerificationView> verifications,  String verifiedStatus,  String trustedVerifierStatus,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @VerificationViewConverter()  List<VerificationView> verifications, @VerificationStateVerifiedStatusConverter()  VerificationStateVerifiedStatus verifiedStatus, @VerificationStateTrustedVerifierStatusConverter()  VerificationStateTrustedVerifierStatus trustedVerifierStatus,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _VerificationState() when $default != null:
 return $default(_that.$type,_that.verifications,_that.verifiedStatus,_that.trustedVerifierStatus,_that.$unknown);case _:
@@ -180,7 +198,7 @@ return $default(_that.$type,_that.verifications,_that.verifiedStatus,_that.trust
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @VerificationViewConverter()  List<VerificationView> verifications,  String verifiedStatus,  String trustedVerifierStatus,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @VerificationViewConverter()  List<VerificationView> verifications, @VerificationStateVerifiedStatusConverter()  VerificationStateVerifiedStatus verifiedStatus, @VerificationStateTrustedVerifierStatusConverter()  VerificationStateTrustedVerifierStatus trustedVerifierStatus,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _VerificationState():
 return $default(_that.$type,_that.verifications,_that.verifiedStatus,_that.trustedVerifierStatus,_that.$unknown);case _:
@@ -200,7 +218,7 @@ return $default(_that.$type,_that.verifications,_that.verifiedStatus,_that.trust
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @VerificationViewConverter()  List<VerificationView> verifications,  String verifiedStatus,  String trustedVerifierStatus,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @VerificationViewConverter()  List<VerificationView> verifications, @VerificationStateVerifiedStatusConverter()  VerificationStateVerifiedStatus verifiedStatus, @VerificationStateTrustedVerifierStatusConverter()  VerificationStateTrustedVerifierStatus trustedVerifierStatus,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _VerificationState() when $default != null:
 return $default(_that.$type,_that.verifications,_that.verifiedStatus,_that.trustedVerifierStatus,_that.$unknown);case _:
@@ -215,7 +233,7 @@ return $default(_that.$type,_that.verifications,_that.verifiedStatus,_that.trust
 @JsonSerializable()
 
 class _VerificationState implements VerificationState {
-  const _VerificationState({this.$type = 'app.bsky.actor.defs#verificationState', @VerificationViewConverter() required final  List<VerificationView> verifications, required this.verifiedStatus, required this.trustedVerifierStatus, final  Map<String, dynamic>? $unknown}): _verifications = verifications,_$unknown = $unknown;
+  const _VerificationState({this.$type = 'app.bsky.actor.defs#verificationState', @VerificationViewConverter() required final  List<VerificationView> verifications, @VerificationStateVerifiedStatusConverter() required this.verifiedStatus, @VerificationStateTrustedVerifierStatusConverter() required this.trustedVerifierStatus, final  Map<String, dynamic>? $unknown}): _verifications = verifications,_$unknown = $unknown;
   factory _VerificationState.fromJson(Map<String, dynamic> json) => _$VerificationStateFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -227,9 +245,9 @@ class _VerificationState implements VerificationState {
 }
 
 /// The user's status as a verified account.
-@override final  String verifiedStatus;
+@override@VerificationStateVerifiedStatusConverter() final  VerificationStateVerifiedStatus verifiedStatus;
 /// The user's status as a trusted verifier.
-@override final  String trustedVerifierStatus;
+@override@VerificationStateTrustedVerifierStatusConverter() final  VerificationStateTrustedVerifierStatus trustedVerifierStatus;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -273,11 +291,11 @@ abstract mixin class _$VerificationStateCopyWith<$Res> implements $VerificationS
   factory _$VerificationStateCopyWith(_VerificationState value, $Res Function(_VerificationState) _then) = __$VerificationStateCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@VerificationViewConverter() List<VerificationView> verifications, String verifiedStatus, String trustedVerifierStatus, Map<String, dynamic>? $unknown
+ String $type,@VerificationViewConverter() List<VerificationView> verifications,@VerificationStateVerifiedStatusConverter() VerificationStateVerifiedStatus verifiedStatus,@VerificationStateTrustedVerifierStatusConverter() VerificationStateTrustedVerifierStatus trustedVerifierStatus, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $VerificationStateVerifiedStatusCopyWith<$Res> get verifiedStatus;@override $VerificationStateTrustedVerifierStatusCopyWith<$Res> get trustedVerifierStatus;
 
 }
 /// @nodoc
@@ -295,13 +313,31 @@ class __$VerificationStateCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,verifications: null == verifications ? _self._verifications : verifications // ignore: cast_nullable_to_non_nullable
 as List<VerificationView>,verifiedStatus: null == verifiedStatus ? _self.verifiedStatus : verifiedStatus // ignore: cast_nullable_to_non_nullable
-as String,trustedVerifierStatus: null == trustedVerifierStatus ? _self.trustedVerifierStatus : trustedVerifierStatus // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as VerificationStateVerifiedStatus,trustedVerifierStatus: null == trustedVerifierStatus ? _self.trustedVerifierStatus : trustedVerifierStatus // ignore: cast_nullable_to_non_nullable
+as VerificationStateTrustedVerifierStatus,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of VerificationState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$VerificationStateVerifiedStatusCopyWith<$Res> get verifiedStatus {
+  
+  return $VerificationStateVerifiedStatusCopyWith<$Res>(_self.verifiedStatus, (value) {
+    return _then(_self.copyWith(verifiedStatus: value));
+  });
+}/// Create a copy of VerificationState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$VerificationStateTrustedVerifierStatusCopyWith<$Res> get trustedVerifierStatus {
+  
+  return $VerificationStateTrustedVerifierStatusCopyWith<$Res>(_self.trustedVerifierStatus, (value) {
+    return _then(_self.copyWith(trustedVerifierStatus: value));
+  });
+}
 }
 
 // dart format on

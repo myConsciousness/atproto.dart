@@ -12,6 +12,7 @@ final class LexRecord extends LexType {
   final String defName;
 
   final String name;
+  final String? description;
   final List<LexProperty> properties;
 
   @override
@@ -26,6 +27,7 @@ final class LexRecord extends LexType {
     required this.lexiconId,
     required this.defName,
     required this.name,
+    this.description,
     required this.properties,
   });
 
@@ -74,6 +76,7 @@ part 'main.g.dart';
 
 $kHeader
 
+${_getDescription()}
 @freezed
 abstract class ${name}Record with _\$${name}Record {
   $knownProps
@@ -93,6 +96,12 @@ $extensions
 
 $converter
 ''';
+  }
+
+  String _getDescription() {
+    if (description == null) return '';
+
+    return '/// $description';
   }
 
   String _getValidateMethod(final String id) {

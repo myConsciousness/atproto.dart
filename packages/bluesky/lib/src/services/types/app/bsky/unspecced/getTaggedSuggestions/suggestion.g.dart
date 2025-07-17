@@ -18,7 +18,10 @@ _Suggestion _$SuggestionFromJson(Map json) =>
               'app.bsky.unspecced.getTaggedSuggestions#suggestion',
         ),
         tag: $checkedConvert('tag', (v) => v as String),
-        subjectType: $checkedConvert('subjectType', (v) => v as String),
+        subjectType: $checkedConvert(
+          'subjectType',
+          (v) => const SuggestionSubjectTypeConverter().fromJson(v as String),
+        ),
         subject: $checkedConvert(
           'subject',
           (v) => const AtUriConverter().fromJson(v as String),
@@ -35,7 +38,9 @@ Map<String, dynamic> _$SuggestionToJson(_Suggestion instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'tag': instance.tag,
-      'subjectType': instance.subjectType,
+      'subjectType': const SuggestionSubjectTypeConverter().toJson(
+        instance.subjectType,
+      ),
       'subject': const AtUriConverter().toJson(instance.subject),
       r'$unknown': instance.$unknown,
     };

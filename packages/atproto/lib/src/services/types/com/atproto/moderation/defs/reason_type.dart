@@ -21,8 +21,8 @@ part 'reason_type.freezed.dart';
 abstract class ReasonType with _$ReasonType {
   const ReasonType._();
 
-  const factory ReasonType.known({required KnownReasonType data}) =
-      ReasonTypeKnown;
+  const factory ReasonType.knownValue({required KnownReasonType data}) =
+      ReasonTypeKnownValue;
 
   const factory ReasonType.unknown({required String data}) = ReasonTypeUnknown;
 
@@ -31,7 +31,7 @@ abstract class ReasonType with _$ReasonType {
     final knownValue = KnownReasonType.valueOf(value);
 
     return knownValue != null
-        ? ReasonType.known(data: knownValue)
+        ? ReasonType.knownValue(data: knownValue)
         : ReasonType.unknown(data: value);
   }
 
@@ -39,9 +39,10 @@ abstract class ReasonType with _$ReasonType {
 }
 
 extension ReasonTypeExtension on ReasonType {
-  bool get isKnown => isA<ReasonTypeKnown>(this);
-  bool get isNotKnown => !isKnown;
-  KnownReasonType? get known => isKnown ? data as KnownReasonType : null;
+  bool get isKnownValue => isA<ReasonTypeKnownValue>(this);
+  bool get isNotKnownValue => !isKnownValue;
+  KnownReasonType? get knownValue =>
+      isKnownValue ? data as KnownReasonType : null;
   bool get isUnknown => isA<ReasonTypeUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   String? get unknown => isUnknown ? data as String : null;
@@ -55,7 +56,7 @@ final class ReasonTypeConverter extends JsonConverter<ReasonType, String> {
     try {
       final knownValue = KnownReasonType.valueOf(json);
       if (knownValue != null) {
-        return ReasonType.known(data: knownValue);
+        return ReasonType.knownValue(data: knownValue);
       }
 
       return ReasonType.unknown(data: json);
@@ -66,7 +67,7 @@ final class ReasonTypeConverter extends JsonConverter<ReasonType, String> {
 
   @override
   String toJson(ReasonType object) =>
-      object.when(known: (data) => data.value, unknown: (data) => data);
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownReasonType implements Serializable {
@@ -102,6 +103,7 @@ enum KnownReasonType implements Serializable {
         return v;
       }
     }
+
     return null;
   }
 }

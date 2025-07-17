@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ActorDeclarationRecord {
 
- String get $type; String get allowIncoming; Map<String, dynamic>? get $unknown;
+ String get $type;@ActorDeclarationAllowIncomingConverter() ActorDeclarationAllowIncoming get allowIncoming; Map<String, dynamic>? get $unknown;
 /// Create a copy of ActorDeclarationRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $ActorDeclarationRecordCopyWith<$Res>  {
   factory $ActorDeclarationRecordCopyWith(ActorDeclarationRecord value, $Res Function(ActorDeclarationRecord) _then) = _$ActorDeclarationRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type, String allowIncoming, Map<String, dynamic>? $unknown
+ String $type,@ActorDeclarationAllowIncomingConverter() ActorDeclarationAllowIncoming allowIncoming, Map<String, dynamic>? $unknown
 });
 
 
-
+$ActorDeclarationAllowIncomingCopyWith<$Res> get allowIncoming;
 
 }
 /// @nodoc
@@ -69,11 +69,20 @@ class _$ActorDeclarationRecordCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,allowIncoming: null == allowIncoming ? _self.allowIncoming : allowIncoming // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ActorDeclarationAllowIncoming,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of ActorDeclarationRecord
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ActorDeclarationAllowIncomingCopyWith<$Res> get allowIncoming {
+  
+  return $ActorDeclarationAllowIncomingCopyWith<$Res>(_self.allowIncoming, (value) {
+    return _then(_self.copyWith(allowIncoming: value));
+  });
+}
 }
 
 
@@ -155,7 +164,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String allowIncoming,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ActorDeclarationAllowIncomingConverter()  ActorDeclarationAllowIncoming allowIncoming,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ActorDeclarationRecord() when $default != null:
 return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
@@ -176,7 +185,7 @@ return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String allowIncoming,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ActorDeclarationAllowIncomingConverter()  ActorDeclarationAllowIncoming allowIncoming,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ActorDeclarationRecord():
 return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
@@ -196,7 +205,7 @@ return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String allowIncoming,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ActorDeclarationAllowIncomingConverter()  ActorDeclarationAllowIncoming allowIncoming,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ActorDeclarationRecord() when $default != null:
 return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
@@ -211,11 +220,11 @@ return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ActorDeclarationRecord implements ActorDeclarationRecord {
-  const _ActorDeclarationRecord({this.$type = 'chat.bsky.actor.declaration', required this.allowIncoming, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ActorDeclarationRecord({this.$type = 'chat.bsky.actor.declaration', @ActorDeclarationAllowIncomingConverter() required this.allowIncoming, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ActorDeclarationRecord.fromJson(Map<String, dynamic> json) => _$ActorDeclarationRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String allowIncoming;
+@override@ActorDeclarationAllowIncomingConverter() final  ActorDeclarationAllowIncoming allowIncoming;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,11 +268,11 @@ abstract mixin class _$ActorDeclarationRecordCopyWith<$Res> implements $ActorDec
   factory _$ActorDeclarationRecordCopyWith(_ActorDeclarationRecord value, $Res Function(_ActorDeclarationRecord) _then) = __$ActorDeclarationRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String allowIncoming, Map<String, dynamic>? $unknown
+ String $type,@ActorDeclarationAllowIncomingConverter() ActorDeclarationAllowIncoming allowIncoming, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $ActorDeclarationAllowIncomingCopyWith<$Res> get allowIncoming;
 
 }
 /// @nodoc
@@ -280,12 +289,21 @@ class __$ActorDeclarationRecordCopyWithImpl<$Res>
   return _then(_ActorDeclarationRecord(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,allowIncoming: null == allowIncoming ? _self.allowIncoming : allowIncoming // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ActorDeclarationAllowIncoming,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of ActorDeclarationRecord
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ActorDeclarationAllowIncomingCopyWith<$Res> get allowIncoming {
+  
+  return $ActorDeclarationAllowIncomingCopyWith<$Res>(_self.allowIncoming, (value) {
+    return _then(_self.copyWith(allowIncoming: value));
+  });
+}
 }
 
 // dart format on

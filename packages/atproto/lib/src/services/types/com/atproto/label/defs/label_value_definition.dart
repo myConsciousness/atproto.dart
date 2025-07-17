@@ -12,6 +12,9 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import './label_value_definition_blurs.dart';
+import './label_value_definition_default_setting.dart';
+import './label_value_definition_severity.dart';
 import './label_value_definition_strings.dart';
 
 part 'label_value_definition.freezed.dart';
@@ -40,13 +43,16 @@ abstract class LabelValueDefinition with _$LabelValueDefinition {
     required String identifier,
 
     /// How should a client visually convey this label? 'inform' means neutral and informational; 'alert' means negative and warning; 'none' means show nothing.
-    required String severity,
+    @LabelValueDefinitionSeverityConverter()
+    required LabelValueDefinitionSeverity severity,
 
     /// What should this label hide in the UI, if applied? 'content' hides all of the target; 'media' hides the images/video/audio; 'none' hides nothing.
-    required String blurs,
+    @LabelValueDefinitionBlursConverter()
+    required LabelValueDefinitionBlurs blurs,
 
     /// The default setting for this label.
-    String? defaultSetting,
+    @LabelValueDefinitionDefaultSettingConverter()
+    LabelValueDefinitionDefaultSetting? defaultSetting,
 
     /// Does the user need to have adult content enabled in order to configure this label?
     bool? adultOnly,

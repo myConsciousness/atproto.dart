@@ -55,11 +55,11 @@ extension EventTypePatterns on EventType {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( EventTypeKnown value)?  known,TResult Function( EventTypeUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( EventTypeKnownValue value)?  knownValue,TResult Function( EventTypeUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case EventTypeKnown() when known != null:
-return known(_that);case EventTypeUnknown() when unknown != null:
+case EventTypeKnownValue() when knownValue != null:
+return knownValue(_that);case EventTypeUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -78,11 +78,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( EventTypeKnown value)  known,required TResult Function( EventTypeUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( EventTypeKnownValue value)  knownValue,required TResult Function( EventTypeUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
-case EventTypeKnown():
-return known(_that);case EventTypeUnknown():
+case EventTypeKnownValue():
+return knownValue(_that);case EventTypeUnknown():
 return unknown(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -100,11 +100,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( EventTypeKnown value)?  known,TResult? Function( EventTypeUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( EventTypeKnownValue value)?  knownValue,TResult? Function( EventTypeUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
-case EventTypeKnown() when known != null:
-return known(_that);case EventTypeUnknown() when unknown != null:
+case EventTypeKnownValue() when knownValue != null:
+return knownValue(_that);case EventTypeUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -122,10 +122,10 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownEventType data)?  known,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownEventType data)?  knownValue,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case EventTypeKnown() when known != null:
-return known(_that.data);case EventTypeUnknown() when unknown != null:
+case EventTypeKnownValue() when knownValue != null:
+return knownValue(_that.data);case EventTypeUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -144,10 +144,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownEventType data)  known,required TResult Function( String data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownEventType data)  knownValue,required TResult Function( String data)  unknown,}) {final _that = this;
 switch (_that) {
-case EventTypeKnown():
-return known(_that.data);case EventTypeUnknown():
+case EventTypeKnownValue():
+return knownValue(_that.data);case EventTypeUnknown():
 return unknown(_that.data);case _:
   throw StateError('Unexpected subclass');
 
@@ -165,10 +165,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownEventType data)?  known,TResult? Function( String data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownEventType data)?  knownValue,TResult? Function( String data)?  unknown,}) {final _that = this;
 switch (_that) {
-case EventTypeKnown() when known != null:
-return known(_that.data);case EventTypeUnknown() when unknown != null:
+case EventTypeKnownValue() when knownValue != null:
+return knownValue(_that.data);case EventTypeUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -180,8 +180,8 @@ return unknown(_that.data);case _:
 /// @nodoc
 
 
-class EventTypeKnown extends EventType {
-  const EventTypeKnown({required this.data}): super._();
+class EventTypeKnownValue extends EventType {
+  const EventTypeKnownValue({required this.data}): super._();
   
 
 @override final  KnownEventType data;
@@ -190,13 +190,13 @@ class EventTypeKnown extends EventType {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$EventTypeKnownCopyWith<EventTypeKnown> get copyWith => _$EventTypeKnownCopyWithImpl<EventTypeKnown>(this, _$identity);
+$EventTypeKnownValueCopyWith<EventTypeKnownValue> get copyWith => _$EventTypeKnownValueCopyWithImpl<EventTypeKnownValue>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventTypeKnown&&(identical(other.data, data) || other.data == data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventTypeKnownValue&&(identical(other.data, data) || other.data == data));
 }
 
 
@@ -205,15 +205,15 @@ int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'EventType.known(data: $data)';
+  return 'EventType.knownValue(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $EventTypeKnownCopyWith<$Res> implements $EventTypeCopyWith<$Res> {
-  factory $EventTypeKnownCopyWith(EventTypeKnown value, $Res Function(EventTypeKnown) _then) = _$EventTypeKnownCopyWithImpl;
+abstract mixin class $EventTypeKnownValueCopyWith<$Res> implements $EventTypeCopyWith<$Res> {
+  factory $EventTypeKnownValueCopyWith(EventTypeKnownValue value, $Res Function(EventTypeKnownValue) _then) = _$EventTypeKnownValueCopyWithImpl;
 @useResult
 $Res call({
  KnownEventType data
@@ -224,17 +224,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$EventTypeKnownCopyWithImpl<$Res>
-    implements $EventTypeKnownCopyWith<$Res> {
-  _$EventTypeKnownCopyWithImpl(this._self, this._then);
+class _$EventTypeKnownValueCopyWithImpl<$Res>
+    implements $EventTypeKnownValueCopyWith<$Res> {
+  _$EventTypeKnownValueCopyWithImpl(this._self, this._then);
 
-  final EventTypeKnown _self;
-  final $Res Function(EventTypeKnown) _then;
+  final EventTypeKnownValue _self;
+  final $Res Function(EventTypeKnownValue) _then;
 
 /// Create a copy of EventType
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
-  return _then(EventTypeKnown(
+  return _then(EventTypeKnownValue(
 data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as KnownEventType,
   ));

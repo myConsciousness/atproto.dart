@@ -13,3 +13,4 @@
 
 export 'package:atproto/src/services/types/com/atproto/server/createSession/input.dart';
 export 'package:atproto/src/services/types/com/atproto/server/createSession/output.dart';
+export 'package:atproto/src/services/types/com/atproto/server/createSession/main_status.dart';

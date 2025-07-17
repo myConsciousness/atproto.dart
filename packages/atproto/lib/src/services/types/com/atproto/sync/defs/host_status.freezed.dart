@@ -55,11 +55,11 @@ extension HostStatusPatterns on HostStatus {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( HostStatusKnown value)?  known,TResult Function( HostStatusUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( HostStatusKnownValue value)?  knownValue,TResult Function( HostStatusUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case HostStatusKnown() when known != null:
-return known(_that);case HostStatusUnknown() when unknown != null:
+case HostStatusKnownValue() when knownValue != null:
+return knownValue(_that);case HostStatusUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -78,11 +78,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( HostStatusKnown value)  known,required TResult Function( HostStatusUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( HostStatusKnownValue value)  knownValue,required TResult Function( HostStatusUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
-case HostStatusKnown():
-return known(_that);case HostStatusUnknown():
+case HostStatusKnownValue():
+return knownValue(_that);case HostStatusUnknown():
 return unknown(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -100,11 +100,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( HostStatusKnown value)?  known,TResult? Function( HostStatusUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( HostStatusKnownValue value)?  knownValue,TResult? Function( HostStatusUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
-case HostStatusKnown() when known != null:
-return known(_that);case HostStatusUnknown() when unknown != null:
+case HostStatusKnownValue() when knownValue != null:
+return knownValue(_that);case HostStatusUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -122,10 +122,10 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownHostStatus data)?  known,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownHostStatus data)?  knownValue,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case HostStatusKnown() when known != null:
-return known(_that.data);case HostStatusUnknown() when unknown != null:
+case HostStatusKnownValue() when knownValue != null:
+return knownValue(_that.data);case HostStatusUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -144,10 +144,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownHostStatus data)  known,required TResult Function( String data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownHostStatus data)  knownValue,required TResult Function( String data)  unknown,}) {final _that = this;
 switch (_that) {
-case HostStatusKnown():
-return known(_that.data);case HostStatusUnknown():
+case HostStatusKnownValue():
+return knownValue(_that.data);case HostStatusUnknown():
 return unknown(_that.data);case _:
   throw StateError('Unexpected subclass');
 
@@ -165,10 +165,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownHostStatus data)?  known,TResult? Function( String data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownHostStatus data)?  knownValue,TResult? Function( String data)?  unknown,}) {final _that = this;
 switch (_that) {
-case HostStatusKnown() when known != null:
-return known(_that.data);case HostStatusUnknown() when unknown != null:
+case HostStatusKnownValue() when knownValue != null:
+return knownValue(_that.data);case HostStatusUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -180,8 +180,8 @@ return unknown(_that.data);case _:
 /// @nodoc
 
 
-class HostStatusKnown extends HostStatus {
-  const HostStatusKnown({required this.data}): super._();
+class HostStatusKnownValue extends HostStatus {
+  const HostStatusKnownValue({required this.data}): super._();
   
 
 @override final  KnownHostStatus data;
@@ -190,13 +190,13 @@ class HostStatusKnown extends HostStatus {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$HostStatusKnownCopyWith<HostStatusKnown> get copyWith => _$HostStatusKnownCopyWithImpl<HostStatusKnown>(this, _$identity);
+$HostStatusKnownValueCopyWith<HostStatusKnownValue> get copyWith => _$HostStatusKnownValueCopyWithImpl<HostStatusKnownValue>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HostStatusKnown&&(identical(other.data, data) || other.data == data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HostStatusKnownValue&&(identical(other.data, data) || other.data == data));
 }
 
 
@@ -205,15 +205,15 @@ int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'HostStatus.known(data: $data)';
+  return 'HostStatus.knownValue(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $HostStatusKnownCopyWith<$Res> implements $HostStatusCopyWith<$Res> {
-  factory $HostStatusKnownCopyWith(HostStatusKnown value, $Res Function(HostStatusKnown) _then) = _$HostStatusKnownCopyWithImpl;
+abstract mixin class $HostStatusKnownValueCopyWith<$Res> implements $HostStatusCopyWith<$Res> {
+  factory $HostStatusKnownValueCopyWith(HostStatusKnownValue value, $Res Function(HostStatusKnownValue) _then) = _$HostStatusKnownValueCopyWithImpl;
 @useResult
 $Res call({
  KnownHostStatus data
@@ -224,17 +224,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$HostStatusKnownCopyWithImpl<$Res>
-    implements $HostStatusKnownCopyWith<$Res> {
-  _$HostStatusKnownCopyWithImpl(this._self, this._then);
+class _$HostStatusKnownValueCopyWithImpl<$Res>
+    implements $HostStatusKnownValueCopyWith<$Res> {
+  _$HostStatusKnownValueCopyWithImpl(this._self, this._then);
 
-  final HostStatusKnown _self;
-  final $Res Function(HostStatusKnown) _then;
+  final HostStatusKnownValue _self;
+  final $Res Function(HostStatusKnownValue) _then;
 
 /// Create a copy of HostStatus
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
-  return _then(HostStatusKnown(
+  return _then(HostStatusKnownValue(
 data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as KnownHostStatus,
   ));

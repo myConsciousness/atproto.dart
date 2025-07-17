@@ -20,6 +20,7 @@ import 'moderation/getMessageContext/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `chat.bsky.moderation.*`
 final class ModerationService {
   ModerationService(this._ctx);
 

@@ -23,6 +23,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Record representing a list of accounts (actors). Scope includes both moderation-oriented lists and curration-oriented lists.
 @freezed
 abstract class GraphListRecord with _$GraphListRecord {
   static const knownProps = <String>[

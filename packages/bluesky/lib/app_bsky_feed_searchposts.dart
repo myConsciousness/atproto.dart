@@ -12,4 +12,5 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/types/app/bsky/feed/searchPosts/input.dart';
+export 'package:bluesky/src/services/types/app/bsky/feed/searchPosts/main_sort.dart';
 export 'package:bluesky/src/services/types/app/bsky/feed/searchPosts/output.dart';

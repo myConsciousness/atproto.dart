@@ -15,6 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
+import 'notification/declaration/main_allow_subscriptions.dart';
 import 'notification/defs/activity_subscription.dart';
 import 'notification/defs/chat_preference.dart';
 import 'notification/defs/filterable_preference.dart';
@@ -25,11 +26,13 @@ import 'notification/listActivitySubscriptions/output.dart';
 import 'notification/listNotifications/output.dart';
 import 'notification/putActivitySubscription/output.dart';
 import 'notification/putPreferencesV2/output.dart';
+import 'notification/registerPush/main_platform.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
+/// `app.bsky.notification.*`
 final class NotificationService {
   NotificationService(this._ctx);
 
@@ -39,7 +42,7 @@ final class NotificationService {
   Future<XRPCResponse<EmptyData>> registerPush({
     required String serviceDid,
     required String token,
-    required String platform,
+    required NotificationRegisterPushPlatform platform,
     required String appId,
     bool? ageRestricted,
     Map<String, String>? $headers,
@@ -50,7 +53,7 @@ final class NotificationService {
     body: {
       'serviceDid': serviceDid,
       'token': token,
-      'platform': platform,
+      'platform': platform.toJson(),
       'appId': appId,
       if (ageRestricted != null) 'ageRestricted': ageRestricted,
       ...?$unknown,
@@ -85,8 +88,10 @@ final class NotificationService {
     },
     to: const NotificationPutActivitySubscriptionOutputConverter().fromJson,
   );
+
+  /// A declaration of the user's choices related to notifications that can be produced by them.
   Future<XRPCResponse<RepoCreateRecordOutput>> declaration({
-    required String allowSubscriptions,
+    required NotificationDeclarationAllowSubscriptions allowSubscriptions,
     String? $rey,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -94,7 +99,7 @@ final class NotificationService {
     repo: _ctx.$repo,
     collection: ids.appBskyNotificationDeclaration,
     rkey: $rey,
-    record: {'allowSubscriptions': allowSubscriptions, ...?$unknown},
+    record: {'allowSubscriptions': allowSubscriptions.toJson(), ...?$unknown},
   );
 
   /// Set notification-related preferences for an account. Requires auth.

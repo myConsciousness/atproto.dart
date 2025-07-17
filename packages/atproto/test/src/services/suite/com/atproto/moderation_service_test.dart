@@ -9,7 +9,9 @@ import 'service_suite.dart';
 void main() {
   testModeration<ModerationCreateReportOutput>(
     (m, s) => s.createReport(
-      reasonType: ReasonType.known(data: KnownReasonType.reasonAppeal),
+      reasonType: const ReasonType.knownValue(
+        data: KnownReasonType.reasonAppeal,
+      ),
       subject: UModerationCreateReportSubject.repoRef(
         data: RepoRef(did: m.did),
       ),

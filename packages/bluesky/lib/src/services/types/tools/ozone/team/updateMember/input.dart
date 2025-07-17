@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_role.dart';
+
 part 'input.freezed.dart';
 part 'input.g.dart';
 
@@ -25,7 +28,7 @@ abstract class TeamUpdateMemberInput with _$TeamUpdateMemberInput {
   const factory TeamUpdateMemberInput({
     required String did,
     bool? disabled,
-    String? role,
+    @TeamUpdateMemberRoleConverter() TeamUpdateMemberRole? role,
 
     Map<String, dynamic>? $unknown,
   }) = _TeamUpdateMemberInput;

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TeamUpdateMemberInput {
 
- String get did; bool? get disabled; String? get role; Map<String, dynamic>? get $unknown;
+ String get did; bool? get disabled;@TeamUpdateMemberRoleConverter() TeamUpdateMemberRole? get role; Map<String, dynamic>? get $unknown;
 /// Create a copy of TeamUpdateMemberInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $TeamUpdateMemberInputCopyWith<$Res>  {
   factory $TeamUpdateMemberInputCopyWith(TeamUpdateMemberInput value, $Res Function(TeamUpdateMemberInput) _then) = _$TeamUpdateMemberInputCopyWithImpl;
 @useResult
 $Res call({
- String did, bool? disabled, String? role, Map<String, dynamic>? $unknown
+ String did, bool? disabled,@TeamUpdateMemberRoleConverter() TeamUpdateMemberRole? role, Map<String, dynamic>? $unknown
 });
 
 
-
+$TeamUpdateMemberRoleCopyWith<$Res>? get role;
 
 }
 /// @nodoc
@@ -70,11 +70,23 @@ class _$TeamUpdateMemberInputCopyWithImpl<$Res>
 did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,disabled: freezed == disabled ? _self.disabled : disabled // ignore: cast_nullable_to_non_nullable
 as bool?,role: freezed == role ? _self.role : role // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as TeamUpdateMemberRole?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of TeamUpdateMemberInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$TeamUpdateMemberRoleCopyWith<$Res>? get role {
+    if (_self.role == null) {
+    return null;
+  }
 
+  return $TeamUpdateMemberRoleCopyWith<$Res>(_self.role!, (value) {
+    return _then(_self.copyWith(role: value));
+  });
+}
 }
 
 
@@ -156,7 +168,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String did,  bool? disabled,  String? role,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String did,  bool? disabled, @TeamUpdateMemberRoleConverter()  TeamUpdateMemberRole? role,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TeamUpdateMemberInput() when $default != null:
 return $default(_that.did,_that.disabled,_that.role,_that.$unknown);case _:
@@ -177,7 +189,7 @@ return $default(_that.did,_that.disabled,_that.role,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String did,  bool? disabled,  String? role,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String did,  bool? disabled, @TeamUpdateMemberRoleConverter()  TeamUpdateMemberRole? role,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _TeamUpdateMemberInput():
 return $default(_that.did,_that.disabled,_that.role,_that.$unknown);case _:
@@ -197,7 +209,7 @@ return $default(_that.did,_that.disabled,_that.role,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String did,  bool? disabled,  String? role,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String did,  bool? disabled, @TeamUpdateMemberRoleConverter()  TeamUpdateMemberRole? role,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _TeamUpdateMemberInput() when $default != null:
 return $default(_that.did,_that.disabled,_that.role,_that.$unknown);case _:
@@ -212,12 +224,12 @@ return $default(_that.did,_that.disabled,_that.role,_that.$unknown);case _:
 @JsonSerializable()
 
 class _TeamUpdateMemberInput implements TeamUpdateMemberInput {
-  const _TeamUpdateMemberInput({required this.did, this.disabled, this.role, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _TeamUpdateMemberInput({required this.did, this.disabled, @TeamUpdateMemberRoleConverter() this.role, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _TeamUpdateMemberInput.fromJson(Map<String, dynamic> json) => _$TeamUpdateMemberInputFromJson(json);
 
 @override final  String did;
 @override final  bool? disabled;
-@override final  String? role;
+@override@TeamUpdateMemberRoleConverter() final  TeamUpdateMemberRole? role;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -261,11 +273,11 @@ abstract mixin class _$TeamUpdateMemberInputCopyWith<$Res> implements $TeamUpdat
   factory _$TeamUpdateMemberInputCopyWith(_TeamUpdateMemberInput value, $Res Function(_TeamUpdateMemberInput) _then) = __$TeamUpdateMemberInputCopyWithImpl;
 @override @useResult
 $Res call({
- String did, bool? disabled, String? role, Map<String, dynamic>? $unknown
+ String did, bool? disabled,@TeamUpdateMemberRoleConverter() TeamUpdateMemberRole? role, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $TeamUpdateMemberRoleCopyWith<$Res>? get role;
 
 }
 /// @nodoc
@@ -283,12 +295,24 @@ class __$TeamUpdateMemberInputCopyWithImpl<$Res>
 did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,disabled: freezed == disabled ? _self.disabled : disabled // ignore: cast_nullable_to_non_nullable
 as bool?,role: freezed == role ? _self.role : role // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as TeamUpdateMemberRole?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of TeamUpdateMemberInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$TeamUpdateMemberRoleCopyWith<$Res>? get role {
+    if (_self.role == null) {
+    return null;
+  }
 
+  return $TeamUpdateMemberRoleCopyWith<$Res>(_self.role!, (value) {
+    return _then(_self.copyWith(role: value));
+  });
+}
 }
 
 // dart format on

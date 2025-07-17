@@ -24,12 +24,15 @@ import 'convo/getConvoForMembers/output.dart';
 import 'convo/getLog/output.dart';
 import 'convo/getMessages/output.dart';
 import 'convo/leaveConvo/output.dart';
+import 'convo/listConvos/main_read_state.dart';
+import 'convo/listConvos/main_status.dart';
 import 'convo/listConvos/output.dart';
 import 'convo/muteConvo/output.dart';
 import 'convo/removeReaction/output.dart';
 import 'convo/sendMessageBatch/batch_item.dart';
 import 'convo/sendMessageBatch/output.dart';
 import 'convo/unmuteConvo/output.dart';
+import 'convo/updateAllRead/main_status.dart';
 import 'convo/updateAllRead/output.dart';
 import 'convo/updateRead/output.dart';
 
@@ -37,6 +40,7 @@ import 'convo/updateRead/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `chat.bsky.convo.*`
 final class ConvoService {
   ConvoService(this._ctx);
 
@@ -45,8 +49,8 @@ final class ConvoService {
   Future<XRPCResponse<ConvoListConvosOutput>> listConvos({
     int? limit,
     String? cursor,
-    String? readState,
-    String? status,
+    ConvoListConvosReadState? readState,
+    ConvoListConvosStatus? status,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.get(
@@ -55,8 +59,8 @@ final class ConvoService {
     parameters: {
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      if (readState != null) 'readState': readState,
-      if (status != null) 'status': status,
+      if (readState != null) 'readState': readState.toJson(),
+      if (status != null) 'status': status.toJson(),
       ...?$unknown,
     },
     to: const ConvoListConvosOutputConverter().fromJson,
@@ -199,13 +203,13 @@ final class ConvoService {
     to: const ConvoUpdateReadOutputConverter().fromJson,
   );
   Future<XRPCResponse<ConvoUpdateAllReadOutput>> updateAllRead({
-    String? status,
+    ConvoUpdateAllReadStatus? status,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.post(
     ns.chatBskyConvoUpdateAllRead,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {if (status != null) 'status': status, ...?$unknown},
+    body: {if (status != null) 'status': status.toJson(), ...?$unknown},
     to: const ConvoUpdateAllReadOutputConverter().fromJson,
   );
   Future<XRPCResponse<ConvoGetConvoOutput>> getConvo({

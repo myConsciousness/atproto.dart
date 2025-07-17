@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Info {
 
- String get $type; String get name; String? get message; Map<String, dynamic>? get $unknown;
+ String get $type;@InfoNameConverter() InfoName get name; String? get message; Map<String, dynamic>? get $unknown;
 /// Create a copy of Info
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $InfoCopyWith<$Res>  {
   factory $InfoCopyWith(Info value, $Res Function(Info) _then) = _$InfoCopyWithImpl;
 @useResult
 $Res call({
- String $type, String name, String? message, Map<String, dynamic>? $unknown
+ String $type,@InfoNameConverter() InfoName name, String? message, Map<String, dynamic>? $unknown
 });
 
 
-
+$InfoNameCopyWith<$Res> get name;
 
 }
 /// @nodoc
@@ -69,12 +69,21 @@ class _$InfoCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as InfoName,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of Info
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$InfoNameCopyWith<$Res> get name {
+  
+  return $InfoNameCopyWith<$Res>(_self.name, (value) {
+    return _then(_self.copyWith(name: value));
+  });
+}
 }
 
 
@@ -156,7 +165,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String name,  String? message,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @InfoNameConverter()  InfoName name,  String? message,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Info() when $default != null:
 return $default(_that.$type,_that.name,_that.message,_that.$unknown);case _:
@@ -177,7 +186,7 @@ return $default(_that.$type,_that.name,_that.message,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String name,  String? message,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @InfoNameConverter()  InfoName name,  String? message,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Info():
 return $default(_that.$type,_that.name,_that.message,_that.$unknown);case _:
@@ -197,7 +206,7 @@ return $default(_that.$type,_that.name,_that.message,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String name,  String? message,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @InfoNameConverter()  InfoName name,  String? message,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Info() when $default != null:
 return $default(_that.$type,_that.name,_that.message,_that.$unknown);case _:
@@ -212,11 +221,11 @@ return $default(_that.$type,_that.name,_that.message,_that.$unknown);case _:
 @JsonSerializable()
 
 class _Info implements Info {
-  const _Info({this.$type = 'com.atproto.sync.subscribeRepos#info', required this.name, this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Info({this.$type = 'com.atproto.sync.subscribeRepos#info', @InfoNameConverter() required this.name, this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Info.fromJson(Map<String, dynamic> json) => _$InfoFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String name;
+@override@InfoNameConverter() final  InfoName name;
 @override final  String? message;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -261,11 +270,11 @@ abstract mixin class _$InfoCopyWith<$Res> implements $InfoCopyWith<$Res> {
   factory _$InfoCopyWith(_Info value, $Res Function(_Info) _then) = __$InfoCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String name, String? message, Map<String, dynamic>? $unknown
+ String $type,@InfoNameConverter() InfoName name, String? message, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $InfoNameCopyWith<$Res> get name;
 
 }
 /// @nodoc
@@ -282,13 +291,22 @@ class __$InfoCopyWithImpl<$Res>
   return _then(_Info(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as InfoName,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of Info
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$InfoNameCopyWith<$Res> get name {
+  
+  return $InfoNameCopyWith<$Res>(_self.name, (value) {
+    return _then(_self.copyWith(name: value));
+  });
+}
 }
 
 // dart format on

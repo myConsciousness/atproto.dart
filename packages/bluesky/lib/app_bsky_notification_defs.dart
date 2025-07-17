@@ -13,7 +13,9 @@
 
 export 'package:bluesky/src/services/types/app/bsky/notification/defs/record_deleted.dart';
 export 'package:bluesky/src/services/types/app/bsky/notification/defs/chat_preference.dart';
+export 'package:bluesky/src/services/types/app/bsky/notification/defs/chat_preference_include.dart';
 export 'package:bluesky/src/services/types/app/bsky/notification/defs/filterable_preference.dart';
+export 'package:bluesky/src/services/types/app/bsky/notification/defs/filterable_preference_include.dart';
 export 'package:bluesky/src/services/types/app/bsky/notification/defs/preference.dart';
 export 'package:bluesky/src/services/types/app/bsky/notification/defs/preferences.dart';
 export 'package:bluesky/src/services/types/app/bsky/notification/defs/activity_subscription.dart';

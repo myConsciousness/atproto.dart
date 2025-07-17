@@ -24,6 +24,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Record containing a Bluesky post.
 @freezed
 abstract class FeedPostRecord with _$FeedPostRecord {
   static const knownProps = <String>[

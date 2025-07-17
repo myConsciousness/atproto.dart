@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_filter.dart';
+
 part 'input.freezed.dart';
 part 'input.g.dart';
 
@@ -34,7 +37,7 @@ abstract class FeedGetAuthorFeedInput with _$FeedGetAuthorFeedInput {
     String? cursor,
 
     /// Combinations of post/repost types to include in response.
-    String? filter,
+    @FeedGetAuthorFeedFilterConverter() FeedGetAuthorFeedFilter? filter,
     bool? includePins,
 
     Map<String, dynamic>? $unknown,

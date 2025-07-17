@@ -18,6 +18,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Record representing a block relationship against an entire an entire list of accounts (actors).
 @freezed
 abstract class GraphListblockRecord with _$GraphListblockRecord {
   static const knownProps = <String>['subject', 'createdAt'];

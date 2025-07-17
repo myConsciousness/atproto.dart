@@ -13,3 +13,4 @@
 
 export 'package:atproto/src/services/types/com/atproto/repo/createRecord/input.dart';
 export 'package:atproto/src/services/types/com/atproto/repo/createRecord/output.dart';
+export 'package:atproto/src/services/types/com/atproto/repo/createRecord/main_validation_status.dart';

@@ -4,14 +4,18 @@ import 'package:atproto/com_atproto_label_defs.dart';
 // Project imports:
 import '../../ids.g.dart' as ids;
 import '../constants/grouped_notification_reason.dart';
-import '../constants/notification_reason.dart';
 import '../types/app/bsky/actor/defs/profile_view.dart';
 import '../types/app/bsky/notification/listNotifications/notification.dart';
+import '../types/app/bsky/notification/listNotifications/notification_reason.dart';
 import '../types/app/bsky/notification/listNotifications/output.dart';
 import 'group_by.dart';
 import 'grouped_notifications.dart';
 
-const _groupableReasons = <String>['like', 'repost', 'follow'];
+const _groupableReasons = <NotificationReason>[
+  NotificationReason.knownValue(data: KnownNotificationReason.like),
+  NotificationReason.knownValue(data: KnownNotificationReason.repost),
+  NotificationReason.knownValue(data: KnownNotificationReason.follow),
+];
 
 sealed class NotificationsGrouper {
   const factory NotificationsGrouper() = _NotificationsGrouper;
@@ -96,10 +100,11 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     );
   }
 
-  bool _isGroupable(final String reason) => _groupableReasons.contains(reason);
+  bool _isGroupable(final NotificationReason reason) =>
+      _groupableReasons.contains(reason);
 
   Map<String, dynamic> _getRelatedGroup(
-    final String reason,
+    final NotificationReason reason,
     final String? reasonSubject,
     final List<Map<String, dynamic>> groupedNotifications,
   ) {
@@ -108,7 +113,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     }
 
     for (final groupedNotification in groupedNotifications) {
-      if (groupedNotification['reason'] == reason &&
+      if (groupedNotification['reason'] == reason.toJson() &&
           groupedNotification['reasonSubject'] == reasonSubject) {
         return groupedNotification;
       }
@@ -122,7 +127,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     final String? reasonSubject,
   ) => {
     'uris': [notification.uri.toString()],
-    'reason': _getGroupedReason(notification.reason, reasonSubject),
+    'reason': _getGroupedReason(notification.reason.toJson(), reasonSubject),
     'reasonSubject': reasonSubject,
     'authors': [notification.author.toJson()],
     'labels': notification.labels?.map((e) => e.toJson()).toList(),
@@ -234,7 +239,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
       return false;
     }
 
-    return reason == NotificationReason.like.name &&
+    return reason == KnownNotificationReason.like.name &&
         reasonSubject.contains(ids.appBskyFeedGenerator);
   }
 

@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './filterable_preference_include.dart';
+
 part 'filterable_preference.freezed.dart';
 part 'filterable_preference.g.dart';
 
@@ -24,7 +27,8 @@ abstract class FilterablePreference with _$FilterablePreference {
 
   const factory FilterablePreference({
     @Default('app.bsky.notification.defs#filterablePreference') String $type,
-    required String include,
+    @FilterablePreferenceIncludeConverter()
+    required FilterablePreferenceInclude include,
     required bool list,
     required bool push,
 

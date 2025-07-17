@@ -23,7 +23,13 @@ _ServerCreateSessionOutput _$ServerCreateSessionOutputFromJson(Map json) =>
         emailConfirmed: $checkedConvert('emailConfirmed', (v) => v as bool?),
         emailAuthFactor: $checkedConvert('emailAuthFactor', (v) => v as bool?),
         active: $checkedConvert('active', (v) => v as bool?),
-        status: $checkedConvert('status', (v) => v as String?),
+        status: $checkedConvert(
+          'status',
+          (v) => _$JsonConverterFromJson<String, ServerCreateSessionStatus>(
+            v,
+            const ServerCreateSessionStatusConverter().fromJson,
+          ),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -44,6 +50,19 @@ Map<String, dynamic> _$ServerCreateSessionOutputToJson(
   'emailConfirmed': instance.emailConfirmed,
   'emailAuthFactor': instance.emailAuthFactor,
   'active': instance.active,
-  'status': instance.status,
+  'status': _$JsonConverterToJson<String, ServerCreateSessionStatus>(
+    instance.status,
+    const ServerCreateSessionStatusConverter().toJson,
+  ),
   r'$unknown': instance.$unknown,
 };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

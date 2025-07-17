@@ -15,7 +15,12 @@ _ProfileAssociatedChat _$ProfileAssociatedChatFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.actor.defs#profileAssociatedChat',
         ),
-        allowIncoming: $checkedConvert('allowIncoming', (v) => v as String),
+        allowIncoming: $checkedConvert(
+          'allowIncoming',
+          (v) => const ProfileAssociatedChatAllowIncomingConverter().fromJson(
+            v as String,
+          ),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -28,6 +33,8 @@ Map<String, dynamic> _$ProfileAssociatedChatToJson(
   _ProfileAssociatedChat instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'allowIncoming': instance.allowIncoming,
+  'allowIncoming': const ProfileAssociatedChatAllowIncomingConverter().toJson(
+    instance.allowIncoming,
+  ),
   r'$unknown': instance.$unknown,
 };

@@ -21,8 +21,8 @@ part 'host_status.freezed.dart';
 abstract class HostStatus with _$HostStatus {
   const HostStatus._();
 
-  const factory HostStatus.known({required KnownHostStatus data}) =
-      HostStatusKnown;
+  const factory HostStatus.knownValue({required KnownHostStatus data}) =
+      HostStatusKnownValue;
 
   const factory HostStatus.unknown({required String data}) = HostStatusUnknown;
 
@@ -31,7 +31,7 @@ abstract class HostStatus with _$HostStatus {
     final knownValue = KnownHostStatus.valueOf(value);
 
     return knownValue != null
-        ? HostStatus.known(data: knownValue)
+        ? HostStatus.knownValue(data: knownValue)
         : HostStatus.unknown(data: value);
   }
 
@@ -39,9 +39,10 @@ abstract class HostStatus with _$HostStatus {
 }
 
 extension HostStatusExtension on HostStatus {
-  bool get isKnown => isA<HostStatusKnown>(this);
-  bool get isNotKnown => !isKnown;
-  KnownHostStatus? get known => isKnown ? data as KnownHostStatus : null;
+  bool get isKnownValue => isA<HostStatusKnownValue>(this);
+  bool get isNotKnownValue => !isKnownValue;
+  KnownHostStatus? get knownValue =>
+      isKnownValue ? data as KnownHostStatus : null;
   bool get isUnknown => isA<HostStatusUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   String? get unknown => isUnknown ? data as String : null;
@@ -55,7 +56,7 @@ final class HostStatusConverter extends JsonConverter<HostStatus, String> {
     try {
       final knownValue = KnownHostStatus.valueOf(json);
       if (knownValue != null) {
-        return HostStatus.known(data: knownValue);
+        return HostStatus.knownValue(data: knownValue);
       }
 
       return HostStatus.unknown(data: json);
@@ -66,7 +67,7 @@ final class HostStatusConverter extends JsonConverter<HostStatus, String> {
 
   @override
   String toJson(HostStatus object) =>
-      object.when(known: (data) => data.value, unknown: (data) => data);
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownHostStatus implements Serializable {
@@ -98,6 +99,7 @@ enum KnownHostStatus implements Serializable {
         return v;
       }
     }
+
     return null;
   }
 }

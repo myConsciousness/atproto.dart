@@ -12,4 +12,5 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/types/tools/ozone/setting/listOptions/input.dart';
+export 'package:bluesky/src/services/types/tools/ozone/setting/listOptions/main_scope.dart';
 export 'package:bluesky/src/services/types/tools/ozone/setting/listOptions/output.dart';

@@ -34,7 +34,10 @@ _Member _$MemberFromJson(Map json) => $checkedCreate('_Member', json, (
       (v) => v == null ? null : DateTime.parse(v as String),
     ),
     lastUpdatedBy: $checkedConvert('lastUpdatedBy', (v) => v as String?),
-    role: $checkedConvert('role', (v) => v as String),
+    role: $checkedConvert(
+      'role',
+      (v) => const MemberRoleConverter().fromJson(v as String),
+    ),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -54,7 +57,7 @@ Map<String, dynamic> _$MemberToJson(_Member instance) => <String, dynamic>{
   'createdAt': instance.createdAt?.toIso8601String(),
   'updatedAt': instance.updatedAt?.toIso8601String(),
   'lastUpdatedBy': instance.lastUpdatedBy,
-  'role': instance.role,
+  'role': const MemberRoleConverter().toJson(instance.role),
   r'$unknown': instance.$unknown,
 };
 

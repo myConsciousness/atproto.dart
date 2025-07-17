@@ -17,9 +17,9 @@ mixin _$LabelValueDefinition {
 
  String get $type;/// The value of the label being defined. Must only include lowercase ascii and the '-' character ([a-z-]+).
  String get identifier;/// How should a client visually convey this label? 'inform' means neutral and informational; 'alert' means negative and warning; 'none' means show nothing.
- String get severity;/// What should this label hide in the UI, if applied? 'content' hides all of the target; 'media' hides the images/video/audio; 'none' hides nothing.
- String get blurs;/// The default setting for this label.
- String? get defaultSetting;/// Does the user need to have adult content enabled in order to configure this label?
+@LabelValueDefinitionSeverityConverter() LabelValueDefinitionSeverity get severity;/// What should this label hide in the UI, if applied? 'content' hides all of the target; 'media' hides the images/video/audio; 'none' hides nothing.
+@LabelValueDefinitionBlursConverter() LabelValueDefinitionBlurs get blurs;/// The default setting for this label.
+@LabelValueDefinitionDefaultSettingConverter() LabelValueDefinitionDefaultSetting? get defaultSetting;/// Does the user need to have adult content enabled in order to configure this label?
  bool? get adultOnly;@LabelValueDefinitionStringsConverter() List<LabelValueDefinitionStrings> get locales; Map<String, dynamic>? get $unknown;
 /// Create a copy of LabelValueDefinition
 /// with the given fields replaced by the non-null parameter values.
@@ -53,11 +53,11 @@ abstract mixin class $LabelValueDefinitionCopyWith<$Res>  {
   factory $LabelValueDefinitionCopyWith(LabelValueDefinition value, $Res Function(LabelValueDefinition) _then) = _$LabelValueDefinitionCopyWithImpl;
 @useResult
 $Res call({
- String $type, String identifier, String severity, String blurs, String? defaultSetting, bool? adultOnly,@LabelValueDefinitionStringsConverter() List<LabelValueDefinitionStrings> locales, Map<String, dynamic>? $unknown
+ String $type, String identifier,@LabelValueDefinitionSeverityConverter() LabelValueDefinitionSeverity severity,@LabelValueDefinitionBlursConverter() LabelValueDefinitionBlurs blurs,@LabelValueDefinitionDefaultSettingConverter() LabelValueDefinitionDefaultSetting? defaultSetting, bool? adultOnly,@LabelValueDefinitionStringsConverter() List<LabelValueDefinitionStrings> locales, Map<String, dynamic>? $unknown
 });
 
 
-
+$LabelValueDefinitionSeverityCopyWith<$Res> get severity;$LabelValueDefinitionBlursCopyWith<$Res> get blurs;$LabelValueDefinitionDefaultSettingCopyWith<$Res>? get defaultSetting;
 
 }
 /// @nodoc
@@ -75,15 +75,45 @@ class _$LabelValueDefinitionCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,identifier: null == identifier ? _self.identifier : identifier // ignore: cast_nullable_to_non_nullable
 as String,severity: null == severity ? _self.severity : severity // ignore: cast_nullable_to_non_nullable
-as String,blurs: null == blurs ? _self.blurs : blurs // ignore: cast_nullable_to_non_nullable
-as String,defaultSetting: freezed == defaultSetting ? _self.defaultSetting : defaultSetting // ignore: cast_nullable_to_non_nullable
-as String?,adultOnly: freezed == adultOnly ? _self.adultOnly : adultOnly // ignore: cast_nullable_to_non_nullable
+as LabelValueDefinitionSeverity,blurs: null == blurs ? _self.blurs : blurs // ignore: cast_nullable_to_non_nullable
+as LabelValueDefinitionBlurs,defaultSetting: freezed == defaultSetting ? _self.defaultSetting : defaultSetting // ignore: cast_nullable_to_non_nullable
+as LabelValueDefinitionDefaultSetting?,adultOnly: freezed == adultOnly ? _self.adultOnly : adultOnly // ignore: cast_nullable_to_non_nullable
 as bool?,locales: null == locales ? _self.locales : locales // ignore: cast_nullable_to_non_nullable
 as List<LabelValueDefinitionStrings>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of LabelValueDefinition
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LabelValueDefinitionSeverityCopyWith<$Res> get severity {
+  
+  return $LabelValueDefinitionSeverityCopyWith<$Res>(_self.severity, (value) {
+    return _then(_self.copyWith(severity: value));
+  });
+}/// Create a copy of LabelValueDefinition
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LabelValueDefinitionBlursCopyWith<$Res> get blurs {
+  
+  return $LabelValueDefinitionBlursCopyWith<$Res>(_self.blurs, (value) {
+    return _then(_self.copyWith(blurs: value));
+  });
+}/// Create a copy of LabelValueDefinition
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LabelValueDefinitionDefaultSettingCopyWith<$Res>? get defaultSetting {
+    if (_self.defaultSetting == null) {
+    return null;
+  }
 
+  return $LabelValueDefinitionDefaultSettingCopyWith<$Res>(_self.defaultSetting!, (value) {
+    return _then(_self.copyWith(defaultSetting: value));
+  });
+}
 }
 
 
@@ -165,7 +195,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String identifier,  String severity,  String blurs,  String? defaultSetting,  bool? adultOnly, @LabelValueDefinitionStringsConverter()  List<LabelValueDefinitionStrings> locales,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String identifier, @LabelValueDefinitionSeverityConverter()  LabelValueDefinitionSeverity severity, @LabelValueDefinitionBlursConverter()  LabelValueDefinitionBlurs blurs, @LabelValueDefinitionDefaultSettingConverter()  LabelValueDefinitionDefaultSetting? defaultSetting,  bool? adultOnly, @LabelValueDefinitionStringsConverter()  List<LabelValueDefinitionStrings> locales,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LabelValueDefinition() when $default != null:
 return $default(_that.$type,_that.identifier,_that.severity,_that.blurs,_that.defaultSetting,_that.adultOnly,_that.locales,_that.$unknown);case _:
@@ -186,7 +216,7 @@ return $default(_that.$type,_that.identifier,_that.severity,_that.blurs,_that.de
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String identifier,  String severity,  String blurs,  String? defaultSetting,  bool? adultOnly, @LabelValueDefinitionStringsConverter()  List<LabelValueDefinitionStrings> locales,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String identifier, @LabelValueDefinitionSeverityConverter()  LabelValueDefinitionSeverity severity, @LabelValueDefinitionBlursConverter()  LabelValueDefinitionBlurs blurs, @LabelValueDefinitionDefaultSettingConverter()  LabelValueDefinitionDefaultSetting? defaultSetting,  bool? adultOnly, @LabelValueDefinitionStringsConverter()  List<LabelValueDefinitionStrings> locales,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _LabelValueDefinition():
 return $default(_that.$type,_that.identifier,_that.severity,_that.blurs,_that.defaultSetting,_that.adultOnly,_that.locales,_that.$unknown);case _:
@@ -206,7 +236,7 @@ return $default(_that.$type,_that.identifier,_that.severity,_that.blurs,_that.de
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String identifier,  String severity,  String blurs,  String? defaultSetting,  bool? adultOnly, @LabelValueDefinitionStringsConverter()  List<LabelValueDefinitionStrings> locales,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String identifier, @LabelValueDefinitionSeverityConverter()  LabelValueDefinitionSeverity severity, @LabelValueDefinitionBlursConverter()  LabelValueDefinitionBlurs blurs, @LabelValueDefinitionDefaultSettingConverter()  LabelValueDefinitionDefaultSetting? defaultSetting,  bool? adultOnly, @LabelValueDefinitionStringsConverter()  List<LabelValueDefinitionStrings> locales,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _LabelValueDefinition() when $default != null:
 return $default(_that.$type,_that.identifier,_that.severity,_that.blurs,_that.defaultSetting,_that.adultOnly,_that.locales,_that.$unknown);case _:
@@ -221,18 +251,18 @@ return $default(_that.$type,_that.identifier,_that.severity,_that.blurs,_that.de
 @JsonSerializable()
 
 class _LabelValueDefinition implements LabelValueDefinition {
-  const _LabelValueDefinition({this.$type = 'com.atproto.label.defs#labelValueDefinition', required this.identifier, required this.severity, required this.blurs, this.defaultSetting, this.adultOnly, @LabelValueDefinitionStringsConverter() required final  List<LabelValueDefinitionStrings> locales, final  Map<String, dynamic>? $unknown}): _locales = locales,_$unknown = $unknown;
+  const _LabelValueDefinition({this.$type = 'com.atproto.label.defs#labelValueDefinition', required this.identifier, @LabelValueDefinitionSeverityConverter() required this.severity, @LabelValueDefinitionBlursConverter() required this.blurs, @LabelValueDefinitionDefaultSettingConverter() this.defaultSetting, this.adultOnly, @LabelValueDefinitionStringsConverter() required final  List<LabelValueDefinitionStrings> locales, final  Map<String, dynamic>? $unknown}): _locales = locales,_$unknown = $unknown;
   factory _LabelValueDefinition.fromJson(Map<String, dynamic> json) => _$LabelValueDefinitionFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The value of the label being defined. Must only include lowercase ascii and the '-' character ([a-z-]+).
 @override final  String identifier;
 /// How should a client visually convey this label? 'inform' means neutral and informational; 'alert' means negative and warning; 'none' means show nothing.
-@override final  String severity;
+@override@LabelValueDefinitionSeverityConverter() final  LabelValueDefinitionSeverity severity;
 /// What should this label hide in the UI, if applied? 'content' hides all of the target; 'media' hides the images/video/audio; 'none' hides nothing.
-@override final  String blurs;
+@override@LabelValueDefinitionBlursConverter() final  LabelValueDefinitionBlurs blurs;
 /// The default setting for this label.
-@override final  String? defaultSetting;
+@override@LabelValueDefinitionDefaultSettingConverter() final  LabelValueDefinitionDefaultSetting? defaultSetting;
 /// Does the user need to have adult content enabled in order to configure this label?
 @override final  bool? adultOnly;
  final  List<LabelValueDefinitionStrings> _locales;
@@ -285,11 +315,11 @@ abstract mixin class _$LabelValueDefinitionCopyWith<$Res> implements $LabelValue
   factory _$LabelValueDefinitionCopyWith(_LabelValueDefinition value, $Res Function(_LabelValueDefinition) _then) = __$LabelValueDefinitionCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String identifier, String severity, String blurs, String? defaultSetting, bool? adultOnly,@LabelValueDefinitionStringsConverter() List<LabelValueDefinitionStrings> locales, Map<String, dynamic>? $unknown
+ String $type, String identifier,@LabelValueDefinitionSeverityConverter() LabelValueDefinitionSeverity severity,@LabelValueDefinitionBlursConverter() LabelValueDefinitionBlurs blurs,@LabelValueDefinitionDefaultSettingConverter() LabelValueDefinitionDefaultSetting? defaultSetting, bool? adultOnly,@LabelValueDefinitionStringsConverter() List<LabelValueDefinitionStrings> locales, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $LabelValueDefinitionSeverityCopyWith<$Res> get severity;@override $LabelValueDefinitionBlursCopyWith<$Res> get blurs;@override $LabelValueDefinitionDefaultSettingCopyWith<$Res>? get defaultSetting;
 
 }
 /// @nodoc
@@ -307,16 +337,46 @@ class __$LabelValueDefinitionCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,identifier: null == identifier ? _self.identifier : identifier // ignore: cast_nullable_to_non_nullable
 as String,severity: null == severity ? _self.severity : severity // ignore: cast_nullable_to_non_nullable
-as String,blurs: null == blurs ? _self.blurs : blurs // ignore: cast_nullable_to_non_nullable
-as String,defaultSetting: freezed == defaultSetting ? _self.defaultSetting : defaultSetting // ignore: cast_nullable_to_non_nullable
-as String?,adultOnly: freezed == adultOnly ? _self.adultOnly : adultOnly // ignore: cast_nullable_to_non_nullable
+as LabelValueDefinitionSeverity,blurs: null == blurs ? _self.blurs : blurs // ignore: cast_nullable_to_non_nullable
+as LabelValueDefinitionBlurs,defaultSetting: freezed == defaultSetting ? _self.defaultSetting : defaultSetting // ignore: cast_nullable_to_non_nullable
+as LabelValueDefinitionDefaultSetting?,adultOnly: freezed == adultOnly ? _self.adultOnly : adultOnly // ignore: cast_nullable_to_non_nullable
 as bool?,locales: null == locales ? _self._locales : locales // ignore: cast_nullable_to_non_nullable
 as List<LabelValueDefinitionStrings>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of LabelValueDefinition
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LabelValueDefinitionSeverityCopyWith<$Res> get severity {
+  
+  return $LabelValueDefinitionSeverityCopyWith<$Res>(_self.severity, (value) {
+    return _then(_self.copyWith(severity: value));
+  });
+}/// Create a copy of LabelValueDefinition
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LabelValueDefinitionBlursCopyWith<$Res> get blurs {
+  
+  return $LabelValueDefinitionBlursCopyWith<$Res>(_self.blurs, (value) {
+    return _then(_self.copyWith(blurs: value));
+  });
+}/// Create a copy of LabelValueDefinition
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LabelValueDefinitionDefaultSettingCopyWith<$Res>? get defaultSetting {
+    if (_self.defaultSetting == null) {
+    return null;
+  }
 
+  return $LabelValueDefinitionDefaultSettingCopyWith<$Res>(_self.defaultSetting!, (value) {
+    return _then(_self.copyWith(defaultSetting: value));
+  });
+}
 }
 
 // dart format on

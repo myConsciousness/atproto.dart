@@ -19,5 +19,7 @@ export 'package:atproto/src/services/types/com/atproto/repo/applyWrites/create.d
 export 'package:atproto/src/services/types/com/atproto/repo/applyWrites/update.dart';
 export 'package:atproto/src/services/types/com/atproto/repo/applyWrites/delete.dart';
 export 'package:atproto/src/services/types/com/atproto/repo/applyWrites/create_result.dart';
+export 'package:atproto/src/services/types/com/atproto/repo/applyWrites/create_result_validation_status.dart';
 export 'package:atproto/src/services/types/com/atproto/repo/applyWrites/update_result.dart';
+export 'package:atproto/src/services/types/com/atproto/repo/applyWrites/update_result_validation_status.dart';
 export 'package:atproto/src/services/types/com/atproto/repo/applyWrites/delete_result.dart';

@@ -92,10 +92,12 @@ String getFilePath(
   } else if (state == LexTypeState.output) {
     return '${getHomeDir(lexiconId)}/${_getFileDir(lexiconId)}/output.dart';
   } else {
-    if (fieldName == null) {
-      final fileName = getLexObjectFileName(defName);
+    if (fieldName != null) {
+      final prefix = getLexObjectFileName(defName);
       final suffix = getLexObjectFileName(fieldName);
-      return '${getHomeDir(lexiconId)}/${_getFileDir(lexiconId)}/$fileName$suffix.dart';
+      final fileName = [prefix, suffix].join('_');
+
+      return '${getHomeDir(lexiconId)}/${_getFileDir(lexiconId)}/$fileName.dart';
     } else {
       return '${getHomeDir(lexiconId)}/${_getFileDir(lexiconId)}/${getLexObjectFileName(defName)}.dart';
     }
@@ -285,8 +287,8 @@ String getPackageRelativePath(final String lexiconId, final String ref) {
     }
   } else {
     if (ref.contains('#')) {
-      final lexiconId0 = ref.split('#').first;
-      return 'package:${getRootPackageName(lexiconId0)}';
+      final lexiconId = ref.split('#').first;
+      return 'package:${getRootPackageName(lexiconId)}';
     } else {
       return 'package:${getRootPackageName(ref)}';
     }

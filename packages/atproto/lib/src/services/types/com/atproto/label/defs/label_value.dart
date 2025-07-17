@@ -21,8 +21,8 @@ part 'label_value.freezed.dart';
 abstract class LabelValue with _$LabelValue {
   const LabelValue._();
 
-  const factory LabelValue.known({required KnownLabelValue data}) =
-      LabelValueKnown;
+  const factory LabelValue.knownValue({required KnownLabelValue data}) =
+      LabelValueKnownValue;
 
   const factory LabelValue.unknown({required String data}) = LabelValueUnknown;
 
@@ -31,7 +31,7 @@ abstract class LabelValue with _$LabelValue {
     final knownValue = KnownLabelValue.valueOf(value);
 
     return knownValue != null
-        ? LabelValue.known(data: knownValue)
+        ? LabelValue.knownValue(data: knownValue)
         : LabelValue.unknown(data: value);
   }
 
@@ -39,9 +39,10 @@ abstract class LabelValue with _$LabelValue {
 }
 
 extension LabelValueExtension on LabelValue {
-  bool get isKnown => isA<LabelValueKnown>(this);
-  bool get isNotKnown => !isKnown;
-  KnownLabelValue? get known => isKnown ? data as KnownLabelValue : null;
+  bool get isKnownValue => isA<LabelValueKnownValue>(this);
+  bool get isNotKnownValue => !isKnownValue;
+  KnownLabelValue? get knownValue =>
+      isKnownValue ? data as KnownLabelValue : null;
   bool get isUnknown => isA<LabelValueUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   String? get unknown => isUnknown ? data as String : null;
@@ -55,7 +56,7 @@ final class LabelValueConverter extends JsonConverter<LabelValue, String> {
     try {
       final knownValue = KnownLabelValue.valueOf(json);
       if (knownValue != null) {
-        return LabelValue.known(data: knownValue);
+        return LabelValue.knownValue(data: knownValue);
       }
 
       return LabelValue.unknown(data: json);
@@ -66,7 +67,7 @@ final class LabelValueConverter extends JsonConverter<LabelValue, String> {
 
   @override
   String toJson(LabelValue object) =>
-      object.when(known: (data) => data.value, unknown: (data) => data);
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownLabelValue implements Serializable {
@@ -110,6 +111,7 @@ enum KnownLabelValue implements Serializable {
         return v;
       }
     }
+
     return null;
   }
 }

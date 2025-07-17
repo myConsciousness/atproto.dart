@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RepoPutRecordOutput {
 
- String get uri; String get cid;@CommitMetaConverter() CommitMeta? get commit; String? get validationStatus; Map<String, dynamic>? get $unknown;
+ String get uri; String get cid;@CommitMetaConverter() CommitMeta? get commit;@RepoPutRecordValidationStatusConverter() RepoPutRecordValidationStatus? get validationStatus; Map<String, dynamic>? get $unknown;
 /// Create a copy of RepoPutRecordOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $RepoPutRecordOutputCopyWith<$Res>  {
   factory $RepoPutRecordOutputCopyWith(RepoPutRecordOutput value, $Res Function(RepoPutRecordOutput) _then) = _$RepoPutRecordOutputCopyWithImpl;
 @useResult
 $Res call({
- String uri, String cid,@CommitMetaConverter() CommitMeta? commit, String? validationStatus, Map<String, dynamic>? $unknown
+ String uri, String cid,@CommitMetaConverter() CommitMeta? commit,@RepoPutRecordValidationStatusConverter() RepoPutRecordValidationStatus? validationStatus, Map<String, dynamic>? $unknown
 });
 
 
-$CommitMetaCopyWith<$Res>? get commit;
+$CommitMetaCopyWith<$Res>? get commit;$RepoPutRecordValidationStatusCopyWith<$Res>? get validationStatus;
 
 }
 /// @nodoc
@@ -71,7 +71,7 @@ uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,commit: freezed == commit ? _self.commit : commit // ignore: cast_nullable_to_non_nullable
 as CommitMeta?,validationStatus: freezed == validationStatus ? _self.validationStatus : validationStatus // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as RepoPutRecordValidationStatus?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -86,6 +86,18 @@ $CommitMetaCopyWith<$Res>? get commit {
 
   return $CommitMetaCopyWith<$Res>(_self.commit!, (value) {
     return _then(_self.copyWith(commit: value));
+  });
+}/// Create a copy of RepoPutRecordOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RepoPutRecordValidationStatusCopyWith<$Res>? get validationStatus {
+    if (_self.validationStatus == null) {
+    return null;
+  }
+
+  return $RepoPutRecordValidationStatusCopyWith<$Res>(_self.validationStatus!, (value) {
+    return _then(_self.copyWith(validationStatus: value));
   });
 }
 }
@@ -169,7 +181,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uri,  String cid, @CommitMetaConverter()  CommitMeta? commit,  String? validationStatus,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uri,  String cid, @CommitMetaConverter()  CommitMeta? commit, @RepoPutRecordValidationStatusConverter()  RepoPutRecordValidationStatus? validationStatus,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RepoPutRecordOutput() when $default != null:
 return $default(_that.uri,_that.cid,_that.commit,_that.validationStatus,_that.$unknown);case _:
@@ -190,7 +202,7 @@ return $default(_that.uri,_that.cid,_that.commit,_that.validationStatus,_that.$u
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uri,  String cid, @CommitMetaConverter()  CommitMeta? commit,  String? validationStatus,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uri,  String cid, @CommitMetaConverter()  CommitMeta? commit, @RepoPutRecordValidationStatusConverter()  RepoPutRecordValidationStatus? validationStatus,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _RepoPutRecordOutput():
 return $default(_that.uri,_that.cid,_that.commit,_that.validationStatus,_that.$unknown);case _:
@@ -210,7 +222,7 @@ return $default(_that.uri,_that.cid,_that.commit,_that.validationStatus,_that.$u
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uri,  String cid, @CommitMetaConverter()  CommitMeta? commit,  String? validationStatus,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uri,  String cid, @CommitMetaConverter()  CommitMeta? commit, @RepoPutRecordValidationStatusConverter()  RepoPutRecordValidationStatus? validationStatus,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _RepoPutRecordOutput() when $default != null:
 return $default(_that.uri,_that.cid,_that.commit,_that.validationStatus,_that.$unknown);case _:
@@ -225,13 +237,13 @@ return $default(_that.uri,_that.cid,_that.commit,_that.validationStatus,_that.$u
 @JsonSerializable()
 
 class _RepoPutRecordOutput implements RepoPutRecordOutput {
-  const _RepoPutRecordOutput({required this.uri, required this.cid, @CommitMetaConverter() this.commit, this.validationStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RepoPutRecordOutput({required this.uri, required this.cid, @CommitMetaConverter() this.commit, @RepoPutRecordValidationStatusConverter() this.validationStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoPutRecordOutput.fromJson(Map<String, dynamic> json) => _$RepoPutRecordOutputFromJson(json);
 
 @override final  String uri;
 @override final  String cid;
 @override@CommitMetaConverter() final  CommitMeta? commit;
-@override final  String? validationStatus;
+@override@RepoPutRecordValidationStatusConverter() final  RepoPutRecordValidationStatus? validationStatus;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -275,11 +287,11 @@ abstract mixin class _$RepoPutRecordOutputCopyWith<$Res> implements $RepoPutReco
   factory _$RepoPutRecordOutputCopyWith(_RepoPutRecordOutput value, $Res Function(_RepoPutRecordOutput) _then) = __$RepoPutRecordOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String uri, String cid,@CommitMetaConverter() CommitMeta? commit, String? validationStatus, Map<String, dynamic>? $unknown
+ String uri, String cid,@CommitMetaConverter() CommitMeta? commit,@RepoPutRecordValidationStatusConverter() RepoPutRecordValidationStatus? validationStatus, Map<String, dynamic>? $unknown
 });
 
 
-@override $CommitMetaCopyWith<$Res>? get commit;
+@override $CommitMetaCopyWith<$Res>? get commit;@override $RepoPutRecordValidationStatusCopyWith<$Res>? get validationStatus;
 
 }
 /// @nodoc
@@ -298,7 +310,7 @@ uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,commit: freezed == commit ? _self.commit : commit // ignore: cast_nullable_to_non_nullable
 as CommitMeta?,validationStatus: freezed == validationStatus ? _self.validationStatus : validationStatus // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as RepoPutRecordValidationStatus?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -314,6 +326,18 @@ $CommitMetaCopyWith<$Res>? get commit {
 
   return $CommitMetaCopyWith<$Res>(_self.commit!, (value) {
     return _then(_self.copyWith(commit: value));
+  });
+}/// Create a copy of RepoPutRecordOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RepoPutRecordValidationStatusCopyWith<$Res>? get validationStatus {
+    if (_self.validationStatus == null) {
+    return null;
+  }
+
+  return $RepoPutRecordValidationStatusCopyWith<$Res>(_self.validationStatus!, (value) {
+    return _then(_self.copyWith(validationStatus: value));
   });
 }
 }

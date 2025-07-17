@@ -11,6 +11,10 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_read_state.dart';
+import './main_status.dart';
+
 part 'input.freezed.dart';
 part 'input.g.dart';
 
@@ -25,8 +29,8 @@ abstract class ConvoListConvosInput with _$ConvoListConvosInput {
   const factory ConvoListConvosInput({
     int? limit,
     String? cursor,
-    String? readState,
-    String? status,
+    @ConvoListConvosReadStateConverter() ConvoListConvosReadState? readState,
+    @ConvoListConvosStatusConverter() ConvoListConvosStatus? status,
 
     Map<String, dynamic>? $unknown,
   }) = _ConvoListConvosInput;

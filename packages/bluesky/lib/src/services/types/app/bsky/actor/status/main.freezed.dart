@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$ActorStatusRecord {
 
  String get $type;/// The status for the account.
- String get status;@UActorStatusEmbedConverter() UActorStatusEmbed? get embed;/// The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.
+@ActorStatusStatusConverter() ActorStatusStatus get status;@UActorStatusEmbedConverter() UActorStatusEmbed? get embed;/// The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.
  int? get durationMinutes; DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of ActorStatusRecord
 /// with the given fields replaced by the non-null parameter values.
@@ -50,11 +50,11 @@ abstract mixin class $ActorStatusRecordCopyWith<$Res>  {
   factory $ActorStatusRecordCopyWith(ActorStatusRecord value, $Res Function(ActorStatusRecord) _then) = _$ActorStatusRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type, String status,@UActorStatusEmbedConverter() UActorStatusEmbed? embed, int? durationMinutes, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type,@ActorStatusStatusConverter() ActorStatusStatus status,@UActorStatusEmbedConverter() UActorStatusEmbed? embed, int? durationMinutes, DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
-$UActorStatusEmbedCopyWith<$Res>? get embed;
+$ActorStatusStatusCopyWith<$Res> get status;$UActorStatusEmbedCopyWith<$Res>? get embed;
 
 }
 /// @nodoc
@@ -71,7 +71,7 @@ class _$ActorStatusRecordCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String,embed: freezed == embed ? _self.embed : embed // ignore: cast_nullable_to_non_nullable
+as ActorStatusStatus,embed: freezed == embed ? _self.embed : embed // ignore: cast_nullable_to_non_nullable
 as UActorStatusEmbed?,durationMinutes: freezed == durationMinutes ? _self.durationMinutes : durationMinutes // ignore: cast_nullable_to_non_nullable
 as int?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -79,6 +79,15 @@ as Map<String, dynamic>?,
   ));
 }
 /// Create a copy of ActorStatusRecord
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ActorStatusStatusCopyWith<$Res> get status {
+  
+  return $ActorStatusStatusCopyWith<$Res>(_self.status, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}/// Create a copy of ActorStatusRecord
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -172,7 +181,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String status, @UActorStatusEmbedConverter()  UActorStatusEmbed? embed,  int? durationMinutes,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ActorStatusStatusConverter()  ActorStatusStatus status, @UActorStatusEmbedConverter()  UActorStatusEmbed? embed,  int? durationMinutes,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ActorStatusRecord() when $default != null:
 return $default(_that.$type,_that.status,_that.embed,_that.durationMinutes,_that.createdAt,_that.$unknown);case _:
@@ -193,7 +202,7 @@ return $default(_that.$type,_that.status,_that.embed,_that.durationMinutes,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String status, @UActorStatusEmbedConverter()  UActorStatusEmbed? embed,  int? durationMinutes,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ActorStatusStatusConverter()  ActorStatusStatus status, @UActorStatusEmbedConverter()  UActorStatusEmbed? embed,  int? durationMinutes,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ActorStatusRecord():
 return $default(_that.$type,_that.status,_that.embed,_that.durationMinutes,_that.createdAt,_that.$unknown);case _:
@@ -213,7 +222,7 @@ return $default(_that.$type,_that.status,_that.embed,_that.durationMinutes,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String status, @UActorStatusEmbedConverter()  UActorStatusEmbed? embed,  int? durationMinutes,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ActorStatusStatusConverter()  ActorStatusStatus status, @UActorStatusEmbedConverter()  UActorStatusEmbed? embed,  int? durationMinutes,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ActorStatusRecord() when $default != null:
 return $default(_that.$type,_that.status,_that.embed,_that.durationMinutes,_that.createdAt,_that.$unknown);case _:
@@ -228,12 +237,12 @@ return $default(_that.$type,_that.status,_that.embed,_that.durationMinutes,_that
 @JsonSerializable()
 
 class _ActorStatusRecord implements ActorStatusRecord {
-  const _ActorStatusRecord({this.$type = 'app.bsky.actor.status', required this.status, @UActorStatusEmbedConverter() this.embed, this.durationMinutes, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ActorStatusRecord({this.$type = 'app.bsky.actor.status', @ActorStatusStatusConverter() required this.status, @UActorStatusEmbedConverter() this.embed, this.durationMinutes, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ActorStatusRecord.fromJson(Map<String, dynamic> json) => _$ActorStatusRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The status for the account.
-@override final  String status;
+@override@ActorStatusStatusConverter() final  ActorStatusStatus status;
 @override@UActorStatusEmbedConverter() final  UActorStatusEmbed? embed;
 /// The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.
 @override final  int? durationMinutes;
@@ -281,11 +290,11 @@ abstract mixin class _$ActorStatusRecordCopyWith<$Res> implements $ActorStatusRe
   factory _$ActorStatusRecordCopyWith(_ActorStatusRecord value, $Res Function(_ActorStatusRecord) _then) = __$ActorStatusRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String status,@UActorStatusEmbedConverter() UActorStatusEmbed? embed, int? durationMinutes, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type,@ActorStatusStatusConverter() ActorStatusStatus status,@UActorStatusEmbedConverter() UActorStatusEmbed? embed, int? durationMinutes, DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
-@override $UActorStatusEmbedCopyWith<$Res>? get embed;
+@override $ActorStatusStatusCopyWith<$Res> get status;@override $UActorStatusEmbedCopyWith<$Res>? get embed;
 
 }
 /// @nodoc
@@ -302,7 +311,7 @@ class __$ActorStatusRecordCopyWithImpl<$Res>
   return _then(_ActorStatusRecord(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String,embed: freezed == embed ? _self.embed : embed // ignore: cast_nullable_to_non_nullable
+as ActorStatusStatus,embed: freezed == embed ? _self.embed : embed // ignore: cast_nullable_to_non_nullable
 as UActorStatusEmbed?,durationMinutes: freezed == durationMinutes ? _self.durationMinutes : durationMinutes // ignore: cast_nullable_to_non_nullable
 as int?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -311,6 +320,15 @@ as Map<String, dynamic>?,
 }
 
 /// Create a copy of ActorStatusRecord
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ActorStatusStatusCopyWith<$Res> get status {
+  
+  return $ActorStatusStatusCopyWith<$Res>(_self.status, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}/// Create a copy of ActorStatusRecord
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')

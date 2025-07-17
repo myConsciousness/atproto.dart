@@ -17,7 +17,7 @@ void main() {
   testLabeler<RepoCreateRecordOutput>(
     (m, s) => s.service(
       policies: LabelerPolicies(
-        labelValues: [LabelValue.known(data: KnownLabelValue.hide)],
+        labelValues: const [LabelValue.knownValue(data: KnownLabelValue.hide)],
       ),
     ),
     id: appBskyLabelerService,

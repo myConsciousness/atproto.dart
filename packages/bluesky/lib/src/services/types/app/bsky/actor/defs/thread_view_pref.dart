@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './thread_view_pref_sort.dart';
+
 part 'thread_view_pref.freezed.dart';
 part 'thread_view_pref.g.dart';
 
@@ -26,7 +29,7 @@ abstract class ThreadViewPref with _$ThreadViewPref {
     @Default('app.bsky.actor.defs#threadViewPref') String $type,
 
     /// Sorting mode for threads.
-    String? sort,
+    @ThreadViewPrefSortConverter() ThreadViewPrefSort? sort,
 
     /// Show followed users at the top of all replies.
     bool? prioritizeFollowedUsers,

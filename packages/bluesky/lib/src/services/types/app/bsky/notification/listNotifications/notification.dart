@@ -14,6 +14,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../app/bsky/actor/defs/profile_view.dart';
+import './notification_reason.dart';
 
 part 'notification.freezed.dart';
 part 'notification.g.dart';
@@ -44,7 +45,7 @@ abstract class Notification with _$Notification {
     @ProfileViewConverter() required ProfileView author,
 
     /// The reason why this notification was delivered - e.g. your post was liked, or you received a new follower.
-    required String reason,
+    @NotificationReasonConverter() required NotificationReason reason,
     String? reasonSubject,
     required Map<String, dynamic> record,
     required bool isRead,

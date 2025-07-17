@@ -15,7 +15,13 @@ _ThreadViewPref _$ThreadViewPrefFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.actor.defs#threadViewPref',
         ),
-        sort: $checkedConvert('sort', (v) => v as String?),
+        sort: $checkedConvert(
+          'sort',
+          (v) => _$JsonConverterFromJson<String, ThreadViewPrefSort>(
+            v,
+            const ThreadViewPrefSortConverter().fromJson,
+          ),
+        ),
         prioritizeFollowedUsers: $checkedConvert(
           'prioritizeFollowedUsers',
           (v) => v as bool?,
@@ -31,7 +37,20 @@ _ThreadViewPref _$ThreadViewPrefFromJson(Map json) =>
 Map<String, dynamic> _$ThreadViewPrefToJson(_ThreadViewPref instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'sort': instance.sort,
+      'sort': _$JsonConverterToJson<String, ThreadViewPrefSort>(
+        instance.sort,
+        const ThreadViewPrefSortConverter().toJson,
+      ),
       'prioritizeFollowedUsers': instance.prioritizeFollowedUsers,
       r'$unknown': instance.$unknown,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

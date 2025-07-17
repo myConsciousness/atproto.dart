@@ -12,3 +12,4 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/types/app/bsky/notification/declaration/main.dart';
+export 'package:bluesky/src/services/types/app/bsky/notification/declaration/main_allow_subscriptions.dart';

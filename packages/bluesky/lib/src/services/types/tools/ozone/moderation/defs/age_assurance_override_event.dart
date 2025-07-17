@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './age_assurance_override_event_status.dart';
+
 part 'age_assurance_override_event.freezed.dart';
 part 'age_assurance_override_event.g.dart';
 
@@ -28,7 +31,8 @@ abstract class AgeAssuranceOverrideEvent with _$AgeAssuranceOverrideEvent {
     String $type,
 
     /// The status to be set for the user decided by a moderator, overriding whatever value the user had previously. Use reset to default to original state.
-    required String status,
+    @AgeAssuranceOverrideEventStatusConverter()
+    required AgeAssuranceOverrideEventStatus status,
 
     /// Comment describing the reason for the override.
     required String comment,

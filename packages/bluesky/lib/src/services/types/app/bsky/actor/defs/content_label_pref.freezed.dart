@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$ContentLabelPref {
 
  String get $type;/// Which labeler does this preference apply to? If undefined, applies globally.
- String? get labelerDid; String get label; String get visibility; Map<String, dynamic>? get $unknown;
+ String? get labelerDid; String get label;@ContentLabelPrefVisibilityConverter() ContentLabelPrefVisibility get visibility; Map<String, dynamic>? get $unknown;
 /// Create a copy of ContentLabelPref
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,11 +49,11 @@ abstract mixin class $ContentLabelPrefCopyWith<$Res>  {
   factory $ContentLabelPrefCopyWith(ContentLabelPref value, $Res Function(ContentLabelPref) _then) = _$ContentLabelPrefCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? labelerDid, String label, String visibility, Map<String, dynamic>? $unknown
+ String $type, String? labelerDid, String label,@ContentLabelPrefVisibilityConverter() ContentLabelPrefVisibility visibility, Map<String, dynamic>? $unknown
 });
 
 
-
+$ContentLabelPrefVisibilityCopyWith<$Res> get visibility;
 
 }
 /// @nodoc
@@ -72,11 +72,20 @@ $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nulla
 as String,labelerDid: freezed == labelerDid ? _self.labelerDid : labelerDid // ignore: cast_nullable_to_non_nullable
 as String?,label: null == label ? _self.label : label // ignore: cast_nullable_to_non_nullable
 as String,visibility: null == visibility ? _self.visibility : visibility // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ContentLabelPrefVisibility,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of ContentLabelPref
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ContentLabelPrefVisibilityCopyWith<$Res> get visibility {
+  
+  return $ContentLabelPrefVisibilityCopyWith<$Res>(_self.visibility, (value) {
+    return _then(_self.copyWith(visibility: value));
+  });
+}
 }
 
 
@@ -158,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? labelerDid,  String label,  String visibility,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? labelerDid,  String label, @ContentLabelPrefVisibilityConverter()  ContentLabelPrefVisibility visibility,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ContentLabelPref() when $default != null:
 return $default(_that.$type,_that.labelerDid,_that.label,_that.visibility,_that.$unknown);case _:
@@ -179,7 +188,7 @@ return $default(_that.$type,_that.labelerDid,_that.label,_that.visibility,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? labelerDid,  String label,  String visibility,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? labelerDid,  String label, @ContentLabelPrefVisibilityConverter()  ContentLabelPrefVisibility visibility,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ContentLabelPref():
 return $default(_that.$type,_that.labelerDid,_that.label,_that.visibility,_that.$unknown);case _:
@@ -199,7 +208,7 @@ return $default(_that.$type,_that.labelerDid,_that.label,_that.visibility,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? labelerDid,  String label,  String visibility,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? labelerDid,  String label, @ContentLabelPrefVisibilityConverter()  ContentLabelPrefVisibility visibility,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ContentLabelPref() when $default != null:
 return $default(_that.$type,_that.labelerDid,_that.label,_that.visibility,_that.$unknown);case _:
@@ -214,14 +223,14 @@ return $default(_that.$type,_that.labelerDid,_that.label,_that.visibility,_that.
 @JsonSerializable()
 
 class _ContentLabelPref implements ContentLabelPref {
-  const _ContentLabelPref({this.$type = 'app.bsky.actor.defs#contentLabelPref', this.labelerDid, required this.label, required this.visibility, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ContentLabelPref({this.$type = 'app.bsky.actor.defs#contentLabelPref', this.labelerDid, required this.label, @ContentLabelPrefVisibilityConverter() required this.visibility, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ContentLabelPref.fromJson(Map<String, dynamic> json) => _$ContentLabelPrefFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// Which labeler does this preference apply to? If undefined, applies globally.
 @override final  String? labelerDid;
 @override final  String label;
-@override final  String visibility;
+@override@ContentLabelPrefVisibilityConverter() final  ContentLabelPrefVisibility visibility;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -265,11 +274,11 @@ abstract mixin class _$ContentLabelPrefCopyWith<$Res> implements $ContentLabelPr
   factory _$ContentLabelPrefCopyWith(_ContentLabelPref value, $Res Function(_ContentLabelPref) _then) = __$ContentLabelPrefCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? labelerDid, String label, String visibility, Map<String, dynamic>? $unknown
+ String $type, String? labelerDid, String label,@ContentLabelPrefVisibilityConverter() ContentLabelPrefVisibility visibility, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $ContentLabelPrefVisibilityCopyWith<$Res> get visibility;
 
 }
 /// @nodoc
@@ -288,12 +297,21 @@ $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nulla
 as String,labelerDid: freezed == labelerDid ? _self.labelerDid : labelerDid // ignore: cast_nullable_to_non_nullable
 as String?,label: null == label ? _self.label : label // ignore: cast_nullable_to_non_nullable
 as String,visibility: null == visibility ? _self.visibility : visibility // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ContentLabelPrefVisibility,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of ContentLabelPref
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ContentLabelPrefVisibilityCopyWith<$Res> get visibility {
+  
+  return $ContentLabelPrefVisibilityCopyWith<$Res>(_self.visibility, (value) {
+    return _then(_self.copyWith(visibility: value));
+  });
+}
 }
 
 // dart format on

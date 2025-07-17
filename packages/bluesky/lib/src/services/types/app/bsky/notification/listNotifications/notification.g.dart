@@ -24,7 +24,10 @@ _Notification _$NotificationFromJson(Map json) =>
           (v) =>
               const ProfileViewConverter().fromJson(v as Map<String, dynamic>),
         ),
-        reason: $checkedConvert('reason', (v) => v as String),
+        reason: $checkedConvert(
+          'reason',
+          (v) => const NotificationReasonConverter().fromJson(v as String),
+        ),
         reasonSubject: $checkedConvert('reasonSubject', (v) => v as String?),
         record: $checkedConvert(
           'record',
@@ -58,7 +61,7 @@ Map<String, dynamic> _$NotificationToJson(_Notification instance) =>
       'uri': instance.uri,
       'cid': instance.cid,
       'author': const ProfileViewConverter().toJson(instance.author),
-      'reason': instance.reason,
+      'reason': const NotificationReasonConverter().toJson(instance.reason),
       'reasonSubject': instance.reasonSubject,
       'record': instance.record,
       'isRead': instance.isRead,

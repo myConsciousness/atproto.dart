@@ -60,7 +60,7 @@ void main() {
 
   testGraph<RepoCreateRecordOutput>(
     (m, s) => s.list(
-      purpose: ListPurpose.known(data: KnownListPurpose.curatelist),
+      purpose: ListPurpose.knownValue(data: KnownListPurpose.curatelist),
       name: m.name,
     ),
     id: appBskyGraphList,

@@ -17,7 +17,13 @@ _AccountEvent _$AccountEventFromJson(Map json) =>
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         active: $checkedConvert('active', (v) => v as bool),
-        status: $checkedConvert('status', (v) => v as String?),
+        status: $checkedConvert(
+          'status',
+          (v) => _$JsonConverterFromJson<String, AccountEventStatus>(
+            v,
+            const AccountEventStatusConverter().fromJson,
+          ),
+        ),
         timestamp: $checkedConvert(
           'timestamp',
           (v) => DateTime.parse(v as String),
@@ -35,7 +41,20 @@ Map<String, dynamic> _$AccountEventToJson(_AccountEvent instance) =>
       r'$type': instance.$type,
       'comment': instance.comment,
       'active': instance.active,
-      'status': instance.status,
+      'status': _$JsonConverterToJson<String, AccountEventStatus>(
+        instance.status,
+        const AccountEventStatusConverter().toJson,
+      ),
       'timestamp': instance.timestamp.toIso8601String(),
       r'$unknown': instance.$unknown,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

@@ -15,3 +15,4 @@ export 'package:atproto/src/services/types/com/atproto/label/subscribeLabels/inp
 export 'package:atproto/src/services/types/com/atproto/label/subscribeLabels/union_main_message.dart';
 export 'package:atproto/src/services/types/com/atproto/label/subscribeLabels/labels.dart';
 export 'package:atproto/src/services/types/com/atproto/label/subscribeLabels/info.dart';
+export 'package:atproto/src/services/types/com/atproto/label/subscribeLabels/info_name.dart';

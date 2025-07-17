@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_scope.dart';
+
 part 'input.freezed.dart';
 part 'input.g.dart';
 
@@ -31,7 +34,7 @@ abstract class SettingListOptionsInput with _$SettingListOptionsInput {
   const factory SettingListOptionsInput({
     int? limit,
     String? cursor,
-    String? scope,
+    @SettingListOptionsScopeConverter() SettingListOptionsScope? scope,
 
     /// Filter keys by prefix
     String? prefix,

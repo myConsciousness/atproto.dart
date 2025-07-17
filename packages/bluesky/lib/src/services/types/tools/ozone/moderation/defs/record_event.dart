@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './record_event_op.dart';
+
 part 'record_event.freezed.dart';
 part 'record_event.g.dart';
 
@@ -26,7 +29,7 @@ abstract class RecordEvent with _$RecordEvent {
   const factory RecordEvent({
     @Default('tools.ozone.moderation.defs#recordEvent') String $type,
     String? comment,
-    required String op,
+    @RecordEventOpConverter() required RecordEventOp op,
     String? cid,
     required DateTime timestamp,
 

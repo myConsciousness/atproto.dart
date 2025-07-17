@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SettingRemoveOptionsInput {
 
- List<String> get keys; String get scope; Map<String, dynamic>? get $unknown;
+ List<String> get keys;@SettingRemoveOptionsScopeConverter() SettingRemoveOptionsScope get scope; Map<String, dynamic>? get $unknown;
 /// Create a copy of SettingRemoveOptionsInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $SettingRemoveOptionsInputCopyWith<$Res>  {
   factory $SettingRemoveOptionsInputCopyWith(SettingRemoveOptionsInput value, $Res Function(SettingRemoveOptionsInput) _then) = _$SettingRemoveOptionsInputCopyWithImpl;
 @useResult
 $Res call({
- List<String> keys, String scope, Map<String, dynamic>? $unknown
+ List<String> keys,@SettingRemoveOptionsScopeConverter() SettingRemoveOptionsScope scope, Map<String, dynamic>? $unknown
 });
 
 
-
+$SettingRemoveOptionsScopeCopyWith<$Res> get scope;
 
 }
 /// @nodoc
@@ -69,11 +69,20 @@ class _$SettingRemoveOptionsInputCopyWithImpl<$Res>
   return _then(_self.copyWith(
 keys: null == keys ? _self.keys : keys // ignore: cast_nullable_to_non_nullable
 as List<String>,scope: null == scope ? _self.scope : scope // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as SettingRemoveOptionsScope,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of SettingRemoveOptionsInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SettingRemoveOptionsScopeCopyWith<$Res> get scope {
+  
+  return $SettingRemoveOptionsScopeCopyWith<$Res>(_self.scope, (value) {
+    return _then(_self.copyWith(scope: value));
+  });
+}
 }
 
 
@@ -155,7 +164,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> keys,  String scope,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> keys, @SettingRemoveOptionsScopeConverter()  SettingRemoveOptionsScope scope,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SettingRemoveOptionsInput() when $default != null:
 return $default(_that.keys,_that.scope,_that.$unknown);case _:
@@ -176,7 +185,7 @@ return $default(_that.keys,_that.scope,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> keys,  String scope,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> keys, @SettingRemoveOptionsScopeConverter()  SettingRemoveOptionsScope scope,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SettingRemoveOptionsInput():
 return $default(_that.keys,_that.scope,_that.$unknown);case _:
@@ -196,7 +205,7 @@ return $default(_that.keys,_that.scope,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> keys,  String scope,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> keys, @SettingRemoveOptionsScopeConverter()  SettingRemoveOptionsScope scope,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SettingRemoveOptionsInput() when $default != null:
 return $default(_that.keys,_that.scope,_that.$unknown);case _:
@@ -211,7 +220,7 @@ return $default(_that.keys,_that.scope,_that.$unknown);case _:
 @JsonSerializable()
 
 class _SettingRemoveOptionsInput implements SettingRemoveOptionsInput {
-  const _SettingRemoveOptionsInput({required final  List<String> keys, required this.scope, final  Map<String, dynamic>? $unknown}): _keys = keys,_$unknown = $unknown;
+  const _SettingRemoveOptionsInput({required final  List<String> keys, @SettingRemoveOptionsScopeConverter() required this.scope, final  Map<String, dynamic>? $unknown}): _keys = keys,_$unknown = $unknown;
   factory _SettingRemoveOptionsInput.fromJson(Map<String, dynamic> json) => _$SettingRemoveOptionsInputFromJson(json);
 
  final  List<String> _keys;
@@ -221,7 +230,7 @@ class _SettingRemoveOptionsInput implements SettingRemoveOptionsInput {
   return EqualUnmodifiableListView(_keys);
 }
 
-@override final  String scope;
+@override@SettingRemoveOptionsScopeConverter() final  SettingRemoveOptionsScope scope;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -265,11 +274,11 @@ abstract mixin class _$SettingRemoveOptionsInputCopyWith<$Res> implements $Setti
   factory _$SettingRemoveOptionsInputCopyWith(_SettingRemoveOptionsInput value, $Res Function(_SettingRemoveOptionsInput) _then) = __$SettingRemoveOptionsInputCopyWithImpl;
 @override @useResult
 $Res call({
- List<String> keys, String scope, Map<String, dynamic>? $unknown
+ List<String> keys,@SettingRemoveOptionsScopeConverter() SettingRemoveOptionsScope scope, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $SettingRemoveOptionsScopeCopyWith<$Res> get scope;
 
 }
 /// @nodoc
@@ -286,12 +295,21 @@ class __$SettingRemoveOptionsInputCopyWithImpl<$Res>
   return _then(_SettingRemoveOptionsInput(
 keys: null == keys ? _self._keys : keys // ignore: cast_nullable_to_non_nullable
 as List<String>,scope: null == scope ? _self.scope : scope // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as SettingRemoveOptionsScope,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of SettingRemoveOptionsInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SettingRemoveOptionsScopeCopyWith<$Res> get scope {
+  
+  return $SettingRemoveOptionsScopeCopyWith<$Res>(_self.scope, (value) {
+    return _then(_self.copyWith(scope: value));
+  });
+}
 }
 
 // dart format on

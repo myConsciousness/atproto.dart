@@ -15,7 +15,10 @@ _ActorStatusRecord _$ActorStatusRecordFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.actor.status',
         ),
-        status: $checkedConvert('status', (v) => v as String),
+        status: $checkedConvert(
+          'status',
+          (v) => const ActorStatusStatusConverter().fromJson(v as String),
+        ),
         embed: $checkedConvert(
           'embed',
           (v) =>
@@ -43,7 +46,7 @@ _ActorStatusRecord _$ActorStatusRecordFromJson(Map json) =>
 Map<String, dynamic> _$ActorStatusRecordToJson(_ActorStatusRecord instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'status': instance.status,
+      'status': const ActorStatusStatusConverter().toJson(instance.status),
       'embed': _$JsonConverterToJson<Map<String, dynamic>, UActorStatusEmbed>(
         instance.embed,
         const UActorStatusEmbedConverter().toJson,

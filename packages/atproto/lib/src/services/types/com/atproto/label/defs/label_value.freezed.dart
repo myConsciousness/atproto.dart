@@ -55,11 +55,11 @@ extension LabelValuePatterns on LabelValue {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( LabelValueKnown value)?  known,TResult Function( LabelValueUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( LabelValueKnownValue value)?  knownValue,TResult Function( LabelValueUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case LabelValueKnown() when known != null:
-return known(_that);case LabelValueUnknown() when unknown != null:
+case LabelValueKnownValue() when knownValue != null:
+return knownValue(_that);case LabelValueUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -78,11 +78,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( LabelValueKnown value)  known,required TResult Function( LabelValueUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( LabelValueKnownValue value)  knownValue,required TResult Function( LabelValueUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
-case LabelValueKnown():
-return known(_that);case LabelValueUnknown():
+case LabelValueKnownValue():
+return knownValue(_that);case LabelValueUnknown():
 return unknown(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -100,11 +100,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( LabelValueKnown value)?  known,TResult? Function( LabelValueUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( LabelValueKnownValue value)?  knownValue,TResult? Function( LabelValueUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
-case LabelValueKnown() when known != null:
-return known(_that);case LabelValueUnknown() when unknown != null:
+case LabelValueKnownValue() when knownValue != null:
+return knownValue(_that);case LabelValueUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -122,10 +122,10 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownLabelValue data)?  known,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownLabelValue data)?  knownValue,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case LabelValueKnown() when known != null:
-return known(_that.data);case LabelValueUnknown() when unknown != null:
+case LabelValueKnownValue() when knownValue != null:
+return knownValue(_that.data);case LabelValueUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -144,10 +144,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownLabelValue data)  known,required TResult Function( String data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownLabelValue data)  knownValue,required TResult Function( String data)  unknown,}) {final _that = this;
 switch (_that) {
-case LabelValueKnown():
-return known(_that.data);case LabelValueUnknown():
+case LabelValueKnownValue():
+return knownValue(_that.data);case LabelValueUnknown():
 return unknown(_that.data);case _:
   throw StateError('Unexpected subclass');
 
@@ -165,10 +165,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownLabelValue data)?  known,TResult? Function( String data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownLabelValue data)?  knownValue,TResult? Function( String data)?  unknown,}) {final _that = this;
 switch (_that) {
-case LabelValueKnown() when known != null:
-return known(_that.data);case LabelValueUnknown() when unknown != null:
+case LabelValueKnownValue() when knownValue != null:
+return knownValue(_that.data);case LabelValueUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -180,8 +180,8 @@ return unknown(_that.data);case _:
 /// @nodoc
 
 
-class LabelValueKnown extends LabelValue {
-  const LabelValueKnown({required this.data}): super._();
+class LabelValueKnownValue extends LabelValue {
+  const LabelValueKnownValue({required this.data}): super._();
   
 
 @override final  KnownLabelValue data;
@@ -190,13 +190,13 @@ class LabelValueKnown extends LabelValue {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$LabelValueKnownCopyWith<LabelValueKnown> get copyWith => _$LabelValueKnownCopyWithImpl<LabelValueKnown>(this, _$identity);
+$LabelValueKnownValueCopyWith<LabelValueKnownValue> get copyWith => _$LabelValueKnownValueCopyWithImpl<LabelValueKnownValue>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LabelValueKnown&&(identical(other.data, data) || other.data == data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LabelValueKnownValue&&(identical(other.data, data) || other.data == data));
 }
 
 
@@ -205,15 +205,15 @@ int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'LabelValue.known(data: $data)';
+  return 'LabelValue.knownValue(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $LabelValueKnownCopyWith<$Res> implements $LabelValueCopyWith<$Res> {
-  factory $LabelValueKnownCopyWith(LabelValueKnown value, $Res Function(LabelValueKnown) _then) = _$LabelValueKnownCopyWithImpl;
+abstract mixin class $LabelValueKnownValueCopyWith<$Res> implements $LabelValueCopyWith<$Res> {
+  factory $LabelValueKnownValueCopyWith(LabelValueKnownValue value, $Res Function(LabelValueKnownValue) _then) = _$LabelValueKnownValueCopyWithImpl;
 @useResult
 $Res call({
  KnownLabelValue data
@@ -224,17 +224,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$LabelValueKnownCopyWithImpl<$Res>
-    implements $LabelValueKnownCopyWith<$Res> {
-  _$LabelValueKnownCopyWithImpl(this._self, this._then);
+class _$LabelValueKnownValueCopyWithImpl<$Res>
+    implements $LabelValueKnownValueCopyWith<$Res> {
+  _$LabelValueKnownValueCopyWithImpl(this._self, this._then);
 
-  final LabelValueKnown _self;
-  final $Res Function(LabelValueKnown) _then;
+  final LabelValueKnownValue _self;
+  final $Res Function(LabelValueKnownValue) _then;
 
 /// Create a copy of LabelValue
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
-  return _then(LabelValueKnown(
+  return _then(LabelValueKnownValue(
 data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as KnownLabelValue,
   ));

@@ -15,7 +15,10 @@ _StatusView _$StatusViewFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.actor.defs#statusView',
         ),
-        status: $checkedConvert('status', (v) => v as String),
+        status: $checkedConvert(
+          'status',
+          (v) => const StatusViewStatusConverter().fromJson(v as String),
+        ),
         record: $checkedConvert(
           'record',
           (v) => Map<String, dynamic>.from(v as Map),
@@ -44,7 +47,7 @@ _StatusView _$StatusViewFromJson(Map json) =>
 Map<String, dynamic> _$StatusViewToJson(_StatusView instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'status': instance.status,
+      'status': const StatusViewStatusConverter().toJson(instance.status),
       'record': instance.record,
       'embed': _$JsonConverterToJson<Map<String, dynamic>, UStatusViewEmbed>(
         instance.embed,

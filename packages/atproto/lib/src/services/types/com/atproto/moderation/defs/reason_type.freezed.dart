@@ -55,11 +55,11 @@ extension ReasonTypePatterns on ReasonType {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( ReasonTypeKnown value)?  known,TResult Function( ReasonTypeUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( ReasonTypeKnownValue value)?  knownValue,TResult Function( ReasonTypeUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case ReasonTypeKnown() when known != null:
-return known(_that);case ReasonTypeUnknown() when unknown != null:
+case ReasonTypeKnownValue() when knownValue != null:
+return knownValue(_that);case ReasonTypeUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -78,11 +78,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( ReasonTypeKnown value)  known,required TResult Function( ReasonTypeUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( ReasonTypeKnownValue value)  knownValue,required TResult Function( ReasonTypeUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
-case ReasonTypeKnown():
-return known(_that);case ReasonTypeUnknown():
+case ReasonTypeKnownValue():
+return knownValue(_that);case ReasonTypeUnknown():
 return unknown(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -100,11 +100,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( ReasonTypeKnown value)?  known,TResult? Function( ReasonTypeUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( ReasonTypeKnownValue value)?  knownValue,TResult? Function( ReasonTypeUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
-case ReasonTypeKnown() when known != null:
-return known(_that);case ReasonTypeUnknown() when unknown != null:
+case ReasonTypeKnownValue() when knownValue != null:
+return knownValue(_that);case ReasonTypeUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -122,10 +122,10 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownReasonType data)?  known,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownReasonType data)?  knownValue,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case ReasonTypeKnown() when known != null:
-return known(_that.data);case ReasonTypeUnknown() when unknown != null:
+case ReasonTypeKnownValue() when knownValue != null:
+return knownValue(_that.data);case ReasonTypeUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -144,10 +144,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownReasonType data)  known,required TResult Function( String data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownReasonType data)  knownValue,required TResult Function( String data)  unknown,}) {final _that = this;
 switch (_that) {
-case ReasonTypeKnown():
-return known(_that.data);case ReasonTypeUnknown():
+case ReasonTypeKnownValue():
+return knownValue(_that.data);case ReasonTypeUnknown():
 return unknown(_that.data);case _:
   throw StateError('Unexpected subclass');
 
@@ -165,10 +165,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownReasonType data)?  known,TResult? Function( String data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownReasonType data)?  knownValue,TResult? Function( String data)?  unknown,}) {final _that = this;
 switch (_that) {
-case ReasonTypeKnown() when known != null:
-return known(_that.data);case ReasonTypeUnknown() when unknown != null:
+case ReasonTypeKnownValue() when knownValue != null:
+return knownValue(_that.data);case ReasonTypeUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -180,8 +180,8 @@ return unknown(_that.data);case _:
 /// @nodoc
 
 
-class ReasonTypeKnown extends ReasonType {
-  const ReasonTypeKnown({required this.data}): super._();
+class ReasonTypeKnownValue extends ReasonType {
+  const ReasonTypeKnownValue({required this.data}): super._();
   
 
 @override final  KnownReasonType data;
@@ -190,13 +190,13 @@ class ReasonTypeKnown extends ReasonType {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$ReasonTypeKnownCopyWith<ReasonTypeKnown> get copyWith => _$ReasonTypeKnownCopyWithImpl<ReasonTypeKnown>(this, _$identity);
+$ReasonTypeKnownValueCopyWith<ReasonTypeKnownValue> get copyWith => _$ReasonTypeKnownValueCopyWithImpl<ReasonTypeKnownValue>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReasonTypeKnown&&(identical(other.data, data) || other.data == data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReasonTypeKnownValue&&(identical(other.data, data) || other.data == data));
 }
 
 
@@ -205,15 +205,15 @@ int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'ReasonType.known(data: $data)';
+  return 'ReasonType.knownValue(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $ReasonTypeKnownCopyWith<$Res> implements $ReasonTypeCopyWith<$Res> {
-  factory $ReasonTypeKnownCopyWith(ReasonTypeKnown value, $Res Function(ReasonTypeKnown) _then) = _$ReasonTypeKnownCopyWithImpl;
+abstract mixin class $ReasonTypeKnownValueCopyWith<$Res> implements $ReasonTypeCopyWith<$Res> {
+  factory $ReasonTypeKnownValueCopyWith(ReasonTypeKnownValue value, $Res Function(ReasonTypeKnownValue) _then) = _$ReasonTypeKnownValueCopyWithImpl;
 @useResult
 $Res call({
  KnownReasonType data
@@ -224,17 +224,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$ReasonTypeKnownCopyWithImpl<$Res>
-    implements $ReasonTypeKnownCopyWith<$Res> {
-  _$ReasonTypeKnownCopyWithImpl(this._self, this._then);
+class _$ReasonTypeKnownValueCopyWithImpl<$Res>
+    implements $ReasonTypeKnownValueCopyWith<$Res> {
+  _$ReasonTypeKnownValueCopyWithImpl(this._self, this._then);
 
-  final ReasonTypeKnown _self;
-  final $Res Function(ReasonTypeKnown) _then;
+  final ReasonTypeKnownValue _self;
+  final $Res Function(ReasonTypeKnownValue) _then;
 
 /// Create a copy of ReasonType
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
-  return _then(ReasonTypeKnown(
+  return _then(ReasonTypeKnownValue(
 data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as KnownReasonType,
   ));

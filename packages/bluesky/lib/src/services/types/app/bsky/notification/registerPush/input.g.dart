@@ -14,7 +14,12 @@ _NotificationRegisterPushInput _$NotificationRegisterPushInputFromJson(
   final val = _NotificationRegisterPushInput(
     serviceDid: $checkedConvert('serviceDid', (v) => v as String),
     token: $checkedConvert('token', (v) => v as String),
-    platform: $checkedConvert('platform', (v) => v as String),
+    platform: $checkedConvert(
+      'platform',
+      (v) => const NotificationRegisterPushPlatformConverter().fromJson(
+        v as String,
+      ),
+    ),
     appId: $checkedConvert('appId', (v) => v as String),
     ageRestricted: $checkedConvert('ageRestricted', (v) => v as bool?),
     $unknown: $checkedConvert(
@@ -30,7 +35,9 @@ Map<String, dynamic> _$NotificationRegisterPushInputToJson(
 ) => <String, dynamic>{
   'serviceDid': instance.serviceDid,
   'token': instance.token,
-  'platform': instance.platform,
+  'platform': const NotificationRegisterPushPlatformConverter().toJson(
+    instance.platform,
+  ),
   'appId': instance.appId,
   'ageRestricted': instance.ageRestricted,
   r'$unknown': instance.$unknown,

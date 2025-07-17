@@ -11,6 +11,10 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './option_manager_role.dart';
+import './option_scope.dart';
+
 part 'option.freezed.dart';
 part 'option.g.dart';
 
@@ -41,8 +45,8 @@ abstract class Option with _$Option {
     String? description,
     DateTime? createdAt,
     DateTime? updatedAt,
-    String? managerRole,
-    required String scope,
+    @OptionManagerRoleConverter() OptionManagerRole? managerRole,
+    @OptionScopeConverter() required OptionScope scope,
     required String createdBy,
     required String lastUpdatedBy,
 

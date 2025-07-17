@@ -20,6 +20,7 @@ import 'communication/listTemplates/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `tools.ozone.communication.*`
 final class CommunicationService {
   CommunicationService(this._ctx);
 

@@ -11,6 +11,10 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_age_assurance_state.dart';
+import './main_subject_type.dart';
+
 part 'input.freezed.dart';
 part 'input.g.dart';
 
@@ -60,7 +64,8 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
     List<String>? collections,
 
     /// If specified, only events where the subject is of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
-    String? subjectType,
+    @ModerationQueryEventsSubjectTypeConverter()
+    ModerationQueryEventsSubjectType? subjectType,
 
     /// If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned.
     bool? includeAllUserRecords,
@@ -82,7 +87,8 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
     List<String>? modTool,
 
     /// If specified, only events where the age assurance state matches the given value are returned
-    String? ageAssuranceState,
+    @ModerationQueryEventsAgeAssuranceStateConverter()
+    ModerationQueryEventsAgeAssuranceState? ageAssuranceState,
     String? cursor,
 
     Map<String, dynamic>? $unknown,

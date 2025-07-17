@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ChatPreference {
 
- String get $type; String get include; bool get push; Map<String, dynamic>? get $unknown;
+ String get $type;@ChatPreferenceIncludeConverter() ChatPreferenceInclude get include; bool get push; Map<String, dynamic>? get $unknown;
 /// Create a copy of ChatPreference
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $ChatPreferenceCopyWith<$Res>  {
   factory $ChatPreferenceCopyWith(ChatPreference value, $Res Function(ChatPreference) _then) = _$ChatPreferenceCopyWithImpl;
 @useResult
 $Res call({
- String $type, String include, bool push, Map<String, dynamic>? $unknown
+ String $type,@ChatPreferenceIncludeConverter() ChatPreferenceInclude include, bool push, Map<String, dynamic>? $unknown
 });
 
 
-
+$ChatPreferenceIncludeCopyWith<$Res> get include;
 
 }
 /// @nodoc
@@ -69,12 +69,21 @@ class _$ChatPreferenceCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,include: null == include ? _self.include : include // ignore: cast_nullable_to_non_nullable
-as String,push: null == push ? _self.push : push // ignore: cast_nullable_to_non_nullable
+as ChatPreferenceInclude,push: null == push ? _self.push : push // ignore: cast_nullable_to_non_nullable
 as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of ChatPreference
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ChatPreferenceIncludeCopyWith<$Res> get include {
+  
+  return $ChatPreferenceIncludeCopyWith<$Res>(_self.include, (value) {
+    return _then(_self.copyWith(include: value));
+  });
+}
 }
 
 
@@ -156,7 +165,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String include,  bool push,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ChatPreferenceIncludeConverter()  ChatPreferenceInclude include,  bool push,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ChatPreference() when $default != null:
 return $default(_that.$type,_that.include,_that.push,_that.$unknown);case _:
@@ -177,7 +186,7 @@ return $default(_that.$type,_that.include,_that.push,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String include,  bool push,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ChatPreferenceIncludeConverter()  ChatPreferenceInclude include,  bool push,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ChatPreference():
 return $default(_that.$type,_that.include,_that.push,_that.$unknown);case _:
@@ -197,7 +206,7 @@ return $default(_that.$type,_that.include,_that.push,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String include,  bool push,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ChatPreferenceIncludeConverter()  ChatPreferenceInclude include,  bool push,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ChatPreference() when $default != null:
 return $default(_that.$type,_that.include,_that.push,_that.$unknown);case _:
@@ -212,11 +221,11 @@ return $default(_that.$type,_that.include,_that.push,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ChatPreference implements ChatPreference {
-  const _ChatPreference({this.$type = 'app.bsky.notification.defs#chatPreference', required this.include, required this.push, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ChatPreference({this.$type = 'app.bsky.notification.defs#chatPreference', @ChatPreferenceIncludeConverter() required this.include, required this.push, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ChatPreference.fromJson(Map<String, dynamic> json) => _$ChatPreferenceFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String include;
+@override@ChatPreferenceIncludeConverter() final  ChatPreferenceInclude include;
 @override final  bool push;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -261,11 +270,11 @@ abstract mixin class _$ChatPreferenceCopyWith<$Res> implements $ChatPreferenceCo
   factory _$ChatPreferenceCopyWith(_ChatPreference value, $Res Function(_ChatPreference) _then) = __$ChatPreferenceCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String include, bool push, Map<String, dynamic>? $unknown
+ String $type,@ChatPreferenceIncludeConverter() ChatPreferenceInclude include, bool push, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $ChatPreferenceIncludeCopyWith<$Res> get include;
 
 }
 /// @nodoc
@@ -282,13 +291,22 @@ class __$ChatPreferenceCopyWithImpl<$Res>
   return _then(_ChatPreference(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,include: null == include ? _self.include : include // ignore: cast_nullable_to_non_nullable
-as String,push: null == push ? _self.push : push // ignore: cast_nullable_to_non_nullable
+as ChatPreferenceInclude,push: null == push ? _self.push : push // ignore: cast_nullable_to_non_nullable
 as bool,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of ChatPreference
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ChatPreferenceIncludeCopyWith<$Res> get include {
+  
+  return $ChatPreferenceIncludeCopyWith<$Res>(_self.include, (value) {
+    return _then(_self.copyWith(include: value));
+  });
+}
 }
 
 // dart format on

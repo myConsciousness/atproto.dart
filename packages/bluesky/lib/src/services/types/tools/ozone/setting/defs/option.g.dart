@@ -28,8 +28,17 @@ _Option _$OptionFromJson(Map json) => $checkedCreate('_Option', json, (
       'updatedAt',
       (v) => v == null ? null : DateTime.parse(v as String),
     ),
-    managerRole: $checkedConvert('managerRole', (v) => v as String?),
-    scope: $checkedConvert('scope', (v) => v as String),
+    managerRole: $checkedConvert(
+      'managerRole',
+      (v) => _$JsonConverterFromJson<String, OptionManagerRole>(
+        v,
+        const OptionManagerRoleConverter().fromJson,
+      ),
+    ),
+    scope: $checkedConvert(
+      'scope',
+      (v) => const OptionScopeConverter().fromJson(v as String),
+    ),
     createdBy: $checkedConvert('createdBy', (v) => v as String),
     lastUpdatedBy: $checkedConvert('lastUpdatedBy', (v) => v as String),
     $unknown: $checkedConvert(
@@ -48,9 +57,22 @@ Map<String, dynamic> _$OptionToJson(_Option instance) => <String, dynamic>{
   'description': instance.description,
   'createdAt': instance.createdAt?.toIso8601String(),
   'updatedAt': instance.updatedAt?.toIso8601String(),
-  'managerRole': instance.managerRole,
-  'scope': instance.scope,
+  'managerRole': _$JsonConverterToJson<String, OptionManagerRole>(
+    instance.managerRole,
+    const OptionManagerRoleConverter().toJson,
+  ),
+  'scope': const OptionScopeConverter().toJson(instance.scope),
   'createdBy': instance.createdBy,
   'lastUpdatedBy': instance.lastUpdatedBy,
   r'$unknown': instance.$unknown,
 };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

@@ -15,7 +15,10 @@ _AccountHosting _$AccountHostingFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'tools.ozone.moderation.defs#accountHosting',
         ),
-        status: $checkedConvert('status', (v) => v as String),
+        status: $checkedConvert(
+          'status',
+          (v) => const AccountHostingStatusConverter().fromJson(v as String),
+        ),
         updatedAt: $checkedConvert(
           'updatedAt',
           (v) => v == null ? null : DateTime.parse(v as String),
@@ -47,7 +50,7 @@ _AccountHosting _$AccountHostingFromJson(Map json) =>
 Map<String, dynamic> _$AccountHostingToJson(_AccountHosting instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'status': instance.status,
+      'status': const AccountHostingStatusConverter().toJson(instance.status),
       'updatedAt': instance.updatedAt?.toIso8601String(),
       'createdAt': instance.createdAt?.toIso8601String(),
       'deletedAt': instance.deletedAt?.toIso8601String(),

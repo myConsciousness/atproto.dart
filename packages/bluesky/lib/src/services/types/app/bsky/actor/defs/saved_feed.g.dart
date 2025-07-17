@@ -16,7 +16,10 @@ _SavedFeed _$SavedFeedFromJson(Map json) =>
           (v) => v as String? ?? 'app.bsky.actor.defs#savedFeed',
         ),
         id: $checkedConvert('id', (v) => v as String),
-        type: $checkedConvert('type', (v) => v as String),
+        type: $checkedConvert(
+          'type',
+          (v) => const SavedFeedTypeConverter().fromJson(v as String),
+        ),
         value: $checkedConvert('value', (v) => v as String),
         pinned: $checkedConvert('pinned', (v) => v as bool),
         $unknown: $checkedConvert(
@@ -31,7 +34,7 @@ Map<String, dynamic> _$SavedFeedToJson(_SavedFeed instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'id': instance.id,
-      'type': instance.type,
+      'type': const SavedFeedTypeConverter().toJson(instance.type),
       'value': instance.value,
       'pinned': instance.pinned,
       r'$unknown': instance.$unknown,

@@ -23,7 +23,13 @@ _UnspeccedGetPostThreadV2Input _$UnspeccedGetPostThreadV2InputFromJson(
       'prioritizeFollowedUsers',
       (v) => v as bool?,
     ),
-    sort: $checkedConvert('sort', (v) => v as String?),
+    sort: $checkedConvert(
+      'sort',
+      (v) => _$JsonConverterFromJson<String, UnspeccedGetPostThreadV2Sort>(
+        v,
+        const UnspeccedGetPostThreadV2SortConverter().fromJson,
+      ),
+    ),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -40,6 +46,19 @@ Map<String, dynamic> _$UnspeccedGetPostThreadV2InputToJson(
   'below': instance.below,
   'branchingFactor': instance.branchingFactor,
   'prioritizeFollowedUsers': instance.prioritizeFollowedUsers,
-  'sort': instance.sort,
+  'sort': _$JsonConverterToJson<String, UnspeccedGetPostThreadV2Sort>(
+    instance.sort,
+    const UnspeccedGetPostThreadV2SortConverter().toJson,
+  ),
   r'$unknown': instance.$unknown,
 };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

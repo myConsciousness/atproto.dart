@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SavedFeed {
 
- String get $type; String get id; String get type; String get value; bool get pinned; Map<String, dynamic>? get $unknown;
+ String get $type; String get id;@SavedFeedTypeConverter() SavedFeedType get type; String get value; bool get pinned; Map<String, dynamic>? get $unknown;
 /// Create a copy of SavedFeed
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $SavedFeedCopyWith<$Res>  {
   factory $SavedFeedCopyWith(SavedFeed value, $Res Function(SavedFeed) _then) = _$SavedFeedCopyWithImpl;
 @useResult
 $Res call({
- String $type, String id, String type, String value, bool pinned, Map<String, dynamic>? $unknown
+ String $type, String id,@SavedFeedTypeConverter() SavedFeedType type, String value, bool pinned, Map<String, dynamic>? $unknown
 });
 
 
-
+$SavedFeedTypeCopyWith<$Res> get type;
 
 }
 /// @nodoc
@@ -70,13 +70,22 @@ class _$SavedFeedCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as SavedFeedType,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as String,pinned: null == pinned ? _self.pinned : pinned // ignore: cast_nullable_to_non_nullable
 as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of SavedFeed
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SavedFeedTypeCopyWith<$Res> get type {
+  
+  return $SavedFeedTypeCopyWith<$Res>(_self.type, (value) {
+    return _then(_self.copyWith(type: value));
+  });
+}
 }
 
 
@@ -158,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String id,  String type,  String value,  bool pinned,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String id, @SavedFeedTypeConverter()  SavedFeedType type,  String value,  bool pinned,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SavedFeed() when $default != null:
 return $default(_that.$type,_that.id,_that.type,_that.value,_that.pinned,_that.$unknown);case _:
@@ -179,7 +188,7 @@ return $default(_that.$type,_that.id,_that.type,_that.value,_that.pinned,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String id,  String type,  String value,  bool pinned,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String id, @SavedFeedTypeConverter()  SavedFeedType type,  String value,  bool pinned,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SavedFeed():
 return $default(_that.$type,_that.id,_that.type,_that.value,_that.pinned,_that.$unknown);case _:
@@ -199,7 +208,7 @@ return $default(_that.$type,_that.id,_that.type,_that.value,_that.pinned,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String id,  String type,  String value,  bool pinned,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String id, @SavedFeedTypeConverter()  SavedFeedType type,  String value,  bool pinned,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SavedFeed() when $default != null:
 return $default(_that.$type,_that.id,_that.type,_that.value,_that.pinned,_that.$unknown);case _:
@@ -214,12 +223,12 @@ return $default(_that.$type,_that.id,_that.type,_that.value,_that.pinned,_that.$
 @JsonSerializable()
 
 class _SavedFeed implements SavedFeed {
-  const _SavedFeed({this.$type = 'app.bsky.actor.defs#savedFeed', required this.id, required this.type, required this.value, required this.pinned, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SavedFeed({this.$type = 'app.bsky.actor.defs#savedFeed', required this.id, @SavedFeedTypeConverter() required this.type, required this.value, required this.pinned, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SavedFeed.fromJson(Map<String, dynamic> json) => _$SavedFeedFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String id;
-@override final  String type;
+@override@SavedFeedTypeConverter() final  SavedFeedType type;
 @override final  String value;
 @override final  bool pinned;
  final  Map<String, dynamic>? _$unknown;
@@ -265,11 +274,11 @@ abstract mixin class _$SavedFeedCopyWith<$Res> implements $SavedFeedCopyWith<$Re
   factory _$SavedFeedCopyWith(_SavedFeed value, $Res Function(_SavedFeed) _then) = __$SavedFeedCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String id, String type, String value, bool pinned, Map<String, dynamic>? $unknown
+ String $type, String id,@SavedFeedTypeConverter() SavedFeedType type, String value, bool pinned, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $SavedFeedTypeCopyWith<$Res> get type;
 
 }
 /// @nodoc
@@ -287,14 +296,23 @@ class __$SavedFeedCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as SavedFeedType,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as String,pinned: null == pinned ? _self.pinned : pinned // ignore: cast_nullable_to_non_nullable
 as bool,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of SavedFeed
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SavedFeedTypeCopyWith<$Res> get type {
+  
+  return $SavedFeedTypeCopyWith<$Res>(_self.type, (value) {
+    return _then(_self.copyWith(type: value));
+  });
+}
 }
 
 // dart format on

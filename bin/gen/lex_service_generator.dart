@@ -206,6 +206,8 @@ final class _LexServiceGenerator {
         return procedure.description;
       case LexXrpcSubscription subscription:
         return subscription.description;
+      case LexRecord record:
+        return record.description;
       default:
         return null;
     }

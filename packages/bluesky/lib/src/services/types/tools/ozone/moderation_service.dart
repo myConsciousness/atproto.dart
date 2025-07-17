@@ -24,7 +24,11 @@ import 'moderation/getRecords/output.dart';
 import 'moderation/getReporterStats/output.dart';
 import 'moderation/getRepos/output.dart';
 import 'moderation/getSubjects/output.dart';
+import 'moderation/queryEvents/main_age_assurance_state.dart';
+import 'moderation/queryEvents/main_subject_type.dart';
 import 'moderation/queryEvents/output.dart';
+import 'moderation/queryStatuses/main_age_assurance_state.dart';
+import 'moderation/queryStatuses/main_subject_type.dart';
 import 'moderation/queryStatuses/output.dart';
 import 'moderation/searchRepos/output.dart';
 
@@ -32,6 +36,7 @@ import 'moderation/searchRepos/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `tools.ozone.moderation.*`
 final class ModerationService {
   ModerationService(this._ctx);
 
@@ -80,12 +85,12 @@ final class ModerationService {
     List<String>? excludeTags,
     String? cursor,
     List<String>? collections,
-    String? subjectType,
+    ModerationQueryStatusesSubjectType? subjectType,
     int? minAccountSuspendCount,
     int? minReportedRecordsCount,
     int? minTakendownRecordsCount,
     int? minPriorityScore,
-    String? ageAssuranceState,
+    ModerationQueryStatusesAgeAssuranceState? ageAssuranceState,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.get(
@@ -130,7 +135,7 @@ final class ModerationService {
       if (excludeTags != null) 'excludeTags': excludeTags,
       if (cursor != null) 'cursor': cursor,
       if (collections != null) 'collections': collections,
-      if (subjectType != null) 'subjectType': subjectType,
+      if (subjectType != null) 'subjectType': subjectType.toJson(),
       if (minAccountSuspendCount != null)
         'minAccountSuspendCount': minAccountSuspendCount,
       if (minReportedRecordsCount != null)
@@ -138,7 +143,8 @@ final class ModerationService {
       if (minTakendownRecordsCount != null)
         'minTakendownRecordsCount': minTakendownRecordsCount,
       if (minPriorityScore != null) 'minPriorityScore': minPriorityScore,
-      if (ageAssuranceState != null) 'ageAssuranceState': ageAssuranceState,
+      if (ageAssuranceState != null)
+        'ageAssuranceState': ageAssuranceState.toJson(),
       ...?$unknown,
     },
     to: const ModerationQueryStatusesOutputConverter().fromJson,
@@ -201,7 +207,7 @@ final class ModerationService {
     DateTime? createdBefore,
     AtUri? subject,
     List<String>? collections,
-    String? subjectType,
+    ModerationQueryEventsSubjectType? subjectType,
     bool? includeAllUserRecords,
     int? limit,
     bool? hasComment,
@@ -213,7 +219,7 @@ final class ModerationService {
     List<String>? reportTypes,
     List<String>? policies,
     List<String>? modTool,
-    String? ageAssuranceState,
+    ModerationQueryEventsAgeAssuranceState? ageAssuranceState,
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -230,7 +236,7 @@ final class ModerationService {
         'createdBefore': _ctx.toUtcIso8601String(createdBefore),
       if (subject != null) 'subject': subject,
       if (collections != null) 'collections': collections,
-      if (subjectType != null) 'subjectType': subjectType,
+      if (subjectType != null) 'subjectType': subjectType.toJson(),
       if (includeAllUserRecords != null)
         'includeAllUserRecords': includeAllUserRecords,
       if (limit != null) 'limit': limit,
@@ -243,7 +249,8 @@ final class ModerationService {
       if (reportTypes != null) 'reportTypes': reportTypes,
       if (policies != null) 'policies': policies,
       if (modTool != null) 'modTool': modTool,
-      if (ageAssuranceState != null) 'ageAssuranceState': ageAssuranceState,
+      if (ageAssuranceState != null)
+        'ageAssuranceState': ageAssuranceState.toJson(),
       if (cursor != null) 'cursor': cursor,
       ...?$unknown,
     },

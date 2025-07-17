@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './repo_op_action.dart';
+
 part 'repo_op.freezed.dart';
 part 'repo_op.g.dart';
 
@@ -25,7 +28,7 @@ abstract class RepoOp with _$RepoOp {
 
   const factory RepoOp({
     @Default('com.atproto.sync.subscribeRepos#repoOp') String $type,
-    required String action,
+    @RepoOpActionConverter() required RepoOpAction action,
     required String path,
     required Map<String, dynamic> cid,
     Map<String, dynamic>? prev,

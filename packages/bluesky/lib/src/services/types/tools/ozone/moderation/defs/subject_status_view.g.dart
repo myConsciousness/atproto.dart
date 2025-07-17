@@ -97,11 +97,22 @@ _SubjectStatusView _$SubjectStatusViewFromJson(
     ),
     ageAssuranceState: $checkedConvert(
       'ageAssuranceState',
-      (v) => v as String?,
+      (v) =>
+          _$JsonConverterFromJson<String, SubjectStatusViewAgeAssuranceState>(
+            v,
+            const SubjectStatusViewAgeAssuranceStateConverter().fromJson,
+          ),
     ),
     ageAssuranceUpdatedBy: $checkedConvert(
       'ageAssuranceUpdatedBy',
-      (v) => v as String?,
+      (v) =>
+          _$JsonConverterFromJson<
+            String,
+            SubjectStatusViewAgeAssuranceUpdatedBy
+          >(
+            v,
+            const SubjectStatusViewAgeAssuranceUpdatedByConverter().fromJson,
+          ),
     ),
     $unknown: $checkedConvert(
       r'$unknown',
@@ -151,8 +162,16 @@ Map<String, dynamic> _$SubjectStatusViewToJson(
     instance.recordsStats,
     const RecordsStatsConverter().toJson,
   ),
-  'ageAssuranceState': instance.ageAssuranceState,
-  'ageAssuranceUpdatedBy': instance.ageAssuranceUpdatedBy,
+  'ageAssuranceState':
+      _$JsonConverterToJson<String, SubjectStatusViewAgeAssuranceState>(
+        instance.ageAssuranceState,
+        const SubjectStatusViewAgeAssuranceStateConverter().toJson,
+      ),
+  'ageAssuranceUpdatedBy':
+      _$JsonConverterToJson<String, SubjectStatusViewAgeAssuranceUpdatedBy>(
+        instance.ageAssuranceUpdatedBy,
+        const SubjectStatusViewAgeAssuranceUpdatedByConverter().toJson,
+      ),
   r'$unknown': instance.$unknown,
 };
 

@@ -39,6 +39,7 @@ import 'richtext/facet/main.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `app.bsky.graph.*`
 final class GraphService {
   GraphService(this._ctx);
 
@@ -68,6 +69,8 @@ final class GraphService {
     parameters: {'actor': actor, ...?$unknown},
     to: const GraphGetSuggestedFollowsByActorOutputConverter().fromJson,
   );
+
+  /// Record declaring a 'block' relationship against another account. NOTE: blocks are public in Bluesky; see blog posts for details.
   Future<XRPCResponse<RepoCreateRecordOutput>> block({
     required String subject,
     DateTime? createdAt,
@@ -84,6 +87,8 @@ final class GraphService {
       ...?$unknown,
     },
   );
+
+  /// Record declaring a social 'follow' relationship of another account. Duplicate follows will be ignored by the AppView.
   Future<XRPCResponse<RepoCreateRecordOutput>> follow({
     required String subject,
     DateTime? createdAt,
@@ -128,6 +133,8 @@ final class GraphService {
     },
     to: const GraphGetListBlocksOutputConverter().fromJson,
   );
+
+  /// Record representing a block relationship against an entire an entire list of accounts (actors).
   Future<XRPCResponse<RepoCreateRecordOutput>> listblock({
     required String subject,
     DateTime? createdAt,
@@ -156,6 +163,8 @@ final class GraphService {
     parameters: {'starterPack': starterPack, ...?$unknown},
     to: const GraphGetStarterPackOutputConverter().fromJson,
   );
+
+  /// Record defining a starter pack of actors and feeds for new users.
   Future<XRPCResponse<RepoCreateRecordOutput>> starterpack({
     required String name,
     String? description,
@@ -318,6 +327,8 @@ final class GraphService {
     },
     to: const GraphGetMutesOutputConverter().fromJson,
   );
+
+  /// Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.
   Future<XRPCResponse<RepoCreateRecordOutput>> listitem({
     required String subject,
     required String list,
@@ -336,6 +347,8 @@ final class GraphService {
       ...?$unknown,
     },
   );
+
+  /// Record representing a list of accounts (actors). Scope includes both moderation-oriented lists and curration-oriented lists.
   Future<XRPCResponse<RepoCreateRecordOutput>> list({
     required ListPurpose purpose,
     required String name,
@@ -382,6 +395,8 @@ final class GraphService {
     },
     to: const GraphGetKnownFollowersOutputConverter().fromJson,
   );
+
+  /// Record declaring a verification relationship between two accounts. Verifications are only considered valid by an app if issued by an account the app considers trusted.
   Future<XRPCResponse<RepoCreateRecordOutput>> verification({
     required String subject,
     required String handle,

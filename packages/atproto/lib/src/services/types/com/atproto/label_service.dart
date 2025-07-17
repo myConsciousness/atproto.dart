@@ -22,6 +22,7 @@ import 'label/queryLabels/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `com.atproto.label.*`
 final class LabelService {
   LabelService(this._ctx);
 

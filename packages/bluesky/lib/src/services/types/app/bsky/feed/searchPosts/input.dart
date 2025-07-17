@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_sort.dart';
+
 part 'input.freezed.dart';
 part 'input.g.dart';
 
@@ -40,7 +43,7 @@ abstract class FeedSearchPostsInput with _$FeedSearchPostsInput {
     required String q,
 
     /// Specifies the ranking order of results.
-    String? sort,
+    @FeedSearchPostsSortConverter() FeedSearchPostsSort? sort,
 
     /// Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).
     String? since,

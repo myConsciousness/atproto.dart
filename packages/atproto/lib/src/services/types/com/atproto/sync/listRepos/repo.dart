@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './repo_status.dart';
+
 part 'repo.freezed.dart';
 part 'repo.g.dart';
 
@@ -32,7 +35,7 @@ abstract class Repo with _$Repo {
     bool? active,
 
     /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-    String? status,
+    @RepoStatusConverter() RepoStatus? status,
 
     Map<String, dynamic>? $unknown,
   }) = _Repo;

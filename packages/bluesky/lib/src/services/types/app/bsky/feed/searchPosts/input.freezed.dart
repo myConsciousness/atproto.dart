@@ -17,7 +17,7 @@ mixin _$FeedSearchPostsInput {
 
 /// Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
  String get q;/// Specifies the ranking order of results.
- String? get sort;/// Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).
+@FeedSearchPostsSortConverter() FeedSearchPostsSort? get sort;/// Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).
  String? get since;/// Filter results for posts before the indicated datetime (not inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYY-MM-DD).
  String? get until;/// Filter to posts which mention the given account. Handles are resolved to DID before query-time. Only matches rich-text facet mentions.
  String? get mentions;/// Filter to posts by the given account. Handles are resolved to DID before query-time.
@@ -58,11 +58,11 @@ abstract mixin class $FeedSearchPostsInputCopyWith<$Res>  {
   factory $FeedSearchPostsInputCopyWith(FeedSearchPostsInput value, $Res Function(FeedSearchPostsInput) _then) = _$FeedSearchPostsInputCopyWithImpl;
 @useResult
 $Res call({
- String q, String? sort, String? since, String? until, String? mentions, String? author, String? lang, String? domain,@AtUriConverter() AtUri? url, List<String>? tag, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String q,@FeedSearchPostsSortConverter() FeedSearchPostsSort? sort, String? since, String? until, String? mentions, String? author, String? lang, String? domain,@AtUriConverter() AtUri? url, List<String>? tag, int? limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
-
+$FeedSearchPostsSortCopyWith<$Res>? get sort;
 
 }
 /// @nodoc
@@ -79,7 +79,7 @@ class _$FeedSearchPostsInputCopyWithImpl<$Res>
   return _then(_self.copyWith(
 q: null == q ? _self.q : q // ignore: cast_nullable_to_non_nullable
 as String,sort: freezed == sort ? _self.sort : sort // ignore: cast_nullable_to_non_nullable
-as String?,since: freezed == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
+as FeedSearchPostsSort?,since: freezed == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
 as String?,until: freezed == until ? _self.until : until // ignore: cast_nullable_to_non_nullable
 as String?,mentions: freezed == mentions ? _self.mentions : mentions // ignore: cast_nullable_to_non_nullable
 as String?,author: freezed == author ? _self.author : author // ignore: cast_nullable_to_non_nullable
@@ -93,7 +93,19 @@ as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: 
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of FeedSearchPostsInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$FeedSearchPostsSortCopyWith<$Res>? get sort {
+    if (_self.sort == null) {
+    return null;
+  }
 
+  return $FeedSearchPostsSortCopyWith<$Res>(_self.sort!, (value) {
+    return _then(_self.copyWith(sort: value));
+  });
+}
 }
 
 
@@ -175,7 +187,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String q,  String? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String q, @FeedSearchPostsSortConverter()  FeedSearchPostsSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedSearchPostsInput() when $default != null:
 return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.author,_that.lang,_that.domain,_that.url,_that.tag,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -196,7 +208,7 @@ return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String q,  String? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String q, @FeedSearchPostsSortConverter()  FeedSearchPostsSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedSearchPostsInput():
 return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.author,_that.lang,_that.domain,_that.url,_that.tag,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -216,7 +228,7 @@ return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String q,  String? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String q, @FeedSearchPostsSortConverter()  FeedSearchPostsSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedSearchPostsInput() when $default != null:
 return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.author,_that.lang,_that.domain,_that.url,_that.tag,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -231,13 +243,13 @@ return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.
 @JsonSerializable()
 
 class _FeedSearchPostsInput implements FeedSearchPostsInput {
-  const _FeedSearchPostsInput({required this.q, this.sort, this.since, this.until, this.mentions, this.author, this.lang, this.domain, @AtUriConverter() this.url, final  List<String>? tag, this.limit, this.cursor, final  Map<String, dynamic>? $unknown}): _tag = tag,_$unknown = $unknown;
+  const _FeedSearchPostsInput({required this.q, @FeedSearchPostsSortConverter() this.sort, this.since, this.until, this.mentions, this.author, this.lang, this.domain, @AtUriConverter() this.url, final  List<String>? tag, this.limit, this.cursor, final  Map<String, dynamic>? $unknown}): _tag = tag,_$unknown = $unknown;
   factory _FeedSearchPostsInput.fromJson(Map<String, dynamic> json) => _$FeedSearchPostsInputFromJson(json);
 
 /// Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
 @override final  String q;
 /// Specifies the ranking order of results.
-@override final  String? sort;
+@override@FeedSearchPostsSortConverter() final  FeedSearchPostsSort? sort;
 /// Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).
 @override final  String? since;
 /// Filter results for posts before the indicated datetime (not inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYY-MM-DD).
@@ -307,11 +319,11 @@ abstract mixin class _$FeedSearchPostsInputCopyWith<$Res> implements $FeedSearch
   factory _$FeedSearchPostsInputCopyWith(_FeedSearchPostsInput value, $Res Function(_FeedSearchPostsInput) _then) = __$FeedSearchPostsInputCopyWithImpl;
 @override @useResult
 $Res call({
- String q, String? sort, String? since, String? until, String? mentions, String? author, String? lang, String? domain,@AtUriConverter() AtUri? url, List<String>? tag, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String q,@FeedSearchPostsSortConverter() FeedSearchPostsSort? sort, String? since, String? until, String? mentions, String? author, String? lang, String? domain,@AtUriConverter() AtUri? url, List<String>? tag, int? limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $FeedSearchPostsSortCopyWith<$Res>? get sort;
 
 }
 /// @nodoc
@@ -328,7 +340,7 @@ class __$FeedSearchPostsInputCopyWithImpl<$Res>
   return _then(_FeedSearchPostsInput(
 q: null == q ? _self.q : q // ignore: cast_nullable_to_non_nullable
 as String,sort: freezed == sort ? _self.sort : sort // ignore: cast_nullable_to_non_nullable
-as String?,since: freezed == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
+as FeedSearchPostsSort?,since: freezed == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
 as String?,until: freezed == until ? _self.until : until // ignore: cast_nullable_to_non_nullable
 as String?,mentions: freezed == mentions ? _self.mentions : mentions // ignore: cast_nullable_to_non_nullable
 as String?,author: freezed == author ? _self.author : author // ignore: cast_nullable_to_non_nullable
@@ -343,7 +355,19 @@ as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of FeedSearchPostsInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$FeedSearchPostsSortCopyWith<$Res>? get sort {
+    if (_self.sort == null) {
+    return null;
+  }
 
+  return $FeedSearchPostsSortCopyWith<$Res>(_self.sort!, (value) {
+    return _then(_self.copyWith(sort: value));
+  });
+}
 }
 
 // dart format on

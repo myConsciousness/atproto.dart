@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
+import './trend_view_status.dart';
 
 part 'trend_view.freezed.dart';
 part 'trend_view.g.dart';
@@ -41,7 +42,7 @@ abstract class TrendView with _$TrendView {
     required String link,
     required DateTime startedAt,
     required int postCount,
-    String? status,
+    @TrendViewStatusConverter() TrendViewStatus? status,
     String? category,
     @ProfileViewBasicConverter() required List<ProfileViewBasic> actors,
 

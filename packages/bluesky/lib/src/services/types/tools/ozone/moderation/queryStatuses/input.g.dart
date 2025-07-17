@@ -91,7 +91,14 @@ _ModerationQueryStatusesInput _$ModerationQueryStatusesInputFromJson(
       'collections',
       (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
     ),
-    subjectType: $checkedConvert('subjectType', (v) => v as String?),
+    subjectType: $checkedConvert(
+      'subjectType',
+      (v) =>
+          _$JsonConverterFromJson<String, ModerationQueryStatusesSubjectType>(
+            v,
+            const ModerationQueryStatusesSubjectTypeConverter().fromJson,
+          ),
+    ),
     minAccountSuspendCount: $checkedConvert(
       'minAccountSuspendCount',
       (v) => (v as num?)?.toInt(),
@@ -110,7 +117,14 @@ _ModerationQueryStatusesInput _$ModerationQueryStatusesInputFromJson(
     ),
     ageAssuranceState: $checkedConvert(
       'ageAssuranceState',
-      (v) => v as String?,
+      (v) =>
+          _$JsonConverterFromJson<
+            String,
+            ModerationQueryStatusesAgeAssuranceState
+          >(
+            v,
+            const ModerationQueryStatusesAgeAssuranceStateConverter().fromJson,
+          ),
     ),
     $unknown: $checkedConvert(
       r'$unknown',
@@ -157,12 +171,20 @@ Map<String, dynamic> _$ModerationQueryStatusesInputToJson(
   'excludeTags': instance.excludeTags,
   'cursor': instance.cursor,
   'collections': instance.collections,
-  'subjectType': instance.subjectType,
+  'subjectType':
+      _$JsonConverterToJson<String, ModerationQueryStatusesSubjectType>(
+        instance.subjectType,
+        const ModerationQueryStatusesSubjectTypeConverter().toJson,
+      ),
   'minAccountSuspendCount': instance.minAccountSuspendCount,
   'minReportedRecordsCount': instance.minReportedRecordsCount,
   'minTakendownRecordsCount': instance.minTakendownRecordsCount,
   'minPriorityScore': instance.minPriorityScore,
-  'ageAssuranceState': instance.ageAssuranceState,
+  'ageAssuranceState':
+      _$JsonConverterToJson<String, ModerationQueryStatusesAgeAssuranceState>(
+        instance.ageAssuranceState,
+        const ModerationQueryStatusesAgeAssuranceStateConverter().toJson,
+      ),
   r'$unknown': instance.$unknown,
 };
 

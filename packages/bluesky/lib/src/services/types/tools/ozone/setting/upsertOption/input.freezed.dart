@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SettingUpsertOptionInput {
 
- String get key; String get scope; Map<String, dynamic> get value; String? get description; String? get managerRole; Map<String, dynamic>? get $unknown;
+ String get key;@SettingUpsertOptionScopeConverter() SettingUpsertOptionScope get scope; Map<String, dynamic> get value; String? get description;@SettingUpsertOptionManagerRoleConverter() SettingUpsertOptionManagerRole? get managerRole; Map<String, dynamic>? get $unknown;
 /// Create a copy of SettingUpsertOptionInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $SettingUpsertOptionInputCopyWith<$Res>  {
   factory $SettingUpsertOptionInputCopyWith(SettingUpsertOptionInput value, $Res Function(SettingUpsertOptionInput) _then) = _$SettingUpsertOptionInputCopyWithImpl;
 @useResult
 $Res call({
- String key, String scope, Map<String, dynamic> value, String? description, String? managerRole, Map<String, dynamic>? $unknown
+ String key,@SettingUpsertOptionScopeConverter() SettingUpsertOptionScope scope, Map<String, dynamic> value, String? description,@SettingUpsertOptionManagerRoleConverter() SettingUpsertOptionManagerRole? managerRole, Map<String, dynamic>? $unknown
 });
 
 
-
+$SettingUpsertOptionScopeCopyWith<$Res> get scope;$SettingUpsertOptionManagerRoleCopyWith<$Res>? get managerRole;
 
 }
 /// @nodoc
@@ -69,14 +69,35 @@ class _$SettingUpsertOptionInputCopyWithImpl<$Res>
   return _then(_self.copyWith(
 key: null == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
 as String,scope: null == scope ? _self.scope : scope // ignore: cast_nullable_to_non_nullable
-as String,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as SettingUpsertOptionScope,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,managerRole: freezed == managerRole ? _self.managerRole : managerRole // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as SettingUpsertOptionManagerRole?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of SettingUpsertOptionInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SettingUpsertOptionScopeCopyWith<$Res> get scope {
+  
+  return $SettingUpsertOptionScopeCopyWith<$Res>(_self.scope, (value) {
+    return _then(_self.copyWith(scope: value));
+  });
+}/// Create a copy of SettingUpsertOptionInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SettingUpsertOptionManagerRoleCopyWith<$Res>? get managerRole {
+    if (_self.managerRole == null) {
+    return null;
+  }
 
+  return $SettingUpsertOptionManagerRoleCopyWith<$Res>(_self.managerRole!, (value) {
+    return _then(_self.copyWith(managerRole: value));
+  });
+}
 }
 
 
@@ -158,7 +179,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String key,  String scope,  Map<String, dynamic> value,  String? description,  String? managerRole,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String key, @SettingUpsertOptionScopeConverter()  SettingUpsertOptionScope scope,  Map<String, dynamic> value,  String? description, @SettingUpsertOptionManagerRoleConverter()  SettingUpsertOptionManagerRole? managerRole,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SettingUpsertOptionInput() when $default != null:
 return $default(_that.key,_that.scope,_that.value,_that.description,_that.managerRole,_that.$unknown);case _:
@@ -179,7 +200,7 @@ return $default(_that.key,_that.scope,_that.value,_that.description,_that.manage
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String key,  String scope,  Map<String, dynamic> value,  String? description,  String? managerRole,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String key, @SettingUpsertOptionScopeConverter()  SettingUpsertOptionScope scope,  Map<String, dynamic> value,  String? description, @SettingUpsertOptionManagerRoleConverter()  SettingUpsertOptionManagerRole? managerRole,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SettingUpsertOptionInput():
 return $default(_that.key,_that.scope,_that.value,_that.description,_that.managerRole,_that.$unknown);case _:
@@ -199,7 +220,7 @@ return $default(_that.key,_that.scope,_that.value,_that.description,_that.manage
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String key,  String scope,  Map<String, dynamic> value,  String? description,  String? managerRole,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String key, @SettingUpsertOptionScopeConverter()  SettingUpsertOptionScope scope,  Map<String, dynamic> value,  String? description, @SettingUpsertOptionManagerRoleConverter()  SettingUpsertOptionManagerRole? managerRole,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SettingUpsertOptionInput() when $default != null:
 return $default(_that.key,_that.scope,_that.value,_that.description,_that.managerRole,_that.$unknown);case _:
@@ -214,11 +235,11 @@ return $default(_that.key,_that.scope,_that.value,_that.description,_that.manage
 @JsonSerializable()
 
 class _SettingUpsertOptionInput implements SettingUpsertOptionInput {
-  const _SettingUpsertOptionInput({required this.key, required this.scope, required final  Map<String, dynamic> value, this.description, this.managerRole, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
+  const _SettingUpsertOptionInput({required this.key, @SettingUpsertOptionScopeConverter() required this.scope, required final  Map<String, dynamic> value, this.description, @SettingUpsertOptionManagerRoleConverter() this.managerRole, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
   factory _SettingUpsertOptionInput.fromJson(Map<String, dynamic> json) => _$SettingUpsertOptionInputFromJson(json);
 
 @override final  String key;
-@override final  String scope;
+@override@SettingUpsertOptionScopeConverter() final  SettingUpsertOptionScope scope;
  final  Map<String, dynamic> _value;
 @override Map<String, dynamic> get value {
   if (_value is EqualUnmodifiableMapView) return _value;
@@ -227,7 +248,7 @@ class _SettingUpsertOptionInput implements SettingUpsertOptionInput {
 }
 
 @override final  String? description;
-@override final  String? managerRole;
+@override@SettingUpsertOptionManagerRoleConverter() final  SettingUpsertOptionManagerRole? managerRole;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -271,11 +292,11 @@ abstract mixin class _$SettingUpsertOptionInputCopyWith<$Res> implements $Settin
   factory _$SettingUpsertOptionInputCopyWith(_SettingUpsertOptionInput value, $Res Function(_SettingUpsertOptionInput) _then) = __$SettingUpsertOptionInputCopyWithImpl;
 @override @useResult
 $Res call({
- String key, String scope, Map<String, dynamic> value, String? description, String? managerRole, Map<String, dynamic>? $unknown
+ String key,@SettingUpsertOptionScopeConverter() SettingUpsertOptionScope scope, Map<String, dynamic> value, String? description,@SettingUpsertOptionManagerRoleConverter() SettingUpsertOptionManagerRole? managerRole, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $SettingUpsertOptionScopeCopyWith<$Res> get scope;@override $SettingUpsertOptionManagerRoleCopyWith<$Res>? get managerRole;
 
 }
 /// @nodoc
@@ -292,15 +313,36 @@ class __$SettingUpsertOptionInputCopyWithImpl<$Res>
   return _then(_SettingUpsertOptionInput(
 key: null == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
 as String,scope: null == scope ? _self.scope : scope // ignore: cast_nullable_to_non_nullable
-as String,value: null == value ? _self._value : value // ignore: cast_nullable_to_non_nullable
+as SettingUpsertOptionScope,value: null == value ? _self._value : value // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,managerRole: freezed == managerRole ? _self.managerRole : managerRole // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as SettingUpsertOptionManagerRole?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of SettingUpsertOptionInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SettingUpsertOptionScopeCopyWith<$Res> get scope {
+  
+  return $SettingUpsertOptionScopeCopyWith<$Res>(_self.scope, (value) {
+    return _then(_self.copyWith(scope: value));
+  });
+}/// Create a copy of SettingUpsertOptionInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SettingUpsertOptionManagerRoleCopyWith<$Res>? get managerRole {
+    if (_self.managerRole == null) {
+    return null;
+  }
 
+  return $SettingUpsertOptionManagerRoleCopyWith<$Res>(_self.managerRole!, (value) {
+    return _then(_self.copyWith(managerRole: value));
+  });
+}
 }
 
 // dart format on

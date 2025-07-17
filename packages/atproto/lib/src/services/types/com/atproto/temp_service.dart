@@ -20,6 +20,7 @@ import 'temp/fetchLabels/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `com.atproto.temp.*`
 final class TempService {
   TempService(this._ctx);
 

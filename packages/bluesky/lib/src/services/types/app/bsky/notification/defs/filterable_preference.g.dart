@@ -16,7 +16,12 @@ _FilterablePreference _$FilterablePreferenceFromJson(Map json) =>
           (v) =>
               v as String? ?? 'app.bsky.notification.defs#filterablePreference',
         ),
-        include: $checkedConvert('include', (v) => v as String),
+        include: $checkedConvert(
+          'include',
+          (v) => const FilterablePreferenceIncludeConverter().fromJson(
+            v as String,
+          ),
+        ),
         list: $checkedConvert('list', (v) => v as bool),
         push: $checkedConvert('push', (v) => v as bool),
         $unknown: $checkedConvert(
@@ -31,7 +36,9 @@ Map<String, dynamic> _$FilterablePreferenceToJson(
   _FilterablePreference instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'include': instance.include,
+  'include': const FilterablePreferenceIncludeConverter().toJson(
+    instance.include,
+  ),
   'list': instance.list,
   'push': instance.push,
   r'$unknown': instance.$unknown,

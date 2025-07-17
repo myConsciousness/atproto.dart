@@ -16,7 +16,10 @@ _RecordEvent _$RecordEventFromJson(Map json) =>
           (v) => v as String? ?? 'tools.ozone.moderation.defs#recordEvent',
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
-        op: $checkedConvert('op', (v) => v as String),
+        op: $checkedConvert(
+          'op',
+          (v) => const RecordEventOpConverter().fromJson(v as String),
+        ),
         cid: $checkedConvert('cid', (v) => v as String?),
         timestamp: $checkedConvert(
           'timestamp',
@@ -34,7 +37,7 @@ Map<String, dynamic> _$RecordEventToJson(_RecordEvent instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'comment': instance.comment,
-      'op': instance.op,
+      'op': const RecordEventOpConverter().toJson(instance.op),
       'cid': instance.cid,
       'timestamp': instance.timestamp.toIso8601String(),
       r'$unknown': instance.$unknown,

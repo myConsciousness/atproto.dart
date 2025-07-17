@@ -17,7 +17,10 @@ _JobStatus _$JobStatusFromJson(Map json) =>
         ),
         jobId: $checkedConvert('jobId', (v) => v as String),
         did: $checkedConvert('did', (v) => v as String),
-        state: $checkedConvert('state', (v) => v as String),
+        state: $checkedConvert(
+          'state',
+          (v) => const JobStatusStateConverter().fromJson(v as String),
+        ),
         progress: $checkedConvert('progress', (v) => (v as num?)?.toInt()),
         blob: $checkedConvert(
           'blob',
@@ -41,7 +44,7 @@ Map<String, dynamic> _$JobStatusToJson(_JobStatus instance) =>
       r'$type': instance.$type,
       'jobId': instance.jobId,
       'did': instance.did,
-      'state': instance.state,
+      'state': const JobStatusStateConverter().toJson(instance.state),
       'progress': instance.progress,
       'blob': _$JsonConverterToJson<Map<String, dynamic>, Blob>(
         instance.blob,

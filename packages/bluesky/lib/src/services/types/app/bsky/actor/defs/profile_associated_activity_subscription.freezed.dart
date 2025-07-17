@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ProfileAssociatedActivitySubscription {
 
- String get $type; String get allowSubscriptions; Map<String, dynamic>? get $unknown;
+ String get $type;@ProfileAssociatedActivitySubscriptionAllowSubscriptionsConverter() ProfileAssociatedActivitySubscriptionAllowSubscriptions get allowSubscriptions; Map<String, dynamic>? get $unknown;
 /// Create a copy of ProfileAssociatedActivitySubscription
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $ProfileAssociatedActivitySubscriptionCopyWith<$Res>  {
   factory $ProfileAssociatedActivitySubscriptionCopyWith(ProfileAssociatedActivitySubscription value, $Res Function(ProfileAssociatedActivitySubscription) _then) = _$ProfileAssociatedActivitySubscriptionCopyWithImpl;
 @useResult
 $Res call({
- String $type, String allowSubscriptions, Map<String, dynamic>? $unknown
+ String $type,@ProfileAssociatedActivitySubscriptionAllowSubscriptionsConverter() ProfileAssociatedActivitySubscriptionAllowSubscriptions allowSubscriptions, Map<String, dynamic>? $unknown
 });
 
 
-
+$ProfileAssociatedActivitySubscriptionAllowSubscriptionsCopyWith<$Res> get allowSubscriptions;
 
 }
 /// @nodoc
@@ -69,11 +69,20 @@ class _$ProfileAssociatedActivitySubscriptionCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,allowSubscriptions: null == allowSubscriptions ? _self.allowSubscriptions : allowSubscriptions // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ProfileAssociatedActivitySubscriptionAllowSubscriptions,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of ProfileAssociatedActivitySubscription
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ProfileAssociatedActivitySubscriptionAllowSubscriptionsCopyWith<$Res> get allowSubscriptions {
+  
+  return $ProfileAssociatedActivitySubscriptionAllowSubscriptionsCopyWith<$Res>(_self.allowSubscriptions, (value) {
+    return _then(_self.copyWith(allowSubscriptions: value));
+  });
+}
 }
 
 
@@ -155,7 +164,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String allowSubscriptions,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ProfileAssociatedActivitySubscriptionAllowSubscriptionsConverter()  ProfileAssociatedActivitySubscriptionAllowSubscriptions allowSubscriptions,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProfileAssociatedActivitySubscription() when $default != null:
 return $default(_that.$type,_that.allowSubscriptions,_that.$unknown);case _:
@@ -176,7 +185,7 @@ return $default(_that.$type,_that.allowSubscriptions,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String allowSubscriptions,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ProfileAssociatedActivitySubscriptionAllowSubscriptionsConverter()  ProfileAssociatedActivitySubscriptionAllowSubscriptions allowSubscriptions,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ProfileAssociatedActivitySubscription():
 return $default(_that.$type,_that.allowSubscriptions,_that.$unknown);case _:
@@ -196,7 +205,7 @@ return $default(_that.$type,_that.allowSubscriptions,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String allowSubscriptions,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ProfileAssociatedActivitySubscriptionAllowSubscriptionsConverter()  ProfileAssociatedActivitySubscriptionAllowSubscriptions allowSubscriptions,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ProfileAssociatedActivitySubscription() when $default != null:
 return $default(_that.$type,_that.allowSubscriptions,_that.$unknown);case _:
@@ -211,11 +220,11 @@ return $default(_that.$type,_that.allowSubscriptions,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ProfileAssociatedActivitySubscription implements ProfileAssociatedActivitySubscription {
-  const _ProfileAssociatedActivitySubscription({this.$type = 'app.bsky.actor.defs#profileAssociatedActivitySubscription', required this.allowSubscriptions, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ProfileAssociatedActivitySubscription({this.$type = 'app.bsky.actor.defs#profileAssociatedActivitySubscription', @ProfileAssociatedActivitySubscriptionAllowSubscriptionsConverter() required this.allowSubscriptions, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ProfileAssociatedActivitySubscription.fromJson(Map<String, dynamic> json) => _$ProfileAssociatedActivitySubscriptionFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String allowSubscriptions;
+@override@ProfileAssociatedActivitySubscriptionAllowSubscriptionsConverter() final  ProfileAssociatedActivitySubscriptionAllowSubscriptions allowSubscriptions;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,11 +268,11 @@ abstract mixin class _$ProfileAssociatedActivitySubscriptionCopyWith<$Res> imple
   factory _$ProfileAssociatedActivitySubscriptionCopyWith(_ProfileAssociatedActivitySubscription value, $Res Function(_ProfileAssociatedActivitySubscription) _then) = __$ProfileAssociatedActivitySubscriptionCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String allowSubscriptions, Map<String, dynamic>? $unknown
+ String $type,@ProfileAssociatedActivitySubscriptionAllowSubscriptionsConverter() ProfileAssociatedActivitySubscriptionAllowSubscriptions allowSubscriptions, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $ProfileAssociatedActivitySubscriptionAllowSubscriptionsCopyWith<$Res> get allowSubscriptions;
 
 }
 /// @nodoc
@@ -280,12 +289,21 @@ class __$ProfileAssociatedActivitySubscriptionCopyWithImpl<$Res>
   return _then(_ProfileAssociatedActivitySubscription(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,allowSubscriptions: null == allowSubscriptions ? _self.allowSubscriptions : allowSubscriptions // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ProfileAssociatedActivitySubscriptionAllowSubscriptions,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of ProfileAssociatedActivitySubscription
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ProfileAssociatedActivitySubscriptionAllowSubscriptionsCopyWith<$Res> get allowSubscriptions {
+  
+  return $ProfileAssociatedActivitySubscriptionAllowSubscriptionsCopyWith<$Res>(_self.allowSubscriptions, (value) {
+    return _then(_self.copyWith(allowSubscriptions: value));
+  });
+}
 }
 
 // dart format on

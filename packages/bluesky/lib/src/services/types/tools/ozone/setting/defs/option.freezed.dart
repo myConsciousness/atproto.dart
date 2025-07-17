@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Option {
 
- String get $type; String get key; String get did; Map<String, dynamic> get value; String? get description; DateTime? get createdAt; DateTime? get updatedAt; String? get managerRole; String get scope; String get createdBy; String get lastUpdatedBy; Map<String, dynamic>? get $unknown;
+ String get $type; String get key; String get did; Map<String, dynamic> get value; String? get description; DateTime? get createdAt; DateTime? get updatedAt;@OptionManagerRoleConverter() OptionManagerRole? get managerRole;@OptionScopeConverter() OptionScope get scope; String get createdBy; String get lastUpdatedBy; Map<String, dynamic>? get $unknown;
 /// Create a copy of Option
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $OptionCopyWith<$Res>  {
   factory $OptionCopyWith(Option value, $Res Function(Option) _then) = _$OptionCopyWithImpl;
 @useResult
 $Res call({
- String $type, String key, String did, Map<String, dynamic> value, String? description, DateTime? createdAt, DateTime? updatedAt, String? managerRole, String scope, String createdBy, String lastUpdatedBy, Map<String, dynamic>? $unknown
+ String $type, String key, String did, Map<String, dynamic> value, String? description, DateTime? createdAt, DateTime? updatedAt,@OptionManagerRoleConverter() OptionManagerRole? managerRole,@OptionScopeConverter() OptionScope scope, String createdBy, String lastUpdatedBy, Map<String, dynamic>? $unknown
 });
 
 
-
+$OptionManagerRoleCopyWith<$Res>? get managerRole;$OptionScopeCopyWith<$Res> get scope;
 
 }
 /// @nodoc
@@ -75,14 +75,35 @@ as Map<String, dynamic>,description: freezed == description ? _self.description 
 as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,managerRole: freezed == managerRole ? _self.managerRole : managerRole // ignore: cast_nullable_to_non_nullable
-as String?,scope: null == scope ? _self.scope : scope // ignore: cast_nullable_to_non_nullable
-as String,createdBy: null == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
+as OptionManagerRole?,scope: null == scope ? _self.scope : scope // ignore: cast_nullable_to_non_nullable
+as OptionScope,createdBy: null == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as String,lastUpdatedBy: null == lastUpdatedBy ? _self.lastUpdatedBy : lastUpdatedBy // ignore: cast_nullable_to_non_nullable
 as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of Option
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$OptionManagerRoleCopyWith<$Res>? get managerRole {
+    if (_self.managerRole == null) {
+    return null;
+  }
 
+  return $OptionManagerRoleCopyWith<$Res>(_self.managerRole!, (value) {
+    return _then(_self.copyWith(managerRole: value));
+  });
+}/// Create a copy of Option
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$OptionScopeCopyWith<$Res> get scope {
+  
+  return $OptionScopeCopyWith<$Res>(_self.scope, (value) {
+    return _then(_self.copyWith(scope: value));
+  });
+}
 }
 
 
@@ -164,7 +185,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String key,  String did,  Map<String, dynamic> value,  String? description,  DateTime? createdAt,  DateTime? updatedAt,  String? managerRole,  String scope,  String createdBy,  String lastUpdatedBy,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String key,  String did,  Map<String, dynamic> value,  String? description,  DateTime? createdAt,  DateTime? updatedAt, @OptionManagerRoleConverter()  OptionManagerRole? managerRole, @OptionScopeConverter()  OptionScope scope,  String createdBy,  String lastUpdatedBy,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Option() when $default != null:
 return $default(_that.$type,_that.key,_that.did,_that.value,_that.description,_that.createdAt,_that.updatedAt,_that.managerRole,_that.scope,_that.createdBy,_that.lastUpdatedBy,_that.$unknown);case _:
@@ -185,7 +206,7 @@ return $default(_that.$type,_that.key,_that.did,_that.value,_that.description,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String key,  String did,  Map<String, dynamic> value,  String? description,  DateTime? createdAt,  DateTime? updatedAt,  String? managerRole,  String scope,  String createdBy,  String lastUpdatedBy,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String key,  String did,  Map<String, dynamic> value,  String? description,  DateTime? createdAt,  DateTime? updatedAt, @OptionManagerRoleConverter()  OptionManagerRole? managerRole, @OptionScopeConverter()  OptionScope scope,  String createdBy,  String lastUpdatedBy,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Option():
 return $default(_that.$type,_that.key,_that.did,_that.value,_that.description,_that.createdAt,_that.updatedAt,_that.managerRole,_that.scope,_that.createdBy,_that.lastUpdatedBy,_that.$unknown);case _:
@@ -205,7 +226,7 @@ return $default(_that.$type,_that.key,_that.did,_that.value,_that.description,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String key,  String did,  Map<String, dynamic> value,  String? description,  DateTime? createdAt,  DateTime? updatedAt,  String? managerRole,  String scope,  String createdBy,  String lastUpdatedBy,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String key,  String did,  Map<String, dynamic> value,  String? description,  DateTime? createdAt,  DateTime? updatedAt, @OptionManagerRoleConverter()  OptionManagerRole? managerRole, @OptionScopeConverter()  OptionScope scope,  String createdBy,  String lastUpdatedBy,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Option() when $default != null:
 return $default(_that.$type,_that.key,_that.did,_that.value,_that.description,_that.createdAt,_that.updatedAt,_that.managerRole,_that.scope,_that.createdBy,_that.lastUpdatedBy,_that.$unknown);case _:
@@ -220,7 +241,7 @@ return $default(_that.$type,_that.key,_that.did,_that.value,_that.description,_t
 @JsonSerializable()
 
 class _Option implements Option {
-  const _Option({this.$type = 'tools.ozone.setting.defs#option', required this.key, required this.did, required final  Map<String, dynamic> value, this.description, this.createdAt, this.updatedAt, this.managerRole, required this.scope, required this.createdBy, required this.lastUpdatedBy, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
+  const _Option({this.$type = 'tools.ozone.setting.defs#option', required this.key, required this.did, required final  Map<String, dynamic> value, this.description, this.createdAt, this.updatedAt, @OptionManagerRoleConverter() this.managerRole, @OptionScopeConverter() required this.scope, required this.createdBy, required this.lastUpdatedBy, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
   factory _Option.fromJson(Map<String, dynamic> json) => _$OptionFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -236,8 +257,8 @@ class _Option implements Option {
 @override final  String? description;
 @override final  DateTime? createdAt;
 @override final  DateTime? updatedAt;
-@override final  String? managerRole;
-@override final  String scope;
+@override@OptionManagerRoleConverter() final  OptionManagerRole? managerRole;
+@override@OptionScopeConverter() final  OptionScope scope;
 @override final  String createdBy;
 @override final  String lastUpdatedBy;
  final  Map<String, dynamic>? _$unknown;
@@ -283,11 +304,11 @@ abstract mixin class _$OptionCopyWith<$Res> implements $OptionCopyWith<$Res> {
   factory _$OptionCopyWith(_Option value, $Res Function(_Option) _then) = __$OptionCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String key, String did, Map<String, dynamic> value, String? description, DateTime? createdAt, DateTime? updatedAt, String? managerRole, String scope, String createdBy, String lastUpdatedBy, Map<String, dynamic>? $unknown
+ String $type, String key, String did, Map<String, dynamic> value, String? description, DateTime? createdAt, DateTime? updatedAt,@OptionManagerRoleConverter() OptionManagerRole? managerRole,@OptionScopeConverter() OptionScope scope, String createdBy, String lastUpdatedBy, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $OptionManagerRoleCopyWith<$Res>? get managerRole;@override $OptionScopeCopyWith<$Res> get scope;
 
 }
 /// @nodoc
@@ -310,15 +331,36 @@ as Map<String, dynamic>,description: freezed == description ? _self.description 
 as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,managerRole: freezed == managerRole ? _self.managerRole : managerRole // ignore: cast_nullable_to_non_nullable
-as String?,scope: null == scope ? _self.scope : scope // ignore: cast_nullable_to_non_nullable
-as String,createdBy: null == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
+as OptionManagerRole?,scope: null == scope ? _self.scope : scope // ignore: cast_nullable_to_non_nullable
+as OptionScope,createdBy: null == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as String,lastUpdatedBy: null == lastUpdatedBy ? _self.lastUpdatedBy : lastUpdatedBy // ignore: cast_nullable_to_non_nullable
 as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of Option
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$OptionManagerRoleCopyWith<$Res>? get managerRole {
+    if (_self.managerRole == null) {
+    return null;
+  }
 
+  return $OptionManagerRoleCopyWith<$Res>(_self.managerRole!, (value) {
+    return _then(_self.copyWith(managerRole: value));
+  });
+}/// Create a copy of Option
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$OptionScopeCopyWith<$Res> get scope {
+  
+  return $OptionScopeCopyWith<$Res>(_self.scope, (value) {
+    return _then(_self.copyWith(scope: value));
+  });
+}
 }
 
 // dart format on

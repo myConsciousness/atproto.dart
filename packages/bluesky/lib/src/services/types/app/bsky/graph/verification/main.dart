@@ -18,6 +18,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Record declaring a verification relationship between two accounts. Verifications are only considered valid by an app if issued by an account the app considers trusted.
 @freezed
 abstract class GraphVerificationRecord with _$GraphVerificationRecord {
   static const knownProps = <String>[

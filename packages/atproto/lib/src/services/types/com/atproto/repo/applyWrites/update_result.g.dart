@@ -19,7 +19,10 @@ _UpdateResult _$UpdateResultFromJson(Map json) =>
         cid: $checkedConvert('cid', (v) => v as String),
         validationStatus: $checkedConvert(
           'validationStatus',
-          (v) => v as String?,
+          (v) => _$JsonConverterFromJson<String, UpdateResultValidationStatus>(
+            v,
+            const UpdateResultValidationStatusConverter().fromJson,
+          ),
         ),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -34,6 +37,20 @@ Map<String, dynamic> _$UpdateResultToJson(_UpdateResult instance) =>
       r'$type': instance.$type,
       'uri': instance.uri,
       'cid': instance.cid,
-      'validationStatus': instance.validationStatus,
+      'validationStatus':
+          _$JsonConverterToJson<String, UpdateResultValidationStatus>(
+            instance.validationStatus,
+            const UpdateResultValidationStatusConverter().toJson,
+          ),
       r'$unknown': instance.$unknown,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

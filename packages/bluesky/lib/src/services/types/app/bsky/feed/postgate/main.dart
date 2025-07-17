@@ -21,6 +21,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Record defining interaction rules for a post. The record key (rkey) of the postgate record must match the record key of the post, and that record must be in the same repository.
 @freezed
 abstract class FeedPostgateRecord with _$FeedPostgateRecord {
   static const knownProps = <String>[

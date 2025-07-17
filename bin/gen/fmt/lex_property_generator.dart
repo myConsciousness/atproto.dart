@@ -4,6 +4,7 @@ import '../object/lex_property.dart';
 import '../dart_type.dart';
 
 import 'lex_union_generator.dart';
+import 'lex_known_values_generator.dart';
 
 List<LexProperty> generateLexPropertiesFromLexXrpcParameters(
   final lex.NSID lexiconId,
@@ -16,10 +17,12 @@ List<LexProperty> generateLexPropertiesFromLexXrpcParameters(
 
   final requiredProps = requiredProperties ?? const [];
 
-  final $properties = properties.map((key, value) => MapEntry(
-        key,
-        lex.LexObjectPropertyConverter().fromJson(value.toJson()),
-      ));
+  final $properties = properties.map(
+    (key, value) => MapEntry(
+      key,
+      lex.LexObjectPropertyConverter().fromJson(value.toJson()),
+    ),
+  );
 
   return generateLexProperties(
     lexiconId,
@@ -54,12 +57,14 @@ List<LexProperty> generateLexProperties(
 
     if (type.isNil) continue;
 
-    result.add(LexProperty(
-      isRequired: requiredProps.contains(property.key),
-      type: type,
-      name: property.key,
-      defaultValue: _getDefaultValue(property.value),
-    ));
+    result.add(
+      LexProperty(
+        isRequired: requiredProps.contains(property.key),
+        type: type,
+        name: property.key,
+        defaultValue: _getDefaultValue(property.value),
+      ),
+    );
   }
 
   return result;
@@ -80,12 +85,16 @@ DartType _getDartType(
 ) {
   switch (property.value) {
     case lex.ULexObjectPropertyPrimitive primitive:
-      return _getLexPrimitiveType(primitive.data);
+      return _getLexPrimitiveType(
+        lexiconId,
+        defName,
+        mainVariants,
+        property.key,
+        primitive.data,
+      );
 
     case lex.ULexObjectPropertyBlob blob:
-      return DartType.blob(
-        description: blob.data.description,
-      );
+      return DartType.blob(description: blob.data.description);
 
     case lex.ULexObjectPropertyArray array:
       if (rule.isDeprecated(array.data.description)) {
@@ -94,11 +103,19 @@ DartType _getDartType(
 
       switch (array.data.items) {
         case lex.ULexArrayItemPrimitive primitive:
-          final type = _getLexPrimitiveType(primitive.data);
+          final type = _getLexPrimitiveType(
+            lexiconId,
+            defName,
+            mainVariants,
+            property.key,
+            primitive.data,
+          );
           return DartType.array(
             type: type.name,
+            packagePath: type.packagePath,
             annotation: type.annotation,
             description: type.description,
+            knownValues: type.knownValues,
           );
         case lex.ULexArrayRefVariant refVariant:
           final type = _getLexRefVariantType(
@@ -140,13 +157,43 @@ DartType _getDartType(
   }
 }
 
-DartType _getLexPrimitiveType(final lex.LexPrimitive data) {
+DartType _getLexPrimitiveType(
+  final lex.NSID lexiconId,
+  final String defName,
+  final List<String> mainVariants,
+  final String propertyName,
+  final lex.LexPrimitive data,
+) {
   switch (data) {
     case lex.ULexPrimitiveString string:
       if (string.data.format?.value == 'datetime') {
         return DartType.dateTime(description: string.data.description);
       } else if (string.data.format?.value == 'uri') {
         return DartType.uri(description: string.data.description);
+      }
+
+      if (string.data.knownValues != null) {
+        final knownValues = generateLexKnownValues(
+          lexiconId,
+          defName,
+          string.data,
+          mainVariants,
+          fieldName: propertyName,
+        );
+
+        final typeName = knownValues.getTypeName();
+        final fileName = knownValues.getFileName();
+
+        return DartType(
+          name: typeName,
+          lexiconId: lexiconId.toString(),
+          defName: defName,
+          fieldName: propertyName,
+          description: string.data.description,
+          packagePath: './$fileName.dart',
+          annotation: '@${typeName}Converter()',
+          knownValues: knownValues,
+        );
       }
 
       return DartType.string(description: string.data.description);

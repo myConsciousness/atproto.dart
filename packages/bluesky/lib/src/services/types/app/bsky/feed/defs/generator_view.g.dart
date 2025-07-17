@@ -63,7 +63,13 @@ _GeneratorView _$GeneratorViewFromJson(
             const GeneratorViewerStateConverter().fromJson,
           ),
     ),
-    contentMode: $checkedConvert('contentMode', (v) => v as String?),
+    contentMode: $checkedConvert(
+      'contentMode',
+      (v) => _$JsonConverterFromJson<String, GeneratorViewContentMode>(
+        v,
+        const GeneratorViewContentModeConverter().fromJson,
+      ),
+    ),
     indexedAt: $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
     $unknown: $checkedConvert(
       r'$unknown',
@@ -97,7 +103,10 @@ Map<String, dynamic> _$GeneratorViewToJson(
     instance.viewer,
     const GeneratorViewerStateConverter().toJson,
   ),
-  'contentMode': instance.contentMode,
+  'contentMode': _$JsonConverterToJson<String, GeneratorViewContentMode>(
+    instance.contentMode,
+    const GeneratorViewContentModeConverter().toJson,
+  ),
   'indexedAt': instance.indexedAt.toIso8601String(),
   r'$unknown': instance.$unknown,
 };

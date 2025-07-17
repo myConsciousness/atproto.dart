@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UpdateResult {
 
- String get $type; String get uri; String get cid; String? get validationStatus; Map<String, dynamic>? get $unknown;
+ String get $type; String get uri; String get cid;@UpdateResultValidationStatusConverter() UpdateResultValidationStatus? get validationStatus; Map<String, dynamic>? get $unknown;
 /// Create a copy of UpdateResult
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $UpdateResultCopyWith<$Res>  {
   factory $UpdateResultCopyWith(UpdateResult value, $Res Function(UpdateResult) _then) = _$UpdateResultCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, String cid, String? validationStatus, Map<String, dynamic>? $unknown
+ String $type, String uri, String cid,@UpdateResultValidationStatusConverter() UpdateResultValidationStatus? validationStatus, Map<String, dynamic>? $unknown
 });
 
 
-
+$UpdateResultValidationStatusCopyWith<$Res>? get validationStatus;
 
 }
 /// @nodoc
@@ -71,11 +71,23 @@ $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nulla
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,validationStatus: freezed == validationStatus ? _self.validationStatus : validationStatus // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as UpdateResultValidationStatus?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of UpdateResult
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UpdateResultValidationStatusCopyWith<$Res>? get validationStatus {
+    if (_self.validationStatus == null) {
+    return null;
+  }
 
+  return $UpdateResultValidationStatusCopyWith<$Res>(_self.validationStatus!, (value) {
+    return _then(_self.copyWith(validationStatus: value));
+  });
+}
 }
 
 
@@ -157,7 +169,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  String cid,  String? validationStatus,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  String cid, @UpdateResultValidationStatusConverter()  UpdateResultValidationStatus? validationStatus,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UpdateResult() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.validationStatus,_that.$unknown);case _:
@@ -178,7 +190,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.validationStatus,_that.$un
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  String cid,  String? validationStatus,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  String cid, @UpdateResultValidationStatusConverter()  UpdateResultValidationStatus? validationStatus,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UpdateResult():
 return $default(_that.$type,_that.uri,_that.cid,_that.validationStatus,_that.$unknown);case _:
@@ -198,7 +210,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.validationStatus,_that.$un
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  String cid,  String? validationStatus,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  String cid, @UpdateResultValidationStatusConverter()  UpdateResultValidationStatus? validationStatus,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UpdateResult() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.validationStatus,_that.$unknown);case _:
@@ -213,13 +225,13 @@ return $default(_that.$type,_that.uri,_that.cid,_that.validationStatus,_that.$un
 @JsonSerializable()
 
 class _UpdateResult implements UpdateResult {
-  const _UpdateResult({this.$type = 'com.atproto.repo.applyWrites#updateResult', required this.uri, required this.cid, this.validationStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _UpdateResult({this.$type = 'com.atproto.repo.applyWrites#updateResult', required this.uri, required this.cid, @UpdateResultValidationStatusConverter() this.validationStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UpdateResult.fromJson(Map<String, dynamic> json) => _$UpdateResultFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String uri;
 @override final  String cid;
-@override final  String? validationStatus;
+@override@UpdateResultValidationStatusConverter() final  UpdateResultValidationStatus? validationStatus;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -263,11 +275,11 @@ abstract mixin class _$UpdateResultCopyWith<$Res> implements $UpdateResultCopyWi
   factory _$UpdateResultCopyWith(_UpdateResult value, $Res Function(_UpdateResult) _then) = __$UpdateResultCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, String cid, String? validationStatus, Map<String, dynamic>? $unknown
+ String $type, String uri, String cid,@UpdateResultValidationStatusConverter() UpdateResultValidationStatus? validationStatus, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $UpdateResultValidationStatusCopyWith<$Res>? get validationStatus;
 
 }
 /// @nodoc
@@ -286,12 +298,24 @@ $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nulla
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,validationStatus: freezed == validationStatus ? _self.validationStatus : validationStatus // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as UpdateResultValidationStatus?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of UpdateResult
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UpdateResultValidationStatusCopyWith<$Res>? get validationStatus {
+    if (_self.validationStatus == null) {
+    return null;
+  }
 
+  return $UpdateResultValidationStatusCopyWith<$Res>(_self.validationStatus!, (value) {
+    return _then(_self.copyWith(validationStatus: value));
+  });
+}
 }
 
 // dart format on

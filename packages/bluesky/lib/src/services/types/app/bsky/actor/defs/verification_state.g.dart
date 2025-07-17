@@ -25,10 +25,16 @@ _VerificationState _$VerificationStateFromJson(Map json) =>
               )
               .toList(),
         ),
-        verifiedStatus: $checkedConvert('verifiedStatus', (v) => v as String),
+        verifiedStatus: $checkedConvert(
+          'verifiedStatus',
+          (v) => const VerificationStateVerifiedStatusConverter().fromJson(
+            v as String,
+          ),
+        ),
         trustedVerifierStatus: $checkedConvert(
           'trustedVerifierStatus',
-          (v) => v as String,
+          (v) => const VerificationStateTrustedVerifierStatusConverter()
+              .fromJson(v as String),
         ),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -44,7 +50,12 @@ Map<String, dynamic> _$VerificationStateToJson(_VerificationState instance) =>
       'verifications': instance.verifications
           .map(const VerificationViewConverter().toJson)
           .toList(),
-      'verifiedStatus': instance.verifiedStatus,
-      'trustedVerifierStatus': instance.trustedVerifierStatus,
+      'verifiedStatus': const VerificationStateVerifiedStatusConverter().toJson(
+        instance.verifiedStatus,
+      ),
+      'trustedVerifierStatus':
+          const VerificationStateTrustedVerifierStatusConverter().toJson(
+            instance.trustedVerifierStatus,
+          ),
       r'$unknown': instance.$unknown,
     };

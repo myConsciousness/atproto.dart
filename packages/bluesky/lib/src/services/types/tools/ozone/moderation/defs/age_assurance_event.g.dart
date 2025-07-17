@@ -20,7 +20,10 @@ _AgeAssuranceEvent _$AgeAssuranceEventFromJson(Map json) =>
           'createdAt',
           (v) => DateTime.parse(v as String),
         ),
-        status: $checkedConvert('status', (v) => v as String),
+        status: $checkedConvert(
+          'status',
+          (v) => const AgeAssuranceEventStatusConverter().fromJson(v as String),
+        ),
         attemptId: $checkedConvert('attemptId', (v) => v as String),
         initIp: $checkedConvert('initIp', (v) => v as String?),
         initUa: $checkedConvert('initUa', (v) => v as String?),
@@ -34,15 +37,16 @@ _AgeAssuranceEvent _$AgeAssuranceEventFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$AgeAssuranceEventToJson(_AgeAssuranceEvent instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'createdAt': instance.createdAt.toIso8601String(),
-      'status': instance.status,
-      'attemptId': instance.attemptId,
-      'initIp': instance.initIp,
-      'initUa': instance.initUa,
-      'completeIp': instance.completeIp,
-      'completeUa': instance.completeUa,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$AgeAssuranceEventToJson(
+  _AgeAssuranceEvent instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'createdAt': instance.createdAt.toIso8601String(),
+  'status': const AgeAssuranceEventStatusConverter().toJson(instance.status),
+  'attemptId': instance.attemptId,
+  'initIp': instance.initIp,
+  'initUa': instance.initUa,
+  'completeIp': instance.completeIp,
+  'completeUa': instance.completeUa,
+  r'$unknown': instance.$unknown,
+};

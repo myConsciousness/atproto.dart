@@ -12,6 +12,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import './main_status.dart';
 import './union_main_embed.dart';
 
 part 'main.freezed.dart';
@@ -21,6 +22,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// A declaration of a Bluesky account status.
 @freezed
 abstract class ActorStatusRecord with _$ActorStatusRecord {
   static const knownProps = <String>[
@@ -34,7 +36,7 @@ abstract class ActorStatusRecord with _$ActorStatusRecord {
     @Default('app.bsky.actor.status') String $type,
 
     /// The status for the account.
-    required String status,
+    @ActorStatusStatusConverter() required ActorStatusStatus status,
     @UActorStatusEmbedConverter() UActorStatusEmbed? embed,
 
     /// The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.

@@ -15,7 +15,10 @@ _RecordHosting _$RecordHostingFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'tools.ozone.moderation.defs#recordHosting',
         ),
-        status: $checkedConvert('status', (v) => v as String),
+        status: $checkedConvert(
+          'status',
+          (v) => const RecordHostingStatusConverter().fromJson(v as String),
+        ),
         updatedAt: $checkedConvert(
           'updatedAt',
           (v) => v == null ? null : DateTime.parse(v as String),
@@ -39,7 +42,7 @@ _RecordHosting _$RecordHostingFromJson(Map json) =>
 Map<String, dynamic> _$RecordHostingToJson(_RecordHosting instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'status': instance.status,
+      'status': const RecordHostingStatusConverter().toJson(instance.status),
       'updatedAt': instance.updatedAt?.toIso8601String(),
       'createdAt': instance.createdAt?.toIso8601String(),
       'deletedAt': instance.deletedAt?.toIso8601String(),

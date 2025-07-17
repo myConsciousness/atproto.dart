@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RecordHosting {
 
- String get $type; String get status; DateTime? get updatedAt; DateTime? get createdAt; DateTime? get deletedAt; Map<String, dynamic>? get $unknown;
+ String get $type;@RecordHostingStatusConverter() RecordHostingStatus get status; DateTime? get updatedAt; DateTime? get createdAt; DateTime? get deletedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of RecordHosting
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $RecordHostingCopyWith<$Res>  {
   factory $RecordHostingCopyWith(RecordHosting value, $Res Function(RecordHosting) _then) = _$RecordHostingCopyWithImpl;
 @useResult
 $Res call({
- String $type, String status, DateTime? updatedAt, DateTime? createdAt, DateTime? deletedAt, Map<String, dynamic>? $unknown
+ String $type,@RecordHostingStatusConverter() RecordHostingStatus status, DateTime? updatedAt, DateTime? createdAt, DateTime? deletedAt, Map<String, dynamic>? $unknown
 });
 
 
-
+$RecordHostingStatusCopyWith<$Res> get status;
 
 }
 /// @nodoc
@@ -69,14 +69,23 @@ class _$RecordHostingCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as RecordHostingStatus,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,deletedAt: freezed == deletedAt ? _self.deletedAt : deletedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
-
+/// Create a copy of RecordHosting
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RecordHostingStatusCopyWith<$Res> get status {
+  
+  return $RecordHostingStatusCopyWith<$Res>(_self.status, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 
@@ -158,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String status,  DateTime? updatedAt,  DateTime? createdAt,  DateTime? deletedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @RecordHostingStatusConverter()  RecordHostingStatus status,  DateTime? updatedAt,  DateTime? createdAt,  DateTime? deletedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RecordHosting() when $default != null:
 return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.deletedAt,_that.$unknown);case _:
@@ -179,7 +188,7 @@ return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.d
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String status,  DateTime? updatedAt,  DateTime? createdAt,  DateTime? deletedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @RecordHostingStatusConverter()  RecordHostingStatus status,  DateTime? updatedAt,  DateTime? createdAt,  DateTime? deletedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _RecordHosting():
 return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.deletedAt,_that.$unknown);case _:
@@ -199,7 +208,7 @@ return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.d
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String status,  DateTime? updatedAt,  DateTime? createdAt,  DateTime? deletedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @RecordHostingStatusConverter()  RecordHostingStatus status,  DateTime? updatedAt,  DateTime? createdAt,  DateTime? deletedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _RecordHosting() when $default != null:
 return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.deletedAt,_that.$unknown);case _:
@@ -214,11 +223,11 @@ return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.d
 @JsonSerializable()
 
 class _RecordHosting implements RecordHosting {
-  const _RecordHosting({this.$type = 'tools.ozone.moderation.defs#recordHosting', required this.status, this.updatedAt, this.createdAt, this.deletedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RecordHosting({this.$type = 'tools.ozone.moderation.defs#recordHosting', @RecordHostingStatusConverter() required this.status, this.updatedAt, this.createdAt, this.deletedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RecordHosting.fromJson(Map<String, dynamic> json) => _$RecordHostingFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String status;
+@override@RecordHostingStatusConverter() final  RecordHostingStatus status;
 @override final  DateTime? updatedAt;
 @override final  DateTime? createdAt;
 @override final  DateTime? deletedAt;
@@ -265,11 +274,11 @@ abstract mixin class _$RecordHostingCopyWith<$Res> implements $RecordHostingCopy
   factory _$RecordHostingCopyWith(_RecordHosting value, $Res Function(_RecordHosting) _then) = __$RecordHostingCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String status, DateTime? updatedAt, DateTime? createdAt, DateTime? deletedAt, Map<String, dynamic>? $unknown
+ String $type,@RecordHostingStatusConverter() RecordHostingStatus status, DateTime? updatedAt, DateTime? createdAt, DateTime? deletedAt, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $RecordHostingStatusCopyWith<$Res> get status;
 
 }
 /// @nodoc
@@ -286,7 +295,7 @@ class __$RecordHostingCopyWithImpl<$Res>
   return _then(_RecordHosting(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as RecordHostingStatus,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,deletedAt: freezed == deletedAt ? _self.deletedAt : deletedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -294,7 +303,16 @@ as Map<String, dynamic>?,
   ));
 }
 
-
+/// Create a copy of RecordHosting
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RecordHostingStatusCopyWith<$Res> get status {
+  
+  return $RecordHostingStatusCopyWith<$Res>(_self.status, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 // dart format on

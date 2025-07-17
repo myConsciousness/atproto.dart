@@ -19,7 +19,10 @@ _AgeAssuranceState _$AgeAssuranceStateFromJson(Map json) =>
           'lastInitiatedAt',
           (v) => v == null ? null : DateTime.parse(v as String),
         ),
-        status: $checkedConvert('status', (v) => v as String),
+        status: $checkedConvert(
+          'status',
+          (v) => const AgeAssuranceStateStatusConverter().fromJson(v as String),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -28,10 +31,11 @@ _AgeAssuranceState _$AgeAssuranceStateFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$AgeAssuranceStateToJson(_AgeAssuranceState instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'lastInitiatedAt': instance.lastInitiatedAt?.toIso8601String(),
-      'status': instance.status,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$AgeAssuranceStateToJson(
+  _AgeAssuranceState instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'lastInitiatedAt': instance.lastInitiatedAt?.toIso8601String(),
+  'status': const AgeAssuranceStateStatusConverter().toJson(instance.status),
+  r'$unknown': instance.$unknown,
+};

@@ -22,6 +22,7 @@ import 'moderation/defs/reason_type.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `com.atproto.moderation.*`
 final class ModerationService {
   ModerationService(this._ctx);
 

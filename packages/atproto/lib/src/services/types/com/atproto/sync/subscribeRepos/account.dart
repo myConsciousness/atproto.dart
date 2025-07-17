@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './account_status.dart';
+
 part 'account.freezed.dart';
 part 'account.g.dart';
 
@@ -33,7 +36,7 @@ abstract class Account with _$Account {
     required bool active,
 
     /// If active=false, this optional field indicates a reason for why the account is not active.
-    String? status,
+    @AccountStatusConverter() AccountStatus? status,
 
     Map<String, dynamic>? $unknown,
   }) = _Account;

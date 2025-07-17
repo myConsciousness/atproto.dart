@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AdminGetInviteCodesInput {
 
- String? get sort; int? get limit; String? get cursor; Map<String, dynamic>? get $unknown;
+@AdminGetInviteCodesSortConverter() AdminGetInviteCodesSort? get sort; int? get limit; String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of AdminGetInviteCodesInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $AdminGetInviteCodesInputCopyWith<$Res>  {
   factory $AdminGetInviteCodesInputCopyWith(AdminGetInviteCodesInput value, $Res Function(AdminGetInviteCodesInput) _then) = _$AdminGetInviteCodesInputCopyWithImpl;
 @useResult
 $Res call({
- String? sort, int? limit, String? cursor, Map<String, dynamic>? $unknown
+@AdminGetInviteCodesSortConverter() AdminGetInviteCodesSort? sort, int? limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
-
+$AdminGetInviteCodesSortCopyWith<$Res>? get sort;
 
 }
 /// @nodoc
@@ -68,13 +68,25 @@ class _$AdminGetInviteCodesInputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? sort = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 sort: freezed == sort ? _self.sort : sort // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as AdminGetInviteCodesSort?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of AdminGetInviteCodesInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AdminGetInviteCodesSortCopyWith<$Res>? get sort {
+    if (_self.sort == null) {
+    return null;
+  }
 
+  return $AdminGetInviteCodesSortCopyWith<$Res>(_self.sort!, (value) {
+    return _then(_self.copyWith(sort: value));
+  });
+}
 }
 
 
@@ -156,7 +168,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? sort,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AdminGetInviteCodesSortConverter()  AdminGetInviteCodesSort? sort,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AdminGetInviteCodesInput() when $default != null:
 return $default(_that.sort,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -177,7 +189,7 @@ return $default(_that.sort,_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? sort,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AdminGetInviteCodesSortConverter()  AdminGetInviteCodesSort? sort,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AdminGetInviteCodesInput():
 return $default(_that.sort,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -197,7 +209,7 @@ return $default(_that.sort,_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? sort,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AdminGetInviteCodesSortConverter()  AdminGetInviteCodesSort? sort,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AdminGetInviteCodesInput() when $default != null:
 return $default(_that.sort,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -212,10 +224,10 @@ return $default(_that.sort,_that.limit,_that.cursor,_that.$unknown);case _:
 @JsonSerializable()
 
 class _AdminGetInviteCodesInput implements AdminGetInviteCodesInput {
-  const _AdminGetInviteCodesInput({this.sort, this.limit, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AdminGetInviteCodesInput({@AdminGetInviteCodesSortConverter() this.sort, this.limit, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AdminGetInviteCodesInput.fromJson(Map<String, dynamic> json) => _$AdminGetInviteCodesInputFromJson(json);
 
-@override final  String? sort;
+@override@AdminGetInviteCodesSortConverter() final  AdminGetInviteCodesSort? sort;
 @override final  int? limit;
 @override final  String? cursor;
  final  Map<String, dynamic>? _$unknown;
@@ -261,11 +273,11 @@ abstract mixin class _$AdminGetInviteCodesInputCopyWith<$Res> implements $AdminG
   factory _$AdminGetInviteCodesInputCopyWith(_AdminGetInviteCodesInput value, $Res Function(_AdminGetInviteCodesInput) _then) = __$AdminGetInviteCodesInputCopyWithImpl;
 @override @useResult
 $Res call({
- String? sort, int? limit, String? cursor, Map<String, dynamic>? $unknown
+@AdminGetInviteCodesSortConverter() AdminGetInviteCodesSort? sort, int? limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $AdminGetInviteCodesSortCopyWith<$Res>? get sort;
 
 }
 /// @nodoc
@@ -281,14 +293,26 @@ class __$AdminGetInviteCodesInputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? sort = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_AdminGetInviteCodesInput(
 sort: freezed == sort ? _self.sort : sort // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as AdminGetInviteCodesSort?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of AdminGetInviteCodesInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AdminGetInviteCodesSortCopyWith<$Res>? get sort {
+    if (_self.sort == null) {
+    return null;
+  }
 
+  return $AdminGetInviteCodesSortCopyWith<$Res>(_self.sort!, (value) {
+    return _then(_self.copyWith(sort: value));
+  });
+}
 }
 
 // dart format on

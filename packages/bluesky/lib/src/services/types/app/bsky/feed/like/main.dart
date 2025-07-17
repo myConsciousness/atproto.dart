@@ -19,6 +19,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Record declaring a 'like' of a piece of subject content.
 @freezed
 abstract class FeedLikeRecord with _$FeedLikeRecord {
   static const knownProps = <String>['subject', 'createdAt', 'via'];

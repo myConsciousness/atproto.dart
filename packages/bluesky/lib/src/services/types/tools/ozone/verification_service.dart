@@ -22,6 +22,7 @@ import 'verification/revokeVerifications/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `tools.ozone.verification.*`
 final class VerificationService {
   VerificationService(this._ctx);
 

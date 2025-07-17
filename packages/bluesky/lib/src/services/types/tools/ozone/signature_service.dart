@@ -21,6 +21,7 @@ import 'signature/searchAccounts/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `tools.ozone.signature.*`
 final class SignatureService {
   SignatureService(this._ctx);
 

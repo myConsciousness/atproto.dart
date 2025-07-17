@@ -24,11 +24,13 @@ import 'labeler/service/union_main_labels.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `app.bsky.labeler.*`
 final class LabelerService {
   LabelerService(this._ctx);
 
   final z.ServiceContext _ctx;
 
+  /// A declaration of the existence of labeler service.
   Future<XRPCResponse<RepoCreateRecordOutput>> service({
     required LabelerPolicies policies,
     ULabelerServiceLabels? labels,

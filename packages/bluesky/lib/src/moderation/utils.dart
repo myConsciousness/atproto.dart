@@ -112,10 +112,10 @@ List<InterpretedLabelValueDefinition> getInterpretedLabelValueDefinitions(
             (e) => getInterpretedLabelValueDefinition(
               identifier: e.identifier,
               defaultSetting:
-                  LabelPreference.valueOf(e.defaultSetting) ??
+                  LabelPreference.valueOf(e.defaultSetting?.toJson()) ??
                   LabelPreference.warn,
-              severity: e.severity,
-              blurs: e.blurs,
+              severity: e.severity.toJson(),
+              blurs: e.blurs.toJson(),
               adultOnly: e.adultOnly ?? true,
               definedBy: labelerView.creator.did,
             ),
@@ -181,7 +181,7 @@ extension PreferencesExtension on ActorGetPreferencesOutput {
     }
 
     for (final labelPref in labelPrefs) {
-      final pref = _getModerationLabelPreference(labelPref.visibility);
+      final pref = _getModerationLabelPreference(labelPref.visibility.toJson());
 
       if (labelPref.labelerDid != null && labelers.isNotEmpty) {
         final labeler = labelers

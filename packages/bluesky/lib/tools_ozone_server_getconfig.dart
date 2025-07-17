@@ -14,3 +14,4 @@
 export 'package:bluesky/src/services/types/tools/ozone/server/getConfig/output.dart';
 export 'package:bluesky/src/services/types/tools/ozone/server/getConfig/service_config.dart';
 export 'package:bluesky/src/services/types/tools/ozone/server/getConfig/viewer_config.dart';
+export 'package:bluesky/src/services/types/tools/ozone/server/getConfig/viewer_config_role.dart';

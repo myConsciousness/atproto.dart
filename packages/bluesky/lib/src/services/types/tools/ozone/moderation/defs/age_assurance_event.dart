@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './age_assurance_event_status.dart';
+
 part 'age_assurance_event.freezed.dart';
 part 'age_assurance_event.g.dart';
 
@@ -38,7 +41,7 @@ abstract class AgeAssuranceEvent with _$AgeAssuranceEvent {
     required DateTime createdAt,
 
     /// The status of the age assurance process.
-    required String status,
+    @AgeAssuranceEventStatusConverter() required AgeAssuranceEventStatus status,
 
     /// The unique identifier for this instance of the age assurance flow, in UUID format.
     required String attemptId,

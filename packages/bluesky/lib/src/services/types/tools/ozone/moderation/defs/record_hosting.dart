@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './record_hosting_status.dart';
+
 part 'record_hosting.freezed.dart';
 part 'record_hosting.g.dart';
 
@@ -29,7 +32,7 @@ abstract class RecordHosting with _$RecordHosting {
 
   const factory RecordHosting({
     @Default('tools.ozone.moderation.defs#recordHosting') String $type,
-    required String status,
+    @RecordHostingStatusConverter() required RecordHostingStatus status,
     DateTime? updatedAt,
     DateTime? createdAt,
     DateTime? deletedAt,

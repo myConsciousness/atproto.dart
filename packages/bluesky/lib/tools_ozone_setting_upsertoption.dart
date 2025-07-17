@@ -12,4 +12,6 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/types/tools/ozone/setting/upsertOption/input.dart';
+export 'package:bluesky/src/services/types/tools/ozone/setting/upsertOption/main_scope.dart';
+export 'package:bluesky/src/services/types/tools/ozone/setting/upsertOption/main_manager_role.dart';
 export 'package:bluesky/src/services/types/tools/ozone/setting/upsertOption/output.dart';

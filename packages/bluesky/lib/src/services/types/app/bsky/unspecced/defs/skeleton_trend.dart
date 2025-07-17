@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './skeleton_trend_status.dart';
+
 part 'skeleton_trend.freezed.dart';
 part 'skeleton_trend.g.dart';
 
@@ -38,7 +41,7 @@ abstract class SkeletonTrend with _$SkeletonTrend {
     required String link,
     required DateTime startedAt,
     required int postCount,
-    String? status,
+    @SkeletonTrendStatusConverter() SkeletonTrendStatus? status,
     String? category,
     required List<String> dids,
 

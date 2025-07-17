@@ -12,6 +12,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import './status_view_status.dart';
 import './union_status_view_embed.dart';
 
 part 'status_view.freezed.dart';
@@ -35,7 +36,7 @@ abstract class StatusView with _$StatusView {
     @Default('app.bsky.actor.defs#statusView') String $type,
 
     /// The status for the account.
-    required String status,
+    @StatusViewStatusConverter() required StatusViewStatus status,
     required Map<String, dynamic> record,
     @UStatusViewEmbedConverter() UStatusViewEmbed? embed,
 

@@ -12,7 +12,13 @@ _FeedSearchPostsInput _$FeedSearchPostsInputFromJson(Map json) =>
     $checkedCreate('_FeedSearchPostsInput', json, ($checkedConvert) {
       final val = _FeedSearchPostsInput(
         q: $checkedConvert('q', (v) => v as String),
-        sort: $checkedConvert('sort', (v) => v as String?),
+        sort: $checkedConvert(
+          'sort',
+          (v) => _$JsonConverterFromJson<String, FeedSearchPostsSort>(
+            v,
+            const FeedSearchPostsSortConverter().fromJson,
+          ),
+        ),
         since: $checkedConvert('since', (v) => v as String?),
         until: $checkedConvert('until', (v) => v as String?),
         mentions: $checkedConvert('mentions', (v) => v as String?),
@@ -44,7 +50,10 @@ Map<String, dynamic> _$FeedSearchPostsInputToJson(
   _FeedSearchPostsInput instance,
 ) => <String, dynamic>{
   'q': instance.q,
-  'sort': instance.sort,
+  'sort': _$JsonConverterToJson<String, FeedSearchPostsSort>(
+    instance.sort,
+    const FeedSearchPostsSortConverter().toJson,
+  ),
   'since': instance.since,
   'until': instance.until,
   'mentions': instance.mentions,

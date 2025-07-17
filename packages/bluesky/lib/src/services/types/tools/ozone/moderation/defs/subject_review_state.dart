@@ -21,9 +21,9 @@ part 'subject_review_state.freezed.dart';
 abstract class SubjectReviewState with _$SubjectReviewState {
   const SubjectReviewState._();
 
-  const factory SubjectReviewState.known({
+  const factory SubjectReviewState.knownValue({
     required KnownSubjectReviewState data,
-  }) = SubjectReviewStateKnown;
+  }) = SubjectReviewStateKnownValue;
 
   const factory SubjectReviewState.unknown({required String data}) =
       SubjectReviewStateUnknown;
@@ -33,7 +33,7 @@ abstract class SubjectReviewState with _$SubjectReviewState {
     final knownValue = KnownSubjectReviewState.valueOf(value);
 
     return knownValue != null
-        ? SubjectReviewState.known(data: knownValue)
+        ? SubjectReviewState.knownValue(data: knownValue)
         : SubjectReviewState.unknown(data: value);
   }
 
@@ -41,10 +41,10 @@ abstract class SubjectReviewState with _$SubjectReviewState {
 }
 
 extension SubjectReviewStateExtension on SubjectReviewState {
-  bool get isKnown => isA<SubjectReviewStateKnown>(this);
-  bool get isNotKnown => !isKnown;
-  KnownSubjectReviewState? get known =>
-      isKnown ? data as KnownSubjectReviewState : null;
+  bool get isKnownValue => isA<SubjectReviewStateKnownValue>(this);
+  bool get isNotKnownValue => !isKnownValue;
+  KnownSubjectReviewState? get knownValue =>
+      isKnownValue ? data as KnownSubjectReviewState : null;
   bool get isUnknown => isA<SubjectReviewStateUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   String? get unknown => isUnknown ? data as String : null;
@@ -59,7 +59,7 @@ final class SubjectReviewStateConverter
     try {
       final knownValue = KnownSubjectReviewState.valueOf(json);
       if (knownValue != null) {
-        return SubjectReviewState.known(data: knownValue);
+        return SubjectReviewState.knownValue(data: knownValue);
       }
 
       return SubjectReviewState.unknown(data: json);
@@ -70,7 +70,7 @@ final class SubjectReviewStateConverter
 
   @override
   String toJson(SubjectReviewState object) =>
-      object.when(known: (data) => data.value, unknown: (data) => data);
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownSubjectReviewState implements Serializable {
@@ -100,6 +100,7 @@ enum KnownSubjectReviewState implements Serializable {
         return v;
       }
     }
+
     return null;
   }
 }

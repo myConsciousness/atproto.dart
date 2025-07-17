@@ -13,13 +13,16 @@ import 'package:atproto_core/atproto_core.dart';
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
+import 'team/addMember/main_role.dart';
 import 'team/defs/member.dart';
 import 'team/listMembers/output.dart';
+import 'team/updateMember/main_role.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
+/// `tools.ozone.team.*`
 final class TeamService {
   TeamService(this._ctx);
 
@@ -63,7 +66,7 @@ final class TeamService {
   Future<XRPCResponse<Member>> updateMember({
     required String did,
     bool? disabled,
-    String? role,
+    TeamUpdateMemberRole? role,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.post(
@@ -72,7 +75,7 @@ final class TeamService {
     body: {
       'did': did,
       if (disabled != null) 'disabled': disabled,
-      if (role != null) 'role': role,
+      if (role != null) 'role': role.toJson(),
       ...?$unknown,
     },
     to: const MemberConverter().fromJson,
@@ -81,13 +84,13 @@ final class TeamService {
   /// Add a member to the ozone team. Requires admin role.
   Future<XRPCResponse<Member>> addMember({
     required String did,
-    required String role,
+    required TeamAddMemberRole role,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.post(
     ns.toolsOzoneTeamAddMember,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'did': did, 'role': role, ...?$unknown},
+    body: {'did': did, 'role': role.toJson(), ...?$unknown},
     to: const MemberConverter().fromJson,
   );
 }

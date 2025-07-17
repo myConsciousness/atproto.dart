@@ -12,4 +12,5 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/types/app/bsky/unspecced/searchPostsSkeleton/input.dart';
+export 'package:bluesky/src/services/types/app/bsky/unspecced/searchPostsSkeleton/main_sort.dart';
 export 'package:bluesky/src/services/types/app/bsky/unspecced/searchPostsSkeleton/output.dart';

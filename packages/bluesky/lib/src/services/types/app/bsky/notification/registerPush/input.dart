@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_platform.dart';
+
 part 'input.freezed.dart';
 part 'input.g.dart';
 
@@ -32,7 +35,8 @@ abstract class NotificationRegisterPushInput
   const factory NotificationRegisterPushInput({
     required String serviceDid,
     required String token,
-    required String platform,
+    @NotificationRegisterPushPlatformConverter()
+    required NotificationRegisterPushPlatform platform,
     required String appId,
 
     /// Set to true when the actor is age restricted

@@ -12,4 +12,5 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/types/tools/ozone/safelink/queryEvents/input.dart';
+export 'package:bluesky/src/services/types/tools/ozone/safelink/queryEvents/main_sort_direction.dart';
 export 'package:bluesky/src/services/types/tools/ozone/safelink/queryEvents/output.dart';

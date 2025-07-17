@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$ServerRefreshSessionOutput {
 
  String get accessJwt; String get refreshJwt; String get handle; String get did; Map<String, dynamic>? get didDoc; bool? get active;/// Hosting status of the account. If not specified, then assume 'active'.
- String? get status; Map<String, dynamic>? get $unknown;
+@ServerRefreshSessionStatusConverter() ServerRefreshSessionStatus? get status; Map<String, dynamic>? get $unknown;
 /// Create a copy of ServerRefreshSessionOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,11 +49,11 @@ abstract mixin class $ServerRefreshSessionOutputCopyWith<$Res>  {
   factory $ServerRefreshSessionOutputCopyWith(ServerRefreshSessionOutput value, $Res Function(ServerRefreshSessionOutput) _then) = _$ServerRefreshSessionOutputCopyWithImpl;
 @useResult
 $Res call({
- String accessJwt, String refreshJwt, String handle, String did, Map<String, dynamic>? didDoc, bool? active, String? status, Map<String, dynamic>? $unknown
+ String accessJwt, String refreshJwt, String handle, String did, Map<String, dynamic>? didDoc, bool? active,@ServerRefreshSessionStatusConverter() ServerRefreshSessionStatus? status, Map<String, dynamic>? $unknown
 });
 
 
-
+$ServerRefreshSessionStatusCopyWith<$Res>? get status;
 
 }
 /// @nodoc
@@ -75,11 +75,23 @@ as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nul
 as String,didDoc: freezed == didDoc ? _self.didDoc : didDoc // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool?,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ServerRefreshSessionStatus?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of ServerRefreshSessionOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ServerRefreshSessionStatusCopyWith<$Res>? get status {
+    if (_self.status == null) {
+    return null;
+  }
 
+  return $ServerRefreshSessionStatusCopyWith<$Res>(_self.status!, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 
@@ -161,7 +173,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String accessJwt,  String refreshJwt,  String handle,  String did,  Map<String, dynamic>? didDoc,  bool? active,  String? status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String accessJwt,  String refreshJwt,  String handle,  String did,  Map<String, dynamic>? didDoc,  bool? active, @ServerRefreshSessionStatusConverter()  ServerRefreshSessionStatus? status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ServerRefreshSessionOutput() when $default != null:
 return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.didDoc,_that.active,_that.status,_that.$unknown);case _:
@@ -182,7 +194,7 @@ return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.di
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String accessJwt,  String refreshJwt,  String handle,  String did,  Map<String, dynamic>? didDoc,  bool? active,  String? status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String accessJwt,  String refreshJwt,  String handle,  String did,  Map<String, dynamic>? didDoc,  bool? active, @ServerRefreshSessionStatusConverter()  ServerRefreshSessionStatus? status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ServerRefreshSessionOutput():
 return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.didDoc,_that.active,_that.status,_that.$unknown);case _:
@@ -202,7 +214,7 @@ return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.di
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String accessJwt,  String refreshJwt,  String handle,  String did,  Map<String, dynamic>? didDoc,  bool? active,  String? status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String accessJwt,  String refreshJwt,  String handle,  String did,  Map<String, dynamic>? didDoc,  bool? active, @ServerRefreshSessionStatusConverter()  ServerRefreshSessionStatus? status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ServerRefreshSessionOutput() when $default != null:
 return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.didDoc,_that.active,_that.status,_that.$unknown);case _:
@@ -217,7 +229,7 @@ return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.di
 @JsonSerializable()
 
 class _ServerRefreshSessionOutput implements ServerRefreshSessionOutput {
-  const _ServerRefreshSessionOutput({required this.accessJwt, required this.refreshJwt, required this.handle, required this.did, final  Map<String, dynamic>? didDoc, this.active, this.status, final  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_$unknown = $unknown;
+  const _ServerRefreshSessionOutput({required this.accessJwt, required this.refreshJwt, required this.handle, required this.did, final  Map<String, dynamic>? didDoc, this.active, @ServerRefreshSessionStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_$unknown = $unknown;
   factory _ServerRefreshSessionOutput.fromJson(Map<String, dynamic> json) => _$ServerRefreshSessionOutputFromJson(json);
 
 @override final  String accessJwt;
@@ -235,7 +247,7 @@ class _ServerRefreshSessionOutput implements ServerRefreshSessionOutput {
 
 @override final  bool? active;
 /// Hosting status of the account. If not specified, then assume 'active'.
-@override final  String? status;
+@override@ServerRefreshSessionStatusConverter() final  ServerRefreshSessionStatus? status;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -279,11 +291,11 @@ abstract mixin class _$ServerRefreshSessionOutputCopyWith<$Res> implements $Serv
   factory _$ServerRefreshSessionOutputCopyWith(_ServerRefreshSessionOutput value, $Res Function(_ServerRefreshSessionOutput) _then) = __$ServerRefreshSessionOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String accessJwt, String refreshJwt, String handle, String did, Map<String, dynamic>? didDoc, bool? active, String? status, Map<String, dynamic>? $unknown
+ String accessJwt, String refreshJwt, String handle, String did, Map<String, dynamic>? didDoc, bool? active,@ServerRefreshSessionStatusConverter() ServerRefreshSessionStatus? status, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $ServerRefreshSessionStatusCopyWith<$Res>? get status;
 
 }
 /// @nodoc
@@ -305,12 +317,24 @@ as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nul
 as String,didDoc: freezed == didDoc ? _self._didDoc : didDoc // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool?,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ServerRefreshSessionStatus?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of ServerRefreshSessionOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ServerRefreshSessionStatusCopyWith<$Res>? get status {
+    if (_self.status == null) {
+    return null;
+  }
 
+  return $ServerRefreshSessionStatusCopyWith<$Res>(_self.status!, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 // dart format on

@@ -35,7 +35,7 @@ final class LexService {
   }
 
   String getPackagePaths() {
-    final buffer = StringBuffer();
+    final importPaths = <String>[];
     for (final api in apis) {
       final parameters = api.inputType == null
           ? const <LexParameter>[]
@@ -62,7 +62,7 @@ final class LexService {
               parameter.type.fieldName!,
             );
 
-            buffer.writeln("import '$relativePath/$fileName.dart';");
+            importPaths.add("import '$relativePath/$fileName.dart';");
           } else {
             final relativePath = parameter.type.lexiconId!
                 .split('.')
@@ -74,8 +74,16 @@ final class LexService {
               parameter.type.fieldName!,
             );
 
-            buffer.writeln("import '$relativePath/$fileName.dart';");
+            importPaths.add("import '$relativePath/$fileName.dart';");
           }
+        } else if (parameter.type.isKnownValues) {
+          final relativePath = parameter.type.knownValues!.lexiconId
+              .split('.')
+              .sublist(2)
+              .join('/');
+          final fileName = parameter.type.knownValues!.getFileName();
+
+          importPaths.add("import '$relativePath/$fileName.dart';");
         } else {
           if (parameter.type.ref == null) continue;
 
@@ -84,7 +92,7 @@ final class LexService {
             parameter.type.ref!,
           );
 
-          buffer.writeln("import '$packagePath';");
+          importPaths.add("import '$packagePath';");
         }
       }
 
@@ -94,22 +102,24 @@ final class LexService {
         final fileDir = lexiconId.split('.').sublist(2).join('/');
         final fileName = api.returnType!.getFileName();
 
-        buffer.writeln("import '$fileDir/$fileName.dart';");
+        importPaths.add("import '$fileDir/$fileName.dart';");
       }
 
       if (_hasRecordApi()) {
-        buffer.writeln(
+        importPaths.add(
           "import 'package:atproto/com_atproto_repo_createrecord.dart';",
         );
       }
     }
 
-    return buffer.toString();
+    return importPaths.toSet().join('\n');
   }
 
   String format() {
     final apis = this.apis.map((e) => e.format()).join();
     final packagePaths = getPackagePaths();
+
+    final serviceId = '${lexiconId.toString()}.*';
 
     return '''$kHeaderHint
 
@@ -126,6 +136,7 @@ import '../../../service_context.dart' as z;
 
 $kHeader
 
+/// `$serviceId`
 final class ${name}Service {
   ${name}Service(this._ctx);
 

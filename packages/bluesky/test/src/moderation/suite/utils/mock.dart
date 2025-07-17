@@ -69,7 +69,7 @@ ListViewBasic listViewBasic({required String name}) {
     uri: 'at://did:plc:fake/app.bsky.graph.list/fake',
     cid: _kFakeCid,
     name: name,
-    purpose: ListPurpose.known(data: KnownListPurpose.modlist),
+    purpose: const ListPurpose.knownValue(data: KnownListPurpose.modlist),
     indexedAt: DateTime.now().toUtc(),
   );
 }

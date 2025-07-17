@@ -13,13 +13,18 @@ import 'package:atproto_core/atproto_core.dart';
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
+import 'setting/listOptions/main_scope.dart';
 import 'setting/listOptions/output.dart';
+import 'setting/removeOptions/main_scope.dart';
+import 'setting/upsertOption/main_manager_role.dart';
+import 'setting/upsertOption/main_scope.dart';
 import 'setting/upsertOption/output.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
+/// `tools.ozone.setting.*`
 final class SettingService {
   SettingService(this._ctx);
 
@@ -29,7 +34,7 @@ final class SettingService {
   Future<XRPCResponse<SettingListOptionsOutput>> listOptions({
     int? limit,
     String? cursor,
-    String? scope,
+    SettingListOptionsScope? scope,
     String? prefix,
     List<String>? keys,
     Map<String, String>? $headers,
@@ -40,7 +45,7 @@ final class SettingService {
     parameters: {
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      if (scope != null) 'scope': scope,
+      if (scope != null) 'scope': scope.toJson(),
       if (prefix != null) 'prefix': prefix,
       if (keys != null) 'keys': keys,
       ...?$unknown,
@@ -51,22 +56,22 @@ final class SettingService {
   /// Delete settings by key
   Future<XRPCResponse<EmptyData>> removeOptions({
     required List<String> keys,
-    required String scope,
+    required SettingRemoveOptionsScope scope,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.post(
     ns.toolsOzoneSettingRemoveOptions,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'keys': keys, 'scope': scope, ...?$unknown},
+    body: {'keys': keys, 'scope': scope.toJson(), ...?$unknown},
   );
 
   /// Create or update setting option
   Future<XRPCResponse<SettingUpsertOptionOutput>> upsertOption({
     required String key,
-    required String scope,
+    required SettingUpsertOptionScope scope,
     required Map<String, dynamic> value,
     String? description,
-    String? managerRole,
+    SettingUpsertOptionManagerRole? managerRole,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.post(
@@ -74,10 +79,10 @@ final class SettingService {
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
       'key': key,
-      'scope': scope,
+      'scope': scope.toJson(),
       'value': value,
       if (description != null) 'description': description,
-      if (managerRole != null) 'managerRole': managerRole,
+      if (managerRole != null) 'managerRole': managerRole.toJson(),
       ...?$unknown,
     },
     to: const SettingUpsertOptionOutputConverter().fromJson,

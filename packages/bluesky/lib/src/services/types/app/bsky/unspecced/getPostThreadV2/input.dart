@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_sort.dart';
+
 part 'input.freezed.dart';
 part 'input.g.dart';
 
@@ -47,7 +50,7 @@ abstract class UnspeccedGetPostThreadV2Input
     bool? prioritizeFollowedUsers,
 
     /// Sorting for the thread replies.
-    String? sort,
+    @UnspeccedGetPostThreadV2SortConverter() UnspeccedGetPostThreadV2Sort? sort,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetPostThreadV2Input;

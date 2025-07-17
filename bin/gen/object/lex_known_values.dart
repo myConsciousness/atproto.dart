@@ -32,9 +32,13 @@ final class LexKnownValues extends LexType {
   @override
   String getFileName() {
     final fileName = rule.getLexObjectFileName(defName);
-    final suffix = rule.getLexObjectFileName(fieldName);
 
-    return '$fileName$suffix';
+    if (fieldName != null) {
+      final suffix = rule.getLexObjectFileName(fieldName);
+      return '${fileName}_$suffix';
+    }
+
+    return fileName;
   }
 
   @override
@@ -53,7 +57,7 @@ final class LexKnownValues extends LexType {
         })
         .join('\n');
 
-    final fileName = rule.getLexObjectFileName(defName);
+    final fileName = getFileName();
 
     final extensions = _getExtensions();
 
@@ -70,9 +74,9 @@ $kHeader
 abstract class $name with _\$$name {
   const $name._();
 
-  const factory $name.known({
+  const factory $name.knownValue({
     required Known$name data,
-  }) = ${name}Known;
+  }) = ${name}KnownValue;
 
   const factory $name.unknown({
     required String data,
@@ -82,7 +86,7 @@ abstract class $name with _\$$name {
     if (value == null) return null;
     final knownValue = Known$name.valueOf(value);
 
-    return knownValue != null ? $name.known(data: knownValue) : $name.unknown(data: value);
+    return knownValue != null ? $name.knownValue(data: knownValue) : $name.unknown(data: value);
   }
 
   String toJson() => const ${name}Converter().toJson(this);
@@ -100,7 +104,7 @@ final class ${name}Converter extends JsonConverter<$name, String> {
     try {
       final knownValue = Known$name.valueOf(json);
       if (knownValue != null) {
-        return $name.known(data: knownValue);
+        return $name.knownValue(data: knownValue);
       }
 
       return $name.unknown(data: json);
@@ -111,7 +115,7 @@ final class ${name}Converter extends JsonConverter<$name, String> {
 
   @override
   String toJson($name object) => object.when(
-        known: (data) => data.value,
+        knownValue: (data) => data.value,
         unknown: (data) => data,
       );
 }
@@ -137,6 +141,7 @@ enum Known$name implements Serializable{
         return v;
       }
     }
+
     return null;
   }
 }
@@ -146,12 +151,12 @@ enum Known$name implements Serializable{
   String _getExtensions() {
     final buffer = StringBuffer();
 
-    buffer.writeln('bool get isKnown => isA<${name}Known>(this);');
-    buffer.writeln('bool get isNotKnown => !isKnown;');
+    buffer.writeln('bool get isKnownValue => isA<${name}KnownValue>(this);');
+    buffer.writeln('bool get isNotKnownValue => !isKnownValue;');
 
     buffer.writeln(
-      'Known$name? get known => '
-      'isKnown ? data as Known$name : null;',
+      'Known$name? get knownValue => '
+      'isKnownValue ? data as Known$name : null;',
     );
 
     buffer.writeln('bool get isUnknown => isA<${name}Unknown>(this);');

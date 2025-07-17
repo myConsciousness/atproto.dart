@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_allow_incoming.dart';
+
 part 'main.freezed.dart';
 part 'main.g.dart';
 
@@ -18,13 +21,15 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// A declaration of a Bluesky chat account.
 @freezed
 abstract class ActorDeclarationRecord with _$ActorDeclarationRecord {
   static const knownProps = <String>['allowIncoming'];
 
   const factory ActorDeclarationRecord({
     @Default('chat.bsky.actor.declaration') String $type,
-    required String allowIncoming,
+    @ActorDeclarationAllowIncomingConverter()
+    required ActorDeclarationAllowIncoming allowIncoming,
 
     Map<String, dynamic>? $unknown,
   }) = _ActorDeclarationRecord;

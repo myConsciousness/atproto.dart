@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$ThreadViewPref {
 
  String get $type;/// Sorting mode for threads.
- String? get sort;/// Show followed users at the top of all replies.
+@ThreadViewPrefSortConverter() ThreadViewPrefSort? get sort;/// Show followed users at the top of all replies.
  bool? get prioritizeFollowedUsers; Map<String, dynamic>? get $unknown;
 /// Create a copy of ThreadViewPref
 /// with the given fields replaced by the non-null parameter values.
@@ -50,11 +50,11 @@ abstract mixin class $ThreadViewPrefCopyWith<$Res>  {
   factory $ThreadViewPrefCopyWith(ThreadViewPref value, $Res Function(ThreadViewPref) _then) = _$ThreadViewPrefCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? sort, bool? prioritizeFollowedUsers, Map<String, dynamic>? $unknown
+ String $type,@ThreadViewPrefSortConverter() ThreadViewPrefSort? sort, bool? prioritizeFollowedUsers, Map<String, dynamic>? $unknown
 });
 
 
-
+$ThreadViewPrefSortCopyWith<$Res>? get sort;
 
 }
 /// @nodoc
@@ -71,12 +71,24 @@ class _$ThreadViewPrefCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,sort: freezed == sort ? _self.sort : sort // ignore: cast_nullable_to_non_nullable
-as String?,prioritizeFollowedUsers: freezed == prioritizeFollowedUsers ? _self.prioritizeFollowedUsers : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
+as ThreadViewPrefSort?,prioritizeFollowedUsers: freezed == prioritizeFollowedUsers ? _self.prioritizeFollowedUsers : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
 as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of ThreadViewPref
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ThreadViewPrefSortCopyWith<$Res>? get sort {
+    if (_self.sort == null) {
+    return null;
+  }
 
+  return $ThreadViewPrefSortCopyWith<$Res>(_self.sort!, (value) {
+    return _then(_self.copyWith(sort: value));
+  });
+}
 }
 
 
@@ -158,7 +170,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? sort,  bool? prioritizeFollowedUsers,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ThreadViewPrefSortConverter()  ThreadViewPrefSort? sort,  bool? prioritizeFollowedUsers,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ThreadViewPref() when $default != null:
 return $default(_that.$type,_that.sort,_that.prioritizeFollowedUsers,_that.$unknown);case _:
@@ -179,7 +191,7 @@ return $default(_that.$type,_that.sort,_that.prioritizeFollowedUsers,_that.$unkn
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? sort,  bool? prioritizeFollowedUsers,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ThreadViewPrefSortConverter()  ThreadViewPrefSort? sort,  bool? prioritizeFollowedUsers,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ThreadViewPref():
 return $default(_that.$type,_that.sort,_that.prioritizeFollowedUsers,_that.$unknown);case _:
@@ -199,7 +211,7 @@ return $default(_that.$type,_that.sort,_that.prioritizeFollowedUsers,_that.$unkn
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? sort,  bool? prioritizeFollowedUsers,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ThreadViewPrefSortConverter()  ThreadViewPrefSort? sort,  bool? prioritizeFollowedUsers,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ThreadViewPref() when $default != null:
 return $default(_that.$type,_that.sort,_that.prioritizeFollowedUsers,_that.$unknown);case _:
@@ -214,12 +226,12 @@ return $default(_that.$type,_that.sort,_that.prioritizeFollowedUsers,_that.$unkn
 @JsonSerializable()
 
 class _ThreadViewPref implements ThreadViewPref {
-  const _ThreadViewPref({this.$type = 'app.bsky.actor.defs#threadViewPref', this.sort, this.prioritizeFollowedUsers, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ThreadViewPref({this.$type = 'app.bsky.actor.defs#threadViewPref', @ThreadViewPrefSortConverter() this.sort, this.prioritizeFollowedUsers, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ThreadViewPref.fromJson(Map<String, dynamic> json) => _$ThreadViewPrefFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// Sorting mode for threads.
-@override final  String? sort;
+@override@ThreadViewPrefSortConverter() final  ThreadViewPrefSort? sort;
 /// Show followed users at the top of all replies.
 @override final  bool? prioritizeFollowedUsers;
  final  Map<String, dynamic>? _$unknown;
@@ -265,11 +277,11 @@ abstract mixin class _$ThreadViewPrefCopyWith<$Res> implements $ThreadViewPrefCo
   factory _$ThreadViewPrefCopyWith(_ThreadViewPref value, $Res Function(_ThreadViewPref) _then) = __$ThreadViewPrefCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? sort, bool? prioritizeFollowedUsers, Map<String, dynamic>? $unknown
+ String $type,@ThreadViewPrefSortConverter() ThreadViewPrefSort? sort, bool? prioritizeFollowedUsers, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $ThreadViewPrefSortCopyWith<$Res>? get sort;
 
 }
 /// @nodoc
@@ -286,13 +298,25 @@ class __$ThreadViewPrefCopyWithImpl<$Res>
   return _then(_ThreadViewPref(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,sort: freezed == sort ? _self.sort : sort // ignore: cast_nullable_to_non_nullable
-as String?,prioritizeFollowedUsers: freezed == prioritizeFollowedUsers ? _self.prioritizeFollowedUsers : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
+as ThreadViewPrefSort?,prioritizeFollowedUsers: freezed == prioritizeFollowedUsers ? _self.prioritizeFollowedUsers : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
 as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of ThreadViewPref
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ThreadViewPrefSortCopyWith<$Res>? get sort {
+    if (_self.sort == null) {
+    return null;
+  }
 
+  return $ThreadViewPrefSortCopyWith<$Res>(_self.sort!, (value) {
+    return _then(_self.copyWith(sort: value));
+  });
+}
 }
 
 // dart format on

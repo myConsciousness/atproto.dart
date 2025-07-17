@@ -55,11 +55,11 @@ extension ListPurposePatterns on ListPurpose {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( ListPurposeKnown value)?  known,TResult Function( ListPurposeUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( ListPurposeKnownValue value)?  knownValue,TResult Function( ListPurposeUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case ListPurposeKnown() when known != null:
-return known(_that);case ListPurposeUnknown() when unknown != null:
+case ListPurposeKnownValue() when knownValue != null:
+return knownValue(_that);case ListPurposeUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -78,11 +78,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( ListPurposeKnown value)  known,required TResult Function( ListPurposeUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( ListPurposeKnownValue value)  knownValue,required TResult Function( ListPurposeUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
-case ListPurposeKnown():
-return known(_that);case ListPurposeUnknown():
+case ListPurposeKnownValue():
+return knownValue(_that);case ListPurposeUnknown():
 return unknown(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -100,11 +100,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( ListPurposeKnown value)?  known,TResult? Function( ListPurposeUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( ListPurposeKnownValue value)?  knownValue,TResult? Function( ListPurposeUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
-case ListPurposeKnown() when known != null:
-return known(_that);case ListPurposeUnknown() when unknown != null:
+case ListPurposeKnownValue() when knownValue != null:
+return knownValue(_that);case ListPurposeUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -122,10 +122,10 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownListPurpose data)?  known,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownListPurpose data)?  knownValue,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case ListPurposeKnown() when known != null:
-return known(_that.data);case ListPurposeUnknown() when unknown != null:
+case ListPurposeKnownValue() when knownValue != null:
+return knownValue(_that.data);case ListPurposeUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -144,10 +144,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownListPurpose data)  known,required TResult Function( String data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownListPurpose data)  knownValue,required TResult Function( String data)  unknown,}) {final _that = this;
 switch (_that) {
-case ListPurposeKnown():
-return known(_that.data);case ListPurposeUnknown():
+case ListPurposeKnownValue():
+return knownValue(_that.data);case ListPurposeUnknown():
 return unknown(_that.data);case _:
   throw StateError('Unexpected subclass');
 
@@ -165,10 +165,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownListPurpose data)?  known,TResult? Function( String data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownListPurpose data)?  knownValue,TResult? Function( String data)?  unknown,}) {final _that = this;
 switch (_that) {
-case ListPurposeKnown() when known != null:
-return known(_that.data);case ListPurposeUnknown() when unknown != null:
+case ListPurposeKnownValue() when knownValue != null:
+return knownValue(_that.data);case ListPurposeUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -180,8 +180,8 @@ return unknown(_that.data);case _:
 /// @nodoc
 
 
-class ListPurposeKnown extends ListPurpose {
-  const ListPurposeKnown({required this.data}): super._();
+class ListPurposeKnownValue extends ListPurpose {
+  const ListPurposeKnownValue({required this.data}): super._();
   
 
 @override final  KnownListPurpose data;
@@ -190,13 +190,13 @@ class ListPurposeKnown extends ListPurpose {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$ListPurposeKnownCopyWith<ListPurposeKnown> get copyWith => _$ListPurposeKnownCopyWithImpl<ListPurposeKnown>(this, _$identity);
+$ListPurposeKnownValueCopyWith<ListPurposeKnownValue> get copyWith => _$ListPurposeKnownValueCopyWithImpl<ListPurposeKnownValue>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ListPurposeKnown&&(identical(other.data, data) || other.data == data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ListPurposeKnownValue&&(identical(other.data, data) || other.data == data));
 }
 
 
@@ -205,15 +205,15 @@ int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'ListPurpose.known(data: $data)';
+  return 'ListPurpose.knownValue(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $ListPurposeKnownCopyWith<$Res> implements $ListPurposeCopyWith<$Res> {
-  factory $ListPurposeKnownCopyWith(ListPurposeKnown value, $Res Function(ListPurposeKnown) _then) = _$ListPurposeKnownCopyWithImpl;
+abstract mixin class $ListPurposeKnownValueCopyWith<$Res> implements $ListPurposeCopyWith<$Res> {
+  factory $ListPurposeKnownValueCopyWith(ListPurposeKnownValue value, $Res Function(ListPurposeKnownValue) _then) = _$ListPurposeKnownValueCopyWithImpl;
 @useResult
 $Res call({
  KnownListPurpose data
@@ -224,17 +224,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$ListPurposeKnownCopyWithImpl<$Res>
-    implements $ListPurposeKnownCopyWith<$Res> {
-  _$ListPurposeKnownCopyWithImpl(this._self, this._then);
+class _$ListPurposeKnownValueCopyWithImpl<$Res>
+    implements $ListPurposeKnownValueCopyWith<$Res> {
+  _$ListPurposeKnownValueCopyWithImpl(this._self, this._then);
 
-  final ListPurposeKnown _self;
-  final $Res Function(ListPurposeKnown) _then;
+  final ListPurposeKnownValue _self;
+  final $Res Function(ListPurposeKnownValue) _then;
 
 /// Create a copy of ListPurpose
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
-  return _then(ListPurposeKnown(
+  return _then(ListPurposeKnownValue(
 data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as KnownListPurpose,
   ));

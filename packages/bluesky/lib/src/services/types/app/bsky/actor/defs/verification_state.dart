@@ -12,6 +12,8 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import './verification_state_trusted_verifier_status.dart';
+import './verification_state_verified_status.dart';
 import './verification_view.dart';
 
 part 'verification_state.freezed.dart';
@@ -35,10 +37,12 @@ abstract class VerificationState with _$VerificationState {
     @VerificationViewConverter() required List<VerificationView> verifications,
 
     /// The user's status as a verified account.
-    required String verifiedStatus,
+    @VerificationStateVerifiedStatusConverter()
+    required VerificationStateVerifiedStatus verifiedStatus,
 
     /// The user's status as a trusted verifier.
-    required String trustedVerifierStatus,
+    @VerificationStateTrustedVerifierStatusConverter()
+    required VerificationStateTrustedVerifierStatus trustedVerifierStatus,
 
     Map<String, dynamic>? $unknown,
   }) = _VerificationState;

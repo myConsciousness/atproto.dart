@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TrendView {
 
- String get $type; String get topic; String get displayName; String get link; DateTime get startedAt; int get postCount; String? get status; String? get category;@ProfileViewBasicConverter() List<ProfileViewBasic> get actors; Map<String, dynamic>? get $unknown;
+ String get $type; String get topic; String get displayName; String get link; DateTime get startedAt; int get postCount;@TrendViewStatusConverter() TrendViewStatus? get status; String? get category;@ProfileViewBasicConverter() List<ProfileViewBasic> get actors; Map<String, dynamic>? get $unknown;
 /// Create a copy of TrendView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $TrendViewCopyWith<$Res>  {
   factory $TrendViewCopyWith(TrendView value, $Res Function(TrendView) _then) = _$TrendViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String topic, String displayName, String link, DateTime startedAt, int postCount, String? status, String? category,@ProfileViewBasicConverter() List<ProfileViewBasic> actors, Map<String, dynamic>? $unknown
+ String $type, String topic, String displayName, String link, DateTime startedAt, int postCount,@TrendViewStatusConverter() TrendViewStatus? status, String? category,@ProfileViewBasicConverter() List<ProfileViewBasic> actors, Map<String, dynamic>? $unknown
 });
 
 
-
+$TrendViewStatusCopyWith<$Res>? get status;
 
 }
 /// @nodoc
@@ -74,13 +74,25 @@ as String,link: null == link ? _self.link : link // ignore: cast_nullable_to_non
 as String,startedAt: null == startedAt ? _self.startedAt : startedAt // ignore: cast_nullable_to_non_nullable
 as DateTime,postCount: null == postCount ? _self.postCount : postCount // ignore: cast_nullable_to_non_nullable
 as int,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String?,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
+as TrendViewStatus?,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
 as String?,actors: null == actors ? _self.actors : actors // ignore: cast_nullable_to_non_nullable
 as List<ProfileViewBasic>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of TrendView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$TrendViewStatusCopyWith<$Res>? get status {
+    if (_self.status == null) {
+    return null;
+  }
 
+  return $TrendViewStatusCopyWith<$Res>(_self.status!, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 
@@ -162,7 +174,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String topic,  String displayName,  String link,  DateTime startedAt,  int postCount,  String? status,  String? category, @ProfileViewBasicConverter()  List<ProfileViewBasic> actors,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String topic,  String displayName,  String link,  DateTime startedAt,  int postCount, @TrendViewStatusConverter()  TrendViewStatus? status,  String? category, @ProfileViewBasicConverter()  List<ProfileViewBasic> actors,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TrendView() when $default != null:
 return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.startedAt,_that.postCount,_that.status,_that.category,_that.actors,_that.$unknown);case _:
@@ -183,7 +195,7 @@ return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.start
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String topic,  String displayName,  String link,  DateTime startedAt,  int postCount,  String? status,  String? category, @ProfileViewBasicConverter()  List<ProfileViewBasic> actors,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String topic,  String displayName,  String link,  DateTime startedAt,  int postCount, @TrendViewStatusConverter()  TrendViewStatus? status,  String? category, @ProfileViewBasicConverter()  List<ProfileViewBasic> actors,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _TrendView():
 return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.startedAt,_that.postCount,_that.status,_that.category,_that.actors,_that.$unknown);case _:
@@ -203,7 +215,7 @@ return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.start
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String topic,  String displayName,  String link,  DateTime startedAt,  int postCount,  String? status,  String? category, @ProfileViewBasicConverter()  List<ProfileViewBasic> actors,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String topic,  String displayName,  String link,  DateTime startedAt,  int postCount, @TrendViewStatusConverter()  TrendViewStatus? status,  String? category, @ProfileViewBasicConverter()  List<ProfileViewBasic> actors,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _TrendView() when $default != null:
 return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.startedAt,_that.postCount,_that.status,_that.category,_that.actors,_that.$unknown);case _:
@@ -218,7 +230,7 @@ return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.start
 @JsonSerializable()
 
 class _TrendView implements TrendView {
-  const _TrendView({this.$type = 'app.bsky.unspecced.defs#trendView', required this.topic, required this.displayName, required this.link, required this.startedAt, required this.postCount, this.status, this.category, @ProfileViewBasicConverter() required final  List<ProfileViewBasic> actors, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
+  const _TrendView({this.$type = 'app.bsky.unspecced.defs#trendView', required this.topic, required this.displayName, required this.link, required this.startedAt, required this.postCount, @TrendViewStatusConverter() this.status, this.category, @ProfileViewBasicConverter() required final  List<ProfileViewBasic> actors, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
   factory _TrendView.fromJson(Map<String, dynamic> json) => _$TrendViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -227,7 +239,7 @@ class _TrendView implements TrendView {
 @override final  String link;
 @override final  DateTime startedAt;
 @override final  int postCount;
-@override final  String? status;
+@override@TrendViewStatusConverter() final  TrendViewStatus? status;
 @override final  String? category;
  final  List<ProfileViewBasic> _actors;
 @override@ProfileViewBasicConverter() List<ProfileViewBasic> get actors {
@@ -279,11 +291,11 @@ abstract mixin class _$TrendViewCopyWith<$Res> implements $TrendViewCopyWith<$Re
   factory _$TrendViewCopyWith(_TrendView value, $Res Function(_TrendView) _then) = __$TrendViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String topic, String displayName, String link, DateTime startedAt, int postCount, String? status, String? category,@ProfileViewBasicConverter() List<ProfileViewBasic> actors, Map<String, dynamic>? $unknown
+ String $type, String topic, String displayName, String link, DateTime startedAt, int postCount,@TrendViewStatusConverter() TrendViewStatus? status, String? category,@ProfileViewBasicConverter() List<ProfileViewBasic> actors, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $TrendViewStatusCopyWith<$Res>? get status;
 
 }
 /// @nodoc
@@ -305,14 +317,26 @@ as String,link: null == link ? _self.link : link // ignore: cast_nullable_to_non
 as String,startedAt: null == startedAt ? _self.startedAt : startedAt // ignore: cast_nullable_to_non_nullable
 as DateTime,postCount: null == postCount ? _self.postCount : postCount // ignore: cast_nullable_to_non_nullable
 as int,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String?,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
+as TrendViewStatus?,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
 as String?,actors: null == actors ? _self._actors : actors // ignore: cast_nullable_to_non_nullable
 as List<ProfileViewBasic>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of TrendView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$TrendViewStatusCopyWith<$Res>? get status {
+    if (_self.status == null) {
+    return null;
+  }
 
+  return $TrendViewStatusCopyWith<$Res>(_self.status!, (value) {
+    return _then(_self.copyWith(status: value));
+  });
+}
 }
 
 // dart format on

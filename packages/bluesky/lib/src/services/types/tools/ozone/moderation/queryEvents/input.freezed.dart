@@ -19,12 +19,12 @@ mixin _$ModerationQueryEventsInput {
  String? get sortDirection;/// Retrieve events created after a given timestamp
  DateTime? get createdAfter;/// Retrieve events created before a given timestamp
  DateTime? get createdBefore;@AtUriConverter() AtUri? get subject; List<String>? get collections;/// If specified, only events where the subject is of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
- String? get subjectType;/// If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned.
+@ModerationQueryEventsSubjectTypeConverter() ModerationQueryEventsSubjectType? get subjectType;/// If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned.
  bool? get includeAllUserRecords; int? get limit;/// If true, only events with comments are returned
  bool? get hasComment;/// If specified, only events with comments containing the keyword are returned. Apply || separator to use multiple keywords and match using OR condition.
  String? get comment; List<String>? get addedLabels; List<String>? get removedLabels; List<String>? get addedTags; List<String>? get removedTags; List<String>? get reportTypes;/// If specified, only events where the action policies match any of the given policies are returned
  List<String>? get policies; List<String>? get modTool;/// If specified, only events where the age assurance state matches the given value are returned
- String? get ageAssuranceState; String? get cursor; Map<String, dynamic>? get $unknown;
+@ModerationQueryEventsAgeAssuranceStateConverter() ModerationQueryEventsAgeAssuranceState? get ageAssuranceState; String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModerationQueryEventsInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -57,11 +57,11 @@ abstract mixin class $ModerationQueryEventsInputCopyWith<$Res>  {
   factory $ModerationQueryEventsInputCopyWith(ModerationQueryEventsInput value, $Res Function(ModerationQueryEventsInput) _then) = _$ModerationQueryEventsInputCopyWithImpl;
 @useResult
 $Res call({
- List<String>? types, String? createdBy, String? sortDirection, DateTime? createdAfter, DateTime? createdBefore,@AtUriConverter() AtUri? subject, List<String>? collections, String? subjectType, bool? includeAllUserRecords, int? limit, bool? hasComment, String? comment, List<String>? addedLabels, List<String>? removedLabels, List<String>? addedTags, List<String>? removedTags, List<String>? reportTypes, List<String>? policies, List<String>? modTool, String? ageAssuranceState, String? cursor, Map<String, dynamic>? $unknown
+ List<String>? types, String? createdBy, String? sortDirection, DateTime? createdAfter, DateTime? createdBefore,@AtUriConverter() AtUri? subject, List<String>? collections,@ModerationQueryEventsSubjectTypeConverter() ModerationQueryEventsSubjectType? subjectType, bool? includeAllUserRecords, int? limit, bool? hasComment, String? comment, List<String>? addedLabels, List<String>? removedLabels, List<String>? addedTags, List<String>? removedTags, List<String>? reportTypes, List<String>? policies, List<String>? modTool,@ModerationQueryEventsAgeAssuranceStateConverter() ModerationQueryEventsAgeAssuranceState? ageAssuranceState, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
-
+$ModerationQueryEventsSubjectTypeCopyWith<$Res>? get subjectType;$ModerationQueryEventsAgeAssuranceStateCopyWith<$Res>? get ageAssuranceState;
 
 }
 /// @nodoc
@@ -84,7 +84,7 @@ as DateTime?,createdBefore: freezed == createdBefore ? _self.createdBefore : cre
 as DateTime?,subject: freezed == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
 as AtUri?,collections: freezed == collections ? _self.collections : collections // ignore: cast_nullable_to_non_nullable
 as List<String>?,subjectType: freezed == subjectType ? _self.subjectType : subjectType // ignore: cast_nullable_to_non_nullable
-as String?,includeAllUserRecords: freezed == includeAllUserRecords ? _self.includeAllUserRecords : includeAllUserRecords // ignore: cast_nullable_to_non_nullable
+as ModerationQueryEventsSubjectType?,includeAllUserRecords: freezed == includeAllUserRecords ? _self.includeAllUserRecords : includeAllUserRecords // ignore: cast_nullable_to_non_nullable
 as bool?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int?,hasComment: freezed == hasComment ? _self.hasComment : hasComment // ignore: cast_nullable_to_non_nullable
 as bool?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
@@ -96,12 +96,36 @@ as List<String>?,reportTypes: freezed == reportTypes ? _self.reportTypes : repor
 as List<String>?,policies: freezed == policies ? _self.policies : policies // ignore: cast_nullable_to_non_nullable
 as List<String>?,modTool: freezed == modTool ? _self.modTool : modTool // ignore: cast_nullable_to_non_nullable
 as List<String>?,ageAssuranceState: freezed == ageAssuranceState ? _self.ageAssuranceState : ageAssuranceState // ignore: cast_nullable_to_non_nullable
-as String?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as ModerationQueryEventsAgeAssuranceState?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of ModerationQueryEventsInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModerationQueryEventsSubjectTypeCopyWith<$Res>? get subjectType {
+    if (_self.subjectType == null) {
+    return null;
+  }
 
+  return $ModerationQueryEventsSubjectTypeCopyWith<$Res>(_self.subjectType!, (value) {
+    return _then(_self.copyWith(subjectType: value));
+  });
+}/// Create a copy of ModerationQueryEventsInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModerationQueryEventsAgeAssuranceStateCopyWith<$Res>? get ageAssuranceState {
+    if (_self.ageAssuranceState == null) {
+    return null;
+  }
+
+  return $ModerationQueryEventsAgeAssuranceStateCopyWith<$Res>(_self.ageAssuranceState!, (value) {
+    return _then(_self.copyWith(ageAssuranceState: value));
+  });
+}
 }
 
 
@@ -183,7 +207,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String>? types,  String? createdBy,  String? sortDirection,  DateTime? createdAfter,  DateTime? createdBefore, @AtUriConverter()  AtUri? subject,  List<String>? collections,  String? subjectType,  bool? includeAllUserRecords,  int? limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool,  String? ageAssuranceState,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String>? types,  String? createdBy,  String? sortDirection,  DateTime? createdAfter,  DateTime? createdBefore, @AtUriConverter()  AtUri? subject,  List<String>? collections, @ModerationQueryEventsSubjectTypeConverter()  ModerationQueryEventsSubjectType? subjectType,  bool? includeAllUserRecords,  int? limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool, @ModerationQueryEventsAgeAssuranceStateConverter()  ModerationQueryEventsAgeAssuranceState? ageAssuranceState,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModerationQueryEventsInput() when $default != null:
 return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAfter,_that.createdBefore,_that.subject,_that.collections,_that.subjectType,_that.includeAllUserRecords,_that.limit,_that.hasComment,_that.comment,_that.addedLabels,_that.removedLabels,_that.addedTags,_that.removedTags,_that.reportTypes,_that.policies,_that.modTool,_that.ageAssuranceState,_that.cursor,_that.$unknown);case _:
@@ -204,7 +228,7 @@ return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAft
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String>? types,  String? createdBy,  String? sortDirection,  DateTime? createdAfter,  DateTime? createdBefore, @AtUriConverter()  AtUri? subject,  List<String>? collections,  String? subjectType,  bool? includeAllUserRecords,  int? limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool,  String? ageAssuranceState,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String>? types,  String? createdBy,  String? sortDirection,  DateTime? createdAfter,  DateTime? createdBefore, @AtUriConverter()  AtUri? subject,  List<String>? collections, @ModerationQueryEventsSubjectTypeConverter()  ModerationQueryEventsSubjectType? subjectType,  bool? includeAllUserRecords,  int? limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool, @ModerationQueryEventsAgeAssuranceStateConverter()  ModerationQueryEventsAgeAssuranceState? ageAssuranceState,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModerationQueryEventsInput():
 return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAfter,_that.createdBefore,_that.subject,_that.collections,_that.subjectType,_that.includeAllUserRecords,_that.limit,_that.hasComment,_that.comment,_that.addedLabels,_that.removedLabels,_that.addedTags,_that.removedTags,_that.reportTypes,_that.policies,_that.modTool,_that.ageAssuranceState,_that.cursor,_that.$unknown);case _:
@@ -224,7 +248,7 @@ return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAft
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String>? types,  String? createdBy,  String? sortDirection,  DateTime? createdAfter,  DateTime? createdBefore, @AtUriConverter()  AtUri? subject,  List<String>? collections,  String? subjectType,  bool? includeAllUserRecords,  int? limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool,  String? ageAssuranceState,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String>? types,  String? createdBy,  String? sortDirection,  DateTime? createdAfter,  DateTime? createdBefore, @AtUriConverter()  AtUri? subject,  List<String>? collections, @ModerationQueryEventsSubjectTypeConverter()  ModerationQueryEventsSubjectType? subjectType,  bool? includeAllUserRecords,  int? limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool, @ModerationQueryEventsAgeAssuranceStateConverter()  ModerationQueryEventsAgeAssuranceState? ageAssuranceState,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModerationQueryEventsInput() when $default != null:
 return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAfter,_that.createdBefore,_that.subject,_that.collections,_that.subjectType,_that.includeAllUserRecords,_that.limit,_that.hasComment,_that.comment,_that.addedLabels,_that.removedLabels,_that.addedTags,_that.removedTags,_that.reportTypes,_that.policies,_that.modTool,_that.ageAssuranceState,_that.cursor,_that.$unknown);case _:
@@ -239,7 +263,7 @@ return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAft
 @JsonSerializable()
 
 class _ModerationQueryEventsInput implements ModerationQueryEventsInput {
-  const _ModerationQueryEventsInput({final  List<String>? types, this.createdBy, this.sortDirection, this.createdAfter, this.createdBefore, @AtUriConverter() this.subject, final  List<String>? collections, this.subjectType, this.includeAllUserRecords, this.limit, this.hasComment, this.comment, final  List<String>? addedLabels, final  List<String>? removedLabels, final  List<String>? addedTags, final  List<String>? removedTags, final  List<String>? reportTypes, final  List<String>? policies, final  List<String>? modTool, this.ageAssuranceState, this.cursor, final  Map<String, dynamic>? $unknown}): _types = types,_collections = collections,_addedLabels = addedLabels,_removedLabels = removedLabels,_addedTags = addedTags,_removedTags = removedTags,_reportTypes = reportTypes,_policies = policies,_modTool = modTool,_$unknown = $unknown;
+  const _ModerationQueryEventsInput({final  List<String>? types, this.createdBy, this.sortDirection, this.createdAfter, this.createdBefore, @AtUriConverter() this.subject, final  List<String>? collections, @ModerationQueryEventsSubjectTypeConverter() this.subjectType, this.includeAllUserRecords, this.limit, this.hasComment, this.comment, final  List<String>? addedLabels, final  List<String>? removedLabels, final  List<String>? addedTags, final  List<String>? removedTags, final  List<String>? reportTypes, final  List<String>? policies, final  List<String>? modTool, @ModerationQueryEventsAgeAssuranceStateConverter() this.ageAssuranceState, this.cursor, final  Map<String, dynamic>? $unknown}): _types = types,_collections = collections,_addedLabels = addedLabels,_removedLabels = removedLabels,_addedTags = addedTags,_removedTags = removedTags,_reportTypes = reportTypes,_policies = policies,_modTool = modTool,_$unknown = $unknown;
   factory _ModerationQueryEventsInput.fromJson(Map<String, dynamic> json) => _$ModerationQueryEventsInputFromJson(json);
 
  final  List<String>? _types;
@@ -269,7 +293,7 @@ class _ModerationQueryEventsInput implements ModerationQueryEventsInput {
 }
 
 /// If specified, only events where the subject is of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
-@override final  String? subjectType;
+@override@ModerationQueryEventsSubjectTypeConverter() final  ModerationQueryEventsSubjectType? subjectType;
 /// If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned.
 @override final  bool? includeAllUserRecords;
 @override final  int? limit;
@@ -343,7 +367,7 @@ class _ModerationQueryEventsInput implements ModerationQueryEventsInput {
 }
 
 /// If specified, only events where the age assurance state matches the given value are returned
-@override final  String? ageAssuranceState;
+@override@ModerationQueryEventsAgeAssuranceStateConverter() final  ModerationQueryEventsAgeAssuranceState? ageAssuranceState;
 @override final  String? cursor;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -388,11 +412,11 @@ abstract mixin class _$ModerationQueryEventsInputCopyWith<$Res> implements $Mode
   factory _$ModerationQueryEventsInputCopyWith(_ModerationQueryEventsInput value, $Res Function(_ModerationQueryEventsInput) _then) = __$ModerationQueryEventsInputCopyWithImpl;
 @override @useResult
 $Res call({
- List<String>? types, String? createdBy, String? sortDirection, DateTime? createdAfter, DateTime? createdBefore,@AtUriConverter() AtUri? subject, List<String>? collections, String? subjectType, bool? includeAllUserRecords, int? limit, bool? hasComment, String? comment, List<String>? addedLabels, List<String>? removedLabels, List<String>? addedTags, List<String>? removedTags, List<String>? reportTypes, List<String>? policies, List<String>? modTool, String? ageAssuranceState, String? cursor, Map<String, dynamic>? $unknown
+ List<String>? types, String? createdBy, String? sortDirection, DateTime? createdAfter, DateTime? createdBefore,@AtUriConverter() AtUri? subject, List<String>? collections,@ModerationQueryEventsSubjectTypeConverter() ModerationQueryEventsSubjectType? subjectType, bool? includeAllUserRecords, int? limit, bool? hasComment, String? comment, List<String>? addedLabels, List<String>? removedLabels, List<String>? addedTags, List<String>? removedTags, List<String>? reportTypes, List<String>? policies, List<String>? modTool,@ModerationQueryEventsAgeAssuranceStateConverter() ModerationQueryEventsAgeAssuranceState? ageAssuranceState, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $ModerationQueryEventsSubjectTypeCopyWith<$Res>? get subjectType;@override $ModerationQueryEventsAgeAssuranceStateCopyWith<$Res>? get ageAssuranceState;
 
 }
 /// @nodoc
@@ -415,7 +439,7 @@ as DateTime?,createdBefore: freezed == createdBefore ? _self.createdBefore : cre
 as DateTime?,subject: freezed == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
 as AtUri?,collections: freezed == collections ? _self._collections : collections // ignore: cast_nullable_to_non_nullable
 as List<String>?,subjectType: freezed == subjectType ? _self.subjectType : subjectType // ignore: cast_nullable_to_non_nullable
-as String?,includeAllUserRecords: freezed == includeAllUserRecords ? _self.includeAllUserRecords : includeAllUserRecords // ignore: cast_nullable_to_non_nullable
+as ModerationQueryEventsSubjectType?,includeAllUserRecords: freezed == includeAllUserRecords ? _self.includeAllUserRecords : includeAllUserRecords // ignore: cast_nullable_to_non_nullable
 as bool?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int?,hasComment: freezed == hasComment ? _self.hasComment : hasComment // ignore: cast_nullable_to_non_nullable
 as bool?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
@@ -427,13 +451,37 @@ as List<String>?,reportTypes: freezed == reportTypes ? _self._reportTypes : repo
 as List<String>?,policies: freezed == policies ? _self._policies : policies // ignore: cast_nullable_to_non_nullable
 as List<String>?,modTool: freezed == modTool ? _self._modTool : modTool // ignore: cast_nullable_to_non_nullable
 as List<String>?,ageAssuranceState: freezed == ageAssuranceState ? _self.ageAssuranceState : ageAssuranceState // ignore: cast_nullable_to_non_nullable
-as String?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as ModerationQueryEventsAgeAssuranceState?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of ModerationQueryEventsInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModerationQueryEventsSubjectTypeCopyWith<$Res>? get subjectType {
+    if (_self.subjectType == null) {
+    return null;
+  }
 
+  return $ModerationQueryEventsSubjectTypeCopyWith<$Res>(_self.subjectType!, (value) {
+    return _then(_self.copyWith(subjectType: value));
+  });
+}/// Create a copy of ModerationQueryEventsInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ModerationQueryEventsAgeAssuranceStateCopyWith<$Res>? get ageAssuranceState {
+    if (_self.ageAssuranceState == null) {
+    return null;
+  }
+
+  return $ModerationQueryEventsAgeAssuranceStateCopyWith<$Res>(_self.ageAssuranceState!, (value) {
+    return _then(_self.copyWith(ageAssuranceState: value));
+  });
+}
 }
 
 // dart format on

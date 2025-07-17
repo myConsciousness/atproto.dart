@@ -14,3 +14,4 @@
 export 'package:atproto/src/services/types/com/atproto/sync/listRepos/input.dart';
 export 'package:atproto/src/services/types/com/atproto/sync/listRepos/output.dart';
 export 'package:atproto/src/services/types/com/atproto/sync/listRepos/repo.dart';
+export 'package:atproto/src/services/types/com/atproto/sync/listRepos/repo_status.dart';

@@ -18,6 +18,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.
 @freezed
 abstract class GraphListitemRecord with _$GraphListitemRecord {
   static const knownProps = <String>['subject', 'list', 'createdAt'];

@@ -11,6 +11,10 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_age_assurance_state.dart';
+import './main_subject_type.dart';
+
 part 'input.freezed.dart';
 part 'input.g.dart';
 
@@ -132,7 +136,8 @@ abstract class ModerationQueryStatusesInput
     List<String>? collections,
 
     /// If specified, subjects of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
-    String? subjectType,
+    @ModerationQueryStatusesSubjectTypeConverter()
+    ModerationQueryStatusesSubjectType? subjectType,
 
     /// If specified, only subjects that belong to an account that has at least this many suspensions will be returned.
     int? minAccountSuspendCount,
@@ -147,7 +152,8 @@ abstract class ModerationQueryStatusesInput
     int? minPriorityScore,
 
     /// If specified, only subjects with the given age assurance state will be returned.
-    String? ageAssuranceState,
+    @ModerationQueryStatusesAgeAssuranceStateConverter()
+    ModerationQueryStatusesAgeAssuranceState? ageAssuranceState,
 
     Map<String, dynamic>? $unknown,
   }) = _ModerationQueryStatusesInput;

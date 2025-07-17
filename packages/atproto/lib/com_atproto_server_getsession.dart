@@ -12,3 +12,4 @@
 // **************************************************************************
 
 export 'package:atproto/src/services/types/com/atproto/server/getSession/output.dart';
+export 'package:atproto/src/services/types/com/atproto/server/getSession/main_status.dart';

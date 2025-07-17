@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './update_result_validation_status.dart';
+
 part 'update_result.freezed.dart';
 part 'update_result.g.dart';
 
@@ -26,7 +29,8 @@ abstract class UpdateResult with _$UpdateResult {
     @Default('com.atproto.repo.applyWrites#updateResult') String $type,
     required String uri,
     required String cid,
-    String? validationStatus,
+    @UpdateResultValidationStatusConverter()
+    UpdateResultValidationStatus? validationStatus,
 
     Map<String, dynamic>? $unknown,
   }) = _UpdateResult;

@@ -55,11 +55,11 @@ extension ActionTypePatterns on ActionType {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( ActionTypeKnown value)?  known,TResult Function( ActionTypeUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( ActionTypeKnownValue value)?  knownValue,TResult Function( ActionTypeUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case ActionTypeKnown() when known != null:
-return known(_that);case ActionTypeUnknown() when unknown != null:
+case ActionTypeKnownValue() when knownValue != null:
+return knownValue(_that);case ActionTypeUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -78,11 +78,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( ActionTypeKnown value)  known,required TResult Function( ActionTypeUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( ActionTypeKnownValue value)  knownValue,required TResult Function( ActionTypeUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
-case ActionTypeKnown():
-return known(_that);case ActionTypeUnknown():
+case ActionTypeKnownValue():
+return knownValue(_that);case ActionTypeUnknown():
 return unknown(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -100,11 +100,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( ActionTypeKnown value)?  known,TResult? Function( ActionTypeUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( ActionTypeKnownValue value)?  knownValue,TResult? Function( ActionTypeUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
-case ActionTypeKnown() when known != null:
-return known(_that);case ActionTypeUnknown() when unknown != null:
+case ActionTypeKnownValue() when knownValue != null:
+return knownValue(_that);case ActionTypeUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -122,10 +122,10 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownActionType data)?  known,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownActionType data)?  knownValue,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case ActionTypeKnown() when known != null:
-return known(_that.data);case ActionTypeUnknown() when unknown != null:
+case ActionTypeKnownValue() when knownValue != null:
+return knownValue(_that.data);case ActionTypeUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -144,10 +144,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownActionType data)  known,required TResult Function( String data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownActionType data)  knownValue,required TResult Function( String data)  unknown,}) {final _that = this;
 switch (_that) {
-case ActionTypeKnown():
-return known(_that.data);case ActionTypeUnknown():
+case ActionTypeKnownValue():
+return knownValue(_that.data);case ActionTypeUnknown():
 return unknown(_that.data);case _:
   throw StateError('Unexpected subclass');
 
@@ -165,10 +165,10 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownActionType data)?  known,TResult? Function( String data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownActionType data)?  knownValue,TResult? Function( String data)?  unknown,}) {final _that = this;
 switch (_that) {
-case ActionTypeKnown() when known != null:
-return known(_that.data);case ActionTypeUnknown() when unknown != null:
+case ActionTypeKnownValue() when knownValue != null:
+return knownValue(_that.data);case ActionTypeUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -180,8 +180,8 @@ return unknown(_that.data);case _:
 /// @nodoc
 
 
-class ActionTypeKnown extends ActionType {
-  const ActionTypeKnown({required this.data}): super._();
+class ActionTypeKnownValue extends ActionType {
+  const ActionTypeKnownValue({required this.data}): super._();
   
 
 @override final  KnownActionType data;
@@ -190,13 +190,13 @@ class ActionTypeKnown extends ActionType {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$ActionTypeKnownCopyWith<ActionTypeKnown> get copyWith => _$ActionTypeKnownCopyWithImpl<ActionTypeKnown>(this, _$identity);
+$ActionTypeKnownValueCopyWith<ActionTypeKnownValue> get copyWith => _$ActionTypeKnownValueCopyWithImpl<ActionTypeKnownValue>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActionTypeKnown&&(identical(other.data, data) || other.data == data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActionTypeKnownValue&&(identical(other.data, data) || other.data == data));
 }
 
 
@@ -205,15 +205,15 @@ int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'ActionType.known(data: $data)';
+  return 'ActionType.knownValue(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $ActionTypeKnownCopyWith<$Res> implements $ActionTypeCopyWith<$Res> {
-  factory $ActionTypeKnownCopyWith(ActionTypeKnown value, $Res Function(ActionTypeKnown) _then) = _$ActionTypeKnownCopyWithImpl;
+abstract mixin class $ActionTypeKnownValueCopyWith<$Res> implements $ActionTypeCopyWith<$Res> {
+  factory $ActionTypeKnownValueCopyWith(ActionTypeKnownValue value, $Res Function(ActionTypeKnownValue) _then) = _$ActionTypeKnownValueCopyWithImpl;
 @useResult
 $Res call({
  KnownActionType data
@@ -224,17 +224,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$ActionTypeKnownCopyWithImpl<$Res>
-    implements $ActionTypeKnownCopyWith<$Res> {
-  _$ActionTypeKnownCopyWithImpl(this._self, this._then);
+class _$ActionTypeKnownValueCopyWithImpl<$Res>
+    implements $ActionTypeKnownValueCopyWith<$Res> {
+  _$ActionTypeKnownValueCopyWithImpl(this._self, this._then);
 
-  final ActionTypeKnown _self;
-  final $Res Function(ActionTypeKnown) _then;
+  final ActionTypeKnownValue _self;
+  final $Res Function(ActionTypeKnownValue) _then;
 
 /// Create a copy of ActionType
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
-  return _then(ActionTypeKnown(
+  return _then(ActionTypeKnownValue(
 data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as KnownActionType,
   ));

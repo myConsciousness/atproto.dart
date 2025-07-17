@@ -8,82 +8,96 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_ModerationQueryEventsInput _$ModerationQueryEventsInputFromJson(Map json) =>
-    $checkedCreate('_ModerationQueryEventsInput', json, ($checkedConvert) {
-      final val = _ModerationQueryEventsInput(
-        types: $checkedConvert(
-          'types',
-          (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
-        ),
-        createdBy: $checkedConvert('createdBy', (v) => v as String?),
-        sortDirection: $checkedConvert('sortDirection', (v) => v as String?),
-        createdAfter: $checkedConvert(
-          'createdAfter',
-          (v) => v == null ? null : DateTime.parse(v as String),
-        ),
-        createdBefore: $checkedConvert(
-          'createdBefore',
-          (v) => v == null ? null : DateTime.parse(v as String),
-        ),
-        subject: $checkedConvert(
-          'subject',
-          (v) => _$JsonConverterFromJson<String, AtUri>(
+_ModerationQueryEventsInput _$ModerationQueryEventsInputFromJson(
+  Map json,
+) => $checkedCreate('_ModerationQueryEventsInput', json, ($checkedConvert) {
+  final val = _ModerationQueryEventsInput(
+    types: $checkedConvert(
+      'types',
+      (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+    ),
+    createdBy: $checkedConvert('createdBy', (v) => v as String?),
+    sortDirection: $checkedConvert('sortDirection', (v) => v as String?),
+    createdAfter: $checkedConvert(
+      'createdAfter',
+      (v) => v == null ? null : DateTime.parse(v as String),
+    ),
+    createdBefore: $checkedConvert(
+      'createdBefore',
+      (v) => v == null ? null : DateTime.parse(v as String),
+    ),
+    subject: $checkedConvert(
+      'subject',
+      (v) => _$JsonConverterFromJson<String, AtUri>(
+        v,
+        const AtUriConverter().fromJson,
+      ),
+    ),
+    collections: $checkedConvert(
+      'collections',
+      (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+    ),
+    subjectType: $checkedConvert(
+      'subjectType',
+      (v) => _$JsonConverterFromJson<String, ModerationQueryEventsSubjectType>(
+        v,
+        const ModerationQueryEventsSubjectTypeConverter().fromJson,
+      ),
+    ),
+    includeAllUserRecords: $checkedConvert(
+      'includeAllUserRecords',
+      (v) => v as bool?,
+    ),
+    limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+    hasComment: $checkedConvert('hasComment', (v) => v as bool?),
+    comment: $checkedConvert('comment', (v) => v as String?),
+    addedLabels: $checkedConvert(
+      'addedLabels',
+      (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+    ),
+    removedLabels: $checkedConvert(
+      'removedLabels',
+      (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+    ),
+    addedTags: $checkedConvert(
+      'addedTags',
+      (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+    ),
+    removedTags: $checkedConvert(
+      'removedTags',
+      (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+    ),
+    reportTypes: $checkedConvert(
+      'reportTypes',
+      (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+    ),
+    policies: $checkedConvert(
+      'policies',
+      (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+    ),
+    modTool: $checkedConvert(
+      'modTool',
+      (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+    ),
+    ageAssuranceState: $checkedConvert(
+      'ageAssuranceState',
+      (v) =>
+          _$JsonConverterFromJson<
+            String,
+            ModerationQueryEventsAgeAssuranceState
+          >(
             v,
-            const AtUriConverter().fromJson,
+            const ModerationQueryEventsAgeAssuranceStateConverter().fromJson,
           ),
-        ),
-        collections: $checkedConvert(
-          'collections',
-          (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
-        ),
-        subjectType: $checkedConvert('subjectType', (v) => v as String?),
-        includeAllUserRecords: $checkedConvert(
-          'includeAllUserRecords',
-          (v) => v as bool?,
-        ),
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
-        hasComment: $checkedConvert('hasComment', (v) => v as bool?),
-        comment: $checkedConvert('comment', (v) => v as String?),
-        addedLabels: $checkedConvert(
-          'addedLabels',
-          (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
-        ),
-        removedLabels: $checkedConvert(
-          'removedLabels',
-          (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
-        ),
-        addedTags: $checkedConvert(
-          'addedTags',
-          (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
-        ),
-        removedTags: $checkedConvert(
-          'removedTags',
-          (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
-        ),
-        reportTypes: $checkedConvert(
-          'reportTypes',
-          (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
-        ),
-        policies: $checkedConvert(
-          'policies',
-          (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
-        ),
-        modTool: $checkedConvert(
-          'modTool',
-          (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
-        ),
-        ageAssuranceState: $checkedConvert(
-          'ageAssuranceState',
-          (v) => v as String?,
-        ),
-        cursor: $checkedConvert('cursor', (v) => v as String?),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    ),
+    cursor: $checkedConvert('cursor', (v) => v as String?),
+    $unknown: $checkedConvert(
+      r'$unknown',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
+  );
+  return val;
+});
 
 Map<String, dynamic> _$ModerationQueryEventsInputToJson(
   _ModerationQueryEventsInput instance,
@@ -98,7 +112,11 @@ Map<String, dynamic> _$ModerationQueryEventsInputToJson(
     const AtUriConverter().toJson,
   ),
   'collections': instance.collections,
-  'subjectType': instance.subjectType,
+  'subjectType':
+      _$JsonConverterToJson<String, ModerationQueryEventsSubjectType>(
+        instance.subjectType,
+        const ModerationQueryEventsSubjectTypeConverter().toJson,
+      ),
   'includeAllUserRecords': instance.includeAllUserRecords,
   'limit': instance.limit,
   'hasComment': instance.hasComment,
@@ -110,7 +128,11 @@ Map<String, dynamic> _$ModerationQueryEventsInputToJson(
   'reportTypes': instance.reportTypes,
   'policies': instance.policies,
   'modTool': instance.modTool,
-  'ageAssuranceState': instance.ageAssuranceState,
+  'ageAssuranceState':
+      _$JsonConverterToJson<String, ModerationQueryEventsAgeAssuranceState>(
+        instance.ageAssuranceState,
+        const ModerationQueryEventsAgeAssuranceStateConverter().toJson,
+      ),
   'cursor': instance.cursor,
   r'$unknown': instance.$unknown,
 };

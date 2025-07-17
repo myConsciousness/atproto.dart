@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './info_name.dart';
+
 part 'info.freezed.dart';
 part 'info.g.dart';
 
@@ -24,7 +27,7 @@ abstract class Info with _$Info {
 
   const factory Info({
     @Default('com.atproto.label.subscribeLabels#info') String $type,
-    required String name,
+    @InfoNameConverter() required InfoName name,
     String? message,
 
     Map<String, dynamic>? $unknown,

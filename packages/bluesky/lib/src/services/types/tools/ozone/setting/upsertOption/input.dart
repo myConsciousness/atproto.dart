@@ -11,6 +11,10 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_manager_role.dart';
+import './main_scope.dart';
+
 part 'input.freezed.dart';
 part 'input.g.dart';
 
@@ -30,10 +34,12 @@ abstract class SettingUpsertOptionInput with _$SettingUpsertOptionInput {
 
   const factory SettingUpsertOptionInput({
     required String key,
-    required String scope,
+    @SettingUpsertOptionScopeConverter()
+    required SettingUpsertOptionScope scope,
     required Map<String, dynamic> value,
     String? description,
-    String? managerRole,
+    @SettingUpsertOptionManagerRoleConverter()
+    SettingUpsertOptionManagerRole? managerRole,
 
     Map<String, dynamic>? $unknown,
   }) = _SettingUpsertOptionInput;

@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './age_assurance_state_status.dart';
+
 part 'age_assurance_state.freezed.dart';
 part 'age_assurance_state.g.dart';
 
@@ -30,7 +33,7 @@ abstract class AgeAssuranceState with _$AgeAssuranceState {
     DateTime? lastInitiatedAt,
 
     /// The status of the age assurance process.
-    required String status,
+    @AgeAssuranceStateStatusConverter() required AgeAssuranceStateStatus status,
 
     Map<String, dynamic>? $unknown,
   }) = _AgeAssuranceState;

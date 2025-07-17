@@ -21,8 +21,9 @@ part 'muted_word_target.freezed.dart';
 abstract class MutedWordTarget with _$MutedWordTarget {
   const MutedWordTarget._();
 
-  const factory MutedWordTarget.known({required KnownMutedWordTarget data}) =
-      MutedWordTargetKnown;
+  const factory MutedWordTarget.knownValue({
+    required KnownMutedWordTarget data,
+  }) = MutedWordTargetKnownValue;
 
   const factory MutedWordTarget.unknown({required String data}) =
       MutedWordTargetUnknown;
@@ -32,7 +33,7 @@ abstract class MutedWordTarget with _$MutedWordTarget {
     final knownValue = KnownMutedWordTarget.valueOf(value);
 
     return knownValue != null
-        ? MutedWordTarget.known(data: knownValue)
+        ? MutedWordTarget.knownValue(data: knownValue)
         : MutedWordTarget.unknown(data: value);
   }
 
@@ -40,10 +41,10 @@ abstract class MutedWordTarget with _$MutedWordTarget {
 }
 
 extension MutedWordTargetExtension on MutedWordTarget {
-  bool get isKnown => isA<MutedWordTargetKnown>(this);
-  bool get isNotKnown => !isKnown;
-  KnownMutedWordTarget? get known =>
-      isKnown ? data as KnownMutedWordTarget : null;
+  bool get isKnownValue => isA<MutedWordTargetKnownValue>(this);
+  bool get isNotKnownValue => !isKnownValue;
+  KnownMutedWordTarget? get knownValue =>
+      isKnownValue ? data as KnownMutedWordTarget : null;
   bool get isUnknown => isA<MutedWordTargetUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   String? get unknown => isUnknown ? data as String : null;
@@ -58,7 +59,7 @@ final class MutedWordTargetConverter
     try {
       final knownValue = KnownMutedWordTarget.valueOf(json);
       if (knownValue != null) {
-        return MutedWordTarget.known(data: knownValue);
+        return MutedWordTarget.knownValue(data: knownValue);
       }
 
       return MutedWordTarget.unknown(data: json);
@@ -69,7 +70,7 @@ final class MutedWordTargetConverter
 
   @override
   String toJson(MutedWordTarget object) =>
-      object.when(known: (data) => data.value, unknown: (data) => data);
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownMutedWordTarget implements Serializable {
@@ -95,6 +96,7 @@ enum KnownMutedWordTarget implements Serializable {
         return v;
       }
     }
+
     return null;
   }
 }

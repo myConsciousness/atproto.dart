@@ -18,18 +18,21 @@ import 'package:atproto_core/atproto_core.dart';
 import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
+import 'actor/declaration/main_allow_incoming.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
+/// `chat.bsky.actor.*`
 final class ActorService {
   ActorService(this._ctx);
 
   final z.ServiceContext _ctx;
 
+  /// A declaration of a Bluesky chat account.
   Future<XRPCResponse<RepoCreateRecordOutput>> declaration({
-    required String allowIncoming,
+    required ActorDeclarationAllowIncoming allowIncoming,
     String? $rey,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -37,7 +40,7 @@ final class ActorService {
     repo: _ctx.$repo,
     collection: ids.chatBskyActorDeclaration,
     rkey: $rey,
-    record: {'allowIncoming': allowIncoming, ...?$unknown},
+    record: {'allowIncoming': allowIncoming.toJson(), ...?$unknown},
   );
   Future<XRPCResponse<Uint8List>> exportAccountData({
     Map<String, String>? $headers,

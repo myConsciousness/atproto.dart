@@ -21,8 +21,8 @@ part 'action_type.freezed.dart';
 abstract class ActionType with _$ActionType {
   const ActionType._();
 
-  const factory ActionType.known({required KnownActionType data}) =
-      ActionTypeKnown;
+  const factory ActionType.knownValue({required KnownActionType data}) =
+      ActionTypeKnownValue;
 
   const factory ActionType.unknown({required String data}) = ActionTypeUnknown;
 
@@ -31,7 +31,7 @@ abstract class ActionType with _$ActionType {
     final knownValue = KnownActionType.valueOf(value);
 
     return knownValue != null
-        ? ActionType.known(data: knownValue)
+        ? ActionType.knownValue(data: knownValue)
         : ActionType.unknown(data: value);
   }
 
@@ -39,9 +39,10 @@ abstract class ActionType with _$ActionType {
 }
 
 extension ActionTypeExtension on ActionType {
-  bool get isKnown => isA<ActionTypeKnown>(this);
-  bool get isNotKnown => !isKnown;
-  KnownActionType? get known => isKnown ? data as KnownActionType : null;
+  bool get isKnownValue => isA<ActionTypeKnownValue>(this);
+  bool get isNotKnownValue => !isKnownValue;
+  KnownActionType? get knownValue =>
+      isKnownValue ? data as KnownActionType : null;
   bool get isUnknown => isA<ActionTypeUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   String? get unknown => isUnknown ? data as String : null;
@@ -55,7 +56,7 @@ final class ActionTypeConverter extends JsonConverter<ActionType, String> {
     try {
       final knownValue = KnownActionType.valueOf(json);
       if (knownValue != null) {
-        return ActionType.known(data: knownValue);
+        return ActionType.knownValue(data: knownValue);
       }
 
       return ActionType.unknown(data: json);
@@ -66,7 +67,7 @@ final class ActionTypeConverter extends JsonConverter<ActionType, String> {
 
   @override
   String toJson(ActionType object) =>
-      object.when(known: (data) => data.value, unknown: (data) => data);
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownActionType implements Serializable {
@@ -94,6 +95,7 @@ enum KnownActionType implements Serializable {
         return v;
       }
     }
+
     return null;
   }
 }

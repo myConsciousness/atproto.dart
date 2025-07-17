@@ -17,13 +17,16 @@ import 'safelink/defs/action_type.dart';
 import 'safelink/defs/event.dart';
 import 'safelink/defs/pattern_type.dart';
 import 'safelink/defs/reason_type.dart';
+import 'safelink/queryEvents/main_sort_direction.dart';
 import 'safelink/queryEvents/output.dart';
+import 'safelink/queryRules/main_sort_direction.dart';
 import 'safelink/queryRules/output.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
+/// `tools.ozone.safelink.*`
 final class SafelinkService {
   SafelinkService(this._ctx);
 
@@ -106,7 +109,7 @@ final class SafelinkService {
     int? limit,
     List<String>? urls,
     String? patternType,
-    String? sortDirection,
+    SafelinkQueryEventsSortDirection? sortDirection,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.post(
@@ -117,7 +120,7 @@ final class SafelinkService {
       if (limit != null) 'limit': limit,
       if (urls != null) 'urls': urls,
       if (patternType != null) 'patternType': patternType,
-      if (sortDirection != null) 'sortDirection': sortDirection,
+      if (sortDirection != null) 'sortDirection': sortDirection.toJson(),
       ...?$unknown,
     },
     to: const SafelinkQueryEventsOutputConverter().fromJson,
@@ -132,7 +135,7 @@ final class SafelinkService {
     List<String>? actions,
     String? reason,
     String? createdBy,
-    String? sortDirection,
+    SafelinkQueryRulesSortDirection? sortDirection,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.post(
@@ -146,7 +149,7 @@ final class SafelinkService {
       if (actions != null) 'actions': actions,
       if (reason != null) 'reason': reason,
       if (createdBy != null) 'createdBy': createdBy,
-      if (sortDirection != null) 'sortDirection': sortDirection,
+      if (sortDirection != null) 'sortDirection': sortDirection.toJson(),
       ...?$unknown,
     },
     to: const SafelinkQueryRulesOutputConverter().fromJson,

@@ -23,6 +23,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// A declaration of the existence of labeler service.
 @freezed
 abstract class LabelerServiceRecord with _$LabelerServiceRecord {
   static const knownProps = <String>[

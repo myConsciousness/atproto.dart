@@ -12,4 +12,6 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/types/tools/ozone/moderation/queryEvents/input.dart';
+export 'package:bluesky/src/services/types/tools/ozone/moderation/queryEvents/main_subject_type.dart';
+export 'package:bluesky/src/services/types/tools/ozone/moderation/queryEvents/main_age_assurance_state.dart';
 export 'package:bluesky/src/services/types/tools/ozone/moderation/queryEvents/output.dart';

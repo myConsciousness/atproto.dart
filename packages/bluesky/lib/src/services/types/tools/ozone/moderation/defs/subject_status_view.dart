@@ -15,6 +15,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import './account_stats.dart';
 import './records_stats.dart';
 import './subject_review_state.dart';
+import './subject_status_view_age_assurance_state.dart';
+import './subject_status_view_age_assurance_updated_by.dart';
 import './union_subject_status_view_hosting.dart';
 import './union_subject_status_view_subject.dart';
 
@@ -97,10 +99,12 @@ abstract class SubjectStatusView with _$SubjectStatusView {
     @RecordsStatsConverter() RecordsStats? recordsStats,
 
     /// Current age assurance state of the subject.
-    String? ageAssuranceState,
+    @SubjectStatusViewAgeAssuranceStateConverter()
+    SubjectStatusViewAgeAssuranceState? ageAssuranceState,
 
     /// Whether or not the last successful update to age assurance was made by the user or admin.
-    String? ageAssuranceUpdatedBy,
+    @SubjectStatusViewAgeAssuranceUpdatedByConverter()
+    SubjectStatusViewAgeAssuranceUpdatedBy? ageAssuranceUpdatedBy,
 
     Map<String, dynamic>? $unknown,
   }) = _SubjectStatusView;

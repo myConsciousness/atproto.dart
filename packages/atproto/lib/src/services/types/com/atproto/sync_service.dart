@@ -29,6 +29,7 @@ import 'sync/listReposByCollection/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `com.atproto.sync.*`
 final class SyncService {
   SyncService(this._ctx);
 

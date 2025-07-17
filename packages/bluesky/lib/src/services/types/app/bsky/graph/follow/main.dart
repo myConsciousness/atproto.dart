@@ -18,6 +18,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Record declaring a social 'follow' relationship of another account. Duplicate follows will be ignored by the AppView.
 @freezed
 abstract class GraphFollowRecord with _$GraphFollowRecord {
   static const knownProps = <String>['subject', 'createdAt'];

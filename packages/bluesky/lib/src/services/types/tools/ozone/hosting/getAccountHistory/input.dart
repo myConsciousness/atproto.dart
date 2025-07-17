@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_events.dart';
+
 part 'input.freezed.dart';
 part 'input.g.dart';
 
@@ -25,7 +28,8 @@ abstract class HostingGetAccountHistoryInput
 
   const factory HostingGetAccountHistoryInput({
     required String did,
-    List<String>? events,
+    @HostingGetAccountHistoryEventsConverter()
+    List<HostingGetAccountHistoryEvents>? events,
     String? cursor,
     int? limit,
 

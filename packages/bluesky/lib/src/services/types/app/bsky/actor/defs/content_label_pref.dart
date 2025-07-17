@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './content_label_pref_visibility.dart';
+
 part 'content_label_pref.freezed.dart';
 part 'content_label_pref.g.dart';
 
@@ -28,7 +31,8 @@ abstract class ContentLabelPref with _$ContentLabelPref {
     /// Which labeler does this preference apply to? If undefined, applies globally.
     String? labelerDid,
     required String label,
-    required String visibility,
+    @ContentLabelPrefVisibilityConverter()
+    required ContentLabelPrefVisibility visibility,
 
     Map<String, dynamic>? $unknown,
   }) = _ContentLabelPref;

@@ -17,5 +17,8 @@ export 'package:atproto/src/services/types/com/atproto/sync/subscribeRepos/commi
 export 'package:atproto/src/services/types/com/atproto/sync/subscribeRepos/sync.dart';
 export 'package:atproto/src/services/types/com/atproto/sync/subscribeRepos/identity.dart';
 export 'package:atproto/src/services/types/com/atproto/sync/subscribeRepos/account.dart';
+export 'package:atproto/src/services/types/com/atproto/sync/subscribeRepos/account_status.dart';
 export 'package:atproto/src/services/types/com/atproto/sync/subscribeRepos/info.dart';
+export 'package:atproto/src/services/types/com/atproto/sync/subscribeRepos/info_name.dart';
 export 'package:atproto/src/services/types/com/atproto/sync/subscribeRepos/repo_op.dart';
+export 'package:atproto/src/services/types/com/atproto/sync/subscribeRepos/repo_op_action.dart';

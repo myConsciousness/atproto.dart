@@ -16,6 +16,7 @@ import '../../../service_context.dart' as z;
 import 'admin/defs/account_view.dart';
 import 'admin/defs/status_attr.dart';
 import 'admin/getAccountInfos/output.dart';
+import 'admin/getInviteCodes/main_sort.dart';
 import 'admin/getInviteCodes/output.dart';
 import 'admin/getSubjectStatus/output.dart';
 import 'admin/searchAccounts/output.dart';
@@ -27,6 +28,7 @@ import 'admin/updateSubjectStatus/union_main_subject.dart';
 // LexGenerator
 // **************************************************************************
 
+/// `com.atproto.admin.*`
 final class AdminService {
   AdminService(this._ctx);
 
@@ -120,7 +122,7 @@ final class AdminService {
 
   /// Get an admin view of invite codes.
   Future<XRPCResponse<AdminGetInviteCodesOutput>> getInviteCodes({
-    String? sort,
+    AdminGetInviteCodesSort? sort,
     int? limit,
     String? cursor,
     Map<String, String>? $headers,
@@ -129,7 +131,7 @@ final class AdminService {
     ns.comAtprotoAdminGetInviteCodes,
     headers: $headers,
     parameters: {
-      if (sort != null) 'sort': sort,
+      if (sort != null) 'sort': sort.toJson(),
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
       ...?$unknown,

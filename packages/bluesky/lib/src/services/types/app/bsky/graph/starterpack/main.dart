@@ -22,6 +22,7 @@ part 'main.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Record defining a starter pack of actors and feeds for new users.
 @freezed
 abstract class GraphStarterpackRecord with _$GraphStarterpackRecord {
   static const knownProps = <String>[

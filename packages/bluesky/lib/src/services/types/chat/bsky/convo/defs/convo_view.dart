@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../chat/bsky/actor/defs/profile_view_basic.dart';
+import './convo_view_status.dart';
 import './union_convo_view_last_message.dart';
 import './union_convo_view_last_reaction.dart';
 
@@ -44,7 +45,7 @@ abstract class ConvoView with _$ConvoView {
     @UConvoViewLastMessageConverter() UConvoViewLastMessage? lastMessage,
     @UConvoViewLastReactionConverter() UConvoViewLastReaction? lastReaction,
     required bool muted,
-    String? status,
+    @ConvoViewStatusConverter() ConvoViewStatus? status,
     required int unreadCount,
 
     Map<String, dynamic>? $unknown,

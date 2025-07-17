@@ -15,5 +15,8 @@ export 'package:atproto/src/services/types/com/atproto/label/defs/label.dart';
 export 'package:atproto/src/services/types/com/atproto/label/defs/self_labels.dart';
 export 'package:atproto/src/services/types/com/atproto/label/defs/self_label.dart';
 export 'package:atproto/src/services/types/com/atproto/label/defs/label_value_definition.dart';
+export 'package:atproto/src/services/types/com/atproto/label/defs/label_value_definition_severity.dart';
+export 'package:atproto/src/services/types/com/atproto/label/defs/label_value_definition_blurs.dart';
+export 'package:atproto/src/services/types/com/atproto/label/defs/label_value_definition_default_setting.dart';
 export 'package:atproto/src/services/types/com/atproto/label/defs/label_value_definition_strings.dart';
 export 'package:atproto/src/services/types/com/atproto/label/defs/label_value.dart';

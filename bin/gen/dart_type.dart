@@ -21,6 +21,7 @@ final class DartType {
 
   bool get isBoolean => name == 'bool';
   bool get isRef => ref != null;
+  bool get isKnownValues => knownValues != null;
 
   const DartType({
     required this.name,
@@ -79,6 +80,7 @@ final class DartType {
     String? annotation,
     String? description,
     LexUnion? union,
+    LexKnownValues? knownValues,
   }) => DartType(
     name: type,
     lexiconId: lexiconId,
@@ -89,6 +91,7 @@ final class DartType {
     annotation: annotation,
     description: description,
     union: union,
+    knownValues: knownValues,
     isArray: true,
     isUnion: union != null,
   );

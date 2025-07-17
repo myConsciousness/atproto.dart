@@ -1,4 +1,6 @@
 // Package imports:
+
+// Package imports:
 import 'package:characters/characters.dart';
 
 // Project imports:
@@ -54,7 +56,7 @@ bool hasMutedWord({
 
     if (tags.contains(mutedWord)) return true;
     if (!mute.targets.contains(
-      const MutedWordTarget.known(data: KnownMutedWordTarget.content),
+      const MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
     )) {
       continue;
     }

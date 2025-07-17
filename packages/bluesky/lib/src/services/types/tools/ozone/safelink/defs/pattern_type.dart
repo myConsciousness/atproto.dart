@@ -21,8 +21,8 @@ part 'pattern_type.freezed.dart';
 abstract class PatternType with _$PatternType {
   const PatternType._();
 
-  const factory PatternType.known({required KnownPatternType data}) =
-      PatternTypeKnown;
+  const factory PatternType.knownValue({required KnownPatternType data}) =
+      PatternTypeKnownValue;
 
   const factory PatternType.unknown({required String data}) =
       PatternTypeUnknown;
@@ -32,7 +32,7 @@ abstract class PatternType with _$PatternType {
     final knownValue = KnownPatternType.valueOf(value);
 
     return knownValue != null
-        ? PatternType.known(data: knownValue)
+        ? PatternType.knownValue(data: knownValue)
         : PatternType.unknown(data: value);
   }
 
@@ -40,9 +40,10 @@ abstract class PatternType with _$PatternType {
 }
 
 extension PatternTypeExtension on PatternType {
-  bool get isKnown => isA<PatternTypeKnown>(this);
-  bool get isNotKnown => !isKnown;
-  KnownPatternType? get known => isKnown ? data as KnownPatternType : null;
+  bool get isKnownValue => isA<PatternTypeKnownValue>(this);
+  bool get isNotKnownValue => !isKnownValue;
+  KnownPatternType? get knownValue =>
+      isKnownValue ? data as KnownPatternType : null;
   bool get isUnknown => isA<PatternTypeUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   String? get unknown => isUnknown ? data as String : null;
@@ -56,7 +57,7 @@ final class PatternTypeConverter extends JsonConverter<PatternType, String> {
     try {
       final knownValue = KnownPatternType.valueOf(json);
       if (knownValue != null) {
-        return PatternType.known(data: knownValue);
+        return PatternType.knownValue(data: knownValue);
       }
 
       return PatternType.unknown(data: json);
@@ -67,7 +68,7 @@ final class PatternTypeConverter extends JsonConverter<PatternType, String> {
 
   @override
   String toJson(PatternType object) =>
-      object.when(known: (data) => data.value, unknown: (data) => data);
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownPatternType implements Serializable {
@@ -93,6 +94,7 @@ enum KnownPatternType implements Serializable {
         return v;
       }
     }
+
     return null;
   }
 }

@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './job_status_state.dart';
+
 part 'job_status.freezed.dart';
 part 'job_status.g.dart';
 
@@ -36,7 +39,7 @@ abstract class JobStatus with _$JobStatus {
     required String did,
 
     /// The state of the video processing job. All values not listed as a known value indicate that the job is in process.
-    required String state,
+    @JobStatusStateConverter() required JobStatusState state,
 
     /// Progress within the current processing state.
     int? progress,

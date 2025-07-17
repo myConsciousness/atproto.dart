@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../com/atproto/repo/defs/commit_meta.dart';
+import './main_validation_status.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -34,7 +35,8 @@ abstract class RepoCreateRecordOutput with _$RepoCreateRecordOutput {
     required String uri,
     required String cid,
     @CommitMetaConverter() CommitMeta? commit,
-    String? validationStatus,
+    @RepoCreateRecordValidationStatusConverter()
+    RepoCreateRecordValidationStatus? validationStatus,
 
     Map<String, dynamic>? $unknown,
   }) = _RepoCreateRecordOutput;

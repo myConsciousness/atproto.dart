@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './account_hosting_status.dart';
+
 part 'account_hosting.freezed.dart';
 part 'account_hosting.g.dart';
 
@@ -31,7 +34,7 @@ abstract class AccountHosting with _$AccountHosting {
 
   const factory AccountHosting({
     @Default('tools.ozone.moderation.defs#accountHosting') String $type,
-    required String status,
+    @AccountHostingStatusConverter() required AccountHostingStatus status,
     DateTime? updatedAt,
     DateTime? createdAt,
     DateTime? deletedAt,

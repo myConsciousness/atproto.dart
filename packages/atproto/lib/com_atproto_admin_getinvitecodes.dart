@@ -12,4 +12,5 @@
 // **************************************************************************
 
 export 'package:atproto/src/services/types/com/atproto/admin/getInviteCodes/input.dart';
+export 'package:atproto/src/services/types/com/atproto/admin/getInviteCodes/main_sort.dart';
 export 'package:atproto/src/services/types/com/atproto/admin/getInviteCodes/output.dart';

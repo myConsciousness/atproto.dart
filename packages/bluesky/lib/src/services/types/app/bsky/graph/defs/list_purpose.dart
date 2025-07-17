@@ -21,8 +21,8 @@ part 'list_purpose.freezed.dart';
 abstract class ListPurpose with _$ListPurpose {
   const ListPurpose._();
 
-  const factory ListPurpose.known({required KnownListPurpose data}) =
-      ListPurposeKnown;
+  const factory ListPurpose.knownValue({required KnownListPurpose data}) =
+      ListPurposeKnownValue;
 
   const factory ListPurpose.unknown({required String data}) =
       ListPurposeUnknown;
@@ -32,7 +32,7 @@ abstract class ListPurpose with _$ListPurpose {
     final knownValue = KnownListPurpose.valueOf(value);
 
     return knownValue != null
-        ? ListPurpose.known(data: knownValue)
+        ? ListPurpose.knownValue(data: knownValue)
         : ListPurpose.unknown(data: value);
   }
 
@@ -40,9 +40,10 @@ abstract class ListPurpose with _$ListPurpose {
 }
 
 extension ListPurposeExtension on ListPurpose {
-  bool get isKnown => isA<ListPurposeKnown>(this);
-  bool get isNotKnown => !isKnown;
-  KnownListPurpose? get known => isKnown ? data as KnownListPurpose : null;
+  bool get isKnownValue => isA<ListPurposeKnownValue>(this);
+  bool get isNotKnownValue => !isKnownValue;
+  KnownListPurpose? get knownValue =>
+      isKnownValue ? data as KnownListPurpose : null;
   bool get isUnknown => isA<ListPurposeUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   String? get unknown => isUnknown ? data as String : null;
@@ -56,7 +57,7 @@ final class ListPurposeConverter extends JsonConverter<ListPurpose, String> {
     try {
       final knownValue = KnownListPurpose.valueOf(json);
       if (knownValue != null) {
-        return ListPurpose.known(data: knownValue);
+        return ListPurpose.knownValue(data: knownValue);
       }
 
       return ListPurpose.unknown(data: json);
@@ -67,7 +68,7 @@ final class ListPurposeConverter extends JsonConverter<ListPurpose, String> {
 
   @override
   String toJson(ListPurpose object) =>
-      object.when(known: (data) => data.value, unknown: (data) => data);
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownListPurpose implements Serializable {
@@ -95,6 +96,7 @@ enum KnownListPurpose implements Serializable {
         return v;
       }
     }
+
     return null;
   }
 }

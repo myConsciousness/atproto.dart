@@ -11,6 +11,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_sort_direction.dart';
+
 part 'input.freezed.dart';
 part 'input.g.dart';
 
@@ -50,7 +53,8 @@ abstract class SafelinkQueryRulesInput with _$SafelinkQueryRulesInput {
     String? createdBy,
 
     /// Sort direction
-    String? sortDirection,
+    @SafelinkQueryRulesSortDirectionConverter()
+    SafelinkQueryRulesSortDirection? sortDirection,
 
     Map<String, dynamic>? $unknown,
   }) = _SafelinkQueryRulesInput;

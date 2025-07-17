@@ -21,8 +21,8 @@ part 'subject_type.freezed.dart';
 abstract class SubjectType with _$SubjectType {
   const SubjectType._();
 
-  const factory SubjectType.known({required KnownSubjectType data}) =
-      SubjectTypeKnown;
+  const factory SubjectType.knownValue({required KnownSubjectType data}) =
+      SubjectTypeKnownValue;
 
   const factory SubjectType.unknown({required String data}) =
       SubjectTypeUnknown;
@@ -32,7 +32,7 @@ abstract class SubjectType with _$SubjectType {
     final knownValue = KnownSubjectType.valueOf(value);
 
     return knownValue != null
-        ? SubjectType.known(data: knownValue)
+        ? SubjectType.knownValue(data: knownValue)
         : SubjectType.unknown(data: value);
   }
 
@@ -40,9 +40,10 @@ abstract class SubjectType with _$SubjectType {
 }
 
 extension SubjectTypeExtension on SubjectType {
-  bool get isKnown => isA<SubjectTypeKnown>(this);
-  bool get isNotKnown => !isKnown;
-  KnownSubjectType? get known => isKnown ? data as KnownSubjectType : null;
+  bool get isKnownValue => isA<SubjectTypeKnownValue>(this);
+  bool get isNotKnownValue => !isKnownValue;
+  KnownSubjectType? get knownValue =>
+      isKnownValue ? data as KnownSubjectType : null;
   bool get isUnknown => isA<SubjectTypeUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   String? get unknown => isUnknown ? data as String : null;
@@ -56,7 +57,7 @@ final class SubjectTypeConverter extends JsonConverter<SubjectType, String> {
     try {
       final knownValue = KnownSubjectType.valueOf(json);
       if (knownValue != null) {
-        return SubjectType.known(data: knownValue);
+        return SubjectType.knownValue(data: knownValue);
       }
 
       return SubjectType.unknown(data: json);
@@ -67,7 +68,7 @@ final class SubjectTypeConverter extends JsonConverter<SubjectType, String> {
 
   @override
   String toJson(SubjectType object) =>
-      object.when(known: (data) => data.value, unknown: (data) => data);
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownSubjectType implements Serializable {
@@ -95,6 +96,7 @@ enum KnownSubjectType implements Serializable {
         return v;
       }
     }
+
     return null;
   }
 }

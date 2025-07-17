@@ -15,7 +15,13 @@ _HostingGetAccountHistoryInput _$HostingGetAccountHistoryInputFromJson(
     did: $checkedConvert('did', (v) => v as String),
     events: $checkedConvert(
       'events',
-      (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map(
+            (e) => const HostingGetAccountHistoryEventsConverter().fromJson(
+              e as String,
+            ),
+          )
+          .toList(),
     ),
     cursor: $checkedConvert('cursor', (v) => v as String?),
     limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
@@ -31,7 +37,9 @@ Map<String, dynamic> _$HostingGetAccountHistoryInputToJson(
   _HostingGetAccountHistoryInput instance,
 ) => <String, dynamic>{
   'did': instance.did,
-  'events': instance.events,
+  'events': instance.events
+      ?.map(const HostingGetAccountHistoryEventsConverter().toJson)
+      .toList(),
   'cursor': instance.cursor,
   'limit': instance.limit,
   r'$unknown': instance.$unknown,

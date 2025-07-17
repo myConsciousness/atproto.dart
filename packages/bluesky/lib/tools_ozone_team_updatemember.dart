@@ -12,3 +12,4 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/types/tools/ozone/team/updateMember/input.dart';
+export 'package:bluesky/src/services/types/tools/ozone/team/updateMember/main_role.dart';
