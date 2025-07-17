@@ -1,3 +1,7 @@
+// Copyright (c) 2023-2025, Shinya Kato.
+// All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /// Human-readable constraints:
 ///   - valid W3C DID (https://www.w3.org/TR/did-core/#did-syntax)
 ///      - entire URI is ASCII: [a-zA-Z0-9._:%-]

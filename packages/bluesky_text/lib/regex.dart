@@ -1,3 +1,7 @@
+// Copyright (c) 2023-2025, Shinya Kato.
+// All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 export 'package:bluesky_text/src/regex/astral_letter_and_marks.dart';
 export 'package:bluesky_text/src/regex/astral_numerals.dart';
 export 'package:bluesky_text/src/regex/at_signs.dart';

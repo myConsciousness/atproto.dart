@@ -1,3 +1,7 @@
+// Copyright (c) 2023-2025, Shinya Kato.
+// All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /// Handle constraints, in English:
 ///  - must be a possible domain name
 ///    - RFC-1035 is commonly referenced, but has been updated. eg, RFC-3696,

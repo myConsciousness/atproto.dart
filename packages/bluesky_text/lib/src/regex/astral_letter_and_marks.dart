@@ -1,3 +1,7 @@
+// Copyright (c) 2023-2025, Shinya Kato.
+// All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /// Unicode's astral planes consist of the supplementary code points that
 /// are outside of the Basic Multilingual Plane (BMP).
 ///
