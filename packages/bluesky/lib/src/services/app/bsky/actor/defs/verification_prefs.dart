@@ -42,7 +42,7 @@ abstract class VerificationPrefs with _$VerificationPrefs {
 }
 
 extension VerificationPrefsExtension on VerificationPrefs {
-  bool get isHideBadges => hideBadges ?? false;
+  bool get isHideBadges => hideBadges;
   bool get isNotHideBadges => !isHideBadges;
 }
 

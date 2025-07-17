@@ -52,7 +52,7 @@ extension FeedGetAuthorFeedInputExtension on FeedGetAuthorFeedInput {
   bool get hasNotCursor => !hasCursor;
   bool get hasFilter => filter != null;
   bool get hasNotFilter => !hasFilter;
-  bool get isIncludePins => includePins ?? false;
+  bool get isIncludePins => includePins;
   bool get isNotIncludePins => !isIncludePins;
 }
 

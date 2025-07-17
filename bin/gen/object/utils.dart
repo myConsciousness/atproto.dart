@@ -60,7 +60,7 @@ String getExtensions(
       final isNotA = 'isNot$functionName';
 
       if (!_isKnownPropertyName(isA, properties)) {
-        if (property.isRequired) {
+        if (property.isRequired || property.defaultValue != null) {
           extensions.writeln('bool get $isA => ${property.name};');
         } else {
           final defaultValue = property.defaultValue ?? false.toString();

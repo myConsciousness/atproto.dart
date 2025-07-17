@@ -61,9 +61,9 @@ abstract class UnspeccedGetPostThreadV2Input
 
 extension UnspeccedGetPostThreadV2InputExtension
     on UnspeccedGetPostThreadV2Input {
-  bool get isAbove => above ?? true;
+  bool get isAbove => above;
   bool get isNotAbove => !isAbove;
-  bool get isPrioritizeFollowedUsers => prioritizeFollowedUsers ?? false;
+  bool get isPrioritizeFollowedUsers => prioritizeFollowedUsers;
   bool get isNotPrioritizeFollowedUsers => !isPrioritizeFollowedUsers;
   bool get hasSort => sort != null;
   bool get hasNotSort => !hasSort;

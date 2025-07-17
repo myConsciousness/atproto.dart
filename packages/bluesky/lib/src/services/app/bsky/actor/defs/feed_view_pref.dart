@@ -65,7 +65,7 @@ abstract class FeedViewPref with _$FeedViewPref {
 extension FeedViewPrefExtension on FeedViewPref {
   bool get isHideReplies => hideReplies ?? false;
   bool get isNotHideReplies => !isHideReplies;
-  bool get isHideRepliesByUnfollowed => hideRepliesByUnfollowed ?? true;
+  bool get isHideRepliesByUnfollowed => hideRepliesByUnfollowed;
   bool get isNotHideRepliesByUnfollowed => !isHideRepliesByUnfollowed;
   bool get hasHideRepliesByLikeCount => hideRepliesByLikeCount != null;
   bool get hasNotHideRepliesByLikeCount => !hasHideRepliesByLikeCount;

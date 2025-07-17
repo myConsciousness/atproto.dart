@@ -45,7 +45,7 @@ abstract class GraphGetSuggestedFollowsByActorOutput
 
 extension GraphGetSuggestedFollowsByActorOutputExtension
     on GraphGetSuggestedFollowsByActorOutput {
-  bool get isIsFallback => isFallback ?? false;
+  bool get isIsFallback => isFallback;
   bool get isNotIsFallback => !isIsFallback;
   bool get hasRecId => recId != null;
   bool get hasNotRecId => !hasRecId;

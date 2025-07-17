@@ -39,9 +39,9 @@ abstract class ServerGetAccountInviteCodesInput
 
 extension ServerGetAccountInviteCodesInputExtension
     on ServerGetAccountInviteCodesInput {
-  bool get isIncludeUsed => includeUsed ?? true;
+  bool get isIncludeUsed => includeUsed;
   bool get isNotIncludeUsed => !isIncludeUsed;
-  bool get isCreateAvailable => createAvailable ?? true;
+  bool get isCreateAvailable => createAvailable;
   bool get isNotCreateAvailable => !isCreateAvailable;
 }
 

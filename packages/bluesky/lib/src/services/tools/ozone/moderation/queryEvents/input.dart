@@ -110,7 +110,7 @@ extension ModerationQueryEventsInputExtension on ModerationQueryEventsInput {
   bool get hasNotSubject => !hasSubject;
   bool get hasSubjectType => subjectType != null;
   bool get hasNotSubjectType => !hasSubjectType;
-  bool get isIncludeAllUserRecords => includeAllUserRecords ?? false;
+  bool get isIncludeAllUserRecords => includeAllUserRecords;
   bool get isNotIncludeAllUserRecords => !isIncludeAllUserRecords;
   bool get hasNotComment => !(hasComment ?? false);
   bool get hasAgeAssuranceState => ageAssuranceState != null;

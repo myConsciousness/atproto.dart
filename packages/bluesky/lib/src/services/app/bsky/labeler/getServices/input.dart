@@ -34,7 +34,7 @@ abstract class LabelerGetServicesInput with _$LabelerGetServicesInput {
 }
 
 extension LabelerGetServicesInputExtension on LabelerGetServicesInput {
-  bool get isDetailed => detailed ?? false;
+  bool get isDetailed => detailed;
   bool get isNotDetailed => !isDetailed;
 }
 

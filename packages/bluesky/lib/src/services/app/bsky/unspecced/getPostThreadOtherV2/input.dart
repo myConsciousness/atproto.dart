@@ -40,7 +40,7 @@ abstract class UnspeccedGetPostThreadOtherV2Input
 
 extension UnspeccedGetPostThreadOtherV2InputExtension
     on UnspeccedGetPostThreadOtherV2Input {
-  bool get isPrioritizeFollowedUsers => prioritizeFollowedUsers ?? false;
+  bool get isPrioritizeFollowedUsers => prioritizeFollowedUsers;
   bool get isNotPrioritizeFollowedUsers => !isPrioritizeFollowedUsers;
 }
 
