@@ -84,7 +84,7 @@ Future<void> main() async {
 
     //! Upload video
     final uploadedVideo = await bsky.video.uploadVideo(
-      File('./cool_video.mov').readAsBytesSync(),
+      bytes: File('./cool_video.mov').readAsBytesSync(),
     );
 
     //! Let's post cool stuff!
@@ -114,7 +114,7 @@ Future<void> main() async {
 
       if (firehose.isRepoCommit(repos)) {
         final commit = firehose.Commit.fromJson(
-          const firehose.RepoCommitAdaptor().execute(repos)!,
+          const firehose.RepoCommitAdaptor().execute(repos),
         );
 
         handler.execute(commit);

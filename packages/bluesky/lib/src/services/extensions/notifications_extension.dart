@@ -1,8 +1,4 @@
 // Project imports:
-import '../../../app_bsky_notification_listnotifications.dart'
-    show NotificationListNotificationsOutput;
-
-// Project imports:
 import '../types/app/bsky/notification/listNotifications/output.dart';
 import '../utils/group_by.dart';
 import '../utils/grouped_notifications.dart';
