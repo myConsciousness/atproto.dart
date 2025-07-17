@@ -12,16 +12,18 @@ import 'package:xrpc/src/xrpc/xrpc_response.dart';
 
 void main() {
   test('.toString', () {
-    final exception = InternalServerErrorException(XRPCResponse<XRPCError>(
-      headers: {'test': 'test'},
-      status: HttpStatus.internalServerError,
-      request: XRPCRequest(
-        method: HttpMethod.get,
-        url: Uri.https('bsky.social'),
+    final exception = InternalServerErrorException(
+      XRPCResponse<XRPCError>(
+        headers: {'test': 'test'},
+        status: HttpStatus.internalServerError,
+        request: XRPCRequest(
+          method: HttpMethod.get,
+          url: Uri.https('bsky.social'),
+        ),
+        rateLimit: RateLimit.unlimited(),
+        data: XRPCError(error: 'error', message: 'error'),
       ),
-      rateLimit: RateLimit.unlimited(),
-      data: XRPCError(error: 'error', message: 'error'),
-    ));
+    );
 
     expect(
       exception.toString(),

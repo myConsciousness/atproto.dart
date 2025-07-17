@@ -15,18 +15,14 @@ void main() {
     });
 
     test('when max attempt is 0', () {
-      final policy = RetryPolicy(
-        RetryConfig(maxAttempts: 0),
-      );
+      final policy = RetryPolicy(RetryConfig(maxAttempts: 0));
 
       expect(policy.shouldRetry(0), isFalse);
       expect(policy.shouldRetry(1), isFalse);
     });
 
     test('when max attempt is 10', () {
-      final policy = RetryPolicy(
-        RetryConfig(maxAttempts: 10),
-      );
+      final policy = RetryPolicy(RetryConfig(maxAttempts: 10));
 
       expect(policy.shouldRetry(0), isTrue);
       expect(policy.shouldRetry(1), isTrue);
@@ -37,19 +33,19 @@ void main() {
     });
 
     test('when retryCount is less than 0', () {
-      final policy = RetryPolicy(
-        RetryConfig(maxAttempts: 10),
-      );
+      final policy = RetryPolicy(RetryConfig(maxAttempts: 10));
 
       expect(
         () => policy.shouldRetry(-1),
         throwsA(
           allOf(
             isA<ArgumentError>(),
-            predicate((e) =>
-                e.toString() ==
-                'Invalid argument (retryCount): must be greater than or'
-                    ' equal to 0: -1'),
+            predicate(
+              (e) =>
+                  e.toString() ==
+                  'Invalid argument (retryCount): must be greater than or'
+                      ' equal to 0: -1',
+            ),
           ),
         ),
       );
@@ -69,30 +65,26 @@ void main() {
     });
 
     test('when retryCount is less than 0', () async {
-      final policy = RetryPolicy(
-        RetryConfig(maxAttempts: 10),
-      );
+      final policy = RetryPolicy(RetryConfig(maxAttempts: 10));
 
       expect(
         () => policy.wait(-1),
         throwsA(
           allOf(
             isA<ArgumentError>(),
-            predicate((e) =>
-                e.toString() ==
-                'Invalid argument (retryCount): must be greater than or'
-                    ' equal to 0: -1'),
+            predicate(
+              (e) =>
+                  e.toString() ==
+                  'Invalid argument (retryCount): must be greater than or'
+                      ' equal to 0: -1',
+            ),
           ),
         ),
       );
     });
 
     test('when retryCount is 3 with exponential back off and jitter', () async {
-      final policy = RetryPolicy(
-        RetryConfig(
-          maxAttempts: 10,
-        ),
-      );
+      final policy = RetryPolicy(RetryConfig(maxAttempts: 10));
 
       final startAt = DateTime.now();
       await policy.wait(3);
@@ -104,11 +96,7 @@ void main() {
     });
 
     test('with complex case with exponential back off and jitter', () async {
-      final policy = RetryPolicy(
-        RetryConfig(
-          maxAttempts: 10,
-        ),
-      );
+      final policy = RetryPolicy(RetryConfig(maxAttempts: 10));
 
       final expectedResults = <int>[1, 2, 4, 8];
 

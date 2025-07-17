@@ -19,24 +19,15 @@ void main() {
 
   group('errors', () {
     test('when total bytes is 0', () {
-      expect(
-        () => ProgressStatusEvent(-1, 0),
-        throwsA(isA<AssertionError>()),
-      );
+      expect(() => ProgressStatusEvent(-1, 0), throwsA(isA<AssertionError>()));
     });
 
     test('when processed bytes is 0', () {
-      expect(
-        () => ProgressStatusEvent(0, -1),
-        throwsA(isA<AssertionError>()),
-      );
+      expect(() => ProgressStatusEvent(0, -1), throwsA(isA<AssertionError>()));
     });
 
     test('when processed bytes is greater than total', () {
-      expect(
-        () => ProgressStatusEvent(0, 10),
-        throwsA(isA<AssertionError>()),
-      );
+      expect(() => ProgressStatusEvent(0, 10), throwsA(isA<AssertionError>()));
     });
   });
 }

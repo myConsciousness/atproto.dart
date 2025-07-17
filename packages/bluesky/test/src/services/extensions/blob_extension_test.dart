@@ -3,9 +3,9 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // Project imports:
-import 'package:bluesky/src/services/entities/embed.dart';
-import 'package:bluesky/src/services/entities/image.dart';
-import 'package:bluesky/src/services/extensions/blob.dart';
+import 'package:bluesky/src/services/app/bsky/embed/images/image.dart';
+import 'package:bluesky/src/services/app/bsky/feed/post/union_main_embed.dart';
+import 'package:bluesky/src/tools/extensions/blob.dart';
 
 void main() {
   test('.toImage', () {
@@ -17,7 +17,7 @@ void main() {
 
     final image = blob.toImage(alt: 'test');
 
-    expect(image, isA<Image>());
+    expect(image, isA<EmbedImagesImage>());
     expect(image.alt, 'test');
     expect(image.image == blob, isTrue);
   });
@@ -31,18 +31,11 @@ void main() {
 
     final embedImage = blob.toEmbedImage(alt: 'test');
 
-    expect(embedImage, isA<Embed>());
+    expect(embedImage, isA<UFeedPostEmbed>());
 
-    final image = switch (embedImage) {
-      UEmbedRecord(data: final _) => null,
-      UEmbedImages(data: final data) => data.images.first,
-      UEmbedExternal(data: final _) => null,
-      UEmbedRecordWithMedia(data: final _) => null,
-      UEmbedVideo(data: final _) => null,
-      UEmbedUnknown(data: final _) => null,
-      // Add wildcard case for switch exhaustiveness
-      _ => null,
-    };
+    final image = embedImage.whenOrNull(
+      embedImages: (data) => data.images.first,
+    );
 
     expect(image?.alt, 'test');
     expect(image?.image == blob, isTrue);

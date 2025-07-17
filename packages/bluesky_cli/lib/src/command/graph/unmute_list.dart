@@ -11,11 +11,7 @@ import '../procedure_command.dart';
 class UnmuteListCommand extends ProcedureCommand {
   /// Returns the new instance of [UnmuteListCommand].
   UnmuteListCommand() {
-    argParser.addOption(
-      'list',
-      help: 'AT URI of list',
-      defaultsTo: null,
-    );
+    argParser.addOption('list', help: 'AT URI of list', defaultsTo: null);
   }
 
   @override
@@ -28,13 +24,9 @@ class UnmuteListCommand extends ProcedureCommand {
   final String invocation = 'bsky unmute-list [list]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'graph.bsky.app',
-        'unmuteActorList',
-      );
+  xrpc.NSID get methodId =>
+      xrpc.NSID.create('graph.bsky.app', 'unmuteActorList');
 
   @override
-  FutureOr<Map<String, dynamic>>? get body => {
-        'list': argResults!['list'],
-      };
+  FutureOr<Map<String, dynamic>>? get body => {'list': argResults!['list']};
 }

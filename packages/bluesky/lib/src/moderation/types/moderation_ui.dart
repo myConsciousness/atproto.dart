@@ -3,11 +3,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import 'behaviors/moderation_cause.dart';
-import 'mod_object.dart';
 
 part 'moderation_ui.freezed.dart';
 
-@modObject
+@Freezed(fromJson: false, toJson: false)
 abstract class ModerationUI with _$ModerationUI {
   const factory ModerationUI({
     @Default(false) bool noOverride,

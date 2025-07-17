@@ -2,7 +2,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../mod_object.dart';
 import 'moderation_cause_block_other.dart';
 import 'moderation_cause_blocked_by.dart';
 import 'moderation_cause_blocking.dart';
@@ -13,7 +12,7 @@ import 'moderation_cause_muted.dart';
 
 part 'moderation_cause.freezed.dart';
 
-@modObject
+@Freezed(fromJson: false, toJson: false)
 abstract class ModerationCause with _$ModerationCause {
   // ignore: unused_element
   const ModerationCause._();
@@ -30,30 +29,26 @@ abstract class ModerationCause with _$ModerationCause {
     required ModerationCauseBlockOther data,
   }) = UModerationCauseBlockOther;
 
-  const factory ModerationCause.label({
-    required ModerationCauseLabel data,
-  }) = UModerationCauseLabel;
+  const factory ModerationCause.label({required ModerationCauseLabel data}) =
+      UModerationCauseLabel;
 
-  const factory ModerationCause.muted({
-    required ModerationCauseMuted data,
-  }) = UModerationCauseMuted;
+  const factory ModerationCause.muted({required ModerationCauseMuted data}) =
+      UModerationCauseMuted;
 
   const factory ModerationCause.muteWord({
     required ModerationCauseMuteWord data,
   }) = UModerationCauseMuteWord;
 
-  const factory ModerationCause.hidden({
-    required ModerationCauseHidden data,
-  }) = UModerationCauseHidden;
+  const factory ModerationCause.hidden({required ModerationCauseHidden data}) =
+      UModerationCauseHidden;
 
-  bool get downgraded => switch (this) {
-        UModerationCauseBlocking(data: final data) => data.downgraded,
-        UModerationCauseBlockedBy(data: final data) => data.downgraded,
-        UModerationCauseBlockOther(data: final data) => data.downgraded,
-        UModerationCauseLabel(data: final data) => data.downgraded,
-        UModerationCauseMuted(data: final data) => data.downgraded,
-        UModerationCauseMuteWord(data: final data) => data.downgraded,
-        UModerationCauseHidden(data: final data) => data.downgraded,
-        _ => false,
-      };
+  bool get downgraded => when(
+    blocking: (data) => data.downgraded,
+    blockedBy: (data) => data.downgraded,
+    blockOther: (data) => data.downgraded,
+    label: (data) => data.downgraded,
+    muted: (data) => data.downgraded,
+    muteWord: (data) => data.downgraded,
+    hidden: (data) => data.downgraded,
+  );
 }

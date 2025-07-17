@@ -1,6 +1,5 @@
 // Package imports:
-import 'package:atproto/atproto.dart';
-import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:test/test.dart';
 
 // Project imports:
@@ -10,8 +9,8 @@ import 'package:bluesky/src/moderation/types/behaviors/moderation_prefs_labeler.
 import 'package:bluesky/src/moderation/types/moderation_ui.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_profile.dart';
-import 'package:bluesky/src/services/entities/actor_basic.dart';
-import 'package:bluesky/src/services/entities/actor_viewer.dart';
+import 'package:bluesky/src/services/app/bsky/actor/defs/profile_view_basic.dart';
+import 'package:bluesky/src/services/app/bsky/actor/defs/viewer_state.dart';
 import '../behaviors/suite_configuration.dart';
 import '../behaviors/suite_scenario.dart';
 import '../behaviors/suite_user.dart';
@@ -91,7 +90,8 @@ final class ModerationBehaviorSuiteRunner {
   final Map<String, ModerationTestSuiteScenario> scenarios;
 
   ModerationSubjectPost getPostScenario(
-      final ModerationTestSuiteScenario scenario) {
+    final ModerationTestSuiteScenario scenario,
+  ) {
     if (scenario.subject != 'post') throw Error();
 
     final author = profileViewBasic(
@@ -113,15 +113,22 @@ final class ModerationBehaviorSuiteRunner {
                   },
                 ),
                 labels: (scenario.labels['quotedPost'] ?? const <String>[])
-                    .map((e) => m.label(
+                    .map(
+                      (e) => m.label(
                         uri: 'at://${author.did}/app.bsky.feed.post/fake',
-                        val: e))
+                        val: e,
+                      ),
+                    )
                     .toList(),
               )
             : null,
         labels: (scenario.labels['post'] ?? const <String>[])
-            .map((e) => m.label(
-                uri: 'at://${author.did}/app.bsky.feed.post/fake', val: e))
+            .map(
+              (e) => m.label(
+                uri: 'at://${author.did}/app.bsky.feed.post/fake',
+                val: e,
+              ),
+            )
             .toList(),
       ),
     );
@@ -140,9 +147,7 @@ final class ModerationBehaviorSuiteRunner {
     );
   }
 
-  ModerationOpts getModerationOpts(
-    final ModerationTestSuiteScenario scenario,
-  ) {
+  ModerationOpts getModerationOpts(final ModerationTestSuiteScenario scenario) {
     return ModerationOpts(
       userDid: configurations[scenario.cfg]!.authed == false
           ? null
@@ -152,10 +157,7 @@ final class ModerationBehaviorSuiteRunner {
             configurations[scenario.cfg]?.adultContentEnabled ?? false,
         labels: configurations[scenario.cfg]?.settings ?? const {},
         labelers: [
-          ModerationPrefsLabeler(
-            did: 'did:plc:fake-labeler',
-            labels: const {},
-          )
+          ModerationPrefsLabeler(did: 'did:plc:fake-labeler', labels: const {}),
         ],
         mutedWords: const [],
         hiddenPosts: const [],
@@ -163,7 +165,7 @@ final class ModerationBehaviorSuiteRunner {
     );
   }
 
-  ActorBasic profileViewBasic({
+  ProfileViewBasic profileViewBasic({
     required String name,
     required Map<String, List<String>> scenarioLabels,
   }) {
@@ -174,24 +176,28 @@ final class ModerationBehaviorSuiteRunner {
       labels.add(m.label(uri: 'did:web:$name', val: label));
     }
     for (final label in scenarioLabels['profile'] ?? const []) {
-      labels.add(m.label(
-        uri: 'at://did:web:$name/app.bsky.actor.profile/self',
-        val: label,
-      ));
+      labels.add(
+        m.label(
+          uri: 'at://did:web:$name/app.bsky.actor.profile/self',
+          val: label,
+        ),
+      );
     }
 
     return m.profileViewBasic(
       handle: '$name.test',
-      viewer: ActorViewer(
-        isMuted: def.muted || def.mutedByList,
-        mutedByList:
-            def.mutedByList ? m.listViewBasic(name: 'Fake List') : null,
-        isBlockedBy: def.blockedBy,
-        blocking: def.blocking || def.blockingByList
-            ? AtUri('at://did:web:self.test/app.bsky.graph.block/fake')
+      viewer: ViewerState(
+        muted: def.muted || def.mutedByList,
+        mutedByList: def.mutedByList
+            ? m.listViewBasic(name: 'Fake List')
             : null,
-        blockingByList:
-            def.blockingByList ? m.listViewBasic(name: 'Fake List') : null,
+        blockedBy: def.blockedBy,
+        blocking: def.blocking || def.blockingByList
+            ? 'at://did:web:self.test/app.bsky.graph.block/fake'
+            : null,
+        blockingByList: def.blockingByList
+            ? m.listViewBasic(name: 'Fake List')
+            : null,
       ),
       labels: labels,
     );

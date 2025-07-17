@@ -55,3 +55,17 @@ scripts:
       melos publish --no-dry-run --git-tag-version
       git push origin --tags
     description: Publish all packages, create git tags and push them to origin.
+
+  gen:
+    run: |
+      dart run ./bin/generate_lexicon_ids.dart
+      dart run ./bin/gen/code_gen.dart
+      cd packages/atproto
+      dart run build_runner build --delete-conflicting-outputs
+      dart fix --apply
+      cd ../../packages/bluesky
+      dart run build_runner build --delete-conflicting-outputs
+      dart fix --apply
+      cd ../../
+      melos fmt
+    description: Generate code for atproto and blueksy based on lexicons.

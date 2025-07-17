@@ -9,16 +9,8 @@ class AddListItemCommand extends CreateRecordCommand {
   /// Returns the new instance of [AddListItemCommand].
   AddListItemCommand() {
     argParser
-      ..addOption(
-        'subject',
-        help: 'DID to be added to list.',
-        defaultsTo: null,
-      )
-      ..addOption(
-        'list',
-        help: 'AT URI of list.',
-        defaultsTo: '',
-      )
+      ..addOption('subject', help: 'DID to be added to list.', defaultsTo: null)
+      ..addOption('list', help: 'AT URI of list.', defaultsTo: '')
       ..addOption(
         'created-at',
         help: 'Date and time the record is created in ISO 8601 format.',
@@ -36,15 +28,12 @@ class AddListItemCommand extends CreateRecordCommand {
   final String invocation = 'bsky add-list-item [subject] [list] [created-at]';
 
   @override
-  xrpc.NSID get collection => xrpc.NSID.create(
-        'graph.bsky.app',
-        'listitem',
-      );
+  xrpc.NSID get collection => xrpc.NSID.create('graph.bsky.app', 'listitem');
 
   @override
   Map<String, dynamic> get record => {
-        'subject': argResults!['subject'],
-        'list': argResults!['list'],
-        'createdAt': argResults!['created-at'],
-      };
+    'subject': argResults!['subject'],
+    'list': argResults!['list'],
+    'createdAt': argResults!['created-at'],
+  };
 }

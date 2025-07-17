@@ -10,16 +10,8 @@ class ThreadCommand extends QueryCommand {
   /// Returns the new instance of [ThreadCommand].
   ThreadCommand() {
     argParser
-      ..addOption(
-        'uri',
-        help: 'AT Uri of the post.',
-        defaultsTo: null,
-      )
-      ..addOption(
-        'depth',
-        help: 'Depth of thread.',
-        defaultsTo: null,
-      );
+      ..addOption('uri', help: 'AT Uri of the post.', defaultsTo: null)
+      ..addOption('depth', help: 'Depth of thread.', defaultsTo: null);
   }
 
   @override
@@ -32,14 +24,11 @@ class ThreadCommand extends QueryCommand {
   final String invocation = 'bsky thread [uri] [depth]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'feed.bsky.app',
-        'getPostThread',
-      );
+  xrpc.NSID get methodId => xrpc.NSID.create('feed.bsky.app', 'getPostThread');
 
   @override
   Map<String, dynamic>? get parameters => {
-        'uri': AtUri.parse(argResults!['uri']).toString(),
-        'depth': argResults!['depth'],
-      };
+    'uri': AtUri.parse(argResults!['uri']).toString(),
+    'depth': argResults!['depth'],
+  };
 }

@@ -18,25 +18,21 @@ abstract class LexObjectProperty with _$LexObjectProperty {
   // ignore: unused_element
   const LexObjectProperty._();
 
-  const factory LexObjectProperty.refVariant({
-    required LexRefVariant data,
-  }) = ULexObjectPropertyRefVariant;
+  const factory LexObjectProperty.refVariant({required LexRefVariant data}) =
+      ULexObjectPropertyRefVariant;
 
-  const factory LexObjectProperty.ipld({
-    required LexIpld data,
-  }) = ULexObjectPropertyIpld;
+  const factory LexObjectProperty.ipld({required LexIpld data}) =
+      ULexObjectPropertyIpld;
 
-  const factory LexObjectProperty.array({
-    required LexArray data,
-  }) = ULexObjectPropertyArray;
+  const factory LexObjectProperty.array({required LexArray data}) =
+      ULexObjectPropertyArray;
 
-  const factory LexObjectProperty.blob({
-    required LexBlob data,
-  }) = ULexObjectPropertyBlob;
+  const factory LexObjectProperty.blob({required LexBlob data}) =
+      ULexObjectPropertyBlob;
 
-  const factory LexObjectProperty.primitive({
-    required LexPrimitive data,
-  }) = ULexObjectPropertyPrimitive;
+  const factory LexObjectProperty.primitive({required LexPrimitive data}) =
+      ULexObjectPropertyPrimitive;
 
-  Map<String, dynamic> toJson() => lexObjectPropertyConverter.toJson(this);
+  Map<String, dynamic> toJson() =>
+      const LexObjectPropertyConverter().toJson(this);
 }

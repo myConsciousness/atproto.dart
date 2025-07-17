@@ -19,9 +19,7 @@ final class BlobConverter implements JsonConverter<Blob, Map<String, dynamic>> {
       objectType: 'blob',
       'size': -1,
       'mimeType': json['mimeType'],
-      'ref': {
-        '\$link': json['cid'],
-      }
+      'ref': {'\$link': json['cid']},
     });
   }
 

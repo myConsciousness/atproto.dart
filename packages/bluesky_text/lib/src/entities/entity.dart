@@ -6,41 +6,31 @@ import '../api/find_did.dart' as api;
 import 'byte_indices.dart';
 import 'facetable.dart';
 
-part 'entity.freezed.dart';
-part 'entity.g.dart';
-
 @freezed
-abstract class Entity with _$Entity implements Facetable {
-  // ignore: unused_element
-  const Entity._();
+final class Entity implements Facetable {
+  final EntityType type;
+  final String value;
 
-  const factory Entity({
-    required EntityType type,
-    required String value,
-    required ByteIndices indices,
-  }) = _Entity;
+  @override
+  final ByteIndices indices;
 
-  factory Entity.fromJson(Map<String, Object?> json) => _$EntityFromJson(json);
+  const Entity({
+    required this.type,
+    required this.value,
+    required this.indices,
+  });
 
   /// Returns the facet representation of this entity as JSON.
-  Future<Map<String, dynamic>> toFacet({
-    String? service,
-  }) async {
+  Future<Map<String, dynamic>> toFacet({String? service}) async {
     final facet = <String, dynamic>{
-      'index': {
-        'byteStart': indices.start,
-        'byteEnd': indices.end,
-      },
-      'features': []
+      'index': {'byteStart': indices.start, 'byteEnd': indices.end},
+      'features': [],
     };
 
     switch (type) {
       case EntityType.handle:
         try {
-          final did = await api.findDID(
-            handle: value,
-            service: service,
-          );
+          final did = await api.findDID(handle: value, service: service);
 
           facet['features'].add({
             '\$type': 'app.bsky.richtext.facet#mention',
@@ -85,9 +75,4 @@ abstract class Entity with _$Entity implements Facetable {
   bool get isTag => type == EntityType.tag;
 }
 
-enum EntityType {
-  handle,
-  link,
-  markdownLink,
-  tag,
-}
+enum EntityType { handle, link, markdownLink, tag }

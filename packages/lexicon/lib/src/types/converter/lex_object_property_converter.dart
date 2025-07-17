@@ -17,11 +17,9 @@ import '../references/lex_ref.dart';
 import '../references/lex_ref_union.dart';
 import '../references/lex_ref_variant.dart';
 
-const lexObjectPropertyConverter = _LexObjectPropertyConverter();
-
-final class _LexObjectPropertyConverter
+final class LexObjectPropertyConverter
     implements JsonConverter<LexObjectProperty, Map<String, dynamic>> {
-  const _LexObjectPropertyConverter();
+  const LexObjectPropertyConverter();
 
   @override
   LexObjectProperty fromJson(Map<String, dynamic> json) {
@@ -30,63 +28,43 @@ final class _LexObjectPropertyConverter
     switch (type) {
       case 'string':
         return LexObjectProperty.primitive(
-          data: LexPrimitive.string(
-            data: LexString.fromJson(json),
-          ),
+          data: LexPrimitive.string(data: LexString.fromJson(json)),
         );
       case 'integer':
         return LexObjectProperty.primitive(
-          data: LexPrimitive.integer(
-            data: LexInteger.fromJson(json),
-          ),
+          data: LexPrimitive.integer(data: LexInteger.fromJson(json)),
         );
       case 'boolean':
         return LexObjectProperty.primitive(
-          data: LexPrimitive.boolean(
-            data: LexBoolean.fromJson(json),
-          ),
+          data: LexPrimitive.boolean(data: LexBoolean.fromJson(json)),
         );
       case 'unknown':
         return LexObjectProperty.primitive(
-          data: LexPrimitive.unknown(
-            data: LexUnknown.fromJson(json),
-          ),
+          data: LexPrimitive.unknown(data: LexUnknown.fromJson(json)),
         );
 
       case 'bytes':
         return LexObjectProperty.ipld(
-          data: LexIpld.bytes(
-            data: LexBytes.fromJson(json),
-          ),
+          data: LexIpld.bytes(data: LexBytes.fromJson(json)),
         );
       case 'cid-link':
         return LexObjectProperty.ipld(
-          data: LexIpld.cidLink(
-            data: LexCidLink.fromJson(json),
-          ),
+          data: LexIpld.cidLink(data: LexCidLink.fromJson(json)),
         );
 
       case 'array':
-        return LexObjectProperty.array(
-          data: LexArray.fromJson(json),
-        );
+        return LexObjectProperty.array(data: LexArray.fromJson(json));
 
       case 'blob':
-        return LexObjectProperty.blob(
-          data: LexBlob.fromJson(json),
-        );
+        return LexObjectProperty.blob(data: LexBlob.fromJson(json));
 
       case 'ref':
         return LexObjectProperty.refVariant(
-          data: LexRefVariant.ref(
-            data: LexRef.fromJson(json),
-          ),
+          data: LexRefVariant.ref(data: LexRef.fromJson(json)),
         );
       case 'union':
         return LexObjectProperty.refVariant(
-          data: LexRefVariant.refUnion(
-            data: LexRefUnion.fromJson(json),
-          ),
+          data: LexRefVariant.refUnion(data: LexRefUnion.fromJson(json)),
         );
 
       default:
@@ -95,14 +73,22 @@ final class _LexObjectPropertyConverter
   }
 
   @override
-  Map<String, dynamic> toJson(LexObjectProperty object) => switch (object) {
-        ULexObjectPropertyPrimitive(data: final data) => data.toJson(),
-        ULexObjectPropertyIpld(data: final data) => data.toJson(),
-        ULexObjectPropertyBlob(data: final data) => data.toJson(),
-        ULexObjectPropertyArray(data: final data) => data.toJson(),
-        ULexObjectPropertyRefVariant(data: final data) => data.toJson(),
-        _ => throw UnimplementedError(
-            'Unknown LexObjectProperty type: ${object.runtimeType}',
-          ),
-      };
+  Map<String, dynamic> toJson(LexObjectProperty object) => object.when(
+    refVariant: (data) => data.when(
+      ref: (data) => data.toJson(),
+      refUnion: (data) => data.toJson(),
+    ),
+    ipld: (data) => data.when(
+      bytes: (data) => data.toJson(),
+      cidLink: (data) => data.toJson(),
+    ),
+    array: (data) => data.toJson(),
+    blob: (data) => data.toJson(),
+    primitive: (data) => data.when(
+      boolean: (data) => data.toJson(),
+      integer: (data) => data.toJson(),
+      string: (data) => data.toJson(),
+      unknown: (data) => data.toJson(),
+    ),
+  );
 }

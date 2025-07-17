@@ -14,14 +14,8 @@ class CreateGeneratorCommand extends CreateRecordCommand {
   /// Returns the new instance of [CreateGeneratorCommand].
   CreateGeneratorCommand() {
     argParser
-      ..addOption(
-        'did',
-        help: 'A string of specific DID.',
-      )
-      ..addOption(
-        'displayName',
-        help: 'Name of generator to be created.',
-      )
+      ..addOption('did', help: 'A string of specific DID.')
+      ..addOption('displayName', help: 'Name of generator to be created.')
       ..addOption(
         'description',
         help: 'Description of generator to be created.',
@@ -51,10 +45,7 @@ class CreateGeneratorCommand extends CreateRecordCommand {
       '[created-at]';
 
   @override
-  xrpc.NSID get collection => xrpc.NSID.create(
-        'feed.bsky.app',
-        'generator',
-      );
+  xrpc.NSID get collection => xrpc.NSID.create('feed.bsky.app', 'generator');
 
   @override
   Future<Map<String, dynamic>> get record async {

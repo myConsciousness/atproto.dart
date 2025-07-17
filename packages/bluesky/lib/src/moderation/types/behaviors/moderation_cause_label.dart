@@ -1,23 +1,23 @@
 // Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../interpreted_label_value_definition.dart';
 import '../labels.dart';
-import '../mod_object.dart';
 import '../moderation_behavior.dart';
 import 'moderation_cause_source.dart';
 
 part 'moderation_cause_label.freezed.dart';
 
-const _assertEvalPriority = 'priority == 1 || '
+const _assertEvalPriority =
+    'priority == 1 || '
     'priority == 2 || '
     'priority == 5 || '
     'priority == 7 || '
     'priority == 8';
 
-@modObject
+@Freezed(fromJson: false, toJson: false)
 abstract class ModerationCauseLabel with _$ModerationCauseLabel {
   const factory ModerationCauseLabel({
     required ModerationCauseSource source,

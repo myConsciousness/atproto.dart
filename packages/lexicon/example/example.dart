@@ -16,11 +16,11 @@ void main() {
           'required': ['subject', 'createdAt'],
           'properties': {
             'subject': {'type': 'ref', 'ref': 'com.atproto.repo.strongRef'},
-            'createdAt': {'type': 'string', 'format': 'datetime'}
-          }
-        }
-      }
-    }
+            'createdAt': {'type': 'string', 'format': 'datetime'},
+          },
+        },
+      },
+    },
   });
 
   print(appBskyFeedLike.id);

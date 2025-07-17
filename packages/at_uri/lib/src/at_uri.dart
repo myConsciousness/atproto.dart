@@ -19,10 +19,10 @@ final _atUriRegex = RegExp(
 /// - record-id = 1*pchar
 sealed class AtUri {
   /// Returns the new instance of unparsed AT URI.
-  const factory AtUri(final String uri) = UnparsedAtUri;
+  const factory AtUri(final String uri) = UncheckedAtUri;
 
   /// Returns the new instance of parsed AT URI.
-  factory AtUri.parse(final String uri) = ParsedAtUri;
+  factory AtUri.parse(final String uri) = CheckedAtUri;
 
   /// Returns the new instance of parsed AT URI based on [handleOrDid],
   /// and [collection] and [rkey] as optionals.
@@ -35,7 +35,7 @@ sealed class AtUri {
     if (collection != null) buffer.write('/$collection');
     if (rkey != null) buffer.write('/$rkey');
 
-    return ParsedAtUri(buffer.toString());
+    return CheckedAtUri(buffer.toString());
   }
 
   /// Returns the protocol.
@@ -63,8 +63,8 @@ sealed class AtUri {
   String get href;
 }
 
-final class ParsedAtUri implements AtUri {
-  ParsedAtUri(final String uri) {
+final class CheckedAtUri implements AtUri {
+  CheckedAtUri(final String uri) {
     final parsed = _parse(uri);
     if (parsed == null) throw FormatException('Invalid at uri: $uri');
 
@@ -142,8 +142,8 @@ final class ParsedAtUri implements AtUri {
   int get hashCode => toString().hashCode;
 }
 
-final class UnparsedAtUri implements AtUri {
-  const UnparsedAtUri(this._uri);
+final class UncheckedAtUri implements AtUri {
+  const UncheckedAtUri(this._uri);
 
   /// Not parsed uri.
   final String _uri;

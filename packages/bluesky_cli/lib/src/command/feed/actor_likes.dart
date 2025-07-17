@@ -19,11 +19,7 @@ class ActorLikesCommand extends QueryCommand {
         help: 'Maximum search limit from 1 to 100. Defaults to 50.',
         defaultsTo: null,
       )
-      ..addOption(
-        'cursor',
-        help: 'Token for pagination.',
-        defaultsTo: null,
-      );
+      ..addOption('cursor', help: 'Token for pagination.', defaultsTo: null);
   }
 
   @override
@@ -36,15 +32,12 @@ class ActorLikesCommand extends QueryCommand {
   final String invocation = 'bsky actor-likes [actor] [limit] [cursor]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'feed.bsky.app',
-        'getActorLikes',
-      );
+  xrpc.NSID get methodId => xrpc.NSID.create('feed.bsky.app', 'getActorLikes');
 
   @override
   Map<String, dynamic>? get parameters => {
-        'actor': argResults!['actor'],
-        'limit': argResults!['limit'],
-        'cursor': argResults!['cursor'],
-      };
+    'actor': argResults!['actor'],
+    'limit': argResults!['limit'],
+    'cursor': argResults!['cursor'],
+  };
 }

@@ -25,13 +25,9 @@ class SuggestedFollowsCommand extends QueryCommand {
   final String invocation = 'bsky suggested-follows [actor]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'graph.bsky.app',
-        'getSuggestedFollowsByActor',
-      );
+  xrpc.NSID get methodId =>
+      xrpc.NSID.create('graph.bsky.app', 'getSuggestedFollowsByActor');
 
   @override
-  Map<String, dynamic>? get parameters => {
-        'actor': argResults!['actor'],
-      };
+  Map<String, dynamic>? get parameters => {'actor': argResults!['actor']};
 }

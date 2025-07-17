@@ -15,9 +15,7 @@ void main() {
 
       final response = await service.get<Map<String, dynamic>>(
         'resolveHandle',
-        parameters: {
-          'handle': 'shinyakato.dev',
-        },
+        parameters: {'handle': 'shinyakato.dev'},
       );
 
       expect(response, isA<Response>());
@@ -33,9 +31,7 @@ void main() {
 
       final response = await service.post<Map<String, dynamic>>(
         'post',
-        body: {
-          'handle': 'shinyakato.dev',
-        },
+        body: {'handle': 'shinyakato.dev'},
       );
 
       expect(response, isA<Response>());

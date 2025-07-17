@@ -23,10 +23,7 @@ const tagsExtractor = Extractor.tags();
 List<Entity> orderByIndicesStart(final List<Entity> entities) {
   if (entities.isEmpty) return const [];
 
-  return entities
-    ..sort(
-      (a, b) => a.indices.start.compareTo(b.indices.start),
-    );
+  return entities..sort((a, b) => a.indices.start.compareTo(b.indices.start));
 }
 
 final class ExtractorConfig {
@@ -52,10 +49,7 @@ sealed class Extractor {
   const factory Extractor.links() = _LinksExtractor;
   const factory Extractor.tags() = _TagsExtractor;
 
-  List<Entity> execute(
-    final BlueskyText text, [
-    final ExtractorConfig? config,
-  ]);
+  List<Entity> execute(final BlueskyText text, [final ExtractorConfig? config]);
 }
 
 final class _AllExtractor implements Extractor {
@@ -65,12 +59,11 @@ final class _AllExtractor implements Extractor {
   List<Entity> execute(
     final BlueskyText text, [
     final ExtractorConfig? config,
-  ]) =>
-      orderByIndicesStart([
-        ...config!.handles!,
-        ...linksExtractor.execute(text, config),
-        ...tagsExtractor.execute(text),
-      ]);
+  ]) => orderByIndicesStart([
+    ...config!.handles!,
+    ...linksExtractor.execute(text, config),
+    ...tagsExtractor.execute(text),
+  ]);
 }
 
 final class _HandlesExtractor implements Extractor {
@@ -147,8 +140,10 @@ final class _LinksExtractor implements Extractor {
 
         validAsciiDomainRegex.allMatches(domain).forEach((match) {
           final asciiDomain = match.group(0)!;
-          final asciiStartPosition =
-              domain.indexOf(asciiDomain, asciiEndPosition);
+          final asciiStartPosition = domain.indexOf(
+            asciiDomain,
+            asciiEndPosition,
+          );
           asciiEndPosition = asciiStartPosition + asciiDomain.length;
 
           lastUrl = {
@@ -181,7 +176,8 @@ final class _LinksExtractor implements Extractor {
           );
         }
       } else {
-        final uri = '$protocol${getFirstValidDomain(domain)}'
+        final uri =
+            '$protocol${getFirstValidDomain(domain)}'
             '$portNumber$urlPath$urlQuery';
 
         _addLinkEntity(
@@ -197,9 +193,10 @@ final class _LinksExtractor implements Extractor {
 
     return (config?.fromFormat ?? false)
         ? entities
-        : orderByIndicesStart(
-            [...entities, ...$markdownLinks.map((e) => e.toEntity())],
-          );
+        : orderByIndicesStart([
+            ...entities,
+            ...$markdownLinks.map((e) => e.toEntity()),
+          ]);
   }
 
   void _addLinkEntity({
@@ -222,10 +219,7 @@ final class _LinksExtractor implements Extractor {
       Entity(
         type: EntityType.link,
         value: getPrefixedUri(source),
-        indices: ByteIndices(
-          start: startUtf8,
-          end: endUtf8,
-        ),
+        indices: ByteIndices(start: startUtf8, end: endUtf8),
       ),
     );
   }
@@ -233,24 +227,20 @@ final class _LinksExtractor implements Extractor {
   List<Entity> _getLinkEntitiesFromReplacements(
     final List<Replacement> replacements,
     final String value,
-  ) =>
-      replacements
-          .map(
-            (e) => Entity(
-              type: EntityType.link,
-              value: e.value,
-              indices: ByteIndices(
-                start: value.toUtf8Index(e.start),
-                end: value.toUtf8Index(e.end),
-              ),
-            ),
-          )
-          .toList();
+  ) => replacements
+      .map(
+        (e) => Entity(
+          type: EntityType.link,
+          value: e.value,
+          indices: ByteIndices(
+            start: value.toUtf8Index(e.start),
+            end: value.toUtf8Index(e.end),
+          ),
+        ),
+      )
+      .toList();
 
-  bool _isHandle(
-    final int end,
-    final List<Entity> handles,
-  ) {
+  bool _isHandle(final int end, final List<Entity> handles) {
     for (final handle in handles) {
       if (handle.indices.end == end) {
         return true;

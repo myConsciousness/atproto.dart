@@ -12,29 +12,18 @@ void main() {
     final response = Response<Map<String, dynamic>>(
       headers: {'test': 'test'},
       status: HttpStatus.ok,
-      request: Request(
-        method: HttpMethod.get,
-        url: Uri.https('bsky.social'),
-      ),
+      request: Request(method: HttpMethod.get, url: Uri.https('bsky.social')),
       data: {'message': 'error'},
     );
 
-    expect(
-      response.data,
-      {
-        'message': 'error',
-      },
-    );
+    expect(response.data, {'message': 'error'});
   });
 
   test('.toString', () {
     final response = Response<String>(
       headers: {'test': 'test'},
       status: HttpStatus.ok,
-      request: Request(
-        method: HttpMethod.get,
-        url: Uri.https('bsky.social'),
-      ),
+      request: Request(method: HttpMethod.get, url: Uri.https('bsky.social')),
       data: 'test',
     );
 

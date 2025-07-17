@@ -160,9 +160,9 @@ final class _BlueskyText implements BlueskyText {
     bool enableMarkdown = true,
     LinkConfig? linkConfig,
     Replacements? replacements,
-  })  : _enableMarkdown = enableMarkdown,
-        _linkConfig = linkConfig,
-        _replacements = replacements;
+  }) : _enableMarkdown = enableMarkdown,
+       _linkConfig = linkConfig,
+       _replacements = replacements;
 
   final bool _enableMarkdown;
   final LinkConfig? _linkConfig;
@@ -178,26 +178,30 @@ final class _BlueskyText implements BlueskyText {
   Entities get handles => Entities(handlesExtractor.execute(this));
 
   @override
-  Entities get links => Entities(linksExtractor.execute(
-        this,
-        ExtractorConfig(
-          replacements: _replacements,
-          enableMarkdown: _enableMarkdown,
-        ),
-      ));
+  Entities get links => Entities(
+    linksExtractor.execute(
+      this,
+      ExtractorConfig(
+        replacements: _replacements,
+        enableMarkdown: _enableMarkdown,
+      ),
+    ),
+  );
 
   @override
   Entities get tags => Entities(tagsExtractor.execute(this));
 
   @override
-  Entities get entities => Entities(allExtractor.execute(
-        this,
-        ExtractorConfig(
-          handles: handles,
-          replacements: _replacements,
-          enableMarkdown: _enableMarkdown,
-        ),
-      ));
+  Entities get entities => Entities(
+    allExtractor.execute(
+      this,
+      ExtractorConfig(
+        handles: handles,
+        replacements: _replacements,
+        enableMarkdown: _enableMarkdown,
+      ),
+    ),
+  );
 
   List<LengthExceededEntity> get lengthExceededEntities =>
       lengthExceededExtractor.execute(

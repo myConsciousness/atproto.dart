@@ -31,14 +31,11 @@ class BlockCommand extends CreateRecordCommand {
   final String invocation = 'bsky block [did] [created-at]';
 
   @override
-  xrpc.NSID get collection => xrpc.NSID.create(
-        'graph.bsky.app',
-        'block',
-      );
+  xrpc.NSID get collection => xrpc.NSID.create('graph.bsky.app', 'block');
 
   @override
   Map<String, dynamic> get record => {
-        'subject': argResults!['did'],
-        'createdAt': argResults!['created-at'],
-      };
+    'subject': argResults!['did'],
+    'createdAt': argResults!['created-at'],
+  };
 }

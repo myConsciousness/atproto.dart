@@ -13,8 +13,10 @@ void main() {
     expect(HttpStatus.ok.name, 'ok');
     expect(HttpStatus.created.name, 'created');
     expect(HttpStatus.accepted.name, 'accepted');
-    expect(HttpStatus.nonAuthoritativeInformation.name,
-        'nonAuthoritativeInformation');
+    expect(
+      HttpStatus.nonAuthoritativeInformation.name,
+      'nonAuthoritativeInformation',
+    );
     expect(HttpStatus.noContent.name, 'noContent');
     expect(HttpStatus.resetContent.name, 'resetContent');
     expect(HttpStatus.partialContent.name, 'partialContent');
@@ -36,8 +38,10 @@ void main() {
     expect(HttpStatus.notFound.name, 'notFound');
     expect(HttpStatus.methodNotAllowed.name, 'methodNotAllowed');
     expect(HttpStatus.notAcceptable.name, 'notAcceptable');
-    expect(HttpStatus.proxyAuthenticationRequired.name,
-        'proxyAuthenticationRequired');
+    expect(
+      HttpStatus.proxyAuthenticationRequired.name,
+      'proxyAuthenticationRequired',
+    );
     expect(HttpStatus.requestTimeout.name, 'requestTimeout');
     expect(HttpStatus.conflict.name, 'conflict');
     expect(HttpStatus.gone.name, 'gone');
@@ -56,10 +60,14 @@ void main() {
     expect(HttpStatus.upgradeRequired.name, 'upgradeRequired');
     expect(HttpStatus.preconditionRequired.name, 'preconditionRequired');
     expect(HttpStatus.tooManyRequests.name, 'tooManyRequests');
-    expect(HttpStatus.requestHeaderFieldsTooLarge.name,
-        'requestHeaderFieldsTooLarge');
-    expect(HttpStatus.unavailableForLegalReasons.name,
-        'unavailableForLegalReasons');
+    expect(
+      HttpStatus.requestHeaderFieldsTooLarge.name,
+      'requestHeaderFieldsTooLarge',
+    );
+    expect(
+      HttpStatus.unavailableForLegalReasons.name,
+      'unavailableForLegalReasons',
+    );
     expect(HttpStatus.internalServerError.name, 'internalServerError');
     expect(HttpStatus.notImplemented.name, 'notImplemented');
     expect(HttpStatus.badGateway.name, 'badGateway');
@@ -70,8 +78,10 @@ void main() {
     expect(HttpStatus.insufficientStorage.name, 'insufficientStorage');
     expect(HttpStatus.loopDetected.name, 'loopDetected');
     expect(HttpStatus.notExtended.name, 'notExtended');
-    expect(HttpStatus.networkAuthenticationRequired.name,
-        'networkAuthenticationRequired');
+    expect(
+      HttpStatus.networkAuthenticationRequired.name,
+      'networkAuthenticationRequired',
+    );
   });
 
   test('.code', () {
@@ -146,8 +156,10 @@ void main() {
     expect(HttpStatus.ok.message, 'OK');
     expect(HttpStatus.created.message, 'Created');
     expect(HttpStatus.accepted.message, 'Accepted');
-    expect(HttpStatus.nonAuthoritativeInformation.message,
-        'Non-Authoritative Information');
+    expect(
+      HttpStatus.nonAuthoritativeInformation.message,
+      'Non-Authoritative Information',
+    );
     expect(HttpStatus.noContent.message, 'No Content');
     expect(HttpStatus.resetContent.message, 'Reset Content');
     expect(HttpStatus.partialContent.message, 'Partial Content');
@@ -169,8 +181,10 @@ void main() {
     expect(HttpStatus.notFound.message, 'Not Found');
     expect(HttpStatus.methodNotAllowed.message, 'Method Not Allowed');
     expect(HttpStatus.notAcceptable.message, 'Not Acceptable');
-    expect(HttpStatus.proxyAuthenticationRequired.message,
-        'Proxy Authentication Required');
+    expect(
+      HttpStatus.proxyAuthenticationRequired.message,
+      'Proxy Authentication Required',
+    );
     expect(HttpStatus.requestTimeout.message, 'Request Timeout');
     expect(HttpStatus.conflict.message, 'Conflict');
     expect(HttpStatus.gone.message, 'Gone');
@@ -189,23 +203,31 @@ void main() {
     expect(HttpStatus.upgradeRequired.message, 'Upgrade Required');
     expect(HttpStatus.preconditionRequired.message, 'Precondition Required');
     expect(HttpStatus.tooManyRequests.message, 'Too Many Requests');
-    expect(HttpStatus.requestHeaderFieldsTooLarge.message,
-        'Request Header Fields Too Large');
-    expect(HttpStatus.unavailableForLegalReasons.message,
-        'Unavailable For Legal Reasons');
+    expect(
+      HttpStatus.requestHeaderFieldsTooLarge.message,
+      'Request Header Fields Too Large',
+    );
+    expect(
+      HttpStatus.unavailableForLegalReasons.message,
+      'Unavailable For Legal Reasons',
+    );
     expect(HttpStatus.internalServerError.message, 'Internal Server Error');
     expect(HttpStatus.notImplemented.message, 'Not Implemented');
     expect(HttpStatus.badGateway.message, 'Bad Gateway');
     expect(HttpStatus.serviceUnavailable.message, 'Service Unavailable');
     expect(HttpStatus.gatewayTimeout.message, 'Gateway Timeout');
-    expect(HttpStatus.httpVersionNotSupported.message,
-        'HTTP Version Not Supported');
+    expect(
+      HttpStatus.httpVersionNotSupported.message,
+      'HTTP Version Not Supported',
+    );
     expect(HttpStatus.variantAlsoNegotiates.message, 'Variant Also Negotiates');
     expect(HttpStatus.insufficientStorage.message, 'Insufficient Storage');
     expect(HttpStatus.loopDetected.message, 'Loop Detected');
     expect(HttpStatus.notExtended.message, 'Not Extended');
-    expect(HttpStatus.networkAuthenticationRequired.message,
-        'Network Authentication Required');
+    expect(
+      HttpStatus.networkAuthenticationRequired.message,
+      'Network Authentication Required',
+    );
   });
 
   group('.valueOf', () {

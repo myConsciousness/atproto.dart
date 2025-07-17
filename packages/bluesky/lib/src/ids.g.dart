@@ -972,3 +972,450 @@ const chatBskyModerationGetMessageContext =
 /// `chat.bsky.moderation.updateActorAccess`
 const chatBskyModerationUpdateActorAccess =
     'chat.bsky.moderation.updateActorAccess';
+
+/// `tools.ozone.communication.createTemplate`
+const toolsOzoneCommunicationCreateTemplate =
+    'tools.ozone.communication.createTemplate';
+
+/// `tools.ozone.communication.defs`
+const toolsOzoneCommunicationDefs = 'tools.ozone.communication.defs';
+
+/// `tools.ozone.communication.defs#templateView`
+const toolsOzoneCommunicationDefsTemplateView =
+    'tools.ozone.communication.defs#templateView';
+
+/// `tools.ozone.communication.deleteTemplate`
+const toolsOzoneCommunicationDeleteTemplate =
+    'tools.ozone.communication.deleteTemplate';
+
+/// `tools.ozone.communication.listTemplates`
+const toolsOzoneCommunicationListTemplates =
+    'tools.ozone.communication.listTemplates';
+
+/// `tools.ozone.communication.updateTemplate`
+const toolsOzoneCommunicationUpdateTemplate =
+    'tools.ozone.communication.updateTemplate';
+
+/// `tools.ozone.hosting.getAccountHistory`
+const toolsOzoneHostingGetAccountHistory =
+    'tools.ozone.hosting.getAccountHistory';
+
+/// `tools.ozone.hosting.getAccountHistory#accountCreated`
+const toolsOzoneHostingGetAccountHistoryAccountCreated =
+    'tools.ozone.hosting.getAccountHistory#accountCreated';
+
+/// `tools.ozone.hosting.getAccountHistory#emailConfirmed`
+const toolsOzoneHostingGetAccountHistoryEmailConfirmed =
+    'tools.ozone.hosting.getAccountHistory#emailConfirmed';
+
+/// `tools.ozone.hosting.getAccountHistory#emailUpdated`
+const toolsOzoneHostingGetAccountHistoryEmailUpdated =
+    'tools.ozone.hosting.getAccountHistory#emailUpdated';
+
+/// `tools.ozone.hosting.getAccountHistory#event`
+const toolsOzoneHostingGetAccountHistoryEvent =
+    'tools.ozone.hosting.getAccountHistory#event';
+
+/// `tools.ozone.hosting.getAccountHistory#handleUpdated`
+const toolsOzoneHostingGetAccountHistoryHandleUpdated =
+    'tools.ozone.hosting.getAccountHistory#handleUpdated';
+
+/// `tools.ozone.hosting.getAccountHistory#passwordUpdated`
+const toolsOzoneHostingGetAccountHistoryPasswordUpdated =
+    'tools.ozone.hosting.getAccountHistory#passwordUpdated';
+
+/// `tools.ozone.moderation.defs`
+const toolsOzoneModerationDefs = 'tools.ozone.moderation.defs';
+
+/// `tools.ozone.moderation.defs#accountEvent`
+const toolsOzoneModerationDefsAccountEvent =
+    'tools.ozone.moderation.defs#accountEvent';
+
+/// `tools.ozone.moderation.defs#accountHosting`
+const toolsOzoneModerationDefsAccountHosting =
+    'tools.ozone.moderation.defs#accountHosting';
+
+/// `tools.ozone.moderation.defs#accountStats`
+const toolsOzoneModerationDefsAccountStats =
+    'tools.ozone.moderation.defs#accountStats';
+
+/// `tools.ozone.moderation.defs#ageAssuranceEvent`
+const toolsOzoneModerationDefsAgeAssuranceEvent =
+    'tools.ozone.moderation.defs#ageAssuranceEvent';
+
+/// `tools.ozone.moderation.defs#ageAssuranceOverrideEvent`
+const toolsOzoneModerationDefsAgeAssuranceOverrideEvent =
+    'tools.ozone.moderation.defs#ageAssuranceOverrideEvent';
+
+/// `tools.ozone.moderation.defs#blobView`
+const toolsOzoneModerationDefsBlobView = 'tools.ozone.moderation.defs#blobView';
+
+/// `tools.ozone.moderation.defs#identityEvent`
+const toolsOzoneModerationDefsIdentityEvent =
+    'tools.ozone.moderation.defs#identityEvent';
+
+/// `tools.ozone.moderation.defs#imageDetails`
+const toolsOzoneModerationDefsImageDetails =
+    'tools.ozone.moderation.defs#imageDetails';
+
+/// `tools.ozone.moderation.defs#modEventAcknowledge`
+const toolsOzoneModerationDefsModEventAcknowledge =
+    'tools.ozone.moderation.defs#modEventAcknowledge';
+
+/// `tools.ozone.moderation.defs#modEventComment`
+const toolsOzoneModerationDefsModEventComment =
+    'tools.ozone.moderation.defs#modEventComment';
+
+/// `tools.ozone.moderation.defs#modEventDivert`
+const toolsOzoneModerationDefsModEventDivert =
+    'tools.ozone.moderation.defs#modEventDivert';
+
+/// `tools.ozone.moderation.defs#modEventEmail`
+const toolsOzoneModerationDefsModEventEmail =
+    'tools.ozone.moderation.defs#modEventEmail';
+
+/// `tools.ozone.moderation.defs#modEventEscalate`
+const toolsOzoneModerationDefsModEventEscalate =
+    'tools.ozone.moderation.defs#modEventEscalate';
+
+/// `tools.ozone.moderation.defs#modEventLabel`
+const toolsOzoneModerationDefsModEventLabel =
+    'tools.ozone.moderation.defs#modEventLabel';
+
+/// `tools.ozone.moderation.defs#modEventMute`
+const toolsOzoneModerationDefsModEventMute =
+    'tools.ozone.moderation.defs#modEventMute';
+
+/// `tools.ozone.moderation.defs#modEventMuteReporter`
+const toolsOzoneModerationDefsModEventMuteReporter =
+    'tools.ozone.moderation.defs#modEventMuteReporter';
+
+/// `tools.ozone.moderation.defs#modEventPriorityScore`
+const toolsOzoneModerationDefsModEventPriorityScore =
+    'tools.ozone.moderation.defs#modEventPriorityScore';
+
+/// `tools.ozone.moderation.defs#modEventReport`
+const toolsOzoneModerationDefsModEventReport =
+    'tools.ozone.moderation.defs#modEventReport';
+
+/// `tools.ozone.moderation.defs#modEventResolveAppeal`
+const toolsOzoneModerationDefsModEventResolveAppeal =
+    'tools.ozone.moderation.defs#modEventResolveAppeal';
+
+/// `tools.ozone.moderation.defs#modEventReverseTakedown`
+const toolsOzoneModerationDefsModEventReverseTakedown =
+    'tools.ozone.moderation.defs#modEventReverseTakedown';
+
+/// `tools.ozone.moderation.defs#modEventTag`
+const toolsOzoneModerationDefsModEventTag =
+    'tools.ozone.moderation.defs#modEventTag';
+
+/// `tools.ozone.moderation.defs#modEventTakedown`
+const toolsOzoneModerationDefsModEventTakedown =
+    'tools.ozone.moderation.defs#modEventTakedown';
+
+/// `tools.ozone.moderation.defs#modEventUnmute`
+const toolsOzoneModerationDefsModEventUnmute =
+    'tools.ozone.moderation.defs#modEventUnmute';
+
+/// `tools.ozone.moderation.defs#modEventUnmuteReporter`
+const toolsOzoneModerationDefsModEventUnmuteReporter =
+    'tools.ozone.moderation.defs#modEventUnmuteReporter';
+
+/// `tools.ozone.moderation.defs#modEventView`
+const toolsOzoneModerationDefsModEventView =
+    'tools.ozone.moderation.defs#modEventView';
+
+/// `tools.ozone.moderation.defs#modEventViewDetail`
+const toolsOzoneModerationDefsModEventViewDetail =
+    'tools.ozone.moderation.defs#modEventViewDetail';
+
+/// `tools.ozone.moderation.defs#modTool`
+const toolsOzoneModerationDefsModTool = 'tools.ozone.moderation.defs#modTool';
+
+/// `tools.ozone.moderation.defs#moderation`
+const toolsOzoneModerationDefsModeration =
+    'tools.ozone.moderation.defs#moderation';
+
+/// `tools.ozone.moderation.defs#moderationDetail`
+const toolsOzoneModerationDefsModerationDetail =
+    'tools.ozone.moderation.defs#moderationDetail';
+
+/// `tools.ozone.moderation.defs#recordEvent`
+const toolsOzoneModerationDefsRecordEvent =
+    'tools.ozone.moderation.defs#recordEvent';
+
+/// `tools.ozone.moderation.defs#recordHosting`
+const toolsOzoneModerationDefsRecordHosting =
+    'tools.ozone.moderation.defs#recordHosting';
+
+/// `tools.ozone.moderation.defs#recordView`
+const toolsOzoneModerationDefsRecordView =
+    'tools.ozone.moderation.defs#recordView';
+
+/// `tools.ozone.moderation.defs#recordViewDetail`
+const toolsOzoneModerationDefsRecordViewDetail =
+    'tools.ozone.moderation.defs#recordViewDetail';
+
+/// `tools.ozone.moderation.defs#recordViewNotFound`
+const toolsOzoneModerationDefsRecordViewNotFound =
+    'tools.ozone.moderation.defs#recordViewNotFound';
+
+/// `tools.ozone.moderation.defs#recordsStats`
+const toolsOzoneModerationDefsRecordsStats =
+    'tools.ozone.moderation.defs#recordsStats';
+
+/// `tools.ozone.moderation.defs#repoView`
+const toolsOzoneModerationDefsRepoView = 'tools.ozone.moderation.defs#repoView';
+
+/// `tools.ozone.moderation.defs#repoViewDetail`
+const toolsOzoneModerationDefsRepoViewDetail =
+    'tools.ozone.moderation.defs#repoViewDetail';
+
+/// `tools.ozone.moderation.defs#repoViewNotFound`
+const toolsOzoneModerationDefsRepoViewNotFound =
+    'tools.ozone.moderation.defs#repoViewNotFound';
+
+/// `tools.ozone.moderation.defs#reporterStats`
+const toolsOzoneModerationDefsReporterStats =
+    'tools.ozone.moderation.defs#reporterStats';
+
+/// `tools.ozone.moderation.defs#reviewClosed`
+const toolsOzoneModerationDefsReviewClosed =
+    'tools.ozone.moderation.defs#reviewClosed';
+
+/// `tools.ozone.moderation.defs#reviewEscalated`
+const toolsOzoneModerationDefsReviewEscalated =
+    'tools.ozone.moderation.defs#reviewEscalated';
+
+/// `tools.ozone.moderation.defs#reviewNone`
+const toolsOzoneModerationDefsReviewNone =
+    'tools.ozone.moderation.defs#reviewNone';
+
+/// `tools.ozone.moderation.defs#reviewOpen`
+const toolsOzoneModerationDefsReviewOpen =
+    'tools.ozone.moderation.defs#reviewOpen';
+
+/// `tools.ozone.moderation.defs#subjectReviewState`
+const toolsOzoneModerationDefsSubjectReviewState =
+    'tools.ozone.moderation.defs#subjectReviewState';
+
+/// `tools.ozone.moderation.defs#subjectStatusView`
+const toolsOzoneModerationDefsSubjectStatusView =
+    'tools.ozone.moderation.defs#subjectStatusView';
+
+/// `tools.ozone.moderation.defs#subjectView`
+const toolsOzoneModerationDefsSubjectView =
+    'tools.ozone.moderation.defs#subjectView';
+
+/// `tools.ozone.moderation.defs#videoDetails`
+const toolsOzoneModerationDefsVideoDetails =
+    'tools.ozone.moderation.defs#videoDetails';
+
+/// `tools.ozone.moderation.emitEvent`
+const toolsOzoneModerationEmitEvent = 'tools.ozone.moderation.emitEvent';
+
+/// `tools.ozone.moderation.getEvent`
+const toolsOzoneModerationGetEvent = 'tools.ozone.moderation.getEvent';
+
+/// `tools.ozone.moderation.getRecord`
+const toolsOzoneModerationGetRecord = 'tools.ozone.moderation.getRecord';
+
+/// `tools.ozone.moderation.getRecords`
+const toolsOzoneModerationGetRecords = 'tools.ozone.moderation.getRecords';
+
+/// `tools.ozone.moderation.getRepo`
+const toolsOzoneModerationGetRepo = 'tools.ozone.moderation.getRepo';
+
+/// `tools.ozone.moderation.getReporterStats`
+const toolsOzoneModerationGetReporterStats =
+    'tools.ozone.moderation.getReporterStats';
+
+/// `tools.ozone.moderation.getRepos`
+const toolsOzoneModerationGetRepos = 'tools.ozone.moderation.getRepos';
+
+/// `tools.ozone.moderation.getSubjects`
+const toolsOzoneModerationGetSubjects = 'tools.ozone.moderation.getSubjects';
+
+/// `tools.ozone.moderation.queryEvents`
+const toolsOzoneModerationQueryEvents = 'tools.ozone.moderation.queryEvents';
+
+/// `tools.ozone.moderation.queryStatuses`
+const toolsOzoneModerationQueryStatuses =
+    'tools.ozone.moderation.queryStatuses';
+
+/// `tools.ozone.moderation.searchRepos`
+const toolsOzoneModerationSearchRepos = 'tools.ozone.moderation.searchRepos';
+
+/// `tools.ozone.safelink.addRule`
+const toolsOzoneSafelinkAddRule = 'tools.ozone.safelink.addRule';
+
+/// `tools.ozone.safelink.defs`
+const toolsOzoneSafelinkDefs = 'tools.ozone.safelink.defs';
+
+/// `tools.ozone.safelink.defs#actionType`
+const toolsOzoneSafelinkDefsActionType = 'tools.ozone.safelink.defs#actionType';
+
+/// `tools.ozone.safelink.defs#event`
+const toolsOzoneSafelinkDefsEvent = 'tools.ozone.safelink.defs#event';
+
+/// `tools.ozone.safelink.defs#eventType`
+const toolsOzoneSafelinkDefsEventType = 'tools.ozone.safelink.defs#eventType';
+
+/// `tools.ozone.safelink.defs#patternType`
+const toolsOzoneSafelinkDefsPatternType =
+    'tools.ozone.safelink.defs#patternType';
+
+/// `tools.ozone.safelink.defs#reasonType`
+const toolsOzoneSafelinkDefsReasonType = 'tools.ozone.safelink.defs#reasonType';
+
+/// `tools.ozone.safelink.defs#urlRule`
+const toolsOzoneSafelinkDefsUrlRule = 'tools.ozone.safelink.defs#urlRule';
+
+/// `tools.ozone.safelink.queryEvents`
+const toolsOzoneSafelinkQueryEvents = 'tools.ozone.safelink.queryEvents';
+
+/// `tools.ozone.safelink.queryRules`
+const toolsOzoneSafelinkQueryRules = 'tools.ozone.safelink.queryRules';
+
+/// `tools.ozone.safelink.removeRule`
+const toolsOzoneSafelinkRemoveRule = 'tools.ozone.safelink.removeRule';
+
+/// `tools.ozone.safelink.updateRule`
+const toolsOzoneSafelinkUpdateRule = 'tools.ozone.safelink.updateRule';
+
+/// `tools.ozone.server.getConfig`
+const toolsOzoneServerGetConfig = 'tools.ozone.server.getConfig';
+
+/// `tools.ozone.server.getConfig#serviceConfig`
+const toolsOzoneServerGetConfigServiceConfig =
+    'tools.ozone.server.getConfig#serviceConfig';
+
+/// `tools.ozone.server.getConfig#viewerConfig`
+const toolsOzoneServerGetConfigViewerConfig =
+    'tools.ozone.server.getConfig#viewerConfig';
+
+/// `tools.ozone.set.addValues`
+const toolsOzoneSetAddValues = 'tools.ozone.set.addValues';
+
+/// `tools.ozone.set.defs`
+const toolsOzoneSetDefs = 'tools.ozone.set.defs';
+
+/// `tools.ozone.set.defs#set`
+const toolsOzoneSetDefsSet = 'tools.ozone.set.defs#set';
+
+/// `tools.ozone.set.defs#setView`
+const toolsOzoneSetDefsSetView = 'tools.ozone.set.defs#setView';
+
+/// `tools.ozone.set.deleteSet`
+const toolsOzoneSetDeleteSet = 'tools.ozone.set.deleteSet';
+
+/// `tools.ozone.set.deleteValues`
+const toolsOzoneSetDeleteValues = 'tools.ozone.set.deleteValues';
+
+/// `tools.ozone.set.getValues`
+const toolsOzoneSetGetValues = 'tools.ozone.set.getValues';
+
+/// `tools.ozone.set.querySets`
+const toolsOzoneSetQuerySets = 'tools.ozone.set.querySets';
+
+/// `tools.ozone.set.upsertSet`
+const toolsOzoneSetUpsertSet = 'tools.ozone.set.upsertSet';
+
+/// `tools.ozone.setting.defs`
+const toolsOzoneSettingDefs = 'tools.ozone.setting.defs';
+
+/// `tools.ozone.setting.defs#option`
+const toolsOzoneSettingDefsOption = 'tools.ozone.setting.defs#option';
+
+/// `tools.ozone.setting.listOptions`
+const toolsOzoneSettingListOptions = 'tools.ozone.setting.listOptions';
+
+/// `tools.ozone.setting.removeOptions`
+const toolsOzoneSettingRemoveOptions = 'tools.ozone.setting.removeOptions';
+
+/// `tools.ozone.setting.upsertOption`
+const toolsOzoneSettingUpsertOption = 'tools.ozone.setting.upsertOption';
+
+/// `tools.ozone.signature.defs`
+const toolsOzoneSignatureDefs = 'tools.ozone.signature.defs';
+
+/// `tools.ozone.signature.defs#sigDetail`
+const toolsOzoneSignatureDefsSigDetail = 'tools.ozone.signature.defs#sigDetail';
+
+/// `tools.ozone.signature.findCorrelation`
+const toolsOzoneSignatureFindCorrelation =
+    'tools.ozone.signature.findCorrelation';
+
+/// `tools.ozone.signature.findRelatedAccounts`
+const toolsOzoneSignatureFindRelatedAccounts =
+    'tools.ozone.signature.findRelatedAccounts';
+
+/// `tools.ozone.signature.findRelatedAccounts#relatedAccount`
+const toolsOzoneSignatureFindRelatedAccountsRelatedAccount =
+    'tools.ozone.signature.findRelatedAccounts#relatedAccount';
+
+/// `tools.ozone.signature.searchAccounts`
+const toolsOzoneSignatureSearchAccounts =
+    'tools.ozone.signature.searchAccounts';
+
+/// `tools.ozone.team.addMember`
+const toolsOzoneTeamAddMember = 'tools.ozone.team.addMember';
+
+/// `tools.ozone.team.defs`
+const toolsOzoneTeamDefs = 'tools.ozone.team.defs';
+
+/// `tools.ozone.team.defs#member`
+const toolsOzoneTeamDefsMember = 'tools.ozone.team.defs#member';
+
+/// `tools.ozone.team.defs#roleAdmin`
+const toolsOzoneTeamDefsRoleAdmin = 'tools.ozone.team.defs#roleAdmin';
+
+/// `tools.ozone.team.defs#roleModerator`
+const toolsOzoneTeamDefsRoleModerator = 'tools.ozone.team.defs#roleModerator';
+
+/// `tools.ozone.team.defs#roleTriage`
+const toolsOzoneTeamDefsRoleTriage = 'tools.ozone.team.defs#roleTriage';
+
+/// `tools.ozone.team.defs#roleVerifier`
+const toolsOzoneTeamDefsRoleVerifier = 'tools.ozone.team.defs#roleVerifier';
+
+/// `tools.ozone.team.deleteMember`
+const toolsOzoneTeamDeleteMember = 'tools.ozone.team.deleteMember';
+
+/// `tools.ozone.team.listMembers`
+const toolsOzoneTeamListMembers = 'tools.ozone.team.listMembers';
+
+/// `tools.ozone.team.updateMember`
+const toolsOzoneTeamUpdateMember = 'tools.ozone.team.updateMember';
+
+/// `tools.ozone.verification.defs`
+const toolsOzoneVerificationDefs = 'tools.ozone.verification.defs';
+
+/// `tools.ozone.verification.defs#verificationView`
+const toolsOzoneVerificationDefsVerificationView =
+    'tools.ozone.verification.defs#verificationView';
+
+/// `tools.ozone.verification.grantVerifications`
+const toolsOzoneVerificationGrantVerifications =
+    'tools.ozone.verification.grantVerifications';
+
+/// `tools.ozone.verification.grantVerifications#grantError`
+const toolsOzoneVerificationGrantVerificationsGrantError =
+    'tools.ozone.verification.grantVerifications#grantError';
+
+/// `tools.ozone.verification.grantVerifications#verificationInput`
+const toolsOzoneVerificationGrantVerificationsVerificationInput =
+    'tools.ozone.verification.grantVerifications#verificationInput';
+
+/// `tools.ozone.verification.listVerifications`
+const toolsOzoneVerificationListVerifications =
+    'tools.ozone.verification.listVerifications';
+
+/// `tools.ozone.verification.revokeVerifications`
+const toolsOzoneVerificationRevokeVerifications =
+    'tools.ozone.verification.revokeVerifications';
+
+/// `tools.ozone.verification.revokeVerifications#revokeError`
+const toolsOzoneVerificationRevokeVerificationsRevokeError =
+    'tools.ozone.verification.revokeVerifications#revokeError';

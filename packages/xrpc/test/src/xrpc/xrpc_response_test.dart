@@ -17,13 +17,7 @@ void main() {
       data: XRPCError(error: 'error', message: 'error'),
     );
 
-    expect(
-      response.toJson(),
-      {
-        'error': 'error',
-        'message': 'error',
-      },
-    );
+    expect(response.toJson(), {'error': 'error', 'message': 'error'});
   });
 
   test('.toString', () {

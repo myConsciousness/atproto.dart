@@ -1,22 +1,23 @@
 // Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
+import 'package:atproto/com_atproto_repo_createrecord.dart';
 
 // Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/entities/labeler_policies.dart';
-import 'package:bluesky/src/services/entities/labeler_services.dart';
+import 'package:bluesky/src/services/app/bsky/labeler/defs/labeler_policies.dart';
+import 'package:bluesky/src/services/app/bsky/labeler/getServices/output.dart';
 import 'service_suite.dart';
 
 void main() {
-  testLabeler<LabelerServices>(
+  testLabeler<LabelerGetServicesOutput>(
     (m, s) => s.getServices(dids: [m.did]),
     id: appBskyLabelerGetServices,
   );
 
-  testLabeler<StrongRef>(
+  testLabeler<RepoCreateRecordOutput>(
     (m, s) => s.service(
       policies: LabelerPolicies(
-        labelValues: ['!hide'],
+        labelValues: const [LabelValue.knownValue(data: KnownLabelValue.hide)],
       ),
     ),
     id: appBskyLabelerService,

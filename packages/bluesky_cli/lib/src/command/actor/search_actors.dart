@@ -9,21 +9,13 @@ class SearchActorsCommand extends QueryCommand {
   /// Returns the new instance of [SearchActorsCommand].
   SearchActorsCommand() {
     argParser
-      ..addOption(
-        'term',
-        help: "Search term.",
-        defaultsTo: null,
-      )
+      ..addOption('term', help: "Search term.", defaultsTo: null)
       ..addOption(
         'limit',
         help: 'Maximum search limit from 1 to 100. Defaults to 50.',
         defaultsTo: null,
       )
-      ..addOption(
-        'cursor',
-        help: 'Token for pagination.',
-        defaultsTo: null,
-      );
+      ..addOption('cursor', help: 'Token for pagination.', defaultsTo: null);
   }
 
   @override
@@ -36,15 +28,12 @@ class SearchActorsCommand extends QueryCommand {
   final String invocation = 'bsky search-actors [term] [limit] [cursor]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'actor.bsky.app',
-        'searchActors',
-      );
+  xrpc.NSID get methodId => xrpc.NSID.create('actor.bsky.app', 'searchActors');
 
   @override
   Map<String, dynamic>? get parameters => {
-        'q': argResults!['term'],
-        'limit': argResults!['limit'],
-        'cursor': argResults!['cursor'],
-      };
+    'q': argResults!['term'],
+    'limit': argResults!['limit'],
+    'cursor': argResults!['cursor'],
+  };
 }

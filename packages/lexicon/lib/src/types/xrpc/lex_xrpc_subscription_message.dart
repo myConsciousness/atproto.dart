@@ -15,7 +15,7 @@ abstract class LexXrpcSubscriptionMessage with _$LexXrpcSubscriptionMessage {
   @JsonSerializable(includeIfNull: false)
   const factory LexXrpcSubscriptionMessage({
     String? description,
-    @lexXrpcSchemaConverter LexXrpcSchema? schema,
+    @LexXrpcSchemaConverter() LexXrpcSchema? schema,
   }) = _LexXrpcSubscriptionMessage;
 
   factory LexXrpcSubscriptionMessage.fromJson(Map<String, Object?> json) =>

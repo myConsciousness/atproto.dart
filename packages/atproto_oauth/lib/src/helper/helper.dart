@@ -14,8 +14,10 @@ import 'public_key.dart';
 
 String random(final int len) {
   final random = Random();
-  final letters =
-      List.generate(26, (i) => String.fromCharCode('a'.codeUnitAt(0) + i));
+  final letters = List.generate(
+    26,
+    (i) => String.fromCharCode('a'.codeUnitAt(0) + i),
+  );
   final numbers = List.generate(10, (i) => i.toString());
   final chars = [...letters, ...numbers];
 
@@ -43,13 +45,18 @@ String hashS256(final String value) {
 
 AsymmetricKeyPair<PublicKey, PrivateKey> getKeyPair() {
   final random = Random.secure();
-  final seed =
-      Uint8List.fromList(List.generate(32, (n) => random.nextInt(255)));
+  final seed = Uint8List.fromList(
+    List.generate(32, (n) => random.nextInt(255)),
+  );
   final secureRandom = SecureRandom("Fortuna")..seed(KeyParameter(seed));
 
   final keyGen = ECKeyGenerator();
-  keyGen.init(ParametersWithRandom(
-      ECKeyGeneratorParameters(ECCurve_secp256r1()), secureRandom));
+  keyGen.init(
+    ParametersWithRandom(
+      ECKeyGeneratorParameters(ECCurve_secp256r1()),
+      secureRandom,
+    ),
+  );
 
   return keyGen.generateKeyPair();
 }
@@ -151,7 +158,7 @@ String getDPoPHeader({
       'crv': 'P-256',
       'x': base64Url.encode(x).replaceAll('=', ''),
       'y': base64Url.encode(y).replaceAll('=', ''),
-    }
+    },
   };
 
   final epoch = DateTime.now().toUtc().millisecondsSinceEpoch ~/ 1000;
@@ -173,10 +180,12 @@ String getDPoPHeader({
     payload['iss'] = clientId;
   }
 
-  final headerBase64 =
-      base64UrlEncode(utf8.encode(jsonEncode(header))).replaceAll('=', '');
-  final payloadBase64 =
-      base64UrlEncode(utf8.encode(jsonEncode(payload))).replaceAll('=', '');
+  final headerBase64 = base64UrlEncode(
+    utf8.encode(jsonEncode(header)),
+  ).replaceAll('=', '');
+  final payloadBase64 = base64UrlEncode(
+    utf8.encode(jsonEncode(payload)),
+  ).replaceAll('=', '');
 
   final jwtMessage = '$headerBase64.$payloadBase64';
   final jwtSignature = base64Encode(_sign(privateKey, jwtMessage));
@@ -184,10 +193,7 @@ String getDPoPHeader({
   return '$headerBase64.$payloadBase64.$jwtSignature';
 }
 
-Uint8List _sign(
-  final String privateKey,
-  final String jwtMessage,
-) {
+Uint8List _sign(final String privateKey, final String jwtMessage) {
   final secureRandom = FortunaRandom();
   secureRandom.seed(
     KeyParameter(

@@ -4,10 +4,10 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 
 // Project imports:
+import 'package:bluesky/src/services/chat/bsky/actor_service.dart';
+import 'package:bluesky/src/services/chat/bsky/convo_service.dart';
+import 'package:bluesky/src/services/chat/bsky/moderation_service.dart';
 import 'package:bluesky/src/services/service_context.dart';
-import 'package:bluesky/src/services/types/chat/bsky/actor_service.dart';
-import 'package:bluesky/src/services/types/chat/bsky/convo_service.dart';
-import 'package:bluesky/src/services/types/chat/bsky/moderation_service.dart';
 
 const _runner = _ServiceRunner();
 
@@ -15,37 +15,19 @@ void testActor<D>(
   final atp_test.ServiceCallback<ActorService, D> endpoint, {
   required String id,
   String? label,
-}) =>
-    atp_test.testService<ActorService, D>(
-      _runner,
-      endpoint,
-      id,
-      label,
-    );
+}) => atp_test.testService<ActorService, D>(_runner, endpoint, id, label);
 
 void testConvo<D>(
   final atp_test.ServiceCallback<ConvoService, D> endpoint, {
   required String id,
   String? label,
-}) =>
-    atp_test.testService<ConvoService, D>(
-      _runner,
-      endpoint,
-      id,
-      label,
-    );
+}) => atp_test.testService<ConvoService, D>(_runner, endpoint, id, label);
 
 void testModeration<D>(
   final atp_test.ServiceCallback<ModerationService, D> endpoint, {
   required String id,
   String? label,
-}) =>
-    atp_test.testService<ModerationService, D>(
-      _runner,
-      endpoint,
-      id,
-      label,
-    );
+}) => atp_test.testService<ModerationService, D>(_runner, endpoint, id, label);
 
 final class _ServiceRunner extends atp_test.ServiceRunner {
   const _ServiceRunner();
@@ -69,50 +51,43 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
   atp.ATProto _getAtproto(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) =>
-      atp.ATProto.fromSession(
-        session,
-        service: service,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+  ) => atp.ATProto.fromSession(
+    session,
+    service: service,
+    mockedGetClient: mockedGetClient,
+    mockedPostClient: mockedPostClient,
+  );
 
   ActorService _getActorService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) =>
-      ActorService(BlueskyServiceContext(
-        atproto: _getAtproto(
-          mockedGetClient,
-          mockedPostClient,
-        ),
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      ));
+  ) => ActorService(
+    ServiceContext(
+      atproto: _getAtproto(mockedGetClient, mockedPostClient),
+      mockedGetClient: mockedGetClient,
+      mockedPostClient: mockedPostClient,
+    ),
+  );
 
   ConvoService _getConvoService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) =>
-      ConvoService(BlueskyServiceContext(
-        atproto: _getAtproto(
-          mockedGetClient,
-          mockedPostClient,
-        ),
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      ));
+  ) => ConvoService(
+    ServiceContext(
+      atproto: _getAtproto(mockedGetClient, mockedPostClient),
+      mockedGetClient: mockedGetClient,
+      mockedPostClient: mockedPostClient,
+    ),
+  );
 
   ModerationService _getModerationService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) =>
-      ModerationService(BlueskyServiceContext(
-        atproto: _getAtproto(
-          mockedGetClient,
-          mockedPostClient,
-        ),
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      ));
+  ) => ModerationService(
+    ServiceContext(
+      atproto: _getAtproto(mockedGetClient, mockedPostClient),
+      mockedGetClient: mockedGetClient,
+      mockedPostClient: mockedPostClient,
+    ),
+  );
 }

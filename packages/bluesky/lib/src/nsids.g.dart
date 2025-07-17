@@ -34,8 +34,9 @@ const appBskyActorPutPreferences = NSID(ids.appBskyActorPutPreferences);
 const appBskyActorSearchActors = NSID(ids.appBskyActorSearchActors);
 
 /// `app.bsky.actor.searchActorsTypeahead`
-const appBskyActorSearchActorsTypeahead =
-    NSID(ids.appBskyActorSearchActorsTypeahead);
+const appBskyActorSearchActorsTypeahead = NSID(
+  ids.appBskyActorSearchActorsTypeahead,
+);
 
 /// `app.bsky.actor.status`
 const appBskyActorStatus = NSID(ids.appBskyActorStatus);
@@ -53,8 +54,9 @@ const appBskyEmbedExternalExternal = NSID(ids.appBskyEmbedExternalExternal);
 const appBskyEmbedExternalView = NSID(ids.appBskyEmbedExternalView);
 
 /// `app.bsky.embed.external#viewExternal`
-const appBskyEmbedExternalViewExternal =
-    NSID(ids.appBskyEmbedExternalViewExternal);
+const appBskyEmbedExternalViewExternal = NSID(
+  ids.appBskyEmbedExternalViewExternal,
+);
 
 /// `app.bsky.embed.images`
 const appBskyEmbedImages = NSID(ids.appBskyEmbedImages);
@@ -90,8 +92,9 @@ const appBskyEmbedRecordViewRecord = NSID(ids.appBskyEmbedRecordViewRecord);
 const appBskyEmbedRecordWithMedia = NSID(ids.appBskyEmbedRecordWithMedia);
 
 /// `app.bsky.embed.recordWithMedia#view`
-const appBskyEmbedRecordWithMediaView =
-    NSID(ids.appBskyEmbedRecordWithMediaView);
+const appBskyEmbedRecordWithMediaView = NSID(
+  ids.appBskyEmbedRecordWithMediaView,
+);
 
 /// `app.bsky.embed.video`
 const appBskyEmbedVideo = NSID(ids.appBskyEmbedVideo);
@@ -103,16 +106,19 @@ const appBskyEmbedVideoCaption = NSID(ids.appBskyEmbedVideoCaption);
 const appBskyEmbedVideoView = NSID(ids.appBskyEmbedVideoView);
 
 /// `app.bsky.feed.describeFeedGenerator`
-const appBskyFeedDescribeFeedGenerator =
-    NSID(ids.appBskyFeedDescribeFeedGenerator);
+const appBskyFeedDescribeFeedGenerator = NSID(
+  ids.appBskyFeedDescribeFeedGenerator,
+);
 
 /// `app.bsky.feed.describeFeedGenerator#feed`
-const appBskyFeedDescribeFeedGeneratorFeed =
-    NSID(ids.appBskyFeedDescribeFeedGeneratorFeed);
+const appBskyFeedDescribeFeedGeneratorFeed = NSID(
+  ids.appBskyFeedDescribeFeedGeneratorFeed,
+);
 
 /// `app.bsky.feed.describeFeedGenerator#links`
-const appBskyFeedDescribeFeedGeneratorLinks =
-    NSID(ids.appBskyFeedDescribeFeedGeneratorLinks);
+const appBskyFeedDescribeFeedGeneratorLinks = NSID(
+  ids.appBskyFeedDescribeFeedGeneratorLinks,
+);
 
 /// `app.bsky.feed.generator`
 const appBskyFeedGenerator = NSID(ids.appBskyFeedGenerator);
@@ -199,19 +205,22 @@ const appBskyFeedSendInteractions = NSID(ids.appBskyFeedSendInteractions);
 const appBskyFeedThreadgate = NSID(ids.appBskyFeedThreadgate);
 
 /// `app.bsky.feed.threadgate#followerRule`
-const appBskyFeedThreadgateFollowerRule =
-    NSID(ids.appBskyFeedThreadgateFollowerRule);
+const appBskyFeedThreadgateFollowerRule = NSID(
+  ids.appBskyFeedThreadgateFollowerRule,
+);
 
 /// `app.bsky.feed.threadgate#followingRule`
-const appBskyFeedThreadgateFollowingRule =
-    NSID(ids.appBskyFeedThreadgateFollowingRule);
+const appBskyFeedThreadgateFollowingRule = NSID(
+  ids.appBskyFeedThreadgateFollowingRule,
+);
 
 /// `app.bsky.feed.threadgate#listRule`
 const appBskyFeedThreadgateListRule = NSID(ids.appBskyFeedThreadgateListRule);
 
 /// `app.bsky.feed.threadgate#mentionRule`
-const appBskyFeedThreadgateMentionRule =
-    NSID(ids.appBskyFeedThreadgateMentionRule);
+const appBskyFeedThreadgateMentionRule = NSID(
+  ids.appBskyFeedThreadgateMentionRule,
+);
 
 /// `app.bsky.graph.block`
 const appBskyGraphBlock = NSID(ids.appBskyGraphBlock);
@@ -220,8 +229,9 @@ const appBskyGraphBlock = NSID(ids.appBskyGraphBlock);
 const appBskyGraphFollow = NSID(ids.appBskyGraphFollow);
 
 /// `app.bsky.graph.getActorStarterPacks`
-const appBskyGraphGetActorStarterPacks =
-    NSID(ids.appBskyGraphGetActorStarterPacks);
+const appBskyGraphGetActorStarterPacks = NSID(
+  ids.appBskyGraphGetActorStarterPacks,
+);
 
 /// `app.bsky.graph.getBlocks`
 const appBskyGraphGetBlocks = NSID(ids.appBskyGraphGetBlocks);
@@ -260,8 +270,9 @@ const appBskyGraphGetStarterPack = NSID(ids.appBskyGraphGetStarterPack);
 const appBskyGraphGetStarterPacks = NSID(ids.appBskyGraphGetStarterPacks);
 
 /// `app.bsky.graph.getSuggestedFollowsByActor`
-const appBskyGraphGetSuggestedFollowsByActor =
-    NSID(ids.appBskyGraphGetSuggestedFollowsByActor);
+const appBskyGraphGetSuggestedFollowsByActor = NSID(
+  ids.appBskyGraphGetSuggestedFollowsByActor,
+);
 
 /// `app.bsky.graph.list`
 const appBskyGraphList = NSID(ids.appBskyGraphList);
@@ -288,8 +299,9 @@ const appBskyGraphSearchStarterPacks = NSID(ids.appBskyGraphSearchStarterPacks);
 const appBskyGraphStarterpack = NSID(ids.appBskyGraphStarterpack);
 
 /// `app.bsky.graph.starterpack#feedItem`
-const appBskyGraphStarterpackFeedItem =
-    NSID(ids.appBskyGraphStarterpackFeedItem);
+const appBskyGraphStarterpackFeedItem = NSID(
+  ids.appBskyGraphStarterpackFeedItem,
+);
 
 /// `app.bsky.graph.unmuteActor`
 const appBskyGraphUnmuteActor = NSID(ids.appBskyGraphUnmuteActor);
@@ -313,40 +325,49 @@ const appBskyLabelerService = NSID(ids.appBskyLabelerService);
 const appBskyNotificationDeclaration = NSID(ids.appBskyNotificationDeclaration);
 
 /// `app.bsky.notification.getPreferences`
-const appBskyNotificationGetPreferences =
-    NSID(ids.appBskyNotificationGetPreferences);
+const appBskyNotificationGetPreferences = NSID(
+  ids.appBskyNotificationGetPreferences,
+);
 
 /// `app.bsky.notification.getUnreadCount`
-const appBskyNotificationGetUnreadCount =
-    NSID(ids.appBskyNotificationGetUnreadCount);
+const appBskyNotificationGetUnreadCount = NSID(
+  ids.appBskyNotificationGetUnreadCount,
+);
 
 /// `app.bsky.notification.listActivitySubscriptions`
-const appBskyNotificationListActivitySubscriptions =
-    NSID(ids.appBskyNotificationListActivitySubscriptions);
+const appBskyNotificationListActivitySubscriptions = NSID(
+  ids.appBskyNotificationListActivitySubscriptions,
+);
 
 /// `app.bsky.notification.listNotifications`
-const appBskyNotificationListNotifications =
-    NSID(ids.appBskyNotificationListNotifications);
+const appBskyNotificationListNotifications = NSID(
+  ids.appBskyNotificationListNotifications,
+);
 
 /// `app.bsky.notification.listNotifications#notification`
-const appBskyNotificationListNotificationsNotification =
-    NSID(ids.appBskyNotificationListNotificationsNotification);
+const appBskyNotificationListNotificationsNotification = NSID(
+  ids.appBskyNotificationListNotificationsNotification,
+);
 
 /// `app.bsky.notification.putActivitySubscription`
-const appBskyNotificationPutActivitySubscription =
-    NSID(ids.appBskyNotificationPutActivitySubscription);
+const appBskyNotificationPutActivitySubscription = NSID(
+  ids.appBskyNotificationPutActivitySubscription,
+);
 
 /// `app.bsky.notification.putPreferences`
-const appBskyNotificationPutPreferences =
-    NSID(ids.appBskyNotificationPutPreferences);
+const appBskyNotificationPutPreferences = NSID(
+  ids.appBskyNotificationPutPreferences,
+);
 
 /// `app.bsky.notification.putPreferencesV2`
-const appBskyNotificationPutPreferencesV2 =
-    NSID(ids.appBskyNotificationPutPreferencesV2);
+const appBskyNotificationPutPreferencesV2 = NSID(
+  ids.appBskyNotificationPutPreferencesV2,
+);
 
 /// `app.bsky.notification.registerPush`
-const appBskyNotificationRegisterPush =
-    NSID(ids.appBskyNotificationRegisterPush);
+const appBskyNotificationRegisterPush = NSID(
+  ids.appBskyNotificationRegisterPush,
+);
 
 /// `app.bsky.notification.updateSeen`
 const appBskyNotificationUpdateSeen = NSID(ids.appBskyNotificationUpdateSeen);
@@ -367,98 +388,120 @@ const appBskyRichtextFacetMention = NSID(ids.appBskyRichtextFacetMention);
 const appBskyRichtextFacetTag = NSID(ids.appBskyRichtextFacetTag);
 
 /// `app.bsky.unspecced.getAgeAssuranceState`
-const appBskyUnspeccedGetAgeAssuranceState =
-    NSID(ids.appBskyUnspeccedGetAgeAssuranceState);
+const appBskyUnspeccedGetAgeAssuranceState = NSID(
+  ids.appBskyUnspeccedGetAgeAssuranceState,
+);
 
 /// `app.bsky.unspecced.getConfig`
 const appBskyUnspeccedGetConfig = NSID(ids.appBskyUnspeccedGetConfig);
 
 /// `app.bsky.unspecced.getConfig#liveNowConfig`
-const appBskyUnspeccedGetConfigLiveNowConfig =
-    NSID(ids.appBskyUnspeccedGetConfigLiveNowConfig);
+const appBskyUnspeccedGetConfigLiveNowConfig = NSID(
+  ids.appBskyUnspeccedGetConfigLiveNowConfig,
+);
 
 /// `app.bsky.unspecced.getPopularFeedGenerators`
-const appBskyUnspeccedGetPopularFeedGenerators =
-    NSID(ids.appBskyUnspeccedGetPopularFeedGenerators);
+const appBskyUnspeccedGetPopularFeedGenerators = NSID(
+  ids.appBskyUnspeccedGetPopularFeedGenerators,
+);
 
 /// `app.bsky.unspecced.getPostThreadOtherV2`
-const appBskyUnspeccedGetPostThreadOtherV2 =
-    NSID(ids.appBskyUnspeccedGetPostThreadOtherV2);
+const appBskyUnspeccedGetPostThreadOtherV2 = NSID(
+  ids.appBskyUnspeccedGetPostThreadOtherV2,
+);
 
 /// `app.bsky.unspecced.getPostThreadOtherV2#threadItem`
-const appBskyUnspeccedGetPostThreadOtherV2ThreadItem =
-    NSID(ids.appBskyUnspeccedGetPostThreadOtherV2ThreadItem);
+const appBskyUnspeccedGetPostThreadOtherV2ThreadItem = NSID(
+  ids.appBskyUnspeccedGetPostThreadOtherV2ThreadItem,
+);
 
 /// `app.bsky.unspecced.getPostThreadV2`
-const appBskyUnspeccedGetPostThreadV2 =
-    NSID(ids.appBskyUnspeccedGetPostThreadV2);
+const appBskyUnspeccedGetPostThreadV2 = NSID(
+  ids.appBskyUnspeccedGetPostThreadV2,
+);
 
 /// `app.bsky.unspecced.getPostThreadV2#threadItem`
-const appBskyUnspeccedGetPostThreadV2ThreadItem =
-    NSID(ids.appBskyUnspeccedGetPostThreadV2ThreadItem);
+const appBskyUnspeccedGetPostThreadV2ThreadItem = NSID(
+  ids.appBskyUnspeccedGetPostThreadV2ThreadItem,
+);
 
 /// `app.bsky.unspecced.getSuggestedFeeds`
-const appBskyUnspeccedGetSuggestedFeeds =
-    NSID(ids.appBskyUnspeccedGetSuggestedFeeds);
+const appBskyUnspeccedGetSuggestedFeeds = NSID(
+  ids.appBskyUnspeccedGetSuggestedFeeds,
+);
 
 /// `app.bsky.unspecced.getSuggestedFeedsSkeleton`
-const appBskyUnspeccedGetSuggestedFeedsSkeleton =
-    NSID(ids.appBskyUnspeccedGetSuggestedFeedsSkeleton);
+const appBskyUnspeccedGetSuggestedFeedsSkeleton = NSID(
+  ids.appBskyUnspeccedGetSuggestedFeedsSkeleton,
+);
 
 /// `app.bsky.unspecced.getSuggestedStarterPacks`
-const appBskyUnspeccedGetSuggestedStarterPacks =
-    NSID(ids.appBskyUnspeccedGetSuggestedStarterPacks);
+const appBskyUnspeccedGetSuggestedStarterPacks = NSID(
+  ids.appBskyUnspeccedGetSuggestedStarterPacks,
+);
 
 /// `app.bsky.unspecced.getSuggestedStarterPacksSkeleton`
-const appBskyUnspeccedGetSuggestedStarterPacksSkeleton =
-    NSID(ids.appBskyUnspeccedGetSuggestedStarterPacksSkeleton);
+const appBskyUnspeccedGetSuggestedStarterPacksSkeleton = NSID(
+  ids.appBskyUnspeccedGetSuggestedStarterPacksSkeleton,
+);
 
 /// `app.bsky.unspecced.getSuggestedUsers`
-const appBskyUnspeccedGetSuggestedUsers =
-    NSID(ids.appBskyUnspeccedGetSuggestedUsers);
+const appBskyUnspeccedGetSuggestedUsers = NSID(
+  ids.appBskyUnspeccedGetSuggestedUsers,
+);
 
 /// `app.bsky.unspecced.getSuggestedUsersSkeleton`
-const appBskyUnspeccedGetSuggestedUsersSkeleton =
-    NSID(ids.appBskyUnspeccedGetSuggestedUsersSkeleton);
+const appBskyUnspeccedGetSuggestedUsersSkeleton = NSID(
+  ids.appBskyUnspeccedGetSuggestedUsersSkeleton,
+);
 
 /// `app.bsky.unspecced.getSuggestionsSkeleton`
-const appBskyUnspeccedGetSuggestionsSkeleton =
-    NSID(ids.appBskyUnspeccedGetSuggestionsSkeleton);
+const appBskyUnspeccedGetSuggestionsSkeleton = NSID(
+  ids.appBskyUnspeccedGetSuggestionsSkeleton,
+);
 
 /// `app.bsky.unspecced.getTaggedSuggestions`
-const appBskyUnspeccedGetTaggedSuggestions =
-    NSID(ids.appBskyUnspeccedGetTaggedSuggestions);
+const appBskyUnspeccedGetTaggedSuggestions = NSID(
+  ids.appBskyUnspeccedGetTaggedSuggestions,
+);
 
 /// `app.bsky.unspecced.getTaggedSuggestions#suggestion`
-const appBskyUnspeccedGetTaggedSuggestionsSuggestion =
-    NSID(ids.appBskyUnspeccedGetTaggedSuggestionsSuggestion);
+const appBskyUnspeccedGetTaggedSuggestionsSuggestion = NSID(
+  ids.appBskyUnspeccedGetTaggedSuggestionsSuggestion,
+);
 
 /// `app.bsky.unspecced.getTrendingTopics`
-const appBskyUnspeccedGetTrendingTopics =
-    NSID(ids.appBskyUnspeccedGetTrendingTopics);
+const appBskyUnspeccedGetTrendingTopics = NSID(
+  ids.appBskyUnspeccedGetTrendingTopics,
+);
 
 /// `app.bsky.unspecced.getTrends`
 const appBskyUnspeccedGetTrends = NSID(ids.appBskyUnspeccedGetTrends);
 
 /// `app.bsky.unspecced.getTrendsSkeleton`
-const appBskyUnspeccedGetTrendsSkeleton =
-    NSID(ids.appBskyUnspeccedGetTrendsSkeleton);
+const appBskyUnspeccedGetTrendsSkeleton = NSID(
+  ids.appBskyUnspeccedGetTrendsSkeleton,
+);
 
 /// `app.bsky.unspecced.initAgeAssurance`
-const appBskyUnspeccedInitAgeAssurance =
-    NSID(ids.appBskyUnspeccedInitAgeAssurance);
+const appBskyUnspeccedInitAgeAssurance = NSID(
+  ids.appBskyUnspeccedInitAgeAssurance,
+);
 
 /// `app.bsky.unspecced.searchActorsSkeleton`
-const appBskyUnspeccedSearchActorsSkeleton =
-    NSID(ids.appBskyUnspeccedSearchActorsSkeleton);
+const appBskyUnspeccedSearchActorsSkeleton = NSID(
+  ids.appBskyUnspeccedSearchActorsSkeleton,
+);
 
 /// `app.bsky.unspecced.searchPostsSkeleton`
-const appBskyUnspeccedSearchPostsSkeleton =
-    NSID(ids.appBskyUnspeccedSearchPostsSkeleton);
+const appBskyUnspeccedSearchPostsSkeleton = NSID(
+  ids.appBskyUnspeccedSearchPostsSkeleton,
+);
 
 /// `app.bsky.unspecced.searchStarterPacksSkeleton`
-const appBskyUnspeccedSearchStarterPacksSkeleton =
-    NSID(ids.appBskyUnspeccedSearchStarterPacksSkeleton);
+const appBskyUnspeccedSearchStarterPacksSkeleton = NSID(
+  ids.appBskyUnspeccedSearchStarterPacksSkeleton,
+);
 
 /// `app.bsky.video.getJobStatus`
 const appBskyVideoGetJobStatus = NSID(ids.appBskyVideoGetJobStatus);
@@ -485,19 +528,22 @@ const chatBskyConvoAcceptConvo = NSID(ids.chatBskyConvoAcceptConvo);
 const chatBskyConvoAddReaction = NSID(ids.chatBskyConvoAddReaction);
 
 /// `chat.bsky.convo.deleteMessageForSelf`
-const chatBskyConvoDeleteMessageForSelf =
-    NSID(ids.chatBskyConvoDeleteMessageForSelf);
+const chatBskyConvoDeleteMessageForSelf = NSID(
+  ids.chatBskyConvoDeleteMessageForSelf,
+);
 
 /// `chat.bsky.convo.getConvo`
 const chatBskyConvoGetConvo = NSID(ids.chatBskyConvoGetConvo);
 
 /// `chat.bsky.convo.getConvoAvailability`
-const chatBskyConvoGetConvoAvailability =
-    NSID(ids.chatBskyConvoGetConvoAvailability);
+const chatBskyConvoGetConvoAvailability = NSID(
+  ids.chatBskyConvoGetConvoAvailability,
+);
 
 /// `chat.bsky.convo.getConvoForMembers`
-const chatBskyConvoGetConvoForMembers =
-    NSID(ids.chatBskyConvoGetConvoForMembers);
+const chatBskyConvoGetConvoForMembers = NSID(
+  ids.chatBskyConvoGetConvoForMembers,
+);
 
 /// `chat.bsky.convo.getLog`
 const chatBskyConvoGetLog = NSID(ids.chatBskyConvoGetLog);
@@ -524,8 +570,9 @@ const chatBskyConvoSendMessage = NSID(ids.chatBskyConvoSendMessage);
 const chatBskyConvoSendMessageBatch = NSID(ids.chatBskyConvoSendMessageBatch);
 
 /// `chat.bsky.convo.sendMessageBatch#batchItem`
-const chatBskyConvoSendMessageBatchBatchItem =
-    NSID(ids.chatBskyConvoSendMessageBatchBatchItem);
+const chatBskyConvoSendMessageBatchBatchItem = NSID(
+  ids.chatBskyConvoSendMessageBatchBatchItem,
+);
 
 /// `chat.bsky.convo.unmuteConvo`
 const chatBskyConvoUnmuteConvo = NSID(ids.chatBskyConvoUnmuteConvo);
@@ -537,17 +584,236 @@ const chatBskyConvoUpdateAllRead = NSID(ids.chatBskyConvoUpdateAllRead);
 const chatBskyConvoUpdateRead = NSID(ids.chatBskyConvoUpdateRead);
 
 /// `chat.bsky.moderation.getActorMetadata`
-const chatBskyModerationGetActorMetadata =
-    NSID(ids.chatBskyModerationGetActorMetadata);
+const chatBskyModerationGetActorMetadata = NSID(
+  ids.chatBskyModerationGetActorMetadata,
+);
 
 /// `chat.bsky.moderation.getActorMetadata#metadata`
-const chatBskyModerationGetActorMetadataMetadata =
-    NSID(ids.chatBskyModerationGetActorMetadataMetadata);
+const chatBskyModerationGetActorMetadataMetadata = NSID(
+  ids.chatBskyModerationGetActorMetadataMetadata,
+);
 
 /// `chat.bsky.moderation.getMessageContext`
-const chatBskyModerationGetMessageContext =
-    NSID(ids.chatBskyModerationGetMessageContext);
+const chatBskyModerationGetMessageContext = NSID(
+  ids.chatBskyModerationGetMessageContext,
+);
 
 /// `chat.bsky.moderation.updateActorAccess`
-const chatBskyModerationUpdateActorAccess =
-    NSID(ids.chatBskyModerationUpdateActorAccess);
+const chatBskyModerationUpdateActorAccess = NSID(
+  ids.chatBskyModerationUpdateActorAccess,
+);
+
+/// `tools.ozone.communication.createTemplate`
+const toolsOzoneCommunicationCreateTemplate = NSID(
+  ids.toolsOzoneCommunicationCreateTemplate,
+);
+
+/// `tools.ozone.communication.deleteTemplate`
+const toolsOzoneCommunicationDeleteTemplate = NSID(
+  ids.toolsOzoneCommunicationDeleteTemplate,
+);
+
+/// `tools.ozone.communication.listTemplates`
+const toolsOzoneCommunicationListTemplates = NSID(
+  ids.toolsOzoneCommunicationListTemplates,
+);
+
+/// `tools.ozone.communication.updateTemplate`
+const toolsOzoneCommunicationUpdateTemplate = NSID(
+  ids.toolsOzoneCommunicationUpdateTemplate,
+);
+
+/// `tools.ozone.hosting.getAccountHistory`
+const toolsOzoneHostingGetAccountHistory = NSID(
+  ids.toolsOzoneHostingGetAccountHistory,
+);
+
+/// `tools.ozone.hosting.getAccountHistory#accountCreated`
+const toolsOzoneHostingGetAccountHistoryAccountCreated = NSID(
+  ids.toolsOzoneHostingGetAccountHistoryAccountCreated,
+);
+
+/// `tools.ozone.hosting.getAccountHistory#emailConfirmed`
+const toolsOzoneHostingGetAccountHistoryEmailConfirmed = NSID(
+  ids.toolsOzoneHostingGetAccountHistoryEmailConfirmed,
+);
+
+/// `tools.ozone.hosting.getAccountHistory#emailUpdated`
+const toolsOzoneHostingGetAccountHistoryEmailUpdated = NSID(
+  ids.toolsOzoneHostingGetAccountHistoryEmailUpdated,
+);
+
+/// `tools.ozone.hosting.getAccountHistory#event`
+const toolsOzoneHostingGetAccountHistoryEvent = NSID(
+  ids.toolsOzoneHostingGetAccountHistoryEvent,
+);
+
+/// `tools.ozone.hosting.getAccountHistory#handleUpdated`
+const toolsOzoneHostingGetAccountHistoryHandleUpdated = NSID(
+  ids.toolsOzoneHostingGetAccountHistoryHandleUpdated,
+);
+
+/// `tools.ozone.hosting.getAccountHistory#passwordUpdated`
+const toolsOzoneHostingGetAccountHistoryPasswordUpdated = NSID(
+  ids.toolsOzoneHostingGetAccountHistoryPasswordUpdated,
+);
+
+/// `tools.ozone.moderation.emitEvent`
+const toolsOzoneModerationEmitEvent = NSID(ids.toolsOzoneModerationEmitEvent);
+
+/// `tools.ozone.moderation.getEvent`
+const toolsOzoneModerationGetEvent = NSID(ids.toolsOzoneModerationGetEvent);
+
+/// `tools.ozone.moderation.getRecord`
+const toolsOzoneModerationGetRecord = NSID(ids.toolsOzoneModerationGetRecord);
+
+/// `tools.ozone.moderation.getRecords`
+const toolsOzoneModerationGetRecords = NSID(ids.toolsOzoneModerationGetRecords);
+
+/// `tools.ozone.moderation.getRepo`
+const toolsOzoneModerationGetRepo = NSID(ids.toolsOzoneModerationGetRepo);
+
+/// `tools.ozone.moderation.getReporterStats`
+const toolsOzoneModerationGetReporterStats = NSID(
+  ids.toolsOzoneModerationGetReporterStats,
+);
+
+/// `tools.ozone.moderation.getRepos`
+const toolsOzoneModerationGetRepos = NSID(ids.toolsOzoneModerationGetRepos);
+
+/// `tools.ozone.moderation.getSubjects`
+const toolsOzoneModerationGetSubjects = NSID(
+  ids.toolsOzoneModerationGetSubjects,
+);
+
+/// `tools.ozone.moderation.queryEvents`
+const toolsOzoneModerationQueryEvents = NSID(
+  ids.toolsOzoneModerationQueryEvents,
+);
+
+/// `tools.ozone.moderation.queryStatuses`
+const toolsOzoneModerationQueryStatuses = NSID(
+  ids.toolsOzoneModerationQueryStatuses,
+);
+
+/// `tools.ozone.moderation.searchRepos`
+const toolsOzoneModerationSearchRepos = NSID(
+  ids.toolsOzoneModerationSearchRepos,
+);
+
+/// `tools.ozone.safelink.addRule`
+const toolsOzoneSafelinkAddRule = NSID(ids.toolsOzoneSafelinkAddRule);
+
+/// `tools.ozone.safelink.queryEvents`
+const toolsOzoneSafelinkQueryEvents = NSID(ids.toolsOzoneSafelinkQueryEvents);
+
+/// `tools.ozone.safelink.queryRules`
+const toolsOzoneSafelinkQueryRules = NSID(ids.toolsOzoneSafelinkQueryRules);
+
+/// `tools.ozone.safelink.removeRule`
+const toolsOzoneSafelinkRemoveRule = NSID(ids.toolsOzoneSafelinkRemoveRule);
+
+/// `tools.ozone.safelink.updateRule`
+const toolsOzoneSafelinkUpdateRule = NSID(ids.toolsOzoneSafelinkUpdateRule);
+
+/// `tools.ozone.server.getConfig`
+const toolsOzoneServerGetConfig = NSID(ids.toolsOzoneServerGetConfig);
+
+/// `tools.ozone.server.getConfig#serviceConfig`
+const toolsOzoneServerGetConfigServiceConfig = NSID(
+  ids.toolsOzoneServerGetConfigServiceConfig,
+);
+
+/// `tools.ozone.server.getConfig#viewerConfig`
+const toolsOzoneServerGetConfigViewerConfig = NSID(
+  ids.toolsOzoneServerGetConfigViewerConfig,
+);
+
+/// `tools.ozone.set.addValues`
+const toolsOzoneSetAddValues = NSID(ids.toolsOzoneSetAddValues);
+
+/// `tools.ozone.set.deleteSet`
+const toolsOzoneSetDeleteSet = NSID(ids.toolsOzoneSetDeleteSet);
+
+/// `tools.ozone.set.deleteValues`
+const toolsOzoneSetDeleteValues = NSID(ids.toolsOzoneSetDeleteValues);
+
+/// `tools.ozone.set.getValues`
+const toolsOzoneSetGetValues = NSID(ids.toolsOzoneSetGetValues);
+
+/// `tools.ozone.set.querySets`
+const toolsOzoneSetQuerySets = NSID(ids.toolsOzoneSetQuerySets);
+
+/// `tools.ozone.set.upsertSet`
+const toolsOzoneSetUpsertSet = NSID(ids.toolsOzoneSetUpsertSet);
+
+/// `tools.ozone.setting.listOptions`
+const toolsOzoneSettingListOptions = NSID(ids.toolsOzoneSettingListOptions);
+
+/// `tools.ozone.setting.removeOptions`
+const toolsOzoneSettingRemoveOptions = NSID(ids.toolsOzoneSettingRemoveOptions);
+
+/// `tools.ozone.setting.upsertOption`
+const toolsOzoneSettingUpsertOption = NSID(ids.toolsOzoneSettingUpsertOption);
+
+/// `tools.ozone.signature.findCorrelation`
+const toolsOzoneSignatureFindCorrelation = NSID(
+  ids.toolsOzoneSignatureFindCorrelation,
+);
+
+/// `tools.ozone.signature.findRelatedAccounts`
+const toolsOzoneSignatureFindRelatedAccounts = NSID(
+  ids.toolsOzoneSignatureFindRelatedAccounts,
+);
+
+/// `tools.ozone.signature.findRelatedAccounts#relatedAccount`
+const toolsOzoneSignatureFindRelatedAccountsRelatedAccount = NSID(
+  ids.toolsOzoneSignatureFindRelatedAccountsRelatedAccount,
+);
+
+/// `tools.ozone.signature.searchAccounts`
+const toolsOzoneSignatureSearchAccounts = NSID(
+  ids.toolsOzoneSignatureSearchAccounts,
+);
+
+/// `tools.ozone.team.addMember`
+const toolsOzoneTeamAddMember = NSID(ids.toolsOzoneTeamAddMember);
+
+/// `tools.ozone.team.deleteMember`
+const toolsOzoneTeamDeleteMember = NSID(ids.toolsOzoneTeamDeleteMember);
+
+/// `tools.ozone.team.listMembers`
+const toolsOzoneTeamListMembers = NSID(ids.toolsOzoneTeamListMembers);
+
+/// `tools.ozone.team.updateMember`
+const toolsOzoneTeamUpdateMember = NSID(ids.toolsOzoneTeamUpdateMember);
+
+/// `tools.ozone.verification.grantVerifications`
+const toolsOzoneVerificationGrantVerifications = NSID(
+  ids.toolsOzoneVerificationGrantVerifications,
+);
+
+/// `tools.ozone.verification.grantVerifications#grantError`
+const toolsOzoneVerificationGrantVerificationsGrantError = NSID(
+  ids.toolsOzoneVerificationGrantVerificationsGrantError,
+);
+
+/// `tools.ozone.verification.grantVerifications#verificationInput`
+const toolsOzoneVerificationGrantVerificationsVerificationInput = NSID(
+  ids.toolsOzoneVerificationGrantVerificationsVerificationInput,
+);
+
+/// `tools.ozone.verification.listVerifications`
+const toolsOzoneVerificationListVerifications = NSID(
+  ids.toolsOzoneVerificationListVerifications,
+);
+
+/// `tools.ozone.verification.revokeVerifications`
+const toolsOzoneVerificationRevokeVerifications = NSID(
+  ids.toolsOzoneVerificationRevokeVerifications,
+);
+
+/// `tools.ozone.verification.revokeVerifications#revokeError`
+const toolsOzoneVerificationRevokeVerificationsRevokeError = NSID(
+  ids.toolsOzoneVerificationRevokeVerificationsRevokeError,
+);

@@ -25,13 +25,10 @@ class ProfilesCommand extends QueryCommand {
   final String invocation = 'bsky profiles [actors]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'actor.bsky.app',
-        'getProfiles',
-      );
+  xrpc.NSID get methodId => xrpc.NSID.create('actor.bsky.app', 'getProfiles');
 
   @override
   Map<String, dynamic>? get parameters => {
-        'actors': argResults!['actors'].split(','),
-      };
+    'actors': argResults!['actors'].split(','),
+  };
 }

@@ -1,9 +1,6 @@
 class Authentication {
   /// Returns the new instance of [Authentication].
-  const Authentication(
-    this.identifier,
-    this.password,
-  );
+  const Authentication(this.identifier, this.password);
 
   /// The identifier.
   final String? identifier;

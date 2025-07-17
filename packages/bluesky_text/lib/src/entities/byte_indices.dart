@@ -1,18 +1,24 @@
-// Package imports:
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'byte_indices.freezed.dart';
-part 'byte_indices.g.dart';
-
 /// A class that represents the position in bytes where the searched entity
 /// appears and ends in a particular text.
-@freezed
-abstract class ByteIndices with _$ByteIndices {
-  const factory ByteIndices({
-    required int start,
-    required int end,
-  }) = _ByteIndices;
+class ByteIndices {
+  final int start;
+  final int end;
 
-  factory ByteIndices.fromJson(Map<String, Object?> json) =>
-      _$ByteIndicesFromJson(json);
+  const ByteIndices({required this.start, required this.end});
+
+  ByteIndices copyWith({int? start, int? end}) {
+    return ByteIndices(start: start ?? this.start, end: end ?? this.end);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    return other is ByteIndices && other.start == start && other.end == end;
+  }
+
+  @override
+  int get hashCode => Object.hash(start, end);
+
+  @override
+  String toString() => 'ByteIndices(start: $start, end: $end)';
 }

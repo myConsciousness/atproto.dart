@@ -15,13 +15,11 @@ abstract class LexXrpcSchema with _$LexXrpcSchema {
   // ignore: unused_element
   const LexXrpcSchema._();
 
-  const factory LexXrpcSchema.refVariant({
-    required LexRefVariant data,
-  }) = ULexXrpcSchemaRefVariant;
+  const factory LexXrpcSchema.refVariant({required LexRefVariant data}) =
+      ULexXrpcSchemaRefVariant;
 
-  const factory LexXrpcSchema.object({
-    required LexObject data,
-  }) = ULexXrpcSchemaObject;
+  const factory LexXrpcSchema.object({required LexObject data}) =
+      ULexXrpcSchemaObject;
 
-  Map<String, dynamic> toJson() => lexXrpcSchemaConverter.toJson(this);
+  Map<String, dynamic> toJson() => const LexXrpcSchemaConverter().toJson(this);
 }

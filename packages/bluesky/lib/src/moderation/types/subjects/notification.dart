@@ -1,5 +1,7 @@
 // Package imports:
-import 'package:atproto/atproto.dart';
+
+// Package imports:
+import 'package:atproto/com_atproto_label_defs.dart';
 
 // Project imports:
 import '../../decision.dart';
@@ -16,9 +18,9 @@ ModerationDecision decideNotification(
 ) {
   final (author, labels) = switch (subject) {
     UModerationSubjectNotification(data: final data) => (
-        data.author,
-        data.labels
-      ),
+      data.author,
+      data.labels,
+    ),
     _ => throw UnimplementedError(),
   };
 

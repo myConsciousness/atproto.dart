@@ -8,11 +8,9 @@ import 'lex_ipld_converter.dart';
 import 'lex_primitive_converter.dart';
 import 'lex_ref_variant_converter.dart';
 
-const lexArrayItemConverter = _LexArrayItemConverter();
-
-final class _LexArrayItemConverter
+final class LexArrayItemConverter
     implements JsonConverter<LexArrayItem, Map<String, dynamic>> {
-  const _LexArrayItemConverter();
+  const LexArrayItemConverter();
 
   @override
   LexArrayItem fromJson(Map<String, dynamic> json) {
@@ -24,24 +22,20 @@ final class _LexArrayItemConverter
       case 'boolean':
       case 'unknown':
         return LexArrayItem.primitive(
-          data: lexPrimitiveConverter.fromJson(json),
+          data: const LexPrimitiveConverter().fromJson(json),
         );
 
       case 'bytes':
       case 'cid-link':
-        return LexArrayItem.ipld(
-          data: lexIpldConverter.fromJson(json),
-        );
+        return LexArrayItem.ipld(data: const LexIpldConverter().fromJson(json));
 
       case 'blob':
-        return LexArrayItem.blob(
-          data: LexBlob.fromJson(json),
-        );
+        return LexArrayItem.blob(data: LexBlob.fromJson(json));
 
       case 'ref':
       case 'union':
         return LexArrayItem.refVariant(
-          data: lexRefVariantConverter.fromJson(json),
+          data: const LexRefVariantConverter().fromJson(json),
         );
 
       default:
@@ -50,13 +44,10 @@ final class _LexArrayItemConverter
   }
 
   @override
-  Map<String, dynamic> toJson(LexArrayItem object) => switch (object) {
-        ULexArrayItemPrimitive(data: final data) => data.toJson(),
-        ULexArrayItemIpld(data: final data) => data.toJson(),
-        ULexArrayItemBlob(data: final data) => data.toJson(),
-        ULexArrayRefVariant(data: final data) => data.toJson(),
-        _ => throw UnimplementedError(
-            'Unknown LexArrayItem type: ${object.runtimeType}',
-          ),
-      };
+  Map<String, dynamic> toJson(LexArrayItem object) => object.when(
+    primitive: (data) => data.toJson(),
+    ipld: (data) => data.toJson(),
+    blob: (data) => data.toJson(),
+    refVariant: (data) => data.toJson(),
+  );
 }

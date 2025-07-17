@@ -3,13 +3,15 @@ import 'package:bluesky_text/bluesky_text.dart';
 import 'package:test/test.dart';
 
 // Project imports:
-import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/src/moderation.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_cause.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_opts.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_prefs.dart';
 import 'package:bluesky/src/moderation/types/mute_words.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_post.dart';
+import 'package:bluesky/src/services/app/bsky/actor/defs/muted_word.dart';
+import 'package:bluesky/src/services/app/bsky/actor/defs/muted_word_target.dart';
+import 'package:bluesky/src/services/app/bsky/richtext/facet/main.dart';
 import 'utils/mock.dart';
 
 void main() {
@@ -21,10 +23,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'outlineTag', targets: ['tag']),
+            MutedWord(
+              value: 'outlineTag',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.tag),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: ['outlineTag'],
         ),
         isTrue,
@@ -38,10 +45,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'inlineTag', targets: ['tag']),
+            MutedWord(
+              value: 'inlineTag',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.tag),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: ['outlineTag'],
         ),
         isTrue,
@@ -55,10 +67,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'inlineTag', targets: ['content']),
+            MutedWord(
+              value: 'inlineTag',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: ['outlineTag'],
         ),
         isTrue,
@@ -72,10 +89,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'inlineTag', targets: ['tag']),
+            MutedWord(
+              value: 'inlineTag',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.tag),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isFalse,
@@ -89,10 +111,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'inlineTag', targets: ['tag']),
+            MutedWord(
+              value: 'inlineTag',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.tag),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isFalse,
@@ -108,10 +135,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: '希', targets: ['content']),
+            MutedWord(
+              value: '希',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -125,10 +157,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: '☠︎', targets: ['content']),
+            MutedWord(
+              value: '☠︎',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -142,10 +179,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'politics', targets: ['content']),
+            MutedWord(
+              value: 'politics',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isFalse,
@@ -159,10 +201,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'dart', targets: ['content']),
+            MutedWord(
+              value: 'dart',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -178,10 +225,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'dart', targets: ['content']),
+            MutedWord(
+              value: 'dart',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -195,10 +247,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'ai', targets: ['content']),
+            MutedWord(
+              value: 'ai',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isFalse,
@@ -212,10 +269,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'brain', targets: ['content']),
+            MutedWord(
+              value: 'brain',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -229,10 +291,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: ':)', targets: ['content']),
+            MutedWord(
+              value: ':)',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -248,10 +315,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'yay!', targets: ['content']),
+            MutedWord(
+              value: 'yay!',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -265,10 +337,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'yay', targets: ['content']),
+            MutedWord(
+              value: 'yay',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -282,10 +359,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'y!ppee', targets: ['content']),
+            MutedWord(
+              value: 'y!ppee',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -299,10 +381,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'y!ppee!', targets: ['content']),
+            MutedWord(
+              value: 'y!ppee!',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -318,10 +405,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: "Bluesky's", targets: ['content']),
+            MutedWord(
+              value: "Bluesky's",
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -335,10 +427,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'Bluesky', targets: ['content']),
+            MutedWord(
+              value: 'Bluesky',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -352,10 +449,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'blueskys', targets: ['content']),
+            MutedWord(
+              value: 'blueskys',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -371,10 +473,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'S@assy', targets: ['content']),
+            MutedWord(
+              value: 'S@assy',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -388,10 +495,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 's@assy', targets: ['content']),
+            MutedWord(
+              value: 's@assy',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -407,10 +519,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'new york times', targets: ['content']),
+            MutedWord(
+              value: 'new york times',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -426,10 +543,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: '!command', targets: ['content']),
+            MutedWord(
+              value: '!command',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -443,10 +565,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'command', targets: ['content']),
+            MutedWord(
+              value: 'command',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -460,10 +587,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: '!command', targets: ['content']),
+            MutedWord(
+              value: '!command',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isFalse,
@@ -479,10 +611,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'e/acc', targets: ['content']),
+            MutedWord(
+              value: 'e/acc',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -496,10 +633,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'acc', targets: ['content']),
+            MutedWord(
+              value: 'acc',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -515,10 +657,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'super-bad', targets: ['content']),
+            MutedWord(
+              value: 'super-bad',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -532,10 +679,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'super', targets: ['content']),
+            MutedWord(
+              value: 'super',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -549,10 +701,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'bad', targets: ['content']),
+            MutedWord(
+              value: 'bad',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -566,10 +723,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'super bad', targets: ['content']),
+            MutedWord(
+              value: 'super bad',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -583,10 +745,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'superbad', targets: ['content']),
+            MutedWord(
+              value: 'superbad',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -602,10 +769,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'idk what this would be', targets: ['content']),
+            MutedWord(
+              value: 'idk what this would be',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -621,11 +793,13 @@ void main() {
           mutedWords: [
             MutedWord(
               value: 'idk what this would be for',
-              targets: ['content'],
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
             ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isFalse,
@@ -639,10 +813,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'idk', targets: ['content']),
+            MutedWord(
+              value: 'idk',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -658,11 +837,13 @@ void main() {
           mutedWords: [
             MutedWord(
               value: 'idkwhatthiswouldbe',
-              targets: ['content'],
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
             ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -680,11 +861,13 @@ void main() {
           mutedWords: [
             MutedWord(
               value: 'context(iykyk)',
-              targets: ['content'],
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
             ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -698,10 +881,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'context', targets: ['content']),
+            MutedWord(
+              value: 'context',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -715,10 +903,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'iykyk', targets: ['content']),
+            MutedWord(
+              value: 'iykyk',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -732,10 +925,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: '(iykyk)', targets: ['content']),
+            MutedWord(
+              value: '(iykyk)',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -751,10 +949,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: '🦋', targets: ['content']),
+            MutedWord(
+              value: '🦋',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -773,10 +976,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'stop worrying', targets: ['content']),
+            MutedWord(
+              value: 'stop worrying',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -793,10 +1001,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'turtles, or how', targets: ['content']),
+            MutedWord(
+              value: 'turtles, or how',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
         isTrue,
@@ -814,10 +1027,15 @@ void main() {
       expect(
         hasMutedWord(
           mutedWords: [
-            MutedWord(value: 'インターネット', targets: ['content']),
+            MutedWord(
+              value: 'インターネット',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
           ],
           text: text.value,
-          facets: facets.map(Facet.fromJson).toList(),
+          facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
           languages: ['ja'],
         ),
@@ -832,10 +1050,7 @@ void main() {
         ModerationSubjectPost.postView(
           data: postView(
             record: post(text: 'Mute words!'),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
           ),
         ),
         ModerationOpts(
@@ -847,7 +1062,11 @@ void main() {
             mutedWords: const [
               MutedWord(
                 value: 'words',
-                targets: ['content'],
+                targets: [
+                  MutedWordTarget.knownValue(
+                    data: KnownMutedWordTarget.content,
+                  ),
+                ],
               ),
             ],
             hiddenPosts: const [],
@@ -863,10 +1082,7 @@ void main() {
         ModerationSubjectPost.postView(
           data: postView(
             record: post(text: 'Mute words!'),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
           ),
         ),
         ModerationOpts(
@@ -878,7 +1094,11 @@ void main() {
             mutedWords: const [
               MutedWord(
                 value: 'words',
-                targets: ['content'],
+                targets: [
+                  MutedWordTarget.knownValue(
+                    data: KnownMutedWordTarget.content,
+                  ),
+                ],
               ),
             ],
             hiddenPosts: const [],
@@ -898,12 +1118,9 @@ void main() {
           data: postView(
             record: post(
               text: text.value,
-              facets: facets.map(Facet.fromJson).toList(),
+              facets: facets.map(RichtextFacet.fromJson).toList(),
             ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
           ),
         ),
         ModerationOpts(
@@ -915,7 +1132,9 @@ void main() {
             mutedWords: const [
               MutedWord(
                 value: 'words',
-                targets: ['tags'],
+                targets: [
+                  MutedWordTarget.knownValue(data: KnownMutedWordTarget.tag),
+                ],
               ),
             ],
             hiddenPosts: const [],

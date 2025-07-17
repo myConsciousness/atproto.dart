@@ -16,7 +16,7 @@ abstract class LexXrpcBody with _$LexXrpcBody {
   const factory LexXrpcBody({
     String? description,
     required String encoding,
-    @lexXrpcSchemaConverter LexXrpcSchema? schema,
+    @LexXrpcSchemaConverter() LexXrpcSchema? schema,
   }) = _LexXrpcBody;
 
   factory LexXrpcBody.fromJson(Map<String, Object?> json) =>

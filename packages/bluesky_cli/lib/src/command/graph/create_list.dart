@@ -19,16 +19,8 @@ class CreateListCommand extends CreateRecordCommand {
         help: 'Purpose of list.',
         defaultsTo: 'app.bsky.graph.defs#modlist',
       )
-      ..addOption(
-        'name',
-        help: 'Name of list.',
-        defaultsTo: null,
-      )
-      ..addOption(
-        'description',
-        help: 'Description of list.',
-        defaultsTo: '',
-      )
+      ..addOption('name', help: 'Name of list.', defaultsTo: null)
+      ..addOption('description', help: 'Description of list.', defaultsTo: '')
       ..addOption(
         'avatar',
         help: 'File path of avatar to upload.',
@@ -52,10 +44,7 @@ class CreateListCommand extends CreateRecordCommand {
       'bsky create-list [purpose] [name] [description] [avatar] [created-at]';
 
   @override
-  xrpc.NSID get collection => xrpc.NSID.create(
-        'graph.bsky.app',
-        'list',
-      );
+  xrpc.NSID get collection => xrpc.NSID.create('graph.bsky.app', 'list');
 
   @override
   Future<Map<String, dynamic>> get record async {

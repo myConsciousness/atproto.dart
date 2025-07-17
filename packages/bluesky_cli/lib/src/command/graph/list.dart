@@ -9,21 +9,13 @@ class ListCommand extends QueryCommand {
   /// Returns the new instance of [ListCommand].
   ListCommand() {
     argParser
-      ..addOption(
-        'uri',
-        help: 'AT URI of list.',
-        defaultsTo: '',
-      )
+      ..addOption('uri', help: 'AT URI of list.', defaultsTo: '')
       ..addOption(
         'limit',
         help: 'Maximum search limit from 1 to 100. Defaults to 50.',
         defaultsTo: null,
       )
-      ..addOption(
-        'cursor',
-        help: 'Token for pagination.',
-        defaultsTo: null,
-      );
+      ..addOption('cursor', help: 'Token for pagination.', defaultsTo: null);
   }
 
   @override
@@ -36,15 +28,12 @@ class ListCommand extends QueryCommand {
   final String invocation = 'bsky list [uri] [limit] [cursor]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'graph.bsky.app',
-        'getList',
-      );
+  xrpc.NSID get methodId => xrpc.NSID.create('graph.bsky.app', 'getList');
 
   @override
   Map<String, dynamic>? get parameters => {
-        'list': argResults!['uri'],
-        'limit': argResults!['limit'],
-        'cursor': argResults!['cursor'],
-      };
+    'list': argResults!['uri'],
+    'limit': argResults!['limit'],
+    'cursor': argResults!['cursor'],
+  };
 }

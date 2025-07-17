@@ -1,10 +1,11 @@
 // Package imports:
-import 'package:atproto/atproto.dart';
-import 'package:bluesky/moderation.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // Project imports:
 import 'package:bluesky/src/moderation.dart';
+import 'package:bluesky/src/moderation/types/behaviors/moderation_cause.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_opts.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_prefs.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_prefs_labeler.dart';
@@ -13,15 +14,14 @@ import 'package:bluesky/src/moderation/types/moderation_behavior.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_profile.dart';
 import 'package:bluesky/src/moderation/utils.dart';
-import 'package:bluesky/src/services/entities/post_record.dart';
+import 'package:bluesky/src/services/app/bsky/feed/post/main.dart';
 import 'utils/mock.dart';
 import 'utils/result_flag.dart';
 import 'utils/runner.dart';
 
 void main() {
   group('Moderation', () {
-    test(
-        'Applies self-labels on profiles according to the global preferences '
+    test('Applies self-labels on profiles according to the global preferences '
         '(porn (hide))', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.profileViewBasic(
@@ -31,9 +31,9 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:bob.test',
-                uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.actor.profile/self'),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -42,9 +42,7 @@ void main() {
           userDid: 'did:web:alice.test',
           prefs: ModerationPrefs(
             adultContentEnabled: true,
-            labels: {
-              'porn': LabelPreference.hide,
-            },
+            labels: {'porn': LabelPreference.hide},
             labelers: const [],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -59,8 +57,7 @@ void main() {
       );
     });
 
-    test(
-        'Applies self-labels on profiles according to the global preferences '
+    test('Applies self-labels on profiles according to the global preferences '
         '(porn (ignore))', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.profileViewBasic(
@@ -70,9 +67,9 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:bob.test',
-                uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.actor.profile/self'),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -81,9 +78,7 @@ void main() {
           userDid: 'did:web:alice.test',
           prefs: ModerationPrefs(
             adultContentEnabled: true,
-            labels: {
-              'porn': LabelPreference.ignore,
-            },
+            labels: {'porn': LabelPreference.ignore},
             labelers: const [],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -98,8 +93,7 @@ void main() {
       );
     });
 
-    test(
-        'Ignores labels from unsubscribed moderators or ignored labels for '
+    test('Ignores labels from unsubscribed moderators or ignored labels for '
         'a moderator (porn (moderator disabled))', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.profileViewBasic(
@@ -109,9 +103,9 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.actor.profile/self'),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -120,9 +114,7 @@ void main() {
           userDid: 'did:web:alice.test',
           prefs: ModerationPrefs(
             adultContentEnabled: true,
-            labels: {
-              'porn': LabelPreference.hide,
-            },
+            labels: {'porn': LabelPreference.hide},
             labelers: const [],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -139,8 +131,7 @@ void main() {
       }
     });
 
-    test(
-        'Ignores labels from unsubscribed moderators or ignored labels for '
+    test('Ignores labels from unsubscribed moderators or ignored labels for '
         'a moderator (porn (label group disabled))', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.profileViewBasic(
@@ -150,9 +141,9 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.actor.profile/self'),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -161,15 +152,11 @@ void main() {
           userDid: 'did:web:alice.test',
           prefs: ModerationPrefs(
             adultContentEnabled: true,
-            labels: {
-              'porn': LabelPreference.ignore,
-            },
+            labels: {'porn': LabelPreference.ignore},
             labelers: const [
               ModerationPrefsLabeler(
                 did: 'did:web:labeler.test',
-                labels: {
-                  'porn': LabelPreference.ignore,
-                },
+                labels: {'porn': LabelPreference.ignore},
               ),
             ],
             mutedWords: const [],
@@ -191,14 +178,11 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            ).toJson(),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
           ),
         ),
         ModerationOpts(
@@ -207,10 +191,7 @@ void main() {
             adultContentEnabled: true,
             labels: const {},
             labelers: const [
-              ModerationPrefsLabeler(
-                did: 'did:web:labeler.test',
-                labels: {},
-              ),
+              ModerationPrefsLabeler(did: 'did:web:labeler.test', labels: {}),
             ],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -230,9 +211,7 @@ void main() {
       );
       testModeration(
         actual: actual.getUI(ModerationBehaviorContext.contentView),
-        expected: const [
-          ModerationTestSuiteResultFlag.blur,
-        ],
+        expected: const [ModerationTestSuiteResultFlag.blur],
         context: ModerationBehaviorContext.contentView.name,
       );
     });
@@ -241,26 +220,23 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            ).toJson(),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: '!hide',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: '!hide',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -269,14 +245,9 @@ void main() {
           userDid: 'did:web:alice.test',
           prefs: ModerationPrefs(
             adultContentEnabled: true,
-            labels: const {
-              'porn': LabelPreference.hide,
-            },
+            labels: const {'porn': LabelPreference.hide},
             labelers: const [
-              ModerationPrefsLabeler(
-                did: 'did:web:labeler.test',
-                labels: {},
-              ),
+              ModerationPrefsLabeler(did: 'did:web:labeler.test', labels: {}),
             ],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -285,35 +256,34 @@ void main() {
       );
 
       expect(
-        switch (
-            actual.getUI(ModerationBehaviorContext.contentList).filters.first) {
-          UModerationCauseLabel(data: final data) => data.label.value,
-          _ => throw UnimplementedError(),
-        },
+        actual
+            .getUI(ModerationBehaviorContext.contentList)
+            .filters
+            .first
+            .whenOrNull(label: (data) => data.label.val),
         '!hide',
       );
       expect(
-        switch (
-            actual.getUI(ModerationBehaviorContext.contentList).filters[1]) {
-          UModerationCauseLabel(data: final data) => data.label.value,
-          _ => throw UnimplementedError(),
-        },
+        actual
+            .getUI(ModerationBehaviorContext.contentList)
+            .filters[1]
+            .whenOrNull(label: (data) => data.label.val),
         'porn',
       );
       expect(
-        switch (
-            actual.getUI(ModerationBehaviorContext.contentList).blurs.first) {
-          UModerationCauseLabel(data: final data) => data.label.value,
-          _ => throw UnimplementedError(),
-        },
+        actual
+            .getUI(ModerationBehaviorContext.contentList)
+            .blurs
+            .first
+            .whenOrNull(label: (data) => data.label.val),
         '!hide',
       );
       expect(
-        switch (
-            actual.getUI(ModerationBehaviorContext.contentMedia).blurs.first) {
-          UModerationCauseLabel(data: final data) => data.label.value,
-          _ => throw UnimplementedError(),
-        },
+        actual
+            .getUI(ModerationBehaviorContext.contentMedia)
+            .blurs
+            .first
+            .whenOrNull(label: (data) => data.label.val),
         'porn',
       );
     });
@@ -322,20 +292,17 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            ).toJson(),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -344,15 +311,11 @@ void main() {
           userDid: 'did:web:alice.test',
           prefs: ModerationPrefs(
             adultContentEnabled: true,
-            labels: const {
-              'porn': LabelPreference.warn,
-            },
+            labels: const {'porn': LabelPreference.warn},
             labelers: const [
               ModerationPrefsLabeler(
                 did: 'did:web:labeler.test',
-                labels: {
-                  'porn': LabelPreference.warn,
-                },
+                labels: {'porn': LabelPreference.warn},
               ),
             ],
             mutedWords: const [],
@@ -366,8 +329,8 @@ void main() {
                 blurs: 'none',
                 defaultSetting: LabelPreference.warn,
                 definedBy: 'did:web:labeler.test',
-              )
-            ]
+              ),
+            ],
           },
         ),
       );
@@ -418,20 +381,17 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            ).toJson(),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: '!hide',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: '!hide',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -442,10 +402,7 @@ void main() {
             adultContentEnabled: true,
             labels: const {},
             labelers: const [
-              ModerationPrefsLabeler(
-                did: 'did:web:labeler.test',
-                labels: {},
-              ),
+              ModerationPrefsLabeler(did: 'did:web:labeler.test', labels: {}),
             ],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -458,8 +415,8 @@ void main() {
                 blurs: 'none',
                 defaultSetting: LabelPreference.warn,
                 definedBy: 'did:web:labeler.test',
-              )
-            ]
+              ),
+            ],
           },
         ),
       );
@@ -517,26 +474,23 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            ).toJson(),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'BadLabel',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'BadLabel',
+                cts: DateTime.now().toUtc(),
               ),
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'bad/label',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'bad/label',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -573,8 +527,8 @@ void main() {
                 blurs: 'content',
                 defaultSetting: LabelPreference.warn,
                 definedBy: 'did:web:labeler.test',
-              )
-            ]
+              ),
+            ],
           },
         ),
       );
@@ -625,20 +579,17 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            ).toJson(),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'default-hide',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'default-hide',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -649,10 +600,7 @@ void main() {
             adultContentEnabled: true,
             labels: const {},
             labelers: const [
-              ModerationPrefsLabeler(
-                did: 'did:web:labeler.test',
-                labels: {},
-              ),
+              ModerationPrefsLabeler(did: 'did:web:labeler.test', labels: {}),
             ],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -679,8 +627,8 @@ void main() {
                 blurs: 'content',
                 defaultSetting: LabelPreference.ignore,
                 definedBy: 'did:web:labeler.test',
-              )
-            ]
+              ),
+            ],
           },
         ),
       );
@@ -720,9 +668,7 @@ void main() {
       );
       testModeration(
         actual: actual.getUI(ModerationBehaviorContext.contentView),
-        expected: const [
-          ModerationTestSuiteResultFlag.inform,
-        ],
+        expected: const [ModerationTestSuiteResultFlag.inform],
         context: ModerationBehaviorContext.contentView.name,
       );
       testModeration(
@@ -736,20 +682,17 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            ).toJson(),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'default-warn',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'default-warn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -760,10 +703,7 @@ void main() {
             adultContentEnabled: true,
             labels: const {},
             labelers: const [
-              ModerationPrefsLabeler(
-                did: 'did:web:labeler.test',
-                labels: {},
-              ),
+              ModerationPrefsLabeler(did: 'did:web:labeler.test', labels: {}),
             ],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -790,8 +730,8 @@ void main() {
                 blurs: 'content',
                 defaultSetting: LabelPreference.ignore,
                 definedBy: 'did:web:labeler.test',
-              )
-            ]
+              ),
+            ],
           },
         ),
       );
@@ -823,16 +763,12 @@ void main() {
       );
       testModeration(
         actual: actual.getUI(ModerationBehaviorContext.contentList),
-        expected: const [
-          ModerationTestSuiteResultFlag.blur,
-        ],
+        expected: const [ModerationTestSuiteResultFlag.blur],
         context: ModerationBehaviorContext.contentList.name,
       );
       testModeration(
         actual: actual.getUI(ModerationBehaviorContext.contentView),
-        expected: const [
-          ModerationTestSuiteResultFlag.inform,
-        ],
+        expected: const [ModerationTestSuiteResultFlag.inform],
         context: ModerationBehaviorContext.contentView.name,
       );
       testModeration(
@@ -846,20 +782,17 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            ).toJson(),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'default-ignore',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'default-ignore',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -870,10 +803,7 @@ void main() {
             adultContentEnabled: true,
             labels: const {},
             labelers: const [
-              ModerationPrefsLabeler(
-                did: 'did:web:labeler.test',
-                labels: {},
-              ),
+              ModerationPrefsLabeler(did: 'did:web:labeler.test', labels: {}),
             ],
             mutedWords: const [],
             hiddenPosts: const [],
@@ -900,8 +830,8 @@ void main() {
                 blurs: 'content',
                 defaultSetting: LabelPreference.ignore,
                 definedBy: 'did:web:labeler.test',
-              )
-            ]
+              ),
+            ],
           },
         ),
       );
@@ -952,20 +882,17 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            ).toJson(),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'adult',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'adult',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -974,15 +901,11 @@ void main() {
           userDid: 'did:web:alice.test',
           prefs: ModerationPrefs(
             adultContentEnabled: false,
-            labels: const {
-              'adult': LabelPreference.ignore,
-            },
+            labels: const {'adult': LabelPreference.ignore},
             labelers: const [
               ModerationPrefsLabeler(
                 did: 'did:web:labeler.test',
-                labels: {
-                  'adult': LabelPreference.ignore,
-                },
+                labels: {'adult': LabelPreference.ignore},
               ),
             ],
             mutedWords: const [],
@@ -998,7 +921,7 @@ void main() {
                 adultOnly: true,
                 definedBy: 'did:web:labeler.test',
               ),
-            ]
+            ],
           },
         ),
       );
@@ -1056,20 +979,17 @@ void main() {
       final actual = moderatePost(
         ModerationSubjectPost.postView(
           data: postView(
-            record: PostRecord(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now().toUtc(),
-            ),
-            author: profileViewBasic(
-              handle: 'bob.test',
-              displayName: 'Bob',
-            ),
+            ).toJson(),
+            author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -1078,14 +998,9 @@ void main() {
           userDid: 'did:web:alice.test',
           prefs: ModerationPrefs(
             adultContentEnabled: false,
-            labels: const {
-              'porn': LabelPreference.ignore,
-            },
+            labels: const {'porn': LabelPreference.ignore},
             labelers: const [
-              ModerationPrefsLabeler(
-                did: 'did:web:labeler.test',
-                labels: {},
-              ),
+              ModerationPrefsLabeler(did: 'did:web:labeler.test', labels: {}),
             ],
             mutedWords: const [],
             hiddenPosts: const [],

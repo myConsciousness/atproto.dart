@@ -1,6 +1,6 @@
 name: at_uri
 description: Core library for parsing AT URI in the AT Protocol standard.
-version: 0.4.0
+version: 1.0.0
 homepage: https://atprotodart.com
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_uri
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
@@ -8,7 +8,7 @@ funding:
   - https://github.com/sponsors/myConsciousness
 
 environment:
-  sdk: ^3.3.0
+  sdk: ^3.8.0
 
 topics:
   - atproto
@@ -17,12 +17,12 @@ topics:
   - util
 
 dependencies:
-  at_identifier: ^0.2.2
-  nsid: ^0.4.1
+  at_identifier: ^1.0.0
+  nsid: ^1.0.0
 
 dev_dependencies:
-  lints: ^2.0.1
-  test: ^1.21.0
+  lints: ^6.0.0
+  test: ^1.26.2
   import_sorter: ^4.6.0
 
 

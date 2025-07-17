@@ -44,7 +44,7 @@ dependencies:
 
 dev_dependencies:
   lints: ^2.0.0
-  test: ^1.21.0
+  test: ^1.26.2
 ```
 
 And the following implementation is all that is needed to simply post text to Bluesky with [bluesky](https://pub.dev/packages/bluesky).

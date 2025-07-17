@@ -105,7 +105,8 @@ void main() {
       expectValid('at://did:plc:asdf123/com.atproto.feed.post/a');
       expectValid('at://did:plc:asdf123/com.atproto.feed.post/%23');
       expectValid(
-          'at://did:plc:asdf123/com.atproto.feed.post/\$@!*)(:,;~.sdf123');
+        'at://did:plc:asdf123/com.atproto.feed.post/\$@!*)(:,;~.sdf123',
+      );
       expectValid("at://did:plc:asdf123/com.atproto.feed.post/~'sdf123");
       expectValid('at://did:plc:asdf123/com.atproto.feed.post/\$');
       expectValid('at://did:plc:asdf123/com.atproto.feed.post/@');
@@ -135,7 +136,8 @@ void main() {
       expectValid('at://did:plc:asdf123#/com.atproto.feed.post/');
       expectValid('at://did:plc:asdf123#/asdf/');
       expectValid(
-          'at://did:plc:asdf123/com.atproto.feed.post#/\$@!*():,;~.sdf123');
+        'at://did:plc:asdf123/com.atproto.feed.post#/\$@!*():,;~.sdf123',
+      );
       expectValid('at://did:plc:asdf123#/[asfd]');
       expectValid('at://did:plc:asdf123#/\$');
       expectValid('at://did:plc:asdf123#/*');

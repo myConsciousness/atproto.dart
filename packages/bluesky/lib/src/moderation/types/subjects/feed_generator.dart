@@ -1,5 +1,7 @@
 // Package imports:
-import 'package:atproto/atproto.dart';
+
+// Package imports:
+import 'package:atproto/com_atproto_label_defs.dart';
 
 // Project imports:
 import '../../decision.dart';
@@ -14,13 +16,9 @@ ModerationDecision decideFeedGenerator(
   final ModerationSubjectFeedGenerator subject,
   final ModerationOpts opts,
 ) {
-  final (creator, labels) = switch (subject) {
-    UModerationSubjectFeedGenerator(data: final data) => (
-        data.createdBy,
-        data.labels
-      ),
-    _ => throw UnimplementedError(),
-  };
+  final (creator, labels) = subject.when(
+    generatorView: (data) => (data.creator, data.labels),
+  );
 
   final decision = ModerationDecision.init(
     did: creator.did,

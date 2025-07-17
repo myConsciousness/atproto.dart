@@ -112,10 +112,7 @@ void main() {
     test('simple case', () async {
       final response = await get(
         'test.com',
-        parameters: {
-          'test': 'test',
-          'test2': 10,
-        },
+        parameters: {'test': 'test', 'test2': 10},
         to: EmptyData.fromJson,
         getClient: (url, {headers}) async => http.Response(
           '{}',
@@ -131,10 +128,7 @@ void main() {
     test('"to" parameter is missing', () async {
       final response = await get<EmptyData>(
         'test.com',
-        parameters: {
-          'test': 'test',
-          'test2': 10,
-        },
+        parameters: {'test': 'test', 'test2': 10},
         getClient: (url, {headers}) async => http.Response(
           '{}',
           200,
@@ -149,10 +143,7 @@ void main() {
     test('T is String', () async {
       final response = await get<String>(
         'test.com',
-        parameters: {
-          'test': 'test',
-          'test2': 10,
-        },
+        parameters: {'test': 'test', 'test2': 10},
         getClient: (url, {headers}) async => http.Response(
           '{"test": "test"}',
           200,
@@ -168,10 +159,7 @@ void main() {
     test('T is Map<String, dynamic>', () async {
       final response = await get<Map<String, dynamic>>(
         'test.com',
-        parameters: {
-          'test': 'test',
-          'test2': 10,
-        },
+        parameters: {'test': 'test', 'test2': 10},
         getClient: (url, {headers}) async => http.Response(
           '{"test": "test"}',
           200,

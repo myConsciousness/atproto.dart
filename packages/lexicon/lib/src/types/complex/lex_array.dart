@@ -16,7 +16,7 @@ abstract class LexArray with _$LexArray {
   const factory LexArray({
     @Default('array') String type,
     String? description,
-    @lexArrayItemConverter required LexArrayItem items,
+    @LexArrayItemConverter() required LexArrayItem items,
     int? minLength,
     int? maxLength,
   }) = _LexArray;

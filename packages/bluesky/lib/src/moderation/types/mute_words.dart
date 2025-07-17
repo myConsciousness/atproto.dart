@@ -1,10 +1,13 @@
 // Package imports:
+
+// Package imports:
 import 'package:characters/characters.dart';
 
 // Project imports:
-import '../../services/entities/facet.dart';
-import '../../services/entities/facet_feature.dart';
-import '../../services/entities/muted_word.dart';
+import '../../services/app/bsky/actor/defs/muted_word.dart';
+import '../../services/app/bsky/actor/defs/muted_word_target.dart';
+import '../../services/app/bsky/richtext/facet/main.dart';
+import '../../services/app/bsky/richtext/facet/union_main_features.dart';
 
 /// List of 2-letter lang codes for languages that either don't use spaces, or
 /// don't use spaces in a way conducive to word-based filtering.
@@ -18,8 +21,10 @@ const _kLanguageExceptions = [
   'vi', // Vietnamese
 ];
 
-final _leadingTrailingPunctuationRegex =
-    RegExp(r'(?:^\p{P}+|\p{P}+$)', unicode: true);
+final _leadingTrailingPunctuationRegex = RegExp(
+  r'(?:^\p{P}+|\p{P}+$)',
+  unicode: true,
+);
 final _whitespacePunctuationRegex = RegExp(r'(?:\s|\p{P})+?', unicode: true);
 final _wordBoundaryRegex = RegExp(r'[\s\n\t\r\f\v]+?');
 final _punctuationRegex = RegExp(r'\p{P}+', unicode: true);
@@ -28,7 +33,7 @@ final _spaceRegex = RegExp(r'\s', unicode: true);
 bool hasMutedWord({
   required List<MutedWord> mutedWords,
   required String text,
-  List<Facet>? facets,
+  List<RichtextFacet>? facets,
   List<String>? outlineTags,
   List<String>? languages,
 }) {
@@ -37,9 +42,12 @@ bool hasMutedWord({
     if (outlineTags != null) ...outlineTags.map((e) => e.toLowerCase()),
     if (facets != null)
       ...facets
-          .map((e) => e.features.whereType<UFacetFeatureTag>())
+          .map(
+            (e) =>
+                e.features.whereType<URichtextFacetFeaturesRichtextFacetTag>(),
+          )
           .where((e) => e.isNotEmpty)
-          .map((e) => e.first.data.tag.toLowerCase())
+          .map((e) => e.first.data.tag.toLowerCase()),
   }.toList();
 
   for (final mute in mutedWords) {
@@ -47,7 +55,12 @@ bool hasMutedWord({
     final postText = text.toLowerCase();
 
     if (tags.contains(mutedWord)) return true;
-    if (!mute.targets.contains('content')) continue;
+    if (!mute.targets.contains(
+      const MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+    )) {
+      continue;
+    }
+
     if ((mutedWord.characters.length == 1 || hasExceptionLanguage) &&
         postText.contains(mutedWord)) {
       return true;

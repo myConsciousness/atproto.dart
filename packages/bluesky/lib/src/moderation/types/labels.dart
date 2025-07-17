@@ -1,15 +1,11 @@
-enum LabelTarget {
-  account,
-  profile,
-  content,
-}
+enum LabelTarget { account, profile, content }
 
 enum LabelPreference {
   ignore,
   warn,
   hide;
 
-  static LabelPreference? valueOf(final String value) {
+  static LabelPreference? valueOf(final String? value) {
     for (final $value in values) {
       if ($value.name == value) {
         return $value;

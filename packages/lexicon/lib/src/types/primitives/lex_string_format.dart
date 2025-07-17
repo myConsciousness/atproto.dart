@@ -15,8 +15,7 @@ enum LexStringFormat {
   language('language'),
   tid('tid'),
   @JsonValue('record-key')
-  recordKey('record-key'),
-  ;
+  recordKey('record-key');
 
   /// The format value.
   final String value;

@@ -11,9 +11,7 @@ part 'instance.g.dart';
 abstract class Instance with _$Instance {
   /// Creates an instance of [Instance].
   @jsonSerializable
-  const factory Instance({
-    required String version,
-  }) = _Instance;
+  const factory Instance({required String version}) = _Instance;
 
   /// Creates an instance of [Instance] from a map of
   /// [String, Object?].

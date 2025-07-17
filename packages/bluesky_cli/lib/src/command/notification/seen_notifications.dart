@@ -28,13 +28,11 @@ class SeenNotificationsCommand extends ProcedureCommand {
   final String invocation = 'bsky seen-notifications [seen-at]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'notification.bsky.app',
-        'updateSeen',
-      );
+  xrpc.NSID get methodId =>
+      xrpc.NSID.create('notification.bsky.app', 'updateSeen');
 
   @override
   FutureOr<Map<String, dynamic>>? get body => {
-        'seenAt': argResults!['seen-at'],
-      };
+    'seenAt': argResults!['seen-at'],
+  };
 }

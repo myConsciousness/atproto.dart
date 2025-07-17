@@ -1,13 +1,16 @@
 import 'dart:io';
 
-import 'package:atproto/atproto.dart';
-import 'package:atproto_core/atproto_core.dart';
-import 'package:atproto_core/atproto_oauth.dart';
 import 'package:bluesky/app_bsky_embed_video.dart';
+import 'package:bluesky/app_bsky_feed_post.dart';
+import 'package:bluesky/chat_bsky_convo_defs.dart';
 import 'package:bluesky/atproto.dart';
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/bluesky_chat.dart';
-import 'package:bluesky/chat_bsky_convo_defs.dart';
+
+import 'package:bluesky/firehose.dart' as firehose;
+
+import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/atproto_oauth.dart';
 import 'package:bluesky/moderation.dart';
 
 /// https://atprotodart.com/docs/packages/bluesky
@@ -28,10 +31,7 @@ Future<void> main() async {
       //! when communicating with the API.
       retryConfig: RetryConfig(
         maxAttempts: 5,
-        jitter: Jitter(
-          minInSeconds: 2,
-          maxInSeconds: 5,
-        ),
+        jitter: Jitter(minInSeconds: 2, maxInSeconds: 5),
         onExecute: (event) => print(
           'Retry after ${event.intervalInSeconds} seconds...'
           '[${event.retryCount} times]',
@@ -66,7 +66,7 @@ Future<void> main() async {
 
     //! Let's get home timeline!
     final feeds = await bsky.feed.getTimeline(
-      headers: getLabelerHeaders(moderationPrefs),
+      $headers: getLabelerHeaders(moderationPrefs),
     );
 
     for (final feed in feeds.data.feed) {
@@ -84,59 +84,40 @@ Future<void> main() async {
 
     //! Upload video
     final uploadedVideo = await bsky.video.uploadVideo(
-      File('./cool_video.mov').readAsBytesSync(),
+      bytes: File('./cool_video.mov').readAsBytesSync(),
     );
 
     //! Let's post cool stuff!
-    final createdRecord = await bsky.feed.post(
+    await bsky.feed.post(
       text: 'Hello, Bluesky!',
-      embed: Embed.video(
-        data: EmbedVideo(
-          video: uploadedVideo.data.blob!,
-        ),
+      embed: UFeedPostEmbed.embedVideo(
+        data: EmbedVideo(video: uploadedVideo.data.jobStatus.blob!),
       ),
-    );
-
-    print(createdRecord);
-
-    //! And delete it.
-    await bsky.atproto.repo.deleteRecord(
-      uri: createdRecord.data.uri,
     );
 
     //! You can use Stream API easily.
     final subscription = await bsky.atproto.sync.subscribeRepos();
 
+    final handler = firehose.RepoCommitHandler(
+      //! Create events.
+      onCreatePost: (data) => data.record,
+      onCreateLike: print,
+
+      //! Update events.
+      onUpdateProfile: print,
+
+      //! Delete events.
+      onDeletePost: print,
+    );
     subscription.data.stream.listen((event) {
-      switch (event) {
-        //! You can handle commit events very easily
-        //! with RepoCommitAdaptor.
-        case USubscribedRepoCommit():
-          RepoCommitAdaptor(
-            //! Create events.
-            onCreatePost: (data) => data.record,
-            onCreateLike: print,
+      final repos = const firehose.FirehoseAdaptor().execute(event);
 
-            //! Update events.
-            onUpdateProfile: print,
+      if (firehose.isRepoCommit(repos)) {
+        final commit = firehose.Commit.fromJson(
+          const firehose.RepoCommitAdaptor().execute(repos),
+        );
 
-            //! Delete events.
-            onDeletePost: print,
-          ).execute;
-        case USubscribedRepoIdentity(data: final data):
-          print(data);
-        case USubscribedRepoAccount(data: final data):
-          print(data);
-        case USubscribedRepoHandle(data: final data):
-          print(data);
-        case USubscribedRepoMigrate(data: final data):
-          print(data);
-        case USubscribedRepoTombstone(data: final data):
-          print(data);
-        case USubscribedRepoInfo(data: final data):
-          print(data);
-        case USubscribedRepoUnknown(data: final data):
-          print(data);
+        handler.execute(commit);
       }
     });
   } on UnauthorizedException catch (e) {

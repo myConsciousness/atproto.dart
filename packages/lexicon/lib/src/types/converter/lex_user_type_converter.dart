@@ -18,11 +18,9 @@ import '../xrpc/lex_xrpc_procedure.dart';
 import '../xrpc/lex_xrpc_query.dart';
 import '../xrpc/lex_xrpc_subscription.dart';
 
-const lexUserTypeConverter = _LexUserTypeConverter();
-
-final class _LexUserTypeConverter
+final class LexUserTypeConverter
     implements JsonConverter<LexUserType, Map<String, dynamic>> {
-  const _LexUserTypeConverter();
+  const LexUserTypeConverter();
 
   @override
   LexUserType fromJson(Map<String, dynamic> json) {
@@ -30,89 +28,59 @@ final class _LexUserTypeConverter
 
     switch (type) {
       case 'object':
-        return LexUserType.object(
-          data: LexObject.fromJson(json),
-        );
+        return LexUserType.object(data: LexObject.fromJson(json));
       case 'record':
-        return LexUserType.record(
-          data: LexRecord.fromJson(json),
-        );
+        return LexUserType.record(data: LexRecord.fromJson(json));
       case 'array':
-        return LexUserType.array(
-          data: LexArray.fromJson(json),
-        );
+        return LexUserType.array(data: LexArray.fromJson(json));
       case 'blob':
-        return LexUserType.blob(
-          data: LexBlob.fromJson(json),
-        );
+        return LexUserType.blob(data: LexBlob.fromJson(json));
 
       case 'string':
-        return LexUserType.string(
-          data: LexString.fromJson(json),
-        );
+        return LexUserType.string(data: LexString.fromJson(json));
       case 'integer':
-        return LexUserType.integer(
-          data: LexInteger.fromJson(json),
-        );
+        return LexUserType.integer(data: LexInteger.fromJson(json));
       case 'boolean':
-        return LexUserType.boolean(
-          data: LexBoolean.fromJson(json),
-        );
+        return LexUserType.boolean(data: LexBoolean.fromJson(json));
       case 'bytes':
-        return LexUserType.bytes(
-          data: LexBytes.fromJson(json),
-        );
+        return LexUserType.bytes(data: LexBytes.fromJson(json));
 
       case 'token':
-        return LexUserType.token(
-          data: LexToken.fromJson(json),
-        );
+        return LexUserType.token(data: LexToken.fromJson(json));
       case 'cid-link':
-        return LexUserType.cidLink(
-          data: LexCidLink.fromJson(json),
-        );
+        return LexUserType.cidLink(data: LexCidLink.fromJson(json));
 
       case 'query':
-        return LexUserType.xrpcQuery(
-          data: LexXrpcQuery.fromJson(json),
-        );
+        return LexUserType.xrpcQuery(data: LexXrpcQuery.fromJson(json));
       case 'procedure':
-        return LexUserType.xrpcProcedure(
-          data: LexXrpcProcedure.fromJson(json),
-        );
+        return LexUserType.xrpcProcedure(data: LexXrpcProcedure.fromJson(json));
       case 'subscription':
         return LexUserType.xrpcSubscription(
           data: LexXrpcSubscription.fromJson(json),
         );
 
       case 'unknown':
-        return LexUserType.unknown(
-          data: LexUnknown.fromJson(json),
-        );
+        return LexUserType.unknown(data: LexUnknown.fromJson(json));
       default:
         throw UnsupportedError('Unsupported type [$type]');
     }
   }
 
   @override
-  Map<String, dynamic> toJson(LexUserType object) => switch (object) {
-        ULexUserTypeRecord(data: final data) => data.toJson(),
-        ULexUserTypeXrpcQuery(data: final data) => data.toJson(),
-        ULexUserTypeXrpcProcedure(data: final data) => data.toJson(),
-        ULexUserTypeXrpcSubscription(data: final data) => data.toJson(),
-        ULexUserTypeBlob(data: final data) => data.toJson(),
-        ULexUserTypeArray(data: final data) => data.toJson(),
-        ULexUserTypeToken(data: final data) => data.toJson(),
-        ULexUserTypeObject(data: final data) => data.toJson(),
-        ULexUserTypeBoolean(data: final data) => data.toJson(),
-        ULexUserTypeInteger(data: final data) => data.toJson(),
-        ULexUserTypeString(data: final data) => data.toJson(),
-        ULexUserTypeBytes(data: final data) => data.toJson(),
-        ULexUserTypeCidLink(data: final data) => data.toJson(),
-        ULexUserTypeUnknown(data: final data) => data.toJson(),
-        // Add wildcard case for exhaustiveness
-        _ => throw UnimplementedError(
-            'Unknown LexUserType type: ${object.runtimeType}',
-          ),
-      };
+  Map<String, dynamic> toJson(LexUserType object) => object.when(
+    record: (data) => data.toJson(),
+    xrpcQuery: (data) => data.toJson(),
+    xrpcProcedure: (data) => data.toJson(),
+    xrpcSubscription: (data) => data.toJson(),
+    blob: (data) => data.toJson(),
+    array: (data) => data.toJson(),
+    token: (data) => data.toJson(),
+    object: (data) => data.toJson(),
+    boolean: (data) => data.toJson(),
+    integer: (data) => data.toJson(),
+    string: (data) => data.toJson(),
+    bytes: (data) => data.toJson(),
+    cidLink: (data) => data.toJson(),
+    unknown: (data) => data.toJson(),
+  );
 }

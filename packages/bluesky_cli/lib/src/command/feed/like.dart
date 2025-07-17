@@ -10,11 +10,7 @@ class LikeCommand extends CreateRecordCommand {
   /// Returns the new instance of [LikeCommand].
   LikeCommand() {
     argParser
-      ..addOption(
-        'cid',
-        help: 'Content ID for the post.',
-        defaultsTo: null,
-      )
+      ..addOption('cid', help: 'Content ID for the post.', defaultsTo: null)
       ..addOption(
         'uri',
         help: 'AT Uri of the post to be liked.',
@@ -37,17 +33,14 @@ class LikeCommand extends CreateRecordCommand {
   final String invocation = 'bsky like [cid] [uri] [created-at]';
 
   @override
-  xrpc.NSID get collection => xrpc.NSID.create(
-        'feed.bsky.app',
-        'like',
-      );
+  xrpc.NSID get collection => xrpc.NSID.create('feed.bsky.app', 'like');
 
   @override
   Map<String, dynamic> get record => {
-        'subject': {
-          'cid': argResults!['cid'],
-          'uri': AtUri.parse(argResults!['uri']).toString(),
-        },
-        'createdAt': argResults!['created-at'],
-      };
+    'subject': {
+      'cid': argResults!['cid'],
+      'uri': AtUri.parse(argResults!['uri']).toString(),
+    },
+    'createdAt': argResults!['created-at'],
+  };
 }

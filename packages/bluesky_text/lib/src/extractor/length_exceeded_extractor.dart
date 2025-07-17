@@ -76,8 +76,9 @@ final class _LengthExceededExtractor implements LengthExceededExtractor {
       ];
     }
 
-    final exceededReplacements =
-        _getExceededReplacements(replacementsWithFactor);
+    final exceededReplacements = _getExceededReplacements(
+      replacementsWithFactor,
+    );
 
     final entities = <LengthExceededEntity>[];
     final base = utf8.encode(replacements!.base);
@@ -137,8 +138,7 @@ final class _LengthExceededExtractor implements LengthExceededExtractor {
 
   List<Replacement> _getExceededReplacements(
     final List<Replacement> replacements,
-  ) =>
-      replacements.where((e) => e.source!.indices.end > maxLength).toList();
+  ) => replacements.where((e) => e.source!.indices.end > maxLength).toList();
 
   List<LengthExceededEntity> _adjustFirstExceededEntity(
     final List<LengthExceededEntity> entities,
@@ -150,10 +150,9 @@ final class _LengthExceededExtractor implements LengthExceededExtractor {
 
     return [
       LengthExceededEntity(
-        value: utf8.decode(utf8.encode(base).sublist(
-              newIndices.start,
-              newIndices.end,
-            )),
+        value: utf8.decode(
+          utf8.encode(base).sublist(newIndices.start, newIndices.end),
+        ),
         indices: newIndices,
       ),
       ...entities.sublist(1),

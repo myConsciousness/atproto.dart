@@ -8,19 +8,13 @@ import 'package:bluesky/bluesky.dart';
 void main() {
   group('.isActorProfile', () {
     test('when actor profile', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.actor.profile',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.actor.profile');
 
       expect(uri.isActorProfile, isTrue);
     });
 
     test('when not actor profile', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isActorProfile, isFalse);
     });
@@ -28,19 +22,13 @@ void main() {
 
   group('.isNotActorProfile', () {
     test('when not actor profile', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isNotActorProfile, isTrue);
     });
 
     test('when actor profile', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.actor.profile',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.actor.profile');
 
       expect(uri.isNotActorProfile, isFalse);
     });
@@ -48,19 +36,13 @@ void main() {
 
   group('.isFeedPost', () {
     test('when feed post', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.feed.post',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.feed.post');
 
       expect(uri.isFeedPost, isTrue);
     });
 
     test('when not feed post', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isFeedPost, isFalse);
     });
@@ -68,19 +50,13 @@ void main() {
 
   group('.isNotFeedPost', () {
     test('when not feed post', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isNotFeedPost, isTrue);
     });
 
     test('when feed post', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.feed.post',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.feed.post');
 
       expect(uri.isNotFeedPost, isFalse);
     });
@@ -88,19 +64,13 @@ void main() {
 
   group('.isFeedRepost', () {
     test('when feed repost', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.feed.repost',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.feed.repost');
 
       expect(uri.isFeedRepost, isTrue);
     });
 
     test('when not feed repost', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isFeedRepost, isFalse);
     });
@@ -108,19 +78,13 @@ void main() {
 
   group('.isNotFeedRepost', () {
     test('when not feed repost', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isNotFeedRepost, isTrue);
     });
 
     test('when feed repost', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.feed.repost',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.feed.repost');
 
       expect(uri.isNotFeedRepost, isFalse);
     });
@@ -128,19 +92,13 @@ void main() {
 
   group('.isFeedLike', () {
     test('when feed like', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.feed.like',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.feed.like');
 
       expect(uri.isFeedLike, isTrue);
     });
 
     test('when not feed like', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isFeedLike, isFalse);
     });
@@ -148,19 +106,13 @@ void main() {
 
   group('.isNotFeedLike', () {
     test('when not feed like', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isNotFeedLike, isTrue);
     });
 
     test('when feed like', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.feed.like',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.feed.like');
 
       expect(uri.isNotFeedLike, isFalse);
     });
@@ -168,19 +120,13 @@ void main() {
 
   group('.isFeedGenerator', () {
     test('when feed generator', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.feed.generator',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.feed.generator');
 
       expect(uri.isFeedGenerator, isTrue);
     });
 
     test('when not feed generator', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isFeedGenerator, isFalse);
     });
@@ -188,19 +134,13 @@ void main() {
 
   group('.isFeedThreadgate', () {
     test('when feed threadgate', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.feed.threadgate',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.feed.threadgate');
 
       expect(uri.isFeedThreadgate, isTrue);
     });
 
     test('when not feed threadgate', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isFeedThreadgate, isFalse);
     });
@@ -208,19 +148,13 @@ void main() {
 
   group('.isNotFeedGenerator', () {
     test('when not feed generator', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isNotFeedGenerator, isTrue);
     });
 
     test('when feed generator', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.feed.generator',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.feed.generator');
 
       expect(uri.isNotFeedGenerator, isFalse);
     });
@@ -228,19 +162,13 @@ void main() {
 
   group('.isNotFeedThreadgate', () {
     test('when not feed threadgate', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isNotFeedThreadgate, isTrue);
     });
 
     test('when feed threadgate', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.feed.threadgate',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.feed.threadgate');
 
       expect(uri.isNotFeedThreadgate, isFalse);
     });
@@ -248,19 +176,13 @@ void main() {
 
   group('.isGraphFollow', () {
     test('when graph follow', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.graph.follow',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.graph.follow');
 
       expect(uri.isGraphFollow, isTrue);
     });
 
     test('when not graph follow', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isGraphFollow, isFalse);
     });
@@ -268,19 +190,13 @@ void main() {
 
   group('.isNotGraphFollow', () {
     test('when not graph follow', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isNotGraphFollow, isTrue);
     });
 
     test('when graph follow', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.graph.follow',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.graph.follow');
 
       expect(uri.isNotGraphFollow, isFalse);
     });
@@ -288,19 +204,13 @@ void main() {
 
   group('.isGraphBlock', () {
     test('when graph block', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.graph.block',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.graph.block');
 
       expect(uri.isGraphBlock, isTrue);
     });
 
     test('when not graph block', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isGraphBlock, isFalse);
     });
@@ -308,19 +218,13 @@ void main() {
 
   group('.isNotGraphBlock', () {
     test('when not graph block', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isNotGraphBlock, isTrue);
     });
 
     test('when graph block', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.graph.block',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.graph.block');
 
       expect(uri.isNotGraphBlock, isFalse);
     });
@@ -328,19 +232,13 @@ void main() {
 
   group('.isGraphList', () {
     test('when graph list', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.graph.list',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.graph.list');
 
       expect(uri.isGraphList, isTrue);
     });
 
     test('when not graph list', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isGraphList, isFalse);
     });
@@ -348,19 +246,13 @@ void main() {
 
   group('.isNotGraphList', () {
     test('when not graph list', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isNotGraphList, isTrue);
     });
 
     test('when graph list', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.graph.list',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.graph.list');
 
       expect(uri.isNotGraphList, isFalse);
     });
@@ -368,19 +260,13 @@ void main() {
 
   group('.isGraphListItem', () {
     test('when graph list', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.graph.listitem',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.graph.listitem');
 
       expect(uri.isGraphListItem, isTrue);
     });
 
     test('when not graph listitem', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isGraphListItem, isFalse);
     });
@@ -388,19 +274,13 @@ void main() {
 
   group('.isNotGraphListItem', () {
     test('when not graph listitem', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isNotGraphListItem, isTrue);
     });
 
     test('when graph listitem', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.graph.listitem',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.graph.listitem');
 
       expect(uri.isNotGraphListItem, isFalse);
     });
@@ -408,19 +288,13 @@ void main() {
 
   group('.isGraphBlockList', () {
     test('when graph block list', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.graph.listblock',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.graph.listblock');
 
       expect(uri.isGraphBlockList, isTrue);
     });
 
     test('when not graph block list', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isGraphBlockList, isFalse);
     });
@@ -428,19 +302,13 @@ void main() {
 
   group('.isNotGraphBlockList', () {
     test('when not graph block list', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isNotGraphBlockList, isTrue);
     });
 
     test('when graph block list', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.graph.listblock',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.graph.listblock');
 
       expect(uri.isNotGraphBlockList, isFalse);
     });
@@ -448,19 +316,13 @@ void main() {
 
   group('.isLabelerService', () {
     test('when labeler service', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.labeler.service',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.labeler.service');
 
       expect(uri.isLabelerService, isTrue);
     });
 
     test('when not labeler service', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isLabelerService, isFalse);
     });
@@ -468,19 +330,13 @@ void main() {
 
   group('.isNotLabelerService', () {
     test('when not labeler service', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'com.bsky.dummy.defs',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
       expect(uri.isNotLabelerService, isTrue);
     });
 
     test('when labeler service', () {
-      final uri = AtUri.make(
-        'shinyakato.dev',
-        'app.bsky.labeler.service',
-      );
+      final uri = AtUri.make('shinyakato.dev', 'app.bsky.labeler.service');
 
       expect(uri.isNotLabelerService, isFalse);
     });

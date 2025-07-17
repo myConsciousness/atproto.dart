@@ -10,7 +10,8 @@ void ensureValidAtUri(String uri) {
   final uriParts = uri.split('#');
   if (uriParts.length > 2) {
     throw InvalidAtUriError(
-        'ATURI can have at most one "#", separating fragment out');
+      'ATURI can have at most one "#", separating fragment out',
+    );
   }
   final fragmentPart = uriParts.length > 1 ? uriParts[1] : null;
   uri = uriParts[0];
@@ -26,7 +27,8 @@ void ensureValidAtUri(String uri) {
   }
   if (parts.length < 3) {
     throw InvalidAtUriError(
-        'ATURI requires at least method and authority sections');
+      'ATURI requires at least method and authority sections',
+    );
   }
 
   try {
@@ -78,14 +80,17 @@ void ensureValidAtUri(String uri) {
   if (fragmentPart != null) {
     if (fragmentPart.isEmpty || fragmentPart[0] != '/') {
       throw InvalidAtUriError(
-          'ATURI fragment must be non-empty and start with slash');
+        'ATURI fragment must be non-empty and start with slash',
+      );
     }
 
     // NOTE: enforcing *some* checks here for sanity. Eg, at least no whitespace
-    if (!RegExp(r"^\/[a-zA-Z0-9._~:@!$&\'()*+,;=%[\]/-]*$")
-        .hasMatch(fragmentPart)) {
+    if (!RegExp(
+      r"^\/[a-zA-Z0-9._~:@!$&\'()*+,;=%[\]/-]*$",
+    ).hasMatch(fragmentPart)) {
       throw InvalidAtUriError(
-          'Disallowed characters in ATURI fragment (ASCII)');
+        'Disallowed characters in ATURI fragment (ASCII)',
+      );
     }
   }
 

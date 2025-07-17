@@ -1,6 +1,5 @@
-export 'package:bluesky/src/services/entities/link_preview.dart';
-export 'package:bluesky/src/services/utils/link_preview.dart'
-    show findLinkPreview;
+export 'package:bluesky/src/cardyb/link_preview.dart';
+export 'package:bluesky/src/cardyb/api.dart' show getLinkPreview;
 
 export 'package:atproto_core/atproto_core.dart'
     show Response, Request, HttpException;

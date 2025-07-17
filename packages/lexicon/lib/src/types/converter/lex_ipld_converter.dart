@@ -6,11 +6,9 @@ import '../ipld/lex_bytes.dart';
 import '../ipld/lex_cid_link.dart';
 import '../ipld/lex_ipld.dart';
 
-const lexIpldConverter = _LexIpldConverter();
-
-final class _LexIpldConverter
+final class LexIpldConverter
     implements JsonConverter<LexIpld, Map<String, dynamic>> {
-  const _LexIpldConverter();
+  const LexIpldConverter();
 
   @override
   LexIpld fromJson(Map<String, dynamic> json) {
@@ -18,13 +16,9 @@ final class _LexIpldConverter
 
     switch (type) {
       case 'bytes':
-        return LexIpld.bytes(
-          data: LexBytes.fromJson(json),
-        );
+        return LexIpld.bytes(data: LexBytes.fromJson(json));
       case 'cid-link':
-        return LexIpld.cidLink(
-          data: LexCidLink.fromJson(json),
-        );
+        return LexIpld.cidLink(data: LexCidLink.fromJson(json));
 
       default:
         throw UnsupportedError('Unsupported type [$type]');
@@ -32,11 +26,8 @@ final class _LexIpldConverter
   }
 
   @override
-  Map<String, dynamic> toJson(LexIpld object) => switch (object) {
-        ULexIpldBytes(data: final data) => data.toJson(),
-        ULexIpldCidLink(data: final data) => data.toJson(),
-        // Add wildcard case for switch exhaustiveness
-        _ => throw UnimplementedError(
-            'Unknown LexIpld type: ${object.runtimeType}'),
-      };
+  Map<String, dynamic> toJson(LexIpld object) => object.when(
+    bytes: (data) => data.toJson(),
+    cidLink: (data) => data.toJson(),
+  );
 }

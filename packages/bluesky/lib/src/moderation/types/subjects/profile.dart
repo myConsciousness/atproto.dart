@@ -1,5 +1,7 @@
 // Package imports:
-import 'package:atproto/atproto.dart';
+
+// Package imports:
+import 'package:atproto/com_atproto_label_defs.dart';
 
 // Project imports:
 import '../../decision.dart';
@@ -13,17 +15,17 @@ ModerationDecision decideProfile(
 ) {
   final (did, labels) = switch (subject) {
     UModerationSubjectProfileProfileViewBasic(data: final data) => (
-        data.did,
-        data.labels
-      ),
+      data.did,
+      data.labels,
+    ),
     UModerationSubjectProfileProfileView(data: final data) => (
-        data.did,
-        data.labels
-      ),
+      data.did,
+      data.labels,
+    ),
     UModerationSubjectProfileProfileViewDetailed(data: final data) => (
-        data.did,
-        data.labels
-      ),
+      data.did,
+      data.labels,
+    ),
     _ => throw UnimplementedError(),
   };
 
@@ -42,6 +44,6 @@ List<Label> _filterProfileLabels(final List<Label>? labels) {
   }
 
   return labels
-      .where((e) => e.uri.endsWith('/app.bsky.actor.profile/self'))
+      .where((e) => e.uri.toString().endsWith('/app.bsky.actor.profile/self'))
       .toList();
 }

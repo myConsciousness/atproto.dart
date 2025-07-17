@@ -3,7 +3,8 @@ import 'at_signs.dart';
 import 'valid_domain.dart';
 import 'valid_mention_preceding_chars.dart';
 
-const validMention = '($validMentionPrecedingChars)' // $1: Preceding character
+const validMention =
+    '($validMentionPrecedingChars)' // $1: Preceding character
     '($atSigns)' // $2: At mark
     '($validDomain)'; // $3: Domain
 

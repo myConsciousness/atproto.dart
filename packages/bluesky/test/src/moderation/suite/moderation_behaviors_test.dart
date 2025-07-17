@@ -15,96 +15,96 @@ const _kUsers = <String, dynamic>{
     "blockingByList": false,
     "blockedBy": false,
     "muted": false,
-    "mutedByList": false
+    "mutedByList": false,
   },
   "alice": {
     "blocking": false,
     "blockingByList": false,
     "blockedBy": false,
     "muted": false,
-    "mutedByList": false
+    "mutedByList": false,
   },
   "bob": {
     "blocking": true,
     "blockingByList": false,
     "blockedBy": false,
     "muted": false,
-    "mutedByList": false
+    "mutedByList": false,
   },
   "carla": {
     "blocking": false,
     "blockingByList": false,
     "blockedBy": true,
     "muted": false,
-    "mutedByList": false
+    "mutedByList": false,
   },
   "dan": {
     "blocking": false,
     "blockingByList": false,
     "blockedBy": false,
     "muted": true,
-    "mutedByList": false
+    "mutedByList": false,
   },
   "elise": {
     "blocking": false,
     "blockingByList": false,
     "blockedBy": false,
     "muted": false,
-    "mutedByList": true
+    "mutedByList": true,
   },
   "fern": {
     "blocking": true,
     "blockingByList": false,
     "blockedBy": true,
     "muted": false,
-    "mutedByList": false
+    "mutedByList": false,
   },
   "georgia": {
     "blocking": false,
     "blockingByList": true,
     "blockedBy": false,
     "muted": false,
-    "mutedByList": false
-  }
+    "mutedByList": false,
+  },
 };
 
 const _kConfigurations = <String, Map<String, dynamic>>{
   "none": {},
   "adult-disabled": {"adultContentEnabled": false},
   "intolerant-hide": {
-    "settings": {"intolerance": "hide"}
+    "settings": {"intolerance": "hide"},
   },
   "intolerant-warn": {
-    "settings": {"intolerance": "warn"}
+    "settings": {"intolerance": "warn"},
   },
   "intolerant-ignore": {
-    "settings": {"intolerance": "ignore"}
+    "settings": {"intolerance": "ignore"},
   },
   "porn-hide": {
     "adultContentEnabled": true,
-    "settings": {"porn": "hide"}
+    "settings": {"porn": "hide"},
   },
   "porn-warn": {
     "adultContentEnabled": true,
-    "settings": {"porn": "warn"}
+    "settings": {"porn": "warn"},
   },
   "porn-ignore": {
     "adultContentEnabled": true,
-    "settings": {"porn": "ignore"}
+    "settings": {"porn": "ignore"},
   },
   "scam-hide": {
-    "settings": {"misrepresentation": "hide"}
+    "settings": {"misrepresentation": "hide"},
   },
   "scam-warn": {
-    "settings": {"misrepresentation": "warn"}
+    "settings": {"misrepresentation": "warn"},
   },
   "scam-ignore": {
-    "settings": {"misrepresentation": "ignore"}
+    "settings": {"misrepresentation": "ignore"},
   },
   "intolerant-hide-scam-warn": {
-    "settings": {"intolerance": "hide", "misrepresentation": "hide"}
+    "settings": {"intolerance": "hide", "misrepresentation": "hide"},
   },
-  "logged-out": {"authed": false}
+  "logged-out": {"authed": false},
 };
 
 const _kScenarios = <String, dynamic>{
@@ -113,7 +113,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "account": ['!hide']
+      "account": ['!hide'],
     },
     "behaviors": {
       "profileList": ['filter', 'blur', 'noOverride'],
@@ -130,7 +130,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "profile": ['!hide']
+      "profile": ['!hide'],
     },
     "behaviors": {
       "avatar": ['blur', 'noOverride'],
@@ -143,7 +143,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "post": ['!hide']
+      "post": ['!hide'],
     },
     "behaviors": {
       "contentList": ['filter', 'blur', 'noOverride'],
@@ -155,7 +155,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "profile": ['!hide']
+      "profile": ['!hide'],
     },
     "behaviors": {
       "avatar": ['blur', 'noOverride'],
@@ -168,7 +168,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "account": ['!hide']
+      "account": ['!hide'],
     },
     "behaviors": {
       "avatar": ['blur', 'noOverride'],
@@ -183,7 +183,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "account": ['!warn']
+      "account": ['!warn'],
     },
     "behaviors": {
       "profileList": ['blur'],
@@ -199,7 +199,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "profile": ['!warn']
+      "profile": ['!warn'],
     },
     "behaviors": {
       "avatar": ['blur'],
@@ -212,7 +212,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "post": ['!warn']
+      "post": ['!warn'],
     },
     "behaviors": {
       "contentList": ['blur'],
@@ -224,7 +224,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "profile": ['!warn']
+      "profile": ['!warn'],
     },
     "behaviors": {
       "avatar": ['blur'],
@@ -237,7 +237,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "account": ['!warn']
+      "account": ['!warn'],
     },
     "behaviors": {
       "avatar": ['blur'],
@@ -251,7 +251,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "account": ['!no-unauthenticated']
+      "account": ['!no-unauthenticated'],
     },
     "behaviors": {
       "profileList": ['filter', 'blur', 'noOverride'],
@@ -268,7 +268,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "profile": ['!no-unauthenticated']
+      "profile": ['!no-unauthenticated'],
     },
     "behaviors": {
       "profileList": ['filter', 'blur', 'noOverride'],
@@ -285,7 +285,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "post": ['!no-unauthenticated']
+      "post": ['!no-unauthenticated'],
     },
     "behaviors": {
       "contentList": ['filter', 'blur', 'noOverride'],
@@ -294,42 +294,42 @@ const _kScenarios = <String, dynamic>{
   },
   "Imperative label ('!no-unauthenticated') on author profile when logged out":
       {
-    "cfg": 'logged-out',
-    "subject": 'post',
-    "author": 'alice',
-    "labels": {
-      "profile": ['!no-unauthenticated']
-    },
-    "behaviors": {
-      "avatar": ['blur', 'noOverride'],
-      "banner": ['blur', 'noOverride'],
-      "displayName": ['blur', 'noOverride'],
-      "contentList": ['filter', 'blur', 'noOverride'],
-      "contentView": ['blur', 'noOverride'],
-    },
-  },
+        "cfg": 'logged-out',
+        "subject": 'post',
+        "author": 'alice',
+        "labels": {
+          "profile": ['!no-unauthenticated'],
+        },
+        "behaviors": {
+          "avatar": ['blur', 'noOverride'],
+          "banner": ['blur', 'noOverride'],
+          "displayName": ['blur', 'noOverride'],
+          "contentList": ['filter', 'blur', 'noOverride'],
+          "contentView": ['blur', 'noOverride'],
+        },
+      },
   "Imperative label ('!no-unauthenticated') on author account when logged out":
       {
-    "cfg": 'logged-out',
-    "subject": 'post',
-    "author": 'alice',
-    "labels": {
-      "account": ['!no-unauthenticated']
-    },
-    "behaviors": {
-      "avatar": ['blur', 'noOverride'],
-      "banner": ['blur', 'noOverride'],
-      "displayName": ['blur', 'noOverride'],
-      "contentList": ['filter', 'blur', 'noOverride'],
-      "contentView": ['blur', 'noOverride'],
-    },
-  },
+        "cfg": 'logged-out',
+        "subject": 'post',
+        "author": 'alice',
+        "labels": {
+          "account": ['!no-unauthenticated'],
+        },
+        "behaviors": {
+          "avatar": ['blur', 'noOverride'],
+          "banner": ['blur', 'noOverride'],
+          "displayName": ['blur', 'noOverride'],
+          "contentList": ['filter', 'blur', 'noOverride'],
+          "contentView": ['blur', 'noOverride'],
+        },
+      },
   "Imperative label ('!no-unauthenticated') on account when logged in": {
     "cfg": 'none',
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "account": ['!no-unauthenticated']
+      "account": ['!no-unauthenticated'],
     },
     "behaviors": {},
   },
@@ -338,7 +338,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "profile": ['!no-unauthenticated']
+      "profile": ['!no-unauthenticated'],
     },
     "behaviors": {},
   },
@@ -347,7 +347,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "post": ['!no-unauthenticated']
+      "post": ['!no-unauthenticated'],
     },
     "behaviors": {},
   },
@@ -356,7 +356,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "profile": ['!no-unauthenticated']
+      "profile": ['!no-unauthenticated'],
     },
     "behaviors": {},
   },
@@ -365,7 +365,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "account": ['!no-unauthenticated']
+      "account": ['!no-unauthenticated'],
     },
     "behaviors": {},
   },
@@ -374,7 +374,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "account": ['porn']
+      "account": ['porn'],
     },
     "behaviors": {
       "profileList": ['filter'],
@@ -388,7 +388,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "profile": ['porn']
+      "profile": ['porn'],
     },
     "behaviors": {
       "avatar": ['blur'],
@@ -400,7 +400,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "post": ['porn']
+      "post": ['porn'],
     },
     "behaviors": {
       "contentList": ['filter'],
@@ -412,7 +412,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "profile": ['porn']
+      "profile": ['porn'],
     },
     "behaviors": {
       "avatar": ['blur'],
@@ -424,7 +424,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "account": ['porn']
+      "account": ['porn'],
     },
     "behaviors": {
       "profileList": ['filter'],
@@ -438,7 +438,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "account": ['porn']
+      "account": ['porn'],
     },
     "behaviors": {
       "avatar": ['blur'],
@@ -450,7 +450,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "profile": ['porn']
+      "profile": ['porn'],
     },
     "behaviors": {
       "avatar": ['blur'],
@@ -462,7 +462,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "post": ['porn']
+      "post": ['porn'],
     },
     "behaviors": {
       "contentMedia": ['blur'],
@@ -473,7 +473,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "profile": ['porn']
+      "profile": ['porn'],
     },
     "behaviors": {
       "avatar": ['blur'],
@@ -485,7 +485,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "account": ['porn']
+      "account": ['porn'],
     },
     "behaviors": {
       "avatar": ['blur'],
@@ -497,7 +497,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "account": ['porn']
+      "account": ['porn'],
     },
     "behaviors": {},
   },
@@ -506,7 +506,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "profile": ['porn']
+      "profile": ['porn'],
     },
     "behaviors": {},
   },
@@ -515,7 +515,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "post": ['porn']
+      "post": ['porn'],
     },
     "behaviors": {},
   },
@@ -524,7 +524,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "profile": ['porn']
+      "profile": ['porn'],
     },
     "behaviors": {},
   },
@@ -533,7 +533,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "account": ['porn']
+      "account": ['porn'],
     },
     "behaviors": {},
   },
@@ -542,7 +542,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "account": ['porn']
+      "account": ['porn'],
     },
     "behaviors": {
       "profileList": ['filter'],
@@ -556,7 +556,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "profile": ['porn']
+      "profile": ['porn'],
     },
     "behaviors": {
       "profileList": [],
@@ -570,7 +570,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "post": ['porn']
+      "post": ['porn'],
     },
     "behaviors": {
       "contentList": ['filter'],
@@ -582,7 +582,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "profile": ['porn']
+      "profile": ['porn'],
     },
     "behaviors": {
       "avatar": ['blur', 'noOverride'],
@@ -595,7 +595,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "account": ['porn']
+      "account": ['porn'],
     },
     "behaviors": {
       "avatar": ['blur', 'noOverride'],
@@ -608,7 +608,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'self',
     "labels": {
-      "account": ['!hide']
+      "account": ['!hide'],
     },
     "behaviors": {
       "avatar": ['blur'],
@@ -625,7 +625,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'self',
     "labels": {
-      "profile": ['!hide']
+      "profile": ['!hide'],
     },
     "behaviors": {
       "avatar": ['blur'],
@@ -638,7 +638,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'self',
     "labels": {
-      "post": ['!hide']
+      "post": ['!hide'],
     },
     "behaviors": {
       "contentView": ['blur'],
@@ -650,7 +650,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'self',
     "labels": {
-      "profile": ['!hide']
+      "profile": ['!hide'],
     },
     "behaviors": {
       "avatar": ['blur'],
@@ -663,7 +663,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'self',
     "labels": {
-      "account": ['!hide']
+      "account": ['!hide'],
     },
     "behaviors": {
       "avatar": ['blur'],
@@ -678,7 +678,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'self',
     "labels": {
-      "post": ['!warn']
+      "post": ['!warn'],
     },
     "behaviors": {
       "contentView": ['blur'],
@@ -690,7 +690,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'self',
     "labels": {
-      "profile": ['!warn']
+      "profile": ['!warn'],
     },
     "behaviors": {
       "avatar": ['blur'],
@@ -703,7 +703,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'self',
     "labels": {
-      "account": ['!warn']
+      "account": ['!warn'],
     },
     "behaviors": {
       "avatar": ['blur'],
@@ -841,7 +841,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'bob',
     "labels": {
-      "account": ['!hide']
+      "account": ['!hide'],
     },
     "behaviors": {
       "profileList": ['filter', 'blur', 'noOverride'],
@@ -858,7 +858,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "account": ['!hide', 'porn']
+      "account": ['!hide', 'porn'],
     },
     "behaviors": {
       "profileList": ['filter', 'blur', 'noOverride'],
@@ -875,7 +875,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'profile',
     "author": 'alice',
     "labels": {
-      "account": ['!warn', 'porn']
+      "account": ['!warn', 'porn'],
     },
     "behaviors": {
       "profileList": ['filter', 'blur'],
@@ -892,7 +892,7 @@ const _kScenarios = <String, dynamic>{
     "author": 'alice',
     "labels": {
       "account": ['!hide'],
-      "profile": ['!warn']
+      "profile": ['!warn'],
     },
     "behaviors": {
       "profileList": ['filter', 'blur', 'noOverride'],
@@ -910,7 +910,7 @@ const _kScenarios = <String, dynamic>{
     "author": 'alice',
     "labels": {
       "account": ['!warn'],
-      "profile": ['!hide']
+      "profile": ['!hide'],
     },
     "behaviors": {
       "profileList": ['blur'],
@@ -939,7 +939,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'bob',
     "labels": {
-      "post": ['!hide']
+      "post": ['!hide'],
     },
     "behaviors": {
       "avatar": ['blur', 'noOverride'],
@@ -953,7 +953,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "post": ['!hide', 'porn']
+      "post": ['!hide', 'porn'],
     },
     "behaviors": {
       "contentList": ['filter', 'blur', 'noOverride'],
@@ -966,7 +966,7 @@ const _kScenarios = <String, dynamic>{
     "subject": 'post',
     "author": 'alice',
     "labels": {
-      "post": ['!warn', 'porn']
+      "post": ['!warn', 'porn'],
     },
     "behaviors": {
       "contentList": ['filter', 'blur'],
@@ -978,22 +978,14 @@ const _kScenarios = <String, dynamic>{
 
 final suite = ModerationBehaviorSuiteRunner(
   users: _kUsers.map(
-    (key, value) => MapEntry(
-      key,
-      ModerationTestSuiteUser.fromJson(value),
-    ),
+    (key, value) => MapEntry(key, ModerationTestSuiteUser.fromJson(value)),
   ),
   configurations: _kConfigurations.map(
-    (key, value) => MapEntry(
-      key,
-      ModerationTestSuiteConfiguration.fromJson(value),
-    ),
+    (key, value) =>
+        MapEntry(key, ModerationTestSuiteConfiguration.fromJson(value)),
   ),
   scenarios: _kScenarios.map(
-    (key, value) => MapEntry(
-      key,
-      ModerationTestSuiteScenario.fromJson(value),
-    ),
+    (key, value) => MapEntry(key, ModerationTestSuiteScenario.fromJson(value)),
   ),
 );
 

@@ -10,26 +10,14 @@ class LikesCommand extends QueryCommand {
   /// Returns the new instance of [LikesCommand].
   LikesCommand() {
     argParser
-      ..addOption(
-        'uri',
-        help: 'AT Uri of the liked post.',
-        defaultsTo: '',
-      )
-      ..addOption(
-        'cid',
-        help: 'Content ID for the post.',
-        defaultsTo: null,
-      )
+      ..addOption('uri', help: 'AT Uri of the liked post.', defaultsTo: '')
+      ..addOption('cid', help: 'Content ID for the post.', defaultsTo: null)
       ..addOption(
         'limit',
         help: 'Maximum search limit from 1 to 100. Defaults to 50.',
         defaultsTo: null,
       )
-      ..addOption(
-        'cursor',
-        help: 'Token for pagination.',
-        defaultsTo: null,
-      );
+      ..addOption('cursor', help: 'Token for pagination.', defaultsTo: null);
   }
 
   @override
@@ -42,16 +30,13 @@ class LikesCommand extends QueryCommand {
   final String invocation = 'bsky likes [uri] [cid] [limit] [cursor]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'feed.bsky.app',
-        'getLikes',
-      );
+  xrpc.NSID get methodId => xrpc.NSID.create('feed.bsky.app', 'getLikes');
 
   @override
   Map<String, dynamic>? get parameters => {
-        'uri': AtUri.parse(argResults!['uri']).toString(),
-        'cid': argResults!['cid'],
-        'limit': argResults!['limit'],
-        'cursor': argResults!['cursor'],
-      };
+    'uri': AtUri.parse(argResults!['uri']).toString(),
+    'cid': argResults!['cid'],
+    'limit': argResults!['limit'],
+    'cursor': argResults!['cursor'],
+  };
 }

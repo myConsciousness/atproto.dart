@@ -9,8 +9,9 @@ void ensureValidNsid(final String nsid) {
 
   if (!RegExp(r'^[a-zA-Z0-9.-]*$').hasMatch(toCheck)) {
     throw InvalidNsidError(
-        'Disallowed characters in NSID (ASCII letters, digits, dashes, '
-        'periods only)');
+      'Disallowed characters in NSID (ASCII letters, digits, dashes, '
+      'periods only)',
+    );
   }
 
   if (toCheck.length > 253 + 1 + 128) {

@@ -1,16 +1,18 @@
 // Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/com_atproto_repo_createrecord.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/types/chat/bsky/actor/declaration/allow_incoming.dart';
+import 'package:bluesky/src/services/chat/bsky/actor/declaration/main_allow_incoming.dart';
 import 'service_suite.dart';
 
 void main() {
-  testActor<atp.StrongRef>(
+  testActor<RepoCreateRecordOutput>(
     (m, s) => s.declaration(
-      allowIncoming: DeclarationAllowIncoming.following,
+      allowIncoming: const ActorDeclarationAllowIncoming.knownValue(
+        data: KnownActorDeclarationAllowIncoming.following,
+      ),
     ),
     id: chatBskyActorDeclaration,
   );

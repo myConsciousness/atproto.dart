@@ -9,11 +9,7 @@ class ActorsTypeaheadCommand extends QueryCommand {
   /// Returns the new instance of [ActorsTypeaheadCommand].
   ActorsTypeaheadCommand() {
     argParser
-      ..addOption(
-        'term',
-        help: 'Search term.',
-        defaultsTo: null,
-      )
+      ..addOption('term', help: 'Search term.', defaultsTo: null)
       ..addOption(
         'limit',
         help: 'Maximum search limit from 1 to 100. Defaults to 50.',
@@ -31,14 +27,12 @@ class ActorsTypeaheadCommand extends QueryCommand {
   final String invocation = 'bsky actors-typeahead [term] [limit]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'actor.bsky.app',
-        'searchActorsTypeahead',
-      );
+  xrpc.NSID get methodId =>
+      xrpc.NSID.create('actor.bsky.app', 'searchActorsTypeahead');
 
   @override
   Map<String, dynamic>? get parameters => {
-        'q': argResults!['term'],
-        'limit': argResults!['limit'],
-      };
+    'q': argResults!['term'],
+    'limit': argResults!['limit'],
+  };
 }

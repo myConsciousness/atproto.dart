@@ -1,0 +1,68 @@
+// Copyright (c) 2025, Shinya Kato.
+// All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+// Package imports:
+import 'package:atproto_core/internals.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+// Project imports:
+import './repo_status.dart';
+
+part 'repo.freezed.dart';
+part 'repo.g.dart';
+
+// **************************************************************************
+// LexGenerator
+// **************************************************************************
+
+@freezed
+abstract class Repo with _$Repo {
+  static const knownProps = <String>['did', 'head', 'rev', 'active', 'status'];
+
+  const factory Repo({
+    @Default('com.atproto.sync.listRepos#repo') String $type,
+    required String did,
+
+    /// Current repo commit CID
+    required String head,
+    required String rev,
+    bool? active,
+
+    /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
+    @RepoStatusConverter() RepoStatus? status,
+
+    Map<String, dynamic>? $unknown,
+  }) = _Repo;
+
+  factory Repo.fromJson(Map<String, Object?> json) => _$RepoFromJson(json);
+
+  static bool validate(final Map<String, dynamic> object) {
+    if (!object.containsKey('\$type')) return false;
+    return object['\$type'] == 'com.atproto.sync.listRepos#repo';
+  }
+}
+
+extension RepoExtension on Repo {
+  bool get isActive => active ?? false;
+  bool get isNotActive => !isActive;
+  bool get hasStatus => status != null;
+  bool get hasNotStatus => !hasStatus;
+}
+
+final class RepoConverter extends JsonConverter<Repo, Map<String, dynamic>> {
+  const RepoConverter();
+
+  @override
+  Repo fromJson(Map<String, dynamic> json) {
+    return Repo.fromJson(translate(json, Repo.knownProps));
+  }
+
+  @override
+  Map<String, dynamic> toJson(Repo object) => untranslate(object.toJson());
+}

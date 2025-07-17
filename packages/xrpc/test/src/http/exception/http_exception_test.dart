@@ -10,15 +10,14 @@ import 'package:xrpc/src/http_status.dart';
 
 void main() {
   test('.toString', () {
-    final exception = HttpException(Response<Map<String, dynamic>>(
-      headers: {'test': 'test'},
-      status: HttpStatus.internalServerError,
-      request: Request(
-        method: HttpMethod.get,
-        url: Uri.https('bsky.social'),
+    final exception = HttpException(
+      Response<Map<String, dynamic>>(
+        headers: {'test': 'test'},
+        status: HttpStatus.internalServerError,
+        request: Request(method: HttpMethod.get, url: Uri.https('bsky.social')),
+        data: {'message': 'error'},
       ),
-      data: {'message': 'error'},
-    ));
+    );
 
     expect(exception.toString(), '''HttpException: Communication error.
 

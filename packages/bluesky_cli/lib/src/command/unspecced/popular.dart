@@ -14,11 +14,7 @@ class PopularCommand extends QueryCommand {
         help: 'Maximum search limit from 1 to 100. Defaults to 50.',
         defaultsTo: null,
       )
-      ..addOption(
-        'cursor',
-        help: 'Token for pagination.',
-        defaultsTo: null,
-      );
+      ..addOption('cursor', help: 'Token for pagination.', defaultsTo: null);
   }
 
   @override
@@ -31,14 +27,12 @@ class PopularCommand extends QueryCommand {
   final String invocation = 'bsky popular [limit] [cursor]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'unspecced.bsky.app',
-        'getPopular',
-      );
+  xrpc.NSID get methodId =>
+      xrpc.NSID.create('unspecced.bsky.app', 'getPopular');
 
   @override
   Map<String, dynamic>? get parameters => {
-        'limit': argResults!['limit'],
-        'before': argResults!['cursor'],
-      };
+    'limit': argResults!['limit'],
+    'before': argResults!['cursor'],
+  };
 }

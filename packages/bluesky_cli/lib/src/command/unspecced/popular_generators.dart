@@ -19,10 +19,8 @@ class PopularFeedGeneratorsCommand extends QueryCommand {
   final String invocation = 'bsky popular-feed-generators';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'unspecced.bsky.app',
-        'getPopularFeedGenerators',
-      );
+  xrpc.NSID get methodId =>
+      xrpc.NSID.create('unspecced.bsky.app', 'getPopularFeedGenerators');
 
   @override
   Map<String, dynamic>? get parameters => null;

@@ -31,3 +31,12 @@ export 'package:lexicon/src/types/xrpc/lex_xrpc_query.dart';
 export 'package:lexicon/src/types/xrpc/lex_xrpc_schema.dart';
 export 'package:lexicon/src/types/xrpc/lex_xrpc_subscription.dart';
 export 'package:lexicon/src/types/xrpc/lex_xrpc_subscription_message.dart';
+
+export 'package:lexicon/src/types/converter/lex_array_item_converter.dart';
+export 'package:lexicon/src/types/converter/lex_ipld_converter.dart';
+export 'package:lexicon/src/types/converter/lex_object_property_converter.dart';
+export 'package:lexicon/src/types/converter/lex_primitive_converter.dart';
+export 'package:lexicon/src/types/converter/lex_ref_variant_converter.dart';
+export 'package:lexicon/src/types/converter/lex_user_type_converter.dart';
+export 'package:lexicon/src/types/converter/lex_xrpc_parameters_property_converter.dart';
+export 'package:lexicon/src/types/converter/lex_xrpc_schema_converter.dart';

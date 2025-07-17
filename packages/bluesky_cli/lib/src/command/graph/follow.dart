@@ -31,14 +31,11 @@ class FollowCommand extends CreateRecordCommand {
   final String invocation = 'bsky follow [did] [created-at]';
 
   @override
-  xrpc.NSID get collection => xrpc.NSID.create(
-        'graph.bsky.app',
-        'follow',
-      );
+  xrpc.NSID get collection => xrpc.NSID.create('graph.bsky.app', 'follow');
 
   @override
   Map<String, dynamic> get record => {
-        'subject': argResults!['did'],
-        'createdAt': argResults!['created-at'],
-      };
+    'subject': argResults!['did'],
+    'createdAt': argResults!['created-at'],
+  };
 }

@@ -15,32 +15,27 @@ import 'moderation/types/subjects/profile.dart';
 ModerationDecision moderateProfile(
   final ModerationSubjectProfile subject,
   final ModerationOpts opts,
-) =>
-    ModerationDecision.merge([
-      decideAccount(subject, opts),
-      decideProfile(subject, opts),
-    ]);
+) => ModerationDecision.merge([
+  decideAccount(subject, opts),
+  decideProfile(subject, opts),
+]);
 
 ModerationDecision moderatePost(
   final ModerationSubjectPost subject,
   final ModerationOpts opts,
-) =>
-    decidePost(subject, opts);
+) => decidePost(subject, opts);
 
 ModerationDecision moderateNotification(
   final ModerationSubjectNotification subject,
   final ModerationOpts opts,
-) =>
-    decideNotification(subject, opts);
+) => decideNotification(subject, opts);
 
 ModerationDecision moderateFeedGenerator(
   final ModerationSubjectFeedGenerator subject,
   final ModerationOpts opts,
-) =>
-    decideFeedGenerator(subject, opts);
+) => decideFeedGenerator(subject, opts);
 
 ModerationDecision moderateUserList(
   final ModerationSubjectUserList subject,
   final ModerationOpts opts,
-) =>
-    moderateUserList(subject, opts);
+) => moderateUserList(subject, opts);

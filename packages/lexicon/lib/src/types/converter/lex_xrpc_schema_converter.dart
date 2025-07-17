@@ -8,11 +8,9 @@ import '../references/lex_ref_union.dart';
 import '../references/lex_ref_variant.dart';
 import '../xrpc/lex_xrpc_schema.dart';
 
-const lexXrpcSchemaConverter = _LexXrpcSchemaConverter();
-
-final class _LexXrpcSchemaConverter
+final class LexXrpcSchemaConverter
     implements JsonConverter<LexXrpcSchema, Map<String, dynamic>> {
-  const _LexXrpcSchemaConverter();
+  const LexXrpcSchemaConverter();
 
   @override
   LexXrpcSchema fromJson(Map<String, dynamic> json) {
@@ -20,20 +18,14 @@ final class _LexXrpcSchemaConverter
 
     switch (type) {
       case 'object':
-        return LexXrpcSchema.object(
-          data: LexObject.fromJson(json),
-        );
+        return LexXrpcSchema.object(data: LexObject.fromJson(json));
       case 'ref':
         return LexXrpcSchema.refVariant(
-          data: LexRefVariant.ref(
-            data: LexRef.fromJson(json),
-          ),
+          data: LexRefVariant.ref(data: LexRef.fromJson(json)),
         );
       case 'union':
         return LexXrpcSchema.refVariant(
-          data: LexRefVariant.refUnion(
-            data: LexRefUnion.fromJson(json),
-          ),
+          data: LexRefVariant.refUnion(data: LexRefUnion.fromJson(json)),
         );
       default:
         throw UnsupportedError('Unsupported type [$type]');
@@ -41,16 +33,11 @@ final class _LexXrpcSchemaConverter
   }
 
   @override
-  Map<String, dynamic> toJson(LexXrpcSchema object) => switch (object) {
-        ULexXrpcSchemaObject(data: final data) => switch (data) {
-            ULexRefVariantRefUnion(data: final data) => data.toJson(),
-            ULexRefVariantRef(data: final data) => data.toJson(),
-            _ => throw UnimplementedError(
-                'Unknown LexObject type: ${object.runtimeType}'),
-          },
-        ULexXrpcSchemaRefVariant(data: final data) => data.toJson(),
-        // Add wildcard case for switch exhaustiveness
-        _ => throw UnimplementedError(
-            'Unknown LexXrpcSchema type: ${object.runtimeType}'),
-      };
+  Map<String, dynamic> toJson(LexXrpcSchema object) => object.when(
+    refVariant: (data) => data.when(
+      ref: (data) => data.toJson(),
+      refUnion: (data) => data.toJson(),
+    ),
+    object: (data) => data.toJson(),
+  );
 }

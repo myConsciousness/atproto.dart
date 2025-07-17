@@ -1,5 +1,8 @@
 // Package imports:
-import 'package:atproto/atproto.dart';
+
+// Package imports:
+import 'package:atproto/com_atproto_label_defs.dart';
+import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../decision.dart';
@@ -11,19 +14,10 @@ ModerationDecision decideUserList(
   final ModerationSubjectUserList subject,
   final ModerationOpts opts,
 ) {
-  final (creator, labels, uri) = switch (subject) {
-    UModerationSubjectUserListListViewBasic(data: final data) => (
-        null,
-        data.labels,
-        data.uri
-      ),
-    UModerationSubjectUserListListView(data: final data) => (
-        data.createdBy,
-        data.labels,
-        null
-      ),
-    _ => throw UnimplementedError(),
-  };
+  final (creator, labels, uri) = subject.when(
+    listViewBasic: (data) => (null, data.labels, data.uri),
+    listView: (data) => (data.creator, data.labels, null),
+  );
 
   if (creator != null) {
     final decision = ModerationDecision.init(
@@ -36,7 +30,7 @@ ModerationDecision decideUserList(
     }
   }
 
-  final creatorDid = uri!.hostname;
+  final creatorDid = AtUri(uri!).hostname;
   final decision = ModerationDecision.init(
     did: creatorDid,
     me: creatorDid == opts.userDid,

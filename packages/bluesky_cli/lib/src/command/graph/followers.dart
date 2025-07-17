@@ -9,21 +9,13 @@ class FollowersCommand extends QueryCommand {
   /// Returns the new instance of [FollowersCommand].
   FollowersCommand() {
     argParser
-      ..addOption(
-        'actor',
-        help: 'Handle or DID of user.',
-        defaultsTo: '',
-      )
+      ..addOption('actor', help: 'Handle or DID of user.', defaultsTo: '')
       ..addOption(
         'limit',
         help: 'Maximum search limit from 1 to 100. Defaults to 50.',
         defaultsTo: null,
       )
-      ..addOption(
-        'cursor',
-        help: 'Token for pagination.',
-        defaultsTo: null,
-      );
+      ..addOption('cursor', help: 'Token for pagination.', defaultsTo: null);
   }
 
   @override
@@ -36,15 +28,12 @@ class FollowersCommand extends QueryCommand {
   final String invocation = 'bsky followers [actor] [limit] [cursor]';
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'graph.bsky.app',
-        'getFollowers',
-      );
+  xrpc.NSID get methodId => xrpc.NSID.create('graph.bsky.app', 'getFollowers');
 
   @override
   Map<String, dynamic>? get parameters => {
-        'actor': argResults!['actor'],
-        'limit': argResults!['limit'],
-        'cursor': argResults!['cursor'],
-      };
+    'actor': argResults!['actor'],
+    'limit': argResults!['limit'],
+    'cursor': argResults!['cursor'],
+  };
 }

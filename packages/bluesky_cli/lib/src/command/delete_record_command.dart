@@ -19,15 +19,13 @@ abstract class DeleteRecordCommand extends ProcedureCommand {
   AtUri get uri;
 
   @override
-  xrpc.NSID get methodId => xrpc.NSID.create(
-        'repo.atproto.com',
-        'deleteRecord',
-      );
+  xrpc.NSID get methodId =>
+      xrpc.NSID.create('repo.atproto.com', 'deleteRecord');
 
   @override
   FutureOr<Map<String, dynamic>>? get body async => {
-        'repo': await did,
-        'collection': collection.toString(),
-        'rkey': uri.rkey,
-      };
+    'repo': await did,
+    'collection': collection.toString(),
+    'rkey': uri.rkey,
+  };
 }

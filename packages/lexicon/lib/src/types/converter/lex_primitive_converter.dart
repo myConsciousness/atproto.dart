@@ -8,11 +8,9 @@ import '../primitives/lex_primitive.dart';
 import '../primitives/lex_string.dart';
 import '../primitives/lex_unknown.dart';
 
-const lexPrimitiveConverter = _LexPrimitiveConverter();
-
-final class _LexPrimitiveConverter
+final class LexPrimitiveConverter
     implements JsonConverter<LexPrimitive, Map<String, dynamic>> {
-  const _LexPrimitiveConverter();
+  const LexPrimitiveConverter();
 
   @override
   LexPrimitive fromJson(Map<String, dynamic> json) {
@@ -20,21 +18,13 @@ final class _LexPrimitiveConverter
 
     switch (type) {
       case 'string':
-        return LexPrimitive.string(
-          data: LexString.fromJson(json),
-        );
+        return LexPrimitive.string(data: LexString.fromJson(json));
       case 'integer':
-        return LexPrimitive.integer(
-          data: LexInteger.fromJson(json),
-        );
+        return LexPrimitive.integer(data: LexInteger.fromJson(json));
       case 'boolean':
-        return LexPrimitive.boolean(
-          data: LexBoolean.fromJson(json),
-        );
+        return LexPrimitive.boolean(data: LexBoolean.fromJson(json));
       case 'unknown':
-        return LexPrimitive.unknown(
-          data: LexUnknown.fromJson(json),
-        );
+        return LexPrimitive.unknown(data: LexUnknown.fromJson(json));
 
       default:
         throw UnsupportedError('Unsupported type [$type]');
@@ -42,13 +32,10 @@ final class _LexPrimitiveConverter
   }
 
   @override
-  Map<String, dynamic> toJson(LexPrimitive object) => switch (object) {
-        ULexPrimitiveBoolean(data: final data) => data.toJson(),
-        ULexPrimitiveInteger(data: final data) => data.toJson(),
-        ULexPrimitiveString(data: final data) => data.toJson(),
-        ULexPrimitiveUnknown(data: final data) => data.toJson(),
-        // Add wildcard case for switch exhaustiveness
-        _ => throw UnimplementedError(
-            'Unknown LexPrimitive type: ${object.runtimeType}'),
-      };
+  Map<String, dynamic> toJson(LexPrimitive object) => object.when(
+    boolean: (data) => data.toJson(),
+    integer: (data) => data.toJson(),
+    string: (data) => data.toJson(),
+    unknown: (data) => data.toJson(),
+  );
 }

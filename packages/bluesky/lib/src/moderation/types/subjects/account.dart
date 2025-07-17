@@ -1,7 +1,8 @@
 // Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
 
 // Project imports:
+import '../../../services/app/bsky/actor/defs/viewer_state.dart';
 import '../../decision.dart';
 import '../behaviors/moderation_opts.dart';
 import '../labels.dart';
@@ -13,43 +14,45 @@ ModerationDecision decideAccount(
 ) {
   final (did, viewer, labels) = switch (subject) {
     UModerationSubjectProfileProfileViewBasic(data: final data) => (
-        data.did,
-        data.viewer,
-        data.labels
-      ),
+      data.did,
+      data.viewer,
+      data.labels,
+    ),
     UModerationSubjectProfileProfileView(data: final data) => (
-        data.did,
-        data.viewer,
-        data.labels
-      ),
+      data.did,
+      data.viewer,
+      data.labels,
+    ),
     UModerationSubjectProfileProfileViewDetailed(data: final data) => (
-        data.did,
-        data.viewer,
-        data.labels
-      ),
+      data.did,
+      data.viewer,
+      data.labels,
+    ),
     _ => throw UnimplementedError(),
   };
 
   final decision = ModerationDecision.init(did: did, me: did == opts.userDid);
 
-  if (viewer.isMuted) {
-    if (viewer.isMutedByList) {
-      decision.addMutedByList(viewer.mutedByList!);
-    } else {
-      decision.addMuted();
+  if (viewer != null) {
+    if (viewer.isMuted) {
+      if (viewer.hasMutedByList) {
+        decision.addMutedByList(viewer.mutedByList!);
+      } else {
+        decision.addMuted();
+      }
     }
-  }
 
-  if (viewer.isBlocking) {
-    if (viewer.isBlockingByList) {
-      decision.addBlockingByList(viewer.blockingByList!);
-    } else {
-      decision.addBlocking();
+    if (viewer.hasBlocking) {
+      if (viewer.hasBlockingByList) {
+        decision.addBlockingByList(viewer.blockingByList!);
+      } else {
+        decision.addBlocking();
+      }
     }
-  }
 
-  if (viewer.isBlockedBy) {
-    decision.addBlockedBy();
+    if (viewer.isBlockedBy) {
+      decision.addBlockedBy();
+    }
   }
 
   for (final label in _filterAccountLabels(labels)) {
@@ -65,8 +68,10 @@ List<Label> _filterAccountLabels(final List<Label>? labels) {
   }
 
   return labels
-      .where((e) =>
-          !e.uri.endsWith('/app.bsky.actor.profile/self') ||
-          e.value == '!no-unauthenticated')
+      .where(
+        (e) =>
+            !e.uri.toString().endsWith('/app.bsky.actor.profile/self') ||
+            e.val == '!no-unauthenticated',
+      )
       .toList();
 }

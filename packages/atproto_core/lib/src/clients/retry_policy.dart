@@ -35,15 +35,10 @@ final class RetryPolicy {
     final int intervalInSeconds = _computeWaitIntervals(retryCount - 1);
 
     await _retryConfig!.onExecute?.call(
-      RetryEvent(
-        retryCount: retryCount,
-        intervalInSeconds: intervalInSeconds,
-      ),
+      RetryEvent(retryCount: retryCount, intervalInSeconds: intervalInSeconds),
     );
 
-    return await Future.delayed(
-      Duration(seconds: intervalInSeconds),
-    );
+    return await Future.delayed(Duration(seconds: intervalInSeconds));
   }
 
   void _checkRetryCount(final int retryCount) {

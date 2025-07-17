@@ -15,13 +15,10 @@ abstract class LexRefVariant with _$LexRefVariant {
   // ignore: unused_element
   const LexRefVariant._();
 
-  const factory LexRefVariant.ref({
-    required LexRef data,
-  }) = ULexRefVariantRef;
+  const factory LexRefVariant.ref({required LexRef data}) = ULexRefVariantRef;
 
-  const factory LexRefVariant.refUnion({
-    required LexRefUnion data,
-  }) = ULexRefVariantRefUnion;
+  const factory LexRefVariant.refUnion({required LexRefUnion data}) =
+      ULexRefVariantRefUnion;
 
-  Map<String, dynamic> toJson() => lexRefVariantConverter.toJson(this);
+  Map<String, dynamic> toJson() => const LexRefVariantConverter().toJson(this);
 }

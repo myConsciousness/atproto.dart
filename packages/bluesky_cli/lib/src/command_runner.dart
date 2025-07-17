@@ -24,10 +24,10 @@ import 'logger.dart';
 /// ```
 class BskyCommandRunner extends CommandRunner<void> {
   BskyCommandRunner()
-      : super(
-          'bsky',
-          "A useful and powerful CLI tool to use Bluesky Social's APIs.",
-        ) {
+    : super(
+        'bsky',
+        "A useful and powerful CLI tool to use Bluesky Social's APIs.",
+      ) {
     argParser
       ..addOption(
         'identifier',
@@ -41,7 +41,8 @@ class BskyCommandRunner extends CommandRunner<void> {
       )
       ..addOption(
         'service',
-        help: 'Name of the service sending the request. '
+        help:
+            'Name of the service sending the request. '
             'Defaults to "bsky.social".',
         defaultsTo: null,
       )
@@ -60,11 +61,7 @@ class BskyCommandRunner extends CommandRunner<void> {
         negatable: false,
         help: 'Enable to output request method and URI.',
       )
-      ..addFlag(
-        'verbose',
-        negatable: false,
-        help: 'Enable verbose logging.',
-      );
+      ..addFlag('verbose', negatable: false, help: 'Enable verbose logging.');
 
     for (final command in [
       ...commonCommands,
@@ -83,10 +80,7 @@ class BskyCommandRunner extends CommandRunner<void> {
       await super.runCommand(topLevelResults);
 }
 
-FutureOr<void> entryPoint(
-  List<String> args,
-  LaunchContext context,
-) async {
+FutureOr<void> entryPoint(List<String> args, LaunchContext context) async {
   if (args.contains('--version') || args.contains('-v')) {
     final logger = BskyLogger(Logger.standard());
 

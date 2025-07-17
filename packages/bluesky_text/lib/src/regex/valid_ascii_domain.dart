@@ -6,7 +6,8 @@ import 'valid_cctld.dart';
 import 'valid_gtld.dart';
 import 'valid_punycode.dart';
 
-const validAsciiDomain = r'(?:(?:[\-a-z0-9'
+const validAsciiDomain =
+    r'(?:(?:[\-a-z0-9'
     '$latinAccentChars'
     r']+)\.)+(?:'
     '$validGtld|$validCctld|$validPunycode'

@@ -6,11 +6,9 @@ import '../references/lex_ref.dart';
 import '../references/lex_ref_union.dart';
 import '../references/lex_ref_variant.dart';
 
-const lexRefVariantConverter = _LexRefVariantConverter();
-
-final class _LexRefVariantConverter
+final class LexRefVariantConverter
     implements JsonConverter<LexRefVariant, Map<String, dynamic>> {
-  const _LexRefVariantConverter();
+  const LexRefVariantConverter();
 
   @override
   LexRefVariant fromJson(Map<String, dynamic> json) {
@@ -18,13 +16,9 @@ final class _LexRefVariantConverter
 
     switch (type) {
       case 'ref':
-        return LexRefVariant.ref(
-          data: LexRef.fromJson(json),
-        );
+        return LexRefVariant.ref(data: LexRef.fromJson(json));
       case 'union':
-        return LexRefVariant.refUnion(
-          data: LexRefUnion.fromJson(json),
-        );
+        return LexRefVariant.refUnion(data: LexRefUnion.fromJson(json));
 
       default:
         throw UnsupportedError('Unsupported type [$type]');
@@ -32,11 +26,8 @@ final class _LexRefVariantConverter
   }
 
   @override
-  Map<String, dynamic> toJson(LexRefVariant object) => switch (object) {
-        ULexRefVariantRef(data: final data) => data.toJson(),
-        ULexRefVariantRefUnion(data: final data) => data.toJson(),
-        // Add wildcard case for switch exhaustiveness
-        _ => throw UnimplementedError(
-            'Unknown LexRefVariant type: ${object.runtimeType}'),
-      };
+  Map<String, dynamic> toJson(LexRefVariant object) => object.when(
+    ref: (data) => data.toJson(),
+    refUnion: (data) => data.toJson(),
+  );
 }
