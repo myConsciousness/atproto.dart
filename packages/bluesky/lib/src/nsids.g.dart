@@ -369,6 +369,11 @@ const appBskyNotificationRegisterPush = NSID(
   ids.appBskyNotificationRegisterPush,
 );
 
+/// `app.bsky.notification.unregisterPush`
+const appBskyNotificationUnregisterPush = NSID(
+  ids.appBskyNotificationUnregisterPush,
+);
+
 /// `app.bsky.notification.updateSeen`
 const appBskyNotificationUpdateSeen = NSID(ids.appBskyNotificationUpdateSeen);
 

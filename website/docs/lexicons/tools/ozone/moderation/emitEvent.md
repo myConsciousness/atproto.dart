@@ -20,6 +20,7 @@ Take a moderation action on an actor.
 | **subjectBlobCids** | array of string | - | ❌ | - |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **modTool** | [tools.ozone.moderation.defs#modTool](../../../../lexicons/tools/ozone/moderation/defs.md#modtool) | - | ❌ | - |
+| **externalId** | string | - | ❌ | An optional external ID for the event, used to deduplicate events from external systems. Fails when an event of same type with the same external ID exists for the same subject. |
 
 ### Output
 

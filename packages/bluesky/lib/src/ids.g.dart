@@ -642,6 +642,10 @@ const appBskyNotificationPutPreferencesV2 =
 /// `app.bsky.notification.registerPush`
 const appBskyNotificationRegisterPush = 'app.bsky.notification.registerPush';
 
+/// `app.bsky.notification.unregisterPush`
+const appBskyNotificationUnregisterPush =
+    'app.bsky.notification.unregisterPush';
+
 /// `app.bsky.notification.updateSeen`
 const appBskyNotificationUpdateSeen = 'app.bsky.notification.updateSeen';
 
