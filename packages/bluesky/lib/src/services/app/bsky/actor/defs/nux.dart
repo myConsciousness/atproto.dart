@@ -26,7 +26,7 @@ abstract class Nux with _$Nux {
   const factory Nux({
     @Default('app.bsky.actor.defs#nux') String $type,
     required String id,
-    @Default(false) required bool completed,
+    @Default(false) bool completed,
 
     /// Arbitrary data for the NUX. The structure is defined by the NUX itself. Limited to 300 characters.
     String? data,

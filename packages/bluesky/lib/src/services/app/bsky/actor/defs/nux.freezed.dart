@@ -216,7 +216,7 @@ return $default(_that.$type,_that.id,_that.completed,_that.data,_that.expiresAt,
 @JsonSerializable()
 
 class _Nux implements Nux {
-  const _Nux({this.$type = 'app.bsky.actor.defs#nux', required this.id, required this.completed = false, this.data, this.expiresAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Nux({this.$type = 'app.bsky.actor.defs#nux', required this.id, this.completed = false, this.data, this.expiresAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Nux.fromJson(Map<String, dynamic> json) => _$NuxFromJson(json);
 
 @override@JsonKey() final  String $type;
