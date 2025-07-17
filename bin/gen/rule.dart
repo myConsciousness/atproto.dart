@@ -142,11 +142,11 @@ String getLexObjectTypeId(final String lexiconId, final String defName) {
 
 String getHomeDir(final String lexiconId) {
   if (lexiconId.startsWith('com.atproto.')) {
-    return 'packages/atproto/lib/src/services/types';
+    return 'packages/atproto/lib/src/services';
   } else if (lexiconId.startsWith('app.bsky.') ||
       lexiconId.startsWith('chat.bsky.') ||
       lexiconId.startsWith('tools.ozone.')) {
-    return 'packages/bluesky/lib/src/services/types';
+    return 'packages/bluesky/lib/src/services';
   }
 
   throw ArgumentError('Unsupported lexicon ID: $lexiconId');
@@ -154,11 +154,11 @@ String getHomeDir(final String lexiconId) {
 
 String _getHomeDirForExport(final String lexiconId) {
   if (lexiconId.startsWith('com.atproto.')) {
-    return 'package:atproto/src/services/types';
+    return 'package:atproto/src/services';
   } else if (lexiconId.startsWith('app.bsky.') ||
       lexiconId.startsWith('chat.bsky.') ||
       lexiconId.startsWith('tools.ozone.')) {
-    return 'package:bluesky/src/services/types';
+    return 'package:bluesky/src/services';
   }
 
   throw ArgumentError('Unsupported lexicon ID: $lexiconId');

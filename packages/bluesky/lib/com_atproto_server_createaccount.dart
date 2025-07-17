@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/server/createAccount/input.dart';
-export 'package:atproto/src/services/types/com/atproto/server/createAccount/output.dart';
+export 'package:atproto/src/services/com/atproto/server/createAccount/input.dart';
+export 'package:atproto/src/services/com/atproto/server/createAccount/output.dart';

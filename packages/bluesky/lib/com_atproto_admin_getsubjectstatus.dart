@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/admin/getSubjectStatus/input.dart';
-export 'package:atproto/src/services/types/com/atproto/admin/getSubjectStatus/output.dart';
-export 'package:atproto/src/services/types/com/atproto/admin/getSubjectStatus/union_main_subject.dart';
+export 'package:atproto/src/services/com/atproto/admin/getSubjectStatus/input.dart';
+export 'package:atproto/src/services/com/atproto/admin/getSubjectStatus/output.dart';
+export 'package:atproto/src/services/com/atproto/admin/getSubjectStatus/union_main_subject.dart';

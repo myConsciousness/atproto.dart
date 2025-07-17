@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/tools/ozone/signature/defs/sig_detail.dart';
+export 'package:bluesky/src/services/tools/ozone/signature/defs/sig_detail.dart';

@@ -4,10 +4,10 @@
 import 'package:test/test.dart';
 
 // Project imports:
-import 'package:bluesky/src/services/constants/grouped_notification_reason.dart';
-import 'package:bluesky/src/services/extensions/notifications_extension.dart';
-import 'package:bluesky/src/services/types/app/bsky/notification/listNotifications/output.dart';
-import 'package:bluesky/src/services/utils/notifications_grouper.dart';
+import 'package:bluesky/src/services/app/bsky/notification/listNotifications/output.dart';
+import 'package:bluesky/src/tools/extensions/notifications_extension.dart';
+import 'package:bluesky/src/tools/utils/grouped_notification_reason.dart';
+import 'package:bluesky/src/tools/utils/notifications_grouper.dart';
 
 const _grouper = NotificationsGrouper();
 

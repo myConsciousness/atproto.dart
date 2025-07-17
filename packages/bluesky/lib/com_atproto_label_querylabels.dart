@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/label/queryLabels/input.dart';
-export 'package:atproto/src/services/types/com/atproto/label/queryLabels/output.dart';
+export 'package:atproto/src/services/com/atproto/label/queryLabels/input.dart';
+export 'package:atproto/src/services/com/atproto/label/queryLabels/output.dart';

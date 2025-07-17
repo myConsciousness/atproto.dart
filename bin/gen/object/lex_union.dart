@@ -53,7 +53,7 @@ final class LexUnion extends LexType {
     return '''$kHeaderHint
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:atproto_core/atproto_core.dart' show isA;
+import 'package:atproto_core/internals.dart' show isA;
 
 $packagePaths
 

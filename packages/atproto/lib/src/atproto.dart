@@ -3,14 +3,14 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_core/atproto_oauth.dart' as oauth;
 
 // Project imports:
+import 'services/com/atproto/identity_service.dart';
+import 'services/com/atproto/label_service.dart';
+import 'services/com/atproto/moderation_service.dart';
+import 'services/com/atproto/repo_service.dart';
+import 'services/com/atproto/server_service.dart';
+import 'services/com/atproto/sync_service.dart';
+import 'services/com/atproto/temp_service.dart';
 import 'services/service_context.dart';
-import 'services/types/com/atproto/identity_service.dart';
-import 'services/types/com/atproto/label_service.dart';
-import 'services/types/com/atproto/moderation_service.dart';
-import 'services/types/com/atproto/repo_service.dart';
-import 'services/types/com/atproto/server_service.dart';
-import 'services/types/com/atproto/sync_service.dart';
-import 'services/types/com/atproto/temp_service.dart';
 
 /// Provides `com.atproto.*` services.
 sealed class ATProto {

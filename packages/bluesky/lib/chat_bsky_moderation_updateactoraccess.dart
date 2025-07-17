@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/chat/bsky/moderation/updateActorAccess/input.dart';
+export 'package:bluesky/src/services/chat/bsky/moderation/updateActorAccess/input.dart';

@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/feed/generator/main.dart';
-export 'package:bluesky/src/services/types/app/bsky/feed/generator/union_main_labels.dart';
-export 'package:bluesky/src/services/types/app/bsky/feed/generator/main_content_mode.dart';
+export 'package:bluesky/src/services/app/bsky/feed/generator/main.dart';
+export 'package:bluesky/src/services/app/bsky/feed/generator/union_main_labels.dart';
+export 'package:bluesky/src/services/app/bsky/feed/generator/main_content_mode.dart';

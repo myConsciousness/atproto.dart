@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/notification/listActivitySubscriptions/input.dart';
-export 'package:bluesky/src/services/types/app/bsky/notification/listActivitySubscriptions/output.dart';
+export 'package:bluesky/src/services/app/bsky/notification/listActivitySubscriptions/input.dart';
+export 'package:bluesky/src/services/app/bsky/notification/listActivitySubscriptions/output.dart';

@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/tools/ozone/verification/revokeVerifications/input.dart';
-export 'package:bluesky/src/services/types/tools/ozone/verification/revokeVerifications/output.dart';
-export 'package:bluesky/src/services/types/tools/ozone/verification/revokeVerifications/revoke_error.dart';
+export 'package:bluesky/src/services/tools/ozone/verification/revokeVerifications/input.dart';
+export 'package:bluesky/src/services/tools/ozone/verification/revokeVerifications/output.dart';
+export 'package:bluesky/src/services/tools/ozone/verification/revokeVerifications/revoke_error.dart';

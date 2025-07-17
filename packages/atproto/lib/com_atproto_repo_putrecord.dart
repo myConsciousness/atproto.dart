@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/repo/putRecord/input.dart';
-export 'package:atproto/src/services/types/com/atproto/repo/putRecord/output.dart';
-export 'package:atproto/src/services/types/com/atproto/repo/putRecord/main_validation_status.dart';
+export 'package:atproto/src/services/com/atproto/repo/putRecord/input.dart';
+export 'package:atproto/src/services/com/atproto/repo/putRecord/output.dart';
+export 'package:atproto/src/services/com/atproto/repo/putRecord/main_validation_status.dart';

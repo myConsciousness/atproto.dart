@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/server/getAccountInviteCodes/input.dart';
-export 'package:atproto/src/services/types/com/atproto/server/getAccountInviteCodes/output.dart';
+export 'package:atproto/src/services/com/atproto/server/getAccountInviteCodes/input.dart';
+export 'package:atproto/src/services/com/atproto/server/getAccountInviteCodes/output.dart';

@@ -4,12 +4,12 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/types/app/bsky/actor/defs/profile_view_detailed.dart';
-import 'package:bluesky/src/services/types/app/bsky/actor/getPreferences/output.dart';
-import 'package:bluesky/src/services/types/app/bsky/actor/getProfiles/output.dart';
-import 'package:bluesky/src/services/types/app/bsky/actor/getSuggestions/output.dart';
-import 'package:bluesky/src/services/types/app/bsky/actor/searchActors/output.dart';
-import 'package:bluesky/src/services/types/app/bsky/actor/searchActorsTypeahead/output.dart';
+import 'package:bluesky/src/services/app/bsky/actor/defs/profile_view_detailed.dart';
+import 'package:bluesky/src/services/app/bsky/actor/getPreferences/output.dart';
+import 'package:bluesky/src/services/app/bsky/actor/getProfiles/output.dart';
+import 'package:bluesky/src/services/app/bsky/actor/getSuggestions/output.dart';
+import 'package:bluesky/src/services/app/bsky/actor/searchActors/output.dart';
+import 'package:bluesky/src/services/app/bsky/actor/searchActorsTypeahead/output.dart';
 import 'service_suite.dart';
 
 void main() {

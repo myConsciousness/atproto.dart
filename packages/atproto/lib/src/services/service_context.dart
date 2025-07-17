@@ -2,7 +2,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:
-import 'types/com/atproto/repo_service.dart';
+import 'com/atproto/repo_service.dart';
 
 final class ServiceContext extends core.ServiceContext {
   ServiceContext({

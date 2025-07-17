@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/unspecced/getTaggedSuggestions/output.dart';
-export 'package:bluesky/src/services/types/app/bsky/unspecced/getTaggedSuggestions/suggestion.dart';
-export 'package:bluesky/src/services/types/app/bsky/unspecced/getTaggedSuggestions/suggestion_subject_type.dart';
+export 'package:bluesky/src/services/app/bsky/unspecced/getTaggedSuggestions/output.dart';
+export 'package:bluesky/src/services/app/bsky/unspecced/getTaggedSuggestions/suggestion.dart';
+export 'package:bluesky/src/services/app/bsky/unspecced/getTaggedSuggestions/suggestion_subject_type.dart';

@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/video/getUploadLimits/output.dart';
+export 'package:bluesky/src/services/app/bsky/video/getUploadLimits/output.dart';

@@ -11,8 +11,8 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/tools/ozone/verification/defs/verification_view.dart';
-export 'package:bluesky/src/services/types/tools/ozone/verification/defs/union_verification_view_subject_profile.dart';
-export 'package:bluesky/src/services/types/tools/ozone/verification/defs/union_verification_view_issuer_profile.dart';
-export 'package:bluesky/src/services/types/tools/ozone/verification/defs/union_verification_view_subject_repo.dart';
-export 'package:bluesky/src/services/types/tools/ozone/verification/defs/union_verification_view_issuer_repo.dart';
+export 'package:bluesky/src/services/tools/ozone/verification/defs/verification_view.dart';
+export 'package:bluesky/src/services/tools/ozone/verification/defs/union_verification_view_subject_profile.dart';
+export 'package:bluesky/src/services/tools/ozone/verification/defs/union_verification_view_issuer_profile.dart';
+export 'package:bluesky/src/services/tools/ozone/verification/defs/union_verification_view_subject_repo.dart';
+export 'package:bluesky/src/services/tools/ozone/verification/defs/union_verification_view_issuer_repo.dart';

@@ -5,16 +5,16 @@ import 'package:atproto_core/atproto_core.dart';
 // Project imports:
 import 'package:bluesky/app_bsky_graph_defs.dart';
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/types/app/bsky/graph/getBlocks/output.dart';
-import 'package:bluesky/src/services/types/app/bsky/graph/getFollowers/output.dart';
-import 'package:bluesky/src/services/types/app/bsky/graph/getFollows/output.dart';
-import 'package:bluesky/src/services/types/app/bsky/graph/getList/output.dart';
-import 'package:bluesky/src/services/types/app/bsky/graph/getListBlocks/output.dart';
-import 'package:bluesky/src/services/types/app/bsky/graph/getListMutes/output.dart';
-import 'package:bluesky/src/services/types/app/bsky/graph/getLists/output.dart';
-import 'package:bluesky/src/services/types/app/bsky/graph/getMutes/output.dart';
-import 'package:bluesky/src/services/types/app/bsky/graph/getRelationships/output.dart';
-import 'package:bluesky/src/services/types/app/bsky/graph/getSuggestedFollowsByActor/output.dart';
+import 'package:bluesky/src/services/app/bsky/graph/getBlocks/output.dart';
+import 'package:bluesky/src/services/app/bsky/graph/getFollowers/output.dart';
+import 'package:bluesky/src/services/app/bsky/graph/getFollows/output.dart';
+import 'package:bluesky/src/services/app/bsky/graph/getList/output.dart';
+import 'package:bluesky/src/services/app/bsky/graph/getListBlocks/output.dart';
+import 'package:bluesky/src/services/app/bsky/graph/getListMutes/output.dart';
+import 'package:bluesky/src/services/app/bsky/graph/getLists/output.dart';
+import 'package:bluesky/src/services/app/bsky/graph/getMutes/output.dart';
+import 'package:bluesky/src/services/app/bsky/graph/getRelationships/output.dart';
+import 'package:bluesky/src/services/app/bsky/graph/getSuggestedFollowsByActor/output.dart';
 import 'service_suite.dart';
 
 void main() {

@@ -11,7 +11,7 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/embed/images/main.dart';
-export 'package:bluesky/src/services/types/app/bsky/embed/images/image.dart';
-export 'package:bluesky/src/services/types/app/bsky/embed/images/view.dart';
-export 'package:bluesky/src/services/types/app/bsky/embed/images/view_image.dart';
+export 'package:bluesky/src/services/app/bsky/embed/images/main.dart';
+export 'package:bluesky/src/services/app/bsky/embed/images/image.dart';
+export 'package:bluesky/src/services/app/bsky/embed/images/view.dart';
+export 'package:bluesky/src/services/app/bsky/embed/images/view_image.dart';

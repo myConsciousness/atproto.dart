@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/chat/bsky/actor/declaration/main.dart';
-export 'package:bluesky/src/services/types/chat/bsky/actor/declaration/main_allow_incoming.dart';
+export 'package:bluesky/src/services/chat/bsky/actor/declaration/main.dart';
+export 'package:bluesky/src/services/chat/bsky/actor/declaration/main_allow_incoming.dart';

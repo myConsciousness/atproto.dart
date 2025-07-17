@@ -11,11 +11,11 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/embed/record/main.dart';
-export 'package:bluesky/src/services/types/app/bsky/embed/record/view.dart';
-export 'package:bluesky/src/services/types/app/bsky/embed/record/union_view_record.dart';
-export 'package:bluesky/src/services/types/app/bsky/embed/record/view_record.dart';
-export 'package:bluesky/src/services/types/app/bsky/embed/record/union_view_record_embeds.dart';
-export 'package:bluesky/src/services/types/app/bsky/embed/record/view_not_found.dart';
-export 'package:bluesky/src/services/types/app/bsky/embed/record/view_blocked.dart';
-export 'package:bluesky/src/services/types/app/bsky/embed/record/view_detached.dart';
+export 'package:bluesky/src/services/app/bsky/embed/record/main.dart';
+export 'package:bluesky/src/services/app/bsky/embed/record/view.dart';
+export 'package:bluesky/src/services/app/bsky/embed/record/union_view_record.dart';
+export 'package:bluesky/src/services/app/bsky/embed/record/view_record.dart';
+export 'package:bluesky/src/services/app/bsky/embed/record/union_view_record_embeds.dart';
+export 'package:bluesky/src/services/app/bsky/embed/record/view_not_found.dart';
+export 'package:bluesky/src/services/app/bsky/embed/record/view_blocked.dart';
+export 'package:bluesky/src/services/app/bsky/embed/record/view_detached.dart';

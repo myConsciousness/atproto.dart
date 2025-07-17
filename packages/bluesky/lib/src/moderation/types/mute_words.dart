@@ -4,10 +4,10 @@
 import 'package:characters/characters.dart';
 
 // Project imports:
-import '../../services/types/app/bsky/actor/defs/muted_word.dart';
-import '../../services/types/app/bsky/actor/defs/muted_word_target.dart';
-import '../../services/types/app/bsky/richtext/facet/main.dart';
-import '../../services/types/app/bsky/richtext/facet/union_main_features.dart';
+import '../../services/app/bsky/actor/defs/muted_word.dart';
+import '../../services/app/bsky/actor/defs/muted_word_target.dart';
+import '../../services/app/bsky/richtext/facet/main.dart';
+import '../../services/app/bsky/richtext/facet/union_main_features.dart';
 
 /// List of 2-letter lang codes for languages that either don't use spaces, or
 /// don't use spaces in a way conducive to word-based filtering.

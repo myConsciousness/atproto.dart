@@ -14,7 +14,7 @@ import 'package:bluesky/src/moderation/types/moderation_behavior.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_profile.dart';
 import 'package:bluesky/src/moderation/utils.dart';
-import 'package:bluesky/src/services/types/app/bsky/feed/post/main.dart';
+import 'package:bluesky/src/services/app/bsky/feed/post/main.dart';
 import 'utils/mock.dart';
 import 'utils/result_flag.dart';
 import 'utils/runner.dart';

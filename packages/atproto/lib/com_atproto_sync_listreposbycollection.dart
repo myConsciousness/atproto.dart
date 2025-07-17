@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/sync/listReposByCollection/input.dart';
-export 'package:atproto/src/services/types/com/atproto/sync/listReposByCollection/output.dart';
-export 'package:atproto/src/services/types/com/atproto/sync/listReposByCollection/repo.dart';
+export 'package:atproto/src/services/com/atproto/sync/listReposByCollection/input.dart';
+export 'package:atproto/src/services/com/atproto/sync/listReposByCollection/output.dart';
+export 'package:atproto/src/services/com/atproto/sync/listReposByCollection/repo.dart';

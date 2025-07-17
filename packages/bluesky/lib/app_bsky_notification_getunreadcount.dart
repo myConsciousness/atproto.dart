@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/notification/getUnreadCount/input.dart';
-export 'package:bluesky/src/services/types/app/bsky/notification/getUnreadCount/output.dart';
+export 'package:bluesky/src/services/app/bsky/notification/getUnreadCount/input.dart';
+export 'package:bluesky/src/services/app/bsky/notification/getUnreadCount/output.dart';

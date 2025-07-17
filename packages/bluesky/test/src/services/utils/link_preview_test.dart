@@ -1,5 +1,5 @@
 // Package imports:
-import 'package:atproto_core/atproto_core.dart' hide isA;
+import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 

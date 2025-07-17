@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/identity/defs/identity_info.dart';
+export 'package:atproto/src/services/com/atproto/identity/defs/identity_info.dart';

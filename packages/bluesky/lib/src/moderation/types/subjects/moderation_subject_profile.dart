@@ -2,9 +2,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../services/types/app/bsky/actor/defs/profile_view.dart';
-import '../../../services/types/app/bsky/actor/defs/profile_view_basic.dart';
-import '../../../services/types/app/bsky/actor/defs/profile_view_detailed.dart';
+import '../../../services/app/bsky/actor/defs/profile_view.dart';
+import '../../../services/app/bsky/actor/defs/profile_view_basic.dart';
+import '../../../services/app/bsky/actor/defs/profile_view_detailed.dart';
 
 part 'moderation_subject_profile.freezed.dart';
 

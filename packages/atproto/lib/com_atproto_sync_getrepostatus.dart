@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/sync/getRepoStatus/input.dart';
-export 'package:atproto/src/services/types/com/atproto/sync/getRepoStatus/output.dart';
-export 'package:atproto/src/services/types/com/atproto/sync/getRepoStatus/main_status.dart';
+export 'package:atproto/src/services/com/atproto/sync/getRepoStatus/input.dart';
+export 'package:atproto/src/services/com/atproto/sync/getRepoStatus/output.dart';
+export 'package:atproto/src/services/com/atproto/sync/getRepoStatus/main_status.dart';

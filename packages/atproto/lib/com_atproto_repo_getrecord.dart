@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/repo/getRecord/input.dart';
-export 'package:atproto/src/services/types/com/atproto/repo/getRecord/output.dart';
+export 'package:atproto/src/services/com/atproto/repo/getRecord/input.dart';
+export 'package:atproto/src/services/com/atproto/repo/getRecord/output.dart';

@@ -1,11 +1,11 @@
 // Package imports:
-import 'package:atproto_core/atproto_core.dart' hide isA;
+import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // Project imports:
-import 'package:bluesky/src/services/extensions/blob.dart';
-import 'package:bluesky/src/services/types/app/bsky/embed/images/image.dart';
-import 'package:bluesky/src/services/types/app/bsky/feed/post/union_main_embed.dart';
+import 'package:bluesky/src/services/app/bsky/embed/images/image.dart';
+import 'package:bluesky/src/services/app/bsky/feed/post/union_main_embed.dart';
+import 'package:bluesky/src/tools/extensions/blob.dart';
 
 void main() {
   test('.toImage', () {

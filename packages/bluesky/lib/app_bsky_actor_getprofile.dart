@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/actor/getProfile/input.dart';
+export 'package:bluesky/src/services/app/bsky/actor/getProfile/input.dart';

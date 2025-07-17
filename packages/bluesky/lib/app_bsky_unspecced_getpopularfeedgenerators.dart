@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/unspecced/getPopularFeedGenerators/input.dart';
-export 'package:bluesky/src/services/types/app/bsky/unspecced/getPopularFeedGenerators/output.dart';
+export 'package:bluesky/src/services/app/bsky/unspecced/getPopularFeedGenerators/input.dart';
+export 'package:bluesky/src/services/app/bsky/unspecced/getPopularFeedGenerators/output.dart';

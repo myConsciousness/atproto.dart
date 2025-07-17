@@ -11,7 +11,7 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/tools/ozone/verification/grantVerifications/input.dart';
-export 'package:bluesky/src/services/types/tools/ozone/verification/grantVerifications/output.dart';
-export 'package:bluesky/src/services/types/tools/ozone/verification/grantVerifications/verification_input.dart';
-export 'package:bluesky/src/services/types/tools/ozone/verification/grantVerifications/grant_error.dart';
+export 'package:bluesky/src/services/tools/ozone/verification/grantVerifications/input.dart';
+export 'package:bluesky/src/services/tools/ozone/verification/grantVerifications/output.dart';
+export 'package:bluesky/src/services/tools/ozone/verification/grantVerifications/verification_input.dart';
+export 'package:bluesky/src/services/tools/ozone/verification/grantVerifications/grant_error.dart';

@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/admin/updateAccountHandle/input.dart';
+export 'package:atproto/src/services/com/atproto/admin/updateAccountHandle/input.dart';

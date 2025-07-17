@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/identity/resolveHandle/input.dart';
-export 'package:atproto/src/services/types/com/atproto/identity/resolveHandle/output.dart';
+export 'package:atproto/src/services/com/atproto/identity/resolveHandle/input.dart';
+export 'package:atproto/src/services/com/atproto/identity/resolveHandle/output.dart';

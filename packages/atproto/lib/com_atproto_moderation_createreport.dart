@@ -11,7 +11,7 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/moderation/createReport/input.dart';
-export 'package:atproto/src/services/types/com/atproto/moderation/createReport/union_main_subject.dart';
-export 'package:atproto/src/services/types/com/atproto/moderation/createReport/output.dart';
-export 'package:atproto/src/services/types/com/atproto/moderation/createReport/mod_tool.dart';
+export 'package:atproto/src/services/com/atproto/moderation/createReport/input.dart';
+export 'package:atproto/src/services/com/atproto/moderation/createReport/union_main_subject.dart';
+export 'package:atproto/src/services/com/atproto/moderation/createReport/output.dart';
+export 'package:atproto/src/services/com/atproto/moderation/createReport/mod_tool.dart';

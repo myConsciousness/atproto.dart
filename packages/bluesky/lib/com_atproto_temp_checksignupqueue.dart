@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/temp/checkSignupQueue/output.dart';
+export 'package:atproto/src/services/com/atproto/temp/checkSignupQueue/output.dart';

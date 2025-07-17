@@ -1,10 +1,10 @@
 // Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/types/app/bsky/unspecced/getPopularFeedGenerators/output.dart';
-import 'package:bluesky/src/services/types/app/bsky/unspecced/getSuggestionsSkeleton/output.dart';
-import 'package:bluesky/src/services/types/app/bsky/unspecced/getTaggedSuggestions/output.dart';
-import 'package:bluesky/src/services/types/app/bsky/unspecced/searchActorsSkeleton/output.dart';
-import 'package:bluesky/src/services/types/app/bsky/unspecced/searchPostsSkeleton/output.dart';
+import 'package:bluesky/src/services/app/bsky/unspecced/getPopularFeedGenerators/output.dart';
+import 'package:bluesky/src/services/app/bsky/unspecced/getSuggestionsSkeleton/output.dart';
+import 'package:bluesky/src/services/app/bsky/unspecced/getTaggedSuggestions/output.dart';
+import 'package:bluesky/src/services/app/bsky/unspecced/searchActorsSkeleton/output.dart';
+import 'package:bluesky/src/services/app/bsky/unspecced/searchPostsSkeleton/output.dart';
 import 'service_suite.dart';
 
 void main() {

@@ -9,8 +9,8 @@ import 'package:bluesky/src/moderation/types/behaviors/moderation_prefs_labeler.
 import 'package:bluesky/src/moderation/types/moderation_ui.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_profile.dart';
-import 'package:bluesky/src/services/types/app/bsky/actor/defs/profile_view_basic.dart';
-import 'package:bluesky/src/services/types/app/bsky/actor/defs/viewer_state.dart';
+import 'package:bluesky/src/services/app/bsky/actor/defs/profile_view_basic.dart';
+import 'package:bluesky/src/services/app/bsky/actor/defs/viewer_state.dart';
 import '../behaviors/suite_configuration.dart';
 import '../behaviors/suite_scenario.dart';
 import '../behaviors/suite_user.dart';

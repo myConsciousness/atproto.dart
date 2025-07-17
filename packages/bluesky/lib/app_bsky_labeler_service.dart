@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/labeler/service/main.dart';
-export 'package:bluesky/src/services/types/app/bsky/labeler/service/union_main_labels.dart';
+export 'package:bluesky/src/services/app/bsky/labeler/service/main.dart';
+export 'package:bluesky/src/services/app/bsky/labeler/service/union_main_labels.dart';

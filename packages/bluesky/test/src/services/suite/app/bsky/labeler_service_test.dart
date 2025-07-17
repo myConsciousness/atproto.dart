@@ -4,8 +4,8 @@ import 'package:atproto/com_atproto_repo_createrecord.dart';
 
 // Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/types/app/bsky/labeler/defs/labeler_policies.dart';
-import 'package:bluesky/src/services/types/app/bsky/labeler/getServices/output.dart';
+import 'package:bluesky/src/services/app/bsky/labeler/defs/labeler_policies.dart';
+import 'package:bluesky/src/services/app/bsky/labeler/getServices/output.dart';
 import 'service_suite.dart';
 
 void main() {

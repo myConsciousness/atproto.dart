@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/repo/deleteRecord/input.dart';
-export 'package:atproto/src/services/types/com/atproto/repo/deleteRecord/output.dart';
+export 'package:atproto/src/services/com/atproto/repo/deleteRecord/input.dart';
+export 'package:atproto/src/services/com/atproto/repo/deleteRecord/output.dart';

@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/tools/ozone/communication/createTemplate/input.dart';
+export 'package:bluesky/src/services/tools/ozone/communication/createTemplate/input.dart';

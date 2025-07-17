@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/chat/bsky/moderation/getActorMetadata/input.dart';
-export 'package:bluesky/src/services/types/chat/bsky/moderation/getActorMetadata/output.dart';
-export 'package:bluesky/src/services/types/chat/bsky/moderation/getActorMetadata/metadata.dart';
+export 'package:bluesky/src/services/chat/bsky/moderation/getActorMetadata/input.dart';
+export 'package:bluesky/src/services/chat/bsky/moderation/getActorMetadata/output.dart';
+export 'package:bluesky/src/services/chat/bsky/moderation/getActorMetadata/metadata.dart';

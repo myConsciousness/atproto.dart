@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/tools/ozone/verification/listVerifications/input.dart';
-export 'package:bluesky/src/services/types/tools/ozone/verification/listVerifications/output.dart';
+export 'package:bluesky/src/services/tools/ozone/verification/listVerifications/input.dart';
+export 'package:bluesky/src/services/tools/ozone/verification/listVerifications/output.dart';

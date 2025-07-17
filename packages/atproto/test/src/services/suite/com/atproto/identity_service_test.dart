@@ -3,9 +3,9 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:
 import 'package:atproto/src/ids.g.dart';
-import 'package:atproto/src/services/types/com/atproto/identity/getRecommendedDidCredentials/output.dart';
-import 'package:atproto/src/services/types/com/atproto/identity/resolveHandle/output.dart';
-import 'package:atproto/src/services/types/com/atproto/identity/signPlcOperation/output.dart';
+import 'package:atproto/src/services/com/atproto/identity/getRecommendedDidCredentials/output.dart';
+import 'package:atproto/src/services/com/atproto/identity/resolveHandle/output.dart';
+import 'package:atproto/src/services/com/atproto/identity/signPlcOperation/output.dart';
 import 'service_suite.dart';
 
 void main() {

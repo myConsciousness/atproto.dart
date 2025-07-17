@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/unspecced/searchStarterPacksSkeleton/input.dart';
-export 'package:bluesky/src/services/types/app/bsky/unspecced/searchStarterPacksSkeleton/output.dart';
+export 'package:bluesky/src/services/app/bsky/unspecced/searchStarterPacksSkeleton/input.dart';
+export 'package:bluesky/src/services/app/bsky/unspecced/searchStarterPacksSkeleton/output.dart';

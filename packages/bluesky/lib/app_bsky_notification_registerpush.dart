@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/notification/registerPush/input.dart';
-export 'package:bluesky/src/services/types/app/bsky/notification/registerPush/main_platform.dart';
+export 'package:bluesky/src/services/app/bsky/notification/registerPush/input.dart';
+export 'package:bluesky/src/services/app/bsky/notification/registerPush/main_platform.dart';

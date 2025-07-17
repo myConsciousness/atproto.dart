@@ -2,8 +2,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../services/types/app/bsky/graph/defs/list_view.dart';
-import '../../../services/types/app/bsky/graph/defs/list_view_basic.dart';
+import '../../../services/app/bsky/graph/defs/list_view.dart';
+import '../../../services/app/bsky/graph/defs/list_view_basic.dart';
 
 part 'moderation_subject_user_list.freezed.dart';
 

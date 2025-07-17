@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/server/refreshSession/output.dart';
-export 'package:atproto/src/services/types/com/atproto/server/refreshSession/main_status.dart';
+export 'package:atproto/src/services/com/atproto/server/refreshSession/output.dart';
+export 'package:atproto/src/services/com/atproto/server/refreshSession/main_status.dart';

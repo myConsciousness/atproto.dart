@@ -1,11 +1,11 @@
 // Project imports:
-import '../services/types/app/bsky/actor/defs/content_label_pref.dart';
-import '../services/types/app/bsky/actor/defs/muted_word.dart';
-import '../services/types/app/bsky/actor/defs/union_preferences.dart';
-import '../services/types/app/bsky/actor/getPreferences/output.dart';
-import '../services/types/app/bsky/labeler/defs/labeler_view_detailed.dart';
-import '../services/types/app/bsky/labeler/getServices/union_main_views.dart';
-import '../services/types/app/bsky/labeler_service.dart';
+import '../services/app/bsky/actor/defs/content_label_pref.dart';
+import '../services/app/bsky/actor/defs/muted_word.dart';
+import '../services/app/bsky/actor/defs/union_preferences.dart';
+import '../services/app/bsky/actor/getPreferences/output.dart';
+import '../services/app/bsky/labeler/defs/labeler_view_detailed.dart';
+import '../services/app/bsky/labeler/getServices/union_main_views.dart';
+import '../services/app/bsky/labeler_service.dart';
 import 'types/behaviors/moderation_prefs.dart';
 import 'types/behaviors/moderation_prefs_labeler.dart';
 import 'types/const/labels.dart';

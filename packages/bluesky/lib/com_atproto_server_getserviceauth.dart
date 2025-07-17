@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/server/getServiceAuth/input.dart';
-export 'package:atproto/src/services/types/com/atproto/server/getServiceAuth/output.dart';
+export 'package:atproto/src/services/com/atproto/server/getServiceAuth/input.dart';
+export 'package:atproto/src/services/com/atproto/server/getServiceAuth/output.dart';

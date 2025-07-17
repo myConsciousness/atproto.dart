@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/chat/bsky/convo/leaveConvo/input.dart';
-export 'package:bluesky/src/services/types/chat/bsky/convo/leaveConvo/output.dart';
+export 'package:bluesky/src/services/chat/bsky/convo/leaveConvo/input.dart';
+export 'package:bluesky/src/services/chat/bsky/convo/leaveConvo/output.dart';

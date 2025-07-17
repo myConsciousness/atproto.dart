@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/tools/ozone/safelink/queryRules/input.dart';
-export 'package:bluesky/src/services/types/tools/ozone/safelink/queryRules/main_sort_direction.dart';
-export 'package:bluesky/src/services/types/tools/ozone/safelink/queryRules/output.dart';
+export 'package:bluesky/src/services/tools/ozone/safelink/queryRules/input.dart';
+export 'package:bluesky/src/services/tools/ozone/safelink/queryRules/main_sort_direction.dart';
+export 'package:bluesky/src/services/tools/ozone/safelink/queryRules/output.dart';

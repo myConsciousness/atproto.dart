@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/video/getJobStatus/input.dart';
-export 'package:bluesky/src/services/types/app/bsky/video/getJobStatus/output.dart';
+export 'package:bluesky/src/services/app/bsky/video/getJobStatus/input.dart';
+export 'package:bluesky/src/services/app/bsky/video/getJobStatus/output.dart';

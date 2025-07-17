@@ -11,10 +11,10 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/video_service.dart';
-export 'package:bluesky/src/services/types/app/bsky/notification_service.dart';
-export 'package:bluesky/src/services/types/app/bsky/unspecced_service.dart';
-export 'package:bluesky/src/services/types/app/bsky/graph_service.dart';
-export 'package:bluesky/src/services/types/app/bsky/feed_service.dart';
-export 'package:bluesky/src/services/types/app/bsky/actor_service.dart';
-export 'package:bluesky/src/services/types/app/bsky/labeler_service.dart';
+export 'package:bluesky/src/services/app/bsky/video_service.dart';
+export 'package:bluesky/src/services/app/bsky/notification_service.dart';
+export 'package:bluesky/src/services/app/bsky/unspecced_service.dart';
+export 'package:bluesky/src/services/app/bsky/graph_service.dart';
+export 'package:bluesky/src/services/app/bsky/feed_service.dart';
+export 'package:bluesky/src/services/app/bsky/actor_service.dart';
+export 'package:bluesky/src/services/app/bsky/labeler_service.dart';

@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/tools/ozone/set/deleteValues/input.dart';
+export 'package:bluesky/src/services/tools/ozone/set/deleteValues/input.dart';

@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/graph/getSuggestedFollowsByActor/input.dart';
-export 'package:bluesky/src/services/types/app/bsky/graph/getSuggestedFollowsByActor/output.dart';
+export 'package:bluesky/src/services/app/bsky/graph/getSuggestedFollowsByActor/input.dart';
+export 'package:bluesky/src/services/app/bsky/graph/getSuggestedFollowsByActor/output.dart';

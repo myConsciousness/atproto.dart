@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/sync/listHosts/input.dart';
-export 'package:atproto/src/services/types/com/atproto/sync/listHosts/output.dart';
-export 'package:atproto/src/services/types/com/atproto/sync/listHosts/host.dart';
+export 'package:atproto/src/services/com/atproto/sync/listHosts/input.dart';
+export 'package:atproto/src/services/com/atproto/sync/listHosts/output.dart';
+export 'package:atproto/src/services/com/atproto/sync/listHosts/host.dart';

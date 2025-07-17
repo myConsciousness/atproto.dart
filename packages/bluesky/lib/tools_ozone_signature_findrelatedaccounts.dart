@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/tools/ozone/signature/findRelatedAccounts/input.dart';
-export 'package:bluesky/src/services/types/tools/ozone/signature/findRelatedAccounts/output.dart';
-export 'package:bluesky/src/services/types/tools/ozone/signature/findRelatedAccounts/related_account.dart';
+export 'package:bluesky/src/services/tools/ozone/signature/findRelatedAccounts/input.dart';
+export 'package:bluesky/src/services/tools/ozone/signature/findRelatedAccounts/output.dart';
+export 'package:bluesky/src/services/tools/ozone/signature/findRelatedAccounts/related_account.dart';

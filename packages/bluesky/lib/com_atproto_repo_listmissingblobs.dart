@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/repo/listMissingBlobs/input.dart';
-export 'package:atproto/src/services/types/com/atproto/repo/listMissingBlobs/output.dart';
-export 'package:atproto/src/services/types/com/atproto/repo/listMissingBlobs/record_blob.dart';
+export 'package:atproto/src/services/com/atproto/repo/listMissingBlobs/input.dart';
+export 'package:atproto/src/services/com/atproto/repo/listMissingBlobs/output.dart';
+export 'package:atproto/src/services/com/atproto/repo/listMissingBlobs/record_blob.dart';

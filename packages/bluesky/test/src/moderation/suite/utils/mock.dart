@@ -3,20 +3,20 @@ import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
-import 'package:bluesky/src/services/types/app/bsky/actor/defs/profile_view_basic.dart';
-import 'package:bluesky/src/services/types/app/bsky/embed/record/union_view_record.dart';
-import 'package:bluesky/src/services/types/app/bsky/embed/record/view.dart';
-import 'package:bluesky/src/services/types/app/bsky/embed/record/view_record.dart';
-import 'package:bluesky/src/services/types/app/bsky/feed/defs/post_view.dart';
-import 'package:bluesky/src/services/types/app/bsky/feed/defs/union_post_view_embed.dart';
-import 'package:bluesky/src/services/types/app/bsky/feed/post/main.dart';
-import 'package:bluesky/src/services/types/app/bsky/graph/defs/list_purpose.dart';
-import 'package:bluesky/src/services/types/app/bsky/graph/defs/list_view_basic.dart';
-import 'package:bluesky/src/services/types/app/bsky/richtext/facet/main.dart';
+import 'package:bluesky/src/services/app/bsky/actor/defs/profile_view_basic.dart';
+import 'package:bluesky/src/services/app/bsky/embed/record/union_view_record.dart';
+import 'package:bluesky/src/services/app/bsky/embed/record/view.dart';
+import 'package:bluesky/src/services/app/bsky/embed/record/view_record.dart';
+import 'package:bluesky/src/services/app/bsky/feed/defs/post_view.dart';
+import 'package:bluesky/src/services/app/bsky/feed/defs/union_post_view_embed.dart';
+import 'package:bluesky/src/services/app/bsky/feed/post/main.dart';
+import 'package:bluesky/src/services/app/bsky/graph/defs/list_purpose.dart';
+import 'package:bluesky/src/services/app/bsky/graph/defs/list_view_basic.dart';
+import 'package:bluesky/src/services/app/bsky/richtext/facet/main.dart';
 
-import 'package:bluesky/src/services/types/app/bsky/actor/defs/viewer_state.dart'
+import 'package:bluesky/src/services/app/bsky/actor/defs/viewer_state.dart'
     as actor;
-import 'package:bluesky/src/services/types/app/bsky/feed/defs/viewer_state.dart'
+import 'package:bluesky/src/services/app/bsky/feed/defs/viewer_state.dart'
     as feed;
 
 const _kFakeCid = 'bafyreiclp443lavogvhj3d2ob2cxbfuscni2k5jk7bebjzg7khl3esabwq';

@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/unspecced/getConfig/output.dart';
-export 'package:bluesky/src/services/types/app/bsky/unspecced/getConfig/live_now_config.dart';
+export 'package:bluesky/src/services/app/bsky/unspecced/getConfig/output.dart';
+export 'package:bluesky/src/services/app/bsky/unspecced/getConfig/live_now_config.dart';

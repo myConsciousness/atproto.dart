@@ -68,6 +68,7 @@ final class LexRecord extends LexType {
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/internals.dart';
 
 ${packages.toString()}
 

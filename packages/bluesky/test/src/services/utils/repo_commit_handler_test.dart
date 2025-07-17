@@ -1,25 +1,25 @@
 // Package imports:
 import 'package:atproto/firehose.dart' as firehose;
-import 'package:atproto_core/atproto_core.dart' hide isA;
+import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // Project imports:
-import 'package:bluesky/src/services/types/app/bsky/actor/profile/main.dart';
-import 'package:bluesky/src/services/types/app/bsky/feed/generator/main.dart';
-import 'package:bluesky/src/services/types/app/bsky/feed/like/main.dart';
-import 'package:bluesky/src/services/types/app/bsky/feed/post/main.dart';
-import 'package:bluesky/src/services/types/app/bsky/feed/repost/main.dart';
-import 'package:bluesky/src/services/types/app/bsky/feed/threadgate/main.dart';
-import 'package:bluesky/src/services/types/app/bsky/graph/block/main.dart';
-import 'package:bluesky/src/services/types/app/bsky/graph/follow/main.dart';
-import 'package:bluesky/src/services/types/app/bsky/graph/list/main.dart';
-import 'package:bluesky/src/services/types/app/bsky/graph/listblock/main.dart';
-import 'package:bluesky/src/services/types/app/bsky/graph/listitem/main.dart';
-import 'package:bluesky/src/services/types/app/bsky/labeler/service/main.dart';
-import 'package:bluesky/src/services/utils/repo_commit_create.dart';
-import 'package:bluesky/src/services/utils/repo_commit_delete.dart';
-import 'package:bluesky/src/services/utils/repo_commit_handler.dart';
-import 'package:bluesky/src/services/utils/repo_commit_update.dart';
+import 'package:bluesky/src/services/app/bsky/actor/profile/main.dart';
+import 'package:bluesky/src/services/app/bsky/feed/generator/main.dart';
+import 'package:bluesky/src/services/app/bsky/feed/like/main.dart';
+import 'package:bluesky/src/services/app/bsky/feed/post/main.dart';
+import 'package:bluesky/src/services/app/bsky/feed/repost/main.dart';
+import 'package:bluesky/src/services/app/bsky/feed/threadgate/main.dart';
+import 'package:bluesky/src/services/app/bsky/graph/block/main.dart';
+import 'package:bluesky/src/services/app/bsky/graph/follow/main.dart';
+import 'package:bluesky/src/services/app/bsky/graph/list/main.dart';
+import 'package:bluesky/src/services/app/bsky/graph/listblock/main.dart';
+import 'package:bluesky/src/services/app/bsky/graph/listitem/main.dart';
+import 'package:bluesky/src/services/app/bsky/labeler/service/main.dart';
+import 'package:bluesky/src/tools/utils/repo_commit_create.dart';
+import 'package:bluesky/src/tools/utils/repo_commit_delete.dart';
+import 'package:bluesky/src/tools/utils/repo_commit_handler.dart';
+import 'package:bluesky/src/tools/utils/repo_commit_update.dart';
 
 void main() {
   group('.onCreatePost', () {

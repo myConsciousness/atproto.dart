@@ -4,14 +4,14 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_core/atproto_oauth.dart' as oauth;
 
 // Project imports:
+import 'services/app/bsky/actor_service.dart';
+import 'services/app/bsky/feed_service.dart';
+import 'services/app/bsky/graph_service.dart';
+import 'services/app/bsky/labeler_service.dart';
+import 'services/app/bsky/notification_service.dart';
+import 'services/app/bsky/unspecced_service.dart';
+import 'services/app/bsky/video_service.dart';
 import 'services/service_context.dart';
-import 'services/types/app/bsky/actor_service.dart';
-import 'services/types/app/bsky/feed_service.dart';
-import 'services/types/app/bsky/graph_service.dart';
-import 'services/types/app/bsky/labeler_service.dart';
-import 'services/types/app/bsky/notification_service.dart';
-import 'services/types/app/bsky/unspecced_service.dart';
-import 'services/types/app/bsky/video_service.dart';
 
 /// Provides `app.bsky.*` services.
 sealed class Bluesky {

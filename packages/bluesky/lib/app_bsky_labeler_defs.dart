@@ -11,7 +11,7 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/labeler/defs/labeler_view.dart';
-export 'package:bluesky/src/services/types/app/bsky/labeler/defs/labeler_view_detailed.dart';
-export 'package:bluesky/src/services/types/app/bsky/labeler/defs/labeler_viewer_state.dart';
-export 'package:bluesky/src/services/types/app/bsky/labeler/defs/labeler_policies.dart';
+export 'package:bluesky/src/services/app/bsky/labeler/defs/labeler_view.dart';
+export 'package:bluesky/src/services/app/bsky/labeler/defs/labeler_view_detailed.dart';
+export 'package:bluesky/src/services/app/bsky/labeler/defs/labeler_viewer_state.dart';
+export 'package:bluesky/src/services/app/bsky/labeler/defs/labeler_policies.dart';

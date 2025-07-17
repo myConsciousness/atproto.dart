@@ -11,9 +11,9 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/feed/threadgate/main.dart';
-export 'package:bluesky/src/services/types/app/bsky/feed/threadgate/union_main_allow.dart';
-export 'package:bluesky/src/services/types/app/bsky/feed/threadgate/mention_rule.dart';
-export 'package:bluesky/src/services/types/app/bsky/feed/threadgate/follower_rule.dart';
-export 'package:bluesky/src/services/types/app/bsky/feed/threadgate/following_rule.dart';
-export 'package:bluesky/src/services/types/app/bsky/feed/threadgate/list_rule.dart';
+export 'package:bluesky/src/services/app/bsky/feed/threadgate/main.dart';
+export 'package:bluesky/src/services/app/bsky/feed/threadgate/union_main_allow.dart';
+export 'package:bluesky/src/services/app/bsky/feed/threadgate/mention_rule.dart';
+export 'package:bluesky/src/services/app/bsky/feed/threadgate/follower_rule.dart';
+export 'package:bluesky/src/services/app/bsky/feed/threadgate/following_rule.dart';
+export 'package:bluesky/src/services/app/bsky/feed/threadgate/list_rule.dart';

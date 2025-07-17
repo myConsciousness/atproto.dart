@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/unspecced/initAgeAssurance/input.dart';
+export 'package:bluesky/src/services/app/bsky/unspecced/initAgeAssurance/input.dart';

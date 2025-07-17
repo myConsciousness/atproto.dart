@@ -11,9 +11,9 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/richtext/facet/main.dart';
-export 'package:bluesky/src/services/types/app/bsky/richtext/facet/union_main_features.dart';
-export 'package:bluesky/src/services/types/app/bsky/richtext/facet/mention.dart';
-export 'package:bluesky/src/services/types/app/bsky/richtext/facet/link.dart';
-export 'package:bluesky/src/services/types/app/bsky/richtext/facet/tag.dart';
-export 'package:bluesky/src/services/types/app/bsky/richtext/facet/byte_slice.dart';
+export 'package:bluesky/src/services/app/bsky/richtext/facet/main.dart';
+export 'package:bluesky/src/services/app/bsky/richtext/facet/union_main_features.dart';
+export 'package:bluesky/src/services/app/bsky/richtext/facet/mention.dart';
+export 'package:bluesky/src/services/app/bsky/richtext/facet/link.dart';
+export 'package:bluesky/src/services/app/bsky/richtext/facet/tag.dart';
+export 'package:bluesky/src/services/app/bsky/richtext/facet/byte_slice.dart';

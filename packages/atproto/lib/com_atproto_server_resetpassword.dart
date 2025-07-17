@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/server/resetPassword/input.dart';
+export 'package:atproto/src/services/com/atproto/server/resetPassword/input.dart';

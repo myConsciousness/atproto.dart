@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/unspecced/getTrends/input.dart';
-export 'package:bluesky/src/services/types/app/bsky/unspecced/getTrends/output.dart';
+export 'package:bluesky/src/services/app/bsky/unspecced/getTrends/input.dart';
+export 'package:bluesky/src/services/app/bsky/unspecced/getTrends/output.dart';

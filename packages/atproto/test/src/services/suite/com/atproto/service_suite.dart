@@ -3,14 +3,14 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 
 // Project imports:
+import 'package:atproto/src/services/com/atproto/identity_service.dart';
+import 'package:atproto/src/services/com/atproto/label_service.dart';
+import 'package:atproto/src/services/com/atproto/moderation_service.dart';
+import 'package:atproto/src/services/com/atproto/repo_service.dart';
+import 'package:atproto/src/services/com/atproto/server_service.dart';
+import 'package:atproto/src/services/com/atproto/sync_service.dart';
+import 'package:atproto/src/services/com/atproto/temp_service.dart';
 import 'package:atproto/src/services/service_context.dart';
-import 'package:atproto/src/services/types/com/atproto/identity_service.dart';
-import 'package:atproto/src/services/types/com/atproto/label_service.dart';
-import 'package:atproto/src/services/types/com/atproto/moderation_service.dart';
-import 'package:atproto/src/services/types/com/atproto/repo_service.dart';
-import 'package:atproto/src/services/types/com/atproto/server_service.dart';
-import 'package:atproto/src/services/types/com/atproto/sync_service.dart';
-import 'package:atproto/src/services/types/com/atproto/temp_service.dart';
 
 const _runner = _ServiceRunner();
 

@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/server/reserveSigningKey/input.dart';
-export 'package:atproto/src/services/types/com/atproto/server/reserveSigningKey/output.dart';
+export 'package:atproto/src/services/com/atproto/server/reserveSigningKey/input.dart';
+export 'package:atproto/src/services/com/atproto/server/reserveSigningKey/output.dart';

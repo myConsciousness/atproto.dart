@@ -63,7 +63,9 @@ final class LexKnownValues extends LexType {
 
     return '''$kHeaderHint
 
-import 'package:atproto_core/atproto_core.dart' show Serializable, isA;
+import 'package:atproto_core/atproto_core.dart' show Serializable;
+import 'package:atproto_core/internals.dart' show isA;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '$fileName.freezed.dart';

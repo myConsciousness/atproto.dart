@@ -11,7 +11,7 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/unspecced/getPostThreadOtherV2/input.dart';
-export 'package:bluesky/src/services/types/app/bsky/unspecced/getPostThreadOtherV2/output.dart';
-export 'package:bluesky/src/services/types/app/bsky/unspecced/getPostThreadOtherV2/thread_item.dart';
-export 'package:bluesky/src/services/types/app/bsky/unspecced/getPostThreadOtherV2/union_thread_item_value.dart';
+export 'package:bluesky/src/services/app/bsky/unspecced/getPostThreadOtherV2/input.dart';
+export 'package:bluesky/src/services/app/bsky/unspecced/getPostThreadOtherV2/output.dart';
+export 'package:bluesky/src/services/app/bsky/unspecced/getPostThreadOtherV2/thread_item.dart';
+export 'package:bluesky/src/services/app/bsky/unspecced/getPostThreadOtherV2/union_thread_item_value.dart';

@@ -2,17 +2,17 @@
 import 'package:atproto/com_atproto_label_defs.dart';
 
 // Project imports:
-import '../../../services/types/app/bsky/actor/defs/muted_word.dart';
-import '../../../services/types/app/bsky/actor/defs/viewer_state.dart';
-import '../../../services/types/app/bsky/embed/record/union_view_record.dart';
-import '../../../services/types/app/bsky/embed/record/view_blocked.dart';
-import '../../../services/types/app/bsky/embed/record/view_record.dart';
-import '../../../services/types/app/bsky/embed/recordWithMedia/union_main_media.dart';
-import '../../../services/types/app/bsky/embed/recordWithMedia/union_view_media.dart';
-import '../../../services/types/app/bsky/feed/defs/blocked_author.dart';
-import '../../../services/types/app/bsky/feed/defs/union_post_view_embed.dart';
-import '../../../services/types/app/bsky/feed/post/main.dart';
-import '../../../services/types/app/bsky/feed/post/union_main_embed.dart';
+import '../../../services/app/bsky/actor/defs/muted_word.dart';
+import '../../../services/app/bsky/actor/defs/viewer_state.dart';
+import '../../../services/app/bsky/embed/record/union_view_record.dart';
+import '../../../services/app/bsky/embed/record/view_blocked.dart';
+import '../../../services/app/bsky/embed/record/view_record.dart';
+import '../../../services/app/bsky/embed/recordWithMedia/union_main_media.dart';
+import '../../../services/app/bsky/embed/recordWithMedia/union_view_media.dart';
+import '../../../services/app/bsky/feed/defs/blocked_author.dart';
+import '../../../services/app/bsky/feed/defs/union_post_view_embed.dart';
+import '../../../services/app/bsky/feed/post/main.dart';
+import '../../../services/app/bsky/feed/post/union_main_embed.dart';
 import '../../decision.dart';
 import '../behaviors/moderation_opts.dart';
 import '../labels.dart';

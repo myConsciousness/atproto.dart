@@ -129,10 +129,10 @@ $packagePaths
 
 import 'dart:typed_data';
 
-import '../../../../ids.g.dart' as ids;
-import '../../../../nsids.g.dart' as ns;
+import '../../../ids.g.dart' as ids;
+import '../../../nsids.g.dart' as ns;
 
-import '../../../service_context.dart' as z;
+import '../../service_context.dart' as z;
 
 $kHeader
 

@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/tools/ozone/moderation/getRepos/input.dart';
-export 'package:bluesky/src/services/types/tools/ozone/moderation/getRepos/output.dart';
-export 'package:bluesky/src/services/types/tools/ozone/moderation/getRepos/union_main_repos.dart';
+export 'package:bluesky/src/services/tools/ozone/moderation/getRepos/input.dart';
+export 'package:bluesky/src/services/tools/ozone/moderation/getRepos/output.dart';
+export 'package:bluesky/src/services/tools/ozone/moderation/getRepos/union_main_repos.dart';
