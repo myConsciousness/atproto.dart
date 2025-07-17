@@ -42,7 +42,7 @@ const kLexGeneratorLogo =
     \|_______|\|_______/__/ /\ __\    \|_______|\|_______|\|__| \|__|\|_______|\|__|\|__|\|__|\|__|    \|__|  \|_______|\|__|\|__|
                        |__|/ \|__|                                                                                                ''';
 
-const _kLicense = '''// Copyright (c) 2025, Shinya Kato.
+const _kLicense = '''// Copyright (c) 2023-2025, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 ''';
