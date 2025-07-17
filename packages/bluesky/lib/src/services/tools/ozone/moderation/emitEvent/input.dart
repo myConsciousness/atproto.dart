@@ -31,6 +31,7 @@ abstract class ModerationEmitEventInput with _$ModerationEmitEventInput {
     'subjectBlobCids',
     'createdBy',
     'modTool',
+    'externalId',
   ];
 
   const factory ModerationEmitEventInput({
@@ -42,6 +43,9 @@ abstract class ModerationEmitEventInput with _$ModerationEmitEventInput {
     required String createdBy,
     @ModToolConverter() ModTool? modTool,
 
+    /// An optional external ID for the event, used to deduplicate events from external systems. Fails when an event of same type with the same external ID exists for the same subject.
+    String? externalId,
+
     Map<String, dynamic>? $unknown,
   }) = _ModerationEmitEventInput;
 
@@ -52,6 +56,8 @@ abstract class ModerationEmitEventInput with _$ModerationEmitEventInput {
 extension ModerationEmitEventInputExtension on ModerationEmitEventInput {
   bool get hasModTool => modTool != null;
   bool get hasNotModTool => !hasModTool;
+  bool get hasExternalId => externalId != null;
+  bool get hasNotExternalId => !hasExternalId;
 }
 
 final class ModerationEmitEventInputConverter

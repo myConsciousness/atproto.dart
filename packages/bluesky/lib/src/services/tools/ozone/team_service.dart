@@ -28,6 +28,19 @@ final class TeamService {
 
   final z.ServiceContext _ctx;
 
+  /// Add a member to the ozone team. Requires admin role.
+  Future<XRPCResponse<Member>> addMember({
+    required String did,
+    required TeamAddMemberRole role,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.post(
+    ns.toolsOzoneTeamAddMember,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {'did': did, 'role': role.toJson(), ...?$unknown},
+    to: const MemberConverter().fromJson,
+  );
+
   /// List all members with access to the ozone service.
   Future<XRPCResponse<TeamListMembersOutput>> listMembers({
     String? q,
@@ -51,17 +64,6 @@ final class TeamService {
     to: const TeamListMembersOutputConverter().fromJson,
   );
 
-  /// Delete a member from ozone team. Requires admin role.
-  Future<XRPCResponse<EmptyData>> deleteMember({
-    required String did,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneTeamDeleteMember,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'did': did, ...?$unknown},
-  );
-
   /// Update a member in the ozone service. Requires admin role.
   Future<XRPCResponse<Member>> updateMember({
     required String did,
@@ -81,16 +83,14 @@ final class TeamService {
     to: const MemberConverter().fromJson,
   );
 
-  /// Add a member to the ozone team. Requires admin role.
-  Future<XRPCResponse<Member>> addMember({
+  /// Delete a member from ozone team. Requires admin role.
+  Future<XRPCResponse<EmptyData>> deleteMember({
     required String did,
-    required TeamAddMemberRole role,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.post(
-    ns.toolsOzoneTeamAddMember,
+    ns.toolsOzoneTeamDeleteMember,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'did': did, 'role': role.toJson(), ...?$unknown},
-    to: const MemberConverter().fromJson,
+    body: {'did': did, ...?$unknown},
   );
 }
