@@ -31,7 +31,7 @@ abstract class HostingGetAccountHistoryInput
     @HostingGetAccountHistoryEventsConverter()
     List<HostingGetAccountHistoryEvents>? events,
     String? cursor,
-    int? limit,
+    @Default(50) int limit,
 
     Map<String, dynamic>? $unknown,
   }) = _HostingGetAccountHistoryInput;
@@ -44,8 +44,6 @@ extension HostingGetAccountHistoryInputExtension
     on HostingGetAccountHistoryInput {
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
 }
 
 final class HostingGetAccountHistoryInputConverter

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UnspeccedGetPopularFeedGeneratorsInput {
 
- int? get limit; String? get cursor; String? get query; Map<String, dynamic>? get $unknown;
+ int get limit; String? get cursor; String? get query; Map<String, dynamic>? get $unknown;
 /// Create a copy of UnspeccedGetPopularFeedGeneratorsInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $UnspeccedGetPopularFeedGeneratorsInputCopyWith<$Res>  {
   factory $UnspeccedGetPopularFeedGeneratorsInputCopyWith(UnspeccedGetPopularFeedGeneratorsInput value, $Res Function(UnspeccedGetPopularFeedGeneratorsInput) _then) = _$UnspeccedGetPopularFeedGeneratorsInputCopyWithImpl;
 @useResult
 $Res call({
- int? limit, String? cursor, String? query, Map<String, dynamic>? $unknown
+ int limit, String? cursor, String? query, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,10 +65,10 @@ class _$UnspeccedGetPopularFeedGeneratorsInputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetPopularFeedGeneratorsInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? limit = freezed,Object? cursor = freezed,Object? query = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? limit = null,Object? cursor = freezed,Object? query = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
-limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,query: freezed == query ? _self.query : query // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? limit,  String? cursor,  String? query,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int limit,  String? cursor,  String? query,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedGetPopularFeedGeneratorsInput() when $default != null:
 return $default(_that.limit,_that.cursor,_that.query,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.limit,_that.cursor,_that.query,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? limit,  String? cursor,  String? query,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int limit,  String? cursor,  String? query,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetPopularFeedGeneratorsInput():
 return $default(_that.limit,_that.cursor,_that.query,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.limit,_that.cursor,_that.query,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? limit,  String? cursor,  String? query,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int limit,  String? cursor,  String? query,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetPopularFeedGeneratorsInput() when $default != null:
 return $default(_that.limit,_that.cursor,_that.query,_that.$unknown);case _:
@@ -212,10 +212,10 @@ return $default(_that.limit,_that.cursor,_that.query,_that.$unknown);case _:
 @JsonSerializable()
 
 class _UnspeccedGetPopularFeedGeneratorsInput implements UnspeccedGetPopularFeedGeneratorsInput {
-  const _UnspeccedGetPopularFeedGeneratorsInput({this.limit, this.cursor, this.query, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _UnspeccedGetPopularFeedGeneratorsInput({this.limit = 50, this.cursor, this.query, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedGetPopularFeedGeneratorsInput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetPopularFeedGeneratorsInputFromJson(json);
 
-@override final  int? limit;
+@override@JsonKey() final  int limit;
 @override final  String? cursor;
 @override final  String? query;
  final  Map<String, dynamic>? _$unknown;
@@ -261,7 +261,7 @@ abstract mixin class _$UnspeccedGetPopularFeedGeneratorsInputCopyWith<$Res> impl
   factory _$UnspeccedGetPopularFeedGeneratorsInputCopyWith(_UnspeccedGetPopularFeedGeneratorsInput value, $Res Function(_UnspeccedGetPopularFeedGeneratorsInput) _then) = __$UnspeccedGetPopularFeedGeneratorsInputCopyWithImpl;
 @override @useResult
 $Res call({
- int? limit, String? cursor, String? query, Map<String, dynamic>? $unknown
+ int limit, String? cursor, String? query, Map<String, dynamic>? $unknown
 });
 
 
@@ -278,10 +278,10 @@ class __$UnspeccedGetPopularFeedGeneratorsInputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetPopularFeedGeneratorsInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? limit = freezed,Object? cursor = freezed,Object? query = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? limit = null,Object? cursor = freezed,Object? query = freezed,Object? $unknown = freezed,}) {
   return _then(_UnspeccedGetPopularFeedGeneratorsInput(
-limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,query: freezed == query ? _self.query : query // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

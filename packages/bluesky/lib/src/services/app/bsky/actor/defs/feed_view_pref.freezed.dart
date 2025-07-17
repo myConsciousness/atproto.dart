@@ -18,7 +18,7 @@ mixin _$FeedViewPref {
  String get $type;/// The URI of the feed, or an identifier which describes the feed.
  String get feed;/// Hide replies in the feed.
  bool? get hideReplies;/// Hide replies in the feed if they are not by followed users.
- bool? get hideRepliesByUnfollowed;/// Hide replies in the feed if they do not have this number of likes.
+ bool get hideRepliesByUnfollowed;/// Hide replies in the feed if they do not have this number of likes.
  int? get hideRepliesByLikeCount;/// Hide reposts in the feed.
  bool? get hideReposts;/// Hide quote posts in the feed.
  bool? get hideQuotePosts; Map<String, dynamic>? get $unknown;
@@ -54,7 +54,7 @@ abstract mixin class $FeedViewPrefCopyWith<$Res>  {
   factory $FeedViewPrefCopyWith(FeedViewPref value, $Res Function(FeedViewPref) _then) = _$FeedViewPrefCopyWithImpl;
 @useResult
 $Res call({
- String $type, String feed, bool? hideReplies, bool? hideRepliesByUnfollowed, int? hideRepliesByLikeCount, bool? hideReposts, bool? hideQuotePosts, Map<String, dynamic>? $unknown
+ String $type, String feed, bool? hideReplies, bool hideRepliesByUnfollowed, int? hideRepliesByLikeCount, bool? hideReposts, bool? hideQuotePosts, Map<String, dynamic>? $unknown
 });
 
 
@@ -71,13 +71,13 @@ class _$FeedViewPrefCopyWithImpl<$Res>
 
 /// Create a copy of FeedViewPref
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? feed = null,Object? hideReplies = freezed,Object? hideRepliesByUnfollowed = freezed,Object? hideRepliesByLikeCount = freezed,Object? hideReposts = freezed,Object? hideQuotePosts = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? feed = null,Object? hideReplies = freezed,Object? hideRepliesByUnfollowed = null,Object? hideRepliesByLikeCount = freezed,Object? hideReposts = freezed,Object? hideQuotePosts = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,feed: null == feed ? _self.feed : feed // ignore: cast_nullable_to_non_nullable
 as String,hideReplies: freezed == hideReplies ? _self.hideReplies : hideReplies // ignore: cast_nullable_to_non_nullable
-as bool?,hideRepliesByUnfollowed: freezed == hideRepliesByUnfollowed ? _self.hideRepliesByUnfollowed : hideRepliesByUnfollowed // ignore: cast_nullable_to_non_nullable
-as bool?,hideRepliesByLikeCount: freezed == hideRepliesByLikeCount ? _self.hideRepliesByLikeCount : hideRepliesByLikeCount // ignore: cast_nullable_to_non_nullable
+as bool?,hideRepliesByUnfollowed: null == hideRepliesByUnfollowed ? _self.hideRepliesByUnfollowed : hideRepliesByUnfollowed // ignore: cast_nullable_to_non_nullable
+as bool,hideRepliesByLikeCount: freezed == hideRepliesByLikeCount ? _self.hideRepliesByLikeCount : hideRepliesByLikeCount // ignore: cast_nullable_to_non_nullable
 as int?,hideReposts: freezed == hideReposts ? _self.hideReposts : hideReposts // ignore: cast_nullable_to_non_nullable
 as bool?,hideQuotePosts: freezed == hideQuotePosts ? _self.hideQuotePosts : hideQuotePosts // ignore: cast_nullable_to_non_nullable
 as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -166,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String feed,  bool? hideReplies,  bool? hideRepliesByUnfollowed,  int? hideRepliesByLikeCount,  bool? hideReposts,  bool? hideQuotePosts,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String feed,  bool? hideReplies,  bool hideRepliesByUnfollowed,  int? hideRepliesByLikeCount,  bool? hideReposts,  bool? hideQuotePosts,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedViewPref() when $default != null:
 return $default(_that.$type,_that.feed,_that.hideReplies,_that.hideRepliesByUnfollowed,_that.hideRepliesByLikeCount,_that.hideReposts,_that.hideQuotePosts,_that.$unknown);case _:
@@ -187,7 +187,7 @@ return $default(_that.$type,_that.feed,_that.hideReplies,_that.hideRepliesByUnfo
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String feed,  bool? hideReplies,  bool? hideRepliesByUnfollowed,  int? hideRepliesByLikeCount,  bool? hideReposts,  bool? hideQuotePosts,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String feed,  bool? hideReplies,  bool hideRepliesByUnfollowed,  int? hideRepliesByLikeCount,  bool? hideReposts,  bool? hideQuotePosts,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedViewPref():
 return $default(_that.$type,_that.feed,_that.hideReplies,_that.hideRepliesByUnfollowed,_that.hideRepliesByLikeCount,_that.hideReposts,_that.hideQuotePosts,_that.$unknown);case _:
@@ -207,7 +207,7 @@ return $default(_that.$type,_that.feed,_that.hideReplies,_that.hideRepliesByUnfo
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String feed,  bool? hideReplies,  bool? hideRepliesByUnfollowed,  int? hideRepliesByLikeCount,  bool? hideReposts,  bool? hideQuotePosts,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String feed,  bool? hideReplies,  bool hideRepliesByUnfollowed,  int? hideRepliesByLikeCount,  bool? hideReposts,  bool? hideQuotePosts,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedViewPref() when $default != null:
 return $default(_that.$type,_that.feed,_that.hideReplies,_that.hideRepliesByUnfollowed,_that.hideRepliesByLikeCount,_that.hideReposts,_that.hideQuotePosts,_that.$unknown);case _:
@@ -222,7 +222,7 @@ return $default(_that.$type,_that.feed,_that.hideReplies,_that.hideRepliesByUnfo
 @JsonSerializable()
 
 class _FeedViewPref implements FeedViewPref {
-  const _FeedViewPref({this.$type = 'app.bsky.actor.defs#feedViewPref', required this.feed, this.hideReplies, this.hideRepliesByUnfollowed, this.hideRepliesByLikeCount, this.hideReposts, this.hideQuotePosts, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FeedViewPref({this.$type = 'app.bsky.actor.defs#feedViewPref', required this.feed, this.hideReplies, this.hideRepliesByUnfollowed = true, this.hideRepliesByLikeCount, this.hideReposts, this.hideQuotePosts, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedViewPref.fromJson(Map<String, dynamic> json) => _$FeedViewPrefFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -231,7 +231,7 @@ class _FeedViewPref implements FeedViewPref {
 /// Hide replies in the feed.
 @override final  bool? hideReplies;
 /// Hide replies in the feed if they are not by followed users.
-@override final  bool? hideRepliesByUnfollowed;
+@override@JsonKey() final  bool hideRepliesByUnfollowed;
 /// Hide replies in the feed if they do not have this number of likes.
 @override final  int? hideRepliesByLikeCount;
 /// Hide reposts in the feed.
@@ -281,7 +281,7 @@ abstract mixin class _$FeedViewPrefCopyWith<$Res> implements $FeedViewPrefCopyWi
   factory _$FeedViewPrefCopyWith(_FeedViewPref value, $Res Function(_FeedViewPref) _then) = __$FeedViewPrefCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String feed, bool? hideReplies, bool? hideRepliesByUnfollowed, int? hideRepliesByLikeCount, bool? hideReposts, bool? hideQuotePosts, Map<String, dynamic>? $unknown
+ String $type, String feed, bool? hideReplies, bool hideRepliesByUnfollowed, int? hideRepliesByLikeCount, bool? hideReposts, bool? hideQuotePosts, Map<String, dynamic>? $unknown
 });
 
 
@@ -298,13 +298,13 @@ class __$FeedViewPrefCopyWithImpl<$Res>
 
 /// Create a copy of FeedViewPref
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? feed = null,Object? hideReplies = freezed,Object? hideRepliesByUnfollowed = freezed,Object? hideRepliesByLikeCount = freezed,Object? hideReposts = freezed,Object? hideQuotePosts = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? feed = null,Object? hideReplies = freezed,Object? hideRepliesByUnfollowed = null,Object? hideRepliesByLikeCount = freezed,Object? hideReposts = freezed,Object? hideQuotePosts = freezed,Object? $unknown = freezed,}) {
   return _then(_FeedViewPref(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,feed: null == feed ? _self.feed : feed // ignore: cast_nullable_to_non_nullable
 as String,hideReplies: freezed == hideReplies ? _self.hideReplies : hideReplies // ignore: cast_nullable_to_non_nullable
-as bool?,hideRepliesByUnfollowed: freezed == hideRepliesByUnfollowed ? _self.hideRepliesByUnfollowed : hideRepliesByUnfollowed // ignore: cast_nullable_to_non_nullable
-as bool?,hideRepliesByLikeCount: freezed == hideRepliesByLikeCount ? _self.hideRepliesByLikeCount : hideRepliesByLikeCount // ignore: cast_nullable_to_non_nullable
+as bool?,hideRepliesByUnfollowed: null == hideRepliesByUnfollowed ? _self.hideRepliesByUnfollowed : hideRepliesByUnfollowed // ignore: cast_nullable_to_non_nullable
+as bool,hideRepliesByLikeCount: freezed == hideRepliesByLikeCount ? _self.hideRepliesByLikeCount : hideRepliesByLikeCount // ignore: cast_nullable_to_non_nullable
 as int?,hideReposts: freezed == hideReposts ? _self.hideReposts : hideReposts // ignore: cast_nullable_to_non_nullable
 as bool?,hideQuotePosts: freezed == hideQuotePosts ? _self.hideQuotePosts : hideQuotePosts // ignore: cast_nullable_to_non_nullable
 as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable

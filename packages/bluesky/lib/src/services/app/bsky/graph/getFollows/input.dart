@@ -24,7 +24,7 @@ abstract class GraphGetFollowsInput with _$GraphGetFollowsInput {
 
   const factory GraphGetFollowsInput({
     required String actor,
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -35,8 +35,6 @@ abstract class GraphGetFollowsInput with _$GraphGetFollowsInput {
 }
 
 extension GraphGetFollowsInputExtension on GraphGetFollowsInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

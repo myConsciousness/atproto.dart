@@ -24,7 +24,7 @@ mixin _$FeedSearchPostsInput {
  String? get author;/// Filter to posts in the given language. Expected to be based on post language field, though server may override language detection.
  String? get lang;/// Filter to posts with URLs (facet links or embeds) linking to the given domain (hostname). Server may apply hostname normalization.
  String? get domain;/// Filter to posts with links (facet links or embeds) pointing to this URL. Server may apply URL normalization or fuzzy matching.
-@AtUriConverter() AtUri? get url; List<String>? get tag; int? get limit;/// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
+@AtUriConverter() AtUri? get url; List<String>? get tag; int get limit;/// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
  String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedSearchPostsInput
 /// with the given fields replaced by the non-null parameter values.
@@ -58,7 +58,7 @@ abstract mixin class $FeedSearchPostsInputCopyWith<$Res>  {
   factory $FeedSearchPostsInputCopyWith(FeedSearchPostsInput value, $Res Function(FeedSearchPostsInput) _then) = _$FeedSearchPostsInputCopyWithImpl;
 @useResult
 $Res call({
- String q,@FeedSearchPostsSortConverter() FeedSearchPostsSort? sort, String? since, String? until, String? mentions, String? author, String? lang, String? domain,@AtUriConverter() AtUri? url, List<String>? tag, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String q,@FeedSearchPostsSortConverter() FeedSearchPostsSort? sort, String? since, String? until, String? mentions, String? author, String? lang, String? domain,@AtUriConverter() AtUri? url, List<String>? tag, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -75,7 +75,7 @@ class _$FeedSearchPostsInputCopyWithImpl<$Res>
 
 /// Create a copy of FeedSearchPostsInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? q = null,Object? sort = freezed,Object? since = freezed,Object? until = freezed,Object? mentions = freezed,Object? author = freezed,Object? lang = freezed,Object? domain = freezed,Object? url = freezed,Object? tag = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? q = null,Object? sort = freezed,Object? since = freezed,Object? until = freezed,Object? mentions = freezed,Object? author = freezed,Object? lang = freezed,Object? domain = freezed,Object? url = freezed,Object? tag = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 q: null == q ? _self.q : q // ignore: cast_nullable_to_non_nullable
 as String,sort: freezed == sort ? _self.sort : sort // ignore: cast_nullable_to_non_nullable
@@ -87,8 +87,8 @@ as String?,lang: freezed == lang ? _self.lang : lang // ignore: cast_nullable_to
 as String?,domain: freezed == domain ? _self.domain : domain // ignore: cast_nullable_to_non_nullable
 as String?,url: freezed == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as AtUri?,tag: freezed == tag ? _self.tag : tag // ignore: cast_nullable_to_non_nullable
-as List<String>?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as List<String>?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -187,7 +187,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String q, @FeedSearchPostsSortConverter()  FeedSearchPostsSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String q, @FeedSearchPostsSortConverter()  FeedSearchPostsSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedSearchPostsInput() when $default != null:
 return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.author,_that.lang,_that.domain,_that.url,_that.tag,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -208,7 +208,7 @@ return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String q, @FeedSearchPostsSortConverter()  FeedSearchPostsSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String q, @FeedSearchPostsSortConverter()  FeedSearchPostsSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedSearchPostsInput():
 return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.author,_that.lang,_that.domain,_that.url,_that.tag,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -228,7 +228,7 @@ return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String q, @FeedSearchPostsSortConverter()  FeedSearchPostsSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String q, @FeedSearchPostsSortConverter()  FeedSearchPostsSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedSearchPostsInput() when $default != null:
 return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.author,_that.lang,_that.domain,_that.url,_that.tag,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -243,7 +243,7 @@ return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.
 @JsonSerializable()
 
 class _FeedSearchPostsInput implements FeedSearchPostsInput {
-  const _FeedSearchPostsInput({required this.q, @FeedSearchPostsSortConverter() this.sort, this.since, this.until, this.mentions, this.author, this.lang, this.domain, @AtUriConverter() this.url, final  List<String>? tag, this.limit, this.cursor, final  Map<String, dynamic>? $unknown}): _tag = tag,_$unknown = $unknown;
+  const _FeedSearchPostsInput({required this.q, @FeedSearchPostsSortConverter() this.sort, this.since, this.until, this.mentions, this.author, this.lang, this.domain, @AtUriConverter() this.url, final  List<String>? tag, this.limit = 25, this.cursor, final  Map<String, dynamic>? $unknown}): _tag = tag,_$unknown = $unknown;
   factory _FeedSearchPostsInput.fromJson(Map<String, dynamic> json) => _$FeedSearchPostsInputFromJson(json);
 
 /// Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
@@ -273,7 +273,7 @@ class _FeedSearchPostsInput implements FeedSearchPostsInput {
   return EqualUnmodifiableListView(value);
 }
 
-@override final  int? limit;
+@override@JsonKey() final  int limit;
 /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
 @override final  String? cursor;
  final  Map<String, dynamic>? _$unknown;
@@ -319,7 +319,7 @@ abstract mixin class _$FeedSearchPostsInputCopyWith<$Res> implements $FeedSearch
   factory _$FeedSearchPostsInputCopyWith(_FeedSearchPostsInput value, $Res Function(_FeedSearchPostsInput) _then) = __$FeedSearchPostsInputCopyWithImpl;
 @override @useResult
 $Res call({
- String q,@FeedSearchPostsSortConverter() FeedSearchPostsSort? sort, String? since, String? until, String? mentions, String? author, String? lang, String? domain,@AtUriConverter() AtUri? url, List<String>? tag, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String q,@FeedSearchPostsSortConverter() FeedSearchPostsSort? sort, String? since, String? until, String? mentions, String? author, String? lang, String? domain,@AtUriConverter() AtUri? url, List<String>? tag, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -336,7 +336,7 @@ class __$FeedSearchPostsInputCopyWithImpl<$Res>
 
 /// Create a copy of FeedSearchPostsInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? q = null,Object? sort = freezed,Object? since = freezed,Object? until = freezed,Object? mentions = freezed,Object? author = freezed,Object? lang = freezed,Object? domain = freezed,Object? url = freezed,Object? tag = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? q = null,Object? sort = freezed,Object? since = freezed,Object? until = freezed,Object? mentions = freezed,Object? author = freezed,Object? lang = freezed,Object? domain = freezed,Object? url = freezed,Object? tag = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_FeedSearchPostsInput(
 q: null == q ? _self.q : q // ignore: cast_nullable_to_non_nullable
 as String,sort: freezed == sort ? _self.sort : sort // ignore: cast_nullable_to_non_nullable
@@ -348,8 +348,8 @@ as String?,lang: freezed == lang ? _self.lang : lang // ignore: cast_nullable_to
 as String?,domain: freezed == domain ? _self.domain : domain // ignore: cast_nullable_to_non_nullable
 as String?,url: freezed == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as AtUri?,tag: freezed == tag ? _self._tag : tag // ignore: cast_nullable_to_non_nullable
-as List<String>?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as List<String>?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

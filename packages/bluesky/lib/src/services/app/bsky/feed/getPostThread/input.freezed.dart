@@ -17,8 +17,8 @@ mixin _$FeedGetPostThreadInput {
 
 /// Reference (AT-URI) to post record.
  String get uri;/// How many levels of reply depth should be included in response.
- int? get depth;/// How many levels of parent (and grandparent, etc) post to include.
- int? get parentHeight; Map<String, dynamic>? get $unknown;
+ int get depth;/// How many levels of parent (and grandparent, etc) post to include.
+ int get parentHeight; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedGetPostThreadInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -51,7 +51,7 @@ abstract mixin class $FeedGetPostThreadInputCopyWith<$Res>  {
   factory $FeedGetPostThreadInputCopyWith(FeedGetPostThreadInput value, $Res Function(FeedGetPostThreadInput) _then) = _$FeedGetPostThreadInputCopyWithImpl;
 @useResult
 $Res call({
- String uri, int? depth, int? parentHeight, Map<String, dynamic>? $unknown
+ String uri, int depth, int parentHeight, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,12 +68,12 @@ class _$FeedGetPostThreadInputCopyWithImpl<$Res>
 
 /// Create a copy of FeedGetPostThreadInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? uri = null,Object? depth = freezed,Object? parentHeight = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? uri = null,Object? depth = null,Object? parentHeight = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,depth: freezed == depth ? _self.depth : depth // ignore: cast_nullable_to_non_nullable
-as int?,parentHeight: freezed == parentHeight ? _self.parentHeight : parentHeight // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String,depth: null == depth ? _self.depth : depth // ignore: cast_nullable_to_non_nullable
+as int,parentHeight: null == parentHeight ? _self.parentHeight : parentHeight // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -159,7 +159,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uri,  int? depth,  int? parentHeight,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uri,  int depth,  int parentHeight,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedGetPostThreadInput() when $default != null:
 return $default(_that.uri,_that.depth,_that.parentHeight,_that.$unknown);case _:
@@ -180,7 +180,7 @@ return $default(_that.uri,_that.depth,_that.parentHeight,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uri,  int? depth,  int? parentHeight,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uri,  int depth,  int parentHeight,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetPostThreadInput():
 return $default(_that.uri,_that.depth,_that.parentHeight,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.uri,_that.depth,_that.parentHeight,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uri,  int? depth,  int? parentHeight,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uri,  int depth,  int parentHeight,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetPostThreadInput() when $default != null:
 return $default(_that.uri,_that.depth,_that.parentHeight,_that.$unknown);case _:
@@ -215,15 +215,15 @@ return $default(_that.uri,_that.depth,_that.parentHeight,_that.$unknown);case _:
 @JsonSerializable()
 
 class _FeedGetPostThreadInput implements FeedGetPostThreadInput {
-  const _FeedGetPostThreadInput({required this.uri, this.depth, this.parentHeight, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FeedGetPostThreadInput({required this.uri, this.depth = 6, this.parentHeight = 80, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetPostThreadInput.fromJson(Map<String, dynamic> json) => _$FeedGetPostThreadInputFromJson(json);
 
 /// Reference (AT-URI) to post record.
 @override final  String uri;
 /// How many levels of reply depth should be included in response.
-@override final  int? depth;
+@override@JsonKey() final  int depth;
 /// How many levels of parent (and grandparent, etc) post to include.
-@override final  int? parentHeight;
+@override@JsonKey() final  int parentHeight;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -267,7 +267,7 @@ abstract mixin class _$FeedGetPostThreadInputCopyWith<$Res> implements $FeedGetP
   factory _$FeedGetPostThreadInputCopyWith(_FeedGetPostThreadInput value, $Res Function(_FeedGetPostThreadInput) _then) = __$FeedGetPostThreadInputCopyWithImpl;
 @override @useResult
 $Res call({
- String uri, int? depth, int? parentHeight, Map<String, dynamic>? $unknown
+ String uri, int depth, int parentHeight, Map<String, dynamic>? $unknown
 });
 
 
@@ -284,12 +284,12 @@ class __$FeedGetPostThreadInputCopyWithImpl<$Res>
 
 /// Create a copy of FeedGetPostThreadInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? uri = null,Object? depth = freezed,Object? parentHeight = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? uri = null,Object? depth = null,Object? parentHeight = null,Object? $unknown = freezed,}) {
   return _then(_FeedGetPostThreadInput(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,depth: freezed == depth ? _self.depth : depth // ignore: cast_nullable_to_non_nullable
-as int?,parentHeight: freezed == parentHeight ? _self.parentHeight : parentHeight // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String,depth: null == depth ? _self.depth : depth // ignore: cast_nullable_to_non_nullable
+as int,parentHeight: null == parentHeight ? _self.parentHeight : parentHeight // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

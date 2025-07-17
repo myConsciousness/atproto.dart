@@ -24,7 +24,7 @@ abstract class SetGetValuesInput with _$SetGetValuesInput {
 
   const factory SetGetValuesInput({
     required String name,
-    int? limit,
+    @Default(100) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -35,8 +35,6 @@ abstract class SetGetValuesInput with _$SetGetValuesInput {
 }
 
 extension SetGetValuesInputExtension on SetGetValuesInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

@@ -24,7 +24,7 @@ abstract class UnspeccedGetPopularFeedGeneratorsInput
   static const knownProps = <String>['limit', 'cursor', 'query'];
 
   const factory UnspeccedGetPopularFeedGeneratorsInput({
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
     String? query,
 
@@ -38,8 +38,6 @@ abstract class UnspeccedGetPopularFeedGeneratorsInput
 
 extension UnspeccedGetPopularFeedGeneratorsInputExtension
     on UnspeccedGetPopularFeedGeneratorsInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
   bool get hasQuery => query != null;

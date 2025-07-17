@@ -15,7 +15,7 @@ _$VerificationListVerificationsInputFromJson(Map json) => $checkedCreate(
   ($checkedConvert) {
     final val = _VerificationListVerificationsInput(
       cursor: $checkedConvert('cursor', (v) => v as String?),
-      limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+      limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
       createdAfter: $checkedConvert(
         'createdAfter',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -32,7 +32,10 @@ _$VerificationListVerificationsInputFromJson(Map json) => $checkedCreate(
         'subjects',
         (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
       ),
-      sortDirection: $checkedConvert('sortDirection', (v) => v as String?),
+      sortDirection: $checkedConvert(
+        'sortDirection',
+        (v) => v as String? ?? 'desc',
+      ),
       isRevoked: $checkedConvert('isRevoked', (v) => v as bool?),
       $unknown: $checkedConvert(
         r'$unknown',

@@ -54,7 +54,7 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
     String? createdBy,
 
     /// Sort direction for the events. Defaults to descending order of created at timestamp.
-    String? sortDirection,
+    @Default('desc') String sortDirection,
 
     /// Retrieve events created after a given timestamp
     DateTime? createdAfter,
@@ -69,8 +69,8 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
     ModerationQueryEventsSubjectType? subjectType,
 
     /// If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned.
-    bool? includeAllUserRecords,
-    int? limit,
+    @Default(false) bool includeAllUserRecords,
+    @Default(50) int limit,
 
     /// If true, only events with comments are returned
     bool? hasComment,
@@ -102,8 +102,6 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
 extension ModerationQueryEventsInputExtension on ModerationQueryEventsInput {
   bool get hasCreatedBy => createdBy != null;
   bool get hasNotCreatedBy => !hasCreatedBy;
-  bool get hasSortDirection => sortDirection != null;
-  bool get hasNotSortDirection => !hasSortDirection;
   bool get hasCreatedAfter => createdAfter != null;
   bool get hasNotCreatedAfter => !hasCreatedAfter;
   bool get hasCreatedBefore => createdBefore != null;
@@ -114,8 +112,6 @@ extension ModerationQueryEventsInputExtension on ModerationQueryEventsInput {
   bool get hasNotSubjectType => !hasSubjectType;
   bool get isIncludeAllUserRecords => includeAllUserRecords ?? false;
   bool get isNotIncludeAllUserRecords => !isIncludeAllUserRecords;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasNotComment => !(hasComment ?? false);
   bool get hasAgeAssuranceState => ageAssuranceState != null;
   bool get hasNotAgeAssuranceState => !hasAgeAssuranceState;

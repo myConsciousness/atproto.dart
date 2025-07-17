@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SyncListReposInput {
 
- int? get limit; String? get cursor; Map<String, dynamic>? get $unknown;
+ int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of SyncListReposInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SyncListReposInputCopyWith<$Res>  {
   factory $SyncListReposInputCopyWith(SyncListReposInput value, $Res Function(SyncListReposInput) _then) = _$SyncListReposInputCopyWithImpl;
 @useResult
 $Res call({
- int? limit, String? cursor, Map<String, dynamic>? $unknown
+ int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,10 +65,10 @@ class _$SyncListReposInputCopyWithImpl<$Res>
 
 /// Create a copy of SyncListReposInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
-limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SyncListReposInput() when $default != null:
 return $default(_that.limit,_that.cursor,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SyncListReposInput():
 return $default(_that.limit,_that.cursor,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SyncListReposInput() when $default != null:
 return $default(_that.limit,_that.cursor,_that.$unknown);case _:
@@ -211,10 +211,10 @@ return $default(_that.limit,_that.cursor,_that.$unknown);case _:
 @JsonSerializable()
 
 class _SyncListReposInput implements SyncListReposInput {
-  const _SyncListReposInput({this.limit, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SyncListReposInput({this.limit = 500, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncListReposInput.fromJson(Map<String, dynamic> json) => _$SyncListReposInputFromJson(json);
 
-@override final  int? limit;
+@override@JsonKey() final  int limit;
 @override final  String? cursor;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -259,7 +259,7 @@ abstract mixin class _$SyncListReposInputCopyWith<$Res> implements $SyncListRepo
   factory _$SyncListReposInputCopyWith(_SyncListReposInput value, $Res Function(_SyncListReposInput) _then) = __$SyncListReposInputCopyWithImpl;
 @override @useResult
 $Res call({
- int? limit, String? cursor, Map<String, dynamic>? $unknown
+ int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -276,10 +276,10 @@ class __$SyncListReposInputCopyWithImpl<$Res>
 
 /// Create a copy of SyncListReposInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_SyncListReposInput(
-limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

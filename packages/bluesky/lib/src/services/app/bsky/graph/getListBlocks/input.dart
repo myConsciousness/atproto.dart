@@ -23,7 +23,7 @@ abstract class GraphGetListBlocksInput with _$GraphGetListBlocksInput {
   static const knownProps = <String>['limit', 'cursor'];
 
   const factory GraphGetListBlocksInput({
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -34,8 +34,6 @@ abstract class GraphGetListBlocksInput with _$GraphGetListBlocksInput {
 }
 
 extension GraphGetListBlocksInputExtension on GraphGetListBlocksInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

@@ -24,19 +24,13 @@ abstract class UnspeccedGetSuggestedFeedsInput
   static const knownProps = <String>['limit'];
 
   const factory UnspeccedGetSuggestedFeedsInput({
-    int? limit,
+    @Default(10) int limit,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestedFeedsInput;
 
   factory UnspeccedGetSuggestedFeedsInput.fromJson(Map<String, Object?> json) =>
       _$UnspeccedGetSuggestedFeedsInputFromJson(json);
-}
-
-extension UnspeccedGetSuggestedFeedsInputExtension
-    on UnspeccedGetSuggestedFeedsInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
 }
 
 final class UnspeccedGetSuggestedFeedsInputConverter

@@ -14,7 +14,7 @@ _$UnspeccedGetPopularFeedGeneratorsInputFromJson(Map json) => $checkedCreate(
   json,
   ($checkedConvert) {
     final val = _UnspeccedGetPopularFeedGeneratorsInput(
-      limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+      limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
       cursor: $checkedConvert('cursor', (v) => v as String?),
       query: $checkedConvert('query', (v) => v as String?),
       $unknown: $checkedConvert(

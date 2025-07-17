@@ -17,7 +17,7 @@ _$UnspeccedGetPostThreadOtherV2InputFromJson(Map json) => $checkedCreate(
       anchor: $checkedConvert('anchor', (v) => v as String),
       prioritizeFollowedUsers: $checkedConvert(
         'prioritizeFollowedUsers',
-        (v) => v as bool?,
+        (v) => v as bool? ?? false,
       ),
       $unknown: $checkedConvert(
         r'$unknown',

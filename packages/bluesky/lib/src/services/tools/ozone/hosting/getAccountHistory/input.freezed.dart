@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$HostingGetAccountHistoryInput {
 
- String get did;@HostingGetAccountHistoryEventsConverter() List<HostingGetAccountHistoryEvents>? get events; String? get cursor; int? get limit; Map<String, dynamic>? get $unknown;
+ String get did;@HostingGetAccountHistoryEventsConverter() List<HostingGetAccountHistoryEvents>? get events; String? get cursor; int get limit; Map<String, dynamic>? get $unknown;
 /// Create a copy of HostingGetAccountHistoryInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $HostingGetAccountHistoryInputCopyWith<$Res>  {
   factory $HostingGetAccountHistoryInputCopyWith(HostingGetAccountHistoryInput value, $Res Function(HostingGetAccountHistoryInput) _then) = _$HostingGetAccountHistoryInputCopyWithImpl;
 @useResult
 $Res call({
- String did,@HostingGetAccountHistoryEventsConverter() List<HostingGetAccountHistoryEvents>? events, String? cursor, int? limit, Map<String, dynamic>? $unknown
+ String did,@HostingGetAccountHistoryEventsConverter() List<HostingGetAccountHistoryEvents>? events, String? cursor, int limit, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,13 +65,13 @@ class _$HostingGetAccountHistoryInputCopyWithImpl<$Res>
 
 /// Create a copy of HostingGetAccountHistoryInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? did = null,Object? events = freezed,Object? cursor = freezed,Object? limit = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? did = null,Object? events = freezed,Object? cursor = freezed,Object? limit = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,events: freezed == events ? _self.events : events // ignore: cast_nullable_to_non_nullable
 as List<HostingGetAccountHistoryEvents>?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -157,7 +157,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String did, @HostingGetAccountHistoryEventsConverter()  List<HostingGetAccountHistoryEvents>? events,  String? cursor,  int? limit,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String did, @HostingGetAccountHistoryEventsConverter()  List<HostingGetAccountHistoryEvents>? events,  String? cursor,  int limit,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _HostingGetAccountHistoryInput() when $default != null:
 return $default(_that.did,_that.events,_that.cursor,_that.limit,_that.$unknown);case _:
@@ -178,7 +178,7 @@ return $default(_that.did,_that.events,_that.cursor,_that.limit,_that.$unknown);
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String did, @HostingGetAccountHistoryEventsConverter()  List<HostingGetAccountHistoryEvents>? events,  String? cursor,  int? limit,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String did, @HostingGetAccountHistoryEventsConverter()  List<HostingGetAccountHistoryEvents>? events,  String? cursor,  int limit,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _HostingGetAccountHistoryInput():
 return $default(_that.did,_that.events,_that.cursor,_that.limit,_that.$unknown);case _:
@@ -198,7 +198,7 @@ return $default(_that.did,_that.events,_that.cursor,_that.limit,_that.$unknown);
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String did, @HostingGetAccountHistoryEventsConverter()  List<HostingGetAccountHistoryEvents>? events,  String? cursor,  int? limit,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String did, @HostingGetAccountHistoryEventsConverter()  List<HostingGetAccountHistoryEvents>? events,  String? cursor,  int limit,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _HostingGetAccountHistoryInput() when $default != null:
 return $default(_that.did,_that.events,_that.cursor,_that.limit,_that.$unknown);case _:
@@ -213,7 +213,7 @@ return $default(_that.did,_that.events,_that.cursor,_that.limit,_that.$unknown);
 @JsonSerializable()
 
 class _HostingGetAccountHistoryInput implements HostingGetAccountHistoryInput {
-  const _HostingGetAccountHistoryInput({required this.did, @HostingGetAccountHistoryEventsConverter() final  List<HostingGetAccountHistoryEvents>? events, this.cursor, this.limit, final  Map<String, dynamic>? $unknown}): _events = events,_$unknown = $unknown;
+  const _HostingGetAccountHistoryInput({required this.did, @HostingGetAccountHistoryEventsConverter() final  List<HostingGetAccountHistoryEvents>? events, this.cursor, this.limit = 50, final  Map<String, dynamic>? $unknown}): _events = events,_$unknown = $unknown;
   factory _HostingGetAccountHistoryInput.fromJson(Map<String, dynamic> json) => _$HostingGetAccountHistoryInputFromJson(json);
 
 @override final  String did;
@@ -227,7 +227,7 @@ class _HostingGetAccountHistoryInput implements HostingGetAccountHistoryInput {
 }
 
 @override final  String? cursor;
-@override final  int? limit;
+@override@JsonKey() final  int limit;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -271,7 +271,7 @@ abstract mixin class _$HostingGetAccountHistoryInputCopyWith<$Res> implements $H
   factory _$HostingGetAccountHistoryInputCopyWith(_HostingGetAccountHistoryInput value, $Res Function(_HostingGetAccountHistoryInput) _then) = __$HostingGetAccountHistoryInputCopyWithImpl;
 @override @useResult
 $Res call({
- String did,@HostingGetAccountHistoryEventsConverter() List<HostingGetAccountHistoryEvents>? events, String? cursor, int? limit, Map<String, dynamic>? $unknown
+ String did,@HostingGetAccountHistoryEventsConverter() List<HostingGetAccountHistoryEvents>? events, String? cursor, int limit, Map<String, dynamic>? $unknown
 });
 
 
@@ -288,13 +288,13 @@ class __$HostingGetAccountHistoryInputCopyWithImpl<$Res>
 
 /// Create a copy of HostingGetAccountHistoryInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? did = null,Object? events = freezed,Object? cursor = freezed,Object? limit = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? did = null,Object? events = freezed,Object? cursor = freezed,Object? limit = null,Object? $unknown = freezed,}) {
   return _then(_HostingGetAccountHistoryInput(
 did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,events: freezed == events ? _self._events : events // ignore: cast_nullable_to_non_nullable
 as List<HostingGetAccountHistoryEvents>?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

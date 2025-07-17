@@ -12,7 +12,7 @@ _FeedGetFeedSkeletonInput _$FeedGetFeedSkeletonInputFromJson(Map json) =>
     $checkedCreate('_FeedGetFeedSkeletonInput', json, ($checkedConvert) {
       final val = _FeedGetFeedSkeletonInput(
         feed: $checkedConvert('feed', (v) => v as String),
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',

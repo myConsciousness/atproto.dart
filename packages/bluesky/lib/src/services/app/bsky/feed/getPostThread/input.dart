@@ -27,23 +27,16 @@ abstract class FeedGetPostThreadInput with _$FeedGetPostThreadInput {
     required String uri,
 
     /// How many levels of reply depth should be included in response.
-    int? depth,
+    @Default(6) int depth,
 
     /// How many levels of parent (and grandparent, etc) post to include.
-    int? parentHeight,
+    @Default(80) int parentHeight,
 
     Map<String, dynamic>? $unknown,
   }) = _FeedGetPostThreadInput;
 
   factory FeedGetPostThreadInput.fromJson(Map<String, Object?> json) =>
       _$FeedGetPostThreadInputFromJson(json);
-}
-
-extension FeedGetPostThreadInputExtension on FeedGetPostThreadInput {
-  bool get hasDepth => depth != null;
-  bool get hasNotDepth => !hasDepth;
-  bool get hasParentHeight => parentHeight != null;
-  bool get hasNotParentHeight => !hasParentHeight;
 }
 
 final class FeedGetPostThreadInputConverter

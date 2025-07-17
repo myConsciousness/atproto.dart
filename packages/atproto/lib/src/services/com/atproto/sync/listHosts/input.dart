@@ -23,7 +23,7 @@ abstract class SyncListHostsInput with _$SyncListHostsInput {
   static const knownProps = <String>['limit', 'cursor'];
 
   const factory SyncListHostsInput({
-    int? limit,
+    @Default(200) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -34,8 +34,6 @@ abstract class SyncListHostsInput with _$SyncListHostsInput {
 }
 
 extension SyncListHostsInputExtension on SyncListHostsInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

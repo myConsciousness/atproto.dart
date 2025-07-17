@@ -18,7 +18,7 @@ _AdminGetInviteCodesInput _$AdminGetInviteCodesInputFromJson(Map json) =>
             const AdminGetInviteCodesSortConverter().fromJson,
           ),
         ),
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 100),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',

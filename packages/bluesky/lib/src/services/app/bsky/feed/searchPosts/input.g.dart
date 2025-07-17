@@ -36,7 +36,7 @@ _FeedSearchPostsInput _$FeedSearchPostsInputFromJson(Map json) =>
           'tag',
           (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
         ),
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 25),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',

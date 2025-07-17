@@ -33,12 +33,12 @@ abstract class FeedGetAuthorFeedInput with _$FeedGetAuthorFeedInput {
 
   const factory FeedGetAuthorFeedInput({
     required String actor,
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     /// Combinations of post/repost types to include in response.
     @FeedGetAuthorFeedFilterConverter() FeedGetAuthorFeedFilter? filter,
-    bool? includePins,
+    @Default(false) bool includePins,
 
     Map<String, dynamic>? $unknown,
   }) = _FeedGetAuthorFeedInput;
@@ -48,8 +48,6 @@ abstract class FeedGetAuthorFeedInput with _$FeedGetAuthorFeedInput {
 }
 
 extension FeedGetAuthorFeedInputExtension on FeedGetAuthorFeedInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
   bool get hasFilter => filter != null;

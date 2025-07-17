@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$UnspeccedGetSuggestedUsersInput {
 
 /// Category of users to get suggestions for.
- String? get category; int? get limit; Map<String, dynamic>? get $unknown;
+ String? get category; int get limit; Map<String, dynamic>? get $unknown;
 /// Create a copy of UnspeccedGetSuggestedUsersInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $UnspeccedGetSuggestedUsersInputCopyWith<$Res>  {
   factory $UnspeccedGetSuggestedUsersInputCopyWith(UnspeccedGetSuggestedUsersInput value, $Res Function(UnspeccedGetSuggestedUsersInput) _then) = _$UnspeccedGetSuggestedUsersInputCopyWithImpl;
 @useResult
 $Res call({
- String? category, int? limit, Map<String, dynamic>? $unknown
+ String? category, int limit, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,11 +66,11 @@ class _$UnspeccedGetSuggestedUsersInputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetSuggestedUsersInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? category = freezed,Object? limit = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? category = freezed,Object? limit = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? category,  int? limit,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? category,  int limit,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedUsersInput() when $default != null:
 return $default(_that.category,_that.limit,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.category,_that.limit,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? category,  int? limit,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? category,  int limit,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedUsersInput():
 return $default(_that.category,_that.limit,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.category,_that.limit,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? category,  int? limit,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? category,  int limit,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedUsersInput() when $default != null:
 return $default(_that.category,_that.limit,_that.$unknown);case _:
@@ -212,12 +212,12 @@ return $default(_that.category,_that.limit,_that.$unknown);case _:
 @JsonSerializable()
 
 class _UnspeccedGetSuggestedUsersInput implements UnspeccedGetSuggestedUsersInput {
-  const _UnspeccedGetSuggestedUsersInput({this.category, this.limit, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _UnspeccedGetSuggestedUsersInput({this.category, this.limit = 25, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedGetSuggestedUsersInput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestedUsersInputFromJson(json);
 
 /// Category of users to get suggestions for.
 @override final  String? category;
-@override final  int? limit;
+@override@JsonKey() final  int limit;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -261,7 +261,7 @@ abstract mixin class _$UnspeccedGetSuggestedUsersInputCopyWith<$Res> implements 
   factory _$UnspeccedGetSuggestedUsersInputCopyWith(_UnspeccedGetSuggestedUsersInput value, $Res Function(_UnspeccedGetSuggestedUsersInput) _then) = __$UnspeccedGetSuggestedUsersInputCopyWithImpl;
 @override @useResult
 $Res call({
- String? category, int? limit, Map<String, dynamic>? $unknown
+ String? category, int limit, Map<String, dynamic>? $unknown
 });
 
 
@@ -278,11 +278,11 @@ class __$UnspeccedGetSuggestedUsersInputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetSuggestedUsersInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? category = freezed,Object? limit = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? category = freezed,Object? limit = null,Object? $unknown = freezed,}) {
   return _then(_UnspeccedGetSuggestedUsersInput(
 category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

@@ -13,7 +13,7 @@ _SyncListBlobsInput _$SyncListBlobsInputFromJson(Map json) =>
       final val = _SyncListBlobsInput(
         did: $checkedConvert('did', (v) => v as String),
         since: $checkedConvert('since', (v) => v as String?),
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 500),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',

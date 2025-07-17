@@ -36,7 +36,7 @@ abstract class RepoListRecordsInput with _$RepoListRecordsInput {
     required String collection,
 
     /// The number of records to return.
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     /// Flag to reverse the order of the returned records.
@@ -50,8 +50,6 @@ abstract class RepoListRecordsInput with _$RepoListRecordsInput {
 }
 
 extension RepoListRecordsInputExtension on RepoListRecordsInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
   bool get isReverse => reverse ?? false;

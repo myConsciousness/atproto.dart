@@ -16,7 +16,7 @@ _$UnspeccedSearchStarterPacksSkeletonInputFromJson(Map json) => $checkedCreate(
     final val = _UnspeccedSearchStarterPacksSkeletonInput(
       q: $checkedConvert('q', (v) => v as String),
       viewer: $checkedConvert('viewer', (v) => v as String?),
-      limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+      limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 25),
       cursor: $checkedConvert('cursor', (v) => v as String?),
       $unknown: $checkedConvert(
         r'$unknown',

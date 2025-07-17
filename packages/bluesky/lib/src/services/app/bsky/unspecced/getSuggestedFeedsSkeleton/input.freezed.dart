@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$UnspeccedGetSuggestedFeedsSkeletonInput {
 
 /// DID of the account making the request (not included for public/unauthenticated queries).
- String? get viewer; int? get limit; Map<String, dynamic>? get $unknown;
+ String? get viewer; int get limit; Map<String, dynamic>? get $unknown;
 /// Create a copy of UnspeccedGetSuggestedFeedsSkeletonInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $UnspeccedGetSuggestedFeedsSkeletonInputCopyWith<$Res>  {
   factory $UnspeccedGetSuggestedFeedsSkeletonInputCopyWith(UnspeccedGetSuggestedFeedsSkeletonInput value, $Res Function(UnspeccedGetSuggestedFeedsSkeletonInput) _then) = _$UnspeccedGetSuggestedFeedsSkeletonInputCopyWithImpl;
 @useResult
 $Res call({
- String? viewer, int? limit, Map<String, dynamic>? $unknown
+ String? viewer, int limit, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,11 +66,11 @@ class _$UnspeccedGetSuggestedFeedsSkeletonInputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetSuggestedFeedsSkeletonInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? viewer = freezed,Object? limit = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? viewer = freezed,Object? limit = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? viewer,  int? limit,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? viewer,  int limit,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedFeedsSkeletonInput() when $default != null:
 return $default(_that.viewer,_that.limit,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.viewer,_that.limit,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? viewer,  int? limit,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? viewer,  int limit,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedFeedsSkeletonInput():
 return $default(_that.viewer,_that.limit,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.viewer,_that.limit,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? viewer,  int? limit,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? viewer,  int limit,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedFeedsSkeletonInput() when $default != null:
 return $default(_that.viewer,_that.limit,_that.$unknown);case _:
@@ -212,12 +212,12 @@ return $default(_that.viewer,_that.limit,_that.$unknown);case _:
 @JsonSerializable()
 
 class _UnspeccedGetSuggestedFeedsSkeletonInput implements UnspeccedGetSuggestedFeedsSkeletonInput {
-  const _UnspeccedGetSuggestedFeedsSkeletonInput({this.viewer, this.limit, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _UnspeccedGetSuggestedFeedsSkeletonInput({this.viewer, this.limit = 10, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedGetSuggestedFeedsSkeletonInput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestedFeedsSkeletonInputFromJson(json);
 
 /// DID of the account making the request (not included for public/unauthenticated queries).
 @override final  String? viewer;
-@override final  int? limit;
+@override@JsonKey() final  int limit;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -261,7 +261,7 @@ abstract mixin class _$UnspeccedGetSuggestedFeedsSkeletonInputCopyWith<$Res> imp
   factory _$UnspeccedGetSuggestedFeedsSkeletonInputCopyWith(_UnspeccedGetSuggestedFeedsSkeletonInput value, $Res Function(_UnspeccedGetSuggestedFeedsSkeletonInput) _then) = __$UnspeccedGetSuggestedFeedsSkeletonInputCopyWithImpl;
 @override @useResult
 $Res call({
- String? viewer, int? limit, Map<String, dynamic>? $unknown
+ String? viewer, int limit, Map<String, dynamic>? $unknown
 });
 
 
@@ -278,11 +278,11 @@ class __$UnspeccedGetSuggestedFeedsSkeletonInputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetSuggestedFeedsSkeletonInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? viewer = freezed,Object? limit = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? viewer = freezed,Object? limit = null,Object? $unknown = freezed,}) {
   return _then(_UnspeccedGetSuggestedFeedsSkeletonInput(
 viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

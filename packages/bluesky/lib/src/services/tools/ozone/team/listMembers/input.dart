@@ -32,7 +32,7 @@ abstract class TeamListMembersInput with _$TeamListMembersInput {
     String? q,
     bool? disabled,
     List<String>? roles,
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -47,8 +47,6 @@ extension TeamListMembersInputExtension on TeamListMembersInput {
   bool get hasNotQ => !hasQ;
   bool get isDisabled => disabled ?? false;
   bool get isNotDisabled => !isDisabled;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

@@ -15,7 +15,7 @@ _AdultContentPref _$AdultContentPrefFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.actor.defs#adultContentPref',
         ),
-        enabled: $checkedConvert('enabled', (v) => v as bool),
+        enabled: $checkedConvert('enabled', (v) => v as bool? ?? false),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),

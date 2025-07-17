@@ -32,7 +32,7 @@ abstract class SettingListOptionsInput with _$SettingListOptionsInput {
   ];
 
   const factory SettingListOptionsInput({
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
     @SettingListOptionsScopeConverter() SettingListOptionsScope? scope,
 
@@ -48,8 +48,6 @@ abstract class SettingListOptionsInput with _$SettingListOptionsInput {
 }
 
 extension SettingListOptionsInputExtension on SettingListOptionsInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
   bool get hasScope => scope != null;

@@ -18,7 +18,7 @@ mixin _$UnspeccedSearchActorsSkeletonInput {
 /// Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended. For typeahead search, only simple term match is supported, not full syntax.
  String get q;/// DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.
  String? get viewer;/// If true, acts as fast/simple 'typeahead' query.
- bool? get typeahead; int? get limit;/// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
+ bool? get typeahead; int get limit;/// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
  String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of UnspeccedSearchActorsSkeletonInput
 /// with the given fields replaced by the non-null parameter values.
@@ -52,7 +52,7 @@ abstract mixin class $UnspeccedSearchActorsSkeletonInputCopyWith<$Res>  {
   factory $UnspeccedSearchActorsSkeletonInputCopyWith(UnspeccedSearchActorsSkeletonInput value, $Res Function(UnspeccedSearchActorsSkeletonInput) _then) = _$UnspeccedSearchActorsSkeletonInputCopyWithImpl;
 @useResult
 $Res call({
- String q, String? viewer, bool? typeahead, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String q, String? viewer, bool? typeahead, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,13 +69,13 @@ class _$UnspeccedSearchActorsSkeletonInputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedSearchActorsSkeletonInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? q = null,Object? viewer = freezed,Object? typeahead = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? q = null,Object? viewer = freezed,Object? typeahead = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 q: null == q ? _self.q : q // ignore: cast_nullable_to_non_nullable
 as String,viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable
 as String?,typeahead: freezed == typeahead ? _self.typeahead : typeahead // ignore: cast_nullable_to_non_nullable
-as bool?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as bool?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String q,  String? viewer,  bool? typeahead,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String q,  String? viewer,  bool? typeahead,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedSearchActorsSkeletonInput() when $default != null:
 return $default(_that.q,_that.viewer,_that.typeahead,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -183,7 +183,7 @@ return $default(_that.q,_that.viewer,_that.typeahead,_that.limit,_that.cursor,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String q,  String? viewer,  bool? typeahead,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String q,  String? viewer,  bool? typeahead,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedSearchActorsSkeletonInput():
 return $default(_that.q,_that.viewer,_that.typeahead,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -203,7 +203,7 @@ return $default(_that.q,_that.viewer,_that.typeahead,_that.limit,_that.cursor,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String q,  String? viewer,  bool? typeahead,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String q,  String? viewer,  bool? typeahead,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedSearchActorsSkeletonInput() when $default != null:
 return $default(_that.q,_that.viewer,_that.typeahead,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -218,7 +218,7 @@ return $default(_that.q,_that.viewer,_that.typeahead,_that.limit,_that.cursor,_t
 @JsonSerializable()
 
 class _UnspeccedSearchActorsSkeletonInput implements UnspeccedSearchActorsSkeletonInput {
-  const _UnspeccedSearchActorsSkeletonInput({required this.q, this.viewer, this.typeahead, this.limit, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _UnspeccedSearchActorsSkeletonInput({required this.q, this.viewer, this.typeahead, this.limit = 25, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedSearchActorsSkeletonInput.fromJson(Map<String, dynamic> json) => _$UnspeccedSearchActorsSkeletonInputFromJson(json);
 
 /// Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended. For typeahead search, only simple term match is supported, not full syntax.
@@ -227,7 +227,7 @@ class _UnspeccedSearchActorsSkeletonInput implements UnspeccedSearchActorsSkelet
 @override final  String? viewer;
 /// If true, acts as fast/simple 'typeahead' query.
 @override final  bool? typeahead;
-@override final  int? limit;
+@override@JsonKey() final  int limit;
 /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
 @override final  String? cursor;
  final  Map<String, dynamic>? _$unknown;
@@ -273,7 +273,7 @@ abstract mixin class _$UnspeccedSearchActorsSkeletonInputCopyWith<$Res> implemen
   factory _$UnspeccedSearchActorsSkeletonInputCopyWith(_UnspeccedSearchActorsSkeletonInput value, $Res Function(_UnspeccedSearchActorsSkeletonInput) _then) = __$UnspeccedSearchActorsSkeletonInputCopyWithImpl;
 @override @useResult
 $Res call({
- String q, String? viewer, bool? typeahead, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String q, String? viewer, bool? typeahead, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -290,13 +290,13 @@ class __$UnspeccedSearchActorsSkeletonInputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedSearchActorsSkeletonInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? q = null,Object? viewer = freezed,Object? typeahead = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? q = null,Object? viewer = freezed,Object? typeahead = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_UnspeccedSearchActorsSkeletonInput(
 q: null == q ? _self.q : q // ignore: cast_nullable_to_non_nullable
 as String,viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable
 as String?,typeahead: freezed == typeahead ? _self.typeahead : typeahead // ignore: cast_nullable_to_non_nullable
-as bool?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as bool?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

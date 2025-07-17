@@ -25,7 +25,7 @@ abstract class FeedGetFeedSkeletonInput with _$FeedGetFeedSkeletonInput {
   const factory FeedGetFeedSkeletonInput({
     /// Reference to feed generator record describing the specific feed being requested.
     required String feed,
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -36,8 +36,6 @@ abstract class FeedGetFeedSkeletonInput with _$FeedGetFeedSkeletonInput {
 }
 
 extension FeedGetFeedSkeletonInputExtension on FeedGetFeedSkeletonInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

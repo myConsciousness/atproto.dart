@@ -12,10 +12,10 @@ _FeedGetPostThreadInput _$FeedGetPostThreadInputFromJson(Map json) =>
     $checkedCreate('_FeedGetPostThreadInput', json, ($checkedConvert) {
       final val = _FeedGetPostThreadInput(
         uri: $checkedConvert('uri', (v) => v as String),
-        depth: $checkedConvert('depth', (v) => (v as num?)?.toInt()),
+        depth: $checkedConvert('depth', (v) => (v as num?)?.toInt() ?? 6),
         parentHeight: $checkedConvert(
           'parentHeight',
-          (v) => (v as num?)?.toInt(),
+          (v) => (v as num?)?.toInt() ?? 80,
         ),
         $unknown: $checkedConvert(
           r'$unknown',

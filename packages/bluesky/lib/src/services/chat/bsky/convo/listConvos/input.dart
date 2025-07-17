@@ -27,7 +27,7 @@ abstract class ConvoListConvosInput with _$ConvoListConvosInput {
   static const knownProps = <String>['limit', 'cursor', 'readState', 'status'];
 
   const factory ConvoListConvosInput({
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
     @ConvoListConvosReadStateConverter() ConvoListConvosReadState? readState,
     @ConvoListConvosStatusConverter() ConvoListConvosStatus? status,
@@ -40,8 +40,6 @@ abstract class ConvoListConvosInput with _$ConvoListConvosInput {
 }
 
 extension ConvoListConvosInputExtension on ConvoListConvosInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
   bool get hasReadState => readState != null;

@@ -15,7 +15,7 @@ _Nux _$NuxFromJson(Map json) => $checkedCreate('_Nux', json, ($checkedConvert) {
       (v) => v as String? ?? 'app.bsky.actor.defs#nux',
     ),
     id: $checkedConvert('id', (v) => v as String),
-    completed: $checkedConvert('completed', (v) => v as bool),
+    completed: $checkedConvert('completed', (v) => v as bool? ?? false),
     data: $checkedConvert('data', (v) => v as String?),
     expiresAt: $checkedConvert(
       'expiresAt',

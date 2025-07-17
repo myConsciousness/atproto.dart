@@ -12,7 +12,7 @@ _ServerCreateInviteCodesInput _$ServerCreateInviteCodesInputFromJson(
   Map json,
 ) => $checkedCreate('_ServerCreateInviteCodesInput', json, ($checkedConvert) {
   final val = _ServerCreateInviteCodesInput(
-    codeCount: $checkedConvert('codeCount', (v) => (v as num).toInt()),
+    codeCount: $checkedConvert('codeCount', (v) => (v as num?)?.toInt() ?? 1),
     useCount: $checkedConvert('useCount', (v) => (v as num).toInt()),
     forAccounts: $checkedConvert(
       'forAccounts',

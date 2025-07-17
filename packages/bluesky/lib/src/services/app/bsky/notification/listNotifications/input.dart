@@ -32,7 +32,7 @@ abstract class NotificationListNotificationsInput
   const factory NotificationListNotificationsInput({
     /// A reason that matches the reason property of #notification.
     List<String>? reasons,
-    int? limit,
+    @Default(50) int limit,
     bool? priority,
     String? cursor,
     DateTime? seenAt,
@@ -47,8 +47,6 @@ abstract class NotificationListNotificationsInput
 
 extension NotificationListNotificationsInputExtension
     on NotificationListNotificationsInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get isPriority => priority ?? false;
   bool get isNotPriority => !isPriority;
   bool get hasCursor => cursor != null;

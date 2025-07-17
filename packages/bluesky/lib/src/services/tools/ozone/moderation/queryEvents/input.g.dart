@@ -17,7 +17,10 @@ _ModerationQueryEventsInput _$ModerationQueryEventsInputFromJson(
       (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
     ),
     createdBy: $checkedConvert('createdBy', (v) => v as String?),
-    sortDirection: $checkedConvert('sortDirection', (v) => v as String?),
+    sortDirection: $checkedConvert(
+      'sortDirection',
+      (v) => v as String? ?? 'desc',
+    ),
     createdAfter: $checkedConvert(
       'createdAfter',
       (v) => v == null ? null : DateTime.parse(v as String),
@@ -46,9 +49,9 @@ _ModerationQueryEventsInput _$ModerationQueryEventsInputFromJson(
     ),
     includeAllUserRecords: $checkedConvert(
       'includeAllUserRecords',
-      (v) => v as bool?,
+      (v) => v as bool? ?? false,
     ),
-    limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+    limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
     hasComment: $checkedConvert('hasComment', (v) => v as bool?),
     comment: $checkedConvert('comment', (v) => v as String?),
     addedLabels: $checkedConvert(

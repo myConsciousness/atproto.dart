@@ -27,7 +27,7 @@ abstract class VerificationPrefs with _$VerificationPrefs {
     @Default('app.bsky.actor.defs#verificationPrefs') String $type,
 
     /// Hide the blue check badges for verified accounts and trusted verifiers.
-    bool? hideBadges,
+    @Default(false) bool hideBadges,
 
     Map<String, dynamic>? $unknown,
   }) = _VerificationPrefs;

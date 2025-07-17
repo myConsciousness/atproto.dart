@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UnspeccedGetTrendsInput {
 
- int? get limit; Map<String, dynamic>? get $unknown;
+ int get limit; Map<String, dynamic>? get $unknown;
 /// Create a copy of UnspeccedGetTrendsInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $UnspeccedGetTrendsInputCopyWith<$Res>  {
   factory $UnspeccedGetTrendsInputCopyWith(UnspeccedGetTrendsInput value, $Res Function(UnspeccedGetTrendsInput) _then) = _$UnspeccedGetTrendsInputCopyWithImpl;
 @useResult
 $Res call({
- int? limit, Map<String, dynamic>? $unknown
+ int limit, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,10 +65,10 @@ class _$UnspeccedGetTrendsInputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetTrendsInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? limit = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? limit = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
-limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -154,7 +154,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? limit,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int limit,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedGetTrendsInput() when $default != null:
 return $default(_that.limit,_that.$unknown);case _:
@@ -175,7 +175,7 @@ return $default(_that.limit,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? limit,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int limit,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetTrendsInput():
 return $default(_that.limit,_that.$unknown);case _:
@@ -195,7 +195,7 @@ return $default(_that.limit,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? limit,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int limit,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetTrendsInput() when $default != null:
 return $default(_that.limit,_that.$unknown);case _:
@@ -210,10 +210,10 @@ return $default(_that.limit,_that.$unknown);case _:
 @JsonSerializable()
 
 class _UnspeccedGetTrendsInput implements UnspeccedGetTrendsInput {
-  const _UnspeccedGetTrendsInput({this.limit, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _UnspeccedGetTrendsInput({this.limit = 10, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedGetTrendsInput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetTrendsInputFromJson(json);
 
-@override final  int? limit;
+@override@JsonKey() final  int limit;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -257,7 +257,7 @@ abstract mixin class _$UnspeccedGetTrendsInputCopyWith<$Res> implements $Unspecc
   factory _$UnspeccedGetTrendsInputCopyWith(_UnspeccedGetTrendsInput value, $Res Function(_UnspeccedGetTrendsInput) _then) = __$UnspeccedGetTrendsInputCopyWithImpl;
 @override @useResult
 $Res call({
- int? limit, Map<String, dynamic>? $unknown
+ int limit, Map<String, dynamic>? $unknown
 });
 
 
@@ -274,10 +274,10 @@ class __$UnspeccedGetTrendsInputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetTrendsInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? limit = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? limit = null,Object? $unknown = freezed,}) {
   return _then(_UnspeccedGetTrendsInput(
-limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

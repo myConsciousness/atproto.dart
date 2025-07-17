@@ -15,8 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FeedGetAuthorFeedInput {
 
- String get actor; int? get limit; String? get cursor;/// Combinations of post/repost types to include in response.
-@FeedGetAuthorFeedFilterConverter() FeedGetAuthorFeedFilter? get filter; bool? get includePins; Map<String, dynamic>? get $unknown;
+ String get actor; int get limit; String? get cursor;/// Combinations of post/repost types to include in response.
+@FeedGetAuthorFeedFilterConverter() FeedGetAuthorFeedFilter? get filter; bool get includePins; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedGetAuthorFeedInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $FeedGetAuthorFeedInputCopyWith<$Res>  {
   factory $FeedGetAuthorFeedInputCopyWith(FeedGetAuthorFeedInput value, $Res Function(FeedGetAuthorFeedInput) _then) = _$FeedGetAuthorFeedInputCopyWithImpl;
 @useResult
 $Res call({
- String actor, int? limit, String? cursor,@FeedGetAuthorFeedFilterConverter() FeedGetAuthorFeedFilter? filter, bool? includePins, Map<String, dynamic>? $unknown
+ String actor, int limit, String? cursor,@FeedGetAuthorFeedFilterConverter() FeedGetAuthorFeedFilter? filter, bool includePins, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,14 +66,14 @@ class _$FeedGetAuthorFeedInputCopyWithImpl<$Res>
 
 /// Create a copy of FeedGetAuthorFeedInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? actor = null,Object? limit = freezed,Object? cursor = freezed,Object? filter = freezed,Object? includePins = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? actor = null,Object? limit = null,Object? cursor = freezed,Object? filter = freezed,Object? includePins = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 actor: null == actor ? _self.actor : actor // ignore: cast_nullable_to_non_nullable
-as String,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,filter: freezed == filter ? _self.filter : filter // ignore: cast_nullable_to_non_nullable
-as FeedGetAuthorFeedFilter?,includePins: freezed == includePins ? _self.includePins : includePins // ignore: cast_nullable_to_non_nullable
-as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as FeedGetAuthorFeedFilter?,includePins: null == includePins ? _self.includePins : includePins // ignore: cast_nullable_to_non_nullable
+as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -171,7 +171,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String actor,  int? limit,  String? cursor, @FeedGetAuthorFeedFilterConverter()  FeedGetAuthorFeedFilter? filter,  bool? includePins,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String actor,  int limit,  String? cursor, @FeedGetAuthorFeedFilterConverter()  FeedGetAuthorFeedFilter? filter,  bool includePins,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedGetAuthorFeedInput() when $default != null:
 return $default(_that.actor,_that.limit,_that.cursor,_that.filter,_that.includePins,_that.$unknown);case _:
@@ -192,7 +192,7 @@ return $default(_that.actor,_that.limit,_that.cursor,_that.filter,_that.includeP
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String actor,  int? limit,  String? cursor, @FeedGetAuthorFeedFilterConverter()  FeedGetAuthorFeedFilter? filter,  bool? includePins,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String actor,  int limit,  String? cursor, @FeedGetAuthorFeedFilterConverter()  FeedGetAuthorFeedFilter? filter,  bool includePins,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetAuthorFeedInput():
 return $default(_that.actor,_that.limit,_that.cursor,_that.filter,_that.includePins,_that.$unknown);case _:
@@ -212,7 +212,7 @@ return $default(_that.actor,_that.limit,_that.cursor,_that.filter,_that.includeP
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String actor,  int? limit,  String? cursor, @FeedGetAuthorFeedFilterConverter()  FeedGetAuthorFeedFilter? filter,  bool? includePins,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String actor,  int limit,  String? cursor, @FeedGetAuthorFeedFilterConverter()  FeedGetAuthorFeedFilter? filter,  bool includePins,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetAuthorFeedInput() when $default != null:
 return $default(_that.actor,_that.limit,_that.cursor,_that.filter,_that.includePins,_that.$unknown);case _:
@@ -227,15 +227,15 @@ return $default(_that.actor,_that.limit,_that.cursor,_that.filter,_that.includeP
 @JsonSerializable()
 
 class _FeedGetAuthorFeedInput implements FeedGetAuthorFeedInput {
-  const _FeedGetAuthorFeedInput({required this.actor, this.limit, this.cursor, @FeedGetAuthorFeedFilterConverter() this.filter, this.includePins, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FeedGetAuthorFeedInput({required this.actor, this.limit = 50, this.cursor, @FeedGetAuthorFeedFilterConverter() this.filter, this.includePins = false, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetAuthorFeedInput.fromJson(Map<String, dynamic> json) => _$FeedGetAuthorFeedInputFromJson(json);
 
 @override final  String actor;
-@override final  int? limit;
+@override@JsonKey() final  int limit;
 @override final  String? cursor;
 /// Combinations of post/repost types to include in response.
 @override@FeedGetAuthorFeedFilterConverter() final  FeedGetAuthorFeedFilter? filter;
-@override final  bool? includePins;
+@override@JsonKey() final  bool includePins;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -279,7 +279,7 @@ abstract mixin class _$FeedGetAuthorFeedInputCopyWith<$Res> implements $FeedGetA
   factory _$FeedGetAuthorFeedInputCopyWith(_FeedGetAuthorFeedInput value, $Res Function(_FeedGetAuthorFeedInput) _then) = __$FeedGetAuthorFeedInputCopyWithImpl;
 @override @useResult
 $Res call({
- String actor, int? limit, String? cursor,@FeedGetAuthorFeedFilterConverter() FeedGetAuthorFeedFilter? filter, bool? includePins, Map<String, dynamic>? $unknown
+ String actor, int limit, String? cursor,@FeedGetAuthorFeedFilterConverter() FeedGetAuthorFeedFilter? filter, bool includePins, Map<String, dynamic>? $unknown
 });
 
 
@@ -296,14 +296,14 @@ class __$FeedGetAuthorFeedInputCopyWithImpl<$Res>
 
 /// Create a copy of FeedGetAuthorFeedInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? actor = null,Object? limit = freezed,Object? cursor = freezed,Object? filter = freezed,Object? includePins = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? actor = null,Object? limit = null,Object? cursor = freezed,Object? filter = freezed,Object? includePins = null,Object? $unknown = freezed,}) {
   return _then(_FeedGetAuthorFeedInput(
 actor: null == actor ? _self.actor : actor // ignore: cast_nullable_to_non_nullable
-as String,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,filter: freezed == filter ? _self.filter : filter // ignore: cast_nullable_to_non_nullable
-as FeedGetAuthorFeedFilter?,includePins: freezed == includePins ? _self.includePins : includePins // ignore: cast_nullable_to_non_nullable
-as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as FeedGetAuthorFeedFilter?,includePins: null == includePins ? _self.includePins : includePins // ignore: cast_nullable_to_non_nullable
+as bool,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

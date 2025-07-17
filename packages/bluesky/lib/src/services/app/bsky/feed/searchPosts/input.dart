@@ -67,7 +67,7 @@ abstract class FeedSearchPostsInput with _$FeedSearchPostsInput {
     /// Filter to posts with links (facet links or embeds) pointing to this URL. Server may apply URL normalization or fuzzy matching.
     @AtUriConverter() AtUri? url,
     List<String>? tag,
-    int? limit,
+    @Default(25) int limit,
 
     /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
     String? cursor,
@@ -96,8 +96,6 @@ extension FeedSearchPostsInputExtension on FeedSearchPostsInput {
   bool get hasNotDomain => !hasDomain;
   bool get hasUrl => url != null;
   bool get hasNotUrl => !hasUrl;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

@@ -28,7 +28,7 @@ abstract class SyncListBlobsInput with _$SyncListBlobsInput {
 
     /// Optional revision of the repo to list blobs since.
     String? since,
-    int? limit,
+    @Default(500) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -41,8 +41,6 @@ abstract class SyncListBlobsInput with _$SyncListBlobsInput {
 extension SyncListBlobsInputExtension on SyncListBlobsInput {
   bool get hasSince => since != null;
   bool get hasNotSince => !hasSince;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

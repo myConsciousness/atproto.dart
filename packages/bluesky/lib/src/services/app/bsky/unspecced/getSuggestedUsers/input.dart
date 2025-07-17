@@ -26,7 +26,7 @@ abstract class UnspeccedGetSuggestedUsersInput
   const factory UnspeccedGetSuggestedUsersInput({
     /// Category of users to get suggestions for.
     String? category,
-    int? limit,
+    @Default(25) int limit,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestedUsersInput;
@@ -39,8 +39,6 @@ extension UnspeccedGetSuggestedUsersInputExtension
     on UnspeccedGetSuggestedUsersInput {
   bool get hasCategory => category != null;
   bool get hasNotCategory => !hasCategory;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
 }
 
 final class UnspeccedGetSuggestedUsersInputConverter

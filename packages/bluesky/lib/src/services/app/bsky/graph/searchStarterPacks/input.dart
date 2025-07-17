@@ -26,7 +26,7 @@ abstract class GraphSearchStarterPacksInput
   const factory GraphSearchStarterPacksInput({
     /// Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
     required String q,
-    int? limit,
+    @Default(25) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -38,8 +38,6 @@ abstract class GraphSearchStarterPacksInput
 
 extension GraphSearchStarterPacksInputExtension
     on GraphSearchStarterPacksInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

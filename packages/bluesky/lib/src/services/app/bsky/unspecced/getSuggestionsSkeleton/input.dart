@@ -31,7 +31,7 @@ abstract class UnspeccedGetSuggestionsSkeletonInput
   const factory UnspeccedGetSuggestionsSkeletonInput({
     /// DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.
     String? viewer,
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     /// DID of the account to get suggestions relative to. If not provided, suggestions will be based on the viewer.
@@ -49,8 +49,6 @@ extension UnspeccedGetSuggestionsSkeletonInputExtension
     on UnspeccedGetSuggestionsSkeletonInput {
   bool get hasViewer => viewer != null;
   bool get hasNotViewer => !hasViewer;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
   bool get hasRelativeToDid => relativeToDid != null;

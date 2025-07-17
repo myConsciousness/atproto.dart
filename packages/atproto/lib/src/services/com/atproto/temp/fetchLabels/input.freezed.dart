@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TempFetchLabelsInput {
 
- int? get since; int? get limit; Map<String, dynamic>? get $unknown;
+ int? get since; int get limit; Map<String, dynamic>? get $unknown;
 /// Create a copy of TempFetchLabelsInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $TempFetchLabelsInputCopyWith<$Res>  {
   factory $TempFetchLabelsInputCopyWith(TempFetchLabelsInput value, $Res Function(TempFetchLabelsInput) _then) = _$TempFetchLabelsInputCopyWithImpl;
 @useResult
 $Res call({
- int? since, int? limit, Map<String, dynamic>? $unknown
+ int? since, int limit, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,11 +65,11 @@ class _$TempFetchLabelsInputCopyWithImpl<$Res>
 
 /// Create a copy of TempFetchLabelsInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? since = freezed,Object? limit = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? since = freezed,Object? limit = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 since: freezed == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
-as int?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as int?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? since,  int? limit,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? since,  int limit,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TempFetchLabelsInput() when $default != null:
 return $default(_that.since,_that.limit,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.since,_that.limit,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? since,  int? limit,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? since,  int limit,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _TempFetchLabelsInput():
 return $default(_that.since,_that.limit,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.since,_that.limit,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? since,  int? limit,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? since,  int limit,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _TempFetchLabelsInput() when $default != null:
 return $default(_that.since,_that.limit,_that.$unknown);case _:
@@ -211,11 +211,11 @@ return $default(_that.since,_that.limit,_that.$unknown);case _:
 @JsonSerializable()
 
 class _TempFetchLabelsInput implements TempFetchLabelsInput {
-  const _TempFetchLabelsInput({this.since, this.limit, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _TempFetchLabelsInput({this.since, this.limit = 50, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _TempFetchLabelsInput.fromJson(Map<String, dynamic> json) => _$TempFetchLabelsInputFromJson(json);
 
 @override final  int? since;
-@override final  int? limit;
+@override@JsonKey() final  int limit;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,7 +259,7 @@ abstract mixin class _$TempFetchLabelsInputCopyWith<$Res> implements $TempFetchL
   factory _$TempFetchLabelsInputCopyWith(_TempFetchLabelsInput value, $Res Function(_TempFetchLabelsInput) _then) = __$TempFetchLabelsInputCopyWithImpl;
 @override @useResult
 $Res call({
- int? since, int? limit, Map<String, dynamic>? $unknown
+ int? since, int limit, Map<String, dynamic>? $unknown
 });
 
 
@@ -276,11 +276,11 @@ class __$TempFetchLabelsInputCopyWithImpl<$Res>
 
 /// Create a copy of TempFetchLabelsInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? since = freezed,Object? limit = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? since = freezed,Object? limit = null,Object? $unknown = freezed,}) {
   return _then(_TempFetchLabelsInput(
 since: freezed == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
-as int?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as int?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

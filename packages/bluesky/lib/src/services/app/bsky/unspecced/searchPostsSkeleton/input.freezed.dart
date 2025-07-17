@@ -25,7 +25,7 @@ mixin _$UnspeccedSearchPostsSkeletonInput {
  String? get lang;/// Filter to posts with URLs (facet links or embeds) linking to the given domain (hostname). Server may apply hostname normalization.
  String? get domain;/// Filter to posts with links (facet links or embeds) pointing to this URL. Server may apply URL normalization or fuzzy matching.
 @AtUriConverter() AtUri? get url; List<String>? get tag;/// DID of the account making the request (not included for public/unauthenticated queries). Used for 'from:me' queries.
- String? get viewer; int? get limit;/// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
+ String? get viewer; int get limit;/// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
  String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of UnspeccedSearchPostsSkeletonInput
 /// with the given fields replaced by the non-null parameter values.
@@ -59,7 +59,7 @@ abstract mixin class $UnspeccedSearchPostsSkeletonInputCopyWith<$Res>  {
   factory $UnspeccedSearchPostsSkeletonInputCopyWith(UnspeccedSearchPostsSkeletonInput value, $Res Function(UnspeccedSearchPostsSkeletonInput) _then) = _$UnspeccedSearchPostsSkeletonInputCopyWithImpl;
 @useResult
 $Res call({
- String q,@UnspeccedSearchPostsSkeletonSortConverter() UnspeccedSearchPostsSkeletonSort? sort, String? since, String? until, String? mentions, String? author, String? lang, String? domain,@AtUriConverter() AtUri? url, List<String>? tag, String? viewer, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String q,@UnspeccedSearchPostsSkeletonSortConverter() UnspeccedSearchPostsSkeletonSort? sort, String? since, String? until, String? mentions, String? author, String? lang, String? domain,@AtUriConverter() AtUri? url, List<String>? tag, String? viewer, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -76,7 +76,7 @@ class _$UnspeccedSearchPostsSkeletonInputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedSearchPostsSkeletonInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? q = null,Object? sort = freezed,Object? since = freezed,Object? until = freezed,Object? mentions = freezed,Object? author = freezed,Object? lang = freezed,Object? domain = freezed,Object? url = freezed,Object? tag = freezed,Object? viewer = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? q = null,Object? sort = freezed,Object? since = freezed,Object? until = freezed,Object? mentions = freezed,Object? author = freezed,Object? lang = freezed,Object? domain = freezed,Object? url = freezed,Object? tag = freezed,Object? viewer = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 q: null == q ? _self.q : q // ignore: cast_nullable_to_non_nullable
 as String,sort: freezed == sort ? _self.sort : sort // ignore: cast_nullable_to_non_nullable
@@ -89,8 +89,8 @@ as String?,domain: freezed == domain ? _self.domain : domain // ignore: cast_nul
 as String?,url: freezed == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as AtUri?,tag: freezed == tag ? _self.tag : tag // ignore: cast_nullable_to_non_nullable
 as List<String>?,viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -189,7 +189,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String q, @UnspeccedSearchPostsSkeletonSortConverter()  UnspeccedSearchPostsSkeletonSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  String? viewer,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String q, @UnspeccedSearchPostsSkeletonSortConverter()  UnspeccedSearchPostsSkeletonSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  String? viewer,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedSearchPostsSkeletonInput() when $default != null:
 return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.author,_that.lang,_that.domain,_that.url,_that.tag,_that.viewer,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -210,7 +210,7 @@ return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String q, @UnspeccedSearchPostsSkeletonSortConverter()  UnspeccedSearchPostsSkeletonSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  String? viewer,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String q, @UnspeccedSearchPostsSkeletonSortConverter()  UnspeccedSearchPostsSkeletonSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  String? viewer,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedSearchPostsSkeletonInput():
 return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.author,_that.lang,_that.domain,_that.url,_that.tag,_that.viewer,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -230,7 +230,7 @@ return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String q, @UnspeccedSearchPostsSkeletonSortConverter()  UnspeccedSearchPostsSkeletonSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  String? viewer,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String q, @UnspeccedSearchPostsSkeletonSortConverter()  UnspeccedSearchPostsSkeletonSort? sort,  String? since,  String? until,  String? mentions,  String? author,  String? lang,  String? domain, @AtUriConverter()  AtUri? url,  List<String>? tag,  String? viewer,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedSearchPostsSkeletonInput() when $default != null:
 return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.author,_that.lang,_that.domain,_that.url,_that.tag,_that.viewer,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -245,7 +245,7 @@ return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.
 @JsonSerializable()
 
 class _UnspeccedSearchPostsSkeletonInput implements UnspeccedSearchPostsSkeletonInput {
-  const _UnspeccedSearchPostsSkeletonInput({required this.q, @UnspeccedSearchPostsSkeletonSortConverter() this.sort, this.since, this.until, this.mentions, this.author, this.lang, this.domain, @AtUriConverter() this.url, final  List<String>? tag, this.viewer, this.limit, this.cursor, final  Map<String, dynamic>? $unknown}): _tag = tag,_$unknown = $unknown;
+  const _UnspeccedSearchPostsSkeletonInput({required this.q, @UnspeccedSearchPostsSkeletonSortConverter() this.sort, this.since, this.until, this.mentions, this.author, this.lang, this.domain, @AtUriConverter() this.url, final  List<String>? tag, this.viewer, this.limit = 25, this.cursor, final  Map<String, dynamic>? $unknown}): _tag = tag,_$unknown = $unknown;
   factory _UnspeccedSearchPostsSkeletonInput.fromJson(Map<String, dynamic> json) => _$UnspeccedSearchPostsSkeletonInputFromJson(json);
 
 /// Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
@@ -277,7 +277,7 @@ class _UnspeccedSearchPostsSkeletonInput implements UnspeccedSearchPostsSkeleton
 
 /// DID of the account making the request (not included for public/unauthenticated queries). Used for 'from:me' queries.
 @override final  String? viewer;
-@override final  int? limit;
+@override@JsonKey() final  int limit;
 /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
 @override final  String? cursor;
  final  Map<String, dynamic>? _$unknown;
@@ -323,7 +323,7 @@ abstract mixin class _$UnspeccedSearchPostsSkeletonInputCopyWith<$Res> implement
   factory _$UnspeccedSearchPostsSkeletonInputCopyWith(_UnspeccedSearchPostsSkeletonInput value, $Res Function(_UnspeccedSearchPostsSkeletonInput) _then) = __$UnspeccedSearchPostsSkeletonInputCopyWithImpl;
 @override @useResult
 $Res call({
- String q,@UnspeccedSearchPostsSkeletonSortConverter() UnspeccedSearchPostsSkeletonSort? sort, String? since, String? until, String? mentions, String? author, String? lang, String? domain,@AtUriConverter() AtUri? url, List<String>? tag, String? viewer, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String q,@UnspeccedSearchPostsSkeletonSortConverter() UnspeccedSearchPostsSkeletonSort? sort, String? since, String? until, String? mentions, String? author, String? lang, String? domain,@AtUriConverter() AtUri? url, List<String>? tag, String? viewer, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -340,7 +340,7 @@ class __$UnspeccedSearchPostsSkeletonInputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedSearchPostsSkeletonInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? q = null,Object? sort = freezed,Object? since = freezed,Object? until = freezed,Object? mentions = freezed,Object? author = freezed,Object? lang = freezed,Object? domain = freezed,Object? url = freezed,Object? tag = freezed,Object? viewer = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? q = null,Object? sort = freezed,Object? since = freezed,Object? until = freezed,Object? mentions = freezed,Object? author = freezed,Object? lang = freezed,Object? domain = freezed,Object? url = freezed,Object? tag = freezed,Object? viewer = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_UnspeccedSearchPostsSkeletonInput(
 q: null == q ? _self.q : q // ignore: cast_nullable_to_non_nullable
 as String,sort: freezed == sort ? _self.sort : sort // ignore: cast_nullable_to_non_nullable
@@ -353,8 +353,8 @@ as String?,domain: freezed == domain ? _self.domain : domain // ignore: cast_nul
 as String?,url: freezed == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as AtUri?,tag: freezed == tag ? _self._tag : tag // ignore: cast_nullable_to_non_nullable
 as List<String>?,viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

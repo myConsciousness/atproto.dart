@@ -38,7 +38,7 @@ abstract class UnspeccedSearchActorsSkeletonInput
 
     /// If true, acts as fast/simple 'typeahead' query.
     bool? typeahead,
-    int? limit,
+    @Default(25) int limit,
 
     /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
     String? cursor,
@@ -57,8 +57,6 @@ extension UnspeccedSearchActorsSkeletonInputExtension
   bool get hasNotViewer => !hasViewer;
   bool get isTypeahead => typeahead ?? false;
   bool get isNotTypeahead => !isTypeahead;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

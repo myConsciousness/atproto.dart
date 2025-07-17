@@ -15,7 +15,7 @@ _VerificationPrefs _$VerificationPrefsFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.actor.defs#verificationPrefs',
         ),
-        hideBadges: $checkedConvert('hideBadges', (v) => v as bool?),
+        hideBadges: $checkedConvert('hideBadges', (v) => v as bool? ?? false),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),

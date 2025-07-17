@@ -28,7 +28,7 @@ abstract class FeedGetLikesInput with _$FeedGetLikesInput {
 
     /// CID of the subject record (aka, specific version of record), to filter likes.
     String? cid,
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -41,8 +41,6 @@ abstract class FeedGetLikesInput with _$FeedGetLikesInput {
 extension FeedGetLikesInputExtension on FeedGetLikesInput {
   bool get hasCid => cid != null;
   bool get hasNotCid => !hasCid;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

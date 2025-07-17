@@ -24,10 +24,10 @@ abstract class ServerGetAccountInviteCodesInput
   static const knownProps = <String>['includeUsed', 'createAvailable'];
 
   const factory ServerGetAccountInviteCodesInput({
-    bool? includeUsed,
+    @Default(true) bool includeUsed,
 
     /// Controls whether any new 'earned' but not 'created' invites should be created.
-    bool? createAvailable,
+    @Default(true) bool createAvailable,
 
     Map<String, dynamic>? $unknown,
   }) = _ServerGetAccountInviteCodesInput;
@@ -39,9 +39,9 @@ abstract class ServerGetAccountInviteCodesInput
 
 extension ServerGetAccountInviteCodesInputExtension
     on ServerGetAccountInviteCodesInput {
-  bool get isIncludeUsed => includeUsed ?? false;
+  bool get isIncludeUsed => includeUsed ?? true;
   bool get isNotIncludeUsed => !isIncludeUsed;
-  bool get isCreateAvailable => createAvailable ?? false;
+  bool get isCreateAvailable => createAvailable ?? true;
   bool get isNotCreateAvailable => !isCreateAvailable;
 }
 

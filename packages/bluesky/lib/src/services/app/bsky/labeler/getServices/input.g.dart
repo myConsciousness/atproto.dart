@@ -15,7 +15,7 @@ _LabelerGetServicesInput _$LabelerGetServicesInputFromJson(Map json) =>
           'dids',
           (v) => (v as List<dynamic>).map((e) => e as String).toList(),
         ),
-        detailed: $checkedConvert('detailed', (v) => v as bool?),
+        detailed: $checkedConvert('detailed', (v) => v as bool? ?? false),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),

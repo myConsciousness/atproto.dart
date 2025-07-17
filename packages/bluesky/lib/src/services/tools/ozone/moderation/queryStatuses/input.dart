@@ -120,15 +120,15 @@ abstract class ModerationQueryStatusesInput
 
     /// Get all subject statuses that were reviewed by a specific moderator
     String? lastReviewedBy,
-    String? sortField,
-    String? sortDirection,
+    @Default('lastReportedAt') String sortField,
+    @Default('desc') String sortDirection,
 
     /// Get subjects that were taken down
     bool? takendown,
 
     /// Get subjects in unresolved appealed status
     bool? appealed,
-    int? limit,
+    @Default(50) int limit,
 
     /// Items in this array are applied with OR filters. To apply AND filter, put all tags in the same string and separate using && characters
     List<String>? tags,
@@ -201,16 +201,10 @@ extension ModerationQueryStatusesInputExtension
   bool get hasNotReviewState => !hasReviewState;
   bool get hasLastReviewedBy => lastReviewedBy != null;
   bool get hasNotLastReviewedBy => !hasLastReviewedBy;
-  bool get hasSortField => sortField != null;
-  bool get hasNotSortField => !hasSortField;
-  bool get hasSortDirection => sortDirection != null;
-  bool get hasNotSortDirection => !hasSortDirection;
   bool get isTakendown => takendown ?? false;
   bool get isNotTakendown => !isTakendown;
   bool get isAppealed => appealed ?? false;
   bool get isNotAppealed => !isAppealed;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
   bool get hasSubjectType => subjectType != null;

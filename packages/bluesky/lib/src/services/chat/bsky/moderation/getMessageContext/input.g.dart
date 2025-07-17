@@ -16,8 +16,8 @@ _ModerationGetMessageContextInput _$ModerationGetMessageContextInputFromJson(
   final val = _ModerationGetMessageContextInput(
     convoId: $checkedConvert('convoId', (v) => v as String?),
     messageId: $checkedConvert('messageId', (v) => v as String),
-    before: $checkedConvert('before', (v) => (v as num?)?.toInt()),
-    after: $checkedConvert('after', (v) => (v as num?)?.toInt()),
+    before: $checkedConvert('before', (v) => (v as num?)?.toInt() ?? 5),
+    after: $checkedConvert('after', (v) => (v as num?)?.toInt() ?? 5),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),

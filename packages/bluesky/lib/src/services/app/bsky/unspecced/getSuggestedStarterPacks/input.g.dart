@@ -14,7 +14,7 @@ _$UnspeccedGetSuggestedStarterPacksInputFromJson(Map json) => $checkedCreate(
   json,
   ($checkedConvert) {
     final val = _UnspeccedGetSuggestedStarterPacksInput(
-      limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+      limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 10),
       $unknown: $checkedConvert(
         r'$unknown',
         (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),

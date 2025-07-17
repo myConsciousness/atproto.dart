@@ -15,8 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SetQuerySetsInput {
 
- int? get limit; String? get cursor; String? get namePrefix; String? get sortBy;/// Defaults to ascending order of name field.
- String? get sortDirection; Map<String, dynamic>? get $unknown;
+ int get limit; String? get cursor; String? get namePrefix; String get sortBy;/// Defaults to ascending order of name field.
+ String get sortDirection; Map<String, dynamic>? get $unknown;
 /// Create a copy of SetQuerySetsInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $SetQuerySetsInputCopyWith<$Res>  {
   factory $SetQuerySetsInputCopyWith(SetQuerySetsInput value, $Res Function(SetQuerySetsInput) _then) = _$SetQuerySetsInputCopyWithImpl;
 @useResult
 $Res call({
- int? limit, String? cursor, String? namePrefix, String? sortBy, String? sortDirection, Map<String, dynamic>? $unknown
+ int limit, String? cursor, String? namePrefix, String sortBy, String sortDirection, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,14 +66,14 @@ class _$SetQuerySetsInputCopyWithImpl<$Res>
 
 /// Create a copy of SetQuerySetsInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? limit = freezed,Object? cursor = freezed,Object? namePrefix = freezed,Object? sortBy = freezed,Object? sortDirection = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? limit = null,Object? cursor = freezed,Object? namePrefix = freezed,Object? sortBy = null,Object? sortDirection = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
-limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,namePrefix: freezed == namePrefix ? _self.namePrefix : namePrefix // ignore: cast_nullable_to_non_nullable
-as String?,sortBy: freezed == sortBy ? _self.sortBy : sortBy // ignore: cast_nullable_to_non_nullable
-as String?,sortDirection: freezed == sortDirection ? _self.sortDirection : sortDirection // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,sortBy: null == sortBy ? _self.sortBy : sortBy // ignore: cast_nullable_to_non_nullable
+as String,sortDirection: null == sortDirection ? _self.sortDirection : sortDirection // ignore: cast_nullable_to_non_nullable
+as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -159,7 +159,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? limit,  String? cursor,  String? namePrefix,  String? sortBy,  String? sortDirection,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int limit,  String? cursor,  String? namePrefix,  String sortBy,  String sortDirection,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SetQuerySetsInput() when $default != null:
 return $default(_that.limit,_that.cursor,_that.namePrefix,_that.sortBy,_that.sortDirection,_that.$unknown);case _:
@@ -180,7 +180,7 @@ return $default(_that.limit,_that.cursor,_that.namePrefix,_that.sortBy,_that.sor
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? limit,  String? cursor,  String? namePrefix,  String? sortBy,  String? sortDirection,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int limit,  String? cursor,  String? namePrefix,  String sortBy,  String sortDirection,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SetQuerySetsInput():
 return $default(_that.limit,_that.cursor,_that.namePrefix,_that.sortBy,_that.sortDirection,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.limit,_that.cursor,_that.namePrefix,_that.sortBy,_that.sor
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? limit,  String? cursor,  String? namePrefix,  String? sortBy,  String? sortDirection,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int limit,  String? cursor,  String? namePrefix,  String sortBy,  String sortDirection,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SetQuerySetsInput() when $default != null:
 return $default(_that.limit,_that.cursor,_that.namePrefix,_that.sortBy,_that.sortDirection,_that.$unknown);case _:
@@ -215,15 +215,15 @@ return $default(_that.limit,_that.cursor,_that.namePrefix,_that.sortBy,_that.sor
 @JsonSerializable()
 
 class _SetQuerySetsInput implements SetQuerySetsInput {
-  const _SetQuerySetsInput({this.limit, this.cursor, this.namePrefix, this.sortBy, this.sortDirection, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SetQuerySetsInput({this.limit = 50, this.cursor, this.namePrefix, this.sortBy = 'name', this.sortDirection = 'asc', final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SetQuerySetsInput.fromJson(Map<String, dynamic> json) => _$SetQuerySetsInputFromJson(json);
 
-@override final  int? limit;
+@override@JsonKey() final  int limit;
 @override final  String? cursor;
 @override final  String? namePrefix;
-@override final  String? sortBy;
+@override@JsonKey() final  String sortBy;
 /// Defaults to ascending order of name field.
-@override final  String? sortDirection;
+@override@JsonKey() final  String sortDirection;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -267,7 +267,7 @@ abstract mixin class _$SetQuerySetsInputCopyWith<$Res> implements $SetQuerySetsI
   factory _$SetQuerySetsInputCopyWith(_SetQuerySetsInput value, $Res Function(_SetQuerySetsInput) _then) = __$SetQuerySetsInputCopyWithImpl;
 @override @useResult
 $Res call({
- int? limit, String? cursor, String? namePrefix, String? sortBy, String? sortDirection, Map<String, dynamic>? $unknown
+ int limit, String? cursor, String? namePrefix, String sortBy, String sortDirection, Map<String, dynamic>? $unknown
 });
 
 
@@ -284,14 +284,14 @@ class __$SetQuerySetsInputCopyWithImpl<$Res>
 
 /// Create a copy of SetQuerySetsInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? limit = freezed,Object? cursor = freezed,Object? namePrefix = freezed,Object? sortBy = freezed,Object? sortDirection = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? limit = null,Object? cursor = freezed,Object? namePrefix = freezed,Object? sortBy = null,Object? sortDirection = null,Object? $unknown = freezed,}) {
   return _then(_SetQuerySetsInput(
-limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,namePrefix: freezed == namePrefix ? _self.namePrefix : namePrefix // ignore: cast_nullable_to_non_nullable
-as String?,sortBy: freezed == sortBy ? _self.sortBy : sortBy // ignore: cast_nullable_to_non_nullable
-as String?,sortDirection: freezed == sortDirection ? _self.sortDirection : sortDirection // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,sortBy: null == sortBy ? _self.sortBy : sortBy // ignore: cast_nullable_to_non_nullable
+as String,sortDirection: null == sortDirection ? _self.sortDirection : sortDirection // ignore: cast_nullable_to_non_nullable
+as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

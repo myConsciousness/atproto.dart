@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ConvoGetMessagesInput {
 
- String get convoId; int? get limit; String? get cursor; Map<String, dynamic>? get $unknown;
+ String get convoId; int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of ConvoGetMessagesInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ConvoGetMessagesInputCopyWith<$Res>  {
   factory $ConvoGetMessagesInputCopyWith(ConvoGetMessagesInput value, $Res Function(ConvoGetMessagesInput) _then) = _$ConvoGetMessagesInputCopyWithImpl;
 @useResult
 $Res call({
- String convoId, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String convoId, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,11 +65,11 @@ class _$ConvoGetMessagesInputCopyWithImpl<$Res>
 
 /// Create a copy of ConvoGetMessagesInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? convoId = null,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? convoId = null,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 convoId: null == convoId ? _self.convoId : convoId // ignore: cast_nullable_to_non_nullable
-as String,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String convoId,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String convoId,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ConvoGetMessagesInput() when $default != null:
 return $default(_that.convoId,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.convoId,_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String convoId,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String convoId,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ConvoGetMessagesInput():
 return $default(_that.convoId,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.convoId,_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String convoId,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String convoId,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ConvoGetMessagesInput() when $default != null:
 return $default(_that.convoId,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -212,11 +212,11 @@ return $default(_that.convoId,_that.limit,_that.cursor,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ConvoGetMessagesInput implements ConvoGetMessagesInput {
-  const _ConvoGetMessagesInput({required this.convoId, this.limit, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ConvoGetMessagesInput({required this.convoId, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoGetMessagesInput.fromJson(Map<String, dynamic> json) => _$ConvoGetMessagesInputFromJson(json);
 
 @override final  String convoId;
-@override final  int? limit;
+@override@JsonKey() final  int limit;
 @override final  String? cursor;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -261,7 +261,7 @@ abstract mixin class _$ConvoGetMessagesInputCopyWith<$Res> implements $ConvoGetM
   factory _$ConvoGetMessagesInputCopyWith(_ConvoGetMessagesInput value, $Res Function(_ConvoGetMessagesInput) _then) = __$ConvoGetMessagesInputCopyWithImpl;
 @override @useResult
 $Res call({
- String convoId, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String convoId, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -278,11 +278,11 @@ class __$ConvoGetMessagesInputCopyWithImpl<$Res>
 
 /// Create a copy of ConvoGetMessagesInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? convoId = null,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? convoId = null,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_ConvoGetMessagesInput(
 convoId: null == convoId ? _self.convoId : convoId // ignore: cast_nullable_to_non_nullable
-as String,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

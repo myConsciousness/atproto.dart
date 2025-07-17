@@ -23,7 +23,7 @@ abstract class RepoListMissingBlobsInput with _$RepoListMissingBlobsInput {
   static const knownProps = <String>['limit', 'cursor'];
 
   const factory RepoListMissingBlobsInput({
-    int? limit,
+    @Default(500) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -34,8 +34,6 @@ abstract class RepoListMissingBlobsInput with _$RepoListMissingBlobsInput {
 }
 
 extension RepoListMissingBlobsInputExtension on RepoListMissingBlobsInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

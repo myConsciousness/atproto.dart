@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LabelQueryLabelsInput {
 
- List<String> get uriPatterns; List<String>? get sources; int? get limit; String? get cursor; Map<String, dynamic>? get $unknown;
+ List<String> get uriPatterns; List<String>? get sources; int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of LabelQueryLabelsInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $LabelQueryLabelsInputCopyWith<$Res>  {
   factory $LabelQueryLabelsInputCopyWith(LabelQueryLabelsInput value, $Res Function(LabelQueryLabelsInput) _then) = _$LabelQueryLabelsInputCopyWithImpl;
 @useResult
 $Res call({
- List<String> uriPatterns, List<String>? sources, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ List<String> uriPatterns, List<String>? sources, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,12 +65,12 @@ class _$LabelQueryLabelsInputCopyWithImpl<$Res>
 
 /// Create a copy of LabelQueryLabelsInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? uriPatterns = null,Object? sources = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? uriPatterns = null,Object? sources = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 uriPatterns: null == uriPatterns ? _self.uriPatterns : uriPatterns // ignore: cast_nullable_to_non_nullable
 as List<String>,sources: freezed == sources ? _self.sources : sources // ignore: cast_nullable_to_non_nullable
-as List<String>?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as List<String>?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -157,7 +157,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> uriPatterns,  List<String>? sources,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> uriPatterns,  List<String>? sources,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LabelQueryLabelsInput() when $default != null:
 return $default(_that.uriPatterns,_that.sources,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -178,7 +178,7 @@ return $default(_that.uriPatterns,_that.sources,_that.limit,_that.cursor,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> uriPatterns,  List<String>? sources,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> uriPatterns,  List<String>? sources,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _LabelQueryLabelsInput():
 return $default(_that.uriPatterns,_that.sources,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -198,7 +198,7 @@ return $default(_that.uriPatterns,_that.sources,_that.limit,_that.cursor,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> uriPatterns,  List<String>? sources,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> uriPatterns,  List<String>? sources,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _LabelQueryLabelsInput() when $default != null:
 return $default(_that.uriPatterns,_that.sources,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -213,7 +213,7 @@ return $default(_that.uriPatterns,_that.sources,_that.limit,_that.cursor,_that.$
 @JsonSerializable()
 
 class _LabelQueryLabelsInput implements LabelQueryLabelsInput {
-  const _LabelQueryLabelsInput({required final  List<String> uriPatterns, final  List<String>? sources, this.limit, this.cursor, final  Map<String, dynamic>? $unknown}): _uriPatterns = uriPatterns,_sources = sources,_$unknown = $unknown;
+  const _LabelQueryLabelsInput({required final  List<String> uriPatterns, final  List<String>? sources, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _uriPatterns = uriPatterns,_sources = sources,_$unknown = $unknown;
   factory _LabelQueryLabelsInput.fromJson(Map<String, dynamic> json) => _$LabelQueryLabelsInputFromJson(json);
 
  final  List<String> _uriPatterns;
@@ -232,7 +232,7 @@ class _LabelQueryLabelsInput implements LabelQueryLabelsInput {
   return EqualUnmodifiableListView(value);
 }
 
-@override final  int? limit;
+@override@JsonKey() final  int limit;
 @override final  String? cursor;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -277,7 +277,7 @@ abstract mixin class _$LabelQueryLabelsInputCopyWith<$Res> implements $LabelQuer
   factory _$LabelQueryLabelsInputCopyWith(_LabelQueryLabelsInput value, $Res Function(_LabelQueryLabelsInput) _then) = __$LabelQueryLabelsInputCopyWithImpl;
 @override @useResult
 $Res call({
- List<String> uriPatterns, List<String>? sources, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ List<String> uriPatterns, List<String>? sources, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -294,12 +294,12 @@ class __$LabelQueryLabelsInputCopyWithImpl<$Res>
 
 /// Create a copy of LabelQueryLabelsInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? uriPatterns = null,Object? sources = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? uriPatterns = null,Object? sources = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_LabelQueryLabelsInput(
 uriPatterns: null == uriPatterns ? _self._uriPatterns : uriPatterns // ignore: cast_nullable_to_non_nullable
 as List<String>,sources: freezed == sources ? _self._sources : sources // ignore: cast_nullable_to_non_nullable
-as List<String>?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as List<String>?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

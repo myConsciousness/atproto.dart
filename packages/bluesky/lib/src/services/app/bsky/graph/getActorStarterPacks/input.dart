@@ -25,7 +25,7 @@ abstract class GraphGetActorStarterPacksInput
 
   const factory GraphGetActorStarterPacksInput({
     required String actor,
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -37,8 +37,6 @@ abstract class GraphGetActorStarterPacksInput
 
 extension GraphGetActorStarterPacksInputExtension
     on GraphGetActorStarterPacksInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

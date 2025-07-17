@@ -13,7 +13,7 @@ _UnspeccedGetSuggestedFeedsInput _$UnspeccedGetSuggestedFeedsInputFromJson(
 ) =>
     $checkedCreate('_UnspeccedGetSuggestedFeedsInput', json, ($checkedConvert) {
       final val = _UnspeccedGetSuggestedFeedsInput(
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 10),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),

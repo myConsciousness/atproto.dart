@@ -13,7 +13,7 @@ _RepoListRecordsInput _$RepoListRecordsInputFromJson(Map json) =>
       final val = _RepoListRecordsInput(
         repo: $checkedConvert('repo', (v) => v as String),
         collection: $checkedConvert('collection', (v) => v as String),
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         reverse: $checkedConvert('reverse', (v) => v as bool?),
         $unknown: $checkedConvert(

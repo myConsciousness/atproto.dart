@@ -12,7 +12,7 @@ _TempFetchLabelsInput _$TempFetchLabelsInputFromJson(Map json) =>
     $checkedCreate('_TempFetchLabelsInput', json, ($checkedConvert) {
       final val = _TempFetchLabelsInput(
         since: $checkedConvert('since', (v) => (v as num?)?.toInt()),
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),

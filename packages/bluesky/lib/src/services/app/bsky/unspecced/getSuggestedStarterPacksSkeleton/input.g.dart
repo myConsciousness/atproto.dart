@@ -15,7 +15,7 @@ _$UnspeccedGetSuggestedStarterPacksSkeletonInputFromJson(Map json) =>
     ) {
       final val = _UnspeccedGetSuggestedStarterPacksSkeletonInput(
         viewer: $checkedConvert('viewer', (v) => v as String?),
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 10),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),

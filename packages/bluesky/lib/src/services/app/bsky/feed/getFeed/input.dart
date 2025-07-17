@@ -24,7 +24,7 @@ abstract class FeedGetFeedInput with _$FeedGetFeedInput {
 
   const factory FeedGetFeedInput({
     required String feed,
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -35,8 +35,6 @@ abstract class FeedGetFeedInput with _$FeedGetFeedInput {
 }
 
 extension FeedGetFeedInputExtension on FeedGetFeedInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

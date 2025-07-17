@@ -11,7 +11,7 @@ part of 'input.dart';
 _SettingListOptionsInput _$SettingListOptionsInputFromJson(Map json) =>
     $checkedCreate('_SettingListOptionsInput', json, ($checkedConvert) {
       final val = _SettingListOptionsInput(
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         scope: $checkedConvert(
           'scope',

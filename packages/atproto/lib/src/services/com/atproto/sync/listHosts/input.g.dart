@@ -11,7 +11,7 @@ part of 'input.dart';
 _SyncListHostsInput _$SyncListHostsInputFromJson(Map json) =>
     $checkedCreate('_SyncListHostsInput', json, ($checkedConvert) {
       final val = _SyncListHostsInput(
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 200),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',

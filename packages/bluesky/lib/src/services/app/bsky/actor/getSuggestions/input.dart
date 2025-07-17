@@ -23,7 +23,7 @@ abstract class ActorGetSuggestionsInput with _$ActorGetSuggestionsInput {
   static const knownProps = <String>['limit', 'cursor'];
 
   const factory ActorGetSuggestionsInput({
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -34,8 +34,6 @@ abstract class ActorGetSuggestionsInput with _$ActorGetSuggestionsInput {
 }
 
 extension ActorGetSuggestionsInputExtension on ActorGetSuggestionsInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

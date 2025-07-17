@@ -24,7 +24,7 @@ abstract class ServerCreateInviteCodesInput
   static const knownProps = <String>['codeCount', 'useCount', 'forAccounts'];
 
   const factory ServerCreateInviteCodesInput({
-    required int codeCount,
+    @Default(1) required int codeCount,
     required int useCount,
     List<String>? forAccounts,
 

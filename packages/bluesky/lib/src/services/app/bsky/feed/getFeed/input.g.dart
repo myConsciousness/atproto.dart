@@ -12,7 +12,7 @@ _FeedGetFeedInput _$FeedGetFeedInputFromJson(Map json) =>
     $checkedCreate('_FeedGetFeedInput', json, ($checkedConvert) {
       final val = _FeedGetFeedInput(
         feed: $checkedConvert('feed', (v) => v as String),
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',

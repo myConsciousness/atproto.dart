@@ -12,7 +12,7 @@ _FeedGetTimelineInput _$FeedGetTimelineInputFromJson(Map json) =>
     $checkedCreate('_FeedGetTimelineInput', json, ($checkedConvert) {
       final val = _FeedGetTimelineInput(
         algorithm: $checkedConvert('algorithm', (v) => v as String?),
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',

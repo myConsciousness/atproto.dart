@@ -23,18 +23,13 @@ abstract class UnspeccedGetTrendsInput with _$UnspeccedGetTrendsInput {
   static const knownProps = <String>['limit'];
 
   const factory UnspeccedGetTrendsInput({
-    int? limit,
+    @Default(10) int limit,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetTrendsInput;
 
   factory UnspeccedGetTrendsInput.fromJson(Map<String, Object?> json) =>
       _$UnspeccedGetTrendsInputFromJson(json);
-}
-
-extension UnspeccedGetTrendsInputExtension on UnspeccedGetTrendsInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
 }
 
 final class UnspeccedGetTrendsInputConverter

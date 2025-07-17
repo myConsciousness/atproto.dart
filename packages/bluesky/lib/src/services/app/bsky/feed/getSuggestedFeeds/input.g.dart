@@ -11,7 +11,7 @@ part of 'input.dart';
 _FeedGetSuggestedFeedsInput _$FeedGetSuggestedFeedsInputFromJson(Map json) =>
     $checkedCreate('_FeedGetSuggestedFeedsInput', json, ($checkedConvert) {
       final val = _FeedGetSuggestedFeedsInput(
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',

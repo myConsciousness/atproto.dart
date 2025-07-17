@@ -27,7 +27,7 @@ abstract class AdminGetInviteCodesInput with _$AdminGetInviteCodesInput {
 
   const factory AdminGetInviteCodesInput({
     @AdminGetInviteCodesSortConverter() AdminGetInviteCodesSort? sort,
-    int? limit,
+    @Default(100) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -40,8 +40,6 @@ abstract class AdminGetInviteCodesInput with _$AdminGetInviteCodesInput {
 extension AdminGetInviteCodesInputExtension on AdminGetInviteCodesInput {
   bool get hasSort => sort != null;
   bool get hasNotSort => !hasSort;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

@@ -73,11 +73,17 @@ _ModerationQueryStatusesInput _$ModerationQueryStatusesInputFromJson(
           .toList(),
     ),
     lastReviewedBy: $checkedConvert('lastReviewedBy', (v) => v as String?),
-    sortField: $checkedConvert('sortField', (v) => v as String?),
-    sortDirection: $checkedConvert('sortDirection', (v) => v as String?),
+    sortField: $checkedConvert(
+      'sortField',
+      (v) => v as String? ?? 'lastReportedAt',
+    ),
+    sortDirection: $checkedConvert(
+      'sortDirection',
+      (v) => v as String? ?? 'desc',
+    ),
     takendown: $checkedConvert('takendown', (v) => v as bool?),
     appealed: $checkedConvert('appealed', (v) => v as bool?),
-    limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+    limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
     tags: $checkedConvert(
       'tags',
       (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),

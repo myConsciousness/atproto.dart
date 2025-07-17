@@ -37,7 +37,7 @@ abstract class VerificationListVerificationsInput
     String? cursor,
 
     /// Maximum number of results to return
-    int? limit,
+    @Default(50) int limit,
 
     /// Filter to verifications created after this timestamp
     DateTime? createdAfter,
@@ -48,7 +48,7 @@ abstract class VerificationListVerificationsInput
     List<String>? subjects,
 
     /// Sort direction for creation date
-    String? sortDirection,
+    @Default('desc') String sortDirection,
 
     /// Filter to verifications that are revoked or not. By default, includes both.
     bool? isRevoked,
@@ -65,14 +65,10 @@ extension VerificationListVerificationsInputExtension
     on VerificationListVerificationsInput {
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCreatedAfter => createdAfter != null;
   bool get hasNotCreatedAfter => !hasCreatedAfter;
   bool get hasCreatedBefore => createdBefore != null;
   bool get hasNotCreatedBefore => !hasCreatedBefore;
-  bool get hasSortDirection => sortDirection != null;
-  bool get hasNotSortDirection => !hasSortDirection;
   bool get isIsRevoked => isRevoked ?? false;
   bool get isNotIsRevoked => !isIsRevoked;
 }

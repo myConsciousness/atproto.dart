@@ -13,7 +13,7 @@ _GraphSearchStarterPacksInput _$GraphSearchStarterPacksInputFromJson(
 ) => $checkedCreate('_GraphSearchStarterPacksInput', json, ($checkedConvert) {
   final val = _GraphSearchStarterPacksInput(
     q: $checkedConvert('q', (v) => v as String),
-    limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+    limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 25),
     cursor: $checkedConvert('cursor', (v) => v as String?),
     $unknown: $checkedConvert(
       r'$unknown',

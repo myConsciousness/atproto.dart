@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UnspeccedGetSuggestedStarterPacksInput {
 
- int? get limit; Map<String, dynamic>? get $unknown;
+ int get limit; Map<String, dynamic>? get $unknown;
 /// Create a copy of UnspeccedGetSuggestedStarterPacksInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $UnspeccedGetSuggestedStarterPacksInputCopyWith<$Res>  {
   factory $UnspeccedGetSuggestedStarterPacksInputCopyWith(UnspeccedGetSuggestedStarterPacksInput value, $Res Function(UnspeccedGetSuggestedStarterPacksInput) _then) = _$UnspeccedGetSuggestedStarterPacksInputCopyWithImpl;
 @useResult
 $Res call({
- int? limit, Map<String, dynamic>? $unknown
+ int limit, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,10 +65,10 @@ class _$UnspeccedGetSuggestedStarterPacksInputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetSuggestedStarterPacksInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? limit = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? limit = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
-limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -154,7 +154,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? limit,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int limit,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedStarterPacksInput() when $default != null:
 return $default(_that.limit,_that.$unknown);case _:
@@ -175,7 +175,7 @@ return $default(_that.limit,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? limit,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int limit,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedStarterPacksInput():
 return $default(_that.limit,_that.$unknown);case _:
@@ -195,7 +195,7 @@ return $default(_that.limit,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? limit,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int limit,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedStarterPacksInput() when $default != null:
 return $default(_that.limit,_that.$unknown);case _:
@@ -210,10 +210,10 @@ return $default(_that.limit,_that.$unknown);case _:
 @JsonSerializable()
 
 class _UnspeccedGetSuggestedStarterPacksInput implements UnspeccedGetSuggestedStarterPacksInput {
-  const _UnspeccedGetSuggestedStarterPacksInput({this.limit, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _UnspeccedGetSuggestedStarterPacksInput({this.limit = 10, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedGetSuggestedStarterPacksInput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestedStarterPacksInputFromJson(json);
 
-@override final  int? limit;
+@override@JsonKey() final  int limit;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -257,7 +257,7 @@ abstract mixin class _$UnspeccedGetSuggestedStarterPacksInputCopyWith<$Res> impl
   factory _$UnspeccedGetSuggestedStarterPacksInputCopyWith(_UnspeccedGetSuggestedStarterPacksInput value, $Res Function(_UnspeccedGetSuggestedStarterPacksInput) _then) = __$UnspeccedGetSuggestedStarterPacksInputCopyWithImpl;
 @override @useResult
 $Res call({
- int? limit, Map<String, dynamic>? $unknown
+ int limit, Map<String, dynamic>? $unknown
 });
 
 
@@ -274,10 +274,10 @@ class __$UnspeccedGetSuggestedStarterPacksInputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetSuggestedStarterPacksInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? limit = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? limit = null,Object? $unknown = freezed,}) {
   return _then(_UnspeccedGetSuggestedStarterPacksInput(
-limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

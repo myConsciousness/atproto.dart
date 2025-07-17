@@ -27,7 +27,7 @@ abstract class SyncListReposByCollectionInput
     required String collection,
 
     /// Maximum size of response set. Recommend setting a large maximum (1000+) when enumerating large DID lists.
-    int? limit,
+    @Default(500) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -39,8 +39,6 @@ abstract class SyncListReposByCollectionInput
 
 extension SyncListReposByCollectionInputExtension
     on SyncListReposByCollectionInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

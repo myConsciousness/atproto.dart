@@ -19,7 +19,7 @@ _FeedViewPref _$FeedViewPrefFromJson(Map json) =>
         hideReplies: $checkedConvert('hideReplies', (v) => v as bool?),
         hideRepliesByUnfollowed: $checkedConvert(
           'hideRepliesByUnfollowed',
-          (v) => v as bool?,
+          (v) => v as bool? ?? true,
         ),
         hideRepliesByLikeCount: $checkedConvert(
           'hideRepliesByLikeCount',

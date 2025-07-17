@@ -26,7 +26,7 @@ abstract class UnspeccedGetTrendingTopicsInput
   const factory UnspeccedGetTrendingTopicsInput({
     /// DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.
     String? viewer,
-    int? limit,
+    @Default(10) int limit,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetTrendingTopicsInput;
@@ -39,8 +39,6 @@ extension UnspeccedGetTrendingTopicsInputExtension
     on UnspeccedGetTrendingTopicsInput {
   bool get hasViewer => viewer != null;
   bool get hasNotViewer => !hasViewer;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
 }
 
 final class UnspeccedGetTrendingTopicsInputConverter

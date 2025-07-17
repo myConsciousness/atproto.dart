@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$VerificationPrefs {
 
  String get $type;/// Hide the blue check badges for verified accounts and trusted verifiers.
- bool? get hideBadges; Map<String, dynamic>? get $unknown;
+ bool get hideBadges; Map<String, dynamic>? get $unknown;
 /// Create a copy of VerificationPrefs
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $VerificationPrefsCopyWith<$Res>  {
   factory $VerificationPrefsCopyWith(VerificationPrefs value, $Res Function(VerificationPrefs) _then) = _$VerificationPrefsCopyWithImpl;
 @useResult
 $Res call({
- String $type, bool? hideBadges, Map<String, dynamic>? $unknown
+ String $type, bool hideBadges, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,11 +66,11 @@ class _$VerificationPrefsCopyWithImpl<$Res>
 
 /// Create a copy of VerificationPrefs
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? hideBadges = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? hideBadges = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,hideBadges: freezed == hideBadges ? _self.hideBadges : hideBadges // ignore: cast_nullable_to_non_nullable
-as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String,hideBadges: null == hideBadges ? _self.hideBadges : hideBadges // ignore: cast_nullable_to_non_nullable
+as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  bool? hideBadges,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  bool hideBadges,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _VerificationPrefs() when $default != null:
 return $default(_that.$type,_that.hideBadges,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.$type,_that.hideBadges,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  bool? hideBadges,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  bool hideBadges,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _VerificationPrefs():
 return $default(_that.$type,_that.hideBadges,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.$type,_that.hideBadges,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  bool? hideBadges,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  bool hideBadges,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _VerificationPrefs() when $default != null:
 return $default(_that.$type,_that.hideBadges,_that.$unknown);case _:
@@ -212,12 +212,12 @@ return $default(_that.$type,_that.hideBadges,_that.$unknown);case _:
 @JsonSerializable()
 
 class _VerificationPrefs implements VerificationPrefs {
-  const _VerificationPrefs({this.$type = 'app.bsky.actor.defs#verificationPrefs', this.hideBadges, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _VerificationPrefs({this.$type = 'app.bsky.actor.defs#verificationPrefs', this.hideBadges = false, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _VerificationPrefs.fromJson(Map<String, dynamic> json) => _$VerificationPrefsFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// Hide the blue check badges for verified accounts and trusted verifiers.
-@override final  bool? hideBadges;
+@override@JsonKey() final  bool hideBadges;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -261,7 +261,7 @@ abstract mixin class _$VerificationPrefsCopyWith<$Res> implements $VerificationP
   factory _$VerificationPrefsCopyWith(_VerificationPrefs value, $Res Function(_VerificationPrefs) _then) = __$VerificationPrefsCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, bool? hideBadges, Map<String, dynamic>? $unknown
+ String $type, bool hideBadges, Map<String, dynamic>? $unknown
 });
 
 
@@ -278,11 +278,11 @@ class __$VerificationPrefsCopyWithImpl<$Res>
 
 /// Create a copy of VerificationPrefs
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? hideBadges = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? hideBadges = null,Object? $unknown = freezed,}) {
   return _then(_VerificationPrefs(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,hideBadges: freezed == hideBadges ? _self.hideBadges : hideBadges // ignore: cast_nullable_to_non_nullable
-as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String,hideBadges: null == hideBadges ? _self.hideBadges : hideBadges // ignore: cast_nullable_to_non_nullable
+as bool,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

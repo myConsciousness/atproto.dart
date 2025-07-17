@@ -54,7 +54,7 @@ final class LexProperty {
       buffer.write(type.name);
     }
 
-    if (!isRequired) {
+    if (!isRequired && defaultValue == null) {
       buffer.write('?');
     }
     buffer.write(' ');

@@ -14,7 +14,7 @@ _$NotificationListActivitySubscriptionsInputFromJson(Map json) =>
       $checkedConvert,
     ) {
       final val = _NotificationListActivitySubscriptionsInput(
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',

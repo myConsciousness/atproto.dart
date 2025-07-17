@@ -39,7 +39,7 @@ abstract class FeedViewPref with _$FeedViewPref {
     bool? hideReplies,
 
     /// Hide replies in the feed if they are not by followed users.
-    bool? hideRepliesByUnfollowed,
+    @Default(true) bool hideRepliesByUnfollowed,
 
     /// Hide replies in the feed if they do not have this number of likes.
     int? hideRepliesByLikeCount,
@@ -65,7 +65,7 @@ abstract class FeedViewPref with _$FeedViewPref {
 extension FeedViewPrefExtension on FeedViewPref {
   bool get isHideReplies => hideReplies ?? false;
   bool get isNotHideReplies => !isHideReplies;
-  bool get isHideRepliesByUnfollowed => hideRepliesByUnfollowed ?? false;
+  bool get isHideRepliesByUnfollowed => hideRepliesByUnfollowed ?? true;
   bool get isNotHideRepliesByUnfollowed => !isHideRepliesByUnfollowed;
   bool get hasHideRepliesByLikeCount => hideRepliesByLikeCount != null;
   bool get hasNotHideRepliesByLikeCount => !hasHideRepliesByLikeCount;

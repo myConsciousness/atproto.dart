@@ -12,7 +12,7 @@ _GraphGetListsInput _$GraphGetListsInputFromJson(Map json) =>
     $checkedCreate('_GraphGetListsInput', json, ($checkedConvert) {
       final val = _GraphGetListsInput(
         actor: $checkedConvert('actor', (v) => v as String),
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',

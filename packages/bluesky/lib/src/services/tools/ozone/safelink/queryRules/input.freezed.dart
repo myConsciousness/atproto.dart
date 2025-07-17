@@ -17,7 +17,7 @@ mixin _$SafelinkQueryRulesInput {
 
 /// Cursor for pagination
  String? get cursor;/// Maximum number of results to return
- int? get limit; List<String>? get urls;/// Filter by pattern type
+ int get limit; List<String>? get urls;/// Filter by pattern type
  String? get patternType; List<String>? get actions;/// Filter by reason type
  String? get reason;/// Filter by rule creator
  String? get createdBy;/// Sort direction
@@ -54,7 +54,7 @@ abstract mixin class $SafelinkQueryRulesInputCopyWith<$Res>  {
   factory $SafelinkQueryRulesInputCopyWith(SafelinkQueryRulesInput value, $Res Function(SafelinkQueryRulesInput) _then) = _$SafelinkQueryRulesInputCopyWithImpl;
 @useResult
 $Res call({
- String? cursor, int? limit, List<String>? urls, String? patternType, List<String>? actions, String? reason, String? createdBy,@SafelinkQueryRulesSortDirectionConverter() SafelinkQueryRulesSortDirection? sortDirection, Map<String, dynamic>? $unknown
+ String? cursor, int limit, List<String>? urls, String? patternType, List<String>? actions, String? reason, String? createdBy,@SafelinkQueryRulesSortDirectionConverter() SafelinkQueryRulesSortDirection? sortDirection, Map<String, dynamic>? $unknown
 });
 
 
@@ -71,11 +71,11 @@ class _$SafelinkQueryRulesInputCopyWithImpl<$Res>
 
 /// Create a copy of SafelinkQueryRulesInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? limit = freezed,Object? urls = freezed,Object? patternType = freezed,Object? actions = freezed,Object? reason = freezed,Object? createdBy = freezed,Object? sortDirection = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? limit = null,Object? urls = freezed,Object? patternType = freezed,Object? actions = freezed,Object? reason = freezed,Object? createdBy = freezed,Object? sortDirection = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,urls: freezed == urls ? _self.urls : urls // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,urls: freezed == urls ? _self.urls : urls // ignore: cast_nullable_to_non_nullable
 as List<String>?,patternType: freezed == patternType ? _self.patternType : patternType // ignore: cast_nullable_to_non_nullable
 as String?,actions: freezed == actions ? _self.actions : actions // ignore: cast_nullable_to_non_nullable
 as List<String>?,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
@@ -179,7 +179,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor,  int? limit,  List<String>? urls,  String? patternType,  List<String>? actions,  String? reason,  String? createdBy, @SafelinkQueryRulesSortDirectionConverter()  SafelinkQueryRulesSortDirection? sortDirection,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor,  int limit,  List<String>? urls,  String? patternType,  List<String>? actions,  String? reason,  String? createdBy, @SafelinkQueryRulesSortDirectionConverter()  SafelinkQueryRulesSortDirection? sortDirection,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SafelinkQueryRulesInput() when $default != null:
 return $default(_that.cursor,_that.limit,_that.urls,_that.patternType,_that.actions,_that.reason,_that.createdBy,_that.sortDirection,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.cursor,_that.limit,_that.urls,_that.patternType,_that.acti
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor,  int? limit,  List<String>? urls,  String? patternType,  List<String>? actions,  String? reason,  String? createdBy, @SafelinkQueryRulesSortDirectionConverter()  SafelinkQueryRulesSortDirection? sortDirection,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor,  int limit,  List<String>? urls,  String? patternType,  List<String>? actions,  String? reason,  String? createdBy, @SafelinkQueryRulesSortDirectionConverter()  SafelinkQueryRulesSortDirection? sortDirection,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SafelinkQueryRulesInput():
 return $default(_that.cursor,_that.limit,_that.urls,_that.patternType,_that.actions,_that.reason,_that.createdBy,_that.sortDirection,_that.$unknown);case _:
@@ -220,7 +220,7 @@ return $default(_that.cursor,_that.limit,_that.urls,_that.patternType,_that.acti
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor,  int? limit,  List<String>? urls,  String? patternType,  List<String>? actions,  String? reason,  String? createdBy, @SafelinkQueryRulesSortDirectionConverter()  SafelinkQueryRulesSortDirection? sortDirection,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor,  int limit,  List<String>? urls,  String? patternType,  List<String>? actions,  String? reason,  String? createdBy, @SafelinkQueryRulesSortDirectionConverter()  SafelinkQueryRulesSortDirection? sortDirection,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SafelinkQueryRulesInput() when $default != null:
 return $default(_that.cursor,_that.limit,_that.urls,_that.patternType,_that.actions,_that.reason,_that.createdBy,_that.sortDirection,_that.$unknown);case _:
@@ -235,13 +235,13 @@ return $default(_that.cursor,_that.limit,_that.urls,_that.patternType,_that.acti
 @JsonSerializable()
 
 class _SafelinkQueryRulesInput implements SafelinkQueryRulesInput {
-  const _SafelinkQueryRulesInput({this.cursor, this.limit, final  List<String>? urls, this.patternType, final  List<String>? actions, this.reason, this.createdBy, @SafelinkQueryRulesSortDirectionConverter() this.sortDirection, final  Map<String, dynamic>? $unknown}): _urls = urls,_actions = actions,_$unknown = $unknown;
+  const _SafelinkQueryRulesInput({this.cursor, this.limit = 50, final  List<String>? urls, this.patternType, final  List<String>? actions, this.reason, this.createdBy, @SafelinkQueryRulesSortDirectionConverter() this.sortDirection, final  Map<String, dynamic>? $unknown}): _urls = urls,_actions = actions,_$unknown = $unknown;
   factory _SafelinkQueryRulesInput.fromJson(Map<String, dynamic> json) => _$SafelinkQueryRulesInputFromJson(json);
 
 /// Cursor for pagination
 @override final  String? cursor;
 /// Maximum number of results to return
-@override final  int? limit;
+@override@JsonKey() final  int limit;
  final  List<String>? _urls;
 @override List<String>? get urls {
   final value = _urls;
@@ -311,7 +311,7 @@ abstract mixin class _$SafelinkQueryRulesInputCopyWith<$Res> implements $Safelin
   factory _$SafelinkQueryRulesInputCopyWith(_SafelinkQueryRulesInput value, $Res Function(_SafelinkQueryRulesInput) _then) = __$SafelinkQueryRulesInputCopyWithImpl;
 @override @useResult
 $Res call({
- String? cursor, int? limit, List<String>? urls, String? patternType, List<String>? actions, String? reason, String? createdBy,@SafelinkQueryRulesSortDirectionConverter() SafelinkQueryRulesSortDirection? sortDirection, Map<String, dynamic>? $unknown
+ String? cursor, int limit, List<String>? urls, String? patternType, List<String>? actions, String? reason, String? createdBy,@SafelinkQueryRulesSortDirectionConverter() SafelinkQueryRulesSortDirection? sortDirection, Map<String, dynamic>? $unknown
 });
 
 
@@ -328,11 +328,11 @@ class __$SafelinkQueryRulesInputCopyWithImpl<$Res>
 
 /// Create a copy of SafelinkQueryRulesInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? limit = freezed,Object? urls = freezed,Object? patternType = freezed,Object? actions = freezed,Object? reason = freezed,Object? createdBy = freezed,Object? sortDirection = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? limit = null,Object? urls = freezed,Object? patternType = freezed,Object? actions = freezed,Object? reason = freezed,Object? createdBy = freezed,Object? sortDirection = freezed,Object? $unknown = freezed,}) {
   return _then(_SafelinkQueryRulesInput(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,urls: freezed == urls ? _self._urls : urls // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,urls: freezed == urls ? _self._urls : urls // ignore: cast_nullable_to_non_nullable
 as List<String>?,patternType: freezed == patternType ? _self.patternType : patternType // ignore: cast_nullable_to_non_nullable
 as String?,actions: freezed == actions ? _self._actions : actions // ignore: cast_nullable_to_non_nullable
 as List<String>?,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable

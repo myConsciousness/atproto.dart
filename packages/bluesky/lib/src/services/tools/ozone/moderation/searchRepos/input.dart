@@ -24,7 +24,7 @@ abstract class ModerationSearchReposInput with _$ModerationSearchReposInput {
 
   const factory ModerationSearchReposInput({
     String? q,
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -37,8 +37,6 @@ abstract class ModerationSearchReposInput with _$ModerationSearchReposInput {
 extension ModerationSearchReposInputExtension on ModerationSearchReposInput {
   bool get hasQ => q != null;
   bool get hasNotQ => !hasQ;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

@@ -28,7 +28,7 @@ abstract class UnspeccedGetPostThreadOtherV2Input
     required String anchor,
 
     /// Whether to prioritize posts from followed users. It only has effect when the user is authenticated.
-    bool? prioritizeFollowedUsers,
+    @Default(false) bool prioritizeFollowedUsers,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetPostThreadOtherV2Input;

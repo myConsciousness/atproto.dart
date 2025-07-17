@@ -18,7 +18,7 @@ _$NotificationListNotificationsInputFromJson(Map json) => $checkedCreate(
         'reasons',
         (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
       ),
-      limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+      limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
       priority: $checkedConvert('priority', (v) => v as bool?),
       cursor: $checkedConvert('cursor', (v) => v as String?),
       seenAt: $checkedConvert(

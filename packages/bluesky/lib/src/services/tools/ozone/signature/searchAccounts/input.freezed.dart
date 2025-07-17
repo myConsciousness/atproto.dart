@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SignatureSearchAccountsInput {
 
- List<String> get values; String? get cursor; int? get limit; Map<String, dynamic>? get $unknown;
+ List<String> get values; String? get cursor; int get limit; Map<String, dynamic>? get $unknown;
 /// Create a copy of SignatureSearchAccountsInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SignatureSearchAccountsInputCopyWith<$Res>  {
   factory $SignatureSearchAccountsInputCopyWith(SignatureSearchAccountsInput value, $Res Function(SignatureSearchAccountsInput) _then) = _$SignatureSearchAccountsInputCopyWithImpl;
 @useResult
 $Res call({
- List<String> values, String? cursor, int? limit, Map<String, dynamic>? $unknown
+ List<String> values, String? cursor, int limit, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,12 +65,12 @@ class _$SignatureSearchAccountsInputCopyWithImpl<$Res>
 
 /// Create a copy of SignatureSearchAccountsInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? values = null,Object? cursor = freezed,Object? limit = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? values = null,Object? cursor = freezed,Object? limit = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 values: null == values ? _self.values : values // ignore: cast_nullable_to_non_nullable
 as List<String>,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> values,  String? cursor,  int? limit,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> values,  String? cursor,  int limit,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SignatureSearchAccountsInput() when $default != null:
 return $default(_that.values,_that.cursor,_that.limit,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.values,_that.cursor,_that.limit,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> values,  String? cursor,  int? limit,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> values,  String? cursor,  int limit,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SignatureSearchAccountsInput():
 return $default(_that.values,_that.cursor,_that.limit,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.values,_that.cursor,_that.limit,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> values,  String? cursor,  int? limit,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> values,  String? cursor,  int limit,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SignatureSearchAccountsInput() when $default != null:
 return $default(_that.values,_that.cursor,_that.limit,_that.$unknown);case _:
@@ -212,7 +212,7 @@ return $default(_that.values,_that.cursor,_that.limit,_that.$unknown);case _:
 @JsonSerializable()
 
 class _SignatureSearchAccountsInput implements SignatureSearchAccountsInput {
-  const _SignatureSearchAccountsInput({required final  List<String> values, this.cursor, this.limit, final  Map<String, dynamic>? $unknown}): _values = values,_$unknown = $unknown;
+  const _SignatureSearchAccountsInput({required final  List<String> values, this.cursor, this.limit = 50, final  Map<String, dynamic>? $unknown}): _values = values,_$unknown = $unknown;
   factory _SignatureSearchAccountsInput.fromJson(Map<String, dynamic> json) => _$SignatureSearchAccountsInputFromJson(json);
 
  final  List<String> _values;
@@ -223,7 +223,7 @@ class _SignatureSearchAccountsInput implements SignatureSearchAccountsInput {
 }
 
 @override final  String? cursor;
-@override final  int? limit;
+@override@JsonKey() final  int limit;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -267,7 +267,7 @@ abstract mixin class _$SignatureSearchAccountsInputCopyWith<$Res> implements $Si
   factory _$SignatureSearchAccountsInputCopyWith(_SignatureSearchAccountsInput value, $Res Function(_SignatureSearchAccountsInput) _then) = __$SignatureSearchAccountsInputCopyWithImpl;
 @override @useResult
 $Res call({
- List<String> values, String? cursor, int? limit, Map<String, dynamic>? $unknown
+ List<String> values, String? cursor, int limit, Map<String, dynamic>? $unknown
 });
 
 
@@ -284,12 +284,12 @@ class __$SignatureSearchAccountsInputCopyWithImpl<$Res>
 
 /// Create a copy of SignatureSearchAccountsInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? values = null,Object? cursor = freezed,Object? limit = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? values = null,Object? cursor = freezed,Object? limit = null,Object? $unknown = freezed,}) {
   return _then(_SignatureSearchAccountsInput(
 values: null == values ? _self._values : values // ignore: cast_nullable_to_non_nullable
 as List<String>,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

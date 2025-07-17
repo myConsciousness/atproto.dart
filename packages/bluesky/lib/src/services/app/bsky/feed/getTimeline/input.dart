@@ -25,7 +25,7 @@ abstract class FeedGetTimelineInput with _$FeedGetTimelineInput {
   const factory FeedGetTimelineInput({
     /// Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism.
     String? algorithm,
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -38,8 +38,6 @@ abstract class FeedGetTimelineInput with _$FeedGetTimelineInput {
 extension FeedGetTimelineInputExtension on FeedGetTimelineInput {
   bool get hasAlgorithm => algorithm != null;
   bool get hasNotAlgorithm => !hasAlgorithm;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

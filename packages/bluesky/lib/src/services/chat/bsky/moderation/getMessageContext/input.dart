@@ -27,8 +27,8 @@ abstract class ModerationGetMessageContextInput
     /// Conversation that the message is from. NOTE: this field will eventually be required.
     String? convoId,
     required String messageId,
-    int? before,
-    int? after,
+    @Default(5) int before,
+    @Default(5) int after,
 
     Map<String, dynamic>? $unknown,
   }) = _ModerationGetMessageContextInput;
@@ -42,10 +42,6 @@ extension ModerationGetMessageContextInputExtension
     on ModerationGetMessageContextInput {
   bool get hasConvoId => convoId != null;
   bool get hasNotConvoId => !hasConvoId;
-  bool get hasBefore => before != null;
-  bool get hasNotBefore => !hasBefore;
-  bool get hasAfter => after != null;
-  bool get hasNotAfter => !hasAfter;
 }
 
 final class ModerationGetMessageContextInputConverter

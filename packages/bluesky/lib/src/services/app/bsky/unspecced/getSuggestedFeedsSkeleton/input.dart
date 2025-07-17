@@ -26,7 +26,7 @@ abstract class UnspeccedGetSuggestedFeedsSkeletonInput
   const factory UnspeccedGetSuggestedFeedsSkeletonInput({
     /// DID of the account making the request (not included for public/unauthenticated queries).
     String? viewer,
-    int? limit,
+    @Default(10) int limit,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestedFeedsSkeletonInput;
@@ -40,8 +40,6 @@ extension UnspeccedGetSuggestedFeedsSkeletonInputExtension
     on UnspeccedGetSuggestedFeedsSkeletonInput {
   bool get hasViewer => viewer != null;
   bool get hasNotViewer => !hasViewer;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
 }
 
 final class UnspeccedGetSuggestedFeedsSkeletonInputConverter

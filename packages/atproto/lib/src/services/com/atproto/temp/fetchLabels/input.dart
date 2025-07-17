@@ -24,7 +24,7 @@ abstract class TempFetchLabelsInput with _$TempFetchLabelsInput {
 
   const factory TempFetchLabelsInput({
     int? since,
-    int? limit,
+    @Default(50) int limit,
 
     Map<String, dynamic>? $unknown,
   }) = _TempFetchLabelsInput;
@@ -36,8 +36,6 @@ abstract class TempFetchLabelsInput with _$TempFetchLabelsInput {
 extension TempFetchLabelsInputExtension on TempFetchLabelsInput {
   bool get hasSince => since != null;
   bool get hasNotSince => !hasSince;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
 }
 
 final class TempFetchLabelsInputConverter

@@ -17,7 +17,7 @@ mixin _$SyncListBlobsInput {
 
 /// The DID of the repo.
  String get did;/// Optional revision of the repo to list blobs since.
- String? get since; int? get limit; String? get cursor; Map<String, dynamic>? get $unknown;
+ String? get since; int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of SyncListBlobsInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -50,7 +50,7 @@ abstract mixin class $SyncListBlobsInputCopyWith<$Res>  {
   factory $SyncListBlobsInputCopyWith(SyncListBlobsInput value, $Res Function(SyncListBlobsInput) _then) = _$SyncListBlobsInputCopyWithImpl;
 @useResult
 $Res call({
- String did, String? since, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String did, String? since, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -67,12 +67,12 @@ class _$SyncListBlobsInputCopyWithImpl<$Res>
 
 /// Create a copy of SyncListBlobsInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? did = null,Object? since = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? did = null,Object? since = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,since: freezed == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -159,7 +159,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String did,  String? since,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String did,  String? since,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SyncListBlobsInput() when $default != null:
 return $default(_that.did,_that.since,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -180,7 +180,7 @@ return $default(_that.did,_that.since,_that.limit,_that.cursor,_that.$unknown);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String did,  String? since,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String did,  String? since,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SyncListBlobsInput():
 return $default(_that.did,_that.since,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.did,_that.since,_that.limit,_that.cursor,_that.$unknown);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String did,  String? since,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String did,  String? since,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SyncListBlobsInput() when $default != null:
 return $default(_that.did,_that.since,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -215,14 +215,14 @@ return $default(_that.did,_that.since,_that.limit,_that.cursor,_that.$unknown);c
 @JsonSerializable()
 
 class _SyncListBlobsInput implements SyncListBlobsInput {
-  const _SyncListBlobsInput({required this.did, this.since, this.limit, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SyncListBlobsInput({required this.did, this.since, this.limit = 500, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncListBlobsInput.fromJson(Map<String, dynamic> json) => _$SyncListBlobsInputFromJson(json);
 
 /// The DID of the repo.
 @override final  String did;
 /// Optional revision of the repo to list blobs since.
 @override final  String? since;
-@override final  int? limit;
+@override@JsonKey() final  int limit;
 @override final  String? cursor;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -267,7 +267,7 @@ abstract mixin class _$SyncListBlobsInputCopyWith<$Res> implements $SyncListBlob
   factory _$SyncListBlobsInputCopyWith(_SyncListBlobsInput value, $Res Function(_SyncListBlobsInput) _then) = __$SyncListBlobsInputCopyWithImpl;
 @override @useResult
 $Res call({
- String did, String? since, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String did, String? since, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -284,12 +284,12 @@ class __$SyncListBlobsInputCopyWithImpl<$Res>
 
 /// Create a copy of SyncListBlobsInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? did = null,Object? since = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? did = null,Object? since = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_SyncListBlobsInput(
 did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,since: freezed == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

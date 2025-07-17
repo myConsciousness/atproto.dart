@@ -40,7 +40,7 @@ _UnspeccedSearchPostsSkeletonInput _$UnspeccedSearchPostsSkeletonInputFromJson(
       (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
     ),
     viewer: $checkedConvert('viewer', (v) => v as String?),
-    limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+    limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 25),
     cursor: $checkedConvert('cursor', (v) => v as String?),
     $unknown: $checkedConvert(
       r'$unknown',

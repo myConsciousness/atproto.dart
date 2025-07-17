@@ -25,7 +25,7 @@ abstract class GraphGetListsInput with _$GraphGetListsInput {
   const factory GraphGetListsInput({
     /// The account (actor) to enumerate lists from.
     required String actor,
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -36,8 +36,6 @@ abstract class GraphGetListsInput with _$GraphGetListsInput {
 }
 
 extension GraphGetListsInputExtension on GraphGetListsInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

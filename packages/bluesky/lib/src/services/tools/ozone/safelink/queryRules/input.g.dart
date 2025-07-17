@@ -12,7 +12,7 @@ _SafelinkQueryRulesInput _$SafelinkQueryRulesInputFromJson(Map json) =>
     $checkedCreate('_SafelinkQueryRulesInput', json, ($checkedConvert) {
       final val = _SafelinkQueryRulesInput(
         cursor: $checkedConvert('cursor', (v) => v as String?),
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         urls: $checkedConvert(
           'urls',
           (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),

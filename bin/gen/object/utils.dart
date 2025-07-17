@@ -75,7 +75,7 @@ String getExtensions(
     } else {
       final prefix = splitByUpperCase(property.name).first;
       if (prefix == 'is') continue;
-      if (property.isRequired) continue;
+      if (property.isRequired || property.defaultValue != null) continue;
 
       final hasA = 'has$functionName';
       final hasNotA = 'hasNot$functionName';

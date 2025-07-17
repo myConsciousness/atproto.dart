@@ -212,10 +212,10 @@ return $default(_that.codeCount,_that.useCount,_that.forAccounts,_that.$unknown)
 @JsonSerializable()
 
 class _ServerCreateInviteCodesInput implements ServerCreateInviteCodesInput {
-  const _ServerCreateInviteCodesInput({required this.codeCount, required this.useCount, final  List<String>? forAccounts, final  Map<String, dynamic>? $unknown}): _forAccounts = forAccounts,_$unknown = $unknown;
+  const _ServerCreateInviteCodesInput({required this.codeCount = 1, required this.useCount, final  List<String>? forAccounts, final  Map<String, dynamic>? $unknown}): _forAccounts = forAccounts,_$unknown = $unknown;
   factory _ServerCreateInviteCodesInput.fromJson(Map<String, dynamic> json) => _$ServerCreateInviteCodesInputFromJson(json);
 
-@override final  int codeCount;
+@override@JsonKey() final  int codeCount;
 @override final  int useCount;
  final  List<String>? _forAccounts;
 @override List<String>? get forAccounts {

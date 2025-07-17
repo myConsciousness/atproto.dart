@@ -18,7 +18,7 @@ mixin _$RepoListRecordsInput {
 /// The handle or DID of the repo.
  String get repo;/// The NSID of the record type.
  String get collection;/// The number of records to return.
- int? get limit; String? get cursor;/// Flag to reverse the order of the returned records.
+ int get limit; String? get cursor;/// Flag to reverse the order of the returned records.
  bool? get reverse; Map<String, dynamic>? get $unknown;
 /// Create a copy of RepoListRecordsInput
 /// with the given fields replaced by the non-null parameter values.
@@ -52,7 +52,7 @@ abstract mixin class $RepoListRecordsInputCopyWith<$Res>  {
   factory $RepoListRecordsInputCopyWith(RepoListRecordsInput value, $Res Function(RepoListRecordsInput) _then) = _$RepoListRecordsInputCopyWithImpl;
 @useResult
 $Res call({
- String repo, String collection, int? limit, String? cursor, bool? reverse, Map<String, dynamic>? $unknown
+ String repo, String collection, int limit, String? cursor, bool? reverse, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,12 +69,12 @@ class _$RepoListRecordsInputCopyWithImpl<$Res>
 
 /// Create a copy of RepoListRecordsInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? repo = null,Object? collection = null,Object? limit = freezed,Object? cursor = freezed,Object? reverse = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? repo = null,Object? collection = null,Object? limit = null,Object? cursor = freezed,Object? reverse = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 repo: null == repo ? _self.repo : repo // ignore: cast_nullable_to_non_nullable
 as String,collection: null == collection ? _self.collection : collection // ignore: cast_nullable_to_non_nullable
-as String,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,reverse: freezed == reverse ? _self.reverse : reverse // ignore: cast_nullable_to_non_nullable
 as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String repo,  String collection,  int? limit,  String? cursor,  bool? reverse,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String repo,  String collection,  int limit,  String? cursor,  bool? reverse,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RepoListRecordsInput() when $default != null:
 return $default(_that.repo,_that.collection,_that.limit,_that.cursor,_that.reverse,_that.$unknown);case _:
@@ -183,7 +183,7 @@ return $default(_that.repo,_that.collection,_that.limit,_that.cursor,_that.rever
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String repo,  String collection,  int? limit,  String? cursor,  bool? reverse,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String repo,  String collection,  int limit,  String? cursor,  bool? reverse,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _RepoListRecordsInput():
 return $default(_that.repo,_that.collection,_that.limit,_that.cursor,_that.reverse,_that.$unknown);case _:
@@ -203,7 +203,7 @@ return $default(_that.repo,_that.collection,_that.limit,_that.cursor,_that.rever
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String repo,  String collection,  int? limit,  String? cursor,  bool? reverse,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String repo,  String collection,  int limit,  String? cursor,  bool? reverse,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _RepoListRecordsInput() when $default != null:
 return $default(_that.repo,_that.collection,_that.limit,_that.cursor,_that.reverse,_that.$unknown);case _:
@@ -218,7 +218,7 @@ return $default(_that.repo,_that.collection,_that.limit,_that.cursor,_that.rever
 @JsonSerializable()
 
 class _RepoListRecordsInput implements RepoListRecordsInput {
-  const _RepoListRecordsInput({required this.repo, required this.collection, this.limit, this.cursor, this.reverse, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RepoListRecordsInput({required this.repo, required this.collection, this.limit = 50, this.cursor, this.reverse, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoListRecordsInput.fromJson(Map<String, dynamic> json) => _$RepoListRecordsInputFromJson(json);
 
 /// The handle or DID of the repo.
@@ -226,7 +226,7 @@ class _RepoListRecordsInput implements RepoListRecordsInput {
 /// The NSID of the record type.
 @override final  String collection;
 /// The number of records to return.
-@override final  int? limit;
+@override@JsonKey() final  int limit;
 @override final  String? cursor;
 /// Flag to reverse the order of the returned records.
 @override final  bool? reverse;
@@ -273,7 +273,7 @@ abstract mixin class _$RepoListRecordsInputCopyWith<$Res> implements $RepoListRe
   factory _$RepoListRecordsInputCopyWith(_RepoListRecordsInput value, $Res Function(_RepoListRecordsInput) _then) = __$RepoListRecordsInputCopyWithImpl;
 @override @useResult
 $Res call({
- String repo, String collection, int? limit, String? cursor, bool? reverse, Map<String, dynamic>? $unknown
+ String repo, String collection, int limit, String? cursor, bool? reverse, Map<String, dynamic>? $unknown
 });
 
 
@@ -290,12 +290,12 @@ class __$RepoListRecordsInputCopyWithImpl<$Res>
 
 /// Create a copy of RepoListRecordsInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? repo = null,Object? collection = null,Object? limit = freezed,Object? cursor = freezed,Object? reverse = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? repo = null,Object? collection = null,Object? limit = null,Object? cursor = freezed,Object? reverse = freezed,Object? $unknown = freezed,}) {
   return _then(_RepoListRecordsInput(
 repo: null == repo ? _self.repo : repo // ignore: cast_nullable_to_non_nullable
 as String,collection: null == collection ? _self.collection : collection // ignore: cast_nullable_to_non_nullable
-as String,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,reverse: freezed == reverse ? _self.reverse : reverse // ignore: cast_nullable_to_non_nullable
 as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

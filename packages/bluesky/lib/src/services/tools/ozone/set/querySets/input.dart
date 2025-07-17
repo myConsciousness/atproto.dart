@@ -29,13 +29,13 @@ abstract class SetQuerySetsInput with _$SetQuerySetsInput {
   ];
 
   const factory SetQuerySetsInput({
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
     String? namePrefix,
-    String? sortBy,
+    @Default('name') String sortBy,
 
     /// Defaults to ascending order of name field.
-    String? sortDirection,
+    @Default('asc') String sortDirection,
 
     Map<String, dynamic>? $unknown,
   }) = _SetQuerySetsInput;
@@ -45,16 +45,10 @@ abstract class SetQuerySetsInput with _$SetQuerySetsInput {
 }
 
 extension SetQuerySetsInputExtension on SetQuerySetsInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
   bool get hasNamePrefix => namePrefix != null;
   bool get hasNotNamePrefix => !hasNamePrefix;
-  bool get hasSortBy => sortBy != null;
-  bool get hasNotSortBy => !hasSortBy;
-  bool get hasSortDirection => sortDirection != null;
-  bool get hasNotSortDirection => !hasSortDirection;
 }
 
 final class SetQuerySetsInputConverter

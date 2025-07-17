@@ -11,7 +11,7 @@ part of 'input.dart';
 _ActorGetSuggestionsInput _$ActorGetSuggestionsInputFromJson(Map json) =>
     $checkedCreate('_ActorGetSuggestionsInput', json, ($checkedConvert) {
       final val = _ActorGetSuggestionsInput(
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',

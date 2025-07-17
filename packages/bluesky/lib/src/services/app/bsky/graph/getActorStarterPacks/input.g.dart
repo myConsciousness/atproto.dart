@@ -13,7 +13,7 @@ _GraphGetActorStarterPacksInput _$GraphGetActorStarterPacksInputFromJson(
 ) => $checkedCreate('_GraphGetActorStarterPacksInput', json, ($checkedConvert) {
   final val = _GraphGetActorStarterPacksInput(
     actor: $checkedConvert('actor', (v) => v as String),
-    limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+    limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
     cursor: $checkedConvert('cursor', (v) => v as String?),
     $unknown: $checkedConvert(
       r'$unknown',

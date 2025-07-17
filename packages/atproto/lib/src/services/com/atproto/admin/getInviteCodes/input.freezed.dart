@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AdminGetInviteCodesInput {
 
-@AdminGetInviteCodesSortConverter() AdminGetInviteCodesSort? get sort; int? get limit; String? get cursor; Map<String, dynamic>? get $unknown;
+@AdminGetInviteCodesSortConverter() AdminGetInviteCodesSort? get sort; int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of AdminGetInviteCodesInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $AdminGetInviteCodesInputCopyWith<$Res>  {
   factory $AdminGetInviteCodesInputCopyWith(AdminGetInviteCodesInput value, $Res Function(AdminGetInviteCodesInput) _then) = _$AdminGetInviteCodesInputCopyWithImpl;
 @useResult
 $Res call({
-@AdminGetInviteCodesSortConverter() AdminGetInviteCodesSort? sort, int? limit, String? cursor, Map<String, dynamic>? $unknown
+@AdminGetInviteCodesSortConverter() AdminGetInviteCodesSort? sort, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,11 +65,11 @@ class _$AdminGetInviteCodesInputCopyWithImpl<$Res>
 
 /// Create a copy of AdminGetInviteCodesInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? sort = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? sort = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 sort: freezed == sort ? _self.sort : sort // ignore: cast_nullable_to_non_nullable
-as AdminGetInviteCodesSort?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as AdminGetInviteCodesSort?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -168,7 +168,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AdminGetInviteCodesSortConverter()  AdminGetInviteCodesSort? sort,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AdminGetInviteCodesSortConverter()  AdminGetInviteCodesSort? sort,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AdminGetInviteCodesInput() when $default != null:
 return $default(_that.sort,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -189,7 +189,7 @@ return $default(_that.sort,_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AdminGetInviteCodesSortConverter()  AdminGetInviteCodesSort? sort,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AdminGetInviteCodesSortConverter()  AdminGetInviteCodesSort? sort,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AdminGetInviteCodesInput():
 return $default(_that.sort,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -209,7 +209,7 @@ return $default(_that.sort,_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AdminGetInviteCodesSortConverter()  AdminGetInviteCodesSort? sort,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AdminGetInviteCodesSortConverter()  AdminGetInviteCodesSort? sort,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AdminGetInviteCodesInput() when $default != null:
 return $default(_that.sort,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -224,11 +224,11 @@ return $default(_that.sort,_that.limit,_that.cursor,_that.$unknown);case _:
 @JsonSerializable()
 
 class _AdminGetInviteCodesInput implements AdminGetInviteCodesInput {
-  const _AdminGetInviteCodesInput({@AdminGetInviteCodesSortConverter() this.sort, this.limit, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AdminGetInviteCodesInput({@AdminGetInviteCodesSortConverter() this.sort, this.limit = 100, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AdminGetInviteCodesInput.fromJson(Map<String, dynamic> json) => _$AdminGetInviteCodesInputFromJson(json);
 
 @override@AdminGetInviteCodesSortConverter() final  AdminGetInviteCodesSort? sort;
-@override final  int? limit;
+@override@JsonKey() final  int limit;
 @override final  String? cursor;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -273,7 +273,7 @@ abstract mixin class _$AdminGetInviteCodesInputCopyWith<$Res> implements $AdminG
   factory _$AdminGetInviteCodesInputCopyWith(_AdminGetInviteCodesInput value, $Res Function(_AdminGetInviteCodesInput) _then) = __$AdminGetInviteCodesInputCopyWithImpl;
 @override @useResult
 $Res call({
-@AdminGetInviteCodesSortConverter() AdminGetInviteCodesSort? sort, int? limit, String? cursor, Map<String, dynamic>? $unknown
+@AdminGetInviteCodesSortConverter() AdminGetInviteCodesSort? sort, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -290,11 +290,11 @@ class __$AdminGetInviteCodesInputCopyWithImpl<$Res>
 
 /// Create a copy of AdminGetInviteCodesInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? sort = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? sort = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_AdminGetInviteCodesInput(
 sort: freezed == sort ? _self.sort : sort // ignore: cast_nullable_to_non_nullable
-as AdminGetInviteCodesSort?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as AdminGetInviteCodesSort?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

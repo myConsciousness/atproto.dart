@@ -26,7 +26,7 @@ abstract class ActorSearchActorsTypeaheadInput
   const factory ActorSearchActorsTypeaheadInput({
     /// Search query prefix; not a full query string.
     String? q,
-    int? limit,
+    @Default(10) int limit,
 
     Map<String, dynamic>? $unknown,
   }) = _ActorSearchActorsTypeaheadInput;
@@ -39,8 +39,6 @@ extension ActorSearchActorsTypeaheadInputExtension
     on ActorSearchActorsTypeaheadInput {
   bool get hasQ => q != null;
   bool get hasNotQ => !hasQ;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
 }
 
 final class ActorSearchActorsTypeaheadInputConverter

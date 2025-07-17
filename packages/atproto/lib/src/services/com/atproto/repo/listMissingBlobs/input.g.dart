@@ -11,7 +11,7 @@ part of 'input.dart';
 _RepoListMissingBlobsInput _$RepoListMissingBlobsInputFromJson(Map json) =>
     $checkedCreate('_RepoListMissingBlobsInput', json, ($checkedConvert) {
       final val = _RepoListMissingBlobsInput(
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 500),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',

@@ -17,10 +17,10 @@ mixin _$VerificationListVerificationsInput {
 
 /// Pagination cursor
  String? get cursor;/// Maximum number of results to return
- int? get limit;/// Filter to verifications created after this timestamp
+ int get limit;/// Filter to verifications created after this timestamp
  DateTime? get createdAfter;/// Filter to verifications created before this timestamp
  DateTime? get createdBefore; List<String>? get issuers; List<String>? get subjects;/// Sort direction for creation date
- String? get sortDirection;/// Filter to verifications that are revoked or not. By default, includes both.
+ String get sortDirection;/// Filter to verifications that are revoked or not. By default, includes both.
  bool? get isRevoked; Map<String, dynamic>? get $unknown;
 /// Create a copy of VerificationListVerificationsInput
 /// with the given fields replaced by the non-null parameter values.
@@ -54,7 +54,7 @@ abstract mixin class $VerificationListVerificationsInputCopyWith<$Res>  {
   factory $VerificationListVerificationsInputCopyWith(VerificationListVerificationsInput value, $Res Function(VerificationListVerificationsInput) _then) = _$VerificationListVerificationsInputCopyWithImpl;
 @useResult
 $Res call({
- String? cursor, int? limit, DateTime? createdAfter, DateTime? createdBefore, List<String>? issuers, List<String>? subjects, String? sortDirection, bool? isRevoked, Map<String, dynamic>? $unknown
+ String? cursor, int limit, DateTime? createdAfter, DateTime? createdBefore, List<String>? issuers, List<String>? subjects, String sortDirection, bool? isRevoked, Map<String, dynamic>? $unknown
 });
 
 
@@ -71,16 +71,16 @@ class _$VerificationListVerificationsInputCopyWithImpl<$Res>
 
 /// Create a copy of VerificationListVerificationsInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? limit = freezed,Object? createdAfter = freezed,Object? createdBefore = freezed,Object? issuers = freezed,Object? subjects = freezed,Object? sortDirection = freezed,Object? isRevoked = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? limit = null,Object? createdAfter = freezed,Object? createdBefore = freezed,Object? issuers = freezed,Object? subjects = freezed,Object? sortDirection = null,Object? isRevoked = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,createdAfter: freezed == createdAfter ? _self.createdAfter : createdAfter // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,createdAfter: freezed == createdAfter ? _self.createdAfter : createdAfter // ignore: cast_nullable_to_non_nullable
 as DateTime?,createdBefore: freezed == createdBefore ? _self.createdBefore : createdBefore // ignore: cast_nullable_to_non_nullable
 as DateTime?,issuers: freezed == issuers ? _self.issuers : issuers // ignore: cast_nullable_to_non_nullable
 as List<String>?,subjects: freezed == subjects ? _self.subjects : subjects // ignore: cast_nullable_to_non_nullable
-as List<String>?,sortDirection: freezed == sortDirection ? _self.sortDirection : sortDirection // ignore: cast_nullable_to_non_nullable
-as String?,isRevoked: freezed == isRevoked ? _self.isRevoked : isRevoked // ignore: cast_nullable_to_non_nullable
+as List<String>?,sortDirection: null == sortDirection ? _self.sortDirection : sortDirection // ignore: cast_nullable_to_non_nullable
+as String,isRevoked: freezed == isRevoked ? _self.isRevoked : isRevoked // ignore: cast_nullable_to_non_nullable
 as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -167,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor,  int? limit,  DateTime? createdAfter,  DateTime? createdBefore,  List<String>? issuers,  List<String>? subjects,  String? sortDirection,  bool? isRevoked,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor,  int limit,  DateTime? createdAfter,  DateTime? createdBefore,  List<String>? issuers,  List<String>? subjects,  String sortDirection,  bool? isRevoked,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _VerificationListVerificationsInput() when $default != null:
 return $default(_that.cursor,_that.limit,_that.createdAfter,_that.createdBefore,_that.issuers,_that.subjects,_that.sortDirection,_that.isRevoked,_that.$unknown);case _:
@@ -188,7 +188,7 @@ return $default(_that.cursor,_that.limit,_that.createdAfter,_that.createdBefore,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor,  int? limit,  DateTime? createdAfter,  DateTime? createdBefore,  List<String>? issuers,  List<String>? subjects,  String? sortDirection,  bool? isRevoked,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor,  int limit,  DateTime? createdAfter,  DateTime? createdBefore,  List<String>? issuers,  List<String>? subjects,  String sortDirection,  bool? isRevoked,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _VerificationListVerificationsInput():
 return $default(_that.cursor,_that.limit,_that.createdAfter,_that.createdBefore,_that.issuers,_that.subjects,_that.sortDirection,_that.isRevoked,_that.$unknown);case _:
@@ -208,7 +208,7 @@ return $default(_that.cursor,_that.limit,_that.createdAfter,_that.createdBefore,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor,  int? limit,  DateTime? createdAfter,  DateTime? createdBefore,  List<String>? issuers,  List<String>? subjects,  String? sortDirection,  bool? isRevoked,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor,  int limit,  DateTime? createdAfter,  DateTime? createdBefore,  List<String>? issuers,  List<String>? subjects,  String sortDirection,  bool? isRevoked,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _VerificationListVerificationsInput() when $default != null:
 return $default(_that.cursor,_that.limit,_that.createdAfter,_that.createdBefore,_that.issuers,_that.subjects,_that.sortDirection,_that.isRevoked,_that.$unknown);case _:
@@ -223,13 +223,13 @@ return $default(_that.cursor,_that.limit,_that.createdAfter,_that.createdBefore,
 @JsonSerializable()
 
 class _VerificationListVerificationsInput implements VerificationListVerificationsInput {
-  const _VerificationListVerificationsInput({this.cursor, this.limit, this.createdAfter, this.createdBefore, final  List<String>? issuers, final  List<String>? subjects, this.sortDirection, this.isRevoked, final  Map<String, dynamic>? $unknown}): _issuers = issuers,_subjects = subjects,_$unknown = $unknown;
+  const _VerificationListVerificationsInput({this.cursor, this.limit = 50, this.createdAfter, this.createdBefore, final  List<String>? issuers, final  List<String>? subjects, this.sortDirection = 'desc', this.isRevoked, final  Map<String, dynamic>? $unknown}): _issuers = issuers,_subjects = subjects,_$unknown = $unknown;
   factory _VerificationListVerificationsInput.fromJson(Map<String, dynamic> json) => _$VerificationListVerificationsInputFromJson(json);
 
 /// Pagination cursor
 @override final  String? cursor;
 /// Maximum number of results to return
-@override final  int? limit;
+@override@JsonKey() final  int limit;
 /// Filter to verifications created after this timestamp
 @override final  DateTime? createdAfter;
 /// Filter to verifications created before this timestamp
@@ -253,7 +253,7 @@ class _VerificationListVerificationsInput implements VerificationListVerificatio
 }
 
 /// Sort direction for creation date
-@override final  String? sortDirection;
+@override@JsonKey() final  String sortDirection;
 /// Filter to verifications that are revoked or not. By default, includes both.
 @override final  bool? isRevoked;
  final  Map<String, dynamic>? _$unknown;
@@ -299,7 +299,7 @@ abstract mixin class _$VerificationListVerificationsInputCopyWith<$Res> implemen
   factory _$VerificationListVerificationsInputCopyWith(_VerificationListVerificationsInput value, $Res Function(_VerificationListVerificationsInput) _then) = __$VerificationListVerificationsInputCopyWithImpl;
 @override @useResult
 $Res call({
- String? cursor, int? limit, DateTime? createdAfter, DateTime? createdBefore, List<String>? issuers, List<String>? subjects, String? sortDirection, bool? isRevoked, Map<String, dynamic>? $unknown
+ String? cursor, int limit, DateTime? createdAfter, DateTime? createdBefore, List<String>? issuers, List<String>? subjects, String sortDirection, bool? isRevoked, Map<String, dynamic>? $unknown
 });
 
 
@@ -316,16 +316,16 @@ class __$VerificationListVerificationsInputCopyWithImpl<$Res>
 
 /// Create a copy of VerificationListVerificationsInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? limit = freezed,Object? createdAfter = freezed,Object? createdBefore = freezed,Object? issuers = freezed,Object? subjects = freezed,Object? sortDirection = freezed,Object? isRevoked = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? limit = null,Object? createdAfter = freezed,Object? createdBefore = freezed,Object? issuers = freezed,Object? subjects = freezed,Object? sortDirection = null,Object? isRevoked = freezed,Object? $unknown = freezed,}) {
   return _then(_VerificationListVerificationsInput(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,createdAfter: freezed == createdAfter ? _self.createdAfter : createdAfter // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,createdAfter: freezed == createdAfter ? _self.createdAfter : createdAfter // ignore: cast_nullable_to_non_nullable
 as DateTime?,createdBefore: freezed == createdBefore ? _self.createdBefore : createdBefore // ignore: cast_nullable_to_non_nullable
 as DateTime?,issuers: freezed == issuers ? _self._issuers : issuers // ignore: cast_nullable_to_non_nullable
 as List<String>?,subjects: freezed == subjects ? _self._subjects : subjects // ignore: cast_nullable_to_non_nullable
-as List<String>?,sortDirection: freezed == sortDirection ? _self.sortDirection : sortDirection // ignore: cast_nullable_to_non_nullable
-as String?,isRevoked: freezed == isRevoked ? _self.isRevoked : isRevoked // ignore: cast_nullable_to_non_nullable
+as List<String>?,sortDirection: null == sortDirection ? _self.sortDirection : sortDirection // ignore: cast_nullable_to_non_nullable
+as String,isRevoked: freezed == isRevoked ? _self.isRevoked : isRevoked // ignore: cast_nullable_to_non_nullable
 as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

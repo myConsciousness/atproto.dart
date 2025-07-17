@@ -13,15 +13,15 @@ _UnspeccedGetPostThreadV2Input _$UnspeccedGetPostThreadV2InputFromJson(
 ) => $checkedCreate('_UnspeccedGetPostThreadV2Input', json, ($checkedConvert) {
   final val = _UnspeccedGetPostThreadV2Input(
     anchor: $checkedConvert('anchor', (v) => v as String),
-    above: $checkedConvert('above', (v) => v as bool?),
-    below: $checkedConvert('below', (v) => (v as num?)?.toInt()),
+    above: $checkedConvert('above', (v) => v as bool? ?? true),
+    below: $checkedConvert('below', (v) => (v as num?)?.toInt() ?? 6),
     branchingFactor: $checkedConvert(
       'branchingFactor',
-      (v) => (v as num?)?.toInt(),
+      (v) => (v as num?)?.toInt() ?? 10,
     ),
     prioritizeFollowedUsers: $checkedConvert(
       'prioritizeFollowedUsers',
-      (v) => v as bool?,
+      (v) => v as bool? ?? false,
     ),
     sort: $checkedConvert(
       'sort',

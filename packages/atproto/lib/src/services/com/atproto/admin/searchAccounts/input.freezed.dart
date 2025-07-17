@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AdminSearchAccountsInput {
 
- String? get email; String? get cursor; int? get limit; Map<String, dynamic>? get $unknown;
+ String? get email; String? get cursor; int get limit; Map<String, dynamic>? get $unknown;
 /// Create a copy of AdminSearchAccountsInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $AdminSearchAccountsInputCopyWith<$Res>  {
   factory $AdminSearchAccountsInputCopyWith(AdminSearchAccountsInput value, $Res Function(AdminSearchAccountsInput) _then) = _$AdminSearchAccountsInputCopyWithImpl;
 @useResult
 $Res call({
- String? email, String? cursor, int? limit, Map<String, dynamic>? $unknown
+ String? email, String? cursor, int limit, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,12 +65,12 @@ class _$AdminSearchAccountsInputCopyWithImpl<$Res>
 
 /// Create a copy of AdminSearchAccountsInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? email = freezed,Object? cursor = freezed,Object? limit = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? email = freezed,Object? cursor = freezed,Object? limit = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 email: freezed == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? email,  String? cursor,  int? limit,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? email,  String? cursor,  int limit,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AdminSearchAccountsInput() when $default != null:
 return $default(_that.email,_that.cursor,_that.limit,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.email,_that.cursor,_that.limit,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? email,  String? cursor,  int? limit,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? email,  String? cursor,  int limit,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AdminSearchAccountsInput():
 return $default(_that.email,_that.cursor,_that.limit,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.email,_that.cursor,_that.limit,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? email,  String? cursor,  int? limit,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? email,  String? cursor,  int limit,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AdminSearchAccountsInput() when $default != null:
 return $default(_that.email,_that.cursor,_that.limit,_that.$unknown);case _:
@@ -212,12 +212,12 @@ return $default(_that.email,_that.cursor,_that.limit,_that.$unknown);case _:
 @JsonSerializable()
 
 class _AdminSearchAccountsInput implements AdminSearchAccountsInput {
-  const _AdminSearchAccountsInput({this.email, this.cursor, this.limit, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AdminSearchAccountsInput({this.email, this.cursor, this.limit = 50, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AdminSearchAccountsInput.fromJson(Map<String, dynamic> json) => _$AdminSearchAccountsInputFromJson(json);
 
 @override final  String? email;
 @override final  String? cursor;
-@override final  int? limit;
+@override@JsonKey() final  int limit;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -261,7 +261,7 @@ abstract mixin class _$AdminSearchAccountsInputCopyWith<$Res> implements $AdminS
   factory _$AdminSearchAccountsInputCopyWith(_AdminSearchAccountsInput value, $Res Function(_AdminSearchAccountsInput) _then) = __$AdminSearchAccountsInputCopyWithImpl;
 @override @useResult
 $Res call({
- String? email, String? cursor, int? limit, Map<String, dynamic>? $unknown
+ String? email, String? cursor, int limit, Map<String, dynamic>? $unknown
 });
 
 
@@ -278,12 +278,12 @@ class __$AdminSearchAccountsInputCopyWithImpl<$Res>
 
 /// Create a copy of AdminSearchAccountsInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? email = freezed,Object? cursor = freezed,Object? limit = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? email = freezed,Object? cursor = freezed,Object? limit = null,Object? $unknown = freezed,}) {
   return _then(_AdminSearchAccountsInput(
 email: freezed == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

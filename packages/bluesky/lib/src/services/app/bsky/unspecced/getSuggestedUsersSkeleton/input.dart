@@ -29,7 +29,7 @@ abstract class UnspeccedGetSuggestedUsersSkeletonInput
 
     /// Category of users to get suggestions for.
     String? category,
-    int? limit,
+    @Default(25) int limit,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestedUsersSkeletonInput;
@@ -45,8 +45,6 @@ extension UnspeccedGetSuggestedUsersSkeletonInputExtension
   bool get hasNotViewer => !hasViewer;
   bool get hasCategory => category != null;
   bool get hasNotCategory => !hasCategory;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
 }
 
 final class UnspeccedGetSuggestedUsersSkeletonInputConverter

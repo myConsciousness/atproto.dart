@@ -16,7 +16,7 @@ _$UnspeccedGetSuggestedUsersSkeletonInputFromJson(Map json) => $checkedCreate(
     final val = _UnspeccedGetSuggestedUsersSkeletonInput(
       viewer: $checkedConvert('viewer', (v) => v as String?),
       category: $checkedConvert('category', (v) => v as String?),
-      limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+      limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 25),
       $unknown: $checkedConvert(
         r'$unknown',
         (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),

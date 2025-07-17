@@ -26,7 +26,7 @@ abstract class SignatureSearchAccountsInput
   const factory SignatureSearchAccountsInput({
     required List<String> values,
     String? cursor,
-    int? limit,
+    @Default(50) int limit,
 
     Map<String, dynamic>? $unknown,
   }) = _SignatureSearchAccountsInput;
@@ -39,8 +39,6 @@ extension SignatureSearchAccountsInputExtension
     on SignatureSearchAccountsInput {
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
 }
 
 final class SignatureSearchAccountsInputConverter

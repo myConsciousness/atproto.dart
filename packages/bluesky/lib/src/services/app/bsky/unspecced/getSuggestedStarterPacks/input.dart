@@ -24,7 +24,7 @@ abstract class UnspeccedGetSuggestedStarterPacksInput
   static const knownProps = <String>['limit'];
 
   const factory UnspeccedGetSuggestedStarterPacksInput({
-    int? limit,
+    @Default(10) int limit,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestedStarterPacksInput;
@@ -32,12 +32,6 @@ abstract class UnspeccedGetSuggestedStarterPacksInput
   factory UnspeccedGetSuggestedStarterPacksInput.fromJson(
     Map<String, Object?> json,
   ) => _$UnspeccedGetSuggestedStarterPacksInputFromJson(json);
-}
-
-extension UnspeccedGetSuggestedStarterPacksInputExtension
-    on UnspeccedGetSuggestedStarterPacksInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
 }
 
 final class UnspeccedGetSuggestedStarterPacksInputConverter

@@ -12,7 +12,7 @@ _FeedGetAuthorFeedInput _$FeedGetAuthorFeedInputFromJson(Map json) =>
     $checkedCreate('_FeedGetAuthorFeedInput', json, ($checkedConvert) {
       final val = _FeedGetAuthorFeedInput(
         actor: $checkedConvert('actor', (v) => v as String),
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         filter: $checkedConvert(
           'filter',
@@ -21,7 +21,7 @@ _FeedGetAuthorFeedInput _$FeedGetAuthorFeedInputFromJson(Map json) =>
             const FeedGetAuthorFeedFilterConverter().fromJson,
           ),
         ),
-        includePins: $checkedConvert('includePins', (v) => v as bool?),
+        includePins: $checkedConvert('includePins', (v) => v as bool? ?? false),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),

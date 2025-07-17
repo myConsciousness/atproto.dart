@@ -36,7 +36,7 @@ abstract class SafelinkQueryEventsInput with _$SafelinkQueryEventsInput {
     String? cursor,
 
     /// Maximum number of results to return
-    int? limit,
+    @Default(50) int limit,
     List<String>? urls,
 
     /// Filter by pattern type
@@ -56,8 +56,6 @@ abstract class SafelinkQueryEventsInput with _$SafelinkQueryEventsInput {
 extension SafelinkQueryEventsInputExtension on SafelinkQueryEventsInput {
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasPatternType => patternType != null;
   bool get hasNotPatternType => !hasPatternType;
   bool get hasSortDirection => sortDirection != null;

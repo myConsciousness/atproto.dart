@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$GraphGetSuggestedFollowsByActorOutput {
 
 @ProfileViewConverter() List<ProfileView> get suggestions;/// If true, response has fallen-back to generic results, and is not scoped using relativeToDid
- bool? get isFallback;/// Snowflake for this recommendation, use when submitting recommendation events.
+ bool get isFallback;/// Snowflake for this recommendation, use when submitting recommendation events.
  int? get recId; Map<String, dynamic>? get $unknown;
 /// Create a copy of GraphGetSuggestedFollowsByActorOutput
 /// with the given fields replaced by the non-null parameter values.
@@ -50,7 +50,7 @@ abstract mixin class $GraphGetSuggestedFollowsByActorOutputCopyWith<$Res>  {
   factory $GraphGetSuggestedFollowsByActorOutputCopyWith(GraphGetSuggestedFollowsByActorOutput value, $Res Function(GraphGetSuggestedFollowsByActorOutput) _then) = _$GraphGetSuggestedFollowsByActorOutputCopyWithImpl;
 @useResult
 $Res call({
-@ProfileViewConverter() List<ProfileView> suggestions, bool? isFallback, int? recId, Map<String, dynamic>? $unknown
+@ProfileViewConverter() List<ProfileView> suggestions, bool isFallback, int? recId, Map<String, dynamic>? $unknown
 });
 
 
@@ -67,11 +67,11 @@ class _$GraphGetSuggestedFollowsByActorOutputCopyWithImpl<$Res>
 
 /// Create a copy of GraphGetSuggestedFollowsByActorOutput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? suggestions = null,Object? isFallback = freezed,Object? recId = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? suggestions = null,Object? isFallback = null,Object? recId = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 suggestions: null == suggestions ? _self.suggestions : suggestions // ignore: cast_nullable_to_non_nullable
-as List<ProfileView>,isFallback: freezed == isFallback ? _self.isFallback : isFallback // ignore: cast_nullable_to_non_nullable
-as bool?,recId: freezed == recId ? _self.recId : recId // ignore: cast_nullable_to_non_nullable
+as List<ProfileView>,isFallback: null == isFallback ? _self.isFallback : isFallback // ignore: cast_nullable_to_non_nullable
+as bool,recId: freezed == recId ? _self.recId : recId // ignore: cast_nullable_to_non_nullable
 as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -158,7 +158,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@ProfileViewConverter()  List<ProfileView> suggestions,  bool? isFallback,  int? recId,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@ProfileViewConverter()  List<ProfileView> suggestions,  bool isFallback,  int? recId,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GraphGetSuggestedFollowsByActorOutput() when $default != null:
 return $default(_that.suggestions,_that.isFallback,_that.recId,_that.$unknown);case _:
@@ -179,7 +179,7 @@ return $default(_that.suggestions,_that.isFallback,_that.recId,_that.$unknown);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@ProfileViewConverter()  List<ProfileView> suggestions,  bool? isFallback,  int? recId,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@ProfileViewConverter()  List<ProfileView> suggestions,  bool isFallback,  int? recId,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GraphGetSuggestedFollowsByActorOutput():
 return $default(_that.suggestions,_that.isFallback,_that.recId,_that.$unknown);case _:
@@ -199,7 +199,7 @@ return $default(_that.suggestions,_that.isFallback,_that.recId,_that.$unknown);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@ProfileViewConverter()  List<ProfileView> suggestions,  bool? isFallback,  int? recId,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@ProfileViewConverter()  List<ProfileView> suggestions,  bool isFallback,  int? recId,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GraphGetSuggestedFollowsByActorOutput() when $default != null:
 return $default(_that.suggestions,_that.isFallback,_that.recId,_that.$unknown);case _:
@@ -214,7 +214,7 @@ return $default(_that.suggestions,_that.isFallback,_that.recId,_that.$unknown);c
 @JsonSerializable()
 
 class _GraphGetSuggestedFollowsByActorOutput implements GraphGetSuggestedFollowsByActorOutput {
-  const _GraphGetSuggestedFollowsByActorOutput({@ProfileViewConverter() required final  List<ProfileView> suggestions, this.isFallback, this.recId, final  Map<String, dynamic>? $unknown}): _suggestions = suggestions,_$unknown = $unknown;
+  const _GraphGetSuggestedFollowsByActorOutput({@ProfileViewConverter() required final  List<ProfileView> suggestions, this.isFallback = false, this.recId, final  Map<String, dynamic>? $unknown}): _suggestions = suggestions,_$unknown = $unknown;
   factory _GraphGetSuggestedFollowsByActorOutput.fromJson(Map<String, dynamic> json) => _$GraphGetSuggestedFollowsByActorOutputFromJson(json);
 
  final  List<ProfileView> _suggestions;
@@ -225,7 +225,7 @@ class _GraphGetSuggestedFollowsByActorOutput implements GraphGetSuggestedFollows
 }
 
 /// If true, response has fallen-back to generic results, and is not scoped using relativeToDid
-@override final  bool? isFallback;
+@override@JsonKey() final  bool isFallback;
 /// Snowflake for this recommendation, use when submitting recommendation events.
 @override final  int? recId;
  final  Map<String, dynamic>? _$unknown;
@@ -271,7 +271,7 @@ abstract mixin class _$GraphGetSuggestedFollowsByActorOutputCopyWith<$Res> imple
   factory _$GraphGetSuggestedFollowsByActorOutputCopyWith(_GraphGetSuggestedFollowsByActorOutput value, $Res Function(_GraphGetSuggestedFollowsByActorOutput) _then) = __$GraphGetSuggestedFollowsByActorOutputCopyWithImpl;
 @override @useResult
 $Res call({
-@ProfileViewConverter() List<ProfileView> suggestions, bool? isFallback, int? recId, Map<String, dynamic>? $unknown
+@ProfileViewConverter() List<ProfileView> suggestions, bool isFallback, int? recId, Map<String, dynamic>? $unknown
 });
 
 
@@ -288,11 +288,11 @@ class __$GraphGetSuggestedFollowsByActorOutputCopyWithImpl<$Res>
 
 /// Create a copy of GraphGetSuggestedFollowsByActorOutput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? suggestions = null,Object? isFallback = freezed,Object? recId = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? suggestions = null,Object? isFallback = null,Object? recId = freezed,Object? $unknown = freezed,}) {
   return _then(_GraphGetSuggestedFollowsByActorOutput(
 suggestions: null == suggestions ? _self._suggestions : suggestions // ignore: cast_nullable_to_non_nullable
-as List<ProfileView>,isFallback: freezed == isFallback ? _self.isFallback : isFallback // ignore: cast_nullable_to_non_nullable
-as bool?,recId: freezed == recId ? _self.recId : recId // ignore: cast_nullable_to_non_nullable
+as List<ProfileView>,isFallback: null == isFallback ? _self.isFallback : isFallback // ignore: cast_nullable_to_non_nullable
+as bool,recId: freezed == recId ? _self.recId : recId // ignore: cast_nullable_to_non_nullable
 as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

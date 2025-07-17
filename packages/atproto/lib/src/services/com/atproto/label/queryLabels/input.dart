@@ -30,7 +30,7 @@ abstract class LabelQueryLabelsInput with _$LabelQueryLabelsInput {
   const factory LabelQueryLabelsInput({
     required List<String> uriPatterns,
     List<String>? sources,
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -41,8 +41,6 @@ abstract class LabelQueryLabelsInput with _$LabelQueryLabelsInput {
 }
 
 extension LabelQueryLabelsInputExtension on LabelQueryLabelsInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

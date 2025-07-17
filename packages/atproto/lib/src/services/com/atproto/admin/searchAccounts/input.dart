@@ -25,7 +25,7 @@ abstract class AdminSearchAccountsInput with _$AdminSearchAccountsInput {
   const factory AdminSearchAccountsInput({
     String? email,
     String? cursor,
-    int? limit,
+    @Default(50) int limit,
 
     Map<String, dynamic>? $unknown,
   }) = _AdminSearchAccountsInput;
@@ -39,8 +39,6 @@ extension AdminSearchAccountsInputExtension on AdminSearchAccountsInput {
   bool get hasNotEmail => !hasEmail;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
 }
 
 final class AdminSearchAccountsInputConverter

@@ -24,7 +24,7 @@ abstract class FeedGetActorLikesInput with _$FeedGetActorLikesInput {
 
   const factory FeedGetActorLikesInput({
     required String actor,
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -35,8 +35,6 @@ abstract class FeedGetActorLikesInput with _$FeedGetActorLikesInput {
 }
 
 extension FeedGetActorLikesInputExtension on FeedGetActorLikesInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

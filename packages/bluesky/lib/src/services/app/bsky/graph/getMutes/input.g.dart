@@ -11,7 +11,7 @@ part of 'input.dart';
 _GraphGetMutesInput _$GraphGetMutesInputFromJson(Map json) =>
     $checkedCreate('_GraphGetMutesInput', json, ($checkedConvert) {
       final val = _GraphGetMutesInput(
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',

@@ -23,7 +23,7 @@ abstract class GraphGetListMutesInput with _$GraphGetListMutesInput {
   static const knownProps = <String>['limit', 'cursor'];
 
   const factory GraphGetListMutesInput({
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -34,8 +34,6 @@ abstract class GraphGetListMutesInput with _$GraphGetListMutesInput {
 }
 
 extension GraphGetListMutesInputExtension on GraphGetListMutesInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

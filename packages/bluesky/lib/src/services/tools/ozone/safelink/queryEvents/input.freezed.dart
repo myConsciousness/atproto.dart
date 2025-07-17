@@ -17,7 +17,7 @@ mixin _$SafelinkQueryEventsInput {
 
 /// Cursor for pagination
  String? get cursor;/// Maximum number of results to return
- int? get limit; List<String>? get urls;/// Filter by pattern type
+ int get limit; List<String>? get urls;/// Filter by pattern type
  String? get patternType;/// Sort direction
 @SafelinkQueryEventsSortDirectionConverter() SafelinkQueryEventsSortDirection? get sortDirection; Map<String, dynamic>? get $unknown;
 /// Create a copy of SafelinkQueryEventsInput
@@ -52,7 +52,7 @@ abstract mixin class $SafelinkQueryEventsInputCopyWith<$Res>  {
   factory $SafelinkQueryEventsInputCopyWith(SafelinkQueryEventsInput value, $Res Function(SafelinkQueryEventsInput) _then) = _$SafelinkQueryEventsInputCopyWithImpl;
 @useResult
 $Res call({
- String? cursor, int? limit, List<String>? urls, String? patternType,@SafelinkQueryEventsSortDirectionConverter() SafelinkQueryEventsSortDirection? sortDirection, Map<String, dynamic>? $unknown
+ String? cursor, int limit, List<String>? urls, String? patternType,@SafelinkQueryEventsSortDirectionConverter() SafelinkQueryEventsSortDirection? sortDirection, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,11 +69,11 @@ class _$SafelinkQueryEventsInputCopyWithImpl<$Res>
 
 /// Create a copy of SafelinkQueryEventsInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? limit = freezed,Object? urls = freezed,Object? patternType = freezed,Object? sortDirection = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? limit = null,Object? urls = freezed,Object? patternType = freezed,Object? sortDirection = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,urls: freezed == urls ? _self.urls : urls // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,urls: freezed == urls ? _self.urls : urls // ignore: cast_nullable_to_non_nullable
 as List<String>?,patternType: freezed == patternType ? _self.patternType : patternType // ignore: cast_nullable_to_non_nullable
 as String?,sortDirection: freezed == sortDirection ? _self.sortDirection : sortDirection // ignore: cast_nullable_to_non_nullable
 as SafelinkQueryEventsSortDirection?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -174,7 +174,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor,  int? limit,  List<String>? urls,  String? patternType, @SafelinkQueryEventsSortDirectionConverter()  SafelinkQueryEventsSortDirection? sortDirection,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor,  int limit,  List<String>? urls,  String? patternType, @SafelinkQueryEventsSortDirectionConverter()  SafelinkQueryEventsSortDirection? sortDirection,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SafelinkQueryEventsInput() when $default != null:
 return $default(_that.cursor,_that.limit,_that.urls,_that.patternType,_that.sortDirection,_that.$unknown);case _:
@@ -195,7 +195,7 @@ return $default(_that.cursor,_that.limit,_that.urls,_that.patternType,_that.sort
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor,  int? limit,  List<String>? urls,  String? patternType, @SafelinkQueryEventsSortDirectionConverter()  SafelinkQueryEventsSortDirection? sortDirection,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor,  int limit,  List<String>? urls,  String? patternType, @SafelinkQueryEventsSortDirectionConverter()  SafelinkQueryEventsSortDirection? sortDirection,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SafelinkQueryEventsInput():
 return $default(_that.cursor,_that.limit,_that.urls,_that.patternType,_that.sortDirection,_that.$unknown);case _:
@@ -215,7 +215,7 @@ return $default(_that.cursor,_that.limit,_that.urls,_that.patternType,_that.sort
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor,  int? limit,  List<String>? urls,  String? patternType, @SafelinkQueryEventsSortDirectionConverter()  SafelinkQueryEventsSortDirection? sortDirection,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor,  int limit,  List<String>? urls,  String? patternType, @SafelinkQueryEventsSortDirectionConverter()  SafelinkQueryEventsSortDirection? sortDirection,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SafelinkQueryEventsInput() when $default != null:
 return $default(_that.cursor,_that.limit,_that.urls,_that.patternType,_that.sortDirection,_that.$unknown);case _:
@@ -230,13 +230,13 @@ return $default(_that.cursor,_that.limit,_that.urls,_that.patternType,_that.sort
 @JsonSerializable()
 
 class _SafelinkQueryEventsInput implements SafelinkQueryEventsInput {
-  const _SafelinkQueryEventsInput({this.cursor, this.limit, final  List<String>? urls, this.patternType, @SafelinkQueryEventsSortDirectionConverter() this.sortDirection, final  Map<String, dynamic>? $unknown}): _urls = urls,_$unknown = $unknown;
+  const _SafelinkQueryEventsInput({this.cursor, this.limit = 50, final  List<String>? urls, this.patternType, @SafelinkQueryEventsSortDirectionConverter() this.sortDirection, final  Map<String, dynamic>? $unknown}): _urls = urls,_$unknown = $unknown;
   factory _SafelinkQueryEventsInput.fromJson(Map<String, dynamic> json) => _$SafelinkQueryEventsInputFromJson(json);
 
 /// Cursor for pagination
 @override final  String? cursor;
 /// Maximum number of results to return
-@override final  int? limit;
+@override@JsonKey() final  int limit;
  final  List<String>? _urls;
 @override List<String>? get urls {
   final value = _urls;
@@ -293,7 +293,7 @@ abstract mixin class _$SafelinkQueryEventsInputCopyWith<$Res> implements $Safeli
   factory _$SafelinkQueryEventsInputCopyWith(_SafelinkQueryEventsInput value, $Res Function(_SafelinkQueryEventsInput) _then) = __$SafelinkQueryEventsInputCopyWithImpl;
 @override @useResult
 $Res call({
- String? cursor, int? limit, List<String>? urls, String? patternType,@SafelinkQueryEventsSortDirectionConverter() SafelinkQueryEventsSortDirection? sortDirection, Map<String, dynamic>? $unknown
+ String? cursor, int limit, List<String>? urls, String? patternType,@SafelinkQueryEventsSortDirectionConverter() SafelinkQueryEventsSortDirection? sortDirection, Map<String, dynamic>? $unknown
 });
 
 
@@ -310,11 +310,11 @@ class __$SafelinkQueryEventsInputCopyWithImpl<$Res>
 
 /// Create a copy of SafelinkQueryEventsInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? limit = freezed,Object? urls = freezed,Object? patternType = freezed,Object? sortDirection = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? limit = null,Object? urls = freezed,Object? patternType = freezed,Object? sortDirection = freezed,Object? $unknown = freezed,}) {
   return _then(_SafelinkQueryEventsInput(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,urls: freezed == urls ? _self._urls : urls // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,urls: freezed == urls ? _self._urls : urls // ignore: cast_nullable_to_non_nullable
 as List<String>?,patternType: freezed == patternType ? _self.patternType : patternType // ignore: cast_nullable_to_non_nullable
 as String?,sortDirection: freezed == sortDirection ? _self.sortDirection : sortDirection // ignore: cast_nullable_to_non_nullable
 as SafelinkQueryEventsSortDirection?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable

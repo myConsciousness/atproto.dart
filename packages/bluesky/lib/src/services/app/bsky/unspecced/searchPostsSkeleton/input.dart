@@ -73,7 +73,7 @@ abstract class UnspeccedSearchPostsSkeletonInput
 
     /// DID of the account making the request (not included for public/unauthenticated queries). Used for 'from:me' queries.
     String? viewer,
-    int? limit,
+    @Default(25) int limit,
 
     /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
     String? cursor,
@@ -106,8 +106,6 @@ extension UnspeccedSearchPostsSkeletonInputExtension
   bool get hasNotUrl => !hasUrl;
   bool get hasViewer => viewer != null;
   bool get hasNotViewer => !hasViewer;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

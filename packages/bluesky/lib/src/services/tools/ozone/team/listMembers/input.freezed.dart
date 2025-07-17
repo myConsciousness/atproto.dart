@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TeamListMembersInput {
 
- String? get q; bool? get disabled; List<String>? get roles; int? get limit; String? get cursor; Map<String, dynamic>? get $unknown;
+ String? get q; bool? get disabled; List<String>? get roles; int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of TeamListMembersInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $TeamListMembersInputCopyWith<$Res>  {
   factory $TeamListMembersInputCopyWith(TeamListMembersInput value, $Res Function(TeamListMembersInput) _then) = _$TeamListMembersInputCopyWithImpl;
 @useResult
 $Res call({
- String? q, bool? disabled, List<String>? roles, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String? q, bool? disabled, List<String>? roles, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,13 +65,13 @@ class _$TeamListMembersInputCopyWithImpl<$Res>
 
 /// Create a copy of TeamListMembersInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? q = freezed,Object? disabled = freezed,Object? roles = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? q = freezed,Object? disabled = freezed,Object? roles = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 q: freezed == q ? _self.q : q // ignore: cast_nullable_to_non_nullable
 as String?,disabled: freezed == disabled ? _self.disabled : disabled // ignore: cast_nullable_to_non_nullable
 as bool?,roles: freezed == roles ? _self.roles : roles // ignore: cast_nullable_to_non_nullable
-as List<String>?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as List<String>?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -158,7 +158,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? q,  bool? disabled,  List<String>? roles,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? q,  bool? disabled,  List<String>? roles,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TeamListMembersInput() when $default != null:
 return $default(_that.q,_that.disabled,_that.roles,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -179,7 +179,7 @@ return $default(_that.q,_that.disabled,_that.roles,_that.limit,_that.cursor,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? q,  bool? disabled,  List<String>? roles,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? q,  bool? disabled,  List<String>? roles,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _TeamListMembersInput():
 return $default(_that.q,_that.disabled,_that.roles,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -199,7 +199,7 @@ return $default(_that.q,_that.disabled,_that.roles,_that.limit,_that.cursor,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? q,  bool? disabled,  List<String>? roles,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? q,  bool? disabled,  List<String>? roles,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _TeamListMembersInput() when $default != null:
 return $default(_that.q,_that.disabled,_that.roles,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -214,7 +214,7 @@ return $default(_that.q,_that.disabled,_that.roles,_that.limit,_that.cursor,_tha
 @JsonSerializable()
 
 class _TeamListMembersInput implements TeamListMembersInput {
-  const _TeamListMembersInput({this.q, this.disabled, final  List<String>? roles, this.limit, this.cursor, final  Map<String, dynamic>? $unknown}): _roles = roles,_$unknown = $unknown;
+  const _TeamListMembersInput({this.q, this.disabled, final  List<String>? roles, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _roles = roles,_$unknown = $unknown;
   factory _TeamListMembersInput.fromJson(Map<String, dynamic> json) => _$TeamListMembersInputFromJson(json);
 
 @override final  String? q;
@@ -228,7 +228,7 @@ class _TeamListMembersInput implements TeamListMembersInput {
   return EqualUnmodifiableListView(value);
 }
 
-@override final  int? limit;
+@override@JsonKey() final  int limit;
 @override final  String? cursor;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -273,7 +273,7 @@ abstract mixin class _$TeamListMembersInputCopyWith<$Res> implements $TeamListMe
   factory _$TeamListMembersInputCopyWith(_TeamListMembersInput value, $Res Function(_TeamListMembersInput) _then) = __$TeamListMembersInputCopyWithImpl;
 @override @useResult
 $Res call({
- String? q, bool? disabled, List<String>? roles, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String? q, bool? disabled, List<String>? roles, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -290,13 +290,13 @@ class __$TeamListMembersInputCopyWithImpl<$Res>
 
 /// Create a copy of TeamListMembersInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? q = freezed,Object? disabled = freezed,Object? roles = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? q = freezed,Object? disabled = freezed,Object? roles = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_TeamListMembersInput(
 q: freezed == q ? _self.q : q // ignore: cast_nullable_to_non_nullable
 as String?,disabled: freezed == disabled ? _self.disabled : disabled // ignore: cast_nullable_to_non_nullable
 as bool?,roles: freezed == roles ? _self._roles : roles // ignore: cast_nullable_to_non_nullable
-as List<String>?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as List<String>?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

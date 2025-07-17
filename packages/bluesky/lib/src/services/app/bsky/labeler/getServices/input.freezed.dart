@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LabelerGetServicesInput {
 
- List<String> get dids; bool? get detailed; Map<String, dynamic>? get $unknown;
+ List<String> get dids; bool get detailed; Map<String, dynamic>? get $unknown;
 /// Create a copy of LabelerGetServicesInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $LabelerGetServicesInputCopyWith<$Res>  {
   factory $LabelerGetServicesInputCopyWith(LabelerGetServicesInput value, $Res Function(LabelerGetServicesInput) _then) = _$LabelerGetServicesInputCopyWithImpl;
 @useResult
 $Res call({
- List<String> dids, bool? detailed, Map<String, dynamic>? $unknown
+ List<String> dids, bool detailed, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,11 +65,11 @@ class _$LabelerGetServicesInputCopyWithImpl<$Res>
 
 /// Create a copy of LabelerGetServicesInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? dids = null,Object? detailed = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? dids = null,Object? detailed = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 dids: null == dids ? _self.dids : dids // ignore: cast_nullable_to_non_nullable
-as List<String>,detailed: freezed == detailed ? _self.detailed : detailed // ignore: cast_nullable_to_non_nullable
-as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<String>,detailed: null == detailed ? _self.detailed : detailed // ignore: cast_nullable_to_non_nullable
+as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> dids,  bool? detailed,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> dids,  bool detailed,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LabelerGetServicesInput() when $default != null:
 return $default(_that.dids,_that.detailed,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.dids,_that.detailed,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> dids,  bool? detailed,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> dids,  bool detailed,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _LabelerGetServicesInput():
 return $default(_that.dids,_that.detailed,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.dids,_that.detailed,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> dids,  bool? detailed,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> dids,  bool detailed,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _LabelerGetServicesInput() when $default != null:
 return $default(_that.dids,_that.detailed,_that.$unknown);case _:
@@ -211,7 +211,7 @@ return $default(_that.dids,_that.detailed,_that.$unknown);case _:
 @JsonSerializable()
 
 class _LabelerGetServicesInput implements LabelerGetServicesInput {
-  const _LabelerGetServicesInput({required final  List<String> dids, this.detailed, final  Map<String, dynamic>? $unknown}): _dids = dids,_$unknown = $unknown;
+  const _LabelerGetServicesInput({required final  List<String> dids, this.detailed = false, final  Map<String, dynamic>? $unknown}): _dids = dids,_$unknown = $unknown;
   factory _LabelerGetServicesInput.fromJson(Map<String, dynamic> json) => _$LabelerGetServicesInputFromJson(json);
 
  final  List<String> _dids;
@@ -221,7 +221,7 @@ class _LabelerGetServicesInput implements LabelerGetServicesInput {
   return EqualUnmodifiableListView(_dids);
 }
 
-@override final  bool? detailed;
+@override@JsonKey() final  bool detailed;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -265,7 +265,7 @@ abstract mixin class _$LabelerGetServicesInputCopyWith<$Res> implements $Labeler
   factory _$LabelerGetServicesInputCopyWith(_LabelerGetServicesInput value, $Res Function(_LabelerGetServicesInput) _then) = __$LabelerGetServicesInputCopyWithImpl;
 @override @useResult
 $Res call({
- List<String> dids, bool? detailed, Map<String, dynamic>? $unknown
+ List<String> dids, bool detailed, Map<String, dynamic>? $unknown
 });
 
 
@@ -282,11 +282,11 @@ class __$LabelerGetServicesInputCopyWithImpl<$Res>
 
 /// Create a copy of LabelerGetServicesInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? dids = null,Object? detailed = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? dids = null,Object? detailed = null,Object? $unknown = freezed,}) {
   return _then(_LabelerGetServicesInput(
 dids: null == dids ? _self._dids : dids // ignore: cast_nullable_to_non_nullable
-as List<String>,detailed: freezed == detailed ? _self.detailed : detailed // ignore: cast_nullable_to_non_nullable
-as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<String>,detailed: null == detailed ? _self.detailed : detailed // ignore: cast_nullable_to_non_nullable
+as bool,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

@@ -26,7 +26,7 @@ abstract class SignatureFindRelatedAccountsInput
   const factory SignatureFindRelatedAccountsInput({
     required String did,
     String? cursor,
-    int? limit,
+    @Default(50) int limit,
 
     Map<String, dynamic>? $unknown,
   }) = _SignatureFindRelatedAccountsInput;
@@ -40,8 +40,6 @@ extension SignatureFindRelatedAccountsInputExtension
     on SignatureFindRelatedAccountsInput {
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
 }
 
 final class SignatureFindRelatedAccountsInputConverter

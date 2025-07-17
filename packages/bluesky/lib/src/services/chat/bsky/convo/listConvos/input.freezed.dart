@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ConvoListConvosInput {
 
- int? get limit; String? get cursor;@ConvoListConvosReadStateConverter() ConvoListConvosReadState? get readState;@ConvoListConvosStatusConverter() ConvoListConvosStatus? get status; Map<String, dynamic>? get $unknown;
+ int get limit; String? get cursor;@ConvoListConvosReadStateConverter() ConvoListConvosReadState? get readState;@ConvoListConvosStatusConverter() ConvoListConvosStatus? get status; Map<String, dynamic>? get $unknown;
 /// Create a copy of ConvoListConvosInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ConvoListConvosInputCopyWith<$Res>  {
   factory $ConvoListConvosInputCopyWith(ConvoListConvosInput value, $Res Function(ConvoListConvosInput) _then) = _$ConvoListConvosInputCopyWithImpl;
 @useResult
 $Res call({
- int? limit, String? cursor,@ConvoListConvosReadStateConverter() ConvoListConvosReadState? readState,@ConvoListConvosStatusConverter() ConvoListConvosStatus? status, Map<String, dynamic>? $unknown
+ int limit, String? cursor,@ConvoListConvosReadStateConverter() ConvoListConvosReadState? readState,@ConvoListConvosStatusConverter() ConvoListConvosStatus? status, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,10 +65,10 @@ class _$ConvoListConvosInputCopyWithImpl<$Res>
 
 /// Create a copy of ConvoListConvosInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? limit = freezed,Object? cursor = freezed,Object? readState = freezed,Object? status = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? limit = null,Object? cursor = freezed,Object? readState = freezed,Object? status = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
-limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,readState: freezed == readState ? _self.readState : readState // ignore: cast_nullable_to_non_nullable
 as ConvoListConvosReadState?,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as ConvoListConvosStatus?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -181,7 +181,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? limit,  String? cursor, @ConvoListConvosReadStateConverter()  ConvoListConvosReadState? readState, @ConvoListConvosStatusConverter()  ConvoListConvosStatus? status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int limit,  String? cursor, @ConvoListConvosReadStateConverter()  ConvoListConvosReadState? readState, @ConvoListConvosStatusConverter()  ConvoListConvosStatus? status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ConvoListConvosInput() when $default != null:
 return $default(_that.limit,_that.cursor,_that.readState,_that.status,_that.$unknown);case _:
@@ -202,7 +202,7 @@ return $default(_that.limit,_that.cursor,_that.readState,_that.status,_that.$unk
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? limit,  String? cursor, @ConvoListConvosReadStateConverter()  ConvoListConvosReadState? readState, @ConvoListConvosStatusConverter()  ConvoListConvosStatus? status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int limit,  String? cursor, @ConvoListConvosReadStateConverter()  ConvoListConvosReadState? readState, @ConvoListConvosStatusConverter()  ConvoListConvosStatus? status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ConvoListConvosInput():
 return $default(_that.limit,_that.cursor,_that.readState,_that.status,_that.$unknown);case _:
@@ -222,7 +222,7 @@ return $default(_that.limit,_that.cursor,_that.readState,_that.status,_that.$unk
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? limit,  String? cursor, @ConvoListConvosReadStateConverter()  ConvoListConvosReadState? readState, @ConvoListConvosStatusConverter()  ConvoListConvosStatus? status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int limit,  String? cursor, @ConvoListConvosReadStateConverter()  ConvoListConvosReadState? readState, @ConvoListConvosStatusConverter()  ConvoListConvosStatus? status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ConvoListConvosInput() when $default != null:
 return $default(_that.limit,_that.cursor,_that.readState,_that.status,_that.$unknown);case _:
@@ -237,10 +237,10 @@ return $default(_that.limit,_that.cursor,_that.readState,_that.status,_that.$unk
 @JsonSerializable()
 
 class _ConvoListConvosInput implements ConvoListConvosInput {
-  const _ConvoListConvosInput({this.limit, this.cursor, @ConvoListConvosReadStateConverter() this.readState, @ConvoListConvosStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ConvoListConvosInput({this.limit = 50, this.cursor, @ConvoListConvosReadStateConverter() this.readState, @ConvoListConvosStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoListConvosInput.fromJson(Map<String, dynamic> json) => _$ConvoListConvosInputFromJson(json);
 
-@override final  int? limit;
+@override@JsonKey() final  int limit;
 @override final  String? cursor;
 @override@ConvoListConvosReadStateConverter() final  ConvoListConvosReadState? readState;
 @override@ConvoListConvosStatusConverter() final  ConvoListConvosStatus? status;
@@ -287,7 +287,7 @@ abstract mixin class _$ConvoListConvosInputCopyWith<$Res> implements $ConvoListC
   factory _$ConvoListConvosInputCopyWith(_ConvoListConvosInput value, $Res Function(_ConvoListConvosInput) _then) = __$ConvoListConvosInputCopyWithImpl;
 @override @useResult
 $Res call({
- int? limit, String? cursor,@ConvoListConvosReadStateConverter() ConvoListConvosReadState? readState,@ConvoListConvosStatusConverter() ConvoListConvosStatus? status, Map<String, dynamic>? $unknown
+ int limit, String? cursor,@ConvoListConvosReadStateConverter() ConvoListConvosReadState? readState,@ConvoListConvosStatusConverter() ConvoListConvosStatus? status, Map<String, dynamic>? $unknown
 });
 
 
@@ -304,10 +304,10 @@ class __$ConvoListConvosInputCopyWithImpl<$Res>
 
 /// Create a copy of ConvoListConvosInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? limit = freezed,Object? cursor = freezed,Object? readState = freezed,Object? status = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? limit = null,Object? cursor = freezed,Object? readState = freezed,Object? status = freezed,Object? $unknown = freezed,}) {
   return _then(_ConvoListConvosInput(
-limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,readState: freezed == readState ? _self.readState : readState // ignore: cast_nullable_to_non_nullable
 as ConvoListConvosReadState?,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as ConvoListConvosStatus?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable

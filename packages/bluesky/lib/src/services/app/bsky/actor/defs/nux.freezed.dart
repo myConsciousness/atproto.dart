@@ -216,12 +216,12 @@ return $default(_that.$type,_that.id,_that.completed,_that.data,_that.expiresAt,
 @JsonSerializable()
 
 class _Nux implements Nux {
-  const _Nux({this.$type = 'app.bsky.actor.defs#nux', required this.id, required this.completed, this.data, this.expiresAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Nux({this.$type = 'app.bsky.actor.defs#nux', required this.id, required this.completed = false, this.data, this.expiresAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Nux.fromJson(Map<String, dynamic> json) => _$NuxFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String id;
-@override final  bool completed;
+@override@JsonKey() final  bool completed;
 /// Arbitrary data for the NUX. The structure is defined by the NUX itself. Limited to 300 characters.
 @override final  String? data;
 /// The date and time at which the NUX will expire and should be considered completed.

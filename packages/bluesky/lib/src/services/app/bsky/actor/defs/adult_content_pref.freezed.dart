@@ -211,11 +211,11 @@ return $default(_that.$type,_that.enabled,_that.$unknown);case _:
 @JsonSerializable()
 
 class _AdultContentPref implements AdultContentPref {
-  const _AdultContentPref({this.$type = 'app.bsky.actor.defs#adultContentPref', required this.enabled, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AdultContentPref({this.$type = 'app.bsky.actor.defs#adultContentPref', required this.enabled = false, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AdultContentPref.fromJson(Map<String, dynamic> json) => _$AdultContentPrefFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  bool enabled;
+@override@JsonKey() final  bool enabled;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;

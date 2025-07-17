@@ -12,7 +12,7 @@ _GraphGetFollowsInput _$GraphGetFollowsInputFromJson(Map json) =>
     $checkedCreate('_GraphGetFollowsInput', json, ($checkedConvert) {
       final val = _GraphGetFollowsInput(
         actor: $checkedConvert('actor', (v) => v as String),
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',

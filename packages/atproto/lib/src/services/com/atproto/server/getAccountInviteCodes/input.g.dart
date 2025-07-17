@@ -14,8 +14,11 @@ _ServerGetAccountInviteCodesInput _$ServerGetAccountInviteCodesInputFromJson(
   $checkedConvert,
 ) {
   final val = _ServerGetAccountInviteCodesInput(
-    includeUsed: $checkedConvert('includeUsed', (v) => v as bool?),
-    createAvailable: $checkedConvert('createAvailable', (v) => v as bool?),
+    includeUsed: $checkedConvert('includeUsed', (v) => v as bool? ?? true),
+    createAvailable: $checkedConvert(
+      'createAvailable',
+      (v) => v as bool? ?? true,
+    ),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),

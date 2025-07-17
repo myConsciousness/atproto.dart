@@ -13,7 +13,7 @@ _AdminSearchAccountsInput _$AdminSearchAccountsInputFromJson(Map json) =>
       final val = _AdminSearchAccountsInput(
         email: $checkedConvert('email', (v) => v as String?),
         cursor: $checkedConvert('cursor', (v) => v as String?),
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),

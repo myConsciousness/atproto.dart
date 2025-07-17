@@ -11,7 +11,7 @@ part of 'input.dart';
 _SyncListReposInput _$SyncListReposInputFromJson(Map json) =>
     $checkedCreate('_SyncListReposInput', json, ($checkedConvert) {
       final val = _SyncListReposInput(
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 500),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',

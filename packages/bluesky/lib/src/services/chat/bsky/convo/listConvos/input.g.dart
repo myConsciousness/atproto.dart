@@ -11,7 +11,7 @@ part of 'input.dart';
 _ConvoListConvosInput _$ConvoListConvosInputFromJson(Map json) =>
     $checkedCreate('_ConvoListConvosInput', json, ($checkedConvert) {
       final val = _ConvoListConvosInput(
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         readState: $checkedConvert(
           'readState',

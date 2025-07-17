@@ -13,7 +13,7 @@ _SyncListReposByCollectionInput _$SyncListReposByCollectionInputFromJson(
 ) => $checkedCreate('_SyncListReposByCollectionInput', json, ($checkedConvert) {
   final val = _SyncListReposByCollectionInput(
     collection: $checkedConvert('collection', (v) => v as String),
-    limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+    limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 500),
     cursor: $checkedConvert('cursor', (v) => v as String?),
     $unknown: $checkedConvert(
       r'$unknown',

@@ -24,7 +24,7 @@ abstract class ConvoGetMessagesInput with _$ConvoGetMessagesInput {
 
   const factory ConvoGetMessagesInput({
     required String convoId,
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -35,8 +35,6 @@ abstract class ConvoGetMessagesInput with _$ConvoGetMessagesInput {
 }
 
 extension ConvoGetMessagesInputExtension on ConvoGetMessagesInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

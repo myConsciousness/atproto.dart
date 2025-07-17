@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$ModerationGetMessageContextInput {
 
 /// Conversation that the message is from. NOTE: this field will eventually be required.
- String? get convoId; String get messageId; int? get before; int? get after; Map<String, dynamic>? get $unknown;
+ String? get convoId; String get messageId; int get before; int get after; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModerationGetMessageContextInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $ModerationGetMessageContextInputCopyWith<$Res>  {
   factory $ModerationGetMessageContextInputCopyWith(ModerationGetMessageContextInput value, $Res Function(ModerationGetMessageContextInput) _then) = _$ModerationGetMessageContextInputCopyWithImpl;
 @useResult
 $Res call({
- String? convoId, String messageId, int? before, int? after, Map<String, dynamic>? $unknown
+ String? convoId, String messageId, int before, int after, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,13 +66,13 @@ class _$ModerationGetMessageContextInputCopyWithImpl<$Res>
 
 /// Create a copy of ModerationGetMessageContextInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? convoId = freezed,Object? messageId = null,Object? before = freezed,Object? after = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? convoId = freezed,Object? messageId = null,Object? before = null,Object? after = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 convoId: freezed == convoId ? _self.convoId : convoId // ignore: cast_nullable_to_non_nullable
 as String?,messageId: null == messageId ? _self.messageId : messageId // ignore: cast_nullable_to_non_nullable
-as String,before: freezed == before ? _self.before : before // ignore: cast_nullable_to_non_nullable
-as int?,after: freezed == after ? _self.after : after // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String,before: null == before ? _self.before : before // ignore: cast_nullable_to_non_nullable
+as int,after: null == after ? _self.after : after // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -158,7 +158,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? convoId,  String messageId,  int? before,  int? after,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? convoId,  String messageId,  int before,  int after,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModerationGetMessageContextInput() when $default != null:
 return $default(_that.convoId,_that.messageId,_that.before,_that.after,_that.$unknown);case _:
@@ -179,7 +179,7 @@ return $default(_that.convoId,_that.messageId,_that.before,_that.after,_that.$un
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? convoId,  String messageId,  int? before,  int? after,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? convoId,  String messageId,  int before,  int after,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModerationGetMessageContextInput():
 return $default(_that.convoId,_that.messageId,_that.before,_that.after,_that.$unknown);case _:
@@ -199,7 +199,7 @@ return $default(_that.convoId,_that.messageId,_that.before,_that.after,_that.$un
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? convoId,  String messageId,  int? before,  int? after,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? convoId,  String messageId,  int before,  int after,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModerationGetMessageContextInput() when $default != null:
 return $default(_that.convoId,_that.messageId,_that.before,_that.after,_that.$unknown);case _:
@@ -214,14 +214,14 @@ return $default(_that.convoId,_that.messageId,_that.before,_that.after,_that.$un
 @JsonSerializable()
 
 class _ModerationGetMessageContextInput implements ModerationGetMessageContextInput {
-  const _ModerationGetMessageContextInput({this.convoId, required this.messageId, this.before, this.after, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModerationGetMessageContextInput({this.convoId, required this.messageId, this.before = 5, this.after = 5, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModerationGetMessageContextInput.fromJson(Map<String, dynamic> json) => _$ModerationGetMessageContextInputFromJson(json);
 
 /// Conversation that the message is from. NOTE: this field will eventually be required.
 @override final  String? convoId;
 @override final  String messageId;
-@override final  int? before;
-@override final  int? after;
+@override@JsonKey() final  int before;
+@override@JsonKey() final  int after;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -265,7 +265,7 @@ abstract mixin class _$ModerationGetMessageContextInputCopyWith<$Res> implements
   factory _$ModerationGetMessageContextInputCopyWith(_ModerationGetMessageContextInput value, $Res Function(_ModerationGetMessageContextInput) _then) = __$ModerationGetMessageContextInputCopyWithImpl;
 @override @useResult
 $Res call({
- String? convoId, String messageId, int? before, int? after, Map<String, dynamic>? $unknown
+ String? convoId, String messageId, int before, int after, Map<String, dynamic>? $unknown
 });
 
 
@@ -282,13 +282,13 @@ class __$ModerationGetMessageContextInputCopyWithImpl<$Res>
 
 /// Create a copy of ModerationGetMessageContextInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? convoId = freezed,Object? messageId = null,Object? before = freezed,Object? after = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? convoId = freezed,Object? messageId = null,Object? before = null,Object? after = null,Object? $unknown = freezed,}) {
   return _then(_ModerationGetMessageContextInput(
 convoId: freezed == convoId ? _self.convoId : convoId // ignore: cast_nullable_to_non_nullable
 as String?,messageId: null == messageId ? _self.messageId : messageId // ignore: cast_nullable_to_non_nullable
-as String,before: freezed == before ? _self.before : before // ignore: cast_nullable_to_non_nullable
-as int?,after: freezed == after ? _self.after : after // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String,before: null == before ? _self.before : before // ignore: cast_nullable_to_non_nullable
+as int,after: null == after ? _self.after : after // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

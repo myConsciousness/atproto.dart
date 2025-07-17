@@ -25,7 +25,7 @@ abstract class ActorSearchActorsInput with _$ActorSearchActorsInput {
   const factory ActorSearchActorsInput({
     /// Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
     String? q,
-    int? limit,
+    @Default(25) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -38,8 +38,6 @@ abstract class ActorSearchActorsInput with _$ActorSearchActorsInput {
 extension ActorSearchActorsInputExtension on ActorSearchActorsInput {
   bool get hasQ => q != null;
   bool get hasNotQ => !hasQ;
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

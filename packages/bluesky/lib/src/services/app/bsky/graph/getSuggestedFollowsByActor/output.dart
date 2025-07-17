@@ -30,7 +30,7 @@ abstract class GraphGetSuggestedFollowsByActorOutput
     @ProfileViewConverter() required List<ProfileView> suggestions,
 
     /// If true, response has fallen-back to generic results, and is not scoped using relativeToDid
-    bool? isFallback,
+    @Default(false) bool isFallback,
 
     /// Snowflake for this recommendation, use when submitting recommendation events.
     int? recId,

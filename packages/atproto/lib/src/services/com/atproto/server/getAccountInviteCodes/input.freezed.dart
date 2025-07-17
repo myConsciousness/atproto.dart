@@ -15,8 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ServerGetAccountInviteCodesInput {
 
- bool? get includeUsed;/// Controls whether any new 'earned' but not 'created' invites should be created.
- bool? get createAvailable; Map<String, dynamic>? get $unknown;
+ bool get includeUsed;/// Controls whether any new 'earned' but not 'created' invites should be created.
+ bool get createAvailable; Map<String, dynamic>? get $unknown;
 /// Create a copy of ServerGetAccountInviteCodesInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $ServerGetAccountInviteCodesInputCopyWith<$Res>  {
   factory $ServerGetAccountInviteCodesInputCopyWith(ServerGetAccountInviteCodesInput value, $Res Function(ServerGetAccountInviteCodesInput) _then) = _$ServerGetAccountInviteCodesInputCopyWithImpl;
 @useResult
 $Res call({
- bool? includeUsed, bool? createAvailable, Map<String, dynamic>? $unknown
+ bool includeUsed, bool createAvailable, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,11 +66,11 @@ class _$ServerGetAccountInviteCodesInputCopyWithImpl<$Res>
 
 /// Create a copy of ServerGetAccountInviteCodesInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? includeUsed = freezed,Object? createAvailable = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? includeUsed = null,Object? createAvailable = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
-includeUsed: freezed == includeUsed ? _self.includeUsed : includeUsed // ignore: cast_nullable_to_non_nullable
-as bool?,createAvailable: freezed == createAvailable ? _self.createAvailable : createAvailable // ignore: cast_nullable_to_non_nullable
-as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+includeUsed: null == includeUsed ? _self.includeUsed : includeUsed // ignore: cast_nullable_to_non_nullable
+as bool,createAvailable: null == createAvailable ? _self.createAvailable : createAvailable // ignore: cast_nullable_to_non_nullable
+as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool? includeUsed,  bool? createAvailable,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool includeUsed,  bool createAvailable,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ServerGetAccountInviteCodesInput() when $default != null:
 return $default(_that.includeUsed,_that.createAvailable,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.includeUsed,_that.createAvailable,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool? includeUsed,  bool? createAvailable,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool includeUsed,  bool createAvailable,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ServerGetAccountInviteCodesInput():
 return $default(_that.includeUsed,_that.createAvailable,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.includeUsed,_that.createAvailable,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool? includeUsed,  bool? createAvailable,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool includeUsed,  bool createAvailable,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ServerGetAccountInviteCodesInput() when $default != null:
 return $default(_that.includeUsed,_that.createAvailable,_that.$unknown);case _:
@@ -212,12 +212,12 @@ return $default(_that.includeUsed,_that.createAvailable,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ServerGetAccountInviteCodesInput implements ServerGetAccountInviteCodesInput {
-  const _ServerGetAccountInviteCodesInput({this.includeUsed, this.createAvailable, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ServerGetAccountInviteCodesInput({this.includeUsed = true, this.createAvailable = true, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerGetAccountInviteCodesInput.fromJson(Map<String, dynamic> json) => _$ServerGetAccountInviteCodesInputFromJson(json);
 
-@override final  bool? includeUsed;
+@override@JsonKey() final  bool includeUsed;
 /// Controls whether any new 'earned' but not 'created' invites should be created.
-@override final  bool? createAvailable;
+@override@JsonKey() final  bool createAvailable;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -261,7 +261,7 @@ abstract mixin class _$ServerGetAccountInviteCodesInputCopyWith<$Res> implements
   factory _$ServerGetAccountInviteCodesInputCopyWith(_ServerGetAccountInviteCodesInput value, $Res Function(_ServerGetAccountInviteCodesInput) _then) = __$ServerGetAccountInviteCodesInputCopyWithImpl;
 @override @useResult
 $Res call({
- bool? includeUsed, bool? createAvailable, Map<String, dynamic>? $unknown
+ bool includeUsed, bool createAvailable, Map<String, dynamic>? $unknown
 });
 
 
@@ -278,11 +278,11 @@ class __$ServerGetAccountInviteCodesInputCopyWithImpl<$Res>
 
 /// Create a copy of ServerGetAccountInviteCodesInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? includeUsed = freezed,Object? createAvailable = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? includeUsed = null,Object? createAvailable = null,Object? $unknown = freezed,}) {
   return _then(_ServerGetAccountInviteCodesInput(
-includeUsed: freezed == includeUsed ? _self.includeUsed : includeUsed // ignore: cast_nullable_to_non_nullable
-as bool?,createAvailable: freezed == createAvailable ? _self.createAvailable : createAvailable // ignore: cast_nullable_to_non_nullable
-as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+includeUsed: null == includeUsed ? _self.includeUsed : includeUsed // ignore: cast_nullable_to_non_nullable
+as bool,createAvailable: null == createAvailable ? _self.createAvailable : createAvailable // ignore: cast_nullable_to_non_nullable
+as bool,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

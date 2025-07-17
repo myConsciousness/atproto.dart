@@ -73,7 +73,23 @@ List<LexProperty> generateLexProperties(
 String? _getDefaultValue(final lex.LexObjectProperty property) {
   if (property is! lex.ULexObjectPropertyPrimitive) return null;
 
-  return null;
+  final primitive = property.data;
+
+  switch (primitive) {
+    case lex.ULexPrimitiveString string:
+      if (string.data.knownValues != null) return null;
+
+      final value = string.data.defaultValue;
+      return value != null ? "'$value'" : null;
+    case lex.ULexPrimitiveInteger integer:
+      final value = integer.data.defaultValue;
+      return value != null ? '$value' : null;
+    case lex.ULexPrimitiveBoolean boolean:
+      final value = boolean.data.defaultValue;
+      return value != null ? '$value' : null;
+    default:
+      return null;
+  }
 }
 
 DartType _getDartType(

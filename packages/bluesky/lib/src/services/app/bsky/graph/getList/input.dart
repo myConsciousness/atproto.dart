@@ -25,7 +25,7 @@ abstract class GraphGetListInput with _$GraphGetListInput {
   const factory GraphGetListInput({
     /// Reference (AT-URI) of the list record to hydrate.
     required String list,
-    int? limit,
+    @Default(50) int limit,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -36,8 +36,6 @@ abstract class GraphGetListInput with _$GraphGetListInput {
 }
 
 extension GraphGetListInputExtension on GraphGetListInput {
-  bool get hasLimit => limit != null;
-  bool get hasNotLimit => !hasLimit;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

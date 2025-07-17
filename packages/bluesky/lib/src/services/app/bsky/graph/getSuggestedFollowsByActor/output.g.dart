@@ -24,7 +24,7 @@ _$GraphGetSuggestedFollowsByActorOutputFromJson(Map json) => $checkedCreate(
             )
             .toList(),
       ),
-      isFallback: $checkedConvert('isFallback', (v) => v as bool?),
+      isFallback: $checkedConvert('isFallback', (v) => v as bool? ?? false),
       recId: $checkedConvert('recId', (v) => (v as num?)?.toInt()),
       $unknown: $checkedConvert(
         r'$unknown',

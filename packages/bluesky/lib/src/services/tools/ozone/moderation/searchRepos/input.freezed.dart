@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ModerationSearchReposInput {
 
- String? get q; int? get limit; String? get cursor; Map<String, dynamic>? get $unknown;
+ String? get q; int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModerationSearchReposInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ModerationSearchReposInputCopyWith<$Res>  {
   factory $ModerationSearchReposInputCopyWith(ModerationSearchReposInput value, $Res Function(ModerationSearchReposInput) _then) = _$ModerationSearchReposInputCopyWithImpl;
 @useResult
 $Res call({
- String? q, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String? q, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,11 +65,11 @@ class _$ModerationSearchReposInputCopyWithImpl<$Res>
 
 /// Create a copy of ModerationSearchReposInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? q = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? q = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 q: freezed == q ? _self.q : q // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? q,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? q,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModerationSearchReposInput() when $default != null:
 return $default(_that.q,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.q,_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? q,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? q,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModerationSearchReposInput():
 return $default(_that.q,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.q,_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? q,  int? limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? q,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModerationSearchReposInput() when $default != null:
 return $default(_that.q,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -212,11 +212,11 @@ return $default(_that.q,_that.limit,_that.cursor,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ModerationSearchReposInput implements ModerationSearchReposInput {
-  const _ModerationSearchReposInput({this.q, this.limit, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModerationSearchReposInput({this.q, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModerationSearchReposInput.fromJson(Map<String, dynamic> json) => _$ModerationSearchReposInputFromJson(json);
 
 @override final  String? q;
-@override final  int? limit;
+@override@JsonKey() final  int limit;
 @override final  String? cursor;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -261,7 +261,7 @@ abstract mixin class _$ModerationSearchReposInputCopyWith<$Res> implements $Mode
   factory _$ModerationSearchReposInputCopyWith(_ModerationSearchReposInput value, $Res Function(_ModerationSearchReposInput) _then) = __$ModerationSearchReposInputCopyWithImpl;
 @override @useResult
 $Res call({
- String? q, int? limit, String? cursor, Map<String, dynamic>? $unknown
+ String? q, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -278,11 +278,11 @@ class __$ModerationSearchReposInputCopyWithImpl<$Res>
 
 /// Create a copy of ModerationSearchReposInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? q = freezed,Object? limit = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? q = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_ModerationSearchReposInput(
 q: freezed == q ? _self.q : q // ignore: cast_nullable_to_non_nullable
-as String?,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
