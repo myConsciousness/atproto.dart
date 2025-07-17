@@ -13,6 +13,7 @@ import 'fmt/lex_known_values_generator.dart';
 import 'fmt/lex_packages_generator.dart';
 import 'rule.dart' as rule;
 import 'object/lex_type.dart';
+import 'object/lex_package.dart';
 
 List<LexType> generateLexTypes(
   final List<String> services,
@@ -178,11 +179,35 @@ final class _LexTypeGenerator {
   }
 
   void _generateLexPackages(final List<LexType> type) {
-    for (final package in generateLexPackages(type)) {
+    final packages = generateLexPackages(type);
+    final basePackages = _getBasePackages(packages);
+
+    for (final package in packages) {
       File('packages/${package.root}/lib/${package.name}.dart')
         ..createSync(recursive: true)
         ..writeAsStringSync(package.exportableDependencies);
+
+      if (package.root != 'atproto') {
+        for (final base in basePackages) {
+          File('packages/${package.root}/lib/${base.name}.dart')
+            ..createSync(recursive: true)
+            ..writeAsStringSync(base.exportableDependencies);
+        }
+      }
     }
+  }
+
+  List<LexPackage> _getBasePackages(final List<LexPackage> packages) {
+    if (packages.isEmpty) return const [];
+
+    final result = <LexPackage>[];
+    for (final package in packages) {
+      if (package.root == 'atproto') {
+        result.add(package);
+      }
+    }
+
+    return result;
   }
 
   List<String> _checkMainVariants(final List<lex.LexiconDoc> lexicons) {

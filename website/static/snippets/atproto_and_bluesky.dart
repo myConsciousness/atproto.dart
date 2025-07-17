@@ -3,6 +3,7 @@
 import 'package:bluesky/app_bsky_feed_post.dart';
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/atproto.dart';
+import 'package:bluesky/com_atproto_repo_strongref.dart';
 import 'package:bluesky/moderation.dart' as mod;
 
 Future<void> main(List<String> args) async {

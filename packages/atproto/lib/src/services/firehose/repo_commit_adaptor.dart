@@ -12,9 +12,9 @@ import 'utils.dart';
 final class RepoCommitAdaptor {
   const RepoCommitAdaptor();
 
-  Map<String, dynamic>? execute(final Map<String, dynamic> repos) {
+  Map<String, dynamic> execute(final Map<String, dynamic> repos) {
     if (!isRepoCommit(repos)) {
-      return null;
+      throw ArgumentError('Must be commit data.');
     }
 
     final result = Map<String, dynamic>.from(repos);
