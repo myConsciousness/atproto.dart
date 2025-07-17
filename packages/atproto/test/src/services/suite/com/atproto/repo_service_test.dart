@@ -64,7 +64,7 @@ void main() {
 
   testRepo<RepoUploadBlobOutput>(
     (m, s) => s.uploadBlob(
-      File(
+      bytes: File(
         'test/src/services/suite/com/atproto/repo/dash.png',
       ).readAsBytesSync(),
     ),
@@ -94,7 +94,7 @@ void main() {
   );
 
   testRepo<core.EmptyData>(
-    (m, s) => s.importRepo(m.blob),
+    (m, s) => s.importRepo(bytes: m.blob),
     id: comAtprotoRepoImportRepo,
   );
 }
