@@ -111,6 +111,7 @@ DartType _getDartType(
             primitive.data,
           );
           return DartType.array(
+            lexiconId: type.lexiconId,
             type: type.name,
             packagePath: type.packagePath,
             annotation: type.annotation,

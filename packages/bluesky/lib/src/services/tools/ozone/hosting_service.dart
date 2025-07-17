@@ -13,6 +13,7 @@ import 'package:atproto_core/atproto_core.dart';
 // Project imports:
 import '../../../nsids.g.dart' as ns;
 import '../../service_context.dart' as z;
+import 'hosting/getAccountHistory/main_events.dart';
 import 'hosting/getAccountHistory/output.dart';
 
 // **************************************************************************
