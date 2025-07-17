@@ -233,9 +233,8 @@ final class LexApi {
     }
 
     if (inputType?.isBytes() ?? false) {
-      buffer.writeln('Future<XRPCResponse<$returnType>> $name(');
-      buffer.writeln('  Uint8List bytes,');
-      buffer.writeln('{');
+      buffer.writeln('Future<XRPCResponse<$returnType>> $name({');
+      buffer.writeln('  required Uint8List bytes,');
       buffer.writeln('  Map<String, String>? \$headers,');
       buffer.writeln('  Map<String, String>? \$parameters,');
     } else {

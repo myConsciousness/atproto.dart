@@ -130,8 +130,8 @@ final class RepoService {
   );
 
   /// Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
-  Future<XRPCResponse<RepoUploadBlobOutput>> uploadBlob(
-    Uint8List bytes, {
+  Future<XRPCResponse<RepoUploadBlobOutput>> uploadBlob({
+    required Uint8List bytes,
     Map<String, String>? $headers,
     Map<String, String>? $parameters,
   }) async => await _ctx.post(
@@ -143,8 +143,8 @@ final class RepoService {
   );
 
   /// Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.
-  Future<XRPCResponse<EmptyData>> importRepo(
-    Uint8List bytes, {
+  Future<XRPCResponse<EmptyData>> importRepo({
+    required Uint8List bytes,
     Map<String, String>? $headers,
     Map<String, String>? $parameters,
   }) async => await _ctx.post(

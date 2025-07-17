@@ -31,8 +31,8 @@ final class VideoService {
   final z.ServiceContext _ctx;
 
   /// Upload a video to be processed then stored on the PDS.
-  Future<XRPCResponse<VideoUploadVideoOutput>> uploadVideo(
-    Uint8List bytes, {
+  Future<XRPCResponse<VideoUploadVideoOutput>> uploadVideo({
+    required Uint8List bytes,
     Map<String, String>? $headers,
     Map<String, String>? $parameters,
   }) async => await _ctx.post(
