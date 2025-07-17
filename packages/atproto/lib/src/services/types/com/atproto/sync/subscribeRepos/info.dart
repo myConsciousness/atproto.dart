@@ -36,8 +36,8 @@ abstract class Info with _$Info {
   factory Info.fromJson(Map<String, Object?> json) => _$InfoFromJson(json);
 
   static bool validate(final Map<String, dynamic> object) {
-    if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == 'com.atproto.sync.subscribeRepos#info';
+    if (!object.containsKey('t')) return false;
+    return object['t'] == '#info';
   }
 }
 

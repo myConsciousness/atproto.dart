@@ -107,10 +107,15 @@ $converter
   String _getValidateMethod(final String id) {
     final buffer = StringBuffer();
     buffer.writeln('static bool validate(final Map<String, dynamic> object) {');
-    buffer.writeln("  if (!object.containsKey('\\\$type')) return false;");
-    buffer.writeln("  return object['\\\$type'] == '$id'");
-    if (defName == 'main') {
-      buffer.writeln("  || object['\\\$type'] == '$lexiconId#main'");
+    if (lexiconId.split('.').last.startsWith('subscribe')) {
+      buffer.writeln("  if (!object.containsKey('t')) return false;");
+      buffer.writeln("  return object['t'] == '#$defName'");
+    } else {
+      buffer.writeln("  if (!object.containsKey('\\\$type')) return false;");
+      buffer.writeln("  return object['\\\$type'] == '$id'");
+      if (defName == 'main') {
+        buffer.writeln("  || object['\\\$type'] == '$lexiconId#main'");
+      }
     }
     buffer.writeln(';');
     buffer.writeln('}');

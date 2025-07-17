@@ -45,8 +45,8 @@ abstract class Sync with _$Sync {
   factory Sync.fromJson(Map<String, Object?> json) => _$SyncFromJson(json);
 
   static bool validate(final Map<String, dynamic> object) {
-    if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == 'com.atproto.sync.subscribeRepos#sync';
+    if (!object.containsKey('t')) return false;
+    return object['t'] == '#sync';
   }
 }
 

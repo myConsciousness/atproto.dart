@@ -68,8 +68,8 @@ abstract class Commit with _$Commit {
   factory Commit.fromJson(Map<String, Object?> json) => _$CommitFromJson(json);
 
   static bool validate(final Map<String, dynamic> object) {
-    if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == 'com.atproto.sync.subscribeRepos#commit';
+    if (!object.containsKey('t')) return false;
+    return object['t'] == '#commit';
   }
 }
 

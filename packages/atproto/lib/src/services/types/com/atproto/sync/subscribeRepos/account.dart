@@ -45,8 +45,8 @@ abstract class Account with _$Account {
       _$AccountFromJson(json);
 
   static bool validate(final Map<String, dynamic> object) {
-    if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == 'com.atproto.sync.subscribeRepos#account';
+    if (!object.containsKey('t')) return false;
+    return object['t'] == '#account';
   }
 }
 

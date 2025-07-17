@@ -64,7 +64,7 @@ Future<void> main() async {
 
       if (firehose.isRepoCommit(repos)) {
         final commit = firehose.Commit.fromJson(
-          const firehose.RepoCommitAdaptor().execute(repos)!,
+          const firehose.RepoCommitAdaptor().execute(repos),
         );
 
         print(commit);

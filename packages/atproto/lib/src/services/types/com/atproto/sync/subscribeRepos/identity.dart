@@ -39,8 +39,8 @@ abstract class Identity with _$Identity {
       _$IdentityFromJson(json);
 
   static bool validate(final Map<String, dynamic> object) {
-    if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == 'com.atproto.sync.subscribeRepos#identity';
+    if (!object.containsKey('t')) return false;
+    return object['t'] == '#identity';
   }
 }
 

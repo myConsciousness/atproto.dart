@@ -36,8 +36,8 @@ abstract class Labels with _$Labels {
   factory Labels.fromJson(Map<String, Object?> json) => _$LabelsFromJson(json);
 
   static bool validate(final Map<String, dynamic> object) {
-    if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == 'com.atproto.label.subscribeLabels#labels';
+    if (!object.containsKey('t')) return false;
+    return object['t'] == '#labels';
   }
 }
 
