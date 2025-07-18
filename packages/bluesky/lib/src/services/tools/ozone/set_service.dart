@@ -27,77 +27,6 @@ final class SetService {
 
   final z.ServiceContext _ctx;
 
-  /// Add values to a specific set. Attempting to add values to a set that does not exist will result in an error.
-  Future<XRPCResponse<EmptyData>> addValues({
-    required String name,
-    required List<String> values,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneSetAddValues,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'name': name, 'values': values, ...?$unknown},
-  );
-
-  /// Get a specific set and its values
-  Future<XRPCResponse<SetGetValuesOutput>> getValues({
-    required String name,
-    int? limit,
-    String? cursor,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.toolsOzoneSetGetValues,
-    headers: $headers,
-    parameters: {
-      'name': name,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
-    },
-    to: const SetGetValuesOutputConverter().fromJson,
-  );
-
-  /// Delete an entire set. Attempting to delete a set that does not exist will result in an error.
-  Future<XRPCResponse<EmptyData>> deleteSet({
-    required String name,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneSetDeleteSet,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'name': name, ...?$unknown},
-  );
-
-  /// Create or update set metadata
-  Future<XRPCResponse<SetView>> upsertSet({
-    required String name,
-    String? description,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneSetUpsertSet,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      'name': name,
-      if (description != null) 'description': description,
-      ...?$unknown,
-    },
-    to: const SetViewConverter().fromJson,
-  );
-
-  /// Delete values from a specific set. Attempting to delete values that are not in the set will not result in an error
-  Future<XRPCResponse<EmptyData>> deleteValues({
-    required String name,
-    required List<String> values,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneSetDeleteValues,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'name': name, 'values': values, ...?$unknown},
-  );
-
   /// Query available sets
   Future<XRPCResponse<SetQuerySetsOutput>> querySets({
     int? limit,
@@ -119,5 +48,76 @@ final class SetService {
       ...?$unknown,
     },
     to: const SetQuerySetsOutputConverter().fromJson,
+  );
+
+  /// Delete an entire set. Attempting to delete a set that does not exist will result in an error.
+  Future<XRPCResponse<EmptyData>> deleteSet({
+    required String name,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.post(
+    ns.toolsOzoneSetDeleteSet,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {'name': name, ...?$unknown},
+  );
+
+  /// Get a specific set and its values
+  Future<XRPCResponse<SetGetValuesOutput>> getValues({
+    required String name,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.get(
+    ns.toolsOzoneSetGetValues,
+    headers: $headers,
+    parameters: {
+      'name': name,
+      if (limit != null) 'limit': limit,
+      if (cursor != null) 'cursor': cursor,
+      ...?$unknown,
+    },
+    to: const SetGetValuesOutputConverter().fromJson,
+  );
+
+  /// Add values to a specific set. Attempting to add values to a set that does not exist will result in an error.
+  Future<XRPCResponse<EmptyData>> addValues({
+    required String name,
+    required List<String> values,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.post(
+    ns.toolsOzoneSetAddValues,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {'name': name, 'values': values, ...?$unknown},
+  );
+
+  /// Delete values from a specific set. Attempting to delete values that are not in the set will not result in an error
+  Future<XRPCResponse<EmptyData>> deleteValues({
+    required String name,
+    required List<String> values,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.post(
+    ns.toolsOzoneSetDeleteValues,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {'name': name, 'values': values, ...?$unknown},
+  );
+
+  /// Create or update set metadata
+  Future<XRPCResponse<SetView>> upsertSet({
+    required String name,
+    String? description,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.post(
+    ns.toolsOzoneSetUpsertSet,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {
+      'name': name,
+      if (description != null) 'description': description,
+      ...?$unknown,
+    },
+    to: const SetViewConverter().fromJson,
   );
 }

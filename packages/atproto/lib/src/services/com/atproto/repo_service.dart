@@ -37,21 +37,16 @@ final class RepoService {
 
   final z.ServiceContext _ctx;
 
-  /// Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.
-  Future<XRPCResponse<RepoListMissingBlobsOutput>> listMissingBlobs({
-    int? limit,
-    String? cursor,
+  /// Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.
+  Future<XRPCResponse<EmptyData>> importRepo({
+    required Uint8List bytes,
     Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.comAtprotoRepoListMissingBlobs,
-    headers: $headers,
-    parameters: {
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
-    },
-    to: const RepoListMissingBlobsOutputConverter().fromJson,
+    Map<String, String>? $parameters,
+  }) async => await _ctx.post(
+    ns.comAtprotoRepoImportRepo,
+    headers: {'Content-type': 'application/vnd.ipld.car', ...?$headers},
+    parameters: $parameters,
+    body: bytes,
   );
 
   /// Create a single new repository record. Requires auth, implemented by PDS.
@@ -77,6 +72,42 @@ final class RepoService {
       ...?$unknown,
     },
     to: const RepoCreateRecordOutputConverter().fromJson,
+  );
+
+  /// List a range of records in a repository, matching a specific collection. Does not require auth.
+  Future<XRPCResponse<RepoListRecordsOutput>> listRecords({
+    required String repo,
+    required String collection,
+    int? limit,
+    String? cursor,
+    bool? reverse,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.get(
+    ns.comAtprotoRepoListRecords,
+    headers: $headers,
+    parameters: {
+      'repo': repo,
+      'collection': collection,
+      if (limit != null) 'limit': limit,
+      if (cursor != null) 'cursor': cursor,
+      if (reverse != null) 'reverse': reverse,
+      ...?$unknown,
+    },
+    to: const RepoListRecordsOutputConverter().fromJson,
+  );
+
+  /// Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
+  Future<XRPCResponse<RepoUploadBlobOutput>> uploadBlob({
+    required Uint8List bytes,
+    Map<String, String>? $headers,
+    Map<String, String>? $parameters,
+  }) async => await _ctx.post(
+    ns.comAtprotoRepoUploadBlob,
+    headers: {'Content-type': '*/*', ...?$headers},
+    parameters: $parameters,
+    body: bytes,
+    to: const RepoUploadBlobOutputConverter().fromJson,
   );
 
   /// Delete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.
@@ -127,31 +158,6 @@ final class RepoService {
       ...?$unknown,
     },
     to: const RepoPutRecordOutputConverter().fromJson,
-  );
-
-  /// Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
-  Future<XRPCResponse<RepoUploadBlobOutput>> uploadBlob({
-    required Uint8List bytes,
-    Map<String, String>? $headers,
-    Map<String, String>? $parameters,
-  }) async => await _ctx.post(
-    ns.comAtprotoRepoUploadBlob,
-    headers: {'Content-type': '*/*', ...?$headers},
-    parameters: $parameters,
-    body: bytes,
-    to: const RepoUploadBlobOutputConverter().fromJson,
-  );
-
-  /// Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.
-  Future<XRPCResponse<EmptyData>> importRepo({
-    required Uint8List bytes,
-    Map<String, String>? $headers,
-    Map<String, String>? $parameters,
-  }) async => await _ctx.post(
-    ns.comAtprotoRepoImportRepo,
-    headers: {'Content-type': 'application/vnd.ipld.car', ...?$headers},
-    parameters: $parameters,
-    body: bytes,
   );
 
   /// Get information about an account and repository, including the list of collections. Does not require auth.
@@ -208,26 +214,20 @@ final class RepoService {
     to: const RepoApplyWritesOutputConverter().fromJson,
   );
 
-  /// List a range of records in a repository, matching a specific collection. Does not require auth.
-  Future<XRPCResponse<RepoListRecordsOutput>> listRecords({
-    required String repo,
-    required String collection,
+  /// Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.
+  Future<XRPCResponse<RepoListMissingBlobsOutput>> listMissingBlobs({
     int? limit,
     String? cursor,
-    bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.get(
-    ns.comAtprotoRepoListRecords,
+    ns.comAtprotoRepoListMissingBlobs,
     headers: $headers,
     parameters: {
-      'repo': repo,
-      'collection': collection,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      if (reverse != null) 'reverse': reverse,
       ...?$unknown,
     },
-    to: const RepoListRecordsOutputConverter().fromJson,
+    to: const RepoListMissingBlobsOutputConverter().fromJson,
   );
 }
