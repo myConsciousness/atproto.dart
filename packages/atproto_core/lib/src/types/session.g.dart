@@ -37,12 +37,12 @@ _Session _$SessionFromJson(Map json) =>
 Map<String, dynamic> _$SessionToJson(_Session instance) => <String, dynamic>{
   'did': instance.did,
   'handle': instance.handle,
-  if (instance.email case final value?) 'email': value,
+  'email': ?instance.email,
   'emailConfirmed': instance.emailConfirmed,
   'emailAuthFactor': instance.emailAuthFactor,
   'accessJwt': instance.accessJwt,
   'refreshJwt': instance.refreshJwt,
-  if (instance.didDoc case final value?) 'didDoc': value,
+  'didDoc': ?instance.didDoc,
   'active': instance.active,
-  if (instance.status case final value?) 'status': value,
+  'status': ?instance.status,
 };

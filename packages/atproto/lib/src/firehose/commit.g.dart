@@ -32,7 +32,7 @@ Map<String, dynamic> _$CommitToJson(_Commit instance) => <String, dynamic>{
   'repo': instance.repo,
   'seq': instance.seq,
   'rev': instance.rev,
-  if (instance.since case final value?) 'since': value,
+  'since': ?instance.since,
   'tooBig': instance.tooBig,
   'time': instance.time.toIso8601String(),
 };

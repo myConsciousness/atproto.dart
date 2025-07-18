@@ -15,7 +15,7 @@ part 'jwt.g.dart';
 abstract class Jwt with _$Jwt {
   @JsonSerializable(includeIfNull: false, fieldRename: FieldRename.snake)
   const factory Jwt({
-    required String aud,
+    String? aud,
     required String sub,
     String? jti,
     Map<String, dynamic>? cnf,
@@ -37,6 +37,11 @@ extension JwtExtension on Jwt {
   Duration get remainingTime => exp.difference(DateTime.now().toUtc());
 
   /// Returns a PDS endpoint based on [aud].
-  String get atprotoPdsEndpoint =>
-      aud.startsWith('did:web:') ? aud.replaceFirst('did:web:', '') : aud;
+  String? get atprotoPdsEndpoint {
+    if (aud == null) return null;
+
+    return aud!.startsWith('did:web:')
+        ? aud?.replaceFirst('did:web:', '')
+        : aud;
+  }
 }

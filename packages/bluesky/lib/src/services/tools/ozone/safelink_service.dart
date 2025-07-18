@@ -78,29 +78,6 @@ final class SafelinkService {
     to: const EventConverter().fromJson,
   );
 
-  /// Query URL safety audit events
-  Future<XRPCResponse<SafelinkQueryEventsOutput>> queryEvents({
-    String? cursor,
-    int? limit,
-    List<String>? urls,
-    String? patternType,
-    SafelinkQueryEventsSortDirection? sortDirection,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneSafelinkQueryEvents,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      if (cursor != null) 'cursor': cursor,
-      if (limit != null) 'limit': limit,
-      if (urls != null) 'urls': urls,
-      if (patternType != null) 'patternType': patternType,
-      if (sortDirection != null) 'sortDirection': sortDirection.toJson(),
-      ...?$unknown,
-    },
-    to: const SafelinkQueryEventsOutputConverter().fromJson,
-  );
-
   /// Update an existing URL safety rule
   Future<XRPCResponse<Event>> updateRule({
     required String url,
@@ -124,6 +101,29 @@ final class SafelinkService {
       ...?$unknown,
     },
     to: const EventConverter().fromJson,
+  );
+
+  /// Query URL safety audit events
+  Future<XRPCResponse<SafelinkQueryEventsOutput>> queryEvents({
+    String? cursor,
+    int? limit,
+    List<String>? urls,
+    String? patternType,
+    SafelinkQueryEventsSortDirection? sortDirection,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.post(
+    ns.toolsOzoneSafelinkQueryEvents,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {
+      if (cursor != null) 'cursor': cursor,
+      if (limit != null) 'limit': limit,
+      if (urls != null) 'urls': urls,
+      if (patternType != null) 'patternType': patternType,
+      if (sortDirection != null) 'sortDirection': sortDirection.toJson(),
+      ...?$unknown,
+    },
+    to: const SafelinkQueryEventsOutputConverter().fromJson,
   );
 
   /// Query URL safety rules

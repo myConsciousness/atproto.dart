@@ -11,12 +11,12 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/com/atproto/lexicon_service.dart';
-export 'package:atproto/src/services/com/atproto/server_service.dart';
-export 'package:atproto/src/services/com/atproto/identity_service.dart';
-export 'package:atproto/src/services/com/atproto/moderation_service.dart';
-export 'package:atproto/src/services/com/atproto/label_service.dart';
-export 'package:atproto/src/services/com/atproto/sync_service.dart';
-export 'package:atproto/src/services/com/atproto/admin_service.dart';
-export 'package:atproto/src/services/com/atproto/repo_service.dart';
 export 'package:atproto/src/services/com/atproto/temp_service.dart';
+export 'package:atproto/src/services/com/atproto/identity_service.dart';
+export 'package:atproto/src/services/com/atproto/admin_service.dart';
+export 'package:atproto/src/services/com/atproto/label_service.dart';
+export 'package:atproto/src/services/com/atproto/server_service.dart';
+export 'package:atproto/src/services/com/atproto/lexicon_service.dart';
+export 'package:atproto/src/services/com/atproto/sync_service.dart';
+export 'package:atproto/src/services/com/atproto/repo_service.dart';
+export 'package:atproto/src/services/com/atproto/moderation_service.dart';

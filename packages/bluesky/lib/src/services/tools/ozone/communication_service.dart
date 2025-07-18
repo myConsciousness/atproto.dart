@@ -53,17 +53,6 @@ final class CommunicationService {
     to: const TemplateViewConverter().fromJson,
   );
 
-  /// Delete a communication template.
-  Future<XRPCResponse<EmptyData>> deleteTemplate({
-    required String id,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneCommunicationDeleteTemplate,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'id': id, ...?$unknown},
-  );
-
   /// Administrative action to create a new, re-usable communication (email for now) template.
   Future<XRPCResponse<TemplateView>> createTemplate({
     required String name,
@@ -96,5 +85,16 @@ final class CommunicationService {
     headers: $headers,
     parameters: {...?$unknown},
     to: const CommunicationListTemplatesOutputConverter().fromJson,
+  );
+
+  /// Delete a communication template.
+  Future<XRPCResponse<EmptyData>> deleteTemplate({
+    required String id,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.post(
+    ns.toolsOzoneCommunicationDeleteTemplate,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {'id': id, ...?$unknown},
   );
 }

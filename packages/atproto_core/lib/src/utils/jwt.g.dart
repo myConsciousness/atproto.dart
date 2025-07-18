@@ -10,7 +10,7 @@ part of 'jwt.dart';
 
 _Jwt _$JwtFromJson(Map json) => $checkedCreate('_Jwt', json, ($checkedConvert) {
   final val = _Jwt(
-    aud: $checkedConvert('aud', (v) => v as String),
+    aud: $checkedConvert('aud', (v) => v as String?),
     sub: $checkedConvert('sub', (v) => v as String),
     jti: $checkedConvert('jti', (v) => v as String?),
     cnf: $checkedConvert(
@@ -33,13 +33,13 @@ _Jwt _$JwtFromJson(Map json) => $checkedCreate('_Jwt', json, ($checkedConvert) {
 }, fieldKeyMap: const {'clientId': 'client_id'});
 
 Map<String, dynamic> _$JwtToJson(_Jwt instance) => <String, dynamic>{
-  'aud': instance.aud,
+  'aud': ?instance.aud,
   'sub': instance.sub,
-  if (instance.jti case final value?) 'jti': value,
-  if (instance.cnf case final value?) 'cnf': value,
-  if (instance.clientId case final value?) 'client_id': value,
+  'jti': ?instance.jti,
+  'cnf': ?instance.cnf,
+  'client_id': ?instance.clientId,
   'scope': instance.scope,
-  if (instance.iss case final value?) 'iss': value,
+  'iss': ?instance.iss,
   'exp': dateTimeConverter.toJson(instance.exp),
   'iat': dateTimeConverter.toJson(instance.iat),
 };

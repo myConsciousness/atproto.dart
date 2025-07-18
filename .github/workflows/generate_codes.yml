@@ -1,6 +1,7 @@
 name: Generate Codes
 
 on:
+  workflow_dispatch:
   pull_request:
     branches:
       - chore-sync-lexicons
@@ -43,10 +44,10 @@ jobs:
 
       - name: Generate
         run: |
+          dart run ./bin/generate_lexicon_docs.dart
           dart run ./bin/generate_lexicon_ids.dart
           dart run ./bin/generate_lexicon_matrix.dart
           dart run ./bin/generate_supported_api_matrix.dart
-          dart run ./bin/generate_lexicon_docs.dart
           dart run ./bin/gen/code_gen.dart
 
       - name: Build
@@ -59,7 +60,11 @@ jobs:
 
       - name: Format
         run: |
-          cd packages/atproto
+          cd packages/lexicon
+          dart fix --apply
+          dart run import_sorter:main
+          dart format .
+          cd ../packages/atproto
           dart fix --apply
           dart run import_sorter:main
           dart format .

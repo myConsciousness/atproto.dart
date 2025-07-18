@@ -53,6 +53,18 @@ final class SettingService {
     to: const SettingListOptionsOutputConverter().fromJson,
   );
 
+  /// Delete settings by key
+  Future<XRPCResponse<EmptyData>> removeOptions({
+    required List<String> keys,
+    required SettingRemoveOptionsScope scope,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.post(
+    ns.toolsOzoneSettingRemoveOptions,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {'keys': keys, 'scope': scope.toJson(), ...?$unknown},
+  );
+
   /// Create or update setting option
   Future<XRPCResponse<SettingUpsertOptionOutput>> upsertOption({
     required String key,
@@ -74,17 +86,5 @@ final class SettingService {
       ...?$unknown,
     },
     to: const SettingUpsertOptionOutputConverter().fromJson,
-  );
-
-  /// Delete settings by key
-  Future<XRPCResponse<EmptyData>> removeOptions({
-    required List<String> keys,
-    required SettingRemoveOptionsScope scope,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneSettingRemoveOptions,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'keys': keys, 'scope': scope.toJson(), ...?$unknown},
   );
 }

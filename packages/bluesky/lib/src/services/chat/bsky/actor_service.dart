@@ -42,14 +42,6 @@ final class ActorService {
     rkey: $rey,
     record: {'allowIncoming': allowIncoming.toJson(), ...?$unknown},
   );
-  Future<XRPCResponse<EmptyData>> deleteAccount({
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.chatBskyActorDeleteAccount,
-    headers: {...?$headers},
-    body: {...?$unknown},
-  );
   Future<XRPCResponse<Uint8List>> exportAccountData({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -57,5 +49,13 @@ final class ActorService {
     ns.chatBskyActorExportAccountData,
     headers: $headers,
     parameters: {...?$unknown},
+  );
+  Future<XRPCResponse<EmptyData>> deleteAccount({
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.post(
+    ns.chatBskyActorDeleteAccount,
+    headers: {...?$headers},
+    body: {...?$unknown},
   );
 }

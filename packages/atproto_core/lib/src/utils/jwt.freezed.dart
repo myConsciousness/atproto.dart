@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Jwt {
 
- String get aud; String get sub; String? get jti; Map<String, dynamic>? get cnf; String? get clientId; String get scope; String? get iss;@dateTimeConverter DateTime get exp;@dateTimeConverter DateTime get iat;
+ String? get aud; String get sub; String? get jti; Map<String, dynamic>? get cnf; String? get clientId; String get scope; String? get iss;@dateTimeConverter DateTime get exp;@dateTimeConverter DateTime get iat;
 /// Create a copy of Jwt
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $JwtCopyWith<$Res>  {
   factory $JwtCopyWith(Jwt value, $Res Function(Jwt) _then) = _$JwtCopyWithImpl;
 @useResult
 $Res call({
- String aud, String sub, String? jti, Map<String, dynamic>? cnf, String? clientId, String scope, String? iss,@dateTimeConverter DateTime exp,@dateTimeConverter DateTime iat
+ String? aud, String sub, String? jti, Map<String, dynamic>? cnf, String? clientId, String scope, String? iss,@dateTimeConverter DateTime exp,@dateTimeConverter DateTime iat
 });
 
 
@@ -65,10 +65,10 @@ class _$JwtCopyWithImpl<$Res>
 
 /// Create a copy of Jwt
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? aud = null,Object? sub = null,Object? jti = freezed,Object? cnf = freezed,Object? clientId = freezed,Object? scope = null,Object? iss = freezed,Object? exp = null,Object? iat = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? aud = freezed,Object? sub = null,Object? jti = freezed,Object? cnf = freezed,Object? clientId = freezed,Object? scope = null,Object? iss = freezed,Object? exp = null,Object? iat = null,}) {
   return _then(_self.copyWith(
-aud: null == aud ? _self.aud : aud // ignore: cast_nullable_to_non_nullable
-as String,sub: null == sub ? _self.sub : sub // ignore: cast_nullable_to_non_nullable
+aud: freezed == aud ? _self.aud : aud // ignore: cast_nullable_to_non_nullable
+as String?,sub: null == sub ? _self.sub : sub // ignore: cast_nullable_to_non_nullable
 as String,jti: freezed == jti ? _self.jti : jti // ignore: cast_nullable_to_non_nullable
 as String?,cnf: freezed == cnf ? _self.cnf : cnf // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,clientId: freezed == clientId ? _self.clientId : clientId // ignore: cast_nullable_to_non_nullable
@@ -161,7 +161,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String aud,  String sub,  String? jti,  Map<String, dynamic>? cnf,  String? clientId,  String scope,  String? iss, @dateTimeConverter  DateTime exp, @dateTimeConverter  DateTime iat)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? aud,  String sub,  String? jti,  Map<String, dynamic>? cnf,  String? clientId,  String scope,  String? iss, @dateTimeConverter  DateTime exp, @dateTimeConverter  DateTime iat)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Jwt() when $default != null:
 return $default(_that.aud,_that.sub,_that.jti,_that.cnf,_that.clientId,_that.scope,_that.iss,_that.exp,_that.iat);case _:
@@ -182,7 +182,7 @@ return $default(_that.aud,_that.sub,_that.jti,_that.cnf,_that.clientId,_that.sco
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String aud,  String sub,  String? jti,  Map<String, dynamic>? cnf,  String? clientId,  String scope,  String? iss, @dateTimeConverter  DateTime exp, @dateTimeConverter  DateTime iat)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? aud,  String sub,  String? jti,  Map<String, dynamic>? cnf,  String? clientId,  String scope,  String? iss, @dateTimeConverter  DateTime exp, @dateTimeConverter  DateTime iat)  $default,) {final _that = this;
 switch (_that) {
 case _Jwt():
 return $default(_that.aud,_that.sub,_that.jti,_that.cnf,_that.clientId,_that.scope,_that.iss,_that.exp,_that.iat);case _:
@@ -202,7 +202,7 @@ return $default(_that.aud,_that.sub,_that.jti,_that.cnf,_that.clientId,_that.sco
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String aud,  String sub,  String? jti,  Map<String, dynamic>? cnf,  String? clientId,  String scope,  String? iss, @dateTimeConverter  DateTime exp, @dateTimeConverter  DateTime iat)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? aud,  String sub,  String? jti,  Map<String, dynamic>? cnf,  String? clientId,  String scope,  String? iss, @dateTimeConverter  DateTime exp, @dateTimeConverter  DateTime iat)?  $default,) {final _that = this;
 switch (_that) {
 case _Jwt() when $default != null:
 return $default(_that.aud,_that.sub,_that.jti,_that.cnf,_that.clientId,_that.scope,_that.iss,_that.exp,_that.iat);case _:
@@ -217,10 +217,10 @@ return $default(_that.aud,_that.sub,_that.jti,_that.cnf,_that.clientId,_that.sco
 
 @JsonSerializable(includeIfNull: false, fieldRename: FieldRename.snake)
 class _Jwt implements Jwt {
-  const _Jwt({required this.aud, required this.sub, this.jti, final  Map<String, dynamic>? cnf, this.clientId, required this.scope, this.iss, @dateTimeConverter required this.exp, @dateTimeConverter required this.iat}): _cnf = cnf;
+  const _Jwt({this.aud, required this.sub, this.jti, final  Map<String, dynamic>? cnf, this.clientId, required this.scope, this.iss, @dateTimeConverter required this.exp, @dateTimeConverter required this.iat}): _cnf = cnf;
   factory _Jwt.fromJson(Map<String, dynamic> json) => _$JwtFromJson(json);
 
-@override final  String aud;
+@override final  String? aud;
 @override final  String sub;
 @override final  String? jti;
  final  Map<String, dynamic>? _cnf;
@@ -271,7 +271,7 @@ abstract mixin class _$JwtCopyWith<$Res> implements $JwtCopyWith<$Res> {
   factory _$JwtCopyWith(_Jwt value, $Res Function(_Jwt) _then) = __$JwtCopyWithImpl;
 @override @useResult
 $Res call({
- String aud, String sub, String? jti, Map<String, dynamic>? cnf, String? clientId, String scope, String? iss,@dateTimeConverter DateTime exp,@dateTimeConverter DateTime iat
+ String? aud, String sub, String? jti, Map<String, dynamic>? cnf, String? clientId, String scope, String? iss,@dateTimeConverter DateTime exp,@dateTimeConverter DateTime iat
 });
 
 
@@ -288,10 +288,10 @@ class __$JwtCopyWithImpl<$Res>
 
 /// Create a copy of Jwt
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? aud = null,Object? sub = null,Object? jti = freezed,Object? cnf = freezed,Object? clientId = freezed,Object? scope = null,Object? iss = freezed,Object? exp = null,Object? iat = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? aud = freezed,Object? sub = null,Object? jti = freezed,Object? cnf = freezed,Object? clientId = freezed,Object? scope = null,Object? iss = freezed,Object? exp = null,Object? iat = null,}) {
   return _then(_Jwt(
-aud: null == aud ? _self.aud : aud // ignore: cast_nullable_to_non_nullable
-as String,sub: null == sub ? _self.sub : sub // ignore: cast_nullable_to_non_nullable
+aud: freezed == aud ? _self.aud : aud // ignore: cast_nullable_to_non_nullable
+as String?,sub: null == sub ? _self.sub : sub // ignore: cast_nullable_to_non_nullable
 as String,jti: freezed == jti ? _self.jti : jti // ignore: cast_nullable_to_non_nullable
 as String?,cnf: freezed == cnf ? _self._cnf : cnf // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,clientId: freezed == clientId ? _self.clientId : clientId // ignore: cast_nullable_to_non_nullable

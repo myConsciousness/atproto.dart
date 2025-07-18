@@ -27,38 +27,16 @@ final class SetService {
 
   final z.ServiceContext _ctx;
 
-  /// Query available sets
-  Future<XRPCResponse<SetQuerySetsOutput>> querySets({
-    int? limit,
-    String? cursor,
-    String? namePrefix,
-    String? sortBy,
-    String? sortDirection,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.toolsOzoneSetQuerySets,
-    headers: $headers,
-    parameters: {
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-      if (namePrefix != null) 'namePrefix': namePrefix,
-      if (sortBy != null) 'sortBy': sortBy,
-      if (sortDirection != null) 'sortDirection': sortDirection,
-      ...?$unknown,
-    },
-    to: const SetQuerySetsOutputConverter().fromJson,
-  );
-
-  /// Delete an entire set. Attempting to delete a set that does not exist will result in an error.
-  Future<XRPCResponse<EmptyData>> deleteSet({
+  /// Add values to a specific set. Attempting to add values to a set that does not exist will result in an error.
+  Future<XRPCResponse<EmptyData>> addValues({
     required String name,
+    required List<String> values,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.post(
-    ns.toolsOzoneSetDeleteSet,
+    ns.toolsOzoneSetAddValues,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'name': name, ...?$unknown},
+    body: {'name': name, 'values': values, ...?$unknown},
   );
 
   /// Get a specific set and its values
@@ -80,28 +58,15 @@ final class SetService {
     to: const SetGetValuesOutputConverter().fromJson,
   );
 
-  /// Add values to a specific set. Attempting to add values to a set that does not exist will result in an error.
-  Future<XRPCResponse<EmptyData>> addValues({
+  /// Delete an entire set. Attempting to delete a set that does not exist will result in an error.
+  Future<XRPCResponse<EmptyData>> deleteSet({
     required String name,
-    required List<String> values,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.post(
-    ns.toolsOzoneSetAddValues,
+    ns.toolsOzoneSetDeleteSet,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'name': name, 'values': values, ...?$unknown},
-  );
-
-  /// Delete values from a specific set. Attempting to delete values that are not in the set will not result in an error
-  Future<XRPCResponse<EmptyData>> deleteValues({
-    required String name,
-    required List<String> values,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneSetDeleteValues,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'name': name, 'values': values, ...?$unknown},
+    body: {'name': name, ...?$unknown},
   );
 
   /// Create or update set metadata
@@ -119,5 +84,40 @@ final class SetService {
       ...?$unknown,
     },
     to: const SetViewConverter().fromJson,
+  );
+
+  /// Delete values from a specific set. Attempting to delete values that are not in the set will not result in an error
+  Future<XRPCResponse<EmptyData>> deleteValues({
+    required String name,
+    required List<String> values,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.post(
+    ns.toolsOzoneSetDeleteValues,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {'name': name, 'values': values, ...?$unknown},
+  );
+
+  /// Query available sets
+  Future<XRPCResponse<SetQuerySetsOutput>> querySets({
+    int? limit,
+    String? cursor,
+    String? namePrefix,
+    String? sortBy,
+    String? sortDirection,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.get(
+    ns.toolsOzoneSetQuerySets,
+    headers: $headers,
+    parameters: {
+      if (limit != null) 'limit': limit,
+      if (cursor != null) 'cursor': cursor,
+      if (namePrefix != null) 'namePrefix': namePrefix,
+      if (sortBy != null) 'sortBy': sortBy,
+      if (sortDirection != null) 'sortDirection': sortDirection,
+      ...?$unknown,
+    },
+    to: const SetQuerySetsOutputConverter().fromJson,
   );
 }
