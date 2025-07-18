@@ -22,10 +22,10 @@ dependencies:
   at_uri: ^1.0.0
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
-  cbor: ^6.2.0
+  cbor: ^6.3.7
   multiformats: ^1.0.0
   universal_io: ^2.2.2
-  atproto_oauth: ^0.1.0
+  atproto_oauth: ^0.1.1
 
 dev_dependencies:
   lints: ^6.0.0
