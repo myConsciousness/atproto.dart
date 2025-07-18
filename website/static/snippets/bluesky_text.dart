@@ -18,10 +18,7 @@ Future<void> main(List<String> args) async {
   final text = BlueskyText(
     'Hello, I am @shinyakato.dev! '
     'wdyt about [this link](https://atprotodart.com)?',
-    linkConfig: const LinkConfig(
-      excludeProtocol: true,
-      enableShortening: true,
-    ),
+    linkConfig: const LinkConfig(excludeProtocol: true, enableShortening: true),
   ).format();
 
   final facets = await text.entities.toFacets();
