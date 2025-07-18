@@ -1,0 +1,14 @@
+name: lex_gen
+publish_to: none
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+ lexicon:
+    path: ../lexicon
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.26.2
+  import_sorter: ^4.6.0

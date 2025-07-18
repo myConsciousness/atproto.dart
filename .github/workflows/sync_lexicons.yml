@@ -34,7 +34,7 @@ jobs:
         run: dart pub get
 
       - name: Sync Lexicons
-        run: dart run ./bin/pull_latest_lexicons.dart
+        run: dart run ./bin/sync_lexicons.dart
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
 
