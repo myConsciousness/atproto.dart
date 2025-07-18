@@ -56,58 +56,30 @@ final class ActorService {
     to: const ActorSearchActorsTypeaheadOutputConverter().fromJson,
   );
 
-  /// Get detailed profile views of multiple actors.
-  Future<XRPCResponse<ActorGetProfilesOutput>> getProfiles({
-    required List<String> actors,
+  /// Set the private preferences attached to the account.
+  Future<XRPCResponse<EmptyData>> putPreferences({
+    required List<UPreferences> preferences,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyActorGetProfiles,
-    headers: $headers,
-    parameters: {'actors': actors, ...?$unknown},
-    to: const ActorGetProfilesOutputConverter().fromJson,
-  );
-
-  /// A declaration of a Bluesky account profile.
-  Future<XRPCResponse<RepoCreateRecordOutput>> profile({
-    String? displayName,
-    String? description,
-    Blob? avatar,
-    Blob? banner,
-    UActorProfileLabels? labels,
-    RepoStrongRef? joinedViaStarterPack,
-    RepoStrongRef? pinnedPost,
-    DateTime? createdAt,
-    String? $rey,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
-    collection: ids.appBskyActorProfile,
-    rkey: $rey,
-    record: {
-      if (displayName != null) 'displayName': displayName,
-      if (description != null) 'description': description,
-      if (avatar != null) 'avatar': avatar,
-      if (banner != null) 'banner': banner,
-      if (labels != null) 'labels': labels.toJson(),
-      if (joinedViaStarterPack != null)
-        'joinedViaStarterPack': joinedViaStarterPack.toJson(),
-      if (pinnedPost != null) 'pinnedPost': pinnedPost.toJson(),
-      if (createdAt != null) 'createdAt': _ctx.toUtcIso8601String(createdAt),
+  }) async => await _ctx.post(
+    ns.appBskyActorPutPreferences,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {
+      'preferences': preferences.map((e) => e.toJson()).toList(),
       ...?$unknown,
     },
   );
 
-  /// Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.
-  Future<XRPCResponse<ActorGetPreferencesOutput>> getPreferences({
+  /// Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
+  Future<XRPCResponse<ProfileViewDetailed>> getProfile({
+    required String actor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.get(
-    ns.appBskyActorGetPreferences,
+    ns.appBskyActorGetProfile,
     headers: $headers,
-    parameters: {...?$unknown},
-    to: const ActorGetPreferencesOutputConverter().fromJson,
+    parameters: {'actor': actor, ...?$unknown},
+    to: const ProfileViewDetailedConverter().fromJson,
   );
 
   /// Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.
@@ -148,16 +120,16 @@ final class ActorService {
     to: const ActorSearchActorsOutputConverter().fromJson,
   );
 
-  /// Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
-  Future<XRPCResponse<ProfileViewDetailed>> getProfile({
-    required String actor,
+  /// Get detailed profile views of multiple actors.
+  Future<XRPCResponse<ActorGetProfilesOutput>> getProfiles({
+    required List<String> actors,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.get(
-    ns.appBskyActorGetProfile,
+    ns.appBskyActorGetProfiles,
     headers: $headers,
-    parameters: {'actor': actor, ...?$unknown},
-    to: const ProfileViewDetailedConverter().fromJson,
+    parameters: {'actors': actors, ...?$unknown},
+    to: const ActorGetProfilesOutputConverter().fromJson,
   );
 
   /// A declaration of a Bluesky account status.
@@ -182,16 +154,44 @@ final class ActorService {
     },
   );
 
-  /// Set the private preferences attached to the account.
-  Future<XRPCResponse<EmptyData>> putPreferences({
-    required List<UPreferences> preferences,
+  /// Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.
+  Future<XRPCResponse<ActorGetPreferencesOutput>> getPreferences({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.appBskyActorPutPreferences,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      'preferences': preferences.map((e) => e.toJson()).toList(),
+  }) async => await _ctx.get(
+    ns.appBskyActorGetPreferences,
+    headers: $headers,
+    parameters: {...?$unknown},
+    to: const ActorGetPreferencesOutputConverter().fromJson,
+  );
+
+  /// A declaration of a Bluesky account profile.
+  Future<XRPCResponse<RepoCreateRecordOutput>> profile({
+    String? displayName,
+    String? description,
+    Blob? avatar,
+    Blob? banner,
+    UActorProfileLabels? labels,
+    RepoStrongRef? joinedViaStarterPack,
+    RepoStrongRef? pinnedPost,
+    DateTime? createdAt,
+    String? $rey,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.repo.createRecord(
+    repo: _ctx.$repo,
+    collection: ids.appBskyActorProfile,
+    rkey: $rey,
+    record: {
+      if (displayName != null) 'displayName': displayName,
+      if (description != null) 'description': description,
+      if (avatar != null) 'avatar': avatar,
+      if (banner != null) 'banner': banner,
+      if (labels != null) 'labels': labels.toJson(),
+      if (joinedViaStarterPack != null)
+        'joinedViaStarterPack': joinedViaStarterPack.toJson(),
+      if (pinnedPost != null) 'pinnedPost': pinnedPost.toJson(),
+      if (createdAt != null) 'createdAt': _ctx.toUtcIso8601String(createdAt),
       ...?$unknown,
     },
   );

@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.0.0
+
+- Jwt.aud is now nullable. ([#1982](https://github.com/myConsciousness/atproto.dart/pull/1982))
+
 ## v0.11.2
 
 - Bump `xrpc`.

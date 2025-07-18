@@ -36,22 +36,6 @@ final class ModerationService {
     parameters: {'actor': actor, ...?$unknown},
     to: const ModerationGetActorMetadataOutputConverter().fromJson,
   );
-  Future<XRPCResponse<EmptyData>> updateActorAccess({
-    required String actor,
-    required bool allowAccess,
-    String? ref,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.chatBskyModerationUpdateActorAccess,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      'actor': actor,
-      'allowAccess': allowAccess,
-      if (ref != null) 'ref': ref,
-      ...?$unknown,
-    },
-  );
   Future<XRPCResponse<ModerationGetMessageContextOutput>> getMessageContext({
     String? convoId,
     required String messageId,
@@ -70,5 +54,21 @@ final class ModerationService {
       ...?$unknown,
     },
     to: const ModerationGetMessageContextOutputConverter().fromJson,
+  );
+  Future<XRPCResponse<EmptyData>> updateActorAccess({
+    required String actor,
+    required bool allowAccess,
+    String? ref,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.post(
+    ns.chatBskyModerationUpdateActorAccess,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {
+      'actor': actor,
+      'allowAccess': allowAccess,
+      if (ref != null) 'ref': ref,
+      ...?$unknown,
+    },
   );
 }

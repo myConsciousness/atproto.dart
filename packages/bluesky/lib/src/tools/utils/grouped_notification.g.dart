@@ -57,15 +57,13 @@ Map<String, dynamic> _$GroupedNotificationToJson(
   'uris': instance.uris.map(const AtUriConverter().toJson).toList(),
   'authors': instance.authors.map((e) => e.toJson()).toList(),
   'reason': _$GroupedNotificationReasonEnumMap[instance.reason]!,
-  if (_$JsonConverterToJson<String, AtUri>(
-        instance.reasonSubject,
-        const AtUriConverter().toJson,
-      )
-      case final value?)
-    'reasonSubject': value,
+  'reasonSubject': ?_$JsonConverterToJson<String, AtUri>(
+    instance.reasonSubject,
+    const AtUriConverter().toJson,
+  ),
   'isRead': instance.isRead,
   'labels': instance.labels.map((e) => e.toJson()).toList(),
-  if (instance.record case final value?) 'record': value,
+  'record': ?instance.record,
   'indexedAt': instance.indexedAt.toIso8601String(),
 };
 
