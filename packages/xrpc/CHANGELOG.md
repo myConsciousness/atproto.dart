@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.0.0
+
+- Bump SDK constraint to '^3.8.0'.
+
 ## v0.6.1
 
 - Use `web_socket_channel: ^3.0.0`.

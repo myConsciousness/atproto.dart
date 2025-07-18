@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.0.0
+
+- Bump SDK constraint to '^3.8.0'.
+
 ## v0.4.0
 
 - Change the type `.collection` property from `String` to `NSID`. You need to do `.collection.toString()` when you want a string of collection. ([#1551](https://github.com/myConsciousness/atproto.dart/issues/1551))

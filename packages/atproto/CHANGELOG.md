@@ -1,5 +1,10 @@
 # Release Note
 
+## v1.0.0
+
+- Bump SDK constraint to '^3.8.0'.
+- Fully replaced with objects generated based on lexicons.
+
 ## v0.13.3
 
 - Bump `xrpc`.

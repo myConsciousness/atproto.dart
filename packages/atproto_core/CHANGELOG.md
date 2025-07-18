@@ -2,7 +2,8 @@
 
 ## v1.0.0
 
-- Jwt.aud is now nullable. ([#1982](https://github.com/myConsciousness/atproto.dart/pull/1982))
+- `Jwt.aud` is now nullable based on `RFC 7519`. ([#1982](https://github.com/myConsciousness/atproto.dart/pull/1982))
+- Bump SDK constraint to '^3.8.0'.
 
 ## v0.11.2
 
