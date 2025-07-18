@@ -64,7 +64,7 @@ jobs:
           dart fix --apply
           dart run import_sorter:main
           dart format .
-          cd ../packages/atproto
+          cd ../../packages/atproto
           dart fix --apply
           dart run import_sorter:main
           dart format .
