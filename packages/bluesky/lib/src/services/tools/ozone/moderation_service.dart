@@ -42,6 +42,135 @@ final class ModerationService {
 
   final z.ServiceContext _ctx;
 
+  /// List moderation events related to a subject.
+  Future<XRPCResponse<ModerationQueryEventsOutput>> queryEvents({
+    List<String>? types,
+    String? createdBy,
+    String? sortDirection,
+    DateTime? createdAfter,
+    DateTime? createdBefore,
+    AtUri? subject,
+    List<String>? collections,
+    ModerationQueryEventsSubjectType? subjectType,
+    bool? includeAllUserRecords,
+    int? limit,
+    bool? hasComment,
+    String? comment,
+    List<String>? addedLabels,
+    List<String>? removedLabels,
+    List<String>? addedTags,
+    List<String>? removedTags,
+    List<String>? reportTypes,
+    List<String>? policies,
+    List<String>? modTool,
+    ModerationQueryEventsAgeAssuranceState? ageAssuranceState,
+    String? cursor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.get(
+    ns.toolsOzoneModerationQueryEvents,
+    headers: $headers,
+    parameters: {
+      if (types != null) 'types': types,
+      if (createdBy != null) 'createdBy': createdBy,
+      if (sortDirection != null) 'sortDirection': sortDirection,
+      if (createdAfter != null)
+        'createdAfter': _ctx.toUtcIso8601String(createdAfter),
+      if (createdBefore != null)
+        'createdBefore': _ctx.toUtcIso8601String(createdBefore),
+      if (subject != null) 'subject': subject,
+      if (collections != null) 'collections': collections,
+      if (subjectType != null) 'subjectType': subjectType.toJson(),
+      if (includeAllUserRecords != null)
+        'includeAllUserRecords': includeAllUserRecords,
+      if (limit != null) 'limit': limit,
+      if (hasComment != null) 'hasComment': hasComment,
+      if (comment != null) 'comment': comment,
+      if (addedLabels != null) 'addedLabels': addedLabels,
+      if (removedLabels != null) 'removedLabels': removedLabels,
+      if (addedTags != null) 'addedTags': addedTags,
+      if (removedTags != null) 'removedTags': removedTags,
+      if (reportTypes != null) 'reportTypes': reportTypes,
+      if (policies != null) 'policies': policies,
+      if (modTool != null) 'modTool': modTool,
+      if (ageAssuranceState != null)
+        'ageAssuranceState': ageAssuranceState.toJson(),
+      if (cursor != null) 'cursor': cursor,
+      ...?$unknown,
+    },
+    to: const ModerationQueryEventsOutputConverter().fromJson,
+  );
+
+  /// Find repositories based on a search term.
+  Future<XRPCResponse<ModerationSearchReposOutput>> searchRepos({
+    String? term,
+    String? q,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.get(
+    ns.toolsOzoneModerationSearchRepos,
+    headers: $headers,
+    parameters: {
+      if (term != null) 'term': term,
+      if (q != null) 'q': q,
+      if (limit != null) 'limit': limit,
+      if (cursor != null) 'cursor': cursor,
+      ...?$unknown,
+    },
+    to: const ModerationSearchReposOutputConverter().fromJson,
+  );
+
+  /// Take a moderation action on an actor.
+  Future<XRPCResponse<ModEventView>> emitEvent({
+    required UModerationEmitEventEvent event,
+    required UModerationEmitEventSubject subject,
+    List<String>? subjectBlobCids,
+    required String createdBy,
+    ModTool? modTool,
+    String? externalId,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.post(
+    ns.toolsOzoneModerationEmitEvent,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {
+      'event': event.toJson(),
+      'subject': subject.toJson(),
+      if (subjectBlobCids != null) 'subjectBlobCids': subjectBlobCids,
+      'createdBy': createdBy,
+      if (modTool != null) 'modTool': modTool.toJson(),
+      if (externalId != null) 'externalId': externalId,
+      ...?$unknown,
+    },
+    to: const ModEventViewConverter().fromJson,
+  );
+
+  /// Get details about some records.
+  Future<XRPCResponse<ModerationGetRecordsOutput>> getRecords({
+    required List<String> uris,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.get(
+    ns.toolsOzoneModerationGetRecords,
+    headers: $headers,
+    parameters: {'uris': uris, ...?$unknown},
+    to: const ModerationGetRecordsOutputConverter().fromJson,
+  );
+
+  /// Get details about a moderation event.
+  Future<XRPCResponse<ModEventViewDetail>> getEvent({
+    required int id,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.get(
+    ns.toolsOzoneModerationGetEvent,
+    headers: $headers,
+    parameters: {'id': id, ...?$unknown},
+    to: const ModEventViewDetailConverter().fromJson,
+  );
+
   /// Get reporter stats for a list of users.
   Future<XRPCResponse<ModerationGetReporterStatsOutput>> getReporterStats({
     required List<String> dids,
@@ -150,111 +279,16 @@ final class ModerationService {
     to: const ModerationQueryStatusesOutputConverter().fromJson,
   );
 
-  /// Get details about a repository.
-  Future<XRPCResponse<RepoViewDetail>> getRepo({
-    required String did,
+  /// Get details about some repositories.
+  Future<XRPCResponse<ModerationGetReposOutput>> getRepos({
+    required List<String> dids,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.get(
-    ns.toolsOzoneModerationGetRepo,
+    ns.toolsOzoneModerationGetRepos,
     headers: $headers,
-    parameters: {'did': did, ...?$unknown},
-    to: const RepoViewDetailConverter().fromJson,
-  );
-
-  /// Get details about subjects.
-  Future<XRPCResponse<ModerationGetSubjectsOutput>> getSubjects({
-    required List<String> subjects,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.toolsOzoneModerationGetSubjects,
-    headers: $headers,
-    parameters: {'subjects': subjects, ...?$unknown},
-    to: const ModerationGetSubjectsOutputConverter().fromJson,
-  );
-
-  /// Get details about some records.
-  Future<XRPCResponse<ModerationGetRecordsOutput>> getRecords({
-    required List<String> uris,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.toolsOzoneModerationGetRecords,
-    headers: $headers,
-    parameters: {'uris': uris, ...?$unknown},
-    to: const ModerationGetRecordsOutputConverter().fromJson,
-  );
-
-  /// Get details about a moderation event.
-  Future<XRPCResponse<ModEventViewDetail>> getEvent({
-    required int id,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.toolsOzoneModerationGetEvent,
-    headers: $headers,
-    parameters: {'id': id, ...?$unknown},
-    to: const ModEventViewDetailConverter().fromJson,
-  );
-
-  /// List moderation events related to a subject.
-  Future<XRPCResponse<ModerationQueryEventsOutput>> queryEvents({
-    List<String>? types,
-    String? createdBy,
-    String? sortDirection,
-    DateTime? createdAfter,
-    DateTime? createdBefore,
-    AtUri? subject,
-    List<String>? collections,
-    ModerationQueryEventsSubjectType? subjectType,
-    bool? includeAllUserRecords,
-    int? limit,
-    bool? hasComment,
-    String? comment,
-    List<String>? addedLabels,
-    List<String>? removedLabels,
-    List<String>? addedTags,
-    List<String>? removedTags,
-    List<String>? reportTypes,
-    List<String>? policies,
-    List<String>? modTool,
-    ModerationQueryEventsAgeAssuranceState? ageAssuranceState,
-    String? cursor,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.toolsOzoneModerationQueryEvents,
-    headers: $headers,
-    parameters: {
-      if (types != null) 'types': types,
-      if (createdBy != null) 'createdBy': createdBy,
-      if (sortDirection != null) 'sortDirection': sortDirection,
-      if (createdAfter != null)
-        'createdAfter': _ctx.toUtcIso8601String(createdAfter),
-      if (createdBefore != null)
-        'createdBefore': _ctx.toUtcIso8601String(createdBefore),
-      if (subject != null) 'subject': subject,
-      if (collections != null) 'collections': collections,
-      if (subjectType != null) 'subjectType': subjectType.toJson(),
-      if (includeAllUserRecords != null)
-        'includeAllUserRecords': includeAllUserRecords,
-      if (limit != null) 'limit': limit,
-      if (hasComment != null) 'hasComment': hasComment,
-      if (comment != null) 'comment': comment,
-      if (addedLabels != null) 'addedLabels': addedLabels,
-      if (removedLabels != null) 'removedLabels': removedLabels,
-      if (addedTags != null) 'addedTags': addedTags,
-      if (removedTags != null) 'removedTags': removedTags,
-      if (reportTypes != null) 'reportTypes': reportTypes,
-      if (policies != null) 'policies': policies,
-      if (modTool != null) 'modTool': modTool,
-      if (ageAssuranceState != null)
-        'ageAssuranceState': ageAssuranceState.toJson(),
-      if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
-    },
-    to: const ModerationQueryEventsOutputConverter().fromJson,
+    parameters: {'dids': dids, ...?$unknown},
+    to: const ModerationGetReposOutputConverter().fromJson,
   );
 
   /// Get details about a record.
@@ -270,61 +304,27 @@ final class ModerationService {
     to: const RecordViewDetailConverter().fromJson,
   );
 
-  /// Take a moderation action on an actor.
-  Future<XRPCResponse<ModEventView>> emitEvent({
-    required UModerationEmitEventEvent event,
-    required UModerationEmitEventSubject subject,
-    List<String>? subjectBlobCids,
-    required String createdBy,
-    ModTool? modTool,
-    String? externalId,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneModerationEmitEvent,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      'event': event.toJson(),
-      'subject': subject.toJson(),
-      if (subjectBlobCids != null) 'subjectBlobCids': subjectBlobCids,
-      'createdBy': createdBy,
-      if (modTool != null) 'modTool': modTool.toJson(),
-      if (externalId != null) 'externalId': externalId,
-      ...?$unknown,
-    },
-    to: const ModEventViewConverter().fromJson,
-  );
-
-  /// Find repositories based on a search term.
-  Future<XRPCResponse<ModerationSearchReposOutput>> searchRepos({
-    String? term,
-    String? q,
-    int? limit,
-    String? cursor,
+  /// Get details about subjects.
+  Future<XRPCResponse<ModerationGetSubjectsOutput>> getSubjects({
+    required List<String> subjects,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.get(
-    ns.toolsOzoneModerationSearchRepos,
+    ns.toolsOzoneModerationGetSubjects,
     headers: $headers,
-    parameters: {
-      if (term != null) 'term': term,
-      if (q != null) 'q': q,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
-    },
-    to: const ModerationSearchReposOutputConverter().fromJson,
+    parameters: {'subjects': subjects, ...?$unknown},
+    to: const ModerationGetSubjectsOutputConverter().fromJson,
   );
 
-  /// Get details about some repositories.
-  Future<XRPCResponse<ModerationGetReposOutput>> getRepos({
-    required List<String> dids,
+  /// Get details about a repository.
+  Future<XRPCResponse<RepoViewDetail>> getRepo({
+    required String did,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.get(
-    ns.toolsOzoneModerationGetRepos,
+    ns.toolsOzoneModerationGetRepo,
     headers: $headers,
-    parameters: {'dids': dids, ...?$unknown},
-    to: const ModerationGetReposOutputConverter().fromJson,
+    parameters: {'did': did, ...?$unknown},
+    to: const RepoViewDetailConverter().fromJson,
   );
 }
