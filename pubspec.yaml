@@ -9,10 +9,9 @@ dependencies:
   http: ^1.4.0
   pubspec: ^2.3.0
   test: ^1.26.2
+  lexicon: ^1.0.0
   lex_gen:
     path: packages/lex_gen
-  lexicon:
-    path: packages/lexicon
 
 dev_dependencies:
   lints: ^6.0.0
