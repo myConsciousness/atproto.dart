@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/tools/ozone/team/updateMember/input.dart';
-export 'package:bluesky/src/services/tools/ozone/team/updateMember/main_role.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/team/updateMember/input.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/team/updateMember/main_role.dart';

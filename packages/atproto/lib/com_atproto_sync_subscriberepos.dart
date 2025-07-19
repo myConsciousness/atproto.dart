@@ -11,14 +11,14 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/com/atproto/sync/subscribeRepos/input.dart';
-export 'package:atproto/src/services/com/atproto/sync/subscribeRepos/union_main_message.dart';
-export 'package:atproto/src/services/com/atproto/sync/subscribeRepos/commit.dart';
-export 'package:atproto/src/services/com/atproto/sync/subscribeRepos/sync.dart';
-export 'package:atproto/src/services/com/atproto/sync/subscribeRepos/identity.dart';
-export 'package:atproto/src/services/com/atproto/sync/subscribeRepos/account.dart';
-export 'package:atproto/src/services/com/atproto/sync/subscribeRepos/account_status.dart';
-export 'package:atproto/src/services/com/atproto/sync/subscribeRepos/info.dart';
-export 'package:atproto/src/services/com/atproto/sync/subscribeRepos/info_name.dart';
-export 'package:atproto/src/services/com/atproto/sync/subscribeRepos/repo_op.dart';
-export 'package:atproto/src/services/com/atproto/sync/subscribeRepos/repo_op_action.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/subscribeRepos/input.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/subscribeRepos/union_main_message.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/subscribeRepos/commit.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/subscribeRepos/sync.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/subscribeRepos/identity.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/subscribeRepos/account.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/subscribeRepos/account_status.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/subscribeRepos/info.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/subscribeRepos/info_name.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/subscribeRepos/repo_op.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/subscribeRepos/repo_op_action.dart';

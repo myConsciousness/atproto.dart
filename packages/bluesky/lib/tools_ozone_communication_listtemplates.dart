@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/tools/ozone/communication/listTemplates/output.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/communication/listTemplates/output.dart';

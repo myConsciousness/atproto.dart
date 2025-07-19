@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/tools/ozone/moderation/getReporterStats/input.dart';
-export 'package:bluesky/src/services/tools/ozone/moderation/getReporterStats/output.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/moderation/getReporterStats/input.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/moderation/getReporterStats/output.dart';

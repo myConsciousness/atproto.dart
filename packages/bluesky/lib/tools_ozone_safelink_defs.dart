@@ -11,9 +11,9 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/tools/ozone/safelink/defs/event.dart';
-export 'package:bluesky/src/services/tools/ozone/safelink/defs/event_type.dart';
-export 'package:bluesky/src/services/tools/ozone/safelink/defs/pattern_type.dart';
-export 'package:bluesky/src/services/tools/ozone/safelink/defs/action_type.dart';
-export 'package:bluesky/src/services/tools/ozone/safelink/defs/reason_type.dart';
-export 'package:bluesky/src/services/tools/ozone/safelink/defs/url_rule.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/safelink/defs/event.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/safelink/defs/event_type.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/safelink/defs/pattern_type.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/safelink/defs/action_type.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/safelink/defs/reason_type.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/safelink/defs/url_rule.dart';

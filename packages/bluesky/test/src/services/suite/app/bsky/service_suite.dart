@@ -4,12 +4,12 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 
 // Project imports:
-import 'package:bluesky/src/services/app/bsky/actor_service.dart';
-import 'package:bluesky/src/services/app/bsky/feed_service.dart';
-import 'package:bluesky/src/services/app/bsky/graph_service.dart';
-import 'package:bluesky/src/services/app/bsky/labeler_service.dart';
-import 'package:bluesky/src/services/app/bsky/notification_service.dart';
-import 'package:bluesky/src/services/app/bsky/unspecced_service.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/actor_service.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed_service.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/graph_service.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/labeler_service.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/notification_service.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/unspecced_service.dart';
 import 'package:bluesky/src/services/service_context.dart';
 
 const _runner = _ServiceRunner();

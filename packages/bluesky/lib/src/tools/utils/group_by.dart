@@ -3,8 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
-import '../../services/app/bsky/notification/listNotifications/notification.dart';
-import '../../services/app/bsky/notification/listNotifications/output.dart';
+import '../../services/codegen/app/bsky/notification/listNotifications/notification.dart';
+import '../../services/codegen/app/bsky/notification/listNotifications/output.dart';
 
 sealed class GroupBy {
   // ignore: unused_element

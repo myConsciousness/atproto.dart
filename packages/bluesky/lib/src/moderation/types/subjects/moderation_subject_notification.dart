@@ -6,7 +6,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../services/app/bsky/notification/listNotifications/notification.dart';
+import '../../../services/codegen/app/bsky/notification/listNotifications/notification.dart';
 
 part 'moderation_subject_notification.freezed.dart';
 

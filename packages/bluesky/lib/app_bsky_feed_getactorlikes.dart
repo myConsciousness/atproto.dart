@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/feed/getActorLikes/input.dart';
-export 'package:bluesky/src/services/app/bsky/feed/getActorLikes/output.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/feed/getActorLikes/input.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/feed/getActorLikes/output.dart';

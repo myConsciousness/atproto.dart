@@ -4,7 +4,7 @@
 import 'package:test/test.dart';
 
 // Project imports:
-import 'package:bluesky/src/services/app/bsky/notification/listNotifications/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/notification/listNotifications/output.dart';
 import 'package:bluesky/src/tools/extensions/notifications_extension.dart';
 import 'package:bluesky/src/tools/utils/grouped_notification_reason.dart';
 import 'package:bluesky/src/tools/utils/notifications_grouper.dart';

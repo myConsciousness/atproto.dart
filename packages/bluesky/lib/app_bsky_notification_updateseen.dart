@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/notification/updateSeen/input.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/notification/updateSeen/input.dart';

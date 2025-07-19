@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/com/atproto/sync/notifyOfUpdate/input.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/notifyOfUpdate/input.dart';

@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/graph/getRelationships/input.dart';
-export 'package:bluesky/src/services/app/bsky/graph/getRelationships/output.dart';
-export 'package:bluesky/src/services/app/bsky/graph/getRelationships/union_main_relationships.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/graph/getRelationships/input.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/graph/getRelationships/output.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/graph/getRelationships/union_main_relationships.dart';

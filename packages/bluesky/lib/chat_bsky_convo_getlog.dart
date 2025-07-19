@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/chat/bsky/convo/getLog/input.dart';
-export 'package:bluesky/src/services/chat/bsky/convo/getLog/output.dart';
-export 'package:bluesky/src/services/chat/bsky/convo/getLog/union_main_logs.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/getLog/input.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/getLog/output.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/getLog/union_main_logs.dart';

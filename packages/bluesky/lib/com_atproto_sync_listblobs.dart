@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/com/atproto/sync/listBlobs/input.dart';
-export 'package:atproto/src/services/com/atproto/sync/listBlobs/output.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/listBlobs/input.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/listBlobs/output.dart';

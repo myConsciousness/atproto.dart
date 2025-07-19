@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/video/uploadVideo/output.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/video/uploadVideo/output.dart';

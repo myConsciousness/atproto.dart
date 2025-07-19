@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/chat/bsky/actor_service.dart';
-export 'package:bluesky/src/services/chat/bsky/moderation_service.dart';
-export 'package:bluesky/src/services/chat/bsky/convo_service.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/actor_service.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/moderation_service.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo_service.dart';

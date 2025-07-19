@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/tools/ozone/signature/findCorrelation/input.dart';
-export 'package:bluesky/src/services/tools/ozone/signature/findCorrelation/output.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/signature/findCorrelation/input.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/signature/findCorrelation/output.dart';

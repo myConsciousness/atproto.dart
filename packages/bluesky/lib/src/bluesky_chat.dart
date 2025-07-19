@@ -8,9 +8,9 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_core/atproto_oauth.dart' as oauth;
 
 // Project imports:
-import 'services/chat/bsky/actor_service.dart';
-import 'services/chat/bsky/convo_service.dart';
-import 'services/chat/bsky/moderation_service.dart';
+import 'services/codegen/chat/bsky/actor_service.dart';
+import 'services/codegen/chat/bsky/convo_service.dart';
+import 'services/codegen/chat/bsky/moderation_service.dart';
 import 'services/service_context.dart';
 
 const _kBskyChatProxyHeaders = <String, String>{

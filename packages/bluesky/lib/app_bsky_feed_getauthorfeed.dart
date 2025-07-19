@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/feed/getAuthorFeed/input.dart';
-export 'package:bluesky/src/services/app/bsky/feed/getAuthorFeed/main_filter.dart';
-export 'package:bluesky/src/services/app/bsky/feed/getAuthorFeed/output.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/feed/getAuthorFeed/input.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/feed/getAuthorFeed/main_filter.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/feed/getAuthorFeed/output.dart';

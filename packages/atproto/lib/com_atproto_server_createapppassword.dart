@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/com/atproto/server/createAppPassword/input.dart';
-export 'package:atproto/src/services/com/atproto/server/createAppPassword/app_password.dart';
+export 'package:atproto/src/services/codegen/com/atproto/server/createAppPassword/input.dart';
+export 'package:atproto/src/services/codegen/com/atproto/server/createAppPassword/app_password.dart';

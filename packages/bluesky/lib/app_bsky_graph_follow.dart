@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/graph/follow/main.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/graph/follow/main.dart';

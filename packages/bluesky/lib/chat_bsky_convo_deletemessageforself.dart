@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/chat/bsky/convo/deleteMessageForSelf/input.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/deleteMessageForSelf/input.dart';

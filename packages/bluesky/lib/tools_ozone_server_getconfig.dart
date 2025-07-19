@@ -11,7 +11,7 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/tools/ozone/server/getConfig/output.dart';
-export 'package:bluesky/src/services/tools/ozone/server/getConfig/service_config.dart';
-export 'package:bluesky/src/services/tools/ozone/server/getConfig/viewer_config.dart';
-export 'package:bluesky/src/services/tools/ozone/server/getConfig/viewer_config_role.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/server/getConfig/output.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/server/getConfig/service_config.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/server/getConfig/viewer_config.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/server/getConfig/viewer_config_role.dart';

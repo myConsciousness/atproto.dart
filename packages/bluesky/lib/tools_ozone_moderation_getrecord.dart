@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/tools/ozone/moderation/getRecord/input.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/moderation/getRecord/input.dart';

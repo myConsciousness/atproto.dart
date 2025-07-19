@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/com/atproto/sync/getHead/input.dart';
-export 'package:atproto/src/services/com/atproto/sync/getHead/output.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/getHead/input.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/getHead/output.dart';

@@ -4,17 +4,17 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // Project imports:
 import 'package:atproto/com_atproto_server_createapppassword.dart';
 import 'package:atproto/src/ids.g.dart';
-import 'package:atproto/src/services/com/atproto/server/checkAccountStatus/output.dart';
-import 'package:atproto/src/services/com/atproto/server/createAccount/output.dart';
-import 'package:atproto/src/services/com/atproto/server/createInviteCode/output.dart';
-import 'package:atproto/src/services/com/atproto/server/createInviteCodes/output.dart';
-import 'package:atproto/src/services/com/atproto/server/describeServer/output.dart';
-import 'package:atproto/src/services/com/atproto/server/getAccountInviteCodes/output.dart';
-import 'package:atproto/src/services/com/atproto/server/getServiceAuth/output.dart';
-import 'package:atproto/src/services/com/atproto/server/getSession/output.dart';
-import 'package:atproto/src/services/com/atproto/server/listAppPasswords/output.dart';
-import 'package:atproto/src/services/com/atproto/server/requestEmailUpdate/output.dart';
-import 'package:atproto/src/services/com/atproto/server/reserveSigningKey/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/server/checkAccountStatus/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/server/createAccount/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/server/createInviteCode/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/server/createInviteCodes/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/server/describeServer/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/server/getAccountInviteCodes/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/server/getServiceAuth/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/server/getSession/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/server/listAppPasswords/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/server/requestEmailUpdate/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/server/reserveSigningKey/output.dart';
 import 'service_suite.dart';
 
 void main() {

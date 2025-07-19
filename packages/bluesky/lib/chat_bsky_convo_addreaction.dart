@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/chat/bsky/convo/addReaction/input.dart';
-export 'package:bluesky/src/services/chat/bsky/convo/addReaction/output.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/addReaction/input.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/addReaction/output.dart';

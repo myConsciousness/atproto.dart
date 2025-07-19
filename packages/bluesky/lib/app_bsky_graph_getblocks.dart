@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/graph/getBlocks/input.dart';
-export 'package:bluesky/src/services/app/bsky/graph/getBlocks/output.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/graph/getBlocks/input.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/graph/getBlocks/output.dart';

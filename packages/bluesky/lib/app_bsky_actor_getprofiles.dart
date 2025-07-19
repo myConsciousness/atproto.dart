@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/actor/getProfiles/input.dart';
-export 'package:bluesky/src/services/app/bsky/actor/getProfiles/output.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/actor/getProfiles/input.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/actor/getProfiles/output.dart';

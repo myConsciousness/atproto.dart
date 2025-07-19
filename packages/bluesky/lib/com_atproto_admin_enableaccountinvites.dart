@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/com/atproto/admin/enableAccountInvites/input.dart';
+export 'package:atproto/src/services/codegen/com/atproto/admin/enableAccountInvites/input.dart';

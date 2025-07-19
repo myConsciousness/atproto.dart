@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/notification/putPreferencesV2/input.dart';
-export 'package:bluesky/src/services/app/bsky/notification/putPreferencesV2/output.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/notification/putPreferencesV2/input.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/notification/putPreferencesV2/output.dart';

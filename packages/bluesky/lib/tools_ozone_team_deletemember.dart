@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/tools/ozone/team/deleteMember/input.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/team/deleteMember/input.dart';

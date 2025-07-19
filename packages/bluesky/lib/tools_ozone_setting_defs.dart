@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/tools/ozone/setting/defs/option.dart';
-export 'package:bluesky/src/services/tools/ozone/setting/defs/option_manager_role.dart';
-export 'package:bluesky/src/services/tools/ozone/setting/defs/option_scope.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/setting/defs/option.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/setting/defs/option_manager_role.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/setting/defs/option_scope.dart';

@@ -7,16 +7,16 @@ import 'package:atproto/com_atproto_label_defs.dart';
 
 // Project imports:
 import '../../ids.g.dart' as ids;
-import '../../services/app/bsky/actor/defs/profile_view.dart';
-import '../../services/app/bsky/notification/listNotifications/notification.dart';
-import '../../services/app/bsky/notification/listNotifications/notification_reason.dart';
-import '../../services/app/bsky/notification/listNotifications/output.dart';
+import '../../services/codegen/app/bsky/actor/defs/profile_view.dart';
+import '../../services/codegen/app/bsky/notification/listNotifications/notification.dart';
+import '../../services/codegen/app/bsky/notification/listNotifications/notification_reason.dart';
+import '../../services/codegen/app/bsky/notification/listNotifications/output.dart';
 import 'group_by.dart';
 import 'grouped_notification_reason.dart';
 import 'grouped_notifications.dart';
 
 // Project imports:
-import '../../services/app/bsky/notification/listNotifications/output.dart'
+import '../../services/codegen/app/bsky/notification/listNotifications/output.dart'
     show NotificationListNotificationsOutput;
 
 const _groupableReasons = <NotificationReason>[

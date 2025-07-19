@@ -9,9 +9,9 @@ import 'package:bluesky/src/moderation/types/behaviors/moderation_opts.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_prefs.dart';
 import 'package:bluesky/src/moderation/types/mute_words.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_post.dart';
-import 'package:bluesky/src/services/app/bsky/actor/defs/muted_word.dart';
-import 'package:bluesky/src/services/app/bsky/actor/defs/muted_word_target.dart';
-import 'package:bluesky/src/services/app/bsky/richtext/facet/main.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/actor/defs/muted_word.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/actor/defs/muted_word_target.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/richtext/facet/main.dart';
 import 'utils/mock.dart';
 
 void main() {

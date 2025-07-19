@@ -6,7 +6,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../services/app/bsky/feed/defs/generator_view.dart';
+import '../../../services/codegen/app/bsky/feed/defs/generator_view.dart';
 
 part 'moderation_subject_feed_generator.freezed.dart';
 

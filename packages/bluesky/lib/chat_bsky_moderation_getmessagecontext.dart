@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/chat/bsky/moderation/getMessageContext/input.dart';
-export 'package:bluesky/src/services/chat/bsky/moderation/getMessageContext/output.dart';
-export 'package:bluesky/src/services/chat/bsky/moderation/getMessageContext/union_main_messages.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/moderation/getMessageContext/input.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/moderation/getMessageContext/output.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/moderation/getMessageContext/union_main_messages.dart';

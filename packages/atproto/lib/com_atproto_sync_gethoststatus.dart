@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/com/atproto/sync/getHostStatus/input.dart';
-export 'package:atproto/src/services/com/atproto/sync/getHostStatus/output.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/getHostStatus/input.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync/getHostStatus/output.dart';

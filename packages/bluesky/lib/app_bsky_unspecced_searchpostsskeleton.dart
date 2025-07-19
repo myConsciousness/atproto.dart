@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/unspecced/searchPostsSkeleton/input.dart';
-export 'package:bluesky/src/services/app/bsky/unspecced/searchPostsSkeleton/main_sort.dart';
-export 'package:bluesky/src/services/app/bsky/unspecced/searchPostsSkeleton/output.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/unspecced/searchPostsSkeleton/input.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/unspecced/searchPostsSkeleton/main_sort.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/unspecced/searchPostsSkeleton/output.dart';

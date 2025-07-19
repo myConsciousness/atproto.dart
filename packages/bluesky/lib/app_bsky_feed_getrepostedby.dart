@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/feed/getRepostedBy/input.dart';
-export 'package:bluesky/src/services/app/bsky/feed/getRepostedBy/output.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/feed/getRepostedBy/input.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/feed/getRepostedBy/output.dart';

@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/com/atproto/server/checkAccountStatus/output.dart';
+export 'package:atproto/src/services/codegen/com/atproto/server/checkAccountStatus/output.dart';

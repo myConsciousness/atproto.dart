@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/graph/getMutes/input.dart';
-export 'package:bluesky/src/services/app/bsky/graph/getMutes/output.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/graph/getMutes/input.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/graph/getMutes/output.dart';

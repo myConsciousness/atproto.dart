@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/unspecced/getSuggestedUsersSkeleton/input.dart';
-export 'package:bluesky/src/services/app/bsky/unspecced/getSuggestedUsersSkeleton/output.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/unspecced/getSuggestedUsersSkeleton/input.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/unspecced/getSuggestedUsersSkeleton/output.dart';

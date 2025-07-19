@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/actor/status/main.dart';
-export 'package:bluesky/src/services/app/bsky/actor/status/union_main_embed.dart';
-export 'package:bluesky/src/services/app/bsky/actor/status/main_status.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/actor/status/main.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/actor/status/union_main_embed.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/actor/status/main_status.dart';

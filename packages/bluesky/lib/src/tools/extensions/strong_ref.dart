@@ -7,9 +7,9 @@ import 'package:atproto/com_atproto_repo_strongref.dart';
 
 // Project imports:
 import '../../../app_bsky_feed_post.dart' show UFeedPostEmbed;
-import '../../services/app/bsky/embed/record/main.dart';
+import '../../services/codegen/app/bsky/embed/record/main.dart';
 
-import '../../services/app/bsky/feed/post/union_main_embed.dart'
+import '../../services/codegen/app/bsky/feed/post/union_main_embed.dart'
     show UFeedPostEmbed;
 
 extension StrongRefExtension on RepoStrongRef {

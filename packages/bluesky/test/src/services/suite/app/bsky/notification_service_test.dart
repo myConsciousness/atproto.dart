@@ -3,9 +3,9 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/app/bsky/notification/getUnreadCount/output.dart';
-import 'package:bluesky/src/services/app/bsky/notification/listNotifications/output.dart';
-import 'package:bluesky/src/services/app/bsky/notification/registerPush/main_platform.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/notification/getUnreadCount/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/notification/listNotifications/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/notification/registerPush/main_platform.dart';
 import 'service_suite.dart';
 
 void main() {

@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/com/atproto/repo/uploadBlob/output.dart';
+export 'package:atproto/src/services/codegen/com/atproto/repo/uploadBlob/output.dart';
