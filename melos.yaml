@@ -58,8 +58,8 @@ scripts:
 
   gen:
     run: |
-      dart run ./bin/generate_lexicon_ids.dart
-      dart run ./bin/gen/code_gen.dart
+      dart run ./bin/gen_lexicon_ids.dart
+      dart run ./bin/gen_codes.dart
       cd packages/atproto
       dart run build_runner build --delete-conflicting-outputs
       dart fix --apply

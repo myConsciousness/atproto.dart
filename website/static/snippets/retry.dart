@@ -9,10 +9,7 @@ Future<void> main(List<String> args) async {
 
   final retryConfig = RetryConfig(
     maxAttempts: 10,
-    jitter: Jitter(
-      maxInSeconds: 5,
-      minInSeconds: 3,
-    ),
+    jitter: Jitter(maxInSeconds: 5, minInSeconds: 3),
     onExecute: (event) => print(
       'Retry after ${event.intervalInSeconds} seconds...'
       '[${event.retryCount} times]',
@@ -25,10 +22,7 @@ Future<void> main(List<String> args) async {
     retryConfig: retryConfig,
   );
 
-  final bsky = Bluesky.fromSession(
-    session.data,
-    retryConfig: retryConfig,
-  );
+  final bsky = Bluesky.fromSession(session.data, retryConfig: retryConfig);
 
   // Do retry if there are communication errors, etc
   final timeline = await bsky.feed.getTimeline();

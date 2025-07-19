@@ -1,3 +1,7 @@
+// Copyright (c) 2023-2025, Shinya Kato.
+// All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 // Dart imports:
 import 'dart:io';
 
@@ -7,10 +11,7 @@ import 'package:pubspec/pubspec.dart';
 // Project imports:
 import 'utils.dart';
 
-const _excludePackages = [
-  'atproto_test',
-  'did_plc',
-];
+const _excludePackages = ['atproto_test', 'did_plc'];
 
 void main(List<String> args) {
   validateDependencies();
@@ -48,10 +49,8 @@ Map<Package, List<Dependency>> _getDependencyGraph() {
       );
     });
 
-    dependencyGraph[Package(
-      pubspec.name!,
-      pubspec.version.toString(),
-    )] = dependencies;
+    dependencyGraph[Package(pubspec.name!, pubspec.version.toString())] =
+        dependencies;
   }
 
   return dependencyGraph;
@@ -59,9 +58,7 @@ Map<Package, List<Dependency>> _getDependencyGraph() {
 
 /// For packages developed in atproto.dart, verify that the version referenced
 /// in pubspec.yaml for a particular package is the latest.
-void _checkDevelopingPackages(
-  final Map<Package, List<Dependency>> graph,
-) {
+void _checkDevelopingPackages(final Map<Package, List<Dependency>> graph) {
   graph.forEach((package, dependencies) {
     for (final dependency in dependencies) {
       graph.forEach(($package, _) {
@@ -80,9 +77,7 @@ void _checkDevelopingPackages(
 
 /// For third-party packages in atproto.dart, verify that all versions used
 /// in a particular pubspec.yaml are equal.
-void _checkThirdPartyPackages(
-  final Map<Package, List<Dependency>> graph,
-) {
+void _checkThirdPartyPackages(final Map<Package, List<Dependency>> graph) {
   final versionGraph = <String, List<String>>{};
 
   graph.forEach((package, dependencies) {

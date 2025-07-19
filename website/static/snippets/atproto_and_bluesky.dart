@@ -34,10 +34,8 @@ Future<void> main(List<String> args) async {
 
     if (text.contains('bluesky')) {
       await bsky.feed.like(
-          subject: RepoStrongRef(
-        cid: feed.post.cid,
-        uri: feed.post.uri,
-      ));
+        subject: RepoStrongRef(cid: feed.post.cid, uri: feed.post.uri),
+      );
     }
 
     final postModeration = mod.moderatePost(
