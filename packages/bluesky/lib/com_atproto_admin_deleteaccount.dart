@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/com/atproto/admin/deleteAccount/input.dart';
+export 'package:atproto/src/services/codegen/com/atproto/admin/deleteAccount/input.dart';

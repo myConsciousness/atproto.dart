@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/tools/ozone/set/querySets/input.dart';
-export 'package:bluesky/src/services/tools/ozone/set/querySets/output.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/set/querySets/input.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/set/querySets/output.dart';

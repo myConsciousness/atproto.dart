@@ -3,8 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
-import 'lex_service_generator.dart';
-import 'lex_type_generator.dart';
+import 'services/lex_service_generator.dart';
+import 'services/lex_type_generator.dart';
 import 'utils.dart';
 
 const services = <String>[
@@ -22,8 +22,8 @@ sealed class Gen {
   void execute();
 }
 
-final class ServicesGen implements Gen {
-  const ServicesGen();
+final class ServiceGen implements Gen {
+  const ServiceGen();
 
   @override
   void execute() {
@@ -34,11 +34,11 @@ final class ServicesGen implements Gen {
   }
 }
 
-final class CommandsGen implements Gen {
-  const CommandsGen();
+final class CommandGen implements Gen {
+  const CommandGen();
 
   @override
   void execute() {
-    throw UnimplementedError();
+    print(kLexGeneratorLogo);
   }
 }

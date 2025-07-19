@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/chat/bsky/actor/defs/profile_view_basic.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/actor/defs/profile_view_basic.dart';

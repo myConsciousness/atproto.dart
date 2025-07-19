@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/com/atproto/moderation/defs/reason_type.dart';
-export 'package:atproto/src/services/com/atproto/moderation/defs/subject_type.dart';
+export 'package:atproto/src/services/codegen/com/atproto/moderation/defs/reason_type.dart';
+export 'package:atproto/src/services/codegen/com/atproto/moderation/defs/subject_type.dart';

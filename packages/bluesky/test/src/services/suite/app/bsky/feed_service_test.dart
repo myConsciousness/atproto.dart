@@ -5,23 +5,23 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/app/bsky/feed/defs/interaction.dart';
-import 'package:bluesky/src/services/app/bsky/feed/describeFeedGenerator/output.dart';
-import 'package:bluesky/src/services/app/bsky/feed/getActorFeeds/output.dart';
-import 'package:bluesky/src/services/app/bsky/feed/getActorLikes/output.dart';
-import 'package:bluesky/src/services/app/bsky/feed/getAuthorFeed/output.dart';
-import 'package:bluesky/src/services/app/bsky/feed/getFeed/output.dart';
-import 'package:bluesky/src/services/app/bsky/feed/getFeedGenerator/output.dart';
-import 'package:bluesky/src/services/app/bsky/feed/getFeedGenerators/output.dart';
-import 'package:bluesky/src/services/app/bsky/feed/getFeedSkeleton/output.dart';
-import 'package:bluesky/src/services/app/bsky/feed/getLikes/output.dart';
-import 'package:bluesky/src/services/app/bsky/feed/getListFeed/output.dart';
-import 'package:bluesky/src/services/app/bsky/feed/getPostThread/output.dart';
-import 'package:bluesky/src/services/app/bsky/feed/getPosts/output.dart';
-import 'package:bluesky/src/services/app/bsky/feed/getRepostedBy/output.dart';
-import 'package:bluesky/src/services/app/bsky/feed/getSuggestedFeeds/output.dart';
-import 'package:bluesky/src/services/app/bsky/feed/getTimeline/output.dart';
-import 'package:bluesky/src/services/app/bsky/feed/searchPosts/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/defs/interaction.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/describeFeedGenerator/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/getActorFeeds/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/getActorLikes/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/getAuthorFeed/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/getFeed/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/getFeedGenerator/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/getFeedGenerators/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/getFeedSkeleton/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/getLikes/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/getListFeed/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/getPostThread/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/getPosts/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/getRepostedBy/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/getSuggestedFeeds/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/getTimeline/output.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/searchPosts/output.dart';
 import 'service_suite.dart';
 
 void main() {

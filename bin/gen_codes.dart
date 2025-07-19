@@ -5,5 +5,5 @@
 import 'package:lex_gen/lex_gen.dart';
 
 void main(List<String> args) {
-  const ServicesGen().execute();
+  const ServiceGen().execute();
 }

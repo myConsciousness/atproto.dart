@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/tools/ozone/team/listMembers/input.dart';
-export 'package:bluesky/src/services/tools/ozone/team/listMembers/output.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/team/listMembers/input.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/team/listMembers/output.dart';

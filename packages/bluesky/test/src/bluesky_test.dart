@@ -5,11 +5,11 @@ import 'package:test/test.dart';
 
 // Project imports:
 import 'package:bluesky/src/bluesky.dart';
-import 'package:bluesky/src/services/app/bsky/actor_service.dart';
-import 'package:bluesky/src/services/app/bsky/feed_service.dart';
-import 'package:bluesky/src/services/app/bsky/graph_service.dart';
-import 'package:bluesky/src/services/app/bsky/notification_service.dart';
-import 'package:bluesky/src/services/app/bsky/unspecced_service.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/actor_service.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed_service.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/graph_service.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/notification_service.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/unspecced_service.dart';
 
 void main() {
   group('.session', () {

@@ -6,17 +6,17 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:
 import 'package:atproto/src/ids.g.dart';
-import 'package:atproto/src/services/com/atproto/repo/applyWrites/create.dart';
-import 'package:atproto/src/services/com/atproto/repo/applyWrites/output.dart';
-import 'package:atproto/src/services/com/atproto/repo/applyWrites/union_main_writes.dart';
-import 'package:atproto/src/services/com/atproto/repo/createRecord/output.dart';
-import 'package:atproto/src/services/com/atproto/repo/deleteRecord/output.dart';
-import 'package:atproto/src/services/com/atproto/repo/describeRepo/output.dart';
-import 'package:atproto/src/services/com/atproto/repo/getRecord/output.dart';
-import 'package:atproto/src/services/com/atproto/repo/listMissingBlobs/output.dart';
-import 'package:atproto/src/services/com/atproto/repo/listRecords/output.dart';
-import 'package:atproto/src/services/com/atproto/repo/putRecord/output.dart';
-import 'package:atproto/src/services/com/atproto/repo/uploadBlob/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/repo/applyWrites/create.dart';
+import 'package:atproto/src/services/codegen/com/atproto/repo/applyWrites/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/repo/applyWrites/union_main_writes.dart';
+import 'package:atproto/src/services/codegen/com/atproto/repo/createRecord/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/repo/deleteRecord/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/repo/describeRepo/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/repo/getRecord/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/repo/listMissingBlobs/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/repo/listRecords/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/repo/putRecord/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/repo/uploadBlob/output.dart';
 import 'service_suite.dart';
 
 void main() {

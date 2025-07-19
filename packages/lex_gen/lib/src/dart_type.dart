@@ -3,8 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
-import 'object/lex_known_values.dart';
-import 'object/lex_union.dart';
+import 'services/object/lex_known_values.dart';
+import 'services/object/lex_union.dart';
 
 final class DartType {
   final String name;

@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/chat/bsky/convo/sendMessageBatch/input.dart';
-export 'package:bluesky/src/services/chat/bsky/convo/sendMessageBatch/output.dart';
-export 'package:bluesky/src/services/chat/bsky/convo/sendMessageBatch/batch_item.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/sendMessageBatch/input.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/sendMessageBatch/output.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/sendMessageBatch/batch_item.dart';

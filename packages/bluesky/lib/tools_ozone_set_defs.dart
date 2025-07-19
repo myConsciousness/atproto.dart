@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/tools/ozone/set/defs/set.dart';
-export 'package:bluesky/src/services/tools/ozone/set/defs/set_view.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/set/defs/set.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/set/defs/set_view.dart';

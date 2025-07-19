@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/chat/bsky/convo/updateAllRead/input.dart';
-export 'package:bluesky/src/services/chat/bsky/convo/updateAllRead/main_status.dart';
-export 'package:bluesky/src/services/chat/bsky/convo/updateAllRead/output.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/updateAllRead/input.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/updateAllRead/main_status.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/updateAllRead/output.dart';

@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/com/atproto/server/describeServer/output.dart';
-export 'package:atproto/src/services/com/atproto/server/describeServer/links.dart';
-export 'package:atproto/src/services/com/atproto/server/describeServer/contact.dart';
+export 'package:atproto/src/services/codegen/com/atproto/server/describeServer/output.dart';
+export 'package:atproto/src/services/codegen/com/atproto/server/describeServer/links.dart';
+export 'package:atproto/src/services/codegen/com/atproto/server/describeServer/contact.dart';

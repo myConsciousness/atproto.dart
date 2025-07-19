@@ -6,7 +6,7 @@
 import 'package:atproto/com_atproto_label_defs.dart';
 
 // Project imports:
-import '../../../services/app/bsky/actor/defs/viewer_state.dart';
+import '../../../services/codegen/app/bsky/actor/defs/viewer_state.dart';
 import '../../decision.dart';
 import '../behaviors/moderation_opts.dart';
 import '../labels.dart';

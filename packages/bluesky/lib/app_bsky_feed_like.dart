@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/feed/like/main.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/feed/like/main.dart';

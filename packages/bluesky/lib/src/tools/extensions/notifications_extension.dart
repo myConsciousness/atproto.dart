@@ -3,12 +3,13 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
+import '../../services/codegen/app/bsky/notification/listNotifications/output.dart'
+    show NotificationListNotificationsOutput;
+
+// Project imports:
 import '../utils/group_by.dart';
 import '../utils/grouped_notifications.dart';
 import '../utils/notifications_grouper.dart';
-
-import '../../services/app/bsky/notification/listNotifications/output.dart'
-    show NotificationListNotificationsOutput;
 
 extension NotificationsExtension on NotificationListNotificationsOutput {
   /// Groups a list of notifications based on their `reason` and

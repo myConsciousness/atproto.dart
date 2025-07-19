@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/tools/ozone/team/defs/member.dart';
-export 'package:bluesky/src/services/tools/ozone/team/defs/member_role.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/team/defs/member.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/team/defs/member_role.dart';

@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/com/atproto/admin/searchAccounts/input.dart';
-export 'package:atproto/src/services/com/atproto/admin/searchAccounts/output.dart';
+export 'package:atproto/src/services/codegen/com/atproto/admin/searchAccounts/input.dart';
+export 'package:atproto/src/services/codegen/com/atproto/admin/searchAccounts/output.dart';
