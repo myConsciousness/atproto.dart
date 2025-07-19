@@ -13,6 +13,8 @@ import 'package:lexicon/lexicon.dart';
 import 'rule.dart';
 import 'types/lex_command.dart';
 import 'types/lex_parameter.dart';
+import 'types/lex_parent_command.dart';
+import 'types/lex_root_command.dart';
 
 void generateLexCommands() {
   _cleanWorkspace();
@@ -36,7 +38,7 @@ void generateLexCommands() {
               prop.key,
               propJson['description'],
               requiredProps.contains(prop.key),
-              propJson['default'],
+              propJson['default']?.toString(),
             ),
           );
         }
@@ -44,16 +46,65 @@ void generateLexCommands() {
         _appendCommand(
           result,
           doc.id,
-          LexCommand(doc.id, query.description, parameters),
+          LexCommand(doc.id, query.description, parameters, isQuery: true),
         );
       } else if (def.value is ULexUserTypeXrpcProcedure) {
+        final procedure = def.value.data as LexXrpcProcedure;
+        final input = procedure.input;
+
+        final object = input?.schema?.whenOrNull(object: (data) => data);
+        if (object == null) continue;
+
+        final requiredProps = object.requiredProperties ?? [];
+        final props = object.properties ?? const {};
+
+        final parameters = <LexParameter>[];
+        for (final prop in props.entries) {
+          final propJson = prop.value.toJson();
+          parameters.add(
+            LexParameter(
+              prop.key,
+              propJson['description'],
+              requiredProps.contains(prop.key),
+              propJson['default']?.toString(),
+            ),
+          );
+        }
+
+        _appendCommand(
+          result,
+          doc.id,
+          LexCommand(
+            doc.id,
+            procedure.description,
+            parameters,
+            isProcedure: true,
+          ),
+        );
       } else if (def.value is ULexUserTypeXrpcSubscription) {}
     }
   }
 
+  final parentCommands = <LexParentCommand>[];
   for (final entry in result.entries) {
-    for (final command in entry.value) {}
+    for (final command in entry.value) {
+      File(getAbsoluteFilePath(command.lexiconId.toString()))
+        ..createSync(recursive: true)
+        ..writeAsStringSync(command.format());
+    }
+
+    final parentCommand = LexParentCommand(entry.key, entry.value);
+    File(getAbsoluteFilePathForParent(parentCommand.lexiconId.toString()))
+      ..createSync(recursive: true)
+      ..writeAsStringSync(parentCommand.format());
+
+    parentCommands.add(parentCommand);
   }
+
+  final rootCommand = LexRootCommand(parentCommands);
+  File('${getHomeDir()}/lex_commands.dart')
+    ..createSync(recursive: true)
+    ..writeAsStringSync(rootCommand.format());
 }
 
 void _cleanWorkspace() {

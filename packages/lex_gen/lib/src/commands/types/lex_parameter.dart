@@ -6,7 +6,7 @@ final class LexParameter {
   final String name;
   final String? description;
   final bool isRequired;
-  final Object? defaultValue;
+  final String? defaultValue;
 
   const LexParameter(
     this.name,
@@ -18,16 +18,21 @@ final class LexParameter {
   String getOpt() {
     final buffer = StringBuffer();
 
-    buffer.write("'$name'");
+    buffer.write('"$name"');
     buffer.write(',');
 
     if (description != null) {
-      buffer.write("help: '$description'");
+      buffer.write('help: r"$description"');
       buffer.write(',');
     }
 
-    if (defaultValue != null) {
-      buffer.write("defaultsTo: $defaultValue");
+    if (!isRequired && defaultValue != null) {
+      buffer.write('defaultsTo: "$defaultValue"');
+      buffer.write(',');
+    }
+
+    if (isRequired && defaultValue == null) {
+      buffer.write('mandatory: true');
       buffer.write(',');
     }
 
@@ -37,8 +42,11 @@ final class LexParameter {
   String getParam() {
     final buffer = StringBuffer();
 
-    buffer.write("if (argResults!['$name'] != null)");
-    buffer.write("'$name': argsResult!['$name'],");
+    if (!isRequired && defaultValue == null) {
+      buffer.write('if (argResults!["$name"] != null)');
+    }
+
+    buffer.write('"$name": argResults!["$name"],');
 
     return buffer.toString();
   }
