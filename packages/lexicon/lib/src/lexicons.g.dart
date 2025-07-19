@@ -9267,6 +9267,7 @@ const appBskyUnspeccedInitAgeAssurance = <String, dynamic>{
       "errors": [
         {"name": "InvalidEmail"},
         {"name": "DidTooLong"},
+        {"name": "InvalidInitiation"},
       ],
     },
   },
