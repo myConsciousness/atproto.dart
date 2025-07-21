@@ -8,12 +8,15 @@ final class LexParameter {
   final bool isRequired;
   final String? defaultValue;
 
+  final bool isRefVariant;
+
   const LexParameter(
     this.name,
     this.description,
     this.isRequired,
-    this.defaultValue,
-  );
+    this.defaultValue, {
+    this.isRefVariant = false,
+  });
 
   String getOpt() {
     final buffer = StringBuffer();
@@ -46,7 +49,11 @@ final class LexParameter {
       buffer.write('if (argResults!["$name"] != null)');
     }
 
-    buffer.write('"$name": argResults!["$name"],');
+    if (isRefVariant) {
+      buffer.write('"$name": jsonDecode(argResults!["$name"]),');
+    } else {
+      buffer.write('"$name": argResults!["$name"],');
+    }
 
     return buffer.toString();
   }

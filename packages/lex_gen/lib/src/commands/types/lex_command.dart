@@ -48,6 +48,8 @@ final class LexCommand {
 
 import '../../../../query_command.dart';
 
+import 'dart:convert';
+
 $kHeader
 
 final class $typeName extends QueryCommand {
@@ -84,7 +86,13 @@ final class $typeName extends QueryCommand {
     final opts = _getOpts();
     final parameters = _getParameters();
 
-    return '''import '../../../../procedure_command.dart';
+    return '''$kHeaderHint
+
+import '../../../../procedure_command.dart';
+
+import 'dart:convert';
+
+$kHeader
 
 final class $typeName extends ProcedureCommand {
   $typeName() {

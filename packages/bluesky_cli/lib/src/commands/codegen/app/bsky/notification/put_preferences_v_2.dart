@@ -1,5 +1,21 @@
+// Copyright (c) 2023-2025, Shinya Kato.
+// All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+// Dart imports:
+import 'dart:convert';
+
 // Project imports:
 import '../../../../procedure_command.dart';
+
+// **************************************************************************
+// LexGenerator
+// **************************************************************************
 
 final class PutPreferencesV2Command extends ProcedureCommand {
   PutPreferencesV2Command() {
@@ -35,23 +51,27 @@ final class PutPreferencesV2Command extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    if (argResults!["chat"] != null) "chat": argResults!["chat"],
-    if (argResults!["follow"] != null) "follow": argResults!["follow"],
-    if (argResults!["like"] != null) "like": argResults!["like"],
+    if (argResults!["chat"] != null) "chat": jsonDecode(argResults!["chat"]),
+    if (argResults!["follow"] != null)
+      "follow": jsonDecode(argResults!["follow"]),
+    if (argResults!["like"] != null) "like": jsonDecode(argResults!["like"]),
     if (argResults!["likeViaRepost"] != null)
-      "likeViaRepost": argResults!["likeViaRepost"],
-    if (argResults!["mention"] != null) "mention": argResults!["mention"],
-    if (argResults!["quote"] != null) "quote": argResults!["quote"],
-    if (argResults!["reply"] != null) "reply": argResults!["reply"],
-    if (argResults!["repost"] != null) "repost": argResults!["repost"],
+      "likeViaRepost": jsonDecode(argResults!["likeViaRepost"]),
+    if (argResults!["mention"] != null)
+      "mention": jsonDecode(argResults!["mention"]),
+    if (argResults!["quote"] != null) "quote": jsonDecode(argResults!["quote"]),
+    if (argResults!["reply"] != null) "reply": jsonDecode(argResults!["reply"]),
+    if (argResults!["repost"] != null)
+      "repost": jsonDecode(argResults!["repost"]),
     if (argResults!["repostViaRepost"] != null)
-      "repostViaRepost": argResults!["repostViaRepost"],
+      "repostViaRepost": jsonDecode(argResults!["repostViaRepost"]),
     if (argResults!["starterpackJoined"] != null)
-      "starterpackJoined": argResults!["starterpackJoined"],
+      "starterpackJoined": jsonDecode(argResults!["starterpackJoined"]),
     if (argResults!["subscribedPost"] != null)
-      "subscribedPost": argResults!["subscribedPost"],
+      "subscribedPost": jsonDecode(argResults!["subscribedPost"]),
     if (argResults!["unverified"] != null)
-      "unverified": argResults!["unverified"],
-    if (argResults!["verified"] != null) "verified": argResults!["verified"],
+      "unverified": jsonDecode(argResults!["unverified"]),
+    if (argResults!["verified"] != null)
+      "verified": jsonDecode(argResults!["verified"]),
   };
 }

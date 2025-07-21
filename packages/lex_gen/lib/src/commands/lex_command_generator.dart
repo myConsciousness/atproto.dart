@@ -39,6 +39,8 @@ void generateLexCommands() {
               propJson['description'],
               requiredProps.contains(prop.key),
               propJson['default']?.toString(),
+              isRefVariant:
+                  propJson['type'] == 'ref' || propJson['type'] == 'union',
             ),
           );
         }
@@ -67,6 +69,8 @@ void generateLexCommands() {
               propJson['description'],
               requiredProps.contains(prop.key),
               propJson['default']?.toString(),
+              isRefVariant:
+                  propJson['type'] == 'ref' || propJson['type'] == 'union',
             ),
           );
         }
