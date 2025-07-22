@@ -4,12 +4,15 @@ on:
   workflow_dispatch:
   pull_request:
     branches:
-      - chore-sync-lexicons
+      - main
     types:
       - closed
 
 jobs:
   generate-codes:
+    if: github.event.pull_request.base.ref == 'main' &&
+      github.event.pull_request.head.ref == 'chore-sync-lexicons'
+
     runs-on: ubuntu-latest
 
     steps:
