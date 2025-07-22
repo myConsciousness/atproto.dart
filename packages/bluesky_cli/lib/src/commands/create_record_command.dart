@@ -5,18 +5,17 @@
 // Dart imports:
 import 'dart:async';
 
-// Package imports:
-import 'package:xrpc/xrpc.dart' as xrpc;
-
 // Project imports:
 import 'procedure_command.dart';
 
 abstract class CreateRecordCommand extends ProcedureCommand {
-  /// Returns the new instance of [CreateRecordCommand].
   CreateRecordCommand();
 
   /// Returns the collection name.
-  xrpc.NSID get collection;
+  String get collection;
+
+  /// Returns the rkey.
+  String? get rkey => null;
 
   /// Returns the creation record.
   FutureOr<Map<String, dynamic>> get record;
@@ -27,7 +26,8 @@ abstract class CreateRecordCommand extends ProcedureCommand {
   @override
   FutureOr<Map<String, dynamic>>? get body async => {
     'repo': await did,
-    'collection': collection.toString(),
+    'collection': collection,
+    if (rkey != null) 'rkey': rkey,
     'record': await record,
   };
 }

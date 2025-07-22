@@ -21,7 +21,7 @@ final class ListOptionsCommand extends QueryCommand {
       ..addOption("cursor")
       ..addOption("scope", defaultsTo: "instance")
       ..addOption("prefix", help: r"Filter keys by prefix")
-      ..addOption(
+      ..addMultiOption(
         "keys",
         help:
             r"Filter for only the specified keys. Ignored if prefix is provided",

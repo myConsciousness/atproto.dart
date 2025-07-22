@@ -18,7 +18,7 @@ final class UpdateEmailCommand extends ProcedureCommand {
   UpdateEmailCommand() {
     argParser
       ..addOption("email", mandatory: true)
-      ..addOption("emailAuthFactor")
+      ..addFlag("emailAuthFactor")
       ..addOption(
         "token",
         help:

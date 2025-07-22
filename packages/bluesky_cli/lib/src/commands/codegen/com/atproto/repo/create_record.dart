@@ -28,7 +28,7 @@ final class CreateRecordCommand extends ProcedureCommand {
         mandatory: true,
       )
       ..addOption("rkey", help: r"The Record Key.")
-      ..addOption(
+      ..addFlag(
         "validate",
         help:
             r"Can be set to 'false' to skip Lexicon schema validation of record data, 'true' to require it, or leave unset to validate only for known Lexicons.",

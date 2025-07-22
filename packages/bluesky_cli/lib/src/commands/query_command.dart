@@ -2,6 +2,9 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// Dart imports:
+import 'dart:async';
+
 // Package imports:
 import 'package:xrpc/xrpc.dart' as xrpc;
 
@@ -18,7 +21,7 @@ abstract class QueryCommand extends BskyCommand {
   String get methodId;
 
   /// Returns the request parameters.
-  Map<String, dynamic>? get parameters;
+  FutureOr<Map<String, dynamic>>? get parameters;
 
   @override
   Future<void> run() async {
@@ -31,7 +34,7 @@ abstract class QueryCommand extends BskyCommand {
         headers: jwt != null
             ? {'Authorization': 'Bearer ${await accessJwt}'}
             : null,
-        parameters: parameters,
+        parameters: await parameters,
       ),
       pretty: globalResults!['pretty'],
       showStatus: globalResults!['status'],

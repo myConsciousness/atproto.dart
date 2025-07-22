@@ -16,7 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetStarterPacksCommand extends QueryCommand {
   GetStarterPacksCommand() {
-    argParser..addOption("uris", mandatory: true);
+    argParser..addMultiOption("uris");
   }
 
   @override

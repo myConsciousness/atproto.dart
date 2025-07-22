@@ -16,7 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetProfilesCommand extends QueryCommand {
   GetProfilesCommand() {
-    argParser..addOption("actors", mandatory: true);
+    argParser..addMultiOption("actors");
   }
 
   @override

@@ -39,6 +39,8 @@ void generateLexCommands() {
               propJson['description'],
               requiredProps.contains(prop.key),
               propJson['default']?.toString(),
+              isArray: propJson['type'] == 'array',
+              isBoolean: propJson['type'] == 'boolean',
               isRefVariant:
                   propJson['type'] == 'ref' || propJson['type'] == 'union',
             ),
@@ -69,6 +71,8 @@ void generateLexCommands() {
               propJson['description'],
               requiredProps.contains(prop.key),
               propJson['default']?.toString(),
+              isArray: propJson['type'] == 'array',
+              isBoolean: propJson['type'] == 'boolean',
               isRefVariant:
                   propJson['type'] == 'ref' || propJson['type'] == 'union',
             ),
@@ -85,7 +89,43 @@ void generateLexCommands() {
             isProcedure: true,
           ),
         );
-      } else if (def.value is ULexUserTypeXrpcSubscription) {}
+      } else if (def.value is ULexUserTypeXrpcSubscription) {
+      } else if (def.value is ULexUserTypeRecord) {
+        final record = def.value.data as LexRecord;
+        final object = record.record;
+
+        final requiredProps = object.requiredProperties ?? [];
+        final props = object.properties ?? const {};
+
+        final parameters = <LexParameter>[];
+        for (final prop in props.entries) {
+          final propJson = prop.value.toJson();
+          parameters.add(
+            LexParameter(
+              prop.key,
+              propJson['description'],
+              requiredProps.contains(prop.key),
+              propJson['default']?.toString(),
+              isArray: propJson['type'] == 'array',
+              isBoolean: propJson['type'] == 'boolean',
+              isRefVariant:
+                  propJson['type'] == 'ref' || propJson['type'] == 'union',
+            ),
+          );
+        }
+
+        _appendCommand(
+          result,
+          doc.id,
+          LexCommand(
+            doc.id,
+            record.description,
+            parameters,
+            rkey: record.key,
+            isRecord: true,
+          ),
+        );
+      }
     }
   }
 

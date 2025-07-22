@@ -25,7 +25,7 @@ final class GetAuthorFeedCommand extends QueryCommand {
         help: r"Combinations of post/repost types to include in response.",
         defaultsTo: "posts_with_replies",
       )
-      ..addOption("includePins", defaultsTo: "false");
+      ..addFlag("includePins", defaultsTo: false);
   }
 
   @override

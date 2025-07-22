@@ -28,7 +28,7 @@ final class SearchActorsSkeletonCommand extends QueryCommand {
         help:
             r"DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.",
       )
-      ..addOption(
+      ..addFlag(
         "typeahead",
         help: r"If true, acts as fast/simple 'typeahead' query.",
       )

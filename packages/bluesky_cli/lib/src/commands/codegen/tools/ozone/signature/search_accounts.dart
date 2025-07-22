@@ -17,7 +17,7 @@ import '../../../../query_command.dart';
 final class SearchAccountsCommand extends QueryCommand {
   SearchAccountsCommand() {
     argParser
-      ..addOption("values", mandatory: true)
+      ..addMultiOption("values")
       ..addOption("cursor")
       ..addOption("limit", defaultsTo: "50");
   }

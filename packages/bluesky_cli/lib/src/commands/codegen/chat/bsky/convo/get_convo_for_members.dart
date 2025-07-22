@@ -16,7 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetConvoForMembersCommand extends QueryCommand {
   GetConvoForMembersCommand() {
-    argParser..addOption("members", mandatory: true);
+    argParser..addMultiOption("members");
   }
 
   @override

@@ -63,7 +63,7 @@ final class SearchPostsCommand extends QueryCommand {
         help:
             r"Filter to posts with links (facet links or embeds) pointing to this URL. Server may apply URL normalization or fuzzy matching.",
       )
-      ..addOption(
+      ..addMultiOption(
         "tag",
         help:
             r"Filter to posts with the given tag (hashtag), based on rich-text facet or tag field. Do not include the hash (#) prefix. Multiple tags can be specified, with 'AND' matching.",

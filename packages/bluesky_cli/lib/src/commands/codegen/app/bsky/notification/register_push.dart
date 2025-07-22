@@ -21,7 +21,7 @@ final class RegisterPushCommand extends ProcedureCommand {
       ..addOption("token", mandatory: true)
       ..addOption("platform", mandatory: true)
       ..addOption("appId", mandatory: true)
-      ..addOption(
+      ..addFlag(
         "ageRestricted",
         help: r"Set to true when the actor is age restricted",
       );

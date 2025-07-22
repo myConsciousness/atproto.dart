@@ -16,7 +16,7 @@ import '../../../../procedure_command.dart';
 
 final class SendInteractionsCommand extends ProcedureCommand {
   SendInteractionsCommand() {
-    argParser..addOption("interactions", mandatory: true);
+    argParser..addMultiOption("interactions");
   }
 
   @override

@@ -23,10 +23,10 @@ final class GetPostThreadV2Command extends QueryCommand {
             r"Reference (AT-URI) to post record. This is the anchor post, and the thread will be built around it. It can be any post in the tree, not necessarily a root post.",
         mandatory: true,
       )
-      ..addOption(
+      ..addFlag(
         "above",
         help: r"Whether to include parents above the anchor.",
-        defaultsTo: "true",
+        defaultsTo: true,
       )
       ..addOption(
         "below",
@@ -39,11 +39,11 @@ final class GetPostThreadV2Command extends QueryCommand {
             r"Maximum of replies to include at each level of the thread, except for the direct replies to the anchor, which are (NOTE: currently, during unspecced phase) all returned (NOTE: later they might be paginated).",
         defaultsTo: "10",
       )
-      ..addOption(
+      ..addFlag(
         "prioritizeFollowedUsers",
         help:
             r"Whether to prioritize posts from followed users. It only has effect when the user is authenticated.",
-        defaultsTo: "false",
+        defaultsTo: false,
       )
       ..addOption(
         "sort",

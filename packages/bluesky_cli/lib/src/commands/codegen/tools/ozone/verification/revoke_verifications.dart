@@ -17,10 +17,9 @@ import '../../../../procedure_command.dart';
 final class RevokeVerificationsCommand extends ProcedureCommand {
   RevokeVerificationsCommand() {
     argParser
-      ..addOption(
+      ..addMultiOption(
         "uris",
         help: r"Array of verification record uris to revoke",
-        mandatory: true,
       )
       ..addOption(
         "revokeReason",

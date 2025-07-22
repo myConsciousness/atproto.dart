@@ -11,6 +11,7 @@
 import 'package:args/command_runner.dart';
 
 // Project imports:
+import 'notification/declaration.dart';
 import 'notification/get_preferences.dart';
 import 'notification/get_unread_count.dart';
 import 'notification/list_activity_subscriptions.dart';
@@ -30,6 +31,7 @@ final class AppBskyNotificationCommand extends Command<void> {
   AppBskyNotificationCommand() {
     addSubcommand(GetUnreadCountCommand());
     addSubcommand(RegisterPushCommand());
+    addSubcommand(DeclarationCommand());
     addSubcommand(PutActivitySubscriptionCommand());
     addSubcommand(UpdateSeenCommand());
     addSubcommand(UnregisterPushCommand());

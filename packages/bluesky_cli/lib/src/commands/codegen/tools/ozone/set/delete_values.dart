@@ -22,10 +22,9 @@ final class DeleteValuesCommand extends ProcedureCommand {
         help: r"Name of the set to delete values from",
         mandatory: true,
       )
-      ..addOption(
+      ..addMultiOption(
         "values",
         help: r"Array of string values to delete from the set",
-        mandatory: true,
       );
   }
 

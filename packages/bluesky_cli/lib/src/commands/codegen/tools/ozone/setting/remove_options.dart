@@ -17,7 +17,7 @@ import '../../../../procedure_command.dart';
 final class RemoveOptionsCommand extends ProcedureCommand {
   RemoveOptionsCommand() {
     argParser
-      ..addOption("keys", mandatory: true)
+      ..addMultiOption("keys")
       ..addOption("scope", mandatory: true);
   }
 

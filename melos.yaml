@@ -66,6 +66,8 @@ scripts:
       cd ../../packages/bluesky
       dart run build_runner build --delete-conflicting-outputs
       dart fix --apply
+      cd ../../packages/bluesky_cli
+      dart fix --apply
       cd ../../
       melos fmt
     description: Generate code for atproto and blueksy based on lexicons.

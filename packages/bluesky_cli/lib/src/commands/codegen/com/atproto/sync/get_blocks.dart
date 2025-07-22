@@ -18,7 +18,7 @@ final class GetBlocksCommand extends QueryCommand {
   GetBlocksCommand() {
     argParser
       ..addOption("did", help: r"The DID of the repo.", mandatory: true)
-      ..addOption("cids", mandatory: true);
+      ..addMultiOption("cids");
   }
 
   @override

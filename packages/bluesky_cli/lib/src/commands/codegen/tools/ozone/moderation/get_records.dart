@@ -16,7 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetRecordsCommand extends QueryCommand {
   GetRecordsCommand() {
-    argParser..addOption("uris", mandatory: true);
+    argParser..addMultiOption("uris");
   }
 
   @override

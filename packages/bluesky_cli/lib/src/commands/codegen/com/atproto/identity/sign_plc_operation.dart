@@ -22,8 +22,8 @@ final class SignPlcOperationCommand extends ProcedureCommand {
         help:
             r"A token received through com.atproto.identity.requestPlcOperationSignature",
       )
-      ..addOption("rotationKeys")
-      ..addOption("alsoKnownAs")
+      ..addMultiOption("rotationKeys")
+      ..addMultiOption("alsoKnownAs")
       ..addOption("verificationMethods")
       ..addOption("services");
   }

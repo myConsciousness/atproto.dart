@@ -16,7 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetConvoAvailabilityCommand extends QueryCommand {
   GetConvoAvailabilityCommand() {
-    argParser..addOption("members", mandatory: true);
+    argParser..addMultiOption("members");
   }
 
   @override

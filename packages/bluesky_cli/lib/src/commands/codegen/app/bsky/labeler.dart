@@ -12,6 +12,7 @@ import 'package:args/command_runner.dart';
 
 // Project imports:
 import 'labeler/get_services.dart';
+import 'labeler/service.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -19,6 +20,7 @@ import 'labeler/get_services.dart';
 
 final class AppBskyLabelerCommand extends Command<void> {
   AppBskyLabelerCommand() {
+    addSubcommand(ServiceCommand());
     addSubcommand(GetServicesCommand());
   }
 

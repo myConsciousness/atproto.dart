@@ -16,7 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetFeedGeneratorsCommand extends QueryCommand {
   GetFeedGeneratorsCommand() {
-    argParser..addOption("feeds", mandatory: true);
+    argParser..addMultiOption("feeds");
   }
 
   @override

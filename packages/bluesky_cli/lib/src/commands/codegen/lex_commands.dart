@@ -21,6 +21,7 @@ import 'chat/bsky/moderation.dart';
 import 'com/atproto/admin.dart';
 import 'com/atproto/identity.dart';
 import 'com/atproto/label.dart';
+import 'com/atproto/lexicon.dart';
 import 'com/atproto/moderation.dart';
 import 'com/atproto/repo.dart';
 import 'com/atproto/server.dart';
@@ -42,6 +43,7 @@ import 'tools/ozone/verification.dart';
 // **************************************************************************
 
 final lexCommands = [
+  ComAtprotoLexiconCommand(),
   ComAtprotoServerCommand(),
   ComAtprotoIdentityCommand(),
   ComAtprotoModerationCommand(),

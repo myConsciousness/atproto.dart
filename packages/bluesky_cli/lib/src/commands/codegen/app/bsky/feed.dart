@@ -12,6 +12,7 @@ import 'package:args/command_runner.dart';
 
 // Project imports:
 import 'feed/describe_feed_generator.dart';
+import 'feed/generator.dart';
 import 'feed/get_actor_feeds.dart';
 import 'feed/get_actor_likes.dart';
 import 'feed/get_author_feed.dart';
@@ -27,8 +28,13 @@ import 'feed/get_quotes.dart';
 import 'feed/get_reposted_by.dart';
 import 'feed/get_suggested_feeds.dart';
 import 'feed/get_timeline.dart';
+import 'feed/like.dart';
+import 'feed/post.dart';
+import 'feed/postgate.dart';
+import 'feed/repost.dart';
 import 'feed/search_posts.dart';
 import 'feed/send_interactions.dart';
+import 'feed/threadgate.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -40,18 +46,24 @@ final class AppBskyFeedCommand extends Command<void> {
     addSubcommand(GetFeedGeneratorCommand());
     addSubcommand(GetRepostedByCommand());
     addSubcommand(GetAuthorFeedCommand());
+    addSubcommand(RepostCommand());
     addSubcommand(GetQuotesCommand());
     addSubcommand(GetSuggestedFeedsCommand());
+    addSubcommand(LikeCommand());
     addSubcommand(GetListFeedCommand());
     addSubcommand(GetFeedGeneratorsCommand());
     addSubcommand(GetLikesCommand());
     addSubcommand(GetPostsCommand());
     addSubcommand(GetFeedCommand());
+    addSubcommand(ThreadgateCommand());
+    addSubcommand(GeneratorCommand());
     addSubcommand(GetTimelineCommand());
     addSubcommand(SearchPostsCommand());
     addSubcommand(SendInteractionsCommand());
     addSubcommand(DescribeFeedGeneratorCommand());
+    addSubcommand(PostCommand());
     addSubcommand(GetPostThreadCommand());
+    addSubcommand(PostgateCommand());
     addSubcommand(GetActorLikesCommand());
     addSubcommand(GetActorFeedsCommand());
   }

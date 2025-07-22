@@ -16,10 +16,9 @@ import '../../../../procedure_command.dart';
 
 final class GrantVerificationsCommand extends ProcedureCommand {
   GrantVerificationsCommand() {
-    argParser..addOption(
+    argParser..addMultiOption(
       "verifications",
       help: r"Array of verification requests to process",
-      mandatory: true,
     );
   }
 

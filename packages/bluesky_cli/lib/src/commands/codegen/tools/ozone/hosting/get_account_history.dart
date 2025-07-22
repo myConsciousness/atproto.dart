@@ -18,7 +18,7 @@ final class GetAccountHistoryCommand extends QueryCommand {
   GetAccountHistoryCommand() {
     argParser
       ..addOption("did", mandatory: true)
-      ..addOption("events")
+      ..addMultiOption("events")
       ..addOption("cursor")
       ..addOption("limit", defaultsTo: "50");
   }

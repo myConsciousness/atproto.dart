@@ -22,11 +22,11 @@ final class GetPostThreadOtherV2Command extends QueryCommand {
         help: r"Reference (AT-URI) to post record. This is the anchor post.",
         mandatory: true,
       )
-      ..addOption(
+      ..addFlag(
         "prioritizeFollowedUsers",
         help:
             r"Whether to prioritize posts from followed users. It only has effect when the user is authenticated.",
-        defaultsTo: "false",
+        defaultsTo: false,
       );
   }
 

@@ -34,7 +34,7 @@ final class UpdateTemplateCommand extends ProcedureCommand {
         "updatedBy",
         help: r"DID of the user who is updating the template.",
       )
-      ..addOption("disabled");
+      ..addFlag("disabled");
   }
 
   @override

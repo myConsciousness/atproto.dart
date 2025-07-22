@@ -17,8 +17,8 @@ import '../../../../query_command.dart';
 final class GetServicesCommand extends QueryCommand {
   GetServicesCommand() {
     argParser
-      ..addOption("dids", mandatory: true)
-      ..addOption("detailed", defaultsTo: "false");
+      ..addMultiOption("dids")
+      ..addFlag("detailed", defaultsTo: false);
   }
 
   @override

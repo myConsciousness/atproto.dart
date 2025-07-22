@@ -18,8 +18,8 @@ final class ListMembersCommand extends QueryCommand {
   ListMembersCommand() {
     argParser
       ..addOption("q")
-      ..addOption("disabled")
-      ..addOption("roles")
+      ..addFlag("disabled")
+      ..addMultiOption("roles")
       ..addOption("limit", defaultsTo: "50")
       ..addOption("cursor");
   }

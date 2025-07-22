@@ -16,7 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetSubjectsCommand extends QueryCommand {
   GetSubjectsCommand() {
-    argParser..addOption("subjects", mandatory: true);
+    argParser..addMultiOption("subjects");
   }
 
   @override

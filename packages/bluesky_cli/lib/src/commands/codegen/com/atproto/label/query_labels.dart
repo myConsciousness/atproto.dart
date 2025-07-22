@@ -17,13 +17,12 @@ import '../../../../query_command.dart';
 final class QueryLabelsCommand extends QueryCommand {
   QueryLabelsCommand() {
     argParser
-      ..addOption(
+      ..addMultiOption(
         "uriPatterns",
         help:
             r"List of AT URI patterns to match (boolean 'OR'). Each may be a prefix (ending with '*'; will match inclusive of the string leading to '*'), or a full URI.",
-        mandatory: true,
       )
-      ..addOption(
+      ..addMultiOption(
         "sources",
         help: r"Optional list of label sources (DIDs) to filter on.",
       )

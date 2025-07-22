@@ -16,7 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetReporterStatsCommand extends QueryCommand {
   GetReporterStatsCommand() {
-    argParser..addOption("dids", mandatory: true);
+    argParser..addMultiOption("dids");
   }
 
   @override

@@ -11,6 +11,8 @@
 import 'package:args/command_runner.dart';
 
 // Project imports:
+import 'graph/block.dart';
+import 'graph/follow.dart';
 import 'graph/get_actor_starter_packs.dart';
 import 'graph/get_blocks.dart';
 import 'graph/get_followers.dart';
@@ -25,13 +27,18 @@ import 'graph/get_relationships.dart';
 import 'graph/get_starter_pack.dart';
 import 'graph/get_starter_packs.dart';
 import 'graph/get_suggested_follows_by_actor.dart';
+import 'graph/list.dart';
+import 'graph/listblock.dart';
+import 'graph/listitem.dart';
 import 'graph/mute_actor.dart';
 import 'graph/mute_actor_list.dart';
 import 'graph/mute_thread.dart';
 import 'graph/search_starter_packs.dart';
+import 'graph/starterpack.dart';
 import 'graph/unmute_actor.dart';
 import 'graph/unmute_actor_list.dart';
 import 'graph/unmute_thread.dart';
+import 'graph/verification.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -40,7 +47,10 @@ import 'graph/unmute_thread.dart';
 final class AppBskyGraphCommand extends Command<void> {
   AppBskyGraphCommand() {
     addSubcommand(MuteActorListCommand());
+    addSubcommand(FollowCommand());
     addSubcommand(UnmuteActorCommand());
+    addSubcommand(StarterpackCommand());
+    addSubcommand(ListblockCommand());
     addSubcommand(GetBlocksCommand());
     addSubcommand(SearchStarterPacksCommand());
     addSubcommand(GetMutesCommand());
@@ -48,15 +58,19 @@ final class AppBskyGraphCommand extends Command<void> {
     addSubcommand(GetListMutesCommand());
     addSubcommand(GetListCommand());
     addSubcommand(MuteThreadCommand());
+    addSubcommand(ListitemCommand());
+    addSubcommand(ListCommand());
     addSubcommand(UnmuteActorListCommand());
     addSubcommand(GetStarterPackCommand());
     addSubcommand(GetActorStarterPacksCommand());
     addSubcommand(GetRelationshipsCommand());
     addSubcommand(GetKnownFollowersCommand());
+    addSubcommand(VerificationCommand());
     addSubcommand(GetFollowersCommand());
     addSubcommand(GetFollowsCommand());
     addSubcommand(GetListBlocksCommand());
     addSubcommand(MuteActorCommand());
+    addSubcommand(BlockCommand());
     addSubcommand(GetStarterPacksCommand());
     addSubcommand(GetListsCommand());
     addSubcommand(UnmuteThreadCommand());

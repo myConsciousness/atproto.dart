@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
+import 'commands/lex_command_generator.dart';
 import 'services/lex_service_generator.dart';
 import 'services/lex_type_generator.dart';
 import 'utils.dart';
@@ -39,6 +40,6 @@ final class CommandGen implements Gen {
 
   @override
   void execute() {
-    print(kLexGeneratorLogo);
+    generateLexCommands();
   }
 }

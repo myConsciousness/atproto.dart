@@ -25,7 +25,7 @@ final class CreateSessionCommand extends ProcedureCommand {
       )
       ..addOption("password", mandatory: true)
       ..addOption("authFactorToken")
-      ..addOption(
+      ..addFlag(
         "allowTakendown",
         help:
             r"When true, instead of throwing error for takendown accounts, a valid response with a narrow scoped token will be returned",

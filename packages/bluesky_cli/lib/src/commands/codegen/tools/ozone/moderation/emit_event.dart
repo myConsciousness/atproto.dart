@@ -22,7 +22,7 @@ final class EmitEventCommand extends ProcedureCommand {
     argParser
       ..addOption("event", mandatory: true)
       ..addOption("subject", mandatory: true)
-      ..addOption("subjectBlobCids")
+      ..addMultiOption("subjectBlobCids")
       ..addOption("createdBy", mandatory: true)
       ..addOption("modTool")
       ..addOption(

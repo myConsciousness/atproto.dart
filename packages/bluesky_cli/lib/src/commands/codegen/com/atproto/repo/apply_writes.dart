@@ -22,12 +22,12 @@ final class ApplyWritesCommand extends ProcedureCommand {
         help: r"The handle or DID of the repo (aka, current account).",
         mandatory: true,
       )
-      ..addOption(
+      ..addFlag(
         "validate",
         help:
             r"Can be set to 'false' to skip Lexicon schema validation of record data across all operations, 'true' to require it, or leave unset to validate only for known Lexicons.",
       )
-      ..addOption("writes", mandatory: true)
+      ..addMultiOption("writes")
       ..addOption(
         "swapCommit",
         help:

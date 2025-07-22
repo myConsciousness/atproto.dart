@@ -22,10 +22,9 @@ final class AddValuesCommand extends ProcedureCommand {
         help: r"Name of the set to add values to",
         mandatory: true,
       )
-      ..addOption(
+      ..addMultiOption(
         "values",
         help: r"Array of string values to add to the set",
-        mandatory: true,
       );
   }
 

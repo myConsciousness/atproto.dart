@@ -16,7 +16,7 @@ import '../../../../query_command.dart';
 
 final class FindCorrelationCommand extends QueryCommand {
   FindCorrelationCommand() {
-    argParser..addOption("dids", mandatory: true);
+    argParser..addMultiOption("dids");
   }
 
   @override

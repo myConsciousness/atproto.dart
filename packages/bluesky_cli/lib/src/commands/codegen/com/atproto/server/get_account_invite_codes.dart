@@ -17,12 +17,12 @@ import '../../../../query_command.dart';
 final class GetAccountInviteCodesCommand extends QueryCommand {
   GetAccountInviteCodesCommand() {
     argParser
-      ..addOption("includeUsed", defaultsTo: "true")
-      ..addOption(
+      ..addFlag("includeUsed", defaultsTo: true)
+      ..addFlag(
         "createAvailable",
         help:
             r"Controls whether any new 'earned' but not 'created' invites should be created.",
-        defaultsTo: "true",
+        defaultsTo: true,
       );
   }
 

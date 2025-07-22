@@ -15,9 +15,11 @@ import 'actor/get_preferences.dart';
 import 'actor/get_profile.dart';
 import 'actor/get_profiles.dart';
 import 'actor/get_suggestions.dart';
+import 'actor/profile.dart';
 import 'actor/put_preferences.dart';
 import 'actor/search_actors.dart';
 import 'actor/search_actors_typeahead.dart';
+import 'actor/status.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -27,10 +29,12 @@ final class AppBskyActorCommand extends Command<void> {
   AppBskyActorCommand() {
     addSubcommand(SearchActorsTypeaheadCommand());
     addSubcommand(GetProfilesCommand());
+    addSubcommand(ProfileCommand());
     addSubcommand(GetPreferencesCommand());
     addSubcommand(GetSuggestionsCommand());
     addSubcommand(SearchActorsCommand());
     addSubcommand(GetProfileCommand());
+    addSubcommand(StatusCommand());
     addSubcommand(PutPreferencesCommand());
   }
 

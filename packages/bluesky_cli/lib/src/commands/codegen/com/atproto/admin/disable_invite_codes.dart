@@ -17,8 +17,8 @@ import '../../../../procedure_command.dart';
 final class DisableInviteCodesCommand extends ProcedureCommand {
   DisableInviteCodesCommand() {
     argParser
-      ..addOption("codes")
-      ..addOption("accounts");
+      ..addMultiOption("codes")
+      ..addMultiOption("accounts");
   }
 
   @override

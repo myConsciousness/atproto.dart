@@ -8,6 +8,8 @@ final class LexParameter {
   final bool isRequired;
   final String? defaultValue;
 
+  final bool isArray;
+  final bool isBoolean;
   final bool isRefVariant;
 
   const LexParameter(
@@ -15,6 +17,8 @@ final class LexParameter {
     this.description,
     this.isRequired,
     this.defaultValue, {
+    this.isArray = false,
+    this.isBoolean = false,
     this.isRefVariant = false,
   });
 
@@ -30,11 +34,15 @@ final class LexParameter {
     }
 
     if (!isRequired && defaultValue != null) {
-      buffer.write('defaultsTo: "$defaultValue"');
+      if (isBoolean) {
+        buffer.write('defaultsTo: $defaultValue');
+      } else {
+        buffer.write('defaultsTo: "$defaultValue"');
+      }
       buffer.write(',');
     }
 
-    if (isRequired && defaultValue == null) {
+    if (isRequired && defaultValue == null && !isBoolean && !isArray) {
       buffer.write('mandatory: true');
       buffer.write(',');
     }

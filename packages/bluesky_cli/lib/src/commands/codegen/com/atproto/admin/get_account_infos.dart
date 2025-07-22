@@ -16,7 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetAccountInfosCommand extends QueryCommand {
   GetAccountInfosCommand() {
-    argParser..addOption("dids", mandatory: true);
+    argParser..addMultiOption("dids");
   }
 
   @override

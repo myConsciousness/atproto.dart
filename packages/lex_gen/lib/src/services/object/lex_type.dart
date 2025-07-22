@@ -28,12 +28,10 @@ abstract class LexType {
     return [
       ...properties
           .where((e) => e.type.union != null)
-          .map((e) => e.type.union!)
-          .toList(),
+          .map((e) => e.type.union!),
       ...properties
           .where((e) => e.type.knownValues != null)
-          .map((e) => e.type.knownValues!)
-          .toList(),
+          .map((e) => e.type.knownValues!),
     ];
   }
 

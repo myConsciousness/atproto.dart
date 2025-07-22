@@ -17,12 +17,12 @@ import '../../../../query_command.dart';
 final class ListNotificationsCommand extends QueryCommand {
   ListNotificationsCommand() {
     argParser
-      ..addOption(
+      ..addMultiOption(
         "reasons",
         help: r"Notification reasons to include in response.",
       )
       ..addOption("limit", defaultsTo: "50")
-      ..addOption("priority")
+      ..addFlag("priority")
       ..addOption("cursor")
       ..addOption("seenAt");
   }

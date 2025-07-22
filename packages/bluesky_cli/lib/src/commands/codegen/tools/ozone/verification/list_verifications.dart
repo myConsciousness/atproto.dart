@@ -31,17 +31,17 @@ final class ListVerificationsCommand extends QueryCommand {
         "createdBefore",
         help: r"Filter to verifications created before this timestamp",
       )
-      ..addOption(
+      ..addMultiOption(
         "issuers",
         help: r"Filter to verifications from specific issuers",
       )
-      ..addOption("subjects", help: r"Filter to specific verified DIDs")
+      ..addMultiOption("subjects", help: r"Filter to specific verified DIDs")
       ..addOption(
         "sortDirection",
         help: r"Sort direction for creation date",
         defaultsTo: "desc",
       )
-      ..addOption(
+      ..addFlag(
         "isRevoked",
         help:
             r"Filter to verifications that are revoked or not. By default, includes both.",

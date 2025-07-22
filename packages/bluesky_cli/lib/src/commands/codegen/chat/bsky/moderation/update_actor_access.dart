@@ -18,7 +18,7 @@ final class UpdateActorAccessCommand extends ProcedureCommand {
   UpdateActorAccessCommand() {
     argParser
       ..addOption("actor", mandatory: true)
-      ..addOption("allowAccess", mandatory: true)
+      ..addFlag("allowAccess")
       ..addOption("ref");
   }
 

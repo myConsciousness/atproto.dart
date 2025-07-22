@@ -18,7 +18,7 @@ final class UpdateMemberCommand extends ProcedureCommand {
   UpdateMemberCommand() {
     argParser
       ..addOption("did", mandatory: true)
-      ..addOption("disabled")
+      ..addFlag("disabled")
       ..addOption("role");
   }
 

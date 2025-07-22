@@ -31,7 +31,7 @@ final class QueryStatusesCommand extends QueryCommand {
         "queueSeed",
         help: r"A seeder to shuffle/balance the queue items.",
       )
-      ..addOption(
+      ..addFlag(
         "includeAllUserRecords",
         help:
             r"All subjects, or subjects from given 'collections' param, belonging to the account specified in the 'subject' param will be returned.",
@@ -70,7 +70,7 @@ final class QueryStatusesCommand extends QueryCommand {
         help:
             r"Search subjects where the associated record/account was updated before a given timestamp",
       )
-      ..addOption(
+      ..addMultiOption(
         "hostingStatuses",
         help: r"Search subjects by the status of the associated record/account",
       )
@@ -78,12 +78,12 @@ final class QueryStatusesCommand extends QueryCommand {
         "reviewedBefore",
         help: r"Search subjects reviewed before a given timestamp",
       )
-      ..addOption(
+      ..addFlag(
         "includeMuted",
         help:
             r"By default, we don't include muted subjects in the results. Set this to true to include them.",
       )
-      ..addOption(
+      ..addFlag(
         "onlyMuted",
         help:
             r"When set to true, only muted subjects and reporters will be returned.",
@@ -92,7 +92,7 @@ final class QueryStatusesCommand extends QueryCommand {
         "reviewState",
         help: r"Specify when fetching subjects in a certain state",
       )
-      ..addOption("ignoreSubjects")
+      ..addMultiOption("ignoreSubjects")
       ..addOption(
         "lastReviewedBy",
         help:
@@ -100,16 +100,13 @@ final class QueryStatusesCommand extends QueryCommand {
       )
       ..addOption("sortField", defaultsTo: "lastReportedAt")
       ..addOption("sortDirection", defaultsTo: "desc")
-      ..addOption("takendown", help: r"Get subjects that were taken down")
-      ..addOption(
-        "appealed",
-        help: r"Get subjects in unresolved appealed status",
-      )
+      ..addFlag("takendown", help: r"Get subjects that were taken down")
+      ..addFlag("appealed", help: r"Get subjects in unresolved appealed status")
       ..addOption("limit", defaultsTo: "50")
-      ..addOption("tags")
-      ..addOption("excludeTags")
+      ..addMultiOption("tags")
+      ..addMultiOption("excludeTags")
       ..addOption("cursor")
-      ..addOption(
+      ..addMultiOption(
         "collections",
         help:
             r"If specified, subjects belonging to the given collections will be returned. When subjectType is set to 'account', this will be ignored.",

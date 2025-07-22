@@ -33,7 +33,7 @@ final class ListRecordsCommand extends QueryCommand {
         defaultsTo: "50",
       )
       ..addOption("cursor")
-      ..addOption(
+      ..addFlag(
         "reverse",
         help: r"Flag to reverse the order of the returned records.",
       );

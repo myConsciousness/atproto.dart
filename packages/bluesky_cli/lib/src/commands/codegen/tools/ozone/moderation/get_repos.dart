@@ -16,7 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetReposCommand extends QueryCommand {
   GetReposCommand() {
-    argParser..addOption("dids", mandatory: true);
+    argParser..addMultiOption("dids");
   }
 
   @override

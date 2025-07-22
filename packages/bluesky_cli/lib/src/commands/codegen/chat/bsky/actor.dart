@@ -11,6 +11,7 @@
 import 'package:args/command_runner.dart';
 
 // Project imports:
+import 'actor/declaration.dart';
 import 'actor/export_account_data.dart';
 
 // **************************************************************************
@@ -19,6 +20,7 @@ import 'actor/export_account_data.dart';
 
 final class ChatBskyActorCommand extends Command<void> {
   ChatBskyActorCommand() {
+    addSubcommand(DeclarationCommand());
     addSubcommand(ExportAccountDataCommand());
   }
 

@@ -19,7 +19,7 @@ final class CreateInviteCodesCommand extends ProcedureCommand {
     argParser
       ..addOption("codeCount")
       ..addOption("useCount", mandatory: true)
-      ..addOption("forAccounts");
+      ..addMultiOption("forAccounts");
   }
 
   @override

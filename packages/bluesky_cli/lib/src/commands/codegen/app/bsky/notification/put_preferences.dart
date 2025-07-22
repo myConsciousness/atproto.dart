@@ -16,7 +16,7 @@ import '../../../../procedure_command.dart';
 
 final class PutPreferencesCommand extends ProcedureCommand {
   PutPreferencesCommand() {
-    argParser..addOption("priority", mandatory: true);
+    argParser..addFlag("priority");
   }
 
   @override

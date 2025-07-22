@@ -22,7 +22,7 @@ final class GetRelationshipsCommand extends QueryCommand {
         help: r"Primary account requesting relationships for.",
         mandatory: true,
       )
-      ..addOption(
+      ..addMultiOption(
         "others",
         help: r"List of 'other' accounts to be related back to the primary.",
       );

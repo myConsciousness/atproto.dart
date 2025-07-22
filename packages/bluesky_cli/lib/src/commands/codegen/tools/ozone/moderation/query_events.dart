@@ -17,7 +17,7 @@ import '../../../../query_command.dart';
 final class QueryEventsCommand extends QueryCommand {
   QueryEventsCommand() {
     argParser
-      ..addOption(
+      ..addMultiOption(
         "types",
         help:
             r"The types of events (fully qualified string in the format of tools.ozone.moderation.defs#modEvent<name>) to filter by. If not specified, all events are returned.",
@@ -38,7 +38,7 @@ final class QueryEventsCommand extends QueryCommand {
         help: r"Retrieve events created before a given timestamp",
       )
       ..addOption("subject")
-      ..addOption(
+      ..addMultiOption(
         "collections",
         help:
             r"If specified, only events where the subject belongs to the given collections will be returned. When subjectType is set to 'account', this will be ignored.",
@@ -48,14 +48,14 @@ final class QueryEventsCommand extends QueryCommand {
         help:
             r"If specified, only events where the subject is of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.",
       )
-      ..addOption(
+      ..addFlag(
         "includeAllUserRecords",
         help:
             r"If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned.",
-        defaultsTo: "false",
+        defaultsTo: false,
       )
       ..addOption("limit", defaultsTo: "50")
-      ..addOption(
+      ..addFlag(
         "hasComment",
         help: r"If true, only events with comments are returned",
       )
@@ -64,29 +64,29 @@ final class QueryEventsCommand extends QueryCommand {
         help:
             r"If specified, only events with comments containing the keyword are returned. Apply || separator to use multiple keywords and match using OR condition.",
       )
-      ..addOption(
+      ..addMultiOption(
         "addedLabels",
         help:
             r"If specified, only events where all of these labels were added are returned",
       )
-      ..addOption(
+      ..addMultiOption(
         "removedLabels",
         help:
             r"If specified, only events where all of these labels were removed are returned",
       )
-      ..addOption(
+      ..addMultiOption(
         "addedTags",
         help:
             r"If specified, only events where all of these tags were added are returned",
       )
-      ..addOption(
+      ..addMultiOption(
         "removedTags",
         help:
             r"If specified, only events where all of these tags were removed are returned",
       )
-      ..addOption("reportTypes")
-      ..addOption("policies")
-      ..addOption(
+      ..addMultiOption("reportTypes")
+      ..addMultiOption("policies")
+      ..addMultiOption(
         "modTool",
         help:
             r"If specified, only events where the modTool name matches any of the given values are returned",
