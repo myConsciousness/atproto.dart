@@ -6,7 +6,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../services/app/bsky/graph/defs/list_view_basic.dart';
+import '../../../services/codegen/app/bsky/graph/defs/list_view_basic.dart';
 
 part 'moderation_cause_source_list.freezed.dart';
 

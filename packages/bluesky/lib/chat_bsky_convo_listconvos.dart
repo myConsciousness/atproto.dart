@@ -11,7 +11,7 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/chat/bsky/convo/listConvos/input.dart';
-export 'package:bluesky/src/services/chat/bsky/convo/listConvos/main_read_state.dart';
-export 'package:bluesky/src/services/chat/bsky/convo/listConvos/main_status.dart';
-export 'package:bluesky/src/services/chat/bsky/convo/listConvos/output.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/listConvos/input.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/listConvos/main_read_state.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/listConvos/main_status.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/listConvos/output.dart';

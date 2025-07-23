@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/actor/searchActors/input.dart';
-export 'package:bluesky/src/services/app/bsky/actor/searchActors/output.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/actor/searchActors/input.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/actor/searchActors/output.dart';

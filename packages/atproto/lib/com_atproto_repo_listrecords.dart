@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/com/atproto/repo/listRecords/input.dart';
-export 'package:atproto/src/services/com/atproto/repo/listRecords/output.dart';
-export 'package:atproto/src/services/com/atproto/repo/listRecords/record.dart';
+export 'package:atproto/src/services/codegen/com/atproto/repo/listRecords/input.dart';
+export 'package:atproto/src/services/codegen/com/atproto/repo/listRecords/output.dart';
+export 'package:atproto/src/services/codegen/com/atproto/repo/listRecords/record.dart';

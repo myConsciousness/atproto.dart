@@ -7,10 +7,10 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:
 import 'package:atproto/src/ids.g.dart';
-import 'package:atproto/src/services/com/atproto/sync/getLatestCommit/output.dart';
-import 'package:atproto/src/services/com/atproto/sync/getRepoStatus/output.dart';
-import 'package:atproto/src/services/com/atproto/sync/listBlobs/output.dart';
-import 'package:atproto/src/services/com/atproto/sync/listRepos/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/sync/getLatestCommit/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/sync/getRepoStatus/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/sync/listBlobs/output.dart';
+import 'package:atproto/src/services/codegen/com/atproto/sync/listRepos/output.dart';
 import 'service_suite.dart';
 import 'sync/get_blocks.dart';
 import 'sync/get_record.dart';

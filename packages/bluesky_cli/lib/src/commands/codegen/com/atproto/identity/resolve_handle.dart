@@ -1,0 +1,38 @@
+// Copyright (c) 2023-2025, Shinya Kato.
+// All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+// Project imports:
+import '../../../../query_command.dart';
+
+// **************************************************************************
+// LexGenerator
+// **************************************************************************
+
+final class ResolveHandleCommand extends QueryCommand {
+  ResolveHandleCommand() {
+    argParser
+      ..addOption("handle", help: r"The handle to resolve.", mandatory: true);
+  }
+
+  @override
+  final String name = "resolve-handle";
+
+  @override
+  final String description =
+      r"Resolves an atproto handle (hostname) to a DID. Does not necessarily bi-directionally verify against the the DID document.";
+
+  @override
+  final String invocation = "bsky com-atproto-identity resolve-handle [handle]";
+
+  @override
+  String get methodId => "com.atproto.identity.resolveHandle";
+
+  @override
+  Map<String, dynamic>? get parameters => {"handle": argResults!["handle"]};
+}

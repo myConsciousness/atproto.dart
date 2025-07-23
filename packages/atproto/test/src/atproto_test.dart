@@ -4,12 +4,12 @@ import 'package:test/test.dart';
 
 // Project imports:
 import 'package:atproto/src/atproto.dart';
-import 'package:atproto/src/services/com/atproto/identity_service.dart';
-import 'package:atproto/src/services/com/atproto/label_service.dart';
-import 'package:atproto/src/services/com/atproto/moderation_service.dart';
-import 'package:atproto/src/services/com/atproto/repo_service.dart';
-import 'package:atproto/src/services/com/atproto/server_service.dart';
-import 'package:atproto/src/services/com/atproto/sync_service.dart';
+import 'package:atproto/src/services/codegen/com/atproto/identity_service.dart';
+import 'package:atproto/src/services/codegen/com/atproto/label_service.dart';
+import 'package:atproto/src/services/codegen/com/atproto/moderation_service.dart';
+import 'package:atproto/src/services/codegen/com/atproto/repo_service.dart';
+import 'package:atproto/src/services/codegen/com/atproto/server_service.dart';
+import 'package:atproto/src/services/codegen/com/atproto/sync_service.dart';
 
 void main() {
   group('.session', () {

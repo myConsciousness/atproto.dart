@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/embed/defs/aspect_ratio.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/embed/defs/aspect_ratio.dart';

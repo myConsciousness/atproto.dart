@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/feed/postgate/main.dart';
-export 'package:bluesky/src/services/app/bsky/feed/postgate/union_main_embedding_rules.dart';
-export 'package:bluesky/src/services/app/bsky/feed/postgate/disable_rule.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/feed/postgate/main.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/feed/postgate/union_main_embedding_rules.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/feed/postgate/disable_rule.dart';

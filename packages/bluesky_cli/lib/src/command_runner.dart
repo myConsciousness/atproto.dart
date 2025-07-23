@@ -14,7 +14,7 @@ import 'package:cli_util/cli_logging.dart';
 
 // Project imports:
 import './version.g.dart';
-import 'command/commands.dart';
+import 'commands/codegen/lex_commands.dart';
 import 'logger.dart';
 
 /// A class that can run Bsky commands.
@@ -24,13 +24,14 @@ import 'logger.dart';
 /// ```dart
 /// final bsky = BskyCommandRunner();
 ///
-/// await bsky.run(['show-timeline']);
+/// await bsky.run(['app-bsky-feed get-timeline']);
 /// ```
 class BskyCommandRunner extends CommandRunner<void> {
   BskyCommandRunner()
     : super(
         'bsky',
-        "A useful and powerful CLI tool to use Bluesky Social's APIs.",
+        "A powerful and extensible CLI tool for "
+            "interacting with Bluesky Social's APIs",
       ) {
     argParser
       ..addOption(
@@ -40,14 +41,12 @@ class BskyCommandRunner extends CommandRunner<void> {
       )
       ..addOption(
         'password',
-        help: 'Bluesky password for authentication.',
+        help: 'Password on Bluesky for authentication.',
         defaultsTo: Platform.environment['BLUESKY_PASSWORD'],
       )
       ..addOption(
         'service',
-        help:
-            'Name of the service sending the request. '
-            'Defaults to "bsky.social".',
+        help: 'Name of the service sending the request.',
         defaultsTo: null,
       )
       ..addFlag(
@@ -67,14 +66,7 @@ class BskyCommandRunner extends CommandRunner<void> {
       )
       ..addFlag('verbose', negatable: false, help: 'Enable verbose logging.');
 
-    for (final command in [
-      ...commonCommands,
-      ...actorCommands,
-      ...feedCommands,
-      ...notificationCommands,
-      ...graphCommands,
-      ...unspeccedCommands,
-    ]) {
+    for (final command in lexCommands) {
       addCommand(command);
     }
   }

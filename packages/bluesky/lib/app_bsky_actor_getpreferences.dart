@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/app/bsky/actor/getPreferences/output.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/actor/getPreferences/output.dart';

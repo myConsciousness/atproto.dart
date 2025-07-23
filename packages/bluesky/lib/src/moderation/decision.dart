@@ -6,7 +6,7 @@
 import 'package:atproto/com_atproto_label_defs.dart' hide KnownLabelValue;
 
 // Project imports:
-import '../services/app/bsky/graph/defs/list_view_basic.dart';
+import '../services/codegen/app/bsky/graph/defs/list_view_basic.dart';
 import 'types/behaviors/moderation_cause.dart';
 import 'types/behaviors/moderation_cause_block_other.dart';
 import 'types/behaviors/moderation_cause_blocked_by.dart';

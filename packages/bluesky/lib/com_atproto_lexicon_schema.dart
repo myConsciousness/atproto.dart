@@ -11,4 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:atproto/src/services/com/atproto/lexicon/schema/main.dart';
+export 'package:atproto/src/services/codegen/com/atproto/lexicon/schema/main.dart';
