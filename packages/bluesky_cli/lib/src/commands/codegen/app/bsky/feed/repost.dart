@@ -84,7 +84,7 @@ final class _PutRepostCommand extends PutRecordCommand {
   }
 
   @override
-  final String name = "repost";
+  final String name = "put";
 
   @override
   final String description = r"Updates a record for app.bsky.feed.repost.";
@@ -113,7 +113,7 @@ final class _DeleteRepostCommand extends DeleteRecordCommand {
   }
 
   @override
-  final String name = "repost";
+  final String name = "delete";
 
   @override
   final String description = r"Deletes a record for app.bsky.feed.repost.";
@@ -136,7 +136,7 @@ final class _GetRepostCommand extends QueryCommand {
   }
 
   @override
-  final String name = "repost";
+  final String name = "get";
 
   @override
   final String description = r"Gets a record for app.bsky.feed.repost.";
@@ -165,7 +165,7 @@ final class _ListRepostCommand extends QueryCommand {
   }
 
   @override
-  final String name = "repost";
+  final String name = "list";
 
   @override
   final String description = r"Lists records for app.bsky.feed.repost.";

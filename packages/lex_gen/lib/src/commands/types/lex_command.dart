@@ -201,7 +201,7 @@ final class _Put$typeName extends PutRecordCommand {
   }
 
   @override
-  final String name = "$commandName";
+  final String name = "put";
 
   @override
   final String description = r"Updates a record for ${lexiconId.toString()}.";
@@ -226,7 +226,7 @@ final class _Delete$typeName extends DeleteRecordCommand {
   }
 
   @override
-  final String name = "$commandName";
+  final String name = "delete";
 
   @override
   final String description = r"Deletes a record for ${lexiconId.toString()}.";
@@ -248,7 +248,7 @@ final class _Get$typeName extends QueryCommand {
   }
 
   @override
-  final String name = "$commandName";
+  final String name = "get";
 
   @override
   final String description = r"Gets a record for ${lexiconId.toString()}.";
@@ -276,7 +276,7 @@ final class _List$typeName extends QueryCommand {
   }
 
   @override
-  final String name = "$commandName";
+  final String name = "list";
 
   @override
   final String description = r"Lists records for ${lexiconId.toString()}.";

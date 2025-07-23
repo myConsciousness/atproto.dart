@@ -89,7 +89,7 @@ final class _PutListblockCommand extends PutRecordCommand {
   }
 
   @override
-  final String name = "listblock";
+  final String name = "put";
 
   @override
   final String description = r"Updates a record for app.bsky.graph.listblock.";
@@ -117,7 +117,7 @@ final class _DeleteListblockCommand extends DeleteRecordCommand {
   }
 
   @override
-  final String name = "listblock";
+  final String name = "delete";
 
   @override
   final String description = r"Deletes a record for app.bsky.graph.listblock.";
@@ -140,7 +140,7 @@ final class _GetListblockCommand extends QueryCommand {
   }
 
   @override
-  final String name = "listblock";
+  final String name = "get";
 
   @override
   final String description = r"Gets a record for app.bsky.graph.listblock.";
@@ -169,7 +169,7 @@ final class _ListListblockCommand extends QueryCommand {
   }
 
   @override
-  final String name = "listblock";
+  final String name = "list";
 
   @override
   final String description = r"Lists records for app.bsky.graph.listblock.";

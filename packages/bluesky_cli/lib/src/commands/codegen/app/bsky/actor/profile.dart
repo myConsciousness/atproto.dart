@@ -126,7 +126,7 @@ final class _PutProfileCommand extends PutRecordCommand {
   }
 
   @override
-  final String name = "profile";
+  final String name = "put";
 
   @override
   final String description = r"Updates a record for app.bsky.actor.profile.";
@@ -165,7 +165,7 @@ final class _DeleteProfileCommand extends DeleteRecordCommand {
   }
 
   @override
-  final String name = "profile";
+  final String name = "delete";
 
   @override
   final String description = r"Deletes a record for app.bsky.actor.profile.";
@@ -188,7 +188,7 @@ final class _GetProfileCommand extends QueryCommand {
   }
 
   @override
-  final String name = "profile";
+  final String name = "get";
 
   @override
   final String description = r"Gets a record for app.bsky.actor.profile.";
@@ -217,7 +217,7 @@ final class _ListProfileCommand extends QueryCommand {
   }
 
   @override
-  final String name = "profile";
+  final String name = "list";
 
   @override
   final String description = r"Lists records for app.bsky.actor.profile.";

@@ -109,7 +109,7 @@ final class _PutStatusCommand extends PutRecordCommand {
   }
 
   @override
-  final String name = "status";
+  final String name = "put";
 
   @override
   final String description = r"Updates a record for app.bsky.actor.status.";
@@ -140,7 +140,7 @@ final class _DeleteStatusCommand extends DeleteRecordCommand {
   }
 
   @override
-  final String name = "status";
+  final String name = "delete";
 
   @override
   final String description = r"Deletes a record for app.bsky.actor.status.";
@@ -163,7 +163,7 @@ final class _GetStatusCommand extends QueryCommand {
   }
 
   @override
-  final String name = "status";
+  final String name = "get";
 
   @override
   final String description = r"Gets a record for app.bsky.actor.status.";
@@ -192,7 +192,7 @@ final class _ListStatusCommand extends QueryCommand {
   }
 
   @override
-  final String name = "status";
+  final String name = "list";
 
   @override
   final String description = r"Lists records for app.bsky.actor.status.";

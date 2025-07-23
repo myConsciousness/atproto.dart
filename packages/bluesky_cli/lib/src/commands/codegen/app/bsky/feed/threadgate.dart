@@ -104,7 +104,7 @@ final class _PutThreadgateCommand extends PutRecordCommand {
   }
 
   @override
-  final String name = "threadgate";
+  final String name = "put";
 
   @override
   final String description = r"Updates a record for app.bsky.feed.threadgate.";
@@ -135,7 +135,7 @@ final class _DeleteThreadgateCommand extends DeleteRecordCommand {
   }
 
   @override
-  final String name = "threadgate";
+  final String name = "delete";
 
   @override
   final String description = r"Deletes a record for app.bsky.feed.threadgate.";
@@ -158,7 +158,7 @@ final class _GetThreadgateCommand extends QueryCommand {
   }
 
   @override
-  final String name = "threadgate";
+  final String name = "get";
 
   @override
   final String description = r"Gets a record for app.bsky.feed.threadgate.";
@@ -187,7 +187,7 @@ final class _ListThreadgateCommand extends QueryCommand {
   }
 
   @override
-  final String name = "threadgate";
+  final String name = "list";
 
   @override
   final String description = r"Lists records for app.bsky.feed.threadgate.";

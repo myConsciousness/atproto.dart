@@ -123,7 +123,7 @@ final class _PutVerificationCommand extends PutRecordCommand {
   }
 
   @override
-  final String name = "verification";
+  final String name = "put";
 
   @override
   final String description =
@@ -154,7 +154,7 @@ final class _DeleteVerificationCommand extends DeleteRecordCommand {
   }
 
   @override
-  final String name = "verification";
+  final String name = "delete";
 
   @override
   final String description =
@@ -178,7 +178,7 @@ final class _GetVerificationCommand extends QueryCommand {
   }
 
   @override
-  final String name = "verification";
+  final String name = "get";
 
   @override
   final String description = r"Gets a record for app.bsky.graph.verification.";
@@ -207,7 +207,7 @@ final class _ListVerificationCommand extends QueryCommand {
   }
 
   @override
-  final String name = "verification";
+  final String name = "list";
 
   @override
   final String description = r"Lists records for app.bsky.graph.verification.";

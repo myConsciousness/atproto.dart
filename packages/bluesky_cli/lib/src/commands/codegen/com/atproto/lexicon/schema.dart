@@ -86,7 +86,7 @@ final class _PutSchemaCommand extends PutRecordCommand {
   }
 
   @override
-  final String name = "schema";
+  final String name = "put";
 
   @override
   final String description =
@@ -112,7 +112,7 @@ final class _DeleteSchemaCommand extends DeleteRecordCommand {
   }
 
   @override
-  final String name = "schema";
+  final String name = "delete";
 
   @override
   final String description =
@@ -136,7 +136,7 @@ final class _GetSchemaCommand extends QueryCommand {
   }
 
   @override
-  final String name = "schema";
+  final String name = "get";
 
   @override
   final String description = r"Gets a record for com.atproto.lexicon.schema.";
@@ -165,7 +165,7 @@ final class _ListSchemaCommand extends QueryCommand {
   }
 
   @override
-  final String name = "schema";
+  final String name = "list";
 
   @override
   final String description = r"Lists records for com.atproto.lexicon.schema.";

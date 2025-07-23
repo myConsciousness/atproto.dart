@@ -84,7 +84,7 @@ final class _PutLikeCommand extends PutRecordCommand {
   }
 
   @override
-  final String name = "like";
+  final String name = "put";
 
   @override
   final String description = r"Updates a record for app.bsky.feed.like.";
@@ -113,7 +113,7 @@ final class _DeleteLikeCommand extends DeleteRecordCommand {
   }
 
   @override
-  final String name = "like";
+  final String name = "delete";
 
   @override
   final String description = r"Deletes a record for app.bsky.feed.like.";
@@ -136,7 +136,7 @@ final class _GetLikeCommand extends QueryCommand {
   }
 
   @override
-  final String name = "like";
+  final String name = "get";
 
   @override
   final String description = r"Gets a record for app.bsky.feed.like.";
@@ -165,7 +165,7 @@ final class _ListLikeCommand extends QueryCommand {
   }
 
   @override
-  final String name = "like";
+  final String name = "list";
 
   @override
   final String description = r"Lists records for app.bsky.feed.like.";

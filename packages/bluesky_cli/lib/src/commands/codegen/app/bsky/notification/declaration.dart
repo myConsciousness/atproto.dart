@@ -88,7 +88,7 @@ final class _PutDeclarationCommand extends PutRecordCommand {
   }
 
   @override
-  final String name = "declaration";
+  final String name = "put";
 
   @override
   final String description =
@@ -116,7 +116,7 @@ final class _DeleteDeclarationCommand extends DeleteRecordCommand {
   }
 
   @override
-  final String name = "declaration";
+  final String name = "delete";
 
   @override
   final String description =
@@ -141,7 +141,7 @@ final class _GetDeclarationCommand extends QueryCommand {
   }
 
   @override
-  final String name = "declaration";
+  final String name = "get";
 
   @override
   final String description =
@@ -172,7 +172,7 @@ final class _ListDeclarationCommand extends QueryCommand {
   }
 
   @override
-  final String name = "declaration";
+  final String name = "list";
 
   @override
   final String description =

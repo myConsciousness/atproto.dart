@@ -111,7 +111,7 @@ final class _PutStarterpackCommand extends PutRecordCommand {
   }
 
   @override
-  final String name = "starterpack";
+  final String name = "put";
 
   @override
   final String description =
@@ -146,7 +146,7 @@ final class _DeleteStarterpackCommand extends DeleteRecordCommand {
   }
 
   @override
-  final String name = "starterpack";
+  final String name = "delete";
 
   @override
   final String description =
@@ -170,7 +170,7 @@ final class _GetStarterpackCommand extends QueryCommand {
   }
 
   @override
-  final String name = "starterpack";
+  final String name = "get";
 
   @override
   final String description = r"Gets a record for app.bsky.graph.starterpack.";
@@ -199,7 +199,7 @@ final class _ListStarterpackCommand extends QueryCommand {
   }
 
   @override
-  final String name = "starterpack";
+  final String name = "list";
 
   @override
   final String description = r"Lists records for app.bsky.graph.starterpack.";

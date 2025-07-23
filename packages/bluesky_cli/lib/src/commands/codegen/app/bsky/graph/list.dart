@@ -117,7 +117,7 @@ final class _PutListCommand extends PutRecordCommand {
   }
 
   @override
-  final String name = "list";
+  final String name = "put";
 
   @override
   final String description = r"Updates a record for app.bsky.graph.list.";
@@ -153,7 +153,7 @@ final class _DeleteListCommand extends DeleteRecordCommand {
   }
 
   @override
-  final String name = "list";
+  final String name = "delete";
 
   @override
   final String description = r"Deletes a record for app.bsky.graph.list.";
@@ -176,7 +176,7 @@ final class _GetListCommand extends QueryCommand {
   }
 
   @override
-  final String name = "list";
+  final String name = "get";
 
   @override
   final String description = r"Gets a record for app.bsky.graph.list.";

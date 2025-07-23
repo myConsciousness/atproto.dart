@@ -80,7 +80,7 @@ final class _PutFollowCommand extends PutRecordCommand {
   }
 
   @override
-  final String name = "follow";
+  final String name = "put";
 
   @override
   final String description = r"Updates a record for app.bsky.graph.follow.";
@@ -108,7 +108,7 @@ final class _DeleteFollowCommand extends DeleteRecordCommand {
   }
 
   @override
-  final String name = "follow";
+  final String name = "delete";
 
   @override
   final String description = r"Deletes a record for app.bsky.graph.follow.";
@@ -131,7 +131,7 @@ final class _GetFollowCommand extends QueryCommand {
   }
 
   @override
-  final String name = "follow";
+  final String name = "get";
 
   @override
   final String description = r"Gets a record for app.bsky.graph.follow.";
@@ -160,7 +160,7 @@ final class _ListFollowCommand extends QueryCommand {
   }
 
   @override
-  final String name = "follow";
+  final String name = "list";
 
   @override
   final String description = r"Lists records for app.bsky.graph.follow.";

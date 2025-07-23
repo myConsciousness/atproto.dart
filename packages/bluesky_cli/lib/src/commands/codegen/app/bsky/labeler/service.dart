@@ -122,7 +122,7 @@ final class _PutServiceCommand extends PutRecordCommand {
   }
 
   @override
-  final String name = "service";
+  final String name = "put";
 
   @override
   final String description = r"Updates a record for app.bsky.labeler.service.";
@@ -158,7 +158,7 @@ final class _DeleteServiceCommand extends DeleteRecordCommand {
   }
 
   @override
-  final String name = "service";
+  final String name = "delete";
 
   @override
   final String description = r"Deletes a record for app.bsky.labeler.service.";
@@ -181,7 +181,7 @@ final class _GetServiceCommand extends QueryCommand {
   }
 
   @override
-  final String name = "service";
+  final String name = "get";
 
   @override
   final String description = r"Gets a record for app.bsky.labeler.service.";
@@ -210,7 +210,7 @@ final class _ListServiceCommand extends QueryCommand {
   }
 
   @override
-  final String name = "service";
+  final String name = "list";
 
   @override
   final String description = r"Lists records for app.bsky.labeler.service.";
