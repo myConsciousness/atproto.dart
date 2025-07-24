@@ -112,6 +112,7 @@ melos setup
 | **melos fmt**     | Run `dart format` and `dart run import_sorter:main` in all packages.                                                    |
 | **melos build**   | Run `dart run build_runner build` in all packages.                                                                      |
 | **melos test**    | Run all Dart tests in this project.                                                                                     |
+| **melos gen**     | Automatically generates source code based on Lexicons.                                                                  |
 
 ## 4. Who is using atproto.dart? 👀
 
