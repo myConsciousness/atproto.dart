@@ -53,7 +53,6 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
     DateTime? createdAt,
     @VerificationStateConverter() VerificationState? verification,
     @StatusViewConverter() StatusView? status,
-
     Map<String, dynamic>? $unknown,
   }) = _ProfileViewBasic;
 
@@ -89,12 +88,14 @@ final class ProfileViewBasicConverter
 
   @override
   ProfileViewBasic fromJson(Map<String, dynamic> json) {
-    return ProfileViewBasic.fromJson(
-      translate(json, ProfileViewBasic.knownProps),
-    );
+    return ProfileViewBasic.fromJson(translate(
+      json,
+      ProfileViewBasic.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ProfileViewBasic object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ProfileViewBasic object) => untranslate(
+        object.toJson(),
+      );
 }

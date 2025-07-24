@@ -41,22 +41,24 @@ final class LabelerService {
     String? $rey,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
-    collection: ids.appBskyLabelerService,
-    rkey: $rey,
-    record: {
-      'policies': policies.toJson(),
-      if (labels != null) 'labels': labels.toJson(),
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
-      if (reasonTypes != null)
-        'reasonTypes': reasonTypes.map((e) => e.toJson()).toList(),
-      if (subjectTypes != null)
-        'subjectTypes': subjectTypes.map((e) => e.toJson()).toList(),
-      if (subjectCollections != null) 'subjectCollections': subjectCollections,
-      ...?$unknown,
-    },
-  );
+  }) async =>
+      await _ctx.repo.createRecord(
+        repo: _ctx.$repo,
+        collection: ids.appBskyLabelerService,
+        rkey: $rey,
+        record: {
+          'policies': policies.toJson(),
+          if (labels != null) 'labels': labels.toJson(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
+          if (reasonTypes != null)
+            'reasonTypes': reasonTypes.map((e) => e.toJson()).toList(),
+          if (subjectTypes != null)
+            'subjectTypes': subjectTypes.map((e) => e.toJson()).toList(),
+          if (subjectCollections != null)
+            'subjectCollections': subjectCollections,
+          ...?$unknown,
+        },
+      );
 
   /// Get information about a list of labeler services.
   Future<XRPCResponse<LabelerGetServicesOutput>> getServices({
@@ -64,14 +66,15 @@ final class LabelerService {
     bool? detailed,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyLabelerGetServices,
-    headers: $headers,
-    parameters: {
-      'dids': dids,
-      if (detailed != null) 'detailed': detailed,
-      ...?$unknown,
-    },
-    to: const LabelerGetServicesOutputConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.get(
+        ns.appBskyLabelerGetServices,
+        headers: $headers,
+        parameters: {
+          'dids': dids,
+          if (detailed != null) 'detailed': detailed,
+          ...?$unknown,
+        },
+        to: const LabelerGetServicesOutputConverter().fromJson,
+      );
 }

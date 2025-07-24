@@ -20,12 +20,14 @@ part 'output.g.dart';
 
 @freezed
 abstract class SyncListBlobsOutput with _$SyncListBlobsOutput {
-  static const knownProps = <String>['cursor', 'cids'];
+  static const knownProps = <String>[
+    'cursor',
+    'cids',
+  ];
 
   const factory SyncListBlobsOutput({
     String? cursor,
     required List<String> cids,
-
     Map<String, dynamic>? $unknown,
   }) = _SyncListBlobsOutput;
 
@@ -44,12 +46,14 @@ final class SyncListBlobsOutputConverter
 
   @override
   SyncListBlobsOutput fromJson(Map<String, dynamic> json) {
-    return SyncListBlobsOutput.fromJson(
-      translate(json, SyncListBlobsOutput.knownProps),
-    );
+    return SyncListBlobsOutput.fromJson(translate(
+      json,
+      SyncListBlobsOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SyncListBlobsOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SyncListBlobsOutput object) => untranslate(
+        object.toJson(),
+      );
 }

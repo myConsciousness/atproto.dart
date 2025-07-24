@@ -8,26 +8,28 @@ part of 'main.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_LexiconSchemaRecord _$LexiconSchemaRecordFromJson(Map json) =>
-    $checkedCreate('_LexiconSchemaRecord', json, ($checkedConvert) {
-      final val = _LexiconSchemaRecord(
-        $type: $checkedConvert(
-          r'$type',
-          (v) => v as String? ?? 'com.atproto.lexicon.schema',
-        ),
-        lexicon: $checkedConvert('lexicon', (v) => (v as num).toInt()),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+_LexiconSchemaRecord _$LexiconSchemaRecordFromJson(Map json) => $checkedCreate(
+      '_LexiconSchemaRecord',
+      json,
+      ($checkedConvert) {
+        final val = _LexiconSchemaRecord(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? 'com.atproto.lexicon.schema'),
+          lexicon: $checkedConvert('lexicon', (v) => (v as num).toInt()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$LexiconSchemaRecordToJson(
-  _LexiconSchemaRecord instance,
-) => <String, dynamic>{
-  r'$type': instance.$type,
-  'lexicon': instance.lexicon,
-  r'$unknown': instance.$unknown,
-};
+        _LexiconSchemaRecord instance) =>
+    <String, dynamic>{
+      r'$type': instance.$type,
+      'lexicon': instance.lexicon,
+      r'$unknown': instance.$unknown,
+    };

@@ -10,12 +10,13 @@ import 'package:test/test.dart';
 import 'mocks/values.dart';
 import 'service_runner.dart';
 
-typedef ServiceCallback<S, D> =
-    Future<core.XRPCResponse<D>> Function(MockValues m, S s);
-typedef SubscriptionCallback<S, D> =
-    Future<core.XRPCResponse<core.Subscription<D>>> Function(MockValues m, S s);
-typedef BulkCallback<S> =
-    Future<core.XRPCResponse<core.EmptyData>> Function(MockValues m, S s);
+typedef ServiceCallback<S, D> = Future<core.XRPCResponse<D>> Function(
+    MockValues m, S s);
+typedef SubscriptionCallback<S, D>
+    = Future<core.XRPCResponse<core.Subscription<D>>> Function(
+        MockValues m, S s);
+typedef BulkCallback<S> = Future<core.XRPCResponse<core.EmptyData>> Function(
+    MockValues m, S s);
 
 const _mockValues = MockValues();
 

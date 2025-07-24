@@ -22,11 +22,13 @@ part 'union_main_labels.freezed.dart';
 abstract class UGraphListLabels with _$UGraphListLabels {
   const UGraphListLabels._();
 
-  const factory UGraphListLabels.selfLabels({required SelfLabels data}) =
-      UGraphListLabelsSelfLabels;
+  const factory UGraphListLabels.selfLabels({
+    required SelfLabels data,
+  }) = UGraphListLabelsSelfLabels;
 
-  const factory UGraphListLabels.unknown({required Map<String, dynamic> data}) =
-      UGraphListLabelsUnknown;
+  const factory UGraphListLabels.unknown({
+    required Map<String, dynamic> data,
+  }) = UGraphListLabelsUnknown;
 
   Map<String, dynamic> toJson() =>
       const UGraphListLabelsConverter().toJson(this);
@@ -63,8 +65,7 @@ final class UGraphListLabelsConverter
 
   @override
   Map<String, dynamic> toJson(UGraphListLabels object) => object.when(
-    selfLabels: (data) => const SelfLabelsConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        selfLabels: (data) => const SelfLabelsConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

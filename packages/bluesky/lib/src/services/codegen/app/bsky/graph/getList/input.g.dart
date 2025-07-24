@@ -8,19 +8,23 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_GraphGetListInput _$GraphGetListInputFromJson(Map json) =>
-    $checkedCreate('_GraphGetListInput', json, ($checkedConvert) {
-      final val = _GraphGetListInput(
-        list: $checkedConvert('list', (v) => v as String),
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
-        cursor: $checkedConvert('cursor', (v) => v as String?),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+_GraphGetListInput _$GraphGetListInputFromJson(Map json) => $checkedCreate(
+      '_GraphGetListInput',
+      json,
+      ($checkedConvert) {
+        final val = _GraphGetListInput(
+          list: $checkedConvert('list', (v) => v as String),
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$GraphGetListInputToJson(_GraphGetListInput instance) =>
     <String, dynamic>{

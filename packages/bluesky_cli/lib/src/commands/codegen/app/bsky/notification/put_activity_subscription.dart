@@ -20,8 +20,14 @@ import '../../../../procedure_command.dart';
 final class PutActivitySubscriptionCommand extends ProcedureCommand {
   PutActivitySubscriptionCommand() {
     argParser
-      ..addOption("subject", mandatory: true)
-      ..addOption("activitySubscription", mandatory: true);
+      ..addOption(
+        "subject",
+        mandatory: true,
+      )
+      ..addOption(
+        "activitySubscription",
+        mandatory: true,
+      );
   }
 
   @override
@@ -40,7 +46,7 @@ final class PutActivitySubscriptionCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "subject": argResults!["subject"],
-    "activitySubscription": jsonDecode(argResults!["activitySubscription"]),
-  };
+        "subject": argResults!["subject"],
+        "activitySubscription": jsonDecode(argResults!["activitySubscription"]),
+      };
 }

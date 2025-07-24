@@ -9,35 +9,33 @@ part of 'output.dart';
 // **************************************************************************
 
 _UnspeccedGetSuggestedStarterPacksOutput
-_$UnspeccedGetSuggestedStarterPacksOutputFromJson(Map json) => $checkedCreate(
-  '_UnspeccedGetSuggestedStarterPacksOutput',
-  json,
-  ($checkedConvert) {
-    final val = _UnspeccedGetSuggestedStarterPacksOutput(
-      starterPacks: $checkedConvert(
-        'starterPacks',
-        (v) => (v as List<dynamic>)
-            .map(
-              (e) => const StarterPackViewConverter().fromJson(
-                e as Map<String, dynamic>,
-              ),
-            )
-            .toList(),
-      ),
-      $unknown: $checkedConvert(
-        r'$unknown',
-        (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-      ),
-    );
-    return val;
-  },
-);
+    _$UnspeccedGetSuggestedStarterPacksOutputFromJson(Map json) =>
+        $checkedCreate(
+          '_UnspeccedGetSuggestedStarterPacksOutput',
+          json,
+          ($checkedConvert) {
+            final val = _UnspeccedGetSuggestedStarterPacksOutput(
+              starterPacks: $checkedConvert(
+                  'starterPacks',
+                  (v) => (v as List<dynamic>)
+                      .map((e) => const StarterPackViewConverter()
+                          .fromJson(e as Map<String, dynamic>))
+                      .toList()),
+              $unknown: $checkedConvert(
+                  r'$unknown',
+                  (v) => (v as Map?)?.map(
+                        (k, e) => MapEntry(k as String, e),
+                      )),
+            );
+            return val;
+          },
+        );
 
 Map<String, dynamic> _$UnspeccedGetSuggestedStarterPacksOutputToJson(
-  _UnspeccedGetSuggestedStarterPacksOutput instance,
-) => <String, dynamic>{
-  'starterPacks': instance.starterPacks
-      .map(const StarterPackViewConverter().toJson)
-      .toList(),
-  r'$unknown': instance.$unknown,
-};
+        _UnspeccedGetSuggestedStarterPacksOutput instance) =>
+    <String, dynamic>{
+      'starterPacks': instance.starterPacks
+          .map(const StarterPackViewConverter().toJson)
+          .toList(),
+      r'$unknown': instance.$unknown,
+    };

@@ -97,12 +97,12 @@ final class URichtextFacetFeaturesConverter
 
   @override
   Map<String, dynamic> toJson(URichtextFacetFeatures object) => object.when(
-    richtextFacetMention: (data) =>
-        const RichtextFacetMentionConverter().toJson(data),
-    richtextFacetLink: (data) =>
-        const RichtextFacetLinkConverter().toJson(data),
-    richtextFacetTag: (data) => const RichtextFacetTagConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        richtextFacetMention: (data) =>
+            const RichtextFacetMentionConverter().toJson(data),
+        richtextFacetLink: (data) =>
+            const RichtextFacetLinkConverter().toJson(data),
+        richtextFacetTag: (data) =>
+            const RichtextFacetTagConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

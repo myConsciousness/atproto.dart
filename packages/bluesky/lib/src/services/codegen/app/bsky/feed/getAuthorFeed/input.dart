@@ -39,7 +39,6 @@ abstract class FeedGetAuthorFeedInput with _$FeedGetAuthorFeedInput {
     /// Combinations of post/repost types to include in response.
     @FeedGetAuthorFeedFilterConverter() FeedGetAuthorFeedFilter? filter,
     @Default(false) bool includePins,
-
     Map<String, dynamic>? $unknown,
   }) = _FeedGetAuthorFeedInput;
 
@@ -62,12 +61,14 @@ final class FeedGetAuthorFeedInputConverter
 
   @override
   FeedGetAuthorFeedInput fromJson(Map<String, dynamic> json) {
-    return FeedGetAuthorFeedInput.fromJson(
-      translate(json, FeedGetAuthorFeedInput.knownProps),
-    );
+    return FeedGetAuthorFeedInput.fromJson(translate(
+      json,
+      FeedGetAuthorFeedInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetAuthorFeedInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FeedGetAuthorFeedInput object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -23,7 +23,11 @@ part 'output.g.dart';
 
 @freezed
 abstract class FeedSearchPostsOutput with _$FeedSearchPostsOutput {
-  static const knownProps = <String>['cursor', 'hitsTotal', 'posts'];
+  static const knownProps = <String>[
+    'cursor',
+    'hitsTotal',
+    'posts',
+  ];
 
   const factory FeedSearchPostsOutput({
     String? cursor,
@@ -31,7 +35,6 @@ abstract class FeedSearchPostsOutput with _$FeedSearchPostsOutput {
     /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
     int? hitsTotal,
     @PostViewConverter() required List<PostView> posts,
-
     Map<String, dynamic>? $unknown,
   }) = _FeedSearchPostsOutput;
 
@@ -52,12 +55,14 @@ final class FeedSearchPostsOutputConverter
 
   @override
   FeedSearchPostsOutput fromJson(Map<String, dynamic> json) {
-    return FeedSearchPostsOutput.fromJson(
-      translate(json, FeedSearchPostsOutput.knownProps),
-    );
+    return FeedSearchPostsOutput.fromJson(translate(
+      json,
+      FeedSearchPostsOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedSearchPostsOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FeedSearchPostsOutput object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -61,7 +61,6 @@ abstract class AgeAssuranceEvent with _$AgeAssuranceEvent {
 
     /// The user agent used when completing the AA flow.
     String? completeUa,
-
     Map<String, dynamic>? $unknown,
   }) = _AgeAssuranceEvent;
 
@@ -93,12 +92,14 @@ final class AgeAssuranceEventConverter
 
   @override
   AgeAssuranceEvent fromJson(Map<String, dynamic> json) {
-    return AgeAssuranceEvent.fromJson(
-      translate(json, AgeAssuranceEvent.knownProps),
-    );
+    return AgeAssuranceEvent.fromJson(translate(
+      json,
+      AgeAssuranceEvent.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(AgeAssuranceEvent object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(AgeAssuranceEvent object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -36,7 +36,6 @@ abstract class IdentitySignPlcOperationInput
     List<String>? alsoKnownAs,
     Map<String, dynamic>? verificationMethods,
     Map<String, dynamic>? services,
-
     Map<String, dynamic>? $unknown,
   }) = _IdentitySignPlcOperationInput;
 
@@ -60,12 +59,15 @@ final class IdentitySignPlcOperationInputConverter
 
   @override
   IdentitySignPlcOperationInput fromJson(Map<String, dynamic> json) {
-    return IdentitySignPlcOperationInput.fromJson(
-      translate(json, IdentitySignPlcOperationInput.knownProps),
-    );
+    return IdentitySignPlcOperationInput.fromJson(translate(
+      json,
+      IdentitySignPlcOperationInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(IdentitySignPlcOperationInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

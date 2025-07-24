@@ -20,12 +20,13 @@ part 'skeleton_search_starter_pack.g.dart';
 
 @freezed
 abstract class SkeletonSearchStarterPack with _$SkeletonSearchStarterPack {
-  static const knownProps = <String>['uri'];
+  static const knownProps = <String>[
+    'uri',
+  ];
 
   const factory SkeletonSearchStarterPack({
     @Default('app.bsky.unspecced.defs#skeletonSearchStarterPack') String $type,
     required String uri,
-
     Map<String, dynamic>? $unknown,
   }) = _SkeletonSearchStarterPack;
 
@@ -45,12 +46,14 @@ final class SkeletonSearchStarterPackConverter
 
   @override
   SkeletonSearchStarterPack fromJson(Map<String, dynamic> json) {
-    return SkeletonSearchStarterPack.fromJson(
-      translate(json, SkeletonSearchStarterPack.knownProps),
-    );
+    return SkeletonSearchStarterPack.fromJson(translate(
+      json,
+      SkeletonSearchStarterPack.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SkeletonSearchStarterPack object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SkeletonSearchStarterPack object) => untranslate(
+        object.toJson(),
+      );
 }

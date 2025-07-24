@@ -16,7 +16,11 @@ import '../../../../query_command.dart';
 
 final class GetEventCommand extends QueryCommand {
   GetEventCommand() {
-    argParser..addOption("id", mandatory: true);
+    argParser
+      ..addOption(
+        "id",
+        mandatory: true,
+      );
   }
 
   @override
@@ -32,5 +36,7 @@ final class GetEventCommand extends QueryCommand {
   String get methodId => "tools.ozone.moderation.getEvent";
 
   @override
-  Map<String, dynamic>? get parameters => {"id": argResults!["id"]};
+  Map<String, dynamic>? get parameters => {
+        "id": argResults!["id"],
+      };
 }

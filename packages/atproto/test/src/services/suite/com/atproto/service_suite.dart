@@ -18,55 +18,63 @@ void testIdentity<D>(
   final atp_test.ServiceCallback<IdentityService, D> endpoint, {
   required String id,
   String? label,
-}) => atp_test.testService<IdentityService, D>(_runner, endpoint, id, label);
+}) =>
+    atp_test.testService<IdentityService, D>(_runner, endpoint, id, label);
 
 void testLabel<D>(
   final atp_test.ServiceCallback<LabelService, D> endpoint, {
   required String id,
   String? label,
-}) => atp_test.testService<LabelService, D>(_runner, endpoint, id, label);
+}) =>
+    atp_test.testService<LabelService, D>(_runner, endpoint, id, label);
 
 void testModeration<D>(
   final atp_test.ServiceCallback<ModerationService, D> endpoint, {
   required String id,
   String? label,
-}) => atp_test.testService<ModerationService, D>(_runner, endpoint, id, label);
+}) =>
+    atp_test.testService<ModerationService, D>(_runner, endpoint, id, label);
 
 void testRepo<D>(
   final atp_test.ServiceCallback<RepoService, D> endpoint, {
   required String id,
   String? label,
-}) => atp_test.testService<RepoService, D>(_runner, endpoint, id, label);
+}) =>
+    atp_test.testService<RepoService, D>(_runner, endpoint, id, label);
 
 void testServer<D>(
   final atp_test.ServiceCallback<ServerService, D> endpoint, {
   required String id,
   String? label,
-}) => atp_test.testService<ServerService, D>(_runner, endpoint, id, label);
+}) =>
+    atp_test.testService<ServerService, D>(_runner, endpoint, id, label);
 
 void testSync<D>(
   final atp_test.ServiceCallback<SyncService, D> endpoint, {
   required String id,
   String? label,
   List<int>? bytes,
-}) => atp_test.testService<SyncService, D>(
-  _runner,
-  endpoint,
-  id,
-  label,
-  bytes: bytes,
-);
+}) =>
+    atp_test.testService<SyncService, D>(
+      _runner,
+      endpoint,
+      id,
+      label,
+      bytes: bytes,
+    );
 
 void testSyncSubscription<D>(
   final atp_test.SubscriptionCallback<SyncService, D> endpoint, {
   required String id,
-}) => atp_test.testSubscription<SyncService, D>(_runner, endpoint, id);
+}) =>
+    atp_test.testSubscription<SyncService, D>(_runner, endpoint, id);
 
 void testTemp<D>(
   final atp_test.ServiceCallback<TempService, D> endpoint, {
   required String id,
   String? label,
-}) => atp_test.testService<TempService, D>(_runner, endpoint, id, label);
+}) =>
+    atp_test.testService<TempService, D>(_runner, endpoint, id, label);
 
 final class _ServiceRunner extends atp_test.ServiceRunner {
   const _ServiceRunner();
@@ -98,70 +106,77 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
   IdentityService _getIdentityService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) => IdentityService(
-    ServiceContext(
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
-  );
+  ) =>
+      IdentityService(
+        ServiceContext(
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
+      );
 
   LabelService _getLabelService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) => LabelService(
-    ServiceContext(
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
-  );
+  ) =>
+      LabelService(
+        ServiceContext(
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
+      );
 
   ModerationService _getModerationService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) => ModerationService(
-    ServiceContext(
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
-  );
+  ) =>
+      ModerationService(
+        ServiceContext(
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
+      );
 
   RepoService _getRepoService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) => RepoService(
-    ServiceContext(
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
-  );
+  ) =>
+      RepoService(
+        ServiceContext(
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
+      );
 
   ServerService _getServerService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) => ServerService(
-    ServiceContext(
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
-  );
+  ) =>
+      ServerService(
+        ServiceContext(
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
+      );
 
   SyncService _getSyncService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) => SyncService(
-    ServiceContext(
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
-  );
+  ) =>
+      SyncService(
+        ServiceContext(
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
+      );
 
   TempService _getTempService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  ) => TempService(
-    ServiceContext(
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
-  );
+  ) =>
+      TempService(
+        ServiceContext(
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
+      );
 }

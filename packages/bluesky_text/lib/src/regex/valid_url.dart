@@ -10,8 +10,7 @@ import 'valid_url_preceding_chars.dart';
 import 'valid_url_query_chars.dart';
 import 'valid_url_query_ending_chars.dart';
 
-const validUrl =
-    '(' // $1 total match
+const validUrl = '(' // $1 total match
     '($validUrlPrecedingChars)' // $2 Preceding character
     '(' // $3 URL
     '(https?:\\/\\/)?' // $4 Protocol (optional)

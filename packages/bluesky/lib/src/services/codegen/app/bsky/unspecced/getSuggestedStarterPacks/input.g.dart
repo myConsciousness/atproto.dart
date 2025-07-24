@@ -9,21 +9,27 @@ part of 'input.dart';
 // **************************************************************************
 
 _UnspeccedGetSuggestedStarterPacksInput
-_$UnspeccedGetSuggestedStarterPacksInputFromJson(Map json) => $checkedCreate(
-  '_UnspeccedGetSuggestedStarterPacksInput',
-  json,
-  ($checkedConvert) {
-    final val = _UnspeccedGetSuggestedStarterPacksInput(
-      limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 10),
-      $unknown: $checkedConvert(
-        r'$unknown',
-        (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-      ),
-    );
-    return val;
-  },
-);
+    _$UnspeccedGetSuggestedStarterPacksInputFromJson(Map json) =>
+        $checkedCreate(
+          '_UnspeccedGetSuggestedStarterPacksInput',
+          json,
+          ($checkedConvert) {
+            final val = _UnspeccedGetSuggestedStarterPacksInput(
+              limit:
+                  $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 10),
+              $unknown: $checkedConvert(
+                  r'$unknown',
+                  (v) => (v as Map?)?.map(
+                        (k, e) => MapEntry(k as String, e),
+                      )),
+            );
+            return val;
+          },
+        );
 
 Map<String, dynamic> _$UnspeccedGetSuggestedStarterPacksInputToJson(
-  _UnspeccedGetSuggestedStarterPacksInput instance,
-) => <String, dynamic>{'limit': instance.limit, r'$unknown': instance.$unknown};
+        _UnspeccedGetSuggestedStarterPacksInput instance) =>
+    <String, dynamic>{
+      'limit': instance.limit,
+      r'$unknown': instance.$unknown,
+    };

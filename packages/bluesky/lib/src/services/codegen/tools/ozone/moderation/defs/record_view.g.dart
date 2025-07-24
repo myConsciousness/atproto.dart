@@ -8,37 +8,38 @@ part of 'record_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_RecordView _$RecordViewFromJson(
-  Map json,
-) => $checkedCreate('_RecordView', json, ($checkedConvert) {
-  final val = _RecordView(
-    $type: $checkedConvert(
-      r'$type',
-      (v) => v as String? ?? 'tools.ozone.moderation.defs#recordView',
-    ),
-    uri: $checkedConvert('uri', (v) => v as String),
-    cid: $checkedConvert('cid', (v) => v as String),
-    value: $checkedConvert('value', (v) => Map<String, dynamic>.from(v as Map)),
-    blobCids: $checkedConvert(
-      'blobCids',
-      (v) => (v as List<dynamic>).map((e) => e as String).toList(),
-    ),
-    indexedAt: $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
-    moderation: $checkedConvert(
-      'moderation',
-      (v) => const ModerationConverter().fromJson(v as Map<String, dynamic>),
-    ),
-    repo: $checkedConvert(
-      'repo',
-      (v) => const RepoViewConverter().fromJson(v as Map<String, dynamic>),
-    ),
-    $unknown: $checkedConvert(
-      r'$unknown',
-      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-    ),
-  );
-  return val;
-});
+_RecordView _$RecordViewFromJson(Map json) => $checkedCreate(
+      '_RecordView',
+      json,
+      ($checkedConvert) {
+        final val = _RecordView(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? 'tools.ozone.moderation.defs#recordView'),
+          uri: $checkedConvert('uri', (v) => v as String),
+          cid: $checkedConvert('cid', (v) => v as String),
+          value: $checkedConvert(
+              'value', (v) => Map<String, dynamic>.from(v as Map)),
+          blobCids: $checkedConvert('blobCids',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          indexedAt:
+              $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
+          moderation: $checkedConvert(
+              'moderation',
+              (v) => const ModerationConverter()
+                  .fromJson(v as Map<String, dynamic>)),
+          repo: $checkedConvert(
+              'repo',
+              (v) => const RepoViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$RecordViewToJson(_RecordView instance) =>
     <String, dynamic>{

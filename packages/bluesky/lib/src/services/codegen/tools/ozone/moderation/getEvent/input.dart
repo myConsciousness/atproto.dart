@@ -20,11 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class ModerationGetEventInput with _$ModerationGetEventInput {
-  static const knownProps = <String>['id'];
+  static const knownProps = <String>[
+    'id',
+  ];
 
   const factory ModerationGetEventInput({
     required int id,
-
     Map<String, dynamic>? $unknown,
   }) = _ModerationGetEventInput;
 
@@ -38,12 +39,14 @@ final class ModerationGetEventInputConverter
 
   @override
   ModerationGetEventInput fromJson(Map<String, dynamic> json) {
-    return ModerationGetEventInput.fromJson(
-      translate(json, ModerationGetEventInput.knownProps),
-    );
+    return ModerationGetEventInput.fromJson(translate(
+      json,
+      ModerationGetEventInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ModerationGetEventInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ModerationGetEventInput object) => untranslate(
+        object.toJson(),
+      );
 }

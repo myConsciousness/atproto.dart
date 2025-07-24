@@ -11,8 +11,8 @@ void main() {
       final rateLimit = RateLimit.fromHeaders({
         'ratelimit-limit': '1000',
         'ratelimit-remaining': '0',
-        'ratelimit-reset': (fiveMinutesLater.millisecondsSinceEpoch ~/ 1000)
-            .toString(),
+        'ratelimit-reset':
+            (fiveMinutesLater.millisecondsSinceEpoch ~/ 1000).toString(),
         'ratelimit-policy': '100;w=300',
       });
 
@@ -80,8 +80,8 @@ void main() {
       final rateLimit = RateLimit.fromHeaders({
         'ratelimit-limit': '1000',
         'ratelimit-remaining': '0',
-        'ratelimit-reset': (fiveSecondsLater.millisecondsSinceEpoch ~/ 1000)
-            .toString(),
+        'ratelimit-reset':
+            (fiveSecondsLater.millisecondsSinceEpoch ~/ 1000).toString(),
         'ratelimit-policy': '100;w=300',
       });
 

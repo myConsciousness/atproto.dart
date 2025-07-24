@@ -20,12 +20,14 @@ part 'input.g.dart';
 
 @freezed
 abstract class ServerResetPasswordInput with _$ServerResetPasswordInput {
-  static const knownProps = <String>['token', 'password'];
+  static const knownProps = <String>[
+    'token',
+    'password',
+  ];
 
   const factory ServerResetPasswordInput({
     required String token,
     required String password,
-
     Map<String, dynamic>? $unknown,
   }) = _ServerResetPasswordInput;
 
@@ -39,12 +41,14 @@ final class ServerResetPasswordInputConverter
 
   @override
   ServerResetPasswordInput fromJson(Map<String, dynamic> json) {
-    return ServerResetPasswordInput.fromJson(
-      translate(json, ServerResetPasswordInput.knownProps),
-    );
+    return ServerResetPasswordInput.fromJson(translate(
+      json,
+      ServerResetPasswordInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ServerResetPasswordInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ServerResetPasswordInput object) => untranslate(
+        object.toJson(),
+      );
 }

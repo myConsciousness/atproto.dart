@@ -23,12 +23,14 @@ part 'output.g.dart';
 
 @freezed
 abstract class ConvoGetLogOutput with _$ConvoGetLogOutput {
-  static const knownProps = <String>['cursor', 'logs'];
+  static const knownProps = <String>[
+    'cursor',
+    'logs',
+  ];
 
   const factory ConvoGetLogOutput({
     String? cursor,
     @UConvoGetLogLogsConverter() required List<UConvoGetLogLogs> logs,
-
     Map<String, dynamic>? $unknown,
   }) = _ConvoGetLogOutput;
 
@@ -47,12 +49,14 @@ final class ConvoGetLogOutputConverter
 
   @override
   ConvoGetLogOutput fromJson(Map<String, dynamic> json) {
-    return ConvoGetLogOutput.fromJson(
-      translate(json, ConvoGetLogOutput.knownProps),
-    );
+    return ConvoGetLogOutput.fromJson(translate(
+      json,
+      ConvoGetLogOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoGetLogOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ConvoGetLogOutput object) => untranslate(
+        object.toJson(),
+      );
 }

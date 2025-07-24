@@ -47,7 +47,6 @@ abstract class ModEventViewDetail with _$ModEventViewDetail {
     required String createdBy,
     required DateTime createdAt,
     @ModToolConverter() ModTool? modTool,
-
     Map<String, dynamic>? $unknown,
   }) = _ModEventViewDetail;
 
@@ -71,12 +70,14 @@ final class ModEventViewDetailConverter
 
   @override
   ModEventViewDetail fromJson(Map<String, dynamic> json) {
-    return ModEventViewDetail.fromJson(
-      translate(json, ModEventViewDetail.knownProps),
-    );
+    return ModEventViewDetail.fromJson(translate(
+      json,
+      ModEventViewDetail.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ModEventViewDetail object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ModEventViewDetail object) => untranslate(
+        object.toJson(),
+      );
 }

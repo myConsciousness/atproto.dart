@@ -57,7 +57,10 @@ final class _CreateStatusCommand extends CreateRecordCommand {
         help:
             r"The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.",
       )
-      ..addOption("createdAt", mandatory: true)
+      ..addOption(
+        "createdAt",
+        mandatory: true,
+      )
       ..addOption("rkey");
   }
 
@@ -79,12 +82,13 @@ final class _CreateStatusCommand extends CreateRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-    "status": argResults!["status"],
-    if (argResults!["embed"] != null) "embed": jsonDecode(argResults!["embed"]),
-    if (argResults!["durationMinutes"] != null)
-      "durationMinutes": argResults!["durationMinutes"],
-    "createdAt": argResults!["createdAt"],
-  };
+        "status": argResults!["status"],
+        if (argResults!["embed"] != null)
+          "embed": jsonDecode(argResults!["embed"]),
+        if (argResults!["durationMinutes"] != null)
+          "durationMinutes": argResults!["durationMinutes"],
+        "createdAt": argResults!["createdAt"],
+      };
 }
 
 final class _PutStatusCommand extends PutRecordCommand {
@@ -104,7 +108,10 @@ final class _PutStatusCommand extends PutRecordCommand {
         help:
             r"The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.",
       )
-      ..addOption("createdAt", mandatory: true)
+      ..addOption(
+        "createdAt",
+        mandatory: true,
+      )
       ..addOption("rkey");
   }
 
@@ -126,17 +133,22 @@ final class _PutStatusCommand extends PutRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-    "status": argResults!["status"],
-    if (argResults!["embed"] != null) "embed": jsonDecode(argResults!["embed"]),
-    if (argResults!["durationMinutes"] != null)
-      "durationMinutes": argResults!["durationMinutes"],
-    "createdAt": argResults!["createdAt"],
-  };
+        "status": argResults!["status"],
+        if (argResults!["embed"] != null)
+          "embed": jsonDecode(argResults!["embed"]),
+        if (argResults!["durationMinutes"] != null)
+          "durationMinutes": argResults!["durationMinutes"],
+        "createdAt": argResults!["createdAt"],
+      };
 }
 
 final class _DeleteStatusCommand extends DeleteRecordCommand {
   _DeleteStatusCommand() {
-    argParser..addOption("rkey", mandatory: true);
+    argParser
+      ..addOption(
+        "rkey",
+        mandatory: true,
+      );
   }
 
   @override
@@ -158,7 +170,10 @@ final class _DeleteStatusCommand extends DeleteRecordCommand {
 final class _GetStatusCommand extends QueryCommand {
   _GetStatusCommand() {
     argParser
-      ..addOption("rkey", mandatory: true)
+      ..addOption(
+        "rkey",
+        mandatory: true,
+      )
       ..addOption("cid");
   }
 
@@ -176,11 +191,11 @@ final class _GetStatusCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'rkey': argResults!['rkey'],
-    if (argResults!['cid'] != null) 'cid': argResults!['cid'],
-  };
+        'repo': await did,
+        'collection': methodId,
+        'rkey': argResults!['rkey'],
+        if (argResults!['cid'] != null) 'cid': argResults!['cid'],
+      };
 }
 
 final class _ListStatusCommand extends QueryCommand {
@@ -206,10 +221,10 @@ final class _ListStatusCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'limit': argResults!['limit'],
-    if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
-    'reverse': argResults!['reverse'],
-  };
+        'repo': await did,
+        'collection': methodId,
+        'limit': argResults!['limit'],
+        if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
+        'reverse': argResults!['reverse'],
+      };
 }

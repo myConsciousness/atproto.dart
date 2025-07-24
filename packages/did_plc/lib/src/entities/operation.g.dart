@@ -8,31 +8,26 @@ part of 'operation.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_Operation _$OperationFromJson(Map json) =>
-    $checkedCreate('_Operation', json, ($checkedConvert) {
-      final val = _Operation(
-        sig: $checkedConvert('sig', (v) => v as String),
-        type: $checkedConvert('type', (v) => v as String? ?? 'plc_operation'),
-        services: $checkedConvert(
-          'services',
-          (v) => Map<String, dynamic>.from(v as Map),
-        ),
-        alsoKnownAs: $checkedConvert(
-          'alsoKnownAs',
-          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
-        ),
-        rotationKeys: $checkedConvert(
-          'rotationKeys',
-          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
-        ),
-        verificationMethods: $checkedConvert(
-          'verificationMethods',
-          (v) => Map<String, dynamic>.from(v as Map),
-        ),
-        prev: $checkedConvert('prev', (v) => v as String?),
-      );
-      return val;
-    });
+_Operation _$OperationFromJson(Map json) => $checkedCreate(
+      '_Operation',
+      json,
+      ($checkedConvert) {
+        final val = _Operation(
+          sig: $checkedConvert('sig', (v) => v as String),
+          type: $checkedConvert('type', (v) => v as String? ?? 'plc_operation'),
+          services: $checkedConvert(
+              'services', (v) => Map<String, dynamic>.from(v as Map)),
+          alsoKnownAs: $checkedConvert('alsoKnownAs',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          rotationKeys: $checkedConvert('rotationKeys',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          verificationMethods: $checkedConvert('verificationMethods',
+              (v) => Map<String, dynamic>.from(v as Map)),
+          prev: $checkedConvert('prev', (v) => v as String?),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$OperationToJson(_Operation instance) =>
     <String, dynamic>{

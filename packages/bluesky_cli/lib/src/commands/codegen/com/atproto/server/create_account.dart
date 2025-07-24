@@ -17,7 +17,9 @@ import '../../../../procedure_command.dart';
 final class CreateAccountCommand extends ProcedureCommand {
   CreateAccountCommand() {
     argParser
-      ..addOption("email")
+      ..addOption(
+        "email",
+      )
       ..addOption(
         "handle",
         help: r"Requested handle for the account.",
@@ -27,9 +29,15 @@ final class CreateAccountCommand extends ProcedureCommand {
         "did",
         help: r"Pre-existing atproto DID, being imported to a new account.",
       )
-      ..addOption("inviteCode")
-      ..addOption("verificationCode")
-      ..addOption("verificationPhone")
+      ..addOption(
+        "inviteCode",
+      )
+      ..addOption(
+        "verificationCode",
+      )
+      ..addOption(
+        "verificationPhone",
+      )
       ..addOption(
         "password",
         help:
@@ -62,18 +70,19 @@ final class CreateAccountCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    if (argResults!["email"] != null) "email": argResults!["email"],
-    "handle": argResults!["handle"],
-    if (argResults!["did"] != null) "did": argResults!["did"],
-    if (argResults!["inviteCode"] != null)
-      "inviteCode": argResults!["inviteCode"],
-    if (argResults!["verificationCode"] != null)
-      "verificationCode": argResults!["verificationCode"],
-    if (argResults!["verificationPhone"] != null)
-      "verificationPhone": argResults!["verificationPhone"],
-    if (argResults!["password"] != null) "password": argResults!["password"],
-    if (argResults!["recoveryKey"] != null)
-      "recoveryKey": argResults!["recoveryKey"],
-    if (argResults!["plcOp"] != null) "plcOp": argResults!["plcOp"],
-  };
+        if (argResults!["email"] != null) "email": argResults!["email"],
+        "handle": argResults!["handle"],
+        if (argResults!["did"] != null) "did": argResults!["did"],
+        if (argResults!["inviteCode"] != null)
+          "inviteCode": argResults!["inviteCode"],
+        if (argResults!["verificationCode"] != null)
+          "verificationCode": argResults!["verificationCode"],
+        if (argResults!["verificationPhone"] != null)
+          "verificationPhone": argResults!["verificationPhone"],
+        if (argResults!["password"] != null)
+          "password": argResults!["password"],
+        if (argResults!["recoveryKey"] != null)
+          "recoveryKey": argResults!["recoveryKey"],
+        if (argResults!["plcOp"] != null) "plcOp": argResults!["plcOp"],
+      };
 }

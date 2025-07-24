@@ -17,9 +17,16 @@ import '../../../../procedure_command.dart';
 final class CreateInviteCodesCommand extends ProcedureCommand {
   CreateInviteCodesCommand() {
     argParser
-      ..addOption("codeCount")
-      ..addOption("useCount", mandatory: true)
-      ..addMultiOption("forAccounts");
+      ..addOption(
+        "codeCount",
+      )
+      ..addOption(
+        "useCount",
+        mandatory: true,
+      )
+      ..addMultiOption(
+        "forAccounts",
+      );
   }
 
   @override
@@ -37,9 +44,9 @@ final class CreateInviteCodesCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "codeCount": argResults!["codeCount"],
-    "useCount": argResults!["useCount"],
-    if (argResults!["forAccounts"] != null)
-      "forAccounts": argResults!["forAccounts"],
-  };
+        "codeCount": argResults!["codeCount"],
+        "useCount": argResults!["useCount"],
+        if (argResults!["forAccounts"] != null)
+          "forAccounts": argResults!["forAccounts"],
+      };
 }

@@ -27,8 +27,9 @@ abstract class HostingGetAccountHistoryEvents
     required KnownHostingGetAccountHistoryEvents data,
   }) = HostingGetAccountHistoryEventsKnownValue;
 
-  const factory HostingGetAccountHistoryEvents.unknown({required String data}) =
-      HostingGetAccountHistoryEventsUnknown;
+  const factory HostingGetAccountHistoryEvents.unknown({
+    required String data,
+  }) = HostingGetAccountHistoryEventsUnknown;
 
   static HostingGetAccountHistoryEvents? valueOf(final String? value) {
     if (value == null) return null;
@@ -73,8 +74,10 @@ final class HostingGetAccountHistoryEventsConverter
   }
 
   @override
-  String toJson(HostingGetAccountHistoryEvents object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(HostingGetAccountHistoryEvents object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownHostingGetAccountHistoryEvents implements Serializable {
@@ -87,7 +90,8 @@ enum KnownHostingGetAccountHistoryEvents implements Serializable {
   @JsonValue('passwordUpdated')
   passwordUpdated('passwordUpdated'),
   @JsonValue('handleUpdated')
-  handleUpdated('handleUpdated');
+  handleUpdated('handleUpdated'),
+  ;
 
   @override
   final String value;

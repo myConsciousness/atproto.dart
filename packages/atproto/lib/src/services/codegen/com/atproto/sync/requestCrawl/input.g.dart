@@ -9,20 +9,25 @@ part of 'input.dart';
 // **************************************************************************
 
 _SyncRequestCrawlInput _$SyncRequestCrawlInputFromJson(Map json) =>
-    $checkedCreate('_SyncRequestCrawlInput', json, ($checkedConvert) {
-      final val = _SyncRequestCrawlInput(
-        hostname: $checkedConvert('hostname', (v) => v as String),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_SyncRequestCrawlInput',
+      json,
+      ($checkedConvert) {
+        final val = _SyncRequestCrawlInput(
+          hostname: $checkedConvert('hostname', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$SyncRequestCrawlInputToJson(
-  _SyncRequestCrawlInput instance,
-) => <String, dynamic>{
-  'hostname': instance.hostname,
-  r'$unknown': instance.$unknown,
-};
+        _SyncRequestCrawlInput instance) =>
+    <String, dynamic>{
+      'hostname': instance.hostname,
+      r'$unknown': instance.$unknown,
+    };

@@ -27,8 +27,9 @@ abstract class SettingUpsertOptionManagerRole
     required KnownSettingUpsertOptionManagerRole data,
   }) = SettingUpsertOptionManagerRoleKnownValue;
 
-  const factory SettingUpsertOptionManagerRole.unknown({required String data}) =
-      SettingUpsertOptionManagerRoleUnknown;
+  const factory SettingUpsertOptionManagerRole.unknown({
+    required String data,
+  }) = SettingUpsertOptionManagerRoleUnknown;
 
   static SettingUpsertOptionManagerRole? valueOf(final String? value) {
     if (value == null) return null;
@@ -73,8 +74,10 @@ final class SettingUpsertOptionManagerRoleConverter
   }
 
   @override
-  String toJson(SettingUpsertOptionManagerRole object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SettingUpsertOptionManagerRole object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownSettingUpsertOptionManagerRole implements Serializable {
@@ -85,7 +88,8 @@ enum KnownSettingUpsertOptionManagerRole implements Serializable {
   @JsonValue('tools.ozone.team.defs#roleVerifier')
   roleVerifier('tools.ozone.team.defs#roleVerifier'),
   @JsonValue('tools.ozone.team.defs#roleAdmin')
-  roleAdmin('tools.ozone.team.defs#roleAdmin');
+  roleAdmin('tools.ozone.team.defs#roleAdmin'),
+  ;
 
   @override
   final String value;

@@ -9,23 +9,26 @@ part of 'input.dart';
 // **************************************************************************
 
 _ActorGetProfilesInput _$ActorGetProfilesInputFromJson(Map json) =>
-    $checkedCreate('_ActorGetProfilesInput', json, ($checkedConvert) {
-      final val = _ActorGetProfilesInput(
-        actors: $checkedConvert(
-          'actors',
-          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
-        ),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_ActorGetProfilesInput',
+      json,
+      ($checkedConvert) {
+        final val = _ActorGetProfilesInput(
+          actors: $checkedConvert('actors',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$ActorGetProfilesInputToJson(
-  _ActorGetProfilesInput instance,
-) => <String, dynamic>{
-  'actors': instance.actors,
-  r'$unknown': instance.$unknown,
-};
+        _ActorGetProfilesInput instance) =>
+    <String, dynamic>{
+      'actors': instance.actors,
+      r'$unknown': instance.$unknown,
+    };

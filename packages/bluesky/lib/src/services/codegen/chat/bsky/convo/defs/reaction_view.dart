@@ -23,14 +23,17 @@ part 'reaction_view.g.dart';
 
 @freezed
 abstract class ReactionView with _$ReactionView {
-  static const knownProps = <String>['value', 'sender', 'createdAt'];
+  static const knownProps = <String>[
+    'value',
+    'sender',
+    'createdAt',
+  ];
 
   const factory ReactionView({
     @Default('chat.bsky.convo.defs#reactionView') String $type,
     required String value,
     @ReactionViewSenderConverter() required ReactionViewSender sender,
     required DateTime createdAt,
-
     Map<String, dynamic>? $unknown,
   }) = _ReactionView;
 
@@ -49,10 +52,14 @@ final class ReactionViewConverter
 
   @override
   ReactionView fromJson(Map<String, dynamic> json) {
-    return ReactionView.fromJson(translate(json, ReactionView.knownProps));
+    return ReactionView.fromJson(translate(
+      json,
+      ReactionView.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ReactionView object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ReactionView object) => untranslate(
+        object.toJson(),
+      );
 }

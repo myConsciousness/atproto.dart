@@ -41,7 +41,7 @@ final class Hour implements GroupBy {
 
 final class Minute implements GroupBy {
   const Minute(this.minute)
-    : assert(minute > 0 && minute < 60, 'Invalid minute value.');
+      : assert(minute > 0 && minute < 60, 'Invalid minute value.');
 
   final int minute;
 

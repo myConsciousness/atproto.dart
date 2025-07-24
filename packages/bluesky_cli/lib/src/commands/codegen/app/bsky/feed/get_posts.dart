@@ -16,10 +16,11 @@ import '../../../../query_command.dart';
 
 final class GetPostsCommand extends QueryCommand {
   GetPostsCommand() {
-    argParser..addMultiOption(
-      "uris",
-      help: r"List of post AT-URIs to return hydrated views for.",
-    );
+    argParser
+      ..addMultiOption(
+        "uris",
+        help: r"List of post AT-URIs to return hydrated views for.",
+      );
   }
 
   @override
@@ -36,5 +37,7 @@ final class GetPostsCommand extends QueryCommand {
   String get methodId => "app.bsky.feed.getPosts";
 
   @override
-  Map<String, dynamic>? get parameters => {"uris": argResults!["uris"]};
+  Map<String, dynamic>? get parameters => {
+        "uris": argResults!["uris"],
+      };
 }

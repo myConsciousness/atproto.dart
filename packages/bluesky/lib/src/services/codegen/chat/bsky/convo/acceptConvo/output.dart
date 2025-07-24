@@ -20,12 +20,13 @@ part 'output.g.dart';
 
 @freezed
 abstract class ConvoAcceptConvoOutput with _$ConvoAcceptConvoOutput {
-  static const knownProps = <String>['rev'];
+  static const knownProps = <String>[
+    'rev',
+  ];
 
   const factory ConvoAcceptConvoOutput({
     /// Rev when the convo was accepted. If not present, the convo was already accepted.
     String? rev,
-
     Map<String, dynamic>? $unknown,
   }) = _ConvoAcceptConvoOutput;
 
@@ -44,12 +45,14 @@ final class ConvoAcceptConvoOutputConverter
 
   @override
   ConvoAcceptConvoOutput fromJson(Map<String, dynamic> json) {
-    return ConvoAcceptConvoOutput.fromJson(
-      translate(json, ConvoAcceptConvoOutput.knownProps),
-    );
+    return ConvoAcceptConvoOutput.fromJson(translate(
+      json,
+      ConvoAcceptConvoOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoAcceptConvoOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ConvoAcceptConvoOutput object) => untranslate(
+        object.toJson(),
+      );
 }

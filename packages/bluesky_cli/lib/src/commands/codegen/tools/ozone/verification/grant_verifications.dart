@@ -16,10 +16,11 @@ import '../../../../procedure_command.dart';
 
 final class GrantVerificationsCommand extends ProcedureCommand {
   GrantVerificationsCommand() {
-    argParser..addMultiOption(
-      "verifications",
-      help: r"Array of verification requests to process",
-    );
+    argParser
+      ..addMultiOption(
+        "verifications",
+        help: r"Array of verification requests to process",
+      );
   }
 
   @override
@@ -38,6 +39,6 @@ final class GrantVerificationsCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "verifications": argResults!["verifications"],
-  };
+        "verifications": argResults!["verifications"],
+      };
 }

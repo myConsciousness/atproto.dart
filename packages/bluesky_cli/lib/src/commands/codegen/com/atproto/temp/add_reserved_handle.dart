@@ -16,7 +16,11 @@ import '../../../../procedure_command.dart';
 
 final class AddReservedHandleCommand extends ProcedureCommand {
   AddReservedHandleCommand() {
-    argParser..addOption("handle", mandatory: true);
+    argParser
+      ..addOption(
+        "handle",
+        mandatory: true,
+      );
   }
 
   @override
@@ -33,5 +37,7 @@ final class AddReservedHandleCommand extends ProcedureCommand {
   String get methodId => "com.atproto.temp.addReservedHandle";
 
   @override
-  Map<String, dynamic>? get body => {"handle": argResults!["handle"]};
+  Map<String, dynamic>? get body => {
+        "handle": argResults!["handle"],
+      };
 }

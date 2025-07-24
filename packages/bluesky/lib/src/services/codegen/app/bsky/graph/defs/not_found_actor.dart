@@ -21,13 +21,15 @@ part 'not_found_actor.g.dart';
 /// indicates that a handle or DID could not be resolved
 @freezed
 abstract class NotFoundActor with _$NotFoundActor {
-  static const knownProps = <String>['actor', 'notFound'];
+  static const knownProps = <String>[
+    'actor',
+    'notFound',
+  ];
 
   const factory NotFoundActor({
     @Default('app.bsky.graph.defs#notFoundActor') String $type,
     required String actor,
     required bool notFound,
-
     Map<String, dynamic>? $unknown,
   }) = _NotFoundActor;
 
@@ -51,10 +53,14 @@ final class NotFoundActorConverter
 
   @override
   NotFoundActor fromJson(Map<String, dynamic> json) {
-    return NotFoundActor.fromJson(translate(json, NotFoundActor.knownProps));
+    return NotFoundActor.fromJson(translate(
+      json,
+      NotFoundActor.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(NotFoundActor object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(NotFoundActor object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -8,21 +8,23 @@ part of 'self_label.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_SelfLabel _$SelfLabelFromJson(Map json) =>
-    $checkedCreate('_SelfLabel', json, ($checkedConvert) {
-      final val = _SelfLabel(
-        $type: $checkedConvert(
-          r'$type',
-          (v) => v as String? ?? 'com.atproto.label.defs#selfLabel',
-        ),
-        val: $checkedConvert('val', (v) => v as String),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+_SelfLabel _$SelfLabelFromJson(Map json) => $checkedCreate(
+      '_SelfLabel',
+      json,
+      ($checkedConvert) {
+        final val = _SelfLabel(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? 'com.atproto.label.defs#selfLabel'),
+          val: $checkedConvert('val', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$SelfLabelToJson(_SelfLabel instance) =>
     <String, dynamic>{

@@ -23,14 +23,18 @@ part 'output.g.dart';
 
 @freezed
 abstract class FeedGetLikesOutput with _$FeedGetLikesOutput {
-  static const knownProps = <String>['uri', 'cid', 'cursor', 'likes'];
+  static const knownProps = <String>[
+    'uri',
+    'cid',
+    'cursor',
+    'likes',
+  ];
 
   const factory FeedGetLikesOutput({
     required String uri,
     String? cid,
     String? cursor,
     @LikeConverter() required List<Like> likes,
-
     Map<String, dynamic>? $unknown,
   }) = _FeedGetLikesOutput;
 
@@ -51,12 +55,14 @@ final class FeedGetLikesOutputConverter
 
   @override
   FeedGetLikesOutput fromJson(Map<String, dynamic> json) {
-    return FeedGetLikesOutput.fromJson(
-      translate(json, FeedGetLikesOutput.knownProps),
-    );
+    return FeedGetLikesOutput.fromJson(translate(
+      json,
+      FeedGetLikesOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetLikesOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FeedGetLikesOutput object) => untranslate(
+        object.toJson(),
+      );
 }

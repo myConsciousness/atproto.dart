@@ -47,7 +47,6 @@ abstract class JobStatus with _$JobStatus {
     @BlobConverter() Blob? blob,
     String? error,
     String? message,
-
     Map<String, dynamic>? $unknown,
   }) = _JobStatus;
 
@@ -77,9 +76,14 @@ final class JobStatusConverter
 
   @override
   JobStatus fromJson(Map<String, dynamic> json) {
-    return JobStatus.fromJson(translate(json, JobStatus.knownProps));
+    return JobStatus.fromJson(translate(
+      json,
+      JobStatus.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(JobStatus object) => untranslate(object.toJson());
+  Map<String, dynamic> toJson(JobStatus object) => untranslate(
+        object.toJson(),
+      );
 }

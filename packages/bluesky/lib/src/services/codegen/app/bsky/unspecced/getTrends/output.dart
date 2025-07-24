@@ -23,11 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class UnspeccedGetTrendsOutput with _$UnspeccedGetTrendsOutput {
-  static const knownProps = <String>['trends'];
+  static const knownProps = <String>[
+    'trends',
+  ];
 
   const factory UnspeccedGetTrendsOutput({
     @TrendViewConverter() required List<TrendView> trends,
-
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetTrendsOutput;
 
@@ -41,12 +42,14 @@ final class UnspeccedGetTrendsOutputConverter
 
   @override
   UnspeccedGetTrendsOutput fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetTrendsOutput.fromJson(
-      translate(json, UnspeccedGetTrendsOutput.knownProps),
-    );
+    return UnspeccedGetTrendsOutput.fromJson(translate(
+      json,
+      UnspeccedGetTrendsOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(UnspeccedGetTrendsOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(UnspeccedGetTrendsOutput object) => untranslate(
+        object.toJson(),
+      );
 }

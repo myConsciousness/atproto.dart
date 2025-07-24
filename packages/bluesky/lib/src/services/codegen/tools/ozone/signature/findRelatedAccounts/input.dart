@@ -21,19 +21,22 @@ part 'input.g.dart';
 @freezed
 abstract class SignatureFindRelatedAccountsInput
     with _$SignatureFindRelatedAccountsInput {
-  static const knownProps = <String>['did', 'cursor', 'limit'];
+  static const knownProps = <String>[
+    'did',
+    'cursor',
+    'limit',
+  ];
 
   const factory SignatureFindRelatedAccountsInput({
     required String did,
     String? cursor,
     @Default(50) int limit,
-
     Map<String, dynamic>? $unknown,
   }) = _SignatureFindRelatedAccountsInput;
 
   factory SignatureFindRelatedAccountsInput.fromJson(
-    Map<String, Object?> json,
-  ) => _$SignatureFindRelatedAccountsInputFromJson(json);
+          Map<String, Object?> json) =>
+      _$SignatureFindRelatedAccountsInputFromJson(json);
 }
 
 extension SignatureFindRelatedAccountsInputExtension
@@ -42,19 +45,21 @@ extension SignatureFindRelatedAccountsInputExtension
   bool get hasNotCursor => !hasCursor;
 }
 
-final class SignatureFindRelatedAccountsInputConverter
-    extends
-        JsonConverter<SignatureFindRelatedAccountsInput, Map<String, dynamic>> {
+final class SignatureFindRelatedAccountsInputConverter extends JsonConverter<
+    SignatureFindRelatedAccountsInput, Map<String, dynamic>> {
   const SignatureFindRelatedAccountsInputConverter();
 
   @override
   SignatureFindRelatedAccountsInput fromJson(Map<String, dynamic> json) {
-    return SignatureFindRelatedAccountsInput.fromJson(
-      translate(json, SignatureFindRelatedAccountsInput.knownProps),
-    );
+    return SignatureFindRelatedAccountsInput.fromJson(translate(
+      json,
+      SignatureFindRelatedAccountsInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(SignatureFindRelatedAccountsInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

@@ -9,18 +9,26 @@ part of 'output.dart';
 // **************************************************************************
 
 _ServerCreateInviteCodeOutput _$ServerCreateInviteCodeOutputFromJson(
-  Map json,
-) => $checkedCreate('_ServerCreateInviteCodeOutput', json, ($checkedConvert) {
-  final val = _ServerCreateInviteCodeOutput(
-    code: $checkedConvert('code', (v) => v as String),
-    $unknown: $checkedConvert(
-      r'$unknown',
-      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-    ),
-  );
-  return val;
-});
+        Map json) =>
+    $checkedCreate(
+      '_ServerCreateInviteCodeOutput',
+      json,
+      ($checkedConvert) {
+        final val = _ServerCreateInviteCodeOutput(
+          code: $checkedConvert('code', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$ServerCreateInviteCodeOutputToJson(
-  _ServerCreateInviteCodeOutput instance,
-) => <String, dynamic>{'code': instance.code, r'$unknown': instance.$unknown};
+        _ServerCreateInviteCodeOutput instance) =>
+    <String, dynamic>{
+      'code': instance.code,
+      r'$unknown': instance.$unknown,
+    };

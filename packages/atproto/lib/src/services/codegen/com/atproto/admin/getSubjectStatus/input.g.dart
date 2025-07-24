@@ -9,24 +9,29 @@ part of 'input.dart';
 // **************************************************************************
 
 _AdminGetSubjectStatusInput _$AdminGetSubjectStatusInputFromJson(Map json) =>
-    $checkedCreate('_AdminGetSubjectStatusInput', json, ($checkedConvert) {
-      final val = _AdminGetSubjectStatusInput(
-        did: $checkedConvert('did', (v) => v as String?),
-        uri: $checkedConvert('uri', (v) => v as String?),
-        blob: $checkedConvert('blob', (v) => v as String?),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_AdminGetSubjectStatusInput',
+      json,
+      ($checkedConvert) {
+        final val = _AdminGetSubjectStatusInput(
+          did: $checkedConvert('did', (v) => v as String?),
+          uri: $checkedConvert('uri', (v) => v as String?),
+          blob: $checkedConvert('blob', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$AdminGetSubjectStatusInputToJson(
-  _AdminGetSubjectStatusInput instance,
-) => <String, dynamic>{
-  'did': instance.did,
-  'uri': instance.uri,
-  'blob': instance.blob,
-  r'$unknown': instance.$unknown,
-};
+        _AdminGetSubjectStatusInput instance) =>
+    <String, dynamic>{
+      'did': instance.did,
+      'uri': instance.uri,
+      'blob': instance.blob,
+      r'$unknown': instance.$unknown,
+    };

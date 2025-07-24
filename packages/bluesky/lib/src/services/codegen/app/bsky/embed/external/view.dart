@@ -23,13 +23,14 @@ part 'view.g.dart';
 
 @freezed
 abstract class EmbedExternalView with _$EmbedExternalView {
-  static const knownProps = <String>['external'];
+  static const knownProps = <String>[
+    'external',
+  ];
 
   const factory EmbedExternalView({
     @Default('app.bsky.embed.external#view') String $type,
     @EmbedExternalViewExternalConverter()
     required EmbedExternalViewExternal external,
-
     Map<String, dynamic>? $unknown,
   }) = _EmbedExternalView;
 
@@ -48,12 +49,14 @@ final class EmbedExternalViewConverter
 
   @override
   EmbedExternalView fromJson(Map<String, dynamic> json) {
-    return EmbedExternalView.fromJson(
-      translate(json, EmbedExternalView.knownProps),
-    );
+    return EmbedExternalView.fromJson(translate(
+      json,
+      EmbedExternalView.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedExternalView object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(EmbedExternalView object) => untranslate(
+        object.toJson(),
+      );
 }

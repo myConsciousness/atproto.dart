@@ -26,8 +26,9 @@ abstract class OptionManagerRole with _$OptionManagerRole {
     required KnownOptionManagerRole data,
   }) = OptionManagerRoleKnownValue;
 
-  const factory OptionManagerRole.unknown({required String data}) =
-      OptionManagerRoleUnknown;
+  const factory OptionManagerRole.unknown({
+    required String data,
+  }) = OptionManagerRoleUnknown;
 
   static OptionManagerRole? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,8 +71,10 @@ final class OptionManagerRoleConverter
   }
 
   @override
-  String toJson(OptionManagerRole object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(OptionManagerRole object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownOptionManagerRole implements Serializable {
@@ -82,7 +85,8 @@ enum KnownOptionManagerRole implements Serializable {
   @JsonValue('tools.ozone.team.defs#roleAdmin')
   roleAdmin('tools.ozone.team.defs#roleAdmin'),
   @JsonValue('tools.ozone.team.defs#roleVerifier')
-  roleVerifier('tools.ozone.team.defs#roleVerifier');
+  roleVerifier('tools.ozone.team.defs#roleVerifier'),
+  ;
 
   @override
   final String value;

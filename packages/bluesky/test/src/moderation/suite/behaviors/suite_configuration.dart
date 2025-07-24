@@ -18,5 +18,6 @@ abstract class ModerationTestSuiteConfiguration
 
   factory ModerationTestSuiteConfiguration.fromJson(
     Map<String, Object?> json,
-  ) => _$ModerationTestSuiteConfigurationFromJson(json);
+  ) =>
+      _$ModerationTestSuiteConfigurationFromJson(json);
 }

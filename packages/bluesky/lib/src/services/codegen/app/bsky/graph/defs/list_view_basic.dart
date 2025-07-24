@@ -49,7 +49,6 @@ abstract class ListViewBasic with _$ListViewBasic {
     @LabelConverter() List<Label>? labels,
     @ListViewerStateConverter() ListViewerState? viewer,
     DateTime? indexedAt,
-
     Map<String, dynamic>? $unknown,
   }) = _ListViewBasic;
 
@@ -79,10 +78,14 @@ final class ListViewBasicConverter
 
   @override
   ListViewBasic fromJson(Map<String, dynamic> json) {
-    return ListViewBasic.fromJson(translate(json, ListViewBasic.knownProps));
+    return ListViewBasic.fromJson(translate(
+      json,
+      ListViewBasic.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ListViewBasic object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ListViewBasic object) => untranslate(
+        object.toJson(),
+      );
 }

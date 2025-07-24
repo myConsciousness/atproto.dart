@@ -21,12 +21,14 @@ part 'input.g.dart';
 @freezed
 abstract class NotificationGetUnreadCountInput
     with _$NotificationGetUnreadCountInput {
-  static const knownProps = <String>['priority', 'seenAt'];
+  static const knownProps = <String>[
+    'priority',
+    'seenAt',
+  ];
 
   const factory NotificationGetUnreadCountInput({
     bool? priority,
     DateTime? seenAt,
-
     Map<String, dynamic>? $unknown,
   }) = _NotificationGetUnreadCountInput;
 
@@ -42,19 +44,21 @@ extension NotificationGetUnreadCountInputExtension
   bool get hasNotSeenAt => !hasSeenAt;
 }
 
-final class NotificationGetUnreadCountInputConverter
-    extends
-        JsonConverter<NotificationGetUnreadCountInput, Map<String, dynamic>> {
+final class NotificationGetUnreadCountInputConverter extends JsonConverter<
+    NotificationGetUnreadCountInput, Map<String, dynamic>> {
   const NotificationGetUnreadCountInputConverter();
 
   @override
   NotificationGetUnreadCountInput fromJson(Map<String, dynamic> json) {
-    return NotificationGetUnreadCountInput.fromJson(
-      translate(json, NotificationGetUnreadCountInput.knownProps),
-    );
+    return NotificationGetUnreadCountInput.fromJson(translate(
+      json,
+      NotificationGetUnreadCountInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(NotificationGetUnreadCountInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

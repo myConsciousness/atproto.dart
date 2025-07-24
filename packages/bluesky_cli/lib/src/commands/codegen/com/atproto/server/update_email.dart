@@ -17,8 +17,13 @@ import '../../../../procedure_command.dart';
 final class UpdateEmailCommand extends ProcedureCommand {
   UpdateEmailCommand() {
     argParser
-      ..addOption("email", mandatory: true)
-      ..addFlag("emailAuthFactor")
+      ..addOption(
+        "email",
+        mandatory: true,
+      )
+      ..addFlag(
+        "emailAuthFactor",
+      )
       ..addOption(
         "token",
         help:
@@ -41,9 +46,9 @@ final class UpdateEmailCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "email": argResults!["email"],
-    if (argResults!["emailAuthFactor"] != null)
-      "emailAuthFactor": argResults!["emailAuthFactor"],
-    if (argResults!["token"] != null) "token": argResults!["token"],
-  };
+        "email": argResults!["email"],
+        if (argResults!["emailAuthFactor"] != null)
+          "emailAuthFactor": argResults!["emailAuthFactor"],
+        if (argResults!["token"] != null) "token": argResults!["token"],
+      };
 }

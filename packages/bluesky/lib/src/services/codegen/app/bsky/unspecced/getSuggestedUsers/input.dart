@@ -21,13 +21,15 @@ part 'input.g.dart';
 @freezed
 abstract class UnspeccedGetSuggestedUsersInput
     with _$UnspeccedGetSuggestedUsersInput {
-  static const knownProps = <String>['category', 'limit'];
+  static const knownProps = <String>[
+    'category',
+    'limit',
+  ];
 
   const factory UnspeccedGetSuggestedUsersInput({
     /// Category of users to get suggestions for.
     String? category,
     @Default(25) int limit,
-
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestedUsersInput;
 
@@ -41,19 +43,21 @@ extension UnspeccedGetSuggestedUsersInputExtension
   bool get hasNotCategory => !hasCategory;
 }
 
-final class UnspeccedGetSuggestedUsersInputConverter
-    extends
-        JsonConverter<UnspeccedGetSuggestedUsersInput, Map<String, dynamic>> {
+final class UnspeccedGetSuggestedUsersInputConverter extends JsonConverter<
+    UnspeccedGetSuggestedUsersInput, Map<String, dynamic>> {
   const UnspeccedGetSuggestedUsersInputConverter();
 
   @override
   UnspeccedGetSuggestedUsersInput fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetSuggestedUsersInput.fromJson(
-      translate(json, UnspeccedGetSuggestedUsersInput.knownProps),
-    );
+    return UnspeccedGetSuggestedUsersInput.fromJson(translate(
+      json,
+      UnspeccedGetSuggestedUsersInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetSuggestedUsersInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

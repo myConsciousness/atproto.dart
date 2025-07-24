@@ -9,17 +9,25 @@ part of 'input.dart';
 // **************************************************************************
 
 _GraphUnmuteActorInput _$GraphUnmuteActorInputFromJson(Map json) =>
-    $checkedCreate('_GraphUnmuteActorInput', json, ($checkedConvert) {
-      final val = _GraphUnmuteActorInput(
-        actor: $checkedConvert('actor', (v) => v as String),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_GraphUnmuteActorInput',
+      json,
+      ($checkedConvert) {
+        final val = _GraphUnmuteActorInput(
+          actor: $checkedConvert('actor', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$GraphUnmuteActorInputToJson(
-  _GraphUnmuteActorInput instance,
-) => <String, dynamic>{'actor': instance.actor, r'$unknown': instance.$unknown};
+        _GraphUnmuteActorInput instance) =>
+    <String, dynamic>{
+      'actor': instance.actor,
+      r'$unknown': instance.$unknown,
+    };

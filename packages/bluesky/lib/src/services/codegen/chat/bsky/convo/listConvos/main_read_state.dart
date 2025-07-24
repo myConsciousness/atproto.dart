@@ -26,8 +26,9 @@ abstract class ConvoListConvosReadState with _$ConvoListConvosReadState {
     required KnownConvoListConvosReadState data,
   }) = ConvoListConvosReadStateKnownValue;
 
-  const factory ConvoListConvosReadState.unknown({required String data}) =
-      ConvoListConvosReadStateUnknown;
+  const factory ConvoListConvosReadState.unknown({
+    required String data,
+  }) = ConvoListConvosReadStateUnknown;
 
   static ConvoListConvosReadState? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,13 +71,16 @@ final class ConvoListConvosReadStateConverter
   }
 
   @override
-  String toJson(ConvoListConvosReadState object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ConvoListConvosReadState object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownConvoListConvosReadState implements Serializable {
   @JsonValue('unread')
-  unread('unread');
+  unread('unread'),
+  ;
 
   @override
   final String value;

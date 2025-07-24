@@ -52,7 +52,6 @@ abstract class FeedPostRecord with _$FeedPostRecord {
 
     /// Client-declared timestamp when this post was originally created.
     required DateTime createdAt,
-
     Map<String, dynamic>? $unknown,
   }) = _FeedPostRecord;
 
@@ -80,10 +79,14 @@ final class FeedPostRecordConverter
 
   @override
   FeedPostRecord fromJson(Map<String, dynamic> json) {
-    return FeedPostRecord.fromJson(translate(json, FeedPostRecord.knownProps));
+    return FeedPostRecord.fromJson(translate(
+      json,
+      FeedPostRecord.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedPostRecord object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FeedPostRecord object) => untranslate(
+        object.toJson(),
+      );
 }

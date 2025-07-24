@@ -38,7 +38,6 @@ abstract class ViewerState with _$ViewerState {
     bool? replyDisabled,
     bool? embeddingDisabled,
     bool? pinned,
-
     Map<String, dynamic>? $unknown,
   }) = _ViewerState;
 
@@ -72,10 +71,14 @@ final class ViewerStateConverter
 
   @override
   ViewerState fromJson(Map<String, dynamic> json) {
-    return ViewerState.fromJson(translate(json, ViewerState.knownProps));
+    return ViewerState.fromJson(translate(
+      json,
+      ViewerState.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ViewerState object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ViewerState object) => untranslate(
+        object.toJson(),
+      );
 }

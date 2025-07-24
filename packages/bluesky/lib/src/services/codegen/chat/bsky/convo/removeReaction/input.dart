@@ -20,13 +20,16 @@ part 'input.g.dart';
 
 @freezed
 abstract class ConvoRemoveReactionInput with _$ConvoRemoveReactionInput {
-  static const knownProps = <String>['convoId', 'messageId', 'value'];
+  static const knownProps = <String>[
+    'convoId',
+    'messageId',
+    'value',
+  ];
 
   const factory ConvoRemoveReactionInput({
     required String convoId,
     required String messageId,
     required String value,
-
     Map<String, dynamic>? $unknown,
   }) = _ConvoRemoveReactionInput;
 
@@ -40,12 +43,14 @@ final class ConvoRemoveReactionInputConverter
 
   @override
   ConvoRemoveReactionInput fromJson(Map<String, dynamic> json) {
-    return ConvoRemoveReactionInput.fromJson(
-      translate(json, ConvoRemoveReactionInput.knownProps),
-    );
+    return ConvoRemoveReactionInput.fromJson(translate(
+      json,
+      ConvoRemoveReactionInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoRemoveReactionInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ConvoRemoveReactionInput object) => untranslate(
+        object.toJson(),
+      );
 }

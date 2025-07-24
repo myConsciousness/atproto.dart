@@ -34,7 +34,7 @@ Now you can see [bluesky](https://pub.dev/packages/bluesky) in `pubspec.yaml` li
 ```yaml title="pubspec.yaml"
 name: post_to_bluesky
 description: A sample application.
-version: 1.0.0
+version: 1.0.0-legacy
 
 environment:
   sdk: ^3.0.0

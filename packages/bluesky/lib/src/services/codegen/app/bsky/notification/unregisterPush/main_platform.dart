@@ -75,8 +75,10 @@ final class NotificationUnregisterPushPlatformConverter
   }
 
   @override
-  String toJson(NotificationUnregisterPushPlatform object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(NotificationUnregisterPushPlatform object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownNotificationUnregisterPushPlatform implements Serializable {
@@ -85,7 +87,8 @@ enum KnownNotificationUnregisterPushPlatform implements Serializable {
   @JsonValue('android')
   android('android'),
   @JsonValue('web')
-  web('web');
+  web('web'),
+  ;
 
   @override
   final String value;

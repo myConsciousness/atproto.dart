@@ -41,7 +41,6 @@ abstract class NotificationRegisterPushInput
 
     /// Set to true when the actor is age restricted
     bool? ageRestricted,
-
     Map<String, dynamic>? $unknown,
   }) = _NotificationRegisterPushInput;
 
@@ -61,12 +60,15 @@ final class NotificationRegisterPushInputConverter
 
   @override
   NotificationRegisterPushInput fromJson(Map<String, dynamic> json) {
-    return NotificationRegisterPushInput.fromJson(
-      translate(json, NotificationRegisterPushInput.knownProps),
-    );
+    return NotificationRegisterPushInput.fromJson(translate(
+      json,
+      NotificationRegisterPushInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(NotificationRegisterPushInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

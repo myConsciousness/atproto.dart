@@ -172,17 +172,23 @@ final class _LexServiceGenerator {
 
           // Try to get the object from ref
           if (ref.startsWith('#')) {
-            return _getRelatedType(lexiconId, const [
-              LexTypeState.object,
-            ], refDefName: ref.substring(1));
+            return _getRelatedType(
+                lexiconId,
+                const [
+                  LexTypeState.object,
+                ],
+                refDefName: ref.substring(1));
           } else {
             final parts = ref.split('#');
             final refLexiconId = parts.first;
             final refDefName = parts.last;
 
-            return _getRelatedType(refLexiconId, const [
-              LexTypeState.object,
-            ], refDefName: refDefName);
+            return _getRelatedType(
+                refLexiconId,
+                const [
+                  LexTypeState.object,
+                ],
+                refDefName: refDefName);
           }
         }
       }

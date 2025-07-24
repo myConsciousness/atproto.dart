@@ -222,9 +222,8 @@ bool _hasMutedWords(
     final embeddedPost = embed.embedRecordView!.record.whenOrNull(
       embedRecordViewRecord: (data) => data.value,
     );
-    final embeddedPostRecord = embeddedPost != null
-        ? FeedPostRecord.fromJson(embeddedPost)
-        : null;
+    final embeddedPostRecord =
+        embeddedPost != null ? FeedPostRecord.fromJson(embeddedPost) : null;
 
     // quoted post text
     if (embeddedPostRecord != null &&

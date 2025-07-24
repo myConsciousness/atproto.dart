@@ -36,7 +36,6 @@ abstract class ModEventLabel with _$ModEventLabel {
 
     /// Indicates how long the label will remain on the subject. Only applies on labels that are being added.
     int? durationInHours,
-
     Map<String, dynamic>? $unknown,
   }) = _ModEventLabel;
 
@@ -62,10 +61,14 @@ final class ModEventLabelConverter
 
   @override
   ModEventLabel fromJson(Map<String, dynamic> json) {
-    return ModEventLabel.fromJson(translate(json, ModEventLabel.knownProps));
+    return ModEventLabel.fromJson(translate(
+      json,
+      ModEventLabel.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ModEventLabel object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ModEventLabel object) => untranslate(
+        object.toJson(),
+      );
 }

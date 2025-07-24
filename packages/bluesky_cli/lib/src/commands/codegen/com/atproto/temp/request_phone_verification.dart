@@ -16,7 +16,11 @@ import '../../../../procedure_command.dart';
 
 final class RequestPhoneVerificationCommand extends ProcedureCommand {
   RequestPhoneVerificationCommand() {
-    argParser..addOption("phoneNumber", mandatory: true);
+    argParser
+      ..addOption(
+        "phoneNumber",
+        mandatory: true,
+      );
   }
 
   @override
@@ -34,5 +38,7 @@ final class RequestPhoneVerificationCommand extends ProcedureCommand {
   String get methodId => "com.atproto.temp.requestPhoneVerification";
 
   @override
-  Map<String, dynamic>? get body => {"phoneNumber": argResults!["phoneNumber"]};
+  Map<String, dynamic>? get body => {
+        "phoneNumber": argResults!["phoneNumber"],
+      };
 }

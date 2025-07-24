@@ -21,7 +21,10 @@ part 'mod_event_mute_reporter.g.dart';
 /// Mute incoming reports from an account
 @freezed
 abstract class ModEventMuteReporter with _$ModEventMuteReporter {
-  static const knownProps = <String>['comment', 'durationInHours'];
+  static const knownProps = <String>[
+    'comment',
+    'durationInHours',
+  ];
 
   const factory ModEventMuteReporter({
     @Default('tools.ozone.moderation.defs#modEventMuteReporter') String $type,
@@ -29,7 +32,6 @@ abstract class ModEventMuteReporter with _$ModEventMuteReporter {
 
     /// Indicates how long the account should remain muted. Falsy value here means a permanent mute.
     int? durationInHours,
-
     Map<String, dynamic>? $unknown,
   }) = _ModEventMuteReporter;
 
@@ -56,12 +58,14 @@ final class ModEventMuteReporterConverter
 
   @override
   ModEventMuteReporter fromJson(Map<String, dynamic> json) {
-    return ModEventMuteReporter.fromJson(
-      translate(json, ModEventMuteReporter.knownProps),
-    );
+    return ModEventMuteReporter.fromJson(translate(
+      json,
+      ModEventMuteReporter.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ModEventMuteReporter object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ModEventMuteReporter object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -17,10 +17,20 @@ import '../../../../query_command.dart';
 final class QuerySetsCommand extends QueryCommand {
   QuerySetsCommand() {
     argParser
-      ..addOption("limit", defaultsTo: "50")
-      ..addOption("cursor")
-      ..addOption("namePrefix")
-      ..addOption("sortBy", defaultsTo: "name")
+      ..addOption(
+        "limit",
+        defaultsTo: "50",
+      )
+      ..addOption(
+        "cursor",
+      )
+      ..addOption(
+        "namePrefix",
+      )
+      ..addOption(
+        "sortBy",
+        defaultsTo: "name",
+      )
       ..addOption(
         "sortDirection",
         help: r"Defaults to ascending order of name field.",
@@ -43,11 +53,11 @@ final class QuerySetsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    if (argResults!["namePrefix"] != null)
-      "namePrefix": argResults!["namePrefix"],
-    "sortBy": argResults!["sortBy"],
-    "sortDirection": argResults!["sortDirection"],
-  };
+        "limit": argResults!["limit"],
+        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+        if (argResults!["namePrefix"] != null)
+          "namePrefix": argResults!["namePrefix"],
+        "sortBy": argResults!["sortBy"],
+        "sortDirection": argResults!["sortDirection"],
+      };
 }

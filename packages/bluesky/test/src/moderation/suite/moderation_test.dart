@@ -21,7 +21,8 @@ import 'utils/runner.dart';
 
 void main() {
   group('Moderation', () {
-    test('Applies self-labels on profiles according to the global preferences '
+    test(
+        'Applies self-labels on profiles according to the global preferences '
         '(porn (hide))', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.profileViewBasic(
@@ -57,7 +58,8 @@ void main() {
       );
     });
 
-    test('Applies self-labels on profiles according to the global preferences '
+    test(
+        'Applies self-labels on profiles according to the global preferences '
         '(porn (ignore))', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.profileViewBasic(
@@ -93,7 +95,8 @@ void main() {
       );
     });
 
-    test('Ignores labels from unsubscribed moderators or ignored labels for '
+    test(
+        'Ignores labels from unsubscribed moderators or ignored labels for '
         'a moderator (porn (moderator disabled))', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.profileViewBasic(
@@ -131,7 +134,8 @@ void main() {
       }
     });
 
-    test('Ignores labels from unsubscribed moderators or ignored labels for '
+    test(
+        'Ignores labels from unsubscribed moderators or ignored labels for '
         'a moderator (porn (label group disabled))', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.profileViewBasic(

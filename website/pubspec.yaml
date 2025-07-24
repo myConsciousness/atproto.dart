@@ -1,7 +1,7 @@
 name: snippets
 
 environment:
-  sdk: ^3.8.0
+  sdk: ^3.6.0
 
 dependencies:
   bluesky:
@@ -10,4 +10,4 @@ dependencies:
     path: ../packages/bluesky_text
 
 dev_dependencies:
-  lints: ^6.0.0
+  lints: ^5.1.1

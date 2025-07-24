@@ -29,19 +29,20 @@ sealed class ATProto {
     final core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  }) => _ATProto(
-    ServiceContext(
-      headers: headers,
-      protocol: protocol,
-      service: service,
-      relayService: relayService,
-      session: session,
-      timeout: timeout,
-      retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
-  );
+  }) =>
+      _ATProto(
+        ServiceContext(
+          headers: headers,
+          protocol: protocol,
+          service: service,
+          relayService: relayService,
+          session: session,
+          timeout: timeout,
+          retryConfig: retryConfig,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
+      );
 
   /// Returns the new instance of [ATProto] based on OAuth [session].
   factory ATProto.fromOAuthSession(
@@ -54,19 +55,20 @@ sealed class ATProto {
     final core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  }) => _ATProto(
-    ServiceContext(
-      headers: headers,
-      protocol: protocol,
-      service: service,
-      relayService: relayService,
-      oAuthSession: session,
-      timeout: timeout,
-      retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
-  );
+  }) =>
+      _ATProto(
+        ServiceContext(
+          headers: headers,
+          protocol: protocol,
+          service: service,
+          relayService: relayService,
+          oAuthSession: session,
+          timeout: timeout,
+          retryConfig: retryConfig,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
+      );
 
   /// Returns the new instance of [ATProto] as anonymous.
   factory ATProto.anonymous({
@@ -78,18 +80,19 @@ sealed class ATProto {
     final core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  }) => _ATProto(
-    ServiceContext(
-      headers: headers,
-      protocol: protocol,
-      service: service,
-      relayService: relayService,
-      timeout: timeout,
-      retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
-  );
+  }) =>
+      _ATProto(
+        ServiceContext(
+          headers: headers,
+          protocol: protocol,
+          service: service,
+          relayService: relayService,
+          timeout: timeout,
+          retryConfig: retryConfig,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
+      );
 
   /// Returns the global headers without auth header.
   Map<String, String> get headers;
@@ -188,14 +191,14 @@ sealed class ATProto {
 
 final class _ATProto implements ATProto {
   _ATProto(final ServiceContext ctx)
-    : server = ServerService(ctx),
-      identity = IdentityService(ctx),
-      repo = RepoService(ctx),
-      moderation = ModerationService(ctx),
-      sync = SyncService(ctx),
-      label = LabelService(ctx),
-      temp = TempService(ctx),
-      _ctx = ctx {
+      : server = ServerService(ctx),
+        identity = IdentityService(ctx),
+        repo = RepoService(ctx),
+        moderation = ModerationService(ctx),
+        sync = SyncService(ctx),
+        label = LabelService(ctx),
+        temp = TempService(ctx),
+        _ctx = ctx {
     ctx.setRepo(repo);
   }
 
@@ -245,14 +248,15 @@ final class _ATProto implements ATProto {
     final Map<String, dynamic>? parameters,
     final core.ResponseDataBuilder<T>? to,
     final core.ResponseDataAdaptor? adaptor,
-  }) async => await _ctx.get(
-    methodId,
-    service: service,
-    headers: headers,
-    parameters: parameters,
-    to: to,
-    adaptor: adaptor,
-  );
+  }) async =>
+      await _ctx.get(
+        methodId,
+        service: service,
+        headers: headers,
+        parameters: parameters,
+        to: to,
+        adaptor: adaptor,
+      );
 
   @override
   Future<core.XRPCResponse<T>> post<T>(
@@ -262,12 +266,13 @@ final class _ATProto implements ATProto {
     final Map<String, dynamic>? parameters,
     final dynamic body,
     final core.ResponseDataBuilder<T>? to,
-  }) async => await _ctx.post(
-    methodId,
-    service: service,
-    headers: headers,
-    parameters: parameters,
-    body: body,
-    to: to,
-  );
+  }) async =>
+      await _ctx.post(
+        methodId,
+        service: service,
+        headers: headers,
+        parameters: parameters,
+        body: body,
+        to: to,
+      );
 }

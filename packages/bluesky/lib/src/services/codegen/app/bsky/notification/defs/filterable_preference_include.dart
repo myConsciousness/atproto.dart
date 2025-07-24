@@ -26,8 +26,9 @@ abstract class FilterablePreferenceInclude with _$FilterablePreferenceInclude {
     required KnownFilterablePreferenceInclude data,
   }) = FilterablePreferenceIncludeKnownValue;
 
-  const factory FilterablePreferenceInclude.unknown({required String data}) =
-      FilterablePreferenceIncludeUnknown;
+  const factory FilterablePreferenceInclude.unknown({
+    required String data,
+  }) = FilterablePreferenceIncludeUnknown;
 
   static FilterablePreferenceInclude? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,15 +71,18 @@ final class FilterablePreferenceIncludeConverter
   }
 
   @override
-  String toJson(FilterablePreferenceInclude object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(FilterablePreferenceInclude object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownFilterablePreferenceInclude implements Serializable {
   @JsonValue('all')
   all('all'),
   @JsonValue('follows')
-  follows('follows');
+  follows('follows'),
+  ;
 
   @override
   final String value;

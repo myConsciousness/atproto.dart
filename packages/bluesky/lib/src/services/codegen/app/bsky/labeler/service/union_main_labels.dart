@@ -22,8 +22,9 @@ part 'union_main_labels.freezed.dart';
 abstract class ULabelerServiceLabels with _$ULabelerServiceLabels {
   const ULabelerServiceLabels._();
 
-  const factory ULabelerServiceLabels.selfLabels({required SelfLabels data}) =
-      ULabelerServiceLabelsSelfLabels;
+  const factory ULabelerServiceLabels.selfLabels({
+    required SelfLabels data,
+  }) = ULabelerServiceLabelsSelfLabels;
 
   const factory ULabelerServiceLabels.unknown({
     required Map<String, dynamic> data,
@@ -64,8 +65,7 @@ final class ULabelerServiceLabelsConverter
 
   @override
   Map<String, dynamic> toJson(ULabelerServiceLabels object) => object.when(
-    selfLabels: (data) => const SelfLabelsConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        selfLabels: (data) => const SelfLabelsConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

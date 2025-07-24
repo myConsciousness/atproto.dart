@@ -57,8 +57,12 @@ final class _CreatePostCommand extends CreateRecordCommand {
         "facets",
         help: r"Annotations of text (mentions, URLs, hashtags, etc)",
       )
-      ..addOption("reply")
-      ..addOption("embed")
+      ..addOption(
+        "reply",
+      )
+      ..addOption(
+        "embed",
+      )
       ..addMultiOption(
         "langs",
         help: r"Indicates human language of post primary text content.",
@@ -99,17 +103,20 @@ final class _CreatePostCommand extends CreateRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-    "text": argResults!["text"],
-    if (argResults!["entities"] != null) "entities": argResults!["entities"],
-    if (argResults!["facets"] != null) "facets": argResults!["facets"],
-    if (argResults!["reply"] != null) "reply": jsonDecode(argResults!["reply"]),
-    if (argResults!["embed"] != null) "embed": jsonDecode(argResults!["embed"]),
-    if (argResults!["langs"] != null) "langs": argResults!["langs"],
-    if (argResults!["labels"] != null)
-      "labels": jsonDecode(argResults!["labels"]),
-    if (argResults!["tags"] != null) "tags": argResults!["tags"],
-    "createdAt": argResults!["createdAt"],
-  };
+        "text": argResults!["text"],
+        if (argResults!["entities"] != null)
+          "entities": argResults!["entities"],
+        if (argResults!["facets"] != null) "facets": argResults!["facets"],
+        if (argResults!["reply"] != null)
+          "reply": jsonDecode(argResults!["reply"]),
+        if (argResults!["embed"] != null)
+          "embed": jsonDecode(argResults!["embed"]),
+        if (argResults!["langs"] != null) "langs": argResults!["langs"],
+        if (argResults!["labels"] != null)
+          "labels": jsonDecode(argResults!["labels"]),
+        if (argResults!["tags"] != null) "tags": argResults!["tags"],
+        "createdAt": argResults!["createdAt"],
+      };
 }
 
 final class _PutPostCommand extends PutRecordCommand {
@@ -129,8 +136,12 @@ final class _PutPostCommand extends PutRecordCommand {
         "facets",
         help: r"Annotations of text (mentions, URLs, hashtags, etc)",
       )
-      ..addOption("reply")
-      ..addOption("embed")
+      ..addOption(
+        "reply",
+      )
+      ..addOption(
+        "embed",
+      )
       ..addMultiOption(
         "langs",
         help: r"Indicates human language of post primary text content.",
@@ -171,22 +182,29 @@ final class _PutPostCommand extends PutRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-    "text": argResults!["text"],
-    if (argResults!["entities"] != null) "entities": argResults!["entities"],
-    if (argResults!["facets"] != null) "facets": argResults!["facets"],
-    if (argResults!["reply"] != null) "reply": jsonDecode(argResults!["reply"]),
-    if (argResults!["embed"] != null) "embed": jsonDecode(argResults!["embed"]),
-    if (argResults!["langs"] != null) "langs": argResults!["langs"],
-    if (argResults!["labels"] != null)
-      "labels": jsonDecode(argResults!["labels"]),
-    if (argResults!["tags"] != null) "tags": argResults!["tags"],
-    "createdAt": argResults!["createdAt"],
-  };
+        "text": argResults!["text"],
+        if (argResults!["entities"] != null)
+          "entities": argResults!["entities"],
+        if (argResults!["facets"] != null) "facets": argResults!["facets"],
+        if (argResults!["reply"] != null)
+          "reply": jsonDecode(argResults!["reply"]),
+        if (argResults!["embed"] != null)
+          "embed": jsonDecode(argResults!["embed"]),
+        if (argResults!["langs"] != null) "langs": argResults!["langs"],
+        if (argResults!["labels"] != null)
+          "labels": jsonDecode(argResults!["labels"]),
+        if (argResults!["tags"] != null) "tags": argResults!["tags"],
+        "createdAt": argResults!["createdAt"],
+      };
 }
 
 final class _DeletePostCommand extends DeleteRecordCommand {
   _DeletePostCommand() {
-    argParser..addOption("rkey", mandatory: true);
+    argParser
+      ..addOption(
+        "rkey",
+        mandatory: true,
+      );
   }
 
   @override
@@ -208,7 +226,10 @@ final class _DeletePostCommand extends DeleteRecordCommand {
 final class _GetPostCommand extends QueryCommand {
   _GetPostCommand() {
     argParser
-      ..addOption("rkey", mandatory: true)
+      ..addOption(
+        "rkey",
+        mandatory: true,
+      )
       ..addOption("cid");
   }
 
@@ -226,11 +247,11 @@ final class _GetPostCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'rkey': argResults!['rkey'],
-    if (argResults!['cid'] != null) 'cid': argResults!['cid'],
-  };
+        'repo': await did,
+        'collection': methodId,
+        'rkey': argResults!['rkey'],
+        if (argResults!['cid'] != null) 'cid': argResults!['cid'],
+      };
 }
 
 final class _ListPostCommand extends QueryCommand {
@@ -256,10 +277,10 @@ final class _ListPostCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'limit': argResults!['limit'],
-    if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
-    'reverse': argResults!['reverse'],
-  };
+        'repo': await did,
+        'collection': methodId,
+        'limit': argResults!['limit'],
+        if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
+        'reverse': argResults!['reverse'],
+      };
 }

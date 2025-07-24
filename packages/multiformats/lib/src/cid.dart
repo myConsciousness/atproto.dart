@@ -88,7 +88,8 @@ final class CID {
   factory CID.create(
     final String input, [
     final Multicodec codec = Multicodec.dagPb,
-  ]) => CID.fromList(_toV1(_toMultihash(input), codec));
+  ]) =>
+      CID.fromList(_toV1(_toMultihash(input), codec));
 
   /// Returns the new instance of [CID] based on string [cid].
   factory CID.parse(final String cid) => CID(_decode(_ensureStringFormat(cid)));

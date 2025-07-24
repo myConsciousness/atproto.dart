@@ -23,13 +23,15 @@ part 'output.g.dart';
 
 @freezed
 abstract class SafelinkQueryEventsOutput with _$SafelinkQueryEventsOutput {
-  static const knownProps = <String>['cursor', 'events'];
+  static const knownProps = <String>[
+    'cursor',
+    'events',
+  ];
 
   const factory SafelinkQueryEventsOutput({
     /// Next cursor for pagination. Only present if there are more results.
     String? cursor,
     @EventConverter() required List<Event> events,
-
     Map<String, dynamic>? $unknown,
   }) = _SafelinkQueryEventsOutput;
 
@@ -48,12 +50,14 @@ final class SafelinkQueryEventsOutputConverter
 
   @override
   SafelinkQueryEventsOutput fromJson(Map<String, dynamic> json) {
-    return SafelinkQueryEventsOutput.fromJson(
-      translate(json, SafelinkQueryEventsOutput.knownProps),
-    );
+    return SafelinkQueryEventsOutput.fromJson(translate(
+      json,
+      SafelinkQueryEventsOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SafelinkQueryEventsOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SafelinkQueryEventsOutput object) => untranslate(
+        object.toJson(),
+      );
 }

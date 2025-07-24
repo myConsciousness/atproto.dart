@@ -17,8 +17,14 @@ import '../../../../procedure_command.dart';
 final class UpdateAccountPasswordCommand extends ProcedureCommand {
   UpdateAccountPasswordCommand() {
     argParser
-      ..addOption("did", mandatory: true)
-      ..addOption("password", mandatory: true);
+      ..addOption(
+        "did",
+        mandatory: true,
+      )
+      ..addOption(
+        "password",
+        mandatory: true,
+      );
   }
 
   @override
@@ -37,7 +43,7 @@ final class UpdateAccountPasswordCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "did": argResults!["did"],
-    "password": argResults!["password"],
-  };
+        "did": argResults!["did"],
+        "password": argResults!["password"],
+      };
 }

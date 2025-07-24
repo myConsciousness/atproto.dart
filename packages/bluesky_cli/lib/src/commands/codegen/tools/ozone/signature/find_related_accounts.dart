@@ -17,9 +17,17 @@ import '../../../../query_command.dart';
 final class FindRelatedAccountsCommand extends QueryCommand {
   FindRelatedAccountsCommand() {
     argParser
-      ..addOption("did", mandatory: true)
-      ..addOption("cursor")
-      ..addOption("limit", defaultsTo: "50");
+      ..addOption(
+        "did",
+        mandatory: true,
+      )
+      ..addOption(
+        "cursor",
+      )
+      ..addOption(
+        "limit",
+        defaultsTo: "50",
+      );
   }
 
   @override
@@ -38,8 +46,8 @@ final class FindRelatedAccountsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "did": argResults!["did"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    "limit": argResults!["limit"],
-  };
+        "did": argResults!["did"],
+        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+        "limit": argResults!["limit"],
+      };
 }

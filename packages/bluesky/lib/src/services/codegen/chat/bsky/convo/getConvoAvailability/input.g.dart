@@ -9,24 +9,27 @@ part of 'input.dart';
 // **************************************************************************
 
 _ConvoGetConvoAvailabilityInput _$ConvoGetConvoAvailabilityInputFromJson(
-  Map json,
-) => $checkedCreate('_ConvoGetConvoAvailabilityInput', json, ($checkedConvert) {
-  final val = _ConvoGetConvoAvailabilityInput(
-    members: $checkedConvert(
-      'members',
-      (v) => (v as List<dynamic>).map((e) => e as String).toList(),
-    ),
-    $unknown: $checkedConvert(
-      r'$unknown',
-      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-    ),
-  );
-  return val;
-});
+        Map json) =>
+    $checkedCreate(
+      '_ConvoGetConvoAvailabilityInput',
+      json,
+      ($checkedConvert) {
+        final val = _ConvoGetConvoAvailabilityInput(
+          members: $checkedConvert('members',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$ConvoGetConvoAvailabilityInputToJson(
-  _ConvoGetConvoAvailabilityInput instance,
-) => <String, dynamic>{
-  'members': instance.members,
-  r'$unknown': instance.$unknown,
-};
+        _ConvoGetConvoAvailabilityInput instance) =>
+    <String, dynamic>{
+      'members': instance.members,
+      r'$unknown': instance.$unknown,
+    };

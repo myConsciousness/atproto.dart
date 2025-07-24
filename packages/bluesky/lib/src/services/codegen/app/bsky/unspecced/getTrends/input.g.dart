@@ -9,17 +9,25 @@ part of 'input.dart';
 // **************************************************************************
 
 _UnspeccedGetTrendsInput _$UnspeccedGetTrendsInputFromJson(Map json) =>
-    $checkedCreate('_UnspeccedGetTrendsInput', json, ($checkedConvert) {
-      final val = _UnspeccedGetTrendsInput(
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 10),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_UnspeccedGetTrendsInput',
+      json,
+      ($checkedConvert) {
+        final val = _UnspeccedGetTrendsInput(
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 10),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$UnspeccedGetTrendsInputToJson(
-  _UnspeccedGetTrendsInput instance,
-) => <String, dynamic>{'limit': instance.limit, r'$unknown': instance.$unknown};
+        _UnspeccedGetTrendsInput instance) =>
+    <String, dynamic>{
+      'limit': instance.limit,
+      r'$unknown': instance.$unknown,
+    };

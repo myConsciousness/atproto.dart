@@ -9,20 +9,25 @@ part of 'input.dart';
 // **************************************************************************
 
 _ConvoUnmuteConvoInput _$ConvoUnmuteConvoInputFromJson(Map json) =>
-    $checkedCreate('_ConvoUnmuteConvoInput', json, ($checkedConvert) {
-      final val = _ConvoUnmuteConvoInput(
-        convoId: $checkedConvert('convoId', (v) => v as String),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_ConvoUnmuteConvoInput',
+      json,
+      ($checkedConvert) {
+        final val = _ConvoUnmuteConvoInput(
+          convoId: $checkedConvert('convoId', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$ConvoUnmuteConvoInputToJson(
-  _ConvoUnmuteConvoInput instance,
-) => <String, dynamic>{
-  'convoId': instance.convoId,
-  r'$unknown': instance.$unknown,
-};
+        _ConvoUnmuteConvoInput instance) =>
+    <String, dynamic>{
+      'convoId': instance.convoId,
+      r'$unknown': instance.$unknown,
+    };

@@ -23,12 +23,13 @@ part 'output.g.dart';
 
 @freezed
 abstract class ModerationGetRecordsOutput with _$ModerationGetRecordsOutput {
-  static const knownProps = <String>['records'];
+  static const knownProps = <String>[
+    'records',
+  ];
 
   const factory ModerationGetRecordsOutput({
     @UModerationGetRecordsRecordsConverter()
     required List<UModerationGetRecordsRecords> records,
-
     Map<String, dynamic>? $unknown,
   }) = _ModerationGetRecordsOutput;
 
@@ -42,12 +43,14 @@ final class ModerationGetRecordsOutputConverter
 
   @override
   ModerationGetRecordsOutput fromJson(Map<String, dynamic> json) {
-    return ModerationGetRecordsOutput.fromJson(
-      translate(json, ModerationGetRecordsOutput.knownProps),
-    );
+    return ModerationGetRecordsOutput.fromJson(translate(
+      json,
+      ModerationGetRecordsOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ModerationGetRecordsOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ModerationGetRecordsOutput object) => untranslate(
+        object.toJson(),
+      );
 }

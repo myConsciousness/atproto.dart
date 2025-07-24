@@ -9,29 +9,30 @@ part of 'lex_integer.dart';
 // **************************************************************************
 
 _LexInteger _$LexIntegerFromJson(Map json) => $checkedCreate(
-  '_LexInteger',
-  json,
-  ($checkedConvert) {
-    final val = _LexInteger(
-      type: $checkedConvert('type', (v) => v as String? ?? 'integer'),
-      description: $checkedConvert('description', (v) => v as String?),
-      defaultValue: $checkedConvert('default', (v) => (v as num?)?.toInt()),
-      minimum: $checkedConvert('minimum', (v) => (v as num?)?.toInt()),
-      maximum: $checkedConvert('maximum', (v) => (v as num?)?.toInt()),
-      enumValues: $checkedConvert(
-        'enum',
-        (v) => (v as List<dynamic>?)?.map((e) => (e as num).toInt()).toList(),
-      ),
-      constValue: $checkedConvert('const', (v) => (v as num?)?.toInt()),
+      '_LexInteger',
+      json,
+      ($checkedConvert) {
+        final val = _LexInteger(
+          type: $checkedConvert('type', (v) => v as String? ?? 'integer'),
+          description: $checkedConvert('description', (v) => v as String?),
+          defaultValue: $checkedConvert('default', (v) => (v as num?)?.toInt()),
+          minimum: $checkedConvert('minimum', (v) => (v as num?)?.toInt()),
+          maximum: $checkedConvert('maximum', (v) => (v as num?)?.toInt()),
+          enumValues: $checkedConvert(
+              'enum',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => (e as num).toInt())
+                  .toList()),
+          constValue: $checkedConvert('const', (v) => (v as num?)?.toInt()),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'defaultValue': 'default',
+        'enumValues': 'enum',
+        'constValue': 'const'
+      },
     );
-    return val;
-  },
-  fieldKeyMap: const {
-    'defaultValue': 'default',
-    'enumValues': 'enum',
-    'constValue': 'const',
-  },
-);
 
 Map<String, dynamic> _$LexIntegerToJson(_LexInteger instance) =>
     <String, dynamic>{

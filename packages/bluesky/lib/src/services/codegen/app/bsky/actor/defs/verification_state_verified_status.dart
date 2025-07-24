@@ -74,8 +74,10 @@ final class VerificationStateVerifiedStatusConverter
   }
 
   @override
-  String toJson(VerificationStateVerifiedStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(VerificationStateVerifiedStatus object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownVerificationStateVerifiedStatus implements Serializable {
@@ -84,7 +86,8 @@ enum KnownVerificationStateVerifiedStatus implements Serializable {
   @JsonValue('invalid')
   invalid('invalid'),
   @JsonValue('none')
-  none('none');
+  none('none'),
+  ;
 
   @override
   final String value;

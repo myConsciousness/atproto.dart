@@ -8,18 +8,22 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_GraphGetMutesInput _$GraphGetMutesInputFromJson(Map json) =>
-    $checkedCreate('_GraphGetMutesInput', json, ($checkedConvert) {
-      final val = _GraphGetMutesInput(
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
-        cursor: $checkedConvert('cursor', (v) => v as String?),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+_GraphGetMutesInput _$GraphGetMutesInputFromJson(Map json) => $checkedCreate(
+      '_GraphGetMutesInput',
+      json,
+      ($checkedConvert) {
+        final val = _GraphGetMutesInput(
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$GraphGetMutesInputToJson(_GraphGetMutesInput instance) =>
     <String, dynamic>{

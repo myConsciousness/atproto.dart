@@ -58,7 +58,6 @@ abstract class Preferences with _$Preferences {
     @PreferenceConverter() required Preference subscribedPost,
     @PreferenceConverter() required Preference unverified,
     @PreferenceConverter() required Preference verified,
-
     Map<String, dynamic>? $unknown,
   }) = _Preferences;
 
@@ -77,10 +76,14 @@ final class PreferencesConverter
 
   @override
   Preferences fromJson(Map<String, dynamic> json) {
-    return Preferences.fromJson(translate(json, Preferences.knownProps));
+    return Preferences.fromJson(translate(
+      json,
+      Preferences.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(Preferences object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(Preferences object) => untranslate(
+        object.toJson(),
+      );
 }

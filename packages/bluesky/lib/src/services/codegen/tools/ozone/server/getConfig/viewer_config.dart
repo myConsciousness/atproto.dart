@@ -23,12 +23,13 @@ part 'viewer_config.g.dart';
 
 @freezed
 abstract class ViewerConfig with _$ViewerConfig {
-  static const knownProps = <String>['role'];
+  static const knownProps = <String>[
+    'role',
+  ];
 
   const factory ViewerConfig({
     @Default('tools.ozone.server.getConfig#viewerConfig') String $type,
     @ViewerConfigRoleConverter() ViewerConfigRole? role,
-
     Map<String, dynamic>? $unknown,
   }) = _ViewerConfig;
 
@@ -52,10 +53,14 @@ final class ViewerConfigConverter
 
   @override
   ViewerConfig fromJson(Map<String, dynamic> json) {
-    return ViewerConfig.fromJson(translate(json, ViewerConfig.knownProps));
+    return ViewerConfig.fromJson(translate(
+      json,
+      ViewerConfig.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ViewerConfig object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ViewerConfig object) => untranslate(
+        object.toJson(),
+      );
 }

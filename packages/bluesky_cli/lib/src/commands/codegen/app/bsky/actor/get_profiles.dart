@@ -16,7 +16,10 @@ import '../../../../query_command.dart';
 
 final class GetProfilesCommand extends QueryCommand {
   GetProfilesCommand() {
-    argParser..addMultiOption("actors");
+    argParser
+      ..addMultiOption(
+        "actors",
+      );
   }
 
   @override
@@ -32,5 +35,7 @@ final class GetProfilesCommand extends QueryCommand {
   String get methodId => "app.bsky.actor.getProfiles";
 
   @override
-  Map<String, dynamic>? get parameters => {"actors": argResults!["actors"]};
+  Map<String, dynamic>? get parameters => {
+        "actors": argResults!["actors"],
+      };
 }

@@ -20,12 +20,14 @@ part 'input.g.dart';
 
 @freezed
 abstract class SyncListReposInput with _$SyncListReposInput {
-  static const knownProps = <String>['limit', 'cursor'];
+  static const knownProps = <String>[
+    'limit',
+    'cursor',
+  ];
 
   const factory SyncListReposInput({
     @Default(500) int limit,
     String? cursor,
-
     Map<String, dynamic>? $unknown,
   }) = _SyncListReposInput;
 
@@ -44,12 +46,14 @@ final class SyncListReposInputConverter
 
   @override
   SyncListReposInput fromJson(Map<String, dynamic> json) {
-    return SyncListReposInput.fromJson(
-      translate(json, SyncListReposInput.knownProps),
-    );
+    return SyncListReposInput.fromJson(translate(
+      json,
+      SyncListReposInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SyncListReposInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SyncListReposInput object) => untranslate(
+        object.toJson(),
+      );
 }

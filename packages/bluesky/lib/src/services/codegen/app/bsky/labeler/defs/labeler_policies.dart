@@ -21,14 +21,16 @@ part 'labeler_policies.g.dart';
 
 @freezed
 abstract class LabelerPolicies with _$LabelerPolicies {
-  static const knownProps = <String>['labelValues', 'labelValueDefinitions'];
+  static const knownProps = <String>[
+    'labelValues',
+    'labelValueDefinitions',
+  ];
 
   const factory LabelerPolicies({
     @Default('app.bsky.labeler.defs#labelerPolicies') String $type,
     @LabelValueConverter() required List<LabelValue> labelValues,
     @LabelValueDefinitionConverter()
     List<LabelValueDefinition>? labelValueDefinitions,
-
     Map<String, dynamic>? $unknown,
   }) = _LabelerPolicies;
 
@@ -47,12 +49,14 @@ final class LabelerPoliciesConverter
 
   @override
   LabelerPolicies fromJson(Map<String, dynamic> json) {
-    return LabelerPolicies.fromJson(
-      translate(json, LabelerPolicies.knownProps),
-    );
+    return LabelerPolicies.fromJson(translate(
+      json,
+      LabelerPolicies.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(LabelerPolicies object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(LabelerPolicies object) => untranslate(
+        object.toJson(),
+      );
 }

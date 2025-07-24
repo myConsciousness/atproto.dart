@@ -8,27 +8,27 @@ part of 'verification_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_VerificationView _$VerificationViewFromJson(Map json) =>
-    $checkedCreate('_VerificationView', json, ($checkedConvert) {
-      final val = _VerificationView(
-        $type: $checkedConvert(
-          r'$type',
-          (v) => v as String? ?? 'app.bsky.actor.defs#verificationView',
-        ),
-        issuer: $checkedConvert('issuer', (v) => v as String),
-        uri: $checkedConvert('uri', (v) => v as String),
-        isValid: $checkedConvert('isValid', (v) => v as bool),
-        createdAt: $checkedConvert(
-          'createdAt',
-          (v) => DateTime.parse(v as String),
-        ),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+_VerificationView _$VerificationViewFromJson(Map json) => $checkedCreate(
+      '_VerificationView',
+      json,
+      ($checkedConvert) {
+        final val = _VerificationView(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? 'app.bsky.actor.defs#verificationView'),
+          issuer: $checkedConvert('issuer', (v) => v as String),
+          uri: $checkedConvert('uri', (v) => v as String),
+          isValid: $checkedConvert('isValid', (v) => v as bool),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$VerificationViewToJson(_VerificationView instance) =>
     <String, dynamic>{

@@ -31,7 +31,7 @@ final class LexIpldConverter
 
   @override
   Map<String, dynamic> toJson(LexIpld object) => object.when(
-    bytes: (data) => data.toJson(),
-    cidLink: (data) => data.toJson(),
-  );
+        bytes: (data) => data.toJson(),
+        cidLink: (data) => data.toJson(),
+      );
 }

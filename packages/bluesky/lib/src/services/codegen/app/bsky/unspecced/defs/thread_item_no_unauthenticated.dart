@@ -25,7 +25,6 @@ abstract class ThreadItemNoUnauthenticated with _$ThreadItemNoUnauthenticated {
   const factory ThreadItemNoUnauthenticated({
     @Default('app.bsky.unspecced.defs#threadItemNoUnauthenticated')
     String $type,
-
     Map<String, dynamic>? $unknown,
   }) = _ThreadItemNoUnauthenticated;
 
@@ -45,12 +44,15 @@ final class ThreadItemNoUnauthenticatedConverter
 
   @override
   ThreadItemNoUnauthenticated fromJson(Map<String, dynamic> json) {
-    return ThreadItemNoUnauthenticated.fromJson(
-      translate(json, ThreadItemNoUnauthenticated.knownProps),
-    );
+    return ThreadItemNoUnauthenticated.fromJson(translate(
+      json,
+      ThreadItemNoUnauthenticated.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(ThreadItemNoUnauthenticated object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

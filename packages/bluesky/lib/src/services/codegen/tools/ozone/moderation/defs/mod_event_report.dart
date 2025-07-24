@@ -35,7 +35,6 @@ abstract class ModEventReport with _$ModEventReport {
     /// Set to true if the reporter was muted from reporting at the time of the event. These reports won't impact the reviewState of the subject.
     bool? isReporterMuted,
     @ReasonTypeConverter() required ReasonType reportType,
-
     Map<String, dynamic>? $unknown,
   }) = _ModEventReport;
 
@@ -61,10 +60,14 @@ final class ModEventReportConverter
 
   @override
   ModEventReport fromJson(Map<String, dynamic> json) {
-    return ModEventReport.fromJson(translate(json, ModEventReport.knownProps));
+    return ModEventReport.fromJson(translate(
+      json,
+      ModEventReport.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ModEventReport object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ModEventReport object) => untranslate(
+        object.toJson(),
+      );
 }

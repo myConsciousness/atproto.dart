@@ -21,7 +21,10 @@ part 'revoke_error.g.dart';
 /// Error object for failed revocations
 @freezed
 abstract class RevokeError with _$RevokeError {
-  static const knownProps = <String>['uri', 'error'];
+  static const knownProps = <String>[
+    'uri',
+    'error',
+  ];
 
   const factory RevokeError({
     @Default('tools.ozone.verification.revokeVerifications#revokeError')
@@ -32,7 +35,6 @@ abstract class RevokeError with _$RevokeError {
 
     /// Description of the error that occurred during revocation.
     required String error,
-
     Map<String, dynamic>? $unknown,
   }) = _RevokeError;
 
@@ -52,10 +54,14 @@ final class RevokeErrorConverter
 
   @override
   RevokeError fromJson(Map<String, dynamic> json) {
-    return RevokeError.fromJson(translate(json, RevokeError.knownProps));
+    return RevokeError.fromJson(translate(
+      json,
+      RevokeError.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(RevokeError object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(RevokeError object) => untranslate(
+        object.toJson(),
+      );
 }

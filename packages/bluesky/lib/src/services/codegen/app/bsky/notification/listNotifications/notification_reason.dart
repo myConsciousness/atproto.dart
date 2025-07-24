@@ -26,8 +26,9 @@ abstract class NotificationReason with _$NotificationReason {
     required KnownNotificationReason data,
   }) = NotificationReasonKnownValue;
 
-  const factory NotificationReason.unknown({required String data}) =
-      NotificationReasonUnknown;
+  const factory NotificationReason.unknown({
+    required String data,
+  }) = NotificationReasonUnknown;
 
   static NotificationReason? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,8 +71,10 @@ final class NotificationReasonConverter
   }
 
   @override
-  String toJson(NotificationReason object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(NotificationReason object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownNotificationReason implements Serializable {
@@ -98,7 +101,8 @@ enum KnownNotificationReason implements Serializable {
   @JsonValue('repost-via-repost')
   repostViaRepost('repost-via-repost'),
   @JsonValue('subscribed-post')
-  subscribedPost('subscribed-post');
+  subscribedPost('subscribed-post'),
+  ;
 
   @override
   final String value;

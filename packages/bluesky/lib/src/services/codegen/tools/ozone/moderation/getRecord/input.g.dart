@@ -9,22 +9,27 @@ part of 'input.dart';
 // **************************************************************************
 
 _ModerationGetRecordInput _$ModerationGetRecordInputFromJson(Map json) =>
-    $checkedCreate('_ModerationGetRecordInput', json, ($checkedConvert) {
-      final val = _ModerationGetRecordInput(
-        uri: $checkedConvert('uri', (v) => v as String),
-        cid: $checkedConvert('cid', (v) => v as String?),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_ModerationGetRecordInput',
+      json,
+      ($checkedConvert) {
+        final val = _ModerationGetRecordInput(
+          uri: $checkedConvert('uri', (v) => v as String),
+          cid: $checkedConvert('cid', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$ModerationGetRecordInputToJson(
-  _ModerationGetRecordInput instance,
-) => <String, dynamic>{
-  'uri': instance.uri,
-  'cid': instance.cid,
-  r'$unknown': instance.$unknown,
-};
+        _ModerationGetRecordInput instance) =>
+    <String, dynamic>{
+      'uri': instance.uri,
+      'cid': instance.cid,
+      r'$unknown': instance.$unknown,
+    };

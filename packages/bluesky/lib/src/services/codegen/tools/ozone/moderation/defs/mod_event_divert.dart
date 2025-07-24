@@ -21,12 +21,13 @@ part 'mod_event_divert.g.dart';
 /// Divert a record's blobs to a 3rd party service for further scanning/tagging
 @freezed
 abstract class ModEventDivert with _$ModEventDivert {
-  static const knownProps = <String>['comment'];
+  static const knownProps = <String>[
+    'comment',
+  ];
 
   const factory ModEventDivert({
     @Default('tools.ozone.moderation.defs#modEventDivert') String $type,
     String? comment,
-
     Map<String, dynamic>? $unknown,
   }) = _ModEventDivert;
 
@@ -50,10 +51,14 @@ final class ModEventDivertConverter
 
   @override
   ModEventDivert fromJson(Map<String, dynamic> json) {
-    return ModEventDivert.fromJson(translate(json, ModEventDivert.knownProps));
+    return ModEventDivert.fromJson(translate(
+      json,
+      ModEventDivert.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ModEventDivert object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ModEventDivert object) => untranslate(
+        object.toJson(),
+      );
 }

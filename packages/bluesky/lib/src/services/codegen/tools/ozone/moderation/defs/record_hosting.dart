@@ -36,7 +36,6 @@ abstract class RecordHosting with _$RecordHosting {
     DateTime? updatedAt,
     DateTime? createdAt,
     DateTime? deletedAt,
-
     Map<String, dynamic>? $unknown,
   }) = _RecordHosting;
 
@@ -64,10 +63,14 @@ final class RecordHostingConverter
 
   @override
   RecordHosting fromJson(Map<String, dynamic> json) {
-    return RecordHosting.fromJson(translate(json, RecordHosting.knownProps));
+    return RecordHosting.fromJson(translate(
+      json,
+      RecordHosting.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(RecordHosting object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(RecordHosting object) => untranslate(
+        object.toJson(),
+      );
 }

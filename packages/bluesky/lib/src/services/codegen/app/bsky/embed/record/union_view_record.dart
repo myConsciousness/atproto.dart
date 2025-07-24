@@ -46,8 +46,9 @@ abstract class UEmbedRecordViewRecord with _$UEmbedRecordViewRecord {
   const factory UEmbedRecordViewRecord.generatorView({
     required GeneratorView data,
   }) = UEmbedRecordViewRecordGeneratorView;
-  const factory UEmbedRecordViewRecord.listView({required ListView data}) =
-      UEmbedRecordViewRecordListView;
+  const factory UEmbedRecordViewRecord.listView({
+    required ListView data,
+  }) = UEmbedRecordViewRecordListView;
   const factory UEmbedRecordViewRecord.labelerView({
     required LabelerView data,
   }) = UEmbedRecordViewRecordLabelerView;
@@ -161,20 +162,19 @@ final class UEmbedRecordViewRecordConverter
 
   @override
   Map<String, dynamic> toJson(UEmbedRecordViewRecord object) => object.when(
-    embedRecordViewRecord: (data) =>
-        const EmbedRecordViewRecordConverter().toJson(data),
-    embedRecordViewNotFound: (data) =>
-        const EmbedRecordViewNotFoundConverter().toJson(data),
-    embedRecordViewBlocked: (data) =>
-        const EmbedRecordViewBlockedConverter().toJson(data),
-    embedRecordViewDetached: (data) =>
-        const EmbedRecordViewDetachedConverter().toJson(data),
-    generatorView: (data) => const GeneratorViewConverter().toJson(data),
-    listView: (data) => const ListViewConverter().toJson(data),
-    labelerView: (data) => const LabelerViewConverter().toJson(data),
-    starterPackViewBasic: (data) =>
-        const StarterPackViewBasicConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        embedRecordViewRecord: (data) =>
+            const EmbedRecordViewRecordConverter().toJson(data),
+        embedRecordViewNotFound: (data) =>
+            const EmbedRecordViewNotFoundConverter().toJson(data),
+        embedRecordViewBlocked: (data) =>
+            const EmbedRecordViewBlockedConverter().toJson(data),
+        embedRecordViewDetached: (data) =>
+            const EmbedRecordViewDetachedConverter().toJson(data),
+        generatorView: (data) => const GeneratorViewConverter().toJson(data),
+        listView: (data) => const ListViewConverter().toJson(data),
+        labelerView: (data) => const LabelerViewConverter().toJson(data),
+        starterPackViewBasic: (data) =>
+            const StarterPackViewBasicConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

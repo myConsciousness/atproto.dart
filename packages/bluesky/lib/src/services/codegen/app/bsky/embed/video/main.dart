@@ -25,7 +25,12 @@ part 'main.g.dart';
 
 @freezed
 abstract class EmbedVideo with _$EmbedVideo {
-  static const knownProps = <String>['video', 'captions', 'alt', 'aspectRatio'];
+  static const knownProps = <String>[
+    'video',
+    'captions',
+    'alt',
+    'aspectRatio',
+  ];
 
   const factory EmbedVideo({
     @Default('app.bsky.embed.video') String $type,
@@ -37,7 +42,6 @@ abstract class EmbedVideo with _$EmbedVideo {
     /// Alt text description of the video, for accessibility.
     String? alt,
     @AspectRatioConverter() AspectRatio? aspectRatio,
-
     Map<String, dynamic>? $unknown,
   }) = _EmbedVideo;
 
@@ -64,10 +68,14 @@ final class EmbedVideoConverter
 
   @override
   EmbedVideo fromJson(Map<String, dynamic> json) {
-    return EmbedVideo.fromJson(translate(json, EmbedVideo.knownProps));
+    return EmbedVideo.fromJson(translate(
+      json,
+      EmbedVideo.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedVideo object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(EmbedVideo object) => untranslate(
+        object.toJson(),
+      );
 }

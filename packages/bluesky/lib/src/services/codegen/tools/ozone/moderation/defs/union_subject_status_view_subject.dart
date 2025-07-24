@@ -26,8 +26,9 @@ part 'union_subject_status_view_subject.freezed.dart';
 abstract class USubjectStatusViewSubject with _$USubjectStatusViewSubject {
   const USubjectStatusViewSubject._();
 
-  const factory USubjectStatusViewSubject.repoRef({required RepoRef data}) =
-      USubjectStatusViewSubjectRepoRef;
+  const factory USubjectStatusViewSubject.repoRef({
+    required RepoRef data,
+  }) = USubjectStatusViewSubjectRepoRef;
   const factory USubjectStatusViewSubject.repoStrongRef({
     required RepoStrongRef data,
   }) = USubjectStatusViewSubjectRepoStrongRef;
@@ -91,10 +92,9 @@ final class USubjectStatusViewSubjectConverter
 
   @override
   Map<String, dynamic> toJson(USubjectStatusViewSubject object) => object.when(
-    repoRef: (data) => const RepoRefConverter().toJson(data),
-    repoStrongRef: (data) => const RepoStrongRefConverter().toJson(data),
-    messageRef: (data) => const MessageRefConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        repoRef: (data) => const RepoRefConverter().toJson(data),
+        repoStrongRef: (data) => const RepoStrongRefConverter().toJson(data),
+        messageRef: (data) => const MessageRefConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

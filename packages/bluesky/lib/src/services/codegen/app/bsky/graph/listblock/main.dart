@@ -21,7 +21,10 @@ part 'main.g.dart';
 /// Record representing a block relationship against an entire an entire list of accounts (actors).
 @freezed
 abstract class GraphListblockRecord with _$GraphListblockRecord {
-  static const knownProps = <String>['subject', 'createdAt'];
+  static const knownProps = <String>[
+    'subject',
+    'createdAt',
+  ];
 
   const factory GraphListblockRecord({
     @Default('app.bsky.graph.listblock') String $type,
@@ -29,7 +32,6 @@ abstract class GraphListblockRecord with _$GraphListblockRecord {
     /// Reference (AT-URI) to the mod list record.
     required String subject,
     required DateTime createdAt,
-
     Map<String, dynamic>? $unknown,
   }) = _GraphListblockRecord;
 
@@ -48,12 +50,14 @@ final class GraphListblockRecordConverter
 
   @override
   GraphListblockRecord fromJson(Map<String, dynamic> json) {
-    return GraphListblockRecord.fromJson(
-      translate(json, GraphListblockRecord.knownProps),
-    );
+    return GraphListblockRecord.fromJson(translate(
+      json,
+      GraphListblockRecord.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(GraphListblockRecord object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(GraphListblockRecord object) => untranslate(
+        object.toJson(),
+      );
 }

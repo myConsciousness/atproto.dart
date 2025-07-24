@@ -94,10 +94,9 @@ final class UFeedGetPostThreadThreadConverter
 
   @override
   Map<String, dynamic> toJson(UFeedGetPostThreadThread object) => object.when(
-    threadViewPost: (data) => const ThreadViewPostConverter().toJson(data),
-    notFoundPost: (data) => const NotFoundPostConverter().toJson(data),
-    blockedPost: (data) => const BlockedPostConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        threadViewPost: (data) => const ThreadViewPostConverter().toJson(data),
+        notFoundPost: (data) => const NotFoundPostConverter().toJson(data),
+        blockedPost: (data) => const BlockedPostConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

@@ -61,7 +61,6 @@ abstract class GeneratorView with _$GeneratorView {
     @GeneratorViewerStateConverter() GeneratorViewerState? viewer,
     @GeneratorViewContentModeConverter() GeneratorViewContentMode? contentMode,
     required DateTime indexedAt,
-
     Map<String, dynamic>? $unknown,
   }) = _GeneratorView;
 
@@ -95,10 +94,14 @@ final class GeneratorViewConverter
 
   @override
   GeneratorView fromJson(Map<String, dynamic> json) {
-    return GeneratorView.fromJson(translate(json, GeneratorView.knownProps));
+    return GeneratorView.fromJson(translate(
+      json,
+      GeneratorView.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(GeneratorView object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(GeneratorView object) => untranslate(
+        object.toJson(),
+      );
 }

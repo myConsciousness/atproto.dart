@@ -14,47 +14,101 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$OAuthClientMetadata {
+  String get clientId;
+  String get applicationType;
+  String get clientName;
+  String get clientUri;
+  bool get dpopBoundAccessTokens;
+  List<String> get grantTypes;
+  @JsonKey(name: 'redirect_uris_OLD')
+  List<String> get redirectUrisOLD;
+  List<String> get redirectUris;
+  List<String> get responseTypes;
+  String get scope;
+  String get tokenEndpointAuthMethod;
 
- String get clientId; String get applicationType; String get clientName; String get clientUri; bool get dpopBoundAccessTokens; List<String> get grantTypes;@JsonKey(name: 'redirect_uris_OLD') List<String> get redirectUrisOLD; List<String> get redirectUris; List<String> get responseTypes; String get scope; String get tokenEndpointAuthMethod;
-/// Create a copy of OAuthClientMetadata
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$OAuthClientMetadataCopyWith<OAuthClientMetadata> get copyWith => _$OAuthClientMetadataCopyWithImpl<OAuthClientMetadata>(this as OAuthClientMetadata, _$identity);
+  /// Create a copy of OAuthClientMetadata
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $OAuthClientMetadataCopyWith<OAuthClientMetadata> get copyWith =>
+      _$OAuthClientMetadataCopyWithImpl<OAuthClientMetadata>(
+          this as OAuthClientMetadata, _$identity);
 
   /// Serializes this OAuthClientMetadata to a JSON map.
   Map<String, dynamic> toJson();
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is OAuthClientMetadata &&
+            (identical(other.clientId, clientId) ||
+                other.clientId == clientId) &&
+            (identical(other.applicationType, applicationType) ||
+                other.applicationType == applicationType) &&
+            (identical(other.clientName, clientName) ||
+                other.clientName == clientName) &&
+            (identical(other.clientUri, clientUri) ||
+                other.clientUri == clientUri) &&
+            (identical(other.dpopBoundAccessTokens, dpopBoundAccessTokens) ||
+                other.dpopBoundAccessTokens == dpopBoundAccessTokens) &&
+            const DeepCollectionEquality()
+                .equals(other.grantTypes, grantTypes) &&
+            const DeepCollectionEquality()
+                .equals(other.redirectUrisOLD, redirectUrisOLD) &&
+            const DeepCollectionEquality()
+                .equals(other.redirectUris, redirectUris) &&
+            const DeepCollectionEquality()
+                .equals(other.responseTypes, responseTypes) &&
+            (identical(other.scope, scope) || other.scope == scope) &&
+            (identical(
+                    other.tokenEndpointAuthMethod, tokenEndpointAuthMethod) ||
+                other.tokenEndpointAuthMethod == tokenEndpointAuthMethod));
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OAuthClientMetadata&&(identical(other.clientId, clientId) || other.clientId == clientId)&&(identical(other.applicationType, applicationType) || other.applicationType == applicationType)&&(identical(other.clientName, clientName) || other.clientName == clientName)&&(identical(other.clientUri, clientUri) || other.clientUri == clientUri)&&(identical(other.dpopBoundAccessTokens, dpopBoundAccessTokens) || other.dpopBoundAccessTokens == dpopBoundAccessTokens)&&const DeepCollectionEquality().equals(other.grantTypes, grantTypes)&&const DeepCollectionEquality().equals(other.redirectUrisOLD, redirectUrisOLD)&&const DeepCollectionEquality().equals(other.redirectUris, redirectUris)&&const DeepCollectionEquality().equals(other.responseTypes, responseTypes)&&(identical(other.scope, scope) || other.scope == scope)&&(identical(other.tokenEndpointAuthMethod, tokenEndpointAuthMethod) || other.tokenEndpointAuthMethod == tokenEndpointAuthMethod));
-}
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      clientId,
+      applicationType,
+      clientName,
+      clientUri,
+      dpopBoundAccessTokens,
+      const DeepCollectionEquality().hash(grantTypes),
+      const DeepCollectionEquality().hash(redirectUrisOLD),
+      const DeepCollectionEquality().hash(redirectUris),
+      const DeepCollectionEquality().hash(responseTypes),
+      scope,
+      tokenEndpointAuthMethod);
 
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,clientId,applicationType,clientName,clientUri,dpopBoundAccessTokens,const DeepCollectionEquality().hash(grantTypes),const DeepCollectionEquality().hash(redirectUrisOLD),const DeepCollectionEquality().hash(redirectUris),const DeepCollectionEquality().hash(responseTypes),scope,tokenEndpointAuthMethod);
-
-@override
-String toString() {
-  return 'OAuthClientMetadata(clientId: $clientId, applicationType: $applicationType, clientName: $clientName, clientUri: $clientUri, dpopBoundAccessTokens: $dpopBoundAccessTokens, grantTypes: $grantTypes, redirectUrisOLD: $redirectUrisOLD, redirectUris: $redirectUris, responseTypes: $responseTypes, scope: $scope, tokenEndpointAuthMethod: $tokenEndpointAuthMethod)';
-}
-
-
+  @override
+  String toString() {
+    return 'OAuthClientMetadata(clientId: $clientId, applicationType: $applicationType, clientName: $clientName, clientUri: $clientUri, dpopBoundAccessTokens: $dpopBoundAccessTokens, grantTypes: $grantTypes, redirectUrisOLD: $redirectUrisOLD, redirectUris: $redirectUris, responseTypes: $responseTypes, scope: $scope, tokenEndpointAuthMethod: $tokenEndpointAuthMethod)';
+  }
 }
 
 /// @nodoc
-abstract mixin class $OAuthClientMetadataCopyWith<$Res>  {
-  factory $OAuthClientMetadataCopyWith(OAuthClientMetadata value, $Res Function(OAuthClientMetadata) _then) = _$OAuthClientMetadataCopyWithImpl;
-@useResult
-$Res call({
- String clientId, String applicationType, String clientName, String clientUri, bool dpopBoundAccessTokens, List<String> grantTypes,@JsonKey(name: 'redirect_uris_OLD') List<String> redirectUrisOLD, List<String> redirectUris, List<String> responseTypes, String scope, String tokenEndpointAuthMethod
-});
-
-
-
-
+abstract mixin class $OAuthClientMetadataCopyWith<$Res> {
+  factory $OAuthClientMetadataCopyWith(
+          OAuthClientMetadata value, $Res Function(OAuthClientMetadata) _then) =
+      _$OAuthClientMetadataCopyWithImpl;
+  @useResult
+  $Res call(
+      {String clientId,
+      String applicationType,
+      String clientName,
+      String clientUri,
+      bool dpopBoundAccessTokens,
+      List<String> grantTypes,
+      @JsonKey(name: 'redirect_uris_OLD') List<String> redirectUrisOLD,
+      List<String> redirectUris,
+      List<String> responseTypes,
+      String scope,
+      String tokenEndpointAuthMethod});
 }
+
 /// @nodoc
 class _$OAuthClientMetadataCopyWithImpl<$Res>
     implements $OAuthClientMetadataCopyWith<$Res> {
@@ -63,241 +117,463 @@ class _$OAuthClientMetadataCopyWithImpl<$Res>
   final OAuthClientMetadata _self;
   final $Res Function(OAuthClientMetadata) _then;
 
-/// Create a copy of OAuthClientMetadata
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? clientId = null,Object? applicationType = null,Object? clientName = null,Object? clientUri = null,Object? dpopBoundAccessTokens = null,Object? grantTypes = null,Object? redirectUrisOLD = null,Object? redirectUris = null,Object? responseTypes = null,Object? scope = null,Object? tokenEndpointAuthMethod = null,}) {
-  return _then(_self.copyWith(
-clientId: null == clientId ? _self.clientId : clientId // ignore: cast_nullable_to_non_nullable
-as String,applicationType: null == applicationType ? _self.applicationType : applicationType // ignore: cast_nullable_to_non_nullable
-as String,clientName: null == clientName ? _self.clientName : clientName // ignore: cast_nullable_to_non_nullable
-as String,clientUri: null == clientUri ? _self.clientUri : clientUri // ignore: cast_nullable_to_non_nullable
-as String,dpopBoundAccessTokens: null == dpopBoundAccessTokens ? _self.dpopBoundAccessTokens : dpopBoundAccessTokens // ignore: cast_nullable_to_non_nullable
-as bool,grantTypes: null == grantTypes ? _self.grantTypes : grantTypes // ignore: cast_nullable_to_non_nullable
-as List<String>,redirectUrisOLD: null == redirectUrisOLD ? _self.redirectUrisOLD : redirectUrisOLD // ignore: cast_nullable_to_non_nullable
-as List<String>,redirectUris: null == redirectUris ? _self.redirectUris : redirectUris // ignore: cast_nullable_to_non_nullable
-as List<String>,responseTypes: null == responseTypes ? _self.responseTypes : responseTypes // ignore: cast_nullable_to_non_nullable
-as List<String>,scope: null == scope ? _self.scope : scope // ignore: cast_nullable_to_non_nullable
-as String,tokenEndpointAuthMethod: null == tokenEndpointAuthMethod ? _self.tokenEndpointAuthMethod : tokenEndpointAuthMethod // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
+  /// Create a copy of OAuthClientMetadata
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? clientId = null,
+    Object? applicationType = null,
+    Object? clientName = null,
+    Object? clientUri = null,
+    Object? dpopBoundAccessTokens = null,
+    Object? grantTypes = null,
+    Object? redirectUrisOLD = null,
+    Object? redirectUris = null,
+    Object? responseTypes = null,
+    Object? scope = null,
+    Object? tokenEndpointAuthMethod = null,
+  }) {
+    return _then(_self.copyWith(
+      clientId: null == clientId
+          ? _self.clientId
+          : clientId // ignore: cast_nullable_to_non_nullable
+              as String,
+      applicationType: null == applicationType
+          ? _self.applicationType
+          : applicationType // ignore: cast_nullable_to_non_nullable
+              as String,
+      clientName: null == clientName
+          ? _self.clientName
+          : clientName // ignore: cast_nullable_to_non_nullable
+              as String,
+      clientUri: null == clientUri
+          ? _self.clientUri
+          : clientUri // ignore: cast_nullable_to_non_nullable
+              as String,
+      dpopBoundAccessTokens: null == dpopBoundAccessTokens
+          ? _self.dpopBoundAccessTokens
+          : dpopBoundAccessTokens // ignore: cast_nullable_to_non_nullable
+              as bool,
+      grantTypes: null == grantTypes
+          ? _self.grantTypes
+          : grantTypes // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      redirectUrisOLD: null == redirectUrisOLD
+          ? _self.redirectUrisOLD
+          : redirectUrisOLD // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      redirectUris: null == redirectUris
+          ? _self.redirectUris
+          : redirectUris // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      responseTypes: null == responseTypes
+          ? _self.responseTypes
+          : responseTypes // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      scope: null == scope
+          ? _self.scope
+          : scope // ignore: cast_nullable_to_non_nullable
+              as String,
+      tokenEndpointAuthMethod: null == tokenEndpointAuthMethod
+          ? _self.tokenEndpointAuthMethod
+          : tokenEndpointAuthMethod // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
-
-}
-
 
 /// Adds pattern-matching-related methods to [OAuthClientMetadata].
 extension OAuthClientMetadataPatterns on OAuthClientMetadata {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _OAuthClientMetadata value)?  $default,{required TResult orElse(),}){
-final _that = this;
-switch (_that) {
-case _OAuthClientMetadata() when $default != null:
-return $default(_that);case _:
-  return orElse();
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_OAuthClientMetadata value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _OAuthClientMetadata() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
 
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _OAuthClientMetadata value)  $default,){
-final _that = this;
-switch (_that) {
-case _OAuthClientMetadata():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_OAuthClientMetadata value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _OAuthClientMetadata():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
 
-}
-}
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _OAuthClientMetadata value)?  $default,){
-final _that = this;
-switch (_that) {
-case _OAuthClientMetadata() when $default != null:
-return $default(_that);case _:
-  return null;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_OAuthClientMetadata value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _OAuthClientMetadata() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
 
-}
-}
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String clientId,  String applicationType,  String clientName,  String clientUri,  bool dpopBoundAccessTokens,  List<String> grantTypes, @JsonKey(name: 'redirect_uris_OLD')  List<String> redirectUrisOLD,  List<String> redirectUris,  List<String> responseTypes,  String scope,  String tokenEndpointAuthMethod)?  $default,{required TResult orElse(),}) {final _that = this;
-switch (_that) {
-case _OAuthClientMetadata() when $default != null:
-return $default(_that.clientId,_that.applicationType,_that.clientName,_that.clientUri,_that.dpopBoundAccessTokens,_that.grantTypes,_that.redirectUrisOLD,_that.redirectUris,_that.responseTypes,_that.scope,_that.tokenEndpointAuthMethod);case _:
-  return orElse();
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String clientId,
+            String applicationType,
+            String clientName,
+            String clientUri,
+            bool dpopBoundAccessTokens,
+            List<String> grantTypes,
+            @JsonKey(name: 'redirect_uris_OLD') List<String> redirectUrisOLD,
+            List<String> redirectUris,
+            List<String> responseTypes,
+            String scope,
+            String tokenEndpointAuthMethod)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _OAuthClientMetadata() when $default != null:
+        return $default(
+            _that.clientId,
+            _that.applicationType,
+            _that.clientName,
+            _that.clientUri,
+            _that.dpopBoundAccessTokens,
+            _that.grantTypes,
+            _that.redirectUrisOLD,
+            _that.redirectUris,
+            _that.responseTypes,
+            _that.scope,
+            _that.tokenEndpointAuthMethod);
+      case _:
+        return orElse();
+    }
+  }
 
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String clientId,  String applicationType,  String clientName,  String clientUri,  bool dpopBoundAccessTokens,  List<String> grantTypes, @JsonKey(name: 'redirect_uris_OLD')  List<String> redirectUrisOLD,  List<String> redirectUris,  List<String> responseTypes,  String scope,  String tokenEndpointAuthMethod)  $default,) {final _that = this;
-switch (_that) {
-case _OAuthClientMetadata():
-return $default(_that.clientId,_that.applicationType,_that.clientName,_that.clientUri,_that.dpopBoundAccessTokens,_that.grantTypes,_that.redirectUrisOLD,_that.redirectUris,_that.responseTypes,_that.scope,_that.tokenEndpointAuthMethod);case _:
-  throw StateError('Unexpected subclass');
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String clientId,
+            String applicationType,
+            String clientName,
+            String clientUri,
+            bool dpopBoundAccessTokens,
+            List<String> grantTypes,
+            @JsonKey(name: 'redirect_uris_OLD') List<String> redirectUrisOLD,
+            List<String> redirectUris,
+            List<String> responseTypes,
+            String scope,
+            String tokenEndpointAuthMethod)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _OAuthClientMetadata():
+        return $default(
+            _that.clientId,
+            _that.applicationType,
+            _that.clientName,
+            _that.clientUri,
+            _that.dpopBoundAccessTokens,
+            _that.grantTypes,
+            _that.redirectUrisOLD,
+            _that.redirectUris,
+            _that.responseTypes,
+            _that.scope,
+            _that.tokenEndpointAuthMethod);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
 
-}
-}
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String clientId,  String applicationType,  String clientName,  String clientUri,  bool dpopBoundAccessTokens,  List<String> grantTypes, @JsonKey(name: 'redirect_uris_OLD')  List<String> redirectUrisOLD,  List<String> redirectUris,  List<String> responseTypes,  String scope,  String tokenEndpointAuthMethod)?  $default,) {final _that = this;
-switch (_that) {
-case _OAuthClientMetadata() when $default != null:
-return $default(_that.clientId,_that.applicationType,_that.clientName,_that.clientUri,_that.dpopBoundAccessTokens,_that.grantTypes,_that.redirectUrisOLD,_that.redirectUris,_that.responseTypes,_that.scope,_that.tokenEndpointAuthMethod);case _:
-  return null;
-
-}
-}
-
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String clientId,
+            String applicationType,
+            String clientName,
+            String clientUri,
+            bool dpopBoundAccessTokens,
+            List<String> grantTypes,
+            @JsonKey(name: 'redirect_uris_OLD') List<String> redirectUrisOLD,
+            List<String> redirectUris,
+            List<String> responseTypes,
+            String scope,
+            String tokenEndpointAuthMethod)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _OAuthClientMetadata() when $default != null:
+        return $default(
+            _that.clientId,
+            _that.applicationType,
+            _that.clientName,
+            _that.clientUri,
+            _that.dpopBoundAccessTokens,
+            _that.grantTypes,
+            _that.redirectUrisOLD,
+            _that.redirectUris,
+            _that.responseTypes,
+            _that.scope,
+            _that.tokenEndpointAuthMethod);
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false, fieldRename: FieldRename.snake)
 class _OAuthClientMetadata implements OAuthClientMetadata {
-  const _OAuthClientMetadata({required this.clientId, required this.applicationType, required this.clientName, required this.clientUri, this.dpopBoundAccessTokens = true, final  List<String> grantTypes = const [], @JsonKey(name: 'redirect_uris_OLD') final  List<String> redirectUrisOLD = const [], final  List<String> redirectUris = const [], final  List<String> responseTypes = const [], required this.scope, required this.tokenEndpointAuthMethod}): _grantTypes = grantTypes,_redirectUrisOLD = redirectUrisOLD,_redirectUris = redirectUris,_responseTypes = responseTypes;
-  factory _OAuthClientMetadata.fromJson(Map<String, dynamic> json) => _$OAuthClientMetadataFromJson(json);
+  const _OAuthClientMetadata(
+      {required this.clientId,
+      required this.applicationType,
+      required this.clientName,
+      required this.clientUri,
+      this.dpopBoundAccessTokens = true,
+      final List<String> grantTypes = const [],
+      @JsonKey(name: 'redirect_uris_OLD')
+      final List<String> redirectUrisOLD = const [],
+      final List<String> redirectUris = const [],
+      final List<String> responseTypes = const [],
+      required this.scope,
+      required this.tokenEndpointAuthMethod})
+      : _grantTypes = grantTypes,
+        _redirectUrisOLD = redirectUrisOLD,
+        _redirectUris = redirectUris,
+        _responseTypes = responseTypes;
+  factory _OAuthClientMetadata.fromJson(Map<String, dynamic> json) =>
+      _$OAuthClientMetadataFromJson(json);
 
-@override final  String clientId;
-@override final  String applicationType;
-@override final  String clientName;
-@override final  String clientUri;
-@override@JsonKey() final  bool dpopBoundAccessTokens;
- final  List<String> _grantTypes;
-@override@JsonKey() List<String> get grantTypes {
-  if (_grantTypes is EqualUnmodifiableListView) return _grantTypes;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_grantTypes);
-}
+  @override
+  final String clientId;
+  @override
+  final String applicationType;
+  @override
+  final String clientName;
+  @override
+  final String clientUri;
+  @override
+  @JsonKey()
+  final bool dpopBoundAccessTokens;
+  final List<String> _grantTypes;
+  @override
+  @JsonKey()
+  List<String> get grantTypes {
+    if (_grantTypes is EqualUnmodifiableListView) return _grantTypes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_grantTypes);
+  }
 
- final  List<String> _redirectUrisOLD;
-@override@JsonKey(name: 'redirect_uris_OLD') List<String> get redirectUrisOLD {
-  if (_redirectUrisOLD is EqualUnmodifiableListView) return _redirectUrisOLD;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_redirectUrisOLD);
-}
+  final List<String> _redirectUrisOLD;
+  @override
+  @JsonKey(name: 'redirect_uris_OLD')
+  List<String> get redirectUrisOLD {
+    if (_redirectUrisOLD is EqualUnmodifiableListView) return _redirectUrisOLD;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_redirectUrisOLD);
+  }
 
- final  List<String> _redirectUris;
-@override@JsonKey() List<String> get redirectUris {
-  if (_redirectUris is EqualUnmodifiableListView) return _redirectUris;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_redirectUris);
-}
+  final List<String> _redirectUris;
+  @override
+  @JsonKey()
+  List<String> get redirectUris {
+    if (_redirectUris is EqualUnmodifiableListView) return _redirectUris;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_redirectUris);
+  }
 
- final  List<String> _responseTypes;
-@override@JsonKey() List<String> get responseTypes {
-  if (_responseTypes is EqualUnmodifiableListView) return _responseTypes;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_responseTypes);
-}
+  final List<String> _responseTypes;
+  @override
+  @JsonKey()
+  List<String> get responseTypes {
+    if (_responseTypes is EqualUnmodifiableListView) return _responseTypes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_responseTypes);
+  }
 
-@override final  String scope;
-@override final  String tokenEndpointAuthMethod;
+  @override
+  final String scope;
+  @override
+  final String tokenEndpointAuthMethod;
 
-/// Create a copy of OAuthClientMetadata
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$OAuthClientMetadataCopyWith<_OAuthClientMetadata> get copyWith => __$OAuthClientMetadataCopyWithImpl<_OAuthClientMetadata>(this, _$identity);
+  /// Create a copy of OAuthClientMetadata
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$OAuthClientMetadataCopyWith<_OAuthClientMetadata> get copyWith =>
+      __$OAuthClientMetadataCopyWithImpl<_OAuthClientMetadata>(
+          this, _$identity);
 
-@override
-Map<String, dynamic> toJson() {
-  return _$OAuthClientMetadataToJson(this, );
-}
+  @override
+  Map<String, dynamic> toJson() {
+    return _$OAuthClientMetadataToJson(
+      this,
+    );
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OAuthClientMetadata&&(identical(other.clientId, clientId) || other.clientId == clientId)&&(identical(other.applicationType, applicationType) || other.applicationType == applicationType)&&(identical(other.clientName, clientName) || other.clientName == clientName)&&(identical(other.clientUri, clientUri) || other.clientUri == clientUri)&&(identical(other.dpopBoundAccessTokens, dpopBoundAccessTokens) || other.dpopBoundAccessTokens == dpopBoundAccessTokens)&&const DeepCollectionEquality().equals(other._grantTypes, _grantTypes)&&const DeepCollectionEquality().equals(other._redirectUrisOLD, _redirectUrisOLD)&&const DeepCollectionEquality().equals(other._redirectUris, _redirectUris)&&const DeepCollectionEquality().equals(other._responseTypes, _responseTypes)&&(identical(other.scope, scope) || other.scope == scope)&&(identical(other.tokenEndpointAuthMethod, tokenEndpointAuthMethod) || other.tokenEndpointAuthMethod == tokenEndpointAuthMethod));
-}
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _OAuthClientMetadata &&
+            (identical(other.clientId, clientId) ||
+                other.clientId == clientId) &&
+            (identical(other.applicationType, applicationType) ||
+                other.applicationType == applicationType) &&
+            (identical(other.clientName, clientName) ||
+                other.clientName == clientName) &&
+            (identical(other.clientUri, clientUri) ||
+                other.clientUri == clientUri) &&
+            (identical(other.dpopBoundAccessTokens, dpopBoundAccessTokens) ||
+                other.dpopBoundAccessTokens == dpopBoundAccessTokens) &&
+            const DeepCollectionEquality()
+                .equals(other._grantTypes, _grantTypes) &&
+            const DeepCollectionEquality()
+                .equals(other._redirectUrisOLD, _redirectUrisOLD) &&
+            const DeepCollectionEquality()
+                .equals(other._redirectUris, _redirectUris) &&
+            const DeepCollectionEquality()
+                .equals(other._responseTypes, _responseTypes) &&
+            (identical(other.scope, scope) || other.scope == scope) &&
+            (identical(
+                    other.tokenEndpointAuthMethod, tokenEndpointAuthMethod) ||
+                other.tokenEndpointAuthMethod == tokenEndpointAuthMethod));
+  }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,clientId,applicationType,clientName,clientUri,dpopBoundAccessTokens,const DeepCollectionEquality().hash(_grantTypes),const DeepCollectionEquality().hash(_redirectUrisOLD),const DeepCollectionEquality().hash(_redirectUris),const DeepCollectionEquality().hash(_responseTypes),scope,tokenEndpointAuthMethod);
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      clientId,
+      applicationType,
+      clientName,
+      clientUri,
+      dpopBoundAccessTokens,
+      const DeepCollectionEquality().hash(_grantTypes),
+      const DeepCollectionEquality().hash(_redirectUrisOLD),
+      const DeepCollectionEquality().hash(_redirectUris),
+      const DeepCollectionEquality().hash(_responseTypes),
+      scope,
+      tokenEndpointAuthMethod);
 
-@override
-String toString() {
-  return 'OAuthClientMetadata(clientId: $clientId, applicationType: $applicationType, clientName: $clientName, clientUri: $clientUri, dpopBoundAccessTokens: $dpopBoundAccessTokens, grantTypes: $grantTypes, redirectUrisOLD: $redirectUrisOLD, redirectUris: $redirectUris, responseTypes: $responseTypes, scope: $scope, tokenEndpointAuthMethod: $tokenEndpointAuthMethod)';
-}
-
-
+  @override
+  String toString() {
+    return 'OAuthClientMetadata(clientId: $clientId, applicationType: $applicationType, clientName: $clientName, clientUri: $clientUri, dpopBoundAccessTokens: $dpopBoundAccessTokens, grantTypes: $grantTypes, redirectUrisOLD: $redirectUrisOLD, redirectUris: $redirectUris, responseTypes: $responseTypes, scope: $scope, tokenEndpointAuthMethod: $tokenEndpointAuthMethod)';
+  }
 }
 
 /// @nodoc
-abstract mixin class _$OAuthClientMetadataCopyWith<$Res> implements $OAuthClientMetadataCopyWith<$Res> {
-  factory _$OAuthClientMetadataCopyWith(_OAuthClientMetadata value, $Res Function(_OAuthClientMetadata) _then) = __$OAuthClientMetadataCopyWithImpl;
-@override @useResult
-$Res call({
- String clientId, String applicationType, String clientName, String clientUri, bool dpopBoundAccessTokens, List<String> grantTypes,@JsonKey(name: 'redirect_uris_OLD') List<String> redirectUrisOLD, List<String> redirectUris, List<String> responseTypes, String scope, String tokenEndpointAuthMethod
-});
-
-
-
-
+abstract mixin class _$OAuthClientMetadataCopyWith<$Res>
+    implements $OAuthClientMetadataCopyWith<$Res> {
+  factory _$OAuthClientMetadataCopyWith(_OAuthClientMetadata value,
+          $Res Function(_OAuthClientMetadata) _then) =
+      __$OAuthClientMetadataCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String clientId,
+      String applicationType,
+      String clientName,
+      String clientUri,
+      bool dpopBoundAccessTokens,
+      List<String> grantTypes,
+      @JsonKey(name: 'redirect_uris_OLD') List<String> redirectUrisOLD,
+      List<String> redirectUris,
+      List<String> responseTypes,
+      String scope,
+      String tokenEndpointAuthMethod});
 }
+
 /// @nodoc
 class __$OAuthClientMetadataCopyWithImpl<$Res>
     implements _$OAuthClientMetadataCopyWith<$Res> {
@@ -306,26 +582,70 @@ class __$OAuthClientMetadataCopyWithImpl<$Res>
   final _OAuthClientMetadata _self;
   final $Res Function(_OAuthClientMetadata) _then;
 
-/// Create a copy of OAuthClientMetadata
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? clientId = null,Object? applicationType = null,Object? clientName = null,Object? clientUri = null,Object? dpopBoundAccessTokens = null,Object? grantTypes = null,Object? redirectUrisOLD = null,Object? redirectUris = null,Object? responseTypes = null,Object? scope = null,Object? tokenEndpointAuthMethod = null,}) {
-  return _then(_OAuthClientMetadata(
-clientId: null == clientId ? _self.clientId : clientId // ignore: cast_nullable_to_non_nullable
-as String,applicationType: null == applicationType ? _self.applicationType : applicationType // ignore: cast_nullable_to_non_nullable
-as String,clientName: null == clientName ? _self.clientName : clientName // ignore: cast_nullable_to_non_nullable
-as String,clientUri: null == clientUri ? _self.clientUri : clientUri // ignore: cast_nullable_to_non_nullable
-as String,dpopBoundAccessTokens: null == dpopBoundAccessTokens ? _self.dpopBoundAccessTokens : dpopBoundAccessTokens // ignore: cast_nullable_to_non_nullable
-as bool,grantTypes: null == grantTypes ? _self._grantTypes : grantTypes // ignore: cast_nullable_to_non_nullable
-as List<String>,redirectUrisOLD: null == redirectUrisOLD ? _self._redirectUrisOLD : redirectUrisOLD // ignore: cast_nullable_to_non_nullable
-as List<String>,redirectUris: null == redirectUris ? _self._redirectUris : redirectUris // ignore: cast_nullable_to_non_nullable
-as List<String>,responseTypes: null == responseTypes ? _self._responseTypes : responseTypes // ignore: cast_nullable_to_non_nullable
-as List<String>,scope: null == scope ? _self.scope : scope // ignore: cast_nullable_to_non_nullable
-as String,tokenEndpointAuthMethod: null == tokenEndpointAuthMethod ? _self.tokenEndpointAuthMethod : tokenEndpointAuthMethod // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
+  /// Create a copy of OAuthClientMetadata
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? clientId = null,
+    Object? applicationType = null,
+    Object? clientName = null,
+    Object? clientUri = null,
+    Object? dpopBoundAccessTokens = null,
+    Object? grantTypes = null,
+    Object? redirectUrisOLD = null,
+    Object? redirectUris = null,
+    Object? responseTypes = null,
+    Object? scope = null,
+    Object? tokenEndpointAuthMethod = null,
+  }) {
+    return _then(_OAuthClientMetadata(
+      clientId: null == clientId
+          ? _self.clientId
+          : clientId // ignore: cast_nullable_to_non_nullable
+              as String,
+      applicationType: null == applicationType
+          ? _self.applicationType
+          : applicationType // ignore: cast_nullable_to_non_nullable
+              as String,
+      clientName: null == clientName
+          ? _self.clientName
+          : clientName // ignore: cast_nullable_to_non_nullable
+              as String,
+      clientUri: null == clientUri
+          ? _self.clientUri
+          : clientUri // ignore: cast_nullable_to_non_nullable
+              as String,
+      dpopBoundAccessTokens: null == dpopBoundAccessTokens
+          ? _self.dpopBoundAccessTokens
+          : dpopBoundAccessTokens // ignore: cast_nullable_to_non_nullable
+              as bool,
+      grantTypes: null == grantTypes
+          ? _self._grantTypes
+          : grantTypes // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      redirectUrisOLD: null == redirectUrisOLD
+          ? _self._redirectUrisOLD
+          : redirectUrisOLD // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      redirectUris: null == redirectUris
+          ? _self._redirectUris
+          : redirectUris // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      responseTypes: null == responseTypes
+          ? _self._responseTypes
+          : responseTypes // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      scope: null == scope
+          ? _self.scope
+          : scope // ignore: cast_nullable_to_non_nullable
+              as String,
+      tokenEndpointAuthMethod: null == tokenEndpointAuthMethod
+          ? _self.tokenEndpointAuthMethod
+          : tokenEndpointAuthMethod // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 // dart format on

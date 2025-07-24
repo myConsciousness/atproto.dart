@@ -9,22 +9,27 @@ part of 'input.dart';
 // **************************************************************************
 
 _GraphGetListMutesInput _$GraphGetListMutesInputFromJson(Map json) =>
-    $checkedCreate('_GraphGetListMutesInput', json, ($checkedConvert) {
-      final val = _GraphGetListMutesInput(
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
-        cursor: $checkedConvert('cursor', (v) => v as String?),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_GraphGetListMutesInput',
+      json,
+      ($checkedConvert) {
+        final val = _GraphGetListMutesInput(
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$GraphGetListMutesInputToJson(
-  _GraphGetListMutesInput instance,
-) => <String, dynamic>{
-  'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
-};
+        _GraphGetListMutesInput instance) =>
+    <String, dynamic>{
+      'limit': instance.limit,
+      'cursor': instance.cursor,
+      r'$unknown': instance.$unknown,
+    };

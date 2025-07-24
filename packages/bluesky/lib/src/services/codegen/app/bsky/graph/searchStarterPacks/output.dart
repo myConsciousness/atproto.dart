@@ -24,13 +24,15 @@ part 'output.g.dart';
 @freezed
 abstract class GraphSearchStarterPacksOutput
     with _$GraphSearchStarterPacksOutput {
-  static const knownProps = <String>['cursor', 'starterPacks'];
+  static const knownProps = <String>[
+    'cursor',
+    'starterPacks',
+  ];
 
   const factory GraphSearchStarterPacksOutput({
     String? cursor,
     @StarterPackViewBasicConverter()
     required List<StarterPackViewBasic> starterPacks,
-
     Map<String, dynamic>? $unknown,
   }) = _GraphSearchStarterPacksOutput;
 
@@ -50,12 +52,15 @@ final class GraphSearchStarterPacksOutputConverter
 
   @override
   GraphSearchStarterPacksOutput fromJson(Map<String, dynamic> json) {
-    return GraphSearchStarterPacksOutput.fromJson(
-      translate(json, GraphSearchStarterPacksOutput.knownProps),
-    );
+    return GraphSearchStarterPacksOutput.fromJson(translate(
+      json,
+      GraphSearchStarterPacksOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(GraphSearchStarterPacksOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

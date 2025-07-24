@@ -23,12 +23,14 @@ part 'input.g.dart';
 
 @freezed
 abstract class ConvoSendMessageInput with _$ConvoSendMessageInput {
-  static const knownProps = <String>['convoId', 'message'];
+  static const knownProps = <String>[
+    'convoId',
+    'message',
+  ];
 
   const factory ConvoSendMessageInput({
     required String convoId,
     @MessageInputConverter() required MessageInput message,
-
     Map<String, dynamic>? $unknown,
   }) = _ConvoSendMessageInput;
 
@@ -42,12 +44,14 @@ final class ConvoSendMessageInputConverter
 
   @override
   ConvoSendMessageInput fromJson(Map<String, dynamic> json) {
-    return ConvoSendMessageInput.fromJson(
-      translate(json, ConvoSendMessageInput.knownProps),
-    );
+    return ConvoSendMessageInput.fromJson(translate(
+      json,
+      ConvoSendMessageInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoSendMessageInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ConvoSendMessageInput object) => untranslate(
+        object.toJson(),
+      );
 }

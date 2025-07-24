@@ -26,8 +26,9 @@ abstract class ViewerConfigRole with _$ViewerConfigRole {
     required KnownViewerConfigRole data,
   }) = ViewerConfigRoleKnownValue;
 
-  const factory ViewerConfigRole.unknown({required String data}) =
-      ViewerConfigRoleUnknown;
+  const factory ViewerConfigRole.unknown({
+    required String data,
+  }) = ViewerConfigRoleUnknown;
 
   static ViewerConfigRole? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,8 +71,10 @@ final class ViewerConfigRoleConverter
   }
 
   @override
-  String toJson(ViewerConfigRole object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ViewerConfigRole object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownViewerConfigRole implements Serializable {
@@ -82,7 +85,8 @@ enum KnownViewerConfigRole implements Serializable {
   @JsonValue('tools.ozone.team.defs#roleTriage')
   roleTriage('tools.ozone.team.defs#roleTriage'),
   @JsonValue('tools.ozone.team.defs#roleVerifier')
-  roleVerifier('tools.ozone.team.defs#roleVerifier');
+  roleVerifier('tools.ozone.team.defs#roleVerifier'),
+  ;
 
   @override
   final String value;

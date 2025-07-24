@@ -44,7 +44,7 @@ final class DeleteValuesCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "name": argResults!["name"],
-    "values": argResults!["values"],
-  };
+        "name": argResults!["name"],
+        "values": argResults!["values"],
+      };
 }

@@ -23,12 +23,13 @@ part 'moderation_detail.g.dart';
 
 @freezed
 abstract class ModerationDetail with _$ModerationDetail {
-  static const knownProps = <String>['subjectStatus'];
+  static const knownProps = <String>[
+    'subjectStatus',
+  ];
 
   const factory ModerationDetail({
     @Default('tools.ozone.moderation.defs#moderationDetail') String $type,
     @SubjectStatusViewConverter() SubjectStatusView? subjectStatus,
-
     Map<String, dynamic>? $unknown,
   }) = _ModerationDetail;
 
@@ -52,12 +53,14 @@ final class ModerationDetailConverter
 
   @override
   ModerationDetail fromJson(Map<String, dynamic> json) {
-    return ModerationDetail.fromJson(
-      translate(json, ModerationDetail.knownProps),
-    );
+    return ModerationDetail.fromJson(translate(
+      json,
+      ModerationDetail.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ModerationDetail object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ModerationDetail object) => untranslate(
+        object.toJson(),
+      );
 }

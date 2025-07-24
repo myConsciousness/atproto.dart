@@ -20,13 +20,14 @@ part 'handle_updated.g.dart';
 
 @freezed
 abstract class HandleUpdated with _$HandleUpdated {
-  static const knownProps = <String>['handle'];
+  static const knownProps = <String>[
+    'handle',
+  ];
 
   const factory HandleUpdated({
     @Default('tools.ozone.hosting.getAccountHistory#handleUpdated')
     String $type,
     required String handle,
-
     Map<String, dynamic>? $unknown,
   }) = _HandleUpdated;
 
@@ -46,10 +47,14 @@ final class HandleUpdatedConverter
 
   @override
   HandleUpdated fromJson(Map<String, dynamic> json) {
-    return HandleUpdated.fromJson(translate(json, HandleUpdated.knownProps));
+    return HandleUpdated.fromJson(translate(
+      json,
+      HandleUpdated.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(HandleUpdated object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(HandleUpdated object) => untranslate(
+        object.toJson(),
+      );
 }

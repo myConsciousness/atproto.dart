@@ -23,11 +23,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class ConvoSendMessageBatchInput with _$ConvoSendMessageBatchInput {
-  static const knownProps = <String>['items'];
+  static const knownProps = <String>[
+    'items',
+  ];
 
   const factory ConvoSendMessageBatchInput({
     @BatchItemConverter() required List<BatchItem> items,
-
     Map<String, dynamic>? $unknown,
   }) = _ConvoSendMessageBatchInput;
 
@@ -41,12 +42,14 @@ final class ConvoSendMessageBatchInputConverter
 
   @override
   ConvoSendMessageBatchInput fromJson(Map<String, dynamic> json) {
-    return ConvoSendMessageBatchInput.fromJson(
-      translate(json, ConvoSendMessageBatchInput.knownProps),
-    );
+    return ConvoSendMessageBatchInput.fromJson(translate(
+      json,
+      ConvoSendMessageBatchInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoSendMessageBatchInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ConvoSendMessageBatchInput object) => untranslate(
+        object.toJson(),
+      );
 }

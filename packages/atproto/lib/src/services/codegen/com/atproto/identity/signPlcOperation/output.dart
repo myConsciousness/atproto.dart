@@ -21,11 +21,12 @@ part 'output.g.dart';
 @freezed
 abstract class IdentitySignPlcOperationOutput
     with _$IdentitySignPlcOperationOutput {
-  static const knownProps = <String>['operation'];
+  static const knownProps = <String>[
+    'operation',
+  ];
 
   const factory IdentitySignPlcOperationOutput({
     required Map<String, dynamic> operation,
-
     Map<String, dynamic>? $unknown,
   }) = _IdentitySignPlcOperationOutput;
 
@@ -33,19 +34,21 @@ abstract class IdentitySignPlcOperationOutput
       _$IdentitySignPlcOperationOutputFromJson(json);
 }
 
-final class IdentitySignPlcOperationOutputConverter
-    extends
-        JsonConverter<IdentitySignPlcOperationOutput, Map<String, dynamic>> {
+final class IdentitySignPlcOperationOutputConverter extends JsonConverter<
+    IdentitySignPlcOperationOutput, Map<String, dynamic>> {
   const IdentitySignPlcOperationOutputConverter();
 
   @override
   IdentitySignPlcOperationOutput fromJson(Map<String, dynamic> json) {
-    return IdentitySignPlcOperationOutput.fromJson(
-      translate(json, IdentitySignPlcOperationOutput.knownProps),
-    );
+    return IdentitySignPlcOperationOutput.fromJson(translate(
+      json,
+      IdentitySignPlcOperationOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(IdentitySignPlcOperationOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

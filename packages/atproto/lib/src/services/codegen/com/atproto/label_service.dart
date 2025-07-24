@@ -31,10 +31,13 @@ final class LabelService {
   /// Subscribe to stream of labels (and negations). Public endpoint implemented by mod services. Uses same sequencing scheme as repo event stream.
   Future<XRPCResponse<Subscription<Uint8List>>> subscribeLabels({
     int? cursor,
-  }) async => await _ctx.stream(
-    ns.comAtprotoLabelSubscribeLabels,
-    parameters: {if (cursor != null) 'cursor': cursor},
-  );
+  }) async =>
+      await _ctx.stream(
+        ns.comAtprotoLabelSubscribeLabels,
+        parameters: {
+          if (cursor != null) 'cursor': cursor,
+        },
+      );
 
   /// Find labels relevant to the provided AT-URI patterns. Public endpoint for moderation services, though may return different or additional results with auth.
   Future<XRPCResponse<LabelQueryLabelsOutput>> queryLabels({
@@ -44,16 +47,17 @@ final class LabelService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.comAtprotoLabelQueryLabels,
-    headers: $headers,
-    parameters: {
-      'uriPatterns': uriPatterns,
-      if (sources != null) 'sources': sources,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
-    },
-    to: const LabelQueryLabelsOutputConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.get(
+        ns.comAtprotoLabelQueryLabels,
+        headers: $headers,
+        parameters: {
+          'uriPatterns': uriPatterns,
+          if (sources != null) 'sources': sources,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        to: const LabelQueryLabelsOutputConverter().fromJson,
+      );
 }

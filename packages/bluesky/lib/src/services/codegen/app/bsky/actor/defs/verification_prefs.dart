@@ -21,14 +21,15 @@ part 'verification_prefs.g.dart';
 /// Preferences for how verified accounts appear in the app.
 @freezed
 abstract class VerificationPrefs with _$VerificationPrefs {
-  static const knownProps = <String>['hideBadges'];
+  static const knownProps = <String>[
+    'hideBadges',
+  ];
 
   const factory VerificationPrefs({
     @Default('app.bsky.actor.defs#verificationPrefs') String $type,
 
     /// Hide the blue check badges for verified accounts and trusted verifiers.
     @Default(false) bool hideBadges,
-
     Map<String, dynamic>? $unknown,
   }) = _VerificationPrefs;
 
@@ -52,12 +53,14 @@ final class VerificationPrefsConverter
 
   @override
   VerificationPrefs fromJson(Map<String, dynamic> json) {
-    return VerificationPrefs.fromJson(
-      translate(json, VerificationPrefs.knownProps),
-    );
+    return VerificationPrefs.fromJson(translate(
+      json,
+      VerificationPrefs.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(VerificationPrefs object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(VerificationPrefs object) => untranslate(
+        object.toJson(),
+      );
 }

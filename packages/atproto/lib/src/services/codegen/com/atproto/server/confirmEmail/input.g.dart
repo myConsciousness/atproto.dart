@@ -9,22 +9,27 @@ part of 'input.dart';
 // **************************************************************************
 
 _ServerConfirmEmailInput _$ServerConfirmEmailInputFromJson(Map json) =>
-    $checkedCreate('_ServerConfirmEmailInput', json, ($checkedConvert) {
-      final val = _ServerConfirmEmailInput(
-        email: $checkedConvert('email', (v) => v as String),
-        token: $checkedConvert('token', (v) => v as String),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_ServerConfirmEmailInput',
+      json,
+      ($checkedConvert) {
+        final val = _ServerConfirmEmailInput(
+          email: $checkedConvert('email', (v) => v as String),
+          token: $checkedConvert('token', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$ServerConfirmEmailInputToJson(
-  _ServerConfirmEmailInput instance,
-) => <String, dynamic>{
-  'email': instance.email,
-  'token': instance.token,
-  r'$unknown': instance.$unknown,
-};
+        _ServerConfirmEmailInput instance) =>
+    <String, dynamic>{
+      'email': instance.email,
+      'token': instance.token,
+      r'$unknown': instance.$unknown,
+    };

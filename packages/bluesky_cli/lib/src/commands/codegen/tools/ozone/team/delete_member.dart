@@ -16,7 +16,11 @@ import '../../../../procedure_command.dart';
 
 final class DeleteMemberCommand extends ProcedureCommand {
   DeleteMemberCommand() {
-    argParser..addOption("did", mandatory: true);
+    argParser
+      ..addOption(
+        "did",
+        mandatory: true,
+      );
   }
 
   @override
@@ -33,5 +37,7 @@ final class DeleteMemberCommand extends ProcedureCommand {
   String get methodId => "tools.ozone.team.deleteMember";
 
   @override
-  Map<String, dynamic>? get body => {"did": argResults!["did"]};
+  Map<String, dynamic>? get body => {
+        "did": argResults!["did"],
+      };
 }

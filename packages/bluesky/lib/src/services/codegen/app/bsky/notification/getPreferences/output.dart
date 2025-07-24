@@ -24,32 +24,35 @@ part 'output.g.dart';
 @freezed
 abstract class NotificationGetPreferencesOutput
     with _$NotificationGetPreferencesOutput {
-  static const knownProps = <String>['preferences'];
+  static const knownProps = <String>[
+    'preferences',
+  ];
 
   const factory NotificationGetPreferencesOutput({
     @PreferencesConverter() required Preferences preferences,
-
     Map<String, dynamic>? $unknown,
   }) = _NotificationGetPreferencesOutput;
 
   factory NotificationGetPreferencesOutput.fromJson(
-    Map<String, Object?> json,
-  ) => _$NotificationGetPreferencesOutputFromJson(json);
+          Map<String, Object?> json) =>
+      _$NotificationGetPreferencesOutputFromJson(json);
 }
 
-final class NotificationGetPreferencesOutputConverter
-    extends
-        JsonConverter<NotificationGetPreferencesOutput, Map<String, dynamic>> {
+final class NotificationGetPreferencesOutputConverter extends JsonConverter<
+    NotificationGetPreferencesOutput, Map<String, dynamic>> {
   const NotificationGetPreferencesOutputConverter();
 
   @override
   NotificationGetPreferencesOutput fromJson(Map<String, dynamic> json) {
-    return NotificationGetPreferencesOutput.fromJson(
-      translate(json, NotificationGetPreferencesOutput.knownProps),
-    );
+    return NotificationGetPreferencesOutput.fromJson(translate(
+      json,
+      NotificationGetPreferencesOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(NotificationGetPreferencesOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

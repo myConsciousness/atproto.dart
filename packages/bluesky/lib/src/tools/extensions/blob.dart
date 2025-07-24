@@ -25,9 +25,10 @@ extension BlobExtension on Blob {
   UFeedPostEmbed toEmbedImage({
     required String alt,
     AspectRatio? aspectRatio,
-  }) => UFeedPostEmbed.embedImages(
-    data: EmbedImages(
-      images: [toImage(alt: alt, aspectRatio: aspectRatio)],
-    ),
-  );
+  }) =>
+      UFeedPostEmbed.embedImages(
+        data: EmbedImages(
+          images: [toImage(alt: alt, aspectRatio: aspectRatio)],
+        ),
+      );
 }

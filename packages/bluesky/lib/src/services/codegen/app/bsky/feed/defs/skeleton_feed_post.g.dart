@@ -8,30 +8,29 @@ part of 'skeleton_feed_post.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_SkeletonFeedPost _$SkeletonFeedPostFromJson(Map json) =>
-    $checkedCreate('_SkeletonFeedPost', json, ($checkedConvert) {
-      final val = _SkeletonFeedPost(
-        $type: $checkedConvert(
-          r'$type',
-          (v) => v as String? ?? 'app.bsky.feed.defs#skeletonFeedPost',
-        ),
-        post: $checkedConvert('post', (v) => v as String),
-        reason: $checkedConvert(
-          'reason',
-          (v) =>
-              _$JsonConverterFromJson<
-                Map<String, dynamic>,
-                USkeletonFeedPostReason
-              >(v, const USkeletonFeedPostReasonConverter().fromJson),
-        ),
-        feedContext: $checkedConvert('feedContext', (v) => v as String?),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+_SkeletonFeedPost _$SkeletonFeedPostFromJson(Map json) => $checkedCreate(
+      '_SkeletonFeedPost',
+      json,
+      ($checkedConvert) {
+        final val = _SkeletonFeedPost(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? 'app.bsky.feed.defs#skeletonFeedPost'),
+          post: $checkedConvert('post', (v) => v as String),
+          reason: $checkedConvert(
+              'reason',
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      USkeletonFeedPostReason>(
+                  v, const USkeletonFeedPostReasonConverter().fromJson)),
+          feedContext: $checkedConvert('feedContext', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$SkeletonFeedPostToJson(_SkeletonFeedPost instance) =>
     <String, dynamic>{
@@ -39,9 +38,7 @@ Map<String, dynamic> _$SkeletonFeedPostToJson(_SkeletonFeedPost instance) =>
       'post': instance.post,
       'reason':
           _$JsonConverterToJson<Map<String, dynamic>, USkeletonFeedPostReason>(
-            instance.reason,
-            const USkeletonFeedPostReasonConverter().toJson,
-          ),
+              instance.reason, const USkeletonFeedPostReasonConverter().toJson),
       'feedContext': instance.feedContext,
       r'$unknown': instance.$unknown,
     };
@@ -49,9 +46,11 @@ Map<String, dynamic> _$SkeletonFeedPostToJson(_SkeletonFeedPost instance) =>
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,
   Value? Function(Json json) fromJson,
-) => json == null ? null : fromJson(json as Json);
+) =>
+    json == null ? null : fromJson(json as Json);
 
 Json? _$JsonConverterToJson<Json, Value>(
   Value? value,
   Json? Function(Value value) toJson,
-) => value == null ? null : toJson(value);
+) =>
+    value == null ? null : toJson(value);

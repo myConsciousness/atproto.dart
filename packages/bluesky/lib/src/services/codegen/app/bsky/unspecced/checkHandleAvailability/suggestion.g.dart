@@ -8,24 +8,27 @@ part of 'suggestion.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_Suggestion _$SuggestionFromJson(Map json) =>
-    $checkedCreate('_Suggestion', json, ($checkedConvert) {
-      final val = _Suggestion(
-        $type: $checkedConvert(
-          r'$type',
-          (v) =>
-              v as String? ??
-              'app.bsky.unspecced.checkHandleAvailability#suggestion',
-        ),
-        handle: $checkedConvert('handle', (v) => v as String),
-        method: $checkedConvert('method', (v) => v as String),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+_Suggestion _$SuggestionFromJson(Map json) => $checkedCreate(
+      '_Suggestion',
+      json,
+      ($checkedConvert) {
+        final val = _Suggestion(
+          $type: $checkedConvert(
+              r'$type',
+              (v) =>
+                  v as String? ??
+                  'app.bsky.unspecced.checkHandleAvailability#suggestion'),
+          handle: $checkedConvert('handle', (v) => v as String),
+          method: $checkedConvert('method', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$SuggestionToJson(_Suggestion instance) =>
     <String, dynamic>{

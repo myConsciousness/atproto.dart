@@ -22,11 +22,13 @@ part 'list_purpose.freezed.dart';
 abstract class ListPurpose with _$ListPurpose {
   const ListPurpose._();
 
-  const factory ListPurpose.knownValue({required KnownListPurpose data}) =
-      ListPurposeKnownValue;
+  const factory ListPurpose.knownValue({
+    required KnownListPurpose data,
+  }) = ListPurposeKnownValue;
 
-  const factory ListPurpose.unknown({required String data}) =
-      ListPurposeUnknown;
+  const factory ListPurpose.unknown({
+    required String data,
+  }) = ListPurposeUnknown;
 
   static ListPurpose? valueOf(final String? value) {
     if (value == null) return null;
@@ -68,8 +70,10 @@ final class ListPurposeConverter extends JsonConverter<ListPurpose, String> {
   }
 
   @override
-  String toJson(ListPurpose object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ListPurpose object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownListPurpose implements Serializable {
@@ -78,7 +82,8 @@ enum KnownListPurpose implements Serializable {
   @JsonValue('app.bsky.graph.defs#curatelist')
   curatelist('app.bsky.graph.defs#curatelist'),
   @JsonValue('app.bsky.graph.defs#referencelist')
-  referencelist('app.bsky.graph.defs#referencelist');
+  referencelist('app.bsky.graph.defs#referencelist'),
+  ;
 
   @override
   final String value;

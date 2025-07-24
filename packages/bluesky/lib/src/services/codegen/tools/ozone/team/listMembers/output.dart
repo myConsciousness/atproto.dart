@@ -23,12 +23,14 @@ part 'output.g.dart';
 
 @freezed
 abstract class TeamListMembersOutput with _$TeamListMembersOutput {
-  static const knownProps = <String>['cursor', 'members'];
+  static const knownProps = <String>[
+    'cursor',
+    'members',
+  ];
 
   const factory TeamListMembersOutput({
     String? cursor,
     @MemberConverter() required List<Member> members,
-
     Map<String, dynamic>? $unknown,
   }) = _TeamListMembersOutput;
 
@@ -47,12 +49,14 @@ final class TeamListMembersOutputConverter
 
   @override
   TeamListMembersOutput fromJson(Map<String, dynamic> json) {
-    return TeamListMembersOutput.fromJson(
-      translate(json, TeamListMembersOutput.knownProps),
-    );
+    return TeamListMembersOutput.fromJson(translate(
+      json,
+      TeamListMembersOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(TeamListMembersOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(TeamListMembersOutput object) => untranslate(
+        object.toJson(),
+      );
 }

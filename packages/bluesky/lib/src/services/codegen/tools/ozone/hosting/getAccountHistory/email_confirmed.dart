@@ -20,13 +20,14 @@ part 'email_confirmed.g.dart';
 
 @freezed
 abstract class EmailConfirmed with _$EmailConfirmed {
-  static const knownProps = <String>['email'];
+  static const knownProps = <String>[
+    'email',
+  ];
 
   const factory EmailConfirmed({
     @Default('tools.ozone.hosting.getAccountHistory#emailConfirmed')
     String $type,
     required String email,
-
     Map<String, dynamic>? $unknown,
   }) = _EmailConfirmed;
 
@@ -46,10 +47,14 @@ final class EmailConfirmedConverter
 
   @override
   EmailConfirmed fromJson(Map<String, dynamic> json) {
-    return EmailConfirmed.fromJson(translate(json, EmailConfirmed.knownProps));
+    return EmailConfirmed.fromJson(translate(
+      json,
+      EmailConfirmed.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(EmailConfirmed object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(EmailConfirmed object) => untranslate(
+        object.toJson(),
+      );
 }

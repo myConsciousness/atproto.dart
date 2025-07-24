@@ -33,9 +33,8 @@ abstract class ModerationQueryEventsAgeAssuranceState
 
   static ModerationQueryEventsAgeAssuranceState? valueOf(final String? value) {
     if (value == null) return null;
-    final knownValue = KnownModerationQueryEventsAgeAssuranceState.valueOf(
-      value,
-    );
+    final knownValue =
+        KnownModerationQueryEventsAgeAssuranceState.valueOf(value);
 
     return knownValue != null
         ? ModerationQueryEventsAgeAssuranceState.knownValue(data: knownValue)
@@ -66,13 +65,11 @@ final class ModerationQueryEventsAgeAssuranceStateConverter
   @override
   ModerationQueryEventsAgeAssuranceState fromJson(String json) {
     try {
-      final knownValue = KnownModerationQueryEventsAgeAssuranceState.valueOf(
-        json,
-      );
+      final knownValue =
+          KnownModerationQueryEventsAgeAssuranceState.valueOf(json);
       if (knownValue != null) {
         return ModerationQueryEventsAgeAssuranceState.knownValue(
-          data: knownValue,
-        );
+            data: knownValue);
       }
 
       return ModerationQueryEventsAgeAssuranceState.unknown(data: json);
@@ -82,8 +79,10 @@ final class ModerationQueryEventsAgeAssuranceStateConverter
   }
 
   @override
-  String toJson(ModerationQueryEventsAgeAssuranceState object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ModerationQueryEventsAgeAssuranceState object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownModerationQueryEventsAgeAssuranceState implements Serializable {
@@ -96,7 +95,8 @@ enum KnownModerationQueryEventsAgeAssuranceState implements Serializable {
   @JsonValue('reset')
   reset('reset'),
   @JsonValue('blocked')
-  blocked('blocked');
+  blocked('blocked'),
+  ;
 
   @override
   final String value;
@@ -108,8 +108,7 @@ enum KnownModerationQueryEventsAgeAssuranceState implements Serializable {
   }
 
   static KnownModerationQueryEventsAgeAssuranceState? valueOf(
-    final String? value,
-  ) {
+      final String? value) {
     if (value == null) return null;
 
     for (final v in values) {

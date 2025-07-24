@@ -25,10 +25,12 @@ part 'union_feed_view_post_reason.freezed.dart';
 abstract class UFeedViewPostReason with _$UFeedViewPostReason {
   const UFeedViewPostReason._();
 
-  const factory UFeedViewPostReason.reasonRepost({required ReasonRepost data}) =
-      UFeedViewPostReasonReasonRepost;
-  const factory UFeedViewPostReason.reasonPin({required ReasonPin data}) =
-      UFeedViewPostReasonReasonPin;
+  const factory UFeedViewPostReason.reasonRepost({
+    required ReasonRepost data,
+  }) = UFeedViewPostReasonReasonRepost;
+  const factory UFeedViewPostReason.reasonPin({
+    required ReasonPin data,
+  }) = UFeedViewPostReasonReasonPin;
 
   const factory UFeedViewPostReason.unknown({
     required Map<String, dynamic> data,
@@ -78,9 +80,8 @@ final class UFeedViewPostReasonConverter
 
   @override
   Map<String, dynamic> toJson(UFeedViewPostReason object) => object.when(
-    reasonRepost: (data) => const ReasonRepostConverter().toJson(data),
-    reasonPin: (data) => const ReasonPinConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        reasonRepost: (data) => const ReasonRepostConverter().toJson(data),
+        reasonPin: (data) => const ReasonPinConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

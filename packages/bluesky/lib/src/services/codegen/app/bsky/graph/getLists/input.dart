@@ -20,14 +20,17 @@ part 'input.g.dart';
 
 @freezed
 abstract class GraphGetListsInput with _$GraphGetListsInput {
-  static const knownProps = <String>['actor', 'limit', 'cursor'];
+  static const knownProps = <String>[
+    'actor',
+    'limit',
+    'cursor',
+  ];
 
   const factory GraphGetListsInput({
     /// The account (actor) to enumerate lists from.
     required String actor,
     @Default(50) int limit,
     String? cursor,
-
     Map<String, dynamic>? $unknown,
   }) = _GraphGetListsInput;
 
@@ -46,12 +49,14 @@ final class GraphGetListsInputConverter
 
   @override
   GraphGetListsInput fromJson(Map<String, dynamic> json) {
-    return GraphGetListsInput.fromJson(
-      translate(json, GraphGetListsInput.knownProps),
-    );
+    return GraphGetListsInput.fromJson(translate(
+      json,
+      GraphGetListsInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(GraphGetListsInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(GraphGetListsInput object) => untranslate(
+        object.toJson(),
+      );
 }

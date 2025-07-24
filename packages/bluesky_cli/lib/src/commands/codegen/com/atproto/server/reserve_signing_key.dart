@@ -16,7 +16,11 @@ import '../../../../procedure_command.dart';
 
 final class ReserveSigningKeyCommand extends ProcedureCommand {
   ReserveSigningKeyCommand() {
-    argParser..addOption("did", help: r"The DID to reserve a key for.");
+    argParser
+      ..addOption(
+        "did",
+        help: r"The DID to reserve a key for.",
+      );
   }
 
   @override
@@ -34,6 +38,6 @@ final class ReserveSigningKeyCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    if (argResults!["did"] != null) "did": argResults!["did"],
-  };
+        if (argResults!["did"] != null) "did": argResults!["did"],
+      };
 }

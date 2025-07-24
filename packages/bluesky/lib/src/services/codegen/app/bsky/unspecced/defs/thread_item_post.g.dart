@@ -8,32 +8,33 @@ part of 'thread_item_post.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_ThreadItemPost _$ThreadItemPostFromJson(Map json) =>
-    $checkedCreate('_ThreadItemPost', json, ($checkedConvert) {
-      final val = _ThreadItemPost(
-        $type: $checkedConvert(
-          r'$type',
-          (v) => v as String? ?? 'app.bsky.unspecced.defs#threadItemPost',
-        ),
-        post: $checkedConvert(
-          'post',
-          (v) => const PostViewConverter().fromJson(v as Map<String, dynamic>),
-        ),
-        moreParents: $checkedConvert('moreParents', (v) => v as bool),
-        moreReplies: $checkedConvert('moreReplies', (v) => (v as num).toInt()),
-        opThread: $checkedConvert('opThread', (v) => v as bool),
-        hiddenByThreadgate: $checkedConvert(
-          'hiddenByThreadgate',
-          (v) => v as bool,
-        ),
-        mutedByViewer: $checkedConvert('mutedByViewer', (v) => v as bool),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+_ThreadItemPost _$ThreadItemPostFromJson(Map json) => $checkedCreate(
+      '_ThreadItemPost',
+      json,
+      ($checkedConvert) {
+        final val = _ThreadItemPost(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? 'app.bsky.unspecced.defs#threadItemPost'),
+          post: $checkedConvert(
+              'post',
+              (v) => const PostViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
+          moreParents: $checkedConvert('moreParents', (v) => v as bool),
+          moreReplies:
+              $checkedConvert('moreReplies', (v) => (v as num).toInt()),
+          opThread: $checkedConvert('opThread', (v) => v as bool),
+          hiddenByThreadgate:
+              $checkedConvert('hiddenByThreadgate', (v) => v as bool),
+          mutedByViewer: $checkedConvert('mutedByViewer', (v) => v as bool),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$ThreadItemPostToJson(_ThreadItemPost instance) =>
     <String, dynamic>{

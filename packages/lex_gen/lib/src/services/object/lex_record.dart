@@ -54,12 +54,12 @@ final class LexRecord extends LexType {
     final id = rule.getLexObjectTypeId(lexiconId, defName);
 
     final packages = StringBuffer();
-    for (final packagePath
-        in this.properties
-            .where((e) => e.type.packagePath != null)
-            .map((e) => e.type.packagePath)
-            .toSet()
-            .toList()) {
+    for (final packagePath in this
+        .properties
+        .where((e) => e.type.packagePath != null)
+        .map((e) => e.type.packagePath)
+        .toSet()
+        .toList()) {
       packages.writeln("import '$packagePath';");
     }
 

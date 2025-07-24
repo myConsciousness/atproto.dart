@@ -26,8 +26,9 @@ abstract class AdminGetInviteCodesSort with _$AdminGetInviteCodesSort {
     required KnownAdminGetInviteCodesSort data,
   }) = AdminGetInviteCodesSortKnownValue;
 
-  const factory AdminGetInviteCodesSort.unknown({required String data}) =
-      AdminGetInviteCodesSortUnknown;
+  const factory AdminGetInviteCodesSort.unknown({
+    required String data,
+  }) = AdminGetInviteCodesSortUnknown;
 
   static AdminGetInviteCodesSort? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,15 +71,18 @@ final class AdminGetInviteCodesSortConverter
   }
 
   @override
-  String toJson(AdminGetInviteCodesSort object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(AdminGetInviteCodesSort object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownAdminGetInviteCodesSort implements Serializable {
   @JsonValue('recent')
   recent('recent'),
   @JsonValue('usage')
-  usage('usage');
+  usage('usage'),
+  ;
 
   @override
   final String value;

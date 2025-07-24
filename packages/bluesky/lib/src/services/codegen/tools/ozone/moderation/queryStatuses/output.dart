@@ -24,13 +24,15 @@ part 'output.g.dart';
 @freezed
 abstract class ModerationQueryStatusesOutput
     with _$ModerationQueryStatusesOutput {
-  static const knownProps = <String>['cursor', 'subjectStatuses'];
+  static const knownProps = <String>[
+    'cursor',
+    'subjectStatuses',
+  ];
 
   const factory ModerationQueryStatusesOutput({
     String? cursor,
     @SubjectStatusViewConverter()
     required List<SubjectStatusView> subjectStatuses,
-
     Map<String, dynamic>? $unknown,
   }) = _ModerationQueryStatusesOutput;
 
@@ -50,12 +52,15 @@ final class ModerationQueryStatusesOutputConverter
 
   @override
   ModerationQueryStatusesOutput fromJson(Map<String, dynamic> json) {
-    return ModerationQueryStatusesOutput.fromJson(
-      translate(json, ModerationQueryStatusesOutput.knownProps),
-    );
+    return ModerationQueryStatusesOutput.fromJson(translate(
+      json,
+      ModerationQueryStatusesOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(ModerationQueryStatusesOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

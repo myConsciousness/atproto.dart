@@ -23,12 +23,14 @@ part 'output.g.dart';
 
 @freezed
 abstract class ModerationQueryEventsOutput with _$ModerationQueryEventsOutput {
-  static const knownProps = <String>['cursor', 'events'];
+  static const knownProps = <String>[
+    'cursor',
+    'events',
+  ];
 
   const factory ModerationQueryEventsOutput({
     String? cursor,
     @ModEventViewConverter() required List<ModEventView> events,
-
     Map<String, dynamic>? $unknown,
   }) = _ModerationQueryEventsOutput;
 
@@ -47,12 +49,15 @@ final class ModerationQueryEventsOutputConverter
 
   @override
   ModerationQueryEventsOutput fromJson(Map<String, dynamic> json) {
-    return ModerationQueryEventsOutput.fromJson(
-      translate(json, ModerationQueryEventsOutput.knownProps),
-    );
+    return ModerationQueryEventsOutput.fromJson(translate(
+      json,
+      ModerationQueryEventsOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(ModerationQueryEventsOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

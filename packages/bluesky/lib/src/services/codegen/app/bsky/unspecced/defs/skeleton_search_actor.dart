@@ -20,12 +20,13 @@ part 'skeleton_search_actor.g.dart';
 
 @freezed
 abstract class SkeletonSearchActor with _$SkeletonSearchActor {
-  static const knownProps = <String>['did'];
+  static const knownProps = <String>[
+    'did',
+  ];
 
   const factory SkeletonSearchActor({
     @Default('app.bsky.unspecced.defs#skeletonSearchActor') String $type,
     required String did,
-
     Map<String, dynamic>? $unknown,
   }) = _SkeletonSearchActor;
 
@@ -44,12 +45,14 @@ final class SkeletonSearchActorConverter
 
   @override
   SkeletonSearchActor fromJson(Map<String, dynamic> json) {
-    return SkeletonSearchActor.fromJson(
-      translate(json, SkeletonSearchActor.knownProps),
-    );
+    return SkeletonSearchActor.fromJson(translate(
+      json,
+      SkeletonSearchActor.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SkeletonSearchActor object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SkeletonSearchActor object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -33,9 +33,8 @@ abstract class SubjectStatusViewAgeAssuranceUpdatedBy
 
   static SubjectStatusViewAgeAssuranceUpdatedBy? valueOf(final String? value) {
     if (value == null) return null;
-    final knownValue = KnownSubjectStatusViewAgeAssuranceUpdatedBy.valueOf(
-      value,
-    );
+    final knownValue =
+        KnownSubjectStatusViewAgeAssuranceUpdatedBy.valueOf(value);
 
     return knownValue != null
         ? SubjectStatusViewAgeAssuranceUpdatedBy.knownValue(data: knownValue)
@@ -66,13 +65,11 @@ final class SubjectStatusViewAgeAssuranceUpdatedByConverter
   @override
   SubjectStatusViewAgeAssuranceUpdatedBy fromJson(String json) {
     try {
-      final knownValue = KnownSubjectStatusViewAgeAssuranceUpdatedBy.valueOf(
-        json,
-      );
+      final knownValue =
+          KnownSubjectStatusViewAgeAssuranceUpdatedBy.valueOf(json);
       if (knownValue != null) {
         return SubjectStatusViewAgeAssuranceUpdatedBy.knownValue(
-          data: knownValue,
-        );
+            data: knownValue);
       }
 
       return SubjectStatusViewAgeAssuranceUpdatedBy.unknown(data: json);
@@ -82,15 +79,18 @@ final class SubjectStatusViewAgeAssuranceUpdatedByConverter
   }
 
   @override
-  String toJson(SubjectStatusViewAgeAssuranceUpdatedBy object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SubjectStatusViewAgeAssuranceUpdatedBy object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownSubjectStatusViewAgeAssuranceUpdatedBy implements Serializable {
   @JsonValue('admin')
   admin('admin'),
   @JsonValue('user')
-  user('user');
+  user('user'),
+  ;
 
   @override
   final String value;
@@ -102,8 +102,7 @@ enum KnownSubjectStatusViewAgeAssuranceUpdatedBy implements Serializable {
   }
 
   static KnownSubjectStatusViewAgeAssuranceUpdatedBy? valueOf(
-    final String? value,
-  ) {
+      final String? value) {
     if (value == null) return null;
 
     for (final v in values) {

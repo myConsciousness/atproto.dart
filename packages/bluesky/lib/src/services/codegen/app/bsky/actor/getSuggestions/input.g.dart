@@ -9,22 +9,27 @@ part of 'input.dart';
 // **************************************************************************
 
 _ActorGetSuggestionsInput _$ActorGetSuggestionsInputFromJson(Map json) =>
-    $checkedCreate('_ActorGetSuggestionsInput', json, ($checkedConvert) {
-      final val = _ActorGetSuggestionsInput(
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
-        cursor: $checkedConvert('cursor', (v) => v as String?),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_ActorGetSuggestionsInput',
+      json,
+      ($checkedConvert) {
+        final val = _ActorGetSuggestionsInput(
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$ActorGetSuggestionsInputToJson(
-  _ActorGetSuggestionsInput instance,
-) => <String, dynamic>{
-  'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
-};
+        _ActorGetSuggestionsInput instance) =>
+    <String, dynamic>{
+      'limit': instance.limit,
+      'cursor': instance.cursor,
+      r'$unknown': instance.$unknown,
+    };

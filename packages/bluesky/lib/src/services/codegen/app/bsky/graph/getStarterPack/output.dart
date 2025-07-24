@@ -23,11 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class GraphGetStarterPackOutput with _$GraphGetStarterPackOutput {
-  static const knownProps = <String>['starterPack'];
+  static const knownProps = <String>[
+    'starterPack',
+  ];
 
   const factory GraphGetStarterPackOutput({
     @StarterPackViewConverter() required StarterPackView starterPack,
-
     Map<String, dynamic>? $unknown,
   }) = _GraphGetStarterPackOutput;
 
@@ -41,12 +42,14 @@ final class GraphGetStarterPackOutputConverter
 
   @override
   GraphGetStarterPackOutput fromJson(Map<String, dynamic> json) {
-    return GraphGetStarterPackOutput.fromJson(
-      translate(json, GraphGetStarterPackOutput.knownProps),
-    );
+    return GraphGetStarterPackOutput.fromJson(translate(
+      json,
+      GraphGetStarterPackOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(GraphGetStarterPackOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(GraphGetStarterPackOutput object) => untranslate(
+        object.toJson(),
+      );
 }

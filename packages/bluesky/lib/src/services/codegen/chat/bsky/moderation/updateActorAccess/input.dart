@@ -21,19 +21,22 @@ part 'input.g.dart';
 @freezed
 abstract class ModerationUpdateActorAccessInput
     with _$ModerationUpdateActorAccessInput {
-  static const knownProps = <String>['actor', 'allowAccess', 'ref'];
+  static const knownProps = <String>[
+    'actor',
+    'allowAccess',
+    'ref',
+  ];
 
   const factory ModerationUpdateActorAccessInput({
     required String actor,
     required bool allowAccess,
     String? ref,
-
     Map<String, dynamic>? $unknown,
   }) = _ModerationUpdateActorAccessInput;
 
   factory ModerationUpdateActorAccessInput.fromJson(
-    Map<String, Object?> json,
-  ) => _$ModerationUpdateActorAccessInputFromJson(json);
+          Map<String, Object?> json) =>
+      _$ModerationUpdateActorAccessInputFromJson(json);
 }
 
 extension ModerationUpdateActorAccessInputExtension
@@ -44,19 +47,21 @@ extension ModerationUpdateActorAccessInputExtension
   bool get hasNotRef => !hasRef;
 }
 
-final class ModerationUpdateActorAccessInputConverter
-    extends
-        JsonConverter<ModerationUpdateActorAccessInput, Map<String, dynamic>> {
+final class ModerationUpdateActorAccessInputConverter extends JsonConverter<
+    ModerationUpdateActorAccessInput, Map<String, dynamic>> {
   const ModerationUpdateActorAccessInputConverter();
 
   @override
   ModerationUpdateActorAccessInput fromJson(Map<String, dynamic> json) {
-    return ModerationUpdateActorAccessInput.fromJson(
-      translate(json, ModerationUpdateActorAccessInput.knownProps),
-    );
+    return ModerationUpdateActorAccessInput.fromJson(translate(
+      json,
+      ModerationUpdateActorAccessInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(ModerationUpdateActorAccessInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

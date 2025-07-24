@@ -9,22 +9,27 @@ part of 'input.dart';
 // **************************************************************************
 
 _ModerationGetReporterStatsInput _$ModerationGetReporterStatsInputFromJson(
-  Map json,
-) =>
-    $checkedCreate('_ModerationGetReporterStatsInput', json, ($checkedConvert) {
-      final val = _ModerationGetReporterStatsInput(
-        dids: $checkedConvert(
-          'dids',
-          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
-        ),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+        Map json) =>
+    $checkedCreate(
+      '_ModerationGetReporterStatsInput',
+      json,
+      ($checkedConvert) {
+        final val = _ModerationGetReporterStatsInput(
+          dids: $checkedConvert('dids',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$ModerationGetReporterStatsInputToJson(
-  _ModerationGetReporterStatsInput instance,
-) => <String, dynamic>{'dids': instance.dids, r'$unknown': instance.$unknown};
+        _ModerationGetReporterStatsInput instance) =>
+    <String, dynamic>{
+      'dids': instance.dids,
+      r'$unknown': instance.$unknown,
+    };

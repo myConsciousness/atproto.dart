@@ -37,7 +37,6 @@ abstract class NotificationUnregisterPushInput
     @NotificationUnregisterPushPlatformConverter()
     required NotificationUnregisterPushPlatform platform,
     required String appId,
-
     Map<String, dynamic>? $unknown,
   }) = _NotificationUnregisterPushInput;
 
@@ -45,19 +44,21 @@ abstract class NotificationUnregisterPushInput
       _$NotificationUnregisterPushInputFromJson(json);
 }
 
-final class NotificationUnregisterPushInputConverter
-    extends
-        JsonConverter<NotificationUnregisterPushInput, Map<String, dynamic>> {
+final class NotificationUnregisterPushInputConverter extends JsonConverter<
+    NotificationUnregisterPushInput, Map<String, dynamic>> {
   const NotificationUnregisterPushInputConverter();
 
   @override
   NotificationUnregisterPushInput fromJson(Map<String, dynamic> json) {
-    return NotificationUnregisterPushInput.fromJson(
-      translate(json, NotificationUnregisterPushInput.knownProps),
-    );
+    return NotificationUnregisterPushInput.fromJson(translate(
+      json,
+      NotificationUnregisterPushInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(NotificationUnregisterPushInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

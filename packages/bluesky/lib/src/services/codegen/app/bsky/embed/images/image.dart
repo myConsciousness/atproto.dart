@@ -24,7 +24,11 @@ part 'image.g.dart';
 
 @freezed
 abstract class EmbedImagesImage with _$EmbedImagesImage {
-  static const knownProps = <String>['image', 'alt', 'aspectRatio'];
+  static const knownProps = <String>[
+    'image',
+    'alt',
+    'aspectRatio',
+  ];
 
   const factory EmbedImagesImage({
     @Default('app.bsky.embed.images#image') String $type,
@@ -33,7 +37,6 @@ abstract class EmbedImagesImage with _$EmbedImagesImage {
     /// Alt text description of the image, for accessibility.
     required String alt,
     @AspectRatioConverter() AspectRatio? aspectRatio,
-
     Map<String, dynamic>? $unknown,
   }) = _EmbedImagesImage;
 
@@ -57,12 +60,14 @@ final class EmbedImagesImageConverter
 
   @override
   EmbedImagesImage fromJson(Map<String, dynamic> json) {
-    return EmbedImagesImage.fromJson(
-      translate(json, EmbedImagesImage.knownProps),
-    );
+    return EmbedImagesImage.fromJson(translate(
+      json,
+      EmbedImagesImage.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedImagesImage object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(EmbedImagesImage object) => untranslate(
+        object.toJson(),
+      );
 }

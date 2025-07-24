@@ -20,7 +20,10 @@ part 'suggestion.g.dart';
 
 @freezed
 abstract class Suggestion with _$Suggestion {
-  static const knownProps = <String>['handle', 'method'];
+  static const knownProps = <String>[
+    'handle',
+    'method',
+  ];
 
   const factory Suggestion({
     @Default('app.bsky.unspecced.checkHandleAvailability#suggestion')
@@ -29,7 +32,6 @@ abstract class Suggestion with _$Suggestion {
 
     /// Method used to build this suggestion. Should be considered opaque to clients. Can be used for metrics.
     required String method,
-
     Map<String, dynamic>? $unknown,
   }) = _Suggestion;
 
@@ -49,10 +51,14 @@ final class SuggestionConverter
 
   @override
   Suggestion fromJson(Map<String, dynamic> json) {
-    return Suggestion.fromJson(translate(json, Suggestion.knownProps));
+    return Suggestion.fromJson(translate(
+      json,
+      Suggestion.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(Suggestion object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(Suggestion object) => untranslate(
+        object.toJson(),
+      );
 }

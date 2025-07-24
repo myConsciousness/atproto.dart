@@ -21,13 +21,15 @@ part 'caption.g.dart';
 
 @freezed
 abstract class EmbedVideoCaption with _$EmbedVideoCaption {
-  static const knownProps = <String>['lang', 'file'];
+  static const knownProps = <String>[
+    'lang',
+    'file',
+  ];
 
   const factory EmbedVideoCaption({
     @Default('app.bsky.embed.video#caption') String $type,
     required String lang,
     @BlobConverter() required Blob file,
-
     Map<String, dynamic>? $unknown,
   }) = _EmbedVideoCaption;
 
@@ -46,12 +48,14 @@ final class EmbedVideoCaptionConverter
 
   @override
   EmbedVideoCaption fromJson(Map<String, dynamic> json) {
-    return EmbedVideoCaption.fromJson(
-      translate(json, EmbedVideoCaption.knownProps),
-    );
+    return EmbedVideoCaption.fromJson(translate(
+      json,
+      EmbedVideoCaption.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedVideoCaption object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(EmbedVideoCaption object) => untranslate(
+        object.toJson(),
+      );
 }

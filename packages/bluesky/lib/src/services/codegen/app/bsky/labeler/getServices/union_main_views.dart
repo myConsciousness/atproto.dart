@@ -81,10 +81,9 @@ final class ULabelerGetServicesViewsConverter
 
   @override
   Map<String, dynamic> toJson(ULabelerGetServicesViews object) => object.when(
-    labelerView: (data) => const LabelerViewConverter().toJson(data),
-    labelerViewDetailed: (data) =>
-        const LabelerViewDetailedConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        labelerView: (data) => const LabelerViewConverter().toJson(data),
+        labelerViewDetailed: (data) =>
+            const LabelerViewDetailedConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

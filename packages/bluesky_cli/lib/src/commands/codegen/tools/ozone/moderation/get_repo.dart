@@ -16,7 +16,11 @@ import '../../../../query_command.dart';
 
 final class GetRepoCommand extends QueryCommand {
   GetRepoCommand() {
-    argParser..addOption("did", mandatory: true);
+    argParser
+      ..addOption(
+        "did",
+        mandatory: true,
+      );
   }
 
   @override
@@ -32,5 +36,7 @@ final class GetRepoCommand extends QueryCommand {
   String get methodId => "tools.ozone.moderation.getRepo";
 
   @override
-  Map<String, dynamic>? get parameters => {"did": argResults!["did"]};
+  Map<String, dynamic>? get parameters => {
+        "did": argResults!["did"],
+      };
 }

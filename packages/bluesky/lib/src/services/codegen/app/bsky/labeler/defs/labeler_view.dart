@@ -44,7 +44,6 @@ abstract class LabelerView with _$LabelerView {
     @LabelerViewerStateConverter() LabelerViewerState? viewer,
     required DateTime indexedAt,
     @LabelConverter() List<Label>? labels,
-
     Map<String, dynamic>? $unknown,
   }) = _LabelerView;
 
@@ -70,10 +69,14 @@ final class LabelerViewConverter
 
   @override
   LabelerView fromJson(Map<String, dynamic> json) {
-    return LabelerView.fromJson(translate(json, LabelerView.knownProps));
+    return LabelerView.fromJson(translate(
+      json,
+      LabelerView.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(LabelerView object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(LabelerView object) => untranslate(
+        object.toJson(),
+      );
 }

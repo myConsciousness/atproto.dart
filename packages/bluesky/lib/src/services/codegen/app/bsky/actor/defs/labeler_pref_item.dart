@@ -20,12 +20,13 @@ part 'labeler_pref_item.g.dart';
 
 @freezed
 abstract class LabelerPrefItem with _$LabelerPrefItem {
-  static const knownProps = <String>['did'];
+  static const knownProps = <String>[
+    'did',
+  ];
 
   const factory LabelerPrefItem({
     @Default('app.bsky.actor.defs#labelerPrefItem') String $type,
     required String did,
-
     Map<String, dynamic>? $unknown,
   }) = _LabelerPrefItem;
 
@@ -44,12 +45,14 @@ final class LabelerPrefItemConverter
 
   @override
   LabelerPrefItem fromJson(Map<String, dynamic> json) {
-    return LabelerPrefItem.fromJson(
-      translate(json, LabelerPrefItem.knownProps),
-    );
+    return LabelerPrefItem.fromJson(translate(
+      json,
+      LabelerPrefItem.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(LabelerPrefItem object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(LabelerPrefItem object) => untranslate(
+        object.toJson(),
+      );
 }

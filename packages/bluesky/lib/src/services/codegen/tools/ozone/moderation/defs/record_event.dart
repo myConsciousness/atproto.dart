@@ -24,7 +24,12 @@ part 'record_event.g.dart';
 /// Logs lifecycle event on a record subject. Normally captured by automod from the firehose and emitted to ozone for historical tracking.
 @freezed
 abstract class RecordEvent with _$RecordEvent {
-  static const knownProps = <String>['comment', 'op', 'cid', 'timestamp'];
+  static const knownProps = <String>[
+    'comment',
+    'op',
+    'cid',
+    'timestamp',
+  ];
 
   const factory RecordEvent({
     @Default('tools.ozone.moderation.defs#recordEvent') String $type,
@@ -32,7 +37,6 @@ abstract class RecordEvent with _$RecordEvent {
     @RecordEventOpConverter() required RecordEventOp op,
     String? cid,
     required DateTime timestamp,
-
     Map<String, dynamic>? $unknown,
   }) = _RecordEvent;
 
@@ -58,10 +62,14 @@ final class RecordEventConverter
 
   @override
   RecordEvent fromJson(Map<String, dynamic> json) {
-    return RecordEvent.fromJson(translate(json, RecordEvent.knownProps));
+    return RecordEvent.fromJson(translate(
+      json,
+      RecordEvent.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(RecordEvent object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(RecordEvent object) => untranslate(
+        object.toJson(),
+      );
 }

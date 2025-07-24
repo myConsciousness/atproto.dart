@@ -23,7 +23,11 @@ part 'thread_item.g.dart';
 
 @freezed
 abstract class ThreadItem with _$ThreadItem {
-  static const knownProps = <String>['uri', 'depth', 'value'];
+  static const knownProps = <String>[
+    'uri',
+    'depth',
+    'value',
+  ];
 
   const factory ThreadItem({
     @Default('app.bsky.unspecced.getPostThreadOtherV2#threadItem') String $type,
@@ -32,7 +36,6 @@ abstract class ThreadItem with _$ThreadItem {
     /// The nesting level of this item in the thread. Depth 0 means the anchor item. Items above have negative depths, items below have positive depths.
     required int depth,
     @UThreadItemValueConverter() required UThreadItemValue value,
-
     Map<String, dynamic>? $unknown,
   }) = _ThreadItem;
 
@@ -52,10 +55,14 @@ final class ThreadItemConverter
 
   @override
   ThreadItem fromJson(Map<String, dynamic> json) {
-    return ThreadItem.fromJson(translate(json, ThreadItem.knownProps));
+    return ThreadItem.fromJson(translate(
+      json,
+      ThreadItem.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ThreadItem object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ThreadItem object) => untranslate(
+        object.toJson(),
+      );
 }

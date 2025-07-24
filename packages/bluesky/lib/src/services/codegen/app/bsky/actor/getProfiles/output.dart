@@ -23,11 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class ActorGetProfilesOutput with _$ActorGetProfilesOutput {
-  static const knownProps = <String>['profiles'];
+  static const knownProps = <String>[
+    'profiles',
+  ];
 
   const factory ActorGetProfilesOutput({
     @ProfileViewDetailedConverter() required List<ProfileViewDetailed> profiles,
-
     Map<String, dynamic>? $unknown,
   }) = _ActorGetProfilesOutput;
 
@@ -41,12 +42,14 @@ final class ActorGetProfilesOutputConverter
 
   @override
   ActorGetProfilesOutput fromJson(Map<String, dynamic> json) {
-    return ActorGetProfilesOutput.fromJson(
-      translate(json, ActorGetProfilesOutput.knownProps),
-    );
+    return ActorGetProfilesOutput.fromJson(translate(
+      json,
+      ActorGetProfilesOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ActorGetProfilesOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ActorGetProfilesOutput object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -13,10 +13,11 @@ Future<core.Response<LinkPreview>> getLinkPreview(
   final Uri url, {
   String service = core.defaultLinkPreviewService,
   core.GetClient? mockedGetClient,
-}) async => await _$EmbedService(
-  service: service,
-  mockedGetClient: mockedGetClient,
-).getLinkPreview(url);
+}) async =>
+    await _$EmbedService(
+      service: service,
+      mockedGetClient: mockedGetClient,
+    ).getLinkPreview(url);
 
 sealed class _EmbedService {
   Future<core.Response<LinkPreview>> getLinkPreview(final Uri url);

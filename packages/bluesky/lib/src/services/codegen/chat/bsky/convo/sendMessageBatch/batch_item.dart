@@ -23,13 +23,15 @@ part 'batch_item.g.dart';
 
 @freezed
 abstract class BatchItem with _$BatchItem {
-  static const knownProps = <String>['convoId', 'message'];
+  static const knownProps = <String>[
+    'convoId',
+    'message',
+  ];
 
   const factory BatchItem({
     @Default('chat.bsky.convo.sendMessageBatch#batchItem') String $type,
     required String convoId,
     @MessageInputConverter() required MessageInput message,
-
     Map<String, dynamic>? $unknown,
   }) = _BatchItem;
 
@@ -48,9 +50,14 @@ final class BatchItemConverter
 
   @override
   BatchItem fromJson(Map<String, dynamic> json) {
-    return BatchItem.fromJson(translate(json, BatchItem.knownProps));
+    return BatchItem.fromJson(translate(
+      json,
+      BatchItem.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(BatchItem object) => untranslate(object.toJson());
+  Map<String, dynamic> toJson(BatchItem object) => untranslate(
+        object.toJson(),
+      );
 }

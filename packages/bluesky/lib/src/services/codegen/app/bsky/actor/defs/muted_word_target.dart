@@ -26,8 +26,9 @@ abstract class MutedWordTarget with _$MutedWordTarget {
     required KnownMutedWordTarget data,
   }) = MutedWordTargetKnownValue;
 
-  const factory MutedWordTarget.unknown({required String data}) =
-      MutedWordTargetUnknown;
+  const factory MutedWordTarget.unknown({
+    required String data,
+  }) = MutedWordTargetUnknown;
 
   static MutedWordTarget? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,15 +71,18 @@ final class MutedWordTargetConverter
   }
 
   @override
-  String toJson(MutedWordTarget object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(MutedWordTarget object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownMutedWordTarget implements Serializable {
   @JsonValue('content')
   content('content'),
   @JsonValue('tag')
-  tag('tag');
+  tag('tag'),
+  ;
 
   @override
   final String value;

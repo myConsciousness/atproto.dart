@@ -21,13 +21,16 @@ part 'input.g.dart';
 @freezed
 abstract class ServerCreateInviteCodesInput
     with _$ServerCreateInviteCodesInput {
-  static const knownProps = <String>['codeCount', 'useCount', 'forAccounts'];
+  static const knownProps = <String>[
+    'codeCount',
+    'useCount',
+    'forAccounts',
+  ];
 
   const factory ServerCreateInviteCodesInput({
     @Default(1) int codeCount,
     required int useCount,
     List<String>? forAccounts,
-
     Map<String, dynamic>? $unknown,
   }) = _ServerCreateInviteCodesInput;
 
@@ -41,12 +44,15 @@ final class ServerCreateInviteCodesInputConverter
 
   @override
   ServerCreateInviteCodesInput fromJson(Map<String, dynamic> json) {
-    return ServerCreateInviteCodesInput.fromJson(
-      translate(json, ServerCreateInviteCodesInput.knownProps),
-    );
+    return ServerCreateInviteCodesInput.fromJson(translate(
+      json,
+      ServerCreateInviteCodesInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(ServerCreateInviteCodesInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

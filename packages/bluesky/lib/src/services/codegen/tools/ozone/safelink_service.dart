@@ -42,20 +42,24 @@ final class SafelinkService {
     String? createdBy,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneSafelinkAddRule,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      'url': url,
-      'pattern': pattern.toJson(),
-      'action': action.toJson(),
-      'reason': reason.toJson(),
-      if (comment != null) 'comment': comment,
-      if (createdBy != null) 'createdBy': createdBy,
-      ...?$unknown,
-    },
-    to: const EventConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.post(
+        ns.toolsOzoneSafelinkAddRule,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
+        body: {
+          'url': url,
+          'pattern': pattern.toJson(),
+          'action': action.toJson(),
+          'reason': reason.toJson(),
+          if (comment != null) 'comment': comment,
+          if (createdBy != null) 'createdBy': createdBy,
+          ...?$unknown,
+        },
+        to: const EventConverter().fromJson,
+      );
 
   /// Remove an existing URL safety rule
   Future<XRPCResponse<Event>> removeRule({
@@ -65,18 +69,22 @@ final class SafelinkService {
     String? createdBy,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneSafelinkRemoveRule,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      'url': url,
-      'pattern': pattern.toJson(),
-      if (comment != null) 'comment': comment,
-      if (createdBy != null) 'createdBy': createdBy,
-      ...?$unknown,
-    },
-    to: const EventConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.post(
+        ns.toolsOzoneSafelinkRemoveRule,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
+        body: {
+          'url': url,
+          'pattern': pattern.toJson(),
+          if (comment != null) 'comment': comment,
+          if (createdBy != null) 'createdBy': createdBy,
+          ...?$unknown,
+        },
+        to: const EventConverter().fromJson,
+      );
 
   /// Query URL safety audit events
   Future<XRPCResponse<SafelinkQueryEventsOutput>> queryEvents({
@@ -87,19 +95,23 @@ final class SafelinkService {
     SafelinkQueryEventsSortDirection? sortDirection,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneSafelinkQueryEvents,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      if (cursor != null) 'cursor': cursor,
-      if (limit != null) 'limit': limit,
-      if (urls != null) 'urls': urls,
-      if (patternType != null) 'patternType': patternType,
-      if (sortDirection != null) 'sortDirection': sortDirection.toJson(),
-      ...?$unknown,
-    },
-    to: const SafelinkQueryEventsOutputConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.post(
+        ns.toolsOzoneSafelinkQueryEvents,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
+        body: {
+          if (cursor != null) 'cursor': cursor,
+          if (limit != null) 'limit': limit,
+          if (urls != null) 'urls': urls,
+          if (patternType != null) 'patternType': patternType,
+          if (sortDirection != null) 'sortDirection': sortDirection.toJson(),
+          ...?$unknown,
+        },
+        to: const SafelinkQueryEventsOutputConverter().fromJson,
+      );
 
   /// Update an existing URL safety rule
   Future<XRPCResponse<Event>> updateRule({
@@ -111,20 +123,24 @@ final class SafelinkService {
     String? createdBy,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneSafelinkUpdateRule,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      'url': url,
-      'pattern': pattern.toJson(),
-      'action': action.toJson(),
-      'reason': reason.toJson(),
-      if (comment != null) 'comment': comment,
-      if (createdBy != null) 'createdBy': createdBy,
-      ...?$unknown,
-    },
-    to: const EventConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.post(
+        ns.toolsOzoneSafelinkUpdateRule,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
+        body: {
+          'url': url,
+          'pattern': pattern.toJson(),
+          'action': action.toJson(),
+          'reason': reason.toJson(),
+          if (comment != null) 'comment': comment,
+          if (createdBy != null) 'createdBy': createdBy,
+          ...?$unknown,
+        },
+        to: const EventConverter().fromJson,
+      );
 
   /// Query URL safety rules
   Future<XRPCResponse<SafelinkQueryRulesOutput>> queryRules({
@@ -138,20 +154,24 @@ final class SafelinkService {
     SafelinkQueryRulesSortDirection? sortDirection,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneSafelinkQueryRules,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      if (cursor != null) 'cursor': cursor,
-      if (limit != null) 'limit': limit,
-      if (urls != null) 'urls': urls,
-      if (patternType != null) 'patternType': patternType,
-      if (actions != null) 'actions': actions,
-      if (reason != null) 'reason': reason,
-      if (createdBy != null) 'createdBy': createdBy,
-      if (sortDirection != null) 'sortDirection': sortDirection.toJson(),
-      ...?$unknown,
-    },
-    to: const SafelinkQueryRulesOutputConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.post(
+        ns.toolsOzoneSafelinkQueryRules,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
+        body: {
+          if (cursor != null) 'cursor': cursor,
+          if (limit != null) 'limit': limit,
+          if (urls != null) 'urls': urls,
+          if (patternType != null) 'patternType': patternType,
+          if (actions != null) 'actions': actions,
+          if (reason != null) 'reason': reason,
+          if (createdBy != null) 'createdBy': createdBy,
+          if (sortDirection != null) 'sortDirection': sortDirection.toJson(),
+          ...?$unknown,
+        },
+        to: const SafelinkQueryRulesOutputConverter().fromJson,
+      );
 }

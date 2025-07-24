@@ -26,8 +26,9 @@ abstract class AccountHostingStatus with _$AccountHostingStatus {
     required KnownAccountHostingStatus data,
   }) = AccountHostingStatusKnownValue;
 
-  const factory AccountHostingStatus.unknown({required String data}) =
-      AccountHostingStatusUnknown;
+  const factory AccountHostingStatus.unknown({
+    required String data,
+  }) = AccountHostingStatusUnknown;
 
   static AccountHostingStatus? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,8 +71,10 @@ final class AccountHostingStatusConverter
   }
 
   @override
-  String toJson(AccountHostingStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(AccountHostingStatus object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownAccountHostingStatus implements Serializable {
@@ -84,7 +87,8 @@ enum KnownAccountHostingStatus implements Serializable {
   @JsonValue('deactivated')
   deactivated('deactivated'),
   @JsonValue('unknown')
-  unknown('unknown');
+  unknown('unknown'),
+  ;
 
   @override
   final String value;

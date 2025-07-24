@@ -20,12 +20,13 @@ part 'reaction_view_sender.g.dart';
 
 @freezed
 abstract class ReactionViewSender with _$ReactionViewSender {
-  static const knownProps = <String>['did'];
+  static const knownProps = <String>[
+    'did',
+  ];
 
   const factory ReactionViewSender({
     @Default('chat.bsky.convo.defs#reactionViewSender') String $type,
     required String did,
-
     Map<String, dynamic>? $unknown,
   }) = _ReactionViewSender;
 
@@ -44,12 +45,14 @@ final class ReactionViewSenderConverter
 
   @override
   ReactionViewSender fromJson(Map<String, dynamic> json) {
-    return ReactionViewSender.fromJson(
-      translate(json, ReactionViewSender.knownProps),
-    );
+    return ReactionViewSender.fromJson(translate(
+      json,
+      ReactionViewSender.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ReactionViewSender object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ReactionViewSender object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -9,23 +9,28 @@ part of 'output.dart';
 // **************************************************************************
 
 _SettingUpsertOptionOutput _$SettingUpsertOptionOutputFromJson(Map json) =>
-    $checkedCreate('_SettingUpsertOptionOutput', json, ($checkedConvert) {
-      final val = _SettingUpsertOptionOutput(
-        option: $checkedConvert(
-          'option',
-          (v) => const OptionConverter().fromJson(v as Map<String, dynamic>),
-        ),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_SettingUpsertOptionOutput',
+      json,
+      ($checkedConvert) {
+        final val = _SettingUpsertOptionOutput(
+          option: $checkedConvert(
+              'option',
+              (v) =>
+                  const OptionConverter().fromJson(v as Map<String, dynamic>)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$SettingUpsertOptionOutputToJson(
-  _SettingUpsertOptionOutput instance,
-) => <String, dynamic>{
-  'option': const OptionConverter().toJson(instance.option),
-  r'$unknown': instance.$unknown,
-};
+        _SettingUpsertOptionOutput instance) =>
+    <String, dynamic>{
+      'option': const OptionConverter().toJson(instance.option),
+      r'$unknown': instance.$unknown,
+    };

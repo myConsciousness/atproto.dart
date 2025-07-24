@@ -22,10 +22,13 @@ part 'action_type.freezed.dart';
 abstract class ActionType with _$ActionType {
   const ActionType._();
 
-  const factory ActionType.knownValue({required KnownActionType data}) =
-      ActionTypeKnownValue;
+  const factory ActionType.knownValue({
+    required KnownActionType data,
+  }) = ActionTypeKnownValue;
 
-  const factory ActionType.unknown({required String data}) = ActionTypeUnknown;
+  const factory ActionType.unknown({
+    required String data,
+  }) = ActionTypeUnknown;
 
   static ActionType? valueOf(final String? value) {
     if (value == null) return null;
@@ -67,8 +70,10 @@ final class ActionTypeConverter extends JsonConverter<ActionType, String> {
   }
 
   @override
-  String toJson(ActionType object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ActionType object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownActionType implements Serializable {
@@ -77,7 +82,8 @@ enum KnownActionType implements Serializable {
   @JsonValue('warn')
   warn('warn'),
   @JsonValue('whitelist')
-  whitelist('whitelist');
+  whitelist('whitelist'),
+  ;
 
   @override
   final String value;

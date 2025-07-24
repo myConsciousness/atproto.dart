@@ -17,10 +17,22 @@ import '../../../../procedure_command.dart';
 final class RegisterPushCommand extends ProcedureCommand {
   RegisterPushCommand() {
     argParser
-      ..addOption("serviceDid", mandatory: true)
-      ..addOption("token", mandatory: true)
-      ..addOption("platform", mandatory: true)
-      ..addOption("appId", mandatory: true)
+      ..addOption(
+        "serviceDid",
+        mandatory: true,
+      )
+      ..addOption(
+        "token",
+        mandatory: true,
+      )
+      ..addOption(
+        "platform",
+        mandatory: true,
+      )
+      ..addOption(
+        "appId",
+        mandatory: true,
+      )
       ..addFlag(
         "ageRestricted",
         help: r"Set to true when the actor is age restricted",
@@ -43,11 +55,11 @@ final class RegisterPushCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "serviceDid": argResults!["serviceDid"],
-    "token": argResults!["token"],
-    "platform": argResults!["platform"],
-    "appId": argResults!["appId"],
-    if (argResults!["ageRestricted"] != null)
-      "ageRestricted": argResults!["ageRestricted"],
-  };
+        "serviceDid": argResults!["serviceDid"],
+        "token": argResults!["token"],
+        "platform": argResults!["platform"],
+        "appId": argResults!["appId"],
+        if (argResults!["ageRestricted"] != null)
+          "ageRestricted": argResults!["ageRestricted"],
+      };
 }

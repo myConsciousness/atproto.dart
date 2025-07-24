@@ -8,21 +8,23 @@ part of 'message_view_sender.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_MessageViewSender _$MessageViewSenderFromJson(Map json) =>
-    $checkedCreate('_MessageViewSender', json, ($checkedConvert) {
-      final val = _MessageViewSender(
-        $type: $checkedConvert(
-          r'$type',
-          (v) => v as String? ?? 'chat.bsky.convo.defs#messageViewSender',
-        ),
-        did: $checkedConvert('did', (v) => v as String),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+_MessageViewSender _$MessageViewSenderFromJson(Map json) => $checkedCreate(
+      '_MessageViewSender',
+      json,
+      ($checkedConvert) {
+        final val = _MessageViewSender(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? 'chat.bsky.convo.defs#messageViewSender'),
+          did: $checkedConvert('did', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$MessageViewSenderToJson(_MessageViewSender instance) =>
     <String, dynamic>{

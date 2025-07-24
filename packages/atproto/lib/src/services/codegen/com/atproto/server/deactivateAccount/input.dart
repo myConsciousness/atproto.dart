@@ -21,12 +21,13 @@ part 'input.g.dart';
 @freezed
 abstract class ServerDeactivateAccountInput
     with _$ServerDeactivateAccountInput {
-  static const knownProps = <String>['deleteAfter'];
+  static const knownProps = <String>[
+    'deleteAfter',
+  ];
 
   const factory ServerDeactivateAccountInput({
     /// A recommendation to server as to how long they should hold onto the deactivated account before deleting.
     DateTime? deleteAfter,
-
     Map<String, dynamic>? $unknown,
   }) = _ServerDeactivateAccountInput;
 
@@ -46,12 +47,15 @@ final class ServerDeactivateAccountInputConverter
 
   @override
   ServerDeactivateAccountInput fromJson(Map<String, dynamic> json) {
-    return ServerDeactivateAccountInput.fromJson(
-      translate(json, ServerDeactivateAccountInput.knownProps),
-    );
+    return ServerDeactivateAccountInput.fromJson(translate(
+      json,
+      ServerDeactivateAccountInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(ServerDeactivateAccountInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

@@ -23,11 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class AdminGetAccountInfosOutput with _$AdminGetAccountInfosOutput {
-  static const knownProps = <String>['infos'];
+  static const knownProps = <String>[
+    'infos',
+  ];
 
   const factory AdminGetAccountInfosOutput({
     @AccountViewConverter() required List<AccountView> infos,
-
     Map<String, dynamic>? $unknown,
   }) = _AdminGetAccountInfosOutput;
 
@@ -41,12 +42,14 @@ final class AdminGetAccountInfosOutputConverter
 
   @override
   AdminGetAccountInfosOutput fromJson(Map<String, dynamic> json) {
-    return AdminGetAccountInfosOutput.fromJson(
-      translate(json, AdminGetAccountInfosOutput.knownProps),
-    );
+    return AdminGetAccountInfosOutput.fromJson(translate(
+      json,
+      AdminGetAccountInfosOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(AdminGetAccountInfosOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(AdminGetAccountInfosOutput object) => untranslate(
+        object.toJson(),
+      );
 }

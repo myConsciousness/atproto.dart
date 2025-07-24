@@ -22,10 +22,13 @@ part 'repo_status.freezed.dart';
 abstract class RepoStatus with _$RepoStatus {
   const RepoStatus._();
 
-  const factory RepoStatus.knownValue({required KnownRepoStatus data}) =
-      RepoStatusKnownValue;
+  const factory RepoStatus.knownValue({
+    required KnownRepoStatus data,
+  }) = RepoStatusKnownValue;
 
-  const factory RepoStatus.unknown({required String data}) = RepoStatusUnknown;
+  const factory RepoStatus.unknown({
+    required String data,
+  }) = RepoStatusUnknown;
 
   static RepoStatus? valueOf(final String? value) {
     if (value == null) return null;
@@ -67,8 +70,10 @@ final class RepoStatusConverter extends JsonConverter<RepoStatus, String> {
   }
 
   @override
-  String toJson(RepoStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(RepoStatus object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownRepoStatus implements Serializable {
@@ -83,7 +88,8 @@ enum KnownRepoStatus implements Serializable {
   @JsonValue('desynchronized')
   desynchronized('desynchronized'),
   @JsonValue('throttled')
-  throttled('throttled');
+  throttled('throttled'),
+  ;
 
   @override
   final String value;

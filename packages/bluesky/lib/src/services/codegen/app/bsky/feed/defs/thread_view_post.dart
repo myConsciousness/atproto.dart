@@ -39,7 +39,6 @@ abstract class ThreadViewPost with _$ThreadViewPost {
     @UThreadViewPostParentConverter() UThreadViewPostParent? parent,
     @UThreadViewPostRepliesConverter() List<UThreadViewPostReplies>? replies,
     @ThreadContextConverter() ThreadContext? threadContext,
-
     Map<String, dynamic>? $unknown,
   }) = _ThreadViewPost;
 
@@ -65,10 +64,14 @@ final class ThreadViewPostConverter
 
   @override
   ThreadViewPost fromJson(Map<String, dynamic> json) {
-    return ThreadViewPost.fromJson(translate(json, ThreadViewPost.knownProps));
+    return ThreadViewPost.fromJson(translate(
+      json,
+      ThreadViewPost.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ThreadViewPost object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ThreadViewPost object) => untranslate(
+        object.toJson(),
+      );
 }

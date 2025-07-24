@@ -23,12 +23,14 @@ part 'output.g.dart';
 
 @freezed
 abstract class SettingListOptionsOutput with _$SettingListOptionsOutput {
-  static const knownProps = <String>['cursor', 'options'];
+  static const knownProps = <String>[
+    'cursor',
+    'options',
+  ];
 
   const factory SettingListOptionsOutput({
     String? cursor,
     @OptionConverter() required List<Option> options,
-
     Map<String, dynamic>? $unknown,
   }) = _SettingListOptionsOutput;
 
@@ -47,12 +49,14 @@ final class SettingListOptionsOutputConverter
 
   @override
   SettingListOptionsOutput fromJson(Map<String, dynamic> json) {
-    return SettingListOptionsOutput.fromJson(
-      translate(json, SettingListOptionsOutput.knownProps),
-    );
+    return SettingListOptionsOutput.fromJson(translate(
+      json,
+      SettingListOptionsOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SettingListOptionsOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SettingListOptionsOutput object) => untranslate(
+        object.toJson(),
+      );
 }

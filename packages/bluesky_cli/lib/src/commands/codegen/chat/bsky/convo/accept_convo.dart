@@ -16,7 +16,11 @@ import '../../../../procedure_command.dart';
 
 final class AcceptConvoCommand extends ProcedureCommand {
   AcceptConvoCommand() {
-    argParser..addOption("convoId", mandatory: true);
+    argParser
+      ..addOption(
+        "convoId",
+        mandatory: true,
+      );
   }
 
   @override
@@ -32,5 +36,7 @@ final class AcceptConvoCommand extends ProcedureCommand {
   String get methodId => "chat.bsky.convo.acceptConvo";
 
   @override
-  Map<String, dynamic>? get body => {"convoId": argResults!["convoId"]};
+  Map<String, dynamic>? get body => {
+        "convoId": argResults!["convoId"],
+      };
 }

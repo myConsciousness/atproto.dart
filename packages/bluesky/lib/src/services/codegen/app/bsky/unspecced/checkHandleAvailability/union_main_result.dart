@@ -62,10 +62,8 @@ extension UUnspeccedCheckHandleAvailabilityResultExtension
 
 final class UUnspeccedCheckHandleAvailabilityResultConverter
     implements
-        JsonConverter<
-          UUnspeccedCheckHandleAvailabilityResult,
-          Map<String, dynamic>
-        > {
+        JsonConverter<UUnspeccedCheckHandleAvailabilityResult,
+            Map<String, dynamic>> {
   const UUnspeccedCheckHandleAvailabilityResultConverter();
 
   @override
@@ -95,7 +93,6 @@ final class UUnspeccedCheckHandleAvailabilityResultConverter
             const ResultAvailableConverter().toJson(data),
         resultUnavailable: (data) =>
             const ResultUnavailableConverter().toJson(data),
-
         unknown: (data) => data,
       );
 }

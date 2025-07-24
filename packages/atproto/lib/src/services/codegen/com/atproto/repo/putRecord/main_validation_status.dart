@@ -27,8 +27,9 @@ abstract class RepoPutRecordValidationStatus
     required KnownRepoPutRecordValidationStatus data,
   }) = RepoPutRecordValidationStatusKnownValue;
 
-  const factory RepoPutRecordValidationStatus.unknown({required String data}) =
-      RepoPutRecordValidationStatusUnknown;
+  const factory RepoPutRecordValidationStatus.unknown({
+    required String data,
+  }) = RepoPutRecordValidationStatusUnknown;
 
   static RepoPutRecordValidationStatus? valueOf(final String? value) {
     if (value == null) return null;
@@ -73,15 +74,18 @@ final class RepoPutRecordValidationStatusConverter
   }
 
   @override
-  String toJson(RepoPutRecordValidationStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(RepoPutRecordValidationStatus object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownRepoPutRecordValidationStatus implements Serializable {
   @JsonValue('valid')
   valid('valid'),
   @JsonValue('unknown')
-  unknown('unknown');
+  unknown('unknown'),
+  ;
 
   @override
   final String value;

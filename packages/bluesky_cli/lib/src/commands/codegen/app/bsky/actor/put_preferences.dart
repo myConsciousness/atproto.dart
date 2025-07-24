@@ -19,7 +19,11 @@ import '../../../../procedure_command.dart';
 
 final class PutPreferencesCommand extends ProcedureCommand {
   PutPreferencesCommand() {
-    argParser..addOption("preferences", mandatory: true);
+    argParser
+      ..addOption(
+        "preferences",
+        mandatory: true,
+      );
   }
 
   @override
@@ -37,6 +41,6 @@ final class PutPreferencesCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "preferences": jsonDecode(argResults!["preferences"]),
-  };
+        "preferences": jsonDecode(argResults!["preferences"]),
+      };
 }

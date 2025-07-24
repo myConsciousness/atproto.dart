@@ -20,12 +20,14 @@ part 'input.g.dart';
 
 @freezed
 abstract class ModerationGetRecordInput with _$ModerationGetRecordInput {
-  static const knownProps = <String>['uri', 'cid'];
+  static const knownProps = <String>[
+    'uri',
+    'cid',
+  ];
 
   const factory ModerationGetRecordInput({
     required String uri,
     String? cid,
-
     Map<String, dynamic>? $unknown,
   }) = _ModerationGetRecordInput;
 
@@ -44,12 +46,14 @@ final class ModerationGetRecordInputConverter
 
   @override
   ModerationGetRecordInput fromJson(Map<String, dynamic> json) {
-    return ModerationGetRecordInput.fromJson(
-      translate(json, ModerationGetRecordInput.knownProps),
-    );
+    return ModerationGetRecordInput.fromJson(translate(
+      json,
+      ModerationGetRecordInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ModerationGetRecordInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ModerationGetRecordInput object) => untranslate(
+        object.toJson(),
+      );
 }

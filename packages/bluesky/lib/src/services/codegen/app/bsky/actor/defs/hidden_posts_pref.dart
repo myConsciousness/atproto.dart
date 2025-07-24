@@ -20,12 +20,13 @@ part 'hidden_posts_pref.g.dart';
 
 @freezed
 abstract class HiddenPostsPref with _$HiddenPostsPref {
-  static const knownProps = <String>['items'];
+  static const knownProps = <String>[
+    'items',
+  ];
 
   const factory HiddenPostsPref({
     @Default('app.bsky.actor.defs#hiddenPostsPref') String $type,
     required List<String> items,
-
     Map<String, dynamic>? $unknown,
   }) = _HiddenPostsPref;
 
@@ -44,12 +45,14 @@ final class HiddenPostsPrefConverter
 
   @override
   HiddenPostsPref fromJson(Map<String, dynamic> json) {
-    return HiddenPostsPref.fromJson(
-      translate(json, HiddenPostsPref.knownProps),
-    );
+    return HiddenPostsPref.fromJson(translate(
+      json,
+      HiddenPostsPref.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(HiddenPostsPref object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(HiddenPostsPref object) => untranslate(
+        object.toJson(),
+      );
 }

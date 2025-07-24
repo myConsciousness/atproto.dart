@@ -36,7 +36,6 @@ abstract class ServerCreateAccountOutput with _$ServerCreateAccountOutput {
     /// The DID of the new account.
     required String did,
     Map<String, dynamic>? didDoc,
-
     Map<String, dynamic>? $unknown,
   }) = _ServerCreateAccountOutput;
 
@@ -55,12 +54,14 @@ final class ServerCreateAccountOutputConverter
 
   @override
   ServerCreateAccountOutput fromJson(Map<String, dynamic> json) {
-    return ServerCreateAccountOutput.fromJson(
-      translate(json, ServerCreateAccountOutput.knownProps),
-    );
+    return ServerCreateAccountOutput.fromJson(translate(
+      json,
+      ServerCreateAccountOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ServerCreateAccountOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ServerCreateAccountOutput object) => untranslate(
+        object.toJson(),
+      );
 }

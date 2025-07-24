@@ -45,7 +45,6 @@ abstract class ServerGetSessionOutput with _$ServerGetSessionOutput {
 
     /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
     @ServerGetSessionStatusConverter() ServerGetSessionStatus? status,
-
     Map<String, dynamic>? $unknown,
   }) = _ServerGetSessionOutput;
 
@@ -74,12 +73,14 @@ final class ServerGetSessionOutputConverter
 
   @override
   ServerGetSessionOutput fromJson(Map<String, dynamic> json) {
-    return ServerGetSessionOutput.fromJson(
-      translate(json, ServerGetSessionOutput.knownProps),
-    );
+    return ServerGetSessionOutput.fromJson(translate(
+      json,
+      ServerGetSessionOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ServerGetSessionOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ServerGetSessionOutput object) => untranslate(
+        object.toJson(),
+      );
 }

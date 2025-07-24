@@ -26,8 +26,9 @@ abstract class SettingListOptionsScope with _$SettingListOptionsScope {
     required KnownSettingListOptionsScope data,
   }) = SettingListOptionsScopeKnownValue;
 
-  const factory SettingListOptionsScope.unknown({required String data}) =
-      SettingListOptionsScopeUnknown;
+  const factory SettingListOptionsScope.unknown({
+    required String data,
+  }) = SettingListOptionsScopeUnknown;
 
   static SettingListOptionsScope? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,15 +71,18 @@ final class SettingListOptionsScopeConverter
   }
 
   @override
-  String toJson(SettingListOptionsScope object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SettingListOptionsScope object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownSettingListOptionsScope implements Serializable {
   @JsonValue('instance')
   instance('instance'),
   @JsonValue('personal')
-  personal('personal');
+  personal('personal'),
+  ;
 
   @override
   final String value;

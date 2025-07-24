@@ -9,32 +9,32 @@ part of 'output.dart';
 // **************************************************************************
 
 _UnspeccedGetSuggestedUsersOutput _$UnspeccedGetSuggestedUsersOutputFromJson(
-  Map json,
-) => $checkedCreate('_UnspeccedGetSuggestedUsersOutput', json, (
-  $checkedConvert,
-) {
-  final val = _UnspeccedGetSuggestedUsersOutput(
-    actors: $checkedConvert(
-      'actors',
-      (v) => (v as List<dynamic>)
-          .map(
-            (e) => const ProfileViewConverter().fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList(),
-    ),
-    $unknown: $checkedConvert(
-      r'$unknown',
-      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-    ),
-  );
-  return val;
-});
+        Map json) =>
+    $checkedCreate(
+      '_UnspeccedGetSuggestedUsersOutput',
+      json,
+      ($checkedConvert) {
+        final val = _UnspeccedGetSuggestedUsersOutput(
+          actors: $checkedConvert(
+              'actors',
+              (v) => (v as List<dynamic>)
+                  .map((e) => const ProfileViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$UnspeccedGetSuggestedUsersOutputToJson(
-  _UnspeccedGetSuggestedUsersOutput instance,
-) => <String, dynamic>{
-  'actors': instance.actors.map(const ProfileViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
-};
+        _UnspeccedGetSuggestedUsersOutput instance) =>
+    <String, dynamic>{
+      'actors':
+          instance.actors.map(const ProfileViewConverter().toJson).toList(),
+      r'$unknown': instance.$unknown,
+    };

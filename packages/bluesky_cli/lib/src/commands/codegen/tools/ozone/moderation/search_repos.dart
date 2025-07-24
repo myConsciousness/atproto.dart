@@ -17,10 +17,20 @@ import '../../../../query_command.dart';
 final class SearchReposCommand extends QueryCommand {
   SearchReposCommand() {
     argParser
-      ..addOption("term", help: r"DEPRECATED: use 'q' instead")
-      ..addOption("q")
-      ..addOption("limit", defaultsTo: "50")
-      ..addOption("cursor");
+      ..addOption(
+        "term",
+        help: r"DEPRECATED: use 'q' instead",
+      )
+      ..addOption(
+        "q",
+      )
+      ..addOption(
+        "limit",
+        defaultsTo: "50",
+      )
+      ..addOption(
+        "cursor",
+      );
   }
 
   @override
@@ -38,9 +48,9 @@ final class SearchReposCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["term"] != null) "term": argResults!["term"],
-    if (argResults!["q"] != null) "q": argResults!["q"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-  };
+        if (argResults!["term"] != null) "term": argResults!["term"],
+        if (argResults!["q"] != null) "q": argResults!["q"],
+        "limit": argResults!["limit"],
+        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+      };
 }

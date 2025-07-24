@@ -26,8 +26,9 @@ abstract class FeedGeneratorContentMode with _$FeedGeneratorContentMode {
     required KnownFeedGeneratorContentMode data,
   }) = FeedGeneratorContentModeKnownValue;
 
-  const factory FeedGeneratorContentMode.unknown({required String data}) =
-      FeedGeneratorContentModeUnknown;
+  const factory FeedGeneratorContentMode.unknown({
+    required String data,
+  }) = FeedGeneratorContentModeUnknown;
 
   static FeedGeneratorContentMode? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,15 +71,18 @@ final class FeedGeneratorContentModeConverter
   }
 
   @override
-  String toJson(FeedGeneratorContentMode object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(FeedGeneratorContentMode object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownFeedGeneratorContentMode implements Serializable {
   @JsonValue('app.bsky.feed.defs#contentModeUnspecified')
   contentModeUnspecified('app.bsky.feed.defs#contentModeUnspecified'),
   @JsonValue('app.bsky.feed.defs#contentModeVideo')
-  contentModeVideo('app.bsky.feed.defs#contentModeVideo');
+  contentModeVideo('app.bsky.feed.defs#contentModeVideo'),
+  ;
 
   @override
   final String value;

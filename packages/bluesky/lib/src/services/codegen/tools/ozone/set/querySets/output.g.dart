@@ -9,28 +9,26 @@ part of 'output.dart';
 // **************************************************************************
 
 _SetQuerySetsOutput _$SetQuerySetsOutputFromJson(Map json) => $checkedCreate(
-  '_SetQuerySetsOutput',
-  json,
-  ($checkedConvert) {
-    final val = _SetQuerySetsOutput(
-      sets: $checkedConvert(
-        'sets',
-        (v) => (v as List<dynamic>)
-            .map(
-              (e) =>
-                  const SetViewConverter().fromJson(e as Map<String, dynamic>),
-            )
-            .toList(),
-      ),
-      cursor: $checkedConvert('cursor', (v) => v as String?),
-      $unknown: $checkedConvert(
-        r'$unknown',
-        (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-      ),
+      '_SetQuerySetsOutput',
+      json,
+      ($checkedConvert) {
+        final val = _SetQuerySetsOutput(
+          sets: $checkedConvert(
+              'sets',
+              (v) => (v as List<dynamic>)
+                  .map((e) => const SetViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
     );
-    return val;
-  },
-);
 
 Map<String, dynamic> _$SetQuerySetsOutputToJson(_SetQuerySetsOutput instance) =>
     <String, dynamic>{

@@ -20,12 +20,13 @@ part 'feed.g.dart';
 
 @freezed
 abstract class Feed with _$Feed {
-  static const knownProps = <String>['uri'];
+  static const knownProps = <String>[
+    'uri',
+  ];
 
   const factory Feed({
     @Default('app.bsky.feed.describeFeedGenerator#feed') String $type,
     required String uri,
-
     Map<String, dynamic>? $unknown,
   }) = _Feed;
 
@@ -42,9 +43,14 @@ final class FeedConverter extends JsonConverter<Feed, Map<String, dynamic>> {
 
   @override
   Feed fromJson(Map<String, dynamic> json) {
-    return Feed.fromJson(translate(json, Feed.knownProps));
+    return Feed.fromJson(translate(
+      json,
+      Feed.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(Feed object) => untranslate(object.toJson());
+  Map<String, dynamic> toJson(Feed object) => untranslate(
+        object.toJson(),
+      );
 }

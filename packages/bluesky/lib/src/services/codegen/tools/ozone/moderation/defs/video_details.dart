@@ -20,14 +20,17 @@ part 'video_details.g.dart';
 
 @freezed
 abstract class VideoDetails with _$VideoDetails {
-  static const knownProps = <String>['width', 'height', 'length'];
+  static const knownProps = <String>[
+    'width',
+    'height',
+    'length',
+  ];
 
   const factory VideoDetails({
     @Default('tools.ozone.moderation.defs#videoDetails') String $type,
     required int width,
     required int height,
     required int length,
-
     Map<String, dynamic>? $unknown,
   }) = _VideoDetails;
 
@@ -46,10 +49,14 @@ final class VideoDetailsConverter
 
   @override
   VideoDetails fromJson(Map<String, dynamic> json) {
-    return VideoDetails.fromJson(translate(json, VideoDetails.knownProps));
+    return VideoDetails.fromJson(translate(
+      json,
+      VideoDetails.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(VideoDetails object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(VideoDetails object) => untranslate(
+        object.toJson(),
+      );
 }

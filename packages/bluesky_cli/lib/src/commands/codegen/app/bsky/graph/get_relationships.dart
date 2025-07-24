@@ -44,7 +44,7 @@ final class GetRelationshipsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "actor": argResults!["actor"],
-    if (argResults!["others"] != null) "others": argResults!["others"],
-  };
+        "actor": argResults!["actor"],
+        if (argResults!["others"] != null) "others": argResults!["others"],
+      };
 }

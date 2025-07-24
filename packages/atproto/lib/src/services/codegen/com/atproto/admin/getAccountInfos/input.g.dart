@@ -9,20 +9,26 @@ part of 'input.dart';
 // **************************************************************************
 
 _AdminGetAccountInfosInput _$AdminGetAccountInfosInputFromJson(Map json) =>
-    $checkedCreate('_AdminGetAccountInfosInput', json, ($checkedConvert) {
-      final val = _AdminGetAccountInfosInput(
-        dids: $checkedConvert(
-          'dids',
-          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
-        ),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_AdminGetAccountInfosInput',
+      json,
+      ($checkedConvert) {
+        final val = _AdminGetAccountInfosInput(
+          dids: $checkedConvert('dids',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$AdminGetAccountInfosInputToJson(
-  _AdminGetAccountInfosInput instance,
-) => <String, dynamic>{'dids': instance.dids, r'$unknown': instance.$unknown};
+        _AdminGetAccountInfosInput instance) =>
+    <String, dynamic>{
+      'dids': instance.dids,
+      r'$unknown': instance.$unknown,
+    };

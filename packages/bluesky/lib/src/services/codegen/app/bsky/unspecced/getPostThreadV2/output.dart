@@ -25,7 +25,11 @@ part 'output.g.dart';
 @freezed
 abstract class UnspeccedGetPostThreadV2Output
     with _$UnspeccedGetPostThreadV2Output {
-  static const knownProps = <String>['thread', 'threadgate', 'hasOtherReplies'];
+  static const knownProps = <String>[
+    'thread',
+    'threadgate',
+    'hasOtherReplies',
+  ];
 
   const factory UnspeccedGetPostThreadV2Output({
     @ThreadItemConverter() required List<ThreadItem> thread,
@@ -33,7 +37,6 @@ abstract class UnspeccedGetPostThreadV2Output
 
     /// Whether this thread has additional replies. If true, a call can be made to the `getPostThreadOtherV2` endpoint to retrieve them.
     required bool hasOtherReplies,
-
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetPostThreadV2Output;
 
@@ -47,19 +50,21 @@ extension UnspeccedGetPostThreadV2OutputExtension
   bool get hasNotThreadgate => !hasThreadgate;
 }
 
-final class UnspeccedGetPostThreadV2OutputConverter
-    extends
-        JsonConverter<UnspeccedGetPostThreadV2Output, Map<String, dynamic>> {
+final class UnspeccedGetPostThreadV2OutputConverter extends JsonConverter<
+    UnspeccedGetPostThreadV2Output, Map<String, dynamic>> {
   const UnspeccedGetPostThreadV2OutputConverter();
 
   @override
   UnspeccedGetPostThreadV2Output fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetPostThreadV2Output.fromJson(
-      translate(json, UnspeccedGetPostThreadV2Output.knownProps),
-    );
+    return UnspeccedGetPostThreadV2Output.fromJson(translate(
+      json,
+      UnspeccedGetPostThreadV2Output.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetPostThreadV2Output object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

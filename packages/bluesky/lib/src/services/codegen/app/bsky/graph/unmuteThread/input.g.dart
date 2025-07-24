@@ -9,17 +9,25 @@ part of 'input.dart';
 // **************************************************************************
 
 _GraphUnmuteThreadInput _$GraphUnmuteThreadInputFromJson(Map json) =>
-    $checkedCreate('_GraphUnmuteThreadInput', json, ($checkedConvert) {
-      final val = _GraphUnmuteThreadInput(
-        root: $checkedConvert('root', (v) => v as String),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_GraphUnmuteThreadInput',
+      json,
+      ($checkedConvert) {
+        final val = _GraphUnmuteThreadInput(
+          root: $checkedConvert('root', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$GraphUnmuteThreadInputToJson(
-  _GraphUnmuteThreadInput instance,
-) => <String, dynamic>{'root': instance.root, r'$unknown': instance.$unknown};
+        _GraphUnmuteThreadInput instance) =>
+    <String, dynamic>{
+      'root': instance.root,
+      r'$unknown': instance.$unknown,
+    };

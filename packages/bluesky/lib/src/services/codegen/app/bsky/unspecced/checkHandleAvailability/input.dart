@@ -21,7 +21,11 @@ part 'input.g.dart';
 @freezed
 abstract class UnspeccedCheckHandleAvailabilityInput
     with _$UnspeccedCheckHandleAvailabilityInput {
-  static const knownProps = <String>['handle', 'email', 'birthDate'];
+  static const knownProps = <String>[
+    'handle',
+    'email',
+    'birthDate',
+  ];
 
   const factory UnspeccedCheckHandleAvailabilityInput({
     /// Tentative handle. Will be checked for availability or used to build handle suggestions.
@@ -32,13 +36,12 @@ abstract class UnspeccedCheckHandleAvailabilityInput
 
     /// User-provided birth date. Might be used to build handle suggestions.
     DateTime? birthDate,
-
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedCheckHandleAvailabilityInput;
 
   factory UnspeccedCheckHandleAvailabilityInput.fromJson(
-    Map<String, Object?> json,
-  ) => _$UnspeccedCheckHandleAvailabilityInputFromJson(json);
+          Map<String, Object?> json) =>
+      _$UnspeccedCheckHandleAvailabilityInputFromJson(json);
 }
 
 extension UnspeccedCheckHandleAvailabilityInputExtension
@@ -50,21 +53,21 @@ extension UnspeccedCheckHandleAvailabilityInputExtension
 }
 
 final class UnspeccedCheckHandleAvailabilityInputConverter
-    extends
-        JsonConverter<
-          UnspeccedCheckHandleAvailabilityInput,
-          Map<String, dynamic>
-        > {
+    extends JsonConverter<UnspeccedCheckHandleAvailabilityInput,
+        Map<String, dynamic>> {
   const UnspeccedCheckHandleAvailabilityInputConverter();
 
   @override
   UnspeccedCheckHandleAvailabilityInput fromJson(Map<String, dynamic> json) {
-    return UnspeccedCheckHandleAvailabilityInput.fromJson(
-      translate(json, UnspeccedCheckHandleAvailabilityInput.knownProps),
-    );
+    return UnspeccedCheckHandleAvailabilityInput.fromJson(translate(
+      json,
+      UnspeccedCheckHandleAvailabilityInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedCheckHandleAvailabilityInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

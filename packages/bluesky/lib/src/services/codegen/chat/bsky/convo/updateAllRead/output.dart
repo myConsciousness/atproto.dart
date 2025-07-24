@@ -20,12 +20,13 @@ part 'output.g.dart';
 
 @freezed
 abstract class ConvoUpdateAllReadOutput with _$ConvoUpdateAllReadOutput {
-  static const knownProps = <String>['updatedCount'];
+  static const knownProps = <String>[
+    'updatedCount',
+  ];
 
   const factory ConvoUpdateAllReadOutput({
     /// The count of updated convos.
     required int updatedCount,
-
     Map<String, dynamic>? $unknown,
   }) = _ConvoUpdateAllReadOutput;
 
@@ -39,12 +40,14 @@ final class ConvoUpdateAllReadOutputConverter
 
   @override
   ConvoUpdateAllReadOutput fromJson(Map<String, dynamic> json) {
-    return ConvoUpdateAllReadOutput.fromJson(
-      translate(json, ConvoUpdateAllReadOutput.knownProps),
-    );
+    return ConvoUpdateAllReadOutput.fromJson(translate(
+      json,
+      ConvoUpdateAllReadOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoUpdateAllReadOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ConvoUpdateAllReadOutput object) => untranslate(
+        object.toJson(),
+      );
 }

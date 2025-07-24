@@ -20,7 +20,11 @@ part 'identity_info.g.dart';
 
 @freezed
 abstract class IdentityInfo with _$IdentityInfo {
-  static const knownProps = <String>['did', 'handle', 'didDoc'];
+  static const knownProps = <String>[
+    'did',
+    'handle',
+    'didDoc',
+  ];
 
   const factory IdentityInfo({
     @Default('com.atproto.identity.defs#identityInfo') String $type,
@@ -29,7 +33,6 @@ abstract class IdentityInfo with _$IdentityInfo {
     /// The validated handle of the account; or 'handle.invalid' if the handle did not bi-directionally match the DID document.
     required String handle,
     required Map<String, dynamic> didDoc,
-
     Map<String, dynamic>? $unknown,
   }) = _IdentityInfo;
 
@@ -48,10 +51,14 @@ final class IdentityInfoConverter
 
   @override
   IdentityInfo fromJson(Map<String, dynamic> json) {
-    return IdentityInfo.fromJson(translate(json, IdentityInfo.knownProps));
+    return IdentityInfo.fromJson(translate(
+      json,
+      IdentityInfo.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(IdentityInfo object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(IdentityInfo object) => untranslate(
+        object.toJson(),
+      );
 }

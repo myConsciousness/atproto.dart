@@ -9,20 +9,25 @@ part of 'input.dart';
 // **************************************************************************
 
 _SyncSubscribeReposInput _$SyncSubscribeReposInputFromJson(Map json) =>
-    $checkedCreate('_SyncSubscribeReposInput', json, ($checkedConvert) {
-      final val = _SyncSubscribeReposInput(
-        cursor: $checkedConvert('cursor', (v) => (v as num?)?.toInt()),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_SyncSubscribeReposInput',
+      json,
+      ($checkedConvert) {
+        final val = _SyncSubscribeReposInput(
+          cursor: $checkedConvert('cursor', (v) => (v as num?)?.toInt()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$SyncSubscribeReposInputToJson(
-  _SyncSubscribeReposInput instance,
-) => <String, dynamic>{
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
-};
+        _SyncSubscribeReposInput instance) =>
+    <String, dynamic>{
+      'cursor': instance.cursor,
+      r'$unknown': instance.$unknown,
+    };

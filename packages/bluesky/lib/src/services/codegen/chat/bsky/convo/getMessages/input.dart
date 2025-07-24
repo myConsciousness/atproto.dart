@@ -20,13 +20,16 @@ part 'input.g.dart';
 
 @freezed
 abstract class ConvoGetMessagesInput with _$ConvoGetMessagesInput {
-  static const knownProps = <String>['convoId', 'limit', 'cursor'];
+  static const knownProps = <String>[
+    'convoId',
+    'limit',
+    'cursor',
+  ];
 
   const factory ConvoGetMessagesInput({
     required String convoId,
     @Default(50) int limit,
     String? cursor,
-
     Map<String, dynamic>? $unknown,
   }) = _ConvoGetMessagesInput;
 
@@ -45,12 +48,14 @@ final class ConvoGetMessagesInputConverter
 
   @override
   ConvoGetMessagesInput fromJson(Map<String, dynamic> json) {
-    return ConvoGetMessagesInput.fromJson(
-      translate(json, ConvoGetMessagesInput.knownProps),
-    );
+    return ConvoGetMessagesInput.fromJson(translate(
+      json,
+      ConvoGetMessagesInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoGetMessagesInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ConvoGetMessagesInput object) => untranslate(
+        object.toJson(),
+      );
 }

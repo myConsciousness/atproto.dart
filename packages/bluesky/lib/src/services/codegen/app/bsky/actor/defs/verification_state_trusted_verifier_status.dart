@@ -33,9 +33,8 @@ abstract class VerificationStateTrustedVerifierStatus
 
   static VerificationStateTrustedVerifierStatus? valueOf(final String? value) {
     if (value == null) return null;
-    final knownValue = KnownVerificationStateTrustedVerifierStatus.valueOf(
-      value,
-    );
+    final knownValue =
+        KnownVerificationStateTrustedVerifierStatus.valueOf(value);
 
     return knownValue != null
         ? VerificationStateTrustedVerifierStatus.knownValue(data: knownValue)
@@ -66,13 +65,11 @@ final class VerificationStateTrustedVerifierStatusConverter
   @override
   VerificationStateTrustedVerifierStatus fromJson(String json) {
     try {
-      final knownValue = KnownVerificationStateTrustedVerifierStatus.valueOf(
-        json,
-      );
+      final knownValue =
+          KnownVerificationStateTrustedVerifierStatus.valueOf(json);
       if (knownValue != null) {
         return VerificationStateTrustedVerifierStatus.knownValue(
-          data: knownValue,
-        );
+            data: knownValue);
       }
 
       return VerificationStateTrustedVerifierStatus.unknown(data: json);
@@ -82,8 +79,10 @@ final class VerificationStateTrustedVerifierStatusConverter
   }
 
   @override
-  String toJson(VerificationStateTrustedVerifierStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(VerificationStateTrustedVerifierStatus object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownVerificationStateTrustedVerifierStatus implements Serializable {
@@ -92,7 +91,8 @@ enum KnownVerificationStateTrustedVerifierStatus implements Serializable {
   @JsonValue('invalid')
   invalid('invalid'),
   @JsonValue('none')
-  none('none');
+  none('none'),
+  ;
 
   @override
   final String value;
@@ -104,8 +104,7 @@ enum KnownVerificationStateTrustedVerifierStatus implements Serializable {
   }
 
   static KnownVerificationStateTrustedVerifierStatus? valueOf(
-    final String? value,
-  ) {
+      final String? value) {
     if (value == null) return null;
 
     for (final v in values) {

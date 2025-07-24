@@ -27,16 +27,18 @@ part 'union_main_allow.freezed.dart';
 abstract class UFeedThreadgateAllow with _$UFeedThreadgateAllow {
   const UFeedThreadgateAllow._();
 
-  const factory UFeedThreadgateAllow.mentionRule({required MentionRule data}) =
-      UFeedThreadgateAllowMentionRule;
+  const factory UFeedThreadgateAllow.mentionRule({
+    required MentionRule data,
+  }) = UFeedThreadgateAllowMentionRule;
   const factory UFeedThreadgateAllow.followerRule({
     required FollowerRule data,
   }) = UFeedThreadgateAllowFollowerRule;
   const factory UFeedThreadgateAllow.followingRule({
     required FollowingRule data,
   }) = UFeedThreadgateAllowFollowingRule;
-  const factory UFeedThreadgateAllow.listRule({required ListRule data}) =
-      UFeedThreadgateAllowListRule;
+  const factory UFeedThreadgateAllow.listRule({
+    required ListRule data,
+  }) = UFeedThreadgateAllowListRule;
 
   const factory UFeedThreadgateAllow.unknown({
     required Map<String, dynamic> data,
@@ -103,11 +105,10 @@ final class UFeedThreadgateAllowConverter
 
   @override
   Map<String, dynamic> toJson(UFeedThreadgateAllow object) => object.when(
-    mentionRule: (data) => const MentionRuleConverter().toJson(data),
-    followerRule: (data) => const FollowerRuleConverter().toJson(data),
-    followingRule: (data) => const FollowingRuleConverter().toJson(data),
-    listRule: (data) => const ListRuleConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        mentionRule: (data) => const MentionRuleConverter().toJson(data),
+        followerRule: (data) => const FollowerRuleConverter().toJson(data),
+        followingRule: (data) => const FollowingRuleConverter().toJson(data),
+        listRule: (data) => const ListRuleConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

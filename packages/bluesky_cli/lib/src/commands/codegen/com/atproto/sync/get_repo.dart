@@ -17,7 +17,11 @@ import '../../../../query_command.dart';
 final class GetRepoCommand extends QueryCommand {
   GetRepoCommand() {
     argParser
-      ..addOption("did", help: r"The DID of the repo.", mandatory: true)
+      ..addOption(
+        "did",
+        help: r"The DID of the repo.",
+        mandatory: true,
+      )
       ..addOption(
         "since",
         help: r"The revision ('rev') of the repo to create a diff from.",
@@ -39,7 +43,7 @@ final class GetRepoCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "did": argResults!["did"],
-    if (argResults!["since"] != null) "since": argResults!["since"],
-  };
+        "did": argResults!["did"],
+        if (argResults!["since"] != null) "since": argResults!["since"],
+      };
 }

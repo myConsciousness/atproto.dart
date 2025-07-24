@@ -45,7 +45,6 @@ abstract class ModerationEmitEventInput with _$ModerationEmitEventInput {
 
     /// An optional external ID for the event, used to deduplicate events from external systems. Fails when an event of same type with the same external ID exists for the same subject.
     String? externalId,
-
     Map<String, dynamic>? $unknown,
   }) = _ModerationEmitEventInput;
 
@@ -66,12 +65,14 @@ final class ModerationEmitEventInputConverter
 
   @override
   ModerationEmitEventInput fromJson(Map<String, dynamic> json) {
-    return ModerationEmitEventInput.fromJson(
-      translate(json, ModerationEmitEventInput.knownProps),
-    );
+    return ModerationEmitEventInput.fromJson(translate(
+      json,
+      ModerationEmitEventInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ModerationEmitEventInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ModerationEmitEventInput object) => untranslate(
+        object.toJson(),
+      );
 }

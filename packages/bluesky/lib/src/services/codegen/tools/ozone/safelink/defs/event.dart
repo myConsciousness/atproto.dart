@@ -58,7 +58,6 @@ abstract class Event with _$Event {
 
     /// Optional comment about the decision
     String? comment,
-
     Map<String, dynamic>? $unknown,
   }) = _Event;
 
@@ -80,9 +79,14 @@ final class EventConverter extends JsonConverter<Event, Map<String, dynamic>> {
 
   @override
   Event fromJson(Map<String, dynamic> json) {
-    return Event.fromJson(translate(json, Event.knownProps));
+    return Event.fromJson(translate(
+      json,
+      Event.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(Event object) => untranslate(object.toJson());
+  Map<String, dynamic> toJson(Event object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -47,7 +47,6 @@ abstract class ConvoView with _$ConvoView {
     required bool muted,
     @ConvoViewStatusConverter() ConvoViewStatus? status,
     required int unreadCount,
-
     Map<String, dynamic>? $unknown,
   }) = _ConvoView;
 
@@ -77,9 +76,14 @@ final class ConvoViewConverter
 
   @override
   ConvoView fromJson(Map<String, dynamic> json) {
-    return ConvoView.fromJson(translate(json, ConvoView.knownProps));
+    return ConvoView.fromJson(translate(
+      json,
+      ConvoView.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoView object) => untranslate(object.toJson());
+  Map<String, dynamic> toJson(ConvoView object) => untranslate(
+        object.toJson(),
+      );
 }

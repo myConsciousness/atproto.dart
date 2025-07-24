@@ -32,7 +32,10 @@ final class SearchActorsSkeletonCommand extends QueryCommand {
         "typeahead",
         help: r"If true, acts as fast/simple 'typeahead' query.",
       )
-      ..addOption("limit", defaultsTo: "25")
+      ..addOption(
+        "limit",
+        defaultsTo: "25",
+      )
       ..addOption(
         "cursor",
         help:
@@ -56,10 +59,11 @@ final class SearchActorsSkeletonCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "q": argResults!["q"],
-    if (argResults!["viewer"] != null) "viewer": argResults!["viewer"],
-    if (argResults!["typeahead"] != null) "typeahead": argResults!["typeahead"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-  };
+        "q": argResults!["q"],
+        if (argResults!["viewer"] != null) "viewer": argResults!["viewer"],
+        if (argResults!["typeahead"] != null)
+          "typeahead": argResults!["typeahead"],
+        "limit": argResults!["limit"],
+        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+      };
 }

@@ -24,8 +24,9 @@ part 'union_message_input_embed.freezed.dart';
 abstract class UMessageInputEmbed with _$UMessageInputEmbed {
   const UMessageInputEmbed._();
 
-  const factory UMessageInputEmbed.embedRecord({required EmbedRecord data}) =
-      UMessageInputEmbedEmbedRecord;
+  const factory UMessageInputEmbed.embedRecord({
+    required EmbedRecord data,
+  }) = UMessageInputEmbedEmbedRecord;
 
   const factory UMessageInputEmbed.unknown({
     required Map<String, dynamic> data,
@@ -66,8 +67,7 @@ final class UMessageInputEmbedConverter
 
   @override
   Map<String, dynamic> toJson(UMessageInputEmbed object) => object.when(
-    embedRecord: (data) => const EmbedRecordConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        embedRecord: (data) => const EmbedRecordConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

@@ -26,10 +26,12 @@ abstract class ULabelSubscribeLabelsMessage
     with _$ULabelSubscribeLabelsMessage {
   const ULabelSubscribeLabelsMessage._();
 
-  const factory ULabelSubscribeLabelsMessage.labels({required Labels data}) =
-      ULabelSubscribeLabelsMessageLabels;
-  const factory ULabelSubscribeLabelsMessage.info({required Info data}) =
-      ULabelSubscribeLabelsMessageInfo;
+  const factory ULabelSubscribeLabelsMessage.labels({
+    required Labels data,
+  }) = ULabelSubscribeLabelsMessageLabels;
+  const factory ULabelSubscribeLabelsMessage.info({
+    required Info data,
+  }) = ULabelSubscribeLabelsMessageInfo;
 
   const factory ULabelSubscribeLabelsMessage.unknown({
     required Map<String, dynamic> data,
@@ -83,7 +85,6 @@ final class ULabelSubscribeLabelsMessageConverter
       object.when(
         labels: (data) => const LabelsConverter().toJson(data),
         info: (data) => const InfoConverter().toJson(data),
-
         unknown: (data) => data,
       );
 }

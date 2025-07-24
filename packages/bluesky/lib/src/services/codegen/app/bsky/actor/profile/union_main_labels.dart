@@ -22,8 +22,9 @@ part 'union_main_labels.freezed.dart';
 abstract class UActorProfileLabels with _$UActorProfileLabels {
   const UActorProfileLabels._();
 
-  const factory UActorProfileLabels.selfLabels({required SelfLabels data}) =
-      UActorProfileLabelsSelfLabels;
+  const factory UActorProfileLabels.selfLabels({
+    required SelfLabels data,
+  }) = UActorProfileLabelsSelfLabels;
 
   const factory UActorProfileLabels.unknown({
     required Map<String, dynamic> data,
@@ -64,8 +65,7 @@ final class UActorProfileLabelsConverter
 
   @override
   Map<String, dynamic> toJson(UActorProfileLabels object) => object.when(
-    selfLabels: (data) => const SelfLabelsConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        selfLabels: (data) => const SelfLabelsConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

@@ -28,19 +28,25 @@ part 'union_event_details.freezed.dart';
 abstract class UEventDetails with _$UEventDetails {
   const UEventDetails._();
 
-  const factory UEventDetails.accountCreated({required AccountCreated data}) =
-      UEventDetailsAccountCreated;
-  const factory UEventDetails.emailUpdated({required EmailUpdated data}) =
-      UEventDetailsEmailUpdated;
-  const factory UEventDetails.emailConfirmed({required EmailConfirmed data}) =
-      UEventDetailsEmailConfirmed;
-  const factory UEventDetails.passwordUpdated({required PasswordUpdated data}) =
-      UEventDetailsPasswordUpdated;
-  const factory UEventDetails.handleUpdated({required HandleUpdated data}) =
-      UEventDetailsHandleUpdated;
+  const factory UEventDetails.accountCreated({
+    required AccountCreated data,
+  }) = UEventDetailsAccountCreated;
+  const factory UEventDetails.emailUpdated({
+    required EmailUpdated data,
+  }) = UEventDetailsEmailUpdated;
+  const factory UEventDetails.emailConfirmed({
+    required EmailConfirmed data,
+  }) = UEventDetailsEmailConfirmed;
+  const factory UEventDetails.passwordUpdated({
+    required PasswordUpdated data,
+  }) = UEventDetailsPasswordUpdated;
+  const factory UEventDetails.handleUpdated({
+    required HandleUpdated data,
+  }) = UEventDetailsHandleUpdated;
 
-  const factory UEventDetails.unknown({required Map<String, dynamic> data}) =
-      UEventDetailsUnknown;
+  const factory UEventDetails.unknown({
+    required Map<String, dynamic> data,
+  }) = UEventDetailsUnknown;
 
   Map<String, dynamic> toJson() => const UEventDetailsConverter().toJson(this);
 }
@@ -113,12 +119,12 @@ final class UEventDetailsConverter
 
   @override
   Map<String, dynamic> toJson(UEventDetails object) => object.when(
-    accountCreated: (data) => const AccountCreatedConverter().toJson(data),
-    emailUpdated: (data) => const EmailUpdatedConverter().toJson(data),
-    emailConfirmed: (data) => const EmailConfirmedConverter().toJson(data),
-    passwordUpdated: (data) => const PasswordUpdatedConverter().toJson(data),
-    handleUpdated: (data) => const HandleUpdatedConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        accountCreated: (data) => const AccountCreatedConverter().toJson(data),
+        emailUpdated: (data) => const EmailUpdatedConverter().toJson(data),
+        emailConfirmed: (data) => const EmailConfirmedConverter().toJson(data),
+        passwordUpdated: (data) =>
+            const PasswordUpdatedConverter().toJson(data),
+        handleUpdated: (data) => const HandleUpdatedConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

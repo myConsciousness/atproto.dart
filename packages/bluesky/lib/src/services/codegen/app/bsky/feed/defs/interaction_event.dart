@@ -26,8 +26,9 @@ abstract class InteractionEvent with _$InteractionEvent {
     required KnownInteractionEvent data,
   }) = InteractionEventKnownValue;
 
-  const factory InteractionEvent.unknown({required String data}) =
-      InteractionEventUnknown;
+  const factory InteractionEvent.unknown({
+    required String data,
+  }) = InteractionEventUnknown;
 
   static InteractionEvent? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,8 +71,10 @@ final class InteractionEventConverter
   }
 
   @override
-  String toJson(InteractionEvent object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(InteractionEvent object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownInteractionEvent implements Serializable {
@@ -98,7 +101,8 @@ enum KnownInteractionEvent implements Serializable {
   @JsonValue('app.bsky.feed.defs#interactionQuote')
   interactionQuote('app.bsky.feed.defs#interactionQuote'),
   @JsonValue('app.bsky.feed.defs#interactionShare')
-  interactionShare('app.bsky.feed.defs#interactionShare');
+  interactionShare('app.bsky.feed.defs#interactionShare'),
+  ;
 
   @override
   final String value;

@@ -14,47 +14,63 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$EmbedRecordWithMediaView {
+  String get $type;
+  @EmbedRecordViewConverter()
+  EmbedRecordView get record;
+  @UEmbedRecordWithMediaViewMediaConverter()
+  UEmbedRecordWithMediaViewMedia get media;
+  Map<String, dynamic>? get $unknown;
 
- String get $type;@EmbedRecordViewConverter() EmbedRecordView get record;@UEmbedRecordWithMediaViewMediaConverter() UEmbedRecordWithMediaViewMedia get media; Map<String, dynamic>? get $unknown;
-/// Create a copy of EmbedRecordWithMediaView
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$EmbedRecordWithMediaViewCopyWith<EmbedRecordWithMediaView> get copyWith => _$EmbedRecordWithMediaViewCopyWithImpl<EmbedRecordWithMediaView>(this as EmbedRecordWithMediaView, _$identity);
+  /// Create a copy of EmbedRecordWithMediaView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $EmbedRecordWithMediaViewCopyWith<EmbedRecordWithMediaView> get copyWith =>
+      _$EmbedRecordWithMediaViewCopyWithImpl<EmbedRecordWithMediaView>(
+          this as EmbedRecordWithMediaView, _$identity);
 
   /// Serializes this EmbedRecordWithMediaView to a JSON map.
   Map<String, dynamic> toJson();
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is EmbedRecordWithMediaView &&
+            (identical(other.$type, $type) || other.$type == $type) &&
+            (identical(other.record, record) || other.record == record) &&
+            (identical(other.media, media) || other.media == media) &&
+            const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedRecordWithMediaView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.record, record) || other.record == record)&&(identical(other.media, media) || other.media == media)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
-}
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, $type, record, media,
+      const DeepCollectionEquality().hash($unknown));
 
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,$type,record,media,const DeepCollectionEquality().hash($unknown));
-
-@override
-String toString() {
-  return 'EmbedRecordWithMediaView(\$type: ${$type}, record: $record, media: $media, \$unknown: ${$unknown})';
-}
-
-
+  @override
+  String toString() {
+    return 'EmbedRecordWithMediaView(\$type: ${$type}, record: $record, media: $media, \$unknown: ${$unknown})';
+  }
 }
 
 /// @nodoc
-abstract mixin class $EmbedRecordWithMediaViewCopyWith<$Res>  {
-  factory $EmbedRecordWithMediaViewCopyWith(EmbedRecordWithMediaView value, $Res Function(EmbedRecordWithMediaView) _then) = _$EmbedRecordWithMediaViewCopyWithImpl;
-@useResult
-$Res call({
- String $type,@EmbedRecordViewConverter() EmbedRecordView record,@UEmbedRecordWithMediaViewMediaConverter() UEmbedRecordWithMediaViewMedia media, Map<String, dynamic>? $unknown
-});
+abstract mixin class $EmbedRecordWithMediaViewCopyWith<$Res> {
+  factory $EmbedRecordWithMediaViewCopyWith(EmbedRecordWithMediaView value,
+          $Res Function(EmbedRecordWithMediaView) _then) =
+      _$EmbedRecordWithMediaViewCopyWithImpl;
+  @useResult
+  $Res call(
+      {String $type,
+      @EmbedRecordViewConverter() EmbedRecordView record,
+      @UEmbedRecordWithMediaViewMediaConverter()
+      UEmbedRecordWithMediaViewMedia media,
+      Map<String, dynamic>? $unknown});
 
-
-$EmbedRecordViewCopyWith<$Res> get record;$UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media;
-
+  $EmbedRecordViewCopyWith<$Res> get record;
+  $UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media;
 }
+
 /// @nodoc
 class _$EmbedRecordWithMediaViewCopyWithImpl<$Res>
     implements $EmbedRecordWithMediaViewCopyWith<$Res> {
@@ -63,229 +79,322 @@ class _$EmbedRecordWithMediaViewCopyWithImpl<$Res>
   final EmbedRecordWithMediaView _self;
   final $Res Function(EmbedRecordWithMediaView) _then;
 
-/// Create a copy of EmbedRecordWithMediaView
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? record = null,Object? media = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
-$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,record: null == record ? _self.record : record // ignore: cast_nullable_to_non_nullable
-as EmbedRecordView,media: null == media ? _self.media : media // ignore: cast_nullable_to_non_nullable
-as UEmbedRecordWithMediaViewMedia,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>?,
-  ));
-}
-/// Create a copy of EmbedRecordWithMediaView
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$EmbedRecordViewCopyWith<$Res> get record {
-  
-  return $EmbedRecordViewCopyWith<$Res>(_self.record, (value) {
-    return _then(_self.copyWith(record: value));
-  });
-}/// Create a copy of EmbedRecordWithMediaView
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media {
-  
-  return $UEmbedRecordWithMediaViewMediaCopyWith<$Res>(_self.media, (value) {
-    return _then(_self.copyWith(media: value));
-  });
-}
-}
+  /// Create a copy of EmbedRecordWithMediaView
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? $type = null,
+    Object? record = null,
+    Object? media = null,
+    Object? $unknown = freezed,
+  }) {
+    return _then(_self.copyWith(
+      $type: null == $type
+          ? _self.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
+      record: null == record
+          ? _self.record
+          : record // ignore: cast_nullable_to_non_nullable
+              as EmbedRecordView,
+      media: null == media
+          ? _self.media
+          : media // ignore: cast_nullable_to_non_nullable
+              as UEmbedRecordWithMediaViewMedia,
+      $unknown: freezed == $unknown
+          ? _self.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
 
+  /// Create a copy of EmbedRecordWithMediaView
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $EmbedRecordViewCopyWith<$Res> get record {
+    return $EmbedRecordViewCopyWith<$Res>(_self.record, (value) {
+      return _then(_self.copyWith(record: value));
+    });
+  }
+
+  /// Create a copy of EmbedRecordWithMediaView
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media {
+    return $UEmbedRecordWithMediaViewMediaCopyWith<$Res>(_self.media, (value) {
+      return _then(_self.copyWith(media: value));
+    });
+  }
+}
 
 /// Adds pattern-matching-related methods to [EmbedRecordWithMediaView].
 extension EmbedRecordWithMediaViewPatterns on EmbedRecordWithMediaView {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _EmbedRecordWithMediaView value)?  $default,{required TResult orElse(),}){
-final _that = this;
-switch (_that) {
-case _EmbedRecordWithMediaView() when $default != null:
-return $default(_that);case _:
-  return orElse();
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_EmbedRecordWithMediaView value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _EmbedRecordWithMediaView() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
 
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _EmbedRecordWithMediaView value)  $default,){
-final _that = this;
-switch (_that) {
-case _EmbedRecordWithMediaView():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_EmbedRecordWithMediaView value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _EmbedRecordWithMediaView():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
 
-}
-}
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _EmbedRecordWithMediaView value)?  $default,){
-final _that = this;
-switch (_that) {
-case _EmbedRecordWithMediaView() when $default != null:
-return $default(_that);case _:
-  return null;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_EmbedRecordWithMediaView value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _EmbedRecordWithMediaView() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
 
-}
-}
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @EmbedRecordViewConverter()  EmbedRecordView record, @UEmbedRecordWithMediaViewMediaConverter()  UEmbedRecordWithMediaViewMedia media,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
-switch (_that) {
-case _EmbedRecordWithMediaView() when $default != null:
-return $default(_that.$type,_that.record,_that.media,_that.$unknown);case _:
-  return orElse();
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String $type,
+            @EmbedRecordViewConverter() EmbedRecordView record,
+            @UEmbedRecordWithMediaViewMediaConverter()
+            UEmbedRecordWithMediaViewMedia media,
+            Map<String, dynamic>? $unknown)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _EmbedRecordWithMediaView() when $default != null:
+        return $default(_that.$type, _that.record, _that.media, _that.$unknown);
+      case _:
+        return orElse();
+    }
+  }
 
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @EmbedRecordViewConverter()  EmbedRecordView record, @UEmbedRecordWithMediaViewMediaConverter()  UEmbedRecordWithMediaViewMedia media,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
-switch (_that) {
-case _EmbedRecordWithMediaView():
-return $default(_that.$type,_that.record,_that.media,_that.$unknown);case _:
-  throw StateError('Unexpected subclass');
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String $type,
+            @EmbedRecordViewConverter() EmbedRecordView record,
+            @UEmbedRecordWithMediaViewMediaConverter()
+            UEmbedRecordWithMediaViewMedia media,
+            Map<String, dynamic>? $unknown)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _EmbedRecordWithMediaView():
+        return $default(_that.$type, _that.record, _that.media, _that.$unknown);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
 
-}
-}
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @EmbedRecordViewConverter()  EmbedRecordView record, @UEmbedRecordWithMediaViewMediaConverter()  UEmbedRecordWithMediaViewMedia media,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
-switch (_that) {
-case _EmbedRecordWithMediaView() when $default != null:
-return $default(_that.$type,_that.record,_that.media,_that.$unknown);case _:
-  return null;
-
-}
-}
-
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String $type,
+            @EmbedRecordViewConverter() EmbedRecordView record,
+            @UEmbedRecordWithMediaViewMediaConverter()
+            UEmbedRecordWithMediaViewMedia media,
+            Map<String, dynamic>? $unknown)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _EmbedRecordWithMediaView() when $default != null:
+        return $default(_that.$type, _that.record, _that.media, _that.$unknown);
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
-
 class _EmbedRecordWithMediaView implements EmbedRecordWithMediaView {
-  const _EmbedRecordWithMediaView({this.$type = 'app.bsky.embed.recordWithMedia#view', @EmbedRecordViewConverter() required this.record, @UEmbedRecordWithMediaViewMediaConverter() required this.media, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
-  factory _EmbedRecordWithMediaView.fromJson(Map<String, dynamic> json) => _$EmbedRecordWithMediaViewFromJson(json);
+  const _EmbedRecordWithMediaView(
+      {this.$type = 'app.bsky.embed.recordWithMedia#view',
+      @EmbedRecordViewConverter() required this.record,
+      @UEmbedRecordWithMediaViewMediaConverter() required this.media,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
+  factory _EmbedRecordWithMediaView.fromJson(Map<String, dynamic> json) =>
+      _$EmbedRecordWithMediaViewFromJson(json);
 
-@override@JsonKey() final  String $type;
-@override@EmbedRecordViewConverter() final  EmbedRecordView record;
-@override@UEmbedRecordWithMediaViewMediaConverter() final  UEmbedRecordWithMediaViewMedia media;
- final  Map<String, dynamic>? _$unknown;
-@override Map<String, dynamic>? get $unknown {
-  final value = _$unknown;
-  if (value == null) return null;
-  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableMapView(value);
-}
+  @override
+  @JsonKey()
+  final String $type;
+  @override
+  @EmbedRecordViewConverter()
+  final EmbedRecordView record;
+  @override
+  @UEmbedRecordWithMediaViewMediaConverter()
+  final UEmbedRecordWithMediaViewMedia media;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
+  /// Create a copy of EmbedRecordWithMediaView
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$EmbedRecordWithMediaViewCopyWith<_EmbedRecordWithMediaView> get copyWith =>
+      __$EmbedRecordWithMediaViewCopyWithImpl<_EmbedRecordWithMediaView>(
+          this, _$identity);
 
-/// Create a copy of EmbedRecordWithMediaView
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$EmbedRecordWithMediaViewCopyWith<_EmbedRecordWithMediaView> get copyWith => __$EmbedRecordWithMediaViewCopyWithImpl<_EmbedRecordWithMediaView>(this, _$identity);
+  @override
+  Map<String, dynamic> toJson() {
+    return _$EmbedRecordWithMediaViewToJson(
+      this,
+    );
+  }
 
-@override
-Map<String, dynamic> toJson() {
-  return _$EmbedRecordWithMediaViewToJson(this, );
-}
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _EmbedRecordWithMediaView &&
+            (identical(other.$type, $type) || other.$type == $type) &&
+            (identical(other.record, record) || other.record == record) &&
+            (identical(other.media, media) || other.media == media) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedRecordWithMediaView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.record, record) || other.record == record)&&(identical(other.media, media) || other.media == media)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-}
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, $type, record, media,
+      const DeepCollectionEquality().hash(_$unknown));
 
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,$type,record,media,const DeepCollectionEquality().hash(_$unknown));
-
-@override
-String toString() {
-  return 'EmbedRecordWithMediaView(\$type: ${$type}, record: $record, media: $media, \$unknown: ${$unknown})';
-}
-
-
+  @override
+  String toString() {
+    return 'EmbedRecordWithMediaView(\$type: ${$type}, record: $record, media: $media, \$unknown: ${$unknown})';
+  }
 }
 
 /// @nodoc
-abstract mixin class _$EmbedRecordWithMediaViewCopyWith<$Res> implements $EmbedRecordWithMediaViewCopyWith<$Res> {
-  factory _$EmbedRecordWithMediaViewCopyWith(_EmbedRecordWithMediaView value, $Res Function(_EmbedRecordWithMediaView) _then) = __$EmbedRecordWithMediaViewCopyWithImpl;
-@override @useResult
-$Res call({
- String $type,@EmbedRecordViewConverter() EmbedRecordView record,@UEmbedRecordWithMediaViewMediaConverter() UEmbedRecordWithMediaViewMedia media, Map<String, dynamic>? $unknown
-});
+abstract mixin class _$EmbedRecordWithMediaViewCopyWith<$Res>
+    implements $EmbedRecordWithMediaViewCopyWith<$Res> {
+  factory _$EmbedRecordWithMediaViewCopyWith(_EmbedRecordWithMediaView value,
+          $Res Function(_EmbedRecordWithMediaView) _then) =
+      __$EmbedRecordWithMediaViewCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String $type,
+      @EmbedRecordViewConverter() EmbedRecordView record,
+      @UEmbedRecordWithMediaViewMediaConverter()
+      UEmbedRecordWithMediaViewMedia media,
+      Map<String, dynamic>? $unknown});
 
-
-@override $EmbedRecordViewCopyWith<$Res> get record;@override $UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media;
-
+  @override
+  $EmbedRecordViewCopyWith<$Res> get record;
+  @override
+  $UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media;
 }
+
 /// @nodoc
 class __$EmbedRecordWithMediaViewCopyWithImpl<$Res>
     implements _$EmbedRecordWithMediaViewCopyWith<$Res> {
@@ -294,37 +403,55 @@ class __$EmbedRecordWithMediaViewCopyWithImpl<$Res>
   final _EmbedRecordWithMediaView _self;
   final $Res Function(_EmbedRecordWithMediaView) _then;
 
-/// Create a copy of EmbedRecordWithMediaView
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? record = null,Object? media = null,Object? $unknown = freezed,}) {
-  return _then(_EmbedRecordWithMediaView(
-$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,record: null == record ? _self.record : record // ignore: cast_nullable_to_non_nullable
-as EmbedRecordView,media: null == media ? _self.media : media // ignore: cast_nullable_to_non_nullable
-as UEmbedRecordWithMediaViewMedia,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>?,
-  ));
-}
+  /// Create a copy of EmbedRecordWithMediaView
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? $type = null,
+    Object? record = null,
+    Object? media = null,
+    Object? $unknown = freezed,
+  }) {
+    return _then(_EmbedRecordWithMediaView(
+      $type: null == $type
+          ? _self.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
+      record: null == record
+          ? _self.record
+          : record // ignore: cast_nullable_to_non_nullable
+              as EmbedRecordView,
+      media: null == media
+          ? _self.media
+          : media // ignore: cast_nullable_to_non_nullable
+              as UEmbedRecordWithMediaViewMedia,
+      $unknown: freezed == $unknown
+          ? _self._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
 
-/// Create a copy of EmbedRecordWithMediaView
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$EmbedRecordViewCopyWith<$Res> get record {
-  
-  return $EmbedRecordViewCopyWith<$Res>(_self.record, (value) {
-    return _then(_self.copyWith(record: value));
-  });
-}/// Create a copy of EmbedRecordWithMediaView
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media {
-  
-  return $UEmbedRecordWithMediaViewMediaCopyWith<$Res>(_self.media, (value) {
-    return _then(_self.copyWith(media: value));
-  });
-}
+  /// Create a copy of EmbedRecordWithMediaView
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $EmbedRecordViewCopyWith<$Res> get record {
+    return $EmbedRecordViewCopyWith<$Res>(_self.record, (value) {
+      return _then(_self.copyWith(record: value));
+    });
+  }
+
+  /// Create a copy of EmbedRecordWithMediaView
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media {
+    return $UEmbedRecordWithMediaViewMediaCopyWith<$Res>(_self.media, (value) {
+      return _then(_self.copyWith(media: value));
+    });
+  }
 }
 
 // dart format on

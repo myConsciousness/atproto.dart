@@ -23,11 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class ActorGetPreferencesOutput with _$ActorGetPreferencesOutput {
-  static const knownProps = <String>['preferences'];
+  static const knownProps = <String>[
+    'preferences',
+  ];
 
   const factory ActorGetPreferencesOutput({
     @UPreferencesConverter() required List<UPreferences> preferences,
-
     Map<String, dynamic>? $unknown,
   }) = _ActorGetPreferencesOutput;
 
@@ -41,12 +42,14 @@ final class ActorGetPreferencesOutputConverter
 
   @override
   ActorGetPreferencesOutput fromJson(Map<String, dynamic> json) {
-    return ActorGetPreferencesOutput.fromJson(
-      translate(json, ActorGetPreferencesOutput.knownProps),
-    );
+    return ActorGetPreferencesOutput.fromJson(translate(
+      json,
+      ActorGetPreferencesOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ActorGetPreferencesOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ActorGetPreferencesOutput object) => untranslate(
+        object.toJson(),
+      );
 }

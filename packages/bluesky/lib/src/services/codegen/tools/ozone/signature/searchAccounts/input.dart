@@ -21,13 +21,16 @@ part 'input.g.dart';
 @freezed
 abstract class SignatureSearchAccountsInput
     with _$SignatureSearchAccountsInput {
-  static const knownProps = <String>['values', 'cursor', 'limit'];
+  static const knownProps = <String>[
+    'values',
+    'cursor',
+    'limit',
+  ];
 
   const factory SignatureSearchAccountsInput({
     required List<String> values,
     String? cursor,
     @Default(50) int limit,
-
     Map<String, dynamic>? $unknown,
   }) = _SignatureSearchAccountsInput;
 
@@ -47,12 +50,15 @@ final class SignatureSearchAccountsInputConverter
 
   @override
   SignatureSearchAccountsInput fromJson(Map<String, dynamic> json) {
-    return SignatureSearchAccountsInput.fromJson(
-      translate(json, SignatureSearchAccountsInput.knownProps),
-    );
+    return SignatureSearchAccountsInput.fromJson(translate(
+      json,
+      SignatureSearchAccountsInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(SignatureSearchAccountsInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

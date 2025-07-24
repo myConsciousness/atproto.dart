@@ -9,31 +9,32 @@ part of 'output.dart';
 // **************************************************************************
 
 _FeedGetListFeedOutput _$FeedGetListFeedOutputFromJson(Map json) =>
-    $checkedCreate('_FeedGetListFeedOutput', json, ($checkedConvert) {
-      final val = _FeedGetListFeedOutput(
-        cursor: $checkedConvert('cursor', (v) => v as String?),
-        feed: $checkedConvert(
-          'feed',
-          (v) => (v as List<dynamic>)
-              .map(
-                (e) => const FeedViewPostConverter().fromJson(
-                  e as Map<String, dynamic>,
-                ),
-              )
-              .toList(),
-        ),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_FeedGetListFeedOutput',
+      json,
+      ($checkedConvert) {
+        final val = _FeedGetListFeedOutput(
+          cursor: $checkedConvert('cursor', (v) => v as String?),
+          feed: $checkedConvert(
+              'feed',
+              (v) => (v as List<dynamic>)
+                  .map((e) => const FeedViewPostConverter()
+                      .fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$FeedGetListFeedOutputToJson(
-  _FeedGetListFeedOutput instance,
-) => <String, dynamic>{
-  'cursor': instance.cursor,
-  'feed': instance.feed.map(const FeedViewPostConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
-};
+        _FeedGetListFeedOutput instance) =>
+    <String, dynamic>{
+      'cursor': instance.cursor,
+      'feed': instance.feed.map(const FeedViewPostConverter().toJson).toList(),
+      r'$unknown': instance.$unknown,
+    };

@@ -27,8 +27,9 @@ abstract class ActorDeclarationAllowIncoming
     required KnownActorDeclarationAllowIncoming data,
   }) = ActorDeclarationAllowIncomingKnownValue;
 
-  const factory ActorDeclarationAllowIncoming.unknown({required String data}) =
-      ActorDeclarationAllowIncomingUnknown;
+  const factory ActorDeclarationAllowIncoming.unknown({
+    required String data,
+  }) = ActorDeclarationAllowIncomingUnknown;
 
   static ActorDeclarationAllowIncoming? valueOf(final String? value) {
     if (value == null) return null;
@@ -73,8 +74,10 @@ final class ActorDeclarationAllowIncomingConverter
   }
 
   @override
-  String toJson(ActorDeclarationAllowIncoming object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ActorDeclarationAllowIncoming object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownActorDeclarationAllowIncoming implements Serializable {
@@ -83,7 +86,8 @@ enum KnownActorDeclarationAllowIncoming implements Serializable {
   @JsonValue('none')
   none('none'),
   @JsonValue('following')
-  following('following');
+  following('following'),
+  ;
 
   @override
   final String value;

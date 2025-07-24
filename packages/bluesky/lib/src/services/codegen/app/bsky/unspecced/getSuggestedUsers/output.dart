@@ -24,32 +24,35 @@ part 'output.g.dart';
 @freezed
 abstract class UnspeccedGetSuggestedUsersOutput
     with _$UnspeccedGetSuggestedUsersOutput {
-  static const knownProps = <String>['actors'];
+  static const knownProps = <String>[
+    'actors',
+  ];
 
   const factory UnspeccedGetSuggestedUsersOutput({
     @ProfileViewConverter() required List<ProfileView> actors,
-
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestedUsersOutput;
 
   factory UnspeccedGetSuggestedUsersOutput.fromJson(
-    Map<String, Object?> json,
-  ) => _$UnspeccedGetSuggestedUsersOutputFromJson(json);
+          Map<String, Object?> json) =>
+      _$UnspeccedGetSuggestedUsersOutputFromJson(json);
 }
 
-final class UnspeccedGetSuggestedUsersOutputConverter
-    extends
-        JsonConverter<UnspeccedGetSuggestedUsersOutput, Map<String, dynamic>> {
+final class UnspeccedGetSuggestedUsersOutputConverter extends JsonConverter<
+    UnspeccedGetSuggestedUsersOutput, Map<String, dynamic>> {
   const UnspeccedGetSuggestedUsersOutputConverter();
 
   @override
   UnspeccedGetSuggestedUsersOutput fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetSuggestedUsersOutput.fromJson(
-      translate(json, UnspeccedGetSuggestedUsersOutput.knownProps),
-    );
+    return UnspeccedGetSuggestedUsersOutput.fromJson(translate(
+      json,
+      UnspeccedGetSuggestedUsersOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetSuggestedUsersOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

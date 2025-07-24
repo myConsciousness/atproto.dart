@@ -20,13 +20,16 @@ part 'output.g.dart';
 
 @freezed
 abstract class RepoGetRecordOutput with _$RepoGetRecordOutput {
-  static const knownProps = <String>['uri', 'cid', 'value'];
+  static const knownProps = <String>[
+    'uri',
+    'cid',
+    'value',
+  ];
 
   const factory RepoGetRecordOutput({
     required String uri,
     String? cid,
     required Map<String, dynamic> value,
-
     Map<String, dynamic>? $unknown,
   }) = _RepoGetRecordOutput;
 
@@ -45,12 +48,14 @@ final class RepoGetRecordOutputConverter
 
   @override
   RepoGetRecordOutput fromJson(Map<String, dynamic> json) {
-    return RepoGetRecordOutput.fromJson(
-      translate(json, RepoGetRecordOutput.knownProps),
-    );
+    return RepoGetRecordOutput.fromJson(translate(
+      json,
+      RepoGetRecordOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(RepoGetRecordOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(RepoGetRecordOutput object) => untranslate(
+        object.toJson(),
+      );
 }

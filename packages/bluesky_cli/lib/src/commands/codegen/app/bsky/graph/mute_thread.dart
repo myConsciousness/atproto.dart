@@ -16,7 +16,11 @@ import '../../../../procedure_command.dart';
 
 final class MuteThreadCommand extends ProcedureCommand {
   MuteThreadCommand() {
-    argParser..addOption("root", mandatory: true);
+    argParser
+      ..addOption(
+        "root",
+        mandatory: true,
+      );
   }
 
   @override
@@ -33,5 +37,7 @@ final class MuteThreadCommand extends ProcedureCommand {
   String get methodId => "app.bsky.graph.muteThread";
 
   @override
-  Map<String, dynamic>? get body => {"root": argResults!["root"]};
+  Map<String, dynamic>? get body => {
+        "root": argResults!["root"],
+      };
 }

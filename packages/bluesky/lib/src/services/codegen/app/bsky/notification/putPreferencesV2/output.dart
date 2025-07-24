@@ -24,35 +24,35 @@ part 'output.g.dart';
 @freezed
 abstract class NotificationPutPreferencesV2Output
     with _$NotificationPutPreferencesV2Output {
-  static const knownProps = <String>['preferences'];
+  static const knownProps = <String>[
+    'preferences',
+  ];
 
   const factory NotificationPutPreferencesV2Output({
     @PreferencesConverter() required Preferences preferences,
-
     Map<String, dynamic>? $unknown,
   }) = _NotificationPutPreferencesV2Output;
 
   factory NotificationPutPreferencesV2Output.fromJson(
-    Map<String, Object?> json,
-  ) => _$NotificationPutPreferencesV2OutputFromJson(json);
+          Map<String, Object?> json) =>
+      _$NotificationPutPreferencesV2OutputFromJson(json);
 }
 
-final class NotificationPutPreferencesV2OutputConverter
-    extends
-        JsonConverter<
-          NotificationPutPreferencesV2Output,
-          Map<String, dynamic>
-        > {
+final class NotificationPutPreferencesV2OutputConverter extends JsonConverter<
+    NotificationPutPreferencesV2Output, Map<String, dynamic>> {
   const NotificationPutPreferencesV2OutputConverter();
 
   @override
   NotificationPutPreferencesV2Output fromJson(Map<String, dynamic> json) {
-    return NotificationPutPreferencesV2Output.fromJson(
-      translate(json, NotificationPutPreferencesV2Output.knownProps),
-    );
+    return NotificationPutPreferencesV2Output.fromJson(translate(
+      json,
+      NotificationPutPreferencesV2Output.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(NotificationPutPreferencesV2Output object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

@@ -26,8 +26,9 @@ abstract class FeedSearchPostsSort with _$FeedSearchPostsSort {
     required KnownFeedSearchPostsSort data,
   }) = FeedSearchPostsSortKnownValue;
 
-  const factory FeedSearchPostsSort.unknown({required String data}) =
-      FeedSearchPostsSortUnknown;
+  const factory FeedSearchPostsSort.unknown({
+    required String data,
+  }) = FeedSearchPostsSortUnknown;
 
   static FeedSearchPostsSort? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,15 +71,18 @@ final class FeedSearchPostsSortConverter
   }
 
   @override
-  String toJson(FeedSearchPostsSort object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(FeedSearchPostsSort object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownFeedSearchPostsSort implements Serializable {
   @JsonValue('top')
   top('top'),
   @JsonValue('latest')
-  latest('latest');
+  latest('latest'),
+  ;
 
   @override
   final String value;

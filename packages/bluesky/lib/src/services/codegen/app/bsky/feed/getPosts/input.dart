@@ -20,11 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class FeedGetPostsInput with _$FeedGetPostsInput {
-  static const knownProps = <String>['uris'];
+  static const knownProps = <String>[
+    'uris',
+  ];
 
   const factory FeedGetPostsInput({
     required List<String> uris,
-
     Map<String, dynamic>? $unknown,
   }) = _FeedGetPostsInput;
 
@@ -38,12 +39,14 @@ final class FeedGetPostsInputConverter
 
   @override
   FeedGetPostsInput fromJson(Map<String, dynamic> json) {
-    return FeedGetPostsInput.fromJson(
-      translate(json, FeedGetPostsInput.knownProps),
-    );
+    return FeedGetPostsInput.fromJson(translate(
+      json,
+      FeedGetPostsInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetPostsInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FeedGetPostsInput object) => untranslate(
+        object.toJson(),
+      );
 }

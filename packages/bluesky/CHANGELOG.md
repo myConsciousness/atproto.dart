@@ -1,5 +1,10 @@
 # Release Note
 
+## 1.0.0-legacy
+
+- Downgrade SDK constraint to '^3.6.0'.
+- Legacy support for Flutter for Web.
+
 ## v1.0.0
 
 - Bump SDK constraint to '^3.8.0'.

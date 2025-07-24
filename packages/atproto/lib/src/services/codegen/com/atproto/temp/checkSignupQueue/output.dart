@@ -30,7 +30,6 @@ abstract class TempCheckSignupQueueOutput with _$TempCheckSignupQueueOutput {
     required bool activated,
     int? placeInQueue,
     int? estimatedTimeMs,
-
     Map<String, dynamic>? $unknown,
   }) = _TempCheckSignupQueueOutput;
 
@@ -53,12 +52,14 @@ final class TempCheckSignupQueueOutputConverter
 
   @override
   TempCheckSignupQueueOutput fromJson(Map<String, dynamic> json) {
-    return TempCheckSignupQueueOutput.fromJson(
-      translate(json, TempCheckSignupQueueOutput.knownProps),
-    );
+    return TempCheckSignupQueueOutput.fromJson(translate(
+      json,
+      TempCheckSignupQueueOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(TempCheckSignupQueueOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(TempCheckSignupQueueOutput object) => untranslate(
+        object.toJson(),
+      );
 }

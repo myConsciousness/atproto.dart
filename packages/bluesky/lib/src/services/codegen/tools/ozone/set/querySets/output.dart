@@ -23,12 +23,14 @@ part 'output.g.dart';
 
 @freezed
 abstract class SetQuerySetsOutput with _$SetQuerySetsOutput {
-  static const knownProps = <String>['sets', 'cursor'];
+  static const knownProps = <String>[
+    'sets',
+    'cursor',
+  ];
 
   const factory SetQuerySetsOutput({
     @SetViewConverter() required List<SetView> sets,
     String? cursor,
-
     Map<String, dynamic>? $unknown,
   }) = _SetQuerySetsOutput;
 
@@ -47,12 +49,14 @@ final class SetQuerySetsOutputConverter
 
   @override
   SetQuerySetsOutput fromJson(Map<String, dynamic> json) {
-    return SetQuerySetsOutput.fromJson(
-      translate(json, SetQuerySetsOutput.knownProps),
-    );
+    return SetQuerySetsOutput.fromJson(translate(
+      json,
+      SetQuerySetsOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SetQuerySetsOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SetQuerySetsOutput object) => untranslate(
+        object.toJson(),
+      );
 }

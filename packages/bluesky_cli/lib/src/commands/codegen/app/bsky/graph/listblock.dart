@@ -48,7 +48,10 @@ final class _CreateListblockCommand extends CreateRecordCommand {
         help: r"Reference (AT-URI) to the mod list record.",
         mandatory: true,
       )
-      ..addOption("createdAt", mandatory: true)
+      ..addOption(
+        "createdAt",
+        mandatory: true,
+      )
       ..addOption("rkey");
   }
 
@@ -71,9 +74,9 @@ final class _CreateListblockCommand extends CreateRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-    "subject": argResults!["subject"],
-    "createdAt": argResults!["createdAt"],
-  };
+        "subject": argResults!["subject"],
+        "createdAt": argResults!["createdAt"],
+      };
 }
 
 final class _PutListblockCommand extends PutRecordCommand {
@@ -84,7 +87,10 @@ final class _PutListblockCommand extends PutRecordCommand {
         help: r"Reference (AT-URI) to the mod list record.",
         mandatory: true,
       )
-      ..addOption("createdAt", mandatory: true)
+      ..addOption(
+        "createdAt",
+        mandatory: true,
+      )
       ..addOption("rkey");
   }
 
@@ -106,14 +112,18 @@ final class _PutListblockCommand extends PutRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-    "subject": argResults!["subject"],
-    "createdAt": argResults!["createdAt"],
-  };
+        "subject": argResults!["subject"],
+        "createdAt": argResults!["createdAt"],
+      };
 }
 
 final class _DeleteListblockCommand extends DeleteRecordCommand {
   _DeleteListblockCommand() {
-    argParser..addOption("rkey", mandatory: true);
+    argParser
+      ..addOption(
+        "rkey",
+        mandatory: true,
+      );
   }
 
   @override
@@ -135,7 +145,10 @@ final class _DeleteListblockCommand extends DeleteRecordCommand {
 final class _GetListblockCommand extends QueryCommand {
   _GetListblockCommand() {
     argParser
-      ..addOption("rkey", mandatory: true)
+      ..addOption(
+        "rkey",
+        mandatory: true,
+      )
       ..addOption("cid");
   }
 
@@ -153,11 +166,11 @@ final class _GetListblockCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'rkey': argResults!['rkey'],
-    if (argResults!['cid'] != null) 'cid': argResults!['cid'],
-  };
+        'repo': await did,
+        'collection': methodId,
+        'rkey': argResults!['rkey'],
+        if (argResults!['cid'] != null) 'cid': argResults!['cid'],
+      };
 }
 
 final class _ListListblockCommand extends QueryCommand {
@@ -183,10 +196,10 @@ final class _ListListblockCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'limit': argResults!['limit'],
-    if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
-    'reverse': argResults!['reverse'],
-  };
+        'repo': await did,
+        'collection': methodId,
+        'limit': argResults!['limit'],
+        if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
+        'reverse': argResults!['reverse'],
+      };
 }

@@ -25,7 +25,6 @@ abstract class FollowingRule with _$FollowingRule {
 
   const factory FollowingRule({
     @Default('app.bsky.feed.threadgate#followingRule') String $type,
-
     Map<String, dynamic>? $unknown,
   }) = _FollowingRule;
 
@@ -44,10 +43,14 @@ final class FollowingRuleConverter
 
   @override
   FollowingRule fromJson(Map<String, dynamic> json) {
-    return FollowingRule.fromJson(translate(json, FollowingRule.knownProps));
+    return FollowingRule.fromJson(translate(
+      json,
+      FollowingRule.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FollowingRule object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FollowingRule object) => untranslate(
+        object.toJson(),
+      );
 }

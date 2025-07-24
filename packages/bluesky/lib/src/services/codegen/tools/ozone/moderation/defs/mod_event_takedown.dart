@@ -38,7 +38,6 @@ abstract class ModEventTakedown with _$ModEventTakedown {
     /// If true, all other reports on content authored by this account will be resolved (acknowledged).
     bool? acknowledgeAccountSubjects,
     List<String>? policies,
-
     Map<String, dynamic>? $unknown,
   }) = _ModEventTakedown;
 
@@ -66,12 +65,14 @@ final class ModEventTakedownConverter
 
   @override
   ModEventTakedown fromJson(Map<String, dynamic> json) {
-    return ModEventTakedown.fromJson(
-      translate(json, ModEventTakedown.knownProps),
-    );
+    return ModEventTakedown.fromJson(translate(
+      json,
+      ModEventTakedown.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ModEventTakedown object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ModEventTakedown object) => untranslate(
+        object.toJson(),
+      );
 }

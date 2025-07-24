@@ -53,7 +53,6 @@ abstract class AccountView with _$AccountView {
     String? inviteNote,
     DateTime? deactivatedAt,
     @ThreatSignatureConverter() List<ThreatSignature>? threatSignatures,
-
     Map<String, dynamic>? $unknown,
   }) = _AccountView;
 
@@ -87,10 +86,14 @@ final class AccountViewConverter
 
   @override
   AccountView fromJson(Map<String, dynamic> json) {
-    return AccountView.fromJson(translate(json, AccountView.knownProps));
+    return AccountView.fromJson(translate(
+      json,
+      AccountView.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(AccountView object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(AccountView object) => untranslate(
+        object.toJson(),
+      );
 }

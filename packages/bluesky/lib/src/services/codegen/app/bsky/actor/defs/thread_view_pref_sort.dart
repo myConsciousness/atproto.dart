@@ -26,8 +26,9 @@ abstract class ThreadViewPrefSort with _$ThreadViewPrefSort {
     required KnownThreadViewPrefSort data,
   }) = ThreadViewPrefSortKnownValue;
 
-  const factory ThreadViewPrefSort.unknown({required String data}) =
-      ThreadViewPrefSortUnknown;
+  const factory ThreadViewPrefSort.unknown({
+    required String data,
+  }) = ThreadViewPrefSortUnknown;
 
   static ThreadViewPrefSort? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,8 +71,10 @@ final class ThreadViewPrefSortConverter
   }
 
   @override
-  String toJson(ThreadViewPrefSort object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ThreadViewPrefSort object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownThreadViewPrefSort implements Serializable {
@@ -84,7 +87,8 @@ enum KnownThreadViewPrefSort implements Serializable {
   @JsonValue('random')
   random('random'),
   @JsonValue('hotness')
-  hotness('hotness');
+  hotness('hotness'),
+  ;
 
   @override
   final String value;

@@ -23,13 +23,15 @@ part 'output.g.dart';
 
 @freezed
 abstract class ConvoGetMessagesOutput with _$ConvoGetMessagesOutput {
-  static const knownProps = <String>['cursor', 'messages'];
+  static const knownProps = <String>[
+    'cursor',
+    'messages',
+  ];
 
   const factory ConvoGetMessagesOutput({
     String? cursor,
     @UConvoGetMessagesMessagesConverter()
     required List<UConvoGetMessagesMessages> messages,
-
     Map<String, dynamic>? $unknown,
   }) = _ConvoGetMessagesOutput;
 
@@ -48,12 +50,14 @@ final class ConvoGetMessagesOutputConverter
 
   @override
   ConvoGetMessagesOutput fromJson(Map<String, dynamic> json) {
-    return ConvoGetMessagesOutput.fromJson(
-      translate(json, ConvoGetMessagesOutput.knownProps),
-    );
+    return ConvoGetMessagesOutput.fromJson(translate(
+      json,
+      ConvoGetMessagesOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoGetMessagesOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ConvoGetMessagesOutput object) => untranslate(
+        object.toJson(),
+      );
 }

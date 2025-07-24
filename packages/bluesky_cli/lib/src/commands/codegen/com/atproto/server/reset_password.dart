@@ -17,8 +17,14 @@ import '../../../../procedure_command.dart';
 final class ResetPasswordCommand extends ProcedureCommand {
   ResetPasswordCommand() {
     argParser
-      ..addOption("token", mandatory: true)
-      ..addOption("password", mandatory: true);
+      ..addOption(
+        "token",
+        mandatory: true,
+      )
+      ..addOption(
+        "password",
+        mandatory: true,
+      );
   }
 
   @override
@@ -36,7 +42,7 @@ final class ResetPasswordCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "token": argResults!["token"],
-    "password": argResults!["password"],
-  };
+        "token": argResults!["token"],
+        "password": argResults!["password"],
+      };
 }

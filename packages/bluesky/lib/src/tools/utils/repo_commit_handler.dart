@@ -29,12 +29,12 @@ import 'repo_commit_delete.dart';
 import 'repo_commit_update.dart';
 
 /// Action on create records.
-typedef RepoCommitOnCreate<T> =
-    FutureOr<void> Function(RepoCommitCreate<T> data);
+typedef RepoCommitOnCreate<T> = FutureOr<void> Function(
+    RepoCommitCreate<T> data);
 
 /// Action on update records.
-typedef RepoCommitOnUpdate<T> =
-    FutureOr<void> Function(RepoCommitUpdate<T> data);
+typedef RepoCommitOnUpdate<T> = FutureOr<void> Function(
+    RepoCommitUpdate<T> data);
 
 /// Action on delete records.
 typedef RepoCommitOnDelete = FutureOr<void> Function(RepoCommitDelete data);
@@ -68,32 +68,32 @@ final class RepoCommitHandler {
     final RepoCommitOnDelete? onDeleteBlockList,
     final RepoCommitOnDelete? onDeleteLabelerService,
     final RepoCommitOnDelete? onDeleteUnknown,
-  }) : _onCreatePost = onCreatePost,
-       _onCreateRepost = onCreateRepost,
-       _onCreateLike = onCreateLike,
-       _onCreateGenerator = onCreateGenerator,
-       _onCreateThreadgate = onCreateThreadgate,
-       _onCreateFollow = onCreateFollow,
-       _onCreateBlock = onCreateBlock,
-       _onCreateList = onCreateList,
-       _onCreateListItem = onCreateListItem,
-       _onCreateBlockList = onCreateBlockList,
-       _onCreateLabelerService = onCreateLabelerService,
-       _onCreateUnknown = onCreateUnknown,
-       _onUpdateProfile = onUpdateProfile,
-       _onUpdateUnknown = onUpdateUnknown,
-       _onDeletePost = onDeletePost,
-       _onDeleteRepost = onDeleteRepost,
-       _onDeleteLike = onDeleteLike,
-       _onDeleteGenerator = onDeleteGenerator,
-       _onDeleteThreadgate = onDeleteThreadgate,
-       _onDeleteFollow = onDeleteFollow,
-       _onDeleteBlock = onDeleteBlock,
-       _onDeleteList = onDeleteList,
-       _onDeleteListItem = onDeleteListItem,
-       _onDeleteBlockList = onDeleteBlockList,
-       _onDeleteLabelerService = onDeleteLabelerService,
-       _onDeleteUnknown = onDeleteUnknown;
+  })  : _onCreatePost = onCreatePost,
+        _onCreateRepost = onCreateRepost,
+        _onCreateLike = onCreateLike,
+        _onCreateGenerator = onCreateGenerator,
+        _onCreateThreadgate = onCreateThreadgate,
+        _onCreateFollow = onCreateFollow,
+        _onCreateBlock = onCreateBlock,
+        _onCreateList = onCreateList,
+        _onCreateListItem = onCreateListItem,
+        _onCreateBlockList = onCreateBlockList,
+        _onCreateLabelerService = onCreateLabelerService,
+        _onCreateUnknown = onCreateUnknown,
+        _onUpdateProfile = onUpdateProfile,
+        _onUpdateUnknown = onUpdateUnknown,
+        _onDeletePost = onDeletePost,
+        _onDeleteRepost = onDeleteRepost,
+        _onDeleteLike = onDeleteLike,
+        _onDeleteGenerator = onDeleteGenerator,
+        _onDeleteThreadgate = onDeleteThreadgate,
+        _onDeleteFollow = onDeleteFollow,
+        _onDeleteBlock = onDeleteBlock,
+        _onDeleteList = onDeleteList,
+        _onDeleteListItem = onDeleteListItem,
+        _onDeleteBlockList = onDeleteBlockList,
+        _onDeleteLabelerService = onDeleteLabelerService,
+        _onDeleteUnknown = onDeleteUnknown;
 
   final RepoCommitOnCreate<FeedPostRecord>? _onCreatePost;
   final RepoCommitOnCreate<FeedRepostRecord>? _onCreateRepost;

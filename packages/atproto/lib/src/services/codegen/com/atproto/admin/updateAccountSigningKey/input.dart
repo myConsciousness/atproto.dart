@@ -21,35 +21,39 @@ part 'input.g.dart';
 @freezed
 abstract class AdminUpdateAccountSigningKeyInput
     with _$AdminUpdateAccountSigningKeyInput {
-  static const knownProps = <String>['did', 'signingKey'];
+  static const knownProps = <String>[
+    'did',
+    'signingKey',
+  ];
 
   const factory AdminUpdateAccountSigningKeyInput({
     required String did,
 
     /// Did-key formatted public key
     required String signingKey,
-
     Map<String, dynamic>? $unknown,
   }) = _AdminUpdateAccountSigningKeyInput;
 
   factory AdminUpdateAccountSigningKeyInput.fromJson(
-    Map<String, Object?> json,
-  ) => _$AdminUpdateAccountSigningKeyInputFromJson(json);
+          Map<String, Object?> json) =>
+      _$AdminUpdateAccountSigningKeyInputFromJson(json);
 }
 
-final class AdminUpdateAccountSigningKeyInputConverter
-    extends
-        JsonConverter<AdminUpdateAccountSigningKeyInput, Map<String, dynamic>> {
+final class AdminUpdateAccountSigningKeyInputConverter extends JsonConverter<
+    AdminUpdateAccountSigningKeyInput, Map<String, dynamic>> {
   const AdminUpdateAccountSigningKeyInputConverter();
 
   @override
   AdminUpdateAccountSigningKeyInput fromJson(Map<String, dynamic> json) {
-    return AdminUpdateAccountSigningKeyInput.fromJson(
-      translate(json, AdminUpdateAccountSigningKeyInput.knownProps),
-    );
+    return AdminUpdateAccountSigningKeyInput.fromJson(translate(
+      json,
+      AdminUpdateAccountSigningKeyInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(AdminUpdateAccountSigningKeyInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

@@ -21,32 +21,35 @@ part 'output.g.dart';
 @freezed
 abstract class NotificationGetUnreadCountOutput
     with _$NotificationGetUnreadCountOutput {
-  static const knownProps = <String>['count'];
+  static const knownProps = <String>[
+    'count',
+  ];
 
   const factory NotificationGetUnreadCountOutput({
     required int count,
-
     Map<String, dynamic>? $unknown,
   }) = _NotificationGetUnreadCountOutput;
 
   factory NotificationGetUnreadCountOutput.fromJson(
-    Map<String, Object?> json,
-  ) => _$NotificationGetUnreadCountOutputFromJson(json);
+          Map<String, Object?> json) =>
+      _$NotificationGetUnreadCountOutputFromJson(json);
 }
 
-final class NotificationGetUnreadCountOutputConverter
-    extends
-        JsonConverter<NotificationGetUnreadCountOutput, Map<String, dynamic>> {
+final class NotificationGetUnreadCountOutputConverter extends JsonConverter<
+    NotificationGetUnreadCountOutput, Map<String, dynamic>> {
   const NotificationGetUnreadCountOutputConverter();
 
   @override
   NotificationGetUnreadCountOutput fromJson(Map<String, dynamic> json) {
-    return NotificationGetUnreadCountOutput.fromJson(
-      translate(json, NotificationGetUnreadCountOutput.knownProps),
-    );
+    return NotificationGetUnreadCountOutput.fromJson(translate(
+      json,
+      NotificationGetUnreadCountOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(NotificationGetUnreadCountOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

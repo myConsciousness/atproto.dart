@@ -9,21 +9,27 @@ part of 'input.dart';
 // **************************************************************************
 
 _SignatureFindCorrelationInput _$SignatureFindCorrelationInputFromJson(
-  Map json,
-) => $checkedCreate('_SignatureFindCorrelationInput', json, ($checkedConvert) {
-  final val = _SignatureFindCorrelationInput(
-    dids: $checkedConvert(
-      'dids',
-      (v) => (v as List<dynamic>).map((e) => e as String).toList(),
-    ),
-    $unknown: $checkedConvert(
-      r'$unknown',
-      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-    ),
-  );
-  return val;
-});
+        Map json) =>
+    $checkedCreate(
+      '_SignatureFindCorrelationInput',
+      json,
+      ($checkedConvert) {
+        final val = _SignatureFindCorrelationInput(
+          dids: $checkedConvert('dids',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$SignatureFindCorrelationInputToJson(
-  _SignatureFindCorrelationInput instance,
-) => <String, dynamic>{'dids': instance.dids, r'$unknown': instance.$unknown};
+        _SignatureFindCorrelationInput instance) =>
+    <String, dynamic>{
+      'dids': instance.dids,
+      r'$unknown': instance.$unknown,
+    };

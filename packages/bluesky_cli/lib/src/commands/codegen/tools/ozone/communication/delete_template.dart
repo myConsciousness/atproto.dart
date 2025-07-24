@@ -16,7 +16,11 @@ import '../../../../procedure_command.dart';
 
 final class DeleteTemplateCommand extends ProcedureCommand {
   DeleteTemplateCommand() {
-    argParser..addOption("id", mandatory: true);
+    argParser
+      ..addOption(
+        "id",
+        mandatory: true,
+      );
   }
 
   @override
@@ -33,5 +37,7 @@ final class DeleteTemplateCommand extends ProcedureCommand {
   String get methodId => "tools.ozone.communication.deleteTemplate";
 
   @override
-  Map<String, dynamic>? get body => {"id": argResults!["id"]};
+  Map<String, dynamic>? get body => {
+        "id": argResults!["id"],
+      };
 }

@@ -20,12 +20,13 @@ part 'email_updated.g.dart';
 
 @freezed
 abstract class EmailUpdated with _$EmailUpdated {
-  static const knownProps = <String>['email'];
+  static const knownProps = <String>[
+    'email',
+  ];
 
   const factory EmailUpdated({
     @Default('tools.ozone.hosting.getAccountHistory#emailUpdated') String $type,
     required String email,
-
     Map<String, dynamic>? $unknown,
   }) = _EmailUpdated;
 
@@ -45,10 +46,14 @@ final class EmailUpdatedConverter
 
   @override
   EmailUpdated fromJson(Map<String, dynamic> json) {
-    return EmailUpdated.fromJson(translate(json, EmailUpdated.knownProps));
+    return EmailUpdated.fromJson(translate(
+      json,
+      EmailUpdated.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(EmailUpdated object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(EmailUpdated object) => untranslate(
+        object.toJson(),
+      );
 }

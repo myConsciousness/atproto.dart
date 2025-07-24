@@ -17,8 +17,14 @@ import '../../../../procedure_command.dart';
 final class ConfirmEmailCommand extends ProcedureCommand {
   ConfirmEmailCommand() {
     argParser
-      ..addOption("email", mandatory: true)
-      ..addOption("token", mandatory: true);
+      ..addOption(
+        "email",
+        mandatory: true,
+      )
+      ..addOption(
+        "token",
+        mandatory: true,
+      );
   }
 
   @override
@@ -37,7 +43,7 @@ final class ConfirmEmailCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "email": argResults!["email"],
-    "token": argResults!["token"],
-  };
+        "email": argResults!["email"],
+        "token": argResults!["token"],
+      };
 }

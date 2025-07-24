@@ -20,7 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class SyncListBlobsInput with _$SyncListBlobsInput {
-  static const knownProps = <String>['did', 'since', 'limit', 'cursor'];
+  static const knownProps = <String>[
+    'did',
+    'since',
+    'limit',
+    'cursor',
+  ];
 
   const factory SyncListBlobsInput({
     /// The DID of the repo.
@@ -30,7 +35,6 @@ abstract class SyncListBlobsInput with _$SyncListBlobsInput {
     String? since,
     @Default(500) int limit,
     String? cursor,
-
     Map<String, dynamic>? $unknown,
   }) = _SyncListBlobsInput;
 
@@ -51,12 +55,14 @@ final class SyncListBlobsInputConverter
 
   @override
   SyncListBlobsInput fromJson(Map<String, dynamic> json) {
-    return SyncListBlobsInput.fromJson(
-      translate(json, SyncListBlobsInput.knownProps),
-    );
+    return SyncListBlobsInput.fromJson(translate(
+      json,
+      SyncListBlobsInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SyncListBlobsInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SyncListBlobsInput object) => untranslate(
+        object.toJson(),
+      );
 }

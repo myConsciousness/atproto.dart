@@ -21,13 +21,15 @@ part 'byte_slice.g.dart';
 /// Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text. NOTE: some languages, like Javascript, use UTF-16 or Unicode codepoints for string slice indexing; in these languages, convert to byte arrays before working with facets.
 @freezed
 abstract class RichtextFacetByteSlice with _$RichtextFacetByteSlice {
-  static const knownProps = <String>['byteStart', 'byteEnd'];
+  static const knownProps = <String>[
+    'byteStart',
+    'byteEnd',
+  ];
 
   const factory RichtextFacetByteSlice({
     @Default('app.bsky.richtext.facet#byteSlice') String $type,
     required int byteStart,
     required int byteEnd,
-
     Map<String, dynamic>? $unknown,
   }) = _RichtextFacetByteSlice;
 
@@ -46,12 +48,14 @@ final class RichtextFacetByteSliceConverter
 
   @override
   RichtextFacetByteSlice fromJson(Map<String, dynamic> json) {
-    return RichtextFacetByteSlice.fromJson(
-      translate(json, RichtextFacetByteSlice.knownProps),
-    );
+    return RichtextFacetByteSlice.fromJson(translate(
+      json,
+      RichtextFacetByteSlice.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(RichtextFacetByteSlice object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(RichtextFacetByteSlice object) => untranslate(
+        object.toJson(),
+      );
 }

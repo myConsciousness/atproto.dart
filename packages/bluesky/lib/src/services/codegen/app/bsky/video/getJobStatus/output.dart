@@ -23,11 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class VideoGetJobStatusOutput with _$VideoGetJobStatusOutput {
-  static const knownProps = <String>['jobStatus'];
+  static const knownProps = <String>[
+    'jobStatus',
+  ];
 
   const factory VideoGetJobStatusOutput({
     @JobStatusConverter() required JobStatus jobStatus,
-
     Map<String, dynamic>? $unknown,
   }) = _VideoGetJobStatusOutput;
 
@@ -41,12 +42,14 @@ final class VideoGetJobStatusOutputConverter
 
   @override
   VideoGetJobStatusOutput fromJson(Map<String, dynamic> json) {
-    return VideoGetJobStatusOutput.fromJson(
-      translate(json, VideoGetJobStatusOutput.knownProps),
-    );
+    return VideoGetJobStatusOutput.fromJson(translate(
+      json,
+      VideoGetJobStatusOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(VideoGetJobStatusOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(VideoGetJobStatusOutput object) => untranslate(
+        object.toJson(),
+      );
 }

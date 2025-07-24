@@ -75,15 +75,18 @@ final class UnspeccedSearchPostsSkeletonSortConverter
   }
 
   @override
-  String toJson(UnspeccedSearchPostsSkeletonSort object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(UnspeccedSearchPostsSkeletonSort object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownUnspeccedSearchPostsSkeletonSort implements Serializable {
   @JsonValue('top')
   top('top'),
   @JsonValue('latest')
-  latest('latest');
+  latest('latest'),
+  ;
 
   @override
   final String value;

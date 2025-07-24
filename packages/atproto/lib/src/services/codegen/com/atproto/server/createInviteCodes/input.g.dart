@@ -9,28 +9,32 @@ part of 'input.dart';
 // **************************************************************************
 
 _ServerCreateInviteCodesInput _$ServerCreateInviteCodesInputFromJson(
-  Map json,
-) => $checkedCreate('_ServerCreateInviteCodesInput', json, ($checkedConvert) {
-  final val = _ServerCreateInviteCodesInput(
-    codeCount: $checkedConvert('codeCount', (v) => (v as num?)?.toInt() ?? 1),
-    useCount: $checkedConvert('useCount', (v) => (v as num).toInt()),
-    forAccounts: $checkedConvert(
-      'forAccounts',
-      (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
-    ),
-    $unknown: $checkedConvert(
-      r'$unknown',
-      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-    ),
-  );
-  return val;
-});
+        Map json) =>
+    $checkedCreate(
+      '_ServerCreateInviteCodesInput',
+      json,
+      ($checkedConvert) {
+        final val = _ServerCreateInviteCodesInput(
+          codeCount:
+              $checkedConvert('codeCount', (v) => (v as num?)?.toInt() ?? 1),
+          useCount: $checkedConvert('useCount', (v) => (v as num).toInt()),
+          forAccounts: $checkedConvert('forAccounts',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$ServerCreateInviteCodesInputToJson(
-  _ServerCreateInviteCodesInput instance,
-) => <String, dynamic>{
-  'codeCount': instance.codeCount,
-  'useCount': instance.useCount,
-  'forAccounts': instance.forAccounts,
-  r'$unknown': instance.$unknown,
-};
+        _ServerCreateInviteCodesInput instance) =>
+    <String, dynamic>{
+      'codeCount': instance.codeCount,
+      'useCount': instance.useCount,
+      'forAccounts': instance.forAccounts,
+      r'$unknown': instance.$unknown,
+    };

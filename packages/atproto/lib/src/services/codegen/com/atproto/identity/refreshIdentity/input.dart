@@ -21,11 +21,12 @@ part 'input.g.dart';
 @freezed
 abstract class IdentityRefreshIdentityInput
     with _$IdentityRefreshIdentityInput {
-  static const knownProps = <String>['identifier'];
+  static const knownProps = <String>[
+    'identifier',
+  ];
 
   const factory IdentityRefreshIdentityInput({
     required String identifier,
-
     Map<String, dynamic>? $unknown,
   }) = _IdentityRefreshIdentityInput;
 
@@ -39,12 +40,15 @@ final class IdentityRefreshIdentityInputConverter
 
   @override
   IdentityRefreshIdentityInput fromJson(Map<String, dynamic> json) {
-    return IdentityRefreshIdentityInput.fromJson(
-      translate(json, IdentityRefreshIdentityInput.knownProps),
-    );
+    return IdentityRefreshIdentityInput.fromJson(translate(
+      json,
+      IdentityRefreshIdentityInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(IdentityRefreshIdentityInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

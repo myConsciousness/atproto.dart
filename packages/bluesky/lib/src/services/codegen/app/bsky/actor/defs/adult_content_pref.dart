@@ -20,12 +20,13 @@ part 'adult_content_pref.g.dart';
 
 @freezed
 abstract class AdultContentPref with _$AdultContentPref {
-  static const knownProps = <String>['enabled'];
+  static const knownProps = <String>[
+    'enabled',
+  ];
 
   const factory AdultContentPref({
     @Default('app.bsky.actor.defs#adultContentPref') String $type,
     @Default(false) bool enabled,
-
     Map<String, dynamic>? $unknown,
   }) = _AdultContentPref;
 
@@ -49,12 +50,14 @@ final class AdultContentPrefConverter
 
   @override
   AdultContentPref fromJson(Map<String, dynamic> json) {
-    return AdultContentPref.fromJson(
-      translate(json, AdultContentPref.knownProps),
-    );
+    return AdultContentPref.fromJson(translate(
+      json,
+      AdultContentPref.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(AdultContentPref object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(AdultContentPref object) => untranslate(
+        object.toJson(),
+      );
 }

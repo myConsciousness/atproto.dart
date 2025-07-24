@@ -24,7 +24,10 @@ part 'age_assurance_override_event.g.dart';
 /// Age assurance status override by moderators. Only works on DID subjects.
 @freezed
 abstract class AgeAssuranceOverrideEvent with _$AgeAssuranceOverrideEvent {
-  static const knownProps = <String>['status', 'comment'];
+  static const knownProps = <String>[
+    'status',
+    'comment',
+  ];
 
   const factory AgeAssuranceOverrideEvent({
     @Default('tools.ozone.moderation.defs#ageAssuranceOverrideEvent')
@@ -36,7 +39,6 @@ abstract class AgeAssuranceOverrideEvent with _$AgeAssuranceOverrideEvent {
 
     /// Comment describing the reason for the override.
     required String comment,
-
     Map<String, dynamic>? $unknown,
   }) = _AgeAssuranceOverrideEvent;
 
@@ -56,12 +58,14 @@ final class AgeAssuranceOverrideEventConverter
 
   @override
   AgeAssuranceOverrideEvent fromJson(Map<String, dynamic> json) {
-    return AgeAssuranceOverrideEvent.fromJson(
-      translate(json, AgeAssuranceOverrideEvent.knownProps),
-    );
+    return AgeAssuranceOverrideEvent.fromJson(translate(
+      json,
+      AgeAssuranceOverrideEvent.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(AgeAssuranceOverrideEvent object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(AgeAssuranceOverrideEvent object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -21,11 +21,12 @@ part 'input.g.dart';
 @freezed
 abstract class ConvoGetConvoForMembersInput
     with _$ConvoGetConvoForMembersInput {
-  static const knownProps = <String>['members'];
+  static const knownProps = <String>[
+    'members',
+  ];
 
   const factory ConvoGetConvoForMembersInput({
     required List<String> members,
-
     Map<String, dynamic>? $unknown,
   }) = _ConvoGetConvoForMembersInput;
 
@@ -39,12 +40,15 @@ final class ConvoGetConvoForMembersInputConverter
 
   @override
   ConvoGetConvoForMembersInput fromJson(Map<String, dynamic> json) {
-    return ConvoGetConvoForMembersInput.fromJson(
-      translate(json, ConvoGetConvoForMembersInput.knownProps),
-    );
+    return ConvoGetConvoForMembersInput.fromJson(translate(
+      json,
+      ConvoGetConvoForMembersInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(ConvoGetConvoForMembersInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

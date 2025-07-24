@@ -26,8 +26,9 @@ abstract class AccountEventStatus with _$AccountEventStatus {
     required KnownAccountEventStatus data,
   }) = AccountEventStatusKnownValue;
 
-  const factory AccountEventStatus.unknown({required String data}) =
-      AccountEventStatusUnknown;
+  const factory AccountEventStatus.unknown({
+    required String data,
+  }) = AccountEventStatusUnknown;
 
   static AccountEventStatus? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,8 +71,10 @@ final class AccountEventStatusConverter
   }
 
   @override
-  String toJson(AccountEventStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(AccountEventStatus object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownAccountEventStatus implements Serializable {
@@ -86,7 +89,8 @@ enum KnownAccountEventStatus implements Serializable {
   @JsonValue('suspended')
   suspended('suspended'),
   @JsonValue('tombstoned')
-  tombstoned('tombstoned');
+  tombstoned('tombstoned'),
+  ;
 
   @override
   final String value;

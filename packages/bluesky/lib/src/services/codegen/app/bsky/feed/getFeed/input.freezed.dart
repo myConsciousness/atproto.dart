@@ -14,47 +14,54 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$FeedGetFeedInput {
+  String get feed;
+  int get limit;
+  String? get cursor;
+  Map<String, dynamic>? get $unknown;
 
- String get feed; int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
-/// Create a copy of FeedGetFeedInput
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$FeedGetFeedInputCopyWith<FeedGetFeedInput> get copyWith => _$FeedGetFeedInputCopyWithImpl<FeedGetFeedInput>(this as FeedGetFeedInput, _$identity);
+  /// Create a copy of FeedGetFeedInput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $FeedGetFeedInputCopyWith<FeedGetFeedInput> get copyWith =>
+      _$FeedGetFeedInputCopyWithImpl<FeedGetFeedInput>(
+          this as FeedGetFeedInput, _$identity);
 
   /// Serializes this FeedGetFeedInput to a JSON map.
   Map<String, dynamic> toJson();
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FeedGetFeedInput &&
+            (identical(other.feed, feed) || other.feed == feed) &&
+            (identical(other.limit, limit) || other.limit == limit) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor) &&
+            const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FeedGetFeedInput&&(identical(other.feed, feed) || other.feed == feed)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
-}
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, feed, limit, cursor,
+      const DeepCollectionEquality().hash($unknown));
 
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,feed,limit,cursor,const DeepCollectionEquality().hash($unknown));
-
-@override
-String toString() {
-  return 'FeedGetFeedInput(feed: $feed, limit: $limit, cursor: $cursor, \$unknown: ${$unknown})';
-}
-
-
+  @override
+  String toString() {
+    return 'FeedGetFeedInput(feed: $feed, limit: $limit, cursor: $cursor, \$unknown: ${$unknown})';
+  }
 }
 
 /// @nodoc
-abstract mixin class $FeedGetFeedInputCopyWith<$Res>  {
-  factory $FeedGetFeedInputCopyWith(FeedGetFeedInput value, $Res Function(FeedGetFeedInput) _then) = _$FeedGetFeedInputCopyWithImpl;
-@useResult
-$Res call({
- String feed, int limit, String? cursor, Map<String, dynamic>? $unknown
-});
-
-
-
-
+abstract mixin class $FeedGetFeedInputCopyWith<$Res> {
+  factory $FeedGetFeedInputCopyWith(
+          FeedGetFeedInput value, $Res Function(FeedGetFeedInput) _then) =
+      _$FeedGetFeedInputCopyWithImpl;
+  @useResult
+  $Res call(
+      {String feed, int limit, String? cursor, Map<String, dynamic>? $unknown});
 }
+
 /// @nodoc
 class _$FeedGetFeedInputCopyWithImpl<$Res>
     implements $FeedGetFeedInputCopyWith<$Res> {
@@ -63,211 +70,278 @@ class _$FeedGetFeedInputCopyWithImpl<$Res>
   final FeedGetFeedInput _self;
   final $Res Function(FeedGetFeedInput) _then;
 
-/// Create a copy of FeedGetFeedInput
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? feed = null,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
-feed: null == feed ? _self.feed : feed // ignore: cast_nullable_to_non_nullable
-as String,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>?,
-  ));
+  /// Create a copy of FeedGetFeedInput
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? feed = null,
+    Object? limit = null,
+    Object? cursor = freezed,
+    Object? $unknown = freezed,
+  }) {
+    return _then(_self.copyWith(
+      feed: null == feed
+          ? _self.feed
+          : feed // ignore: cast_nullable_to_non_nullable
+              as String,
+      limit: null == limit
+          ? _self.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      $unknown: freezed == $unknown
+          ? _self.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
 }
-
-}
-
 
 /// Adds pattern-matching-related methods to [FeedGetFeedInput].
 extension FeedGetFeedInputPatterns on FeedGetFeedInput {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _FeedGetFeedInput value)?  $default,{required TResult orElse(),}){
-final _that = this;
-switch (_that) {
-case _FeedGetFeedInput() when $default != null:
-return $default(_that);case _:
-  return orElse();
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_FeedGetFeedInput value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _FeedGetFeedInput() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
 
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _FeedGetFeedInput value)  $default,){
-final _that = this;
-switch (_that) {
-case _FeedGetFeedInput():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_FeedGetFeedInput value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _FeedGetFeedInput():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
 
-}
-}
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _FeedGetFeedInput value)?  $default,){
-final _that = this;
-switch (_that) {
-case _FeedGetFeedInput() when $default != null:
-return $default(_that);case _:
-  return null;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_FeedGetFeedInput value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _FeedGetFeedInput() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
 
-}
-}
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String feed,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
-switch (_that) {
-case _FeedGetFeedInput() when $default != null:
-return $default(_that.feed,_that.limit,_that.cursor,_that.$unknown);case _:
-  return orElse();
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String feed, int limit, String? cursor,
+            Map<String, dynamic>? $unknown)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _FeedGetFeedInput() when $default != null:
+        return $default(_that.feed, _that.limit, _that.cursor, _that.$unknown);
+      case _:
+        return orElse();
+    }
+  }
 
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String feed,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
-switch (_that) {
-case _FeedGetFeedInput():
-return $default(_that.feed,_that.limit,_that.cursor,_that.$unknown);case _:
-  throw StateError('Unexpected subclass');
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(String feed, int limit, String? cursor,
+            Map<String, dynamic>? $unknown)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _FeedGetFeedInput():
+        return $default(_that.feed, _that.limit, _that.cursor, _that.$unknown);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
 
-}
-}
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String feed,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
-switch (_that) {
-case _FeedGetFeedInput() when $default != null:
-return $default(_that.feed,_that.limit,_that.cursor,_that.$unknown);case _:
-  return null;
-
-}
-}
-
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(String feed, int limit, String? cursor,
+            Map<String, dynamic>? $unknown)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _FeedGetFeedInput() when $default != null:
+        return $default(_that.feed, _that.limit, _that.cursor, _that.$unknown);
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
-
 class _FeedGetFeedInput implements FeedGetFeedInput {
-  const _FeedGetFeedInput({required this.feed, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
-  factory _FeedGetFeedInput.fromJson(Map<String, dynamic> json) => _$FeedGetFeedInputFromJson(json);
+  const _FeedGetFeedInput(
+      {required this.feed,
+      this.limit = 50,
+      this.cursor,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
+  factory _FeedGetFeedInput.fromJson(Map<String, dynamic> json) =>
+      _$FeedGetFeedInputFromJson(json);
 
-@override final  String feed;
-@override@JsonKey() final  int limit;
-@override final  String? cursor;
- final  Map<String, dynamic>? _$unknown;
-@override Map<String, dynamic>? get $unknown {
-  final value = _$unknown;
-  if (value == null) return null;
-  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableMapView(value);
-}
+  @override
+  final String feed;
+  @override
+  @JsonKey()
+  final int limit;
+  @override
+  final String? cursor;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
+  /// Create a copy of FeedGetFeedInput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$FeedGetFeedInputCopyWith<_FeedGetFeedInput> get copyWith =>
+      __$FeedGetFeedInputCopyWithImpl<_FeedGetFeedInput>(this, _$identity);
 
-/// Create a copy of FeedGetFeedInput
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$FeedGetFeedInputCopyWith<_FeedGetFeedInput> get copyWith => __$FeedGetFeedInputCopyWithImpl<_FeedGetFeedInput>(this, _$identity);
+  @override
+  Map<String, dynamic> toJson() {
+    return _$FeedGetFeedInputToJson(
+      this,
+    );
+  }
 
-@override
-Map<String, dynamic> toJson() {
-  return _$FeedGetFeedInputToJson(this, );
-}
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _FeedGetFeedInput &&
+            (identical(other.feed, feed) || other.feed == feed) &&
+            (identical(other.limit, limit) || other.limit == limit) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FeedGetFeedInput&&(identical(other.feed, feed) || other.feed == feed)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-}
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, feed, limit, cursor,
+      const DeepCollectionEquality().hash(_$unknown));
 
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,feed,limit,cursor,const DeepCollectionEquality().hash(_$unknown));
-
-@override
-String toString() {
-  return 'FeedGetFeedInput(feed: $feed, limit: $limit, cursor: $cursor, \$unknown: ${$unknown})';
-}
-
-
+  @override
+  String toString() {
+    return 'FeedGetFeedInput(feed: $feed, limit: $limit, cursor: $cursor, \$unknown: ${$unknown})';
+  }
 }
 
 /// @nodoc
-abstract mixin class _$FeedGetFeedInputCopyWith<$Res> implements $FeedGetFeedInputCopyWith<$Res> {
-  factory _$FeedGetFeedInputCopyWith(_FeedGetFeedInput value, $Res Function(_FeedGetFeedInput) _then) = __$FeedGetFeedInputCopyWithImpl;
-@override @useResult
-$Res call({
- String feed, int limit, String? cursor, Map<String, dynamic>? $unknown
-});
-
-
-
-
+abstract mixin class _$FeedGetFeedInputCopyWith<$Res>
+    implements $FeedGetFeedInputCopyWith<$Res> {
+  factory _$FeedGetFeedInputCopyWith(
+          _FeedGetFeedInput value, $Res Function(_FeedGetFeedInput) _then) =
+      __$FeedGetFeedInputCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String feed, int limit, String? cursor, Map<String, dynamic>? $unknown});
 }
+
 /// @nodoc
 class __$FeedGetFeedInputCopyWithImpl<$Res>
     implements _$FeedGetFeedInputCopyWith<$Res> {
@@ -276,19 +350,35 @@ class __$FeedGetFeedInputCopyWithImpl<$Res>
   final _FeedGetFeedInput _self;
   final $Res Function(_FeedGetFeedInput) _then;
 
-/// Create a copy of FeedGetFeedInput
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? feed = null,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
-  return _then(_FeedGetFeedInput(
-feed: null == feed ? _self.feed : feed // ignore: cast_nullable_to_non_nullable
-as String,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>?,
-  ));
-}
-
-
+  /// Create a copy of FeedGetFeedInput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? feed = null,
+    Object? limit = null,
+    Object? cursor = freezed,
+    Object? $unknown = freezed,
+  }) {
+    return _then(_FeedGetFeedInput(
+      feed: null == feed
+          ? _self.feed
+          : feed // ignore: cast_nullable_to_non_nullable
+              as String,
+      limit: null == limit
+          ? _self.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      $unknown: freezed == $unknown
+          ? _self._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
 }
 
 // dart format on

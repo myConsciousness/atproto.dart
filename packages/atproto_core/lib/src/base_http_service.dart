@@ -15,10 +15,10 @@ base class BaseHttpService {
     required String service,
     final http.GetClient? mockedGetClient,
     final http.PostClient? mockedPostClient,
-  }) : _protocol = protocol,
-       _service = service,
-       _mockedGetClient = mockedGetClient,
-       _mockedPostClient = mockedPostClient;
+  })  : _protocol = protocol,
+        _service = service,
+        _mockedGetClient = mockedGetClient,
+        _mockedPostClient = mockedPostClient;
 
   /// The communication protocol.
   final http.Protocol? _protocol;
@@ -34,27 +34,29 @@ base class BaseHttpService {
     final Map<String, dynamic>? parameters,
     final http.ResponseDataBuilder<T>? to,
     final http.ResponseDataAdaptor? adaptor,
-  }) async => await http.get(
-    unencodedPath,
-    protocol: _protocol ?? http.Protocol.https,
-    service: _service,
-    parameters: parameters,
-    to: to,
-    adaptor: adaptor,
-    getClient: _mockedGetClient,
-  );
+  }) async =>
+      await http.get(
+        unencodedPath,
+        protocol: _protocol ?? http.Protocol.https,
+        service: _service,
+        parameters: parameters,
+        to: to,
+        adaptor: adaptor,
+        getClient: _mockedGetClient,
+      );
 
   Future<http.Response<T>> post<T>(
     final String unencodedPath, {
     final Map<String, String>? headers,
     final dynamic body,
     final http.ResponseDataBuilder<T>? to,
-  }) async => await http.post(
-    unencodedPath,
-    protocol: _protocol ?? http.Protocol.https,
-    service: _service,
-    body: body,
-    to: to,
-    postClient: _mockedPostClient,
-  );
+  }) async =>
+      await http.post(
+        unencodedPath,
+        protocol: _protocol ?? http.Protocol.https,
+        service: _service,
+        body: body,
+        to: to,
+        postClient: _mockedPostClient,
+      );
 }

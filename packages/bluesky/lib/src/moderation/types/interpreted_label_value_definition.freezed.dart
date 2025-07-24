@@ -11,47 +11,85 @@ part of 'interpreted_label_value_definition.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
+
 /// @nodoc
 mixin _$InterpretedLabelValueDefinition {
+  String get identifier;
+  List<LabelValueDefinitionFlag> get flags;
+  bool get configurable;
+  LabelPreference get defaultSetting;
+  String get severity;
+  String get blurs;
+  Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>>
+      get behaviors;
+  String? get definedBy;
 
- String get identifier; List<LabelValueDefinitionFlag> get flags; bool get configurable; LabelPreference get defaultSetting; String get severity; String get blurs; Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>> get behaviors; String? get definedBy;
-/// Create a copy of InterpretedLabelValueDefinition
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$InterpretedLabelValueDefinitionCopyWith<InterpretedLabelValueDefinition> get copyWith => _$InterpretedLabelValueDefinitionCopyWithImpl<InterpretedLabelValueDefinition>(this as InterpretedLabelValueDefinition, _$identity);
+  /// Create a copy of InterpretedLabelValueDefinition
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $InterpretedLabelValueDefinitionCopyWith<InterpretedLabelValueDefinition>
+      get copyWith => _$InterpretedLabelValueDefinitionCopyWithImpl<
+              InterpretedLabelValueDefinition>(
+          this as InterpretedLabelValueDefinition, _$identity);
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is InterpretedLabelValueDefinition &&
+            (identical(other.identifier, identifier) ||
+                other.identifier == identifier) &&
+            const DeepCollectionEquality().equals(other.flags, flags) &&
+            (identical(other.configurable, configurable) ||
+                other.configurable == configurable) &&
+            (identical(other.defaultSetting, defaultSetting) ||
+                other.defaultSetting == defaultSetting) &&
+            (identical(other.severity, severity) ||
+                other.severity == severity) &&
+            (identical(other.blurs, blurs) || other.blurs == blurs) &&
+            const DeepCollectionEquality().equals(other.behaviors, behaviors) &&
+            (identical(other.definedBy, definedBy) ||
+                other.definedBy == definedBy));
+  }
 
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      identifier,
+      const DeepCollectionEquality().hash(flags),
+      configurable,
+      defaultSetting,
+      severity,
+      blurs,
+      const DeepCollectionEquality().hash(behaviors),
+      definedBy);
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is InterpretedLabelValueDefinition&&(identical(other.identifier, identifier) || other.identifier == identifier)&&const DeepCollectionEquality().equals(other.flags, flags)&&(identical(other.configurable, configurable) || other.configurable == configurable)&&(identical(other.defaultSetting, defaultSetting) || other.defaultSetting == defaultSetting)&&(identical(other.severity, severity) || other.severity == severity)&&(identical(other.blurs, blurs) || other.blurs == blurs)&&const DeepCollectionEquality().equals(other.behaviors, behaviors)&&(identical(other.definedBy, definedBy) || other.definedBy == definedBy));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,identifier,const DeepCollectionEquality().hash(flags),configurable,defaultSetting,severity,blurs,const DeepCollectionEquality().hash(behaviors),definedBy);
-
-@override
-String toString() {
-  return 'InterpretedLabelValueDefinition(identifier: $identifier, flags: $flags, configurable: $configurable, defaultSetting: $defaultSetting, severity: $severity, blurs: $blurs, behaviors: $behaviors, definedBy: $definedBy)';
-}
-
-
+  @override
+  String toString() {
+    return 'InterpretedLabelValueDefinition(identifier: $identifier, flags: $flags, configurable: $configurable, defaultSetting: $defaultSetting, severity: $severity, blurs: $blurs, behaviors: $behaviors, definedBy: $definedBy)';
+  }
 }
 
 /// @nodoc
-abstract mixin class $InterpretedLabelValueDefinitionCopyWith<$Res>  {
-  factory $InterpretedLabelValueDefinitionCopyWith(InterpretedLabelValueDefinition value, $Res Function(InterpretedLabelValueDefinition) _then) = _$InterpretedLabelValueDefinitionCopyWithImpl;
-@useResult
-$Res call({
- String identifier, List<LabelValueDefinitionFlag> flags, bool configurable, LabelPreference defaultSetting, String severity, String blurs, Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>> behaviors, String? definedBy
-});
-
-
-
-
+abstract mixin class $InterpretedLabelValueDefinitionCopyWith<$Res> {
+  factory $InterpretedLabelValueDefinitionCopyWith(
+          InterpretedLabelValueDefinition value,
+          $Res Function(InterpretedLabelValueDefinition) _then) =
+      _$InterpretedLabelValueDefinitionCopyWithImpl;
+  @useResult
+  $Res call(
+      {String identifier,
+      List<LabelValueDefinitionFlag> flags,
+      bool configurable,
+      LabelPreference defaultSetting,
+      String severity,
+      String blurs,
+      Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>>
+          behaviors,
+      String? definedBy});
 }
+
 /// @nodoc
 class _$InterpretedLabelValueDefinitionCopyWithImpl<$Res>
     implements $InterpretedLabelValueDefinitionCopyWith<$Res> {
@@ -60,220 +98,391 @@ class _$InterpretedLabelValueDefinitionCopyWithImpl<$Res>
   final InterpretedLabelValueDefinition _self;
   final $Res Function(InterpretedLabelValueDefinition) _then;
 
-/// Create a copy of InterpretedLabelValueDefinition
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? identifier = null,Object? flags = null,Object? configurable = null,Object? defaultSetting = null,Object? severity = null,Object? blurs = null,Object? behaviors = null,Object? definedBy = freezed,}) {
-  return _then(_self.copyWith(
-identifier: null == identifier ? _self.identifier : identifier // ignore: cast_nullable_to_non_nullable
-as String,flags: null == flags ? _self.flags : flags // ignore: cast_nullable_to_non_nullable
-as List<LabelValueDefinitionFlag>,configurable: null == configurable ? _self.configurable : configurable // ignore: cast_nullable_to_non_nullable
-as bool,defaultSetting: null == defaultSetting ? _self.defaultSetting : defaultSetting // ignore: cast_nullable_to_non_nullable
-as LabelPreference,severity: null == severity ? _self.severity : severity // ignore: cast_nullable_to_non_nullable
-as String,blurs: null == blurs ? _self.blurs : blurs // ignore: cast_nullable_to_non_nullable
-as String,behaviors: null == behaviors ? _self.behaviors : behaviors // ignore: cast_nullable_to_non_nullable
-as Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>>,definedBy: freezed == definedBy ? _self.definedBy : definedBy // ignore: cast_nullable_to_non_nullable
-as String?,
-  ));
+  /// Create a copy of InterpretedLabelValueDefinition
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? identifier = null,
+    Object? flags = null,
+    Object? configurable = null,
+    Object? defaultSetting = null,
+    Object? severity = null,
+    Object? blurs = null,
+    Object? behaviors = null,
+    Object? definedBy = freezed,
+  }) {
+    return _then(_self.copyWith(
+      identifier: null == identifier
+          ? _self.identifier
+          : identifier // ignore: cast_nullable_to_non_nullable
+              as String,
+      flags: null == flags
+          ? _self.flags
+          : flags // ignore: cast_nullable_to_non_nullable
+              as List<LabelValueDefinitionFlag>,
+      configurable: null == configurable
+          ? _self.configurable
+          : configurable // ignore: cast_nullable_to_non_nullable
+              as bool,
+      defaultSetting: null == defaultSetting
+          ? _self.defaultSetting
+          : defaultSetting // ignore: cast_nullable_to_non_nullable
+              as LabelPreference,
+      severity: null == severity
+          ? _self.severity
+          : severity // ignore: cast_nullable_to_non_nullable
+              as String,
+      blurs: null == blurs
+          ? _self.blurs
+          : blurs // ignore: cast_nullable_to_non_nullable
+              as String,
+      behaviors: null == behaviors
+          ? _self.behaviors
+          : behaviors // ignore: cast_nullable_to_non_nullable
+              as Map<LabelTarget,
+                  Map<ModerationBehaviorContext, ModerationBehavior>>,
+      definedBy: freezed == definedBy
+          ? _self.definedBy
+          : definedBy // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
-
-}
-
 
 /// Adds pattern-matching-related methods to [InterpretedLabelValueDefinition].
-extension InterpretedLabelValueDefinitionPatterns on InterpretedLabelValueDefinition {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
+extension InterpretedLabelValueDefinitionPatterns
+    on InterpretedLabelValueDefinition {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _InterpretedLabelValueDefinition value)?  $default,{required TResult orElse(),}){
-final _that = this;
-switch (_that) {
-case _InterpretedLabelValueDefinition() when $default != null:
-return $default(_that);case _:
-  return orElse();
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_InterpretedLabelValueDefinition value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _InterpretedLabelValueDefinition() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
 
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _InterpretedLabelValueDefinition value)  $default,){
-final _that = this;
-switch (_that) {
-case _InterpretedLabelValueDefinition():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_InterpretedLabelValueDefinition value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _InterpretedLabelValueDefinition():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
 
-}
-}
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _InterpretedLabelValueDefinition value)?  $default,){
-final _that = this;
-switch (_that) {
-case _InterpretedLabelValueDefinition() when $default != null:
-return $default(_that);case _:
-  return null;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_InterpretedLabelValueDefinition value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _InterpretedLabelValueDefinition() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
 
-}
-}
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String identifier,  List<LabelValueDefinitionFlag> flags,  bool configurable,  LabelPreference defaultSetting,  String severity,  String blurs,  Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>> behaviors,  String? definedBy)?  $default,{required TResult orElse(),}) {final _that = this;
-switch (_that) {
-case _InterpretedLabelValueDefinition() when $default != null:
-return $default(_that.identifier,_that.flags,_that.configurable,_that.defaultSetting,_that.severity,_that.blurs,_that.behaviors,_that.definedBy);case _:
-  return orElse();
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String identifier,
+            List<LabelValueDefinitionFlag> flags,
+            bool configurable,
+            LabelPreference defaultSetting,
+            String severity,
+            String blurs,
+            Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>>
+                behaviors,
+            String? definedBy)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _InterpretedLabelValueDefinition() when $default != null:
+        return $default(
+            _that.identifier,
+            _that.flags,
+            _that.configurable,
+            _that.defaultSetting,
+            _that.severity,
+            _that.blurs,
+            _that.behaviors,
+            _that.definedBy);
+      case _:
+        return orElse();
+    }
+  }
 
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String identifier,  List<LabelValueDefinitionFlag> flags,  bool configurable,  LabelPreference defaultSetting,  String severity,  String blurs,  Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>> behaviors,  String? definedBy)  $default,) {final _that = this;
-switch (_that) {
-case _InterpretedLabelValueDefinition():
-return $default(_that.identifier,_that.flags,_that.configurable,_that.defaultSetting,_that.severity,_that.blurs,_that.behaviors,_that.definedBy);case _:
-  throw StateError('Unexpected subclass');
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String identifier,
+            List<LabelValueDefinitionFlag> flags,
+            bool configurable,
+            LabelPreference defaultSetting,
+            String severity,
+            String blurs,
+            Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>>
+                behaviors,
+            String? definedBy)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _InterpretedLabelValueDefinition():
+        return $default(
+            _that.identifier,
+            _that.flags,
+            _that.configurable,
+            _that.defaultSetting,
+            _that.severity,
+            _that.blurs,
+            _that.behaviors,
+            _that.definedBy);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
 
-}
-}
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String identifier,  List<LabelValueDefinitionFlag> flags,  bool configurable,  LabelPreference defaultSetting,  String severity,  String blurs,  Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>> behaviors,  String? definedBy)?  $default,) {final _that = this;
-switch (_that) {
-case _InterpretedLabelValueDefinition() when $default != null:
-return $default(_that.identifier,_that.flags,_that.configurable,_that.defaultSetting,_that.severity,_that.blurs,_that.behaviors,_that.definedBy);case _:
-  return null;
-
-}
-}
-
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String identifier,
+            List<LabelValueDefinitionFlag> flags,
+            bool configurable,
+            LabelPreference defaultSetting,
+            String severity,
+            String blurs,
+            Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>>
+                behaviors,
+            String? definedBy)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _InterpretedLabelValueDefinition() when $default != null:
+        return $default(
+            _that.identifier,
+            _that.flags,
+            _that.configurable,
+            _that.defaultSetting,
+            _that.severity,
+            _that.blurs,
+            _that.behaviors,
+            _that.definedBy);
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc
 
+class _InterpretedLabelValueDefinition
+    implements InterpretedLabelValueDefinition {
+  const _InterpretedLabelValueDefinition(
+      {required this.identifier,
+      final List<LabelValueDefinitionFlag> flags = const [],
+      this.configurable = false,
+      this.defaultSetting = LabelPreference.warn,
+      required this.severity,
+      required this.blurs,
+      final Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>>
+          behaviors = const {},
+      this.definedBy})
+      : _flags = flags,
+        _behaviors = behaviors;
 
-class _InterpretedLabelValueDefinition implements InterpretedLabelValueDefinition {
-  const _InterpretedLabelValueDefinition({required this.identifier, final  List<LabelValueDefinitionFlag> flags = const [], this.configurable = false, this.defaultSetting = LabelPreference.warn, required this.severity, required this.blurs, final  Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>> behaviors = const {}, this.definedBy}): _flags = flags,_behaviors = behaviors;
-  
+  @override
+  final String identifier;
+  final List<LabelValueDefinitionFlag> _flags;
+  @override
+  @JsonKey()
+  List<LabelValueDefinitionFlag> get flags {
+    if (_flags is EqualUnmodifiableListView) return _flags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_flags);
+  }
 
-@override final  String identifier;
- final  List<LabelValueDefinitionFlag> _flags;
-@override@JsonKey() List<LabelValueDefinitionFlag> get flags {
-  if (_flags is EqualUnmodifiableListView) return _flags;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_flags);
-}
+  @override
+  @JsonKey()
+  final bool configurable;
+  @override
+  @JsonKey()
+  final LabelPreference defaultSetting;
+  @override
+  final String severity;
+  @override
+  final String blurs;
+  final Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>>
+      _behaviors;
+  @override
+  @JsonKey()
+  Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>>
+      get behaviors {
+    if (_behaviors is EqualUnmodifiableMapView) return _behaviors;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_behaviors);
+  }
 
-@override@JsonKey() final  bool configurable;
-@override@JsonKey() final  LabelPreference defaultSetting;
-@override final  String severity;
-@override final  String blurs;
- final  Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>> _behaviors;
-@override@JsonKey() Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>> get behaviors {
-  if (_behaviors is EqualUnmodifiableMapView) return _behaviors;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableMapView(_behaviors);
-}
+  @override
+  final String? definedBy;
 
-@override final  String? definedBy;
+  /// Create a copy of InterpretedLabelValueDefinition
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$InterpretedLabelValueDefinitionCopyWith<_InterpretedLabelValueDefinition>
+      get copyWith => __$InterpretedLabelValueDefinitionCopyWithImpl<
+          _InterpretedLabelValueDefinition>(this, _$identity);
 
-/// Create a copy of InterpretedLabelValueDefinition
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$InterpretedLabelValueDefinitionCopyWith<_InterpretedLabelValueDefinition> get copyWith => __$InterpretedLabelValueDefinitionCopyWithImpl<_InterpretedLabelValueDefinition>(this, _$identity);
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _InterpretedLabelValueDefinition &&
+            (identical(other.identifier, identifier) ||
+                other.identifier == identifier) &&
+            const DeepCollectionEquality().equals(other._flags, _flags) &&
+            (identical(other.configurable, configurable) ||
+                other.configurable == configurable) &&
+            (identical(other.defaultSetting, defaultSetting) ||
+                other.defaultSetting == defaultSetting) &&
+            (identical(other.severity, severity) ||
+                other.severity == severity) &&
+            (identical(other.blurs, blurs) || other.blurs == blurs) &&
+            const DeepCollectionEquality()
+                .equals(other._behaviors, _behaviors) &&
+            (identical(other.definedBy, definedBy) ||
+                other.definedBy == definedBy));
+  }
 
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      identifier,
+      const DeepCollectionEquality().hash(_flags),
+      configurable,
+      defaultSetting,
+      severity,
+      blurs,
+      const DeepCollectionEquality().hash(_behaviors),
+      definedBy);
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _InterpretedLabelValueDefinition&&(identical(other.identifier, identifier) || other.identifier == identifier)&&const DeepCollectionEquality().equals(other._flags, _flags)&&(identical(other.configurable, configurable) || other.configurable == configurable)&&(identical(other.defaultSetting, defaultSetting) || other.defaultSetting == defaultSetting)&&(identical(other.severity, severity) || other.severity == severity)&&(identical(other.blurs, blurs) || other.blurs == blurs)&&const DeepCollectionEquality().equals(other._behaviors, _behaviors)&&(identical(other.definedBy, definedBy) || other.definedBy == definedBy));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,identifier,const DeepCollectionEquality().hash(_flags),configurable,defaultSetting,severity,blurs,const DeepCollectionEquality().hash(_behaviors),definedBy);
-
-@override
-String toString() {
-  return 'InterpretedLabelValueDefinition(identifier: $identifier, flags: $flags, configurable: $configurable, defaultSetting: $defaultSetting, severity: $severity, blurs: $blurs, behaviors: $behaviors, definedBy: $definedBy)';
-}
-
-
+  @override
+  String toString() {
+    return 'InterpretedLabelValueDefinition(identifier: $identifier, flags: $flags, configurable: $configurable, defaultSetting: $defaultSetting, severity: $severity, blurs: $blurs, behaviors: $behaviors, definedBy: $definedBy)';
+  }
 }
 
 /// @nodoc
-abstract mixin class _$InterpretedLabelValueDefinitionCopyWith<$Res> implements $InterpretedLabelValueDefinitionCopyWith<$Res> {
-  factory _$InterpretedLabelValueDefinitionCopyWith(_InterpretedLabelValueDefinition value, $Res Function(_InterpretedLabelValueDefinition) _then) = __$InterpretedLabelValueDefinitionCopyWithImpl;
-@override @useResult
-$Res call({
- String identifier, List<LabelValueDefinitionFlag> flags, bool configurable, LabelPreference defaultSetting, String severity, String blurs, Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>> behaviors, String? definedBy
-});
-
-
-
-
+abstract mixin class _$InterpretedLabelValueDefinitionCopyWith<$Res>
+    implements $InterpretedLabelValueDefinitionCopyWith<$Res> {
+  factory _$InterpretedLabelValueDefinitionCopyWith(
+          _InterpretedLabelValueDefinition value,
+          $Res Function(_InterpretedLabelValueDefinition) _then) =
+      __$InterpretedLabelValueDefinitionCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String identifier,
+      List<LabelValueDefinitionFlag> flags,
+      bool configurable,
+      LabelPreference defaultSetting,
+      String severity,
+      String blurs,
+      Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>>
+          behaviors,
+      String? definedBy});
 }
+
 /// @nodoc
 class __$InterpretedLabelValueDefinitionCopyWithImpl<$Res>
     implements _$InterpretedLabelValueDefinitionCopyWith<$Res> {
@@ -282,23 +491,56 @@ class __$InterpretedLabelValueDefinitionCopyWithImpl<$Res>
   final _InterpretedLabelValueDefinition _self;
   final $Res Function(_InterpretedLabelValueDefinition) _then;
 
-/// Create a copy of InterpretedLabelValueDefinition
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? identifier = null,Object? flags = null,Object? configurable = null,Object? defaultSetting = null,Object? severity = null,Object? blurs = null,Object? behaviors = null,Object? definedBy = freezed,}) {
-  return _then(_InterpretedLabelValueDefinition(
-identifier: null == identifier ? _self.identifier : identifier // ignore: cast_nullable_to_non_nullable
-as String,flags: null == flags ? _self._flags : flags // ignore: cast_nullable_to_non_nullable
-as List<LabelValueDefinitionFlag>,configurable: null == configurable ? _self.configurable : configurable // ignore: cast_nullable_to_non_nullable
-as bool,defaultSetting: null == defaultSetting ? _self.defaultSetting : defaultSetting // ignore: cast_nullable_to_non_nullable
-as LabelPreference,severity: null == severity ? _self.severity : severity // ignore: cast_nullable_to_non_nullable
-as String,blurs: null == blurs ? _self.blurs : blurs // ignore: cast_nullable_to_non_nullable
-as String,behaviors: null == behaviors ? _self._behaviors : behaviors // ignore: cast_nullable_to_non_nullable
-as Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>>,definedBy: freezed == definedBy ? _self.definedBy : definedBy // ignore: cast_nullable_to_non_nullable
-as String?,
-  ));
-}
-
-
+  /// Create a copy of InterpretedLabelValueDefinition
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? identifier = null,
+    Object? flags = null,
+    Object? configurable = null,
+    Object? defaultSetting = null,
+    Object? severity = null,
+    Object? blurs = null,
+    Object? behaviors = null,
+    Object? definedBy = freezed,
+  }) {
+    return _then(_InterpretedLabelValueDefinition(
+      identifier: null == identifier
+          ? _self.identifier
+          : identifier // ignore: cast_nullable_to_non_nullable
+              as String,
+      flags: null == flags
+          ? _self._flags
+          : flags // ignore: cast_nullable_to_non_nullable
+              as List<LabelValueDefinitionFlag>,
+      configurable: null == configurable
+          ? _self.configurable
+          : configurable // ignore: cast_nullable_to_non_nullable
+              as bool,
+      defaultSetting: null == defaultSetting
+          ? _self.defaultSetting
+          : defaultSetting // ignore: cast_nullable_to_non_nullable
+              as LabelPreference,
+      severity: null == severity
+          ? _self.severity
+          : severity // ignore: cast_nullable_to_non_nullable
+              as String,
+      blurs: null == blurs
+          ? _self.blurs
+          : blurs // ignore: cast_nullable_to_non_nullable
+              as String,
+      behaviors: null == behaviors
+          ? _self._behaviors
+          : behaviors // ignore: cast_nullable_to_non_nullable
+              as Map<LabelTarget,
+                  Map<ModerationBehaviorContext, ModerationBehavior>>,
+      definedBy: freezed == definedBy
+          ? _self.definedBy
+          : definedBy // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 // dart format on

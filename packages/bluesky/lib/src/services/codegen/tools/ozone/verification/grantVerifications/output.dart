@@ -25,36 +25,37 @@ part 'output.g.dart';
 @freezed
 abstract class VerificationGrantVerificationsOutput
     with _$VerificationGrantVerificationsOutput {
-  static const knownProps = <String>['verifications', 'failedVerifications'];
+  static const knownProps = <String>[
+    'verifications',
+    'failedVerifications',
+  ];
 
   const factory VerificationGrantVerificationsOutput({
     @VerificationViewConverter() required List<VerificationView> verifications,
     @GrantErrorConverter() required List<GrantError> failedVerifications,
-
     Map<String, dynamic>? $unknown,
   }) = _VerificationGrantVerificationsOutput;
 
   factory VerificationGrantVerificationsOutput.fromJson(
-    Map<String, Object?> json,
-  ) => _$VerificationGrantVerificationsOutputFromJson(json);
+          Map<String, Object?> json) =>
+      _$VerificationGrantVerificationsOutputFromJson(json);
 }
 
-final class VerificationGrantVerificationsOutputConverter
-    extends
-        JsonConverter<
-          VerificationGrantVerificationsOutput,
-          Map<String, dynamic>
-        > {
+final class VerificationGrantVerificationsOutputConverter extends JsonConverter<
+    VerificationGrantVerificationsOutput, Map<String, dynamic>> {
   const VerificationGrantVerificationsOutputConverter();
 
   @override
   VerificationGrantVerificationsOutput fromJson(Map<String, dynamic> json) {
-    return VerificationGrantVerificationsOutput.fromJson(
-      translate(json, VerificationGrantVerificationsOutput.knownProps),
-    );
+    return VerificationGrantVerificationsOutput.fromJson(translate(
+      json,
+      VerificationGrantVerificationsOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(VerificationGrantVerificationsOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

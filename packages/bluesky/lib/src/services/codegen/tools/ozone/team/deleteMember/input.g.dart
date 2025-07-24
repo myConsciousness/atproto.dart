@@ -9,17 +9,25 @@ part of 'input.dart';
 // **************************************************************************
 
 _TeamDeleteMemberInput _$TeamDeleteMemberInputFromJson(Map json) =>
-    $checkedCreate('_TeamDeleteMemberInput', json, ($checkedConvert) {
-      final val = _TeamDeleteMemberInput(
-        did: $checkedConvert('did', (v) => v as String),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_TeamDeleteMemberInput',
+      json,
+      ($checkedConvert) {
+        final val = _TeamDeleteMemberInput(
+          did: $checkedConvert('did', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$TeamDeleteMemberInputToJson(
-  _TeamDeleteMemberInput instance,
-) => <String, dynamic>{'did': instance.did, r'$unknown': instance.$unknown};
+        _TeamDeleteMemberInput instance) =>
+    <String, dynamic>{
+      'did': instance.did,
+      r'$unknown': instance.$unknown,
+    };

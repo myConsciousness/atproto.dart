@@ -38,10 +38,10 @@ Then, in your **[Dart](https://dart.dev)** or **[Flutter](https://flutter.dev)**
 ```yaml title="pubspec.yaml"
 name: bluesky_app
 description: A sample application.
-version: 1.0.0
+version: 1.0.0-legacy
 
 environment:
-  sdk: ^3.8.0
+  sdk: ^3.6.0
 
 dependencies:
   bluesky: ^0.18.6

@@ -42,12 +42,16 @@ final class RepoService {
     required Uint8List bytes,
     Map<String, String>? $headers,
     Map<String, String>? $parameters,
-  }) async => await _ctx.post(
-    ns.comAtprotoRepoImportRepo,
-    headers: {'Content-type': 'application/vnd.ipld.car', ...?$headers},
-    parameters: $parameters,
-    body: bytes,
-  );
+  }) async =>
+      await _ctx.post(
+        ns.comAtprotoRepoImportRepo,
+        headers: {
+          'Content-type': 'application/vnd.ipld.car',
+          ...?$headers,
+        },
+        parameters: $parameters,
+        body: bytes,
+      );
 
   /// Create a single new repository record. Requires auth, implemented by PDS.
   Future<XRPCResponse<RepoCreateRecordOutput>> createRecord({
@@ -59,20 +63,24 @@ final class RepoService {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.comAtprotoRepoCreateRecord,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      'repo': repo,
-      'collection': collection,
-      if (rkey != null) 'rkey': rkey,
-      if (validate != null) 'validate': validate,
-      'record': record,
-      if (swapCommit != null) 'swapCommit': swapCommit,
-      ...?$unknown,
-    },
-    to: const RepoCreateRecordOutputConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.post(
+        ns.comAtprotoRepoCreateRecord,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
+        body: {
+          'repo': repo,
+          'collection': collection,
+          if (rkey != null) 'rkey': rkey,
+          if (validate != null) 'validate': validate,
+          'record': record,
+          if (swapCommit != null) 'swapCommit': swapCommit,
+          ...?$unknown,
+        },
+        to: const RepoCreateRecordOutputConverter().fromJson,
+      );
 
   /// List a range of records in a repository, matching a specific collection. Does not require auth.
   Future<XRPCResponse<RepoListRecordsOutput>> listRecords({
@@ -83,32 +91,37 @@ final class RepoService {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.comAtprotoRepoListRecords,
-    headers: $headers,
-    parameters: {
-      'repo': repo,
-      'collection': collection,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-      if (reverse != null) 'reverse': reverse,
-      ...?$unknown,
-    },
-    to: const RepoListRecordsOutputConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.get(
+        ns.comAtprotoRepoListRecords,
+        headers: $headers,
+        parameters: {
+          'repo': repo,
+          'collection': collection,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
+          if (reverse != null) 'reverse': reverse,
+          ...?$unknown,
+        },
+        to: const RepoListRecordsOutputConverter().fromJson,
+      );
 
   /// Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
   Future<XRPCResponse<RepoUploadBlobOutput>> uploadBlob({
     required Uint8List bytes,
     Map<String, String>? $headers,
     Map<String, String>? $parameters,
-  }) async => await _ctx.post(
-    ns.comAtprotoRepoUploadBlob,
-    headers: {'Content-type': '*/*', ...?$headers},
-    parameters: $parameters,
-    body: bytes,
-    to: const RepoUploadBlobOutputConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.post(
+        ns.comAtprotoRepoUploadBlob,
+        headers: {
+          'Content-type': '*/*',
+          ...?$headers,
+        },
+        parameters: $parameters,
+        body: bytes,
+        to: const RepoUploadBlobOutputConverter().fromJson,
+      );
 
   /// Delete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.
   Future<XRPCResponse<RepoDeleteRecordOutput>> deleteRecord({
@@ -119,19 +132,23 @@ final class RepoService {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.comAtprotoRepoDeleteRecord,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      'repo': repo,
-      'collection': collection,
-      'rkey': rkey,
-      if (swapRecord != null) 'swapRecord': swapRecord,
-      if (swapCommit != null) 'swapCommit': swapCommit,
-      ...?$unknown,
-    },
-    to: const RepoDeleteRecordOutputConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.post(
+        ns.comAtprotoRepoDeleteRecord,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
+        body: {
+          'repo': repo,
+          'collection': collection,
+          'rkey': rkey,
+          if (swapRecord != null) 'swapRecord': swapRecord,
+          if (swapCommit != null) 'swapCommit': swapCommit,
+          ...?$unknown,
+        },
+        to: const RepoDeleteRecordOutputConverter().fromJson,
+      );
 
   /// Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.
   Future<XRPCResponse<RepoPutRecordOutput>> putRecord({
@@ -144,33 +161,41 @@ final class RepoService {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.comAtprotoRepoPutRecord,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      'repo': repo,
-      'collection': collection,
-      'rkey': rkey,
-      if (validate != null) 'validate': validate,
-      'record': record,
-      if (swapRecord != null) 'swapRecord': swapRecord,
-      if (swapCommit != null) 'swapCommit': swapCommit,
-      ...?$unknown,
-    },
-    to: const RepoPutRecordOutputConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.post(
+        ns.comAtprotoRepoPutRecord,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
+        body: {
+          'repo': repo,
+          'collection': collection,
+          'rkey': rkey,
+          if (validate != null) 'validate': validate,
+          'record': record,
+          if (swapRecord != null) 'swapRecord': swapRecord,
+          if (swapCommit != null) 'swapCommit': swapCommit,
+          ...?$unknown,
+        },
+        to: const RepoPutRecordOutputConverter().fromJson,
+      );
 
   /// Get information about an account and repository, including the list of collections. Does not require auth.
   Future<XRPCResponse<RepoDescribeRepoOutput>> describeRepo({
     required String repo,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.comAtprotoRepoDescribeRepo,
-    headers: $headers,
-    parameters: {'repo': repo, ...?$unknown},
-    to: const RepoDescribeRepoOutputConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.get(
+        ns.comAtprotoRepoDescribeRepo,
+        headers: $headers,
+        parameters: {
+          'repo': repo,
+          ...?$unknown,
+        },
+        to: const RepoDescribeRepoOutputConverter().fromJson,
+      );
 
   /// Get a single record from a repository. Does not require auth.
   Future<XRPCResponse<RepoGetRecordOutput>> getRecord({
@@ -180,18 +205,19 @@ final class RepoService {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.comAtprotoRepoGetRecord,
-    headers: $headers,
-    parameters: {
-      'repo': repo,
-      'collection': collection,
-      'rkey': rkey,
-      if (cid != null) 'cid': cid,
-      ...?$unknown,
-    },
-    to: const RepoGetRecordOutputConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.get(
+        ns.comAtprotoRepoGetRecord,
+        headers: $headers,
+        parameters: {
+          'repo': repo,
+          'collection': collection,
+          'rkey': rkey,
+          if (cid != null) 'cid': cid,
+          ...?$unknown,
+        },
+        to: const RepoGetRecordOutputConverter().fromJson,
+      );
 
   /// Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.
   Future<XRPCResponse<RepoApplyWritesOutput>> applyWrites({
@@ -201,18 +227,22 @@ final class RepoService {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.comAtprotoRepoApplyWrites,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      'repo': repo,
-      if (validate != null) 'validate': validate,
-      'writes': writes.map((e) => e.toJson()).toList(),
-      if (swapCommit != null) 'swapCommit': swapCommit,
-      ...?$unknown,
-    },
-    to: const RepoApplyWritesOutputConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.post(
+        ns.comAtprotoRepoApplyWrites,
+        headers: {
+          'Content-type': 'application/json',
+          ...?$headers,
+        },
+        body: {
+          'repo': repo,
+          if (validate != null) 'validate': validate,
+          'writes': writes.map((e) => e.toJson()).toList(),
+          if (swapCommit != null) 'swapCommit': swapCommit,
+          ...?$unknown,
+        },
+        to: const RepoApplyWritesOutputConverter().fromJson,
+      );
 
   /// Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.
   Future<XRPCResponse<RepoListMissingBlobsOutput>> listMissingBlobs({
@@ -220,14 +250,15 @@ final class RepoService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.comAtprotoRepoListMissingBlobs,
-    headers: $headers,
-    parameters: {
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
-    },
-    to: const RepoListMissingBlobsOutputConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.get(
+        ns.comAtprotoRepoListMissingBlobs,
+        headers: $headers,
+        parameters: {
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        to: const RepoListMissingBlobsOutputConverter().fromJson,
+      );
 }

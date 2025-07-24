@@ -20,11 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class ModerationGetRepoInput with _$ModerationGetRepoInput {
-  static const knownProps = <String>['did'];
+  static const knownProps = <String>[
+    'did',
+  ];
 
   const factory ModerationGetRepoInput({
     required String did,
-
     Map<String, dynamic>? $unknown,
   }) = _ModerationGetRepoInput;
 
@@ -38,12 +39,14 @@ final class ModerationGetRepoInputConverter
 
   @override
   ModerationGetRepoInput fromJson(Map<String, dynamic> json) {
-    return ModerationGetRepoInput.fromJson(
-      translate(json, ModerationGetRepoInput.knownProps),
-    );
+    return ModerationGetRepoInput.fromJson(translate(
+      json,
+      ModerationGetRepoInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ModerationGetRepoInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ModerationGetRepoInput object) => untranslate(
+        object.toJson(),
+      );
 }

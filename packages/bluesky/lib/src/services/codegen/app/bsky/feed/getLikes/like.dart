@@ -23,14 +23,17 @@ part 'like.g.dart';
 
 @freezed
 abstract class Like with _$Like {
-  static const knownProps = <String>['indexedAt', 'createdAt', 'actor'];
+  static const knownProps = <String>[
+    'indexedAt',
+    'createdAt',
+    'actor',
+  ];
 
   const factory Like({
     @Default('app.bsky.feed.getLikes#like') String $type,
     required DateTime indexedAt,
     required DateTime createdAt,
     @ProfileViewConverter() required ProfileView actor,
-
     Map<String, dynamic>? $unknown,
   }) = _Like;
 
@@ -47,9 +50,14 @@ final class LikeConverter extends JsonConverter<Like, Map<String, dynamic>> {
 
   @override
   Like fromJson(Map<String, dynamic> json) {
-    return Like.fromJson(translate(json, Like.knownProps));
+    return Like.fromJson(translate(
+      json,
+      Like.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(Like object) => untranslate(object.toJson());
+  Map<String, dynamic> toJson(Like object) => untranslate(
+        object.toJson(),
+      );
 }

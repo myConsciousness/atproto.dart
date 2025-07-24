@@ -91,7 +91,6 @@ final class UModerationGetRecordsRecordsConverter
             const RecordViewDetailConverter().toJson(data),
         recordViewNotFound: (data) =>
             const RecordViewNotFoundConverter().toJson(data),
-
         unknown: (data) => data,
       );
 }

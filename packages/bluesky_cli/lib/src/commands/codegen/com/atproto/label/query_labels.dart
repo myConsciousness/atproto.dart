@@ -26,8 +26,13 @@ final class QueryLabelsCommand extends QueryCommand {
         "sources",
         help: r"Optional list of label sources (DIDs) to filter on.",
       )
-      ..addOption("limit", defaultsTo: "50")
-      ..addOption("cursor");
+      ..addOption(
+        "limit",
+        defaultsTo: "50",
+      )
+      ..addOption(
+        "cursor",
+      );
   }
 
   @override
@@ -46,9 +51,9 @@ final class QueryLabelsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "uriPatterns": argResults!["uriPatterns"],
-    if (argResults!["sources"] != null) "sources": argResults!["sources"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-  };
+        "uriPatterns": argResults!["uriPatterns"],
+        if (argResults!["sources"] != null) "sources": argResults!["sources"],
+        "limit": argResults!["limit"],
+        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+      };
 }

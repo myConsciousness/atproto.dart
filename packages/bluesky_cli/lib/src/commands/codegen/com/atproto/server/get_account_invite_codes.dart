@@ -17,7 +17,10 @@ import '../../../../query_command.dart';
 final class GetAccountInviteCodesCommand extends QueryCommand {
   GetAccountInviteCodesCommand() {
     argParser
-      ..addFlag("includeUsed", defaultsTo: true)
+      ..addFlag(
+        "includeUsed",
+        defaultsTo: true,
+      )
       ..addFlag(
         "createAvailable",
         help:
@@ -42,7 +45,7 @@ final class GetAccountInviteCodesCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "includeUsed": argResults!["includeUsed"],
-    "createAvailable": argResults!["createAvailable"],
-  };
+        "includeUsed": argResults!["includeUsed"],
+        "createAvailable": argResults!["createAvailable"],
+      };
 }

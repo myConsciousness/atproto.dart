@@ -20,14 +20,17 @@ part 'record.g.dart';
 
 @freezed
 abstract class RepoListRecordsRecord with _$RepoListRecordsRecord {
-  static const knownProps = <String>['uri', 'cid', 'value'];
+  static const knownProps = <String>[
+    'uri',
+    'cid',
+    'value',
+  ];
 
   const factory RepoListRecordsRecord({
     @Default('com.atproto.repo.listRecords#record') String $type,
     required String uri,
     required String cid,
     required Map<String, dynamic> value,
-
     Map<String, dynamic>? $unknown,
   }) = _RepoListRecordsRecord;
 
@@ -46,12 +49,14 @@ final class RepoListRecordsRecordConverter
 
   @override
   RepoListRecordsRecord fromJson(Map<String, dynamic> json) {
-    return RepoListRecordsRecord.fromJson(
-      translate(json, RepoListRecordsRecord.knownProps),
-    );
+    return RepoListRecordsRecord.fromJson(translate(
+      json,
+      RepoListRecordsRecord.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(RepoListRecordsRecord object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(RepoListRecordsRecord object) => untranslate(
+        object.toJson(),
+      );
 }

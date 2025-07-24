@@ -17,10 +17,19 @@ import '../../../../query_command.dart';
 final class ListConvosCommand extends QueryCommand {
   ListConvosCommand() {
     argParser
-      ..addOption("limit", defaultsTo: "50")
-      ..addOption("cursor")
-      ..addOption("readState")
-      ..addOption("status");
+      ..addOption(
+        "limit",
+        defaultsTo: "50",
+      )
+      ..addOption(
+        "cursor",
+      )
+      ..addOption(
+        "readState",
+      )
+      ..addOption(
+        "status",
+      );
   }
 
   @override
@@ -38,9 +47,10 @@ final class ListConvosCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    if (argResults!["readState"] != null) "readState": argResults!["readState"],
-    if (argResults!["status"] != null) "status": argResults!["status"],
-  };
+        "limit": argResults!["limit"],
+        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+        if (argResults!["readState"] != null)
+          "readState": argResults!["readState"],
+        if (argResults!["status"] != null) "status": argResults!["status"],
+      };
 }

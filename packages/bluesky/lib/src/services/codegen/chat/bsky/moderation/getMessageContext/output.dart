@@ -24,33 +24,36 @@ part 'output.g.dart';
 @freezed
 abstract class ModerationGetMessageContextOutput
     with _$ModerationGetMessageContextOutput {
-  static const knownProps = <String>['messages'];
+  static const knownProps = <String>[
+    'messages',
+  ];
 
   const factory ModerationGetMessageContextOutput({
     @UModerationGetMessageContextMessagesConverter()
     required List<UModerationGetMessageContextMessages> messages,
-
     Map<String, dynamic>? $unknown,
   }) = _ModerationGetMessageContextOutput;
 
   factory ModerationGetMessageContextOutput.fromJson(
-    Map<String, Object?> json,
-  ) => _$ModerationGetMessageContextOutputFromJson(json);
+          Map<String, Object?> json) =>
+      _$ModerationGetMessageContextOutputFromJson(json);
 }
 
-final class ModerationGetMessageContextOutputConverter
-    extends
-        JsonConverter<ModerationGetMessageContextOutput, Map<String, dynamic>> {
+final class ModerationGetMessageContextOutputConverter extends JsonConverter<
+    ModerationGetMessageContextOutput, Map<String, dynamic>> {
   const ModerationGetMessageContextOutputConverter();
 
   @override
   ModerationGetMessageContextOutput fromJson(Map<String, dynamic> json) {
-    return ModerationGetMessageContextOutput.fromJson(
-      translate(json, ModerationGetMessageContextOutput.knownProps),
-    );
+    return ModerationGetMessageContextOutput.fromJson(translate(
+      json,
+      ModerationGetMessageContextOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(ModerationGetMessageContextOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

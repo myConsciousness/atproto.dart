@@ -24,35 +24,35 @@ part 'output.g.dart';
 @freezed
 abstract class UnspeccedGetTaggedSuggestionsOutput
     with _$UnspeccedGetTaggedSuggestionsOutput {
-  static const knownProps = <String>['suggestions'];
+  static const knownProps = <String>[
+    'suggestions',
+  ];
 
   const factory UnspeccedGetTaggedSuggestionsOutput({
     @SuggestionConverter() required List<Suggestion> suggestions,
-
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetTaggedSuggestionsOutput;
 
   factory UnspeccedGetTaggedSuggestionsOutput.fromJson(
-    Map<String, Object?> json,
-  ) => _$UnspeccedGetTaggedSuggestionsOutputFromJson(json);
+          Map<String, Object?> json) =>
+      _$UnspeccedGetTaggedSuggestionsOutputFromJson(json);
 }
 
-final class UnspeccedGetTaggedSuggestionsOutputConverter
-    extends
-        JsonConverter<
-          UnspeccedGetTaggedSuggestionsOutput,
-          Map<String, dynamic>
-        > {
+final class UnspeccedGetTaggedSuggestionsOutputConverter extends JsonConverter<
+    UnspeccedGetTaggedSuggestionsOutput, Map<String, dynamic>> {
   const UnspeccedGetTaggedSuggestionsOutputConverter();
 
   @override
   UnspeccedGetTaggedSuggestionsOutput fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetTaggedSuggestionsOutput.fromJson(
-      translate(json, UnspeccedGetTaggedSuggestionsOutput.knownProps),
-    );
+    return UnspeccedGetTaggedSuggestionsOutput.fromJson(translate(
+      json,
+      UnspeccedGetTaggedSuggestionsOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetTaggedSuggestionsOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

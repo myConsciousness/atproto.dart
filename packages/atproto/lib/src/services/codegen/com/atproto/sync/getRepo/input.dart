@@ -20,7 +20,10 @@ part 'input.g.dart';
 
 @freezed
 abstract class SyncGetRepoInput with _$SyncGetRepoInput {
-  static const knownProps = <String>['did', 'since'];
+  static const knownProps = <String>[
+    'did',
+    'since',
+  ];
 
   const factory SyncGetRepoInput({
     /// The DID of the repo.
@@ -28,7 +31,6 @@ abstract class SyncGetRepoInput with _$SyncGetRepoInput {
 
     /// The revision ('rev') of the repo to create a diff from.
     String? since,
-
     Map<String, dynamic>? $unknown,
   }) = _SyncGetRepoInput;
 
@@ -47,12 +49,14 @@ final class SyncGetRepoInputConverter
 
   @override
   SyncGetRepoInput fromJson(Map<String, dynamic> json) {
-    return SyncGetRepoInput.fromJson(
-      translate(json, SyncGetRepoInput.knownProps),
-    );
+    return SyncGetRepoInput.fromJson(translate(
+      json,
+      SyncGetRepoInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SyncGetRepoInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SyncGetRepoInput object) => untranslate(
+        object.toJson(),
+      );
 }

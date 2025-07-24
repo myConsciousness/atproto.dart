@@ -45,7 +45,6 @@ abstract class SafelinkQueryEventsInput with _$SafelinkQueryEventsInput {
     /// Sort direction
     @SafelinkQueryEventsSortDirectionConverter()
     SafelinkQueryEventsSortDirection? sortDirection,
-
     Map<String, dynamic>? $unknown,
   }) = _SafelinkQueryEventsInput;
 
@@ -68,12 +67,14 @@ final class SafelinkQueryEventsInputConverter
 
   @override
   SafelinkQueryEventsInput fromJson(Map<String, dynamic> json) {
-    return SafelinkQueryEventsInput.fromJson(
-      translate(json, SafelinkQueryEventsInput.knownProps),
-    );
+    return SafelinkQueryEventsInput.fromJson(translate(
+      json,
+      SafelinkQueryEventsInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SafelinkQueryEventsInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SafelinkQueryEventsInput object) => untranslate(
+        object.toJson(),
+      );
 }

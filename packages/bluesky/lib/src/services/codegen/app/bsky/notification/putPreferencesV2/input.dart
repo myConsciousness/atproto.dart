@@ -56,13 +56,12 @@ abstract class NotificationPutPreferencesV2Input
     @PreferenceConverter() Preference? subscribedPost,
     @PreferenceConverter() Preference? unverified,
     @PreferenceConverter() Preference? verified,
-
     Map<String, dynamic>? $unknown,
   }) = _NotificationPutPreferencesV2Input;
 
   factory NotificationPutPreferencesV2Input.fromJson(
-    Map<String, Object?> json,
-  ) => _$NotificationPutPreferencesV2InputFromJson(json);
+          Map<String, Object?> json) =>
+      _$NotificationPutPreferencesV2InputFromJson(json);
 }
 
 extension NotificationPutPreferencesV2InputExtension
@@ -95,19 +94,21 @@ extension NotificationPutPreferencesV2InputExtension
   bool get hasNotVerified => !hasVerified;
 }
 
-final class NotificationPutPreferencesV2InputConverter
-    extends
-        JsonConverter<NotificationPutPreferencesV2Input, Map<String, dynamic>> {
+final class NotificationPutPreferencesV2InputConverter extends JsonConverter<
+    NotificationPutPreferencesV2Input, Map<String, dynamic>> {
   const NotificationPutPreferencesV2InputConverter();
 
   @override
   NotificationPutPreferencesV2Input fromJson(Map<String, dynamic> json) {
-    return NotificationPutPreferencesV2Input.fromJson(
-      translate(json, NotificationPutPreferencesV2Input.knownProps),
-    );
+    return NotificationPutPreferencesV2Input.fromJson(translate(
+      json,
+      NotificationPutPreferencesV2Input.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(NotificationPutPreferencesV2Input object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

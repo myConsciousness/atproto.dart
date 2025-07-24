@@ -74,8 +74,10 @@ final class AgeAssuranceOverrideEventStatusConverter
   }
 
   @override
-  String toJson(AgeAssuranceOverrideEventStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(AgeAssuranceOverrideEventStatus object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownAgeAssuranceOverrideEventStatus implements Serializable {
@@ -84,7 +86,8 @@ enum KnownAgeAssuranceOverrideEventStatus implements Serializable {
   @JsonValue('reset')
   reset('reset'),
   @JsonValue('blocked')
-  blocked('blocked');
+  blocked('blocked'),
+  ;
 
   @override
   final String value;

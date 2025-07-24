@@ -24,36 +24,36 @@ part 'input.g.dart';
 @freezed
 abstract class VerificationGrantVerificationsInput
     with _$VerificationGrantVerificationsInput {
-  static const knownProps = <String>['verifications'];
+  static const knownProps = <String>[
+    'verifications',
+  ];
 
   const factory VerificationGrantVerificationsInput({
     @VerificationInputConverter()
     required List<VerificationInput> verifications,
-
     Map<String, dynamic>? $unknown,
   }) = _VerificationGrantVerificationsInput;
 
   factory VerificationGrantVerificationsInput.fromJson(
-    Map<String, Object?> json,
-  ) => _$VerificationGrantVerificationsInputFromJson(json);
+          Map<String, Object?> json) =>
+      _$VerificationGrantVerificationsInputFromJson(json);
 }
 
-final class VerificationGrantVerificationsInputConverter
-    extends
-        JsonConverter<
-          VerificationGrantVerificationsInput,
-          Map<String, dynamic>
-        > {
+final class VerificationGrantVerificationsInputConverter extends JsonConverter<
+    VerificationGrantVerificationsInput, Map<String, dynamic>> {
   const VerificationGrantVerificationsInputConverter();
 
   @override
   VerificationGrantVerificationsInput fromJson(Map<String, dynamic> json) {
-    return VerificationGrantVerificationsInput.fromJson(
-      translate(json, VerificationGrantVerificationsInput.knownProps),
-    );
+    return VerificationGrantVerificationsInput.fromJson(translate(
+      json,
+      VerificationGrantVerificationsInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(VerificationGrantVerificationsInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

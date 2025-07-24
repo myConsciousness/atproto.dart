@@ -21,32 +21,35 @@ part 'input.g.dart';
 @freezed
 abstract class CommunicationDeleteTemplateInput
     with _$CommunicationDeleteTemplateInput {
-  static const knownProps = <String>['id'];
+  static const knownProps = <String>[
+    'id',
+  ];
 
   const factory CommunicationDeleteTemplateInput({
     required String id,
-
     Map<String, dynamic>? $unknown,
   }) = _CommunicationDeleteTemplateInput;
 
   factory CommunicationDeleteTemplateInput.fromJson(
-    Map<String, Object?> json,
-  ) => _$CommunicationDeleteTemplateInputFromJson(json);
+          Map<String, Object?> json) =>
+      _$CommunicationDeleteTemplateInputFromJson(json);
 }
 
-final class CommunicationDeleteTemplateInputConverter
-    extends
-        JsonConverter<CommunicationDeleteTemplateInput, Map<String, dynamic>> {
+final class CommunicationDeleteTemplateInputConverter extends JsonConverter<
+    CommunicationDeleteTemplateInput, Map<String, dynamic>> {
   const CommunicationDeleteTemplateInputConverter();
 
   @override
   CommunicationDeleteTemplateInput fromJson(Map<String, dynamic> json) {
-    return CommunicationDeleteTemplateInput.fromJson(
-      translate(json, CommunicationDeleteTemplateInput.knownProps),
-    );
+    return CommunicationDeleteTemplateInput.fromJson(translate(
+      json,
+      CommunicationDeleteTemplateInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(CommunicationDeleteTemplateInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

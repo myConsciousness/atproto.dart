@@ -33,15 +33,18 @@ part 'union_main_logs.freezed.dart';
 abstract class UConvoGetLogLogs with _$UConvoGetLogLogs {
   const UConvoGetLogLogs._();
 
-  const factory UConvoGetLogLogs.logBeginConvo({required LogBeginConvo data}) =
-      UConvoGetLogLogsLogBeginConvo;
+  const factory UConvoGetLogLogs.logBeginConvo({
+    required LogBeginConvo data,
+  }) = UConvoGetLogLogsLogBeginConvo;
   const factory UConvoGetLogLogs.logAcceptConvo({
     required LogAcceptConvo data,
   }) = UConvoGetLogLogsLogAcceptConvo;
-  const factory UConvoGetLogLogs.logLeaveConvo({required LogLeaveConvo data}) =
-      UConvoGetLogLogsLogLeaveConvo;
-  const factory UConvoGetLogLogs.logMuteConvo({required LogMuteConvo data}) =
-      UConvoGetLogLogsLogMuteConvo;
+  const factory UConvoGetLogLogs.logLeaveConvo({
+    required LogLeaveConvo data,
+  }) = UConvoGetLogLogsLogLeaveConvo;
+  const factory UConvoGetLogLogs.logMuteConvo({
+    required LogMuteConvo data,
+  }) = UConvoGetLogLogsLogMuteConvo;
   const factory UConvoGetLogLogs.logUnmuteConvo({
     required LogUnmuteConvo data,
   }) = UConvoGetLogLogsLogUnmuteConvo;
@@ -61,8 +64,9 @@ abstract class UConvoGetLogLogs with _$UConvoGetLogLogs {
     required LogRemoveReaction data,
   }) = UConvoGetLogLogsLogRemoveReaction;
 
-  const factory UConvoGetLogLogs.unknown({required Map<String, dynamic> data}) =
-      UConvoGetLogLogsUnknown;
+  const factory UConvoGetLogLogs.unknown({
+    required Map<String, dynamic> data,
+  }) = UConvoGetLogLogsUnknown;
 
   Map<String, dynamic> toJson() =>
       const UConvoGetLogLogsConverter().toJson(this);
@@ -181,18 +185,19 @@ final class UConvoGetLogLogsConverter
 
   @override
   Map<String, dynamic> toJson(UConvoGetLogLogs object) => object.when(
-    logBeginConvo: (data) => const LogBeginConvoConverter().toJson(data),
-    logAcceptConvo: (data) => const LogAcceptConvoConverter().toJson(data),
-    logLeaveConvo: (data) => const LogLeaveConvoConverter().toJson(data),
-    logMuteConvo: (data) => const LogMuteConvoConverter().toJson(data),
-    logUnmuteConvo: (data) => const LogUnmuteConvoConverter().toJson(data),
-    logCreateMessage: (data) => const LogCreateMessageConverter().toJson(data),
-    logDeleteMessage: (data) => const LogDeleteMessageConverter().toJson(data),
-    logReadMessage: (data) => const LogReadMessageConverter().toJson(data),
-    logAddReaction: (data) => const LogAddReactionConverter().toJson(data),
-    logRemoveReaction: (data) =>
-        const LogRemoveReactionConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        logBeginConvo: (data) => const LogBeginConvoConverter().toJson(data),
+        logAcceptConvo: (data) => const LogAcceptConvoConverter().toJson(data),
+        logLeaveConvo: (data) => const LogLeaveConvoConverter().toJson(data),
+        logMuteConvo: (data) => const LogMuteConvoConverter().toJson(data),
+        logUnmuteConvo: (data) => const LogUnmuteConvoConverter().toJson(data),
+        logCreateMessage: (data) =>
+            const LogCreateMessageConverter().toJson(data),
+        logDeleteMessage: (data) =>
+            const LogDeleteMessageConverter().toJson(data),
+        logReadMessage: (data) => const LogReadMessageConverter().toJson(data),
+        logAddReaction: (data) => const LogAddReactionConverter().toJson(data),
+        logRemoveReaction: (data) =>
+            const LogRemoveReactionConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

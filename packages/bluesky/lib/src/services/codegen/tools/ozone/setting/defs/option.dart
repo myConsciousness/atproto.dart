@@ -49,7 +49,6 @@ abstract class Option with _$Option {
     @OptionScopeConverter() required OptionScope scope,
     required String createdBy,
     required String lastUpdatedBy,
-
     Map<String, dynamic>? $unknown,
   }) = _Option;
 
@@ -78,9 +77,14 @@ final class OptionConverter
 
   @override
   Option fromJson(Map<String, dynamic> json) {
-    return Option.fromJson(translate(json, Option.knownProps));
+    return Option.fromJson(translate(
+      json,
+      Option.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(Option object) => untranslate(object.toJson());
+  Map<String, dynamic> toJson(Option object) => untranslate(
+        object.toJson(),
+      );
 }

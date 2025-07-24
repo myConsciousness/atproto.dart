@@ -26,8 +26,9 @@ abstract class AgeAssuranceStateStatus with _$AgeAssuranceStateStatus {
     required KnownAgeAssuranceStateStatus data,
   }) = AgeAssuranceStateStatusKnownValue;
 
-  const factory AgeAssuranceStateStatus.unknown({required String data}) =
-      AgeAssuranceStateStatusUnknown;
+  const factory AgeAssuranceStateStatus.unknown({
+    required String data,
+  }) = AgeAssuranceStateStatusUnknown;
 
   static AgeAssuranceStateStatus? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,8 +71,10 @@ final class AgeAssuranceStateStatusConverter
   }
 
   @override
-  String toJson(AgeAssuranceStateStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(AgeAssuranceStateStatus object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownAgeAssuranceStateStatus implements Serializable {
@@ -82,7 +85,8 @@ enum KnownAgeAssuranceStateStatus implements Serializable {
   @JsonValue('assured')
   assured('assured'),
   @JsonValue('blocked')
-  blocked('blocked');
+  blocked('blocked'),
+  ;
 
   @override
   final String value;

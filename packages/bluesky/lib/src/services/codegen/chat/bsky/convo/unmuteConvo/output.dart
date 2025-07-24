@@ -23,11 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class ConvoUnmuteConvoOutput with _$ConvoUnmuteConvoOutput {
-  static const knownProps = <String>['convo'];
+  static const knownProps = <String>[
+    'convo',
+  ];
 
   const factory ConvoUnmuteConvoOutput({
     @ConvoViewConverter() required ConvoView convo,
-
     Map<String, dynamic>? $unknown,
   }) = _ConvoUnmuteConvoOutput;
 
@@ -41,12 +42,14 @@ final class ConvoUnmuteConvoOutputConverter
 
   @override
   ConvoUnmuteConvoOutput fromJson(Map<String, dynamic> json) {
-    return ConvoUnmuteConvoOutput.fromJson(
-      translate(json, ConvoUnmuteConvoOutput.knownProps),
-    );
+    return ConvoUnmuteConvoOutput.fromJson(translate(
+      json,
+      ConvoUnmuteConvoOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoUnmuteConvoOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ConvoUnmuteConvoOutput object) => untranslate(
+        object.toJson(),
+      );
 }

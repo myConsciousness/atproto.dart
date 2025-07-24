@@ -20,12 +20,13 @@ part 'skeleton_reason_repost.g.dart';
 
 @freezed
 abstract class SkeletonReasonRepost with _$SkeletonReasonRepost {
-  static const knownProps = <String>['repost'];
+  static const knownProps = <String>[
+    'repost',
+  ];
 
   const factory SkeletonReasonRepost({
     @Default('app.bsky.feed.defs#skeletonReasonRepost') String $type,
     required String repost,
-
     Map<String, dynamic>? $unknown,
   }) = _SkeletonReasonRepost;
 
@@ -44,12 +45,14 @@ final class SkeletonReasonRepostConverter
 
   @override
   SkeletonReasonRepost fromJson(Map<String, dynamic> json) {
-    return SkeletonReasonRepost.fromJson(
-      translate(json, SkeletonReasonRepost.knownProps),
-    );
+    return SkeletonReasonRepost.fromJson(translate(
+      json,
+      SkeletonReasonRepost.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SkeletonReasonRepost object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SkeletonReasonRepost object) => untranslate(
+        object.toJson(),
+      );
 }

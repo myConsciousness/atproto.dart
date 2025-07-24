@@ -26,8 +26,9 @@ abstract class ServerRefreshSessionStatus with _$ServerRefreshSessionStatus {
     required KnownServerRefreshSessionStatus data,
   }) = ServerRefreshSessionStatusKnownValue;
 
-  const factory ServerRefreshSessionStatus.unknown({required String data}) =
-      ServerRefreshSessionStatusUnknown;
+  const factory ServerRefreshSessionStatus.unknown({
+    required String data,
+  }) = ServerRefreshSessionStatusUnknown;
 
   static ServerRefreshSessionStatus? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,8 +71,10 @@ final class ServerRefreshSessionStatusConverter
   }
 
   @override
-  String toJson(ServerRefreshSessionStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ServerRefreshSessionStatus object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownServerRefreshSessionStatus implements Serializable {
@@ -80,7 +83,8 @@ enum KnownServerRefreshSessionStatus implements Serializable {
   @JsonValue('suspended')
   suspended('suspended'),
   @JsonValue('deactivated')
-  deactivated('deactivated');
+  deactivated('deactivated'),
+  ;
 
   @override
   final String value;

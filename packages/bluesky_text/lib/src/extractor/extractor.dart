@@ -63,11 +63,12 @@ final class _AllExtractor implements Extractor {
   List<Entity> execute(
     final BlueskyText text, [
     final ExtractorConfig? config,
-  ]) => orderByIndicesStart([
-    ...config!.handles!,
-    ...linksExtractor.execute(text, config),
-    ...tagsExtractor.execute(text),
-  ]);
+  ]) =>
+      orderByIndicesStart([
+        ...config!.handles!,
+        ...linksExtractor.execute(text, config),
+        ...tagsExtractor.execute(text),
+      ]);
 }
 
 final class _HandlesExtractor implements Extractor {
@@ -180,8 +181,7 @@ final class _LinksExtractor implements Extractor {
           );
         }
       } else {
-        final uri =
-            '$protocol${getFirstValidDomain(domain)}'
+        final uri = '$protocol${getFirstValidDomain(domain)}'
             '$portNumber$urlPath$urlQuery';
 
         _addLinkEntity(
@@ -231,18 +231,19 @@ final class _LinksExtractor implements Extractor {
   List<Entity> _getLinkEntitiesFromReplacements(
     final List<Replacement> replacements,
     final String value,
-  ) => replacements
-      .map(
-        (e) => Entity(
-          type: EntityType.link,
-          value: e.value,
-          indices: ByteIndices(
-            start: value.toUtf8Index(e.start),
-            end: value.toUtf8Index(e.end),
-          ),
-        ),
-      )
-      .toList();
+  ) =>
+      replacements
+          .map(
+            (e) => Entity(
+              type: EntityType.link,
+              value: e.value,
+              indices: ByteIndices(
+                start: value.toUtf8Index(e.start),
+                end: value.toUtf8Index(e.end),
+              ),
+            ),
+          )
+          .toList();
 
   bool _isHandle(final int end, final List<Entity> handles) {
     for (final handle in handles) {

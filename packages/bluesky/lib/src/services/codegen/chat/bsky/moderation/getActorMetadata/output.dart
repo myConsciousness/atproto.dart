@@ -24,34 +24,39 @@ part 'output.g.dart';
 @freezed
 abstract class ModerationGetActorMetadataOutput
     with _$ModerationGetActorMetadataOutput {
-  static const knownProps = <String>['day', 'month', 'all'];
+  static const knownProps = <String>[
+    'day',
+    'month',
+    'all',
+  ];
 
   const factory ModerationGetActorMetadataOutput({
     @MetadataConverter() required Metadata day,
     @MetadataConverter() required Metadata month,
     @MetadataConverter() required Metadata all,
-
     Map<String, dynamic>? $unknown,
   }) = _ModerationGetActorMetadataOutput;
 
   factory ModerationGetActorMetadataOutput.fromJson(
-    Map<String, Object?> json,
-  ) => _$ModerationGetActorMetadataOutputFromJson(json);
+          Map<String, Object?> json) =>
+      _$ModerationGetActorMetadataOutputFromJson(json);
 }
 
-final class ModerationGetActorMetadataOutputConverter
-    extends
-        JsonConverter<ModerationGetActorMetadataOutput, Map<String, dynamic>> {
+final class ModerationGetActorMetadataOutputConverter extends JsonConverter<
+    ModerationGetActorMetadataOutput, Map<String, dynamic>> {
   const ModerationGetActorMetadataOutputConverter();
 
   @override
   ModerationGetActorMetadataOutput fromJson(Map<String, dynamic> json) {
-    return ModerationGetActorMetadataOutput.fromJson(
-      translate(json, ModerationGetActorMetadataOutput.knownProps),
-    );
+    return ModerationGetActorMetadataOutput.fromJson(translate(
+      json,
+      ModerationGetActorMetadataOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(ModerationGetActorMetadataOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

@@ -20,11 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class TeamDeleteMemberInput with _$TeamDeleteMemberInput {
-  static const knownProps = <String>['did'];
+  static const knownProps = <String>[
+    'did',
+  ];
 
   const factory TeamDeleteMemberInput({
     required String did,
-
     Map<String, dynamic>? $unknown,
   }) = _TeamDeleteMemberInput;
 
@@ -38,12 +39,14 @@ final class TeamDeleteMemberInputConverter
 
   @override
   TeamDeleteMemberInput fromJson(Map<String, dynamic> json) {
-    return TeamDeleteMemberInput.fromJson(
-      translate(json, TeamDeleteMemberInput.knownProps),
-    );
+    return TeamDeleteMemberInput.fromJson(translate(
+      json,
+      TeamDeleteMemberInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(TeamDeleteMemberInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(TeamDeleteMemberInput object) => untranslate(
+        object.toJson(),
+      );
 }

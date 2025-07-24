@@ -16,7 +16,11 @@ import '../../../../query_command.dart';
 
 final class GetTrendsCommand extends QueryCommand {
   GetTrendsCommand() {
-    argParser..addOption("limit", defaultsTo: "10");
+    argParser
+      ..addOption(
+        "limit",
+        defaultsTo: "10",
+      );
   }
 
   @override
@@ -32,5 +36,7 @@ final class GetTrendsCommand extends QueryCommand {
   String get methodId => "app.bsky.unspecced.getTrends";
 
   @override
-  Map<String, dynamic>? get parameters => {"limit": argResults!["limit"]};
+  Map<String, dynamic>? get parameters => {
+        "limit": argResults!["limit"],
+      };
 }

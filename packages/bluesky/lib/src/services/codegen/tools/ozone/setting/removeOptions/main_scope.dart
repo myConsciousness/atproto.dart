@@ -26,8 +26,9 @@ abstract class SettingRemoveOptionsScope with _$SettingRemoveOptionsScope {
     required KnownSettingRemoveOptionsScope data,
   }) = SettingRemoveOptionsScopeKnownValue;
 
-  const factory SettingRemoveOptionsScope.unknown({required String data}) =
-      SettingRemoveOptionsScopeUnknown;
+  const factory SettingRemoveOptionsScope.unknown({
+    required String data,
+  }) = SettingRemoveOptionsScopeUnknown;
 
   static SettingRemoveOptionsScope? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,15 +71,18 @@ final class SettingRemoveOptionsScopeConverter
   }
 
   @override
-  String toJson(SettingRemoveOptionsScope object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SettingRemoveOptionsScope object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownSettingRemoveOptionsScope implements Serializable {
   @JsonValue('instance')
   instance('instance'),
   @JsonValue('personal')
-  personal('personal');
+  personal('personal'),
+  ;
 
   @override
   final String value;

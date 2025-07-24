@@ -80,7 +80,6 @@ abstract class VerificationView with _$VerificationView {
     UVerificationViewSubjectRepo? subjectRepo,
     @UVerificationViewIssuerRepoConverter()
     UVerificationViewIssuerRepo? issuerRepo,
-
     Map<String, dynamic>? $unknown,
   }) = _VerificationView;
 
@@ -116,12 +115,14 @@ final class VerificationViewConverter
 
   @override
   VerificationView fromJson(Map<String, dynamic> json) {
-    return VerificationView.fromJson(
-      translate(json, VerificationView.knownProps),
-    );
+    return VerificationView.fromJson(translate(
+      json,
+      VerificationView.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(VerificationView object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(VerificationView object) => untranslate(
+        object.toJson(),
+      );
 }

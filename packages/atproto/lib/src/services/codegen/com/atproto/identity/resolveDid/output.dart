@@ -20,11 +20,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class IdentityResolveDidOutput with _$IdentityResolveDidOutput {
-  static const knownProps = <String>['didDoc'];
+  static const knownProps = <String>[
+    'didDoc',
+  ];
 
   const factory IdentityResolveDidOutput({
     required Map<String, dynamic> didDoc,
-
     Map<String, dynamic>? $unknown,
   }) = _IdentityResolveDidOutput;
 
@@ -38,12 +39,14 @@ final class IdentityResolveDidOutputConverter
 
   @override
   IdentityResolveDidOutput fromJson(Map<String, dynamic> json) {
-    return IdentityResolveDidOutput.fromJson(
-      translate(json, IdentityResolveDidOutput.knownProps),
-    );
+    return IdentityResolveDidOutput.fromJson(translate(
+      json,
+      IdentityResolveDidOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(IdentityResolveDidOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(IdentityResolveDidOutput object) => untranslate(
+        object.toJson(),
+      );
 }

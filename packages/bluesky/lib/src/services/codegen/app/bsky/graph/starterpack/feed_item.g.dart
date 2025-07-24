@@ -8,24 +8,26 @@ part of 'feed_item.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_FeedItem _$FeedItemFromJson(Map json) =>
-    $checkedCreate('_FeedItem', json, ($checkedConvert) {
-      final val = _FeedItem(
-        $type: $checkedConvert(
-          r'$type',
-          (v) => v as String? ?? 'app.bsky.graph.starterpack#feedItem',
-        ),
-        uri: $checkedConvert('uri', (v) => v as String),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+_FeedItem _$FeedItemFromJson(Map json) => $checkedCreate(
+      '_FeedItem',
+      json,
+      ($checkedConvert) {
+        final val = _FeedItem(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? 'app.bsky.graph.starterpack#feedItem'),
+          uri: $checkedConvert('uri', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$FeedItemToJson(_FeedItem instance) => <String, dynamic>{
-  r'$type': instance.$type,
-  'uri': instance.uri,
-  r'$unknown': instance.$unknown,
-};
+      r'$type': instance.$type,
+      'uri': instance.uri,
+      r'$unknown': instance.$unknown,
+    };

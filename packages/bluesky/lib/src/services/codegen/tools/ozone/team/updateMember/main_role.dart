@@ -26,8 +26,9 @@ abstract class TeamUpdateMemberRole with _$TeamUpdateMemberRole {
     required KnownTeamUpdateMemberRole data,
   }) = TeamUpdateMemberRoleKnownValue;
 
-  const factory TeamUpdateMemberRole.unknown({required String data}) =
-      TeamUpdateMemberRoleUnknown;
+  const factory TeamUpdateMemberRole.unknown({
+    required String data,
+  }) = TeamUpdateMemberRoleUnknown;
 
   static TeamUpdateMemberRole? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,8 +71,10 @@ final class TeamUpdateMemberRoleConverter
   }
 
   @override
-  String toJson(TeamUpdateMemberRole object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(TeamUpdateMemberRole object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownTeamUpdateMemberRole implements Serializable {
@@ -82,7 +85,8 @@ enum KnownTeamUpdateMemberRole implements Serializable {
   @JsonValue('tools.ozone.team.defs#roleVerifier')
   roleVerifier('tools.ozone.team.defs#roleVerifier'),
   @JsonValue('tools.ozone.team.defs#roleTriage')
-  roleTriage('tools.ozone.team.defs#roleTriage');
+  roleTriage('tools.ozone.team.defs#roleTriage'),
+  ;
 
   @override
   final String value;

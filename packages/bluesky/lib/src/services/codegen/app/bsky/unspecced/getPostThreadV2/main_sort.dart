@@ -27,8 +27,9 @@ abstract class UnspeccedGetPostThreadV2Sort
     required KnownUnspeccedGetPostThreadV2Sort data,
   }) = UnspeccedGetPostThreadV2SortKnownValue;
 
-  const factory UnspeccedGetPostThreadV2Sort.unknown({required String data}) =
-      UnspeccedGetPostThreadV2SortUnknown;
+  const factory UnspeccedGetPostThreadV2Sort.unknown({
+    required String data,
+  }) = UnspeccedGetPostThreadV2SortUnknown;
 
   static UnspeccedGetPostThreadV2Sort? valueOf(final String? value) {
     if (value == null) return null;
@@ -72,8 +73,10 @@ final class UnspeccedGetPostThreadV2SortConverter
   }
 
   @override
-  String toJson(UnspeccedGetPostThreadV2Sort object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(UnspeccedGetPostThreadV2Sort object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownUnspeccedGetPostThreadV2Sort implements Serializable {
@@ -82,7 +85,8 @@ enum KnownUnspeccedGetPostThreadV2Sort implements Serializable {
   @JsonValue('oldest')
   oldest('oldest'),
   @JsonValue('top')
-  top('top');
+  top('top'),
+  ;
 
   @override
   final String value;

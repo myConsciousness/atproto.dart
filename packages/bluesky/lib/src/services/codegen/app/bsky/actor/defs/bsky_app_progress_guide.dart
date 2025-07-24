@@ -21,12 +21,13 @@ part 'bsky_app_progress_guide.g.dart';
 /// If set, an active progress guide. Once completed, can be set to undefined. Should have unspecced fields tracking progress.
 @freezed
 abstract class BskyAppProgressGuide with _$BskyAppProgressGuide {
-  static const knownProps = <String>['guide'];
+  static const knownProps = <String>[
+    'guide',
+  ];
 
   const factory BskyAppProgressGuide({
     @Default('app.bsky.actor.defs#bskyAppProgressGuide') String $type,
     required String guide,
-
     Map<String, dynamic>? $unknown,
   }) = _BskyAppProgressGuide;
 
@@ -45,12 +46,14 @@ final class BskyAppProgressGuideConverter
 
   @override
   BskyAppProgressGuide fromJson(Map<String, dynamic> json) {
-    return BskyAppProgressGuide.fromJson(
-      translate(json, BskyAppProgressGuide.knownProps),
-    );
+    return BskyAppProgressGuide.fromJson(translate(
+      json,
+      BskyAppProgressGuide.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(BskyAppProgressGuide object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(BskyAppProgressGuide object) => untranslate(
+        object.toJson(),
+      );
 }

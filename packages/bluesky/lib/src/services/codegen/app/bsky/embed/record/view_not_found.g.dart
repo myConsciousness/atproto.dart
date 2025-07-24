@@ -9,27 +9,30 @@ part of 'view_not_found.dart';
 // **************************************************************************
 
 _EmbedRecordViewNotFound _$EmbedRecordViewNotFoundFromJson(Map json) =>
-    $checkedCreate('_EmbedRecordViewNotFound', json, ($checkedConvert) {
-      final val = _EmbedRecordViewNotFound(
-        $type: $checkedConvert(
-          r'$type',
-          (v) => v as String? ?? 'app.bsky.embed.record#viewNotFound',
-        ),
-        uri: $checkedConvert('uri', (v) => v as String),
-        notFound: $checkedConvert('notFound', (v) => v as bool),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_EmbedRecordViewNotFound',
+      json,
+      ($checkedConvert) {
+        final val = _EmbedRecordViewNotFound(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? 'app.bsky.embed.record#viewNotFound'),
+          uri: $checkedConvert('uri', (v) => v as String),
+          notFound: $checkedConvert('notFound', (v) => v as bool),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$EmbedRecordViewNotFoundToJson(
-  _EmbedRecordViewNotFound instance,
-) => <String, dynamic>{
-  r'$type': instance.$type,
-  'uri': instance.uri,
-  'notFound': instance.notFound,
-  r'$unknown': instance.$unknown,
-};
+        _EmbedRecordViewNotFound instance) =>
+    <String, dynamic>{
+      r'$type': instance.$type,
+      'uri': instance.uri,
+      'notFound': instance.notFound,
+      r'$unknown': instance.$unknown,
+    };

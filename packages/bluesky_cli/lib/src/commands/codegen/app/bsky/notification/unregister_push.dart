@@ -17,10 +17,22 @@ import '../../../../procedure_command.dart';
 final class UnregisterPushCommand extends ProcedureCommand {
   UnregisterPushCommand() {
     argParser
-      ..addOption("serviceDid", mandatory: true)
-      ..addOption("token", mandatory: true)
-      ..addOption("platform", mandatory: true)
-      ..addOption("appId", mandatory: true);
+      ..addOption(
+        "serviceDid",
+        mandatory: true,
+      )
+      ..addOption(
+        "token",
+        mandatory: true,
+      )
+      ..addOption(
+        "platform",
+        mandatory: true,
+      )
+      ..addOption(
+        "appId",
+        mandatory: true,
+      );
   }
 
   @override
@@ -39,9 +51,9 @@ final class UnregisterPushCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "serviceDid": argResults!["serviceDid"],
-    "token": argResults!["token"],
-    "platform": argResults!["platform"],
-    "appId": argResults!["appId"],
-  };
+        "serviceDid": argResults!["serviceDid"],
+        "token": argResults!["token"],
+        "platform": argResults!["platform"],
+        "appId": argResults!["appId"],
+      };
 }

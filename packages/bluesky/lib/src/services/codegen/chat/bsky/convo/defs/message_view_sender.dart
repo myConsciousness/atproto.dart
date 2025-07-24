@@ -20,12 +20,13 @@ part 'message_view_sender.g.dart';
 
 @freezed
 abstract class MessageViewSender with _$MessageViewSender {
-  static const knownProps = <String>['did'];
+  static const knownProps = <String>[
+    'did',
+  ];
 
   const factory MessageViewSender({
     @Default('chat.bsky.convo.defs#messageViewSender') String $type,
     required String did,
-
     Map<String, dynamic>? $unknown,
   }) = _MessageViewSender;
 
@@ -44,12 +45,14 @@ final class MessageViewSenderConverter
 
   @override
   MessageViewSender fromJson(Map<String, dynamic> json) {
-    return MessageViewSender.fromJson(
-      translate(json, MessageViewSender.knownProps),
-    );
+    return MessageViewSender.fromJson(translate(
+      json,
+      MessageViewSender.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(MessageViewSender object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(MessageViewSender object) => untranslate(
+        object.toJson(),
+      );
 }

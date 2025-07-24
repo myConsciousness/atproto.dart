@@ -20,14 +20,15 @@ part 'personal_details_pref.g.dart';
 
 @freezed
 abstract class PersonalDetailsPref with _$PersonalDetailsPref {
-  static const knownProps = <String>['birthDate'];
+  static const knownProps = <String>[
+    'birthDate',
+  ];
 
   const factory PersonalDetailsPref({
     @Default('app.bsky.actor.defs#personalDetailsPref') String $type,
 
     /// The birth date of account owner.
     DateTime? birthDate,
-
     Map<String, dynamic>? $unknown,
   }) = _PersonalDetailsPref;
 
@@ -51,12 +52,14 @@ final class PersonalDetailsPrefConverter
 
   @override
   PersonalDetailsPref fromJson(Map<String, dynamic> json) {
-    return PersonalDetailsPref.fromJson(
-      translate(json, PersonalDetailsPref.knownProps),
-    );
+    return PersonalDetailsPref.fromJson(translate(
+      json,
+      PersonalDetailsPref.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(PersonalDetailsPref object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(PersonalDetailsPref object) => untranslate(
+        object.toJson(),
+      );
 }

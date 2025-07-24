@@ -43,8 +43,7 @@ final class MarkdownLinksExtractor {
       final urlPath = urlMatch.path;
       final urlQuery = urlMatch.query;
 
-      final linkUrl =
-          '$protocol${getFirstValidDomain(domain)}'
+      final linkUrl = '$protocol${getFirstValidDomain(domain)}'
           '$portNumber$urlPath$urlQuery';
 
       if (!_isValidMarkdownLink(linkText, linkUrl)) continue;

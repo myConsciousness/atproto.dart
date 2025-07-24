@@ -20,13 +20,15 @@ part 'input.g.dart';
 
 @freezed
 abstract class SetAddValuesInput with _$SetAddValuesInput {
-  static const knownProps = <String>['name', 'values'];
+  static const knownProps = <String>[
+    'name',
+    'values',
+  ];
 
   const factory SetAddValuesInput({
     /// Name of the set to add values to
     required String name,
     required List<String> values,
-
     Map<String, dynamic>? $unknown,
   }) = _SetAddValuesInput;
 
@@ -40,12 +42,14 @@ final class SetAddValuesInputConverter
 
   @override
   SetAddValuesInput fromJson(Map<String, dynamic> json) {
-    return SetAddValuesInput.fromJson(
-      translate(json, SetAddValuesInput.knownProps),
-    );
+    return SetAddValuesInput.fromJson(translate(
+      json,
+      SetAddValuesInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SetAddValuesInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SetAddValuesInput object) => untranslate(
+        object.toJson(),
+      );
 }

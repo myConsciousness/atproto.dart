@@ -16,7 +16,11 @@ import '../../../../procedure_command.dart';
 
 final class UnmuteThreadCommand extends ProcedureCommand {
   UnmuteThreadCommand() {
-    argParser..addOption("root", mandatory: true);
+    argParser
+      ..addOption(
+        "root",
+        mandatory: true,
+      );
   }
 
   @override
@@ -32,5 +36,7 @@ final class UnmuteThreadCommand extends ProcedureCommand {
   String get methodId => "app.bsky.graph.unmuteThread";
 
   @override
-  Map<String, dynamic>? get body => {"root": argResults!["root"]};
+  Map<String, dynamic>? get body => {
+        "root": argResults!["root"],
+      };
 }

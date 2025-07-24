@@ -24,13 +24,14 @@ part 'result_unavailable.g.dart';
 /// Indicates the provided handle is unavailable and gives suggestions of available handles.
 @freezed
 abstract class ResultUnavailable with _$ResultUnavailable {
-  static const knownProps = <String>['suggestions'];
+  static const knownProps = <String>[
+    'suggestions',
+  ];
 
   const factory ResultUnavailable({
     @Default('app.bsky.unspecced.checkHandleAvailability#resultUnavailable')
     String $type,
     @SuggestionConverter() required List<Suggestion> suggestions,
-
     Map<String, dynamic>? $unknown,
   }) = _ResultUnavailable;
 
@@ -50,12 +51,14 @@ final class ResultUnavailableConverter
 
   @override
   ResultUnavailable fromJson(Map<String, dynamic> json) {
-    return ResultUnavailable.fromJson(
-      translate(json, ResultUnavailable.knownProps),
-    );
+    return ResultUnavailable.fromJson(translate(
+      json,
+      ResultUnavailable.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ResultUnavailable object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ResultUnavailable object) => untranslate(
+        object.toJson(),
+      );
 }

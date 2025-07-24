@@ -52,14 +52,12 @@ final class LexKnownValues extends LexType {
 
   @override
   String format() {
-    final elements = values
-        .map((e) {
-          final buffer = StringBuffer();
-          buffer.writeln("@JsonValue('$e')");
-          buffer.write("${rule.getLexKnownValuesElementName(e)}('$e'),");
-          return buffer.toString();
-        })
-        .join('\n');
+    final elements = values.map((e) {
+      final buffer = StringBuffer();
+      buffer.writeln("@JsonValue('$e')");
+      buffer.write("${rule.getLexKnownValuesElementName(e)}('$e'),");
+      return buffer.toString();
+    }).join('\n');
 
     final fileName = getFileName();
 

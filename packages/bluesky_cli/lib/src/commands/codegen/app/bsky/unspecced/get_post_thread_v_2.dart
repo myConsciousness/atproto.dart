@@ -68,11 +68,11 @@ final class GetPostThreadV2Command extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "anchor": argResults!["anchor"],
-    "above": argResults!["above"],
-    "below": argResults!["below"],
-    "branchingFactor": argResults!["branchingFactor"],
-    "prioritizeFollowedUsers": argResults!["prioritizeFollowedUsers"],
-    "sort": argResults!["sort"],
-  };
+        "anchor": argResults!["anchor"],
+        "above": argResults!["above"],
+        "below": argResults!["below"],
+        "branchingFactor": argResults!["branchingFactor"],
+        "prioritizeFollowedUsers": argResults!["prioritizeFollowedUsers"],
+        "sort": argResults!["sort"],
+      };
 }

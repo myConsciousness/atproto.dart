@@ -75,8 +75,10 @@ final class SubjectStatusViewAgeAssuranceStateConverter
   }
 
   @override
-  String toJson(SubjectStatusViewAgeAssuranceState object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SubjectStatusViewAgeAssuranceState object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownSubjectStatusViewAgeAssuranceState implements Serializable {
@@ -89,7 +91,8 @@ enum KnownSubjectStatusViewAgeAssuranceState implements Serializable {
   @JsonValue('reset')
   reset('reset'),
   @JsonValue('blocked')
-  blocked('blocked');
+  blocked('blocked'),
+  ;
 
   @override
   final String value;

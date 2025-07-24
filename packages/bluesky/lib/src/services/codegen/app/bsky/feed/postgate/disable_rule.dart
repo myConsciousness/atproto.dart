@@ -25,7 +25,6 @@ abstract class DisableRule with _$DisableRule {
 
   const factory DisableRule({
     @Default('app.bsky.feed.postgate#disableRule') String $type,
-
     Map<String, dynamic>? $unknown,
   }) = _DisableRule;
 
@@ -44,10 +43,14 @@ final class DisableRuleConverter
 
   @override
   DisableRule fromJson(Map<String, dynamic> json) {
-    return DisableRule.fromJson(translate(json, DisableRule.knownProps));
+    return DisableRule.fromJson(translate(
+      json,
+      DisableRule.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(DisableRule object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(DisableRule object) => untranslate(
+        object.toJson(),
+      );
 }

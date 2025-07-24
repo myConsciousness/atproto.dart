@@ -294,36 +294,36 @@ const _kScenarios = <String, dynamic>{
   },
   "Imperative label ('!no-unauthenticated') on author profile when logged out":
       {
-        "cfg": 'logged-out',
-        "subject": 'post',
-        "author": 'alice',
-        "labels": {
-          "profile": ['!no-unauthenticated'],
-        },
-        "behaviors": {
-          "avatar": ['blur', 'noOverride'],
-          "banner": ['blur', 'noOverride'],
-          "displayName": ['blur', 'noOverride'],
-          "contentList": ['filter', 'blur', 'noOverride'],
-          "contentView": ['blur', 'noOverride'],
-        },
-      },
+    "cfg": 'logged-out',
+    "subject": 'post',
+    "author": 'alice',
+    "labels": {
+      "profile": ['!no-unauthenticated'],
+    },
+    "behaviors": {
+      "avatar": ['blur', 'noOverride'],
+      "banner": ['blur', 'noOverride'],
+      "displayName": ['blur', 'noOverride'],
+      "contentList": ['filter', 'blur', 'noOverride'],
+      "contentView": ['blur', 'noOverride'],
+    },
+  },
   "Imperative label ('!no-unauthenticated') on author account when logged out":
       {
-        "cfg": 'logged-out',
-        "subject": 'post',
-        "author": 'alice',
-        "labels": {
-          "account": ['!no-unauthenticated'],
-        },
-        "behaviors": {
-          "avatar": ['blur', 'noOverride'],
-          "banner": ['blur', 'noOverride'],
-          "displayName": ['blur', 'noOverride'],
-          "contentList": ['filter', 'blur', 'noOverride'],
-          "contentView": ['blur', 'noOverride'],
-        },
-      },
+    "cfg": 'logged-out',
+    "subject": 'post',
+    "author": 'alice',
+    "labels": {
+      "account": ['!no-unauthenticated'],
+    },
+    "behaviors": {
+      "avatar": ['blur', 'noOverride'],
+      "banner": ['blur', 'noOverride'],
+      "displayName": ['blur', 'noOverride'],
+      "contentList": ['filter', 'blur', 'noOverride'],
+      "contentView": ['blur', 'noOverride'],
+    },
+  },
   "Imperative label ('!no-unauthenticated') on account when logged in": {
     "cfg": 'none',
     "subject": 'profile',

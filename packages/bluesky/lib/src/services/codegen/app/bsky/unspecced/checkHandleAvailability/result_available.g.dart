@@ -8,22 +8,28 @@ part of 'result_available.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_ResultAvailable _$ResultAvailableFromJson(Map json) =>
-    $checkedCreate('_ResultAvailable', json, ($checkedConvert) {
-      final val = _ResultAvailable(
-        $type: $checkedConvert(
-          r'$type',
-          (v) =>
-              v as String? ??
-              'app.bsky.unspecced.checkHandleAvailability#resultAvailable',
-        ),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+_ResultAvailable _$ResultAvailableFromJson(Map json) => $checkedCreate(
+      '_ResultAvailable',
+      json,
+      ($checkedConvert) {
+        final val = _ResultAvailable(
+          $type: $checkedConvert(
+              r'$type',
+              (v) =>
+                  v as String? ??
+                  'app.bsky.unspecced.checkHandleAvailability#resultAvailable'),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$ResultAvailableToJson(_ResultAvailable instance) =>
-    <String, dynamic>{r'$type': instance.$type, r'$unknown': instance.$unknown};
+    <String, dynamic>{
+      r'$type': instance.$type,
+      r'$unknown': instance.$unknown,
+    };

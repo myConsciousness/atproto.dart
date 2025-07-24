@@ -14,270 +14,353 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$ViewerConfig {
+  String get $type;
+  @ViewerConfigRoleConverter()
+  ViewerConfigRole? get role;
+  Map<String, dynamic>? get $unknown;
 
- String get $type;@ViewerConfigRoleConverter() ViewerConfigRole? get role; Map<String, dynamic>? get $unknown;
-/// Create a copy of ViewerConfig
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$ViewerConfigCopyWith<ViewerConfig> get copyWith => _$ViewerConfigCopyWithImpl<ViewerConfig>(this as ViewerConfig, _$identity);
+  /// Create a copy of ViewerConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ViewerConfigCopyWith<ViewerConfig> get copyWith =>
+      _$ViewerConfigCopyWithImpl<ViewerConfig>(
+          this as ViewerConfig, _$identity);
 
   /// Serializes this ViewerConfig to a JSON map.
   Map<String, dynamic> toJson();
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ViewerConfig &&
+            (identical(other.$type, $type) || other.$type == $type) &&
+            (identical(other.role, role) || other.role == role) &&
+            const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ViewerConfig&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.role, role) || other.role == role)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
-}
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, $type, role, const DeepCollectionEquality().hash($unknown));
 
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,$type,role,const DeepCollectionEquality().hash($unknown));
-
-@override
-String toString() {
-  return 'ViewerConfig(\$type: ${$type}, role: $role, \$unknown: ${$unknown})';
-}
-
-
+  @override
+  String toString() {
+    return 'ViewerConfig(\$type: ${$type}, role: $role, \$unknown: ${$unknown})';
+  }
 }
 
 /// @nodoc
-abstract mixin class $ViewerConfigCopyWith<$Res>  {
-  factory $ViewerConfigCopyWith(ViewerConfig value, $Res Function(ViewerConfig) _then) = _$ViewerConfigCopyWithImpl;
-@useResult
-$Res call({
- String $type,@ViewerConfigRoleConverter() ViewerConfigRole? role, Map<String, dynamic>? $unknown
-});
+abstract mixin class $ViewerConfigCopyWith<$Res> {
+  factory $ViewerConfigCopyWith(
+          ViewerConfig value, $Res Function(ViewerConfig) _then) =
+      _$ViewerConfigCopyWithImpl;
+  @useResult
+  $Res call(
+      {String $type,
+      @ViewerConfigRoleConverter() ViewerConfigRole? role,
+      Map<String, dynamic>? $unknown});
 
-
-$ViewerConfigRoleCopyWith<$Res>? get role;
-
+  $ViewerConfigRoleCopyWith<$Res>? get role;
 }
+
 /// @nodoc
-class _$ViewerConfigCopyWithImpl<$Res>
-    implements $ViewerConfigCopyWith<$Res> {
+class _$ViewerConfigCopyWithImpl<$Res> implements $ViewerConfigCopyWith<$Res> {
   _$ViewerConfigCopyWithImpl(this._self, this._then);
 
   final ViewerConfig _self;
   final $Res Function(ViewerConfig) _then;
 
-/// Create a copy of ViewerConfig
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? role = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
-$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,role: freezed == role ? _self.role : role // ignore: cast_nullable_to_non_nullable
-as ViewerConfigRole?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>?,
-  ));
-}
-/// Create a copy of ViewerConfig
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$ViewerConfigRoleCopyWith<$Res>? get role {
-    if (_self.role == null) {
-    return null;
+  /// Create a copy of ViewerConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? $type = null,
+    Object? role = freezed,
+    Object? $unknown = freezed,
+  }) {
+    return _then(_self.copyWith(
+      $type: null == $type
+          ? _self.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
+      role: freezed == role
+          ? _self.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as ViewerConfigRole?,
+      $unknown: freezed == $unknown
+          ? _self.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
   }
 
-  return $ViewerConfigRoleCopyWith<$Res>(_self.role!, (value) {
-    return _then(_self.copyWith(role: value));
-  });
-}
-}
+  /// Create a copy of ViewerConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ViewerConfigRoleCopyWith<$Res>? get role {
+    if (_self.role == null) {
+      return null;
+    }
 
+    return $ViewerConfigRoleCopyWith<$Res>(_self.role!, (value) {
+      return _then(_self.copyWith(role: value));
+    });
+  }
+}
 
 /// Adds pattern-matching-related methods to [ViewerConfig].
 extension ViewerConfigPatterns on ViewerConfig {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ViewerConfig value)?  $default,{required TResult orElse(),}){
-final _that = this;
-switch (_that) {
-case _ViewerConfig() when $default != null:
-return $default(_that);case _:
-  return orElse();
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ViewerConfig value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _ViewerConfig() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
 
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ViewerConfig value)  $default,){
-final _that = this;
-switch (_that) {
-case _ViewerConfig():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ViewerConfig value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ViewerConfig():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
 
-}
-}
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ViewerConfig value)?  $default,){
-final _that = this;
-switch (_that) {
-case _ViewerConfig() when $default != null:
-return $default(_that);case _:
-  return null;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ViewerConfig value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ViewerConfig() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
 
-}
-}
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ViewerConfigRoleConverter()  ViewerConfigRole? role,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
-switch (_that) {
-case _ViewerConfig() when $default != null:
-return $default(_that.$type,_that.role,_that.$unknown);case _:
-  return orElse();
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String $type,
+            @ViewerConfigRoleConverter() ViewerConfigRole? role,
+            Map<String, dynamic>? $unknown)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _ViewerConfig() when $default != null:
+        return $default(_that.$type, _that.role, _that.$unknown);
+      case _:
+        return orElse();
+    }
+  }
 
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ViewerConfigRoleConverter()  ViewerConfigRole? role,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
-switch (_that) {
-case _ViewerConfig():
-return $default(_that.$type,_that.role,_that.$unknown);case _:
-  throw StateError('Unexpected subclass');
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String $type,
+            @ViewerConfigRoleConverter() ViewerConfigRole? role,
+            Map<String, dynamic>? $unknown)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ViewerConfig():
+        return $default(_that.$type, _that.role, _that.$unknown);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
 
-}
-}
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ViewerConfigRoleConverter()  ViewerConfigRole? role,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
-switch (_that) {
-case _ViewerConfig() when $default != null:
-return $default(_that.$type,_that.role,_that.$unknown);case _:
-  return null;
-
-}
-}
-
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String $type,
+            @ViewerConfigRoleConverter() ViewerConfigRole? role,
+            Map<String, dynamic>? $unknown)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ViewerConfig() when $default != null:
+        return $default(_that.$type, _that.role, _that.$unknown);
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
-
 class _ViewerConfig implements ViewerConfig {
-  const _ViewerConfig({this.$type = 'tools.ozone.server.getConfig#viewerConfig', @ViewerConfigRoleConverter() this.role, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
-  factory _ViewerConfig.fromJson(Map<String, dynamic> json) => _$ViewerConfigFromJson(json);
+  const _ViewerConfig(
+      {this.$type = 'tools.ozone.server.getConfig#viewerConfig',
+      @ViewerConfigRoleConverter() this.role,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
+  factory _ViewerConfig.fromJson(Map<String, dynamic> json) =>
+      _$ViewerConfigFromJson(json);
 
-@override@JsonKey() final  String $type;
-@override@ViewerConfigRoleConverter() final  ViewerConfigRole? role;
- final  Map<String, dynamic>? _$unknown;
-@override Map<String, dynamic>? get $unknown {
-  final value = _$unknown;
-  if (value == null) return null;
-  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableMapView(value);
-}
+  @override
+  @JsonKey()
+  final String $type;
+  @override
+  @ViewerConfigRoleConverter()
+  final ViewerConfigRole? role;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
+  /// Create a copy of ViewerConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ViewerConfigCopyWith<_ViewerConfig> get copyWith =>
+      __$ViewerConfigCopyWithImpl<_ViewerConfig>(this, _$identity);
 
-/// Create a copy of ViewerConfig
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$ViewerConfigCopyWith<_ViewerConfig> get copyWith => __$ViewerConfigCopyWithImpl<_ViewerConfig>(this, _$identity);
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ViewerConfigToJson(
+      this,
+    );
+  }
 
-@override
-Map<String, dynamic> toJson() {
-  return _$ViewerConfigToJson(this, );
-}
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ViewerConfig &&
+            (identical(other.$type, $type) || other.$type == $type) &&
+            (identical(other.role, role) || other.role == role) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ViewerConfig&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.role, role) || other.role == role)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-}
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, $type, role, const DeepCollectionEquality().hash(_$unknown));
 
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,$type,role,const DeepCollectionEquality().hash(_$unknown));
-
-@override
-String toString() {
-  return 'ViewerConfig(\$type: ${$type}, role: $role, \$unknown: ${$unknown})';
-}
-
-
+  @override
+  String toString() {
+    return 'ViewerConfig(\$type: ${$type}, role: $role, \$unknown: ${$unknown})';
+  }
 }
 
 /// @nodoc
-abstract mixin class _$ViewerConfigCopyWith<$Res> implements $ViewerConfigCopyWith<$Res> {
-  factory _$ViewerConfigCopyWith(_ViewerConfig value, $Res Function(_ViewerConfig) _then) = __$ViewerConfigCopyWithImpl;
-@override @useResult
-$Res call({
- String $type,@ViewerConfigRoleConverter() ViewerConfigRole? role, Map<String, dynamic>? $unknown
-});
+abstract mixin class _$ViewerConfigCopyWith<$Res>
+    implements $ViewerConfigCopyWith<$Res> {
+  factory _$ViewerConfigCopyWith(
+          _ViewerConfig value, $Res Function(_ViewerConfig) _then) =
+      __$ViewerConfigCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String $type,
+      @ViewerConfigRoleConverter() ViewerConfigRole? role,
+      Map<String, dynamic>? $unknown});
 
-
-@override $ViewerConfigRoleCopyWith<$Res>? get role;
-
+  @override
+  $ViewerConfigRoleCopyWith<$Res>? get role;
 }
+
 /// @nodoc
 class __$ViewerConfigCopyWithImpl<$Res>
     implements _$ViewerConfigCopyWith<$Res> {
@@ -286,30 +369,44 @@ class __$ViewerConfigCopyWithImpl<$Res>
   final _ViewerConfig _self;
   final $Res Function(_ViewerConfig) _then;
 
-/// Create a copy of ViewerConfig
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? role = freezed,Object? $unknown = freezed,}) {
-  return _then(_ViewerConfig(
-$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,role: freezed == role ? _self.role : role // ignore: cast_nullable_to_non_nullable
-as ViewerConfigRole?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>?,
-  ));
-}
-
-/// Create a copy of ViewerConfig
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$ViewerConfigRoleCopyWith<$Res>? get role {
-    if (_self.role == null) {
-    return null;
+  /// Create a copy of ViewerConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? $type = null,
+    Object? role = freezed,
+    Object? $unknown = freezed,
+  }) {
+    return _then(_ViewerConfig(
+      $type: null == $type
+          ? _self.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
+      role: freezed == role
+          ? _self.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as ViewerConfigRole?,
+      $unknown: freezed == $unknown
+          ? _self._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
   }
 
-  return $ViewerConfigRoleCopyWith<$Res>(_self.role!, (value) {
-    return _then(_self.copyWith(role: value));
-  });
-}
+  /// Create a copy of ViewerConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ViewerConfigRoleCopyWith<$Res>? get role {
+    if (_self.role == null) {
+      return null;
+    }
+
+    return $ViewerConfigRoleCopyWith<$Res>(_self.role!, (value) {
+      return _then(_self.copyWith(role: value));
+    });
+  }
 }
 
 // dart format on

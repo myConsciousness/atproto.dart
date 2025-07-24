@@ -9,30 +9,32 @@ part of 'output.dart';
 // **************************************************************************
 
 _SettingListOptionsOutput _$SettingListOptionsOutputFromJson(Map json) =>
-    $checkedCreate('_SettingListOptionsOutput', json, ($checkedConvert) {
-      final val = _SettingListOptionsOutput(
-        cursor: $checkedConvert('cursor', (v) => v as String?),
-        options: $checkedConvert(
-          'options',
-          (v) => (v as List<dynamic>)
-              .map(
-                (e) =>
-                    const OptionConverter().fromJson(e as Map<String, dynamic>),
-              )
-              .toList(),
-        ),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_SettingListOptionsOutput',
+      json,
+      ($checkedConvert) {
+        final val = _SettingListOptionsOutput(
+          cursor: $checkedConvert('cursor', (v) => v as String?),
+          options: $checkedConvert(
+              'options',
+              (v) => (v as List<dynamic>)
+                  .map((e) => const OptionConverter()
+                      .fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$SettingListOptionsOutputToJson(
-  _SettingListOptionsOutput instance,
-) => <String, dynamic>{
-  'cursor': instance.cursor,
-  'options': instance.options.map(const OptionConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
-};
+        _SettingListOptionsOutput instance) =>
+    <String, dynamic>{
+      'cursor': instance.cursor,
+      'options': instance.options.map(const OptionConverter().toJson).toList(),
+      r'$unknown': instance.$unknown,
+    };

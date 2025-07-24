@@ -35,7 +35,6 @@ abstract class ServerCreateSessionInput with _$ServerCreateSessionInput {
 
     /// When true, instead of throwing error for takendown accounts, a valid response with a narrow scoped token will be returned
     bool? allowTakendown,
-
     Map<String, dynamic>? $unknown,
   }) = _ServerCreateSessionInput;
 
@@ -56,12 +55,14 @@ final class ServerCreateSessionInputConverter
 
   @override
   ServerCreateSessionInput fromJson(Map<String, dynamic> json) {
-    return ServerCreateSessionInput.fromJson(
-      translate(json, ServerCreateSessionInput.knownProps),
-    );
+    return ServerCreateSessionInput.fromJson(translate(
+      json,
+      ServerCreateSessionInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ServerCreateSessionInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ServerCreateSessionInput object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -20,11 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class GraphUnmuteThreadInput with _$GraphUnmuteThreadInput {
-  static const knownProps = <String>['root'];
+  static const knownProps = <String>[
+    'root',
+  ];
 
   const factory GraphUnmuteThreadInput({
     required String root,
-
     Map<String, dynamic>? $unknown,
   }) = _GraphUnmuteThreadInput;
 
@@ -38,12 +39,14 @@ final class GraphUnmuteThreadInputConverter
 
   @override
   GraphUnmuteThreadInput fromJson(Map<String, dynamic> json) {
-    return GraphUnmuteThreadInput.fromJson(
-      translate(json, GraphUnmuteThreadInput.knownProps),
-    );
+    return GraphUnmuteThreadInput.fromJson(translate(
+      json,
+      GraphUnmuteThreadInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(GraphUnmuteThreadInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(GraphUnmuteThreadInput object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -23,13 +23,16 @@ part 'output.g.dart';
 
 @freezed
 abstract class SetGetValuesOutput with _$SetGetValuesOutput {
-  static const knownProps = <String>['set', 'values', 'cursor'];
+  static const knownProps = <String>[
+    'set',
+    'values',
+    'cursor',
+  ];
 
   const factory SetGetValuesOutput({
     @SetViewConverter() required SetView set,
     required List<String> values,
     String? cursor,
-
     Map<String, dynamic>? $unknown,
   }) = _SetGetValuesOutput;
 
@@ -48,12 +51,14 @@ final class SetGetValuesOutputConverter
 
   @override
   SetGetValuesOutput fromJson(Map<String, dynamic> json) {
-    return SetGetValuesOutput.fromJson(
-      translate(json, SetGetValuesOutput.knownProps),
-    );
+    return SetGetValuesOutput.fromJson(translate(
+      json,
+      SetGetValuesOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SetGetValuesOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SetGetValuesOutput object) => untranslate(
+        object.toJson(),
+      );
 }

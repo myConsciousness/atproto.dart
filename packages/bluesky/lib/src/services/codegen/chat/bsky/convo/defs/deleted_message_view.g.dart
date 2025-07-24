@@ -8,29 +8,29 @@ part of 'deleted_message_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_DeletedMessageView _$DeletedMessageViewFromJson(Map json) =>
-    $checkedCreate('_DeletedMessageView', json, ($checkedConvert) {
-      final val = _DeletedMessageView(
-        $type: $checkedConvert(
-          r'$type',
-          (v) => v as String? ?? 'chat.bsky.convo.defs#deletedMessageView',
-        ),
-        id: $checkedConvert('id', (v) => v as String),
-        rev: $checkedConvert('rev', (v) => v as String),
-        sender: $checkedConvert(
-          'sender',
-          (v) => const MessageViewSenderConverter().fromJson(
-            v as Map<String, dynamic>,
-          ),
-        ),
-        sentAt: $checkedConvert('sentAt', (v) => DateTime.parse(v as String)),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+_DeletedMessageView _$DeletedMessageViewFromJson(Map json) => $checkedCreate(
+      '_DeletedMessageView',
+      json,
+      ($checkedConvert) {
+        final val = _DeletedMessageView(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? 'chat.bsky.convo.defs#deletedMessageView'),
+          id: $checkedConvert('id', (v) => v as String),
+          rev: $checkedConvert('rev', (v) => v as String),
+          sender: $checkedConvert(
+              'sender',
+              (v) => const MessageViewSenderConverter()
+                  .fromJson(v as Map<String, dynamic>)),
+          sentAt: $checkedConvert('sentAt', (v) => DateTime.parse(v as String)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$DeletedMessageViewToJson(_DeletedMessageView instance) =>
     <String, dynamic>{

@@ -14,47 +14,65 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$RichtextFacet {
+  String get $type;
+  @RichtextFacetByteSliceConverter()
+  RichtextFacetByteSlice get index;
+  @URichtextFacetFeaturesConverter()
+  List<URichtextFacetFeatures> get features;
+  Map<String, dynamic>? get $unknown;
 
- String get $type;@RichtextFacetByteSliceConverter() RichtextFacetByteSlice get index;@URichtextFacetFeaturesConverter() List<URichtextFacetFeatures> get features; Map<String, dynamic>? get $unknown;
-/// Create a copy of RichtextFacet
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$RichtextFacetCopyWith<RichtextFacet> get copyWith => _$RichtextFacetCopyWithImpl<RichtextFacet>(this as RichtextFacet, _$identity);
+  /// Create a copy of RichtextFacet
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $RichtextFacetCopyWith<RichtextFacet> get copyWith =>
+      _$RichtextFacetCopyWithImpl<RichtextFacet>(
+          this as RichtextFacet, _$identity);
 
   /// Serializes this RichtextFacet to a JSON map.
   Map<String, dynamic> toJson();
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is RichtextFacet &&
+            (identical(other.$type, $type) || other.$type == $type) &&
+            (identical(other.index, index) || other.index == index) &&
+            const DeepCollectionEquality().equals(other.features, features) &&
+            const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RichtextFacet&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.index, index) || other.index == index)&&const DeepCollectionEquality().equals(other.features, features)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
-}
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      $type,
+      index,
+      const DeepCollectionEquality().hash(features),
+      const DeepCollectionEquality().hash($unknown));
 
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,$type,index,const DeepCollectionEquality().hash(features),const DeepCollectionEquality().hash($unknown));
-
-@override
-String toString() {
-  return 'RichtextFacet(\$type: ${$type}, index: $index, features: $features, \$unknown: ${$unknown})';
-}
-
-
+  @override
+  String toString() {
+    return 'RichtextFacet(\$type: ${$type}, index: $index, features: $features, \$unknown: ${$unknown})';
+  }
 }
 
 /// @nodoc
-abstract mixin class $RichtextFacetCopyWith<$Res>  {
-  factory $RichtextFacetCopyWith(RichtextFacet value, $Res Function(RichtextFacet) _then) = _$RichtextFacetCopyWithImpl;
-@useResult
-$Res call({
- String $type,@RichtextFacetByteSliceConverter() RichtextFacetByteSlice index,@URichtextFacetFeaturesConverter() List<URichtextFacetFeatures> features, Map<String, dynamic>? $unknown
-});
+abstract mixin class $RichtextFacetCopyWith<$Res> {
+  factory $RichtextFacetCopyWith(
+          RichtextFacet value, $Res Function(RichtextFacet) _then) =
+      _$RichtextFacetCopyWithImpl;
+  @useResult
+  $Res call(
+      {String $type,
+      @RichtextFacetByteSliceConverter() RichtextFacetByteSlice index,
+      @URichtextFacetFeaturesConverter() List<URichtextFacetFeatures> features,
+      Map<String, dynamic>? $unknown});
 
-
-$RichtextFacetByteSliceCopyWith<$Res> get index;
-
+  $RichtextFacetByteSliceCopyWith<$Res> get index;
 }
+
 /// @nodoc
 class _$RichtextFacetCopyWithImpl<$Res>
     implements $RichtextFacetCopyWith<$Res> {
@@ -63,226 +81,323 @@ class _$RichtextFacetCopyWithImpl<$Res>
   final RichtextFacet _self;
   final $Res Function(RichtextFacet) _then;
 
-/// Create a copy of RichtextFacet
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? index = null,Object? features = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
-$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,index: null == index ? _self.index : index // ignore: cast_nullable_to_non_nullable
-as RichtextFacetByteSlice,features: null == features ? _self.features : features // ignore: cast_nullable_to_non_nullable
-as List<URichtextFacetFeatures>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>?,
-  ));
-}
-/// Create a copy of RichtextFacet
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$RichtextFacetByteSliceCopyWith<$Res> get index {
-  
-  return $RichtextFacetByteSliceCopyWith<$Res>(_self.index, (value) {
-    return _then(_self.copyWith(index: value));
-  });
-}
-}
+  /// Create a copy of RichtextFacet
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? $type = null,
+    Object? index = null,
+    Object? features = null,
+    Object? $unknown = freezed,
+  }) {
+    return _then(_self.copyWith(
+      $type: null == $type
+          ? _self.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
+      index: null == index
+          ? _self.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as RichtextFacetByteSlice,
+      features: null == features
+          ? _self.features
+          : features // ignore: cast_nullable_to_non_nullable
+              as List<URichtextFacetFeatures>,
+      $unknown: freezed == $unknown
+          ? _self.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
 
+  /// Create a copy of RichtextFacet
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RichtextFacetByteSliceCopyWith<$Res> get index {
+    return $RichtextFacetByteSliceCopyWith<$Res>(_self.index, (value) {
+      return _then(_self.copyWith(index: value));
+    });
+  }
+}
 
 /// Adds pattern-matching-related methods to [RichtextFacet].
 extension RichtextFacetPatterns on RichtextFacet {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _RichtextFacet value)?  $default,{required TResult orElse(),}){
-final _that = this;
-switch (_that) {
-case _RichtextFacet() when $default != null:
-return $default(_that);case _:
-  return orElse();
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_RichtextFacet value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _RichtextFacet() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
 
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _RichtextFacet value)  $default,){
-final _that = this;
-switch (_that) {
-case _RichtextFacet():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_RichtextFacet value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _RichtextFacet():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
 
-}
-}
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _RichtextFacet value)?  $default,){
-final _that = this;
-switch (_that) {
-case _RichtextFacet() when $default != null:
-return $default(_that);case _:
-  return null;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_RichtextFacet value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _RichtextFacet() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
 
-}
-}
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @RichtextFacetByteSliceConverter()  RichtextFacetByteSlice index, @URichtextFacetFeaturesConverter()  List<URichtextFacetFeatures> features,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
-switch (_that) {
-case _RichtextFacet() when $default != null:
-return $default(_that.$type,_that.index,_that.features,_that.$unknown);case _:
-  return orElse();
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String $type,
+            @RichtextFacetByteSliceConverter() RichtextFacetByteSlice index,
+            @URichtextFacetFeaturesConverter()
+            List<URichtextFacetFeatures> features,
+            Map<String, dynamic>? $unknown)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _RichtextFacet() when $default != null:
+        return $default(
+            _that.$type, _that.index, _that.features, _that.$unknown);
+      case _:
+        return orElse();
+    }
+  }
 
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @RichtextFacetByteSliceConverter()  RichtextFacetByteSlice index, @URichtextFacetFeaturesConverter()  List<URichtextFacetFeatures> features,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
-switch (_that) {
-case _RichtextFacet():
-return $default(_that.$type,_that.index,_that.features,_that.$unknown);case _:
-  throw StateError('Unexpected subclass');
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String $type,
+            @RichtextFacetByteSliceConverter() RichtextFacetByteSlice index,
+            @URichtextFacetFeaturesConverter()
+            List<URichtextFacetFeatures> features,
+            Map<String, dynamic>? $unknown)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _RichtextFacet():
+        return $default(
+            _that.$type, _that.index, _that.features, _that.$unknown);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
 
-}
-}
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @RichtextFacetByteSliceConverter()  RichtextFacetByteSlice index, @URichtextFacetFeaturesConverter()  List<URichtextFacetFeatures> features,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
-switch (_that) {
-case _RichtextFacet() when $default != null:
-return $default(_that.$type,_that.index,_that.features,_that.$unknown);case _:
-  return null;
-
-}
-}
-
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String $type,
+            @RichtextFacetByteSliceConverter() RichtextFacetByteSlice index,
+            @URichtextFacetFeaturesConverter()
+            List<URichtextFacetFeatures> features,
+            Map<String, dynamic>? $unknown)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _RichtextFacet() when $default != null:
+        return $default(
+            _that.$type, _that.index, _that.features, _that.$unknown);
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
-
 class _RichtextFacet implements RichtextFacet {
-  const _RichtextFacet({this.$type = 'app.bsky.richtext.facet', @RichtextFacetByteSliceConverter() required this.index, @URichtextFacetFeaturesConverter() required final  List<URichtextFacetFeatures> features, final  Map<String, dynamic>? $unknown}): _features = features,_$unknown = $unknown;
-  factory _RichtextFacet.fromJson(Map<String, dynamic> json) => _$RichtextFacetFromJson(json);
+  const _RichtextFacet(
+      {this.$type = 'app.bsky.richtext.facet',
+      @RichtextFacetByteSliceConverter() required this.index,
+      @URichtextFacetFeaturesConverter()
+      required final List<URichtextFacetFeatures> features,
+      final Map<String, dynamic>? $unknown})
+      : _features = features,
+        _$unknown = $unknown;
+  factory _RichtextFacet.fromJson(Map<String, dynamic> json) =>
+      _$RichtextFacetFromJson(json);
 
-@override@JsonKey() final  String $type;
-@override@RichtextFacetByteSliceConverter() final  RichtextFacetByteSlice index;
- final  List<URichtextFacetFeatures> _features;
-@override@URichtextFacetFeaturesConverter() List<URichtextFacetFeatures> get features {
-  if (_features is EqualUnmodifiableListView) return _features;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_features);
-}
+  @override
+  @JsonKey()
+  final String $type;
+  @override
+  @RichtextFacetByteSliceConverter()
+  final RichtextFacetByteSlice index;
+  final List<URichtextFacetFeatures> _features;
+  @override
+  @URichtextFacetFeaturesConverter()
+  List<URichtextFacetFeatures> get features {
+    if (_features is EqualUnmodifiableListView) return _features;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_features);
+  }
 
- final  Map<String, dynamic>? _$unknown;
-@override Map<String, dynamic>? get $unknown {
-  final value = _$unknown;
-  if (value == null) return null;
-  if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableMapView(value);
-}
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
+  /// Create a copy of RichtextFacet
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$RichtextFacetCopyWith<_RichtextFacet> get copyWith =>
+      __$RichtextFacetCopyWithImpl<_RichtextFacet>(this, _$identity);
 
-/// Create a copy of RichtextFacet
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$RichtextFacetCopyWith<_RichtextFacet> get copyWith => __$RichtextFacetCopyWithImpl<_RichtextFacet>(this, _$identity);
+  @override
+  Map<String, dynamic> toJson() {
+    return _$RichtextFacetToJson(
+      this,
+    );
+  }
 
-@override
-Map<String, dynamic> toJson() {
-  return _$RichtextFacetToJson(this, );
-}
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _RichtextFacet &&
+            (identical(other.$type, $type) || other.$type == $type) &&
+            (identical(other.index, index) || other.index == index) &&
+            const DeepCollectionEquality().equals(other._features, _features) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RichtextFacet&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.index, index) || other.index == index)&&const DeepCollectionEquality().equals(other._features, _features)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
-}
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      $type,
+      index,
+      const DeepCollectionEquality().hash(_features),
+      const DeepCollectionEquality().hash(_$unknown));
 
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,$type,index,const DeepCollectionEquality().hash(_features),const DeepCollectionEquality().hash(_$unknown));
-
-@override
-String toString() {
-  return 'RichtextFacet(\$type: ${$type}, index: $index, features: $features, \$unknown: ${$unknown})';
-}
-
-
+  @override
+  String toString() {
+    return 'RichtextFacet(\$type: ${$type}, index: $index, features: $features, \$unknown: ${$unknown})';
+  }
 }
 
 /// @nodoc
-abstract mixin class _$RichtextFacetCopyWith<$Res> implements $RichtextFacetCopyWith<$Res> {
-  factory _$RichtextFacetCopyWith(_RichtextFacet value, $Res Function(_RichtextFacet) _then) = __$RichtextFacetCopyWithImpl;
-@override @useResult
-$Res call({
- String $type,@RichtextFacetByteSliceConverter() RichtextFacetByteSlice index,@URichtextFacetFeaturesConverter() List<URichtextFacetFeatures> features, Map<String, dynamic>? $unknown
-});
+abstract mixin class _$RichtextFacetCopyWith<$Res>
+    implements $RichtextFacetCopyWith<$Res> {
+  factory _$RichtextFacetCopyWith(
+          _RichtextFacet value, $Res Function(_RichtextFacet) _then) =
+      __$RichtextFacetCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String $type,
+      @RichtextFacetByteSliceConverter() RichtextFacetByteSlice index,
+      @URichtextFacetFeaturesConverter() List<URichtextFacetFeatures> features,
+      Map<String, dynamic>? $unknown});
 
-
-@override $RichtextFacetByteSliceCopyWith<$Res> get index;
-
+  @override
+  $RichtextFacetByteSliceCopyWith<$Res> get index;
 }
+
 /// @nodoc
 class __$RichtextFacetCopyWithImpl<$Res>
     implements _$RichtextFacetCopyWith<$Res> {
@@ -291,28 +406,45 @@ class __$RichtextFacetCopyWithImpl<$Res>
   final _RichtextFacet _self;
   final $Res Function(_RichtextFacet) _then;
 
-/// Create a copy of RichtextFacet
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? index = null,Object? features = null,Object? $unknown = freezed,}) {
-  return _then(_RichtextFacet(
-$type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,index: null == index ? _self.index : index // ignore: cast_nullable_to_non_nullable
-as RichtextFacetByteSlice,features: null == features ? _self._features : features // ignore: cast_nullable_to_non_nullable
-as List<URichtextFacetFeatures>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>?,
-  ));
-}
+  /// Create a copy of RichtextFacet
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? $type = null,
+    Object? index = null,
+    Object? features = null,
+    Object? $unknown = freezed,
+  }) {
+    return _then(_RichtextFacet(
+      $type: null == $type
+          ? _self.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
+      index: null == index
+          ? _self.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as RichtextFacetByteSlice,
+      features: null == features
+          ? _self._features
+          : features // ignore: cast_nullable_to_non_nullable
+              as List<URichtextFacetFeatures>,
+      $unknown: freezed == $unknown
+          ? _self._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
 
-/// Create a copy of RichtextFacet
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$RichtextFacetByteSliceCopyWith<$Res> get index {
-  
-  return $RichtextFacetByteSliceCopyWith<$Res>(_self.index, (value) {
-    return _then(_self.copyWith(index: value));
-  });
-}
+  /// Create a copy of RichtextFacet
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RichtextFacetByteSliceCopyWith<$Res> get index {
+    return $RichtextFacetByteSliceCopyWith<$Res>(_self.index, (value) {
+      return _then(_self.copyWith(index: value));
+    });
+  }
 }
 
 // dart format on

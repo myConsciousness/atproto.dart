@@ -53,7 +53,6 @@ abstract class ActorProfileRecord with _$ActorProfileRecord {
     @RepoStrongRefConverter() RepoStrongRef? joinedViaStarterPack,
     @RepoStrongRefConverter() RepoStrongRef? pinnedPost,
     DateTime? createdAt,
-
     Map<String, dynamic>? $unknown,
   }) = _ActorProfileRecord;
 
@@ -91,12 +90,14 @@ final class ActorProfileRecordConverter
 
   @override
   ActorProfileRecord fromJson(Map<String, dynamic> json) {
-    return ActorProfileRecord.fromJson(
-      translate(json, ActorProfileRecord.knownProps),
-    );
+    return ActorProfileRecord.fromJson(translate(
+      json,
+      ActorProfileRecord.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ActorProfileRecord object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ActorProfileRecord object) => untranslate(
+        object.toJson(),
+      );
 }

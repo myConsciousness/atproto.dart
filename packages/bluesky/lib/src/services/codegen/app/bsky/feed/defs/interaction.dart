@@ -23,7 +23,12 @@ part 'interaction.g.dart';
 
 @freezed
 abstract class Interaction with _$Interaction {
-  static const knownProps = <String>['item', 'event', 'feedContext', 'reqId'];
+  static const knownProps = <String>[
+    'item',
+    'event',
+    'feedContext',
+    'reqId',
+  ];
 
   const factory Interaction({
     @Default('app.bsky.feed.defs#interaction') String $type,
@@ -35,7 +40,6 @@ abstract class Interaction with _$Interaction {
 
     /// Unique identifier per request that may be passed back alongside interactions.
     String? reqId,
-
     Map<String, dynamic>? $unknown,
   }) = _Interaction;
 
@@ -65,10 +69,14 @@ final class InteractionConverter
 
   @override
   Interaction fromJson(Map<String, dynamic> json) {
-    return Interaction.fromJson(translate(json, Interaction.knownProps));
+    return Interaction.fromJson(translate(
+      json,
+      Interaction.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(Interaction object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(Interaction object) => untranslate(
+        object.toJson(),
+      );
 }

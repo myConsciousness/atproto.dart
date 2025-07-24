@@ -26,8 +26,9 @@ abstract class TrendViewStatus with _$TrendViewStatus {
     required KnownTrendViewStatus data,
   }) = TrendViewStatusKnownValue;
 
-  const factory TrendViewStatus.unknown({required String data}) =
-      TrendViewStatusUnknown;
+  const factory TrendViewStatus.unknown({
+    required String data,
+  }) = TrendViewStatusUnknown;
 
   static TrendViewStatus? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,13 +71,16 @@ final class TrendViewStatusConverter
   }
 
   @override
-  String toJson(TrendViewStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(TrendViewStatus object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownTrendViewStatus implements Serializable {
   @JsonValue('hot')
-  hot('hot');
+  hot('hot'),
+  ;
 
   @override
   final String value;

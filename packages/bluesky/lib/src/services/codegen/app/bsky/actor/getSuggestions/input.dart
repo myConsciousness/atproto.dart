@@ -20,12 +20,14 @@ part 'input.g.dart';
 
 @freezed
 abstract class ActorGetSuggestionsInput with _$ActorGetSuggestionsInput {
-  static const knownProps = <String>['limit', 'cursor'];
+  static const knownProps = <String>[
+    'limit',
+    'cursor',
+  ];
 
   const factory ActorGetSuggestionsInput({
     @Default(50) int limit,
     String? cursor,
-
     Map<String, dynamic>? $unknown,
   }) = _ActorGetSuggestionsInput;
 
@@ -44,12 +46,14 @@ final class ActorGetSuggestionsInputConverter
 
   @override
   ActorGetSuggestionsInput fromJson(Map<String, dynamic> json) {
-    return ActorGetSuggestionsInput.fromJson(
-      translate(json, ActorGetSuggestionsInput.knownProps),
-    );
+    return ActorGetSuggestionsInput.fromJson(translate(
+      json,
+      ActorGetSuggestionsInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ActorGetSuggestionsInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ActorGetSuggestionsInput object) => untranslate(
+        object.toJson(),
+      );
 }

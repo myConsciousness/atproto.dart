@@ -20,12 +20,13 @@ part 'input.g.dart';
 
 @freezed
 abstract class RepoDescribeRepoInput with _$RepoDescribeRepoInput {
-  static const knownProps = <String>['repo'];
+  static const knownProps = <String>[
+    'repo',
+  ];
 
   const factory RepoDescribeRepoInput({
     /// The handle or DID of the repo.
     required String repo,
-
     Map<String, dynamic>? $unknown,
   }) = _RepoDescribeRepoInput;
 
@@ -39,12 +40,14 @@ final class RepoDescribeRepoInputConverter
 
   @override
   RepoDescribeRepoInput fromJson(Map<String, dynamic> json) {
-    return RepoDescribeRepoInput.fromJson(
-      translate(json, RepoDescribeRepoInput.knownProps),
-    );
+    return RepoDescribeRepoInput.fromJson(translate(
+      json,
+      RepoDescribeRepoInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(RepoDescribeRepoInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(RepoDescribeRepoInput object) => untranslate(
+        object.toJson(),
+      );
 }

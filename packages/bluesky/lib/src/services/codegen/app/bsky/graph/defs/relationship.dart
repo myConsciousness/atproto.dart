@@ -21,7 +21,11 @@ part 'relationship.g.dart';
 /// lists the bi-directional graph relationships between one actor (not indicated in the object), and the target actors (the DID included in the object)
 @freezed
 abstract class Relationship with _$Relationship {
-  static const knownProps = <String>['did', 'following', 'followedBy'];
+  static const knownProps = <String>[
+    'did',
+    'following',
+    'followedBy',
+  ];
 
   const factory Relationship({
     @Default('app.bsky.graph.defs#relationship') String $type,
@@ -32,7 +36,6 @@ abstract class Relationship with _$Relationship {
 
     /// if the actor is followed by this DID, contains the AT-URI of the follow record
     String? followedBy,
-
     Map<String, dynamic>? $unknown,
   }) = _Relationship;
 
@@ -58,10 +61,14 @@ final class RelationshipConverter
 
   @override
   Relationship fromJson(Map<String, dynamic> json) {
-    return Relationship.fromJson(translate(json, Relationship.knownProps));
+    return Relationship.fromJson(translate(
+      json,
+      Relationship.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(Relationship object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(Relationship object) => untranslate(
+        object.toJson(),
+      );
 }

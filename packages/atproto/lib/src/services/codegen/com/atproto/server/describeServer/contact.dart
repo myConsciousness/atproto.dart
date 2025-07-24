@@ -20,12 +20,13 @@ part 'contact.g.dart';
 
 @freezed
 abstract class Contact with _$Contact {
-  static const knownProps = <String>['email'];
+  static const knownProps = <String>[
+    'email',
+  ];
 
   const factory Contact({
     @Default('com.atproto.server.describeServer#contact') String $type,
     String? email,
-
     Map<String, dynamic>? $unknown,
   }) = _Contact;
 
@@ -49,9 +50,14 @@ final class ContactConverter
 
   @override
   Contact fromJson(Map<String, dynamic> json) {
-    return Contact.fromJson(translate(json, Contact.knownProps));
+    return Contact.fromJson(translate(
+      json,
+      Contact.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(Contact object) => untranslate(object.toJson());
+  Map<String, dynamic> toJson(Contact object) => untranslate(
+        object.toJson(),
+      );
 }

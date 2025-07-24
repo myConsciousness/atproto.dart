@@ -17,9 +17,18 @@ import '../../../../procedure_command.dart';
 final class DeleteAccountCommand extends ProcedureCommand {
   DeleteAccountCommand() {
     argParser
-      ..addOption("did", mandatory: true)
-      ..addOption("password", mandatory: true)
-      ..addOption("token", mandatory: true);
+      ..addOption(
+        "did",
+        mandatory: true,
+      )
+      ..addOption(
+        "password",
+        mandatory: true,
+      )
+      ..addOption(
+        "token",
+        mandatory: true,
+      );
   }
 
   @override
@@ -38,8 +47,8 @@ final class DeleteAccountCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "did": argResults!["did"],
-    "password": argResults!["password"],
-    "token": argResults!["token"],
-  };
+        "did": argResults!["did"],
+        "password": argResults!["password"],
+        "token": argResults!["token"],
+      };
 }

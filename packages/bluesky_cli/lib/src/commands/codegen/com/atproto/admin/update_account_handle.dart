@@ -17,8 +17,14 @@ import '../../../../procedure_command.dart';
 final class UpdateAccountHandleCommand extends ProcedureCommand {
   UpdateAccountHandleCommand() {
     argParser
-      ..addOption("did", mandatory: true)
-      ..addOption("handle", mandatory: true);
+      ..addOption(
+        "did",
+        mandatory: true,
+      )
+      ..addOption(
+        "handle",
+        mandatory: true,
+      );
   }
 
   @override
@@ -37,7 +43,7 @@ final class UpdateAccountHandleCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "did": argResults!["did"],
-    "handle": argResults!["handle"],
-  };
+        "did": argResults!["did"],
+        "handle": argResults!["handle"],
+      };
 }

@@ -33,13 +33,12 @@ abstract class IdentityGetRecommendedDidCredentialsOutput
     List<String>? alsoKnownAs,
     Map<String, dynamic>? verificationMethods,
     Map<String, dynamic>? services,
-
     Map<String, dynamic>? $unknown,
   }) = _IdentityGetRecommendedDidCredentialsOutput;
 
   factory IdentityGetRecommendedDidCredentialsOutput.fromJson(
-    Map<String, Object?> json,
-  ) => _$IdentityGetRecommendedDidCredentialsOutputFromJson(json);
+          Map<String, Object?> json) =>
+      _$IdentityGetRecommendedDidCredentialsOutputFromJson(json);
 }
 
 extension IdentityGetRecommendedDidCredentialsOutputExtension
@@ -51,24 +50,23 @@ extension IdentityGetRecommendedDidCredentialsOutputExtension
 }
 
 final class IdentityGetRecommendedDidCredentialsOutputConverter
-    extends
-        JsonConverter<
-          IdentityGetRecommendedDidCredentialsOutput,
-          Map<String, dynamic>
-        > {
+    extends JsonConverter<IdentityGetRecommendedDidCredentialsOutput,
+        Map<String, dynamic>> {
   const IdentityGetRecommendedDidCredentialsOutputConverter();
 
   @override
   IdentityGetRecommendedDidCredentialsOutput fromJson(
-    Map<String, dynamic> json,
-  ) {
-    return IdentityGetRecommendedDidCredentialsOutput.fromJson(
-      translate(json, IdentityGetRecommendedDidCredentialsOutput.knownProps),
-    );
+      Map<String, dynamic> json) {
+    return IdentityGetRecommendedDidCredentialsOutput.fromJson(translate(
+      json,
+      IdentityGetRecommendedDidCredentialsOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(
-    IdentityGetRecommendedDidCredentialsOutput object,
-  ) => untranslate(object.toJson());
+          IdentityGetRecommendedDidCredentialsOutput object) =>
+      untranslate(
+        object.toJson(),
+      );
 }

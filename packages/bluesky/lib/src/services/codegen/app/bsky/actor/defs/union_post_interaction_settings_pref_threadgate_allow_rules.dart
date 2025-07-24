@@ -46,9 +46,8 @@ abstract class UPostInteractionSettingsPrefThreadgateAllowRules
   }) = UPostInteractionSettingsPrefThreadgateAllowRulesUnknown;
 
   Map<String, dynamic> toJson() =>
-      const UPostInteractionSettingsPrefThreadgateAllowRulesConverter().toJson(
-        this,
-      );
+      const UPostInteractionSettingsPrefThreadgateAllowRulesConverter()
+          .toJson(this);
 }
 
 extension UPostInteractionSettingsPrefThreadgateAllowRulesExtension
@@ -80,16 +79,13 @@ extension UPostInteractionSettingsPrefThreadgateAllowRulesExtension
 
 final class UPostInteractionSettingsPrefThreadgateAllowRulesConverter
     implements
-        JsonConverter<
-          UPostInteractionSettingsPrefThreadgateAllowRules,
-          Map<String, dynamic>
-        > {
+        JsonConverter<UPostInteractionSettingsPrefThreadgateAllowRules,
+            Map<String, dynamic>> {
   const UPostInteractionSettingsPrefThreadgateAllowRulesConverter();
 
   @override
   UPostInteractionSettingsPrefThreadgateAllowRules fromJson(
-    Map<String, dynamic> json,
-  ) {
+      Map<String, dynamic> json) {
     try {
       if (MentionRule.validate(json)) {
         return UPostInteractionSettingsPrefThreadgateAllowRules.mentionRule(
@@ -113,24 +109,21 @@ final class UPostInteractionSettingsPrefThreadgateAllowRulesConverter
       }
 
       return UPostInteractionSettingsPrefThreadgateAllowRules.unknown(
-        data: json,
-      );
+          data: json);
     } catch (_) {
       return UPostInteractionSettingsPrefThreadgateAllowRules.unknown(
-        data: json,
-      );
+          data: json);
     }
   }
 
   @override
   Map<String, dynamic> toJson(
-    UPostInteractionSettingsPrefThreadgateAllowRules object,
-  ) => object.when(
-    mentionRule: (data) => const MentionRuleConverter().toJson(data),
-    followerRule: (data) => const FollowerRuleConverter().toJson(data),
-    followingRule: (data) => const FollowingRuleConverter().toJson(data),
-    listRule: (data) => const ListRuleConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+          UPostInteractionSettingsPrefThreadgateAllowRules object) =>
+      object.when(
+        mentionRule: (data) => const MentionRuleConverter().toJson(data),
+        followerRule: (data) => const FollowerRuleConverter().toJson(data),
+        followingRule: (data) => const FollowingRuleConverter().toJson(data),
+        listRule: (data) => const ListRuleConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

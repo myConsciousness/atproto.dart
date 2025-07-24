@@ -57,7 +57,6 @@ abstract class ProfileView with _$ProfileView {
     @LabelConverter() List<Label>? labels,
     @VerificationStateConverter() VerificationState? verification,
     @StatusViewConverter() StatusView? status,
-
     Map<String, dynamic>? $unknown,
   }) = _ProfileView;
 
@@ -97,10 +96,14 @@ final class ProfileViewConverter
 
   @override
   ProfileView fromJson(Map<String, dynamic> json) {
-    return ProfileView.fromJson(translate(json, ProfileView.knownProps));
+    return ProfileView.fromJson(translate(
+      json,
+      ProfileView.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ProfileView object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ProfileView object) => untranslate(
+        object.toJson(),
+      );
 }

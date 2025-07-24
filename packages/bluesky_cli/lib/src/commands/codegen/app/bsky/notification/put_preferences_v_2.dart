@@ -20,19 +20,45 @@ import '../../../../procedure_command.dart';
 final class PutPreferencesV2Command extends ProcedureCommand {
   PutPreferencesV2Command() {
     argParser
-      ..addOption("chat")
-      ..addOption("follow")
-      ..addOption("like")
-      ..addOption("likeViaRepost")
-      ..addOption("mention")
-      ..addOption("quote")
-      ..addOption("reply")
-      ..addOption("repost")
-      ..addOption("repostViaRepost")
-      ..addOption("starterpackJoined")
-      ..addOption("subscribedPost")
-      ..addOption("unverified")
-      ..addOption("verified");
+      ..addOption(
+        "chat",
+      )
+      ..addOption(
+        "follow",
+      )
+      ..addOption(
+        "like",
+      )
+      ..addOption(
+        "likeViaRepost",
+      )
+      ..addOption(
+        "mention",
+      )
+      ..addOption(
+        "quote",
+      )
+      ..addOption(
+        "reply",
+      )
+      ..addOption(
+        "repost",
+      )
+      ..addOption(
+        "repostViaRepost",
+      )
+      ..addOption(
+        "starterpackJoined",
+      )
+      ..addOption(
+        "subscribedPost",
+      )
+      ..addOption(
+        "unverified",
+      )
+      ..addOption(
+        "verified",
+      );
   }
 
   @override
@@ -51,27 +77,31 @@ final class PutPreferencesV2Command extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    if (argResults!["chat"] != null) "chat": jsonDecode(argResults!["chat"]),
-    if (argResults!["follow"] != null)
-      "follow": jsonDecode(argResults!["follow"]),
-    if (argResults!["like"] != null) "like": jsonDecode(argResults!["like"]),
-    if (argResults!["likeViaRepost"] != null)
-      "likeViaRepost": jsonDecode(argResults!["likeViaRepost"]),
-    if (argResults!["mention"] != null)
-      "mention": jsonDecode(argResults!["mention"]),
-    if (argResults!["quote"] != null) "quote": jsonDecode(argResults!["quote"]),
-    if (argResults!["reply"] != null) "reply": jsonDecode(argResults!["reply"]),
-    if (argResults!["repost"] != null)
-      "repost": jsonDecode(argResults!["repost"]),
-    if (argResults!["repostViaRepost"] != null)
-      "repostViaRepost": jsonDecode(argResults!["repostViaRepost"]),
-    if (argResults!["starterpackJoined"] != null)
-      "starterpackJoined": jsonDecode(argResults!["starterpackJoined"]),
-    if (argResults!["subscribedPost"] != null)
-      "subscribedPost": jsonDecode(argResults!["subscribedPost"]),
-    if (argResults!["unverified"] != null)
-      "unverified": jsonDecode(argResults!["unverified"]),
-    if (argResults!["verified"] != null)
-      "verified": jsonDecode(argResults!["verified"]),
-  };
+        if (argResults!["chat"] != null)
+          "chat": jsonDecode(argResults!["chat"]),
+        if (argResults!["follow"] != null)
+          "follow": jsonDecode(argResults!["follow"]),
+        if (argResults!["like"] != null)
+          "like": jsonDecode(argResults!["like"]),
+        if (argResults!["likeViaRepost"] != null)
+          "likeViaRepost": jsonDecode(argResults!["likeViaRepost"]),
+        if (argResults!["mention"] != null)
+          "mention": jsonDecode(argResults!["mention"]),
+        if (argResults!["quote"] != null)
+          "quote": jsonDecode(argResults!["quote"]),
+        if (argResults!["reply"] != null)
+          "reply": jsonDecode(argResults!["reply"]),
+        if (argResults!["repost"] != null)
+          "repost": jsonDecode(argResults!["repost"]),
+        if (argResults!["repostViaRepost"] != null)
+          "repostViaRepost": jsonDecode(argResults!["repostViaRepost"]),
+        if (argResults!["starterpackJoined"] != null)
+          "starterpackJoined": jsonDecode(argResults!["starterpackJoined"]),
+        if (argResults!["subscribedPost"] != null)
+          "subscribedPost": jsonDecode(argResults!["subscribedPost"]),
+        if (argResults!["unverified"] != null)
+          "unverified": jsonDecode(argResults!["unverified"]),
+        if (argResults!["verified"] != null)
+          "verified": jsonDecode(argResults!["verified"]),
+      };
 }

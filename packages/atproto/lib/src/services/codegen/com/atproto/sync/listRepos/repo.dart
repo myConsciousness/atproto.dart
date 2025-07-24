@@ -23,7 +23,13 @@ part 'repo.g.dart';
 
 @freezed
 abstract class Repo with _$Repo {
-  static const knownProps = <String>['did', 'head', 'rev', 'active', 'status'];
+  static const knownProps = <String>[
+    'did',
+    'head',
+    'rev',
+    'active',
+    'status',
+  ];
 
   const factory Repo({
     @Default('com.atproto.sync.listRepos#repo') String $type,
@@ -36,7 +42,6 @@ abstract class Repo with _$Repo {
 
     /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
     @RepoStatusConverter() RepoStatus? status,
-
     Map<String, dynamic>? $unknown,
   }) = _Repo;
 
@@ -60,9 +65,14 @@ final class RepoConverter extends JsonConverter<Repo, Map<String, dynamic>> {
 
   @override
   Repo fromJson(Map<String, dynamic> json) {
-    return Repo.fromJson(translate(json, Repo.knownProps));
+    return Repo.fromJson(translate(
+      json,
+      Repo.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(Repo object) => untranslate(object.toJson());
+  Map<String, dynamic> toJson(Repo object) => untranslate(
+        object.toJson(),
+      );
 }

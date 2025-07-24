@@ -20,11 +20,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class AdminSendEmailOutput with _$AdminSendEmailOutput {
-  static const knownProps = <String>['sent'];
+  static const knownProps = <String>[
+    'sent',
+  ];
 
   const factory AdminSendEmailOutput({
     required bool sent,
-
     Map<String, dynamic>? $unknown,
   }) = _AdminSendEmailOutput;
 
@@ -43,12 +44,14 @@ final class AdminSendEmailOutputConverter
 
   @override
   AdminSendEmailOutput fromJson(Map<String, dynamic> json) {
-    return AdminSendEmailOutput.fromJson(
-      translate(json, AdminSendEmailOutput.knownProps),
-    );
+    return AdminSendEmailOutput.fromJson(translate(
+      json,
+      AdminSendEmailOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(AdminSendEmailOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(AdminSendEmailOutput object) => untranslate(
+        object.toJson(),
+      );
 }

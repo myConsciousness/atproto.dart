@@ -20,12 +20,13 @@ part 'input.g.dart';
 
 @freezed
 abstract class FeedGetFeedGeneratorInput with _$FeedGetFeedGeneratorInput {
-  static const knownProps = <String>['feed'];
+  static const knownProps = <String>[
+    'feed',
+  ];
 
   const factory FeedGetFeedGeneratorInput({
     /// AT-URI of the feed generator record.
     required String feed,
-
     Map<String, dynamic>? $unknown,
   }) = _FeedGetFeedGeneratorInput;
 
@@ -39,12 +40,14 @@ final class FeedGetFeedGeneratorInputConverter
 
   @override
   FeedGetFeedGeneratorInput fromJson(Map<String, dynamic> json) {
-    return FeedGetFeedGeneratorInput.fromJson(
-      translate(json, FeedGetFeedGeneratorInput.knownProps),
-    );
+    return FeedGetFeedGeneratorInput.fromJson(translate(
+      json,
+      FeedGetFeedGeneratorInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetFeedGeneratorInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FeedGetFeedGeneratorInput object) => untranslate(
+        object.toJson(),
+      );
 }

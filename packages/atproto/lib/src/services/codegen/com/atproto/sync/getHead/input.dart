@@ -20,12 +20,13 @@ part 'input.g.dart';
 
 @freezed
 abstract class SyncGetHeadInput with _$SyncGetHeadInput {
-  static const knownProps = <String>['did'];
+  static const knownProps = <String>[
+    'did',
+  ];
 
   const factory SyncGetHeadInput({
     /// The DID of the repo.
     required String did,
-
     Map<String, dynamic>? $unknown,
   }) = _SyncGetHeadInput;
 
@@ -39,12 +40,14 @@ final class SyncGetHeadInputConverter
 
   @override
   SyncGetHeadInput fromJson(Map<String, dynamic> json) {
-    return SyncGetHeadInput.fromJson(
-      translate(json, SyncGetHeadInput.knownProps),
-    );
+    return SyncGetHeadInput.fromJson(translate(
+      json,
+      SyncGetHeadInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SyncGetHeadInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SyncGetHeadInput object) => untranslate(
+        object.toJson(),
+      );
 }

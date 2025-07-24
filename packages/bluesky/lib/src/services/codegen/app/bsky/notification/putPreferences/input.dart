@@ -21,11 +21,12 @@ part 'input.g.dart';
 @freezed
 abstract class NotificationPutPreferencesInput
     with _$NotificationPutPreferencesInput {
-  static const knownProps = <String>['priority'];
+  static const knownProps = <String>[
+    'priority',
+  ];
 
   const factory NotificationPutPreferencesInput({
     required bool priority,
-
     Map<String, dynamic>? $unknown,
   }) = _NotificationPutPreferencesInput;
 
@@ -39,19 +40,21 @@ extension NotificationPutPreferencesInputExtension
   bool get isNotPriority => !isPriority;
 }
 
-final class NotificationPutPreferencesInputConverter
-    extends
-        JsonConverter<NotificationPutPreferencesInput, Map<String, dynamic>> {
+final class NotificationPutPreferencesInputConverter extends JsonConverter<
+    NotificationPutPreferencesInput, Map<String, dynamic>> {
   const NotificationPutPreferencesInputConverter();
 
   @override
   NotificationPutPreferencesInput fromJson(Map<String, dynamic> json) {
-    return NotificationPutPreferencesInput.fromJson(
-      translate(json, NotificationPutPreferencesInput.knownProps),
-    );
+    return NotificationPutPreferencesInput.fromJson(translate(
+      json,
+      NotificationPutPreferencesInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(NotificationPutPreferencesInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

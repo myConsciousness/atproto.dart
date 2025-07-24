@@ -25,7 +25,10 @@ final class RemoveRuleCommand extends ProcedureCommand {
         help: r"The URL or domain to remove the rule for",
         mandatory: true,
       )
-      ..addOption("pattern", mandatory: true)
+      ..addOption(
+        "pattern",
+        mandatory: true,
+      )
       ..addOption(
         "comment",
         help: r"Optional comment about why the rule is being removed",
@@ -52,9 +55,10 @@ final class RemoveRuleCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "url": argResults!["url"],
-    "pattern": jsonDecode(argResults!["pattern"]),
-    if (argResults!["comment"] != null) "comment": argResults!["comment"],
-    if (argResults!["createdBy"] != null) "createdBy": argResults!["createdBy"],
-  };
+        "url": argResults!["url"],
+        "pattern": jsonDecode(argResults!["pattern"]),
+        if (argResults!["comment"] != null) "comment": argResults!["comment"],
+        if (argResults!["createdBy"] != null)
+          "createdBy": argResults!["createdBy"],
+      };
 }

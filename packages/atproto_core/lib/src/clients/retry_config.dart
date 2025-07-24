@@ -38,7 +38,7 @@ import 'retry_event.dart';
 final class RetryConfig {
   /// Returns the new instance of [RetryConfig].
   RetryConfig({required this.maxAttempts, Jitter? jitter, this.onExecute})
-    : jitter = jitter ?? Jitter(maxInSeconds: 4) {
+      : jitter = jitter ?? Jitter(maxInSeconds: 4) {
     if (maxAttempts < 0) {
       //! There is no use case where the number of retries is negative.
       throw ArgumentError.value(

@@ -22,7 +22,7 @@ abstract class InterpretedLabelValueDefinition
     required String blurs,
     @Default({})
     Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>>
-    behaviors,
+        behaviors,
     String? definedBy,
   }) = _InterpretedLabelValueDefinition;
 }

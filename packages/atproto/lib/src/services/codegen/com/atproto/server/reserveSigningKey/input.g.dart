@@ -9,18 +9,26 @@ part of 'input.dart';
 // **************************************************************************
 
 _ServerReserveSigningKeyInput _$ServerReserveSigningKeyInputFromJson(
-  Map json,
-) => $checkedCreate('_ServerReserveSigningKeyInput', json, ($checkedConvert) {
-  final val = _ServerReserveSigningKeyInput(
-    did: $checkedConvert('did', (v) => v as String?),
-    $unknown: $checkedConvert(
-      r'$unknown',
-      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-    ),
-  );
-  return val;
-});
+        Map json) =>
+    $checkedCreate(
+      '_ServerReserveSigningKeyInput',
+      json,
+      ($checkedConvert) {
+        final val = _ServerReserveSigningKeyInput(
+          did: $checkedConvert('did', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$ServerReserveSigningKeyInputToJson(
-  _ServerReserveSigningKeyInput instance,
-) => <String, dynamic>{'did': instance.did, r'$unknown': instance.$unknown};
+        _ServerReserveSigningKeyInput instance) =>
+    <String, dynamic>{
+      'did': instance.did,
+      r'$unknown': instance.$unknown,
+    };

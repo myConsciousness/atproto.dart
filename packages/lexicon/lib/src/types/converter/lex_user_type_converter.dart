@@ -72,19 +72,19 @@ final class LexUserTypeConverter
 
   @override
   Map<String, dynamic> toJson(LexUserType object) => object.when(
-    record: (data) => data.toJson(),
-    xrpcQuery: (data) => data.toJson(),
-    xrpcProcedure: (data) => data.toJson(),
-    xrpcSubscription: (data) => data.toJson(),
-    blob: (data) => data.toJson(),
-    array: (data) => data.toJson(),
-    token: (data) => data.toJson(),
-    object: (data) => data.toJson(),
-    boolean: (data) => data.toJson(),
-    integer: (data) => data.toJson(),
-    string: (data) => data.toJson(),
-    bytes: (data) => data.toJson(),
-    cidLink: (data) => data.toJson(),
-    unknown: (data) => data.toJson(),
-  );
+        record: (data) => data.toJson(),
+        xrpcQuery: (data) => data.toJson(),
+        xrpcProcedure: (data) => data.toJson(),
+        xrpcSubscription: (data) => data.toJson(),
+        blob: (data) => data.toJson(),
+        array: (data) => data.toJson(),
+        token: (data) => data.toJson(),
+        object: (data) => data.toJson(),
+        boolean: (data) => data.toJson(),
+        integer: (data) => data.toJson(),
+        string: (data) => data.toJson(),
+        bytes: (data) => data.toJson(),
+        cidLink: (data) => data.toJson(),
+        unknown: (data) => data.toJson(),
+      );
 }

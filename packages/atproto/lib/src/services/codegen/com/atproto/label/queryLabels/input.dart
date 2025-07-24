@@ -32,7 +32,6 @@ abstract class LabelQueryLabelsInput with _$LabelQueryLabelsInput {
     List<String>? sources,
     @Default(50) int limit,
     String? cursor,
-
     Map<String, dynamic>? $unknown,
   }) = _LabelQueryLabelsInput;
 
@@ -51,12 +50,14 @@ final class LabelQueryLabelsInputConverter
 
   @override
   LabelQueryLabelsInput fromJson(Map<String, dynamic> json) {
-    return LabelQueryLabelsInput.fromJson(
-      translate(json, LabelQueryLabelsInput.knownProps),
-    );
+    return LabelQueryLabelsInput.fromJson(translate(
+      json,
+      LabelQueryLabelsInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(LabelQueryLabelsInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(LabelQueryLabelsInput object) => untranslate(
+        object.toJson(),
+      );
 }

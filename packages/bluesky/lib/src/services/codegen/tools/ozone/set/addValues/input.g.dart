@@ -8,21 +8,23 @@ part of 'input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_SetAddValuesInput _$SetAddValuesInputFromJson(Map json) =>
-    $checkedCreate('_SetAddValuesInput', json, ($checkedConvert) {
-      final val = _SetAddValuesInput(
-        name: $checkedConvert('name', (v) => v as String),
-        values: $checkedConvert(
-          'values',
-          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
-        ),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+_SetAddValuesInput _$SetAddValuesInputFromJson(Map json) => $checkedCreate(
+      '_SetAddValuesInput',
+      json,
+      ($checkedConvert) {
+        final val = _SetAddValuesInput(
+          name: $checkedConvert('name', (v) => v as String),
+          values: $checkedConvert('values',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$SetAddValuesInputToJson(_SetAddValuesInput instance) =>
     <String, dynamic>{

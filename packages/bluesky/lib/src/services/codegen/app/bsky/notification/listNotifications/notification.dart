@@ -51,7 +51,6 @@ abstract class Notification with _$Notification {
     required bool isRead,
     required DateTime indexedAt,
     @LabelConverter() List<Label>? labels,
-
     Map<String, dynamic>? $unknown,
   }) = _Notification;
 
@@ -78,10 +77,14 @@ final class NotificationConverter
 
   @override
   Notification fromJson(Map<String, dynamic> json) {
-    return Notification.fromJson(translate(json, Notification.knownProps));
+    return Notification.fromJson(translate(
+      json,
+      Notification.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(Notification object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(Notification object) => untranslate(
+        object.toJson(),
+      );
 }

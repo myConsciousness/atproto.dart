@@ -20,13 +20,15 @@ part 'main.g.dart';
 
 @freezed
 abstract class RepoStrongRef with _$RepoStrongRef {
-  static const knownProps = <String>['uri', 'cid'];
+  static const knownProps = <String>[
+    'uri',
+    'cid',
+  ];
 
   const factory RepoStrongRef({
     @Default('com.atproto.repo.strongRef') String $type,
     required String uri,
     required String cid,
-
     Map<String, dynamic>? $unknown,
   }) = _RepoStrongRef;
 
@@ -46,10 +48,14 @@ final class RepoStrongRefConverter
 
   @override
   RepoStrongRef fromJson(Map<String, dynamic> json) {
-    return RepoStrongRef.fromJson(translate(json, RepoStrongRef.knownProps));
+    return RepoStrongRef.fromJson(translate(
+      json,
+      RepoStrongRef.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(RepoStrongRef object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(RepoStrongRef object) => untranslate(
+        object.toJson(),
+      );
 }

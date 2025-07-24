@@ -75,8 +75,10 @@ final class ProfileAssociatedChatAllowIncomingConverter
   }
 
   @override
-  String toJson(ProfileAssociatedChatAllowIncoming object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ProfileAssociatedChatAllowIncoming object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownProfileAssociatedChatAllowIncoming implements Serializable {
@@ -85,7 +87,8 @@ enum KnownProfileAssociatedChatAllowIncoming implements Serializable {
   @JsonValue('none')
   none('none'),
   @JsonValue('following')
-  following('following');
+  following('following'),
+  ;
 
   @override
   final String value;

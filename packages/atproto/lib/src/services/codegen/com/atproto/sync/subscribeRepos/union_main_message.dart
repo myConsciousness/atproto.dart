@@ -28,16 +28,21 @@ part 'union_main_message.freezed.dart';
 abstract class USyncSubscribeReposMessage with _$USyncSubscribeReposMessage {
   const USyncSubscribeReposMessage._();
 
-  const factory USyncSubscribeReposMessage.commit({required Commit data}) =
-      USyncSubscribeReposMessageCommit;
-  const factory USyncSubscribeReposMessage.sync({required Sync data}) =
-      USyncSubscribeReposMessageSync;
-  const factory USyncSubscribeReposMessage.identity({required Identity data}) =
-      USyncSubscribeReposMessageIdentity;
-  const factory USyncSubscribeReposMessage.account({required Account data}) =
-      USyncSubscribeReposMessageAccount;
-  const factory USyncSubscribeReposMessage.info({required Info data}) =
-      USyncSubscribeReposMessageInfo;
+  const factory USyncSubscribeReposMessage.commit({
+    required Commit data,
+  }) = USyncSubscribeReposMessageCommit;
+  const factory USyncSubscribeReposMessage.sync({
+    required Sync data,
+  }) = USyncSubscribeReposMessageSync;
+  const factory USyncSubscribeReposMessage.identity({
+    required Identity data,
+  }) = USyncSubscribeReposMessageIdentity;
+  const factory USyncSubscribeReposMessage.account({
+    required Account data,
+  }) = USyncSubscribeReposMessageAccount;
+  const factory USyncSubscribeReposMessage.info({
+    required Info data,
+  }) = USyncSubscribeReposMessageInfo;
 
   const factory USyncSubscribeReposMessage.unknown({
     required Map<String, dynamic> data,
@@ -110,12 +115,11 @@ final class USyncSubscribeReposMessageConverter
 
   @override
   Map<String, dynamic> toJson(USyncSubscribeReposMessage object) => object.when(
-    commit: (data) => const CommitConverter().toJson(data),
-    sync: (data) => const SyncConverter().toJson(data),
-    identity: (data) => const IdentityConverter().toJson(data),
-    account: (data) => const AccountConverter().toJson(data),
-    info: (data) => const InfoConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        commit: (data) => const CommitConverter().toJson(data),
+        sync: (data) => const SyncConverter().toJson(data),
+        identity: (data) => const IdentityConverter().toJson(data),
+        account: (data) => const AccountConverter().toJson(data),
+        info: (data) => const InfoConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

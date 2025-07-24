@@ -23,12 +23,13 @@ part 'thread_item_blocked.g.dart';
 
 @freezed
 abstract class ThreadItemBlocked with _$ThreadItemBlocked {
-  static const knownProps = <String>['author'];
+  static const knownProps = <String>[
+    'author',
+  ];
 
   const factory ThreadItemBlocked({
     @Default('app.bsky.unspecced.defs#threadItemBlocked') String $type,
     @BlockedAuthorConverter() required BlockedAuthor author,
-
     Map<String, dynamic>? $unknown,
   }) = _ThreadItemBlocked;
 
@@ -47,12 +48,14 @@ final class ThreadItemBlockedConverter
 
   @override
   ThreadItemBlocked fromJson(Map<String, dynamic> json) {
-    return ThreadItemBlocked.fromJson(
-      translate(json, ThreadItemBlocked.knownProps),
-    );
+    return ThreadItemBlocked.fromJson(translate(
+      json,
+      ThreadItemBlocked.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ThreadItemBlocked object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ThreadItemBlocked object) => untranslate(
+        object.toJson(),
+      );
 }

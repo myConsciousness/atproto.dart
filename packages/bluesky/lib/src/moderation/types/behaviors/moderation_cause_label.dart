@@ -14,8 +14,7 @@ import 'moderation_cause_source.dart';
 
 part 'moderation_cause_label.freezed.dart';
 
-const _assertEvalPriority =
-    'priority == 1 || '
+const _assertEvalPriority = 'priority == 1 || '
     'priority == 2 || '
     'priority == 5 || '
     'priority == 7 || '

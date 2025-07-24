@@ -46,7 +46,6 @@ abstract class SafelinkUpdateRuleInput with _$SafelinkUpdateRuleInput {
 
     /// Optional DID to credit as the creator. Only respected for admin_token authentication.
     String? createdBy,
-
     Map<String, dynamic>? $unknown,
   }) = _SafelinkUpdateRuleInput;
 
@@ -67,12 +66,14 @@ final class SafelinkUpdateRuleInputConverter
 
   @override
   SafelinkUpdateRuleInput fromJson(Map<String, dynamic> json) {
-    return SafelinkUpdateRuleInput.fromJson(
-      translate(json, SafelinkUpdateRuleInput.knownProps),
-    );
+    return SafelinkUpdateRuleInput.fromJson(translate(
+      json,
+      SafelinkUpdateRuleInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SafelinkUpdateRuleInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SafelinkUpdateRuleInput object) => untranslate(
+        object.toJson(),
+      );
 }

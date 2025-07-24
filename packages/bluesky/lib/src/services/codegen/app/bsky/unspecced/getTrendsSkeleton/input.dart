@@ -21,13 +21,15 @@ part 'input.g.dart';
 @freezed
 abstract class UnspeccedGetTrendsSkeletonInput
     with _$UnspeccedGetTrendsSkeletonInput {
-  static const knownProps = <String>['viewer', 'limit'];
+  static const knownProps = <String>[
+    'viewer',
+    'limit',
+  ];
 
   const factory UnspeccedGetTrendsSkeletonInput({
     /// DID of the account making the request (not included for public/unauthenticated queries).
     String? viewer,
     @Default(10) int limit,
-
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetTrendsSkeletonInput;
 
@@ -41,19 +43,21 @@ extension UnspeccedGetTrendsSkeletonInputExtension
   bool get hasNotViewer => !hasViewer;
 }
 
-final class UnspeccedGetTrendsSkeletonInputConverter
-    extends
-        JsonConverter<UnspeccedGetTrendsSkeletonInput, Map<String, dynamic>> {
+final class UnspeccedGetTrendsSkeletonInputConverter extends JsonConverter<
+    UnspeccedGetTrendsSkeletonInput, Map<String, dynamic>> {
   const UnspeccedGetTrendsSkeletonInputConverter();
 
   @override
   UnspeccedGetTrendsSkeletonInput fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetTrendsSkeletonInput.fromJson(
-      translate(json, UnspeccedGetTrendsSkeletonInput.knownProps),
-    );
+    return UnspeccedGetTrendsSkeletonInput.fromJson(translate(
+      json,
+      UnspeccedGetTrendsSkeletonInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetTrendsSkeletonInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

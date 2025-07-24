@@ -23,12 +23,14 @@ part 'output.g.dart';
 
 @freezed
 abstract class LabelQueryLabelsOutput with _$LabelQueryLabelsOutput {
-  static const knownProps = <String>['cursor', 'labels'];
+  static const knownProps = <String>[
+    'cursor',
+    'labels',
+  ];
 
   const factory LabelQueryLabelsOutput({
     String? cursor,
     @LabelConverter() required List<Label> labels,
-
     Map<String, dynamic>? $unknown,
   }) = _LabelQueryLabelsOutput;
 
@@ -47,12 +49,14 @@ final class LabelQueryLabelsOutputConverter
 
   @override
   LabelQueryLabelsOutput fromJson(Map<String, dynamic> json) {
-    return LabelQueryLabelsOutput.fromJson(
-      translate(json, LabelQueryLabelsOutput.knownProps),
-    );
+    return LabelQueryLabelsOutput.fromJson(translate(
+      json,
+      LabelQueryLabelsOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(LabelQueryLabelsOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(LabelQueryLabelsOutput object) => untranslate(
+        object.toJson(),
+      );
 }

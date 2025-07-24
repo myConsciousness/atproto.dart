@@ -23,12 +23,14 @@ part 'output.g.dart';
 
 @freezed
 abstract class ConvoListConvosOutput with _$ConvoListConvosOutput {
-  static const knownProps = <String>['cursor', 'convos'];
+  static const knownProps = <String>[
+    'cursor',
+    'convos',
+  ];
 
   const factory ConvoListConvosOutput({
     String? cursor,
     @ConvoViewConverter() required List<ConvoView> convos,
-
     Map<String, dynamic>? $unknown,
   }) = _ConvoListConvosOutput;
 
@@ -47,12 +49,14 @@ final class ConvoListConvosOutputConverter
 
   @override
   ConvoListConvosOutput fromJson(Map<String, dynamic> json) {
-    return ConvoListConvosOutput.fromJson(
-      translate(json, ConvoListConvosOutput.knownProps),
-    );
+    return ConvoListConvosOutput.fromJson(translate(
+      json,
+      ConvoListConvosOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoListConvosOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ConvoListConvosOutput object) => untranslate(
+        object.toJson(),
+      );
 }

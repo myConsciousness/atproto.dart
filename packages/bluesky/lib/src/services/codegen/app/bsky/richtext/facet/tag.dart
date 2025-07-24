@@ -21,12 +21,13 @@ part 'tag.g.dart';
 /// Facet feature for a hashtag. The text usually includes a '#' prefix, but the facet reference should not (except in the case of 'double hash tags').
 @freezed
 abstract class RichtextFacetTag with _$RichtextFacetTag {
-  static const knownProps = <String>['tag'];
+  static const knownProps = <String>[
+    'tag',
+  ];
 
   const factory RichtextFacetTag({
     @Default('app.bsky.richtext.facet#tag') String $type,
     required String tag,
-
     Map<String, dynamic>? $unknown,
   }) = _RichtextFacetTag;
 
@@ -45,12 +46,14 @@ final class RichtextFacetTagConverter
 
   @override
   RichtextFacetTag fromJson(Map<String, dynamic> json) {
-    return RichtextFacetTag.fromJson(
-      translate(json, RichtextFacetTag.knownProps),
-    );
+    return RichtextFacetTag.fromJson(translate(
+      json,
+      RichtextFacetTag.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(RichtextFacetTag object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(RichtextFacetTag object) => untranslate(
+        object.toJson(),
+      );
 }

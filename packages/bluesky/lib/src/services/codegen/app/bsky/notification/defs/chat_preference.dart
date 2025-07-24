@@ -23,13 +23,15 @@ part 'chat_preference.g.dart';
 
 @freezed
 abstract class ChatPreference with _$ChatPreference {
-  static const knownProps = <String>['include', 'push'];
+  static const knownProps = <String>[
+    'include',
+    'push',
+  ];
 
   const factory ChatPreference({
     @Default('app.bsky.notification.defs#chatPreference') String $type,
     @ChatPreferenceIncludeConverter() required ChatPreferenceInclude include,
     required bool push,
-
     Map<String, dynamic>? $unknown,
   }) = _ChatPreference;
 
@@ -53,10 +55,14 @@ final class ChatPreferenceConverter
 
   @override
   ChatPreference fromJson(Map<String, dynamic> json) {
-    return ChatPreference.fromJson(translate(json, ChatPreference.knownProps));
+    return ChatPreference.fromJson(translate(
+      json,
+      ChatPreference.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ChatPreference object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ChatPreference object) => untranslate(
+        object.toJson(),
+      );
 }

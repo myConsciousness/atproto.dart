@@ -24,21 +24,22 @@ part 'profile_associated_activity_subscription.g.dart';
 @freezed
 abstract class ProfileAssociatedActivitySubscription
     with _$ProfileAssociatedActivitySubscription {
-  static const knownProps = <String>['allowSubscriptions'];
+  static const knownProps = <String>[
+    'allowSubscriptions',
+  ];
 
   const factory ProfileAssociatedActivitySubscription({
     @Default('app.bsky.actor.defs#profileAssociatedActivitySubscription')
     String $type,
     @ProfileAssociatedActivitySubscriptionAllowSubscriptionsConverter()
     required ProfileAssociatedActivitySubscriptionAllowSubscriptions
-    allowSubscriptions,
-
+        allowSubscriptions,
     Map<String, dynamic>? $unknown,
   }) = _ProfileAssociatedActivitySubscription;
 
   factory ProfileAssociatedActivitySubscription.fromJson(
-    Map<String, Object?> json,
-  ) => _$ProfileAssociatedActivitySubscriptionFromJson(json);
+          Map<String, Object?> json) =>
+      _$ProfileAssociatedActivitySubscriptionFromJson(json);
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
@@ -48,21 +49,21 @@ abstract class ProfileAssociatedActivitySubscription
 }
 
 final class ProfileAssociatedActivitySubscriptionConverter
-    extends
-        JsonConverter<
-          ProfileAssociatedActivitySubscription,
-          Map<String, dynamic>
-        > {
+    extends JsonConverter<ProfileAssociatedActivitySubscription,
+        Map<String, dynamic>> {
   const ProfileAssociatedActivitySubscriptionConverter();
 
   @override
   ProfileAssociatedActivitySubscription fromJson(Map<String, dynamic> json) {
-    return ProfileAssociatedActivitySubscription.fromJson(
-      translate(json, ProfileAssociatedActivitySubscription.knownProps),
-    );
+    return ProfileAssociatedActivitySubscription.fromJson(translate(
+      json,
+      ProfileAssociatedActivitySubscription.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(ProfileAssociatedActivitySubscription object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

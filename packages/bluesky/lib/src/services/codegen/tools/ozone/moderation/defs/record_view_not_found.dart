@@ -20,12 +20,13 @@ part 'record_view_not_found.g.dart';
 
 @freezed
 abstract class RecordViewNotFound with _$RecordViewNotFound {
-  static const knownProps = <String>['uri'];
+  static const knownProps = <String>[
+    'uri',
+  ];
 
   const factory RecordViewNotFound({
     @Default('tools.ozone.moderation.defs#recordViewNotFound') String $type,
     required String uri,
-
     Map<String, dynamic>? $unknown,
   }) = _RecordViewNotFound;
 
@@ -44,12 +45,14 @@ final class RecordViewNotFoundConverter
 
   @override
   RecordViewNotFound fromJson(Map<String, dynamic> json) {
-    return RecordViewNotFound.fromJson(
-      translate(json, RecordViewNotFound.knownProps),
-    );
+    return RecordViewNotFound.fromJson(translate(
+      json,
+      RecordViewNotFound.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(RecordViewNotFound object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(RecordViewNotFound object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -17,7 +17,11 @@ import '../../../../procedure_command.dart';
 final class CreateTemplateCommand extends ProcedureCommand {
   CreateTemplateCommand() {
     argParser
-      ..addOption("name", help: r"Name of the template.", mandatory: true)
+      ..addOption(
+        "name",
+        help: r"Name of the template.",
+        mandatory: true,
+      )
       ..addOption(
         "contentMarkdown",
         help:
@@ -29,7 +33,10 @@ final class CreateTemplateCommand extends ProcedureCommand {
         help: r"Subject of the message, used in emails.",
         mandatory: true,
       )
-      ..addOption("lang", help: r"Message language.")
+      ..addOption(
+        "lang",
+        help: r"Message language.",
+      )
       ..addOption(
         "createdBy",
         help: r"DID of the user who is creating the template.",
@@ -52,10 +59,11 @@ final class CreateTemplateCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "name": argResults!["name"],
-    "contentMarkdown": argResults!["contentMarkdown"],
-    "subject": argResults!["subject"],
-    if (argResults!["lang"] != null) "lang": argResults!["lang"],
-    if (argResults!["createdBy"] != null) "createdBy": argResults!["createdBy"],
-  };
+        "name": argResults!["name"],
+        "contentMarkdown": argResults!["contentMarkdown"],
+        "subject": argResults!["subject"],
+        if (argResults!["lang"] != null) "lang": argResults!["lang"],
+        if (argResults!["createdBy"] != null)
+          "createdBy": argResults!["createdBy"],
+      };
 }

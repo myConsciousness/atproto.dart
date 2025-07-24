@@ -20,7 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class FeedGetQuotesInput with _$FeedGetQuotesInput {
-  static const knownProps = <String>['uri', 'cid', 'limit', 'cursor'];
+  static const knownProps = <String>[
+    'uri',
+    'cid',
+    'limit',
+    'cursor',
+  ];
 
   const factory FeedGetQuotesInput({
     /// Reference (AT-URI) of post record
@@ -30,7 +35,6 @@ abstract class FeedGetQuotesInput with _$FeedGetQuotesInput {
     String? cid,
     @Default(50) int limit,
     String? cursor,
-
     Map<String, dynamic>? $unknown,
   }) = _FeedGetQuotesInput;
 
@@ -51,12 +55,14 @@ final class FeedGetQuotesInputConverter
 
   @override
   FeedGetQuotesInput fromJson(Map<String, dynamic> json) {
-    return FeedGetQuotesInput.fromJson(
-      translate(json, FeedGetQuotesInput.knownProps),
-    );
+    return FeedGetQuotesInput.fromJson(translate(
+      json,
+      FeedGetQuotesInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetQuotesInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FeedGetQuotesInput object) => untranslate(
+        object.toJson(),
+      );
 }

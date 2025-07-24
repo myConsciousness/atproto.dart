@@ -22,11 +22,13 @@ part 'option_scope.freezed.dart';
 abstract class OptionScope with _$OptionScope {
   const OptionScope._();
 
-  const factory OptionScope.knownValue({required KnownOptionScope data}) =
-      OptionScopeKnownValue;
+  const factory OptionScope.knownValue({
+    required KnownOptionScope data,
+  }) = OptionScopeKnownValue;
 
-  const factory OptionScope.unknown({required String data}) =
-      OptionScopeUnknown;
+  const factory OptionScope.unknown({
+    required String data,
+  }) = OptionScopeUnknown;
 
   static OptionScope? valueOf(final String? value) {
     if (value == null) return null;
@@ -68,15 +70,18 @@ final class OptionScopeConverter extends JsonConverter<OptionScope, String> {
   }
 
   @override
-  String toJson(OptionScope object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(OptionScope object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownOptionScope implements Serializable {
   @JsonValue('instance')
   instance('instance'),
   @JsonValue('personal')
-  personal('personal');
+  personal('personal'),
+  ;
 
   @override
   final String value;

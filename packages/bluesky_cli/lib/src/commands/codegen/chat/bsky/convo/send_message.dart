@@ -20,8 +20,14 @@ import '../../../../procedure_command.dart';
 final class SendMessageCommand extends ProcedureCommand {
   SendMessageCommand() {
     argParser
-      ..addOption("convoId", mandatory: true)
-      ..addOption("message", mandatory: true);
+      ..addOption(
+        "convoId",
+        mandatory: true,
+      )
+      ..addOption(
+        "message",
+        mandatory: true,
+      );
   }
 
   @override
@@ -39,7 +45,7 @@ final class SendMessageCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "convoId": argResults!["convoId"],
-    "message": jsonDecode(argResults!["message"]),
-  };
+        "convoId": argResults!["convoId"],
+        "message": jsonDecode(argResults!["message"]),
+      };
 }

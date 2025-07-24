@@ -9,24 +9,29 @@ part of 'input.dart';
 // **************************************************************************
 
 _FeedGetActorFeedsInput _$FeedGetActorFeedsInputFromJson(Map json) =>
-    $checkedCreate('_FeedGetActorFeedsInput', json, ($checkedConvert) {
-      final val = _FeedGetActorFeedsInput(
-        actor: $checkedConvert('actor', (v) => v as String),
-        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
-        cursor: $checkedConvert('cursor', (v) => v as String?),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_FeedGetActorFeedsInput',
+      json,
+      ($checkedConvert) {
+        final val = _FeedGetActorFeedsInput(
+          actor: $checkedConvert('actor', (v) => v as String),
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$FeedGetActorFeedsInputToJson(
-  _FeedGetActorFeedsInput instance,
-) => <String, dynamic>{
-  'actor': instance.actor,
-  'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
-};
+        _FeedGetActorFeedsInput instance) =>
+    <String, dynamic>{
+      'actor': instance.actor,
+      'limit': instance.limit,
+      'cursor': instance.cursor,
+      r'$unknown': instance.$unknown,
+    };

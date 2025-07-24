@@ -16,7 +16,11 @@ import '../../../../procedure_command.dart';
 
 final class RevokeAppPasswordCommand extends ProcedureCommand {
   RevokeAppPasswordCommand() {
-    argParser..addOption("name", mandatory: true);
+    argParser
+      ..addOption(
+        "name",
+        mandatory: true,
+      );
   }
 
   @override
@@ -33,5 +37,7 @@ final class RevokeAppPasswordCommand extends ProcedureCommand {
   String get methodId => "com.atproto.server.revokeAppPassword";
 
   @override
-  Map<String, dynamic>? get body => {"name": argResults!["name"]};
+  Map<String, dynamic>? get body => {
+        "name": argResults!["name"],
+      };
 }

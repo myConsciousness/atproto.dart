@@ -76,54 +76,59 @@ final class ModerationDecision {
   }
 
   void addHidden() => causes.add(
-    const ModerationCause.hidden(
-      data: ModerationCauseHidden(
-        source: ModerationCauseSource.user(data: ModerationCauseSourceUser()),
-      ),
-    ),
-  );
+        const ModerationCause.hidden(
+          data: ModerationCauseHidden(
+            source:
+                ModerationCauseSource.user(data: ModerationCauseSourceUser()),
+          ),
+        ),
+      );
 
   void addMutedWord() => causes.add(
-    const ModerationCause.muteWord(
-      data: ModerationCauseMuteWord(
-        source: ModerationCauseSource.user(data: ModerationCauseSourceUser()),
-      ),
-    ),
-  );
+        const ModerationCause.muteWord(
+          data: ModerationCauseMuteWord(
+            source:
+                ModerationCauseSource.user(data: ModerationCauseSourceUser()),
+          ),
+        ),
+      );
 
   void addBlocking() => causes.add(
-    const ModerationCause.blocking(
-      data: ModerationCauseBlocking(
-        source: ModerationCauseSource.user(data: ModerationCauseSourceUser()),
-      ),
-    ),
-  );
+        const ModerationCause.blocking(
+          data: ModerationCauseBlocking(
+            source:
+                ModerationCauseSource.user(data: ModerationCauseSourceUser()),
+          ),
+        ),
+      );
 
   void addBlockingByList(final ListViewBasic blockingByList) => causes.add(
-    ModerationCause.blocking(
-      data: ModerationCauseBlocking(
-        source: ModerationCauseSource.list(
-          data: ModerationCauseSourceList(list: blockingByList),
+        ModerationCause.blocking(
+          data: ModerationCauseBlocking(
+            source: ModerationCauseSource.list(
+              data: ModerationCauseSourceList(list: blockingByList),
+            ),
+          ),
         ),
-      ),
-    ),
-  );
+      );
 
   void addBlockedBy() => causes.add(
-    const ModerationCause.blockedBy(
-      data: ModerationCauseBlockedBy(
-        source: ModerationCauseSource.user(data: ModerationCauseSourceUser()),
-      ),
-    ),
-  );
+        const ModerationCause.blockedBy(
+          data: ModerationCauseBlockedBy(
+            source:
+                ModerationCauseSource.user(data: ModerationCauseSourceUser()),
+          ),
+        ),
+      );
 
   void addBlockOther() => causes.add(
-    const ModerationCause.blockOther(
-      data: ModerationCauseBlockOther(
-        source: ModerationCauseSource.user(data: ModerationCauseSourceUser()),
-      ),
-    ),
-  );
+        const ModerationCause.blockOther(
+          data: ModerationCauseBlockOther(
+            source:
+                ModerationCauseSource.user(data: ModerationCauseSourceUser()),
+          ),
+        ),
+      );
 
   void addLabel({
     required LabelTarget target,
@@ -132,8 +137,7 @@ final class ModerationDecision {
   }) {
     InterpretedLabelValueDefinition? labelDef;
     if (customLabelValueRegex.hasMatch(label.val)) {
-      labelDef =
-          opts.labelDefs[label.src]
+      labelDef = opts.labelDefs[label.src]
               ?.where((e) => e.identifier == label.val)
               .firstOrNull ??
           kLabels[KnownLabelValue.valueOf(label.val)];
@@ -229,22 +233,23 @@ final class ModerationDecision {
   }
 
   void addMuted() => causes.add(
-    const ModerationCause.muted(
-      data: ModerationCauseMuted(
-        source: ModerationCauseSource.user(data: ModerationCauseSourceUser()),
-      ),
-    ),
-  );
+        const ModerationCause.muted(
+          data: ModerationCauseMuted(
+            source:
+                ModerationCauseSource.user(data: ModerationCauseSourceUser()),
+          ),
+        ),
+      );
 
   void addMutedByList(final ListViewBasic mutedByList) => causes.add(
-    ModerationCause.muted(
-      data: ModerationCauseMuted(
-        source: ModerationCauseSource.list(
-          data: ModerationCauseSourceList(list: mutedByList),
+        ModerationCause.muted(
+          data: ModerationCauseMuted(
+            source: ModerationCauseSource.list(
+              data: ModerationCauseSourceList(list: mutedByList),
+            ),
+          ),
         ),
-      ),
-    ),
-  );
+      );
 
   ModerationUI getUI(final ModerationBehaviorContext context) {
     bool noOverride = false;
@@ -383,14 +388,14 @@ int _sortByCausePriority(final ModerationCause a, final ModerationCause b) =>
     _getCausePriority(a) - _getCausePriority(b);
 
 int _getCausePriority(final ModerationCause cause) => switch (cause) {
-  UModerationCauseBlocking(:final data) => data.priority,
-  UModerationCauseBlockedBy(:final data) => data.priority,
-  UModerationCauseBlockOther(:final data) => data.priority,
-  UModerationCauseLabel(:final data) => data.priority,
-  UModerationCauseMuted(:final data) => data.priority,
-  UModerationCauseMuteWord(:final data) => data.priority,
-  UModerationCauseHidden(:final data) => data.priority,
-  _ => throw UnsupportedError(
-    'Not supported cause: $cause',
-  ), //! Should not happen
-};
+      UModerationCauseBlocking(:final data) => data.priority,
+      UModerationCauseBlockedBy(:final data) => data.priority,
+      UModerationCauseBlockOther(:final data) => data.priority,
+      UModerationCauseLabel(:final data) => data.priority,
+      UModerationCauseMuted(:final data) => data.priority,
+      UModerationCauseMuteWord(:final data) => data.priority,
+      UModerationCauseHidden(:final data) => data.priority,
+      _ => throw UnsupportedError(
+          'Not supported cause: $cause',
+        ), //! Should not happen
+    };

@@ -24,35 +24,36 @@ part 'output.g.dart';
 @freezed
 abstract class UnspeccedGetSuggestedStarterPacksOutput
     with _$UnspeccedGetSuggestedStarterPacksOutput {
-  static const knownProps = <String>['starterPacks'];
+  static const knownProps = <String>[
+    'starterPacks',
+  ];
 
   const factory UnspeccedGetSuggestedStarterPacksOutput({
     @StarterPackViewConverter() required List<StarterPackView> starterPacks,
-
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestedStarterPacksOutput;
 
   factory UnspeccedGetSuggestedStarterPacksOutput.fromJson(
-    Map<String, Object?> json,
-  ) => _$UnspeccedGetSuggestedStarterPacksOutputFromJson(json);
+          Map<String, Object?> json) =>
+      _$UnspeccedGetSuggestedStarterPacksOutputFromJson(json);
 }
 
 final class UnspeccedGetSuggestedStarterPacksOutputConverter
-    extends
-        JsonConverter<
-          UnspeccedGetSuggestedStarterPacksOutput,
-          Map<String, dynamic>
-        > {
+    extends JsonConverter<UnspeccedGetSuggestedStarterPacksOutput,
+        Map<String, dynamic>> {
   const UnspeccedGetSuggestedStarterPacksOutputConverter();
 
   @override
   UnspeccedGetSuggestedStarterPacksOutput fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetSuggestedStarterPacksOutput.fromJson(
-      translate(json, UnspeccedGetSuggestedStarterPacksOutput.knownProps),
-    );
+    return UnspeccedGetSuggestedStarterPacksOutput.fromJson(translate(
+      json,
+      UnspeccedGetSuggestedStarterPacksOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetSuggestedStarterPacksOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

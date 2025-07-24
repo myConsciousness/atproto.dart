@@ -24,7 +24,11 @@ part 'suggestion.g.dart';
 
 @freezed
 abstract class Suggestion with _$Suggestion {
-  static const knownProps = <String>['tag', 'subjectType', 'subject'];
+  static const knownProps = <String>[
+    'tag',
+    'subjectType',
+    'subject',
+  ];
 
   const factory Suggestion({
     @Default('app.bsky.unspecced.getTaggedSuggestions#suggestion') String $type,
@@ -32,7 +36,6 @@ abstract class Suggestion with _$Suggestion {
     @SuggestionSubjectTypeConverter()
     required SuggestionSubjectType subjectType,
     @AtUriConverter() required AtUri subject,
-
     Map<String, dynamic>? $unknown,
   }) = _Suggestion;
 
@@ -52,10 +55,14 @@ final class SuggestionConverter
 
   @override
   Suggestion fromJson(Map<String, dynamic> json) {
-    return Suggestion.fromJson(translate(json, Suggestion.knownProps));
+    return Suggestion.fromJson(translate(
+      json,
+      Suggestion.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(Suggestion object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(Suggestion object) => untranslate(
+        object.toJson(),
+      );
 }

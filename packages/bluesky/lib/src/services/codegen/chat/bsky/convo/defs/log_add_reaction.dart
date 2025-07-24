@@ -24,7 +24,12 @@ part 'log_add_reaction.g.dart';
 
 @freezed
 abstract class LogAddReaction with _$LogAddReaction {
-  static const knownProps = <String>['rev', 'convoId', 'message', 'reaction'];
+  static const knownProps = <String>[
+    'rev',
+    'convoId',
+    'message',
+    'reaction',
+  ];
 
   const factory LogAddReaction({
     @Default('chat.bsky.convo.defs#logAddReaction') String $type,
@@ -32,7 +37,6 @@ abstract class LogAddReaction with _$LogAddReaction {
     required String convoId,
     @ULogAddReactionMessageConverter() required ULogAddReactionMessage message,
     @ReactionViewConverter() required ReactionView reaction,
-
     Map<String, dynamic>? $unknown,
   }) = _LogAddReaction;
 
@@ -51,10 +55,14 @@ final class LogAddReactionConverter
 
   @override
   LogAddReaction fromJson(Map<String, dynamic> json) {
-    return LogAddReaction.fromJson(translate(json, LogAddReaction.knownProps));
+    return LogAddReaction.fromJson(translate(
+      json,
+      LogAddReaction.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(LogAddReaction object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(LogAddReaction object) => untranslate(
+        object.toJson(),
+      );
 }

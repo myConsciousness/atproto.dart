@@ -24,12 +24,14 @@ part 'output.g.dart';
 @freezed
 abstract class HostingGetAccountHistoryOutput
     with _$HostingGetAccountHistoryOutput {
-  static const knownProps = <String>['cursor', 'events'];
+  static const knownProps = <String>[
+    'cursor',
+    'events',
+  ];
 
   const factory HostingGetAccountHistoryOutput({
     String? cursor,
     @EventConverter() required List<Event> events,
-
     Map<String, dynamic>? $unknown,
   }) = _HostingGetAccountHistoryOutput;
 
@@ -43,19 +45,21 @@ extension HostingGetAccountHistoryOutputExtension
   bool get hasNotCursor => !hasCursor;
 }
 
-final class HostingGetAccountHistoryOutputConverter
-    extends
-        JsonConverter<HostingGetAccountHistoryOutput, Map<String, dynamic>> {
+final class HostingGetAccountHistoryOutputConverter extends JsonConverter<
+    HostingGetAccountHistoryOutput, Map<String, dynamic>> {
   const HostingGetAccountHistoryOutputConverter();
 
   @override
   HostingGetAccountHistoryOutput fromJson(Map<String, dynamic> json) {
-    return HostingGetAccountHistoryOutput.fromJson(
-      translate(json, HostingGetAccountHistoryOutput.knownProps),
-    );
+    return HostingGetAccountHistoryOutput.fromJson(translate(
+      json,
+      HostingGetAccountHistoryOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(HostingGetAccountHistoryOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

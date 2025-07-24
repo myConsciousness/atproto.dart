@@ -46,7 +46,6 @@ abstract class AccountStats with _$AccountStats {
 
     /// Number of times the account was taken down
     int? takedownCount,
-
     Map<String, dynamic>? $unknown,
   }) = _AccountStats;
 
@@ -78,10 +77,14 @@ final class AccountStatsConverter
 
   @override
   AccountStats fromJson(Map<String, dynamic> json) {
-    return AccountStats.fromJson(translate(json, AccountStats.knownProps));
+    return AccountStats.fromJson(translate(
+      json,
+      AccountStats.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(AccountStats object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(AccountStats object) => untranslate(
+        object.toJson(),
+      );
 }

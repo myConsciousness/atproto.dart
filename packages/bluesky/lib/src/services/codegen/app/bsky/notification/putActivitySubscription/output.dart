@@ -24,18 +24,20 @@ part 'output.g.dart';
 @freezed
 abstract class NotificationPutActivitySubscriptionOutput
     with _$NotificationPutActivitySubscriptionOutput {
-  static const knownProps = <String>['subject', 'activitySubscription'];
+  static const knownProps = <String>[
+    'subject',
+    'activitySubscription',
+  ];
 
   const factory NotificationPutActivitySubscriptionOutput({
     required String subject,
     @ActivitySubscriptionConverter() ActivitySubscription? activitySubscription,
-
     Map<String, dynamic>? $unknown,
   }) = _NotificationPutActivitySubscriptionOutput;
 
   factory NotificationPutActivitySubscriptionOutput.fromJson(
-    Map<String, Object?> json,
-  ) => _$NotificationPutActivitySubscriptionOutputFromJson(json);
+          Map<String, Object?> json) =>
+      _$NotificationPutActivitySubscriptionOutputFromJson(json);
 }
 
 extension NotificationPutActivitySubscriptionOutputExtension
@@ -45,24 +47,23 @@ extension NotificationPutActivitySubscriptionOutputExtension
 }
 
 final class NotificationPutActivitySubscriptionOutputConverter
-    extends
-        JsonConverter<
-          NotificationPutActivitySubscriptionOutput,
-          Map<String, dynamic>
-        > {
+    extends JsonConverter<NotificationPutActivitySubscriptionOutput,
+        Map<String, dynamic>> {
   const NotificationPutActivitySubscriptionOutputConverter();
 
   @override
   NotificationPutActivitySubscriptionOutput fromJson(
-    Map<String, dynamic> json,
-  ) {
-    return NotificationPutActivitySubscriptionOutput.fromJson(
-      translate(json, NotificationPutActivitySubscriptionOutput.knownProps),
-    );
+      Map<String, dynamic> json) {
+    return NotificationPutActivitySubscriptionOutput.fromJson(translate(
+      json,
+      NotificationPutActivitySubscriptionOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(
-    NotificationPutActivitySubscriptionOutput object,
-  ) => untranslate(object.toJson());
+          NotificationPutActivitySubscriptionOutput object) =>
+      untranslate(
+        object.toJson(),
+      );
 }

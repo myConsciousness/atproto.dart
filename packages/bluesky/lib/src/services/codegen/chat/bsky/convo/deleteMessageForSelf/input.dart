@@ -21,12 +21,14 @@ part 'input.g.dart';
 @freezed
 abstract class ConvoDeleteMessageForSelfInput
     with _$ConvoDeleteMessageForSelfInput {
-  static const knownProps = <String>['convoId', 'messageId'];
+  static const knownProps = <String>[
+    'convoId',
+    'messageId',
+  ];
 
   const factory ConvoDeleteMessageForSelfInput({
     required String convoId,
     required String messageId,
-
     Map<String, dynamic>? $unknown,
   }) = _ConvoDeleteMessageForSelfInput;
 
@@ -34,19 +36,21 @@ abstract class ConvoDeleteMessageForSelfInput
       _$ConvoDeleteMessageForSelfInputFromJson(json);
 }
 
-final class ConvoDeleteMessageForSelfInputConverter
-    extends
-        JsonConverter<ConvoDeleteMessageForSelfInput, Map<String, dynamic>> {
+final class ConvoDeleteMessageForSelfInputConverter extends JsonConverter<
+    ConvoDeleteMessageForSelfInput, Map<String, dynamic>> {
   const ConvoDeleteMessageForSelfInputConverter();
 
   @override
   ConvoDeleteMessageForSelfInput fromJson(Map<String, dynamic> json) {
-    return ConvoDeleteMessageForSelfInput.fromJson(
-      translate(json, ConvoDeleteMessageForSelfInput.knownProps),
-    );
+    return ConvoDeleteMessageForSelfInput.fromJson(translate(
+      json,
+      ConvoDeleteMessageForSelfInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(ConvoDeleteMessageForSelfInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

@@ -24,7 +24,11 @@ part 'output.g.dart';
 @freezed
 abstract class UnspeccedSearchPostsSkeletonOutput
     with _$UnspeccedSearchPostsSkeletonOutput {
-  static const knownProps = <String>['cursor', 'hitsTotal', 'posts'];
+  static const knownProps = <String>[
+    'cursor',
+    'hitsTotal',
+    'posts',
+  ];
 
   const factory UnspeccedSearchPostsSkeletonOutput({
     String? cursor,
@@ -32,13 +36,12 @@ abstract class UnspeccedSearchPostsSkeletonOutput
     /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
     int? hitsTotal,
     @SkeletonSearchPostConverter() required List<SkeletonSearchPost> posts,
-
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedSearchPostsSkeletonOutput;
 
   factory UnspeccedSearchPostsSkeletonOutput.fromJson(
-    Map<String, Object?> json,
-  ) => _$UnspeccedSearchPostsSkeletonOutputFromJson(json);
+          Map<String, Object?> json) =>
+      _$UnspeccedSearchPostsSkeletonOutputFromJson(json);
 }
 
 extension UnspeccedSearchPostsSkeletonOutputExtension
@@ -49,22 +52,21 @@ extension UnspeccedSearchPostsSkeletonOutputExtension
   bool get hasNotHitsTotal => !hasHitsTotal;
 }
 
-final class UnspeccedSearchPostsSkeletonOutputConverter
-    extends
-        JsonConverter<
-          UnspeccedSearchPostsSkeletonOutput,
-          Map<String, dynamic>
-        > {
+final class UnspeccedSearchPostsSkeletonOutputConverter extends JsonConverter<
+    UnspeccedSearchPostsSkeletonOutput, Map<String, dynamic>> {
   const UnspeccedSearchPostsSkeletonOutputConverter();
 
   @override
   UnspeccedSearchPostsSkeletonOutput fromJson(Map<String, dynamic> json) {
-    return UnspeccedSearchPostsSkeletonOutput.fromJson(
-      translate(json, UnspeccedSearchPostsSkeletonOutput.knownProps),
-    );
+    return UnspeccedSearchPostsSkeletonOutput.fromJson(translate(
+      json,
+      UnspeccedSearchPostsSkeletonOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedSearchPostsSkeletonOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

@@ -20,13 +20,16 @@ part 'input.g.dart';
 
 @freezed
 abstract class FeedGetActorFeedsInput with _$FeedGetActorFeedsInput {
-  static const knownProps = <String>['actor', 'limit', 'cursor'];
+  static const knownProps = <String>[
+    'actor',
+    'limit',
+    'cursor',
+  ];
 
   const factory FeedGetActorFeedsInput({
     required String actor,
     @Default(50) int limit,
     String? cursor,
-
     Map<String, dynamic>? $unknown,
   }) = _FeedGetActorFeedsInput;
 
@@ -45,12 +48,14 @@ final class FeedGetActorFeedsInputConverter
 
   @override
   FeedGetActorFeedsInput fromJson(Map<String, dynamic> json) {
-    return FeedGetActorFeedsInput.fromJson(
-      translate(json, FeedGetActorFeedsInput.knownProps),
-    );
+    return FeedGetActorFeedsInput.fromJson(translate(
+      json,
+      FeedGetActorFeedsInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetActorFeedsInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FeedGetActorFeedsInput object) => untranslate(
+        object.toJson(),
+      );
 }

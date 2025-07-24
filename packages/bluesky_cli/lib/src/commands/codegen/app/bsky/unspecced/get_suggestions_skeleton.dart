@@ -22,8 +22,13 @@ final class GetSuggestionsSkeletonCommand extends QueryCommand {
         help:
             r"DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.",
       )
-      ..addOption("limit", defaultsTo: "50")
-      ..addOption("cursor")
+      ..addOption(
+        "limit",
+        defaultsTo: "50",
+      )
+      ..addOption(
+        "cursor",
+      )
       ..addOption(
         "relativeToDid",
         help:
@@ -47,10 +52,10 @@ final class GetSuggestionsSkeletonCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["viewer"] != null) "viewer": argResults!["viewer"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    if (argResults!["relativeToDid"] != null)
-      "relativeToDid": argResults!["relativeToDid"],
-  };
+        if (argResults!["viewer"] != null) "viewer": argResults!["viewer"],
+        "limit": argResults!["limit"],
+        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+        if (argResults!["relativeToDid"] != null)
+          "relativeToDid": argResults!["relativeToDid"],
+      };
 }

@@ -22,11 +22,13 @@ part 'union_main_labels.freezed.dart';
 abstract class UFeedPostLabels with _$UFeedPostLabels {
   const UFeedPostLabels._();
 
-  const factory UFeedPostLabels.selfLabels({required SelfLabels data}) =
-      UFeedPostLabelsSelfLabels;
+  const factory UFeedPostLabels.selfLabels({
+    required SelfLabels data,
+  }) = UFeedPostLabelsSelfLabels;
 
-  const factory UFeedPostLabels.unknown({required Map<String, dynamic> data}) =
-      UFeedPostLabelsUnknown;
+  const factory UFeedPostLabels.unknown({
+    required Map<String, dynamic> data,
+  }) = UFeedPostLabelsUnknown;
 
   Map<String, dynamic> toJson() =>
       const UFeedPostLabelsConverter().toJson(this);
@@ -63,8 +65,7 @@ final class UFeedPostLabelsConverter
 
   @override
   Map<String, dynamic> toJson(UFeedPostLabels object) => object.when(
-    selfLabels: (data) => const SelfLabelsConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        selfLabels: (data) => const SelfLabelsConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

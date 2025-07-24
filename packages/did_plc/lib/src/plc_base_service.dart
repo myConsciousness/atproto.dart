@@ -19,7 +19,11 @@ base class PLCBaseService extends BaseHttpService {
     final String root,
     final dynamic data, {
     bool jsonl = false,
-  }) => jsonl
-      ? {root: jsonDecode(String.fromCharCodes(data).split('\n').toString())}
-      : {root: jsonDecode(String.fromCharCodes(data))};
+  }) =>
+      jsonl
+          ? {
+              root:
+                  jsonDecode(String.fromCharCodes(data).split('\n').toString())
+            }
+          : {root: jsonDecode(String.fromCharCodes(data))};
 }

@@ -26,8 +26,9 @@ abstract class ContentLabelPrefVisibility with _$ContentLabelPrefVisibility {
     required KnownContentLabelPrefVisibility data,
   }) = ContentLabelPrefVisibilityKnownValue;
 
-  const factory ContentLabelPrefVisibility.unknown({required String data}) =
-      ContentLabelPrefVisibilityUnknown;
+  const factory ContentLabelPrefVisibility.unknown({
+    required String data,
+  }) = ContentLabelPrefVisibilityUnknown;
 
   static ContentLabelPrefVisibility? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,8 +71,10 @@ final class ContentLabelPrefVisibilityConverter
   }
 
   @override
-  String toJson(ContentLabelPrefVisibility object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ContentLabelPrefVisibility object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownContentLabelPrefVisibility implements Serializable {
@@ -82,7 +85,8 @@ enum KnownContentLabelPrefVisibility implements Serializable {
   @JsonValue('warn')
   warn('warn'),
   @JsonValue('hide')
-  hide('hide');
+  hide('hide'),
+  ;
 
   @override
   final String value;

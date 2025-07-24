@@ -21,14 +21,15 @@ part 'main.g.dart';
 /// Representation of Lexicon schemas themselves, when published as atproto records. Note that the schema language is not defined in Lexicon; this meta schema currently only includes a single version field ('lexicon'). See the atproto specifications for description of the other expected top-level fields ('id', 'defs', etc).
 @freezed
 abstract class LexiconSchemaRecord with _$LexiconSchemaRecord {
-  static const knownProps = <String>['lexicon'];
+  static const knownProps = <String>[
+    'lexicon',
+  ];
 
   const factory LexiconSchemaRecord({
     @Default('com.atproto.lexicon.schema') String $type,
 
     /// Indicates the 'version' of the Lexicon language. Must be '1' for the current atproto/Lexicon schema system.
     required int lexicon,
-
     Map<String, dynamic>? $unknown,
   }) = _LexiconSchemaRecord;
 
@@ -47,12 +48,14 @@ final class LexiconSchemaRecordConverter
 
   @override
   LexiconSchemaRecord fromJson(Map<String, dynamic> json) {
-    return LexiconSchemaRecord.fromJson(
-      translate(json, LexiconSchemaRecord.knownProps),
-    );
+    return LexiconSchemaRecord.fromJson(translate(
+      json,
+      LexiconSchemaRecord.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(LexiconSchemaRecord object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(LexiconSchemaRecord object) => untranslate(
+        object.toJson(),
+      );
 }

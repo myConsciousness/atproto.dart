@@ -24,7 +24,12 @@ part 'view_image.g.dart';
 
 @freezed
 abstract class EmbedImagesViewImage with _$EmbedImagesViewImage {
-  static const knownProps = <String>['thumb', 'fullsize', 'alt', 'aspectRatio'];
+  static const knownProps = <String>[
+    'thumb',
+    'fullsize',
+    'alt',
+    'aspectRatio',
+  ];
 
   const factory EmbedImagesViewImage({
     @Default('app.bsky.embed.images#viewImage') String $type,
@@ -38,7 +43,6 @@ abstract class EmbedImagesViewImage with _$EmbedImagesViewImage {
     /// Alt text description of the image, for accessibility.
     required String alt,
     @AspectRatioConverter() AspectRatio? aspectRatio,
-
     Map<String, dynamic>? $unknown,
   }) = _EmbedImagesViewImage;
 
@@ -62,12 +66,14 @@ final class EmbedImagesViewImageConverter
 
   @override
   EmbedImagesViewImage fromJson(Map<String, dynamic> json) {
-    return EmbedImagesViewImage.fromJson(
-      translate(json, EmbedImagesViewImage.knownProps),
-    );
+    return EmbedImagesViewImage.fromJson(translate(
+      json,
+      EmbedImagesViewImage.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedImagesViewImage object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(EmbedImagesViewImage object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -21,7 +21,10 @@ part 'grant_error.g.dart';
 /// Error object for failed verifications.
 @freezed
 abstract class GrantError with _$GrantError {
-  static const knownProps = <String>['error', 'subject'];
+  static const knownProps = <String>[
+    'error',
+    'subject',
+  ];
 
   const factory GrantError({
     @Default('tools.ozone.verification.grantVerifications#grantError')
@@ -32,7 +35,6 @@ abstract class GrantError with _$GrantError {
 
     /// The did of the subject being verified
     required String subject,
-
     Map<String, dynamic>? $unknown,
   }) = _GrantError;
 
@@ -52,10 +54,14 @@ final class GrantErrorConverter
 
   @override
   GrantError fromJson(Map<String, dynamic> json) {
-    return GrantError.fromJson(translate(json, GrantError.knownProps));
+    return GrantError.fromJson(translate(
+      json,
+      GrantError.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(GrantError object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(GrantError object) => untranslate(
+        object.toJson(),
+      );
 }

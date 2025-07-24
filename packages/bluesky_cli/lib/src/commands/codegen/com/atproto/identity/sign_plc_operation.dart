@@ -22,10 +22,18 @@ final class SignPlcOperationCommand extends ProcedureCommand {
         help:
             r"A token received through com.atproto.identity.requestPlcOperationSignature",
       )
-      ..addMultiOption("rotationKeys")
-      ..addMultiOption("alsoKnownAs")
-      ..addOption("verificationMethods")
-      ..addOption("services");
+      ..addMultiOption(
+        "rotationKeys",
+      )
+      ..addMultiOption(
+        "alsoKnownAs",
+      )
+      ..addOption(
+        "verificationMethods",
+      )
+      ..addOption(
+        "services",
+      );
   }
 
   @override
@@ -44,13 +52,14 @@ final class SignPlcOperationCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    if (argResults!["token"] != null) "token": argResults!["token"],
-    if (argResults!["rotationKeys"] != null)
-      "rotationKeys": argResults!["rotationKeys"],
-    if (argResults!["alsoKnownAs"] != null)
-      "alsoKnownAs": argResults!["alsoKnownAs"],
-    if (argResults!["verificationMethods"] != null)
-      "verificationMethods": argResults!["verificationMethods"],
-    if (argResults!["services"] != null) "services": argResults!["services"],
-  };
+        if (argResults!["token"] != null) "token": argResults!["token"],
+        if (argResults!["rotationKeys"] != null)
+          "rotationKeys": argResults!["rotationKeys"],
+        if (argResults!["alsoKnownAs"] != null)
+          "alsoKnownAs": argResults!["alsoKnownAs"],
+        if (argResults!["verificationMethods"] != null)
+          "verificationMethods": argResults!["verificationMethods"],
+        if (argResults!["services"] != null)
+          "services": argResults!["services"],
+      };
 }

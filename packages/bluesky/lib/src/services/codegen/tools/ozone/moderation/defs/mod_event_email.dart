@@ -21,7 +21,11 @@ part 'mod_event_email.g.dart';
 /// Keep a log of outgoing email to a user
 @freezed
 abstract class ModEventEmail with _$ModEventEmail {
-  static const knownProps = <String>['subjectLine', 'content', 'comment'];
+  static const knownProps = <String>[
+    'subjectLine',
+    'content',
+    'comment',
+  ];
 
   const factory ModEventEmail({
     @Default('tools.ozone.moderation.defs#modEventEmail') String $type,
@@ -34,7 +38,6 @@ abstract class ModEventEmail with _$ModEventEmail {
 
     /// Additional comment about the outgoing comm.
     String? comment,
-
     Map<String, dynamic>? $unknown,
   }) = _ModEventEmail;
 
@@ -60,10 +63,14 @@ final class ModEventEmailConverter
 
   @override
   ModEventEmail fromJson(Map<String, dynamic> json) {
-    return ModEventEmail.fromJson(translate(json, ModEventEmail.knownProps));
+    return ModEventEmail.fromJson(translate(
+      json,
+      ModEventEmail.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ModEventEmail object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ModEventEmail object) => untranslate(
+        object.toJson(),
+      );
 }

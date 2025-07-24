@@ -31,7 +31,7 @@ final class LexRefVariantConverter
 
   @override
   Map<String, dynamic> toJson(LexRefVariant object) => object.when(
-    ref: (data) => data.toJson(),
-    refUnion: (data) => data.toJson(),
-  );
+        ref: (data) => data.toJson(),
+        refUnion: (data) => data.toJson(),
+      );
 }

@@ -16,7 +16,11 @@ import '../../../../procedure_command.dart';
 
 final class DeleteAccountCommand extends ProcedureCommand {
   DeleteAccountCommand() {
-    argParser..addOption("did", mandatory: true);
+    argParser
+      ..addOption(
+        "did",
+        mandatory: true,
+      );
   }
 
   @override
@@ -32,5 +36,7 @@ final class DeleteAccountCommand extends ProcedureCommand {
   String get methodId => "com.atproto.admin.deleteAccount";
 
   @override
-  Map<String, dynamic>? get body => {"did": argResults!["did"]};
+  Map<String, dynamic>? get body => {
+        "did": argResults!["did"],
+      };
 }

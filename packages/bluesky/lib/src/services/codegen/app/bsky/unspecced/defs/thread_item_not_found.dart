@@ -24,7 +24,6 @@ abstract class ThreadItemNotFound with _$ThreadItemNotFound {
 
   const factory ThreadItemNotFound({
     @Default('app.bsky.unspecced.defs#threadItemNotFound') String $type,
-
     Map<String, dynamic>? $unknown,
   }) = _ThreadItemNotFound;
 
@@ -43,12 +42,14 @@ final class ThreadItemNotFoundConverter
 
   @override
   ThreadItemNotFound fromJson(Map<String, dynamic> json) {
-    return ThreadItemNotFound.fromJson(
-      translate(json, ThreadItemNotFound.knownProps),
-    );
+    return ThreadItemNotFound.fromJson(translate(
+      json,
+      ThreadItemNotFound.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ThreadItemNotFound object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ThreadItemNotFound object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -23,7 +23,11 @@ part 'output.g.dart';
 
 @freezed
 abstract class FeedGetFeedSkeletonOutput with _$FeedGetFeedSkeletonOutput {
-  static const knownProps = <String>['cursor', 'feed', 'reqId'];
+  static const knownProps = <String>[
+    'cursor',
+    'feed',
+    'reqId',
+  ];
 
   const factory FeedGetFeedSkeletonOutput({
     String? cursor,
@@ -31,7 +35,6 @@ abstract class FeedGetFeedSkeletonOutput with _$FeedGetFeedSkeletonOutput {
 
     /// Unique identifier per request that may be passed back alongside interactions.
     String? reqId,
-
     Map<String, dynamic>? $unknown,
   }) = _FeedGetFeedSkeletonOutput;
 
@@ -52,12 +55,14 @@ final class FeedGetFeedSkeletonOutputConverter
 
   @override
   FeedGetFeedSkeletonOutput fromJson(Map<String, dynamic> json) {
-    return FeedGetFeedSkeletonOutput.fromJson(
-      translate(json, FeedGetFeedSkeletonOutput.knownProps),
-    );
+    return FeedGetFeedSkeletonOutput.fromJson(translate(
+      json,
+      FeedGetFeedSkeletonOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetFeedSkeletonOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FeedGetFeedSkeletonOutput object) => untranslate(
+        object.toJson(),
+      );
 }

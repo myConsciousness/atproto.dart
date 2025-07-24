@@ -43,8 +43,13 @@ final class ProfileCommand extends Command<void> {
 final class _CreateProfileCommand extends CreateRecordCommand {
   _CreateProfileCommand() {
     argParser
-      ..addOption("displayName")
-      ..addOption("description", help: r"Free-form profile description text.")
+      ..addOption(
+        "displayName",
+      )
+      ..addOption(
+        "description",
+        help: r"Free-form profile description text.",
+      )
       ..addOption(
         "avatar",
         help:
@@ -59,9 +64,15 @@ final class _CreateProfileCommand extends CreateRecordCommand {
         help:
             r"Self-label values, specific to the Bluesky application, on the overall account.",
       )
-      ..addOption("joinedViaStarterPack")
-      ..addOption("pinnedPost")
-      ..addOption("createdAt")
+      ..addOption(
+        "joinedViaStarterPack",
+      )
+      ..addOption(
+        "pinnedPost",
+      )
+      ..addOption(
+        "createdAt",
+      )
       ..addOption("rkey");
   }
 
@@ -84,27 +95,34 @@ final class _CreateProfileCommand extends CreateRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-    if (argResults!["displayName"] != null)
-      "displayName": argResults!["displayName"],
-    if (argResults!["description"] != null)
-      "description": argResults!["description"],
-    if (argResults!["avatar"] != null) "avatar": argResults!["avatar"],
-    if (argResults!["banner"] != null) "banner": argResults!["banner"],
-    if (argResults!["labels"] != null)
-      "labels": jsonDecode(argResults!["labels"]),
-    if (argResults!["joinedViaStarterPack"] != null)
-      "joinedViaStarterPack": jsonDecode(argResults!["joinedViaStarterPack"]),
-    if (argResults!["pinnedPost"] != null)
-      "pinnedPost": jsonDecode(argResults!["pinnedPost"]),
-    if (argResults!["createdAt"] != null) "createdAt": argResults!["createdAt"],
-  };
+        if (argResults!["displayName"] != null)
+          "displayName": argResults!["displayName"],
+        if (argResults!["description"] != null)
+          "description": argResults!["description"],
+        if (argResults!["avatar"] != null) "avatar": argResults!["avatar"],
+        if (argResults!["banner"] != null) "banner": argResults!["banner"],
+        if (argResults!["labels"] != null)
+          "labels": jsonDecode(argResults!["labels"]),
+        if (argResults!["joinedViaStarterPack"] != null)
+          "joinedViaStarterPack":
+              jsonDecode(argResults!["joinedViaStarterPack"]),
+        if (argResults!["pinnedPost"] != null)
+          "pinnedPost": jsonDecode(argResults!["pinnedPost"]),
+        if (argResults!["createdAt"] != null)
+          "createdAt": argResults!["createdAt"],
+      };
 }
 
 final class _PutProfileCommand extends PutRecordCommand {
   _PutProfileCommand() {
     argParser
-      ..addOption("displayName")
-      ..addOption("description", help: r"Free-form profile description text.")
+      ..addOption(
+        "displayName",
+      )
+      ..addOption(
+        "description",
+        help: r"Free-form profile description text.",
+      )
       ..addOption(
         "avatar",
         help:
@@ -119,9 +137,15 @@ final class _PutProfileCommand extends PutRecordCommand {
         help:
             r"Self-label values, specific to the Bluesky application, on the overall account.",
       )
-      ..addOption("joinedViaStarterPack")
-      ..addOption("pinnedPost")
-      ..addOption("createdAt")
+      ..addOption(
+        "joinedViaStarterPack",
+      )
+      ..addOption(
+        "pinnedPost",
+      )
+      ..addOption(
+        "createdAt",
+      )
       ..addOption("rkey");
   }
 
@@ -143,25 +167,31 @@ final class _PutProfileCommand extends PutRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-    if (argResults!["displayName"] != null)
-      "displayName": argResults!["displayName"],
-    if (argResults!["description"] != null)
-      "description": argResults!["description"],
-    if (argResults!["avatar"] != null) "avatar": argResults!["avatar"],
-    if (argResults!["banner"] != null) "banner": argResults!["banner"],
-    if (argResults!["labels"] != null)
-      "labels": jsonDecode(argResults!["labels"]),
-    if (argResults!["joinedViaStarterPack"] != null)
-      "joinedViaStarterPack": jsonDecode(argResults!["joinedViaStarterPack"]),
-    if (argResults!["pinnedPost"] != null)
-      "pinnedPost": jsonDecode(argResults!["pinnedPost"]),
-    if (argResults!["createdAt"] != null) "createdAt": argResults!["createdAt"],
-  };
+        if (argResults!["displayName"] != null)
+          "displayName": argResults!["displayName"],
+        if (argResults!["description"] != null)
+          "description": argResults!["description"],
+        if (argResults!["avatar"] != null) "avatar": argResults!["avatar"],
+        if (argResults!["banner"] != null) "banner": argResults!["banner"],
+        if (argResults!["labels"] != null)
+          "labels": jsonDecode(argResults!["labels"]),
+        if (argResults!["joinedViaStarterPack"] != null)
+          "joinedViaStarterPack":
+              jsonDecode(argResults!["joinedViaStarterPack"]),
+        if (argResults!["pinnedPost"] != null)
+          "pinnedPost": jsonDecode(argResults!["pinnedPost"]),
+        if (argResults!["createdAt"] != null)
+          "createdAt": argResults!["createdAt"],
+      };
 }
 
 final class _DeleteProfileCommand extends DeleteRecordCommand {
   _DeleteProfileCommand() {
-    argParser..addOption("rkey", mandatory: true);
+    argParser
+      ..addOption(
+        "rkey",
+        mandatory: true,
+      );
   }
 
   @override
@@ -183,7 +213,10 @@ final class _DeleteProfileCommand extends DeleteRecordCommand {
 final class _GetProfileCommand extends QueryCommand {
   _GetProfileCommand() {
     argParser
-      ..addOption("rkey", mandatory: true)
+      ..addOption(
+        "rkey",
+        mandatory: true,
+      )
       ..addOption("cid");
   }
 
@@ -201,11 +234,11 @@ final class _GetProfileCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'rkey': argResults!['rkey'],
-    if (argResults!['cid'] != null) 'cid': argResults!['cid'],
-  };
+        'repo': await did,
+        'collection': methodId,
+        'rkey': argResults!['rkey'],
+        if (argResults!['cid'] != null) 'cid': argResults!['cid'],
+      };
 }
 
 final class _ListProfileCommand extends QueryCommand {
@@ -231,10 +264,10 @@ final class _ListProfileCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'limit': argResults!['limit'],
-    if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
-    'reverse': argResults!['reverse'],
-  };
+        'repo': await did,
+        'collection': methodId,
+        'limit': argResults!['limit'],
+        if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
+        'reverse': argResults!['reverse'],
+      };
 }

@@ -9,17 +9,25 @@ part of 'input.dart';
 // **************************************************************************
 
 _VideoGetJobStatusInput _$VideoGetJobStatusInputFromJson(Map json) =>
-    $checkedCreate('_VideoGetJobStatusInput', json, ($checkedConvert) {
-      final val = _VideoGetJobStatusInput(
-        jobId: $checkedConvert('jobId', (v) => v as String),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_VideoGetJobStatusInput',
+      json,
+      ($checkedConvert) {
+        final val = _VideoGetJobStatusInput(
+          jobId: $checkedConvert('jobId', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$VideoGetJobStatusInputToJson(
-  _VideoGetJobStatusInput instance,
-) => <String, dynamic>{'jobId': instance.jobId, r'$unknown': instance.$unknown};
+        _VideoGetJobStatusInput instance) =>
+    <String, dynamic>{
+      'jobId': instance.jobId,
+      r'$unknown': instance.$unknown,
+    };

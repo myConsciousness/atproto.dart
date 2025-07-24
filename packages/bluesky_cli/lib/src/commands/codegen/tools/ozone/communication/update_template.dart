@@ -22,19 +22,30 @@ final class UpdateTemplateCommand extends ProcedureCommand {
         help: r"ID of the template to be updated.",
         mandatory: true,
       )
-      ..addOption("name", help: r"Name of the template.")
-      ..addOption("lang", help: r"Message language.")
+      ..addOption(
+        "name",
+        help: r"Name of the template.",
+      )
+      ..addOption(
+        "lang",
+        help: r"Message language.",
+      )
       ..addOption(
         "contentMarkdown",
         help:
             r"Content of the template, markdown supported, can contain variable placeholders.",
       )
-      ..addOption("subject", help: r"Subject of the message, used in emails.")
+      ..addOption(
+        "subject",
+        help: r"Subject of the message, used in emails.",
+      )
       ..addOption(
         "updatedBy",
         help: r"DID of the user who is updating the template.",
       )
-      ..addFlag("disabled");
+      ..addFlag(
+        "disabled",
+      );
   }
 
   @override
@@ -53,13 +64,15 @@ final class UpdateTemplateCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "id": argResults!["id"],
-    if (argResults!["name"] != null) "name": argResults!["name"],
-    if (argResults!["lang"] != null) "lang": argResults!["lang"],
-    if (argResults!["contentMarkdown"] != null)
-      "contentMarkdown": argResults!["contentMarkdown"],
-    if (argResults!["subject"] != null) "subject": argResults!["subject"],
-    if (argResults!["updatedBy"] != null) "updatedBy": argResults!["updatedBy"],
-    if (argResults!["disabled"] != null) "disabled": argResults!["disabled"],
-  };
+        "id": argResults!["id"],
+        if (argResults!["name"] != null) "name": argResults!["name"],
+        if (argResults!["lang"] != null) "lang": argResults!["lang"],
+        if (argResults!["contentMarkdown"] != null)
+          "contentMarkdown": argResults!["contentMarkdown"],
+        if (argResults!["subject"] != null) "subject": argResults!["subject"],
+        if (argResults!["updatedBy"] != null)
+          "updatedBy": argResults!["updatedBy"],
+        if (argResults!["disabled"] != null)
+          "disabled": argResults!["disabled"],
+      };
 }

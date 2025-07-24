@@ -37,9 +37,9 @@ final class LexPrimitiveConverter
 
   @override
   Map<String, dynamic> toJson(LexPrimitive object) => object.when(
-    boolean: (data) => data.toJson(),
-    integer: (data) => data.toJson(),
-    string: (data) => data.toJson(),
-    unknown: (data) => data.toJson(),
-  );
+        boolean: (data) => data.toJson(),
+        integer: (data) => data.toJson(),
+        string: (data) => data.toJson(),
+        unknown: (data) => data.toJson(),
+      );
 }

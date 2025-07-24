@@ -9,40 +9,35 @@ part of 'output.dart';
 // **************************************************************************
 
 _VerificationRevokeVerificationsOutput
-_$VerificationRevokeVerificationsOutputFromJson(Map json) => $checkedCreate(
-  '_VerificationRevokeVerificationsOutput',
-  json,
-  ($checkedConvert) {
-    final val = _VerificationRevokeVerificationsOutput(
-      revokedVerifications: $checkedConvert(
-        'revokedVerifications',
-        (v) => (v as List<dynamic>).map((e) => e as String).toList(),
-      ),
-      failedRevocations: $checkedConvert(
-        'failedRevocations',
-        (v) => (v as List<dynamic>)
-            .map(
-              (e) => const RevokeErrorConverter().fromJson(
-                e as Map<String, dynamic>,
-              ),
-            )
-            .toList(),
-      ),
-      $unknown: $checkedConvert(
-        r'$unknown',
-        (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-      ),
-    );
-    return val;
-  },
-);
+    _$VerificationRevokeVerificationsOutputFromJson(Map json) => $checkedCreate(
+          '_VerificationRevokeVerificationsOutput',
+          json,
+          ($checkedConvert) {
+            final val = _VerificationRevokeVerificationsOutput(
+              revokedVerifications: $checkedConvert('revokedVerifications',
+                  (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+              failedRevocations: $checkedConvert(
+                  'failedRevocations',
+                  (v) => (v as List<dynamic>)
+                      .map((e) => const RevokeErrorConverter()
+                          .fromJson(e as Map<String, dynamic>))
+                      .toList()),
+              $unknown: $checkedConvert(
+                  r'$unknown',
+                  (v) => (v as Map?)?.map(
+                        (k, e) => MapEntry(k as String, e),
+                      )),
+            );
+            return val;
+          },
+        );
 
 Map<String, dynamic> _$VerificationRevokeVerificationsOutputToJson(
-  _VerificationRevokeVerificationsOutput instance,
-) => <String, dynamic>{
-  'revokedVerifications': instance.revokedVerifications,
-  'failedRevocations': instance.failedRevocations
-      .map(const RevokeErrorConverter().toJson)
-      .toList(),
-  r'$unknown': instance.$unknown,
-};
+        _VerificationRevokeVerificationsOutput instance) =>
+    <String, dynamic>{
+      'revokedVerifications': instance.revokedVerifications,
+      'failedRevocations': instance.failedRevocations
+          .map(const RevokeErrorConverter().toJson)
+          .toList(),
+      r'$unknown': instance.$unknown,
+    };

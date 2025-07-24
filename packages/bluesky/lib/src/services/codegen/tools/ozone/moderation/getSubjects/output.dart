@@ -23,11 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class ModerationGetSubjectsOutput with _$ModerationGetSubjectsOutput {
-  static const knownProps = <String>['subjects'];
+  static const knownProps = <String>[
+    'subjects',
+  ];
 
   const factory ModerationGetSubjectsOutput({
     @SubjectViewConverter() required List<SubjectView> subjects,
-
     Map<String, dynamic>? $unknown,
   }) = _ModerationGetSubjectsOutput;
 
@@ -41,12 +42,15 @@ final class ModerationGetSubjectsOutputConverter
 
   @override
   ModerationGetSubjectsOutput fromJson(Map<String, dynamic> json) {
-    return ModerationGetSubjectsOutput.fromJson(
-      translate(json, ModerationGetSubjectsOutput.knownProps),
-    );
+    return ModerationGetSubjectsOutput.fromJson(translate(
+      json,
+      ModerationGetSubjectsOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(ModerationGetSubjectsOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

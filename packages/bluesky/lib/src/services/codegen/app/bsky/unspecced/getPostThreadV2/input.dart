@@ -51,7 +51,6 @@ abstract class UnspeccedGetPostThreadV2Input
 
     /// Sorting for the thread replies.
     @UnspeccedGetPostThreadV2SortConverter() UnspeccedGetPostThreadV2Sort? sort,
-
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetPostThreadV2Input;
 
@@ -75,12 +74,15 @@ final class UnspeccedGetPostThreadV2InputConverter
 
   @override
   UnspeccedGetPostThreadV2Input fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetPostThreadV2Input.fromJson(
-      translate(json, UnspeccedGetPostThreadV2Input.knownProps),
-    );
+    return UnspeccedGetPostThreadV2Input.fromJson(translate(
+      json,
+      UnspeccedGetPostThreadV2Input.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedGetPostThreadV2Input object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

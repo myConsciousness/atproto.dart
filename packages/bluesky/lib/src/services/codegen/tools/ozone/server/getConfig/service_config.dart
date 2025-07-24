@@ -21,12 +21,13 @@ part 'service_config.g.dart';
 
 @freezed
 abstract class ServiceConfig with _$ServiceConfig {
-  static const knownProps = <String>['url'];
+  static const knownProps = <String>[
+    'url',
+  ];
 
   const factory ServiceConfig({
     @Default('tools.ozone.server.getConfig#serviceConfig') String $type,
     @AtUriConverter() AtUri? url,
-
     Map<String, dynamic>? $unknown,
   }) = _ServiceConfig;
 
@@ -50,10 +51,14 @@ final class ServiceConfigConverter
 
   @override
   ServiceConfig fromJson(Map<String, dynamic> json) {
-    return ServiceConfig.fromJson(translate(json, ServiceConfig.knownProps));
+    return ServiceConfig.fromJson(translate(
+      json,
+      ServiceConfig.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ServiceConfig object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ServiceConfig object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -17,9 +17,15 @@ import '../../../../query_command.dart';
 final class GetSubjectStatusCommand extends QueryCommand {
   GetSubjectStatusCommand() {
     argParser
-      ..addOption("did")
-      ..addOption("uri")
-      ..addOption("blob");
+      ..addOption(
+        "did",
+      )
+      ..addOption(
+        "uri",
+      )
+      ..addOption(
+        "blob",
+      );
   }
 
   @override
@@ -38,8 +44,8 @@ final class GetSubjectStatusCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["did"] != null) "did": argResults!["did"],
-    if (argResults!["uri"] != null) "uri": argResults!["uri"],
-    if (argResults!["blob"] != null) "blob": argResults!["blob"],
-  };
+        if (argResults!["did"] != null) "did": argResults!["did"],
+        if (argResults!["uri"] != null) "uri": argResults!["uri"],
+        if (argResults!["blob"] != null) "blob": argResults!["blob"],
+      };
 }

@@ -20,12 +20,13 @@ part 'input.g.dart';
 
 @freezed
 abstract class SyncGetRepoStatusInput with _$SyncGetRepoStatusInput {
-  static const knownProps = <String>['did'];
+  static const knownProps = <String>[
+    'did',
+  ];
 
   const factory SyncGetRepoStatusInput({
     /// The DID of the repo.
     required String did,
-
     Map<String, dynamic>? $unknown,
   }) = _SyncGetRepoStatusInput;
 
@@ -39,12 +40,14 @@ final class SyncGetRepoStatusInputConverter
 
   @override
   SyncGetRepoStatusInput fromJson(Map<String, dynamic> json) {
-    return SyncGetRepoStatusInput.fromJson(
-      translate(json, SyncGetRepoStatusInput.knownProps),
-    );
+    return SyncGetRepoStatusInput.fromJson(translate(
+      json,
+      SyncGetRepoStatusInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SyncGetRepoStatusInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SyncGetRepoStatusInput object) => untranslate(
+        object.toJson(),
+      );
 }

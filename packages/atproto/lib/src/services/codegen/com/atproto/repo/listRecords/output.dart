@@ -23,13 +23,15 @@ part 'output.g.dart';
 
 @freezed
 abstract class RepoListRecordsOutput with _$RepoListRecordsOutput {
-  static const knownProps = <String>['cursor', 'records'];
+  static const knownProps = <String>[
+    'cursor',
+    'records',
+  ];
 
   const factory RepoListRecordsOutput({
     String? cursor,
     @RepoListRecordsRecordConverter()
     required List<RepoListRecordsRecord> records,
-
     Map<String, dynamic>? $unknown,
   }) = _RepoListRecordsOutput;
 
@@ -48,12 +50,14 @@ final class RepoListRecordsOutputConverter
 
   @override
   RepoListRecordsOutput fromJson(Map<String, dynamic> json) {
-    return RepoListRecordsOutput.fromJson(
-      translate(json, RepoListRecordsOutput.knownProps),
-    );
+    return RepoListRecordsOutput.fromJson(translate(
+      json,
+      RepoListRecordsOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(RepoListRecordsOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(RepoListRecordsOutput object) => untranslate(
+        object.toJson(),
+      );
 }

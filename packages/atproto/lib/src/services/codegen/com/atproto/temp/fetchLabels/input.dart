@@ -20,12 +20,14 @@ part 'input.g.dart';
 
 @freezed
 abstract class TempFetchLabelsInput with _$TempFetchLabelsInput {
-  static const knownProps = <String>['since', 'limit'];
+  static const knownProps = <String>[
+    'since',
+    'limit',
+  ];
 
   const factory TempFetchLabelsInput({
     int? since,
     @Default(50) int limit,
-
     Map<String, dynamic>? $unknown,
   }) = _TempFetchLabelsInput;
 
@@ -44,12 +46,14 @@ final class TempFetchLabelsInputConverter
 
   @override
   TempFetchLabelsInput fromJson(Map<String, dynamic> json) {
-    return TempFetchLabelsInput.fromJson(
-      translate(json, TempFetchLabelsInput.knownProps),
-    );
+    return TempFetchLabelsInput.fromJson(translate(
+      json,
+      TempFetchLabelsInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(TempFetchLabelsInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(TempFetchLabelsInput object) => untranslate(
+        object.toJson(),
+      );
 }

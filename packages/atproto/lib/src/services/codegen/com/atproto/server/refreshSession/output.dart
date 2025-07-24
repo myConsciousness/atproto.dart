@@ -43,7 +43,6 @@ abstract class ServerRefreshSessionOutput with _$ServerRefreshSessionOutput {
 
     /// Hosting status of the account. If not specified, then assume 'active'.
     @ServerRefreshSessionStatusConverter() ServerRefreshSessionStatus? status,
-
     Map<String, dynamic>? $unknown,
   }) = _ServerRefreshSessionOutput;
 
@@ -66,12 +65,14 @@ final class ServerRefreshSessionOutputConverter
 
   @override
   ServerRefreshSessionOutput fromJson(Map<String, dynamic> json) {
-    return ServerRefreshSessionOutput.fromJson(
-      translate(json, ServerRefreshSessionOutput.knownProps),
-    );
+    return ServerRefreshSessionOutput.fromJson(translate(
+      json,
+      ServerRefreshSessionOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ServerRefreshSessionOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ServerRefreshSessionOutput object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -27,7 +27,11 @@ final class GetRecordCommand extends QueryCommand {
         help: r"The NSID of the record collection.",
         mandatory: true,
       )
-      ..addOption("rkey", help: r"The Record Key.", mandatory: true)
+      ..addOption(
+        "rkey",
+        help: r"The Record Key.",
+        mandatory: true,
+      )
       ..addOption(
         "cid",
         help:
@@ -51,9 +55,9 @@ final class GetRecordCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "repo": argResults!["repo"],
-    "collection": argResults!["collection"],
-    "rkey": argResults!["rkey"],
-    if (argResults!["cid"] != null) "cid": argResults!["cid"],
-  };
+        "repo": argResults!["repo"],
+        "collection": argResults!["collection"],
+        "rkey": argResults!["rkey"],
+        if (argResults!["cid"] != null) "cid": argResults!["cid"],
+      };
 }

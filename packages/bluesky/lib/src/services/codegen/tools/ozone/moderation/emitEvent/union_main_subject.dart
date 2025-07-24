@@ -23,8 +23,9 @@ part 'union_main_subject.freezed.dart';
 abstract class UModerationEmitEventSubject with _$UModerationEmitEventSubject {
   const UModerationEmitEventSubject._();
 
-  const factory UModerationEmitEventSubject.repoRef({required RepoRef data}) =
-      UModerationEmitEventSubjectRepoRef;
+  const factory UModerationEmitEventSubject.repoRef({
+    required RepoRef data,
+  }) = UModerationEmitEventSubjectRepoRef;
   const factory UModerationEmitEventSubject.repoStrongRef({
     required RepoStrongRef data,
   }) = UModerationEmitEventSubjectRepoStrongRef;
@@ -82,7 +83,6 @@ final class UModerationEmitEventSubjectConverter
       object.when(
         repoRef: (data) => const RepoRefConverter().toJson(data),
         repoStrongRef: (data) => const RepoStrongRefConverter().toJson(data),
-
         unknown: (data) => data,
       );
 }

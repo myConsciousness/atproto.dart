@@ -16,7 +16,11 @@ import '../../../../procedure_command.dart';
 
 final class MuteConvoCommand extends ProcedureCommand {
   MuteConvoCommand() {
-    argParser..addOption("convoId", mandatory: true);
+    argParser
+      ..addOption(
+        "convoId",
+        mandatory: true,
+      );
   }
 
   @override
@@ -32,5 +36,7 @@ final class MuteConvoCommand extends ProcedureCommand {
   String get methodId => "chat.bsky.convo.muteConvo";
 
   @override
-  Map<String, dynamic>? get body => {"convoId": argResults!["convoId"]};
+  Map<String, dynamic>? get body => {
+        "convoId": argResults!["convoId"],
+      };
 }

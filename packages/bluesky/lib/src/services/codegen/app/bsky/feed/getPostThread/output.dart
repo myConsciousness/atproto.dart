@@ -24,13 +24,15 @@ part 'output.g.dart';
 
 @freezed
 abstract class FeedGetPostThreadOutput with _$FeedGetPostThreadOutput {
-  static const knownProps = <String>['thread', 'threadgate'];
+  static const knownProps = <String>[
+    'thread',
+    'threadgate',
+  ];
 
   const factory FeedGetPostThreadOutput({
     @UFeedGetPostThreadThreadConverter()
     required UFeedGetPostThreadThread thread,
     @ThreadgateViewConverter() ThreadgateView? threadgate,
-
     Map<String, dynamic>? $unknown,
   }) = _FeedGetPostThreadOutput;
 
@@ -49,12 +51,14 @@ final class FeedGetPostThreadOutputConverter
 
   @override
   FeedGetPostThreadOutput fromJson(Map<String, dynamic> json) {
-    return FeedGetPostThreadOutput.fromJson(
-      translate(json, FeedGetPostThreadOutput.knownProps),
-    );
+    return FeedGetPostThreadOutput.fromJson(translate(
+      json,
+      FeedGetPostThreadOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetPostThreadOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FeedGetPostThreadOutput object) => untranslate(
+        object.toJson(),
+      );
 }

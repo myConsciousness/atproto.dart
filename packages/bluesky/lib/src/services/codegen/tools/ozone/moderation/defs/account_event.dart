@@ -39,7 +39,6 @@ abstract class AccountEvent with _$AccountEvent {
     required bool active,
     @AccountEventStatusConverter() AccountEventStatus? status,
     required DateTime timestamp,
-
     Map<String, dynamic>? $unknown,
   }) = _AccountEvent;
 
@@ -67,10 +66,14 @@ final class AccountEventConverter
 
   @override
   AccountEvent fromJson(Map<String, dynamic> json) {
-    return AccountEvent.fromJson(translate(json, AccountEvent.knownProps));
+    return AccountEvent.fromJson(translate(
+      json,
+      AccountEvent.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(AccountEvent object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(AccountEvent object) => untranslate(
+        object.toJson(),
+      );
 }

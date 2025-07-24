@@ -9,25 +9,28 @@ part of 'skeleton_reason_repost.dart';
 // **************************************************************************
 
 _SkeletonReasonRepost _$SkeletonReasonRepostFromJson(Map json) =>
-    $checkedCreate('_SkeletonReasonRepost', json, ($checkedConvert) {
-      final val = _SkeletonReasonRepost(
-        $type: $checkedConvert(
-          r'$type',
-          (v) => v as String? ?? 'app.bsky.feed.defs#skeletonReasonRepost',
-        ),
-        repost: $checkedConvert('repost', (v) => v as String),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_SkeletonReasonRepost',
+      json,
+      ($checkedConvert) {
+        final val = _SkeletonReasonRepost(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? 'app.bsky.feed.defs#skeletonReasonRepost'),
+          repost: $checkedConvert('repost', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$SkeletonReasonRepostToJson(
-  _SkeletonReasonRepost instance,
-) => <String, dynamic>{
-  r'$type': instance.$type,
-  'repost': instance.repost,
-  r'$unknown': instance.$unknown,
-};
+        _SkeletonReasonRepost instance) =>
+    <String, dynamic>{
+      r'$type': instance.$type,
+      'repost': instance.repost,
+      r'$unknown': instance.$unknown,
+    };

@@ -20,13 +20,15 @@ part 'status_attr.g.dart';
 
 @freezed
 abstract class StatusAttr with _$StatusAttr {
-  static const knownProps = <String>['applied', 'ref'];
+  static const knownProps = <String>[
+    'applied',
+    'ref',
+  ];
 
   const factory StatusAttr({
     @Default('com.atproto.admin.defs#statusAttr') String $type,
     required bool applied,
     String? ref,
-
     Map<String, dynamic>? $unknown,
   }) = _StatusAttr;
 
@@ -52,10 +54,14 @@ final class StatusAttrConverter
 
   @override
   StatusAttr fromJson(Map<String, dynamic> json) {
-    return StatusAttr.fromJson(translate(json, StatusAttr.knownProps));
+    return StatusAttr.fromJson(translate(
+      json,
+      StatusAttr.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(StatusAttr object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(StatusAttr object) => untranslate(
+        object.toJson(),
+      );
 }

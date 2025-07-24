@@ -21,12 +21,13 @@ part 'main.g.dart';
 
 @freezed
 abstract class EmbedRecord with _$EmbedRecord {
-  static const knownProps = <String>['record'];
+  static const knownProps = <String>[
+    'record',
+  ];
 
   const factory EmbedRecord({
     @Default('app.bsky.embed.record') String $type,
     @RepoStrongRefConverter() required RepoStrongRef record,
-
     Map<String, dynamic>? $unknown,
   }) = _EmbedRecord;
 
@@ -46,10 +47,14 @@ final class EmbedRecordConverter
 
   @override
   EmbedRecord fromJson(Map<String, dynamic> json) {
-    return EmbedRecord.fromJson(translate(json, EmbedRecord.knownProps));
+    return EmbedRecord.fromJson(translate(
+      json,
+      EmbedRecord.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedRecord object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(EmbedRecord object) => untranslate(
+        object.toJson(),
+      );
 }

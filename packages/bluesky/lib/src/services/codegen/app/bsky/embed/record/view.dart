@@ -23,12 +23,13 @@ part 'view.g.dart';
 
 @freezed
 abstract class EmbedRecordView with _$EmbedRecordView {
-  static const knownProps = <String>['record'];
+  static const knownProps = <String>[
+    'record',
+  ];
 
   const factory EmbedRecordView({
     @Default('app.bsky.embed.record#view') String $type,
     @UEmbedRecordViewRecordConverter() required UEmbedRecordViewRecord record,
-
     Map<String, dynamic>? $unknown,
   }) = _EmbedRecordView;
 
@@ -47,12 +48,14 @@ final class EmbedRecordViewConverter
 
   @override
   EmbedRecordView fromJson(Map<String, dynamic> json) {
-    return EmbedRecordView.fromJson(
-      translate(json, EmbedRecordView.knownProps),
-    );
+    return EmbedRecordView.fromJson(translate(
+      json,
+      EmbedRecordView.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedRecordView object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(EmbedRecordView object) => untranslate(
+        object.toJson(),
+      );
 }

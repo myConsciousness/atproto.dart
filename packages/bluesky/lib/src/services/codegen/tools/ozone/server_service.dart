@@ -29,10 +29,13 @@ final class ServerService {
   Future<XRPCResponse<ServerGetConfigOutput>> getConfig({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.toolsOzoneServerGetConfig,
-    headers: $headers,
-    parameters: {...?$unknown},
-    to: const ServerGetConfigOutputConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.get(
+        ns.toolsOzoneServerGetConfig,
+        headers: $headers,
+        parameters: {
+          ...?$unknown,
+        },
+        to: const ServerGetConfigOutputConverter().fromJson,
+      );
 }

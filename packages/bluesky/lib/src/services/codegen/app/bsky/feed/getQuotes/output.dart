@@ -23,14 +23,18 @@ part 'output.g.dart';
 
 @freezed
 abstract class FeedGetQuotesOutput with _$FeedGetQuotesOutput {
-  static const knownProps = <String>['uri', 'cid', 'cursor', 'posts'];
+  static const knownProps = <String>[
+    'uri',
+    'cid',
+    'cursor',
+    'posts',
+  ];
 
   const factory FeedGetQuotesOutput({
     required String uri,
     String? cid,
     String? cursor,
     @PostViewConverter() required List<PostView> posts,
-
     Map<String, dynamic>? $unknown,
   }) = _FeedGetQuotesOutput;
 
@@ -51,12 +55,14 @@ final class FeedGetQuotesOutputConverter
 
   @override
   FeedGetQuotesOutput fromJson(Map<String, dynamic> json) {
-    return FeedGetQuotesOutput.fromJson(
-      translate(json, FeedGetQuotesOutput.knownProps),
-    );
+    return FeedGetQuotesOutput.fromJson(translate(
+      json,
+      FeedGetQuotesOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetQuotesOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FeedGetQuotesOutput object) => untranslate(
+        object.toJson(),
+      );
 }

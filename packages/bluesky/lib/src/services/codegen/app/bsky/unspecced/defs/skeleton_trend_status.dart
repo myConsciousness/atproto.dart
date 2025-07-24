@@ -26,8 +26,9 @@ abstract class SkeletonTrendStatus with _$SkeletonTrendStatus {
     required KnownSkeletonTrendStatus data,
   }) = SkeletonTrendStatusKnownValue;
 
-  const factory SkeletonTrendStatus.unknown({required String data}) =
-      SkeletonTrendStatusUnknown;
+  const factory SkeletonTrendStatus.unknown({
+    required String data,
+  }) = SkeletonTrendStatusUnknown;
 
   static SkeletonTrendStatus? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,13 +71,16 @@ final class SkeletonTrendStatusConverter
   }
 
   @override
-  String toJson(SkeletonTrendStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SkeletonTrendStatus object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownSkeletonTrendStatus implements Serializable {
   @JsonValue('hot')
-  hot('hot');
+  hot('hot'),
+  ;
 
   @override
   final String value;

@@ -21,7 +21,11 @@ part 'main.g.dart';
 /// Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.
 @freezed
 abstract class GraphListitemRecord with _$GraphListitemRecord {
-  static const knownProps = <String>['subject', 'list', 'createdAt'];
+  static const knownProps = <String>[
+    'subject',
+    'list',
+    'createdAt',
+  ];
 
   const factory GraphListitemRecord({
     @Default('app.bsky.graph.listitem') String $type,
@@ -32,7 +36,6 @@ abstract class GraphListitemRecord with _$GraphListitemRecord {
     /// Reference (AT-URI) to the list record (app.bsky.graph.list).
     required String list,
     required DateTime createdAt,
-
     Map<String, dynamic>? $unknown,
   }) = _GraphListitemRecord;
 
@@ -51,12 +54,14 @@ final class GraphListitemRecordConverter
 
   @override
   GraphListitemRecord fromJson(Map<String, dynamic> json) {
-    return GraphListitemRecord.fromJson(
-      translate(json, GraphListitemRecord.knownProps),
-    );
+    return GraphListitemRecord.fromJson(translate(
+      json,
+      GraphListitemRecord.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(GraphListitemRecord object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(GraphListitemRecord object) => untranslate(
+        object.toJson(),
+      );
 }

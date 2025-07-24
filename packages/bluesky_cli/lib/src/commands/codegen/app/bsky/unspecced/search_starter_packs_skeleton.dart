@@ -28,7 +28,10 @@ final class SearchStarterPacksSkeletonCommand extends QueryCommand {
         help:
             r"DID of the account making the request (not included for public/unauthenticated queries).",
       )
-      ..addOption("limit", defaultsTo: "25")
+      ..addOption(
+        "limit",
+        defaultsTo: "25",
+      )
       ..addOption(
         "cursor",
         help:
@@ -52,9 +55,9 @@ final class SearchStarterPacksSkeletonCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "q": argResults!["q"],
-    if (argResults!["viewer"] != null) "viewer": argResults!["viewer"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-  };
+        "q": argResults!["q"],
+        if (argResults!["viewer"] != null) "viewer": argResults!["viewer"],
+        "limit": argResults!["limit"],
+        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+      };
 }

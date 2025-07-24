@@ -24,32 +24,35 @@ part 'output.g.dart';
 @freezed
 abstract class ModerationGetReporterStatsOutput
     with _$ModerationGetReporterStatsOutput {
-  static const knownProps = <String>['stats'];
+  static const knownProps = <String>[
+    'stats',
+  ];
 
   const factory ModerationGetReporterStatsOutput({
     @ReporterStatsConverter() required List<ReporterStats> stats,
-
     Map<String, dynamic>? $unknown,
   }) = _ModerationGetReporterStatsOutput;
 
   factory ModerationGetReporterStatsOutput.fromJson(
-    Map<String, Object?> json,
-  ) => _$ModerationGetReporterStatsOutputFromJson(json);
+          Map<String, Object?> json) =>
+      _$ModerationGetReporterStatsOutputFromJson(json);
 }
 
-final class ModerationGetReporterStatsOutputConverter
-    extends
-        JsonConverter<ModerationGetReporterStatsOutput, Map<String, dynamic>> {
+final class ModerationGetReporterStatsOutputConverter extends JsonConverter<
+    ModerationGetReporterStatsOutput, Map<String, dynamic>> {
   const ModerationGetReporterStatsOutputConverter();
 
   @override
   ModerationGetReporterStatsOutput fromJson(Map<String, dynamic> json) {
-    return ModerationGetReporterStatsOutput.fromJson(
-      translate(json, ModerationGetReporterStatsOutput.knownProps),
-    );
+    return ModerationGetReporterStatsOutput.fromJson(translate(
+      json,
+      ModerationGetReporterStatsOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(ModerationGetReporterStatsOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

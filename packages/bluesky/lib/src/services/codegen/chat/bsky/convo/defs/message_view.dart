@@ -47,7 +47,6 @@ abstract class MessageView with _$MessageView {
     @ReactionViewConverter() List<ReactionView>? reactions,
     @MessageViewSenderConverter() required MessageViewSender sender,
     required DateTime sentAt,
-
     Map<String, dynamic>? $unknown,
   }) = _MessageView;
 
@@ -71,10 +70,14 @@ final class MessageViewConverter
 
   @override
   MessageView fromJson(Map<String, dynamic> json) {
-    return MessageView.fromJson(translate(json, MessageView.knownProps));
+    return MessageView.fromJson(translate(
+      json,
+      MessageView.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(MessageView object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(MessageView object) => untranslate(
+        object.toJson(),
+      );
 }

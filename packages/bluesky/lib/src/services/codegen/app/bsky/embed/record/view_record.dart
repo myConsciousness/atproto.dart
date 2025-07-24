@@ -53,7 +53,6 @@ abstract class EmbedRecordViewRecord with _$EmbedRecordViewRecord {
     @UEmbedRecordViewRecordEmbedsConverter()
     List<UEmbedRecordViewRecordEmbeds>? embeds,
     required DateTime indexedAt,
-
     Map<String, dynamic>? $unknown,
   }) = _EmbedRecordViewRecord;
 
@@ -83,12 +82,14 @@ final class EmbedRecordViewRecordConverter
 
   @override
   EmbedRecordViewRecord fromJson(Map<String, dynamic> json) {
-    return EmbedRecordViewRecord.fromJson(
-      translate(json, EmbedRecordViewRecord.knownProps),
-    );
+    return EmbedRecordViewRecord.fromJson(translate(
+      json,
+      EmbedRecordViewRecord.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedRecordViewRecord object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(EmbedRecordViewRecord object) => untranslate(
+        object.toJson(),
+      );
 }

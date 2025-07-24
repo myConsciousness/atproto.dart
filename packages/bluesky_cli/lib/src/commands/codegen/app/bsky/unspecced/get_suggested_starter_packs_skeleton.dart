@@ -22,7 +22,10 @@ final class GetSuggestedStarterPacksSkeletonCommand extends QueryCommand {
         help:
             r"DID of the account making the request (not included for public/unauthenticated queries).",
       )
-      ..addOption("limit", defaultsTo: "10");
+      ..addOption(
+        "limit",
+        defaultsTo: "10",
+      );
   }
 
   @override
@@ -41,7 +44,7 @@ final class GetSuggestedStarterPacksSkeletonCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["viewer"] != null) "viewer": argResults!["viewer"],
-    "limit": argResults!["limit"],
-  };
+        if (argResults!["viewer"] != null) "viewer": argResults!["viewer"],
+        "limit": argResults!["limit"],
+      };
 }

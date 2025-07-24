@@ -24,7 +24,12 @@ part 'repo_op.g.dart';
 /// A repo operation, ie a mutation of a single record.
 @freezed
 abstract class RepoOp with _$RepoOp {
-  static const knownProps = <String>['action', 'path', 'cid', 'prev'];
+  static const knownProps = <String>[
+    'action',
+    'path',
+    'cid',
+    'prev',
+  ];
 
   const factory RepoOp({
     @Default('com.atproto.sync.subscribeRepos#repoOp') String $type,
@@ -32,7 +37,6 @@ abstract class RepoOp with _$RepoOp {
     required String path,
     required Map<String, dynamic> cid,
     Map<String, dynamic>? prev,
-
     Map<String, dynamic>? $unknown,
   }) = _RepoOp;
 
@@ -55,9 +59,14 @@ final class RepoOpConverter
 
   @override
   RepoOp fromJson(Map<String, dynamic> json) {
-    return RepoOp.fromJson(translate(json, RepoOp.knownProps));
+    return RepoOp.fromJson(translate(
+      json,
+      RepoOp.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(RepoOp object) => untranslate(object.toJson());
+  Map<String, dynamic> toJson(RepoOp object) => untranslate(
+        object.toJson(),
+      );
 }

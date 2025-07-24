@@ -20,13 +20,15 @@ part 'links.g.dart';
 
 @freezed
 abstract class Links with _$Links {
-  static const knownProps = <String>['privacyPolicy', 'termsOfService'];
+  static const knownProps = <String>[
+    'privacyPolicy',
+    'termsOfService',
+  ];
 
   const factory Links({
     @Default('app.bsky.feed.describeFeedGenerator#links') String $type,
     String? privacyPolicy,
     String? termsOfService,
-
     Map<String, dynamic>? $unknown,
   }) = _Links;
 
@@ -50,9 +52,14 @@ final class LinksConverter extends JsonConverter<Links, Map<String, dynamic>> {
 
   @override
   Links fromJson(Map<String, dynamic> json) {
-    return Links.fromJson(translate(json, Links.knownProps));
+    return Links.fromJson(translate(
+      json,
+      Links.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(Links object) => untranslate(object.toJson());
+  Map<String, dynamic> toJson(Links object) => untranslate(
+        object.toJson(),
+      );
 }

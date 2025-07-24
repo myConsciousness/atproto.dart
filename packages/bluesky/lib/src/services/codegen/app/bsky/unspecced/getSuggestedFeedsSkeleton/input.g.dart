@@ -9,26 +9,29 @@ part of 'input.dart';
 // **************************************************************************
 
 _UnspeccedGetSuggestedFeedsSkeletonInput
-_$UnspeccedGetSuggestedFeedsSkeletonInputFromJson(Map json) => $checkedCreate(
-  '_UnspeccedGetSuggestedFeedsSkeletonInput',
-  json,
-  ($checkedConvert) {
-    final val = _UnspeccedGetSuggestedFeedsSkeletonInput(
-      viewer: $checkedConvert('viewer', (v) => v as String?),
-      limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 10),
-      $unknown: $checkedConvert(
-        r'$unknown',
-        (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-      ),
-    );
-    return val;
-  },
-);
+    _$UnspeccedGetSuggestedFeedsSkeletonInputFromJson(Map json) =>
+        $checkedCreate(
+          '_UnspeccedGetSuggestedFeedsSkeletonInput',
+          json,
+          ($checkedConvert) {
+            final val = _UnspeccedGetSuggestedFeedsSkeletonInput(
+              viewer: $checkedConvert('viewer', (v) => v as String?),
+              limit:
+                  $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 10),
+              $unknown: $checkedConvert(
+                  r'$unknown',
+                  (v) => (v as Map?)?.map(
+                        (k, e) => MapEntry(k as String, e),
+                      )),
+            );
+            return val;
+          },
+        );
 
 Map<String, dynamic> _$UnspeccedGetSuggestedFeedsSkeletonInputToJson(
-  _UnspeccedGetSuggestedFeedsSkeletonInput instance,
-) => <String, dynamic>{
-  'viewer': instance.viewer,
-  'limit': instance.limit,
-  r'$unknown': instance.$unknown,
-};
+        _UnspeccedGetSuggestedFeedsSkeletonInput instance) =>
+    <String, dynamic>{
+      'viewer': instance.viewer,
+      'limit': instance.limit,
+      r'$unknown': instance.$unknown,
+    };

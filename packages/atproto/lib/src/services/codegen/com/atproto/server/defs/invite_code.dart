@@ -42,7 +42,6 @@ abstract class InviteCode with _$InviteCode {
     required String createdBy,
     required DateTime createdAt,
     @InviteCodeUseConverter() required List<InviteCodeUse> uses,
-
     Map<String, dynamic>? $unknown,
   }) = _InviteCode;
 
@@ -66,10 +65,14 @@ final class InviteCodeConverter
 
   @override
   InviteCode fromJson(Map<String, dynamic> json) {
-    return InviteCode.fromJson(translate(json, InviteCode.knownProps));
+    return InviteCode.fromJson(translate(
+      json,
+      InviteCode.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(InviteCode object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(InviteCode object) => untranslate(
+        object.toJson(),
+      );
 }

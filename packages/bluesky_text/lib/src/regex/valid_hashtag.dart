@@ -6,8 +6,7 @@ import 'hashtag_boundary.dart';
 import 'hashtag_concat_chars.dart';
 import 'hashtag_emoji.dart';
 
-const validHashtag =
-    '($hashtagBoundary)'
+const validHashtag = '($hashtagBoundary)'
     '($hashSigns)'
     r'(?!\uFE0F|\u20E3)'
     '($hashtagAlphaNumeric*$hashtagAlpha$hashtagAlphaNumeric*|[$hashtagEmoji]+)'

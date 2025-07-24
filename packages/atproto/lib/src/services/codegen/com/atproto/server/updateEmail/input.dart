@@ -20,7 +20,11 @@ part 'input.g.dart';
 
 @freezed
 abstract class ServerUpdateEmailInput with _$ServerUpdateEmailInput {
-  static const knownProps = <String>['email', 'emailAuthFactor', 'token'];
+  static const knownProps = <String>[
+    'email',
+    'emailAuthFactor',
+    'token',
+  ];
 
   const factory ServerUpdateEmailInput({
     required String email,
@@ -28,7 +32,6 @@ abstract class ServerUpdateEmailInput with _$ServerUpdateEmailInput {
 
     /// Requires a token from com.atproto.sever.requestEmailUpdate if the account's email has been confirmed.
     String? token,
-
     Map<String, dynamic>? $unknown,
   }) = _ServerUpdateEmailInput;
 
@@ -49,12 +52,14 @@ final class ServerUpdateEmailInputConverter
 
   @override
   ServerUpdateEmailInput fromJson(Map<String, dynamic> json) {
-    return ServerUpdateEmailInput.fromJson(
-      translate(json, ServerUpdateEmailInput.knownProps),
-    );
+    return ServerUpdateEmailInput.fromJson(translate(
+      json,
+      ServerUpdateEmailInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ServerUpdateEmailInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ServerUpdateEmailInput object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -8,31 +8,29 @@ part of 'reaction_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_ReactionView _$ReactionViewFromJson(Map json) =>
-    $checkedCreate('_ReactionView', json, ($checkedConvert) {
-      final val = _ReactionView(
-        $type: $checkedConvert(
-          r'$type',
-          (v) => v as String? ?? 'chat.bsky.convo.defs#reactionView',
-        ),
-        value: $checkedConvert('value', (v) => v as String),
-        sender: $checkedConvert(
-          'sender',
-          (v) => const ReactionViewSenderConverter().fromJson(
-            v as Map<String, dynamic>,
-          ),
-        ),
-        createdAt: $checkedConvert(
-          'createdAt',
-          (v) => DateTime.parse(v as String),
-        ),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+_ReactionView _$ReactionViewFromJson(Map json) => $checkedCreate(
+      '_ReactionView',
+      json,
+      ($checkedConvert) {
+        final val = _ReactionView(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? 'chat.bsky.convo.defs#reactionView'),
+          value: $checkedConvert('value', (v) => v as String),
+          sender: $checkedConvert(
+              'sender',
+              (v) => const ReactionViewSenderConverter()
+                  .fromJson(v as Map<String, dynamic>)),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$ReactionViewToJson(_ReactionView instance) =>
     <String, dynamic>{

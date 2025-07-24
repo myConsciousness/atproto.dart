@@ -16,7 +16,11 @@ import '../../../../procedure_command.dart';
 
 final class MuteActorListCommand extends ProcedureCommand {
   MuteActorListCommand() {
-    argParser..addOption("list", mandatory: true);
+    argParser
+      ..addOption(
+        "list",
+        mandatory: true,
+      );
   }
 
   @override
@@ -33,5 +37,7 @@ final class MuteActorListCommand extends ProcedureCommand {
   String get methodId => "app.bsky.graph.muteActorList";
 
   @override
-  Map<String, dynamic>? get body => {"list": argResults!["list"]};
+  Map<String, dynamic>? get body => {
+        "list": argResults!["list"],
+      };
 }

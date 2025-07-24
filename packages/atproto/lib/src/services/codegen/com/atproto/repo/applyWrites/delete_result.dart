@@ -24,7 +24,6 @@ abstract class DeleteResult with _$DeleteResult {
 
   const factory DeleteResult({
     @Default('com.atproto.repo.applyWrites#deleteResult') String $type,
-
     Map<String, dynamic>? $unknown,
   }) = _DeleteResult;
 
@@ -43,10 +42,14 @@ final class DeleteResultConverter
 
   @override
   DeleteResult fromJson(Map<String, dynamic> json) {
-    return DeleteResult.fromJson(translate(json, DeleteResult.knownProps));
+    return DeleteResult.fromJson(translate(
+      json,
+      DeleteResult.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(DeleteResult object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(DeleteResult object) => untranslate(
+        object.toJson(),
+      );
 }

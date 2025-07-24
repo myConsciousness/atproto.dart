@@ -9,29 +9,30 @@ part of 'input.dart';
 // **************************************************************************
 
 _ConvoSendMessageBatchInput _$ConvoSendMessageBatchInputFromJson(Map json) =>
-    $checkedCreate('_ConvoSendMessageBatchInput', json, ($checkedConvert) {
-      final val = _ConvoSendMessageBatchInput(
-        items: $checkedConvert(
-          'items',
-          (v) => (v as List<dynamic>)
-              .map(
-                (e) => const BatchItemConverter().fromJson(
-                  e as Map<String, dynamic>,
-                ),
-              )
-              .toList(),
-        ),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_ConvoSendMessageBatchInput',
+      json,
+      ($checkedConvert) {
+        final val = _ConvoSendMessageBatchInput(
+          items: $checkedConvert(
+              'items',
+              (v) => (v as List<dynamic>)
+                  .map((e) => const BatchItemConverter()
+                      .fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$ConvoSendMessageBatchInputToJson(
-  _ConvoSendMessageBatchInput instance,
-) => <String, dynamic>{
-  'items': instance.items.map(const BatchItemConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
-};
+        _ConvoSendMessageBatchInput instance) =>
+    <String, dynamic>{
+      'items': instance.items.map(const BatchItemConverter().toJson).toList(),
+      r'$unknown': instance.$unknown,
+    };

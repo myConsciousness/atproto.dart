@@ -24,14 +24,16 @@ part 'related_account.g.dart';
 
 @freezed
 abstract class RelatedAccount with _$RelatedAccount {
-  static const knownProps = <String>['account', 'similarities'];
+  static const knownProps = <String>[
+    'account',
+    'similarities',
+  ];
 
   const factory RelatedAccount({
     @Default('tools.ozone.signature.findRelatedAccounts#relatedAccount')
     String $type,
     @AccountViewConverter() required AccountView account,
     @SigDetailConverter() List<SigDetail>? similarities,
-
     Map<String, dynamic>? $unknown,
   }) = _RelatedAccount;
 
@@ -51,10 +53,14 @@ final class RelatedAccountConverter
 
   @override
   RelatedAccount fromJson(Map<String, dynamic> json) {
-    return RelatedAccount.fromJson(translate(json, RelatedAccount.knownProps));
+    return RelatedAccount.fromJson(translate(
+      json,
+      RelatedAccount.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(RelatedAccount object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(RelatedAccount object) => untranslate(
+        object.toJson(),
+      );
 }

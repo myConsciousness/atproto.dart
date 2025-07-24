@@ -101,7 +101,6 @@ final class UAdminUpdateSubjectStatusSubjectConverter
         repoRef: (data) => const RepoRefConverter().toJson(data),
         repoStrongRef: (data) => const RepoStrongRefConverter().toJson(data),
         repoBlobRef: (data) => const RepoBlobRefConverter().toJson(data),
-
         unknown: (data) => data,
       );
 }

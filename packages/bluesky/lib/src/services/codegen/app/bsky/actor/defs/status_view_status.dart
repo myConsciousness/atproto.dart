@@ -26,8 +26,9 @@ abstract class StatusViewStatus with _$StatusViewStatus {
     required KnownStatusViewStatus data,
   }) = StatusViewStatusKnownValue;
 
-  const factory StatusViewStatus.unknown({required String data}) =
-      StatusViewStatusUnknown;
+  const factory StatusViewStatus.unknown({
+    required String data,
+  }) = StatusViewStatusUnknown;
 
   static StatusViewStatus? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,13 +71,16 @@ final class StatusViewStatusConverter
   }
 
   @override
-  String toJson(StatusViewStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(StatusViewStatus object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownStatusViewStatus implements Serializable {
   @JsonValue('app.bsky.actor.status#live')
-  live('app.bsky.actor.status#live');
+  live('app.bsky.actor.status#live'),
+  ;
 
   @override
   final String value;

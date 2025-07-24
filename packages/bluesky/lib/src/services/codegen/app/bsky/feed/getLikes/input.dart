@@ -20,7 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class FeedGetLikesInput with _$FeedGetLikesInput {
-  static const knownProps = <String>['uri', 'cid', 'limit', 'cursor'];
+  static const knownProps = <String>[
+    'uri',
+    'cid',
+    'limit',
+    'cursor',
+  ];
 
   const factory FeedGetLikesInput({
     /// AT-URI of the subject (eg, a post record).
@@ -30,7 +35,6 @@ abstract class FeedGetLikesInput with _$FeedGetLikesInput {
     String? cid,
     @Default(50) int limit,
     String? cursor,
-
     Map<String, dynamic>? $unknown,
   }) = _FeedGetLikesInput;
 
@@ -51,12 +55,14 @@ final class FeedGetLikesInputConverter
 
   @override
   FeedGetLikesInput fromJson(Map<String, dynamic> json) {
-    return FeedGetLikesInput.fromJson(
-      translate(json, FeedGetLikesInput.knownProps),
-    );
+    return FeedGetLikesInput.fromJson(translate(
+      json,
+      FeedGetLikesInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetLikesInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FeedGetLikesInput object) => untranslate(
+        object.toJson(),
+      );
 }

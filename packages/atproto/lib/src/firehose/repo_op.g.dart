@@ -8,26 +8,28 @@ part of 'repo_op.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_RepoOp _$RepoOpFromJson(Map json) =>
-    $checkedCreate('_RepoOp', json, ($checkedConvert) {
-      final val = _RepoOp(
-        action: $checkedConvert('action', (v) => v as String),
-        uri: $checkedConvert(
-          'uri',
-          (v) => const AtUriConverter().fromJson(v as String),
-        ),
-        cid: $checkedConvert('cid', (v) => v as String?),
-        record: $checkedConvert(
-          'record',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+_RepoOp _$RepoOpFromJson(Map json) => $checkedCreate(
+      '_RepoOp',
+      json,
+      ($checkedConvert) {
+        final val = _RepoOp(
+          action: $checkedConvert('action', (v) => v as String),
+          uri: $checkedConvert(
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
+          cid: $checkedConvert('cid', (v) => v as String?),
+          record: $checkedConvert(
+              'record',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$RepoOpToJson(_RepoOp instance) => <String, dynamic>{
-  'action': instance.action,
-  'uri': const AtUriConverter().toJson(instance.uri),
-  'cid': instance.cid,
-  'record': instance.record,
-};
+      'action': instance.action,
+      'uri': const AtUriConverter().toJson(instance.uri),
+      'cid': instance.cid,
+      'record': instance.record,
+    };

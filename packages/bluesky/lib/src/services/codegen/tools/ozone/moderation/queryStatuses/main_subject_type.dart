@@ -75,15 +75,18 @@ final class ModerationQueryStatusesSubjectTypeConverter
   }
 
   @override
-  String toJson(ModerationQueryStatusesSubjectType object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ModerationQueryStatusesSubjectType object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownModerationQueryStatusesSubjectType implements Serializable {
   @JsonValue('account')
   account('account'),
   @JsonValue('record')
-  record('record');
+  record('record'),
+  ;
 
   @override
   final String value;

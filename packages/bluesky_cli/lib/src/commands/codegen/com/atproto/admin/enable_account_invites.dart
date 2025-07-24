@@ -17,8 +17,14 @@ import '../../../../procedure_command.dart';
 final class EnableAccountInvitesCommand extends ProcedureCommand {
   EnableAccountInvitesCommand() {
     argParser
-      ..addOption("account", mandatory: true)
-      ..addOption("note", help: r"Optional reason for enabled invites.");
+      ..addOption(
+        "account",
+        mandatory: true,
+      )
+      ..addOption(
+        "note",
+        help: r"Optional reason for enabled invites.",
+      );
   }
 
   @override
@@ -37,7 +43,7 @@ final class EnableAccountInvitesCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "account": argResults!["account"],
-    if (argResults!["note"] != null) "note": argResults!["note"],
-  };
+        "account": argResults!["account"],
+        if (argResults!["note"] != null) "note": argResults!["note"],
+      };
 }

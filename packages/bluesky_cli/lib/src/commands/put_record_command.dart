@@ -25,9 +25,9 @@ abstract class PutRecordCommand extends ProcedureCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get body async => {
-    'repo': await did,
-    'collection': collection,
-    if (rkey != null) 'rkey': rkey,
-    'record': await record,
-  };
+        'repo': await did,
+        'collection': collection,
+        if (rkey != null) 'rkey': rkey,
+        'record': await record,
+      };
 }

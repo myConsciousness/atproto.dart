@@ -23,13 +23,15 @@ part 'output.g.dart';
 
 @freezed
 abstract class SafelinkQueryRulesOutput with _$SafelinkQueryRulesOutput {
-  static const knownProps = <String>['cursor', 'rules'];
+  static const knownProps = <String>[
+    'cursor',
+    'rules',
+  ];
 
   const factory SafelinkQueryRulesOutput({
     /// Next cursor for pagination. Only present if there are more results.
     String? cursor,
     @UrlRuleConverter() required List<UrlRule> rules,
-
     Map<String, dynamic>? $unknown,
   }) = _SafelinkQueryRulesOutput;
 
@@ -48,12 +50,14 @@ final class SafelinkQueryRulesOutputConverter
 
   @override
   SafelinkQueryRulesOutput fromJson(Map<String, dynamic> json) {
-    return SafelinkQueryRulesOutput.fromJson(
-      translate(json, SafelinkQueryRulesOutput.knownProps),
-    );
+    return SafelinkQueryRulesOutput.fromJson(translate(
+      json,
+      SafelinkQueryRulesOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SafelinkQueryRulesOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SafelinkQueryRulesOutput object) => untranslate(
+        object.toJson(),
+      );
 }

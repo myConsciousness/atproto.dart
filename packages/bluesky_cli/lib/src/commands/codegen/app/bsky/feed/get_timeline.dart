@@ -22,8 +22,13 @@ final class GetTimelineCommand extends QueryCommand {
         help:
             r"Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism.",
       )
-      ..addOption("limit", defaultsTo: "50")
-      ..addOption("cursor");
+      ..addOption(
+        "limit",
+        defaultsTo: "50",
+      )
+      ..addOption(
+        "cursor",
+      );
   }
 
   @override
@@ -42,8 +47,9 @@ final class GetTimelineCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["algorithm"] != null) "algorithm": argResults!["algorithm"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-  };
+        if (argResults!["algorithm"] != null)
+          "algorithm": argResults!["algorithm"],
+        "limit": argResults!["limit"],
+        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+      };
 }

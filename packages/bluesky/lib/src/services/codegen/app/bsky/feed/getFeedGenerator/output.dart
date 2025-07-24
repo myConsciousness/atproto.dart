@@ -23,7 +23,11 @@ part 'output.g.dart';
 
 @freezed
 abstract class FeedGetFeedGeneratorOutput with _$FeedGetFeedGeneratorOutput {
-  static const knownProps = <String>['view', 'isOnline', 'isValid'];
+  static const knownProps = <String>[
+    'view',
+    'isOnline',
+    'isValid',
+  ];
 
   const factory FeedGetFeedGeneratorOutput({
     @GeneratorViewConverter() required GeneratorView view,
@@ -33,7 +37,6 @@ abstract class FeedGetFeedGeneratorOutput with _$FeedGetFeedGeneratorOutput {
 
     /// Indicates whether the feed generator service is compatible with the record declaration.
     required bool isValid,
-
     Map<String, dynamic>? $unknown,
   }) = _FeedGetFeedGeneratorOutput;
 
@@ -54,12 +57,14 @@ final class FeedGetFeedGeneratorOutputConverter
 
   @override
   FeedGetFeedGeneratorOutput fromJson(Map<String, dynamic> json) {
-    return FeedGetFeedGeneratorOutput.fromJson(
-      translate(json, FeedGetFeedGeneratorOutput.knownProps),
-    );
+    return FeedGetFeedGeneratorOutput.fromJson(translate(
+      json,
+      FeedGetFeedGeneratorOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetFeedGeneratorOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FeedGetFeedGeneratorOutput object) => untranslate(
+        object.toJson(),
+      );
 }

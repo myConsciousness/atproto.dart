@@ -21,7 +21,11 @@ part 'input.g.dart';
 @freezed
 abstract class UnspeccedInitAgeAssuranceInput
     with _$UnspeccedInitAgeAssuranceInput {
-  static const knownProps = <String>['email', 'language', 'countryCode'];
+  static const knownProps = <String>[
+    'email',
+    'language',
+    'countryCode',
+  ];
 
   const factory UnspeccedInitAgeAssuranceInput({
     /// The user's email address to receive assurance instructions.
@@ -32,7 +36,6 @@ abstract class UnspeccedInitAgeAssuranceInput
 
     /// An ISO 3166-1 alpha-2 code of the user's location.
     required String countryCode,
-
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedInitAgeAssuranceInput;
 
@@ -40,19 +43,21 @@ abstract class UnspeccedInitAgeAssuranceInput
       _$UnspeccedInitAgeAssuranceInputFromJson(json);
 }
 
-final class UnspeccedInitAgeAssuranceInputConverter
-    extends
-        JsonConverter<UnspeccedInitAgeAssuranceInput, Map<String, dynamic>> {
+final class UnspeccedInitAgeAssuranceInputConverter extends JsonConverter<
+    UnspeccedInitAgeAssuranceInput, Map<String, dynamic>> {
   const UnspeccedInitAgeAssuranceInputConverter();
 
   @override
   UnspeccedInitAgeAssuranceInput fromJson(Map<String, dynamic> json) {
-    return UnspeccedInitAgeAssuranceInput.fromJson(
-      translate(json, UnspeccedInitAgeAssuranceInput.knownProps),
-    );
+    return UnspeccedInitAgeAssuranceInput.fromJson(translate(
+      json,
+      UnspeccedInitAgeAssuranceInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(UnspeccedInitAgeAssuranceInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

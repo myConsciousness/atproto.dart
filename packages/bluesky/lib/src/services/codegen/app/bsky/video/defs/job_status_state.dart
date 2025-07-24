@@ -22,11 +22,13 @@ part 'job_status_state.freezed.dart';
 abstract class JobStatusState with _$JobStatusState {
   const JobStatusState._();
 
-  const factory JobStatusState.knownValue({required KnownJobStatusState data}) =
-      JobStatusStateKnownValue;
+  const factory JobStatusState.knownValue({
+    required KnownJobStatusState data,
+  }) = JobStatusStateKnownValue;
 
-  const factory JobStatusState.unknown({required String data}) =
-      JobStatusStateUnknown;
+  const factory JobStatusState.unknown({
+    required String data,
+  }) = JobStatusStateUnknown;
 
   static JobStatusState? valueOf(final String? value) {
     if (value == null) return null;
@@ -69,15 +71,18 @@ final class JobStatusStateConverter
   }
 
   @override
-  String toJson(JobStatusState object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(JobStatusState object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownJobStatusState implements Serializable {
   @JsonValue('JOB_STATE_COMPLETED')
   jOB_STATE_COMPLETED('JOB_STATE_COMPLETED'),
   @JsonValue('JOB_STATE_FAILED')
-  jOB_STATE_FAILED('JOB_STATE_FAILED');
+  jOB_STATE_FAILED('JOB_STATE_FAILED'),
+  ;
 
   @override
   final String value;

@@ -26,8 +26,9 @@ abstract class RecordHostingStatus with _$RecordHostingStatus {
     required KnownRecordHostingStatus data,
   }) = RecordHostingStatusKnownValue;
 
-  const factory RecordHostingStatus.unknown({required String data}) =
-      RecordHostingStatusUnknown;
+  const factory RecordHostingStatus.unknown({
+    required String data,
+  }) = RecordHostingStatusUnknown;
 
   static RecordHostingStatus? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,15 +71,18 @@ final class RecordHostingStatusConverter
   }
 
   @override
-  String toJson(RecordHostingStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(RecordHostingStatus object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownRecordHostingStatus implements Serializable {
   @JsonValue('deleted')
   deleted('deleted'),
   @JsonValue('unknown')
-  unknown('unknown');
+  unknown('unknown'),
+  ;
 
   @override
   final String value;

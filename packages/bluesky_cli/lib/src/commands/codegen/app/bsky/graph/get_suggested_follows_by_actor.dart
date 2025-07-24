@@ -16,7 +16,11 @@ import '../../../../query_command.dart';
 
 final class GetSuggestedFollowsByActorCommand extends QueryCommand {
   GetSuggestedFollowsByActorCommand() {
-    argParser..addOption("actor", mandatory: true);
+    argParser
+      ..addOption(
+        "actor",
+        mandatory: true,
+      );
   }
 
   @override
@@ -34,5 +38,7 @@ final class GetSuggestedFollowsByActorCommand extends QueryCommand {
   String get methodId => "app.bsky.graph.getSuggestedFollowsByActor";
 
   @override
-  Map<String, dynamic>? get parameters => {"actor": argResults!["actor"]};
+  Map<String, dynamic>? get parameters => {
+        "actor": argResults!["actor"],
+      };
 }

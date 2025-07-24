@@ -22,12 +22,14 @@ part 'output.g.dart';
 @freezed
 abstract class SignatureSearchAccountsOutput
     with _$SignatureSearchAccountsOutput {
-  static const knownProps = <String>['cursor', 'accounts'];
+  static const knownProps = <String>[
+    'cursor',
+    'accounts',
+  ];
 
   const factory SignatureSearchAccountsOutput({
     String? cursor,
     @AccountViewConverter() required List<AccountView> accounts,
-
     Map<String, dynamic>? $unknown,
   }) = _SignatureSearchAccountsOutput;
 
@@ -47,12 +49,15 @@ final class SignatureSearchAccountsOutputConverter
 
   @override
   SignatureSearchAccountsOutput fromJson(Map<String, dynamic> json) {
-    return SignatureSearchAccountsOutput.fromJson(
-      translate(json, SignatureSearchAccountsOutput.knownProps),
-    );
+    return SignatureSearchAccountsOutput.fromJson(translate(
+      json,
+      SignatureSearchAccountsOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(SignatureSearchAccountsOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

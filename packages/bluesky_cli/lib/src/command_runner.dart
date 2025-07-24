@@ -28,11 +28,11 @@ import 'logger.dart';
 /// ```
 class BskyCommandRunner extends CommandRunner<void> {
   BskyCommandRunner()
-    : super(
-        'bsky',
-        "A powerful and extensible CLI tool for "
-            "interacting with Bluesky Social's APIs",
-      ) {
+      : super(
+          'bsky',
+          "A powerful and extensible CLI tool for "
+              "interacting with Bluesky Social's APIs",
+        ) {
     argParser
       ..addOption(
         'identifier',

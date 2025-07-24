@@ -17,9 +17,17 @@ import '../../../../query_command.dart';
 final class GetMessagesCommand extends QueryCommand {
   GetMessagesCommand() {
     argParser
-      ..addOption("convoId", mandatory: true)
-      ..addOption("limit", defaultsTo: "50")
-      ..addOption("cursor");
+      ..addOption(
+        "convoId",
+        mandatory: true,
+      )
+      ..addOption(
+        "limit",
+        defaultsTo: "50",
+      )
+      ..addOption(
+        "cursor",
+      );
   }
 
   @override
@@ -37,8 +45,8 @@ final class GetMessagesCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "convoId": argResults!["convoId"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-  };
+        "convoId": argResults!["convoId"],
+        "limit": argResults!["limit"],
+        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+      };
 }

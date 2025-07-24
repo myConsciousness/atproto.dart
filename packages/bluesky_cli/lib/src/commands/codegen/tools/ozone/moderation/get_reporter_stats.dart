@@ -16,7 +16,10 @@ import '../../../../query_command.dart';
 
 final class GetReporterStatsCommand extends QueryCommand {
   GetReporterStatsCommand() {
-    argParser..addMultiOption("dids");
+    argParser
+      ..addMultiOption(
+        "dids",
+      );
   }
 
   @override
@@ -33,5 +36,7 @@ final class GetReporterStatsCommand extends QueryCommand {
   String get methodId => "tools.ozone.moderation.getReporterStats";
 
   @override
-  Map<String, dynamic>? get parameters => {"dids": argResults!["dids"]};
+  Map<String, dynamic>? get parameters => {
+        "dids": argResults!["dids"],
+      };
 }

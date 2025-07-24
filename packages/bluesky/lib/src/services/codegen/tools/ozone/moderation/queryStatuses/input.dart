@@ -155,7 +155,6 @@ abstract class ModerationQueryStatusesInput
     /// If specified, only subjects with the given age assurance state will be returned.
     @ModerationQueryStatusesAgeAssuranceStateConverter()
     ModerationQueryStatusesAgeAssuranceState? ageAssuranceState,
-
     Map<String, dynamic>? $unknown,
   }) = _ModerationQueryStatusesInput;
 
@@ -227,12 +226,15 @@ final class ModerationQueryStatusesInputConverter
 
   @override
   ModerationQueryStatusesInput fromJson(Map<String, dynamic> json) {
-    return ModerationQueryStatusesInput.fromJson(
-      translate(json, ModerationQueryStatusesInput.knownProps),
-    );
+    return ModerationQueryStatusesInput.fromJson(translate(
+      json,
+      ModerationQueryStatusesInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(ModerationQueryStatusesInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

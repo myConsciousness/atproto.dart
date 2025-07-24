@@ -21,13 +21,15 @@ part 'aspect_ratio.g.dart';
 /// width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.
 @freezed
 abstract class AspectRatio with _$AspectRatio {
-  static const knownProps = <String>['width', 'height'];
+  static const knownProps = <String>[
+    'width',
+    'height',
+  ];
 
   const factory AspectRatio({
     @Default('app.bsky.embed.defs#aspectRatio') String $type,
     required int width,
     required int height,
-
     Map<String, dynamic>? $unknown,
   }) = _AspectRatio;
 
@@ -46,10 +48,14 @@ final class AspectRatioConverter
 
   @override
   AspectRatio fromJson(Map<String, dynamic> json) {
-    return AspectRatio.fromJson(translate(json, AspectRatio.knownProps));
+    return AspectRatio.fromJson(translate(
+      json,
+      AspectRatio.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(AspectRatio object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(AspectRatio object) => untranslate(
+        object.toJson(),
+      );
 }

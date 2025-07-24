@@ -34,7 +34,6 @@ abstract class VideoGetUploadLimitsOutput with _$VideoGetUploadLimitsOutput {
     int? remainingDailyBytes,
     String? message,
     String? error,
-
     Map<String, dynamic>? $unknown,
   }) = _VideoGetUploadLimitsOutput;
 
@@ -61,12 +60,14 @@ final class VideoGetUploadLimitsOutputConverter
 
   @override
   VideoGetUploadLimitsOutput fromJson(Map<String, dynamic> json) {
-    return VideoGetUploadLimitsOutput.fromJson(
-      translate(json, VideoGetUploadLimitsOutput.knownProps),
-    );
+    return VideoGetUploadLimitsOutput.fromJson(translate(
+      json,
+      VideoGetUploadLimitsOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(VideoGetUploadLimitsOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(VideoGetUploadLimitsOutput object) => untranslate(
+        object.toJson(),
+      );
 }

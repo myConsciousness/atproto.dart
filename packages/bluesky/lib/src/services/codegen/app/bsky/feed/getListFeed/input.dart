@@ -20,14 +20,17 @@ part 'input.g.dart';
 
 @freezed
 abstract class FeedGetListFeedInput with _$FeedGetListFeedInput {
-  static const knownProps = <String>['list', 'limit', 'cursor'];
+  static const knownProps = <String>[
+    'list',
+    'limit',
+    'cursor',
+  ];
 
   const factory FeedGetListFeedInput({
     /// Reference (AT-URI) to the list record.
     required String list,
     @Default(50) int limit,
     String? cursor,
-
     Map<String, dynamic>? $unknown,
   }) = _FeedGetListFeedInput;
 
@@ -46,12 +49,14 @@ final class FeedGetListFeedInputConverter
 
   @override
   FeedGetListFeedInput fromJson(Map<String, dynamic> json) {
-    return FeedGetListFeedInput.fromJson(
-      translate(json, FeedGetListFeedInput.knownProps),
-    );
+    return FeedGetListFeedInput.fromJson(translate(
+      json,
+      FeedGetListFeedInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetListFeedInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FeedGetListFeedInput object) => untranslate(
+        object.toJson(),
+      );
 }

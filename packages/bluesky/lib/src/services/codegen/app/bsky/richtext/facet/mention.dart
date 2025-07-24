@@ -21,12 +21,13 @@ part 'mention.g.dart';
 /// Facet feature for mention of another account. The text is usually a handle, including a '@' prefix, but the facet reference is a DID.
 @freezed
 abstract class RichtextFacetMention with _$RichtextFacetMention {
-  static const knownProps = <String>['did'];
+  static const knownProps = <String>[
+    'did',
+  ];
 
   const factory RichtextFacetMention({
     @Default('app.bsky.richtext.facet#mention') String $type,
     required String did,
-
     Map<String, dynamic>? $unknown,
   }) = _RichtextFacetMention;
 
@@ -45,12 +46,14 @@ final class RichtextFacetMentionConverter
 
   @override
   RichtextFacetMention fromJson(Map<String, dynamic> json) {
-    return RichtextFacetMention.fromJson(
-      translate(json, RichtextFacetMention.knownProps),
-    );
+    return RichtextFacetMention.fromJson(translate(
+      json,
+      RichtextFacetMention.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(RichtextFacetMention object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(RichtextFacetMention object) => untranslate(
+        object.toJson(),
+      );
 }

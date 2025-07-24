@@ -35,7 +35,6 @@ abstract class SetView with _$SetView {
     required int setSize,
     required DateTime createdAt,
     required DateTime updatedAt,
-
     Map<String, dynamic>? $unknown,
   }) = _SetView;
 
@@ -59,9 +58,14 @@ final class SetViewConverter
 
   @override
   SetView fromJson(Map<String, dynamic> json) {
-    return SetView.fromJson(translate(json, SetView.knownProps));
+    return SetView.fromJson(translate(
+      json,
+      SetView.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SetView object) => untranslate(object.toJson());
+  Map<String, dynamic> toJson(SetView object) => untranslate(
+        object.toJson(),
+      );
 }

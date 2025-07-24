@@ -23,12 +23,14 @@ part 'output.g.dart';
 
 @freezed
 abstract class UnspeccedGetConfigOutput with _$UnspeccedGetConfigOutput {
-  static const knownProps = <String>['checkEmailConfirmed', 'liveNow'];
+  static const knownProps = <String>[
+    'checkEmailConfirmed',
+    'liveNow',
+  ];
 
   const factory UnspeccedGetConfigOutput({
     bool? checkEmailConfirmed,
     @LiveNowConfigConverter() List<LiveNowConfig>? liveNow,
-
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetConfigOutput;
 
@@ -47,12 +49,14 @@ final class UnspeccedGetConfigOutputConverter
 
   @override
   UnspeccedGetConfigOutput fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetConfigOutput.fromJson(
-      translate(json, UnspeccedGetConfigOutput.knownProps),
-    );
+    return UnspeccedGetConfigOutput.fromJson(translate(
+      json,
+      UnspeccedGetConfigOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(UnspeccedGetConfigOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(UnspeccedGetConfigOutput object) => untranslate(
+        object.toJson(),
+      );
 }

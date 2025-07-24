@@ -16,7 +16,10 @@ import '../../../../query_command.dart';
 
 final class GetRecordsCommand extends QueryCommand {
   GetRecordsCommand() {
-    argParser..addMultiOption("uris");
+    argParser
+      ..addMultiOption(
+        "uris",
+      );
   }
 
   @override
@@ -32,5 +35,7 @@ final class GetRecordsCommand extends QueryCommand {
   String get methodId => "tools.ozone.moderation.getRecords";
 
   @override
-  Map<String, dynamic>? get parameters => {"uris": argResults!["uris"]};
+  Map<String, dynamic>? get parameters => {
+        "uris": argResults!["uris"],
+      };
 }

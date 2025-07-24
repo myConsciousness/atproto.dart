@@ -20,13 +20,15 @@ part 'set.g.dart';
 
 @freezed
 abstract class Set with _$Set {
-  static const knownProps = <String>['name', 'description'];
+  static const knownProps = <String>[
+    'name',
+    'description',
+  ];
 
   const factory Set({
     @Default('tools.ozone.set.defs#set') String $type,
     required String name,
     String? description,
-
     Map<String, dynamic>? $unknown,
   }) = _Set;
 
@@ -48,9 +50,14 @@ final class SetConverter extends JsonConverter<Set, Map<String, dynamic>> {
 
   @override
   Set fromJson(Map<String, dynamic> json) {
-    return Set.fromJson(translate(json, Set.knownProps));
+    return Set.fromJson(translate(
+      json,
+      Set.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(Set object) => untranslate(object.toJson());
+  Map<String, dynamic> toJson(Set object) => untranslate(
+        object.toJson(),
+      );
 }

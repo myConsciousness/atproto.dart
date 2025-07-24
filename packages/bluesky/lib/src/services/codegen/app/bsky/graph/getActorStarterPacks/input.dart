@@ -21,13 +21,16 @@ part 'input.g.dart';
 @freezed
 abstract class GraphGetActorStarterPacksInput
     with _$GraphGetActorStarterPacksInput {
-  static const knownProps = <String>['actor', 'limit', 'cursor'];
+  static const knownProps = <String>[
+    'actor',
+    'limit',
+    'cursor',
+  ];
 
   const factory GraphGetActorStarterPacksInput({
     required String actor,
     @Default(50) int limit,
     String? cursor,
-
     Map<String, dynamic>? $unknown,
   }) = _GraphGetActorStarterPacksInput;
 
@@ -41,19 +44,21 @@ extension GraphGetActorStarterPacksInputExtension
   bool get hasNotCursor => !hasCursor;
 }
 
-final class GraphGetActorStarterPacksInputConverter
-    extends
-        JsonConverter<GraphGetActorStarterPacksInput, Map<String, dynamic>> {
+final class GraphGetActorStarterPacksInputConverter extends JsonConverter<
+    GraphGetActorStarterPacksInput, Map<String, dynamic>> {
   const GraphGetActorStarterPacksInputConverter();
 
   @override
   GraphGetActorStarterPacksInput fromJson(Map<String, dynamic> json) {
-    return GraphGetActorStarterPacksInput.fromJson(
-      translate(json, GraphGetActorStarterPacksInput.knownProps),
-    );
+    return GraphGetActorStarterPacksInput.fromJson(translate(
+      json,
+      GraphGetActorStarterPacksInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(GraphGetActorStarterPacksInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

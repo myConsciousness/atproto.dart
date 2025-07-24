@@ -17,8 +17,13 @@ import '../../../../query_command.dart';
 final class GetRecordCommand extends QueryCommand {
   GetRecordCommand() {
     argParser
-      ..addOption("uri", mandatory: true)
-      ..addOption("cid");
+      ..addOption(
+        "uri",
+        mandatory: true,
+      )
+      ..addOption(
+        "cid",
+      );
   }
 
   @override
@@ -36,7 +41,7 @@ final class GetRecordCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "uri": argResults!["uri"],
-    if (argResults!["cid"] != null) "cid": argResults!["cid"],
-  };
+        "uri": argResults!["uri"],
+        if (argResults!["cid"] != null) "cid": argResults!["cid"],
+      };
 }

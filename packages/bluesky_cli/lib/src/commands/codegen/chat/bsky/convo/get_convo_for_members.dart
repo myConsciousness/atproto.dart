@@ -16,7 +16,10 @@ import '../../../../query_command.dart';
 
 final class GetConvoForMembersCommand extends QueryCommand {
   GetConvoForMembersCommand() {
-    argParser..addMultiOption("members");
+    argParser
+      ..addMultiOption(
+        "members",
+      );
   }
 
   @override
@@ -33,5 +36,7 @@ final class GetConvoForMembersCommand extends QueryCommand {
   String get methodId => "chat.bsky.convo.getConvoForMembers";
 
   @override
-  Map<String, dynamic>? get parameters => {"members": argResults!["members"]};
+  Map<String, dynamic>? get parameters => {
+        "members": argResults!["members"],
+      };
 }

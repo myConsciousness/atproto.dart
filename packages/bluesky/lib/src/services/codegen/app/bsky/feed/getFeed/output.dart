@@ -23,12 +23,14 @@ part 'output.g.dart';
 
 @freezed
 abstract class FeedGetFeedOutput with _$FeedGetFeedOutput {
-  static const knownProps = <String>['cursor', 'feed'];
+  static const knownProps = <String>[
+    'cursor',
+    'feed',
+  ];
 
   const factory FeedGetFeedOutput({
     String? cursor,
     @FeedViewPostConverter() required List<FeedViewPost> feed,
-
     Map<String, dynamic>? $unknown,
   }) = _FeedGetFeedOutput;
 
@@ -47,12 +49,14 @@ final class FeedGetFeedOutputConverter
 
   @override
   FeedGetFeedOutput fromJson(Map<String, dynamic> json) {
-    return FeedGetFeedOutput.fromJson(
-      translate(json, FeedGetFeedOutput.knownProps),
-    );
+    return FeedGetFeedOutput.fromJson(translate(
+      json,
+      FeedGetFeedOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedGetFeedOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FeedGetFeedOutput object) => untranslate(
+        object.toJson(),
+      );
 }

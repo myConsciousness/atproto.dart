@@ -21,14 +21,17 @@ part 'update.g.dart';
 /// Operation which updates an existing record.
 @freezed
 abstract class Update with _$Update {
-  static const knownProps = <String>['collection', 'rkey', 'value'];
+  static const knownProps = <String>[
+    'collection',
+    'rkey',
+    'value',
+  ];
 
   const factory Update({
     @Default('com.atproto.repo.applyWrites#update') String $type,
     required String collection,
     required String rkey,
     required Map<String, dynamic> value,
-
     Map<String, dynamic>? $unknown,
   }) = _Update;
 
@@ -46,9 +49,14 @@ final class UpdateConverter
 
   @override
   Update fromJson(Map<String, dynamic> json) {
-    return Update.fromJson(translate(json, Update.knownProps));
+    return Update.fromJson(translate(
+      json,
+      Update.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(Update object) => untranslate(object.toJson());
+  Map<String, dynamic> toJson(Update object) => untranslate(
+        object.toJson(),
+      );
 }

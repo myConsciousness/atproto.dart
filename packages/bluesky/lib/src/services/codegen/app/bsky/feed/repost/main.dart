@@ -22,14 +22,17 @@ part 'main.g.dart';
 /// Record representing a 'repost' of an existing Bluesky post.
 @freezed
 abstract class FeedRepostRecord with _$FeedRepostRecord {
-  static const knownProps = <String>['subject', 'createdAt', 'via'];
+  static const knownProps = <String>[
+    'subject',
+    'createdAt',
+    'via',
+  ];
 
   const factory FeedRepostRecord({
     @Default('app.bsky.feed.repost') String $type,
     @RepoStrongRefConverter() required RepoStrongRef subject,
     required DateTime createdAt,
     @RepoStrongRefConverter() RepoStrongRef? via,
-
     Map<String, dynamic>? $unknown,
   }) = _FeedRepostRecord;
 
@@ -53,12 +56,14 @@ final class FeedRepostRecordConverter
 
   @override
   FeedRepostRecord fromJson(Map<String, dynamic> json) {
-    return FeedRepostRecord.fromJson(
-      translate(json, FeedRepostRecord.knownProps),
-    );
+    return FeedRepostRecord.fromJson(translate(
+      json,
+      FeedRepostRecord.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedRepostRecord object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FeedRepostRecord object) => untranslate(
+        object.toJson(),
+      );
 }

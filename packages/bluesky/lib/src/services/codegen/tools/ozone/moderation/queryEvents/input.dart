@@ -91,7 +91,6 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
     @ModerationQueryEventsAgeAssuranceStateConverter()
     ModerationQueryEventsAgeAssuranceState? ageAssuranceState,
     String? cursor,
-
     Map<String, dynamic>? $unknown,
   }) = _ModerationQueryEventsInput;
 
@@ -125,12 +124,14 @@ final class ModerationQueryEventsInputConverter
 
   @override
   ModerationQueryEventsInput fromJson(Map<String, dynamic> json) {
-    return ModerationQueryEventsInput.fromJson(
-      translate(json, ModerationQueryEventsInput.knownProps),
-    );
+    return ModerationQueryEventsInput.fromJson(translate(
+      json,
+      ModerationQueryEventsInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ModerationQueryEventsInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ModerationQueryEventsInput object) => untranslate(
+        object.toJson(),
+      );
 }

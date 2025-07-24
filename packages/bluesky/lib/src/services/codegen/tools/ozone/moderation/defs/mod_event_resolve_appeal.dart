@@ -21,14 +21,15 @@ part 'mod_event_resolve_appeal.g.dart';
 /// Resolve appeal on a subject
 @freezed
 abstract class ModEventResolveAppeal with _$ModEventResolveAppeal {
-  static const knownProps = <String>['comment'];
+  static const knownProps = <String>[
+    'comment',
+  ];
 
   const factory ModEventResolveAppeal({
     @Default('tools.ozone.moderation.defs#modEventResolveAppeal') String $type,
 
     /// Describe resolution.
     String? comment,
-
     Map<String, dynamic>? $unknown,
   }) = _ModEventResolveAppeal;
 
@@ -53,12 +54,14 @@ final class ModEventResolveAppealConverter
 
   @override
   ModEventResolveAppeal fromJson(Map<String, dynamic> json) {
-    return ModEventResolveAppeal.fromJson(
-      translate(json, ModEventResolveAppeal.knownProps),
-    );
+    return ModEventResolveAppeal.fromJson(translate(
+      json,
+      ModEventResolveAppeal.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ModEventResolveAppeal object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ModEventResolveAppeal object) => untranslate(
+        object.toJson(),
+      );
 }

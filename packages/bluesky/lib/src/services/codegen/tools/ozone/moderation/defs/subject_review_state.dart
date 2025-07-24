@@ -26,8 +26,9 @@ abstract class SubjectReviewState with _$SubjectReviewState {
     required KnownSubjectReviewState data,
   }) = SubjectReviewStateKnownValue;
 
-  const factory SubjectReviewState.unknown({required String data}) =
-      SubjectReviewStateUnknown;
+  const factory SubjectReviewState.unknown({
+    required String data,
+  }) = SubjectReviewStateUnknown;
 
   static SubjectReviewState? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,8 +71,10 @@ final class SubjectReviewStateConverter
   }
 
   @override
-  String toJson(SubjectReviewState object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SubjectReviewState object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownSubjectReviewState implements Serializable {
@@ -82,7 +85,8 @@ enum KnownSubjectReviewState implements Serializable {
   @JsonValue('#reviewClosed')
   reviewClosed('#reviewClosed'),
   @JsonValue('#reviewNone')
-  reviewNone('#reviewNone');
+  reviewNone('#reviewNone'),
+  ;
 
   @override
   final String value;

@@ -20,13 +20,15 @@ part 'commit_meta.g.dart';
 
 @freezed
 abstract class CommitMeta with _$CommitMeta {
-  static const knownProps = <String>['cid', 'rev'];
+  static const knownProps = <String>[
+    'cid',
+    'rev',
+  ];
 
   const factory CommitMeta({
     @Default('com.atproto.repo.defs#commitMeta') String $type,
     required String cid,
     required String rev,
-
     Map<String, dynamic>? $unknown,
   }) = _CommitMeta;
 
@@ -45,10 +47,14 @@ final class CommitMetaConverter
 
   @override
   CommitMeta fromJson(Map<String, dynamic> json) {
-    return CommitMeta.fromJson(translate(json, CommitMeta.knownProps));
+    return CommitMeta.fromJson(translate(
+      json,
+      CommitMeta.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(CommitMeta object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(CommitMeta object) => untranslate(
+        object.toJson(),
+      );
 }

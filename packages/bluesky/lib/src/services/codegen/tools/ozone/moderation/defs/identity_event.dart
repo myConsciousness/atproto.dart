@@ -37,7 +37,6 @@ abstract class IdentityEvent with _$IdentityEvent {
     @AtUriConverter() AtUri? pdsHost,
     bool? tombstone,
     required DateTime timestamp,
-
     Map<String, dynamic>? $unknown,
   }) = _IdentityEvent;
 
@@ -67,10 +66,14 @@ final class IdentityEventConverter
 
   @override
   IdentityEvent fromJson(Map<String, dynamic> json) {
-    return IdentityEvent.fromJson(translate(json, IdentityEvent.knownProps));
+    return IdentityEvent.fromJson(translate(
+      json,
+      IdentityEvent.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(IdentityEvent object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(IdentityEvent object) => untranslate(
+        object.toJson(),
+      );
 }

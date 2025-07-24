@@ -23,11 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class TempFetchLabelsOutput with _$TempFetchLabelsOutput {
-  static const knownProps = <String>['labels'];
+  static const knownProps = <String>[
+    'labels',
+  ];
 
   const factory TempFetchLabelsOutput({
     @LabelConverter() required List<Label> labels,
-
     Map<String, dynamic>? $unknown,
   }) = _TempFetchLabelsOutput;
 
@@ -41,12 +42,14 @@ final class TempFetchLabelsOutputConverter
 
   @override
   TempFetchLabelsOutput fromJson(Map<String, dynamic> json) {
-    return TempFetchLabelsOutput.fromJson(
-      translate(json, TempFetchLabelsOutput.knownProps),
-    );
+    return TempFetchLabelsOutput.fromJson(translate(
+      json,
+      TempFetchLabelsOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(TempFetchLabelsOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(TempFetchLabelsOutput object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -20,12 +20,13 @@ part 'generator_viewer_state.g.dart';
 
 @freezed
 abstract class GeneratorViewerState with _$GeneratorViewerState {
-  static const knownProps = <String>['like'];
+  static const knownProps = <String>[
+    'like',
+  ];
 
   const factory GeneratorViewerState({
     @Default('app.bsky.feed.defs#generatorViewerState') String $type,
     String? like,
-
     Map<String, dynamic>? $unknown,
   }) = _GeneratorViewerState;
 
@@ -49,12 +50,14 @@ final class GeneratorViewerStateConverter
 
   @override
   GeneratorViewerState fromJson(Map<String, dynamic> json) {
-    return GeneratorViewerState.fromJson(
-      translate(json, GeneratorViewerState.knownProps),
-    );
+    return GeneratorViewerState.fromJson(translate(
+      json,
+      GeneratorViewerState.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(GeneratorViewerState object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(GeneratorViewerState object) => untranslate(
+        object.toJson(),
+      );
 }

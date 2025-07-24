@@ -20,11 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class GraphUnmuteActorInput with _$GraphUnmuteActorInput {
-  static const knownProps = <String>['actor'];
+  static const knownProps = <String>[
+    'actor',
+  ];
 
   const factory GraphUnmuteActorInput({
     required String actor,
-
     Map<String, dynamic>? $unknown,
   }) = _GraphUnmuteActorInput;
 
@@ -38,12 +39,14 @@ final class GraphUnmuteActorInputConverter
 
   @override
   GraphUnmuteActorInput fromJson(Map<String, dynamic> json) {
-    return GraphUnmuteActorInput.fromJson(
-      translate(json, GraphUnmuteActorInput.knownProps),
-    );
+    return GraphUnmuteActorInput.fromJson(translate(
+      json,
+      GraphUnmuteActorInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(GraphUnmuteActorInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(GraphUnmuteActorInput object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -16,11 +16,12 @@ import '../../../../query_command.dart';
 
 final class GetFeedGeneratorCommand extends QueryCommand {
   GetFeedGeneratorCommand() {
-    argParser..addOption(
-      "feed",
-      help: r"AT-URI of the feed generator record.",
-      mandatory: true,
-    );
+    argParser
+      ..addOption(
+        "feed",
+        help: r"AT-URI of the feed generator record.",
+        mandatory: true,
+      );
   }
 
   @override
@@ -37,5 +38,7 @@ final class GetFeedGeneratorCommand extends QueryCommand {
   String get methodId => "app.bsky.feed.getFeedGenerator";
 
   @override
-  Map<String, dynamic>? get parameters => {"feed": argResults!["feed"]};
+  Map<String, dynamic>? get parameters => {
+        "feed": argResults!["feed"],
+      };
 }

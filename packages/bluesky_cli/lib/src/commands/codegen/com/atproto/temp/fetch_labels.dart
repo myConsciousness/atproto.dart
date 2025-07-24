@@ -17,8 +17,13 @@ import '../../../../query_command.dart';
 final class FetchLabelsCommand extends QueryCommand {
   FetchLabelsCommand() {
     argParser
-      ..addOption("since")
-      ..addOption("limit", defaultsTo: "50");
+      ..addOption(
+        "since",
+      )
+      ..addOption(
+        "limit",
+        defaultsTo: "50",
+      );
   }
 
   @override
@@ -37,7 +42,7 @@ final class FetchLabelsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["since"] != null) "since": argResults!["since"],
-    "limit": argResults!["limit"],
-  };
+        if (argResults!["since"] != null) "since": argResults!["since"],
+        "limit": argResults!["limit"],
+      };
 }

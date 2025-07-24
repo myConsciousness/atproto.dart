@@ -32,21 +32,17 @@ abstract class ProfileAssociatedActivitySubscriptionAllowSubscriptions
   }) = ProfileAssociatedActivitySubscriptionAllowSubscriptionsUnknown;
 
   static ProfileAssociatedActivitySubscriptionAllowSubscriptions? valueOf(
-    final String? value,
-  ) {
+      final String? value) {
     if (value == null) return null;
     final knownValue =
         KnownProfileAssociatedActivitySubscriptionAllowSubscriptions.valueOf(
-          value,
-        );
+            value);
 
     return knownValue != null
         ? ProfileAssociatedActivitySubscriptionAllowSubscriptions.knownValue(
-            data: knownValue,
-          )
+            data: knownValue)
         : ProfileAssociatedActivitySubscriptionAllowSubscriptions.unknown(
-            data: value,
-          );
+            data: value);
   }
 
   String toJson() =>
@@ -58,13 +54,12 @@ extension ProfileAssociatedActivitySubscriptionAllowSubscriptionsExtension
     on ProfileAssociatedActivitySubscriptionAllowSubscriptions {
   bool get isKnownValue =>
       isA<ProfileAssociatedActivitySubscriptionAllowSubscriptionsKnownValue>(
-        this,
-      );
+          this);
   bool get isNotKnownValue => !isKnownValue;
   KnownProfileAssociatedActivitySubscriptionAllowSubscriptions?
-  get knownValue => isKnownValue
-      ? data as KnownProfileAssociatedActivitySubscriptionAllowSubscriptions
-      : null;
+      get knownValue => isKnownValue
+          ? data as KnownProfileAssociatedActivitySubscriptionAllowSubscriptions
+          : null;
   bool get isUnknown =>
       isA<ProfileAssociatedActivitySubscriptionAllowSubscriptionsUnknown>(this);
   bool get isNotUnknown => !isUnknown;
@@ -72,42 +67,37 @@ extension ProfileAssociatedActivitySubscriptionAllowSubscriptionsExtension
 }
 
 final class ProfileAssociatedActivitySubscriptionAllowSubscriptionsConverter
-    extends
-        JsonConverter<
-          ProfileAssociatedActivitySubscriptionAllowSubscriptions,
-          String
-        > {
+    extends JsonConverter<
+        ProfileAssociatedActivitySubscriptionAllowSubscriptions, String> {
   const ProfileAssociatedActivitySubscriptionAllowSubscriptionsConverter();
 
   @override
   ProfileAssociatedActivitySubscriptionAllowSubscriptions fromJson(
-    String json,
-  ) {
+      String json) {
     try {
       final knownValue =
           KnownProfileAssociatedActivitySubscriptionAllowSubscriptions.valueOf(
-            json,
-          );
+              json);
       if (knownValue != null) {
-        return ProfileAssociatedActivitySubscriptionAllowSubscriptions.knownValue(
-          data: knownValue,
-        );
+        return ProfileAssociatedActivitySubscriptionAllowSubscriptions
+            .knownValue(data: knownValue);
       }
 
       return ProfileAssociatedActivitySubscriptionAllowSubscriptions.unknown(
-        data: json,
-      );
+          data: json);
     } catch (_) {
       return ProfileAssociatedActivitySubscriptionAllowSubscriptions.unknown(
-        data: json,
-      );
+          data: json);
     }
   }
 
   @override
   String toJson(
-    ProfileAssociatedActivitySubscriptionAllowSubscriptions object,
-  ) => object.when(knownValue: (data) => data.value, unknown: (data) => data);
+          ProfileAssociatedActivitySubscriptionAllowSubscriptions object) =>
+      object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownProfileAssociatedActivitySubscriptionAllowSubscriptions
@@ -117,22 +107,21 @@ enum KnownProfileAssociatedActivitySubscriptionAllowSubscriptions
   @JsonValue('mutuals')
   mutuals('mutuals'),
   @JsonValue('none')
-  none('none');
+  none('none'),
+  ;
 
   @override
   final String value;
 
   const KnownProfileAssociatedActivitySubscriptionAllowSubscriptions(
-    this.value,
-  );
+      this.value);
 
   static bool isKnownValue(final String value) {
     return valueOf(value) != null;
   }
 
   static KnownProfileAssociatedActivitySubscriptionAllowSubscriptions? valueOf(
-    final String? value,
-  ) {
+      final String? value) {
     if (value == null) return null;
 
     for (final v in values) {

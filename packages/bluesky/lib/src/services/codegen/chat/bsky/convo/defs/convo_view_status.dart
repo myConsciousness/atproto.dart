@@ -26,8 +26,9 @@ abstract class ConvoViewStatus with _$ConvoViewStatus {
     required KnownConvoViewStatus data,
   }) = ConvoViewStatusKnownValue;
 
-  const factory ConvoViewStatus.unknown({required String data}) =
-      ConvoViewStatusUnknown;
+  const factory ConvoViewStatus.unknown({
+    required String data,
+  }) = ConvoViewStatusUnknown;
 
   static ConvoViewStatus? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,15 +71,18 @@ final class ConvoViewStatusConverter
   }
 
   @override
-  String toJson(ConvoViewStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ConvoViewStatus object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownConvoViewStatus implements Serializable {
   @JsonValue('request')
   request('request'),
   @JsonValue('accepted')
-  accepted('accepted');
+  accepted('accepted'),
+  ;
 
   @override
   final String value;

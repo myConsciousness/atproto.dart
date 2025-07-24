@@ -32,12 +32,10 @@ abstract class NotificationDeclarationAllowSubscriptions
   }) = NotificationDeclarationAllowSubscriptionsUnknown;
 
   static NotificationDeclarationAllowSubscriptions? valueOf(
-    final String? value,
-  ) {
+      final String? value) {
     if (value == null) return null;
-    final knownValue = KnownNotificationDeclarationAllowSubscriptions.valueOf(
-      value,
-    );
+    final knownValue =
+        KnownNotificationDeclarationAllowSubscriptions.valueOf(value);
 
     return knownValue != null
         ? NotificationDeclarationAllowSubscriptions.knownValue(data: knownValue)
@@ -69,13 +67,11 @@ final class NotificationDeclarationAllowSubscriptionsConverter
   @override
   NotificationDeclarationAllowSubscriptions fromJson(String json) {
     try {
-      final knownValue = KnownNotificationDeclarationAllowSubscriptions.valueOf(
-        json,
-      );
+      final knownValue =
+          KnownNotificationDeclarationAllowSubscriptions.valueOf(json);
       if (knownValue != null) {
         return NotificationDeclarationAllowSubscriptions.knownValue(
-          data: knownValue,
-        );
+            data: knownValue);
       }
 
       return NotificationDeclarationAllowSubscriptions.unknown(data: json);
@@ -86,7 +82,10 @@ final class NotificationDeclarationAllowSubscriptionsConverter
 
   @override
   String toJson(NotificationDeclarationAllowSubscriptions object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+      object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownNotificationDeclarationAllowSubscriptions implements Serializable {
@@ -95,7 +94,8 @@ enum KnownNotificationDeclarationAllowSubscriptions implements Serializable {
   @JsonValue('mutuals')
   mutuals('mutuals'),
   @JsonValue('none')
-  none('none');
+  none('none'),
+  ;
 
   @override
   final String value;
@@ -107,8 +107,7 @@ enum KnownNotificationDeclarationAllowSubscriptions implements Serializable {
   }
 
   static KnownNotificationDeclarationAllowSubscriptions? valueOf(
-    final String? value,
-  ) {
+      final String? value) {
     if (value == null) return null;
 
     for (final v in values) {

@@ -21,11 +21,12 @@ part 'input.g.dart';
 @freezed
 abstract class ModerationGetActorMetadataInput
     with _$ModerationGetActorMetadataInput {
-  static const knownProps = <String>['actor'];
+  static const knownProps = <String>[
+    'actor',
+  ];
 
   const factory ModerationGetActorMetadataInput({
     required String actor,
-
     Map<String, dynamic>? $unknown,
   }) = _ModerationGetActorMetadataInput;
 
@@ -33,19 +34,21 @@ abstract class ModerationGetActorMetadataInput
       _$ModerationGetActorMetadataInputFromJson(json);
 }
 
-final class ModerationGetActorMetadataInputConverter
-    extends
-        JsonConverter<ModerationGetActorMetadataInput, Map<String, dynamic>> {
+final class ModerationGetActorMetadataInputConverter extends JsonConverter<
+    ModerationGetActorMetadataInput, Map<String, dynamic>> {
   const ModerationGetActorMetadataInputConverter();
 
   @override
   ModerationGetActorMetadataInput fromJson(Map<String, dynamic> json) {
-    return ModerationGetActorMetadataInput.fromJson(
-      translate(json, ModerationGetActorMetadataInput.knownProps),
-    );
+    return ModerationGetActorMetadataInput.fromJson(translate(
+      json,
+      ModerationGetActorMetadataInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(ModerationGetActorMetadataInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

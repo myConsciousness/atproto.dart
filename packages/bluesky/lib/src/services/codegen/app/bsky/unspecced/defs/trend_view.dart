@@ -45,7 +45,6 @@ abstract class TrendView with _$TrendView {
     @TrendViewStatusConverter() TrendViewStatus? status,
     String? category,
     @ProfileViewBasicConverter() required List<ProfileViewBasic> actors,
-
     Map<String, dynamic>? $unknown,
   }) = _TrendView;
 
@@ -71,9 +70,14 @@ final class TrendViewConverter
 
   @override
   TrendView fromJson(Map<String, dynamic> json) {
-    return TrendView.fromJson(translate(json, TrendView.knownProps));
+    return TrendView.fromJson(translate(
+      json,
+      TrendView.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(TrendView object) => untranslate(object.toJson());
+  Map<String, dynamic> toJson(TrendView object) => untranslate(
+        object.toJson(),
+      );
 }

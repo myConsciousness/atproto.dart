@@ -41,7 +41,6 @@ abstract class RepoApplyWritesInput with _$RepoApplyWritesInput {
 
     /// If provided, the entire operation will fail if the current repo commit CID does not match this value. Used to prevent conflicting repo mutations.
     String? swapCommit,
-
     Map<String, dynamic>? $unknown,
   }) = _RepoApplyWritesInput;
 
@@ -62,12 +61,14 @@ final class RepoApplyWritesInputConverter
 
   @override
   RepoApplyWritesInput fromJson(Map<String, dynamic> json) {
-    return RepoApplyWritesInput.fromJson(
-      translate(json, RepoApplyWritesInput.knownProps),
-    );
+    return RepoApplyWritesInput.fromJson(translate(
+      json,
+      RepoApplyWritesInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(RepoApplyWritesInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(RepoApplyWritesInput object) => untranslate(
+        object.toJson(),
+      );
 }

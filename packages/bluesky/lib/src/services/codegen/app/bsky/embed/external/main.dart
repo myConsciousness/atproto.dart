@@ -24,12 +24,13 @@ part 'main.g.dart';
 /// A representation of some externally linked content (eg, a URL and 'card'), embedded in a Bluesky record (eg, a post).
 @freezed
 abstract class EmbedExternal with _$EmbedExternal {
-  static const knownProps = <String>['external'];
+  static const knownProps = <String>[
+    'external',
+  ];
 
   const factory EmbedExternal({
     @Default('app.bsky.embed.external') String $type,
     @EmbedExternalExternalConverter() required EmbedExternalExternal external,
-
     Map<String, dynamic>? $unknown,
   }) = _EmbedExternal;
 
@@ -49,10 +50,14 @@ final class EmbedExternalConverter
 
   @override
   EmbedExternal fromJson(Map<String, dynamic> json) {
-    return EmbedExternal.fromJson(translate(json, EmbedExternal.knownProps));
+    return EmbedExternal.fromJson(translate(
+      json,
+      EmbedExternal.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedExternal object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(EmbedExternal object) => untranslate(
+        object.toJson(),
+      );
 }

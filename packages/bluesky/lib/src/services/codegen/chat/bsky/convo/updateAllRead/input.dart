@@ -23,11 +23,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class ConvoUpdateAllReadInput with _$ConvoUpdateAllReadInput {
-  static const knownProps = <String>['status'];
+  static const knownProps = <String>[
+    'status',
+  ];
 
   const factory ConvoUpdateAllReadInput({
     @ConvoUpdateAllReadStatusConverter() ConvoUpdateAllReadStatus? status,
-
     Map<String, dynamic>? $unknown,
   }) = _ConvoUpdateAllReadInput;
 
@@ -46,12 +47,14 @@ final class ConvoUpdateAllReadInputConverter
 
   @override
   ConvoUpdateAllReadInput fromJson(Map<String, dynamic> json) {
-    return ConvoUpdateAllReadInput.fromJson(
-      translate(json, ConvoUpdateAllReadInput.knownProps),
-    );
+    return ConvoUpdateAllReadInput.fromJson(translate(
+      json,
+      ConvoUpdateAllReadInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ConvoUpdateAllReadInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ConvoUpdateAllReadInput object) => untranslate(
+        object.toJson(),
+      );
 }

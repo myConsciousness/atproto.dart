@@ -21,14 +21,15 @@ part 'mod_event_unmute_reporter.g.dart';
 /// Unmute incoming reports from an account
 @freezed
 abstract class ModEventUnmuteReporter with _$ModEventUnmuteReporter {
-  static const knownProps = <String>['comment'];
+  static const knownProps = <String>[
+    'comment',
+  ];
 
   const factory ModEventUnmuteReporter({
     @Default('tools.ozone.moderation.defs#modEventUnmuteReporter') String $type,
 
     /// Describe reasoning behind the reversal.
     String? comment,
-
     Map<String, dynamic>? $unknown,
   }) = _ModEventUnmuteReporter;
 
@@ -53,12 +54,14 @@ final class ModEventUnmuteReporterConverter
 
   @override
   ModEventUnmuteReporter fromJson(Map<String, dynamic> json) {
-    return ModEventUnmuteReporter.fromJson(
-      translate(json, ModEventUnmuteReporter.knownProps),
-    );
+    return ModEventUnmuteReporter.fromJson(translate(
+      json,
+      ModEventUnmuteReporter.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ModEventUnmuteReporter object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ModEventUnmuteReporter object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -1296,22 +1296,24 @@ firehose.Commit _buildSubscribedRepoCommit(final firehose.RepoOp op) =>
 firehose.RepoOp _buildCreateRepoOp(
   final String uri,
   final Map<String, dynamic> record,
-) => firehose.RepoOp(
-  action: 'create',
-  uri: AtUri.parse(uri),
-  cid: 'aaaa',
-  record: record,
-);
+) =>
+    firehose.RepoOp(
+      action: 'create',
+      uri: AtUri.parse(uri),
+      cid: 'aaaa',
+      record: record,
+    );
 
 firehose.RepoOp _buildUpdateRepoOp(
   final String uri,
   final Map<String, dynamic> record,
-) => firehose.RepoOp(
-  action: 'update',
-  uri: AtUri.parse(uri),
-  cid: 'aaaa',
-  record: record,
-);
+) =>
+    firehose.RepoOp(
+      action: 'update',
+      uri: AtUri.parse(uri),
+      cid: 'aaaa',
+      record: record,
+    );
 
 firehose.RepoOp _buildDeleteRepoOp(final String uri) =>
     firehose.RepoOp(action: 'delete', uri: AtUri.parse(uri));

@@ -20,12 +20,13 @@ part 'input.g.dart';
 
 @freezed
 abstract class SyncNotifyOfUpdateInput with _$SyncNotifyOfUpdateInput {
-  static const knownProps = <String>['hostname'];
+  static const knownProps = <String>[
+    'hostname',
+  ];
 
   const factory SyncNotifyOfUpdateInput({
     /// Hostname of the current service (usually a PDS) that is notifying of update.
     required String hostname,
-
     Map<String, dynamic>? $unknown,
   }) = _SyncNotifyOfUpdateInput;
 
@@ -39,12 +40,14 @@ final class SyncNotifyOfUpdateInputConverter
 
   @override
   SyncNotifyOfUpdateInput fromJson(Map<String, dynamic> json) {
-    return SyncNotifyOfUpdateInput.fromJson(
-      translate(json, SyncNotifyOfUpdateInput.knownProps),
-    );
+    return SyncNotifyOfUpdateInput.fromJson(translate(
+      json,
+      SyncNotifyOfUpdateInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SyncNotifyOfUpdateInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SyncNotifyOfUpdateInput object) => untranslate(
+        object.toJson(),
+      );
 }

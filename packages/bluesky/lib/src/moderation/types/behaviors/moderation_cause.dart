@@ -47,12 +47,12 @@ abstract class ModerationCause with _$ModerationCause {
       UModerationCauseHidden;
 
   bool get downgraded => when(
-    blocking: (data) => data.downgraded,
-    blockedBy: (data) => data.downgraded,
-    blockOther: (data) => data.downgraded,
-    label: (data) => data.downgraded,
-    muted: (data) => data.downgraded,
-    muteWord: (data) => data.downgraded,
-    hidden: (data) => data.downgraded,
-  );
+        blocking: (data) => data.downgraded,
+        blockedBy: (data) => data.downgraded,
+        blockOther: (data) => data.downgraded,
+        label: (data) => data.downgraded,
+        muted: (data) => data.downgraded,
+        muteWord: (data) => data.downgraded,
+        hidden: (data) => data.downgraded,
+      );
 }

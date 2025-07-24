@@ -24,7 +24,10 @@ part 'age_assurance_state.g.dart';
 /// The computed state of the age assurance process, returned to the user in question on certain authenticated requests.
 @freezed
 abstract class AgeAssuranceState with _$AgeAssuranceState {
-  static const knownProps = <String>['lastInitiatedAt', 'status'];
+  static const knownProps = <String>[
+    'lastInitiatedAt',
+    'status',
+  ];
 
   const factory AgeAssuranceState({
     @Default('app.bsky.unspecced.defs#ageAssuranceState') String $type,
@@ -34,7 +37,6 @@ abstract class AgeAssuranceState with _$AgeAssuranceState {
 
     /// The status of the age assurance process.
     @AgeAssuranceStateStatusConverter() required AgeAssuranceStateStatus status,
-
     Map<String, dynamic>? $unknown,
   }) = _AgeAssuranceState;
 
@@ -58,12 +60,14 @@ final class AgeAssuranceStateConverter
 
   @override
   AgeAssuranceState fromJson(Map<String, dynamic> json) {
-    return AgeAssuranceState.fromJson(
-      translate(json, AgeAssuranceState.knownProps),
-    );
+    return AgeAssuranceState.fromJson(translate(
+      json,
+      AgeAssuranceState.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(AgeAssuranceState object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(AgeAssuranceState object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -24,14 +24,17 @@ part 'message_input.g.dart';
 
 @freezed
 abstract class MessageInput with _$MessageInput {
-  static const knownProps = <String>['text', 'facets', 'embed'];
+  static const knownProps = <String>[
+    'text',
+    'facets',
+    'embed',
+  ];
 
   const factory MessageInput({
     @Default('chat.bsky.convo.defs#messageInput') String $type,
     required String text,
     @RichtextFacetConverter() List<RichtextFacet>? facets,
     @UMessageInputEmbedConverter() UMessageInputEmbed? embed,
-
     Map<String, dynamic>? $unknown,
   }) = _MessageInput;
 
@@ -55,10 +58,14 @@ final class MessageInputConverter
 
   @override
   MessageInput fromJson(Map<String, dynamic> json) {
-    return MessageInput.fromJson(translate(json, MessageInput.knownProps));
+    return MessageInput.fromJson(translate(
+      json,
+      MessageInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(MessageInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(MessageInput object) => untranslate(
+        object.toJson(),
+      );
 }

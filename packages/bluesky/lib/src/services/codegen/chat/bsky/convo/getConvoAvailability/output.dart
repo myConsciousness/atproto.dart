@@ -24,12 +24,14 @@ part 'output.g.dart';
 @freezed
 abstract class ConvoGetConvoAvailabilityOutput
     with _$ConvoGetConvoAvailabilityOutput {
-  static const knownProps = <String>['canChat', 'convo'];
+  static const knownProps = <String>[
+    'canChat',
+    'convo',
+  ];
 
   const factory ConvoGetConvoAvailabilityOutput({
     required bool canChat,
     @ConvoViewConverter() ConvoView? convo,
-
     Map<String, dynamic>? $unknown,
   }) = _ConvoGetConvoAvailabilityOutput;
 
@@ -45,19 +47,21 @@ extension ConvoGetConvoAvailabilityOutputExtension
   bool get hasNotConvo => !hasConvo;
 }
 
-final class ConvoGetConvoAvailabilityOutputConverter
-    extends
-        JsonConverter<ConvoGetConvoAvailabilityOutput, Map<String, dynamic>> {
+final class ConvoGetConvoAvailabilityOutputConverter extends JsonConverter<
+    ConvoGetConvoAvailabilityOutput, Map<String, dynamic>> {
   const ConvoGetConvoAvailabilityOutputConverter();
 
   @override
   ConvoGetConvoAvailabilityOutput fromJson(Map<String, dynamic> json) {
-    return ConvoGetConvoAvailabilityOutput.fromJson(
-      translate(json, ConvoGetConvoAvailabilityOutput.knownProps),
-    );
+    return ConvoGetConvoAvailabilityOutput.fromJson(translate(
+      json,
+      ConvoGetConvoAvailabilityOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(ConvoGetConvoAvailabilityOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

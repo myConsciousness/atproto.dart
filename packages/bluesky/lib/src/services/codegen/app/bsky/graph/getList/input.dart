@@ -20,14 +20,17 @@ part 'input.g.dart';
 
 @freezed
 abstract class GraphGetListInput with _$GraphGetListInput {
-  static const knownProps = <String>['list', 'limit', 'cursor'];
+  static const knownProps = <String>[
+    'list',
+    'limit',
+    'cursor',
+  ];
 
   const factory GraphGetListInput({
     /// Reference (AT-URI) of the list record to hydrate.
     required String list,
     @Default(50) int limit,
     String? cursor,
-
     Map<String, dynamic>? $unknown,
   }) = _GraphGetListInput;
 
@@ -46,12 +49,14 @@ final class GraphGetListInputConverter
 
   @override
   GraphGetListInput fromJson(Map<String, dynamic> json) {
-    return GraphGetListInput.fromJson(
-      translate(json, GraphGetListInput.knownProps),
-    );
+    return GraphGetListInput.fromJson(translate(
+      json,
+      GraphGetListInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(GraphGetListInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(GraphGetListInput object) => untranslate(
+        object.toJson(),
+      );
 }

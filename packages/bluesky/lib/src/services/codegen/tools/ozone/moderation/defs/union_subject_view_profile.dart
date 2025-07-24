@@ -49,6 +49,7 @@ final class USubjectViewProfileConverter
   }
 
   @override
-  Map<String, dynamic> toJson(USubjectViewProfile object) =>
-      object.when(unknown: (data) => data);
+  Map<String, dynamic> toJson(USubjectViewProfile object) => object.when(
+        unknown: (data) => data,
+      );
 }

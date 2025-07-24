@@ -8,30 +8,37 @@ part of 'template_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_TemplateView _$TemplateViewFromJson(
-  Map json,
-) => $checkedCreate('_TemplateView', json, ($checkedConvert) {
-  final val = _TemplateView(
-    $type: $checkedConvert(
-      r'$type',
-      (v) => v as String? ?? 'tools.ozone.communication.defs#templateView',
-    ),
-    id: $checkedConvert('id', (v) => v as String),
-    name: $checkedConvert('name', (v) => v as String),
-    subject: $checkedConvert('subject', (v) => v as String?),
-    contentMarkdown: $checkedConvert('contentMarkdown', (v) => v as String),
-    disabled: $checkedConvert('disabled', (v) => v as bool),
-    lang: $checkedConvert('lang', (v) => v as String?),
-    lastUpdatedBy: $checkedConvert('lastUpdatedBy', (v) => v as String),
-    createdAt: $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
-    updatedAt: $checkedConvert('updatedAt', (v) => DateTime.parse(v as String)),
-    $unknown: $checkedConvert(
-      r'$unknown',
-      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-    ),
-  );
-  return val;
-});
+_TemplateView _$TemplateViewFromJson(Map json) => $checkedCreate(
+      '_TemplateView',
+      json,
+      ($checkedConvert) {
+        final val = _TemplateView(
+          $type: $checkedConvert(
+              r'$type',
+              (v) =>
+                  v as String? ??
+                  'tools.ozone.communication.defs#templateView'),
+          id: $checkedConvert('id', (v) => v as String),
+          name: $checkedConvert('name', (v) => v as String),
+          subject: $checkedConvert('subject', (v) => v as String?),
+          contentMarkdown:
+              $checkedConvert('contentMarkdown', (v) => v as String),
+          disabled: $checkedConvert('disabled', (v) => v as bool),
+          lang: $checkedConvert('lang', (v) => v as String?),
+          lastUpdatedBy: $checkedConvert('lastUpdatedBy', (v) => v as String),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          updatedAt:
+              $checkedConvert('updatedAt', (v) => DateTime.parse(v as String)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$TemplateViewToJson(_TemplateView instance) =>
     <String, dynamic>{

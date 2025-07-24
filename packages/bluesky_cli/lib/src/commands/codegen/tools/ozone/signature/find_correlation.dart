@@ -16,7 +16,10 @@ import '../../../../query_command.dart';
 
 final class FindCorrelationCommand extends QueryCommand {
   FindCorrelationCommand() {
-    argParser..addMultiOption("dids");
+    argParser
+      ..addMultiOption(
+        "dids",
+      );
   }
 
   @override
@@ -34,5 +37,7 @@ final class FindCorrelationCommand extends QueryCommand {
   String get methodId => "tools.ozone.signature.findCorrelation";
 
   @override
-  Map<String, dynamic>? get parameters => {"dids": argResults!["dids"]};
+  Map<String, dynamic>? get parameters => {
+        "dids": argResults!["dids"],
+      };
 }

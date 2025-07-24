@@ -9,24 +9,27 @@ part of 'output.dart';
 // **************************************************************************
 
 _UnspeccedGetSuggestedFeedsSkeletonOutput
-_$UnspeccedGetSuggestedFeedsSkeletonOutputFromJson(Map json) => $checkedCreate(
-  '_UnspeccedGetSuggestedFeedsSkeletonOutput',
-  json,
-  ($checkedConvert) {
-    final val = _UnspeccedGetSuggestedFeedsSkeletonOutput(
-      feeds: $checkedConvert(
-        'feeds',
-        (v) => (v as List<dynamic>).map((e) => e as String).toList(),
-      ),
-      $unknown: $checkedConvert(
-        r'$unknown',
-        (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-      ),
-    );
-    return val;
-  },
-);
+    _$UnspeccedGetSuggestedFeedsSkeletonOutputFromJson(Map json) =>
+        $checkedCreate(
+          '_UnspeccedGetSuggestedFeedsSkeletonOutput',
+          json,
+          ($checkedConvert) {
+            final val = _UnspeccedGetSuggestedFeedsSkeletonOutput(
+              feeds: $checkedConvert('feeds',
+                  (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+              $unknown: $checkedConvert(
+                  r'$unknown',
+                  (v) => (v as Map?)?.map(
+                        (k, e) => MapEntry(k as String, e),
+                      )),
+            );
+            return val;
+          },
+        );
 
 Map<String, dynamic> _$UnspeccedGetSuggestedFeedsSkeletonOutputToJson(
-  _UnspeccedGetSuggestedFeedsSkeletonOutput instance,
-) => <String, dynamic>{'feeds': instance.feeds, r'$unknown': instance.$unknown};
+        _UnspeccedGetSuggestedFeedsSkeletonOutput instance) =>
+    <String, dynamic>{
+      'feeds': instance.feeds,
+      r'$unknown': instance.$unknown,
+    };

@@ -22,9 +22,18 @@ final class GetMessageContextCommand extends QueryCommand {
         help:
             r"Conversation that the message is from. NOTE: this field will eventually be required.",
       )
-      ..addOption("messageId", mandatory: true)
-      ..addOption("before", defaultsTo: "5")
-      ..addOption("after", defaultsTo: "5");
+      ..addOption(
+        "messageId",
+        mandatory: true,
+      )
+      ..addOption(
+        "before",
+        defaultsTo: "5",
+      )
+      ..addOption(
+        "after",
+        defaultsTo: "5",
+      );
   }
 
   @override
@@ -42,9 +51,9 @@ final class GetMessageContextCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["convoId"] != null) "convoId": argResults!["convoId"],
-    "messageId": argResults!["messageId"],
-    "before": argResults!["before"],
-    "after": argResults!["after"],
-  };
+        if (argResults!["convoId"] != null) "convoId": argResults!["convoId"],
+        "messageId": argResults!["messageId"],
+        "before": argResults!["before"],
+        "after": argResults!["after"],
+      };
 }

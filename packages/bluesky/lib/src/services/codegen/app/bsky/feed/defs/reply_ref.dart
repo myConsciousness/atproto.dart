@@ -25,7 +25,11 @@ part 'reply_ref.g.dart';
 
 @freezed
 abstract class ReplyRef with _$ReplyRef {
-  static const knownProps = <String>['root', 'parent', 'grandparentAuthor'];
+  static const knownProps = <String>[
+    'root',
+    'parent',
+    'grandparentAuthor',
+  ];
 
   const factory ReplyRef({
     @Default('app.bsky.feed.defs#replyRef') String $type,
@@ -34,7 +38,6 @@ abstract class ReplyRef with _$ReplyRef {
 
     /// When parent is a reply to another post, this is the author of that post.
     @ProfileViewBasicConverter() ProfileViewBasic? grandparentAuthor,
-
     Map<String, dynamic>? $unknown,
   }) = _ReplyRef;
 
@@ -58,9 +61,14 @@ final class ReplyRefConverter
 
   @override
   ReplyRef fromJson(Map<String, dynamic> json) {
-    return ReplyRef.fromJson(translate(json, ReplyRef.knownProps));
+    return ReplyRef.fromJson(translate(
+      json,
+      ReplyRef.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ReplyRef object) => untranslate(object.toJson());
+  Map<String, dynamic> toJson(ReplyRef object) => untranslate(
+        object.toJson(),
+      );
 }

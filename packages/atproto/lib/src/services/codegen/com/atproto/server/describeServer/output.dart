@@ -47,7 +47,6 @@ abstract class ServerDescribeServerOutput with _$ServerDescribeServerOutput {
     /// Contact information
     @ContactConverter() Contact? contact,
     required String did,
-
     Map<String, dynamic>? $unknown,
   }) = _ServerDescribeServerOutput;
 
@@ -72,12 +71,14 @@ final class ServerDescribeServerOutputConverter
 
   @override
   ServerDescribeServerOutput fromJson(Map<String, dynamic> json) {
-    return ServerDescribeServerOutput.fromJson(
-      translate(json, ServerDescribeServerOutput.knownProps),
-    );
+    return ServerDescribeServerOutput.fromJson(translate(
+      json,
+      ServerDescribeServerOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ServerDescribeServerOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ServerDescribeServerOutput object) => untranslate(
+        object.toJson(),
+      );
 }

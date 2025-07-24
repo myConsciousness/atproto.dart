@@ -105,7 +105,6 @@ abstract class SubjectStatusView with _$SubjectStatusView {
     /// Whether or not the last successful update to age assurance was made by the user or admin.
     @SubjectStatusViewAgeAssuranceUpdatedByConverter()
     SubjectStatusViewAgeAssuranceUpdatedBy? ageAssuranceUpdatedBy,
-
     Map<String, dynamic>? $unknown,
   }) = _SubjectStatusView;
 
@@ -161,12 +160,14 @@ final class SubjectStatusViewConverter
 
   @override
   SubjectStatusView fromJson(Map<String, dynamic> json) {
-    return SubjectStatusView.fromJson(
-      translate(json, SubjectStatusView.knownProps),
-    );
+    return SubjectStatusView.fromJson(translate(
+      json,
+      SubjectStatusView.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SubjectStatusView object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SubjectStatusView object) => untranslate(
+        object.toJson(),
+      );
 }

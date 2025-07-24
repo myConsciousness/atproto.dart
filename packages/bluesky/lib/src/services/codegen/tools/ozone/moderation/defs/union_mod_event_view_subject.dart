@@ -26,13 +26,15 @@ part 'union_mod_event_view_subject.freezed.dart';
 abstract class UModEventViewSubject with _$UModEventViewSubject {
   const UModEventViewSubject._();
 
-  const factory UModEventViewSubject.repoRef({required RepoRef data}) =
-      UModEventViewSubjectRepoRef;
+  const factory UModEventViewSubject.repoRef({
+    required RepoRef data,
+  }) = UModEventViewSubjectRepoRef;
   const factory UModEventViewSubject.repoStrongRef({
     required RepoStrongRef data,
   }) = UModEventViewSubjectRepoStrongRef;
-  const factory UModEventViewSubject.messageRef({required MessageRef data}) =
-      UModEventViewSubjectMessageRef;
+  const factory UModEventViewSubject.messageRef({
+    required MessageRef data,
+  }) = UModEventViewSubjectMessageRef;
 
   const factory UModEventViewSubject.unknown({
     required Map<String, dynamic> data,
@@ -90,10 +92,9 @@ final class UModEventViewSubjectConverter
 
   @override
   Map<String, dynamic> toJson(UModEventViewSubject object) => object.when(
-    repoRef: (data) => const RepoRefConverter().toJson(data),
-    repoStrongRef: (data) => const RepoStrongRefConverter().toJson(data),
-    messageRef: (data) => const MessageRefConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        repoRef: (data) => const RepoRefConverter().toJson(data),
+        repoStrongRef: (data) => const RepoStrongRefConverter().toJson(data),
+        messageRef: (data) => const MessageRefConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

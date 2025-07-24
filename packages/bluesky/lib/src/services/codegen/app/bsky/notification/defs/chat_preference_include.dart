@@ -26,8 +26,9 @@ abstract class ChatPreferenceInclude with _$ChatPreferenceInclude {
     required KnownChatPreferenceInclude data,
   }) = ChatPreferenceIncludeKnownValue;
 
-  const factory ChatPreferenceInclude.unknown({required String data}) =
-      ChatPreferenceIncludeUnknown;
+  const factory ChatPreferenceInclude.unknown({
+    required String data,
+  }) = ChatPreferenceIncludeUnknown;
 
   static ChatPreferenceInclude? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,15 +71,18 @@ final class ChatPreferenceIncludeConverter
   }
 
   @override
-  String toJson(ChatPreferenceInclude object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ChatPreferenceInclude object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownChatPreferenceInclude implements Serializable {
   @JsonValue('all')
   all('all'),
   @JsonValue('accepted')
-  accepted('accepted');
+  accepted('accepted'),
+  ;
 
   @override
   final String value;

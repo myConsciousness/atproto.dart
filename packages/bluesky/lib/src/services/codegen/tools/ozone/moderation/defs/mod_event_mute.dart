@@ -21,7 +21,10 @@ part 'mod_event_mute.g.dart';
 /// Mute incoming reports on a subject
 @freezed
 abstract class ModEventMute with _$ModEventMute {
-  static const knownProps = <String>['comment', 'durationInHours'];
+  static const knownProps = <String>[
+    'comment',
+    'durationInHours',
+  ];
 
   const factory ModEventMute({
     @Default('tools.ozone.moderation.defs#modEventMute') String $type,
@@ -29,7 +32,6 @@ abstract class ModEventMute with _$ModEventMute {
 
     /// Indicates how long the subject should remain muted.
     required int durationInHours,
-
     Map<String, dynamic>? $unknown,
   }) = _ModEventMute;
 
@@ -53,10 +55,14 @@ final class ModEventMuteConverter
 
   @override
   ModEventMute fromJson(Map<String, dynamic> json) {
-    return ModEventMute.fromJson(translate(json, ModEventMute.knownProps));
+    return ModEventMute.fromJson(translate(
+      json,
+      ModEventMute.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ModEventMute object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ModEventMute object) => untranslate(
+        object.toJson(),
+      );
 }

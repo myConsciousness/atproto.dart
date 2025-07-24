@@ -8,33 +8,32 @@ part of 'mod_event_takedown.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_ModEventTakedown _$ModEventTakedownFromJson(Map json) =>
-    $checkedCreate('_ModEventTakedown', json, ($checkedConvert) {
-      final val = _ModEventTakedown(
-        $type: $checkedConvert(
-          r'$type',
-          (v) => v as String? ?? 'tools.ozone.moderation.defs#modEventTakedown',
-        ),
-        comment: $checkedConvert('comment', (v) => v as String?),
-        durationInHours: $checkedConvert(
-          'durationInHours',
-          (v) => (v as num?)?.toInt(),
-        ),
-        acknowledgeAccountSubjects: $checkedConvert(
-          'acknowledgeAccountSubjects',
-          (v) => v as bool?,
-        ),
-        policies: $checkedConvert(
-          'policies',
-          (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
-        ),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+_ModEventTakedown _$ModEventTakedownFromJson(Map json) => $checkedCreate(
+      '_ModEventTakedown',
+      json,
+      ($checkedConvert) {
+        final val = _ModEventTakedown(
+          $type: $checkedConvert(
+              r'$type',
+              (v) =>
+                  v as String? ??
+                  'tools.ozone.moderation.defs#modEventTakedown'),
+          comment: $checkedConvert('comment', (v) => v as String?),
+          durationInHours:
+              $checkedConvert('durationInHours', (v) => (v as num?)?.toInt()),
+          acknowledgeAccountSubjects:
+              $checkedConvert('acknowledgeAccountSubjects', (v) => v as bool?),
+          policies: $checkedConvert('policies',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$ModEventTakedownToJson(_ModEventTakedown instance) =>
     <String, dynamic>{

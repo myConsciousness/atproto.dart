@@ -9,29 +9,30 @@ part of 'output.dart';
 // **************************************************************************
 
 _UnspeccedGetTrendsOutput _$UnspeccedGetTrendsOutputFromJson(Map json) =>
-    $checkedCreate('_UnspeccedGetTrendsOutput', json, ($checkedConvert) {
-      final val = _UnspeccedGetTrendsOutput(
-        trends: $checkedConvert(
-          'trends',
-          (v) => (v as List<dynamic>)
-              .map(
-                (e) => const TrendViewConverter().fromJson(
-                  e as Map<String, dynamic>,
-                ),
-              )
-              .toList(),
-        ),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_UnspeccedGetTrendsOutput',
+      json,
+      ($checkedConvert) {
+        final val = _UnspeccedGetTrendsOutput(
+          trends: $checkedConvert(
+              'trends',
+              (v) => (v as List<dynamic>)
+                  .map((e) => const TrendViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$UnspeccedGetTrendsOutputToJson(
-  _UnspeccedGetTrendsOutput instance,
-) => <String, dynamic>{
-  'trends': instance.trends.map(const TrendViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
-};
+        _UnspeccedGetTrendsOutput instance) =>
+    <String, dynamic>{
+      'trends': instance.trends.map(const TrendViewConverter().toJson).toList(),
+      r'$unknown': instance.$unknown,
+    };

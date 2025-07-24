@@ -24,32 +24,35 @@ part 'output.g.dart';
 @freezed
 abstract class ActorSearchActorsTypeaheadOutput
     with _$ActorSearchActorsTypeaheadOutput {
-  static const knownProps = <String>['actors'];
+  static const knownProps = <String>[
+    'actors',
+  ];
 
   const factory ActorSearchActorsTypeaheadOutput({
     @ProfileViewBasicConverter() required List<ProfileViewBasic> actors,
-
     Map<String, dynamic>? $unknown,
   }) = _ActorSearchActorsTypeaheadOutput;
 
   factory ActorSearchActorsTypeaheadOutput.fromJson(
-    Map<String, Object?> json,
-  ) => _$ActorSearchActorsTypeaheadOutputFromJson(json);
+          Map<String, Object?> json) =>
+      _$ActorSearchActorsTypeaheadOutputFromJson(json);
 }
 
-final class ActorSearchActorsTypeaheadOutputConverter
-    extends
-        JsonConverter<ActorSearchActorsTypeaheadOutput, Map<String, dynamic>> {
+final class ActorSearchActorsTypeaheadOutputConverter extends JsonConverter<
+    ActorSearchActorsTypeaheadOutput, Map<String, dynamic>> {
   const ActorSearchActorsTypeaheadOutputConverter();
 
   @override
   ActorSearchActorsTypeaheadOutput fromJson(Map<String, dynamic> json) {
-    return ActorSearchActorsTypeaheadOutput.fromJson(
-      translate(json, ActorSearchActorsTypeaheadOutput.knownProps),
-    );
+    return ActorSearchActorsTypeaheadOutput.fromJson(translate(
+      json,
+      ActorSearchActorsTypeaheadOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(ActorSearchActorsTypeaheadOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

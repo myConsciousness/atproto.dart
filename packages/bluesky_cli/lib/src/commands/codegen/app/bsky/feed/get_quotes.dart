@@ -27,8 +27,13 @@ final class GetQuotesCommand extends QueryCommand {
         help:
             r"If supplied, filters to quotes of specific version (by CID) of the post record.",
       )
-      ..addOption("limit", defaultsTo: "50")
-      ..addOption("cursor");
+      ..addOption(
+        "limit",
+        defaultsTo: "50",
+      )
+      ..addOption(
+        "cursor",
+      );
   }
 
   @override
@@ -46,9 +51,9 @@ final class GetQuotesCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "uri": argResults!["uri"],
-    if (argResults!["cid"] != null) "cid": argResults!["cid"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-  };
+        "uri": argResults!["uri"],
+        if (argResults!["cid"] != null) "cid": argResults!["cid"],
+        "limit": argResults!["limit"],
+        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+      };
 }

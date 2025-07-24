@@ -36,8 +36,14 @@ final class QueryStatusesCommand extends QueryCommand {
         help:
             r"All subjects, or subjects from given 'collections' param, belonging to the account specified in the 'subject' param will be returned.",
       )
-      ..addOption("subject", help: r"The subject to get the status for.")
-      ..addOption("comment", help: r"Search subjects by keyword from comments")
+      ..addOption(
+        "subject",
+        help: r"The subject to get the status for.",
+      )
+      ..addOption(
+        "comment",
+        help: r"Search subjects by keyword from comments",
+      )
       ..addOption(
         "reportedAfter",
         help: r"Search subjects reported after a given timestamp",
@@ -92,20 +98,43 @@ final class QueryStatusesCommand extends QueryCommand {
         "reviewState",
         help: r"Specify when fetching subjects in a certain state",
       )
-      ..addMultiOption("ignoreSubjects")
+      ..addMultiOption(
+        "ignoreSubjects",
+      )
       ..addOption(
         "lastReviewedBy",
         help:
             r"Get all subject statuses that were reviewed by a specific moderator",
       )
-      ..addOption("sortField", defaultsTo: "lastReportedAt")
-      ..addOption("sortDirection", defaultsTo: "desc")
-      ..addFlag("takendown", help: r"Get subjects that were taken down")
-      ..addFlag("appealed", help: r"Get subjects in unresolved appealed status")
-      ..addOption("limit", defaultsTo: "50")
-      ..addMultiOption("tags")
-      ..addMultiOption("excludeTags")
-      ..addOption("cursor")
+      ..addOption(
+        "sortField",
+        defaultsTo: "lastReportedAt",
+      )
+      ..addOption(
+        "sortDirection",
+        defaultsTo: "desc",
+      )
+      ..addFlag(
+        "takendown",
+        help: r"Get subjects that were taken down",
+      )
+      ..addFlag(
+        "appealed",
+        help: r"Get subjects in unresolved appealed status",
+      )
+      ..addOption(
+        "limit",
+        defaultsTo: "50",
+      )
+      ..addMultiOption(
+        "tags",
+      )
+      ..addMultiOption(
+        "excludeTags",
+      )
+      ..addOption(
+        "cursor",
+      )
       ..addMultiOption(
         "collections",
         help:
@@ -159,64 +188,68 @@ final class QueryStatusesCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["queueCount"] != null)
-      "queueCount": argResults!["queueCount"],
-    if (argResults!["queueIndex"] != null)
-      "queueIndex": argResults!["queueIndex"],
-    if (argResults!["queueSeed"] != null) "queueSeed": argResults!["queueSeed"],
-    if (argResults!["includeAllUserRecords"] != null)
-      "includeAllUserRecords": argResults!["includeAllUserRecords"],
-    if (argResults!["subject"] != null) "subject": argResults!["subject"],
-    if (argResults!["comment"] != null) "comment": argResults!["comment"],
-    if (argResults!["reportedAfter"] != null)
-      "reportedAfter": argResults!["reportedAfter"],
-    if (argResults!["reportedBefore"] != null)
-      "reportedBefore": argResults!["reportedBefore"],
-    if (argResults!["reviewedAfter"] != null)
-      "reviewedAfter": argResults!["reviewedAfter"],
-    if (argResults!["hostingDeletedAfter"] != null)
-      "hostingDeletedAfter": argResults!["hostingDeletedAfter"],
-    if (argResults!["hostingDeletedBefore"] != null)
-      "hostingDeletedBefore": argResults!["hostingDeletedBefore"],
-    if (argResults!["hostingUpdatedAfter"] != null)
-      "hostingUpdatedAfter": argResults!["hostingUpdatedAfter"],
-    if (argResults!["hostingUpdatedBefore"] != null)
-      "hostingUpdatedBefore": argResults!["hostingUpdatedBefore"],
-    if (argResults!["hostingStatuses"] != null)
-      "hostingStatuses": argResults!["hostingStatuses"],
-    if (argResults!["reviewedBefore"] != null)
-      "reviewedBefore": argResults!["reviewedBefore"],
-    if (argResults!["includeMuted"] != null)
-      "includeMuted": argResults!["includeMuted"],
-    if (argResults!["onlyMuted"] != null) "onlyMuted": argResults!["onlyMuted"],
-    if (argResults!["reviewState"] != null)
-      "reviewState": argResults!["reviewState"],
-    if (argResults!["ignoreSubjects"] != null)
-      "ignoreSubjects": argResults!["ignoreSubjects"],
-    if (argResults!["lastReviewedBy"] != null)
-      "lastReviewedBy": argResults!["lastReviewedBy"],
-    "sortField": argResults!["sortField"],
-    "sortDirection": argResults!["sortDirection"],
-    if (argResults!["takendown"] != null) "takendown": argResults!["takendown"],
-    if (argResults!["appealed"] != null) "appealed": argResults!["appealed"],
-    "limit": argResults!["limit"],
-    if (argResults!["tags"] != null) "tags": argResults!["tags"],
-    if (argResults!["excludeTags"] != null)
-      "excludeTags": argResults!["excludeTags"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    if (argResults!["collections"] != null)
-      "collections": argResults!["collections"],
-    if (argResults!["subjectType"] != null)
-      "subjectType": argResults!["subjectType"],
-    if (argResults!["minAccountSuspendCount"] != null)
-      "minAccountSuspendCount": argResults!["minAccountSuspendCount"],
-    if (argResults!["minReportedRecordsCount"] != null)
-      "minReportedRecordsCount": argResults!["minReportedRecordsCount"],
-    if (argResults!["minTakendownRecordsCount"] != null)
-      "minTakendownRecordsCount": argResults!["minTakendownRecordsCount"],
-    if (argResults!["minPriorityScore"] != null)
-      "minPriorityScore": argResults!["minPriorityScore"],
-    if (argResults!["ageAssuranceState"] != null)
-      "ageAssuranceState": argResults!["ageAssuranceState"],
-  };
+        if (argResults!["queueCount"] != null)
+          "queueCount": argResults!["queueCount"],
+        if (argResults!["queueIndex"] != null)
+          "queueIndex": argResults!["queueIndex"],
+        if (argResults!["queueSeed"] != null)
+          "queueSeed": argResults!["queueSeed"],
+        if (argResults!["includeAllUserRecords"] != null)
+          "includeAllUserRecords": argResults!["includeAllUserRecords"],
+        if (argResults!["subject"] != null) "subject": argResults!["subject"],
+        if (argResults!["comment"] != null) "comment": argResults!["comment"],
+        if (argResults!["reportedAfter"] != null)
+          "reportedAfter": argResults!["reportedAfter"],
+        if (argResults!["reportedBefore"] != null)
+          "reportedBefore": argResults!["reportedBefore"],
+        if (argResults!["reviewedAfter"] != null)
+          "reviewedAfter": argResults!["reviewedAfter"],
+        if (argResults!["hostingDeletedAfter"] != null)
+          "hostingDeletedAfter": argResults!["hostingDeletedAfter"],
+        if (argResults!["hostingDeletedBefore"] != null)
+          "hostingDeletedBefore": argResults!["hostingDeletedBefore"],
+        if (argResults!["hostingUpdatedAfter"] != null)
+          "hostingUpdatedAfter": argResults!["hostingUpdatedAfter"],
+        if (argResults!["hostingUpdatedBefore"] != null)
+          "hostingUpdatedBefore": argResults!["hostingUpdatedBefore"],
+        if (argResults!["hostingStatuses"] != null)
+          "hostingStatuses": argResults!["hostingStatuses"],
+        if (argResults!["reviewedBefore"] != null)
+          "reviewedBefore": argResults!["reviewedBefore"],
+        if (argResults!["includeMuted"] != null)
+          "includeMuted": argResults!["includeMuted"],
+        if (argResults!["onlyMuted"] != null)
+          "onlyMuted": argResults!["onlyMuted"],
+        if (argResults!["reviewState"] != null)
+          "reviewState": argResults!["reviewState"],
+        if (argResults!["ignoreSubjects"] != null)
+          "ignoreSubjects": argResults!["ignoreSubjects"],
+        if (argResults!["lastReviewedBy"] != null)
+          "lastReviewedBy": argResults!["lastReviewedBy"],
+        "sortField": argResults!["sortField"],
+        "sortDirection": argResults!["sortDirection"],
+        if (argResults!["takendown"] != null)
+          "takendown": argResults!["takendown"],
+        if (argResults!["appealed"] != null)
+          "appealed": argResults!["appealed"],
+        "limit": argResults!["limit"],
+        if (argResults!["tags"] != null) "tags": argResults!["tags"],
+        if (argResults!["excludeTags"] != null)
+          "excludeTags": argResults!["excludeTags"],
+        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+        if (argResults!["collections"] != null)
+          "collections": argResults!["collections"],
+        if (argResults!["subjectType"] != null)
+          "subjectType": argResults!["subjectType"],
+        if (argResults!["minAccountSuspendCount"] != null)
+          "minAccountSuspendCount": argResults!["minAccountSuspendCount"],
+        if (argResults!["minReportedRecordsCount"] != null)
+          "minReportedRecordsCount": argResults!["minReportedRecordsCount"],
+        if (argResults!["minTakendownRecordsCount"] != null)
+          "minTakendownRecordsCount": argResults!["minTakendownRecordsCount"],
+        if (argResults!["minPriorityScore"] != null)
+          "minPriorityScore": argResults!["minPriorityScore"],
+        if (argResults!["ageAssuranceState"] != null)
+          "ageAssuranceState": argResults!["ageAssuranceState"],
+      };
 }

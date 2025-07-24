@@ -17,8 +17,14 @@ import '../../../../procedure_command.dart';
 final class AddMemberCommand extends ProcedureCommand {
   AddMemberCommand() {
     argParser
-      ..addOption("did", mandatory: true)
-      ..addOption("role", mandatory: true);
+      ..addOption(
+        "did",
+        mandatory: true,
+      )
+      ..addOption(
+        "role",
+        mandatory: true,
+      );
   }
 
   @override
@@ -36,7 +42,7 @@ final class AddMemberCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "did": argResults!["did"],
-    "role": argResults!["role"],
-  };
+        "did": argResults!["did"],
+        "role": argResults!["role"],
+      };
 }

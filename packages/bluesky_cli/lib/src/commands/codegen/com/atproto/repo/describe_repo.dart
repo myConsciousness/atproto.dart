@@ -16,11 +16,12 @@ import '../../../../query_command.dart';
 
 final class DescribeRepoCommand extends QueryCommand {
   DescribeRepoCommand() {
-    argParser..addOption(
-      "repo",
-      help: r"The handle or DID of the repo.",
-      mandatory: true,
-    );
+    argParser
+      ..addOption(
+        "repo",
+        help: r"The handle or DID of the repo.",
+        mandatory: true,
+      );
   }
 
   @override
@@ -37,5 +38,7 @@ final class DescribeRepoCommand extends QueryCommand {
   String get methodId => "com.atproto.repo.describeRepo";
 
   @override
-  Map<String, dynamic>? get parameters => {"repo": argResults!["repo"]};
+  Map<String, dynamic>? get parameters => {
+        "repo": argResults!["repo"],
+      };
 }

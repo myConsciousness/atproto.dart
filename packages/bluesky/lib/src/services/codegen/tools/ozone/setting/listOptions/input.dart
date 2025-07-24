@@ -39,7 +39,6 @@ abstract class SettingListOptionsInput with _$SettingListOptionsInput {
     /// Filter keys by prefix
     String? prefix,
     List<String>? keys,
-
     Map<String, dynamic>? $unknown,
   }) = _SettingListOptionsInput;
 
@@ -62,12 +61,14 @@ final class SettingListOptionsInputConverter
 
   @override
   SettingListOptionsInput fromJson(Map<String, dynamic> json) {
-    return SettingListOptionsInput.fromJson(
-      translate(json, SettingListOptionsInput.knownProps),
-    );
+    return SettingListOptionsInput.fromJson(translate(
+      json,
+      SettingListOptionsInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(SettingListOptionsInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(SettingListOptionsInput object) => untranslate(
+        object.toJson(),
+      );
 }

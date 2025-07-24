@@ -21,10 +21,19 @@ final class ListNotificationsCommand extends QueryCommand {
         "reasons",
         help: r"Notification reasons to include in response.",
       )
-      ..addOption("limit", defaultsTo: "50")
-      ..addFlag("priority")
-      ..addOption("cursor")
-      ..addOption("seenAt");
+      ..addOption(
+        "limit",
+        defaultsTo: "50",
+      )
+      ..addFlag(
+        "priority",
+      )
+      ..addOption(
+        "cursor",
+      )
+      ..addOption(
+        "seenAt",
+      );
   }
 
   @override
@@ -43,10 +52,11 @@ final class ListNotificationsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["reasons"] != null) "reasons": argResults!["reasons"],
-    "limit": argResults!["limit"],
-    if (argResults!["priority"] != null) "priority": argResults!["priority"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    if (argResults!["seenAt"] != null) "seenAt": argResults!["seenAt"],
-  };
+        if (argResults!["reasons"] != null) "reasons": argResults!["reasons"],
+        "limit": argResults!["limit"],
+        if (argResults!["priority"] != null)
+          "priority": argResults!["priority"],
+        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+        if (argResults!["seenAt"] != null) "seenAt": argResults!["seenAt"],
+      };
 }

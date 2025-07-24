@@ -21,13 +21,15 @@ part 'reply_ref.g.dart';
 
 @freezed
 abstract class ReplyRef with _$ReplyRef {
-  static const knownProps = <String>['root', 'parent'];
+  static const knownProps = <String>[
+    'root',
+    'parent',
+  ];
 
   const factory ReplyRef({
     @Default('app.bsky.feed.post#replyRef') String $type,
     @RepoStrongRefConverter() required RepoStrongRef root,
     @RepoStrongRefConverter() required RepoStrongRef parent,
-
     Map<String, dynamic>? $unknown,
   }) = _ReplyRef;
 
@@ -46,9 +48,14 @@ final class ReplyRefConverter
 
   @override
   ReplyRef fromJson(Map<String, dynamic> json) {
-    return ReplyRef.fromJson(translate(json, ReplyRef.knownProps));
+    return ReplyRef.fromJson(translate(
+      json,
+      ReplyRef.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ReplyRef object) => untranslate(object.toJson());
+  Map<String, dynamic> toJson(ReplyRef object) => untranslate(
+        object.toJson(),
+      );
 }

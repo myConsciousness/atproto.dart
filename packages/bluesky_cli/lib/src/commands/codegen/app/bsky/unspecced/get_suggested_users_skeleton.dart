@@ -26,7 +26,10 @@ final class GetSuggestedUsersSkeletonCommand extends QueryCommand {
         "category",
         help: r"Category of users to get suggestions for.",
       )
-      ..addOption("limit", defaultsTo: "25");
+      ..addOption(
+        "limit",
+        defaultsTo: "25",
+      );
   }
 
   @override
@@ -45,8 +48,9 @@ final class GetSuggestedUsersSkeletonCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["viewer"] != null) "viewer": argResults!["viewer"],
-    if (argResults!["category"] != null) "category": argResults!["category"],
-    "limit": argResults!["limit"],
-  };
+        if (argResults!["viewer"] != null) "viewer": argResults!["viewer"],
+        if (argResults!["category"] != null)
+          "category": argResults!["category"],
+        "limit": argResults!["limit"],
+      };
 }

@@ -24,8 +24,9 @@ part 'union_main_embed.freezed.dart';
 abstract class UActorStatusEmbed with _$UActorStatusEmbed {
   const UActorStatusEmbed._();
 
-  const factory UActorStatusEmbed.embedExternal({required EmbedExternal data}) =
-      UActorStatusEmbedEmbedExternal;
+  const factory UActorStatusEmbed.embedExternal({
+    required EmbedExternal data,
+  }) = UActorStatusEmbedEmbedExternal;
 
   const factory UActorStatusEmbed.unknown({
     required Map<String, dynamic> data,
@@ -67,8 +68,7 @@ final class UActorStatusEmbedConverter
 
   @override
   Map<String, dynamic> toJson(UActorStatusEmbed object) => object.when(
-    embedExternal: (data) => const EmbedExternalConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        embedExternal: (data) => const EmbedExternalConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

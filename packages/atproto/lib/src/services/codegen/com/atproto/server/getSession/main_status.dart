@@ -26,8 +26,9 @@ abstract class ServerGetSessionStatus with _$ServerGetSessionStatus {
     required KnownServerGetSessionStatus data,
   }) = ServerGetSessionStatusKnownValue;
 
-  const factory ServerGetSessionStatus.unknown({required String data}) =
-      ServerGetSessionStatusUnknown;
+  const factory ServerGetSessionStatus.unknown({
+    required String data,
+  }) = ServerGetSessionStatusUnknown;
 
   static ServerGetSessionStatus? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,8 +71,10 @@ final class ServerGetSessionStatusConverter
   }
 
   @override
-  String toJson(ServerGetSessionStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ServerGetSessionStatus object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownServerGetSessionStatus implements Serializable {
@@ -80,7 +83,8 @@ enum KnownServerGetSessionStatus implements Serializable {
   @JsonValue('suspended')
   suspended('suspended'),
   @JsonValue('deactivated')
-  deactivated('deactivated');
+  deactivated('deactivated'),
+  ;
 
   @override
   final String value;

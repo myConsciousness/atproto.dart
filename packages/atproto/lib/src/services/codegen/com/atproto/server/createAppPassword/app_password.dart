@@ -33,7 +33,6 @@ abstract class AppPassword with _$AppPassword {
     required String password,
     required DateTime createdAt,
     bool? privileged,
-
     Map<String, dynamic>? $unknown,
   }) = _AppPassword;
 
@@ -58,10 +57,14 @@ final class AppPasswordConverter
 
   @override
   AppPassword fromJson(Map<String, dynamic> json) {
-    return AppPassword.fromJson(translate(json, AppPassword.knownProps));
+    return AppPassword.fromJson(translate(
+      json,
+      AppPassword.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(AppPassword object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(AppPassword object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -142,7 +142,8 @@ final class _LengthExceededExtractor implements LengthExceededExtractor {
 
   List<Replacement> _getExceededReplacements(
     final List<Replacement> replacements,
-  ) => replacements.where((e) => e.source!.indices.end > maxLength).toList();
+  ) =>
+      replacements.where((e) => e.source!.indices.end > maxLength).toList();
 
   List<LengthExceededEntity> _adjustFirstExceededEntity(
     final List<LengthExceededEntity> entities,

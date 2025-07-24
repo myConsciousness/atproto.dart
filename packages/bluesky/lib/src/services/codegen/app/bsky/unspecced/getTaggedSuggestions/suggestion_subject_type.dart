@@ -26,8 +26,9 @@ abstract class SuggestionSubjectType with _$SuggestionSubjectType {
     required KnownSuggestionSubjectType data,
   }) = SuggestionSubjectTypeKnownValue;
 
-  const factory SuggestionSubjectType.unknown({required String data}) =
-      SuggestionSubjectTypeUnknown;
+  const factory SuggestionSubjectType.unknown({
+    required String data,
+  }) = SuggestionSubjectTypeUnknown;
 
   static SuggestionSubjectType? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,15 +71,18 @@ final class SuggestionSubjectTypeConverter
   }
 
   @override
-  String toJson(SuggestionSubjectType object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SuggestionSubjectType object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownSuggestionSubjectType implements Serializable {
   @JsonValue('actor')
   actor('actor'),
   @JsonValue('feed')
-  feed('feed');
+  feed('feed'),
+  ;
 
   @override
   final String value;

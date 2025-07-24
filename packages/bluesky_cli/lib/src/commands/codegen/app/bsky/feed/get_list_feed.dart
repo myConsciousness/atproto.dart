@@ -22,8 +22,13 @@ final class GetListFeedCommand extends QueryCommand {
         help: r"Reference (AT-URI) to the list record.",
         mandatory: true,
       )
-      ..addOption("limit", defaultsTo: "50")
-      ..addOption("cursor");
+      ..addOption(
+        "limit",
+        defaultsTo: "50",
+      )
+      ..addOption(
+        "cursor",
+      );
   }
 
   @override
@@ -42,8 +47,8 @@ final class GetListFeedCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "list": argResults!["list"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-  };
+        "list": argResults!["list"],
+        "limit": argResults!["limit"],
+        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+      };
 }

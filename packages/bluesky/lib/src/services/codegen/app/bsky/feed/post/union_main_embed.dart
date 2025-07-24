@@ -28,20 +28,25 @@ part 'union_main_embed.freezed.dart';
 abstract class UFeedPostEmbed with _$UFeedPostEmbed {
   const UFeedPostEmbed._();
 
-  const factory UFeedPostEmbed.embedImages({required EmbedImages data}) =
-      UFeedPostEmbedEmbedImages;
-  const factory UFeedPostEmbed.embedVideo({required EmbedVideo data}) =
-      UFeedPostEmbedEmbedVideo;
-  const factory UFeedPostEmbed.embedExternal({required EmbedExternal data}) =
-      UFeedPostEmbedEmbedExternal;
-  const factory UFeedPostEmbed.embedRecord({required EmbedRecord data}) =
-      UFeedPostEmbedEmbedRecord;
+  const factory UFeedPostEmbed.embedImages({
+    required EmbedImages data,
+  }) = UFeedPostEmbedEmbedImages;
+  const factory UFeedPostEmbed.embedVideo({
+    required EmbedVideo data,
+  }) = UFeedPostEmbedEmbedVideo;
+  const factory UFeedPostEmbed.embedExternal({
+    required EmbedExternal data,
+  }) = UFeedPostEmbedEmbedExternal;
+  const factory UFeedPostEmbed.embedRecord({
+    required EmbedRecord data,
+  }) = UFeedPostEmbedEmbedRecord;
   const factory UFeedPostEmbed.embedRecordWithMedia({
     required EmbedRecordWithMedia data,
   }) = UFeedPostEmbedEmbedRecordWithMedia;
 
-  const factory UFeedPostEmbed.unknown({required Map<String, dynamic> data}) =
-      UFeedPostEmbedUnknown;
+  const factory UFeedPostEmbed.unknown({
+    required Map<String, dynamic> data,
+  }) = UFeedPostEmbedUnknown;
 
   Map<String, dynamic> toJson() => const UFeedPostEmbedConverter().toJson(this);
 }
@@ -112,13 +117,12 @@ final class UFeedPostEmbedConverter
 
   @override
   Map<String, dynamic> toJson(UFeedPostEmbed object) => object.when(
-    embedImages: (data) => const EmbedImagesConverter().toJson(data),
-    embedVideo: (data) => const EmbedVideoConverter().toJson(data),
-    embedExternal: (data) => const EmbedExternalConverter().toJson(data),
-    embedRecord: (data) => const EmbedRecordConverter().toJson(data),
-    embedRecordWithMedia: (data) =>
-        const EmbedRecordWithMediaConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        embedImages: (data) => const EmbedImagesConverter().toJson(data),
+        embedVideo: (data) => const EmbedVideoConverter().toJson(data),
+        embedExternal: (data) => const EmbedExternalConverter().toJson(data),
+        embedRecord: (data) => const EmbedRecordConverter().toJson(data),
+        embedRecordWithMedia: (data) =>
+            const EmbedRecordWithMediaConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

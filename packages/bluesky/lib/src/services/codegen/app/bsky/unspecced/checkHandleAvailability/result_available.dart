@@ -26,7 +26,6 @@ abstract class ResultAvailable with _$ResultAvailable {
   const factory ResultAvailable({
     @Default('app.bsky.unspecced.checkHandleAvailability#resultAvailable')
     String $type,
-
     Map<String, dynamic>? $unknown,
   }) = _ResultAvailable;
 
@@ -46,12 +45,14 @@ final class ResultAvailableConverter
 
   @override
   ResultAvailable fromJson(Map<String, dynamic> json) {
-    return ResultAvailable.fromJson(
-      translate(json, ResultAvailable.knownProps),
-    );
+    return ResultAvailable.fromJson(translate(
+      json,
+      ResultAvailable.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(ResultAvailable object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(ResultAvailable object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -21,35 +21,35 @@ part 'input.g.dart';
 @freezed
 abstract class GraphGetSuggestedFollowsByActorInput
     with _$GraphGetSuggestedFollowsByActorInput {
-  static const knownProps = <String>['actor'];
+  static const knownProps = <String>[
+    'actor',
+  ];
 
   const factory GraphGetSuggestedFollowsByActorInput({
     required String actor,
-
     Map<String, dynamic>? $unknown,
   }) = _GraphGetSuggestedFollowsByActorInput;
 
   factory GraphGetSuggestedFollowsByActorInput.fromJson(
-    Map<String, Object?> json,
-  ) => _$GraphGetSuggestedFollowsByActorInputFromJson(json);
+          Map<String, Object?> json) =>
+      _$GraphGetSuggestedFollowsByActorInputFromJson(json);
 }
 
-final class GraphGetSuggestedFollowsByActorInputConverter
-    extends
-        JsonConverter<
-          GraphGetSuggestedFollowsByActorInput,
-          Map<String, dynamic>
-        > {
+final class GraphGetSuggestedFollowsByActorInputConverter extends JsonConverter<
+    GraphGetSuggestedFollowsByActorInput, Map<String, dynamic>> {
   const GraphGetSuggestedFollowsByActorInputConverter();
 
   @override
   GraphGetSuggestedFollowsByActorInput fromJson(Map<String, dynamic> json) {
-    return GraphGetSuggestedFollowsByActorInput.fromJson(
-      translate(json, GraphGetSuggestedFollowsByActorInput.knownProps),
-    );
+    return GraphGetSuggestedFollowsByActorInput.fromJson(translate(
+      json,
+      GraphGetSuggestedFollowsByActorInput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(GraphGetSuggestedFollowsByActorInput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

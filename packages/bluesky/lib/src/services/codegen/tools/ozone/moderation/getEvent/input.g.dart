@@ -9,17 +9,25 @@ part of 'input.dart';
 // **************************************************************************
 
 _ModerationGetEventInput _$ModerationGetEventInputFromJson(Map json) =>
-    $checkedCreate('_ModerationGetEventInput', json, ($checkedConvert) {
-      final val = _ModerationGetEventInput(
-        id: $checkedConvert('id', (v) => (v as num).toInt()),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_ModerationGetEventInput',
+      json,
+      ($checkedConvert) {
+        final val = _ModerationGetEventInput(
+          id: $checkedConvert('id', (v) => (v as num).toInt()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$ModerationGetEventInputToJson(
-  _ModerationGetEventInput instance,
-) => <String, dynamic>{'id': instance.id, r'$unknown': instance.$unknown};
+        _ModerationGetEventInput instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      r'$unknown': instance.$unknown,
+    };

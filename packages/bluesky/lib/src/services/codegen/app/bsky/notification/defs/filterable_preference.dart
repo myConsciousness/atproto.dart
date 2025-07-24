@@ -23,7 +23,11 @@ part 'filterable_preference.g.dart';
 
 @freezed
 abstract class FilterablePreference with _$FilterablePreference {
-  static const knownProps = <String>['include', 'list', 'push'];
+  static const knownProps = <String>[
+    'include',
+    'list',
+    'push',
+  ];
 
   const factory FilterablePreference({
     @Default('app.bsky.notification.defs#filterablePreference') String $type,
@@ -31,7 +35,6 @@ abstract class FilterablePreference with _$FilterablePreference {
     required FilterablePreferenceInclude include,
     required bool list,
     required bool push,
-
     Map<String, dynamic>? $unknown,
   }) = _FilterablePreference;
 
@@ -58,12 +61,14 @@ final class FilterablePreferenceConverter
 
   @override
   FilterablePreference fromJson(Map<String, dynamic> json) {
-    return FilterablePreference.fromJson(
-      translate(json, FilterablePreference.knownProps),
-    );
+    return FilterablePreference.fromJson(translate(
+      json,
+      FilterablePreference.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FilterablePreference object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FilterablePreference object) => untranslate(
+        object.toJson(),
+      );
 }

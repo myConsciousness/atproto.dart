@@ -26,8 +26,9 @@ abstract class GeneratorViewContentMode with _$GeneratorViewContentMode {
     required KnownGeneratorViewContentMode data,
   }) = GeneratorViewContentModeKnownValue;
 
-  const factory GeneratorViewContentMode.unknown({required String data}) =
-      GeneratorViewContentModeUnknown;
+  const factory GeneratorViewContentMode.unknown({
+    required String data,
+  }) = GeneratorViewContentModeUnknown;
 
   static GeneratorViewContentMode? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,15 +71,18 @@ final class GeneratorViewContentModeConverter
   }
 
   @override
-  String toJson(GeneratorViewContentMode object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(GeneratorViewContentMode object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownGeneratorViewContentMode implements Serializable {
   @JsonValue('app.bsky.feed.defs#contentModeUnspecified')
   contentModeUnspecified('app.bsky.feed.defs#contentModeUnspecified'),
   @JsonValue('app.bsky.feed.defs#contentModeVideo')
-  contentModeVideo('app.bsky.feed.defs#contentModeVideo');
+  contentModeVideo('app.bsky.feed.defs#contentModeVideo'),
+  ;
 
   @override
   final String value;

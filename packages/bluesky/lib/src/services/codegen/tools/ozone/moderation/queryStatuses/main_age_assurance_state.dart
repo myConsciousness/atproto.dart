@@ -32,12 +32,10 @@ abstract class ModerationQueryStatusesAgeAssuranceState
   }) = ModerationQueryStatusesAgeAssuranceStateUnknown;
 
   static ModerationQueryStatusesAgeAssuranceState? valueOf(
-    final String? value,
-  ) {
+      final String? value) {
     if (value == null) return null;
-    final knownValue = KnownModerationQueryStatusesAgeAssuranceState.valueOf(
-      value,
-    );
+    final knownValue =
+        KnownModerationQueryStatusesAgeAssuranceState.valueOf(value);
 
     return knownValue != null
         ? ModerationQueryStatusesAgeAssuranceState.knownValue(data: knownValue)
@@ -69,13 +67,11 @@ final class ModerationQueryStatusesAgeAssuranceStateConverter
   @override
   ModerationQueryStatusesAgeAssuranceState fromJson(String json) {
     try {
-      final knownValue = KnownModerationQueryStatusesAgeAssuranceState.valueOf(
-        json,
-      );
+      final knownValue =
+          KnownModerationQueryStatusesAgeAssuranceState.valueOf(json);
       if (knownValue != null) {
         return ModerationQueryStatusesAgeAssuranceState.knownValue(
-          data: knownValue,
-        );
+            data: knownValue);
       }
 
       return ModerationQueryStatusesAgeAssuranceState.unknown(data: json);
@@ -85,8 +81,10 @@ final class ModerationQueryStatusesAgeAssuranceStateConverter
   }
 
   @override
-  String toJson(ModerationQueryStatusesAgeAssuranceState object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ModerationQueryStatusesAgeAssuranceState object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownModerationQueryStatusesAgeAssuranceState implements Serializable {
@@ -99,7 +97,8 @@ enum KnownModerationQueryStatusesAgeAssuranceState implements Serializable {
   @JsonValue('reset')
   reset('reset'),
   @JsonValue('blocked')
-  blocked('blocked');
+  blocked('blocked'),
+  ;
 
   @override
   final String value;
@@ -111,8 +110,7 @@ enum KnownModerationQueryStatusesAgeAssuranceState implements Serializable {
   }
 
   static KnownModerationQueryStatusesAgeAssuranceState? valueOf(
-    final String? value,
-  ) {
+      final String? value) {
     if (value == null) return null;
 
     for (final v in values) {

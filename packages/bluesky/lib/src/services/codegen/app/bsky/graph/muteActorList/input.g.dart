@@ -9,17 +9,25 @@ part of 'input.dart';
 // **************************************************************************
 
 _GraphMuteActorListInput _$GraphMuteActorListInputFromJson(Map json) =>
-    $checkedCreate('_GraphMuteActorListInput', json, ($checkedConvert) {
-      final val = _GraphMuteActorListInput(
-        list: $checkedConvert('list', (v) => v as String),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    $checkedCreate(
+      '_GraphMuteActorListInput',
+      json,
+      ($checkedConvert) {
+        final val = _GraphMuteActorListInput(
+          list: $checkedConvert('list', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
 
 Map<String, dynamic> _$GraphMuteActorListInputToJson(
-  _GraphMuteActorListInput instance,
-) => <String, dynamic>{'list': instance.list, r'$unknown': instance.$unknown};
+        _GraphMuteActorListInput instance) =>
+    <String, dynamic>{
+      'list': instance.list,
+      r'$unknown': instance.$unknown,
+    };

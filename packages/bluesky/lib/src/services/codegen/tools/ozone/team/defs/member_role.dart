@@ -22,10 +22,13 @@ part 'member_role.freezed.dart';
 abstract class MemberRole with _$MemberRole {
   const MemberRole._();
 
-  const factory MemberRole.knownValue({required KnownMemberRole data}) =
-      MemberRoleKnownValue;
+  const factory MemberRole.knownValue({
+    required KnownMemberRole data,
+  }) = MemberRoleKnownValue;
 
-  const factory MemberRole.unknown({required String data}) = MemberRoleUnknown;
+  const factory MemberRole.unknown({
+    required String data,
+  }) = MemberRoleUnknown;
 
   static MemberRole? valueOf(final String? value) {
     if (value == null) return null;
@@ -67,8 +70,10 @@ final class MemberRoleConverter extends JsonConverter<MemberRole, String> {
   }
 
   @override
-  String toJson(MemberRole object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(MemberRole object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownMemberRole implements Serializable {
@@ -79,7 +84,8 @@ enum KnownMemberRole implements Serializable {
   @JsonValue('#roleTriage')
   roleTriage('#roleTriage'),
   @JsonValue('#roleVerifier')
-  roleVerifier('#roleVerifier');
+  roleVerifier('#roleVerifier'),
+  ;
 
   @override
   final String value;

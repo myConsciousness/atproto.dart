@@ -26,8 +26,9 @@ abstract class SettingUpsertOptionScope with _$SettingUpsertOptionScope {
     required KnownSettingUpsertOptionScope data,
   }) = SettingUpsertOptionScopeKnownValue;
 
-  const factory SettingUpsertOptionScope.unknown({required String data}) =
-      SettingUpsertOptionScopeUnknown;
+  const factory SettingUpsertOptionScope.unknown({
+    required String data,
+  }) = SettingUpsertOptionScopeUnknown;
 
   static SettingUpsertOptionScope? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,15 +71,18 @@ final class SettingUpsertOptionScopeConverter
   }
 
   @override
-  String toJson(SettingUpsertOptionScope object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SettingUpsertOptionScope object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownSettingUpsertOptionScope implements Serializable {
   @JsonValue('instance')
   instance('instance'),
   @JsonValue('personal')
-  personal('personal');
+  personal('personal'),
+  ;
 
   @override
   final String value;

@@ -24,13 +24,16 @@ part 'output.g.dart';
 
 @freezed
 abstract class GraphGetListOutput with _$GraphGetListOutput {
-  static const knownProps = <String>['cursor', 'list', 'items'];
+  static const knownProps = <String>[
+    'cursor',
+    'list',
+    'items',
+  ];
 
   const factory GraphGetListOutput({
     String? cursor,
     @ListViewConverter() required ListView list,
     @ListItemViewConverter() required List<ListItemView> items,
-
     Map<String, dynamic>? $unknown,
   }) = _GraphGetListOutput;
 
@@ -49,12 +52,14 @@ final class GraphGetListOutputConverter
 
   @override
   GraphGetListOutput fromJson(Map<String, dynamic> json) {
-    return GraphGetListOutput.fromJson(
-      translate(json, GraphGetListOutput.knownProps),
-    );
+    return GraphGetListOutput.fromJson(translate(
+      json,
+      GraphGetListOutput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(GraphGetListOutput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(GraphGetListOutput object) => untranslate(
+        object.toJson(),
+      );
 }

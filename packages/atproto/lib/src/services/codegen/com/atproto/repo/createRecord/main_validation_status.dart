@@ -75,15 +75,18 @@ final class RepoCreateRecordValidationStatusConverter
   }
 
   @override
-  String toJson(RepoCreateRecordValidationStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(RepoCreateRecordValidationStatus object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownRepoCreateRecordValidationStatus implements Serializable {
   @JsonValue('valid')
   valid('valid'),
   @JsonValue('unknown')
-  unknown('unknown');
+  unknown('unknown'),
+  ;
 
   @override
   final String value;

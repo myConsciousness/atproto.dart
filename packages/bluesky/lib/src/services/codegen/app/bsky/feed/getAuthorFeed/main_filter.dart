@@ -26,8 +26,9 @@ abstract class FeedGetAuthorFeedFilter with _$FeedGetAuthorFeedFilter {
     required KnownFeedGetAuthorFeedFilter data,
   }) = FeedGetAuthorFeedFilterKnownValue;
 
-  const factory FeedGetAuthorFeedFilter.unknown({required String data}) =
-      FeedGetAuthorFeedFilterUnknown;
+  const factory FeedGetAuthorFeedFilter.unknown({
+    required String data,
+  }) = FeedGetAuthorFeedFilterUnknown;
 
   static FeedGetAuthorFeedFilter? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,8 +71,10 @@ final class FeedGetAuthorFeedFilterConverter
   }
 
   @override
-  String toJson(FeedGetAuthorFeedFilter object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(FeedGetAuthorFeedFilter object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownFeedGetAuthorFeedFilter implements Serializable {
@@ -84,7 +87,8 @@ enum KnownFeedGetAuthorFeedFilter implements Serializable {
   @JsonValue('posts_and_author_threads')
   posts_and_author_threads('posts_and_author_threads'),
   @JsonValue('posts_with_video')
-  posts_with_video('posts_with_video');
+  posts_with_video('posts_with_video'),
+  ;
 
   @override
   final String value;

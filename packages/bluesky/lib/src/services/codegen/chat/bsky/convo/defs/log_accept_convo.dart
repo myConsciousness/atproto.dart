@@ -20,13 +20,15 @@ part 'log_accept_convo.g.dart';
 
 @freezed
 abstract class LogAcceptConvo with _$LogAcceptConvo {
-  static const knownProps = <String>['rev', 'convoId'];
+  static const knownProps = <String>[
+    'rev',
+    'convoId',
+  ];
 
   const factory LogAcceptConvo({
     @Default('chat.bsky.convo.defs#logAcceptConvo') String $type,
     required String rev,
     required String convoId,
-
     Map<String, dynamic>? $unknown,
   }) = _LogAcceptConvo;
 
@@ -45,10 +47,14 @@ final class LogAcceptConvoConverter
 
   @override
   LogAcceptConvo fromJson(Map<String, dynamic> json) {
-    return LogAcceptConvo.fromJson(translate(json, LogAcceptConvo.knownProps));
+    return LogAcceptConvo.fromJson(translate(
+      json,
+      LogAcceptConvo.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(LogAcceptConvo object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(LogAcceptConvo object) => untranslate(
+        object.toJson(),
+      );
 }

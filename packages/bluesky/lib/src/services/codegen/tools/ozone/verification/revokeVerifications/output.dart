@@ -32,31 +32,30 @@ abstract class VerificationRevokeVerificationsOutput
   const factory VerificationRevokeVerificationsOutput({
     required List<String> revokedVerifications,
     @RevokeErrorConverter() required List<RevokeError> failedRevocations,
-
     Map<String, dynamic>? $unknown,
   }) = _VerificationRevokeVerificationsOutput;
 
   factory VerificationRevokeVerificationsOutput.fromJson(
-    Map<String, Object?> json,
-  ) => _$VerificationRevokeVerificationsOutputFromJson(json);
+          Map<String, Object?> json) =>
+      _$VerificationRevokeVerificationsOutputFromJson(json);
 }
 
 final class VerificationRevokeVerificationsOutputConverter
-    extends
-        JsonConverter<
-          VerificationRevokeVerificationsOutput,
-          Map<String, dynamic>
-        > {
+    extends JsonConverter<VerificationRevokeVerificationsOutput,
+        Map<String, dynamic>> {
   const VerificationRevokeVerificationsOutputConverter();
 
   @override
   VerificationRevokeVerificationsOutput fromJson(Map<String, dynamic> json) {
-    return VerificationRevokeVerificationsOutput.fromJson(
-      translate(json, VerificationRevokeVerificationsOutput.knownProps),
-    );
+    return VerificationRevokeVerificationsOutput.fromJson(translate(
+      json,
+      VerificationRevokeVerificationsOutput.knownProps,
+    ));
   }
 
   @override
   Map<String, dynamic> toJson(VerificationRevokeVerificationsOutput object) =>
-      untranslate(object.toJson());
+      untranslate(
+        object.toJson(),
+      );
 }

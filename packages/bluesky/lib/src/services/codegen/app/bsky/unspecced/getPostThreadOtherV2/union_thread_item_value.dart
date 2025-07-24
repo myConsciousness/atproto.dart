@@ -28,8 +28,9 @@ abstract class UThreadItemValue with _$UThreadItemValue {
     required ThreadItemPost data,
   }) = UThreadItemValueThreadItemPost;
 
-  const factory UThreadItemValue.unknown({required Map<String, dynamic> data}) =
-      UThreadItemValueUnknown;
+  const factory UThreadItemValue.unknown({
+    required Map<String, dynamic> data,
+  }) = UThreadItemValueUnknown;
 
   Map<String, dynamic> toJson() =>
       const UThreadItemValueConverter().toJson(this);
@@ -67,8 +68,7 @@ final class UThreadItemValueConverter
 
   @override
   Map<String, dynamic> toJson(UThreadItemValue object) => object.when(
-    threadItemPost: (data) => const ThreadItemPostConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+        threadItemPost: (data) => const ThreadItemPostConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

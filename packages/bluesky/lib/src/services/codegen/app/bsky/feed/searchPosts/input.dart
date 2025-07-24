@@ -71,7 +71,6 @@ abstract class FeedSearchPostsInput with _$FeedSearchPostsInput {
 
     /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
     String? cursor,
-
     Map<String, dynamic>? $unknown,
   }) = _FeedSearchPostsInput;
 
@@ -106,12 +105,14 @@ final class FeedSearchPostsInputConverter
 
   @override
   FeedSearchPostsInput fromJson(Map<String, dynamic> json) {
-    return FeedSearchPostsInput.fromJson(
-      translate(json, FeedSearchPostsInput.knownProps),
-    );
+    return FeedSearchPostsInput.fromJson(translate(
+      json,
+      FeedSearchPostsInput.knownProps,
+    ));
   }
 
   @override
-  Map<String, dynamic> toJson(FeedSearchPostsInput object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(FeedSearchPostsInput object) => untranslate(
+        object.toJson(),
+      );
 }

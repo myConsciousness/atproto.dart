@@ -53,16 +53,13 @@ extension UPostInteractionSettingsPrefPostgateEmbeddingRulesExtension
 
 final class UPostInteractionSettingsPrefPostgateEmbeddingRulesConverter
     implements
-        JsonConverter<
-          UPostInteractionSettingsPrefPostgateEmbeddingRules,
-          Map<String, dynamic>
-        > {
+        JsonConverter<UPostInteractionSettingsPrefPostgateEmbeddingRules,
+            Map<String, dynamic>> {
   const UPostInteractionSettingsPrefPostgateEmbeddingRulesConverter();
 
   @override
   UPostInteractionSettingsPrefPostgateEmbeddingRules fromJson(
-    Map<String, dynamic> json,
-  ) {
+      Map<String, dynamic> json) {
     try {
       if (DisableRule.validate(json)) {
         return UPostInteractionSettingsPrefPostgateEmbeddingRules.disableRule(
@@ -71,21 +68,18 @@ final class UPostInteractionSettingsPrefPostgateEmbeddingRulesConverter
       }
 
       return UPostInteractionSettingsPrefPostgateEmbeddingRules.unknown(
-        data: json,
-      );
+          data: json);
     } catch (_) {
       return UPostInteractionSettingsPrefPostgateEmbeddingRules.unknown(
-        data: json,
-      );
+          data: json);
     }
   }
 
   @override
   Map<String, dynamic> toJson(
-    UPostInteractionSettingsPrefPostgateEmbeddingRules object,
-  ) => object.when(
-    disableRule: (data) => const DisableRuleConverter().toJson(data),
-
-    unknown: (data) => data,
-  );
+          UPostInteractionSettingsPrefPostgateEmbeddingRules object) =>
+      object.when(
+        disableRule: (data) => const DisableRuleConverter().toJson(data),
+        unknown: (data) => data,
+      );
 }

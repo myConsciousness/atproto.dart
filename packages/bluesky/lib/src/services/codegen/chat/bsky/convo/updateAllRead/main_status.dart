@@ -26,8 +26,9 @@ abstract class ConvoUpdateAllReadStatus with _$ConvoUpdateAllReadStatus {
     required KnownConvoUpdateAllReadStatus data,
   }) = ConvoUpdateAllReadStatusKnownValue;
 
-  const factory ConvoUpdateAllReadStatus.unknown({required String data}) =
-      ConvoUpdateAllReadStatusUnknown;
+  const factory ConvoUpdateAllReadStatus.unknown({
+    required String data,
+  }) = ConvoUpdateAllReadStatusUnknown;
 
   static ConvoUpdateAllReadStatus? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,15 +71,18 @@ final class ConvoUpdateAllReadStatusConverter
   }
 
   @override
-  String toJson(ConvoUpdateAllReadStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ConvoUpdateAllReadStatus object) => object.when(
+        knownValue: (data) => data.value,
+        unknown: (data) => data,
+      );
 }
 
 enum KnownConvoUpdateAllReadStatus implements Serializable {
   @JsonValue('request')
   request('request'),
   @JsonValue('accepted')
-  accepted('accepted');
+  accepted('accepted'),
+  ;
 
   @override
   final String value;

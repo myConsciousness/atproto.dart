@@ -16,7 +16,12 @@ import '../../../../query_command.dart';
 
 final class GetLatestCommitCommand extends QueryCommand {
   GetLatestCommitCommand() {
-    argParser..addOption("did", help: r"The DID of the repo.", mandatory: true);
+    argParser
+      ..addOption(
+        "did",
+        help: r"The DID of the repo.",
+        mandatory: true,
+      );
   }
 
   @override
@@ -33,5 +38,7 @@ final class GetLatestCommitCommand extends QueryCommand {
   String get methodId => "com.atproto.sync.getLatestCommit";
 
   @override
-  Map<String, dynamic>? get parameters => {"did": argResults!["did"]};
+  Map<String, dynamic>? get parameters => {
+        "did": argResults!["did"],
+      };
 }
