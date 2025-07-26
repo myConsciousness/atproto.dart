@@ -25,7 +25,7 @@ dev_dependencies:
   test: ^1.26.2
   build_runner: ^2.5.4
   json_serializable: ^6.9.5
-  freezed: ^3.1.0
+  freezed: ^3.2.0
   import_sorter: ^4.6.0
   atproto_test:
     path: ../atproto_test
