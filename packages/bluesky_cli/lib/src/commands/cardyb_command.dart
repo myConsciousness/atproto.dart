@@ -28,7 +28,7 @@ final class CardybCommand extends BskyCommand {
   Future<void> run() async => await Bsky(
     logger,
     action: () async {
-      final response = await http.get(
+      final response = await http.get<String>(
         '/v1/extract',
         service: 'cardyb.bsky.app',
         parameters: {'url': argResults!['url']},
