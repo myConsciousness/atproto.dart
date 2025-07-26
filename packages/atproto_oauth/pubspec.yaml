@@ -28,5 +28,5 @@ dev_dependencies:
   test: ^1.24.0
   build_runner: ^2.5.4
   json_serializable: ^6.9.5
-  freezed: ^3.1.0
+  freezed: ^3.2.0
   import_sorter: ^4.6.0

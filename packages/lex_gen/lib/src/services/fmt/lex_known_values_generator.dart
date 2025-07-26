@@ -13,7 +13,6 @@ import '../rule.dart' as rule;
 LexKnownValues generateLexKnownValues(
   final lex.NSID lexiconId,
   final String defName,
-
   final lex.LexString string,
   final List<String> mainVariants, {
   final String? fieldName,
