@@ -19,7 +19,7 @@ _Commit _$CommitFromJson(Map json) =>
         repo: $checkedConvert('repo', (v) => v as String),
         commit: $checkedConvert('commit', (v) => v as String),
         rev: $checkedConvert('rev', (v) => v as String),
-        since: $checkedConvert('since', (v) => v as String),
+        since: $checkedConvert('since', (v) => v as String?),
         blocks: $checkedConvert(
           'blocks',
           (v) => Map<String, dynamic>.from(v as Map),
