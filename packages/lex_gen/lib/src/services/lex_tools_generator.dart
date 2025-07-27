@@ -11,6 +11,7 @@ import 'package:lexicon/lexicon.dart';
 
 // Project imports:
 import 'object/at_uri_extension.dart';
+import 'object/repo_commit_handler.dart';
 import 'rule.dart';
 
 void generateLexTools() {
@@ -27,6 +28,10 @@ final class _LexToolsGenerator {
     File('$homeDir/at_uri_extension.dart')
       ..createSync(recursive: true)
       ..writeAsStringSync(AtUriExtension(recordLexiconIds).format());
+
+    File('$homeDir/repo_commit_handler.dart')
+      ..createSync(recursive: true)
+      ..writeAsStringSync(RepoCommitHandler(recordLexiconIds).format());
   }
 
   List<String> _getRecordLexiconIds() {

@@ -4,6 +4,7 @@
 
 - Improved firehose conversion process. Use `SyncSubscribeReposAdaptor` to convert byte data from `subscribeRepos`.
 - Now the endpoint argument `$unknown` cannot override a known field. ([#2068](https://github.com/myConsciousness/atproto.dart/pull/2068))
+- `RepoCommitHandler` is automatically generated based on Lexicon. ([#2072](https://github.com/myConsciousness/atproto.dart/pull/2072))
 
 ## v1.0.0
 
