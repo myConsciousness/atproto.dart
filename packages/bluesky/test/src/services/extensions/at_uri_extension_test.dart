@@ -1,7 +1,9 @@
 // Package imports:
 import 'package:atproto/core.dart';
-import 'package:bluesky/src/services/codegen/at_uri_extension.dart';
 import 'package:test/test.dart';
+
+// Project imports:
+import 'package:bluesky/src/services/codegen/at_uri_extension.dart';
 
 // Project imports:
 
