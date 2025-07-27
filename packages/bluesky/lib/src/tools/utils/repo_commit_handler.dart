@@ -23,7 +23,7 @@ import '../../services/codegen/app/bsky/graph/list/main.dart';
 import '../../services/codegen/app/bsky/graph/listblock/main.dart';
 import '../../services/codegen/app/bsky/graph/listitem/main.dart';
 import '../../services/codegen/app/bsky/labeler/service/main.dart';
-import '../extensions/at_uri.dart';
+import '../../services/codegen/at_uri_extension.dart';
 import 'repo_commit_create.dart';
 import 'repo_commit_delete.dart';
 import 'repo_commit_update.dart';
@@ -230,7 +230,7 @@ final class RepoCommitHandler {
           cursor: data.seq,
         ),
       );
-    } else if (uri.isGraphListItem && _isGraphListItem(record)) {
+    } else if (uri.isGraphListitem && _isGraphListItem(record)) {
       await _onCreateListItem?.call(
         RepoCommitCreate<GraphListitemRecord>(
           record: const GraphListitemRecordConverter().fromJson(record),
@@ -240,7 +240,7 @@ final class RepoCommitHandler {
           cursor: data.seq,
         ),
       );
-    } else if (uri.isGraphBlockList && _isGraphBlockList(record)) {
+    } else if (uri.isGraphListblock && _isGraphBlockList(record)) {
       await _onCreateBlockList?.call(
         RepoCommitCreate<GraphListblockRecord>(
           record: const GraphListblockRecordConverter().fromJson(record),
@@ -379,7 +379,7 @@ final class RepoCommitHandler {
           createdAt: data.time,
         ),
       );
-    } else if (uri.isGraphListItem) {
+    } else if (uri.isGraphListitem) {
       await _onDeleteListItem?.call(
         RepoCommitDelete(
           uri: uri,
@@ -388,7 +388,7 @@ final class RepoCommitHandler {
           createdAt: data.time,
         ),
       );
-    } else if (uri.isGraphBlockList) {
+    } else if (uri.isGraphListblock) {
       await _onDeleteBlockList?.call(
         RepoCommitDelete(
           uri: uri,

@@ -3,7 +3,9 @@ import 'package:atproto/core.dart';
 import 'package:test/test.dart';
 
 // Project imports:
-import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/src/services/codegen/at_uri_extension.dart';
+
+// Project imports:
 
 void main() {
   group('.isActorProfile', () {
@@ -262,13 +264,13 @@ void main() {
     test('when graph list', () {
       final uri = AtUri.make('shinyakato.dev', 'app.bsky.graph.listitem');
 
-      expect(uri.isGraphListItem, isTrue);
+      expect(uri.isGraphListitem, isTrue);
     });
 
     test('when not graph listitem', () {
       final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
-      expect(uri.isGraphListItem, isFalse);
+      expect(uri.isGraphListitem, isFalse);
     });
   });
 
@@ -276,13 +278,13 @@ void main() {
     test('when not graph listitem', () {
       final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
-      expect(uri.isNotGraphListItem, isTrue);
+      expect(uri.isNotGraphListitem, isTrue);
     });
 
     test('when graph listitem', () {
       final uri = AtUri.make('shinyakato.dev', 'app.bsky.graph.listitem');
 
-      expect(uri.isNotGraphListItem, isFalse);
+      expect(uri.isNotGraphListitem, isFalse);
     });
   });
 
@@ -290,13 +292,13 @@ void main() {
     test('when graph block list', () {
       final uri = AtUri.make('shinyakato.dev', 'app.bsky.graph.listblock');
 
-      expect(uri.isGraphBlockList, isTrue);
+      expect(uri.isGraphListblock, isTrue);
     });
 
     test('when not graph block list', () {
       final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
-      expect(uri.isGraphBlockList, isFalse);
+      expect(uri.isGraphListblock, isFalse);
     });
   });
 
@@ -304,13 +306,13 @@ void main() {
     test('when not graph block list', () {
       final uri = AtUri.make('shinyakato.dev', 'com.bsky.dummy.defs');
 
-      expect(uri.isNotGraphBlockList, isTrue);
+      expect(uri.isNotGraphListblock, isTrue);
     });
 
     test('when graph block list', () {
       final uri = AtUri.make('shinyakato.dev', 'app.bsky.graph.listblock');
 
-      expect(uri.isNotGraphBlockList, isFalse);
+      expect(uri.isNotGraphListblock, isFalse);
     });
   });
 

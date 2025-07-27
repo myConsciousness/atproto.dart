@@ -5,6 +5,7 @@
 // Project imports:
 import 'commands/lex_command_generator.dart';
 import 'services/lex_service_generator.dart';
+import 'services/lex_tools_generator.dart';
 import 'services/lex_type_generator.dart';
 import 'utils.dart';
 
@@ -32,6 +33,8 @@ final class ServiceGen implements Gen {
 
     final types = generateLexTypes(services, packages);
     generateLexServices(services, packages, types);
+
+    generateLexTools();
   }
 }
 
