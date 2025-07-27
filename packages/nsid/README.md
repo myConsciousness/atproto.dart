@@ -1,4 +1,10 @@
 <p align="center">
+  <a href="https://github.com/myConsciousness/atproto.dart">
+    <img alt="nsid" width="600px" src="https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/pkg_logo.png">
+  </a>
+</p>
+
+<p align="center">
   <b>Core library for parsing NSIDs in the AT Protocol standard 🦋</b>
 </p>
 

@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.0.1
+
+- chore: optimized docs.
+
 ## v1.0.0
 
 - Bump SDK constraint to '^3.8.0'.
