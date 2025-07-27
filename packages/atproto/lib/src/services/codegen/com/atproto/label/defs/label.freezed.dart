@@ -23,7 +23,8 @@ mixin _$Label {
  String get val;/// If true, this is a negation label, overwriting a previous label.
  bool? get neg;/// Timestamp when this label was created.
  DateTime get cts;/// Timestamp at which this label expires (no longer applies).
- DateTime? get exp; Map<String, dynamic>? get sig; Map<String, dynamic>? get $unknown;
+ DateTime? get exp;/// Signature of dag-cbor encoded label.
+ Map<String, dynamic>? get sig; Map<String, dynamic>? get $unknown;
 /// Create a copy of Label
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -247,7 +248,9 @@ class _Label implements Label {
 @override final  DateTime cts;
 /// Timestamp at which this label expires (no longer applies).
 @override final  DateTime? exp;
+/// Signature of dag-cbor encoded label.
  final  Map<String, dynamic>? _sig;
+/// Signature of dag-cbor encoded label.
 @override Map<String, dynamic>? get sig {
   final value = _sig;
   if (value == null) return null;

@@ -17,7 +17,8 @@ mixin _$Sync {
 
  String get $type;/// The stream sequence number of this message.
  int get seq;/// The account this repo event corresponds to. Must match that in the commit object.
- String get did; Map<String, dynamic> get blocks;/// The rev of the commit. This value must match that in the commit object.
+ String get did;/// CAR file containing the commit, as a block. The CAR header must include the commit block CID as the first 'root'.
+ Map<String, dynamic> get blocks;/// The rev of the commit. This value must match that in the commit object.
  String get rev;/// Timestamp of when this message was originally broadcast.
  DateTime get time; Map<String, dynamic>? get $unknown;
 /// Create a copy of Sync
@@ -227,7 +228,9 @@ class _Sync implements Sync {
 @override final  int seq;
 /// The account this repo event corresponds to. Must match that in the commit object.
 @override final  String did;
+/// CAR file containing the commit, as a block. The CAR header must include the commit block CID as the first 'root'.
  final  Map<String, dynamic> _blocks;
+/// CAR file containing the commit, as a block. The CAR header must include the commit block CID as the first 'root'.
 @override Map<String, dynamic> get blocks {
   if (_blocks is EqualUnmodifiableMapView) return _blocks;
   // ignore: implicit_dynamic_type

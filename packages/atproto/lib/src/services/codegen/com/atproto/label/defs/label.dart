@@ -60,6 +60,8 @@ abstract class Label with _$Label {
 
     /// Timestamp at which this label expires (no longer applies).
     DateTime? exp,
+
+    /// Signature of dag-cbor encoded label.
     Map<String, dynamic>? sig,
 
     Map<String, dynamic>? $unknown,

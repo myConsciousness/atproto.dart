@@ -31,6 +31,8 @@ abstract class Sync with _$Sync {
 
     /// The account this repo event corresponds to. Must match that in the commit object.
     required String did,
+
+    /// CAR file containing the commit, as a block. The CAR header must include the commit block CID as the first 'root'.
     required Map<String, dynamic> blocks,
 
     /// The rev of the commit. This value must match that in the commit object.
