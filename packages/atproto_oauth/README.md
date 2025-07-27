@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://github.com/myConsciousness/atproto.dart">
+    <img alt="atproto_oauth" width="600px" src="https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/pkg_logo.png">
+  </a>
+</p>
+
 # AT Protocol OAuth Authentication for Flutter
 
 This guide explains how to implement AT Protocol OAuth authentication in your Flutter application using `FlutterWebAuth2` for services like Bluesky.
