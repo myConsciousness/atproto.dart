@@ -48,10 +48,10 @@ final class ActorService {
     ns.appBskyActorSearchActorsTypeahead,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (term != null) 'term': term,
       if (q != null) 'q': q,
       if (limit != null) 'limit': limit,
-      ...?$unknown,
     },
     to: const ActorSearchActorsTypeaheadOutputConverter().fromJson,
   );
@@ -64,7 +64,7 @@ final class ActorService {
   }) async => await _ctx.get(
     ns.appBskyActorGetProfiles,
     headers: $headers,
-    parameters: {'actors': actors, ...?$unknown},
+    parameters: {...?$unknown, 'actors': actors},
     to: const ActorGetProfilesOutputConverter().fromJson,
   );
 
@@ -86,6 +86,7 @@ final class ActorService {
     collection: ids.appBskyActorProfile,
     rkey: $rey,
     record: {
+      ...?$unknown,
       if (displayName != null) 'displayName': displayName,
       if (description != null) 'description': description,
       if (avatar != null) 'avatar': avatar,
@@ -95,7 +96,6 @@ final class ActorService {
         'joinedViaStarterPack': joinedViaStarterPack.toJson(),
       if (pinnedPost != null) 'pinnedPost': pinnedPost.toJson(),
       if (createdAt != null) 'createdAt': _ctx.toUtcIso8601String(createdAt),
-      ...?$unknown,
     },
   );
 
@@ -120,9 +120,9 @@ final class ActorService {
     ns.appBskyActorGetSuggestions,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const ActorGetSuggestionsOutputConverter().fromJson,
   );
@@ -139,11 +139,11 @@ final class ActorService {
     ns.appBskyActorSearchActors,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (term != null) 'term': term,
       if (q != null) 'q': q,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const ActorSearchActorsOutputConverter().fromJson,
   );
@@ -156,7 +156,7 @@ final class ActorService {
   }) async => await _ctx.get(
     ns.appBskyActorGetProfile,
     headers: $headers,
-    parameters: {'actor': actor, ...?$unknown},
+    parameters: {...?$unknown, 'actor': actor},
     to: const ProfileViewDetailedConverter().fromJson,
   );
 
@@ -174,11 +174,11 @@ final class ActorService {
     collection: ids.appBskyActorStatus,
     rkey: $rey,
     record: {
+      ...?$unknown,
       'status': status.toJson(),
       if (embed != null) 'embed': embed.toJson(),
       if (durationMinutes != null) 'durationMinutes': durationMinutes,
       'createdAt': _ctx.toUtcIso8601String(createdAt),
-      ...?$unknown,
     },
   );
 
@@ -191,8 +191,8 @@ final class ActorService {
     ns.appBskyActorPutPreferences,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
-      'preferences': preferences.map((e) => e.toJson()).toList(),
       ...?$unknown,
+      'preferences': preferences.map((e) => e.toJson()).toList(),
     },
   );
 }

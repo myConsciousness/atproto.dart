@@ -39,9 +39,9 @@ final class VerificationService {
     ns.toolsOzoneVerificationRevokeVerifications,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'uris': uris,
       if (revokeReason != null) 'revokeReason': revokeReason,
-      ...?$unknown,
     },
     to: const VerificationRevokeVerificationsOutputConverter().fromJson,
   );
@@ -56,8 +56,8 @@ final class VerificationService {
     ns.toolsOzoneVerificationGrantVerifications,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
-      'verifications': verifications.map((e) => e.toJson()).toList(),
       ...?$unknown,
+      'verifications': verifications.map((e) => e.toJson()).toList(),
     },
     to: const VerificationGrantVerificationsOutputConverter().fromJson,
   );
@@ -78,6 +78,7 @@ final class VerificationService {
     ns.toolsOzoneVerificationListVerifications,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (cursor != null) 'cursor': cursor,
       if (limit != null) 'limit': limit,
       if (createdAfter != null)
@@ -88,7 +89,6 @@ final class VerificationService {
       if (subjects != null) 'subjects': subjects,
       if (sortDirection != null) 'sortDirection': sortDirection,
       if (isRevoked != null) 'isRevoked': isRevoked,
-      ...?$unknown,
     },
     to: const VerificationListVerificationsOutputConverter().fromJson,
   );

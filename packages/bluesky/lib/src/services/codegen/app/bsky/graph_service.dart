@@ -53,7 +53,7 @@ final class GraphService {
   }) async => await _ctx.post(
     ns.appBskyGraphMuteActorList,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'list': list, ...?$unknown},
+    body: {...?$unknown, 'list': list},
   );
 
   /// Record declaring a social 'follow' relationship of another account. Duplicate follows will be ignored by the AppView.
@@ -68,9 +68,9 @@ final class GraphService {
     collection: ids.appBskyGraphFollow,
     rkey: $rey,
     record: {
+      ...?$unknown,
       'subject': subject,
       'createdAt': _ctx.toUtcIso8601String(createdAt),
-      ...?$unknown,
     },
   );
 
@@ -82,7 +82,7 @@ final class GraphService {
   }) async => await _ctx.post(
     ns.appBskyGraphUnmuteActor,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'actor': actor, ...?$unknown},
+    body: {...?$unknown, 'actor': actor},
   );
 
   /// Record defining a starter pack of actors and feeds for new users.
@@ -101,6 +101,7 @@ final class GraphService {
     collection: ids.appBskyGraphStarterpack,
     rkey: $rey,
     record: {
+      ...?$unknown,
       'name': name,
       if (description != null) 'description': description,
       if (descriptionFacets != null)
@@ -108,7 +109,6 @@ final class GraphService {
       'list': list,
       if (feeds != null) 'feeds': feeds.map((e) => e.toJson()).toList(),
       'createdAt': _ctx.toUtcIso8601String(createdAt),
-      ...?$unknown,
     },
   );
 
@@ -124,9 +124,9 @@ final class GraphService {
     collection: ids.appBskyGraphListblock,
     rkey: $rey,
     record: {
+      ...?$unknown,
       'subject': subject,
       'createdAt': _ctx.toUtcIso8601String(createdAt),
-      ...?$unknown,
     },
   );
 
@@ -140,9 +140,9 @@ final class GraphService {
     ns.appBskyGraphGetBlocks,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const GraphGetBlocksOutputConverter().fromJson,
   );
@@ -158,10 +158,10 @@ final class GraphService {
     ns.appBskyGraphSearchStarterPacks,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'q': q,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const GraphSearchStarterPacksOutputConverter().fromJson,
   );
@@ -176,9 +176,9 @@ final class GraphService {
     ns.appBskyGraphGetMutes,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const GraphGetMutesOutputConverter().fromJson,
   );
@@ -192,7 +192,7 @@ final class GraphService {
   }) async => await _ctx.get(
     ns.appBskyGraphGetSuggestedFollowsByActor,
     headers: $headers,
-    parameters: {'actor': actor, ...?$unknown},
+    parameters: {...?$unknown, 'actor': actor},
     to: const GraphGetSuggestedFollowsByActorOutputConverter().fromJson,
   );
 
@@ -206,9 +206,9 @@ final class GraphService {
     ns.appBskyGraphGetListMutes,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const GraphGetListMutesOutputConverter().fromJson,
   );
@@ -224,10 +224,10 @@ final class GraphService {
     ns.appBskyGraphGetList,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'list': list,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const GraphGetListOutputConverter().fromJson,
   );
@@ -240,7 +240,7 @@ final class GraphService {
   }) async => await _ctx.post(
     ns.appBskyGraphMuteThread,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'root': root, ...?$unknown},
+    body: {...?$unknown, 'root': root},
   );
 
   /// Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.
@@ -256,10 +256,10 @@ final class GraphService {
     collection: ids.appBskyGraphListitem,
     rkey: $rey,
     record: {
+      ...?$unknown,
       'subject': subject,
       'list': list,
       'createdAt': _ctx.toUtcIso8601String(createdAt),
-      ...?$unknown,
     },
   );
 
@@ -280,6 +280,7 @@ final class GraphService {
     collection: ids.appBskyGraphList,
     rkey: $rey,
     record: {
+      ...?$unknown,
       'purpose': purpose.toJson(),
       'name': name,
       if (description != null) 'description': description,
@@ -288,7 +289,6 @@ final class GraphService {
       if (avatar != null) 'avatar': avatar,
       if (labels != null) 'labels': labels.toJson(),
       'createdAt': _ctx.toUtcIso8601String(createdAt),
-      ...?$unknown,
     },
   );
 
@@ -300,7 +300,7 @@ final class GraphService {
   }) async => await _ctx.post(
     ns.appBskyGraphUnmuteActorList,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'list': list, ...?$unknown},
+    body: {...?$unknown, 'list': list},
   );
 
   /// Gets a view of a starter pack.
@@ -311,7 +311,7 @@ final class GraphService {
   }) async => await _ctx.get(
     ns.appBskyGraphGetStarterPack,
     headers: $headers,
-    parameters: {'starterPack': starterPack, ...?$unknown},
+    parameters: {...?$unknown, 'starterPack': starterPack},
     to: const GraphGetStarterPackOutputConverter().fromJson,
   );
 
@@ -326,10 +326,10 @@ final class GraphService {
     ns.appBskyGraphGetActorStarterPacks,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'actor': actor,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const GraphGetActorStarterPacksOutputConverter().fromJson,
   );
@@ -344,9 +344,9 @@ final class GraphService {
     ns.appBskyGraphGetRelationships,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'actor': actor,
       if (others != null) 'others': others,
-      ...?$unknown,
     },
     to: const GraphGetRelationshipsOutputConverter().fromJson,
   );
@@ -362,10 +362,10 @@ final class GraphService {
     ns.appBskyGraphGetKnownFollowers,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'actor': actor,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const GraphGetKnownFollowersOutputConverter().fromJson,
   );
@@ -384,11 +384,11 @@ final class GraphService {
     collection: ids.appBskyGraphVerification,
     rkey: $rey,
     record: {
+      ...?$unknown,
       'subject': subject,
       'handle': handle,
       'displayName': displayName,
       'createdAt': _ctx.toUtcIso8601String(createdAt),
-      ...?$unknown,
     },
   );
 
@@ -403,10 +403,10 @@ final class GraphService {
     ns.appBskyGraphGetFollowers,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'actor': actor,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const GraphGetFollowersOutputConverter().fromJson,
   );
@@ -422,10 +422,10 @@ final class GraphService {
     ns.appBskyGraphGetFollows,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'actor': actor,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const GraphGetFollowsOutputConverter().fromJson,
   );
@@ -440,9 +440,9 @@ final class GraphService {
     ns.appBskyGraphGetListBlocks,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const GraphGetListBlocksOutputConverter().fromJson,
   );
@@ -455,7 +455,7 @@ final class GraphService {
   }) async => await _ctx.post(
     ns.appBskyGraphMuteActor,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'actor': actor, ...?$unknown},
+    body: {...?$unknown, 'actor': actor},
   );
 
   /// Record declaring a 'block' relationship against another account. NOTE: blocks are public in Bluesky; see blog posts for details.
@@ -470,9 +470,9 @@ final class GraphService {
     collection: ids.appBskyGraphBlock,
     rkey: $rey,
     record: {
+      ...?$unknown,
       'subject': subject,
       'createdAt': _ctx.toUtcIso8601String(createdAt),
-      ...?$unknown,
     },
   );
 
@@ -484,7 +484,7 @@ final class GraphService {
   }) async => await _ctx.get(
     ns.appBskyGraphGetStarterPacks,
     headers: $headers,
-    parameters: {'uris': uris, ...?$unknown},
+    parameters: {...?$unknown, 'uris': uris},
     to: const GraphGetStarterPacksOutputConverter().fromJson,
   );
 
@@ -499,10 +499,10 @@ final class GraphService {
     ns.appBskyGraphGetLists,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'actor': actor,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const GraphGetListsOutputConverter().fromJson,
   );
@@ -515,6 +515,6 @@ final class GraphService {
   }) async => await _ctx.post(
     ns.appBskyGraphUnmuteThread,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'root': root, ...?$unknown},
+    body: {...?$unknown, 'root': root},
   );
 }

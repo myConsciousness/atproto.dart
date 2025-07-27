@@ -58,10 +58,10 @@ final class UnspeccedService {
     ns.appBskyUnspeccedCheckHandleAvailability,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'handle': handle,
       if (email != null) 'email': email,
       if (birthDate != null) 'birthDate': _ctx.toUtcIso8601String(birthDate),
-      ...?$unknown,
     },
     to: const UnspeccedCheckHandleAvailabilityOutputConverter().fromJson,
   );
@@ -76,9 +76,9 @@ final class UnspeccedService {
     ns.appBskyUnspeccedGetSuggestedUsers,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (category != null) 'category': category,
       if (limit != null) 'limit': limit,
-      ...?$unknown,
     },
     to: const UnspeccedGetSuggestedUsersOutputConverter().fromJson,
   );
@@ -94,10 +94,10 @@ final class UnspeccedService {
     ns.appBskyUnspeccedInitAgeAssurance,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'email': email,
       'language': language,
       'countryCode': countryCode,
-      ...?$unknown,
     },
     to: const AgeAssuranceStateConverter().fromJson,
   );
@@ -126,11 +126,11 @@ final class UnspeccedService {
     ns.appBskyUnspeccedSearchStarterPacksSkeleton,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'q': q,
       if (viewer != null) 'viewer': viewer,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const UnspeccedSearchStarterPacksSkeletonOutputConverter().fromJson,
   );
@@ -143,7 +143,7 @@ final class UnspeccedService {
   }) async => await _ctx.get(
     ns.appBskyUnspeccedGetTrends,
     headers: $headers,
-    parameters: {if (limit != null) 'limit': limit, ...?$unknown},
+    parameters: {...?$unknown, if (limit != null) 'limit': limit},
     to: const UnspeccedGetTrendsOutputConverter().fromJson,
   );
 
@@ -173,6 +173,7 @@ final class UnspeccedService {
     ns.appBskyUnspeccedGetPostThreadV2,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'anchor': anchor,
       if (above != null) 'above': above,
       if (below != null) 'below': below,
@@ -180,7 +181,6 @@ final class UnspeccedService {
       if (prioritizeFollowedUsers != null)
         'prioritizeFollowedUsers': prioritizeFollowedUsers,
       if (sort != null) 'sort': sort.toJson(),
-      ...?$unknown,
     },
     to: const UnspeccedGetPostThreadV2OutputConverter().fromJson,
   );
@@ -205,7 +205,7 @@ final class UnspeccedService {
   }) async => await _ctx.get(
     ns.appBskyUnspeccedGetSuggestedStarterPacks,
     headers: $headers,
-    parameters: {if (limit != null) 'limit': limit, ...?$unknown},
+    parameters: {...?$unknown, if (limit != null) 'limit': limit},
     to: const UnspeccedGetSuggestedStarterPacksOutputConverter().fromJson,
   );
 
@@ -220,10 +220,10 @@ final class UnspeccedService {
     ns.appBskyUnspeccedGetPostThreadOtherV2,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'anchor': anchor,
       if (prioritizeFollowedUsers != null)
         'prioritizeFollowedUsers': prioritizeFollowedUsers,
-      ...?$unknown,
     },
     to: const UnspeccedGetPostThreadOtherV2OutputConverter().fromJson,
   );
@@ -236,7 +236,7 @@ final class UnspeccedService {
   }) async => await _ctx.get(
     ns.appBskyUnspeccedGetSuggestedFeeds,
     headers: $headers,
-    parameters: {if (limit != null) 'limit': limit, ...?$unknown},
+    parameters: {...?$unknown, if (limit != null) 'limit': limit},
     to: const UnspeccedGetSuggestedFeedsOutputConverter().fromJson,
   );
 
@@ -253,11 +253,11 @@ final class UnspeccedService {
     ns.appBskyUnspeccedGetSuggestionsSkeleton,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (viewer != null) 'viewer': viewer,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
       if (relativeToDid != null) 'relativeToDid': relativeToDid,
-      ...?$unknown,
     },
     to: const UnspeccedGetSuggestionsSkeletonOutputConverter().fromJson,
   );
@@ -272,9 +272,9 @@ final class UnspeccedService {
     ns.appBskyUnspeccedGetTrendsSkeleton,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (viewer != null) 'viewer': viewer,
       if (limit != null) 'limit': limit,
-      ...?$unknown,
     },
     to: const UnspeccedGetTrendsSkeletonOutputConverter().fromJson,
   );
@@ -290,9 +290,9 @@ final class UnspeccedService {
     ns.appBskyUnspeccedGetSuggestedStarterPacksSkeleton,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (viewer != null) 'viewer': viewer,
       if (limit != null) 'limit': limit,
-      ...?$unknown,
     },
     to: const UnspeccedGetSuggestedStarterPacksSkeletonOutputConverter()
         .fromJson,
@@ -309,9 +309,9 @@ final class UnspeccedService {
     ns.appBskyUnspeccedGetSuggestedFeedsSkeleton,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (viewer != null) 'viewer': viewer,
       if (limit != null) 'limit': limit,
-      ...?$unknown,
     },
     to: const UnspeccedGetSuggestedFeedsSkeletonOutputConverter().fromJson,
   );
@@ -328,10 +328,10 @@ final class UnspeccedService {
     ns.appBskyUnspeccedGetPopularFeedGenerators,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
       if (query != null) 'query': query,
-      ...?$unknown,
     },
     to: const UnspeccedGetPopularFeedGeneratorsOutputConverter().fromJson,
   );
@@ -346,9 +346,9 @@ final class UnspeccedService {
     ns.appBskyUnspeccedGetTrendingTopics,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (viewer != null) 'viewer': viewer,
       if (limit != null) 'limit': limit,
-      ...?$unknown,
     },
     to: const UnspeccedGetTrendingTopicsOutputConverter().fromJson,
   );
@@ -367,12 +367,12 @@ final class UnspeccedService {
     ns.appBskyUnspeccedSearchActorsSkeleton,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'q': q,
       if (viewer != null) 'viewer': viewer,
       if (typeahead != null) 'typeahead': typeahead,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const UnspeccedSearchActorsSkeletonOutputConverter().fromJson,
   );
@@ -398,6 +398,7 @@ final class UnspeccedService {
     ns.appBskyUnspeccedSearchPostsSkeleton,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'q': q,
       if (sort != null) 'sort': sort.toJson(),
       if (since != null) 'since': since,
@@ -411,7 +412,6 @@ final class UnspeccedService {
       if (viewer != null) 'viewer': viewer,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const UnspeccedSearchPostsSkeletonOutputConverter().fromJson,
   );
@@ -428,10 +428,10 @@ final class UnspeccedService {
     ns.appBskyUnspeccedGetSuggestedUsersSkeleton,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (viewer != null) 'viewer': viewer,
       if (category != null) 'category': category,
       if (limit != null) 'limit': limit,
-      ...?$unknown,
     },
     to: const UnspeccedGetSuggestedUsersSkeletonOutputConverter().fromJson,
   );

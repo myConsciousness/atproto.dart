@@ -43,7 +43,7 @@ final class SyncService {
   }) async => await _ctx.post(
     ns.comAtprotoSyncRequestCrawl,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'hostname': hostname, ...?$unknown},
+    body: {...?$unknown, 'hostname': hostname},
   );
 
   /// Enumerates all the DIDs which have records with the given collection NSID.
@@ -57,10 +57,10 @@ final class SyncService {
     ns.comAtprotoSyncListReposByCollection,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'collection': collection,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const SyncListReposByCollectionOutputConverter().fromJson,
   );
@@ -74,7 +74,7 @@ final class SyncService {
   }) async => await _ctx.get(
     ns.comAtprotoSyncGetBlocks,
     headers: $headers,
-    parameters: {'did': did, 'cids': cids, ...?$unknown},
+    parameters: {...?$unknown, 'did': did, 'cids': cids},
   );
 
   /// Get a blob associated with a given account. Returns the full blob as originally uploaded. Does not require auth; implemented by PDS.
@@ -86,7 +86,7 @@ final class SyncService {
   }) async => await _ctx.get(
     ns.comAtprotoSyncGetBlob,
     headers: $headers,
-    parameters: {'did': did, 'cid': cid, ...?$unknown},
+    parameters: {...?$unknown, 'did': did, 'cid': cid},
   );
 
   /// Get the current commit CID & revision of the specified repo. Does not require auth.
@@ -97,7 +97,7 @@ final class SyncService {
   }) async => await _ctx.get(
     ns.comAtprotoSyncGetLatestCommit,
     headers: $headers,
-    parameters: {'did': did, ...?$unknown},
+    parameters: {...?$unknown, 'did': did},
     to: const SyncGetLatestCommitOutputConverter().fromJson,
   );
 
@@ -111,9 +111,9 @@ final class SyncService {
     ns.comAtprotoSyncListHosts,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const SyncListHostsOutputConverter().fromJson,
   );
@@ -126,7 +126,7 @@ final class SyncService {
   }) async => await _ctx.get(
     ns.comAtprotoSyncGetHostStatus,
     headers: $headers,
-    parameters: {'hostname': hostname, ...?$unknown},
+    parameters: {...?$unknown, 'hostname': hostname},
     to: const SyncGetHostStatusOutputConverter().fromJson,
   );
 
@@ -138,7 +138,7 @@ final class SyncService {
   }) async => await _ctx.get(
     ns.comAtprotoSyncGetHead,
     headers: $headers,
-    parameters: {'did': did, ...?$unknown},
+    parameters: {...?$unknown, 'did': did},
     to: const SyncGetHeadOutputConverter().fromJson,
   );
 
@@ -150,7 +150,7 @@ final class SyncService {
   }) async => await _ctx.get(
     ns.comAtprotoSyncGetCheckout,
     headers: $headers,
-    parameters: {'did': did, ...?$unknown},
+    parameters: {...?$unknown, 'did': did},
   );
 
   /// Enumerates all the DID, rev, and commit CID for all repos hosted by this service. Does not require auth; implemented by PDS and Relay.
@@ -163,9 +163,9 @@ final class SyncService {
     ns.comAtprotoSyncListRepos,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const SyncListReposOutputConverter().fromJson,
   );
@@ -181,10 +181,10 @@ final class SyncService {
     ns.comAtprotoSyncGetRecord,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'did': did,
       'collection': collection,
       'rkey': rkey,
-      ...?$unknown,
     },
   );
 
@@ -208,11 +208,11 @@ final class SyncService {
     ns.comAtprotoSyncListBlobs,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'did': did,
       if (since != null) 'since': since,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const SyncListBlobsOutputConverter().fromJson,
   );
@@ -225,7 +225,7 @@ final class SyncService {
   }) async => await _ctx.get(
     ns.comAtprotoSyncGetRepoStatus,
     headers: $headers,
-    parameters: {'did': did, ...?$unknown},
+    parameters: {...?$unknown, 'did': did},
     to: const SyncGetRepoStatusOutputConverter().fromJson,
   );
 
@@ -237,7 +237,7 @@ final class SyncService {
   }) async => await _ctx.post(
     ns.comAtprotoSyncNotifyOfUpdate,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'hostname': hostname, ...?$unknown},
+    body: {...?$unknown, 'hostname': hostname},
   );
 
   /// Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.
@@ -249,6 +249,6 @@ final class SyncService {
   }) async => await _ctx.get(
     ns.comAtprotoSyncGetRepo,
     headers: $headers,
-    parameters: {'did': did, if (since != null) 'since': since, ...?$unknown},
+    parameters: {...?$unknown, 'did': did, if (since != null) 'since': since},
   );
 }

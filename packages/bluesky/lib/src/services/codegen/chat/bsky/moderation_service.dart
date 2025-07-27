@@ -33,7 +33,7 @@ final class ModerationService {
   }) async => await _ctx.get(
     ns.chatBskyModerationGetActorMetadata,
     headers: $headers,
-    parameters: {'actor': actor, ...?$unknown},
+    parameters: {...?$unknown, 'actor': actor},
     to: const ModerationGetActorMetadataOutputConverter().fromJson,
   );
   Future<XRPCResponse<EmptyData>> updateActorAccess({
@@ -46,10 +46,10 @@ final class ModerationService {
     ns.chatBskyModerationUpdateActorAccess,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'actor': actor,
       'allowAccess': allowAccess,
       if (ref != null) 'ref': ref,
-      ...?$unknown,
     },
   );
   Future<XRPCResponse<ModerationGetMessageContextOutput>> getMessageContext({
@@ -63,11 +63,11 @@ final class ModerationService {
     ns.chatBskyModerationGetMessageContext,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (convoId != null) 'convoId': convoId,
       'messageId': messageId,
       if (before != null) 'before': before,
       if (after != null) 'after': after,
-      ...?$unknown,
     },
     to: const ModerationGetMessageContextOutputConverter().fromJson,
   );

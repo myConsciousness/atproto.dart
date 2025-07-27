@@ -35,7 +35,7 @@ final class SignatureService {
   }) async => await _ctx.get(
     ns.toolsOzoneSignatureFindCorrelation,
     headers: $headers,
-    parameters: {'dids': dids, ...?$unknown},
+    parameters: {...?$unknown, 'dids': dids},
     to: const SignatureFindCorrelationOutputConverter().fromJson,
   );
 
@@ -50,10 +50,10 @@ final class SignatureService {
     ns.toolsOzoneSignatureSearchAccounts,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'values': values,
       if (cursor != null) 'cursor': cursor,
       if (limit != null) 'limit': limit,
-      ...?$unknown,
     },
     to: const SignatureSearchAccountsOutputConverter().fromJson,
   );
@@ -69,10 +69,10 @@ final class SignatureService {
     ns.toolsOzoneSignatureFindRelatedAccounts,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'did': did,
       if (cursor != null) 'cursor': cursor,
       if (limit != null) 'limit': limit,
-      ...?$unknown,
     },
     to: const SignatureFindRelatedAccountsOutputConverter().fromJson,
   );

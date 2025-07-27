@@ -51,7 +51,7 @@ final class VideoService {
   }) async => await _ctx.get(
     ns.appBskyVideoGetJobStatus,
     headers: $headers,
-    parameters: {'jobId': jobId, ...?$unknown},
+    parameters: {...?$unknown, 'jobId': jobId},
     to: const VideoGetJobStatusOutputConverter().fromJson,
   );
 
