@@ -60,7 +60,7 @@ Future<void> main() async {
     //! You can use Stream API easily.
     final subscription = await atproto.sync.subscribeRepos();
     subscription.data.stream.listen((event) {
-      final repos = firehose.SyncSubscribeReposAdaptor().execute(event);
+      final repos = const firehose.SyncSubscribeReposAdaptor().execute(event);
 
       print(repos);
     });

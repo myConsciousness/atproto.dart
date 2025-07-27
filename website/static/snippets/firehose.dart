@@ -10,7 +10,7 @@ Future<void> main(List<String> args) async {
   final subscription = await bsky.atproto.sync.subscribeRepos();
 
   await for (final event in subscription.data.stream) {
-    final repos = firehose.SyncSubscribeReposAdaptor().execute(event);
+    final repos = const firehose.SyncSubscribeReposAdaptor().execute(event);
 
     if (repos.isCommit) {
       const firehose.RepoCommitHandler(
