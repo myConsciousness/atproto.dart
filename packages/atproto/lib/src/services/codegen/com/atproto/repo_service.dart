@@ -63,13 +63,13 @@ final class RepoService {
     ns.comAtprotoRepoCreateRecord,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'repo': repo,
       'collection': collection,
       if (rkey != null) 'rkey': rkey,
       if (validate != null) 'validate': validate,
       'record': record,
       if (swapCommit != null) 'swapCommit': swapCommit,
-      ...?$unknown,
     },
     to: const RepoCreateRecordOutputConverter().fromJson,
   );
@@ -87,12 +87,12 @@ final class RepoService {
     ns.comAtprotoRepoListRecords,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'repo': repo,
       'collection': collection,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
       if (reverse != null) 'reverse': reverse,
-      ...?$unknown,
     },
     to: const RepoListRecordsOutputConverter().fromJson,
   );
@@ -123,12 +123,12 @@ final class RepoService {
     ns.comAtprotoRepoDeleteRecord,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'repo': repo,
       'collection': collection,
       'rkey': rkey,
       if (swapRecord != null) 'swapRecord': swapRecord,
       if (swapCommit != null) 'swapCommit': swapCommit,
-      ...?$unknown,
     },
     to: const RepoDeleteRecordOutputConverter().fromJson,
   );
@@ -148,6 +148,7 @@ final class RepoService {
     ns.comAtprotoRepoPutRecord,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'repo': repo,
       'collection': collection,
       'rkey': rkey,
@@ -155,7 +156,6 @@ final class RepoService {
       'record': record,
       if (swapRecord != null) 'swapRecord': swapRecord,
       if (swapCommit != null) 'swapCommit': swapCommit,
-      ...?$unknown,
     },
     to: const RepoPutRecordOutputConverter().fromJson,
   );
@@ -168,7 +168,7 @@ final class RepoService {
   }) async => await _ctx.get(
     ns.comAtprotoRepoDescribeRepo,
     headers: $headers,
-    parameters: {'repo': repo, ...?$unknown},
+    parameters: {...?$unknown, 'repo': repo},
     to: const RepoDescribeRepoOutputConverter().fromJson,
   );
 
@@ -184,11 +184,11 @@ final class RepoService {
     ns.comAtprotoRepoGetRecord,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'repo': repo,
       'collection': collection,
       'rkey': rkey,
       if (cid != null) 'cid': cid,
-      ...?$unknown,
     },
     to: const RepoGetRecordOutputConverter().fromJson,
   );
@@ -205,11 +205,11 @@ final class RepoService {
     ns.comAtprotoRepoApplyWrites,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'repo': repo,
       if (validate != null) 'validate': validate,
       'writes': writes.map((e) => e.toJson()).toList(),
       if (swapCommit != null) 'swapCommit': swapCommit,
-      ...?$unknown,
     },
     to: const RepoApplyWritesOutputConverter().fromJson,
   );
@@ -224,9 +224,9 @@ final class RepoService {
     ns.comAtprotoRepoListMissingBlobs,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const RepoListMissingBlobsOutputConverter().fromJson,
   );

@@ -37,7 +37,7 @@ final class IdentityService {
   }) async => await _ctx.post(
     ns.comAtprotoIdentitySubmitPlcOperation,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'operation': operation, ...?$unknown},
+    body: {...?$unknown, 'operation': operation},
   );
 
   /// Resolves DID to DID document. Does not bi-directionally verify handle.
@@ -48,7 +48,7 @@ final class IdentityService {
   }) async => await _ctx.get(
     ns.comAtprotoIdentityResolveDid,
     headers: $headers,
-    parameters: {'did': did, ...?$unknown},
+    parameters: {...?$unknown, 'did': did},
     to: const IdentityResolveDidOutputConverter().fromJson,
   );
 
@@ -60,7 +60,7 @@ final class IdentityService {
   }) async => await _ctx.post(
     ns.comAtprotoIdentityRefreshIdentity,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'identifier': identifier, ...?$unknown},
+    body: {...?$unknown, 'identifier': identifier},
     to: const IdentityInfoConverter().fromJson,
   );
 
@@ -72,7 +72,7 @@ final class IdentityService {
   }) async => await _ctx.get(
     ns.comAtprotoIdentityResolveIdentity,
     headers: $headers,
-    parameters: {'identifier': identifier, ...?$unknown},
+    parameters: {...?$unknown, 'identifier': identifier},
     to: const IdentityInfoConverter().fromJson,
   );
 
@@ -84,7 +84,7 @@ final class IdentityService {
   }) async => await _ctx.post(
     ns.comAtprotoIdentityUpdateHandle,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'handle': handle, ...?$unknown},
+    body: {...?$unknown, 'handle': handle},
   );
 
   /// Resolves an atproto handle (hostname) to a DID. Does not necessarily bi-directionally verify against the the DID document.
@@ -95,7 +95,7 @@ final class IdentityService {
   }) async => await _ctx.get(
     ns.comAtprotoIdentityResolveHandle,
     headers: $headers,
-    parameters: {'handle': handle, ...?$unknown},
+    parameters: {...?$unknown, 'handle': handle},
     to: const IdentityResolveHandleOutputConverter().fromJson,
   );
 
@@ -122,13 +122,13 @@ final class IdentityService {
     ns.comAtprotoIdentitySignPlcOperation,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       if (token != null) 'token': token,
       if (rotationKeys != null) 'rotationKeys': rotationKeys,
       if (alsoKnownAs != null) 'alsoKnownAs': alsoKnownAs,
       if (verificationMethods != null)
         'verificationMethods': verificationMethods,
       if (services != null) 'services': services,
-      ...?$unknown,
     },
     to: const IdentitySignPlcOperationOutputConverter().fromJson,
   );

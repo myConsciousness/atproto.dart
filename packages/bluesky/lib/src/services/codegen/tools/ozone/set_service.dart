@@ -40,12 +40,12 @@ final class SetService {
     ns.toolsOzoneSetQuerySets,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
       if (namePrefix != null) 'namePrefix': namePrefix,
       if (sortBy != null) 'sortBy': sortBy,
       if (sortDirection != null) 'sortDirection': sortDirection,
-      ...?$unknown,
     },
     to: const SetQuerySetsOutputConverter().fromJson,
   );
@@ -58,7 +58,7 @@ final class SetService {
   }) async => await _ctx.post(
     ns.toolsOzoneSetDeleteSet,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'name': name, ...?$unknown},
+    body: {...?$unknown, 'name': name},
   );
 
   /// Get a specific set and its values
@@ -72,10 +72,10 @@ final class SetService {
     ns.toolsOzoneSetGetValues,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'name': name,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const SetGetValuesOutputConverter().fromJson,
   );
@@ -89,7 +89,7 @@ final class SetService {
   }) async => await _ctx.post(
     ns.toolsOzoneSetAddValues,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'name': name, 'values': values, ...?$unknown},
+    body: {...?$unknown, 'name': name, 'values': values},
   );
 
   /// Delete values from a specific set. Attempting to delete values that are not in the set will not result in an error
@@ -101,7 +101,7 @@ final class SetService {
   }) async => await _ctx.post(
     ns.toolsOzoneSetDeleteValues,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'name': name, 'values': values, ...?$unknown},
+    body: {...?$unknown, 'name': name, 'values': values},
   );
 
   /// Create or update set metadata
@@ -114,9 +114,9 @@ final class SetService {
     ns.toolsOzoneSetUpsertSet,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'name': name,
       if (description != null) 'description': description,
-      ...?$unknown,
     },
     to: const SetViewConverter().fromJson,
   );

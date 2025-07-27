@@ -35,6 +35,6 @@ final class LexiconService {
     repo: _ctx.$repo,
     collection: ids.comAtprotoLexiconSchema,
     rkey: $rey,
-    record: {'lexicon': lexicon, ...?$unknown},
+    record: {...?$unknown, 'lexicon': lexicon},
   );
 }

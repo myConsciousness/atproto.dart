@@ -41,6 +41,7 @@ final class CommunicationService {
     ns.toolsOzoneCommunicationUpdateTemplate,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'id': id,
       if (name != null) 'name': name,
       if (lang != null) 'lang': lang,
@@ -48,7 +49,6 @@ final class CommunicationService {
       if (subject != null) 'subject': subject,
       if (updatedBy != null) 'updatedBy': updatedBy,
       if (disabled != null) 'disabled': disabled,
-      ...?$unknown,
     },
     to: const TemplateViewConverter().fromJson,
   );
@@ -61,7 +61,7 @@ final class CommunicationService {
   }) async => await _ctx.post(
     ns.toolsOzoneCommunicationDeleteTemplate,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'id': id, ...?$unknown},
+    body: {...?$unknown, 'id': id},
   );
 
   /// Administrative action to create a new, re-usable communication (email for now) template.
@@ -77,12 +77,12 @@ final class CommunicationService {
     ns.toolsOzoneCommunicationCreateTemplate,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'name': name,
       'contentMarkdown': contentMarkdown,
       'subject': subject,
       if (lang != null) 'lang': lang,
       if (createdBy != null) 'createdBy': createdBy,
-      ...?$unknown,
     },
     to: const TemplateViewConverter().fromJson,
   );

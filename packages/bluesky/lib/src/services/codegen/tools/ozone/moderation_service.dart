@@ -71,6 +71,7 @@ final class ModerationService {
     ns.toolsOzoneModerationQueryEvents,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (types != null) 'types': types,
       if (createdBy != null) 'createdBy': createdBy,
       if (sortDirection != null) 'sortDirection': sortDirection,
@@ -96,7 +97,6 @@ final class ModerationService {
       if (ageAssuranceState != null)
         'ageAssuranceState': ageAssuranceState.toJson(),
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const ModerationQueryEventsOutputConverter().fromJson,
   );
@@ -113,11 +113,11 @@ final class ModerationService {
     ns.toolsOzoneModerationSearchRepos,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (term != null) 'term': term,
       if (q != null) 'q': q,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const ModerationSearchReposOutputConverter().fromJson,
   );
@@ -136,13 +136,13 @@ final class ModerationService {
     ns.toolsOzoneModerationEmitEvent,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'event': event.toJson(),
       'subject': subject.toJson(),
       if (subjectBlobCids != null) 'subjectBlobCids': subjectBlobCids,
       'createdBy': createdBy,
       if (modTool != null) 'modTool': modTool.toJson(),
       if (externalId != null) 'externalId': externalId,
-      ...?$unknown,
     },
     to: const ModEventViewConverter().fromJson,
   );
@@ -155,7 +155,7 @@ final class ModerationService {
   }) async => await _ctx.get(
     ns.toolsOzoneModerationGetRecords,
     headers: $headers,
-    parameters: {'uris': uris, ...?$unknown},
+    parameters: {...?$unknown, 'uris': uris},
     to: const ModerationGetRecordsOutputConverter().fromJson,
   );
 
@@ -167,7 +167,7 @@ final class ModerationService {
   }) async => await _ctx.get(
     ns.toolsOzoneModerationGetEvent,
     headers: $headers,
-    parameters: {'id': id, ...?$unknown},
+    parameters: {...?$unknown, 'id': id},
     to: const ModEventViewDetailConverter().fromJson,
   );
 
@@ -179,7 +179,7 @@ final class ModerationService {
   }) async => await _ctx.get(
     ns.toolsOzoneModerationGetReporterStats,
     headers: $headers,
-    parameters: {'dids': dids, ...?$unknown},
+    parameters: {...?$unknown, 'dids': dids},
     to: const ModerationGetReporterStatsOutputConverter().fromJson,
   );
 
@@ -226,6 +226,7 @@ final class ModerationService {
     ns.toolsOzoneModerationQueryStatuses,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (queueCount != null) 'queueCount': queueCount,
       if (queueIndex != null) 'queueIndex': queueIndex,
       if (queueSeed != null) 'queueSeed': queueSeed,
@@ -274,7 +275,6 @@ final class ModerationService {
       if (minPriorityScore != null) 'minPriorityScore': minPriorityScore,
       if (ageAssuranceState != null)
         'ageAssuranceState': ageAssuranceState.toJson(),
-      ...?$unknown,
     },
     to: const ModerationQueryStatusesOutputConverter().fromJson,
   );
@@ -287,7 +287,7 @@ final class ModerationService {
   }) async => await _ctx.get(
     ns.toolsOzoneModerationGetRepos,
     headers: $headers,
-    parameters: {'dids': dids, ...?$unknown},
+    parameters: {...?$unknown, 'dids': dids},
     to: const ModerationGetReposOutputConverter().fromJson,
   );
 
@@ -300,7 +300,7 @@ final class ModerationService {
   }) async => await _ctx.get(
     ns.toolsOzoneModerationGetRecord,
     headers: $headers,
-    parameters: {'uri': uri, if (cid != null) 'cid': cid, ...?$unknown},
+    parameters: {...?$unknown, 'uri': uri, if (cid != null) 'cid': cid},
     to: const RecordViewDetailConverter().fromJson,
   );
 
@@ -312,7 +312,7 @@ final class ModerationService {
   }) async => await _ctx.get(
     ns.toolsOzoneModerationGetSubjects,
     headers: $headers,
-    parameters: {'subjects': subjects, ...?$unknown},
+    parameters: {...?$unknown, 'subjects': subjects},
     to: const ModerationGetSubjectsOutputConverter().fromJson,
   );
 
@@ -324,7 +324,7 @@ final class ModerationService {
   }) async => await _ctx.get(
     ns.toolsOzoneModerationGetRepo,
     headers: $headers,
-    parameters: {'did': did, ...?$unknown},
+    parameters: {...?$unknown, 'did': did},
     to: const RepoViewDetailConverter().fromJson,
   );
 }

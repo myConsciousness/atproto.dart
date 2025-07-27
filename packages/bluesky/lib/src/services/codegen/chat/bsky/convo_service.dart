@@ -53,7 +53,7 @@ final class ConvoService {
   }) async => await _ctx.post(
     ns.chatBskyConvoUpdateAllRead,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {if (status != null) 'status': status.toJson(), ...?$unknown},
+    body: {...?$unknown, if (status != null) 'status': status.toJson()},
     to: const ConvoUpdateAllReadOutputConverter().fromJson,
   );
   Future<XRPCResponse<ConvoUnmuteConvoOutput>> unmuteConvo({
@@ -63,7 +63,7 @@ final class ConvoService {
   }) async => await _ctx.post(
     ns.chatBskyConvoUnmuteConvo,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'convoId': convoId, ...?$unknown},
+    body: {...?$unknown, 'convoId': convoId},
     to: const ConvoUnmuteConvoOutputConverter().fromJson,
   );
   Future<XRPCResponse<DeletedMessageView>> deleteMessageForSelf({
@@ -74,7 +74,7 @@ final class ConvoService {
   }) async => await _ctx.post(
     ns.chatBskyConvoDeleteMessageForSelf,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'convoId': convoId, 'messageId': messageId, ...?$unknown},
+    body: {...?$unknown, 'convoId': convoId, 'messageId': messageId},
     to: const DeletedMessageViewConverter().fromJson,
   );
   Future<XRPCResponse<MessageView>> sendMessage({
@@ -85,7 +85,7 @@ final class ConvoService {
   }) async => await _ctx.post(
     ns.chatBskyConvoSendMessage,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'convoId': convoId, 'message': message.toJson(), ...?$unknown},
+    body: {...?$unknown, 'convoId': convoId, 'message': message.toJson()},
     to: const MessageViewConverter().fromJson,
   );
   Future<XRPCResponse<ConvoGetMessagesOutput>> getMessages({
@@ -98,10 +98,10 @@ final class ConvoService {
     ns.chatBskyConvoGetMessages,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'convoId': convoId,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const ConvoGetMessagesOutputConverter().fromJson,
   );
@@ -112,7 +112,7 @@ final class ConvoService {
   }) async => await _ctx.post(
     ns.chatBskyConvoLeaveConvo,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'convoId': convoId, ...?$unknown},
+    body: {...?$unknown, 'convoId': convoId},
     to: const ConvoLeaveConvoOutputConverter().fromJson,
   );
 
@@ -127,10 +127,10 @@ final class ConvoService {
     ns.chatBskyConvoAddReaction,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'convoId': convoId,
       'messageId': messageId,
       'value': value,
-      ...?$unknown,
     },
     to: const ConvoAddReactionOutputConverter().fromJson,
   );
@@ -141,7 +141,7 @@ final class ConvoService {
   }) async => await _ctx.post(
     ns.chatBskyConvoSendMessageBatch,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'items': items.map((e) => e.toJson()).toList(), ...?$unknown},
+    body: {...?$unknown, 'items': items.map((e) => e.toJson()).toList()},
     to: const ConvoSendMessageBatchOutputConverter().fromJson,
   );
 
@@ -156,10 +156,10 @@ final class ConvoService {
     ns.chatBskyConvoRemoveReaction,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'convoId': convoId,
       'messageId': messageId,
       'value': value,
-      ...?$unknown,
     },
     to: const ConvoRemoveReactionOutputConverter().fromJson,
   );
@@ -170,7 +170,7 @@ final class ConvoService {
   }) async => await _ctx.get(
     ns.chatBskyConvoGetConvoForMembers,
     headers: $headers,
-    parameters: {'members': members, ...?$unknown},
+    parameters: {...?$unknown, 'members': members},
     to: const ConvoGetConvoForMembersOutputConverter().fromJson,
   );
   Future<XRPCResponse<ConvoMuteConvoOutput>> muteConvo({
@@ -180,7 +180,7 @@ final class ConvoService {
   }) async => await _ctx.post(
     ns.chatBskyConvoMuteConvo,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'convoId': convoId, ...?$unknown},
+    body: {...?$unknown, 'convoId': convoId},
     to: const ConvoMuteConvoOutputConverter().fromJson,
   );
   Future<XRPCResponse<ConvoAcceptConvoOutput>> acceptConvo({
@@ -190,7 +190,7 @@ final class ConvoService {
   }) async => await _ctx.post(
     ns.chatBskyConvoAcceptConvo,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'convoId': convoId, ...?$unknown},
+    body: {...?$unknown, 'convoId': convoId},
     to: const ConvoAcceptConvoOutputConverter().fromJson,
   );
   Future<XRPCResponse<ConvoListConvosOutput>> listConvos({
@@ -204,11 +204,11 @@ final class ConvoService {
     ns.chatBskyConvoListConvos,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
       if (readState != null) 'readState': readState.toJson(),
       if (status != null) 'status': status.toJson(),
-      ...?$unknown,
     },
     to: const ConvoListConvosOutputConverter().fromJson,
   );
@@ -221,7 +221,7 @@ final class ConvoService {
   }) async => await _ctx.get(
     ns.chatBskyConvoGetConvoAvailability,
     headers: $headers,
-    parameters: {'members': members, ...?$unknown},
+    parameters: {...?$unknown, 'members': members},
     to: const ConvoGetConvoAvailabilityOutputConverter().fromJson,
   );
   Future<XRPCResponse<ConvoGetLogOutput>> getLog({
@@ -231,7 +231,7 @@ final class ConvoService {
   }) async => await _ctx.get(
     ns.chatBskyConvoGetLog,
     headers: $headers,
-    parameters: {if (cursor != null) 'cursor': cursor, ...?$unknown},
+    parameters: {...?$unknown, if (cursor != null) 'cursor': cursor},
     to: const ConvoGetLogOutputConverter().fromJson,
   );
   Future<XRPCResponse<ConvoGetConvoOutput>> getConvo({
@@ -241,7 +241,7 @@ final class ConvoService {
   }) async => await _ctx.get(
     ns.chatBskyConvoGetConvo,
     headers: $headers,
-    parameters: {'convoId': convoId, ...?$unknown},
+    parameters: {...?$unknown, 'convoId': convoId},
     to: const ConvoGetConvoOutputConverter().fromJson,
   );
   Future<XRPCResponse<ConvoUpdateReadOutput>> updateRead({
@@ -253,9 +253,9 @@ final class ConvoService {
     ns.chatBskyConvoUpdateRead,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'convoId': convoId,
       if (messageId != null) 'messageId': messageId,
-      ...?$unknown,
     },
     to: const ConvoUpdateReadOutputConverter().fromJson,
   );

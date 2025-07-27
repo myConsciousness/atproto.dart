@@ -46,6 +46,7 @@ final class LabelerService {
     collection: ids.appBskyLabelerService,
     rkey: $rey,
     record: {
+      ...?$unknown,
       'policies': policies.toJson(),
       if (labels != null) 'labels': labels.toJson(),
       'createdAt': _ctx.toUtcIso8601String(createdAt),
@@ -54,7 +55,6 @@ final class LabelerService {
       if (subjectTypes != null)
         'subjectTypes': subjectTypes.map((e) => e.toJson()).toList(),
       if (subjectCollections != null) 'subjectCollections': subjectCollections,
-      ...?$unknown,
     },
   );
 
@@ -68,9 +68,9 @@ final class LabelerService {
     ns.appBskyLabelerGetServices,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'dids': dids,
       if (detailed != null) 'detailed': detailed,
-      ...?$unknown,
     },
     to: const LabelerGetServicesOutputConverter().fromJson,
   );

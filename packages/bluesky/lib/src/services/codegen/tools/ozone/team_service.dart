@@ -37,7 +37,7 @@ final class TeamService {
   }) async => await _ctx.post(
     ns.toolsOzoneTeamAddMember,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'did': did, 'role': role.toJson(), ...?$unknown},
+    body: {...?$unknown, 'did': did, 'role': role.toJson()},
     to: const MemberConverter().fromJson,
   );
 
@@ -54,12 +54,12 @@ final class TeamService {
     ns.toolsOzoneTeamListMembers,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (q != null) 'q': q,
       if (disabled != null) 'disabled': disabled,
       if (roles != null) 'roles': roles,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const TeamListMembersOutputConverter().fromJson,
   );
@@ -75,10 +75,10 @@ final class TeamService {
     ns.toolsOzoneTeamUpdateMember,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'did': did,
       if (disabled != null) 'disabled': disabled,
       if (role != null) 'role': role.toJson(),
-      ...?$unknown,
     },
     to: const MemberConverter().fromJson,
   );
@@ -91,6 +91,6 @@ final class TeamService {
   }) async => await _ctx.post(
     ns.toolsOzoneTeamDeleteMember,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'did': did, ...?$unknown},
+    body: {...?$unknown, 'did': did},
   );
 }

@@ -34,7 +34,7 @@ final class TempService {
   }) async => await _ctx.post(
     ns.comAtprotoTempRequestPhoneVerification,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'phoneNumber': phoneNumber, ...?$unknown},
+    body: {...?$unknown, 'phoneNumber': phoneNumber},
   );
 
   /// Check accounts location in signup queue.
@@ -58,9 +58,9 @@ final class TempService {
     ns.comAtprotoTempFetchLabels,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (since != null) 'since': since,
       if (limit != null) 'limit': limit,
-      ...?$unknown,
     },
     to: const TempFetchLabelsOutputConverter().fromJson,
   );
@@ -73,6 +73,6 @@ final class TempService {
   }) async => await _ctx.post(
     ns.comAtprotoTempAddReservedHandle,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'handle': handle, ...?$unknown},
+    body: {...?$unknown, 'handle': handle},
   );
 }

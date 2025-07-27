@@ -91,9 +91,9 @@ final class ServerService {
     ns.comAtprotoServerCreateAppPassword,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'name': name,
       if (privileged != null) 'privileged': privileged,
-      ...?$unknown,
     },
     to: const AppPasswordConverter().fromJson,
   );
@@ -109,10 +109,10 @@ final class ServerService {
     ns.comAtprotoServerCreateInviteCodes,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'codeCount': codeCount,
       'useCount': useCount,
       if (forAccounts != null) 'forAccounts': forAccounts,
-      ...?$unknown,
     },
     to: const ServerCreateInviteCodesOutputConverter().fromJson,
   );
@@ -127,9 +127,9 @@ final class ServerService {
     ns.comAtprotoServerCreateInviteCode,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'useCount': useCount,
       if (forAccount != null) 'forAccount': forAccount,
-      ...?$unknown,
     },
     to: const ServerCreateInviteCodeOutputConverter().fromJson,
   );
@@ -157,11 +157,11 @@ final class ServerService {
     ns.comAtprotoServerCreateSession,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'identifier': identifier,
       'password': password,
       if (authFactorToken != null) 'authFactorToken': authFactorToken,
       if (allowTakendown != null) 'allowTakendown': allowTakendown,
-      ...?$unknown,
     },
     to: const ServerCreateSessionOutputConverter().fromJson,
   );
@@ -175,9 +175,9 @@ final class ServerService {
     ns.comAtprotoServerDeactivateAccount,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       if (deleteAfter != null)
         'deleteAfter': _ctx.toUtcIso8601String(deleteAfter),
-      ...?$unknown,
     },
   );
 
@@ -192,10 +192,10 @@ final class ServerService {
     ns.comAtprotoServerGetServiceAuth,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'aud': aud,
       if (exp != null) 'exp': exp,
       if (lxm != null) 'lxm': lxm,
-      ...?$unknown,
     },
     to: const ServerGetServiceAuthOutputConverter().fromJson,
   );
@@ -209,7 +209,7 @@ final class ServerService {
   }) async => await _ctx.post(
     ns.comAtprotoServerResetPassword,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'token': token, 'password': password, ...?$unknown},
+    body: {...?$unknown, 'token': token, 'password': password},
   );
 
   /// Initiate a user account password reset via email.
@@ -220,7 +220,7 @@ final class ServerService {
   }) async => await _ctx.post(
     ns.comAtprotoServerRequestPasswordReset,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'email': email, ...?$unknown},
+    body: {...?$unknown, 'email': email},
   );
 
   /// Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.
@@ -233,7 +233,7 @@ final class ServerService {
   }) async => await _ctx.post(
     ns.comAtprotoServerDeleteAccount,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'did': did, 'password': password, 'token': token, ...?$unknown},
+    body: {...?$unknown, 'did': did, 'password': password, 'token': token},
   );
 
   /// List all App Passwords.
@@ -256,7 +256,7 @@ final class ServerService {
   }) async => await _ctx.post(
     ns.comAtprotoServerConfirmEmail,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'email': email, 'token': token, ...?$unknown},
+    body: {...?$unknown, 'email': email, 'token': token},
   );
 
   /// Create an account. Implemented by PDS.
@@ -276,6 +276,7 @@ final class ServerService {
     ns.comAtprotoServerCreateAccount,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       if (email != null) 'email': email,
       'handle': handle,
       if (did != null) 'did': did,
@@ -285,7 +286,6 @@ final class ServerService {
       if (password != null) 'password': password,
       if (recoveryKey != null) 'recoveryKey': recoveryKey,
       if (plcOp != null) 'plcOp': plcOp,
-      ...?$unknown,
     },
     to: const ServerCreateAccountOutputConverter().fromJson,
   );
@@ -308,7 +308,7 @@ final class ServerService {
   }) async => await _ctx.post(
     ns.comAtprotoServerRevokeAppPassword,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'name': name, ...?$unknown},
+    body: {...?$unknown, 'name': name},
   );
 
   /// Update an account's email.
@@ -322,10 +322,10 @@ final class ServerService {
     ns.comAtprotoServerUpdateEmail,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'email': email,
       if (emailAuthFactor != null) 'emailAuthFactor': emailAuthFactor,
       if (token != null) 'token': token,
-      ...?$unknown,
     },
   );
 
@@ -337,7 +337,7 @@ final class ServerService {
   }) async => await _ctx.post(
     ns.comAtprotoServerReserveSigningKey,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {if (did != null) 'did': did, ...?$unknown},
+    body: {...?$unknown, if (did != null) 'did': did},
     to: const ServerReserveSigningKeyOutputConverter().fromJson,
   );
 
@@ -383,9 +383,9 @@ final class ServerService {
     ns.comAtprotoServerGetAccountInviteCodes,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (includeUsed != null) 'includeUsed': includeUsed,
       if (createAvailable != null) 'createAvailable': createAvailable,
-      ...?$unknown,
     },
     to: const ServerGetAccountInviteCodesOutputConverter().fromJson,
   );

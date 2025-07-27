@@ -40,7 +40,7 @@ final class ActorService {
     repo: _ctx.$repo,
     collection: ids.chatBskyActorDeclaration,
     rkey: $rey,
-    record: {'allowIncoming': allowIncoming.toJson(), ...?$unknown},
+    record: {...?$unknown, 'allowIncoming': allowIncoming.toJson()},
   );
   Future<XRPCResponse<EmptyData>> deleteAccount({
     Map<String, String>? $headers,

@@ -66,10 +66,10 @@ final class FeedService {
     ns.appBskyFeedGetFeedSkeleton,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'feed': feed,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const FeedGetFeedSkeletonOutputConverter().fromJson,
   );
@@ -82,7 +82,7 @@ final class FeedService {
   }) async => await _ctx.get(
     ns.appBskyFeedGetFeedGenerator,
     headers: $headers,
-    parameters: {'feed': feed, ...?$unknown},
+    parameters: {...?$unknown, 'feed': feed},
     to: const FeedGetFeedGeneratorOutputConverter().fromJson,
   );
 
@@ -98,11 +98,11 @@ final class FeedService {
     ns.appBskyFeedGetRepostedBy,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'uri': uri,
       if (cid != null) 'cid': cid,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const FeedGetRepostedByOutputConverter().fromJson,
   );
@@ -120,12 +120,12 @@ final class FeedService {
     ns.appBskyFeedGetAuthorFeed,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'actor': actor,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
       if (filter != null) 'filter': filter.toJson(),
       if (includePins != null) 'includePins': includePins,
-      ...?$unknown,
     },
     to: const FeedGetAuthorFeedOutputConverter().fromJson,
   );
@@ -143,10 +143,10 @@ final class FeedService {
     collection: ids.appBskyFeedRepost,
     rkey: $rey,
     record: {
+      ...?$unknown,
       'subject': subject.toJson(),
       'createdAt': _ctx.toUtcIso8601String(createdAt),
       if (via != null) 'via': via.toJson(),
-      ...?$unknown,
     },
   );
 
@@ -162,11 +162,11 @@ final class FeedService {
     ns.appBskyFeedGetQuotes,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'uri': uri,
       if (cid != null) 'cid': cid,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const FeedGetQuotesOutputConverter().fromJson,
   );
@@ -181,9 +181,9 @@ final class FeedService {
     ns.appBskyFeedGetSuggestedFeeds,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const FeedGetSuggestedFeedsOutputConverter().fromJson,
   );
@@ -201,10 +201,10 @@ final class FeedService {
     collection: ids.appBskyFeedLike,
     rkey: $rey,
     record: {
+      ...?$unknown,
       'subject': subject.toJson(),
       'createdAt': _ctx.toUtcIso8601String(createdAt),
       if (via != null) 'via': via.toJson(),
-      ...?$unknown,
     },
   );
 
@@ -219,10 +219,10 @@ final class FeedService {
     ns.appBskyFeedGetListFeed,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'list': list,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const FeedGetListFeedOutputConverter().fromJson,
   );
@@ -235,7 +235,7 @@ final class FeedService {
   }) async => await _ctx.get(
     ns.appBskyFeedGetFeedGenerators,
     headers: $headers,
-    parameters: {'feeds': feeds, ...?$unknown},
+    parameters: {...?$unknown, 'feeds': feeds},
     to: const FeedGetFeedGeneratorsOutputConverter().fromJson,
   );
 
@@ -251,11 +251,11 @@ final class FeedService {
     ns.appBskyFeedGetLikes,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'uri': uri,
       if (cid != null) 'cid': cid,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const FeedGetLikesOutputConverter().fromJson,
   );
@@ -268,7 +268,7 @@ final class FeedService {
   }) async => await _ctx.get(
     ns.appBskyFeedGetPosts,
     headers: $headers,
-    parameters: {'uris': uris, ...?$unknown},
+    parameters: {...?$unknown, 'uris': uris},
     to: const FeedGetPostsOutputConverter().fromJson,
   );
 
@@ -283,10 +283,10 @@ final class FeedService {
     ns.appBskyFeedGetFeed,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'feed': feed,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const FeedGetFeedOutputConverter().fromJson,
   );
@@ -305,11 +305,11 @@ final class FeedService {
     collection: ids.appBskyFeedThreadgate,
     rkey: $rey,
     record: {
+      ...?$unknown,
       'post': post,
       if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),
       'createdAt': _ctx.toUtcIso8601String(createdAt),
       if (hiddenReplies != null) 'hiddenReplies': hiddenReplies,
-      ...?$unknown,
     },
   );
 
@@ -332,6 +332,7 @@ final class FeedService {
     collection: ids.appBskyFeedGenerator,
     rkey: $rey,
     record: {
+      ...?$unknown,
       'did': did,
       'displayName': displayName,
       if (description != null) 'description': description,
@@ -343,7 +344,6 @@ final class FeedService {
       if (labels != null) 'labels': labels.toJson(),
       if (contentMode != null) 'contentMode': contentMode.toJson(),
       'createdAt': _ctx.toUtcIso8601String(createdAt),
-      ...?$unknown,
     },
   );
 
@@ -358,10 +358,10 @@ final class FeedService {
     ns.appBskyFeedGetTimeline,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (algorithm != null) 'algorithm': algorithm,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const FeedGetTimelineOutputConverter().fromJson,
   );
@@ -386,6 +386,7 @@ final class FeedService {
     ns.appBskyFeedSearchPosts,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'q': q,
       if (sort != null) 'sort': sort.toJson(),
       if (since != null) 'since': since,
@@ -398,7 +399,6 @@ final class FeedService {
       if (tag != null) 'tag': tag,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const FeedSearchPostsOutputConverter().fromJson,
   );
@@ -412,8 +412,8 @@ final class FeedService {
     ns.appBskyFeedSendInteractions,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
-      'interactions': interactions.map((e) => e.toJson()).toList(),
       ...?$unknown,
+      'interactions': interactions.map((e) => e.toJson()).toList(),
     },
   );
 
@@ -446,6 +446,7 @@ final class FeedService {
     collection: ids.appBskyFeedPost,
     rkey: $rey,
     record: {
+      ...?$unknown,
       'text': text,
       if (facets != null) 'facets': facets.map((e) => e.toJson()).toList(),
       if (reply != null) 'reply': reply.toJson(),
@@ -454,7 +455,6 @@ final class FeedService {
       if (labels != null) 'labels': labels.toJson(),
       if (tags != null) 'tags': tags,
       'createdAt': _ctx.toUtcIso8601String(createdAt),
-      ...?$unknown,
     },
   );
 
@@ -469,10 +469,10 @@ final class FeedService {
     ns.appBskyFeedGetPostThread,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'uri': uri,
       if (depth != null) 'depth': depth,
       if (parentHeight != null) 'parentHeight': parentHeight,
-      ...?$unknown,
     },
     to: const FeedGetPostThreadOutputConverter().fromJson,
   );
@@ -491,13 +491,13 @@ final class FeedService {
     collection: ids.appBskyFeedPostgate,
     rkey: $rey,
     record: {
+      ...?$unknown,
       'createdAt': _ctx.toUtcIso8601String(createdAt),
       'post': post,
       if (detachedEmbeddingUris != null)
         'detachedEmbeddingUris': detachedEmbeddingUris,
       if (embeddingRules != null)
         'embeddingRules': embeddingRules.map((e) => e.toJson()).toList(),
-      ...?$unknown,
     },
   );
 
@@ -512,10 +512,10 @@ final class FeedService {
     ns.appBskyFeedGetActorLikes,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'actor': actor,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const FeedGetActorLikesOutputConverter().fromJson,
   );
@@ -531,10 +531,10 @@ final class FeedService {
     ns.appBskyFeedGetActorFeeds,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       'actor': actor,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const FeedGetActorFeedsOutputConverter().fromJson,
   );

@@ -46,13 +46,13 @@ final class SafelinkService {
     ns.toolsOzoneSafelinkAddRule,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'url': url,
       'pattern': pattern.toJson(),
       'action': action.toJson(),
       'reason': reason.toJson(),
       if (comment != null) 'comment': comment,
       if (createdBy != null) 'createdBy': createdBy,
-      ...?$unknown,
     },
     to: const EventConverter().fromJson,
   );
@@ -69,11 +69,11 @@ final class SafelinkService {
     ns.toolsOzoneSafelinkRemoveRule,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'url': url,
       'pattern': pattern.toJson(),
       if (comment != null) 'comment': comment,
       if (createdBy != null) 'createdBy': createdBy,
-      ...?$unknown,
     },
     to: const EventConverter().fromJson,
   );
@@ -91,12 +91,12 @@ final class SafelinkService {
     ns.toolsOzoneSafelinkQueryEvents,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       if (cursor != null) 'cursor': cursor,
       if (limit != null) 'limit': limit,
       if (urls != null) 'urls': urls,
       if (patternType != null) 'patternType': patternType,
       if (sortDirection != null) 'sortDirection': sortDirection.toJson(),
-      ...?$unknown,
     },
     to: const SafelinkQueryEventsOutputConverter().fromJson,
   );
@@ -115,13 +115,13 @@ final class SafelinkService {
     ns.toolsOzoneSafelinkUpdateRule,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'url': url,
       'pattern': pattern.toJson(),
       'action': action.toJson(),
       'reason': reason.toJson(),
       if (comment != null) 'comment': comment,
       if (createdBy != null) 'createdBy': createdBy,
-      ...?$unknown,
     },
     to: const EventConverter().fromJson,
   );
@@ -142,6 +142,7 @@ final class SafelinkService {
     ns.toolsOzoneSafelinkQueryRules,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       if (cursor != null) 'cursor': cursor,
       if (limit != null) 'limit': limit,
       if (urls != null) 'urls': urls,
@@ -150,7 +151,6 @@ final class SafelinkService {
       if (reason != null) 'reason': reason,
       if (createdBy != null) 'createdBy': createdBy,
       if (sortDirection != null) 'sortDirection': sortDirection.toJson(),
-      ...?$unknown,
     },
     to: const SafelinkQueryRulesOutputConverter().fromJson,
   );

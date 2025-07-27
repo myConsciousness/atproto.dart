@@ -45,10 +45,10 @@ final class AdminService {
     ns.comAtprotoAdminUpdateSubjectStatus,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'subject': subject.toJson(),
       if (takedown != null) 'takedown': takedown.toJson(),
       if (deactivated != null) 'deactivated': deactivated.toJson(),
-      ...?$unknown,
     },
     to: const AdminUpdateSubjectStatusOutputConverter().fromJson,
   );
@@ -66,12 +66,12 @@ final class AdminService {
     ns.comAtprotoAdminSendEmail,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'recipientDid': recipientDid,
       'content': content,
       if (subject != null) 'subject': subject,
       'senderDid': senderDid,
       if (comment != null) 'comment': comment,
-      ...?$unknown,
     },
     to: const AdminSendEmailOutputConverter().fromJson,
   );
@@ -86,9 +86,9 @@ final class AdminService {
     ns.comAtprotoAdminDisableInviteCodes,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       if (codes != null) 'codes': codes,
       if (accounts != null) 'accounts': accounts,
-      ...?$unknown,
     },
   );
 
@@ -101,7 +101,7 @@ final class AdminService {
   }) async => await _ctx.post(
     ns.comAtprotoAdminUpdateAccountPassword,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'did': did, 'password': password, ...?$unknown},
+    body: {...?$unknown, 'did': did, 'password': password},
   );
 
   /// Disable an account from receiving new invite codes, but does not invalidate existing codes.
@@ -113,7 +113,7 @@ final class AdminService {
   }) async => await _ctx.post(
     ns.comAtprotoAdminDisableAccountInvites,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'account': account, if (note != null) 'note': note, ...?$unknown},
+    body: {...?$unknown, 'account': account, if (note != null) 'note': note},
   );
 
   /// Get list of accounts that matches your search query.
@@ -127,10 +127,10 @@ final class AdminService {
     ns.comAtprotoAdminSearchAccounts,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (email != null) 'email': email,
       if (cursor != null) 'cursor': cursor,
       if (limit != null) 'limit': limit,
-      ...?$unknown,
     },
     to: const AdminSearchAccountsOutputConverter().fromJson,
   );
@@ -143,7 +143,7 @@ final class AdminService {
   }) async => await _ctx.post(
     ns.comAtprotoAdminDeleteAccount,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'did': did, ...?$unknown},
+    body: {...?$unknown, 'did': did},
   );
 
   /// Get details about some accounts.
@@ -154,7 +154,7 @@ final class AdminService {
   }) async => await _ctx.get(
     ns.comAtprotoAdminGetAccountInfos,
     headers: $headers,
-    parameters: {'dids': dids, ...?$unknown},
+    parameters: {...?$unknown, 'dids': dids},
     to: const AdminGetAccountInfosOutputConverter().fromJson,
   );
 
@@ -169,10 +169,10 @@ final class AdminService {
     ns.comAtprotoAdminGetSubjectStatus,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (did != null) 'did': did,
       if (uri != null) 'uri': uri,
       if (blob != null) 'blob': blob,
-      ...?$unknown,
     },
     to: const AdminGetSubjectStatusOutputConverter().fromJson,
   );
@@ -185,7 +185,7 @@ final class AdminService {
   }) async => await _ctx.get(
     ns.comAtprotoAdminGetAccountInfo,
     headers: $headers,
-    parameters: {'did': did, ...?$unknown},
+    parameters: {...?$unknown, 'did': did},
     to: const AccountViewConverter().fromJson,
   );
 
@@ -198,7 +198,7 @@ final class AdminService {
   }) async => await _ctx.post(
     ns.comAtprotoAdminUpdateAccountEmail,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'account': account, 'email': email, ...?$unknown},
+    body: {...?$unknown, 'account': account, 'email': email},
   );
 
   /// Administrative action to update an account's signing key in their Did document.
@@ -210,7 +210,7 @@ final class AdminService {
   }) async => await _ctx.post(
     ns.comAtprotoAdminUpdateAccountSigningKey,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'did': did, 'signingKey': signingKey, ...?$unknown},
+    body: {...?$unknown, 'did': did, 'signingKey': signingKey},
   );
 
   /// Get an admin view of invite codes.
@@ -224,10 +224,10 @@ final class AdminService {
     ns.comAtprotoAdminGetInviteCodes,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (sort != null) 'sort': sort.toJson(),
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const AdminGetInviteCodesOutputConverter().fromJson,
   );
@@ -241,7 +241,7 @@ final class AdminService {
   }) async => await _ctx.post(
     ns.comAtprotoAdminUpdateAccountHandle,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'did': did, 'handle': handle, ...?$unknown},
+    body: {...?$unknown, 'did': did, 'handle': handle},
   );
 
   /// Re-enable an account's ability to receive invite codes.
@@ -253,6 +253,6 @@ final class AdminService {
   }) async => await _ctx.post(
     ns.comAtprotoAdminEnableAccountInvites,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'account': account, if (note != null) 'note': note, ...?$unknown},
+    body: {...?$unknown, 'account': account, if (note != null) 'note': note},
   );
 }

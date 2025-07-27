@@ -43,12 +43,12 @@ final class SettingService {
     ns.toolsOzoneSettingListOptions,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
       if (scope != null) 'scope': scope.toJson(),
       if (prefix != null) 'prefix': prefix,
       if (keys != null) 'keys': keys,
-      ...?$unknown,
     },
     to: const SettingListOptionsOutputConverter().fromJson,
   );
@@ -66,12 +66,12 @@ final class SettingService {
     ns.toolsOzoneSettingUpsertOption,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'key': key,
       'scope': scope.toJson(),
       'value': value,
       if (description != null) 'description': description,
       if (managerRole != null) 'managerRole': managerRole.toJson(),
-      ...?$unknown,
     },
     to: const SettingUpsertOptionOutputConverter().fromJson,
   );
@@ -85,6 +85,6 @@ final class SettingService {
   }) async => await _ctx.post(
     ns.toolsOzoneSettingRemoveOptions,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'keys': keys, 'scope': scope.toJson(), ...?$unknown},
+    body: {...?$unknown, 'keys': keys, 'scope': scope.toJson()},
   );
 }

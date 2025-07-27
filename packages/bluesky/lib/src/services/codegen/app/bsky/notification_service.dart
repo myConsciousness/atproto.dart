@@ -49,9 +49,9 @@ final class NotificationService {
     ns.appBskyNotificationGetUnreadCount,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (priority != null) 'priority': priority,
       if (seenAt != null) 'seenAt': _ctx.toUtcIso8601String(seenAt),
-      ...?$unknown,
     },
     to: const NotificationGetUnreadCountOutputConverter().fromJson,
   );
@@ -69,12 +69,12 @@ final class NotificationService {
     ns.appBskyNotificationRegisterPush,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'serviceDid': serviceDid,
       'token': token,
       'platform': platform.toJson(),
       'appId': appId,
       if (ageRestricted != null) 'ageRestricted': ageRestricted,
-      ...?$unknown,
     },
   );
 
@@ -88,7 +88,7 @@ final class NotificationService {
     repo: _ctx.$repo,
     collection: ids.appBskyNotificationDeclaration,
     rkey: $rey,
-    record: {'allowSubscriptions': allowSubscriptions.toJson(), ...?$unknown},
+    record: {...?$unknown, 'allowSubscriptions': allowSubscriptions.toJson()},
   );
 
   /// Puts an activity subscription entry. The key should be omitted for creation and provided for updates. Requires auth.
@@ -102,9 +102,9 @@ final class NotificationService {
     ns.appBskyNotificationPutActivitySubscription,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'subject': subject,
       'activitySubscription': activitySubscription.toJson(),
-      ...?$unknown,
     },
     to: const NotificationPutActivitySubscriptionOutputConverter().fromJson,
   );
@@ -117,7 +117,7 @@ final class NotificationService {
   }) async => await _ctx.post(
     ns.appBskyNotificationUpdateSeen,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'seenAt': _ctx.toUtcIso8601String(seenAt), ...?$unknown},
+    body: {...?$unknown, 'seenAt': _ctx.toUtcIso8601String(seenAt)},
   );
 
   /// The inverse of registerPush - inform a specified service that push notifications should no longer be sent to the given token for the requesting account. Requires auth.
@@ -132,11 +132,11 @@ final class NotificationService {
     ns.appBskyNotificationUnregisterPush,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       'serviceDid': serviceDid,
       'token': token,
       'platform': platform.toJson(),
       'appId': appId,
-      ...?$unknown,
     },
   );
 
@@ -164,12 +164,12 @@ final class NotificationService {
     ns.appBskyNotificationListNotifications,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (reasons != null) 'reasons': reasons,
       if (limit != null) 'limit': limit,
       if (priority != null) 'priority': priority,
       if (cursor != null) 'cursor': cursor,
       if (seenAt != null) 'seenAt': _ctx.toUtcIso8601String(seenAt),
-      ...?$unknown,
     },
     to: const NotificationListNotificationsOutputConverter().fromJson,
   );
@@ -185,9 +185,9 @@ final class NotificationService {
     ns.appBskyNotificationListActivitySubscriptions,
     headers: $headers,
     parameters: {
+      ...?$unknown,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
-      ...?$unknown,
     },
     to: const NotificationListActivitySubscriptionsOutputConverter().fromJson,
   );
@@ -200,7 +200,7 @@ final class NotificationService {
   }) async => await _ctx.post(
     ns.appBskyNotificationPutPreferences,
     headers: {'Content-type': 'application/json', ...?$headers},
-    body: {'priority': priority, ...?$unknown},
+    body: {...?$unknown, 'priority': priority},
   );
 
   /// Set notification-related preferences for an account. Requires auth.
@@ -224,6 +224,7 @@ final class NotificationService {
     ns.appBskyNotificationPutPreferencesV2,
     headers: {'Content-type': 'application/json', ...?$headers},
     body: {
+      ...?$unknown,
       if (chat != null) 'chat': chat.toJson(),
       if (follow != null) 'follow': follow.toJson(),
       if (like != null) 'like': like.toJson(),
@@ -238,7 +239,6 @@ final class NotificationService {
       if (subscribedPost != null) 'subscribedPost': subscribedPost.toJson(),
       if (unverified != null) 'unverified': unverified.toJson(),
       if (verified != null) 'verified': verified.toJson(),
-      ...?$unknown,
     },
     to: const NotificationPutPreferencesV2OutputConverter().fromJson,
   );
