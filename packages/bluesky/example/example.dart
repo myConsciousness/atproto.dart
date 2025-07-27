@@ -103,7 +103,9 @@ Future<void> main() async {
 
       if (repos.isCommit) {
         const firehose.RepoCommitHandler(
-          onCreatePost: print,
+          onCreateFeedPost: print,
+          onUpdateActorProfile: print,
+          onDeleteGraphFollow: print,
         ).execute(repos.commit!);
       }
     });

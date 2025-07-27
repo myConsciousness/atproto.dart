@@ -51,12 +51,12 @@ final class RepoCommitHandler {
   final RepoCommitOnUpdate<Map<String, dynamic>>? _onUpdateUnknown;
   final RepoCommitOnDelete? _onDeleteUnknown;
 
-  const RepoCommitHandler(
+  const RepoCommitHandler({
     $constructorArgs
     final RepoCommitOnCreate<Map<String, dynamic>>? onCreateUnknown,
     final RepoCommitOnUpdate<Map<String, dynamic>>? onUpdateUnknown,
     final RepoCommitOnDelete? onDeleteUnknown,
-  ) : $constructorArgsSetter
+  }) : $constructorArgsSetter
       _onCreateUnknown = onCreateUnknown,
       _onUpdateUnknown = onUpdateUnknown,
       _onDeleteUnknown = onDeleteUnknown;
