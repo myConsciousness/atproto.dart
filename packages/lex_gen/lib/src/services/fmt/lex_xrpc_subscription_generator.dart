@@ -54,6 +54,7 @@ final class _LexLexXrpcSubscriptionGenerator {
       defName,
       parameters.properties,
       parameters.requiredProperties,
+      null,
       mainVariants,
     );
     if (properties.isEmpty) return null;

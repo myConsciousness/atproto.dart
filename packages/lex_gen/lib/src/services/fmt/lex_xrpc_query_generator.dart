@@ -53,6 +53,7 @@ final class _LexLexXrpcQueryGenerator {
       defName,
       parameters.properties,
       parameters.requiredProperties,
+      null,
       mainVariants,
     );
     if (properties.isEmpty) return null;
@@ -87,6 +88,7 @@ final class _LexLexXrpcQueryGenerator {
         defName,
         object.properties,
         object.requiredProperties,
+        object.nullableProperties,
         mainVariants,
       );
       if (properties.isEmpty) return null;

@@ -20,7 +20,7 @@ mixin _$Commit {
  String get repo;/// Repo commit object CID.
  String get commit;/// The rev of the emitted commit. Note that this information is also in the commit object included in blocks, unless this is a tooBig event.
  String get rev;/// The rev of the last emitted commit from this repo (if any).
- String get since;/// CAR file containing relevant blocks, as a diff since the previous repo state. The commit must be included as a block, and the commit block CID must be the first entry in the CAR header 'roots' list.
+ String? get since;/// CAR file containing relevant blocks, as a diff since the previous repo state. The commit must be included as a block, and the commit block CID must be the first entry in the CAR header 'roots' list.
  Map<String, dynamic> get blocks;/// List of repo mutation operations in this commit (eg, records created, updated, or deleted).
 @RepoOpConverter() List<RepoOp> get ops;/// The root CID of the MST tree for the previous commit from this repo (indicated by the 'since' revision field in this message). Corresponds to the 'data' field in the repo commit object. NOTE: this field is effectively required for the 'inductive' version of firehose.
  String? get prevData;/// Timestamp of when this message was originally broadcast.
@@ -57,7 +57,7 @@ abstract mixin class $CommitCopyWith<$Res>  {
   factory $CommitCopyWith(Commit value, $Res Function(Commit) _then) = _$CommitCopyWithImpl;
 @useResult
 $Res call({
- String $type, int seq, String repo, String commit, String rev, String since, Map<String, dynamic> blocks,@RepoOpConverter() List<RepoOp> ops, String? prevData, DateTime time, Map<String, dynamic>? $unknown
+ String $type, int seq, String repo, String commit, String rev, String? since, Map<String, dynamic> blocks,@RepoOpConverter() List<RepoOp> ops, String? prevData, DateTime time, Map<String, dynamic>? $unknown
 });
 
 
@@ -74,15 +74,15 @@ class _$CommitCopyWithImpl<$Res>
 
 /// Create a copy of Commit
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? seq = null,Object? repo = null,Object? commit = null,Object? rev = null,Object? since = null,Object? blocks = null,Object? ops = null,Object? prevData = freezed,Object? time = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? seq = null,Object? repo = null,Object? commit = null,Object? rev = null,Object? since = freezed,Object? blocks = null,Object? ops = null,Object? prevData = freezed,Object? time = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,seq: null == seq ? _self.seq : seq // ignore: cast_nullable_to_non_nullable
 as int,repo: null == repo ? _self.repo : repo // ignore: cast_nullable_to_non_nullable
 as String,commit: null == commit ? _self.commit : commit // ignore: cast_nullable_to_non_nullable
 as String,rev: null == rev ? _self.rev : rev // ignore: cast_nullable_to_non_nullable
-as String,since: null == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
-as String,blocks: null == blocks ? _self.blocks : blocks // ignore: cast_nullable_to_non_nullable
+as String,since: freezed == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
+as String?,blocks: null == blocks ? _self.blocks : blocks // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>,ops: null == ops ? _self.ops : ops // ignore: cast_nullable_to_non_nullable
 as List<RepoOp>,prevData: freezed == prevData ? _self.prevData : prevData // ignore: cast_nullable_to_non_nullable
 as String?,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
@@ -172,7 +172,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int seq,  String repo,  String commit,  String rev,  String since,  Map<String, dynamic> blocks, @RepoOpConverter()  List<RepoOp> ops,  String? prevData,  DateTime time,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int seq,  String repo,  String commit,  String rev,  String? since,  Map<String, dynamic> blocks, @RepoOpConverter()  List<RepoOp> ops,  String? prevData,  DateTime time,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Commit() when $default != null:
 return $default(_that.$type,_that.seq,_that.repo,_that.commit,_that.rev,_that.since,_that.blocks,_that.ops,_that.prevData,_that.time,_that.$unknown);case _:
@@ -193,7 +193,7 @@ return $default(_that.$type,_that.seq,_that.repo,_that.commit,_that.rev,_that.si
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int seq,  String repo,  String commit,  String rev,  String since,  Map<String, dynamic> blocks, @RepoOpConverter()  List<RepoOp> ops,  String? prevData,  DateTime time,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int seq,  String repo,  String commit,  String rev,  String? since,  Map<String, dynamic> blocks, @RepoOpConverter()  List<RepoOp> ops,  String? prevData,  DateTime time,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Commit():
 return $default(_that.$type,_that.seq,_that.repo,_that.commit,_that.rev,_that.since,_that.blocks,_that.ops,_that.prevData,_that.time,_that.$unknown);case _:
@@ -213,7 +213,7 @@ return $default(_that.$type,_that.seq,_that.repo,_that.commit,_that.rev,_that.si
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int seq,  String repo,  String commit,  String rev,  String since,  Map<String, dynamic> blocks, @RepoOpConverter()  List<RepoOp> ops,  String? prevData,  DateTime time,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int seq,  String repo,  String commit,  String rev,  String? since,  Map<String, dynamic> blocks, @RepoOpConverter()  List<RepoOp> ops,  String? prevData,  DateTime time,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Commit() when $default != null:
 return $default(_that.$type,_that.seq,_that.repo,_that.commit,_that.rev,_that.since,_that.blocks,_that.ops,_that.prevData,_that.time,_that.$unknown);case _:
@@ -241,7 +241,7 @@ class _Commit implements Commit {
 /// The rev of the emitted commit. Note that this information is also in the commit object included in blocks, unless this is a tooBig event.
 @override final  String rev;
 /// The rev of the last emitted commit from this repo (if any).
-@override final  String since;
+@override final  String? since;
 /// CAR file containing relevant blocks, as a diff since the previous repo state. The commit must be included as a block, and the commit block CID must be the first entry in the CAR header 'roots' list.
  final  Map<String, dynamic> _blocks;
 /// CAR file containing relevant blocks, as a diff since the previous repo state. The commit must be included as a block, and the commit block CID must be the first entry in the CAR header 'roots' list.
@@ -307,7 +307,7 @@ abstract mixin class _$CommitCopyWith<$Res> implements $CommitCopyWith<$Res> {
   factory _$CommitCopyWith(_Commit value, $Res Function(_Commit) _then) = __$CommitCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int seq, String repo, String commit, String rev, String since, Map<String, dynamic> blocks,@RepoOpConverter() List<RepoOp> ops, String? prevData, DateTime time, Map<String, dynamic>? $unknown
+ String $type, int seq, String repo, String commit, String rev, String? since, Map<String, dynamic> blocks,@RepoOpConverter() List<RepoOp> ops, String? prevData, DateTime time, Map<String, dynamic>? $unknown
 });
 
 
@@ -324,15 +324,15 @@ class __$CommitCopyWithImpl<$Res>
 
 /// Create a copy of Commit
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? seq = null,Object? repo = null,Object? commit = null,Object? rev = null,Object? since = null,Object? blocks = null,Object? ops = null,Object? prevData = freezed,Object? time = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? seq = null,Object? repo = null,Object? commit = null,Object? rev = null,Object? since = freezed,Object? blocks = null,Object? ops = null,Object? prevData = freezed,Object? time = null,Object? $unknown = freezed,}) {
   return _then(_Commit(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,seq: null == seq ? _self.seq : seq // ignore: cast_nullable_to_non_nullable
 as int,repo: null == repo ? _self.repo : repo // ignore: cast_nullable_to_non_nullable
 as String,commit: null == commit ? _self.commit : commit // ignore: cast_nullable_to_non_nullable
 as String,rev: null == rev ? _self.rev : rev // ignore: cast_nullable_to_non_nullable
-as String,since: null == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
-as String,blocks: null == blocks ? _self._blocks : blocks // ignore: cast_nullable_to_non_nullable
+as String,since: freezed == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
+as String?,blocks: null == blocks ? _self._blocks : blocks // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>,ops: null == ops ? _self._ops : ops // ignore: cast_nullable_to_non_nullable
 as List<RepoOp>,prevData: freezed == prevData ? _self.prevData : prevData // ignore: cast_nullable_to_non_nullable
 as String?,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable

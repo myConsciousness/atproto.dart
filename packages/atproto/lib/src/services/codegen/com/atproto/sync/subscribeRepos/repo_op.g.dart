@@ -20,7 +20,7 @@ _RepoOp _$RepoOpFromJson(Map json) =>
           (v) => const RepoOpActionConverter().fromJson(v as String),
         ),
         path: $checkedConvert('path', (v) => v as String),
-        cid: $checkedConvert('cid', (v) => v as String),
+        cid: $checkedConvert('cid', (v) => v as String?),
         prev: $checkedConvert('prev', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',

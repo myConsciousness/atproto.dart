@@ -41,6 +41,7 @@ final class _LexObjectGenerator {
         defName,
         object.properties,
         object.requiredProperties,
+        object.nullableProperties,
         mainVariants,
       ),
     );

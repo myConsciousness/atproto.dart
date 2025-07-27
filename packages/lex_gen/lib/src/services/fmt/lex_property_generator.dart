@@ -17,11 +17,10 @@ List<LexProperty> generateLexPropertiesFromLexXrpcParameters(
   final String defName,
   final Map<String, lex.LexXrpcParametersProperty>? properties,
   final List<String>? requiredProperties,
+  final List<String>? nullableProperties,
   final List<String> mainVariants,
 ) {
   if (properties == null) return const [];
-
-  final requiredProps = requiredProperties ?? const [];
 
   final $properties = properties.map(
     (key, value) => MapEntry(
@@ -34,7 +33,8 @@ List<LexProperty> generateLexPropertiesFromLexXrpcParameters(
     lexiconId,
     defName,
     $properties,
-    requiredProps,
+    requiredProperties,
+    nullableProperties,
     mainVariants,
   );
 }
@@ -44,11 +44,14 @@ List<LexProperty> generateLexProperties(
   final String defName,
   final Map<String, lex.LexObjectProperty>? properties,
   final List<String>? requiredProperties,
+  final List<String>? nullableProperties,
   final List<String> mainVariants,
 ) {
   if (properties == null) return const [];
 
   final requiredProps = requiredProperties ?? const [];
+  final nullableProps = nullableProperties ?? const [];
+
   final isSingleProp = properties.length == 1;
 
   final result = <LexProperty>[];
@@ -66,6 +69,7 @@ List<LexProperty> generateLexProperties(
     result.add(
       LexProperty(
         isRequired: requiredProps.contains(property.key),
+        isNullable: nullableProps.contains(property.key),
         type: type,
         name: property.key,
         defaultValue: _getDefaultValue(property.value),

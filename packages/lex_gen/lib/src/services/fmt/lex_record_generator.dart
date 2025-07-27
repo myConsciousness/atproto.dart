@@ -41,6 +41,7 @@ final class _LexRecordGenerator {
         defName,
         record.record.properties,
         record.record.requiredProperties,
+        record.record.nullableProperties,
         mainVariants,
       ),
     );

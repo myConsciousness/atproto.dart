@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$RepoOp {
 
  String get $type;@RepoOpActionConverter() RepoOpAction get action; String get path;/// For creates and updates, the new record CID. For deletions, null.
- String get cid;/// For updates and deletes, the previous record CID (required for inductive firehose). For creations, field should not be defined.
+ String? get cid;/// For updates and deletes, the previous record CID (required for inductive firehose). For creations, field should not be defined.
  String? get prev; Map<String, dynamic>? get $unknown;
 /// Create a copy of RepoOp
 /// with the given fields replaced by the non-null parameter values.
@@ -50,7 +50,7 @@ abstract mixin class $RepoOpCopyWith<$Res>  {
   factory $RepoOpCopyWith(RepoOp value, $Res Function(RepoOp) _then) = _$RepoOpCopyWithImpl;
 @useResult
 $Res call({
- String $type,@RepoOpActionConverter() RepoOpAction action, String path, String cid, String? prev, Map<String, dynamic>? $unknown
+ String $type,@RepoOpActionConverter() RepoOpAction action, String path, String? cid, String? prev, Map<String, dynamic>? $unknown
 });
 
 
@@ -67,13 +67,13 @@ class _$RepoOpCopyWithImpl<$Res>
 
 /// Create a copy of RepoOp
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? action = null,Object? path = null,Object? cid = null,Object? prev = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? action = null,Object? path = null,Object? cid = freezed,Object? prev = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
 as RepoOpAction,path: null == path ? _self.path : path // ignore: cast_nullable_to_non_nullable
-as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
-as String,prev: freezed == prev ? _self.prev : prev // ignore: cast_nullable_to_non_nullable
+as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as String?,prev: freezed == prev ? _self.prev : prev // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -169,7 +169,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @RepoOpActionConverter()  RepoOpAction action,  String path,  String cid,  String? prev,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @RepoOpActionConverter()  RepoOpAction action,  String path,  String? cid,  String? prev,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RepoOp() when $default != null:
 return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$unknown);case _:
@@ -190,7 +190,7 @@ return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @RepoOpActionConverter()  RepoOpAction action,  String path,  String cid,  String? prev,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @RepoOpActionConverter()  RepoOpAction action,  String path,  String? cid,  String? prev,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _RepoOp():
 return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$unknown);case _:
@@ -210,7 +210,7 @@ return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @RepoOpActionConverter()  RepoOpAction action,  String path,  String cid,  String? prev,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @RepoOpActionConverter()  RepoOpAction action,  String path,  String? cid,  String? prev,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _RepoOp() when $default != null:
 return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$unknown);case _:
@@ -232,7 +232,7 @@ class _RepoOp implements RepoOp {
 @override@RepoOpActionConverter() final  RepoOpAction action;
 @override final  String path;
 /// For creates and updates, the new record CID. For deletions, null.
-@override final  String cid;
+@override final  String? cid;
 /// For updates and deletes, the previous record CID (required for inductive firehose). For creations, field should not be defined.
 @override final  String? prev;
  final  Map<String, dynamic>? _$unknown;
@@ -278,7 +278,7 @@ abstract mixin class _$RepoOpCopyWith<$Res> implements $RepoOpCopyWith<$Res> {
   factory _$RepoOpCopyWith(_RepoOp value, $Res Function(_RepoOp) _then) = __$RepoOpCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@RepoOpActionConverter() RepoOpAction action, String path, String cid, String? prev, Map<String, dynamic>? $unknown
+ String $type,@RepoOpActionConverter() RepoOpAction action, String path, String? cid, String? prev, Map<String, dynamic>? $unknown
 });
 
 
@@ -295,13 +295,13 @@ class __$RepoOpCopyWithImpl<$Res>
 
 /// Create a copy of RepoOp
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? action = null,Object? path = null,Object? cid = null,Object? prev = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? action = null,Object? path = null,Object? cid = freezed,Object? prev = freezed,Object? $unknown = freezed,}) {
   return _then(_RepoOp(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
 as RepoOpAction,path: null == path ? _self.path : path // ignore: cast_nullable_to_non_nullable
-as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
-as String,prev: freezed == prev ? _self.prev : prev // ignore: cast_nullable_to_non_nullable
+as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as String?,prev: freezed == prev ? _self.prev : prev // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

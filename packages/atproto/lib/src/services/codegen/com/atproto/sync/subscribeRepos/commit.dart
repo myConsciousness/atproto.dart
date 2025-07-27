@@ -52,7 +52,7 @@ abstract class Commit with _$Commit {
     required String rev,
 
     /// The rev of the last emitted commit from this repo (if any).
-    required String since,
+    required String? since,
 
     /// CAR file containing relevant blocks, as a diff since the previous repo state. The commit must be included as a block, and the commit block CID must be the first entry in the CAR header 'roots' list.
     required Map<String, dynamic> blocks,
