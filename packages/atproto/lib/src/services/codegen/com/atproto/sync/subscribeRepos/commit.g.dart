@@ -17,10 +17,7 @@ _Commit _$CommitFromJson(Map json) =>
         ),
         seq: $checkedConvert('seq', (v) => (v as num).toInt()),
         repo: $checkedConvert('repo', (v) => v as String),
-        commit: $checkedConvert(
-          'commit',
-          (v) => Map<String, dynamic>.from(v as Map),
-        ),
+        commit: $checkedConvert('commit', (v) => v as String),
         rev: $checkedConvert('rev', (v) => v as String),
         since: $checkedConvert('since', (v) => v as String),
         blocks: $checkedConvert(
@@ -36,14 +33,7 @@ _Commit _$CommitFromJson(Map json) =>
               )
               .toList(),
         ),
-        blobs: $checkedConvert(
-          'blobs',
-          (v) => (v as List<dynamic>).map((e) => e as Object).toList(),
-        ),
-        prevData: $checkedConvert(
-          'prevData',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
+        prevData: $checkedConvert('prevData', (v) => v as String?),
         time: $checkedConvert('time', (v) => DateTime.parse(v as String)),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -62,7 +52,6 @@ Map<String, dynamic> _$CommitToJson(_Commit instance) => <String, dynamic>{
   'since': instance.since,
   'blocks': instance.blocks,
   'ops': instance.ops.map(const RepoOpConverter().toJson).toList(),
-  'blobs': instance.blobs,
   'prevData': instance.prevData,
   'time': instance.time.toIso8601String(),
   r'$unknown': instance.$unknown,

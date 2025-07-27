@@ -30,8 +30,12 @@ abstract class RepoOp with _$RepoOp {
     @Default('com.atproto.sync.subscribeRepos#repoOp') String $type,
     @RepoOpActionConverter() required RepoOpAction action,
     required String path,
-    required Map<String, dynamic> cid,
-    Map<String, dynamic>? prev,
+
+    /// For creates and updates, the new record CID. For deletions, null.
+    required String cid,
+
+    /// For updates and deletes, the previous record CID (required for inductive firehose). For creations, field should not be defined.
+    String? prev,
 
     Map<String, dynamic>? $unknown,
   }) = _RepoOp;

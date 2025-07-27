@@ -60,15 +60,9 @@ Future<void> main() async {
     //! You can use Stream API easily.
     final subscription = await atproto.sync.subscribeRepos();
     subscription.data.stream.listen((event) {
-      final repos = const firehose.FirehoseAdaptor().execute(event);
+      final repos = const firehose.SyncSubscribeReposAdaptor().execute(event);
 
-      if (firehose.isRepoCommit(repos)) {
-        final commit = firehose.Commit.fromJson(
-          const firehose.RepoCommitAdaptor().execute(repos),
-        );
-
-        print(commit);
-      }
+      print(repos);
     });
   } on UnauthorizedException catch (e) {
     print(e);

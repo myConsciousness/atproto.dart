@@ -118,6 +118,9 @@ DartType _getDartType(
     case lex.ULexObjectPropertyBlob blob:
       return DartType.blob(description: blob.data.description);
 
+    case lex.ULexObjectPropertyIpld ipld:
+      return _getIpldType(ipld.data);
+
     case lex.ULexObjectPropertyArray array:
       if (rule.isDeprecated(array.data.description)) {
         return DartType.nil();
@@ -140,6 +143,17 @@ DartType _getDartType(
             description: type.description,
             knownValues: type.knownValues,
           );
+
+        case lex.ULexArrayItemIpld ipld:
+          final type = _getIpldType(ipld.data);
+          return DartType.array(
+            lexiconId: type.lexiconId,
+            type: type.name,
+            packagePath: type.packagePath,
+            annotation: type.annotation,
+            description: type.description,
+          );
+
         case lex.ULexArrayRefVariant refVariant:
           final type = _getLexRefVariantType(
             refVariant.data,
@@ -228,6 +242,17 @@ DartType _getLexPrimitiveType(
       return DartType.json();
     default:
       return DartType.object();
+  }
+}
+
+DartType _getIpldType(final lex.LexIpld ipld) {
+  switch (ipld) {
+    case lex.ULexIpldBytes bytes:
+      return DartType.json(description: bytes.data.description);
+    case lex.ULexIpldCidLink cidLink:
+      return DartType.string(description: cidLink.data.description);
+    default:
+      return DartType.json();
   }
 }
 
