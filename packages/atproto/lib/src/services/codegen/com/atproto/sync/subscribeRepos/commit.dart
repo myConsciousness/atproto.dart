@@ -32,7 +32,6 @@ abstract class Commit with _$Commit {
     'since',
     'blocks',
     'ops',
-    'blobs',
     'prevData',
     'time',
   ];
@@ -45,19 +44,24 @@ abstract class Commit with _$Commit {
 
     /// The repo this event comes from. Note that all other message types name this field 'did'.
     required String repo,
-    required Map<String, dynamic> commit,
+
+    /// Repo commit object CID.
+    required String commit,
 
     /// The rev of the emitted commit. Note that this information is also in the commit object included in blocks, unless this is a tooBig event.
     required String rev,
 
     /// The rev of the last emitted commit from this repo (if any).
-    required String since,
+    required String? since,
+
+    /// CAR file containing relevant blocks, as a diff since the previous repo state. The commit must be included as a block, and the commit block CID must be the first entry in the CAR header 'roots' list.
     required Map<String, dynamic> blocks,
 
     /// List of repo mutation operations in this commit (eg, records created, updated, or deleted).
     @RepoOpConverter() required List<RepoOp> ops,
-    required List<Object> blobs,
-    Map<String, dynamic>? prevData,
+
+    /// The root CID of the MST tree for the previous commit from this repo (indicated by the 'since' revision field in this message). Corresponds to the 'data' field in the repo commit object. NOTE: this field is effectively required for the 'inductive' version of firehose.
+    String? prevData,
 
     /// Timestamp of when this message was originally broadcast.
     required DateTime time,

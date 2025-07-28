@@ -1,4 +1,10 @@
 <p align="center">
+  <a href="https://github.com/myConsciousness/atproto.dart">
+    <img alt="atproto" width="50%" height="auto" src="https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/pkg_logo.png">
+  </a>
+</p>
+
+<p align="center">
   <b>The Most Famous & Powerful Dart/Flutter Library for AT Protocol 🦋</b>
 </p>
 

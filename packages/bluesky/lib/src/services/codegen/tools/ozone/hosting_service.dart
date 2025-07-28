@@ -34,17 +34,16 @@ final class HostingService {
     int? limit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.toolsOzoneHostingGetAccountHistory,
-        headers: $headers,
-        parameters: {
-          'did': did,
-          if (events != null) 'events': events.map((e) => e.toJson()).toList(),
-          if (cursor != null) 'cursor': cursor,
-          if (limit != null) 'limit': limit,
-          ...?$unknown,
-        },
-        to: const HostingGetAccountHistoryOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.toolsOzoneHostingGetAccountHistory,
+    headers: $headers,
+    parameters: {
+      ...?$unknown,
+      'did': did,
+      if (events != null) 'events': events.map((e) => e.toJson()).toList(),
+      if (cursor != null) 'cursor': cursor,
+      if (limit != null) 'limit': limit,
+    },
+    to: const HostingGetAccountHistoryOutputConverter().fromJson,
+  );
 }

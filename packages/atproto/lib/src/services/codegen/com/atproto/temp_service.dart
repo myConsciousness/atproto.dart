@@ -31,32 +31,22 @@ final class TempService {
     required String phoneNumber,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.post(
-        ns.comAtprotoTempRequestPhoneVerification,
-        headers: {
-          'Content-type': 'application/json',
-          ...?$headers,
-        },
-        body: {
-          'phoneNumber': phoneNumber,
-          ...?$unknown,
-        },
-      );
+  }) async => await _ctx.post(
+    ns.comAtprotoTempRequestPhoneVerification,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {...?$unknown, 'phoneNumber': phoneNumber},
+  );
 
   /// Check accounts location in signup queue.
   Future<XRPCResponse<TempCheckSignupQueueOutput>> checkSignupQueue({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.comAtprotoTempCheckSignupQueue,
-        headers: $headers,
-        parameters: {
-          ...?$unknown,
-        },
-        to: const TempCheckSignupQueueOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.comAtprotoTempCheckSignupQueue,
+    headers: $headers,
+    parameters: {...?$unknown},
+    to: const TempCheckSignupQueueOutputConverter().fromJson,
+  );
 
   /// DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.
   Future<XRPCResponse<TempFetchLabelsOutput>> fetchLabels({
@@ -64,33 +54,25 @@ final class TempService {
     int? limit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.comAtprotoTempFetchLabels,
-        headers: $headers,
-        parameters: {
-          if (since != null) 'since': since,
-          if (limit != null) 'limit': limit,
-          ...?$unknown,
-        },
-        to: const TempFetchLabelsOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.comAtprotoTempFetchLabels,
+    headers: $headers,
+    parameters: {
+      ...?$unknown,
+      if (since != null) 'since': since,
+      if (limit != null) 'limit': limit,
+    },
+    to: const TempFetchLabelsOutputConverter().fromJson,
+  );
 
   /// Add a handle to the set of reserved handles.
   Future<XRPCResponse<EmptyData>> addReservedHandle({
     required String handle,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.post(
-        ns.comAtprotoTempAddReservedHandle,
-        headers: {
-          'Content-type': 'application/json',
-          ...?$headers,
-        },
-        body: {
-          'handle': handle,
-          ...?$unknown,
-        },
-      );
+  }) async => await _ctx.post(
+    ns.comAtprotoTempAddReservedHandle,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {...?$unknown, 'handle': handle},
+  );
 }

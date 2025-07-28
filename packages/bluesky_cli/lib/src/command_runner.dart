@@ -14,6 +14,7 @@ import 'package:cli_util/cli_logging.dart';
 
 // Project imports:
 import './version.g.dart';
+import 'commands/cardyb_command.dart';
 import 'commands/codegen/lex_commands.dart';
 import 'logger.dart';
 
@@ -66,7 +67,7 @@ class BskyCommandRunner extends CommandRunner<void> {
       )
       ..addFlag('verbose', negatable: false, help: 'Enable verbose logging.');
 
-    for (final command in lexCommands) {
+    for (final command in [...lexCommands, CardybCommand()]) {
       addCommand(command);
     }
   }

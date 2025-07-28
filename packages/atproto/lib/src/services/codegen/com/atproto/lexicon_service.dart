@@ -31,14 +31,10 @@ final class LexiconService {
     String? $rey,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.repo.createRecord(
-        repo: _ctx.$repo,
-        collection: ids.comAtprotoLexiconSchema,
-        rkey: $rey,
-        record: {
-          'lexicon': lexicon,
-          ...?$unknown,
-        },
-      );
+  }) async => await _ctx.repo.createRecord(
+    repo: _ctx.$repo,
+    collection: ids.comAtprotoLexiconSchema,
+    rkey: $rey,
+    record: {...?$unknown, 'lexicon': lexicon},
+  );
 }

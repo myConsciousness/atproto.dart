@@ -6,6 +6,7 @@ import 'package:bluesky/chat_bsky_convo_defs.dart';
 import 'package:bluesky/atproto.dart';
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/bluesky_chat.dart';
+import 'package:bluesky/com_atproto_sync_subscriberepos.dart';
 
 import 'package:bluesky/firehose.dart' as firehose;
 
@@ -97,27 +98,15 @@ Future<void> main() async {
 
     //! You can use Stream API easily.
     final subscription = await bsky.atproto.sync.subscribeRepos();
-
-    final handler = firehose.RepoCommitHandler(
-      //! Create events.
-      onCreatePost: (data) => data.record,
-      onCreateLike: print,
-
-      //! Update events.
-      onUpdateProfile: print,
-
-      //! Delete events.
-      onDeletePost: print,
-    );
     subscription.data.stream.listen((event) {
-      final repos = const firehose.FirehoseAdaptor().execute(event);
+      final repos = const firehose.SyncSubscribeReposAdaptor().execute(event);
 
-      if (firehose.isRepoCommit(repos)) {
-        final commit = firehose.Commit.fromJson(
-          const firehose.RepoCommitAdaptor().execute(repos),
-        );
-
-        handler.execute(commit);
+      if (repos.isCommit) {
+        const firehose.RepoCommitHandler(
+          onCreateFeedPost: print,
+          onUpdateActorProfile: print,
+          onDeleteGraphFollow: print,
+        ).execute(repos.commit!);
       }
     });
   } on UnauthorizedException catch (e) {

@@ -8,6 +8,7 @@ import 'lex_parameter.dart';
 
 final class LexProperty {
   final bool isRequired;
+  final bool isNullable;
   final DartType type;
   final String name;
   final String? defaultValue;
@@ -16,6 +17,7 @@ final class LexProperty {
 
   const LexProperty({
     this.isRequired = false,
+    this.isNullable = false,
     required this.type,
     required this.name,
     this.defaultValue,
@@ -59,7 +61,7 @@ final class LexProperty {
       buffer.write(type.name);
     }
 
-    if (!isRequired && defaultValue == null) {
+    if ((!isRequired && defaultValue == null) || isNullable) {
       buffer.write('?');
     }
     buffer.write(' ');

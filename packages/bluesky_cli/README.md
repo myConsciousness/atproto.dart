@@ -1,4 +1,10 @@
 <p align="center">
+  <a href="https://github.com/myConsciousness/atproto.dart">
+    <img alt="bluesky_cli" width="50%" height="auto" src="https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/pkg_logo.png">
+  </a>
+</p>
+
+<p align="center">
   <b>A Powerful and Useful CLI Tool for Bluesky Social 🦋</b>
 </p>
 

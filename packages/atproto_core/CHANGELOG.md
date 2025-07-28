@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.0.1
+
+- chore: optimized docs.
+
 ## 1.0.0-legacy
 
 - Downgrade SDK constraint to '^3.6.0'.

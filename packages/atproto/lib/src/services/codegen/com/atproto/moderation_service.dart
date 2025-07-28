@@ -36,20 +36,16 @@ final class ModerationService {
     ModTool? modTool,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.post(
-        ns.comAtprotoModerationCreateReport,
-        headers: {
-          'Content-type': 'application/json',
-          ...?$headers,
-        },
-        body: {
-          'reasonType': reasonType.toJson(),
-          if (reason != null) 'reason': reason,
-          'subject': subject.toJson(),
-          if (modTool != null) 'modTool': modTool.toJson(),
-          ...?$unknown,
-        },
-        to: const ModerationCreateReportOutputConverter().fromJson,
-      );
+  }) async => await _ctx.post(
+    ns.comAtprotoModerationCreateReport,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {
+      ...?$unknown,
+      'reasonType': reasonType.toJson(),
+      if (reason != null) 'reason': reason,
+      'subject': subject.toJson(),
+      if (modTool != null) 'modTool': modTool.toJson(),
+    },
+    to: const ModerationCreateReportOutputConverter().fromJson,
+  );
 }

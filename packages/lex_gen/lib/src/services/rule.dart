@@ -310,6 +310,10 @@ String _getServiceFromLexiconId(final String lexiconId) {
   return lexiconId.split('.').sublist(0, 2).join('.');
 }
 
+String getRecordTypeName(final String lexiconId) {
+  return lexiconId.split('.').sublist(2).map(toFirstUpperCase).join();
+}
+
 String getRootPackageName(final String lexiconId) {
   if (lexiconId.startsWith('com.atproto.')) {
     return 'atproto';

@@ -1,11 +1,11 @@
 <p align="center">
   <a href="https://github.com/myConsciousness/atproto.dart">
-    <img alt="bluesky" width="600px" src="https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/brands/atproto.001.png">
+    <img alt="bluesky" width="600px" src="https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/main_logo.png">
   </a>
 </p>
 
 <p align="center">
-  <b>AT Protocol and Bluesky Social Things for Dart/Flutter 🦋</b>
+  <b>AT Protocol and Bluesky Social Things for Dart/Flutter</b>
 </p>
 
 ---
@@ -112,6 +112,7 @@ melos setup
 | **melos fmt**     | Run `dart format` and `dart run import_sorter:main` in all packages.                                                    |
 | **melos build**   | Run `dart run build_runner build` in all packages.                                                                      |
 | **melos test**    | Run all Dart tests in this project.                                                                                     |
+| **melos gen**     | Automatically generates source code based on Lexicons.                                                                  |
 
 ## 4. Who is using atproto.dart? 👀
 

@@ -65,6 +65,7 @@ final class _LexLexXrpcProcedureGenerator {
         defName,
         object.properties,
         object.requiredProperties,
+        object.nullableProperties,
         mainVariants,
       );
       if (properties.isEmpty) return null;
@@ -108,6 +109,7 @@ final class _LexLexXrpcProcedureGenerator {
         defName,
         object.properties,
         object.requiredProperties,
+        object.nullableProperties,
         mainVariants,
       );
       if (properties.isEmpty) return null;

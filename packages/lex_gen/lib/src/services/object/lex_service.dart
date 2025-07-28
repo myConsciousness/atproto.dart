@@ -213,10 +213,10 @@ final class LexApi {
     buffer.writeln('    ns.$ns,');
     buffer.writeln('    headers: \$headers,');
     buffer.writeln('    parameters: {');
+    buffer.writeln('      ...?\$unknown,');
     for (final parameter in parameters) {
       buffer.writeln(parameter.getParamsRecord());
     }
-    buffer.writeln('      ...?\$unknown,');
     buffer.writeln('    },');
     if (this.returnType != null && !(this.returnType?.isBytes() ?? true)) {
       buffer.writeln('    to: const ${returnType}Converter().fromJson,');
@@ -262,10 +262,10 @@ final class LexApi {
       buffer.writeln('    body: bytes,');
     } else {
       buffer.writeln('    body: {');
+      buffer.writeln('      ...?\$unknown,');
       for (final parameter in parameters) {
         buffer.writeln(parameter.getParamsRecord());
       }
-      buffer.writeln('      ...?\$unknown,');
       buffer.writeln('    },');
     }
 
@@ -323,10 +323,10 @@ final class LexApi {
     buffer.writeln('    collection: ids.$ns,');
     buffer.writeln('    rkey: \$rey,');
     buffer.writeln('    record: {');
+    buffer.writeln('      ...?\$unknown,');
     for (final parameter in parameters) {
       buffer.writeln(parameter.getParamsRecord());
     }
-    buffer.writeln('      ...?\$unknown,');
     buffer.writeln('    },');
     buffer.writeln('  );');
 

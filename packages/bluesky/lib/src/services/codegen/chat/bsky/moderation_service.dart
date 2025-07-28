@@ -30,36 +30,28 @@ final class ModerationService {
     required String actor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.chatBskyModerationGetActorMetadata,
-        headers: $headers,
-        parameters: {
-          'actor': actor,
-          ...?$unknown,
-        },
-        to: const ModerationGetActorMetadataOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.chatBskyModerationGetActorMetadata,
+    headers: $headers,
+    parameters: {...?$unknown, 'actor': actor},
+    to: const ModerationGetActorMetadataOutputConverter().fromJson,
+  );
   Future<XRPCResponse<EmptyData>> updateActorAccess({
     required String actor,
     required bool allowAccess,
     String? ref,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.post(
-        ns.chatBskyModerationUpdateActorAccess,
-        headers: {
-          'Content-type': 'application/json',
-          ...?$headers,
-        },
-        body: {
-          'actor': actor,
-          'allowAccess': allowAccess,
-          if (ref != null) 'ref': ref,
-          ...?$unknown,
-        },
-      );
+  }) async => await _ctx.post(
+    ns.chatBskyModerationUpdateActorAccess,
+    headers: {'Content-type': 'application/json', ...?$headers},
+    body: {
+      ...?$unknown,
+      'actor': actor,
+      'allowAccess': allowAccess,
+      if (ref != null) 'ref': ref,
+    },
+  );
   Future<XRPCResponse<ModerationGetMessageContextOutput>> getMessageContext({
     String? convoId,
     required String messageId,
@@ -67,17 +59,16 @@ final class ModerationService {
     int? after,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await _ctx.get(
-        ns.chatBskyModerationGetMessageContext,
-        headers: $headers,
-        parameters: {
-          if (convoId != null) 'convoId': convoId,
-          'messageId': messageId,
-          if (before != null) 'before': before,
-          if (after != null) 'after': after,
-          ...?$unknown,
-        },
-        to: const ModerationGetMessageContextOutputConverter().fromJson,
-      );
+  }) async => await _ctx.get(
+    ns.chatBskyModerationGetMessageContext,
+    headers: $headers,
+    parameters: {
+      ...?$unknown,
+      if (convoId != null) 'convoId': convoId,
+      'messageId': messageId,
+      if (before != null) 'before': before,
+      if (after != null) 'after': after,
+    },
+    to: const ModerationGetMessageContextOutputConverter().fromJson,
+  );
 }
