@@ -8,39 +8,41 @@ part of 'lex_xrpc_procedure.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_LexXrpcQuery _$LexXrpcQueryFromJson(Map json) => $checkedCreate(
-      '_LexXrpcQuery',
-      json,
-      ($checkedConvert) {
-        final val = _LexXrpcQuery(
-          type: $checkedConvert('type', (v) => v as String? ?? 'procedure'),
-          description: $checkedConvert('description', (v) => v as String?),
-          parameters: $checkedConvert(
-              'parameters',
-              (v) => v == null
-                  ? null
-                  : LexXrpcParameters.fromJson(
-                      Map<String, Object?>.from(v as Map))),
-          input: $checkedConvert(
-              'input',
-              (v) => v == null
-                  ? null
-                  : LexXrpcBody.fromJson(Map<String, Object?>.from(v as Map))),
-          output: $checkedConvert(
-              'output',
-              (v) => v == null
-                  ? null
-                  : LexXrpcBody.fromJson(Map<String, Object?>.from(v as Map))),
-          errors: $checkedConvert(
-              'errors',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => LexXrpcError.fromJson(
-                      Map<String, Object?>.from(e as Map)))
-                  .toList()),
-        );
-        return val;
-      },
-    );
+_LexXrpcQuery _$LexXrpcQueryFromJson(Map json) =>
+    $checkedCreate('_LexXrpcQuery', json, ($checkedConvert) {
+      final val = _LexXrpcQuery(
+        type: $checkedConvert('type', (v) => v as String? ?? 'procedure'),
+        description: $checkedConvert('description', (v) => v as String?),
+        parameters: $checkedConvert(
+          'parameters',
+          (v) => v == null
+              ? null
+              : LexXrpcParameters.fromJson(Map<String, Object?>.from(v as Map)),
+        ),
+        input: $checkedConvert(
+          'input',
+          (v) => v == null
+              ? null
+              : LexXrpcBody.fromJson(Map<String, Object?>.from(v as Map)),
+        ),
+        output: $checkedConvert(
+          'output',
+          (v) => v == null
+              ? null
+              : LexXrpcBody.fromJson(Map<String, Object?>.from(v as Map)),
+        ),
+        errors: $checkedConvert(
+          'errors',
+          (v) => (v as List<dynamic>?)
+              ?.map(
+                (e) =>
+                    LexXrpcError.fromJson(Map<String, Object?>.from(e as Map)),
+              )
+              .toList(),
+        ),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$LexXrpcQueryToJson(_LexXrpcQuery instance) =>
     <String, dynamic>{

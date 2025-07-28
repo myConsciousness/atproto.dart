@@ -23,13 +23,8 @@ final class GetFeedSkeletonCommand extends QueryCommand {
             r"Reference to feed generator record describing the specific feed being requested.",
         mandatory: true,
       )
-      ..addOption(
-        "limit",
-        defaultsTo: "50",
-      )
-      ..addOption(
-        "cursor",
-      );
+      ..addOption("limit", defaultsTo: "50")
+      ..addOption("cursor");
   }
 
   @override
@@ -48,8 +43,8 @@ final class GetFeedSkeletonCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "feed": argResults!["feed"],
-        "limit": argResults!["limit"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-      };
+    "feed": argResults!["feed"],
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+  };
 }

@@ -36,6 +36,7 @@ abstract class RepoDescribeRepoOutput with _$RepoDescribeRepoOutput {
 
     /// Indicates if handle is currently valid (resolves bi-directionally)
     required bool handleIsCorrect,
+
     Map<String, dynamic>? $unknown,
   }) = _RepoDescribeRepoOutput;
 
@@ -54,14 +55,12 @@ final class RepoDescribeRepoOutputConverter
 
   @override
   RepoDescribeRepoOutput fromJson(Map<String, dynamic> json) {
-    return RepoDescribeRepoOutput.fromJson(translate(
-      json,
-      RepoDescribeRepoOutput.knownProps,
-    ));
+    return RepoDescribeRepoOutput.fromJson(
+      translate(json, RepoDescribeRepoOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(RepoDescribeRepoOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RepoDescribeRepoOutput object) =>
+      untranslate(object.toJson());
 }

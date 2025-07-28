@@ -22,10 +22,7 @@ final class UpdateAccountEmailCommand extends ProcedureCommand {
         help: r"The handle or DID of the repo.",
         mandatory: true,
       )
-      ..addOption(
-        "email",
-        mandatory: true,
-      );
+      ..addOption("email", mandatory: true);
   }
 
   @override
@@ -44,7 +41,7 @@ final class UpdateAccountEmailCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "account": argResults!["account"],
-        "email": argResults!["email"],
-      };
+    "account": argResults!["account"],
+    "email": argResults!["email"],
+  };
 }

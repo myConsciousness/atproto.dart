@@ -17,13 +17,8 @@ import '../../../../query_command.dart';
 final class GetServicesCommand extends QueryCommand {
   GetServicesCommand() {
     argParser
-      ..addMultiOption(
-        "dids",
-      )
-      ..addFlag(
-        "detailed",
-        defaultsTo: false,
-      );
+      ..addMultiOption("dids")
+      ..addFlag("detailed", defaultsTo: false);
   }
 
   @override
@@ -42,7 +37,7 @@ final class GetServicesCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "dids": argResults!["dids"],
-        "detailed": argResults!["detailed"],
-      };
+    "dids": argResults!["dids"],
+    "detailed": argResults!["detailed"],
+  };
 }

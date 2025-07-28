@@ -21,14 +21,12 @@ part 'input.g.dart';
 @freezed
 abstract class AdminUpdateAccountPasswordInput
     with _$AdminUpdateAccountPasswordInput {
-  static const knownProps = <String>[
-    'did',
-    'password',
-  ];
+  static const knownProps = <String>['did', 'password'];
 
   const factory AdminUpdateAccountPasswordInput({
     required String did,
     required String password,
+
     Map<String, dynamic>? $unknown,
   }) = _AdminUpdateAccountPasswordInput;
 
@@ -36,21 +34,19 @@ abstract class AdminUpdateAccountPasswordInput
       _$AdminUpdateAccountPasswordInputFromJson(json);
 }
 
-final class AdminUpdateAccountPasswordInputConverter extends JsonConverter<
-    AdminUpdateAccountPasswordInput, Map<String, dynamic>> {
+final class AdminUpdateAccountPasswordInputConverter
+    extends
+        JsonConverter<AdminUpdateAccountPasswordInput, Map<String, dynamic>> {
   const AdminUpdateAccountPasswordInputConverter();
 
   @override
   AdminUpdateAccountPasswordInput fromJson(Map<String, dynamic> json) {
-    return AdminUpdateAccountPasswordInput.fromJson(translate(
-      json,
-      AdminUpdateAccountPasswordInput.knownProps,
-    ));
+    return AdminUpdateAccountPasswordInput.fromJson(
+      translate(json, AdminUpdateAccountPasswordInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(AdminUpdateAccountPasswordInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

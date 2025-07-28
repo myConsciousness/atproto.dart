@@ -16,11 +16,7 @@ import '../../../../procedure_command.dart';
 
 final class UpdateSeenCommand extends ProcedureCommand {
   UpdateSeenCommand() {
-    argParser
-      ..addOption(
-        "seenAt",
-        mandatory: true,
-      );
+    argParser..addOption("seenAt", mandatory: true);
   }
 
   @override
@@ -37,7 +33,5 @@ final class UpdateSeenCommand extends ProcedureCommand {
   String get methodId => "app.bsky.notification.updateSeen";
 
   @override
-  Map<String, dynamic>? get body => {
-        "seenAt": argResults!["seenAt"],
-      };
+  Map<String, dynamic>? get body => {"seenAt": argResults!["seenAt"]};
 }

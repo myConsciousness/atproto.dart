@@ -16,12 +16,11 @@ import '../../../../query_command.dart';
 
 final class GetHostStatusCommand extends QueryCommand {
   GetHostStatusCommand() {
-    argParser
-      ..addOption(
-        "hostname",
-        help: r"Hostname of the host (eg, PDS or relay) being queried.",
-        mandatory: true,
-      );
+    argParser..addOption(
+      "hostname",
+      help: r"Hostname of the host (eg, PDS or relay) being queried.",
+      mandatory: true,
+    );
   }
 
   @override
@@ -38,7 +37,5 @@ final class GetHostStatusCommand extends QueryCommand {
   String get methodId => "com.atproto.sync.getHostStatus";
 
   @override
-  Map<String, dynamic>? get parameters => {
-        "hostname": argResults!["hostname"],
-      };
+  Map<String, dynamic>? get parameters => {"hostname": argResults!["hostname"]};
 }

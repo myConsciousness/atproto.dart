@@ -23,16 +23,13 @@ part 'input.g.dart';
 
 @freezed
 abstract class AdminGetInviteCodesInput with _$AdminGetInviteCodesInput {
-  static const knownProps = <String>[
-    'sort',
-    'limit',
-    'cursor',
-  ];
+  static const knownProps = <String>['sort', 'limit', 'cursor'];
 
   const factory AdminGetInviteCodesInput({
     @AdminGetInviteCodesSortConverter() AdminGetInviteCodesSort? sort,
     @Default(100) int limit,
     String? cursor,
+
     Map<String, dynamic>? $unknown,
   }) = _AdminGetInviteCodesInput;
 
@@ -53,14 +50,12 @@ final class AdminGetInviteCodesInputConverter
 
   @override
   AdminGetInviteCodesInput fromJson(Map<String, dynamic> json) {
-    return AdminGetInviteCodesInput.fromJson(translate(
-      json,
-      AdminGetInviteCodesInput.knownProps,
-    ));
+    return AdminGetInviteCodesInput.fromJson(
+      translate(json, AdminGetInviteCodesInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(AdminGetInviteCodesInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(AdminGetInviteCodesInput object) =>
+      untranslate(object.toJson());
 }

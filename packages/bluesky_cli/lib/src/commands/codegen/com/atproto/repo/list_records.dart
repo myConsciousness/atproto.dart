@@ -32,9 +32,7 @@ final class ListRecordsCommand extends QueryCommand {
         help: r"The number of records to return.",
         defaultsTo: "50",
       )
-      ..addOption(
-        "cursor",
-      )
+      ..addOption("cursor")
       ..addFlag(
         "reverse",
         help: r"Flag to reverse the order of the returned records.",
@@ -57,10 +55,10 @@ final class ListRecordsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "repo": argResults!["repo"],
-        "collection": argResults!["collection"],
-        "limit": argResults!["limit"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-        if (argResults!["reverse"] != null) "reverse": argResults!["reverse"],
-      };
+    "repo": argResults!["repo"],
+    "collection": argResults!["collection"],
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    if (argResults!["reverse"] != null) "reverse": argResults!["reverse"],
+  };
 }

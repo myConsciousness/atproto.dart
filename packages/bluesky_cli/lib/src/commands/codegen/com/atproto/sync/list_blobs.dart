@@ -17,22 +17,13 @@ import '../../../../query_command.dart';
 final class ListBlobsCommand extends QueryCommand {
   ListBlobsCommand() {
     argParser
-      ..addOption(
-        "did",
-        help: r"The DID of the repo.",
-        mandatory: true,
-      )
+      ..addOption("did", help: r"The DID of the repo.", mandatory: true)
       ..addOption(
         "since",
         help: r"Optional revision of the repo to list blobs since.",
       )
-      ..addOption(
-        "limit",
-        defaultsTo: "500",
-      )
-      ..addOption(
-        "cursor",
-      );
+      ..addOption("limit", defaultsTo: "500")
+      ..addOption("cursor");
   }
 
   @override
@@ -51,9 +42,9 @@ final class ListBlobsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "did": argResults!["did"],
-        if (argResults!["since"] != null) "since": argResults!["since"],
-        "limit": argResults!["limit"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-      };
+    "did": argResults!["did"],
+    if (argResults!["since"] != null) "since": argResults!["since"],
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+  };
 }

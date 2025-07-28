@@ -16,10 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetLogCommand extends QueryCommand {
   GetLogCommand() {
-    argParser
-      ..addOption(
-        "cursor",
-      );
+    argParser..addOption("cursor");
   }
 
   @override
@@ -36,6 +33,6 @@ final class GetLogCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-      };
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+  };
 }

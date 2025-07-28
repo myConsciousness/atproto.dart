@@ -20,17 +20,14 @@ part 'app_password.g.dart';
 
 @freezed
 abstract class AppPassword with _$AppPassword {
-  static const knownProps = <String>[
-    'name',
-    'createdAt',
-    'privileged',
-  ];
+  static const knownProps = <String>['name', 'createdAt', 'privileged'];
 
   const factory AppPassword({
     @Default('com.atproto.server.listAppPasswords#appPassword') String $type,
     required String name,
     required DateTime createdAt,
     bool? privileged,
+
     Map<String, dynamic>? $unknown,
   }) = _AppPassword;
 
@@ -55,14 +52,10 @@ final class AppPasswordConverter
 
   @override
   AppPassword fromJson(Map<String, dynamic> json) {
-    return AppPassword.fromJson(translate(
-      json,
-      AppPassword.knownProps,
-    ));
+    return AppPassword.fromJson(translate(json, AppPassword.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(AppPassword object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(AppPassword object) =>
+      untranslate(object.toJson());
 }

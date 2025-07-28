@@ -20,13 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class IdentityResolveHandleInput with _$IdentityResolveHandleInput {
-  static const knownProps = <String>[
-    'handle',
-  ];
+  static const knownProps = <String>['handle'];
 
   const factory IdentityResolveHandleInput({
     /// The handle to resolve.
     required String handle,
+
     Map<String, dynamic>? $unknown,
   }) = _IdentityResolveHandleInput;
 
@@ -40,14 +39,12 @@ final class IdentityResolveHandleInputConverter
 
   @override
   IdentityResolveHandleInput fromJson(Map<String, dynamic> json) {
-    return IdentityResolveHandleInput.fromJson(translate(
-      json,
-      IdentityResolveHandleInput.knownProps,
-    ));
+    return IdentityResolveHandleInput.fromJson(
+      translate(json, IdentityResolveHandleInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(IdentityResolveHandleInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(IdentityResolveHandleInput object) =>
+      untranslate(object.toJson());
 }

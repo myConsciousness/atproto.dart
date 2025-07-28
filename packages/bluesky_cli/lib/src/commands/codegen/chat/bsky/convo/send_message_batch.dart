@@ -16,10 +16,7 @@ import '../../../../procedure_command.dart';
 
 final class SendMessageBatchCommand extends ProcedureCommand {
   SendMessageBatchCommand() {
-    argParser
-      ..addMultiOption(
-        "items",
-      );
+    argParser..addMultiOption("items");
   }
 
   @override
@@ -35,7 +32,5 @@ final class SendMessageBatchCommand extends ProcedureCommand {
   String get methodId => "chat.bsky.convo.sendMessageBatch";
 
   @override
-  Map<String, dynamic>? get body => {
-        "items": argResults!["items"],
-      };
+  Map<String, dynamic>? get body => {"items": argResults!["items"]};
 }

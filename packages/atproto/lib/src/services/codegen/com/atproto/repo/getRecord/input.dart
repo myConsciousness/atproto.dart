@@ -20,12 +20,7 @@ part 'input.g.dart';
 
 @freezed
 abstract class RepoGetRecordInput with _$RepoGetRecordInput {
-  static const knownProps = <String>[
-    'repo',
-    'collection',
-    'rkey',
-    'cid',
-  ];
+  static const knownProps = <String>['repo', 'collection', 'rkey', 'cid'];
 
   const factory RepoGetRecordInput({
     /// The handle or DID of the repo.
@@ -39,6 +34,7 @@ abstract class RepoGetRecordInput with _$RepoGetRecordInput {
 
     /// The CID of the version of the record. If not specified, then return the most recent version.
     String? cid,
+
     Map<String, dynamic>? $unknown,
   }) = _RepoGetRecordInput;
 
@@ -57,14 +53,12 @@ final class RepoGetRecordInputConverter
 
   @override
   RepoGetRecordInput fromJson(Map<String, dynamic> json) {
-    return RepoGetRecordInput.fromJson(translate(
-      json,
-      RepoGetRecordInput.knownProps,
-    ));
+    return RepoGetRecordInput.fromJson(
+      translate(json, RepoGetRecordInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(RepoGetRecordInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RepoGetRecordInput object) =>
+      untranslate(object.toJson());
 }

@@ -63,17 +63,17 @@ final class DartType {
       DartType(name: 'bool', description: description);
 
   factory DartType.uri({String? description}) => DartType(
-        name: 'AtUri',
-        annotation: '@AtUriConverter()',
-        description: description,
-      );
+    name: 'AtUri',
+    annotation: '@AtUriConverter()',
+    description: description,
+  );
 
   factory DartType.blob({String? description}) => DartType(
-        name: 'Blob',
-        annotation: '@BlobConverter()',
-        packagePath: 'package:atproto_core/atproto_core.dart',
-        description: description,
-      );
+    name: 'Blob',
+    annotation: '@BlobConverter()',
+    packagePath: 'package:atproto_core/atproto_core.dart',
+    description: description,
+  );
 
   factory DartType.array({
     String type = 'Object',
@@ -86,21 +86,20 @@ final class DartType {
     String? description,
     LexUnion? union,
     LexKnownValues? knownValues,
-  }) =>
-      DartType(
-        name: type,
-        lexiconId: lexiconId,
-        ref: ref,
-        defName: defName,
-        fieldName: fieldName,
-        packagePath: packagePath,
-        annotation: annotation,
-        description: description,
-        union: union,
-        knownValues: knownValues,
-        isArray: true,
-        isUnion: union != null,
-      );
+  }) => DartType(
+    name: type,
+    lexiconId: lexiconId,
+    ref: ref,
+    defName: defName,
+    fieldName: fieldName,
+    packagePath: packagePath,
+    annotation: annotation,
+    description: description,
+    union: union,
+    knownValues: knownValues,
+    isArray: true,
+    isUnion: union != null,
+  );
 
   factory DartType.union({
     String type = 'Object',
@@ -110,18 +109,17 @@ final class DartType {
     String? packagePath,
     String? description,
     required LexUnion union,
-  }) =>
-      DartType(
-        name: type,
-        lexiconId: lexiconId,
-        defName: defName,
-        fieldName: fieldName,
-        packagePath: packagePath,
-        annotation: '@${type}Converter()',
-        description: description,
-        union: union,
-        isUnion: true,
-      );
+  }) => DartType(
+    name: type,
+    lexiconId: lexiconId,
+    defName: defName,
+    fieldName: fieldName,
+    packagePath: packagePath,
+    annotation: '@${type}Converter()',
+    description: description,
+    union: union,
+    isUnion: true,
+  );
 
   factory DartType.nil({String type = ''}) => DartType(name: type, isNil: true);
 }

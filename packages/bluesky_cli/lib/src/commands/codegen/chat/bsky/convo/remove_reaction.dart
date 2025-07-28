@@ -17,18 +17,9 @@ import '../../../../procedure_command.dart';
 final class RemoveReactionCommand extends ProcedureCommand {
   RemoveReactionCommand() {
     argParser
-      ..addOption(
-        "convoId",
-        mandatory: true,
-      )
-      ..addOption(
-        "messageId",
-        mandatory: true,
-      )
-      ..addOption(
-        "value",
-        mandatory: true,
-      );
+      ..addOption("convoId", mandatory: true)
+      ..addOption("messageId", mandatory: true)
+      ..addOption("value", mandatory: true);
   }
 
   @override
@@ -47,8 +38,8 @@ final class RemoveReactionCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "convoId": argResults!["convoId"],
-        "messageId": argResults!["messageId"],
-        "value": argResults!["value"],
-      };
+    "convoId": argResults!["convoId"],
+    "messageId": argResults!["messageId"],
+    "value": argResults!["value"],
+  };
 }

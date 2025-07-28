@@ -45,6 +45,7 @@ abstract class RepoCreateRecordInput with _$RepoCreateRecordInput {
 
     /// Compare and swap with the previous commit by CID.
     String? swapCommit,
+
     Map<String, dynamic>? $unknown,
   }) = _RepoCreateRecordInput;
 
@@ -67,14 +68,12 @@ final class RepoCreateRecordInputConverter
 
   @override
   RepoCreateRecordInput fromJson(Map<String, dynamic> json) {
-    return RepoCreateRecordInput.fromJson(translate(
-      json,
-      RepoCreateRecordInput.knownProps,
-    ));
+    return RepoCreateRecordInput.fromJson(
+      translate(json, RepoCreateRecordInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(RepoCreateRecordInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RepoCreateRecordInput object) =>
+      untranslate(object.toJson());
 }

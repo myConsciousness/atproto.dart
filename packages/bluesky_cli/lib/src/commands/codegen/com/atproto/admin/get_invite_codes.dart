@@ -17,17 +17,9 @@ import '../../../../query_command.dart';
 final class GetInviteCodesCommand extends QueryCommand {
   GetInviteCodesCommand() {
     argParser
-      ..addOption(
-        "sort",
-        defaultsTo: "recent",
-      )
-      ..addOption(
-        "limit",
-        defaultsTo: "100",
-      )
-      ..addOption(
-        "cursor",
-      );
+      ..addOption("sort", defaultsTo: "recent")
+      ..addOption("limit", defaultsTo: "100")
+      ..addOption("cursor");
   }
 
   @override
@@ -45,8 +37,8 @@ final class GetInviteCodesCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "sort": argResults!["sort"],
-        "limit": argResults!["limit"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-      };
+    "sort": argResults!["sort"],
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+  };
 }

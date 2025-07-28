@@ -20,13 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class IdentityUpdateHandleInput with _$IdentityUpdateHandleInput {
-  static const knownProps = <String>[
-    'handle',
-  ];
+  static const knownProps = <String>['handle'];
 
   const factory IdentityUpdateHandleInput({
     /// The new handle.
     required String handle,
+
     Map<String, dynamic>? $unknown,
   }) = _IdentityUpdateHandleInput;
 
@@ -40,14 +39,12 @@ final class IdentityUpdateHandleInputConverter
 
   @override
   IdentityUpdateHandleInput fromJson(Map<String, dynamic> json) {
-    return IdentityUpdateHandleInput.fromJson(translate(
-      json,
-      IdentityUpdateHandleInput.knownProps,
-    ));
+    return IdentityUpdateHandleInput.fromJson(
+      translate(json, IdentityUpdateHandleInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(IdentityUpdateHandleInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(IdentityUpdateHandleInput object) =>
+      untranslate(object.toJson());
 }

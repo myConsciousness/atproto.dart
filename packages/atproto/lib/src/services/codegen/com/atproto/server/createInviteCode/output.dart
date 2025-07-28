@@ -21,12 +21,11 @@ part 'output.g.dart';
 @freezed
 abstract class ServerCreateInviteCodeOutput
     with _$ServerCreateInviteCodeOutput {
-  static const knownProps = <String>[
-    'code',
-  ];
+  static const knownProps = <String>['code'];
 
   const factory ServerCreateInviteCodeOutput({
     required String code,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerCreateInviteCodeOutput;
 
@@ -40,15 +39,12 @@ final class ServerCreateInviteCodeOutputConverter
 
   @override
   ServerCreateInviteCodeOutput fromJson(Map<String, dynamic> json) {
-    return ServerCreateInviteCodeOutput.fromJson(translate(
-      json,
-      ServerCreateInviteCodeOutput.knownProps,
-    ));
+    return ServerCreateInviteCodeOutput.fromJson(
+      translate(json, ServerCreateInviteCodeOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ServerCreateInviteCodeOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

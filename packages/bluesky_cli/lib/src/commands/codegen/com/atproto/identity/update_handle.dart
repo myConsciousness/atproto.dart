@@ -16,12 +16,7 @@ import '../../../../procedure_command.dart';
 
 final class UpdateHandleCommand extends ProcedureCommand {
   UpdateHandleCommand() {
-    argParser
-      ..addOption(
-        "handle",
-        help: r"The new handle.",
-        mandatory: true,
-      );
+    argParser..addOption("handle", help: r"The new handle.", mandatory: true);
   }
 
   @override
@@ -38,7 +33,5 @@ final class UpdateHandleCommand extends ProcedureCommand {
   String get methodId => "com.atproto.identity.updateHandle";
 
   @override
-  Map<String, dynamic>? get body => {
-        "handle": argResults!["handle"],
-      };
+  Map<String, dynamic>? get body => {"handle": argResults!["handle"]};
 }

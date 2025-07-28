@@ -40,11 +40,11 @@ import 'chat/bsky/actor/declaration/main.dart';
 // LexGenerator
 // **************************************************************************
 
-typedef RepoCommitOnCreate<T> =
-    FutureOr<void> Function(RepoCommitCreate<T> data);
+typedef RepoCommitOnCreate<T> = FutureOr<void> Function(
+    RepoCommitCreate<T> data);
 
-typedef RepoCommitOnUpdate<T> =
-    FutureOr<void> Function(RepoCommitUpdate<T> data);
+typedef RepoCommitOnUpdate<T> = FutureOr<void> Function(
+    RepoCommitUpdate<T> data);
 
 typedef RepoCommitOnDelete = FutureOr<void> Function(RepoCommitDelete data);
 
@@ -53,9 +53,9 @@ final class RepoCommitHandler {
   final RepoCommitOnUpdate<LexiconSchemaRecord>? _onUpdateLexiconSchema;
   final RepoCommitOnDelete? _onDeleteLexiconSchema;
   final RepoCommitOnCreate<NotificationDeclarationRecord>?
-  _onCreateNotificationDeclaration;
+      _onCreateNotificationDeclaration;
   final RepoCommitOnUpdate<NotificationDeclarationRecord>?
-  _onUpdateNotificationDeclaration;
+      _onUpdateNotificationDeclaration;
   final RepoCommitOnDelete? _onDeleteNotificationDeclaration;
   final RepoCommitOnCreate<FeedRepostRecord>? _onCreateFeedRepost;
   final RepoCommitOnUpdate<FeedRepostRecord>? _onUpdateFeedRepost;
@@ -118,9 +118,9 @@ final class RepoCommitHandler {
     final RepoCommitOnUpdate<LexiconSchemaRecord>? onUpdateLexiconSchema,
     final RepoCommitOnDelete? onDeleteLexiconSchema,
     final RepoCommitOnCreate<NotificationDeclarationRecord>?
-    onCreateNotificationDeclaration,
+        onCreateNotificationDeclaration,
     final RepoCommitOnUpdate<NotificationDeclarationRecord>?
-    onUpdateNotificationDeclaration,
+        onUpdateNotificationDeclaration,
     final RepoCommitOnDelete? onDeleteNotificationDeclaration,
     final RepoCommitOnCreate<FeedRepostRecord>? onCreateFeedRepost,
     final RepoCommitOnUpdate<FeedRepostRecord>? onUpdateFeedRepost,
@@ -156,9 +156,9 @@ final class RepoCommitHandler {
     final RepoCommitOnUpdate<GraphListRecord>? onUpdateGraphList,
     final RepoCommitOnDelete? onDeleteGraphList,
     final RepoCommitOnCreate<GraphVerificationRecord>?
-    onCreateGraphVerification,
+        onCreateGraphVerification,
     final RepoCommitOnUpdate<GraphVerificationRecord>?
-    onUpdateGraphVerification,
+        onUpdateGraphVerification,
     final RepoCommitOnDelete? onDeleteGraphVerification,
     final RepoCommitOnCreate<GraphBlockRecord>? onCreateGraphBlock,
     final RepoCommitOnUpdate<GraphBlockRecord>? onUpdateGraphBlock,
@@ -175,71 +175,69 @@ final class RepoCommitHandler {
     final RepoCommitOnCreate<ActorDeclarationRecord>? onCreateActorDeclaration,
     final RepoCommitOnUpdate<ActorDeclarationRecord>? onUpdateActorDeclaration,
     final RepoCommitOnDelete? onDeleteActorDeclaration,
-
     final RepoCommitOnCreate<Map<String, dynamic>>? onCreateUnknown,
     final RepoCommitOnUpdate<Map<String, dynamic>>? onUpdateUnknown,
     final RepoCommitOnDelete? onDeleteUnknown,
-  }) : _onCreateLexiconSchema = onCreateLexiconSchema,
-       _onUpdateLexiconSchema = onUpdateLexiconSchema,
-       _onDeleteLexiconSchema = onDeleteLexiconSchema,
-       _onCreateNotificationDeclaration = onCreateNotificationDeclaration,
-       _onUpdateNotificationDeclaration = onUpdateNotificationDeclaration,
-       _onDeleteNotificationDeclaration = onDeleteNotificationDeclaration,
-       _onCreateFeedRepost = onCreateFeedRepost,
-       _onUpdateFeedRepost = onUpdateFeedRepost,
-       _onDeleteFeedRepost = onDeleteFeedRepost,
-       _onCreateFeedLike = onCreateFeedLike,
-       _onUpdateFeedLike = onUpdateFeedLike,
-       _onDeleteFeedLike = onDeleteFeedLike,
-       _onCreateFeedThreadgate = onCreateFeedThreadgate,
-       _onUpdateFeedThreadgate = onUpdateFeedThreadgate,
-       _onDeleteFeedThreadgate = onDeleteFeedThreadgate,
-       _onCreateFeedGenerator = onCreateFeedGenerator,
-       _onUpdateFeedGenerator = onUpdateFeedGenerator,
-       _onDeleteFeedGenerator = onDeleteFeedGenerator,
-       _onCreateFeedPost = onCreateFeedPost,
-       _onUpdateFeedPost = onUpdateFeedPost,
-       _onDeleteFeedPost = onDeleteFeedPost,
-       _onCreateFeedPostgate = onCreateFeedPostgate,
-       _onUpdateFeedPostgate = onUpdateFeedPostgate,
-       _onDeleteFeedPostgate = onDeleteFeedPostgate,
-       _onCreateGraphFollow = onCreateGraphFollow,
-       _onUpdateGraphFollow = onUpdateGraphFollow,
-       _onDeleteGraphFollow = onDeleteGraphFollow,
-       _onCreateGraphStarterpack = onCreateGraphStarterpack,
-       _onUpdateGraphStarterpack = onUpdateGraphStarterpack,
-       _onDeleteGraphStarterpack = onDeleteGraphStarterpack,
-       _onCreateGraphListblock = onCreateGraphListblock,
-       _onUpdateGraphListblock = onUpdateGraphListblock,
-       _onDeleteGraphListblock = onDeleteGraphListblock,
-       _onCreateGraphListitem = onCreateGraphListitem,
-       _onUpdateGraphListitem = onUpdateGraphListitem,
-       _onDeleteGraphListitem = onDeleteGraphListitem,
-       _onCreateGraphList = onCreateGraphList,
-       _onUpdateGraphList = onUpdateGraphList,
-       _onDeleteGraphList = onDeleteGraphList,
-       _onCreateGraphVerification = onCreateGraphVerification,
-       _onUpdateGraphVerification = onUpdateGraphVerification,
-       _onDeleteGraphVerification = onDeleteGraphVerification,
-       _onCreateGraphBlock = onCreateGraphBlock,
-       _onUpdateGraphBlock = onUpdateGraphBlock,
-       _onDeleteGraphBlock = onDeleteGraphBlock,
-       _onCreateActorProfile = onCreateActorProfile,
-       _onUpdateActorProfile = onUpdateActorProfile,
-       _onDeleteActorProfile = onDeleteActorProfile,
-       _onCreateActorStatus = onCreateActorStatus,
-       _onUpdateActorStatus = onUpdateActorStatus,
-       _onDeleteActorStatus = onDeleteActorStatus,
-       _onCreateLabelerService = onCreateLabelerService,
-       _onUpdateLabelerService = onUpdateLabelerService,
-       _onDeleteLabelerService = onDeleteLabelerService,
-       _onCreateActorDeclaration = onCreateActorDeclaration,
-       _onUpdateActorDeclaration = onUpdateActorDeclaration,
-       _onDeleteActorDeclaration = onDeleteActorDeclaration,
-
-       _onCreateUnknown = onCreateUnknown,
-       _onUpdateUnknown = onUpdateUnknown,
-       _onDeleteUnknown = onDeleteUnknown;
+  })  : _onCreateLexiconSchema = onCreateLexiconSchema,
+        _onUpdateLexiconSchema = onUpdateLexiconSchema,
+        _onDeleteLexiconSchema = onDeleteLexiconSchema,
+        _onCreateNotificationDeclaration = onCreateNotificationDeclaration,
+        _onUpdateNotificationDeclaration = onUpdateNotificationDeclaration,
+        _onDeleteNotificationDeclaration = onDeleteNotificationDeclaration,
+        _onCreateFeedRepost = onCreateFeedRepost,
+        _onUpdateFeedRepost = onUpdateFeedRepost,
+        _onDeleteFeedRepost = onDeleteFeedRepost,
+        _onCreateFeedLike = onCreateFeedLike,
+        _onUpdateFeedLike = onUpdateFeedLike,
+        _onDeleteFeedLike = onDeleteFeedLike,
+        _onCreateFeedThreadgate = onCreateFeedThreadgate,
+        _onUpdateFeedThreadgate = onUpdateFeedThreadgate,
+        _onDeleteFeedThreadgate = onDeleteFeedThreadgate,
+        _onCreateFeedGenerator = onCreateFeedGenerator,
+        _onUpdateFeedGenerator = onUpdateFeedGenerator,
+        _onDeleteFeedGenerator = onDeleteFeedGenerator,
+        _onCreateFeedPost = onCreateFeedPost,
+        _onUpdateFeedPost = onUpdateFeedPost,
+        _onDeleteFeedPost = onDeleteFeedPost,
+        _onCreateFeedPostgate = onCreateFeedPostgate,
+        _onUpdateFeedPostgate = onUpdateFeedPostgate,
+        _onDeleteFeedPostgate = onDeleteFeedPostgate,
+        _onCreateGraphFollow = onCreateGraphFollow,
+        _onUpdateGraphFollow = onUpdateGraphFollow,
+        _onDeleteGraphFollow = onDeleteGraphFollow,
+        _onCreateGraphStarterpack = onCreateGraphStarterpack,
+        _onUpdateGraphStarterpack = onUpdateGraphStarterpack,
+        _onDeleteGraphStarterpack = onDeleteGraphStarterpack,
+        _onCreateGraphListblock = onCreateGraphListblock,
+        _onUpdateGraphListblock = onUpdateGraphListblock,
+        _onDeleteGraphListblock = onDeleteGraphListblock,
+        _onCreateGraphListitem = onCreateGraphListitem,
+        _onUpdateGraphListitem = onUpdateGraphListitem,
+        _onDeleteGraphListitem = onDeleteGraphListitem,
+        _onCreateGraphList = onCreateGraphList,
+        _onUpdateGraphList = onUpdateGraphList,
+        _onDeleteGraphList = onDeleteGraphList,
+        _onCreateGraphVerification = onCreateGraphVerification,
+        _onUpdateGraphVerification = onUpdateGraphVerification,
+        _onDeleteGraphVerification = onDeleteGraphVerification,
+        _onCreateGraphBlock = onCreateGraphBlock,
+        _onUpdateGraphBlock = onUpdateGraphBlock,
+        _onDeleteGraphBlock = onDeleteGraphBlock,
+        _onCreateActorProfile = onCreateActorProfile,
+        _onUpdateActorProfile = onUpdateActorProfile,
+        _onDeleteActorProfile = onDeleteActorProfile,
+        _onCreateActorStatus = onCreateActorStatus,
+        _onUpdateActorStatus = onUpdateActorStatus,
+        _onDeleteActorStatus = onDeleteActorStatus,
+        _onCreateLabelerService = onCreateLabelerService,
+        _onUpdateLabelerService = onUpdateLabelerService,
+        _onDeleteLabelerService = onDeleteLabelerService,
+        _onCreateActorDeclaration = onCreateActorDeclaration,
+        _onUpdateActorDeclaration = onUpdateActorDeclaration,
+        _onDeleteActorDeclaration = onDeleteActorDeclaration,
+        _onCreateUnknown = onCreateUnknown,
+        _onUpdateUnknown = onUpdateUnknown,
+        _onDeleteUnknown = onDeleteUnknown;
 
   /// Performs actions based on [data].
   FutureOr<void> execute(final Commit data) async {
@@ -282,9 +280,8 @@ final class RepoCommitHandler {
         NotificationDeclarationRecord.validate(record)) {
       await _onCreateNotificationDeclaration?.call(
         RepoCommitCreate<NotificationDeclarationRecord>(
-          record: const NotificationDeclarationRecordConverter().fromJson(
-            record,
-          ),
+          record:
+              const NotificationDeclarationRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -530,9 +527,8 @@ final class RepoCommitHandler {
         NotificationDeclarationRecord.validate(record)) {
       await _onUpdateNotificationDeclaration?.call(
         RepoCommitUpdate<NotificationDeclarationRecord>(
-          record: const NotificationDeclarationRecordConverter().fromJson(
-            record,
-          ),
+          record:
+              const NotificationDeclarationRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,

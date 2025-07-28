@@ -9,30 +9,24 @@ part of 'input.dart';
 // **************************************************************************
 
 _ServerUpdateEmailInput _$ServerUpdateEmailInputFromJson(Map json) =>
-    $checkedCreate(
-      '_ServerUpdateEmailInput',
-      json,
-      ($checkedConvert) {
-        final val = _ServerUpdateEmailInput(
-          email: $checkedConvert('email', (v) => v as String),
-          emailAuthFactor:
-              $checkedConvert('emailAuthFactor', (v) => v as bool?),
-          token: $checkedConvert('token', (v) => v as String?),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+    $checkedCreate('_ServerUpdateEmailInput', json, ($checkedConvert) {
+      final val = _ServerUpdateEmailInput(
+        email: $checkedConvert('email', (v) => v as String),
+        emailAuthFactor: $checkedConvert('emailAuthFactor', (v) => v as bool?),
+        token: $checkedConvert('token', (v) => v as String?),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$ServerUpdateEmailInputToJson(
-        _ServerUpdateEmailInput instance) =>
-    <String, dynamic>{
-      'email': instance.email,
-      'emailAuthFactor': instance.emailAuthFactor,
-      'token': instance.token,
-      r'$unknown': instance.$unknown,
-    };
+  _ServerUpdateEmailInput instance,
+) => <String, dynamic>{
+  'email': instance.email,
+  'emailAuthFactor': instance.emailAuthFactor,
+  'token': instance.token,
+  r'$unknown': instance.$unknown,
+};

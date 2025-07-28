@@ -16,10 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetStarterPacksCommand extends QueryCommand {
   GetStarterPacksCommand() {
-    argParser
-      ..addMultiOption(
-        "uris",
-      );
+    argParser..addMultiOption("uris");
   }
 
   @override
@@ -35,7 +32,5 @@ final class GetStarterPacksCommand extends QueryCommand {
   String get methodId => "app.bsky.graph.getStarterPacks";
 
   @override
-  Map<String, dynamic>? get parameters => {
-        "uris": argResults!["uris"],
-      };
+  Map<String, dynamic>? get parameters => {"uris": argResults!["uris"]};
 }

@@ -16,11 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetActorMetadataCommand extends QueryCommand {
   GetActorMetadataCommand() {
-    argParser
-      ..addOption(
-        "actor",
-        mandatory: true,
-      );
+    argParser..addOption("actor", mandatory: true);
   }
 
   @override
@@ -37,7 +33,5 @@ final class GetActorMetadataCommand extends QueryCommand {
   String get methodId => "chat.bsky.moderation.getActorMetadata";
 
   @override
-  Map<String, dynamic>? get parameters => {
-        "actor": argResults!["actor"],
-      };
+  Map<String, dynamic>? get parameters => {"actor": argResults!["actor"]};
 }

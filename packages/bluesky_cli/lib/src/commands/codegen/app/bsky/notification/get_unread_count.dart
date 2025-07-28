@@ -17,12 +17,8 @@ import '../../../../query_command.dart';
 final class GetUnreadCountCommand extends QueryCommand {
   GetUnreadCountCommand() {
     argParser
-      ..addFlag(
-        "priority",
-      )
-      ..addOption(
-        "seenAt",
-      );
+      ..addFlag("priority")
+      ..addOption("seenAt");
   }
 
   @override
@@ -41,8 +37,7 @@ final class GetUnreadCountCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        if (argResults!["priority"] != null)
-          "priority": argResults!["priority"],
-        if (argResults!["seenAt"] != null) "seenAt": argResults!["seenAt"],
-      };
+    if (argResults!["priority"] != null) "priority": argResults!["priority"],
+    if (argResults!["seenAt"] != null) "seenAt": argResults!["seenAt"],
+  };
 }

@@ -1,12 +1,12 @@
 # Release Note
 
-## v1.0.1
+## v1.0.1-legacy
 
 - Improved firehose conversion process. Use `SyncSubscribeReposAdaptor` to convert byte data from `subscribeRepos`.
 - Now the endpoint argument `$unknown` cannot override a known field. ([#2068](https://github.com/myConsciousness/atproto.dart/pull/2068))
 - `RepoCommitHandler` is automatically generated based on Lexicon. ([#2072](https://github.com/myConsciousness/atproto.dart/pull/2072))
 
-## 1.0.0-legacy
+## v1.0.0-legacy
 
 - Downgrade SDK constraint to '^3.6.0'.
 - Legacy support for Flutter for Web.

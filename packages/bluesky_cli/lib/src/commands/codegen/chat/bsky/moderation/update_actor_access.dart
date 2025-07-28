@@ -17,16 +17,9 @@ import '../../../../procedure_command.dart';
 final class UpdateActorAccessCommand extends ProcedureCommand {
   UpdateActorAccessCommand() {
     argParser
-      ..addOption(
-        "actor",
-        mandatory: true,
-      )
-      ..addFlag(
-        "allowAccess",
-      )
-      ..addOption(
-        "ref",
-      );
+      ..addOption("actor", mandatory: true)
+      ..addFlag("allowAccess")
+      ..addOption("ref");
   }
 
   @override
@@ -44,8 +37,8 @@ final class UpdateActorAccessCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "actor": argResults!["actor"],
-        "allowAccess": argResults!["allowAccess"],
-        if (argResults!["ref"] != null) "ref": argResults!["ref"],
-      };
+    "actor": argResults!["actor"],
+    "allowAccess": argResults!["allowAccess"],
+    if (argResults!["ref"] != null) "ref": argResults!["ref"],
+  };
 }

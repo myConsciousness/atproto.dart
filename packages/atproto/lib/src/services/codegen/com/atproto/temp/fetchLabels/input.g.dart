@@ -9,27 +9,22 @@ part of 'input.dart';
 // **************************************************************************
 
 _TempFetchLabelsInput _$TempFetchLabelsInputFromJson(Map json) =>
-    $checkedCreate(
-      '_TempFetchLabelsInput',
-      json,
-      ($checkedConvert) {
-        final val = _TempFetchLabelsInput(
-          since: $checkedConvert('since', (v) => (v as num?)?.toInt()),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+    $checkedCreate('_TempFetchLabelsInput', json, ($checkedConvert) {
+      final val = _TempFetchLabelsInput(
+        since: $checkedConvert('since', (v) => (v as num?)?.toInt()),
+        limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$TempFetchLabelsInputToJson(
-        _TempFetchLabelsInput instance) =>
-    <String, dynamic>{
-      'since': instance.since,
-      'limit': instance.limit,
-      r'$unknown': instance.$unknown,
-    };
+  _TempFetchLabelsInput instance,
+) => <String, dynamic>{
+  'since': instance.since,
+  'limit': instance.limit,
+  r'$unknown': instance.$unknown,
+};

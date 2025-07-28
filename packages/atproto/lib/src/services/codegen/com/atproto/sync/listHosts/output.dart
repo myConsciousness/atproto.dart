@@ -23,14 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class SyncListHostsOutput with _$SyncListHostsOutput {
-  static const knownProps = <String>[
-    'cursor',
-    'hosts',
-  ];
+  static const knownProps = <String>['cursor', 'hosts'];
 
   const factory SyncListHostsOutput({
     String? cursor,
     @HostConverter() required List<Host> hosts,
+
     Map<String, dynamic>? $unknown,
   }) = _SyncListHostsOutput;
 
@@ -49,14 +47,12 @@ final class SyncListHostsOutputConverter
 
   @override
   SyncListHostsOutput fromJson(Map<String, dynamic> json) {
-    return SyncListHostsOutput.fromJson(translate(
-      json,
-      SyncListHostsOutput.knownProps,
-    ));
+    return SyncListHostsOutput.fromJson(
+      translate(json, SyncListHostsOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SyncListHostsOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SyncListHostsOutput object) =>
+      untranslate(object.toJson());
 }

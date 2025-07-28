@@ -17,12 +17,8 @@ import '../../../../procedure_command.dart';
 final class DisableInviteCodesCommand extends ProcedureCommand {
   DisableInviteCodesCommand() {
     argParser
-      ..addMultiOption(
-        "codes",
-      )
-      ..addMultiOption(
-        "accounts",
-      );
+      ..addMultiOption("codes")
+      ..addMultiOption("accounts");
   }
 
   @override
@@ -41,8 +37,7 @@ final class DisableInviteCodesCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        if (argResults!["codes"] != null) "codes": argResults!["codes"],
-        if (argResults!["accounts"] != null)
-          "accounts": argResults!["accounts"],
-      };
+    if (argResults!["codes"] != null) "codes": argResults!["codes"],
+    if (argResults!["accounts"] != null) "accounts": argResults!["accounts"],
+  };
 }

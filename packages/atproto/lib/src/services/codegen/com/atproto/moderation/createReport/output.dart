@@ -42,6 +42,7 @@ abstract class ModerationCreateReportOutput
     required UModerationCreateReportSubject subject,
     required String reportedBy,
     required DateTime createdAt,
+
     Map<String, dynamic>? $unknown,
   }) = _ModerationCreateReportOutput;
 
@@ -61,15 +62,12 @@ final class ModerationCreateReportOutputConverter
 
   @override
   ModerationCreateReportOutput fromJson(Map<String, dynamic> json) {
-    return ModerationCreateReportOutput.fromJson(translate(
-      json,
-      ModerationCreateReportOutput.knownProps,
-    ));
+    return ModerationCreateReportOutput.fromJson(
+      translate(json, ModerationCreateReportOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ModerationCreateReportOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

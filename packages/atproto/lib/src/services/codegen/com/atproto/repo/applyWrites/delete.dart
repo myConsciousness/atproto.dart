@@ -21,15 +21,13 @@ part 'delete.g.dart';
 /// Operation which deletes an existing record.
 @freezed
 abstract class Delete with _$Delete {
-  static const knownProps = <String>[
-    'collection',
-    'rkey',
-  ];
+  static const knownProps = <String>['collection', 'rkey'];
 
   const factory Delete({
     @Default('com.atproto.repo.applyWrites#delete') String $type,
     required String collection,
     required String rkey,
+
     Map<String, dynamic>? $unknown,
   }) = _Delete;
 
@@ -47,14 +45,9 @@ final class DeleteConverter
 
   @override
   Delete fromJson(Map<String, dynamic> json) {
-    return Delete.fromJson(translate(
-      json,
-      Delete.knownProps,
-    ));
+    return Delete.fromJson(translate(json, Delete.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(Delete object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(Delete object) => untranslate(object.toJson());
 }

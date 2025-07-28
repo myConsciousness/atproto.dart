@@ -41,6 +41,7 @@ abstract class ModerationCreateReportInput with _$ModerationCreateReportInput {
     @UModerationCreateReportSubjectConverter()
     required UModerationCreateReportSubject subject,
     @ModToolConverter() ModTool? modTool,
+
     Map<String, dynamic>? $unknown,
   }) = _ModerationCreateReportInput;
 
@@ -61,15 +62,12 @@ final class ModerationCreateReportInputConverter
 
   @override
   ModerationCreateReportInput fromJson(Map<String, dynamic> json) {
-    return ModerationCreateReportInput.fromJson(translate(
-      json,
-      ModerationCreateReportInput.knownProps,
-    ));
+    return ModerationCreateReportInput.fromJson(
+      translate(json, ModerationCreateReportInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(ModerationCreateReportInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

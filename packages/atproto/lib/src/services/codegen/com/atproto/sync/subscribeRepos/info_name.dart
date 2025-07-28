@@ -22,13 +22,10 @@ part 'info_name.freezed.dart';
 abstract class InfoName with _$InfoName {
   const InfoName._();
 
-  const factory InfoName.knownValue({
-    required KnownInfoName data,
-  }) = InfoNameKnownValue;
+  const factory InfoName.knownValue({required KnownInfoName data}) =
+      InfoNameKnownValue;
 
-  const factory InfoName.unknown({
-    required String data,
-  }) = InfoNameUnknown;
+  const factory InfoName.unknown({required String data}) = InfoNameUnknown;
 
   static InfoName? valueOf(final String? value) {
     if (value == null) return null;
@@ -69,16 +66,13 @@ final class InfoNameConverter extends JsonConverter<InfoName, String> {
   }
 
   @override
-  String toJson(InfoName object) => object.when(
-        knownValue: (data) => data.value,
-        unknown: (data) => data,
-      );
+  String toJson(InfoName object) =>
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownInfoName implements Serializable {
   @JsonValue('OutdatedCursor')
-  outdatedCursor('OutdatedCursor'),
-  ;
+  outdatedCursor('OutdatedCursor');
 
   @override
   final String value;

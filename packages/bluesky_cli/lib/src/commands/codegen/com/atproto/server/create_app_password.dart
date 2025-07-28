@@ -44,8 +44,8 @@ final class CreateAppPasswordCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "name": argResults!["name"],
-        if (argResults!["privileged"] != null)
-          "privileged": argResults!["privileged"],
-      };
+    "name": argResults!["name"],
+    if (argResults!["privileged"] != null)
+      "privileged": argResults!["privileged"],
+  };
 }

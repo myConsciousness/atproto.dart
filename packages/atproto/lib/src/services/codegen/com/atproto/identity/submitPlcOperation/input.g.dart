@@ -9,27 +9,25 @@ part of 'input.dart';
 // **************************************************************************
 
 _IdentitySubmitPlcOperationInput _$IdentitySubmitPlcOperationInputFromJson(
-        Map json) =>
-    $checkedCreate(
-      '_IdentitySubmitPlcOperationInput',
-      json,
-      ($checkedConvert) {
-        final val = _IdentitySubmitPlcOperationInput(
-          operation: $checkedConvert(
-              'operation', (v) => Map<String, dynamic>.from(v as Map)),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+  Map json,
+) =>
+    $checkedCreate('_IdentitySubmitPlcOperationInput', json, ($checkedConvert) {
+      final val = _IdentitySubmitPlcOperationInput(
+        operation: $checkedConvert(
+          'operation',
+          (v) => Map<String, dynamic>.from(v as Map),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$IdentitySubmitPlcOperationInputToJson(
-        _IdentitySubmitPlcOperationInput instance) =>
-    <String, dynamic>{
-      'operation': instance.operation,
-      r'$unknown': instance.$unknown,
-    };
+  _IdentitySubmitPlcOperationInput instance,
+) => <String, dynamic>{
+  'operation': instance.operation,
+  r'$unknown': instance.$unknown,
+};

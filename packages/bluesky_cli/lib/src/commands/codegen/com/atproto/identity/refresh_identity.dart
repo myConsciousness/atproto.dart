@@ -16,11 +16,7 @@ import '../../../../procedure_command.dart';
 
 final class RefreshIdentityCommand extends ProcedureCommand {
   RefreshIdentityCommand() {
-    argParser
-      ..addOption(
-        "identifier",
-        mandatory: true,
-      );
+    argParser..addOption("identifier", mandatory: true);
   }
 
   @override
@@ -38,7 +34,5 @@ final class RefreshIdentityCommand extends ProcedureCommand {
   String get methodId => "com.atproto.identity.refreshIdentity";
 
   @override
-  Map<String, dynamic>? get body => {
-        "identifier": argResults!["identifier"],
-      };
+  Map<String, dynamic>? get body => {"identifier": argResults!["identifier"]};
 }

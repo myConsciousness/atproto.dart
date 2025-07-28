@@ -21,13 +21,7 @@ part 'sync.g.dart';
 /// Updates the repo to a new state, without necessarily including that state on the firehose. Used to recover from broken commit streams, data loss incidents, or in situations where upstream host does not know recent state of the repository.
 @freezed
 abstract class Sync with _$Sync {
-  static const knownProps = <String>[
-    'seq',
-    'did',
-    'blocks',
-    'rev',
-    'time',
-  ];
+  static const knownProps = <String>['seq', 'did', 'blocks', 'rev', 'time'];
 
   const factory Sync({
     @Default('com.atproto.sync.subscribeRepos#sync') String $type,
@@ -46,6 +40,7 @@ abstract class Sync with _$Sync {
 
     /// Timestamp of when this message was originally broadcast.
     required DateTime time,
+
     Map<String, dynamic>? $unknown,
   }) = _Sync;
 
@@ -62,14 +57,9 @@ final class SyncConverter extends JsonConverter<Sync, Map<String, dynamic>> {
 
   @override
   Sync fromJson(Map<String, dynamic> json) {
-    return Sync.fromJson(translate(
-      json,
-      Sync.knownProps,
-    ));
+    return Sync.fromJson(translate(json, Sync.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(Sync object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(Sync object) => untranslate(object.toJson());
 }

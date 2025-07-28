@@ -20,13 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class SyncGetCheckoutInput with _$SyncGetCheckoutInput {
-  static const knownProps = <String>[
-    'did',
-  ];
+  static const knownProps = <String>['did'];
 
   const factory SyncGetCheckoutInput({
     /// The DID of the repo.
     required String did,
+
     Map<String, dynamic>? $unknown,
   }) = _SyncGetCheckoutInput;
 
@@ -40,14 +39,12 @@ final class SyncGetCheckoutInputConverter
 
   @override
   SyncGetCheckoutInput fromJson(Map<String, dynamic> json) {
-    return SyncGetCheckoutInput.fromJson(translate(
-      json,
-      SyncGetCheckoutInput.knownProps,
-    ));
+    return SyncGetCheckoutInput.fromJson(
+      translate(json, SyncGetCheckoutInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SyncGetCheckoutInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SyncGetCheckoutInput object) =>
+      untranslate(object.toJson());
 }

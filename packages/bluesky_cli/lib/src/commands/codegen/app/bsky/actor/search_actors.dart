@@ -17,22 +17,14 @@ import '../../../../query_command.dart';
 final class SearchActorsCommand extends QueryCommand {
   SearchActorsCommand() {
     argParser
-      ..addOption(
-        "term",
-        help: r"DEPRECATED: use 'q' instead.",
-      )
+      ..addOption("term", help: r"DEPRECATED: use 'q' instead.")
       ..addOption(
         "q",
         help:
             r"Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.",
       )
-      ..addOption(
-        "limit",
-        defaultsTo: "25",
-      )
-      ..addOption(
-        "cursor",
-      );
+      ..addOption("limit", defaultsTo: "25")
+      ..addOption("cursor");
   }
 
   @override
@@ -51,9 +43,9 @@ final class SearchActorsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        if (argResults!["term"] != null) "term": argResults!["term"],
-        if (argResults!["q"] != null) "q": argResults!["q"],
-        "limit": argResults!["limit"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-      };
+    if (argResults!["term"] != null) "term": argResults!["term"],
+    if (argResults!["q"] != null) "q": argResults!["q"],
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+  };
 }

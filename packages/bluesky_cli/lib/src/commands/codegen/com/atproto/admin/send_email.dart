@@ -17,21 +17,10 @@ import '../../../../procedure_command.dart';
 final class SendEmailCommand extends ProcedureCommand {
   SendEmailCommand() {
     argParser
-      ..addOption(
-        "recipientDid",
-        mandatory: true,
-      )
-      ..addOption(
-        "content",
-        mandatory: true,
-      )
-      ..addOption(
-        "subject",
-      )
-      ..addOption(
-        "senderDid",
-        mandatory: true,
-      )
+      ..addOption("recipientDid", mandatory: true)
+      ..addOption("content", mandatory: true)
+      ..addOption("subject")
+      ..addOption("senderDid", mandatory: true)
       ..addOption(
         "comment",
         help:
@@ -54,10 +43,10 @@ final class SendEmailCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "recipientDid": argResults!["recipientDid"],
-        "content": argResults!["content"],
-        if (argResults!["subject"] != null) "subject": argResults!["subject"],
-        "senderDid": argResults!["senderDid"],
-        if (argResults!["comment"] != null) "comment": argResults!["comment"],
-      };
+    "recipientDid": argResults!["recipientDid"],
+    "content": argResults!["content"],
+    if (argResults!["subject"] != null) "subject": argResults!["subject"],
+    "senderDid": argResults!["senderDid"],
+    if (argResults!["comment"] != null) "comment": argResults!["comment"],
+  };
 }

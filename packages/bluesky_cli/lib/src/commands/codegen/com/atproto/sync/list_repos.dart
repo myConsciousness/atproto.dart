@@ -17,13 +17,8 @@ import '../../../../query_command.dart';
 final class ListReposCommand extends QueryCommand {
   ListReposCommand() {
     argParser
-      ..addOption(
-        "limit",
-        defaultsTo: "500",
-      )
-      ..addOption(
-        "cursor",
-      );
+      ..addOption("limit", defaultsTo: "500")
+      ..addOption("cursor");
   }
 
   @override
@@ -41,7 +36,7 @@ final class ListReposCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "limit": argResults!["limit"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-      };
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+  };
 }

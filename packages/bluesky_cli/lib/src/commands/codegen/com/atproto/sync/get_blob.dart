@@ -17,11 +17,7 @@ import '../../../../query_command.dart';
 final class GetBlobCommand extends QueryCommand {
   GetBlobCommand() {
     argParser
-      ..addOption(
-        "did",
-        help: r"The DID of the account.",
-        mandatory: true,
-      )
+      ..addOption("did", help: r"The DID of the account.", mandatory: true)
       ..addOption(
         "cid",
         help: r"The CID of the blob to fetch",
@@ -44,7 +40,7 @@ final class GetBlobCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "did": argResults!["did"],
-        "cid": argResults!["cid"],
-      };
+    "did": argResults!["did"],
+    "cid": argResults!["cid"],
+  };
 }

@@ -20,10 +20,7 @@ part 'input.g.dart';
 
 @freezed
 abstract class SyncGetBlobInput with _$SyncGetBlobInput {
-  static const knownProps = <String>[
-    'did',
-    'cid',
-  ];
+  static const knownProps = <String>['did', 'cid'];
 
   const factory SyncGetBlobInput({
     /// The DID of the account.
@@ -31,6 +28,7 @@ abstract class SyncGetBlobInput with _$SyncGetBlobInput {
 
     /// The CID of the blob to fetch
     required String cid,
+
     Map<String, dynamic>? $unknown,
   }) = _SyncGetBlobInput;
 
@@ -44,14 +42,12 @@ final class SyncGetBlobInputConverter
 
   @override
   SyncGetBlobInput fromJson(Map<String, dynamic> json) {
-    return SyncGetBlobInput.fromJson(translate(
-      json,
-      SyncGetBlobInput.knownProps,
-    ));
+    return SyncGetBlobInput.fromJson(
+      translate(json, SyncGetBlobInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SyncGetBlobInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SyncGetBlobInput object) =>
+      untranslate(object.toJson());
 }

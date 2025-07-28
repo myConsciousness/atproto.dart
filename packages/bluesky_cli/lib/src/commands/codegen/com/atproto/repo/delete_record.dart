@@ -27,11 +27,7 @@ final class DeleteRecordCommand extends ProcedureCommand {
         help: r"The NSID of the record collection.",
         mandatory: true,
       )
-      ..addOption(
-        "rkey",
-        help: r"The Record Key.",
-        mandatory: true,
-      )
+      ..addOption("rkey", help: r"The Record Key.", mandatory: true)
       ..addOption(
         "swapRecord",
         help: r"Compare and swap with the previous record by CID.",
@@ -58,12 +54,12 @@ final class DeleteRecordCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "repo": argResults!["repo"],
-        "collection": argResults!["collection"],
-        "rkey": argResults!["rkey"],
-        if (argResults!["swapRecord"] != null)
-          "swapRecord": argResults!["swapRecord"],
-        if (argResults!["swapCommit"] != null)
-          "swapCommit": argResults!["swapCommit"],
-      };
+    "repo": argResults!["repo"],
+    "collection": argResults!["collection"],
+    "rkey": argResults!["rkey"],
+    if (argResults!["swapRecord"] != null)
+      "swapRecord": argResults!["swapRecord"],
+    if (argResults!["swapCommit"] != null)
+      "swapCommit": argResults!["swapCommit"],
+  };
 }

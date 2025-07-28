@@ -21,14 +21,12 @@ part 'input.g.dart';
 @freezed
 abstract class AdminUpdateAccountHandleInput
     with _$AdminUpdateAccountHandleInput {
-  static const knownProps = <String>[
-    'did',
-    'handle',
-  ];
+  static const knownProps = <String>['did', 'handle'];
 
   const factory AdminUpdateAccountHandleInput({
     required String did,
     required String handle,
+
     Map<String, dynamic>? $unknown,
   }) = _AdminUpdateAccountHandleInput;
 
@@ -42,15 +40,12 @@ final class AdminUpdateAccountHandleInputConverter
 
   @override
   AdminUpdateAccountHandleInput fromJson(Map<String, dynamic> json) {
-    return AdminUpdateAccountHandleInput.fromJson(translate(
-      json,
-      AdminUpdateAccountHandleInput.knownProps,
-    ));
+    return AdminUpdateAccountHandleInput.fromJson(
+      translate(json, AdminUpdateAccountHandleInput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(AdminUpdateAccountHandleInput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

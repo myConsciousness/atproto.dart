@@ -16,11 +16,7 @@ import '../../../../procedure_command.dart';
 
 final class RequestPasswordResetCommand extends ProcedureCommand {
   RequestPasswordResetCommand() {
-    argParser
-      ..addOption(
-        "email",
-        mandatory: true,
-      );
+    argParser..addOption("email", mandatory: true);
   }
 
   @override
@@ -38,7 +34,5 @@ final class RequestPasswordResetCommand extends ProcedureCommand {
   String get methodId => "com.atproto.server.requestPasswordReset";
 
   @override
-  Map<String, dynamic>? get body => {
-        "email": argResults!["email"],
-      };
+  Map<String, dynamic>? get body => {"email": argResults!["email"]};
 }

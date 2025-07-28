@@ -22,13 +22,10 @@ part 'label_value.freezed.dart';
 abstract class LabelValue with _$LabelValue {
   const LabelValue._();
 
-  const factory LabelValue.knownValue({
-    required KnownLabelValue data,
-  }) = LabelValueKnownValue;
+  const factory LabelValue.knownValue({required KnownLabelValue data}) =
+      LabelValueKnownValue;
 
-  const factory LabelValue.unknown({
-    required String data,
-  }) = LabelValueUnknown;
+  const factory LabelValue.unknown({required String data}) = LabelValueUnknown;
 
   static LabelValue? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,10 +67,8 @@ final class LabelValueConverter extends JsonConverter<LabelValue, String> {
   }
 
   @override
-  String toJson(LabelValue object) => object.when(
-        knownValue: (data) => data.value,
-        unknown: (data) => data,
-      );
+  String toJson(LabelValue object) =>
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownLabelValue implements Serializable {
@@ -98,8 +93,7 @@ enum KnownLabelValue implements Serializable {
   @JsonValue('nsfl')
   nsfl('nsfl'),
   @JsonValue('gore')
-  gore('gore'),
-  ;
+  gore('gore');
 
   @override
   final String value;

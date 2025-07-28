@@ -23,12 +23,7 @@ part 'output.g.dart';
 
 @freezed
 abstract class SyncGetRepoStatusOutput with _$SyncGetRepoStatusOutput {
-  static const knownProps = <String>[
-    'did',
-    'active',
-    'status',
-    'rev',
-  ];
+  static const knownProps = <String>['did', 'active', 'status', 'rev'];
 
   const factory SyncGetRepoStatusOutput({
     required String did,
@@ -39,6 +34,7 @@ abstract class SyncGetRepoStatusOutput with _$SyncGetRepoStatusOutput {
 
     /// Optional field, the current rev of the repo, if active=true
     String? rev,
+
     Map<String, dynamic>? $unknown,
   }) = _SyncGetRepoStatusOutput;
 
@@ -61,14 +57,12 @@ final class SyncGetRepoStatusOutputConverter
 
   @override
   SyncGetRepoStatusOutput fromJson(Map<String, dynamic> json) {
-    return SyncGetRepoStatusOutput.fromJson(translate(
-      json,
-      SyncGetRepoStatusOutput.knownProps,
-    ));
+    return SyncGetRepoStatusOutput.fromJson(
+      translate(json, SyncGetRepoStatusOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SyncGetRepoStatusOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SyncGetRepoStatusOutput object) =>
+      untranslate(object.toJson());
 }

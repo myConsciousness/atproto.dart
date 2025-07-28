@@ -24,11 +24,11 @@ final class MarkdownLinkEntity implements Facetable {
   });
 
   Entity toEntity() => Entity(
-        type: EntityType.markdownLink,
-        value: url,
-        indices: ByteIndices(
-          start: indices.start + 1,
-          end: indices.start + utf8.encode(text).length + 1,
-        ),
-      );
+    type: EntityType.markdownLink,
+    value: url,
+    indices: ByteIndices(
+      start: indices.start + 1,
+      end: indices.start + utf8.encode(text).length + 1,
+    ),
+  );
 }

@@ -17,10 +17,7 @@ import '../../../../procedure_command.dart';
 final class UpdateAccountSigningKeyCommand extends ProcedureCommand {
   UpdateAccountSigningKeyCommand() {
     argParser
-      ..addOption(
-        "did",
-        mandatory: true,
-      )
+      ..addOption("did", mandatory: true)
       ..addOption(
         "signingKey",
         help: r"Did-key formatted public key",
@@ -44,7 +41,7 @@ final class UpdateAccountSigningKeyCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "did": argResults!["did"],
-        "signingKey": argResults!["signingKey"],
-      };
+    "did": argResults!["did"],
+    "signingKey": argResults!["signingKey"],
+  };
 }

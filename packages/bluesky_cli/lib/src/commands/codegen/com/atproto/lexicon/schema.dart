@@ -70,9 +70,7 @@ final class _CreateSchemaCommand extends CreateRecordCommand {
   String get collection => "com.atproto.lexicon.schema";
 
   @override
-  Map<String, dynamic> get record => {
-        "lexicon": argResults!["lexicon"],
-      };
+  Map<String, dynamic> get record => {"lexicon": argResults!["lexicon"]};
 }
 
 final class _PutSchemaCommand extends PutRecordCommand {
@@ -105,18 +103,12 @@ final class _PutSchemaCommand extends PutRecordCommand {
   String get collection => "com.atproto.lexicon.schema";
 
   @override
-  Map<String, dynamic> get record => {
-        "lexicon": argResults!["lexicon"],
-      };
+  Map<String, dynamic> get record => {"lexicon": argResults!["lexicon"]};
 }
 
 final class _DeleteSchemaCommand extends DeleteRecordCommand {
   _DeleteSchemaCommand() {
-    argParser
-      ..addOption(
-        "rkey",
-        mandatory: true,
-      );
+    argParser..addOption("rkey", mandatory: true);
   }
 
   @override
@@ -139,10 +131,7 @@ final class _DeleteSchemaCommand extends DeleteRecordCommand {
 final class _GetSchemaCommand extends QueryCommand {
   _GetSchemaCommand() {
     argParser
-      ..addOption(
-        "rkey",
-        mandatory: true,
-      )
+      ..addOption("rkey", mandatory: true)
       ..addOption("cid");
   }
 
@@ -160,11 +149,11 @@ final class _GetSchemaCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-        'repo': await did,
-        'collection': methodId,
-        'rkey': argResults!['rkey'],
-        if (argResults!['cid'] != null) 'cid': argResults!['cid'],
-      };
+    'repo': await did,
+    'collection': methodId,
+    'rkey': argResults!['rkey'],
+    if (argResults!['cid'] != null) 'cid': argResults!['cid'],
+  };
 }
 
 final class _ListSchemaCommand extends QueryCommand {
@@ -190,10 +179,10 @@ final class _ListSchemaCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-        'repo': await did,
-        'collection': methodId,
-        'limit': argResults!['limit'],
-        if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
-        'reverse': argResults!['reverse'],
-      };
+    'repo': await did,
+    'collection': methodId,
+    'limit': argResults!['limit'],
+    if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
+    'reverse': argResults!['reverse'],
+  };
 }

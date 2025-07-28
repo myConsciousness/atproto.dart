@@ -17,13 +17,8 @@ import '../../../../query_command.dart';
 final class ListHostsCommand extends QueryCommand {
   ListHostsCommand() {
     argParser
-      ..addOption(
-        "limit",
-        defaultsTo: "200",
-      )
-      ..addOption(
-        "cursor",
-      );
+      ..addOption("limit", defaultsTo: "200")
+      ..addOption("cursor");
   }
 
   @override
@@ -41,7 +36,7 @@ final class ListHostsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "limit": argResults!["limit"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-      };
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+  };
 }

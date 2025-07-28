@@ -38,10 +38,10 @@ final class LexXrpcSchemaConverter
 
   @override
   Map<String, dynamic> toJson(LexXrpcSchema object) => object.when(
-        refVariant: (data) => data.when(
-          ref: (data) => data.toJson(),
-          refUnion: (data) => data.toJson(),
-        ),
-        object: (data) => data.toJson(),
-      );
+    refVariant: (data) => data.when(
+      ref: (data) => data.toJson(),
+      refUnion: (data) => data.toJson(),
+    ),
+    object: (data) => data.toJson(),
+  );
 }

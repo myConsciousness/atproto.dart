@@ -42,10 +42,7 @@ final class DeclarationCommand extends Command<void> {
 final class _CreateDeclarationCommand extends CreateRecordCommand {
   _CreateDeclarationCommand() {
     argParser
-      ..addOption(
-        "allowIncoming",
-        mandatory: true,
-      )
+      ..addOption("allowIncoming", mandatory: true)
       ..addOption("rkey");
   }
 
@@ -68,17 +65,14 @@ final class _CreateDeclarationCommand extends CreateRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-        "allowIncoming": argResults!["allowIncoming"],
-      };
+    "allowIncoming": argResults!["allowIncoming"],
+  };
 }
 
 final class _PutDeclarationCommand extends PutRecordCommand {
   _PutDeclarationCommand() {
     argParser
-      ..addOption(
-        "allowIncoming",
-        mandatory: true,
-      )
+      ..addOption("allowIncoming", mandatory: true)
       ..addOption("rkey");
   }
 
@@ -101,17 +95,13 @@ final class _PutDeclarationCommand extends PutRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-        "allowIncoming": argResults!["allowIncoming"],
-      };
+    "allowIncoming": argResults!["allowIncoming"],
+  };
 }
 
 final class _DeleteDeclarationCommand extends DeleteRecordCommand {
   _DeleteDeclarationCommand() {
-    argParser
-      ..addOption(
-        "rkey",
-        mandatory: true,
-      );
+    argParser..addOption("rkey", mandatory: true);
   }
 
   @override
@@ -134,10 +124,7 @@ final class _DeleteDeclarationCommand extends DeleteRecordCommand {
 final class _GetDeclarationCommand extends QueryCommand {
   _GetDeclarationCommand() {
     argParser
-      ..addOption(
-        "rkey",
-        mandatory: true,
-      )
+      ..addOption("rkey", mandatory: true)
       ..addOption("cid");
   }
 
@@ -155,11 +142,11 @@ final class _GetDeclarationCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-        'repo': await did,
-        'collection': methodId,
-        'rkey': argResults!['rkey'],
-        if (argResults!['cid'] != null) 'cid': argResults!['cid'],
-      };
+    'repo': await did,
+    'collection': methodId,
+    'rkey': argResults!['rkey'],
+    if (argResults!['cid'] != null) 'cid': argResults!['cid'],
+  };
 }
 
 final class _ListDeclarationCommand extends QueryCommand {
@@ -185,10 +172,10 @@ final class _ListDeclarationCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-        'repo': await did,
-        'collection': methodId,
-        'limit': argResults!['limit'],
-        if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
-        'reverse': argResults!['reverse'],
-      };
+    'repo': await did,
+    'collection': methodId,
+    'limit': argResults!['limit'],
+    if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
+    'reverse': argResults!['reverse'],
+  };
 }

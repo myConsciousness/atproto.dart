@@ -20,17 +20,14 @@ part 'repo_blob_ref.g.dart';
 
 @freezed
 abstract class RepoBlobRef with _$RepoBlobRef {
-  static const knownProps = <String>[
-    'did',
-    'cid',
-    'recordUri',
-  ];
+  static const knownProps = <String>['did', 'cid', 'recordUri'];
 
   const factory RepoBlobRef({
     @Default('com.atproto.admin.defs#repoBlobRef') String $type,
     required String did,
     required String cid,
     String? recordUri,
+
     Map<String, dynamic>? $unknown,
   }) = _RepoBlobRef;
 
@@ -54,14 +51,10 @@ final class RepoBlobRefConverter
 
   @override
   RepoBlobRef fromJson(Map<String, dynamic> json) {
-    return RepoBlobRef.fromJson(translate(
-      json,
-      RepoBlobRef.knownProps,
-    ));
+    return RepoBlobRef.fromJson(translate(json, RepoBlobRef.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(RepoBlobRef object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RepoBlobRef object) =>
+      untranslate(object.toJson());
 }

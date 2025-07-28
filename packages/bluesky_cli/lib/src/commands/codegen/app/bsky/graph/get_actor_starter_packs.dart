@@ -17,17 +17,9 @@ import '../../../../query_command.dart';
 final class GetActorStarterPacksCommand extends QueryCommand {
   GetActorStarterPacksCommand() {
     argParser
-      ..addOption(
-        "actor",
-        mandatory: true,
-      )
-      ..addOption(
-        "limit",
-        defaultsTo: "50",
-      )
-      ..addOption(
-        "cursor",
-      );
+      ..addOption("actor", mandatory: true)
+      ..addOption("limit", defaultsTo: "50")
+      ..addOption("cursor");
   }
 
   @override
@@ -46,8 +38,8 @@ final class GetActorStarterPacksCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "actor": argResults!["actor"],
-        "limit": argResults!["limit"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-      };
+    "actor": argResults!["actor"],
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+  };
 }

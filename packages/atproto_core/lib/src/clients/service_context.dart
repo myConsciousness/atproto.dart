@@ -29,17 +29,18 @@ base class ServiceContext {
     RetryConfig? retryConfig,
     final xrpc.GetClient? mockedGetClient,
     final xrpc.PostClient? mockedPostClient,
-  })  : _headers = headers,
-        _protocol = protocol ?? defaultProtocol,
-        service = service ??
-            session?.atprotoPdsEndpoint ??
-            oAuthSession?.atprotoPdsEndpoint ??
-            defaultService,
-        relayService = relayService ?? defaultRelayService,
-        _challenge = Challenge(RetryPolicy(retryConfig)),
-        _timeout = timeout ?? defaultTimeout,
-        _mockedGetClient = mockedGetClient,
-        _mockedPostClient = mockedPostClient;
+  }) : _headers = headers,
+       _protocol = protocol ?? defaultProtocol,
+       service =
+           service ??
+           session?.atprotoPdsEndpoint ??
+           oAuthSession?.atprotoPdsEndpoint ??
+           defaultService,
+       relayService = relayService ?? defaultRelayService,
+       _challenge = Challenge(RetryPolicy(retryConfig)),
+       _timeout = timeout ?? defaultTimeout,
+       _mockedGetClient = mockedGetClient,
+       _mockedPostClient = mockedPostClient;
 
   /// The global headers without auth header.
   final Map<String, String>? _headers;
@@ -80,22 +81,21 @@ base class ServiceContext {
     final xrpc.ResponseDataBuilder<T>? to,
     final xrpc.ResponseDataAdaptor? adaptor,
     final xrpc.GetClient? client,
-  }) async =>
-      await _challenge.execute(
-        () async => await xrpc.query(
-          methodId,
-          protocol: _protocol,
-          service: service ?? this.service,
-          headers: {..._headers ?? const {}, ...headers ?? const {}},
-          parameters: parameters,
-          to: to,
-          adaptor: adaptor,
-          timeout: _timeout,
-          headerBuilder: _buildAuthHeader,
-          getClient: client ?? _mockedGetClient,
-        ),
-        onUpdateDpopNonce: _onUpdateDpopNonce,
-      );
+  }) async => await _challenge.execute(
+    () async => await xrpc.query(
+      methodId,
+      protocol: _protocol,
+      service: service ?? this.service,
+      headers: {..._headers ?? const {}, ...headers ?? const {}},
+      parameters: parameters,
+      to: to,
+      adaptor: adaptor,
+      timeout: _timeout,
+      headerBuilder: _buildAuthHeader,
+      getClient: client ?? _mockedGetClient,
+    ),
+    onUpdateDpopNonce: _onUpdateDpopNonce,
+  );
 
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {
@@ -105,38 +105,36 @@ base class ServiceContext {
     final dynamic body,
     final xrpc.ResponseDataBuilder<T>? to,
     final xrpc.PostClient? client,
-  }) async =>
-      await _challenge.execute(
-        () async => await xrpc.procedure(
-          methodId,
-          protocol: _protocol,
-          service: service ?? this.service,
-          headers: {..._headers ?? const {}, ...headers ?? const {}},
-          parameters: parameters,
-          body: body,
-          to: to,
-          timeout: _timeout,
-          headerBuilder: _buildAuthHeader,
-          postClient: client ?? _mockedPostClient,
-        ),
-        onUpdateDpopNonce: _onUpdateDpopNonce,
-      );
+  }) async => await _challenge.execute(
+    () async => await xrpc.procedure(
+      methodId,
+      protocol: _protocol,
+      service: service ?? this.service,
+      headers: {..._headers ?? const {}, ...headers ?? const {}},
+      parameters: parameters,
+      body: body,
+      to: to,
+      timeout: _timeout,
+      headerBuilder: _buildAuthHeader,
+      postClient: client ?? _mockedPostClient,
+    ),
+    onUpdateDpopNonce: _onUpdateDpopNonce,
+  );
 
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
     final xrpc.NSID methodId, {
     final Map<String, dynamic>? parameters,
     final xrpc.ResponseDataBuilder<T>? to,
     final xrpc.ResponseDataAdaptor? adaptor,
-  }) async =>
-      await _challenge.execute(
-        () => xrpc.subscribe(
-          methodId,
-          service: relayService,
-          parameters: parameters,
-          to: to,
-          adaptor: adaptor,
-        ),
-      );
+  }) async => await _challenge.execute(
+    () => xrpc.subscribe(
+      methodId,
+      service: relayService,
+      parameters: parameters,
+      to: to,
+      adaptor: adaptor,
+    ),
+  );
 
   Map<String, String> _buildAuthHeader(
     final Map<String, String> header,

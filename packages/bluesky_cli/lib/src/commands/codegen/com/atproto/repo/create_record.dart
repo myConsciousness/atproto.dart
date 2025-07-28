@@ -27,10 +27,7 @@ final class CreateRecordCommand extends ProcedureCommand {
         help: r"The NSID of the record collection.",
         mandatory: true,
       )
-      ..addOption(
-        "rkey",
-        help: r"The Record Key.",
-      )
+      ..addOption("rkey", help: r"The Record Key.")
       ..addFlag(
         "validate",
         help:
@@ -63,13 +60,12 @@ final class CreateRecordCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "repo": argResults!["repo"],
-        "collection": argResults!["collection"],
-        if (argResults!["rkey"] != null) "rkey": argResults!["rkey"],
-        if (argResults!["validate"] != null)
-          "validate": argResults!["validate"],
-        "record": argResults!["record"],
-        if (argResults!["swapCommit"] != null)
-          "swapCommit": argResults!["swapCommit"],
-      };
+    "repo": argResults!["repo"],
+    "collection": argResults!["collection"],
+    if (argResults!["rkey"] != null) "rkey": argResults!["rkey"],
+    if (argResults!["validate"] != null) "validate": argResults!["validate"],
+    "record": argResults!["record"],
+    if (argResults!["swapCommit"] != null)
+      "swapCommit": argResults!["swapCommit"],
+  };
 }

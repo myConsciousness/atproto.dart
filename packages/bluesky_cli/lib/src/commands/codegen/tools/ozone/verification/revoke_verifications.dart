@@ -44,8 +44,8 @@ final class RevokeVerificationsCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "uris": argResults!["uris"],
-        if (argResults!["revokeReason"] != null)
-          "revokeReason": argResults!["revokeReason"],
-      };
+    "uris": argResults!["uris"],
+    if (argResults!["revokeReason"] != null)
+      "revokeReason": argResults!["revokeReason"],
+  };
 }

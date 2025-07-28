@@ -20,16 +20,13 @@ part 'input.g.dart';
 
 @freezed
 abstract class ServerDeleteAccountInput with _$ServerDeleteAccountInput {
-  static const knownProps = <String>[
-    'did',
-    'password',
-    'token',
-  ];
+  static const knownProps = <String>['did', 'password', 'token'];
 
   const factory ServerDeleteAccountInput({
     required String did,
     required String password,
     required String token,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerDeleteAccountInput;
 
@@ -43,14 +40,12 @@ final class ServerDeleteAccountInputConverter
 
   @override
   ServerDeleteAccountInput fromJson(Map<String, dynamic> json) {
-    return ServerDeleteAccountInput.fromJson(translate(
-      json,
-      ServerDeleteAccountInput.knownProps,
-    ));
+    return ServerDeleteAccountInput.fromJson(
+      translate(json, ServerDeleteAccountInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ServerDeleteAccountInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ServerDeleteAccountInput object) =>
+      untranslate(object.toJson());
 }

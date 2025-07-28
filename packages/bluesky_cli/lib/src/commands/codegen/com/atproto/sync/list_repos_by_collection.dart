@@ -17,19 +17,14 @@ import '../../../../query_command.dart';
 final class ListReposByCollectionCommand extends QueryCommand {
   ListReposByCollectionCommand() {
     argParser
-      ..addOption(
-        "collection",
-        mandatory: true,
-      )
+      ..addOption("collection", mandatory: true)
       ..addOption(
         "limit",
         help:
             r"Maximum size of response set. Recommend setting a large maximum (1000+) when enumerating large DID lists.",
         defaultsTo: "500",
       )
-      ..addOption(
-        "cursor",
-      );
+      ..addOption("cursor");
   }
 
   @override
@@ -48,8 +43,8 @@ final class ListReposByCollectionCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "collection": argResults!["collection"],
-        "limit": argResults!["limit"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-      };
+    "collection": argResults!["collection"],
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+  };
 }

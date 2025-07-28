@@ -26,15 +26,12 @@ part 'union_main_writes.freezed.dart';
 abstract class URepoApplyWritesWrites with _$URepoApplyWritesWrites {
   const URepoApplyWritesWrites._();
 
-  const factory URepoApplyWritesWrites.create({
-    required Create data,
-  }) = URepoApplyWritesWritesCreate;
-  const factory URepoApplyWritesWrites.update({
-    required Update data,
-  }) = URepoApplyWritesWritesUpdate;
-  const factory URepoApplyWritesWrites.delete({
-    required Delete data,
-  }) = URepoApplyWritesWritesDelete;
+  const factory URepoApplyWritesWrites.create({required Create data}) =
+      URepoApplyWritesWritesCreate;
+  const factory URepoApplyWritesWrites.update({required Update data}) =
+      URepoApplyWritesWritesUpdate;
+  const factory URepoApplyWritesWrites.delete({required Delete data}) =
+      URepoApplyWritesWritesDelete;
 
   const factory URepoApplyWritesWrites.unknown({
     required Map<String, dynamic> data,
@@ -91,9 +88,10 @@ final class URepoApplyWritesWritesConverter
 
   @override
   Map<String, dynamic> toJson(URepoApplyWritesWrites object) => object.when(
-        create: (data) => const CreateConverter().toJson(data),
-        update: (data) => const UpdateConverter().toJson(data),
-        delete: (data) => const DeleteConverter().toJson(data),
-        unknown: (data) => data,
-      );
+    create: (data) => const CreateConverter().toJson(data),
+    update: (data) => const UpdateConverter().toJson(data),
+    delete: (data) => const DeleteConverter().toJson(data),
+
+    unknown: (data) => data,
+  );
 }

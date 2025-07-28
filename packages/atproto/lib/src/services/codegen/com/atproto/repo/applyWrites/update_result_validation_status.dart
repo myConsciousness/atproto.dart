@@ -27,9 +27,8 @@ abstract class UpdateResultValidationStatus
     required KnownUpdateResultValidationStatus data,
   }) = UpdateResultValidationStatusKnownValue;
 
-  const factory UpdateResultValidationStatus.unknown({
-    required String data,
-  }) = UpdateResultValidationStatusUnknown;
+  const factory UpdateResultValidationStatus.unknown({required String data}) =
+      UpdateResultValidationStatusUnknown;
 
   static UpdateResultValidationStatus? valueOf(final String? value) {
     if (value == null) return null;
@@ -73,18 +72,15 @@ final class UpdateResultValidationStatusConverter
   }
 
   @override
-  String toJson(UpdateResultValidationStatus object) => object.when(
-        knownValue: (data) => data.value,
-        unknown: (data) => data,
-      );
+  String toJson(UpdateResultValidationStatus object) =>
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownUpdateResultValidationStatus implements Serializable {
   @JsonValue('valid')
   valid('valid'),
   @JsonValue('unknown')
-  unknown('unknown'),
-  ;
+  unknown('unknown');
 
   @override
   final String value;

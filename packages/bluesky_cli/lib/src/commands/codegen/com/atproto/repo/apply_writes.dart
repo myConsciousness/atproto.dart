@@ -27,9 +27,7 @@ final class ApplyWritesCommand extends ProcedureCommand {
         help:
             r"Can be set to 'false' to skip Lexicon schema validation of record data across all operations, 'true' to require it, or leave unset to validate only for known Lexicons.",
       )
-      ..addMultiOption(
-        "writes",
-      )
+      ..addMultiOption("writes")
       ..addOption(
         "swapCommit",
         help:
@@ -53,11 +51,10 @@ final class ApplyWritesCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "repo": argResults!["repo"],
-        if (argResults!["validate"] != null)
-          "validate": argResults!["validate"],
-        "writes": argResults!["writes"],
-        if (argResults!["swapCommit"] != null)
-          "swapCommit": argResults!["swapCommit"],
-      };
+    "repo": argResults!["repo"],
+    if (argResults!["validate"] != null) "validate": argResults!["validate"],
+    "writes": argResults!["writes"],
+    if (argResults!["swapCommit"] != null)
+      "swapCommit": argResults!["swapCommit"],
+  };
 }

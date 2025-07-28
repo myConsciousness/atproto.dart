@@ -17,20 +17,9 @@ import '../../../../query_command.dart';
 final class GetRecordCommand extends QueryCommand {
   GetRecordCommand() {
     argParser
-      ..addOption(
-        "did",
-        help: r"The DID of the repo.",
-        mandatory: true,
-      )
-      ..addOption(
-        "collection",
-        mandatory: true,
-      )
-      ..addOption(
-        "rkey",
-        help: r"Record Key",
-        mandatory: true,
-      );
+      ..addOption("did", help: r"The DID of the repo.", mandatory: true)
+      ..addOption("collection", mandatory: true)
+      ..addOption("rkey", help: r"Record Key", mandatory: true);
   }
 
   @override
@@ -49,8 +38,8 @@ final class GetRecordCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "did": argResults!["did"],
-        "collection": argResults!["collection"],
-        "rkey": argResults!["rkey"],
-      };
+    "did": argResults!["did"],
+    "collection": argResults!["collection"],
+    "rkey": argResults!["rkey"],
+  };
 }

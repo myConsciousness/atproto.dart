@@ -75,10 +75,8 @@ final class LabelValueDefinitionDefaultSettingConverter
   }
 
   @override
-  String toJson(LabelValueDefinitionDefaultSetting object) => object.when(
-        knownValue: (data) => data.value,
-        unknown: (data) => data,
-      );
+  String toJson(LabelValueDefinitionDefaultSetting object) =>
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownLabelValueDefinitionDefaultSetting implements Serializable {
@@ -87,8 +85,7 @@ enum KnownLabelValueDefinitionDefaultSetting implements Serializable {
   @JsonValue('warn')
   warn('warn'),
   @JsonValue('hide')
-  hide('hide'),
-  ;
+  hide('hide');
 
   @override
   final String value;

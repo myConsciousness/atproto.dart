@@ -17,26 +17,15 @@ import '../../../../query_command.dart';
 final class GetAuthorFeedCommand extends QueryCommand {
   GetAuthorFeedCommand() {
     argParser
-      ..addOption(
-        "actor",
-        mandatory: true,
-      )
-      ..addOption(
-        "limit",
-        defaultsTo: "50",
-      )
-      ..addOption(
-        "cursor",
-      )
+      ..addOption("actor", mandatory: true)
+      ..addOption("limit", defaultsTo: "50")
+      ..addOption("cursor")
       ..addOption(
         "filter",
         help: r"Combinations of post/repost types to include in response.",
         defaultsTo: "posts_with_replies",
       )
-      ..addFlag(
-        "includePins",
-        defaultsTo: false,
-      );
+      ..addFlag("includePins", defaultsTo: false);
   }
 
   @override
@@ -55,10 +44,10 @@ final class GetAuthorFeedCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "actor": argResults!["actor"],
-        "limit": argResults!["limit"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-        "filter": argResults!["filter"],
-        "includePins": argResults!["includePins"],
-      };
+    "actor": argResults!["actor"],
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "filter": argResults!["filter"],
+    "includePins": argResults!["includePins"],
+  };
 }

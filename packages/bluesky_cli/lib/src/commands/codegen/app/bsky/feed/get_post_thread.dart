@@ -51,8 +51,8 @@ final class GetPostThreadCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "uri": argResults!["uri"],
-        "depth": argResults!["depth"],
-        "parentHeight": argResults!["parentHeight"],
-      };
+    "uri": argResults!["uri"],
+    "depth": argResults!["depth"],
+    "parentHeight": argResults!["parentHeight"],
+  };
 }

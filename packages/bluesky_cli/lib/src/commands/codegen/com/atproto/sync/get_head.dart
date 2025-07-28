@@ -16,12 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetHeadCommand extends QueryCommand {
   GetHeadCommand() {
-    argParser
-      ..addOption(
-        "did",
-        help: r"The DID of the repo.",
-        mandatory: true,
-      );
+    argParser..addOption("did", help: r"The DID of the repo.", mandatory: true);
   }
 
   @override
@@ -38,7 +33,5 @@ final class GetHeadCommand extends QueryCommand {
   String get methodId => "com.atproto.sync.getHead";
 
   @override
-  Map<String, dynamic>? get parameters => {
-        "did": argResults!["did"],
-      };
+  Map<String, dynamic>? get parameters => {"did": argResults!["did"]};
 }

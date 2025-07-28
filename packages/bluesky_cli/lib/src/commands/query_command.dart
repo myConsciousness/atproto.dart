@@ -31,8 +31,9 @@ abstract class QueryCommand extends BskyCommand {
       action: () async => await xrpc.query<String>(
         xrpc.NSID(methodId),
         service: service,
-        headers:
-            jwt != null ? {'Authorization': 'Bearer ${await accessJwt}'} : null,
+        headers: jwt != null
+            ? {'Authorization': 'Bearer ${await accessJwt}'}
+            : null,
         parameters: await parameters,
       ),
       pretty: globalResults!['pretty'],

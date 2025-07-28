@@ -44,17 +44,9 @@ final class ServiceCommand extends Command<void> {
 final class _CreateServiceCommand extends CreateRecordCommand {
   _CreateServiceCommand() {
     argParser
-      ..addOption(
-        "policies",
-        mandatory: true,
-      )
-      ..addOption(
-        "labels",
-      )
-      ..addOption(
-        "createdAt",
-        mandatory: true,
-      )
+      ..addOption("policies", mandatory: true)
+      ..addOption("labels")
+      ..addOption("createdAt", mandatory: true)
       ..addMultiOption(
         "reasonTypes",
         help:
@@ -92,33 +84,25 @@ final class _CreateServiceCommand extends CreateRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-        "policies": jsonDecode(argResults!["policies"]),
-        if (argResults!["labels"] != null)
-          "labels": jsonDecode(argResults!["labels"]),
-        "createdAt": argResults!["createdAt"],
-        if (argResults!["reasonTypes"] != null)
-          "reasonTypes": argResults!["reasonTypes"],
-        if (argResults!["subjectTypes"] != null)
-          "subjectTypes": argResults!["subjectTypes"],
-        if (argResults!["subjectCollections"] != null)
-          "subjectCollections": argResults!["subjectCollections"],
-      };
+    "policies": jsonDecode(argResults!["policies"]),
+    if (argResults!["labels"] != null)
+      "labels": jsonDecode(argResults!["labels"]),
+    "createdAt": argResults!["createdAt"],
+    if (argResults!["reasonTypes"] != null)
+      "reasonTypes": argResults!["reasonTypes"],
+    if (argResults!["subjectTypes"] != null)
+      "subjectTypes": argResults!["subjectTypes"],
+    if (argResults!["subjectCollections"] != null)
+      "subjectCollections": argResults!["subjectCollections"],
+  };
 }
 
 final class _PutServiceCommand extends PutRecordCommand {
   _PutServiceCommand() {
     argParser
-      ..addOption(
-        "policies",
-        mandatory: true,
-      )
-      ..addOption(
-        "labels",
-      )
-      ..addOption(
-        "createdAt",
-        mandatory: true,
-      )
+      ..addOption("policies", mandatory: true)
+      ..addOption("labels")
+      ..addOption("createdAt", mandatory: true)
       ..addMultiOption(
         "reasonTypes",
         help:
@@ -155,26 +139,22 @@ final class _PutServiceCommand extends PutRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-        "policies": jsonDecode(argResults!["policies"]),
-        if (argResults!["labels"] != null)
-          "labels": jsonDecode(argResults!["labels"]),
-        "createdAt": argResults!["createdAt"],
-        if (argResults!["reasonTypes"] != null)
-          "reasonTypes": argResults!["reasonTypes"],
-        if (argResults!["subjectTypes"] != null)
-          "subjectTypes": argResults!["subjectTypes"],
-        if (argResults!["subjectCollections"] != null)
-          "subjectCollections": argResults!["subjectCollections"],
-      };
+    "policies": jsonDecode(argResults!["policies"]),
+    if (argResults!["labels"] != null)
+      "labels": jsonDecode(argResults!["labels"]),
+    "createdAt": argResults!["createdAt"],
+    if (argResults!["reasonTypes"] != null)
+      "reasonTypes": argResults!["reasonTypes"],
+    if (argResults!["subjectTypes"] != null)
+      "subjectTypes": argResults!["subjectTypes"],
+    if (argResults!["subjectCollections"] != null)
+      "subjectCollections": argResults!["subjectCollections"],
+  };
 }
 
 final class _DeleteServiceCommand extends DeleteRecordCommand {
   _DeleteServiceCommand() {
-    argParser
-      ..addOption(
-        "rkey",
-        mandatory: true,
-      );
+    argParser..addOption("rkey", mandatory: true);
   }
 
   @override
@@ -196,10 +176,7 @@ final class _DeleteServiceCommand extends DeleteRecordCommand {
 final class _GetServiceCommand extends QueryCommand {
   _GetServiceCommand() {
     argParser
-      ..addOption(
-        "rkey",
-        mandatory: true,
-      )
+      ..addOption("rkey", mandatory: true)
       ..addOption("cid");
   }
 
@@ -217,11 +194,11 @@ final class _GetServiceCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-        'repo': await did,
-        'collection': methodId,
-        'rkey': argResults!['rkey'],
-        if (argResults!['cid'] != null) 'cid': argResults!['cid'],
-      };
+    'repo': await did,
+    'collection': methodId,
+    'rkey': argResults!['rkey'],
+    if (argResults!['cid'] != null) 'cid': argResults!['cid'],
+  };
 }
 
 final class _ListServiceCommand extends QueryCommand {
@@ -247,10 +224,10 @@ final class _ListServiceCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-        'repo': await did,
-        'collection': methodId,
-        'limit': argResults!['limit'],
-        if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
-        'reverse': argResults!['reverse'],
-      };
+    'repo': await did,
+    'collection': methodId,
+    'limit': argResults!['limit'],
+    if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
+    'reverse': argResults!['reverse'],
+  };
 }

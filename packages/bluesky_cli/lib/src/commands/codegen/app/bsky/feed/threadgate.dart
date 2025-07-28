@@ -53,14 +53,8 @@ final class _CreateThreadgateCommand extends CreateRecordCommand {
         help:
             r"List of rules defining who can reply to this post. If value is an empty array, no one can reply. If value is undefined, anyone can reply.",
       )
-      ..addOption(
-        "createdAt",
-        mandatory: true,
-      )
-      ..addMultiOption(
-        "hiddenReplies",
-        help: r"List of hidden reply URIs.",
-      )
+      ..addOption("createdAt", mandatory: true)
+      ..addMultiOption("hiddenReplies", help: r"List of hidden reply URIs.")
       ..addOption("rkey");
   }
 
@@ -83,12 +77,12 @@ final class _CreateThreadgateCommand extends CreateRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-        "post": argResults!["post"],
-        if (argResults!["allow"] != null) "allow": argResults!["allow"],
-        "createdAt": argResults!["createdAt"],
-        if (argResults!["hiddenReplies"] != null)
-          "hiddenReplies": argResults!["hiddenReplies"],
-      };
+    "post": argResults!["post"],
+    if (argResults!["allow"] != null) "allow": argResults!["allow"],
+    "createdAt": argResults!["createdAt"],
+    if (argResults!["hiddenReplies"] != null)
+      "hiddenReplies": argResults!["hiddenReplies"],
+  };
 }
 
 final class _PutThreadgateCommand extends PutRecordCommand {
@@ -104,14 +98,8 @@ final class _PutThreadgateCommand extends PutRecordCommand {
         help:
             r"List of rules defining who can reply to this post. If value is an empty array, no one can reply. If value is undefined, anyone can reply.",
       )
-      ..addOption(
-        "createdAt",
-        mandatory: true,
-      )
-      ..addMultiOption(
-        "hiddenReplies",
-        help: r"List of hidden reply URIs.",
-      )
+      ..addOption("createdAt", mandatory: true)
+      ..addMultiOption("hiddenReplies", help: r"List of hidden reply URIs.")
       ..addOption("rkey");
   }
 
@@ -133,21 +121,17 @@ final class _PutThreadgateCommand extends PutRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-        "post": argResults!["post"],
-        if (argResults!["allow"] != null) "allow": argResults!["allow"],
-        "createdAt": argResults!["createdAt"],
-        if (argResults!["hiddenReplies"] != null)
-          "hiddenReplies": argResults!["hiddenReplies"],
-      };
+    "post": argResults!["post"],
+    if (argResults!["allow"] != null) "allow": argResults!["allow"],
+    "createdAt": argResults!["createdAt"],
+    if (argResults!["hiddenReplies"] != null)
+      "hiddenReplies": argResults!["hiddenReplies"],
+  };
 }
 
 final class _DeleteThreadgateCommand extends DeleteRecordCommand {
   _DeleteThreadgateCommand() {
-    argParser
-      ..addOption(
-        "rkey",
-        mandatory: true,
-      );
+    argParser..addOption("rkey", mandatory: true);
   }
 
   @override
@@ -169,10 +153,7 @@ final class _DeleteThreadgateCommand extends DeleteRecordCommand {
 final class _GetThreadgateCommand extends QueryCommand {
   _GetThreadgateCommand() {
     argParser
-      ..addOption(
-        "rkey",
-        mandatory: true,
-      )
+      ..addOption("rkey", mandatory: true)
       ..addOption("cid");
   }
 
@@ -190,11 +171,11 @@ final class _GetThreadgateCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-        'repo': await did,
-        'collection': methodId,
-        'rkey': argResults!['rkey'],
-        if (argResults!['cid'] != null) 'cid': argResults!['cid'],
-      };
+    'repo': await did,
+    'collection': methodId,
+    'rkey': argResults!['rkey'],
+    if (argResults!['cid'] != null) 'cid': argResults!['cid'],
+  };
 }
 
 final class _ListThreadgateCommand extends QueryCommand {
@@ -220,10 +201,10 @@ final class _ListThreadgateCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-        'repo': await did,
-        'collection': methodId,
-        'limit': argResults!['limit'],
-        if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
-        'reverse': argResults!['reverse'],
-      };
+    'repo': await did,
+    'collection': methodId,
+    'limit': argResults!['limit'],
+    if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
+    'reverse': argResults!['reverse'],
+  };
 }

@@ -20,13 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class SyncRequestCrawlInput with _$SyncRequestCrawlInput {
-  static const knownProps = <String>[
-    'hostname',
-  ];
+  static const knownProps = <String>['hostname'];
 
   const factory SyncRequestCrawlInput({
     /// Hostname of the current service (eg, PDS) that is requesting to be crawled.
     required String hostname,
+
     Map<String, dynamic>? $unknown,
   }) = _SyncRequestCrawlInput;
 
@@ -40,14 +39,12 @@ final class SyncRequestCrawlInputConverter
 
   @override
   SyncRequestCrawlInput fromJson(Map<String, dynamic> json) {
-    return SyncRequestCrawlInput.fromJson(translate(
-      json,
-      SyncRequestCrawlInput.knownProps,
-    ));
+    return SyncRequestCrawlInput.fromJson(
+      translate(json, SyncRequestCrawlInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SyncRequestCrawlInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SyncRequestCrawlInput object) =>
+      untranslate(object.toJson());
 }

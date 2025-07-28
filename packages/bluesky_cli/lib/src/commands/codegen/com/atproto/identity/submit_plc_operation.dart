@@ -16,11 +16,7 @@ import '../../../../procedure_command.dart';
 
 final class SubmitPlcOperationCommand extends ProcedureCommand {
   SubmitPlcOperationCommand() {
-    argParser
-      ..addOption(
-        "operation",
-        mandatory: true,
-      );
+    argParser..addOption("operation", mandatory: true);
   }
 
   @override
@@ -38,7 +34,5 @@ final class SubmitPlcOperationCommand extends ProcedureCommand {
   String get methodId => "com.atproto.identity.submitPlcOperation";
 
   @override
-  Map<String, dynamic>? get body => {
-        "operation": argResults!["operation"],
-      };
+  Map<String, dynamic>? get body => {"operation": argResults!["operation"]};
 }

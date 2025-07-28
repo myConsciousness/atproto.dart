@@ -16,11 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetJobStatusCommand extends QueryCommand {
   GetJobStatusCommand() {
-    argParser
-      ..addOption(
-        "jobId",
-        mandatory: true,
-      );
+    argParser..addOption("jobId", mandatory: true);
   }
 
   @override
@@ -36,7 +32,5 @@ final class GetJobStatusCommand extends QueryCommand {
   String get methodId => "app.bsky.video.getJobStatus";
 
   @override
-  Map<String, dynamic>? get parameters => {
-        "jobId": argResults!["jobId"],
-      };
+  Map<String, dynamic>? get parameters => {"jobId": argResults!["jobId"]};
 }

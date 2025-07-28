@@ -16,11 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetSuggestedFeedsCommand extends QueryCommand {
   GetSuggestedFeedsCommand() {
-    argParser
-      ..addOption(
-        "limit",
-        defaultsTo: "10",
-      );
+    argParser..addOption("limit", defaultsTo: "10");
   }
 
   @override
@@ -37,7 +33,5 @@ final class GetSuggestedFeedsCommand extends QueryCommand {
   String get methodId => "app.bsky.unspecced.getSuggestedFeeds";
 
   @override
-  Map<String, dynamic>? get parameters => {
-        "limit": argResults!["limit"],
-      };
+  Map<String, dynamic>? get parameters => {"limit": argResults!["limit"]};
 }

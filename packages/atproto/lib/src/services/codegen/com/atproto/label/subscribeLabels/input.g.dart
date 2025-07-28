@@ -9,25 +9,20 @@ part of 'input.dart';
 // **************************************************************************
 
 _LabelSubscribeLabelsInput _$LabelSubscribeLabelsInputFromJson(Map json) =>
-    $checkedCreate(
-      '_LabelSubscribeLabelsInput',
-      json,
-      ($checkedConvert) {
-        final val = _LabelSubscribeLabelsInput(
-          cursor: $checkedConvert('cursor', (v) => (v as num?)?.toInt()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+    $checkedCreate('_LabelSubscribeLabelsInput', json, ($checkedConvert) {
+      final val = _LabelSubscribeLabelsInput(
+        cursor: $checkedConvert('cursor', (v) => (v as num?)?.toInt()),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$LabelSubscribeLabelsInputToJson(
-        _LabelSubscribeLabelsInput instance) =>
-    <String, dynamic>{
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
-    };
+  _LabelSubscribeLabelsInput instance,
+) => <String, dynamic>{
+  'cursor': instance.cursor,
+  r'$unknown': instance.$unknown,
+};

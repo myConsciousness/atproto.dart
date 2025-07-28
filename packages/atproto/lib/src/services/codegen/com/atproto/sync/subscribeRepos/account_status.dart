@@ -22,13 +22,11 @@ part 'account_status.freezed.dart';
 abstract class AccountStatus with _$AccountStatus {
   const AccountStatus._();
 
-  const factory AccountStatus.knownValue({
-    required KnownAccountStatus data,
-  }) = AccountStatusKnownValue;
+  const factory AccountStatus.knownValue({required KnownAccountStatus data}) =
+      AccountStatusKnownValue;
 
-  const factory AccountStatus.unknown({
-    required String data,
-  }) = AccountStatusUnknown;
+  const factory AccountStatus.unknown({required String data}) =
+      AccountStatusUnknown;
 
   static AccountStatus? valueOf(final String? value) {
     if (value == null) return null;
@@ -71,10 +69,8 @@ final class AccountStatusConverter
   }
 
   @override
-  String toJson(AccountStatus object) => object.when(
-        knownValue: (data) => data.value,
-        unknown: (data) => data,
-      );
+  String toJson(AccountStatus object) =>
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownAccountStatus implements Serializable {
@@ -89,8 +85,7 @@ enum KnownAccountStatus implements Serializable {
   @JsonValue('desynchronized')
   desynchronized('desynchronized'),
   @JsonValue('throttled')
-  throttled('throttled'),
-  ;
+  throttled('throttled');
 
   @override
   final String value;

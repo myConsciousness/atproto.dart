@@ -22,13 +22,8 @@ final class GetListsCommand extends QueryCommand {
         help: r"The account (actor) to enumerate lists from.",
         mandatory: true,
       )
-      ..addOption(
-        "limit",
-        defaultsTo: "50",
-      )
-      ..addOption(
-        "cursor",
-      );
+      ..addOption("limit", defaultsTo: "50")
+      ..addOption("cursor");
   }
 
   @override
@@ -47,8 +42,8 @@ final class GetListsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "actor": argResults!["actor"],
-        "limit": argResults!["limit"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-      };
+    "actor": argResults!["actor"],
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+  };
 }

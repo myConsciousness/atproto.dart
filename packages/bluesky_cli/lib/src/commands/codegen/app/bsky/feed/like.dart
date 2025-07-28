@@ -44,17 +44,9 @@ final class LikeCommand extends Command<void> {
 final class _CreateLikeCommand extends CreateRecordCommand {
   _CreateLikeCommand() {
     argParser
-      ..addOption(
-        "subject",
-        mandatory: true,
-      )
-      ..addOption(
-        "createdAt",
-        mandatory: true,
-      )
-      ..addOption(
-        "via",
-      )
+      ..addOption("subject", mandatory: true)
+      ..addOption("createdAt", mandatory: true)
+      ..addOption("via")
       ..addOption("rkey");
   }
 
@@ -76,26 +68,18 @@ final class _CreateLikeCommand extends CreateRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-        "subject": jsonDecode(argResults!["subject"]),
-        "createdAt": argResults!["createdAt"],
-        if (argResults!["via"] != null) "via": jsonDecode(argResults!["via"]),
-      };
+    "subject": jsonDecode(argResults!["subject"]),
+    "createdAt": argResults!["createdAt"],
+    if (argResults!["via"] != null) "via": jsonDecode(argResults!["via"]),
+  };
 }
 
 final class _PutLikeCommand extends PutRecordCommand {
   _PutLikeCommand() {
     argParser
-      ..addOption(
-        "subject",
-        mandatory: true,
-      )
-      ..addOption(
-        "createdAt",
-        mandatory: true,
-      )
-      ..addOption(
-        "via",
-      )
+      ..addOption("subject", mandatory: true)
+      ..addOption("createdAt", mandatory: true)
+      ..addOption("via")
       ..addOption("rkey");
   }
 
@@ -117,19 +101,15 @@ final class _PutLikeCommand extends PutRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-        "subject": jsonDecode(argResults!["subject"]),
-        "createdAt": argResults!["createdAt"],
-        if (argResults!["via"] != null) "via": jsonDecode(argResults!["via"]),
-      };
+    "subject": jsonDecode(argResults!["subject"]),
+    "createdAt": argResults!["createdAt"],
+    if (argResults!["via"] != null) "via": jsonDecode(argResults!["via"]),
+  };
 }
 
 final class _DeleteLikeCommand extends DeleteRecordCommand {
   _DeleteLikeCommand() {
-    argParser
-      ..addOption(
-        "rkey",
-        mandatory: true,
-      );
+    argParser..addOption("rkey", mandatory: true);
   }
 
   @override
@@ -151,10 +131,7 @@ final class _DeleteLikeCommand extends DeleteRecordCommand {
 final class _GetLikeCommand extends QueryCommand {
   _GetLikeCommand() {
     argParser
-      ..addOption(
-        "rkey",
-        mandatory: true,
-      )
+      ..addOption("rkey", mandatory: true)
       ..addOption("cid");
   }
 
@@ -172,11 +149,11 @@ final class _GetLikeCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-        'repo': await did,
-        'collection': methodId,
-        'rkey': argResults!['rkey'],
-        if (argResults!['cid'] != null) 'cid': argResults!['cid'],
-      };
+    'repo': await did,
+    'collection': methodId,
+    'rkey': argResults!['rkey'],
+    if (argResults!['cid'] != null) 'cid': argResults!['cid'],
+  };
 }
 
 final class _ListLikeCommand extends QueryCommand {
@@ -202,10 +179,10 @@ final class _ListLikeCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-        'repo': await did,
-        'collection': methodId,
-        'limit': argResults!['limit'],
-        if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
-        'reverse': argResults!['reverse'],
-      };
+    'repo': await did,
+    'collection': methodId,
+    'limit': argResults!['limit'],
+    if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
+    'reverse': argResults!['reverse'],
+  };
 }

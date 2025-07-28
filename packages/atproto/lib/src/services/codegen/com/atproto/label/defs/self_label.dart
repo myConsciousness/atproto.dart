@@ -21,15 +21,14 @@ part 'self_label.g.dart';
 /// Metadata tag on an atproto record, published by the author within the record. Note that schemas should use #selfLabels, not #selfLabel.
 @freezed
 abstract class SelfLabel with _$SelfLabel {
-  static const knownProps = <String>[
-    'val',
-  ];
+  static const knownProps = <String>['val'];
 
   const factory SelfLabel({
     @Default('com.atproto.label.defs#selfLabel') String $type,
 
     /// The short string name of the value or type of this label.
     required String val,
+
     Map<String, dynamic>? $unknown,
   }) = _SelfLabel;
 
@@ -48,14 +47,9 @@ final class SelfLabelConverter
 
   @override
   SelfLabel fromJson(Map<String, dynamic> json) {
-    return SelfLabel.fromJson(translate(
-      json,
-      SelfLabel.knownProps,
-    ));
+    return SelfLabel.fromJson(translate(json, SelfLabel.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(SelfLabel object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SelfLabel object) => untranslate(object.toJson());
 }

@@ -11,251 +11,218 @@ part of 'info_name.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$InfoName {
-  Object get data;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is InfoName &&
-            const DeepCollectionEquality().equals(other.data, data));
-  }
+ Object get data;
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
-  @override
-  String toString() {
-    return 'InfoName(data: $data)';
-  }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is InfoName&&const DeepCollectionEquality().equals(other.data, data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'InfoName(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-class $InfoNameCopyWith<$Res> {
-  $InfoNameCopyWith(InfoName _, $Res Function(InfoName) __);
+class $InfoNameCopyWith<$Res>  {
+$InfoNameCopyWith(InfoName _, $Res Function(InfoName) __);
 }
+
 
 /// Adds pattern-matching-related methods to [InfoName].
 extension InfoNamePatterns on InfoName {
-  /// A variant of `map` that fallback to returning `orElse`.
-  ///
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case final Subclass value:
-  ///     return ...;
-  ///   case _:
-  ///     return orElse();
-  /// }
-  /// ```
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InfoNameKnownValue value)? knownValue,
-    TResult Function(InfoNameUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    final _that = this;
-    switch (_that) {
-      case InfoNameKnownValue() when knownValue != null:
-        return knownValue(_that);
-      case InfoNameUnknown() when unknown != null:
-        return unknown(_that);
-      case _:
-        return orElse();
-    }
-  }
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( InfoNameKnownValue value)?  knownValue,TResult Function( InfoNameUnknown value)?  unknown,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case InfoNameKnownValue() when knownValue != null:
+return knownValue(_that);case InfoNameUnknown() when unknown != null:
+return unknown(_that);case _:
+  return orElse();
 
-  /// A `switch`-like method, using callbacks.
-  ///
-  /// Callbacks receives the raw object, upcasted.
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case final Subclass value:
-  ///     return ...;
-  ///   case final Subclass2 value:
-  ///     return ...;
-  /// }
-  /// ```
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
 
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InfoNameKnownValue value) knownValue,
-    required TResult Function(InfoNameUnknown value) unknown,
-  }) {
-    final _that = this;
-    switch (_that) {
-      case InfoNameKnownValue():
-        return knownValue(_that);
-      case InfoNameUnknown():
-        return unknown(_that);
-      case _:
-        throw StateError('Unexpected subclass');
-    }
-  }
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( InfoNameKnownValue value)  knownValue,required TResult Function( InfoNameUnknown value)  unknown,}){
+final _that = this;
+switch (_that) {
+case InfoNameKnownValue():
+return knownValue(_that);case InfoNameUnknown():
+return unknown(_that);case _:
+  throw StateError('Unexpected subclass');
 
-  /// A variant of `map` that fallback to returning `null`.
-  ///
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case final Subclass value:
-  ///     return ...;
-  ///   case _:
-  ///     return null;
-  /// }
-  /// ```
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
 
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InfoNameKnownValue value)? knownValue,
-    TResult? Function(InfoNameUnknown value)? unknown,
-  }) {
-    final _that = this;
-    switch (_that) {
-      case InfoNameKnownValue() when knownValue != null:
-        return knownValue(_that);
-      case InfoNameUnknown() when unknown != null:
-        return unknown(_that);
-      case _:
-        return null;
-    }
-  }
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( InfoNameKnownValue value)?  knownValue,TResult? Function( InfoNameUnknown value)?  unknown,}){
+final _that = this;
+switch (_that) {
+case InfoNameKnownValue() when knownValue != null:
+return knownValue(_that);case InfoNameUnknown() when unknown != null:
+return unknown(_that);case _:
+  return null;
 
-  /// A variant of `when` that fallback to an `orElse` callback.
-  ///
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case Subclass(:final field):
-  ///     return ...;
-  ///   case _:
-  ///     return orElse();
-  /// }
-  /// ```
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownInfoName data)? knownValue,
-    TResult Function(String data)? unknown,
-    required TResult orElse(),
-  }) {
-    final _that = this;
-    switch (_that) {
-      case InfoNameKnownValue() when knownValue != null:
-        return knownValue(_that.data);
-      case InfoNameUnknown() when unknown != null:
-        return unknown(_that.data);
-      case _:
-        return orElse();
-    }
-  }
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( KnownInfoName data)?  knownValue,TResult Function( String data)?  unknown,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case InfoNameKnownValue() when knownValue != null:
+return knownValue(_that.data);case InfoNameUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return orElse();
 
-  /// A `switch`-like method, using callbacks.
-  ///
-  /// As opposed to `map`, this offers destructuring.
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case Subclass(:final field):
-  ///     return ...;
-  ///   case Subclass2(:final field2):
-  ///     return ...;
-  /// }
-  /// ```
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
 
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(KnownInfoName data) knownValue,
-    required TResult Function(String data) unknown,
-  }) {
-    final _that = this;
-    switch (_that) {
-      case InfoNameKnownValue():
-        return knownValue(_that.data);
-      case InfoNameUnknown():
-        return unknown(_that.data);
-      case _:
-        throw StateError('Unexpected subclass');
-    }
-  }
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( KnownInfoName data)  knownValue,required TResult Function( String data)  unknown,}) {final _that = this;
+switch (_that) {
+case InfoNameKnownValue():
+return knownValue(_that.data);case InfoNameUnknown():
+return unknown(_that.data);case _:
+  throw StateError('Unexpected subclass');
 
-  /// A variant of `when` that fallback to returning `null`
-  ///
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case Subclass(:final field):
-  ///     return ...;
-  ///   case _:
-  ///     return null;
-  /// }
-  /// ```
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
 
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownInfoName data)? knownValue,
-    TResult? Function(String data)? unknown,
-  }) {
-    final _that = this;
-    switch (_that) {
-      case InfoNameKnownValue() when knownValue != null:
-        return knownValue(_that.data);
-      case InfoNameUnknown() when unknown != null:
-        return unknown(_that.data);
-      case _:
-        return null;
-    }
-  }
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( KnownInfoName data)?  knownValue,TResult? Function( String data)?  unknown,}) {final _that = this;
+switch (_that) {
+case InfoNameKnownValue() when knownValue != null:
+return knownValue(_that.data);case InfoNameUnknown() when unknown != null:
+return unknown(_that.data);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
+
 
 class InfoNameKnownValue extends InfoName {
-  const InfoNameKnownValue({required this.data}) : super._();
+  const InfoNameKnownValue({required this.data}): super._();
+  
 
-  @override
-  final KnownInfoName data;
+@override final  KnownInfoName data;
 
-  /// Create a copy of InfoName
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  $InfoNameKnownValueCopyWith<InfoNameKnownValue> get copyWith =>
-      _$InfoNameKnownValueCopyWithImpl<InfoNameKnownValue>(this, _$identity);
+/// Create a copy of InfoName
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$InfoNameKnownValueCopyWith<InfoNameKnownValue> get copyWith => _$InfoNameKnownValueCopyWithImpl<InfoNameKnownValue>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is InfoNameKnownValue &&
-            (identical(other.data, data) || other.data == data));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  @override
-  String toString() {
-    return 'InfoName.knownValue(data: $data)';
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is InfoNameKnownValue&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'InfoName.knownValue(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract mixin class $InfoNameKnownValueCopyWith<$Res>
-    implements $InfoNameCopyWith<$Res> {
-  factory $InfoNameKnownValueCopyWith(
-          InfoNameKnownValue value, $Res Function(InfoNameKnownValue) _then) =
-      _$InfoNameKnownValueCopyWithImpl;
-  @useResult
-  $Res call({KnownInfoName data});
-}
+abstract mixin class $InfoNameKnownValueCopyWith<$Res> implements $InfoNameCopyWith<$Res> {
+  factory $InfoNameKnownValueCopyWith(InfoNameKnownValue value, $Res Function(InfoNameKnownValue) _then) = _$InfoNameKnownValueCopyWithImpl;
+@useResult
+$Res call({
+ KnownInfoName data
+});
 
+
+
+
+}
 /// @nodoc
 class _$InfoNameKnownValueCopyWithImpl<$Res>
     implements $InfoNameKnownValueCopyWith<$Res> {
@@ -264,63 +231,64 @@ class _$InfoNameKnownValueCopyWithImpl<$Res>
   final InfoNameKnownValue _self;
   final $Res Function(InfoNameKnownValue) _then;
 
-  /// Create a copy of InfoName
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(InfoNameKnownValue(
-      data: null == data
-          ? _self.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as KnownInfoName,
-    ));
-  }
+/// Create a copy of InfoName
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(InfoNameKnownValue(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as KnownInfoName,
+  ));
+}
+
+
 }
 
 /// @nodoc
+
 
 class InfoNameUnknown extends InfoName {
-  const InfoNameUnknown({required this.data}) : super._();
+  const InfoNameUnknown({required this.data}): super._();
+  
 
-  @override
-  final String data;
+@override final  String data;
 
-  /// Create a copy of InfoName
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  $InfoNameUnknownCopyWith<InfoNameUnknown> get copyWith =>
-      _$InfoNameUnknownCopyWithImpl<InfoNameUnknown>(this, _$identity);
+/// Create a copy of InfoName
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$InfoNameUnknownCopyWith<InfoNameUnknown> get copyWith => _$InfoNameUnknownCopyWithImpl<InfoNameUnknown>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is InfoNameUnknown &&
-            (identical(other.data, data) || other.data == data));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
-  @override
-  String toString() {
-    return 'InfoName.unknown(data: $data)';
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is InfoNameUnknown&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'InfoName.unknown(data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract mixin class $InfoNameUnknownCopyWith<$Res>
-    implements $InfoNameCopyWith<$Res> {
-  factory $InfoNameUnknownCopyWith(
-          InfoNameUnknown value, $Res Function(InfoNameUnknown) _then) =
-      _$InfoNameUnknownCopyWithImpl;
-  @useResult
-  $Res call({String data});
-}
+abstract mixin class $InfoNameUnknownCopyWith<$Res> implements $InfoNameCopyWith<$Res> {
+  factory $InfoNameUnknownCopyWith(InfoNameUnknown value, $Res Function(InfoNameUnknown) _then) = _$InfoNameUnknownCopyWithImpl;
+@useResult
+$Res call({
+ String data
+});
 
+
+
+
+}
 /// @nodoc
 class _$InfoNameUnknownCopyWithImpl<$Res>
     implements $InfoNameUnknownCopyWith<$Res> {
@@ -329,19 +297,16 @@ class _$InfoNameUnknownCopyWithImpl<$Res>
   final InfoNameUnknown _self;
   final $Res Function(InfoNameUnknown) _then;
 
-  /// Create a copy of InfoName
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(InfoNameUnknown(
-      data: null == data
-          ? _self.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Create a copy of InfoName
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(InfoNameUnknown(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
 }
 
 // dart format on

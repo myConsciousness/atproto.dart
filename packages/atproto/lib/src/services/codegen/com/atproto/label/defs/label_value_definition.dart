@@ -58,6 +58,7 @@ abstract class LabelValueDefinition with _$LabelValueDefinition {
     bool? adultOnly,
     @LabelValueDefinitionStringsConverter()
     required List<LabelValueDefinitionStrings> locales,
+
     Map<String, dynamic>? $unknown,
   }) = _LabelValueDefinition;
 
@@ -83,14 +84,12 @@ final class LabelValueDefinitionConverter
 
   @override
   LabelValueDefinition fromJson(Map<String, dynamic> json) {
-    return LabelValueDefinition.fromJson(translate(
-      json,
-      LabelValueDefinition.knownProps,
-    ));
+    return LabelValueDefinition.fromJson(
+      translate(json, LabelValueDefinition.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(LabelValueDefinition object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(LabelValueDefinition object) =>
+      untranslate(object.toJson());
 }

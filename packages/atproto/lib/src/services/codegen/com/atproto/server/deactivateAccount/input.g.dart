@@ -9,27 +9,24 @@ part of 'input.dart';
 // **************************************************************************
 
 _ServerDeactivateAccountInput _$ServerDeactivateAccountInputFromJson(
-        Map json) =>
-    $checkedCreate(
-      '_ServerDeactivateAccountInput',
-      json,
-      ($checkedConvert) {
-        final val = _ServerDeactivateAccountInput(
-          deleteAfter: $checkedConvert('deleteAfter',
-              (v) => v == null ? null : DateTime.parse(v as String)),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+  Map json,
+) => $checkedCreate('_ServerDeactivateAccountInput', json, ($checkedConvert) {
+  final val = _ServerDeactivateAccountInput(
+    deleteAfter: $checkedConvert(
+      'deleteAfter',
+      (v) => v == null ? null : DateTime.parse(v as String),
+    ),
+    $unknown: $checkedConvert(
+      r'$unknown',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
+  );
+  return val;
+});
 
 Map<String, dynamic> _$ServerDeactivateAccountInputToJson(
-        _ServerDeactivateAccountInput instance) =>
-    <String, dynamic>{
-      'deleteAfter': instance.deleteAfter?.toIso8601String(),
-      r'$unknown': instance.$unknown,
-    };
+  _ServerDeactivateAccountInput instance,
+) => <String, dynamic>{
+  'deleteAfter': instance.deleteAfter?.toIso8601String(),
+  r'$unknown': instance.$unknown,
+};

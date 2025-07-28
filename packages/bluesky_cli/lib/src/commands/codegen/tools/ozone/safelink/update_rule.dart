@@ -25,22 +25,10 @@ final class UpdateRuleCommand extends ProcedureCommand {
         help: r"The URL or domain to update the rule for",
         mandatory: true,
       )
-      ..addOption(
-        "pattern",
-        mandatory: true,
-      )
-      ..addOption(
-        "action",
-        mandatory: true,
-      )
-      ..addOption(
-        "reason",
-        mandatory: true,
-      )
-      ..addOption(
-        "comment",
-        help: r"Optional comment about the update",
-      )
+      ..addOption("pattern", mandatory: true)
+      ..addOption("action", mandatory: true)
+      ..addOption("reason", mandatory: true)
+      ..addOption("comment", help: r"Optional comment about the update")
       ..addOption(
         "createdBy",
         help:
@@ -63,12 +51,11 @@ final class UpdateRuleCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "url": argResults!["url"],
-        "pattern": jsonDecode(argResults!["pattern"]),
-        "action": jsonDecode(argResults!["action"]),
-        "reason": jsonDecode(argResults!["reason"]),
-        if (argResults!["comment"] != null) "comment": argResults!["comment"],
-        if (argResults!["createdBy"] != null)
-          "createdBy": argResults!["createdBy"],
-      };
+    "url": argResults!["url"],
+    "pattern": jsonDecode(argResults!["pattern"]),
+    "action": jsonDecode(argResults!["action"]),
+    "reason": jsonDecode(argResults!["reason"]),
+    if (argResults!["comment"] != null) "comment": argResults!["comment"],
+    if (argResults!["createdBy"] != null) "createdBy": argResults!["createdBy"],
+  };
 }

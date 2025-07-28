@@ -16,10 +16,7 @@ import '../../../../procedure_command.dart';
 
 final class PutPreferencesCommand extends ProcedureCommand {
   PutPreferencesCommand() {
-    argParser
-      ..addFlag(
-        "priority",
-      );
+    argParser..addFlag("priority");
   }
 
   @override
@@ -37,7 +34,5 @@ final class PutPreferencesCommand extends ProcedureCommand {
   String get methodId => "app.bsky.notification.putPreferences";
 
   @override
-  Map<String, dynamic>? get body => {
-        "priority": argResults!["priority"],
-      };
+  Map<String, dynamic>? get body => {"priority": argResults!["priority"]};
 }

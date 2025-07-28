@@ -20,13 +20,12 @@ part 'repo_ref.g.dart';
 
 @freezed
 abstract class RepoRef with _$RepoRef {
-  static const knownProps = <String>[
-    'did',
-  ];
+  static const knownProps = <String>['did'];
 
   const factory RepoRef({
     @Default('com.atproto.admin.defs#repoRef') String $type,
     required String did,
+
     Map<String, dynamic>? $unknown,
   }) = _RepoRef;
 
@@ -45,14 +44,9 @@ final class RepoRefConverter
 
   @override
   RepoRef fromJson(Map<String, dynamic> json) {
-    return RepoRef.fromJson(translate(
-      json,
-      RepoRef.knownProps,
-    ));
+    return RepoRef.fromJson(translate(json, RepoRef.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(RepoRef object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RepoRef object) => untranslate(object.toJson());
 }

@@ -43,6 +43,7 @@ abstract class RepoDeleteRecordInput with _$RepoDeleteRecordInput {
 
     /// Compare and swap with the previous commit by CID.
     String? swapCommit,
+
     Map<String, dynamic>? $unknown,
   }) = _RepoDeleteRecordInput;
 
@@ -63,14 +64,12 @@ final class RepoDeleteRecordInputConverter
 
   @override
   RepoDeleteRecordInput fromJson(Map<String, dynamic> json) {
-    return RepoDeleteRecordInput.fromJson(translate(
-      json,
-      RepoDeleteRecordInput.knownProps,
-    ));
+    return RepoDeleteRecordInput.fromJson(
+      translate(json, RepoDeleteRecordInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(RepoDeleteRecordInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RepoDeleteRecordInput object) =>
+      untranslate(object.toJson());
 }

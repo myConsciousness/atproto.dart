@@ -17,14 +17,8 @@ import '../../../../query_command.dart';
 final class GetBlocksCommand extends QueryCommand {
   GetBlocksCommand() {
     argParser
-      ..addOption(
-        "did",
-        help: r"The DID of the repo.",
-        mandatory: true,
-      )
-      ..addMultiOption(
-        "cids",
-      );
+      ..addOption("did", help: r"The DID of the repo.", mandatory: true)
+      ..addMultiOption("cids");
   }
 
   @override
@@ -42,7 +36,7 @@ final class GetBlocksCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "did": argResults!["did"],
-        "cids": argResults!["cids"],
-      };
+    "did": argResults!["did"],
+    "cids": argResults!["cids"],
+  };
 }

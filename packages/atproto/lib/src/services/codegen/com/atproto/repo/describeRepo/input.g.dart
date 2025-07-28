@@ -9,25 +9,17 @@ part of 'input.dart';
 // **************************************************************************
 
 _RepoDescribeRepoInput _$RepoDescribeRepoInputFromJson(Map json) =>
-    $checkedCreate(
-      '_RepoDescribeRepoInput',
-      json,
-      ($checkedConvert) {
-        final val = _RepoDescribeRepoInput(
-          repo: $checkedConvert('repo', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+    $checkedCreate('_RepoDescribeRepoInput', json, ($checkedConvert) {
+      final val = _RepoDescribeRepoInput(
+        repo: $checkedConvert('repo', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$RepoDescribeRepoInputToJson(
-        _RepoDescribeRepoInput instance) =>
-    <String, dynamic>{
-      'repo': instance.repo,
-      r'$unknown': instance.$unknown,
-    };
+  _RepoDescribeRepoInput instance,
+) => <String, dynamic>{'repo': instance.repo, r'$unknown': instance.$unknown};

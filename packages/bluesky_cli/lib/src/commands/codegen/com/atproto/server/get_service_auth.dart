@@ -50,8 +50,8 @@ final class GetServiceAuthCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "aud": argResults!["aud"],
-        if (argResults!["exp"] != null) "exp": argResults!["exp"],
-        if (argResults!["lxm"] != null) "lxm": argResults!["lxm"],
-      };
+    "aud": argResults!["aud"],
+    if (argResults!["exp"] != null) "exp": argResults!["exp"],
+    if (argResults!["lxm"] != null) "lxm": argResults!["lxm"],
+  };
 }

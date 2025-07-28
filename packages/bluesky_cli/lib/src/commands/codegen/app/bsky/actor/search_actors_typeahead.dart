@@ -17,18 +17,9 @@ import '../../../../query_command.dart';
 final class SearchActorsTypeaheadCommand extends QueryCommand {
   SearchActorsTypeaheadCommand() {
     argParser
-      ..addOption(
-        "term",
-        help: r"DEPRECATED: use 'q' instead.",
-      )
-      ..addOption(
-        "q",
-        help: r"Search query prefix; not a full query string.",
-      )
-      ..addOption(
-        "limit",
-        defaultsTo: "10",
-      );
+      ..addOption("term", help: r"DEPRECATED: use 'q' instead.")
+      ..addOption("q", help: r"Search query prefix; not a full query string.")
+      ..addOption("limit", defaultsTo: "10");
   }
 
   @override
@@ -47,8 +38,8 @@ final class SearchActorsTypeaheadCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        if (argResults!["term"] != null) "term": argResults!["term"],
-        if (argResults!["q"] != null) "q": argResults!["q"],
-        "limit": argResults!["limit"],
-      };
+    if (argResults!["term"] != null) "term": argResults!["term"],
+    if (argResults!["q"] != null) "q": argResults!["q"],
+    "limit": argResults!["limit"],
+  };
 }

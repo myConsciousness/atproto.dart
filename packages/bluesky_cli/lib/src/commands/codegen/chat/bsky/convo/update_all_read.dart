@@ -16,10 +16,7 @@ import '../../../../procedure_command.dart';
 
 final class UpdateAllReadCommand extends ProcedureCommand {
   UpdateAllReadCommand() {
-    argParser
-      ..addOption(
-        "status",
-      );
+    argParser..addOption("status");
   }
 
   @override
@@ -36,6 +33,6 @@ final class UpdateAllReadCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        if (argResults!["status"] != null) "status": argResults!["status"],
-      };
+    if (argResults!["status"] != null) "status": argResults!["status"],
+  };
 }

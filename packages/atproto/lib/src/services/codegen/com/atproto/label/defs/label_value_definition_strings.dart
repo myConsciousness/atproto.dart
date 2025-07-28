@@ -21,11 +21,7 @@ part 'label_value_definition_strings.g.dart';
 /// Strings which describe the label in the UI, localized into a specific language.
 @freezed
 abstract class LabelValueDefinitionStrings with _$LabelValueDefinitionStrings {
-  static const knownProps = <String>[
-    'lang',
-    'name',
-    'description',
-  ];
+  static const knownProps = <String>['lang', 'name', 'description'];
 
   const factory LabelValueDefinitionStrings({
     @Default('com.atproto.label.defs#labelValueDefinitionStrings') String $type,
@@ -38,6 +34,7 @@ abstract class LabelValueDefinitionStrings with _$LabelValueDefinitionStrings {
 
     /// A longer description of what the label means and why it might be applied.
     required String description,
+
     Map<String, dynamic>? $unknown,
   }) = _LabelValueDefinitionStrings;
 
@@ -57,15 +54,12 @@ final class LabelValueDefinitionStringsConverter
 
   @override
   LabelValueDefinitionStrings fromJson(Map<String, dynamic> json) {
-    return LabelValueDefinitionStrings.fromJson(translate(
-      json,
-      LabelValueDefinitionStrings.knownProps,
-    ));
+    return LabelValueDefinitionStrings.fromJson(
+      translate(json, LabelValueDefinitionStrings.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(LabelValueDefinitionStrings object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

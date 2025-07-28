@@ -41,6 +41,7 @@ abstract class RepoListRecordsInput with _$RepoListRecordsInput {
 
     /// Flag to reverse the order of the returned records.
     bool? reverse,
+
     Map<String, dynamic>? $unknown,
   }) = _RepoListRecordsInput;
 
@@ -61,14 +62,12 @@ final class RepoListRecordsInputConverter
 
   @override
   RepoListRecordsInput fromJson(Map<String, dynamic> json) {
-    return RepoListRecordsInput.fromJson(translate(
-      json,
-      RepoListRecordsInput.knownProps,
-    ));
+    return RepoListRecordsInput.fromJson(
+      translate(json, RepoListRecordsInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(RepoListRecordsInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RepoListRecordsInput object) =>
+      untranslate(object.toJson());
 }

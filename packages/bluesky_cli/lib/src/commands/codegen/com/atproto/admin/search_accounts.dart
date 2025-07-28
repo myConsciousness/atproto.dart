@@ -17,16 +17,9 @@ import '../../../../query_command.dart';
 final class SearchAccountsCommand extends QueryCommand {
   SearchAccountsCommand() {
     argParser
-      ..addOption(
-        "email",
-      )
-      ..addOption(
-        "cursor",
-      )
-      ..addOption(
-        "limit",
-        defaultsTo: "50",
-      );
+      ..addOption("email")
+      ..addOption("cursor")
+      ..addOption("limit", defaultsTo: "50");
   }
 
   @override
@@ -45,8 +38,8 @@ final class SearchAccountsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        if (argResults!["email"] != null) "email": argResults!["email"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-        "limit": argResults!["limit"],
-      };
+    if (argResults!["email"] != null) "email": argResults!["email"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": argResults!["limit"],
+  };
 }

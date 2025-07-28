@@ -17,17 +17,9 @@ import '../../../../query_command.dart';
 final class GetValuesCommand extends QueryCommand {
   GetValuesCommand() {
     argParser
-      ..addOption(
-        "name",
-        mandatory: true,
-      )
-      ..addOption(
-        "limit",
-        defaultsTo: "100",
-      )
-      ..addOption(
-        "cursor",
-      );
+      ..addOption("name", mandatory: true)
+      ..addOption("limit", defaultsTo: "100")
+      ..addOption("cursor");
   }
 
   @override
@@ -45,8 +37,8 @@ final class GetValuesCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "name": argResults!["name"],
-        "limit": argResults!["limit"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-      };
+    "name": argResults!["name"],
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+  };
 }

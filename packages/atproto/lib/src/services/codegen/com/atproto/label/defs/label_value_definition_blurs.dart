@@ -26,9 +26,8 @@ abstract class LabelValueDefinitionBlurs with _$LabelValueDefinitionBlurs {
     required KnownLabelValueDefinitionBlurs data,
   }) = LabelValueDefinitionBlursKnownValue;
 
-  const factory LabelValueDefinitionBlurs.unknown({
-    required String data,
-  }) = LabelValueDefinitionBlursUnknown;
+  const factory LabelValueDefinitionBlurs.unknown({required String data}) =
+      LabelValueDefinitionBlursUnknown;
 
   static LabelValueDefinitionBlurs? valueOf(final String? value) {
     if (value == null) return null;
@@ -71,10 +70,8 @@ final class LabelValueDefinitionBlursConverter
   }
 
   @override
-  String toJson(LabelValueDefinitionBlurs object) => object.when(
-        knownValue: (data) => data.value,
-        unknown: (data) => data,
-      );
+  String toJson(LabelValueDefinitionBlurs object) =>
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownLabelValueDefinitionBlurs implements Serializable {
@@ -83,8 +80,7 @@ enum KnownLabelValueDefinitionBlurs implements Serializable {
   @JsonValue('media')
   media('media'),
   @JsonValue('none')
-  none('none'),
-  ;
+  none('none');
 
   @override
   final String value;

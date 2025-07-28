@@ -23,14 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class AdminGetInviteCodesOutput with _$AdminGetInviteCodesOutput {
-  static const knownProps = <String>[
-    'cursor',
-    'codes',
-  ];
+  static const knownProps = <String>['cursor', 'codes'];
 
   const factory AdminGetInviteCodesOutput({
     String? cursor,
     @InviteCodeConverter() required List<InviteCode> codes,
+
     Map<String, dynamic>? $unknown,
   }) = _AdminGetInviteCodesOutput;
 
@@ -49,14 +47,12 @@ final class AdminGetInviteCodesOutputConverter
 
   @override
   AdminGetInviteCodesOutput fromJson(Map<String, dynamic> json) {
-    return AdminGetInviteCodesOutput.fromJson(translate(
-      json,
-      AdminGetInviteCodesOutput.knownProps,
-    ));
+    return AdminGetInviteCodesOutput.fromJson(
+      translate(json, AdminGetInviteCodesOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(AdminGetInviteCodesOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(AdminGetInviteCodesOutput object) =>
+      untranslate(object.toJson());
 }

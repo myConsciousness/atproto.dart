@@ -20,12 +20,11 @@ part 'output.g.dart';
 
 @freezed
 abstract class ServerGetServiceAuthOutput with _$ServerGetServiceAuthOutput {
-  static const knownProps = <String>[
-    'token',
-  ];
+  static const knownProps = <String>['token'];
 
   const factory ServerGetServiceAuthOutput({
     required String token,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerGetServiceAuthOutput;
 
@@ -39,14 +38,12 @@ final class ServerGetServiceAuthOutputConverter
 
   @override
   ServerGetServiceAuthOutput fromJson(Map<String, dynamic> json) {
-    return ServerGetServiceAuthOutput.fromJson(translate(
-      json,
-      ServerGetServiceAuthOutput.knownProps,
-    ));
+    return ServerGetServiceAuthOutput.fromJson(
+      translate(json, ServerGetServiceAuthOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ServerGetServiceAuthOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ServerGetServiceAuthOutput object) =>
+      untranslate(object.toJson());
 }

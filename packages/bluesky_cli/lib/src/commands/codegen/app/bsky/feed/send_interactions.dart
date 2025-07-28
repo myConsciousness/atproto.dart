@@ -16,10 +16,7 @@ import '../../../../procedure_command.dart';
 
 final class SendInteractionsCommand extends ProcedureCommand {
   SendInteractionsCommand() {
-    argParser
-      ..addMultiOption(
-        "interactions",
-      );
+    argParser..addMultiOption("interactions");
   }
 
   @override
@@ -38,6 +35,6 @@ final class SendInteractionsCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "interactions": argResults!["interactions"],
-      };
+    "interactions": argResults!["interactions"],
+  };
 }

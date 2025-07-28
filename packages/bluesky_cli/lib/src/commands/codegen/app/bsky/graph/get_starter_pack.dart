@@ -16,12 +16,11 @@ import '../../../../query_command.dart';
 
 final class GetStarterPackCommand extends QueryCommand {
   GetStarterPackCommand() {
-    argParser
-      ..addOption(
-        "starterPack",
-        help: r"Reference (AT-URI) of the starter pack record.",
-        mandatory: true,
-      );
+    argParser..addOption(
+      "starterPack",
+      help: r"Reference (AT-URI) of the starter pack record.",
+      mandatory: true,
+    );
   }
 
   @override
@@ -39,6 +38,6 @@ final class GetStarterPackCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "starterPack": argResults!["starterPack"],
-      };
+    "starterPack": argResults!["starterPack"],
+  };
 }

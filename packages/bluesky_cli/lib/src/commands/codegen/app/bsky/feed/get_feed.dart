@@ -17,17 +17,9 @@ import '../../../../query_command.dart';
 final class GetFeedCommand extends QueryCommand {
   GetFeedCommand() {
     argParser
-      ..addOption(
-        "feed",
-        mandatory: true,
-      )
-      ..addOption(
-        "limit",
-        defaultsTo: "50",
-      )
-      ..addOption(
-        "cursor",
-      );
+      ..addOption("feed", mandatory: true)
+      ..addOption("limit", defaultsTo: "50")
+      ..addOption("cursor");
   }
 
   @override
@@ -46,8 +38,8 @@ final class GetFeedCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "feed": argResults!["feed"],
-        "limit": argResults!["limit"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-      };
+    "feed": argResults!["feed"],
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+  };
 }

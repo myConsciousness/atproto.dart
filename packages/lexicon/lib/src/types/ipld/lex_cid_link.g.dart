@@ -8,17 +8,14 @@ part of 'lex_cid_link.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_LexCidLink _$LexCidLinkFromJson(Map json) => $checkedCreate(
-      '_LexCidLink',
-      json,
-      ($checkedConvert) {
-        final val = _LexCidLink(
-          type: $checkedConvert('type', (v) => v as String? ?? 'cid-link'),
-          description: $checkedConvert('description', (v) => v as String?),
-        );
-        return val;
-      },
-    );
+_LexCidLink _$LexCidLinkFromJson(Map json) =>
+    $checkedCreate('_LexCidLink', json, ($checkedConvert) {
+      final val = _LexCidLink(
+        type: $checkedConvert('type', (v) => v as String? ?? 'cid-link'),
+        description: $checkedConvert('description', (v) => v as String?),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$LexCidLinkToJson(_LexCidLink instance) =>
     <String, dynamic>{

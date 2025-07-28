@@ -20,13 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class SyncGetHostStatusInput with _$SyncGetHostStatusInput {
-  static const knownProps = <String>[
-    'hostname',
-  ];
+  static const knownProps = <String>['hostname'];
 
   const factory SyncGetHostStatusInput({
     /// Hostname of the host (eg, PDS or relay) being queried.
     required String hostname,
+
     Map<String, dynamic>? $unknown,
   }) = _SyncGetHostStatusInput;
 
@@ -40,14 +39,12 @@ final class SyncGetHostStatusInputConverter
 
   @override
   SyncGetHostStatusInput fromJson(Map<String, dynamic> json) {
-    return SyncGetHostStatusInput.fromJson(translate(
-      json,
-      SyncGetHostStatusInput.knownProps,
-    ));
+    return SyncGetHostStatusInput.fromJson(
+      translate(json, SyncGetHostStatusInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SyncGetHostStatusInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SyncGetHostStatusInput object) =>
+      untranslate(object.toJson());
 }

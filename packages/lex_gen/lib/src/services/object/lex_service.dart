@@ -45,9 +45,9 @@ final class LexService {
       final parameters = api.inputType == null
           ? const <LexParameter>[]
           : api.inputType!
-              .getProperties()
-              .map((e) => e.toLexParameter())
-              .toList();
+                .getProperties()
+                .map((e) => e.toLexParameter())
+                .toList();
 
       for (final parameter in parameters) {
         if (parameter.type.lexiconId == null) continue;
@@ -69,8 +69,10 @@ final class LexService {
 
             importPaths.add("import '$relativePath/$fileName.dart';");
           } else {
-            final relativePath =
-                parameter.type.lexiconId!.split('.').sublist(2).join('/');
+            final relativePath = parameter.type.lexiconId!
+                .split('.')
+                .sublist(2)
+                .join('/');
             final fileName = rule.getFileNameForUnion(
               parameter.type.lexiconId!,
               parameter.type.defName,

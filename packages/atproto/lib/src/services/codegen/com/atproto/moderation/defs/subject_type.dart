@@ -22,13 +22,11 @@ part 'subject_type.freezed.dart';
 abstract class SubjectType with _$SubjectType {
   const SubjectType._();
 
-  const factory SubjectType.knownValue({
-    required KnownSubjectType data,
-  }) = SubjectTypeKnownValue;
+  const factory SubjectType.knownValue({required KnownSubjectType data}) =
+      SubjectTypeKnownValue;
 
-  const factory SubjectType.unknown({
-    required String data,
-  }) = SubjectTypeUnknown;
+  const factory SubjectType.unknown({required String data}) =
+      SubjectTypeUnknown;
 
   static SubjectType? valueOf(final String? value) {
     if (value == null) return null;
@@ -70,10 +68,8 @@ final class SubjectTypeConverter extends JsonConverter<SubjectType, String> {
   }
 
   @override
-  String toJson(SubjectType object) => object.when(
-        knownValue: (data) => data.value,
-        unknown: (data) => data,
-      );
+  String toJson(SubjectType object) =>
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownSubjectType implements Serializable {
@@ -82,8 +78,7 @@ enum KnownSubjectType implements Serializable {
   @JsonValue('record')
   record('record'),
   @JsonValue('chat')
-  chat('chat'),
-  ;
+  chat('chat');
 
   @override
   final String value;

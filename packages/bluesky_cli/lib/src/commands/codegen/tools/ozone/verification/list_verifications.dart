@@ -17,10 +17,7 @@ import '../../../../query_command.dart';
 final class ListVerificationsCommand extends QueryCommand {
   ListVerificationsCommand() {
     argParser
-      ..addOption(
-        "cursor",
-        help: r"Pagination cursor",
-      )
+      ..addOption("cursor", help: r"Pagination cursor")
       ..addOption(
         "limit",
         help: r"Maximum number of results to return",
@@ -38,10 +35,7 @@ final class ListVerificationsCommand extends QueryCommand {
         "issuers",
         help: r"Filter to verifications from specific issuers",
       )
-      ..addMultiOption(
-        "subjects",
-        help: r"Filter to specific verified DIDs",
-      )
+      ..addMultiOption("subjects", help: r"Filter to specific verified DIDs")
       ..addOption(
         "sortDirection",
         help: r"Sort direction for creation date",
@@ -69,17 +63,15 @@ final class ListVerificationsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-        "limit": argResults!["limit"],
-        if (argResults!["createdAfter"] != null)
-          "createdAfter": argResults!["createdAfter"],
-        if (argResults!["createdBefore"] != null)
-          "createdBefore": argResults!["createdBefore"],
-        if (argResults!["issuers"] != null) "issuers": argResults!["issuers"],
-        if (argResults!["subjects"] != null)
-          "subjects": argResults!["subjects"],
-        "sortDirection": argResults!["sortDirection"],
-        if (argResults!["isRevoked"] != null)
-          "isRevoked": argResults!["isRevoked"],
-      };
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": argResults!["limit"],
+    if (argResults!["createdAfter"] != null)
+      "createdAfter": argResults!["createdAfter"],
+    if (argResults!["createdBefore"] != null)
+      "createdBefore": argResults!["createdBefore"],
+    if (argResults!["issuers"] != null) "issuers": argResults!["issuers"],
+    if (argResults!["subjects"] != null) "subjects": argResults!["subjects"],
+    "sortDirection": argResults!["sortDirection"],
+    if (argResults!["isRevoked"] != null) "isRevoked": argResults!["isRevoked"],
+  };
 }

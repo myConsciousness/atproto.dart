@@ -16,12 +16,7 @@ import '../../../../query_command.dart';
 
 final class ResolveDidCommand extends QueryCommand {
   ResolveDidCommand() {
-    argParser
-      ..addOption(
-        "did",
-        help: r"DID to resolve.",
-        mandatory: true,
-      );
+    argParser..addOption("did", help: r"DID to resolve.", mandatory: true);
   }
 
   @override
@@ -38,7 +33,5 @@ final class ResolveDidCommand extends QueryCommand {
   String get methodId => "com.atproto.identity.resolveDid";
 
   @override
-  Map<String, dynamic>? get parameters => {
-        "did": argResults!["did"],
-      };
+  Map<String, dynamic>? get parameters => {"did": argResults!["did"]};
 }

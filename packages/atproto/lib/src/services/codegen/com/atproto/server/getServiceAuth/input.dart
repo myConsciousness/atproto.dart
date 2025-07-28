@@ -20,11 +20,7 @@ part 'input.g.dart';
 
 @freezed
 abstract class ServerGetServiceAuthInput with _$ServerGetServiceAuthInput {
-  static const knownProps = <String>[
-    'aud',
-    'exp',
-    'lxm',
-  ];
+  static const knownProps = <String>['aud', 'exp', 'lxm'];
 
   const factory ServerGetServiceAuthInput({
     /// The DID of the service that the token will be used to authenticate with
@@ -35,6 +31,7 @@ abstract class ServerGetServiceAuthInput with _$ServerGetServiceAuthInput {
 
     /// Lexicon (XRPC) method to bind the requested token to
     String? lxm,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerGetServiceAuthInput;
 
@@ -55,14 +52,12 @@ final class ServerGetServiceAuthInputConverter
 
   @override
   ServerGetServiceAuthInput fromJson(Map<String, dynamic> json) {
-    return ServerGetServiceAuthInput.fromJson(translate(
-      json,
-      ServerGetServiceAuthInput.knownProps,
-    ));
+    return ServerGetServiceAuthInput.fromJson(
+      translate(json, ServerGetServiceAuthInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ServerGetServiceAuthInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ServerGetServiceAuthInput object) =>
+      untranslate(object.toJson());
 }

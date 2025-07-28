@@ -42,9 +42,9 @@ class BskyLogger with _DelegateLogger {
     Logger logger, {
     String indentation = '',
     String childIndentation = '  ',
-  })  : _logger = logger,
-        _indentation = indentation,
-        _childIndentation = childIndentation;
+  }) : _logger = logger,
+       _indentation = indentation,
+       _childIndentation = childIndentation;
 
   @override
   final Logger _logger;
@@ -66,10 +66,12 @@ class BskyLogger with _DelegateLogger {
   }
 
   void warning(String message, {bool label = true, bool dryRun = false}) {
-    final labelColor =
-        dryRun ? dryRunWarningLabelColor : dryRunWarningMessageColor;
-    final messageColor =
-        dryRun ? dryRunWarningMessageColor : warningMessageColor;
+    final labelColor = dryRun
+        ? dryRunWarningLabelColor
+        : dryRunWarningMessageColor;
+    final messageColor = dryRun
+        ? dryRunWarningMessageColor
+        : warningMessageColor;
     if (label) {
       stdout('$warningLabel${labelColor(':')} $message');
     } else {

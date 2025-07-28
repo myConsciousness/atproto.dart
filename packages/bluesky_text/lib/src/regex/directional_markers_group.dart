@@ -14,7 +14,8 @@
 /// - U+200E: Left-to-Right Mark
 /// - U+200F: Right-to-Left Mark
 /// - U+2066 to U+2069: Isolate controls
-const directionalMarkersGroup = r'\u202A-\u202E'
+const directionalMarkersGroup =
+    r'\u202A-\u202E'
     r'\u061C'
     r'\u200E'
     r'\u200F'

@@ -28,12 +28,12 @@ final class RateLimit {
 
   /// Returns a rate limit instance which represents an unlimited rate limit.
   factory RateLimit.unlimited() => RateLimit._(
-        limitCount: -1,
-        remainingCount: -1,
-        policy: RateLimitPolicy.unlimited(),
-        resetAt: DateTime(0),
-        enabled: false,
-      );
+    limitCount: -1,
+    remainingCount: -1,
+    policy: RateLimitPolicy.unlimited(),
+    resetAt: DateTime(0),
+    enabled: false,
+  );
 
   /// Maximum number of allowed requests.
   final int limitCount;
@@ -106,14 +106,14 @@ final class _RateLimitConverter {
 
   /// Converts the given headers to a `RateLimit`.
   RateLimit _toRateLimit(final Map<String, String> headers) => RateLimit._(
-        limitCount: int.parse(headers['ratelimit-limit']!),
-        remainingCount: int.parse(headers['ratelimit-remaining']!),
-        policy: const _RateLimitPolicyConverter().fromHeaders(headers),
-        resetAt: DateTime.fromMillisecondsSinceEpoch(
-          int.parse(headers['ratelimit-reset']!) * 1000,
-        ).toUtc(),
-        enabled: true,
-      );
+    limitCount: int.parse(headers['ratelimit-limit']!),
+    remainingCount: int.parse(headers['ratelimit-remaining']!),
+    policy: const _RateLimitPolicyConverter().fromHeaders(headers),
+    resetAt: DateTime.fromMillisecondsSinceEpoch(
+      int.parse(headers['ratelimit-reset']!) * 1000,
+    ).toUtc(),
+    enabled: true,
+  );
 
   /// Checks if the given headers have rate limit related information.
   bool _hasRateLimits(final Map<String, String> headers) =>

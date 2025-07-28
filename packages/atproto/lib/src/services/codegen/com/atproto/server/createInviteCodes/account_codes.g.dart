@@ -9,27 +9,28 @@ part of 'account_codes.dart';
 // **************************************************************************
 
 _AccountCodes _$AccountCodesFromJson(Map json) => $checkedCreate(
-      '_AccountCodes',
-      json,
-      ($checkedConvert) {
-        final val = _AccountCodes(
-          $type: $checkedConvert(
-              r'$type',
-              (v) =>
-                  v as String? ??
-                  'com.atproto.server.createInviteCodes#accountCodes'),
-          account: $checkedConvert('account', (v) => v as String),
-          codes: $checkedConvert('codes',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
+  '_AccountCodes',
+  json,
+  ($checkedConvert) {
+    final val = _AccountCodes(
+      $type: $checkedConvert(
+        r'$type',
+        (v) =>
+            v as String? ?? 'com.atproto.server.createInviteCodes#accountCodes',
+      ),
+      account: $checkedConvert('account', (v) => v as String),
+      codes: $checkedConvert(
+        'codes',
+        (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+      ),
+      $unknown: $checkedConvert(
+        r'$unknown',
+        (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+      ),
     );
+    return val;
+  },
+);
 
 Map<String, dynamic> _$AccountCodesToJson(_AccountCodes instance) =>
     <String, dynamic>{

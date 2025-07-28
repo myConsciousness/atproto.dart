@@ -37,6 +37,7 @@ abstract class RepoCreateRecordOutput with _$RepoCreateRecordOutput {
     @CommitMetaConverter() CommitMeta? commit,
     @RepoCreateRecordValidationStatusConverter()
     RepoCreateRecordValidationStatus? validationStatus,
+
     Map<String, dynamic>? $unknown,
   }) = _RepoCreateRecordOutput;
 
@@ -57,14 +58,12 @@ final class RepoCreateRecordOutputConverter
 
   @override
   RepoCreateRecordOutput fromJson(Map<String, dynamic> json) {
-    return RepoCreateRecordOutput.fromJson(translate(
-      json,
-      RepoCreateRecordOutput.knownProps,
-    ));
+    return RepoCreateRecordOutput.fromJson(
+      translate(json, RepoCreateRecordOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(RepoCreateRecordOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RepoCreateRecordOutput object) =>
+      untranslate(object.toJson());
 }

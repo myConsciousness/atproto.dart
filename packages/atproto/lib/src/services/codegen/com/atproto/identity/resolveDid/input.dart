@@ -20,13 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class IdentityResolveDidInput with _$IdentityResolveDidInput {
-  static const knownProps = <String>[
-    'did',
-  ];
+  static const knownProps = <String>['did'];
 
   const factory IdentityResolveDidInput({
     /// DID to resolve.
     required String did,
+
     Map<String, dynamic>? $unknown,
   }) = _IdentityResolveDidInput;
 
@@ -40,14 +39,12 @@ final class IdentityResolveDidInputConverter
 
   @override
   IdentityResolveDidInput fromJson(Map<String, dynamic> json) {
-    return IdentityResolveDidInput.fromJson(translate(
-      json,
-      IdentityResolveDidInput.knownProps,
-    ));
+    return IdentityResolveDidInput.fromJson(
+      translate(json, IdentityResolveDidInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(IdentityResolveDidInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(IdentityResolveDidInput object) =>
+      untranslate(object.toJson());
 }

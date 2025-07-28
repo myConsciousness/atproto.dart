@@ -11,7 +11,7 @@ import '../xrpc_response.dart';
 base class XRPCException implements Exception {
   /// Returns the new instance of [XRPCException].
   const XRPCException(this.response, {final String label = 'XRPCException'})
-      : _label = label;
+    : _label = label;
 
   /// The response from the ATP server.
   final XRPCResponse<XRPCError> response;

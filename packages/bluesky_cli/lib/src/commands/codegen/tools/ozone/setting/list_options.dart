@@ -17,21 +17,10 @@ import '../../../../query_command.dart';
 final class ListOptionsCommand extends QueryCommand {
   ListOptionsCommand() {
     argParser
-      ..addOption(
-        "limit",
-        defaultsTo: "50",
-      )
-      ..addOption(
-        "cursor",
-      )
-      ..addOption(
-        "scope",
-        defaultsTo: "instance",
-      )
-      ..addOption(
-        "prefix",
-        help: r"Filter keys by prefix",
-      )
+      ..addOption("limit", defaultsTo: "50")
+      ..addOption("cursor")
+      ..addOption("scope", defaultsTo: "instance")
+      ..addOption("prefix", help: r"Filter keys by prefix")
       ..addMultiOption(
         "keys",
         help:
@@ -54,10 +43,10 @@ final class ListOptionsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "limit": argResults!["limit"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-        "scope": argResults!["scope"],
-        if (argResults!["prefix"] != null) "prefix": argResults!["prefix"],
-        if (argResults!["keys"] != null) "keys": argResults!["keys"],
-      };
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "scope": argResults!["scope"],
+    if (argResults!["prefix"] != null) "prefix": argResults!["prefix"],
+    if (argResults!["keys"] != null) "keys": argResults!["keys"],
+  };
 }

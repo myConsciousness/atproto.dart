@@ -17,22 +17,11 @@ import '../../../../query_command.dart';
 final class ListMembersCommand extends QueryCommand {
   ListMembersCommand() {
     argParser
-      ..addOption(
-        "q",
-      )
-      ..addFlag(
-        "disabled",
-      )
-      ..addMultiOption(
-        "roles",
-      )
-      ..addOption(
-        "limit",
-        defaultsTo: "50",
-      )
-      ..addOption(
-        "cursor",
-      );
+      ..addOption("q")
+      ..addFlag("disabled")
+      ..addMultiOption("roles")
+      ..addOption("limit", defaultsTo: "50")
+      ..addOption("cursor");
   }
 
   @override
@@ -51,11 +40,10 @@ final class ListMembersCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        if (argResults!["q"] != null) "q": argResults!["q"],
-        if (argResults!["disabled"] != null)
-          "disabled": argResults!["disabled"],
-        if (argResults!["roles"] != null) "roles": argResults!["roles"],
-        "limit": argResults!["limit"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-      };
+    if (argResults!["q"] != null) "q": argResults!["q"],
+    if (argResults!["disabled"] != null) "disabled": argResults!["disabled"],
+    if (argResults!["roles"] != null) "roles": argResults!["roles"],
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+  };
 }

@@ -20,15 +20,13 @@ part 'record_blob.g.dart';
 
 @freezed
 abstract class RecordBlob with _$RecordBlob {
-  static const knownProps = <String>[
-    'cid',
-    'recordUri',
-  ];
+  static const knownProps = <String>['cid', 'recordUri'];
 
   const factory RecordBlob({
     @Default('com.atproto.repo.listMissingBlobs#recordBlob') String $type,
     required String cid,
     required String recordUri,
+
     Map<String, dynamic>? $unknown,
   }) = _RecordBlob;
 
@@ -47,14 +45,10 @@ final class RecordBlobConverter
 
   @override
   RecordBlob fromJson(Map<String, dynamic> json) {
-    return RecordBlob.fromJson(translate(
-      json,
-      RecordBlob.knownProps,
-    ));
+    return RecordBlob.fromJson(translate(json, RecordBlob.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(RecordBlob object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RecordBlob object) =>
+      untranslate(object.toJson());
 }

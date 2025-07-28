@@ -15,8 +15,7 @@ LexObject generateLexObject(
   final String defName,
   final lex.LexObject object,
   final List<String> mainVariants,
-) =>
-    _LexObjectGenerator(lexiconId, defName, object, mainVariants).execute();
+) => _LexObjectGenerator(lexiconId, defName, object, mainVariants).execute();
 
 final class _LexObjectGenerator {
   final lex.NSID lexiconId;

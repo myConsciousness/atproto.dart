@@ -28,7 +28,8 @@ import 'non_bmp_code_pairs.dart';
 /// 5. `$astralLetterAndMarks`: Matches letters and marks from the astral
 ///     planes.
 /// 6. `$astralNumerals`: Matches numerals from the astral planes.
-const hashtagAlphaNumeric = r'(?:['
+const hashtagAlphaNumeric =
+    r'(?:['
     '$bmpLetterAndMarks$bmpNumerals$hashtagSpecialChars$hashtagEmoji'
     r']'
     '|(?=$nonBmpCodePairs)'

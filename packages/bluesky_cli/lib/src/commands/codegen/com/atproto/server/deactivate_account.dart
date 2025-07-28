@@ -16,12 +16,11 @@ import '../../../../procedure_command.dart';
 
 final class DeactivateAccountCommand extends ProcedureCommand {
   DeactivateAccountCommand() {
-    argParser
-      ..addOption(
-        "deleteAfter",
-        help:
-            r"A recommendation to server as to how long they should hold onto the deactivated account before deleting.",
-      );
+    argParser..addOption(
+      "deleteAfter",
+      help:
+          r"A recommendation to server as to how long they should hold onto the deactivated account before deleting.",
+    );
   }
 
   @override
@@ -40,7 +39,7 @@ final class DeactivateAccountCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        if (argResults!["deleteAfter"] != null)
-          "deleteAfter": argResults!["deleteAfter"],
-      };
+    if (argResults!["deleteAfter"] != null)
+      "deleteAfter": argResults!["deleteAfter"],
+  };
 }

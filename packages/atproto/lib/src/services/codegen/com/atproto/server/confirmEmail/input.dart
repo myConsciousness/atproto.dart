@@ -20,14 +20,12 @@ part 'input.g.dart';
 
 @freezed
 abstract class ServerConfirmEmailInput with _$ServerConfirmEmailInput {
-  static const knownProps = <String>[
-    'email',
-    'token',
-  ];
+  static const knownProps = <String>['email', 'token'];
 
   const factory ServerConfirmEmailInput({
     required String email,
     required String token,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerConfirmEmailInput;
 
@@ -41,14 +39,12 @@ final class ServerConfirmEmailInputConverter
 
   @override
   ServerConfirmEmailInput fromJson(Map<String, dynamic> json) {
-    return ServerConfirmEmailInput.fromJson(translate(
-      json,
-      ServerConfirmEmailInput.knownProps,
-    ));
+    return ServerConfirmEmailInput.fromJson(
+      translate(json, ServerConfirmEmailInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ServerConfirmEmailInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ServerConfirmEmailInput object) =>
+      untranslate(object.toJson());
 }

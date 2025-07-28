@@ -50,6 +50,7 @@ abstract class ServerCreateAccountInput with _$ServerCreateAccountInput {
     /// DID PLC rotation key (aka, recovery key) to be included in PLC creation operation.
     String? recoveryKey,
     Map<String, dynamic>? plcOp,
+
     Map<String, dynamic>? $unknown,
   }) = _ServerCreateAccountInput;
 
@@ -82,14 +83,12 @@ final class ServerCreateAccountInputConverter
 
   @override
   ServerCreateAccountInput fromJson(Map<String, dynamic> json) {
-    return ServerCreateAccountInput.fromJson(translate(
-      json,
-      ServerCreateAccountInput.knownProps,
-    ));
+    return ServerCreateAccountInput.fromJson(
+      translate(json, ServerCreateAccountInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(ServerCreateAccountInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(ServerCreateAccountInput object) =>
+      untranslate(object.toJson());
 }

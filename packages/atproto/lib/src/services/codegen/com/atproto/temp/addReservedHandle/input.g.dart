@@ -9,25 +9,20 @@ part of 'input.dart';
 // **************************************************************************
 
 _TempAddReservedHandleInput _$TempAddReservedHandleInputFromJson(Map json) =>
-    $checkedCreate(
-      '_TempAddReservedHandleInput',
-      json,
-      ($checkedConvert) {
-        final val = _TempAddReservedHandleInput(
-          handle: $checkedConvert('handle', (v) => v as String),
-          $unknown: $checkedConvert(
-              r'$unknown',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-        );
-        return val;
-      },
-    );
+    $checkedCreate('_TempAddReservedHandleInput', json, ($checkedConvert) {
+      final val = _TempAddReservedHandleInput(
+        handle: $checkedConvert('handle', (v) => v as String),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$TempAddReservedHandleInputToJson(
-        _TempAddReservedHandleInput instance) =>
-    <String, dynamic>{
-      'handle': instance.handle,
-      r'$unknown': instance.$unknown,
-    };
+  _TempAddReservedHandleInput instance,
+) => <String, dynamic>{
+  'handle': instance.handle,
+  r'$unknown': instance.$unknown,
+};

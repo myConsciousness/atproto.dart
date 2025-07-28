@@ -51,8 +51,8 @@ final class InitAgeAssuranceCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "email": argResults!["email"],
-        "language": argResults!["language"],
-        "countryCode": argResults!["countryCode"],
-      };
+    "email": argResults!["email"],
+    "language": argResults!["language"],
+    "countryCode": argResults!["countryCode"],
+  };
 }

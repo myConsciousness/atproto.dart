@@ -20,12 +20,11 @@ part 'input.g.dart';
 
 @freezed
 abstract class AdminGetAccountInfosInput with _$AdminGetAccountInfosInput {
-  static const knownProps = <String>[
-    'dids',
-  ];
+  static const knownProps = <String>['dids'];
 
   const factory AdminGetAccountInfosInput({
     required List<String> dids,
+
     Map<String, dynamic>? $unknown,
   }) = _AdminGetAccountInfosInput;
 
@@ -39,14 +38,12 @@ final class AdminGetAccountInfosInputConverter
 
   @override
   AdminGetAccountInfosInput fromJson(Map<String, dynamic> json) {
-    return AdminGetAccountInfosInput.fromJson(translate(
-      json,
-      AdminGetAccountInfosInput.knownProps,
-    ));
+    return AdminGetAccountInfosInput.fromJson(
+      translate(json, AdminGetAccountInfosInput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(AdminGetAccountInfosInput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(AdminGetAccountInfosInput object) =>
+      untranslate(object.toJson());
 }

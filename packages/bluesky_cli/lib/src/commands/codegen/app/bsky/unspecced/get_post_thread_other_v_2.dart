@@ -46,7 +46,7 @@ final class GetPostThreadOtherV2Command extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "anchor": argResults!["anchor"],
-        "prioritizeFollowedUsers": argResults!["prioritizeFollowedUsers"],
-      };
+    "anchor": argResults!["anchor"],
+    "prioritizeFollowedUsers": argResults!["prioritizeFollowedUsers"],
+  };
 }

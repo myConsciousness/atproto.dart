@@ -17,14 +17,8 @@ import '../../../../procedure_command.dart';
 final class DeleteMessageForSelfCommand extends ProcedureCommand {
   DeleteMessageForSelfCommand() {
     argParser
-      ..addOption(
-        "convoId",
-        mandatory: true,
-      )
-      ..addOption(
-        "messageId",
-        mandatory: true,
-      );
+      ..addOption("convoId", mandatory: true)
+      ..addOption("messageId", mandatory: true);
   }
 
   @override
@@ -42,7 +36,7 @@ final class DeleteMessageForSelfCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "convoId": argResults!["convoId"],
-        "messageId": argResults!["messageId"],
-      };
+    "convoId": argResults!["convoId"],
+    "messageId": argResults!["messageId"],
+  };
 }

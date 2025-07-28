@@ -23,14 +23,12 @@ part 'output.g.dart';
 
 @freezed
 abstract class SyncListReposOutput with _$SyncListReposOutput {
-  static const knownProps = <String>[
-    'cursor',
-    'repos',
-  ];
+  static const knownProps = <String>['cursor', 'repos'];
 
   const factory SyncListReposOutput({
     String? cursor,
     @RepoConverter() required List<Repo> repos,
+
     Map<String, dynamic>? $unknown,
   }) = _SyncListReposOutput;
 
@@ -49,14 +47,12 @@ final class SyncListReposOutputConverter
 
   @override
   SyncListReposOutput fromJson(Map<String, dynamic> json) {
-    return SyncListReposOutput.fromJson(translate(
-      json,
-      SyncListReposOutput.knownProps,
-    ));
+    return SyncListReposOutput.fromJson(
+      translate(json, SyncListReposOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(SyncListReposOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(SyncListReposOutput object) =>
+      untranslate(object.toJson());
 }

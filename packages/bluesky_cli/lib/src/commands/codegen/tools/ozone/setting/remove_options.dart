@@ -17,13 +17,8 @@ import '../../../../procedure_command.dart';
 final class RemoveOptionsCommand extends ProcedureCommand {
   RemoveOptionsCommand() {
     argParser
-      ..addMultiOption(
-        "keys",
-      )
-      ..addOption(
-        "scope",
-        mandatory: true,
-      );
+      ..addMultiOption("keys")
+      ..addOption("scope", mandatory: true);
   }
 
   @override
@@ -41,7 +36,7 @@ final class RemoveOptionsCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "keys": argResults!["keys"],
-        "scope": argResults!["scope"],
-      };
+    "keys": argResults!["keys"],
+    "scope": argResults!["scope"],
+  };
 }

@@ -36,13 +36,12 @@ Future<core.XRPCResponse<core.Session>> refreshSession({
   required String refreshJwt,
   core.RetryConfig? retryConfig,
   final core.PostClient? client,
-}) async =>
-    await _Sessions(
-      protocol: protocol,
-      service: service,
-      retryConfig: retryConfig,
-      client: client,
-    ).refreshSession(refreshJwt: refreshJwt);
+}) async => await _Sessions(
+  protocol: protocol,
+  service: service,
+  retryConfig: retryConfig,
+  client: client,
+).refreshSession(refreshJwt: refreshJwt);
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/deleteSession
 Future<core.XRPCResponse<core.EmptyData>> deleteSession({
@@ -51,13 +50,12 @@ Future<core.XRPCResponse<core.EmptyData>> deleteSession({
   required String refreshJwt,
   core.RetryConfig? retryConfig,
   final core.PostClient? client,
-}) async =>
-    await _Sessions(
-      protocol: protocol,
-      service: service,
-      retryConfig: retryConfig,
-      client: client,
-    ).deleteSession(refreshJwt: refreshJwt);
+}) async => await _Sessions(
+  protocol: protocol,
+  service: service,
+  retryConfig: retryConfig,
+  client: client,
+).deleteSession(refreshJwt: refreshJwt);
 
 final class _Sessions {
   /// Returns the new instance of [_Sessions].
@@ -67,12 +65,12 @@ final class _Sessions {
     core.RetryConfig? retryConfig,
     core.PostClient? client,
   }) : _ctx = core.ServiceContext(
-          protocol: protocol,
-          service: service,
-          timeout: core.defaultTimeout,
-          retryConfig: retryConfig,
-          mockedPostClient: client,
-        );
+         protocol: protocol,
+         service: service,
+         timeout: core.defaultTimeout,
+         retryConfig: retryConfig,
+         mockedPostClient: client,
+       );
 
   final core.ServiceContext _ctx;
 
@@ -80,31 +78,28 @@ final class _Sessions {
     required String identifier,
     required String password,
     String? authFactorToken,
-  }) async =>
-      await _ctx.post(
-        ns.comAtprotoServerCreateSession,
-        body: {
-          'identifier': identifier,
-          'password': password,
-          'authFactorToken': authFactorToken,
-        },
-        to: core.Session.fromJson,
-      );
+  }) async => await _ctx.post(
+    ns.comAtprotoServerCreateSession,
+    body: {
+      'identifier': identifier,
+      'password': password,
+      'authFactorToken': authFactorToken,
+    },
+    to: core.Session.fromJson,
+  );
 
   Future<core.XRPCResponse<core.Session>> refreshSession({
     required String refreshJwt,
-  }) async =>
-      await _ctx.post(
-        ns.comAtprotoServerRefreshSession,
-        headers: {'Authorization': 'Bearer $refreshJwt'},
-        to: core.Session.fromJson,
-      );
+  }) async => await _ctx.post(
+    ns.comAtprotoServerRefreshSession,
+    headers: {'Authorization': 'Bearer $refreshJwt'},
+    to: core.Session.fromJson,
+  );
 
   Future<core.XRPCResponse<core.EmptyData>> deleteSession({
     required String refreshJwt,
-  }) async =>
-      await _ctx.post(
-        ns.comAtprotoServerDeleteSession,
-        headers: {'Authorization': 'Bearer $refreshJwt'},
-      );
+  }) async => await _ctx.post(
+    ns.comAtprotoServerDeleteSession,
+    headers: {'Authorization': 'Bearer $refreshJwt'},
+  );
 }

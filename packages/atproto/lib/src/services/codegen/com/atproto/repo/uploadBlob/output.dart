@@ -21,12 +21,11 @@ part 'output.g.dart';
 
 @freezed
 abstract class RepoUploadBlobOutput with _$RepoUploadBlobOutput {
-  static const knownProps = <String>[
-    'blob',
-  ];
+  static const knownProps = <String>['blob'];
 
   const factory RepoUploadBlobOutput({
     @BlobConverter() required Blob blob,
+
     Map<String, dynamic>? $unknown,
   }) = _RepoUploadBlobOutput;
 
@@ -40,14 +39,12 @@ final class RepoUploadBlobOutputConverter
 
   @override
   RepoUploadBlobOutput fromJson(Map<String, dynamic> json) {
-    return RepoUploadBlobOutput.fromJson(translate(
-      json,
-      RepoUploadBlobOutput.knownProps,
-    ));
+    return RepoUploadBlobOutput.fromJson(
+      translate(json, RepoUploadBlobOutput.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(RepoUploadBlobOutput object) => untranslate(
-        object.toJson(),
-      );
+  Map<String, dynamic> toJson(RepoUploadBlobOutput object) =>
+      untranslate(object.toJson());
 }

@@ -32,12 +32,16 @@ final class SignatureService {
     required List<String> dids,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.toolsOzoneSignatureFindCorrelation,
-    headers: $headers,
-    parameters: {...?$unknown, 'dids': dids},
-    to: const SignatureFindCorrelationOutputConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.get(
+        ns.toolsOzoneSignatureFindCorrelation,
+        headers: $headers,
+        parameters: {
+          ...?$unknown,
+          'dids': dids,
+        },
+        to: const SignatureFindCorrelationOutputConverter().fromJson,
+      );
 
   /// Search for accounts that match one or more threat signature values.
   Future<XRPCResponse<SignatureSearchAccountsOutput>> searchAccounts({
@@ -46,17 +50,18 @@ final class SignatureService {
     int? limit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.toolsOzoneSignatureSearchAccounts,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'values': values,
-      if (cursor != null) 'cursor': cursor,
-      if (limit != null) 'limit': limit,
-    },
-    to: const SignatureSearchAccountsOutputConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.get(
+        ns.toolsOzoneSignatureSearchAccounts,
+        headers: $headers,
+        parameters: {
+          ...?$unknown,
+          'values': values,
+          if (cursor != null) 'cursor': cursor,
+          if (limit != null) 'limit': limit,
+        },
+        to: const SignatureSearchAccountsOutputConverter().fromJson,
+      );
 
   /// Get accounts that share some matching threat signatures with the root account.
   Future<XRPCResponse<SignatureFindRelatedAccountsOutput>> findRelatedAccounts({
@@ -65,15 +70,16 @@ final class SignatureService {
     int? limit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.toolsOzoneSignatureFindRelatedAccounts,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'did': did,
-      if (cursor != null) 'cursor': cursor,
-      if (limit != null) 'limit': limit,
-    },
-    to: const SignatureFindRelatedAccountsOutputConverter().fromJson,
-  );
+  }) async =>
+      await _ctx.get(
+        ns.toolsOzoneSignatureFindRelatedAccounts,
+        headers: $headers,
+        parameters: {
+          ...?$unknown,
+          'did': did,
+          if (cursor != null) 'cursor': cursor,
+          if (limit != null) 'limit': limit,
+        },
+        to: const SignatureFindRelatedAccountsOutputConverter().fromJson,
+      );
 }

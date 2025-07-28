@@ -26,9 +26,8 @@ abstract class ServerCreateSessionStatus with _$ServerCreateSessionStatus {
     required KnownServerCreateSessionStatus data,
   }) = ServerCreateSessionStatusKnownValue;
 
-  const factory ServerCreateSessionStatus.unknown({
-    required String data,
-  }) = ServerCreateSessionStatusUnknown;
+  const factory ServerCreateSessionStatus.unknown({required String data}) =
+      ServerCreateSessionStatusUnknown;
 
   static ServerCreateSessionStatus? valueOf(final String? value) {
     if (value == null) return null;
@@ -71,10 +70,8 @@ final class ServerCreateSessionStatusConverter
   }
 
   @override
-  String toJson(ServerCreateSessionStatus object) => object.when(
-        knownValue: (data) => data.value,
-        unknown: (data) => data,
-      );
+  String toJson(ServerCreateSessionStatus object) =>
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownServerCreateSessionStatus implements Serializable {
@@ -83,8 +80,7 @@ enum KnownServerCreateSessionStatus implements Serializable {
   @JsonValue('suspended')
   suspended('suspended'),
   @JsonValue('deactivated')
-  deactivated('deactivated'),
-  ;
+  deactivated('deactivated');
 
   @override
   final String value;

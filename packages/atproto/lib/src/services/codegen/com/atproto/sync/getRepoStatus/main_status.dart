@@ -26,9 +26,8 @@ abstract class SyncGetRepoStatusStatus with _$SyncGetRepoStatusStatus {
     required KnownSyncGetRepoStatusStatus data,
   }) = SyncGetRepoStatusStatusKnownValue;
 
-  const factory SyncGetRepoStatusStatus.unknown({
-    required String data,
-  }) = SyncGetRepoStatusStatusUnknown;
+  const factory SyncGetRepoStatusStatus.unknown({required String data}) =
+      SyncGetRepoStatusStatusUnknown;
 
   static SyncGetRepoStatusStatus? valueOf(final String? value) {
     if (value == null) return null;
@@ -71,10 +70,8 @@ final class SyncGetRepoStatusStatusConverter
   }
 
   @override
-  String toJson(SyncGetRepoStatusStatus object) => object.when(
-        knownValue: (data) => data.value,
-        unknown: (data) => data,
-      );
+  String toJson(SyncGetRepoStatusStatus object) =>
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownSyncGetRepoStatusStatus implements Serializable {
@@ -89,8 +86,7 @@ enum KnownSyncGetRepoStatusStatus implements Serializable {
   @JsonValue('desynchronized')
   desynchronized('desynchronized'),
   @JsonValue('throttled')
-  throttled('throttled'),
-  ;
+  throttled('throttled');
 
   @override
   final String value;

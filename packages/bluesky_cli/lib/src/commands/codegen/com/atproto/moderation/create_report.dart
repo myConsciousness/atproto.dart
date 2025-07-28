@@ -29,13 +29,8 @@ final class CreateReportCommand extends ProcedureCommand {
         "reason",
         help: r"Additional context about the content and violation.",
       )
-      ..addOption(
-        "subject",
-        mandatory: true,
-      )
-      ..addOption(
-        "modTool",
-      );
+      ..addOption("subject", mandatory: true)
+      ..addOption("modTool");
   }
 
   @override
@@ -54,10 +49,10 @@ final class CreateReportCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "reasonType": jsonDecode(argResults!["reasonType"]),
-        if (argResults!["reason"] != null) "reason": argResults!["reason"],
-        "subject": jsonDecode(argResults!["subject"]),
-        if (argResults!["modTool"] != null)
-          "modTool": jsonDecode(argResults!["modTool"]),
-      };
+    "reasonType": jsonDecode(argResults!["reasonType"]),
+    if (argResults!["reason"] != null) "reason": argResults!["reason"],
+    "subject": jsonDecode(argResults!["subject"]),
+    if (argResults!["modTool"] != null)
+      "modTool": jsonDecode(argResults!["modTool"]),
+  };
 }

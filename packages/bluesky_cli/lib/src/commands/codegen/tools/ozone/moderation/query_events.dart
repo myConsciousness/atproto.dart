@@ -22,9 +22,7 @@ final class QueryEventsCommand extends QueryCommand {
         help:
             r"The types of events (fully qualified string in the format of tools.ozone.moderation.defs#modEvent<name>) to filter by. If not specified, all events are returned.",
       )
-      ..addOption(
-        "createdBy",
-      )
+      ..addOption("createdBy")
       ..addOption(
         "sortDirection",
         help:
@@ -39,9 +37,7 @@ final class QueryEventsCommand extends QueryCommand {
         "createdBefore",
         help: r"Retrieve events created before a given timestamp",
       )
-      ..addOption(
-        "subject",
-      )
+      ..addOption("subject")
       ..addMultiOption(
         "collections",
         help:
@@ -58,10 +54,7 @@ final class QueryEventsCommand extends QueryCommand {
             r"If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned.",
         defaultsTo: false,
       )
-      ..addOption(
-        "limit",
-        defaultsTo: "50",
-      )
+      ..addOption("limit", defaultsTo: "50")
       ..addFlag(
         "hasComment",
         help: r"If true, only events with comments are returned",
@@ -91,12 +84,8 @@ final class QueryEventsCommand extends QueryCommand {
         help:
             r"If specified, only events where all of these tags were removed are returned",
       )
-      ..addMultiOption(
-        "reportTypes",
-      )
-      ..addMultiOption(
-        "policies",
-      )
+      ..addMultiOption("reportTypes")
+      ..addMultiOption("policies")
       ..addMultiOption(
         "modTool",
         help:
@@ -107,9 +96,7 @@ final class QueryEventsCommand extends QueryCommand {
         help:
             r"If specified, only events where the age assurance state matches the given value are returned",
       )
-      ..addOption(
-        "cursor",
-      );
+      ..addOption("cursor");
   }
 
   @override
@@ -127,39 +114,36 @@ final class QueryEventsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        if (argResults!["types"] != null) "types": argResults!["types"],
-        if (argResults!["createdBy"] != null)
-          "createdBy": argResults!["createdBy"],
-        "sortDirection": argResults!["sortDirection"],
-        if (argResults!["createdAfter"] != null)
-          "createdAfter": argResults!["createdAfter"],
-        if (argResults!["createdBefore"] != null)
-          "createdBefore": argResults!["createdBefore"],
-        if (argResults!["subject"] != null) "subject": argResults!["subject"],
-        if (argResults!["collections"] != null)
-          "collections": argResults!["collections"],
-        if (argResults!["subjectType"] != null)
-          "subjectType": argResults!["subjectType"],
-        "includeAllUserRecords": argResults!["includeAllUserRecords"],
-        "limit": argResults!["limit"],
-        if (argResults!["hasComment"] != null)
-          "hasComment": argResults!["hasComment"],
-        if (argResults!["comment"] != null) "comment": argResults!["comment"],
-        if (argResults!["addedLabels"] != null)
-          "addedLabels": argResults!["addedLabels"],
-        if (argResults!["removedLabels"] != null)
-          "removedLabels": argResults!["removedLabels"],
-        if (argResults!["addedTags"] != null)
-          "addedTags": argResults!["addedTags"],
-        if (argResults!["removedTags"] != null)
-          "removedTags": argResults!["removedTags"],
-        if (argResults!["reportTypes"] != null)
-          "reportTypes": argResults!["reportTypes"],
-        if (argResults!["policies"] != null)
-          "policies": argResults!["policies"],
-        if (argResults!["modTool"] != null) "modTool": argResults!["modTool"],
-        if (argResults!["ageAssuranceState"] != null)
-          "ageAssuranceState": argResults!["ageAssuranceState"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-      };
+    if (argResults!["types"] != null) "types": argResults!["types"],
+    if (argResults!["createdBy"] != null) "createdBy": argResults!["createdBy"],
+    "sortDirection": argResults!["sortDirection"],
+    if (argResults!["createdAfter"] != null)
+      "createdAfter": argResults!["createdAfter"],
+    if (argResults!["createdBefore"] != null)
+      "createdBefore": argResults!["createdBefore"],
+    if (argResults!["subject"] != null) "subject": argResults!["subject"],
+    if (argResults!["collections"] != null)
+      "collections": argResults!["collections"],
+    if (argResults!["subjectType"] != null)
+      "subjectType": argResults!["subjectType"],
+    "includeAllUserRecords": argResults!["includeAllUserRecords"],
+    "limit": argResults!["limit"],
+    if (argResults!["hasComment"] != null)
+      "hasComment": argResults!["hasComment"],
+    if (argResults!["comment"] != null) "comment": argResults!["comment"],
+    if (argResults!["addedLabels"] != null)
+      "addedLabels": argResults!["addedLabels"],
+    if (argResults!["removedLabels"] != null)
+      "removedLabels": argResults!["removedLabels"],
+    if (argResults!["addedTags"] != null) "addedTags": argResults!["addedTags"],
+    if (argResults!["removedTags"] != null)
+      "removedTags": argResults!["removedTags"],
+    if (argResults!["reportTypes"] != null)
+      "reportTypes": argResults!["reportTypes"],
+    if (argResults!["policies"] != null) "policies": argResults!["policies"],
+    if (argResults!["modTool"] != null) "modTool": argResults!["modTool"],
+    if (argResults!["ageAssuranceState"] != null)
+      "ageAssuranceState": argResults!["ageAssuranceState"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+  };
 }

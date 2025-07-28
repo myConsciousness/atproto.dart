@@ -16,10 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetAccountInfosCommand extends QueryCommand {
   GetAccountInfosCommand() {
-    argParser
-      ..addMultiOption(
-        "dids",
-      );
+    argParser..addMultiOption("dids");
   }
 
   @override
@@ -35,7 +32,5 @@ final class GetAccountInfosCommand extends QueryCommand {
   String get methodId => "com.atproto.admin.getAccountInfos";
 
   @override
-  Map<String, dynamic>? get parameters => {
-        "dids": argResults!["dids"],
-      };
+  Map<String, dynamic>? get parameters => {"dids": argResults!["dids"]};
 }

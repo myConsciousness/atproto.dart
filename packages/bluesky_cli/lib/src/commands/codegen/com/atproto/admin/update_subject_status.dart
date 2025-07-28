@@ -20,16 +20,9 @@ import '../../../../procedure_command.dart';
 final class UpdateSubjectStatusCommand extends ProcedureCommand {
   UpdateSubjectStatusCommand() {
     argParser
-      ..addOption(
-        "subject",
-        mandatory: true,
-      )
-      ..addOption(
-        "takedown",
-      )
-      ..addOption(
-        "deactivated",
-      );
+      ..addOption("subject", mandatory: true)
+      ..addOption("takedown")
+      ..addOption("deactivated");
   }
 
   @override
@@ -48,10 +41,10 @@ final class UpdateSubjectStatusCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "subject": jsonDecode(argResults!["subject"]),
-        if (argResults!["takedown"] != null)
-          "takedown": jsonDecode(argResults!["takedown"]),
-        if (argResults!["deactivated"] != null)
-          "deactivated": jsonDecode(argResults!["deactivated"]),
-      };
+    "subject": jsonDecode(argResults!["subject"]),
+    if (argResults!["takedown"] != null)
+      "takedown": jsonDecode(argResults!["takedown"]),
+    if (argResults!["deactivated"] != null)
+      "deactivated": jsonDecode(argResults!["deactivated"]),
+  };
 }

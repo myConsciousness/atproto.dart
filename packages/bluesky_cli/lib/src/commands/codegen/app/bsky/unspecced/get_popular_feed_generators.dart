@@ -17,16 +17,9 @@ import '../../../../query_command.dart';
 final class GetPopularFeedGeneratorsCommand extends QueryCommand {
   GetPopularFeedGeneratorsCommand() {
     argParser
-      ..addOption(
-        "limit",
-        defaultsTo: "50",
-      )
-      ..addOption(
-        "cursor",
-      )
-      ..addOption(
-        "query",
-      );
+      ..addOption("limit", defaultsTo: "50")
+      ..addOption("cursor")
+      ..addOption("query");
   }
 
   @override
@@ -45,8 +38,8 @@ final class GetPopularFeedGeneratorsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "limit": argResults!["limit"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-        if (argResults!["query"] != null) "query": argResults!["query"],
-      };
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    if (argResults!["query"] != null) "query": argResults!["query"],
+  };
 }

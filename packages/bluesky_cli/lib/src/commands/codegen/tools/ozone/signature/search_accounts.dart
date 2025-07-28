@@ -17,16 +17,9 @@ import '../../../../query_command.dart';
 final class SearchAccountsCommand extends QueryCommand {
   SearchAccountsCommand() {
     argParser
-      ..addMultiOption(
-        "values",
-      )
-      ..addOption(
-        "cursor",
-      )
-      ..addOption(
-        "limit",
-        defaultsTo: "50",
-      );
+      ..addMultiOption("values")
+      ..addOption("cursor")
+      ..addOption("limit", defaultsTo: "50");
   }
 
   @override
@@ -45,8 +38,8 @@ final class SearchAccountsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "values": argResults!["values"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-        "limit": argResults!["limit"],
-      };
+    "values": argResults!["values"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": argResults!["limit"],
+  };
 }

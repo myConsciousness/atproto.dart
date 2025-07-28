@@ -148,7 +148,9 @@ Future<XRPCResponse<T>> query<T>(
   final type.HeaderBuilder? headerBuilder,
   final type.GetClient? getClient,
 }) async {
-  final endpoint = util.getUriFactory(protocol).call(
+  final endpoint = util
+      .getUriFactory(protocol)
+      .call(
         service ?? defaultService,
         '/xrpc/$methodId',
         util.convertParameters(util.removeNullValues(parameters) ?? {}),
@@ -288,7 +290,9 @@ Future<XRPCResponse<T>> procedure<T>(
   final type.HeaderBuilder? headerBuilder,
   final type.PostClient? postClient,
 }) async {
-  final endpoint = util.getUriFactory(protocol).call(
+  final endpoint = util
+      .getUriFactory(protocol)
+      .call(
         service ?? defaultService,
         '/xrpc/$methodId',
         util.convertParameters(util.removeNullValues(parameters) ?? {}),
@@ -388,17 +392,16 @@ XRPCResponse<T> _buildResponse<T>(
   final http.Response response,
   final type.ResponseDataBuilder<T>? to, [
   final type.ResponseDataAdaptor? adaptor,
-]) =>
-    XRPCResponse(
-      headers: response.headers,
-      status: HttpStatus.valueOf(response.statusCode),
-      request: XRPCRequest(
-        method: HttpMethod.valueOf(response.request!.method),
-        url: response.request!.url,
-      ),
-      rateLimit: RateLimit.fromHeaders(response.headers),
-      data: util.getData(response, to, adaptor),
-    );
+]) => XRPCResponse(
+  headers: response.headers,
+  status: HttpStatus.valueOf(response.statusCode),
+  request: XRPCRequest(
+    method: HttpMethod.valueOf(response.request!.method),
+    url: response.request!.url,
+  ),
+  rateLimit: RateLimit.fromHeaders(response.headers),
+  data: util.getData(response, to, adaptor),
+);
 
 /// Returns the error response.
 XRPCResponse<XRPCError> _buildErrorResponse(final http.Response response) =>

@@ -23,13 +23,8 @@ final class SearchStarterPacksCommand extends QueryCommand {
             r"Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.",
         mandatory: true,
       )
-      ..addOption(
-        "limit",
-        defaultsTo: "25",
-      )
-      ..addOption(
-        "cursor",
-      );
+      ..addOption("limit", defaultsTo: "25")
+      ..addOption("cursor");
   }
 
   @override
@@ -48,8 +43,8 @@ final class SearchStarterPacksCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "q": argResults!["q"],
-        "limit": argResults!["limit"],
-        if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-      };
+    "q": argResults!["q"],
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+  };
 }

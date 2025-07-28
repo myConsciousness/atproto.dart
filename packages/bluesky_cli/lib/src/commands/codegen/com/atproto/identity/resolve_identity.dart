@@ -16,12 +16,11 @@ import '../../../../query_command.dart';
 
 final class ResolveIdentityCommand extends QueryCommand {
   ResolveIdentityCommand() {
-    argParser
-      ..addOption(
-        "identifier",
-        help: r"Handle or DID to resolve.",
-        mandatory: true,
-      );
+    argParser..addOption(
+      "identifier",
+      help: r"Handle or DID to resolve.",
+      mandatory: true,
+    );
   }
 
   @override
@@ -40,6 +39,6 @@ final class ResolveIdentityCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        "identifier": argResults!["identifier"],
-      };
+    "identifier": argResults!["identifier"],
+  };
 }

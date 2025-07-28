@@ -27,9 +27,8 @@ abstract class UAdminGetSubjectStatusSubject
     with _$UAdminGetSubjectStatusSubject {
   const UAdminGetSubjectStatusSubject._();
 
-  const factory UAdminGetSubjectStatusSubject.repoRef({
-    required RepoRef data,
-  }) = UAdminGetSubjectStatusSubjectRepoRef;
+  const factory UAdminGetSubjectStatusSubject.repoRef({required RepoRef data}) =
+      UAdminGetSubjectStatusSubjectRepoRef;
   const factory UAdminGetSubjectStatusSubject.repoStrongRef({
     required RepoStrongRef data,
   }) = UAdminGetSubjectStatusSubjectRepoStrongRef;
@@ -100,6 +99,7 @@ final class UAdminGetSubjectStatusSubjectConverter
         repoRef: (data) => const RepoRefConverter().toJson(data),
         repoStrongRef: (data) => const RepoStrongRefConverter().toJson(data),
         repoBlobRef: (data) => const RepoBlobRefConverter().toJson(data),
+
         unknown: (data) => data,
       );
 }

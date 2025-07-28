@@ -16,10 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetFeedGeneratorsCommand extends QueryCommand {
   GetFeedGeneratorsCommand() {
-    argParser
-      ..addMultiOption(
-        "feeds",
-      );
+    argParser..addMultiOption("feeds");
   }
 
   @override
@@ -36,7 +33,5 @@ final class GetFeedGeneratorsCommand extends QueryCommand {
   String get methodId => "app.bsky.feed.getFeedGenerators";
 
   @override
-  Map<String, dynamic>? get parameters => {
-        "feeds": argResults!["feeds"],
-      };
+  Map<String, dynamic>? get parameters => {"feeds": argResults!["feeds"]};
 }

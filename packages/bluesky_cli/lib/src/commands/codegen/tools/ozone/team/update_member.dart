@@ -17,16 +17,9 @@ import '../../../../procedure_command.dart';
 final class UpdateMemberCommand extends ProcedureCommand {
   UpdateMemberCommand() {
     argParser
-      ..addOption(
-        "did",
-        mandatory: true,
-      )
-      ..addFlag(
-        "disabled",
-      )
-      ..addOption(
-        "role",
-      );
+      ..addOption("did", mandatory: true)
+      ..addFlag("disabled")
+      ..addOption("role");
   }
 
   @override
@@ -45,9 +38,8 @@ final class UpdateMemberCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-        "did": argResults!["did"],
-        if (argResults!["disabled"] != null)
-          "disabled": argResults!["disabled"],
-        if (argResults!["role"] != null) "role": argResults!["role"],
-      };
+    "did": argResults!["did"],
+    if (argResults!["disabled"] != null) "disabled": argResults!["disabled"],
+    if (argResults!["role"] != null) "role": argResults!["role"],
+  };
 }

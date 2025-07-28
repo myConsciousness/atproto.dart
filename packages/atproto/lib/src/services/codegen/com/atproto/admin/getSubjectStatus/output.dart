@@ -24,17 +24,14 @@ part 'output.g.dart';
 
 @freezed
 abstract class AdminGetSubjectStatusOutput with _$AdminGetSubjectStatusOutput {
-  static const knownProps = <String>[
-    'subject',
-    'takedown',
-    'deactivated',
-  ];
+  static const knownProps = <String>['subject', 'takedown', 'deactivated'];
 
   const factory AdminGetSubjectStatusOutput({
     @UAdminGetSubjectStatusSubjectConverter()
     required UAdminGetSubjectStatusSubject subject,
     @StatusAttrConverter() StatusAttr? takedown,
     @StatusAttrConverter() StatusAttr? deactivated,
+
     Map<String, dynamic>? $unknown,
   }) = _AdminGetSubjectStatusOutput;
 
@@ -55,15 +52,12 @@ final class AdminGetSubjectStatusOutputConverter
 
   @override
   AdminGetSubjectStatusOutput fromJson(Map<String, dynamic> json) {
-    return AdminGetSubjectStatusOutput.fromJson(translate(
-      json,
-      AdminGetSubjectStatusOutput.knownProps,
-    ));
+    return AdminGetSubjectStatusOutput.fromJson(
+      translate(json, AdminGetSubjectStatusOutput.knownProps),
+    );
   }
 
   @override
   Map<String, dynamic> toJson(AdminGetSubjectStatusOutput object) =>
-      untranslate(
-        object.toJson(),
-      );
+      untranslate(object.toJson());
 }

@@ -51,12 +51,12 @@ final class LexXrpcParametersPropertyConverter
 
   @override
   Map<String, dynamic> toJson(LexXrpcParametersProperty object) => object.when(
-        primitiveArray: (data) => data.toJson(),
-        primitive: (data) => data.when(
-          boolean: (data) => data.toJson(),
-          integer: (data) => data.toJson(),
-          string: (data) => data.toJson(),
-          unknown: (data) => data.toJson(),
-        ),
-      );
+    primitiveArray: (data) => data.toJson(),
+    primitive: (data) => data.when(
+      boolean: (data) => data.toJson(),
+      integer: (data) => data.toJson(),
+      string: (data) => data.toJson(),
+      unknown: (data) => data.toJson(),
+    ),
+  );
 }

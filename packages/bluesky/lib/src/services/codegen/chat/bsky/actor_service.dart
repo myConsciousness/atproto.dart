@@ -36,26 +36,38 @@ final class ActorService {
     String? $rey,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
-    collection: ids.chatBskyActorDeclaration,
-    rkey: $rey,
-    record: {...?$unknown, 'allowIncoming': allowIncoming.toJson()},
-  );
+  }) async =>
+      await _ctx.repo.createRecord(
+        repo: _ctx.$repo,
+        collection: ids.chatBskyActorDeclaration,
+        rkey: $rey,
+        record: {
+          ...?$unknown,
+          'allowIncoming': allowIncoming.toJson(),
+        },
+      );
   Future<XRPCResponse<EmptyData>> deleteAccount({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.chatBskyActorDeleteAccount,
-    headers: {...?$headers},
-    body: {...?$unknown},
-  );
+  }) async =>
+      await _ctx.post(
+        ns.chatBskyActorDeleteAccount,
+        headers: {
+          ...?$headers,
+        },
+        body: {
+          ...?$unknown,
+        },
+      );
   Future<XRPCResponse<Uint8List>> exportAccountData({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.chatBskyActorExportAccountData,
-    headers: $headers,
-    parameters: {...?$unknown},
-  );
+  }) async =>
+      await _ctx.get(
+        ns.chatBskyActorExportAccountData,
+        headers: $headers,
+        parameters: {
+          ...?$unknown,
+        },
+      );
 }

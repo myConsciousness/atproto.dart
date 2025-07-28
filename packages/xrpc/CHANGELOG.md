@@ -1,10 +1,10 @@
 # Release Note
 
-## v1.0.1
+## v1.0.1-legacy
 
 - chore: optimized docs.
 
-## 1.0.0-legacy
+## v1.0.0-legacy
 
 - Downgrade SDK constraint to '^3.6.0'.
 - Legacy support for Flutter for Web.

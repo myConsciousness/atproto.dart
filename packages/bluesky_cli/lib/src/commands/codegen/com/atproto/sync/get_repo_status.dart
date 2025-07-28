@@ -16,12 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetRepoStatusCommand extends QueryCommand {
   GetRepoStatusCommand() {
-    argParser
-      ..addOption(
-        "did",
-        help: r"The DID of the repo.",
-        mandatory: true,
-      );
+    argParser..addOption("did", help: r"The DID of the repo.", mandatory: true);
   }
 
   @override
@@ -38,7 +33,5 @@ final class GetRepoStatusCommand extends QueryCommand {
   String get methodId => "com.atproto.sync.getRepoStatus";
 
   @override
-  Map<String, dynamic>? get parameters => {
-        "did": argResults!["did"],
-      };
+  Map<String, dynamic>? get parameters => {"did": argResults!["did"]};
 }

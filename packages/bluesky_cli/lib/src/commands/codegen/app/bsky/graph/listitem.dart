@@ -53,10 +53,7 @@ final class _CreateListitemCommand extends CreateRecordCommand {
         help: r"Reference (AT-URI) to the list record (app.bsky.graph.list).",
         mandatory: true,
       )
-      ..addOption(
-        "createdAt",
-        mandatory: true,
-      )
+      ..addOption("createdAt", mandatory: true)
       ..addOption("rkey");
   }
 
@@ -79,10 +76,10 @@ final class _CreateListitemCommand extends CreateRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-        "subject": argResults!["subject"],
-        "list": argResults!["list"],
-        "createdAt": argResults!["createdAt"],
-      };
+    "subject": argResults!["subject"],
+    "list": argResults!["list"],
+    "createdAt": argResults!["createdAt"],
+  };
 }
 
 final class _PutListitemCommand extends PutRecordCommand {
@@ -98,10 +95,7 @@ final class _PutListitemCommand extends PutRecordCommand {
         help: r"Reference (AT-URI) to the list record (app.bsky.graph.list).",
         mandatory: true,
       )
-      ..addOption(
-        "createdAt",
-        mandatory: true,
-      )
+      ..addOption("createdAt", mandatory: true)
       ..addOption("rkey");
   }
 
@@ -123,19 +117,15 @@ final class _PutListitemCommand extends PutRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-        "subject": argResults!["subject"],
-        "list": argResults!["list"],
-        "createdAt": argResults!["createdAt"],
-      };
+    "subject": argResults!["subject"],
+    "list": argResults!["list"],
+    "createdAt": argResults!["createdAt"],
+  };
 }
 
 final class _DeleteListitemCommand extends DeleteRecordCommand {
   _DeleteListitemCommand() {
-    argParser
-      ..addOption(
-        "rkey",
-        mandatory: true,
-      );
+    argParser..addOption("rkey", mandatory: true);
   }
 
   @override
@@ -157,10 +147,7 @@ final class _DeleteListitemCommand extends DeleteRecordCommand {
 final class _GetListitemCommand extends QueryCommand {
   _GetListitemCommand() {
     argParser
-      ..addOption(
-        "rkey",
-        mandatory: true,
-      )
+      ..addOption("rkey", mandatory: true)
       ..addOption("cid");
   }
 
@@ -178,11 +165,11 @@ final class _GetListitemCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-        'repo': await did,
-        'collection': methodId,
-        'rkey': argResults!['rkey'],
-        if (argResults!['cid'] != null) 'cid': argResults!['cid'],
-      };
+    'repo': await did,
+    'collection': methodId,
+    'rkey': argResults!['rkey'],
+    if (argResults!['cid'] != null) 'cid': argResults!['cid'],
+  };
 }
 
 final class _ListListitemCommand extends QueryCommand {
@@ -208,10 +195,10 @@ final class _ListListitemCommand extends QueryCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-        'repo': await did,
-        'collection': methodId,
-        'limit': argResults!['limit'],
-        if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
-        'reverse': argResults!['reverse'],
-      };
+    'repo': await did,
+    'collection': methodId,
+    'limit': argResults!['limit'],
+    if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
+    'reverse': argResults!['reverse'],
+  };
 }

@@ -16,12 +16,11 @@ import '../../../../query_command.dart';
 
 final class GetProfileCommand extends QueryCommand {
   GetProfileCommand() {
-    argParser
-      ..addOption(
-        "actor",
-        help: r"Handle or DID of account to fetch profile of.",
-        mandatory: true,
-      );
+    argParser..addOption(
+      "actor",
+      help: r"Handle or DID of account to fetch profile of.",
+      mandatory: true,
+    );
   }
 
   @override
@@ -38,7 +37,5 @@ final class GetProfileCommand extends QueryCommand {
   String get methodId => "app.bsky.actor.getProfile";
 
   @override
-  Map<String, dynamic>? get parameters => {
-        "actor": argResults!["actor"],
-      };
+  Map<String, dynamic>? get parameters => {"actor": argResults!["actor"]};
 }

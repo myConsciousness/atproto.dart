@@ -27,9 +27,8 @@ abstract class LabelValueDefinitionSeverity
     required KnownLabelValueDefinitionSeverity data,
   }) = LabelValueDefinitionSeverityKnownValue;
 
-  const factory LabelValueDefinitionSeverity.unknown({
-    required String data,
-  }) = LabelValueDefinitionSeverityUnknown;
+  const factory LabelValueDefinitionSeverity.unknown({required String data}) =
+      LabelValueDefinitionSeverityUnknown;
 
   static LabelValueDefinitionSeverity? valueOf(final String? value) {
     if (value == null) return null;
@@ -73,10 +72,8 @@ final class LabelValueDefinitionSeverityConverter
   }
 
   @override
-  String toJson(LabelValueDefinitionSeverity object) => object.when(
-        knownValue: (data) => data.value,
-        unknown: (data) => data,
-      );
+  String toJson(LabelValueDefinitionSeverity object) =>
+      object.when(knownValue: (data) => data.value, unknown: (data) => data);
 }
 
 enum KnownLabelValueDefinitionSeverity implements Serializable {
@@ -85,8 +82,7 @@ enum KnownLabelValueDefinitionSeverity implements Serializable {
   @JsonValue('alert')
   alert('alert'),
   @JsonValue('none')
-  none('none'),
-  ;
+  none('none');
 
   @override
   final String value;
