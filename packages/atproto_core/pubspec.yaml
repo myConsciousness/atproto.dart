@@ -18,14 +18,14 @@ topics:
   - core
 
 dependencies:
-  xrpc: ^1.0.1
-  at_uri: ^1.0.1
+  xrpc: ^1.0.1-legacy
+  at_uri: ^1.0.1-legacy
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
   cbor: ^6.3.7
-  multiformats: ^1.0.1
+  multiformats: ^1.0.1-legacy
   universal_io: ^2.2.2
-  atproto_oauth: ^0.1.1
+  atproto_oauth: ^0.1.1-legacy
 
 dev_dependencies:
   lints: ^5.1.1

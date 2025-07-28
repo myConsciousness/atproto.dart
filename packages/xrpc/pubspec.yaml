@@ -19,7 +19,7 @@ topics:
 
 dependencies:
   http: ^1.4.0
-  nsid: ^1.0.1
+  nsid: ^1.0.1-legacy
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
   mime: ^2.0.0

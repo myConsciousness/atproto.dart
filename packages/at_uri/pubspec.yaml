@@ -17,8 +17,8 @@ topics:
   - util
 
 dependencies:
-  at_identifier: ^1.0.1
-  nsid: ^1.0.1
+  at_identifier: ^1.0.1-legacy
+  nsid: ^1.0.1-legacy
 
 dev_dependencies:
   lints: ^5.1.1
