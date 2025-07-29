@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.0.2
+
+- Fix SDK constraint to '">=3.8.0 <4.0.0"'.
+
 ## v1.0.1
 
 - Improved firehose conversion process. Use `SyncSubscribeReposAdaptor` to convert byte data from `subscribeRepos`.

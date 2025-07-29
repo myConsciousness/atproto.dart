@@ -2,10 +2,10 @@ name: lex_gen
 publish_to: none
 
 environment:
-  sdk: ^3.8.0
+  sdk: ">=3.8.0 <4.0.0"
 
 dependencies:
- lexicon: ^1.0.1
+ lexicon: ^1.0.2
 
 dev_dependencies:
   lints: ^6.0.0

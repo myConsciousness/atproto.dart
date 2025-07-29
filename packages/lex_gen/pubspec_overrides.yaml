@@ -3,3 +3,5 @@ dependency_overrides:
     path: ../at_identifier
   nsid:
     path: ../nsid
+  lexicon:
+    path: ../lexicon
