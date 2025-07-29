@@ -41,7 +41,7 @@ description: A sample application.
 version: 1.0.0
 
 environment:
-  sdk: ^3.8.0
+  sdk: ">=3.8.0 <4.0.0"
 
 dependencies:
   bluesky: ^0.18.6
