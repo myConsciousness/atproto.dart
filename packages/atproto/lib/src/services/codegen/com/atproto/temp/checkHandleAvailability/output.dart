@@ -22,40 +22,37 @@ part 'output.g.dart';
 // **************************************************************************
 
 @freezed
-abstract class UnspeccedCheckHandleAvailabilityOutput
-    with _$UnspeccedCheckHandleAvailabilityOutput {
+abstract class TempCheckHandleAvailabilityOutput
+    with _$TempCheckHandleAvailabilityOutput {
   static const knownProps = <String>['handle', 'result'];
 
-  const factory UnspeccedCheckHandleAvailabilityOutput({
+  const factory TempCheckHandleAvailabilityOutput({
     /// Echo of the input handle.
     required String handle,
-    @UUnspeccedCheckHandleAvailabilityResultConverter()
-    required UUnspeccedCheckHandleAvailabilityResult result,
+    @UTempCheckHandleAvailabilityResultConverter()
+    required UTempCheckHandleAvailabilityResult result,
 
     Map<String, dynamic>? $unknown,
-  }) = _UnspeccedCheckHandleAvailabilityOutput;
+  }) = _TempCheckHandleAvailabilityOutput;
 
-  factory UnspeccedCheckHandleAvailabilityOutput.fromJson(
+  factory TempCheckHandleAvailabilityOutput.fromJson(
     Map<String, Object?> json,
-  ) => _$UnspeccedCheckHandleAvailabilityOutputFromJson(json);
+  ) => _$TempCheckHandleAvailabilityOutputFromJson(json);
 }
 
-final class UnspeccedCheckHandleAvailabilityOutputConverter
+final class TempCheckHandleAvailabilityOutputConverter
     extends
-        JsonConverter<
-          UnspeccedCheckHandleAvailabilityOutput,
-          Map<String, dynamic>
-        > {
-  const UnspeccedCheckHandleAvailabilityOutputConverter();
+        JsonConverter<TempCheckHandleAvailabilityOutput, Map<String, dynamic>> {
+  const TempCheckHandleAvailabilityOutputConverter();
 
   @override
-  UnspeccedCheckHandleAvailabilityOutput fromJson(Map<String, dynamic> json) {
-    return UnspeccedCheckHandleAvailabilityOutput.fromJson(
-      translate(json, UnspeccedCheckHandleAvailabilityOutput.knownProps),
+  TempCheckHandleAvailabilityOutput fromJson(Map<String, dynamic> json) {
+    return TempCheckHandleAvailabilityOutput.fromJson(
+      translate(json, TempCheckHandleAvailabilityOutput.knownProps),
     );
   }
 
   @override
-  Map<String, dynamic> toJson(UnspeccedCheckHandleAvailabilityOutput object) =>
+  Map<String, dynamic> toJson(TempCheckHandleAvailabilityOutput object) =>
       untranslate(object.toJson());
 }

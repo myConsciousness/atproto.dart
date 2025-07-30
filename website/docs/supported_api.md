@@ -131,6 +131,7 @@ sidebar_position: 4
 
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
+| **[com.atproto.temp.checkHandleAvailability](https://pub.dev/documentation/atproto/latest/atproto/TempService/checkHandleAvailability.html)** | [Reference](lexicons/com/atproto/temp/checkHandleAvailability.md) | ❌ |
 | **[com.atproto.temp.requestPhoneVerification](https://pub.dev/documentation/atproto/latest/atproto/TempService/requestPhoneVerification.html)** | [Reference](lexicons/com/atproto/temp/requestPhoneVerification.md) | ❌ |
 | **[com.atproto.temp.checkSignupQueue](https://pub.dev/documentation/atproto/latest/atproto/TempService/checkSignupQueue.html)** | [Reference](lexicons/com/atproto/temp/checkSignupQueue.md) | ❌ |
 | **[com.atproto.temp.fetchLabels](https://pub.dev/documentation/atproto/latest/atproto/TempService/fetchLabels.html)** | [Reference](lexicons/com/atproto/temp/fetchLabels.md) | ❌ |
@@ -248,7 +249,6 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
-| **[app.bsky.unspecced.checkHandleAvailability](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/checkHandleAvailability.html)** | [Reference](lexicons/app/bsky/unspecced/checkHandleAvailability.md) | ❌ |
 | **[app.bsky.unspecced.getSuggestedUsers](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getSuggestedUsers.html)** | [Reference](lexicons/app/bsky/unspecced/getSuggestedUsers.md) | ❌ |
 | **[app.bsky.unspecced.initAgeAssurance](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/initAgeAssurance.html)** | [Reference](lexicons/app/bsky/unspecced/initAgeAssurance.md) | ❌ |
 | **[app.bsky.unspecced.getConfig](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getConfig.html)** | [Reference](lexicons/app/bsky/unspecced/getConfig.md) | ❌ |

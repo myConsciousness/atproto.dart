@@ -442,6 +442,26 @@ const comAtprotoTempAddReservedHandle = NSID(
   ids.comAtprotoTempAddReservedHandle,
 );
 
+/// `com.atproto.temp.checkHandleAvailability`
+const comAtprotoTempCheckHandleAvailability = NSID(
+  ids.comAtprotoTempCheckHandleAvailability,
+);
+
+/// `com.atproto.temp.checkHandleAvailability#resultAvailable`
+const comAtprotoTempCheckHandleAvailabilityResultAvailable = NSID(
+  ids.comAtprotoTempCheckHandleAvailabilityResultAvailable,
+);
+
+/// `com.atproto.temp.checkHandleAvailability#resultUnavailable`
+const comAtprotoTempCheckHandleAvailabilityResultUnavailable = NSID(
+  ids.comAtprotoTempCheckHandleAvailabilityResultUnavailable,
+);
+
+/// `com.atproto.temp.checkHandleAvailability#suggestion`
+const comAtprotoTempCheckHandleAvailabilitySuggestion = NSID(
+  ids.comAtprotoTempCheckHandleAvailabilitySuggestion,
+);
+
 /// `com.atproto.temp.checkSignupQueue`
 const comAtprotoTempCheckSignupQueue = NSID(ids.comAtprotoTempCheckSignupQueue);
 

@@ -13,7 +13,6 @@ import 'package:atproto_core/atproto_core.dart';
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
-import 'unspecced/checkHandleAvailability/output.dart';
 import 'unspecced/defs/age_assurance_state.dart';
 import 'unspecced/getConfig/output.dart';
 import 'unspecced/getPopularFeedGenerators/output.dart';
@@ -45,26 +44,6 @@ final class UnspeccedService {
   UnspeccedService(this._ctx);
 
   final z.ServiceContext _ctx;
-
-  /// Checks whether the provided handle is available. If the handle is not available, available suggestions will be returned. Optional inputs will be used to generate suggestions.
-  Future<XRPCResponse<UnspeccedCheckHandleAvailabilityOutput>>
-  checkHandleAvailability({
-    required String handle,
-    String? email,
-    DateTime? birthDate,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyUnspeccedCheckHandleAvailability,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'handle': handle,
-      if (email != null) 'email': email,
-      if (birthDate != null) 'birthDate': _ctx.toUtcIso8601String(birthDate),
-    },
-    to: const UnspeccedCheckHandleAvailabilityOutputConverter().fromJson,
-  );
 
   /// Get a list of suggested users
   Future<XRPCResponse<UnspeccedGetSuggestedUsersOutput>> getSuggestedUsers({

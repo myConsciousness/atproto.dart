@@ -15,7 +15,7 @@ _Suggestion _$SuggestionFromJson(Map json) =>
           r'$type',
           (v) =>
               v as String? ??
-              'app.bsky.unspecced.checkHandleAvailability#suggestion',
+              'com.atproto.temp.checkHandleAvailability#suggestion',
         ),
         handle: $checkedConvert('handle', (v) => v as String),
         method: $checkedConvert('method', (v) => v as String),

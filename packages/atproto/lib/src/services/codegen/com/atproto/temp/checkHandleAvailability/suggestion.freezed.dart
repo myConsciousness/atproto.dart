@@ -213,7 +213,7 @@ return $default(_that.$type,_that.handle,_that.method,_that.$unknown);case _:
 @JsonSerializable()
 
 class _Suggestion implements Suggestion {
-  const _Suggestion({this.$type = 'app.bsky.unspecced.checkHandleAvailability#suggestion', required this.handle, required this.method, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Suggestion({this.$type = 'com.atproto.temp.checkHandleAvailability#suggestion', required this.handle, required this.method, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Suggestion.fromJson(Map<String, dynamic> json) => _$SuggestionFromJson(json);
 
 @override@JsonKey() final  String $type;

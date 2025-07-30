@@ -3863,6 +3863,97 @@ const comAtprotoRepoListMissingBlobs = <String, dynamic>{
   },
 };
 
+/// `com.atproto.temp.checkHandleAvailability`
+const comAtprotoTempCheckHandleAvailability = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.temp.checkHandleAvailability",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Checks whether the provided handle is available. If the handle is not available, available suggestions will be returned. Optional inputs will be used to generate suggestions.",
+      "parameters": {
+        "type": "params",
+        "required": ["handle"],
+        "properties": {
+          "handle": {
+            "type": "string",
+            "format": "handle",
+            "description":
+                "Tentative handle. Will be checked for availability or used to build handle suggestions.",
+          },
+          "email": {
+            "type": "string",
+            "description":
+                "User-provided email. Might be used to build handle suggestions.",
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "datetime",
+            "description":
+                "User-provided birth date. Might be used to build handle suggestions.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["handle", "result"],
+          "properties": {
+            "handle": {
+              "type": "string",
+              "format": "handle",
+              "description": "Echo of the input handle.",
+            },
+            "result": {
+              "type": "union",
+              "refs": ["#resultAvailable", "#resultUnavailable"],
+            },
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "InvalidEmail",
+          "description": "An invalid email was provided.",
+        },
+      ],
+    },
+    "resultAvailable": {
+      "type": "object",
+      "description": "Indicates the provided handle is available.",
+      "properties": {},
+    },
+    "resultUnavailable": {
+      "type": "object",
+      "description":
+          "Indicates the provided handle is unavailable and gives suggestions of available handles.",
+      "required": ["suggestions"],
+      "properties": {
+        "suggestions": {
+          "type": "array",
+          "description":
+              "List of suggested handles based on the provided inputs.",
+          "items": {"type": "ref", "ref": "#suggestion"},
+        },
+      },
+    },
+    "suggestion": {
+      "type": "object",
+      "required": ["handle", "method"],
+      "properties": {
+        "handle": {"type": "string", "format": "handle"},
+        "method": {
+          "type": "string",
+          "description":
+              "Method used to build this suggestion. Should be considered opaque to clients. Can be used for metrics.",
+        },
+      },
+    },
+  },
+};
+
 /// `com.atproto.temp.requestPhoneVerification`
 const comAtprotoTempRequestPhoneVerification = <String, dynamic>{
   "lexicon": 1,
@@ -8883,97 +8974,6 @@ const appBskyLabelerGetServices = <String, dynamic>{
               },
             },
           },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.unspecced.checkHandleAvailability`
-const appBskyUnspeccedCheckHandleAvailability = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.checkHandleAvailability",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Checks whether the provided handle is available. If the handle is not available, available suggestions will be returned. Optional inputs will be used to generate suggestions.",
-      "parameters": {
-        "type": "params",
-        "required": ["handle"],
-        "properties": {
-          "handle": {
-            "type": "string",
-            "format": "handle",
-            "description":
-                "Tentative handle. Will be checked for availability or used to build handle suggestions.",
-          },
-          "email": {
-            "type": "string",
-            "description":
-                "User-provided email. Might be used to build handle suggestions.",
-          },
-          "birthDate": {
-            "type": "string",
-            "format": "datetime",
-            "description":
-                "User-provided birth date. Might be used to build handle suggestions.",
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["handle", "result"],
-          "properties": {
-            "handle": {
-              "type": "string",
-              "format": "handle",
-              "description": "Echo of the input handle.",
-            },
-            "result": {
-              "type": "union",
-              "refs": ["#resultAvailable", "#resultUnavailable"],
-            },
-          },
-        },
-      },
-      "errors": [
-        {
-          "name": "InvalidEmail",
-          "description": "An invalid email was provided.",
-        },
-      ],
-    },
-    "resultAvailable": {
-      "type": "object",
-      "description": "Indicates the provided handle is available.",
-      "properties": {},
-    },
-    "resultUnavailable": {
-      "type": "object",
-      "description":
-          "Indicates the provided handle is unavailable and gives suggestions of available handles.",
-      "required": ["suggestions"],
-      "properties": {
-        "suggestions": {
-          "type": "array",
-          "description":
-              "List of suggested handles based on the provided inputs.",
-          "items": {"type": "ref", "ref": "#suggestion"},
-        },
-      },
-    },
-    "suggestion": {
-      "type": "object",
-      "required": ["handle", "method"],
-      "properties": {
-        "handle": {"type": "string", "format": "handle"},
-        "method": {
-          "type": "string",
-          "description":
-              "Method used to build this suggestion. Should be considered opaque to clients. Can be used for metrics.",
         },
       },
     },
@@ -15129,6 +15129,7 @@ const lexicons = <Map<String, dynamic>>[
   comAtprotoRepoGetRecord,
   comAtprotoRepoApplyWrites,
   comAtprotoRepoListMissingBlobs,
+  comAtprotoTempCheckHandleAvailability,
   comAtprotoTempRequestPhoneVerification,
   comAtprotoTempCheckSignupQueue,
   comAtprotoTempFetchLabels,
@@ -15219,7 +15220,6 @@ const lexicons = <Map<String, dynamic>>[
   appBskyLabelerDefs,
   appBskyLabelerService,
   appBskyLabelerGetServices,
-  appBskyUnspeccedCheckHandleAvailability,
   appBskyUnspeccedDefs,
   appBskyUnspeccedGetSuggestedUsers,
   appBskyUnspeccedInitAgeAssurance,

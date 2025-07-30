@@ -392,26 +392,6 @@ const appBskyRichtextFacetMention = NSID(ids.appBskyRichtextFacetMention);
 /// `app.bsky.richtext.facet#tag`
 const appBskyRichtextFacetTag = NSID(ids.appBskyRichtextFacetTag);
 
-/// `app.bsky.unspecced.checkHandleAvailability`
-const appBskyUnspeccedCheckHandleAvailability = NSID(
-  ids.appBskyUnspeccedCheckHandleAvailability,
-);
-
-/// `app.bsky.unspecced.checkHandleAvailability#resultAvailable`
-const appBskyUnspeccedCheckHandleAvailabilityResultAvailable = NSID(
-  ids.appBskyUnspeccedCheckHandleAvailabilityResultAvailable,
-);
-
-/// `app.bsky.unspecced.checkHandleAvailability#resultUnavailable`
-const appBskyUnspeccedCheckHandleAvailabilityResultUnavailable = NSID(
-  ids.appBskyUnspeccedCheckHandleAvailabilityResultUnavailable,
-);
-
-/// `app.bsky.unspecced.checkHandleAvailability#suggestion`
-const appBskyUnspeccedCheckHandleAvailabilitySuggestion = NSID(
-  ids.appBskyUnspeccedCheckHandleAvailabilitySuggestion,
-);
-
 /// `app.bsky.unspecced.getAgeAssuranceState`
 const appBskyUnspeccedGetAgeAssuranceState = NSID(
   ids.appBskyUnspeccedGetAgeAssuranceState,

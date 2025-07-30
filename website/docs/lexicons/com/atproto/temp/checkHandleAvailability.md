@@ -1,9 +1,9 @@
 ---
 title: checkHandleAvailability
-description: app.bsky.unspecced.checkHandleAvailability
+description: com.atproto.temp.checkHandleAvailability
 ---
 
-# [app.bsky.unspecced.checkHandleAvailability](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/unspecced/checkHandleAvailability.json)
+# [com.atproto.temp.checkHandleAvailability](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/temp/checkHandleAvailability.json)
 
 ## #main
 

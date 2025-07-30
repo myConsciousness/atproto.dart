@@ -664,22 +664,6 @@ const appBskyRichtextFacetMention = 'app.bsky.richtext.facet#mention';
 /// `app.bsky.richtext.facet#tag`
 const appBskyRichtextFacetTag = 'app.bsky.richtext.facet#tag';
 
-/// `app.bsky.unspecced.checkHandleAvailability`
-const appBskyUnspeccedCheckHandleAvailability =
-    'app.bsky.unspecced.checkHandleAvailability';
-
-/// `app.bsky.unspecced.checkHandleAvailability#resultAvailable`
-const appBskyUnspeccedCheckHandleAvailabilityResultAvailable =
-    'app.bsky.unspecced.checkHandleAvailability#resultAvailable';
-
-/// `app.bsky.unspecced.checkHandleAvailability#resultUnavailable`
-const appBskyUnspeccedCheckHandleAvailabilityResultUnavailable =
-    'app.bsky.unspecced.checkHandleAvailability#resultUnavailable';
-
-/// `app.bsky.unspecced.checkHandleAvailability#suggestion`
-const appBskyUnspeccedCheckHandleAvailabilitySuggestion =
-    'app.bsky.unspecced.checkHandleAvailability#suggestion';
-
 /// `app.bsky.unspecced.defs`
 const appBskyUnspeccedDefs = 'app.bsky.unspecced.defs';
 

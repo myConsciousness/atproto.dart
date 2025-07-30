@@ -13,6 +13,7 @@ import 'package:atproto_core/atproto_core.dart';
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
+import 'temp/checkHandleAvailability/output.dart';
 import 'temp/checkSignupQueue/output.dart';
 import 'temp/fetchLabels/output.dart';
 
@@ -25,6 +26,26 @@ final class TempService {
   TempService(this._ctx);
 
   final z.ServiceContext _ctx;
+
+  /// Checks whether the provided handle is available. If the handle is not available, available suggestions will be returned. Optional inputs will be used to generate suggestions.
+  Future<XRPCResponse<TempCheckHandleAvailabilityOutput>>
+  checkHandleAvailability({
+    required String handle,
+    String? email,
+    DateTime? birthDate,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.get(
+    ns.comAtprotoTempCheckHandleAvailability,
+    headers: $headers,
+    parameters: {
+      ...?$unknown,
+      'handle': handle,
+      if (email != null) 'email': email,
+      if (birthDate != null) 'birthDate': _ctx.toUtcIso8601String(birthDate),
+    },
+    to: const TempCheckHandleAvailabilityOutputConverter().fromJson,
+  );
 
   /// Request a verification code to be sent to the supplied phone number
   Future<XRPCResponse<EmptyData>> requestPhoneVerification({

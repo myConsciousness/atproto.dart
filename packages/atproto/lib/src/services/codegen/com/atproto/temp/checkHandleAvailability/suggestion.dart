@@ -11,51 +11,48 @@
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import './suggestion.dart';
-
-part 'result_unavailable.freezed.dart';
-part 'result_unavailable.g.dart';
+part 'suggestion.freezed.dart';
+part 'suggestion.g.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
-/// Indicates the provided handle is unavailable and gives suggestions of available handles.
 @freezed
-abstract class ResultUnavailable with _$ResultUnavailable {
-  static const knownProps = <String>['suggestions'];
+abstract class Suggestion with _$Suggestion {
+  static const knownProps = <String>['handle', 'method'];
 
-  const factory ResultUnavailable({
-    @Default('app.bsky.unspecced.checkHandleAvailability#resultUnavailable')
+  const factory Suggestion({
+    @Default('com.atproto.temp.checkHandleAvailability#suggestion')
     String $type,
-    @SuggestionConverter() required List<Suggestion> suggestions,
+    required String handle,
+
+    /// Method used to build this suggestion. Should be considered opaque to clients. Can be used for metrics.
+    required String method,
 
     Map<String, dynamic>? $unknown,
-  }) = _ResultUnavailable;
+  }) = _Suggestion;
 
-  factory ResultUnavailable.fromJson(Map<String, Object?> json) =>
-      _$ResultUnavailableFromJson(json);
+  factory Suggestion.fromJson(Map<String, Object?> json) =>
+      _$SuggestionFromJson(json);
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
     return object['\$type'] ==
-        'app.bsky.unspecced.checkHandleAvailability#resultUnavailable';
+        'com.atproto.temp.checkHandleAvailability#suggestion';
   }
 }
 
-final class ResultUnavailableConverter
-    extends JsonConverter<ResultUnavailable, Map<String, dynamic>> {
-  const ResultUnavailableConverter();
+final class SuggestionConverter
+    extends JsonConverter<Suggestion, Map<String, dynamic>> {
+  const SuggestionConverter();
 
   @override
-  ResultUnavailable fromJson(Map<String, dynamic> json) {
-    return ResultUnavailable.fromJson(
-      translate(json, ResultUnavailable.knownProps),
-    );
+  Suggestion fromJson(Map<String, dynamic> json) {
+    return Suggestion.fromJson(translate(json, Suggestion.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(ResultUnavailable object) =>
+  Map<String, dynamic> toJson(Suggestion object) =>
       untranslate(object.toJson());
 }
