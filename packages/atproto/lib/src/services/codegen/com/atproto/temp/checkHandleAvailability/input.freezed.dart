@@ -13,25 +13,25 @@ part of 'input.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$UnspeccedCheckHandleAvailabilityInput {
+mixin _$TempCheckHandleAvailabilityInput {
 
 /// Tentative handle. Will be checked for availability or used to build handle suggestions.
  String get handle;/// User-provided email. Might be used to build handle suggestions.
  String? get email;/// User-provided birth date. Might be used to build handle suggestions.
  DateTime? get birthDate; Map<String, dynamic>? get $unknown;
-/// Create a copy of UnspeccedCheckHandleAvailabilityInput
+/// Create a copy of TempCheckHandleAvailabilityInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$UnspeccedCheckHandleAvailabilityInputCopyWith<UnspeccedCheckHandleAvailabilityInput> get copyWith => _$UnspeccedCheckHandleAvailabilityInputCopyWithImpl<UnspeccedCheckHandleAvailabilityInput>(this as UnspeccedCheckHandleAvailabilityInput, _$identity);
+$TempCheckHandleAvailabilityInputCopyWith<TempCheckHandleAvailabilityInput> get copyWith => _$TempCheckHandleAvailabilityInputCopyWithImpl<TempCheckHandleAvailabilityInput>(this as TempCheckHandleAvailabilityInput, _$identity);
 
-  /// Serializes this UnspeccedCheckHandleAvailabilityInput to a JSON map.
+  /// Serializes this TempCheckHandleAvailabilityInput to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnspeccedCheckHandleAvailabilityInput&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.email, email) || other.email == email)&&(identical(other.birthDate, birthDate) || other.birthDate == birthDate)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TempCheckHandleAvailabilityInput&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.email, email) || other.email == email)&&(identical(other.birthDate, birthDate) || other.birthDate == birthDate)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -40,15 +40,15 @@ int get hashCode => Object.hash(runtimeType,handle,email,birthDate,const DeepCol
 
 @override
 String toString() {
-  return 'UnspeccedCheckHandleAvailabilityInput(handle: $handle, email: $email, birthDate: $birthDate, \$unknown: ${$unknown})';
+  return 'TempCheckHandleAvailabilityInput(handle: $handle, email: $email, birthDate: $birthDate, \$unknown: ${$unknown})';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $UnspeccedCheckHandleAvailabilityInputCopyWith<$Res>  {
-  factory $UnspeccedCheckHandleAvailabilityInputCopyWith(UnspeccedCheckHandleAvailabilityInput value, $Res Function(UnspeccedCheckHandleAvailabilityInput) _then) = _$UnspeccedCheckHandleAvailabilityInputCopyWithImpl;
+abstract mixin class $TempCheckHandleAvailabilityInputCopyWith<$Res>  {
+  factory $TempCheckHandleAvailabilityInputCopyWith(TempCheckHandleAvailabilityInput value, $Res Function(TempCheckHandleAvailabilityInput) _then) = _$TempCheckHandleAvailabilityInputCopyWithImpl;
 @useResult
 $Res call({
  String handle, String? email, DateTime? birthDate, Map<String, dynamic>? $unknown
@@ -59,14 +59,14 @@ $Res call({
 
 }
 /// @nodoc
-class _$UnspeccedCheckHandleAvailabilityInputCopyWithImpl<$Res>
-    implements $UnspeccedCheckHandleAvailabilityInputCopyWith<$Res> {
-  _$UnspeccedCheckHandleAvailabilityInputCopyWithImpl(this._self, this._then);
+class _$TempCheckHandleAvailabilityInputCopyWithImpl<$Res>
+    implements $TempCheckHandleAvailabilityInputCopyWith<$Res> {
+  _$TempCheckHandleAvailabilityInputCopyWithImpl(this._self, this._then);
 
-  final UnspeccedCheckHandleAvailabilityInput _self;
-  final $Res Function(UnspeccedCheckHandleAvailabilityInput) _then;
+  final TempCheckHandleAvailabilityInput _self;
+  final $Res Function(TempCheckHandleAvailabilityInput) _then;
 
-/// Create a copy of UnspeccedCheckHandleAvailabilityInput
+/// Create a copy of TempCheckHandleAvailabilityInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? handle = null,Object? email = freezed,Object? birthDate = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
@@ -81,8 +81,8 @@ as Map<String, dynamic>?,
 }
 
 
-/// Adds pattern-matching-related methods to [UnspeccedCheckHandleAvailabilityInput].
-extension UnspeccedCheckHandleAvailabilityInputPatterns on UnspeccedCheckHandleAvailabilityInput {
+/// Adds pattern-matching-related methods to [TempCheckHandleAvailabilityInput].
+extension TempCheckHandleAvailabilityInputPatterns on TempCheckHandleAvailabilityInput {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -95,10 +95,10 @@ extension UnspeccedCheckHandleAvailabilityInputPatterns on UnspeccedCheckHandleA
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _UnspeccedCheckHandleAvailabilityInput value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _TempCheckHandleAvailabilityInput value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _UnspeccedCheckHandleAvailabilityInput() when $default != null:
+case _TempCheckHandleAvailabilityInput() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -117,10 +117,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _UnspeccedCheckHandleAvailabilityInput value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _TempCheckHandleAvailabilityInput value)  $default,){
 final _that = this;
 switch (_that) {
-case _UnspeccedCheckHandleAvailabilityInput():
+case _TempCheckHandleAvailabilityInput():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -138,10 +138,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _UnspeccedCheckHandleAvailabilityInput value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _TempCheckHandleAvailabilityInput value)?  $default,){
 final _that = this;
 switch (_that) {
-case _UnspeccedCheckHandleAvailabilityInput() when $default != null:
+case _TempCheckHandleAvailabilityInput() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -161,7 +161,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String handle,  String? email,  DateTime? birthDate,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _UnspeccedCheckHandleAvailabilityInput() when $default != null:
+case _TempCheckHandleAvailabilityInput() when $default != null:
 return $default(_that.handle,_that.email,_that.birthDate,_that.$unknown);case _:
   return orElse();
 
@@ -182,7 +182,7 @@ return $default(_that.handle,_that.email,_that.birthDate,_that.$unknown);case _:
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String handle,  String? email,  DateTime? birthDate,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
-case _UnspeccedCheckHandleAvailabilityInput():
+case _TempCheckHandleAvailabilityInput():
 return $default(_that.handle,_that.email,_that.birthDate,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
@@ -202,7 +202,7 @@ return $default(_that.handle,_that.email,_that.birthDate,_that.$unknown);case _:
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String handle,  String? email,  DateTime? birthDate,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
-case _UnspeccedCheckHandleAvailabilityInput() when $default != null:
+case _TempCheckHandleAvailabilityInput() when $default != null:
 return $default(_that.handle,_that.email,_that.birthDate,_that.$unknown);case _:
   return null;
 
@@ -214,9 +214,9 @@ return $default(_that.handle,_that.email,_that.birthDate,_that.$unknown);case _:
 /// @nodoc
 @JsonSerializable()
 
-class _UnspeccedCheckHandleAvailabilityInput implements UnspeccedCheckHandleAvailabilityInput {
-  const _UnspeccedCheckHandleAvailabilityInput({required this.handle, this.email, this.birthDate, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
-  factory _UnspeccedCheckHandleAvailabilityInput.fromJson(Map<String, dynamic> json) => _$UnspeccedCheckHandleAvailabilityInputFromJson(json);
+class _TempCheckHandleAvailabilityInput implements TempCheckHandleAvailabilityInput {
+  const _TempCheckHandleAvailabilityInput({required this.handle, this.email, this.birthDate, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  factory _TempCheckHandleAvailabilityInput.fromJson(Map<String, dynamic> json) => _$TempCheckHandleAvailabilityInputFromJson(json);
 
 /// Tentative handle. Will be checked for availability or used to build handle suggestions.
 @override final  String handle;
@@ -234,20 +234,20 @@ class _UnspeccedCheckHandleAvailabilityInput implements UnspeccedCheckHandleAvai
 }
 
 
-/// Create a copy of UnspeccedCheckHandleAvailabilityInput
+/// Create a copy of TempCheckHandleAvailabilityInput
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$UnspeccedCheckHandleAvailabilityInputCopyWith<_UnspeccedCheckHandleAvailabilityInput> get copyWith => __$UnspeccedCheckHandleAvailabilityInputCopyWithImpl<_UnspeccedCheckHandleAvailabilityInput>(this, _$identity);
+_$TempCheckHandleAvailabilityInputCopyWith<_TempCheckHandleAvailabilityInput> get copyWith => __$TempCheckHandleAvailabilityInputCopyWithImpl<_TempCheckHandleAvailabilityInput>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$UnspeccedCheckHandleAvailabilityInputToJson(this, );
+  return _$TempCheckHandleAvailabilityInputToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnspeccedCheckHandleAvailabilityInput&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.email, email) || other.email == email)&&(identical(other.birthDate, birthDate) || other.birthDate == birthDate)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TempCheckHandleAvailabilityInput&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.email, email) || other.email == email)&&(identical(other.birthDate, birthDate) || other.birthDate == birthDate)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -256,15 +256,15 @@ int get hashCode => Object.hash(runtimeType,handle,email,birthDate,const DeepCol
 
 @override
 String toString() {
-  return 'UnspeccedCheckHandleAvailabilityInput(handle: $handle, email: $email, birthDate: $birthDate, \$unknown: ${$unknown})';
+  return 'TempCheckHandleAvailabilityInput(handle: $handle, email: $email, birthDate: $birthDate, \$unknown: ${$unknown})';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$UnspeccedCheckHandleAvailabilityInputCopyWith<$Res> implements $UnspeccedCheckHandleAvailabilityInputCopyWith<$Res> {
-  factory _$UnspeccedCheckHandleAvailabilityInputCopyWith(_UnspeccedCheckHandleAvailabilityInput value, $Res Function(_UnspeccedCheckHandleAvailabilityInput) _then) = __$UnspeccedCheckHandleAvailabilityInputCopyWithImpl;
+abstract mixin class _$TempCheckHandleAvailabilityInputCopyWith<$Res> implements $TempCheckHandleAvailabilityInputCopyWith<$Res> {
+  factory _$TempCheckHandleAvailabilityInputCopyWith(_TempCheckHandleAvailabilityInput value, $Res Function(_TempCheckHandleAvailabilityInput) _then) = __$TempCheckHandleAvailabilityInputCopyWithImpl;
 @override @useResult
 $Res call({
  String handle, String? email, DateTime? birthDate, Map<String, dynamic>? $unknown
@@ -275,17 +275,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$UnspeccedCheckHandleAvailabilityInputCopyWithImpl<$Res>
-    implements _$UnspeccedCheckHandleAvailabilityInputCopyWith<$Res> {
-  __$UnspeccedCheckHandleAvailabilityInputCopyWithImpl(this._self, this._then);
+class __$TempCheckHandleAvailabilityInputCopyWithImpl<$Res>
+    implements _$TempCheckHandleAvailabilityInputCopyWith<$Res> {
+  __$TempCheckHandleAvailabilityInputCopyWithImpl(this._self, this._then);
 
-  final _UnspeccedCheckHandleAvailabilityInput _self;
-  final $Res Function(_UnspeccedCheckHandleAvailabilityInput) _then;
+  final _TempCheckHandleAvailabilityInput _self;
+  final $Res Function(_TempCheckHandleAvailabilityInput) _then;
 
-/// Create a copy of UnspeccedCheckHandleAvailabilityInput
+/// Create a copy of TempCheckHandleAvailabilityInput
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? handle = null,Object? email = freezed,Object? birthDate = freezed,Object? $unknown = freezed,}) {
-  return _then(_UnspeccedCheckHandleAvailabilityInput(
+  return _then(_TempCheckHandleAvailabilityInput(
 handle: null == handle ? _self.handle : handle // ignore: cast_nullable_to_non_nullable
 as String,email: freezed == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String?,birthDate: freezed == birthDate ? _self.birthDate : birthDate // ignore: cast_nullable_to_non_nullable

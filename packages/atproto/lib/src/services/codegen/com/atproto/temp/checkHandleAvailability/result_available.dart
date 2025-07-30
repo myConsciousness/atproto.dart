@@ -11,48 +11,47 @@
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'suggestion.freezed.dart';
-part 'suggestion.g.dart';
+part 'result_available.freezed.dart';
+part 'result_available.g.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
+/// Indicates the provided handle is available.
 @freezed
-abstract class Suggestion with _$Suggestion {
-  static const knownProps = <String>['handle', 'method'];
+abstract class ResultAvailable with _$ResultAvailable {
+  static const knownProps = <String>[];
 
-  const factory Suggestion({
-    @Default('app.bsky.unspecced.checkHandleAvailability#suggestion')
+  const factory ResultAvailable({
+    @Default('com.atproto.temp.checkHandleAvailability#resultAvailable')
     String $type,
-    required String handle,
-
-    /// Method used to build this suggestion. Should be considered opaque to clients. Can be used for metrics.
-    required String method,
 
     Map<String, dynamic>? $unknown,
-  }) = _Suggestion;
+  }) = _ResultAvailable;
 
-  factory Suggestion.fromJson(Map<String, Object?> json) =>
-      _$SuggestionFromJson(json);
+  factory ResultAvailable.fromJson(Map<String, Object?> json) =>
+      _$ResultAvailableFromJson(json);
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
     return object['\$type'] ==
-        'app.bsky.unspecced.checkHandleAvailability#suggestion';
+        'com.atproto.temp.checkHandleAvailability#resultAvailable';
   }
 }
 
-final class SuggestionConverter
-    extends JsonConverter<Suggestion, Map<String, dynamic>> {
-  const SuggestionConverter();
+final class ResultAvailableConverter
+    extends JsonConverter<ResultAvailable, Map<String, dynamic>> {
+  const ResultAvailableConverter();
 
   @override
-  Suggestion fromJson(Map<String, dynamic> json) {
-    return Suggestion.fromJson(translate(json, Suggestion.knownProps));
+  ResultAvailable fromJson(Map<String, dynamic> json) {
+    return ResultAvailable.fromJson(
+      translate(json, ResultAvailable.knownProps),
+    );
   }
 
   @override
-  Map<String, dynamic> toJson(Suggestion object) =>
+  Map<String, dynamic> toJson(ResultAvailable object) =>
       untranslate(object.toJson());
 }

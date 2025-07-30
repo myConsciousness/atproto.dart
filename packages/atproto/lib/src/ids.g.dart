@@ -477,6 +477,22 @@ const comAtprotoSyncSubscribeReposSync = 'com.atproto.sync.subscribeRepos#sync';
 /// `com.atproto.temp.addReservedHandle`
 const comAtprotoTempAddReservedHandle = 'com.atproto.temp.addReservedHandle';
 
+/// `com.atproto.temp.checkHandleAvailability`
+const comAtprotoTempCheckHandleAvailability =
+    'com.atproto.temp.checkHandleAvailability';
+
+/// `com.atproto.temp.checkHandleAvailability#resultAvailable`
+const comAtprotoTempCheckHandleAvailabilityResultAvailable =
+    'com.atproto.temp.checkHandleAvailability#resultAvailable';
+
+/// `com.atproto.temp.checkHandleAvailability#resultUnavailable`
+const comAtprotoTempCheckHandleAvailabilityResultUnavailable =
+    'com.atproto.temp.checkHandleAvailability#resultUnavailable';
+
+/// `com.atproto.temp.checkHandleAvailability#suggestion`
+const comAtprotoTempCheckHandleAvailabilitySuggestion =
+    'com.atproto.temp.checkHandleAvailability#suggestion';
+
 /// `com.atproto.temp.checkSignupQueue`
 const comAtprotoTempCheckSignupQueue = 'com.atproto.temp.checkSignupQueue';
 

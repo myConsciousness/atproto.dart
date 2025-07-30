@@ -11,47 +11,51 @@
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'result_available.freezed.dart';
-part 'result_available.g.dart';
+// Project imports:
+import './suggestion.dart';
+
+part 'result_unavailable.freezed.dart';
+part 'result_unavailable.g.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
-/// Indicates the provided handle is available.
+/// Indicates the provided handle is unavailable and gives suggestions of available handles.
 @freezed
-abstract class ResultAvailable with _$ResultAvailable {
-  static const knownProps = <String>[];
+abstract class ResultUnavailable with _$ResultUnavailable {
+  static const knownProps = <String>['suggestions'];
 
-  const factory ResultAvailable({
-    @Default('app.bsky.unspecced.checkHandleAvailability#resultAvailable')
+  const factory ResultUnavailable({
+    @Default('com.atproto.temp.checkHandleAvailability#resultUnavailable')
     String $type,
+    @SuggestionConverter() required List<Suggestion> suggestions,
 
     Map<String, dynamic>? $unknown,
-  }) = _ResultAvailable;
+  }) = _ResultUnavailable;
 
-  factory ResultAvailable.fromJson(Map<String, Object?> json) =>
-      _$ResultAvailableFromJson(json);
+  factory ResultUnavailable.fromJson(Map<String, Object?> json) =>
+      _$ResultUnavailableFromJson(json);
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
     return object['\$type'] ==
-        'app.bsky.unspecced.checkHandleAvailability#resultAvailable';
+        'com.atproto.temp.checkHandleAvailability#resultUnavailable';
   }
 }
 
-final class ResultAvailableConverter
-    extends JsonConverter<ResultAvailable, Map<String, dynamic>> {
-  const ResultAvailableConverter();
+final class ResultUnavailableConverter
+    extends JsonConverter<ResultUnavailable, Map<String, dynamic>> {
+  const ResultUnavailableConverter();
 
   @override
-  ResultAvailable fromJson(Map<String, dynamic> json) {
-    return ResultAvailable.fromJson(
-      translate(json, ResultAvailable.knownProps),
+  ResultUnavailable fromJson(Map<String, dynamic> json) {
+    return ResultUnavailable.fromJson(
+      translate(json, ResultUnavailable.knownProps),
     );
   }
 
   @override
-  Map<String, dynamic> toJson(ResultAvailable object) =>
+  Map<String, dynamic> toJson(ResultUnavailable object) =>
       untranslate(object.toJson());
 }

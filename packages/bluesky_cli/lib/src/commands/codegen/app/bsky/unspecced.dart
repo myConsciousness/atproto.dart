@@ -11,7 +11,6 @@
 import 'package:args/command_runner.dart';
 
 // Project imports:
-import 'unspecced/check_handle_availability.dart';
 import 'unspecced/get_age_assurance_state.dart';
 import 'unspecced/get_config.dart';
 import 'unspecced/get_popular_feed_generators.dart';
@@ -39,7 +38,6 @@ import 'unspecced/search_starter_packs_skeleton.dart';
 
 final class AppBskyUnspeccedCommand extends Command<void> {
   AppBskyUnspeccedCommand() {
-    addSubcommand(CheckHandleAvailabilityCommand());
     addSubcommand(GetSuggestedUsersCommand());
     addSubcommand(InitAgeAssuranceCommand());
     addSubcommand(GetConfigCommand());

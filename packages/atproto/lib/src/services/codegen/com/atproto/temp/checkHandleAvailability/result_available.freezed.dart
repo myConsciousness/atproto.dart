@@ -210,7 +210,7 @@ return $default(_that.$type,_that.$unknown);case _:
 @JsonSerializable()
 
 class _ResultAvailable implements ResultAvailable {
-  const _ResultAvailable({this.$type = 'app.bsky.unspecced.checkHandleAvailability#resultAvailable', final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ResultAvailable({this.$type = 'com.atproto.temp.checkHandleAvailability#resultAvailable', final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ResultAvailable.fromJson(Map<String, dynamic> json) => _$ResultAvailableFromJson(json);
 
 @override@JsonKey() final  String $type;

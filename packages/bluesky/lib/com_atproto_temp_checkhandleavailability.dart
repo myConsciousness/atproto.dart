@@ -7,32 +7,13 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-// Package imports:
-import 'package:args/command_runner.dart';
-
-// Project imports:
-import 'temp/add_reserved_handle.dart';
-import 'temp/check_handle_availability.dart';
-import 'temp/check_signup_queue.dart';
-import 'temp/fetch_labels.dart';
-import 'temp/request_phone_verification.dart';
-
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
-final class ComAtprotoTempCommand extends Command<void> {
-  ComAtprotoTempCommand() {
-    addSubcommand(CheckHandleAvailabilityCommand());
-    addSubcommand(RequestPhoneVerificationCommand());
-    addSubcommand(CheckSignupQueueCommand());
-    addSubcommand(FetchLabelsCommand());
-    addSubcommand(AddReservedHandleCommand());
-  }
-
-  @override
-  String get name => "com-atproto-temp";
-
-  @override
-  String get description => "Provides commands for com.atproto.temp.*";
-}
+export 'package:atproto/src/services/codegen/com/atproto/temp/checkHandleAvailability/input.dart';
+export 'package:atproto/src/services/codegen/com/atproto/temp/checkHandleAvailability/output.dart';
+export 'package:atproto/src/services/codegen/com/atproto/temp/checkHandleAvailability/union_main_result.dart';
+export 'package:atproto/src/services/codegen/com/atproto/temp/checkHandleAvailability/result_available.dart';
+export 'package:atproto/src/services/codegen/com/atproto/temp/checkHandleAvailability/result_unavailable.dart';
+export 'package:atproto/src/services/codegen/com/atproto/temp/checkHandleAvailability/suggestion.dart';

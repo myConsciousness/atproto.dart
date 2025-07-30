@@ -15,7 +15,7 @@ _ResultUnavailable _$ResultUnavailableFromJson(Map json) =>
           r'$type',
           (v) =>
               v as String? ??
-              'app.bsky.unspecced.checkHandleAvailability#resultUnavailable',
+              'com.atproto.temp.checkHandleAvailability#resultUnavailable',
         ),
         suggestions: $checkedConvert(
           'suggestions',

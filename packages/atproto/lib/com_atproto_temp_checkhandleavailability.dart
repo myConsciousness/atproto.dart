@@ -11,9 +11,9 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/codegen/app/bsky/unspecced/checkHandleAvailability/input.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/unspecced/checkHandleAvailability/output.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/unspecced/checkHandleAvailability/union_main_result.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/unspecced/checkHandleAvailability/result_available.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/unspecced/checkHandleAvailability/result_unavailable.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/unspecced/checkHandleAvailability/suggestion.dart';
+export 'package:atproto/src/services/codegen/com/atproto/temp/checkHandleAvailability/input.dart';
+export 'package:atproto/src/services/codegen/com/atproto/temp/checkHandleAvailability/output.dart';
+export 'package:atproto/src/services/codegen/com/atproto/temp/checkHandleAvailability/union_main_result.dart';
+export 'package:atproto/src/services/codegen/com/atproto/temp/checkHandleAvailability/result_available.dart';
+export 'package:atproto/src/services/codegen/com/atproto/temp/checkHandleAvailability/result_unavailable.dart';
+export 'package:atproto/src/services/codegen/com/atproto/temp/checkHandleAvailability/suggestion.dart';

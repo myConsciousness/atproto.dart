@@ -44,10 +44,10 @@ final class CheckHandleAvailabilityCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-unspecced check-handle-availability [handle] [email] [birthDate]";
+      "bsky com-atproto-temp check-handle-availability [handle] [email] [birthDate]";
 
   @override
-  String get methodId => "app.bsky.unspecced.checkHandleAvailability";
+  String get methodId => "com.atproto.temp.checkHandleAvailability";
 
   @override
   Map<String, dynamic>? get parameters => {

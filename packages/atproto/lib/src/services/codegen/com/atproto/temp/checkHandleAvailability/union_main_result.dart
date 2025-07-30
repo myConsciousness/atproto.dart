@@ -22,74 +22,73 @@ part 'union_main_result.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UUnspeccedCheckHandleAvailabilityResult
-    with _$UUnspeccedCheckHandleAvailabilityResult {
-  const UUnspeccedCheckHandleAvailabilityResult._();
+abstract class UTempCheckHandleAvailabilityResult
+    with _$UTempCheckHandleAvailabilityResult {
+  const UTempCheckHandleAvailabilityResult._();
 
-  const factory UUnspeccedCheckHandleAvailabilityResult.resultAvailable({
+  const factory UTempCheckHandleAvailabilityResult.resultAvailable({
     required ResultAvailable data,
-  }) = UUnspeccedCheckHandleAvailabilityResultResultAvailable;
-  const factory UUnspeccedCheckHandleAvailabilityResult.resultUnavailable({
+  }) = UTempCheckHandleAvailabilityResultResultAvailable;
+  const factory UTempCheckHandleAvailabilityResult.resultUnavailable({
     required ResultUnavailable data,
-  }) = UUnspeccedCheckHandleAvailabilityResultResultUnavailable;
+  }) = UTempCheckHandleAvailabilityResultResultUnavailable;
 
-  const factory UUnspeccedCheckHandleAvailabilityResult.unknown({
+  const factory UTempCheckHandleAvailabilityResult.unknown({
     required Map<String, dynamic> data,
-  }) = UUnspeccedCheckHandleAvailabilityResultUnknown;
+  }) = UTempCheckHandleAvailabilityResultUnknown;
 
   Map<String, dynamic> toJson() =>
-      const UUnspeccedCheckHandleAvailabilityResultConverter().toJson(this);
+      const UTempCheckHandleAvailabilityResultConverter().toJson(this);
 }
 
-extension UUnspeccedCheckHandleAvailabilityResultExtension
-    on UUnspeccedCheckHandleAvailabilityResult {
+extension UTempCheckHandleAvailabilityResultExtension
+    on UTempCheckHandleAvailabilityResult {
   bool get isResultAvailable =>
-      isA<UUnspeccedCheckHandleAvailabilityResultResultAvailable>(this);
+      isA<UTempCheckHandleAvailabilityResultResultAvailable>(this);
   bool get isNotResultAvailable => !isResultAvailable;
   ResultAvailable? get resultAvailable =>
       isResultAvailable ? data as ResultAvailable : null;
   bool get isResultUnavailable =>
-      isA<UUnspeccedCheckHandleAvailabilityResultResultUnavailable>(this);
+      isA<UTempCheckHandleAvailabilityResultResultUnavailable>(this);
   bool get isNotResultUnavailable => !isResultUnavailable;
   ResultUnavailable? get resultUnavailable =>
       isResultUnavailable ? data as ResultUnavailable : null;
-  bool get isUnknown =>
-      isA<UUnspeccedCheckHandleAvailabilityResultUnknown>(this);
+  bool get isUnknown => isA<UTempCheckHandleAvailabilityResultUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   Map<String, dynamic>? get unknown =>
       isUnknown ? data as Map<String, dynamic> : null;
 }
 
-final class UUnspeccedCheckHandleAvailabilityResultConverter
+final class UTempCheckHandleAvailabilityResultConverter
     implements
         JsonConverter<
-          UUnspeccedCheckHandleAvailabilityResult,
+          UTempCheckHandleAvailabilityResult,
           Map<String, dynamic>
         > {
-  const UUnspeccedCheckHandleAvailabilityResultConverter();
+  const UTempCheckHandleAvailabilityResultConverter();
 
   @override
-  UUnspeccedCheckHandleAvailabilityResult fromJson(Map<String, dynamic> json) {
+  UTempCheckHandleAvailabilityResult fromJson(Map<String, dynamic> json) {
     try {
       if (ResultAvailable.validate(json)) {
-        return UUnspeccedCheckHandleAvailabilityResult.resultAvailable(
+        return UTempCheckHandleAvailabilityResult.resultAvailable(
           data: const ResultAvailableConverter().fromJson(json),
         );
       }
       if (ResultUnavailable.validate(json)) {
-        return UUnspeccedCheckHandleAvailabilityResult.resultUnavailable(
+        return UTempCheckHandleAvailabilityResult.resultUnavailable(
           data: const ResultUnavailableConverter().fromJson(json),
         );
       }
 
-      return UUnspeccedCheckHandleAvailabilityResult.unknown(data: json);
+      return UTempCheckHandleAvailabilityResult.unknown(data: json);
     } catch (_) {
-      return UUnspeccedCheckHandleAvailabilityResult.unknown(data: json);
+      return UTempCheckHandleAvailabilityResult.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UUnspeccedCheckHandleAvailabilityResult object) =>
+  Map<String, dynamic> toJson(UTempCheckHandleAvailabilityResult object) =>
       object.when(
         resultAvailable: (data) =>
             const ResultAvailableConverter().toJson(data),
