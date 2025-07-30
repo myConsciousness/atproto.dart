@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.0.3
+
+- chore: Update source files automatically. ([##2081](https://github.com/myConsciousness/atproto.dart/pull/#2081))
+
 ## v1.0.2
 
 - Fix SDK constraint to '">=3.8.0 <4.0.0"'.
