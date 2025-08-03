@@ -3,26 +3,28 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 /// Represents the reason for a notifications.
 enum NotificationReason {
-  /// Indicates likes.
   like('like'),
-
-  /// Indicates reposts.
   repost('repost'),
-
-  /// Indicates follows.
   follow('follow'),
-
-  /// Indicates mentions.
   mention('mention'),
 
-  /// Indicates replies.
   reply('reply'),
 
-  /// Indicates quotes.
   quote('quote'),
 
-  @JsonValue('starterpack-joined')
-  starterpackJoined('starterpack-joined');
+  starterpackJoined('starterpack-joined'),
+
+  verified('verified'),
+
+  unverified('unverified'),
+
+  likeViaRepost('like-via-repost'),
+
+  repostViaRepost('repost-via-repost'),
+
+  subscribedPost('subscribed-post'),
+
+  unknown('unknown');
 
   /// Json value.
   final String value;

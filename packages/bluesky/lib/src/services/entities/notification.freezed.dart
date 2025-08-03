@@ -233,7 +233,7 @@ class _$NotificationImpl implements _Notification {
       {required this.cid,
       @AtUriConverter() required this.uri,
       required this.author,
-      required this.reason,
+      required this.reason = NotificationReason.unknown,
       @AtUriConverter() this.reasonSubject,
       this.isRead = false,
       final Map<String, dynamic>? record,
@@ -253,6 +253,7 @@ class _$NotificationImpl implements _Notification {
   @override
   final Actor author;
   @override
+  @JsonKey()
   final NotificationReason reason;
   @override
   @AtUriConverter()

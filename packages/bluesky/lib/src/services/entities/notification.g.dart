@@ -19,7 +19,10 @@ _$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
           author: $checkedConvert('author',
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
           reason: $checkedConvert(
-              'reason', (v) => $enumDecode(_$NotificationReasonEnumMap, v)),
+              'reason',
+              (v) =>
+                  $enumDecodeNullable(_$NotificationReasonEnumMap, v) ??
+                  NotificationReason.unknown),
           reasonSubject: $checkedConvert(
               'reasonSubject',
               (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -67,7 +70,13 @@ const _$NotificationReasonEnumMap = {
   NotificationReason.mention: 'mention',
   NotificationReason.reply: 'reply',
   NotificationReason.quote: 'quote',
-  NotificationReason.starterpackJoined: 'starterpack-joined',
+  NotificationReason.starterpackJoined: 'starterpackJoined',
+  NotificationReason.verified: 'verified',
+  NotificationReason.unverified: 'unverified',
+  NotificationReason.likeViaRepost: 'likeViaRepost',
+  NotificationReason.repostViaRepost: 'repostViaRepost',
+  NotificationReason.subscribedPost: 'subscribedPost',
+  NotificationReason.unknown: 'unknown',
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(
