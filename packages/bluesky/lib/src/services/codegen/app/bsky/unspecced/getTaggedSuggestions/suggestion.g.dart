@@ -42,5 +42,5 @@ Map<String, dynamic> _$SuggestionToJson(_Suggestion instance) =>
         instance.subjectType,
       ),
       'subject': const AtUriConverter().toJson(instance.subject),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

@@ -27,6 +27,7 @@ abstract class ServerCreateSessionInput with _$ServerCreateSessionInput {
     'allowTakendown',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerCreateSessionInput({
     /// Handle or other identifier supported by the server for the authenticating user.
     required String identifier,

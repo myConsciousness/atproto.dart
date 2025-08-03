@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class SyncListReposOutput with _$SyncListReposOutput {
   static const knownProps = <String>['cursor', 'repos'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncListReposOutput({
     String? cursor,
     @RepoConverter() required List<Repo> repos,

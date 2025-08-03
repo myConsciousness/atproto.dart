@@ -207,8 +207,8 @@ return $default(_that.limit,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetTrendsInput implements UnspeccedGetTrendsInput {
   const _UnspeccedGetTrendsInput({this.limit = 10, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedGetTrendsInput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetTrendsInputFromJson(json);

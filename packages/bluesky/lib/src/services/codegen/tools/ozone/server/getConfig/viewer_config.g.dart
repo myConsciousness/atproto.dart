@@ -33,11 +33,11 @@ _ViewerConfig _$ViewerConfigFromJson(Map json) =>
 Map<String, dynamic> _$ViewerConfigToJson(_ViewerConfig instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'role': _$JsonConverterToJson<String, ViewerConfigRole>(
+      'role': ?_$JsonConverterToJson<String, ViewerConfigRole>(
         instance.role,
         const ViewerConfigRoleConverter().toJson,
       ),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

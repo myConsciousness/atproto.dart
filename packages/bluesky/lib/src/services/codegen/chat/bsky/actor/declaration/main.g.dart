@@ -36,5 +36,5 @@ Map<String, dynamic> _$ActorDeclarationRecordToJson(
   'allowIncoming': const ActorDeclarationAllowIncomingConverter().toJson(
     instance.allowIncoming,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -22,4 +22,7 @@ _GraphUnmuteActorInput _$GraphUnmuteActorInputFromJson(Map json) =>
 
 Map<String, dynamic> _$GraphUnmuteActorInputToJson(
   _GraphUnmuteActorInput instance,
-) => <String, dynamic>{'actor': instance.actor, r'$unknown': instance.$unknown};
+) => <String, dynamic>{
+  'actor': instance.actor,
+  r'$unknown': ?instance.$unknown,
+};

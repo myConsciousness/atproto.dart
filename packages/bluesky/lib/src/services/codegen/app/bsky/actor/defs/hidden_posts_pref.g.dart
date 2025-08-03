@@ -31,5 +31,5 @@ Map<String, dynamic> _$HiddenPostsPrefToJson(_HiddenPostsPref instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'items': instance.items,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

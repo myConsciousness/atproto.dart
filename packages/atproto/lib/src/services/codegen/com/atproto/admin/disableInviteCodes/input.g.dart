@@ -31,7 +31,7 @@ _AdminDisableInviteCodesInput _$AdminDisableInviteCodesInputFromJson(
 Map<String, dynamic> _$AdminDisableInviteCodesInputToJson(
   _AdminDisableInviteCodesInput instance,
 ) => <String, dynamic>{
-  'codes': instance.codes,
-  'accounts': instance.accounts,
-  r'$unknown': instance.$unknown,
+  'codes': ?instance.codes,
+  'accounts': ?instance.accounts,
+  r'$unknown': ?instance.$unknown,
 };

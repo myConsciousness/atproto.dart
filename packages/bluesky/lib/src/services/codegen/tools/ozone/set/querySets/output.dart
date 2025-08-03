@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class SetQuerySetsOutput with _$SetQuerySetsOutput {
   static const knownProps = <String>['sets', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SetQuerySetsOutput({
     @SetViewConverter() required List<SetView> sets,
     String? cursor,

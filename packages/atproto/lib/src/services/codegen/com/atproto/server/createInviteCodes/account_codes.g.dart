@@ -37,5 +37,5 @@ Map<String, dynamic> _$AccountCodesToJson(_AccountCodes instance) =>
       r'$type': instance.$type,
       'account': instance.account,
       'codes': instance.codes,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

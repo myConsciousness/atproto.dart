@@ -209,8 +209,8 @@ return $default(_that.did,_that.password,_that.token,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerDeleteAccountInput implements ServerDeleteAccountInput {
   const _ServerDeleteAccountInput({required this.did, required this.password, required this.token, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerDeleteAccountInput.fromJson(Map<String, dynamic> json) => _$ServerDeleteAccountInputFromJson(json);

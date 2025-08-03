@@ -25,6 +25,7 @@ part 'info.g.dart';
 abstract class Info with _$Info {
   static const knownProps = <String>['name', 'message'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Info({
     @Default('com.atproto.label.subscribeLabels#info') String $type,
     @InfoNameConverter() required InfoName name,

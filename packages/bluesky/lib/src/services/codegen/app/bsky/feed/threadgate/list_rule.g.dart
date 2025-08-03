@@ -27,5 +27,5 @@ _ListRule _$ListRuleFromJson(Map json) =>
 Map<String, dynamic> _$ListRuleToJson(_ListRule instance) => <String, dynamic>{
   r'$type': instance.$type,
   'list': instance.list,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

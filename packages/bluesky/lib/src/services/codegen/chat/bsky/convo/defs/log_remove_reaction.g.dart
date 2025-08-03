@@ -45,5 +45,5 @@ Map<String, dynamic> _$LogRemoveReactionToJson(_LogRemoveReaction instance) =>
         instance.message,
       ),
       'reaction': const ReactionViewConverter().toJson(instance.reaction),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

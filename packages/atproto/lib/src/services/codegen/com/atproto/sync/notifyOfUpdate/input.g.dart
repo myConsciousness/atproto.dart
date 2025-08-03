@@ -24,5 +24,5 @@ Map<String, dynamic> _$SyncNotifyOfUpdateInputToJson(
   _SyncNotifyOfUpdateInput instance,
 ) => <String, dynamic>{
   'hostname': instance.hostname,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

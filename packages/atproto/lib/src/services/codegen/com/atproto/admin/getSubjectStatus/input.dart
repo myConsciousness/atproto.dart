@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class AdminGetSubjectStatusInput with _$AdminGetSubjectStatusInput {
   static const knownProps = <String>['did', 'uri', 'blob'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdminGetSubjectStatusInput({
     String? did,
     String? uri,

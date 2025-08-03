@@ -211,8 +211,8 @@ return $default(_that.$type,_that.error,_that.subject,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GrantError implements GrantError {
   const _GrantError({this.$type = 'tools.ozone.verification.grantVerifications#grantError', required this.error, required this.subject, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GrantError.fromJson(Map<String, dynamic> json) => _$GrantErrorFromJson(json);

@@ -51,14 +51,14 @@ Map<String, dynamic> _$ModerationEmitEventInputToJson(
   'subject': const UModerationEmitEventSubjectConverter().toJson(
     instance.subject,
   ),
-  'subjectBlobCids': instance.subjectBlobCids,
+  'subjectBlobCids': ?instance.subjectBlobCids,
   'createdBy': instance.createdBy,
-  'modTool': _$JsonConverterToJson<Map<String, dynamic>, ModTool>(
+  'modTool': ?_$JsonConverterToJson<Map<String, dynamic>, ModTool>(
     instance.modTool,
     const ModToolConverter().toJson,
   ),
-  'externalId': instance.externalId,
-  r'$unknown': instance.$unknown,
+  'externalId': ?instance.externalId,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

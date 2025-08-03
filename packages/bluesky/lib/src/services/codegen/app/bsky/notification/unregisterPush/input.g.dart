@@ -39,5 +39,5 @@ Map<String, dynamic> _$NotificationUnregisterPushInputToJson(
     instance.platform,
   ),
   'appId': instance.appId,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

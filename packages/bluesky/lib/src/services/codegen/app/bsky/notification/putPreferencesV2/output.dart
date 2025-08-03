@@ -26,6 +26,7 @@ abstract class NotificationPutPreferencesV2Output
     with _$NotificationPutPreferencesV2Output {
   static const knownProps = <String>['preferences'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory NotificationPutPreferencesV2Output({
     @PreferencesConverter() required Preferences preferences,
 

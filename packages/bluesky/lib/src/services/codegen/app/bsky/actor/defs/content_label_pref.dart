@@ -25,6 +25,7 @@ part 'content_label_pref.g.dart';
 abstract class ContentLabelPref with _$ContentLabelPref {
   static const knownProps = <String>['labelerDid', 'label', 'visibility'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ContentLabelPref({
     @Default('app.bsky.actor.defs#contentLabelPref') String $type,
 

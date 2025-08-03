@@ -32,5 +32,5 @@ Map<String, dynamic> _$SuggestionToJson(_Suggestion instance) =>
       r'$type': instance.$type,
       'handle': instance.handle,
       'method': instance.method,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

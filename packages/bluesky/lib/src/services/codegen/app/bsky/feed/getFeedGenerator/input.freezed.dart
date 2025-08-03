@@ -208,8 +208,8 @@ return $default(_that.feed,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetFeedGeneratorInput implements FeedGetFeedGeneratorInput {
   const _FeedGetFeedGeneratorInput({required this.feed, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetFeedGeneratorInput.fromJson(Map<String, dynamic> json) => _$FeedGetFeedGeneratorInputFromJson(json);

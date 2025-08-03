@@ -34,9 +34,9 @@ _GraphSearchStarterPacksOutput _$GraphSearchStarterPacksOutputFromJson(
 Map<String, dynamic> _$GraphSearchStarterPacksOutputToJson(
   _GraphSearchStarterPacksOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'starterPacks': instance.starterPacks
       .map(const StarterPackViewBasicConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

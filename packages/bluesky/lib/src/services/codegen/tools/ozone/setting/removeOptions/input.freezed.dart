@@ -217,8 +217,8 @@ return $default(_that.keys,_that.scope,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SettingRemoveOptionsInput implements SettingRemoveOptionsInput {
   const _SettingRemoveOptionsInput({required final  List<String> keys, @SettingRemoveOptionsScopeConverter() required this.scope, final  Map<String, dynamic>? $unknown}): _keys = keys,_$unknown = $unknown;
   factory _SettingRemoveOptionsInput.fromJson(Map<String, dynamic> json) => _$SettingRemoveOptionsInputFromJson(json);

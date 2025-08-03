@@ -30,7 +30,7 @@ Map<String, dynamic> _$RepoListRecordsInputToJson(
   'repo': instance.repo,
   'collection': instance.collection,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  'reverse': instance.reverse,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  'reverse': ?instance.reverse,
+  r'$unknown': ?instance.$unknown,
 };

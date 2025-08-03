@@ -215,8 +215,8 @@ return $default(_that.activated,_that.validDid,_that.repoCommit,_that.repoRev,_t
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerCheckAccountStatusOutput implements ServerCheckAccountStatusOutput {
   const _ServerCheckAccountStatusOutput({required this.activated, required this.validDid, required this.repoCommit, required this.repoRev, required this.repoBlocks, required this.indexedRecords, required this.privateStateValues, required this.expectedBlobs, required this.importedBlobs, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerCheckAccountStatusOutput.fromJson(Map<String, dynamic> json) => _$ServerCheckAccountStatusOutputFromJson(json);

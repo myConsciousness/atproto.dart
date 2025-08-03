@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class SyncListHostsOutput with _$SyncListHostsOutput {
   static const knownProps = <String>['cursor', 'hosts'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncListHostsOutput({
     String? cursor,
     @HostConverter() required List<Host> hosts,

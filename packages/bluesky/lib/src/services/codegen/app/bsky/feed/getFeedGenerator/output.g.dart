@@ -33,5 +33,5 @@ Map<String, dynamic> _$FeedGetFeedGeneratorOutputToJson(
   'view': const GeneratorViewConverter().toJson(instance.view),
   'isOnline': instance.isOnline,
   'isValid': instance.isValid,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

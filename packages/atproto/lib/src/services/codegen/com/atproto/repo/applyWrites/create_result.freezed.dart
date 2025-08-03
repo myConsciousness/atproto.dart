@@ -222,8 +222,8 @@ return $default(_that.$type,_that.uri,_that.cid,_that.validationStatus,_that.$un
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _CreateResult implements CreateResult {
   const _CreateResult({this.$type = 'com.atproto.repo.applyWrites#createResult', required this.uri, required this.cid, @CreateResultValidationStatusConverter() this.validationStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _CreateResult.fromJson(Map<String, dynamic> json) => _$CreateResultFromJson(json);

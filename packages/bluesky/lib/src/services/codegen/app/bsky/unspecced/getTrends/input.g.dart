@@ -22,4 +22,7 @@ _UnspeccedGetTrendsInput _$UnspeccedGetTrendsInputFromJson(Map json) =>
 
 Map<String, dynamic> _$UnspeccedGetTrendsInputToJson(
   _UnspeccedGetTrendsInput instance,
-) => <String, dynamic>{'limit': instance.limit, r'$unknown': instance.$unknown};
+) => <String, dynamic>{
+  'limit': instance.limit,
+  r'$unknown': ?instance.$unknown,
+};

@@ -22,6 +22,7 @@ part 'set.g.dart';
 abstract class Set with _$Set {
   static const knownProps = <String>['name', 'description'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Set({
     @Default('tools.ozone.set.defs#set') String $type,
     required String name,

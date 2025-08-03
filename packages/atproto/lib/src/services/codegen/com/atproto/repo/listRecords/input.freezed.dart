@@ -215,8 +215,8 @@ return $default(_that.repo,_that.collection,_that.limit,_that.cursor,_that.rever
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RepoListRecordsInput implements RepoListRecordsInput {
   const _RepoListRecordsInput({required this.repo, required this.collection, this.limit = 50, this.cursor, this.reverse, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoListRecordsInput.fromJson(Map<String, dynamic> json) => _$RepoListRecordsInputFromJson(json);

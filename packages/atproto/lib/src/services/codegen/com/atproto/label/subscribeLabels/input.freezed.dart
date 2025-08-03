@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _LabelSubscribeLabelsInput implements LabelSubscribeLabelsInput {
   const _LabelSubscribeLabelsInput({this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _LabelSubscribeLabelsInput.fromJson(Map<String, dynamic> json) => _$LabelSubscribeLabelsInputFromJson(json);

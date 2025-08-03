@@ -221,8 +221,8 @@ return $default(_that.$type,_that.id,_that.name,_that.subject,_that.contentMarkd
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _TemplateView implements TemplateView {
   const _TemplateView({this.$type = 'tools.ozone.communication.defs#templateView', required this.id, required this.name, this.subject, required this.contentMarkdown, required this.disabled, this.lang, required this.lastUpdatedBy, required this.createdAt, required this.updatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _TemplateView.fromJson(Map<String, dynamic> json) => _$TemplateViewFromJson(json);

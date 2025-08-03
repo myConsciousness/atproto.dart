@@ -28,6 +28,6 @@ Map<String, dynamic> _$GraphSearchStarterPacksInputToJson(
 ) => <String, dynamic>{
   'q': instance.q,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };

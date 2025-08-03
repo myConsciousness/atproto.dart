@@ -213,8 +213,8 @@ return $default(_that.repo,_that.validate,_that.writes,_that.swapCommit,_that.$u
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RepoApplyWritesInput implements RepoApplyWritesInput {
   const _RepoApplyWritesInput({required this.repo, this.validate, @URepoApplyWritesWritesConverter() required final  List<URepoApplyWritesWrites> writes, this.swapCommit, final  Map<String, dynamic>? $unknown}): _writes = writes,_$unknown = $unknown;
   factory _RepoApplyWritesInput.fromJson(Map<String, dynamic> json) => _$RepoApplyWritesInputFromJson(json);

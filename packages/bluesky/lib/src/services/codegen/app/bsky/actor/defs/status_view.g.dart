@@ -49,13 +49,13 @@ Map<String, dynamic> _$StatusViewToJson(_StatusView instance) =>
       r'$type': instance.$type,
       'status': const StatusViewStatusConverter().toJson(instance.status),
       'record': instance.record,
-      'embed': _$JsonConverterToJson<Map<String, dynamic>, UStatusViewEmbed>(
+      'embed': ?_$JsonConverterToJson<Map<String, dynamic>, UStatusViewEmbed>(
         instance.embed,
         const UStatusViewEmbedConverter().toJson,
       ),
-      'expiresAt': instance.expiresAt?.toIso8601String(),
-      'isActive': instance.isActive,
-      r'$unknown': instance.$unknown,
+      'expiresAt': ?instance.expiresAt?.toIso8601String(),
+      'isActive': ?instance.isActive,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

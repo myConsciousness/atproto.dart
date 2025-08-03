@@ -28,5 +28,5 @@ Map<String, dynamic> _$ConvoRemoveReactionOutputToJson(
   _ConvoRemoveReactionOutput instance,
 ) => <String, dynamic>{
   'message': const MessageViewConverter().toJson(instance.message),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

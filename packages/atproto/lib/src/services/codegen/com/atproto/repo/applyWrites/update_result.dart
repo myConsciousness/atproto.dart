@@ -25,6 +25,7 @@ part 'update_result.g.dart';
 abstract class UpdateResult with _$UpdateResult {
   static const knownProps = <String>['uri', 'cid', 'validationStatus'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UpdateResult({
     @Default('com.atproto.repo.applyWrites#updateResult') String $type,
     required String uri,

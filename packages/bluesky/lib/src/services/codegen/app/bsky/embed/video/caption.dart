@@ -23,6 +23,7 @@ part 'caption.g.dart';
 abstract class EmbedVideoCaption with _$EmbedVideoCaption {
   static const knownProps = <String>['lang', 'file'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmbedVideoCaption({
     @Default('app.bsky.embed.video#caption') String $type,
     required String lang,

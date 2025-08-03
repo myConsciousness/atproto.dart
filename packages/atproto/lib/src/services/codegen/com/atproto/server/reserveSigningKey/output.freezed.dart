@@ -208,8 +208,8 @@ return $default(_that.signingKey,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerReserveSigningKeyOutput implements ServerReserveSigningKeyOutput {
   const _ServerReserveSigningKeyOutput({required this.signingKey, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerReserveSigningKeyOutput.fromJson(Map<String, dynamic> json) => _$ServerReserveSigningKeyOutputFromJson(json);

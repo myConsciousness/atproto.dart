@@ -23,6 +23,7 @@ abstract class NotificationGetUnreadCountInput
     with _$NotificationGetUnreadCountInput {
   static const knownProps = <String>['priority', 'seenAt'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory NotificationGetUnreadCountInput({
     bool? priority,
     DateTime? seenAt,

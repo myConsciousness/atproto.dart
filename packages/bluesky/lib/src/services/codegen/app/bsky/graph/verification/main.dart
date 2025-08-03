@@ -28,6 +28,7 @@ abstract class GraphVerificationRecord with _$GraphVerificationRecord {
     'createdAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphVerificationRecord({
     @Default('app.bsky.graph.verification') String $type,
 

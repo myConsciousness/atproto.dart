@@ -26,6 +26,7 @@ abstract class VerificationGrantVerificationsInput
     with _$VerificationGrantVerificationsInput {
   static const knownProps = <String>['verifications'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory VerificationGrantVerificationsInput({
     @VerificationInputConverter()
     required List<VerificationInput> verifications,

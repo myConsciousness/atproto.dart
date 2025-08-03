@@ -22,6 +22,7 @@ part 'threat_signature.g.dart';
 abstract class ThreatSignature with _$ThreatSignature {
   static const knownProps = <String>['property', 'value'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ThreatSignature({
     @Default('com.atproto.admin.defs#threatSignature') String $type,
     required String property,

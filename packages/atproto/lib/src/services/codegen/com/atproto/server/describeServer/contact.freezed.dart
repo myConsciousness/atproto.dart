@@ -208,8 +208,8 @@ return $default(_that.$type,_that.email,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _Contact implements Contact {
   const _Contact({this.$type = 'com.atproto.server.describeServer#contact', this.email, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Contact.fromJson(Map<String, dynamic> json) => _$ContactFromJson(json);

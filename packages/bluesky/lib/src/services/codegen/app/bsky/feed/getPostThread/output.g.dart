@@ -36,11 +36,11 @@ Map<String, dynamic> _$FeedGetPostThreadOutputToJson(
   _FeedGetPostThreadOutput instance,
 ) => <String, dynamic>{
   'thread': const UFeedGetPostThreadThreadConverter().toJson(instance.thread),
-  'threadgate': _$JsonConverterToJson<Map<String, dynamic>, ThreadgateView>(
+  'threadgate': ?_$JsonConverterToJson<Map<String, dynamic>, ThreadgateView>(
     instance.threadgate,
     const ThreadgateViewConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

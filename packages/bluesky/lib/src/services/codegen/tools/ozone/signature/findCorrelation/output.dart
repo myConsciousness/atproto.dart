@@ -26,6 +26,7 @@ abstract class SignatureFindCorrelationOutput
     with _$SignatureFindCorrelationOutput {
   static const knownProps = <String>['details'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SignatureFindCorrelationOutput({
     @SigDetailConverter() required List<SigDetail> details,
 

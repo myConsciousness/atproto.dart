@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ServerResetPasswordInput with _$ServerResetPasswordInput {
   static const knownProps = <String>['token', 'password'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerResetPasswordInput({
     required String token,
     required String password,

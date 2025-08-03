@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class FeedGetListFeedOutput with _$FeedGetListFeedOutput {
   static const knownProps = <String>['cursor', 'feed'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetListFeedOutput({
     String? cursor,
     @FeedViewPostConverter() required List<FeedViewPost> feed,

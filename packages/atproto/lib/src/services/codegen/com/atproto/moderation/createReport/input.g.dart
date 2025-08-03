@@ -41,15 +41,15 @@ Map<String, dynamic> _$ModerationCreateReportInputToJson(
   _ModerationCreateReportInput instance,
 ) => <String, dynamic>{
   'reasonType': const ReasonTypeConverter().toJson(instance.reasonType),
-  'reason': instance.reason,
+  'reason': ?instance.reason,
   'subject': const UModerationCreateReportSubjectConverter().toJson(
     instance.subject,
   ),
-  'modTool': _$JsonConverterToJson<Map<String, dynamic>, ModTool>(
+  'modTool': ?_$JsonConverterToJson<Map<String, dynamic>, ModTool>(
     instance.modTool,
     const ModToolConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

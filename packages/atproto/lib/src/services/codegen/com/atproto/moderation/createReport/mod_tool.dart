@@ -23,6 +23,7 @@ part 'mod_tool.g.dart';
 abstract class ModTool with _$ModTool {
   static const knownProps = <String>['name', 'meta'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModTool({
     @Default('com.atproto.moderation.createReport#modTool') String $type,
 

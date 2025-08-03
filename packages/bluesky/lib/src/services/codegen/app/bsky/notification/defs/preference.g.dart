@@ -30,5 +30,5 @@ Map<String, dynamic> _$PreferenceToJson(_Preference instance) =>
       r'$type': instance.$type,
       'list': instance.list,
       'push': instance.push,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

@@ -70,22 +70,22 @@ Map<String, dynamic> _$ConvoViewToJson(_ConvoView instance) =>
           .map(const ProfileViewBasicConverter().toJson)
           .toList(),
       'lastMessage':
-          _$JsonConverterToJson<Map<String, dynamic>, UConvoViewLastMessage>(
+          ?_$JsonConverterToJson<Map<String, dynamic>, UConvoViewLastMessage>(
             instance.lastMessage,
             const UConvoViewLastMessageConverter().toJson,
           ),
       'lastReaction':
-          _$JsonConverterToJson<Map<String, dynamic>, UConvoViewLastReaction>(
+          ?_$JsonConverterToJson<Map<String, dynamic>, UConvoViewLastReaction>(
             instance.lastReaction,
             const UConvoViewLastReactionConverter().toJson,
           ),
       'muted': instance.muted,
-      'status': _$JsonConverterToJson<String, ConvoViewStatus>(
+      'status': ?_$JsonConverterToJson<String, ConvoViewStatus>(
         instance.status,
         const ConvoViewStatusConverter().toJson,
       ),
       'unreadCount': instance.unreadCount,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

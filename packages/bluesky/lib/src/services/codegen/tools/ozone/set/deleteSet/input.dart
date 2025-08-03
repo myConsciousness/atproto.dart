@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class SetDeleteSetInput with _$SetDeleteSetInput {
   static const knownProps = <String>['name'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SetDeleteSetInput({
     /// Name of the set to delete
     required String name,

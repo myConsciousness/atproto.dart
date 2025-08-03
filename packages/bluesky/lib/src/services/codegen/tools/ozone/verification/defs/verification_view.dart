@@ -43,6 +43,7 @@ abstract class VerificationView with _$VerificationView {
     'issuerRepo',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory VerificationView({
     @Default('tools.ozone.verification.defs#verificationView') String $type,
 

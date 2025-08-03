@@ -39,6 +39,6 @@ Map<String, dynamic> _$NotificationRegisterPushInputToJson(
     instance.platform,
   ),
   'appId': instance.appId,
-  'ageRestricted': instance.ageRestricted,
-  r'$unknown': instance.$unknown,
+  'ageRestricted': ?instance.ageRestricted,
+  r'$unknown': ?instance.$unknown,
 };

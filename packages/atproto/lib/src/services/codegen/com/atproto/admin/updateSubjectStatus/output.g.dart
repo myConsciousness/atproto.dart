@@ -39,11 +39,11 @@ Map<String, dynamic> _$AdminUpdateSubjectStatusOutputToJson(
   'subject': const UAdminUpdateSubjectStatusSubjectConverter().toJson(
     instance.subject,
   ),
-  'takedown': _$JsonConverterToJson<Map<String, dynamic>, StatusAttr>(
+  'takedown': ?_$JsonConverterToJson<Map<String, dynamic>, StatusAttr>(
     instance.takedown,
     const StatusAttrConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

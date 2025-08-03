@@ -31,6 +31,7 @@ abstract class AccountEvent with _$AccountEvent {
     'timestamp',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AccountEvent({
     @Default('tools.ozone.moderation.defs#accountEvent') String $type,
     String? comment,

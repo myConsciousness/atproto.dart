@@ -32,6 +32,7 @@ abstract class ThreadItemPost with _$ThreadItemPost {
     'mutedByViewer',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ThreadItemPost({
     @Default('app.bsky.unspecced.defs#threadItemPost') String $type,
     @PostViewConverter() required PostView post,

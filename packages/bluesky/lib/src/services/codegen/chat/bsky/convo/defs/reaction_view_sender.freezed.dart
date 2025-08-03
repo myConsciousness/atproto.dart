@@ -208,8 +208,8 @@ return $default(_that.$type,_that.did,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ReactionViewSender implements ReactionViewSender {
   const _ReactionViewSender({this.$type = 'chat.bsky.convo.defs#reactionViewSender', required this.did, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ReactionViewSender.fromJson(Map<String, dynamic> json) => _$ReactionViewSenderFromJson(json);

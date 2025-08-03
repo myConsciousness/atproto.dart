@@ -208,8 +208,8 @@ return $default(_that.deleteAfter,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerDeactivateAccountInput implements ServerDeactivateAccountInput {
   const _ServerDeactivateAccountInput({this.deleteAfter, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerDeactivateAccountInput.fromJson(Map<String, dynamic> json) => _$ServerDeactivateAccountInputFromJson(json);

@@ -208,8 +208,8 @@ return $default(_that.starterPack,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphGetStarterPackInput implements GraphGetStarterPackInput {
   const _GraphGetStarterPackInput({required this.starterPack, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphGetStarterPackInput.fromJson(Map<String, dynamic> json) => _$GraphGetStarterPackInputFromJson(json);

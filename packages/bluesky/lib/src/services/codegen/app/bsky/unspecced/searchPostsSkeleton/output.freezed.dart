@@ -210,8 +210,8 @@ return $default(_that.cursor,_that.hitsTotal,_that.posts,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedSearchPostsSkeletonOutput implements UnspeccedSearchPostsSkeletonOutput {
   const _UnspeccedSearchPostsSkeletonOutput({this.cursor, this.hitsTotal, @SkeletonSearchPostConverter() required final  List<SkeletonSearchPost> posts, final  Map<String, dynamic>? $unknown}): _posts = posts,_$unknown = $unknown;
   factory _UnspeccedSearchPostsSkeletonOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedSearchPostsSkeletonOutputFromJson(json);

@@ -23,6 +23,7 @@ abstract class ServerReserveSigningKeyInput
     with _$ServerReserveSigningKeyInput {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerReserveSigningKeyInput({
     /// The DID to reserve a key for.
     String? did,

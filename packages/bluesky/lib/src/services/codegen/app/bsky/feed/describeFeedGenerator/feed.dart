@@ -22,6 +22,7 @@ part 'feed.g.dart';
 abstract class Feed with _$Feed {
   static const knownProps = <String>['uri'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Feed({
     @Default('app.bsky.feed.describeFeedGenerator#feed') String $type,
     required String uri,

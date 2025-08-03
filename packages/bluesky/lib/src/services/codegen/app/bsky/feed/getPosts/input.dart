@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class FeedGetPostsInput with _$FeedGetPostsInput {
   static const knownProps = <String>['uris'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetPostsInput({
     required List<String> uris,
 

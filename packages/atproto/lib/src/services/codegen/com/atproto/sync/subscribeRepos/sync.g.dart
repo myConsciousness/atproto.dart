@@ -38,5 +38,5 @@ Map<String, dynamic> _$SyncToJson(_Sync instance) => <String, dynamic>{
   'blocks': instance.blocks,
   'rev': instance.rev,
   'time': instance.time.toIso8601String(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

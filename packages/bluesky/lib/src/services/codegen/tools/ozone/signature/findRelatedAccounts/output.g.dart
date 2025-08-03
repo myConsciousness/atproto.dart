@@ -37,9 +37,9 @@ _$SignatureFindRelatedAccountsOutputFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$SignatureFindRelatedAccountsOutputToJson(
   _SignatureFindRelatedAccountsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'accounts': instance.accounts
       .map(const RelatedAccountConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

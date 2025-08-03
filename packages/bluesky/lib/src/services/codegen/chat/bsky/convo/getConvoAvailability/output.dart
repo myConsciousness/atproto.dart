@@ -26,6 +26,7 @@ abstract class ConvoGetConvoAvailabilityOutput
     with _$ConvoGetConvoAvailabilityOutput {
   static const knownProps = <String>['canChat', 'convo'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoGetConvoAvailabilityOutput({
     required bool canChat,
     @ConvoViewConverter() ConvoView? convo,

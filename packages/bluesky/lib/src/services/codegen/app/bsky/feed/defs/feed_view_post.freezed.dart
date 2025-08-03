@@ -247,8 +247,8 @@ return $default(_that.$type,_that.post,_that.reply,_that.reason,_that.feedContex
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedViewPost implements FeedViewPost {
   const _FeedViewPost({this.$type = 'app.bsky.feed.defs#feedViewPost', @PostViewConverter() required this.post, @ReplyRefConverter() this.reply, @UFeedViewPostReasonConverter() this.reason, this.feedContext, this.reqId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedViewPost.fromJson(Map<String, dynamic> json) => _$FeedViewPostFromJson(json);

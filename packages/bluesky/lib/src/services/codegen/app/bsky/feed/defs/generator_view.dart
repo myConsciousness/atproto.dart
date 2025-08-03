@@ -45,6 +45,7 @@ abstract class GeneratorView with _$GeneratorView {
     'indexedAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GeneratorView({
     @Default('app.bsky.feed.defs#generatorView') String $type,
     required String uri,

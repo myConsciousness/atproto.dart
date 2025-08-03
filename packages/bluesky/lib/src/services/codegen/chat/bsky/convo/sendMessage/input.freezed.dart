@@ -217,8 +217,8 @@ return $default(_that.convoId,_that.message,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoSendMessageInput implements ConvoSendMessageInput {
   const _ConvoSendMessageInput({required this.convoId, @MessageInputConverter() required this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoSendMessageInput.fromJson(Map<String, dynamic> json) => _$ConvoSendMessageInputFromJson(json);

@@ -217,8 +217,8 @@ return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ActorDeclarationRecord implements ActorDeclarationRecord {
   const _ActorDeclarationRecord({this.$type = 'chat.bsky.actor.declaration', @ActorDeclarationAllowIncomingConverter() required this.allowIncoming, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ActorDeclarationRecord.fromJson(Map<String, dynamic> json) => _$ActorDeclarationRecordFromJson(json);

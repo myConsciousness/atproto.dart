@@ -208,8 +208,8 @@ return $default(_that.$type,_that.comment,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModEventEscalate implements ModEventEscalate {
   const _ModEventEscalate({this.$type = 'tools.ozone.moderation.defs#modEventEscalate', this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModEventEscalate.fromJson(Map<String, dynamic> json) => _$ModEventEscalateFromJson(json);

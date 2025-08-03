@@ -23,6 +23,7 @@ part 'not_found_actor.g.dart';
 abstract class NotFoundActor with _$NotFoundActor {
   static const knownProps = <String>['actor', 'notFound'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory NotFoundActor({
     @Default('app.bsky.graph.defs#notFoundActor') String $type,
     required String actor,

@@ -51,13 +51,13 @@ Map<String, dynamic> _$SkeletonTrendToJson(_SkeletonTrend instance) =>
       'link': instance.link,
       'startedAt': instance.startedAt.toIso8601String(),
       'postCount': instance.postCount,
-      'status': _$JsonConverterToJson<String, SkeletonTrendStatus>(
+      'status': ?_$JsonConverterToJson<String, SkeletonTrendStatus>(
         instance.status,
         const SkeletonTrendStatusConverter().toJson,
       ),
-      'category': instance.category,
+      'category': ?instance.category,
       'dids': instance.dids,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -124,61 +124,61 @@ _NotificationPutPreferencesV2Input _$NotificationPutPreferencesV2InputFromJson(
 Map<String, dynamic> _$NotificationPutPreferencesV2InputToJson(
   _NotificationPutPreferencesV2Input instance,
 ) => <String, dynamic>{
-  'chat': _$JsonConverterToJson<Map<String, dynamic>, ChatPreference>(
+  'chat': ?_$JsonConverterToJson<Map<String, dynamic>, ChatPreference>(
     instance.chat,
     const ChatPreferenceConverter().toJson,
   ),
-  'follow': _$JsonConverterToJson<Map<String, dynamic>, FilterablePreference>(
+  'follow': ?_$JsonConverterToJson<Map<String, dynamic>, FilterablePreference>(
     instance.follow,
     const FilterablePreferenceConverter().toJson,
   ),
-  'like': _$JsonConverterToJson<Map<String, dynamic>, FilterablePreference>(
+  'like': ?_$JsonConverterToJson<Map<String, dynamic>, FilterablePreference>(
     instance.like,
     const FilterablePreferenceConverter().toJson,
   ),
   'likeViaRepost':
-      _$JsonConverterToJson<Map<String, dynamic>, FilterablePreference>(
+      ?_$JsonConverterToJson<Map<String, dynamic>, FilterablePreference>(
         instance.likeViaRepost,
         const FilterablePreferenceConverter().toJson,
       ),
-  'mention': _$JsonConverterToJson<Map<String, dynamic>, FilterablePreference>(
+  'mention': ?_$JsonConverterToJson<Map<String, dynamic>, FilterablePreference>(
     instance.mention,
     const FilterablePreferenceConverter().toJson,
   ),
-  'quote': _$JsonConverterToJson<Map<String, dynamic>, FilterablePreference>(
+  'quote': ?_$JsonConverterToJson<Map<String, dynamic>, FilterablePreference>(
     instance.quote,
     const FilterablePreferenceConverter().toJson,
   ),
-  'reply': _$JsonConverterToJson<Map<String, dynamic>, FilterablePreference>(
+  'reply': ?_$JsonConverterToJson<Map<String, dynamic>, FilterablePreference>(
     instance.reply,
     const FilterablePreferenceConverter().toJson,
   ),
-  'repost': _$JsonConverterToJson<Map<String, dynamic>, FilterablePreference>(
+  'repost': ?_$JsonConverterToJson<Map<String, dynamic>, FilterablePreference>(
     instance.repost,
     const FilterablePreferenceConverter().toJson,
   ),
   'repostViaRepost':
-      _$JsonConverterToJson<Map<String, dynamic>, FilterablePreference>(
+      ?_$JsonConverterToJson<Map<String, dynamic>, FilterablePreference>(
         instance.repostViaRepost,
         const FilterablePreferenceConverter().toJson,
       ),
-  'starterpackJoined': _$JsonConverterToJson<Map<String, dynamic>, Preference>(
+  'starterpackJoined': ?_$JsonConverterToJson<Map<String, dynamic>, Preference>(
     instance.starterpackJoined,
     const PreferenceConverter().toJson,
   ),
-  'subscribedPost': _$JsonConverterToJson<Map<String, dynamic>, Preference>(
+  'subscribedPost': ?_$JsonConverterToJson<Map<String, dynamic>, Preference>(
     instance.subscribedPost,
     const PreferenceConverter().toJson,
   ),
-  'unverified': _$JsonConverterToJson<Map<String, dynamic>, Preference>(
+  'unverified': ?_$JsonConverterToJson<Map<String, dynamic>, Preference>(
     instance.unverified,
     const PreferenceConverter().toJson,
   ),
-  'verified': _$JsonConverterToJson<Map<String, dynamic>, Preference>(
+  'verified': ?_$JsonConverterToJson<Map<String, dynamic>, Preference>(
     instance.verified,
     const PreferenceConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

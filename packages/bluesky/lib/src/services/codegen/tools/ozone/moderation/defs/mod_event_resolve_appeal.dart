@@ -23,6 +23,7 @@ part 'mod_event_resolve_appeal.g.dart';
 abstract class ModEventResolveAppeal with _$ModEventResolveAppeal {
   static const knownProps = <String>['comment'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModEventResolveAppeal({
     @Default('tools.ozone.moderation.defs#modEventResolveAppeal') String $type,
 

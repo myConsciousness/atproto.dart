@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class FeedGetFeedGeneratorOutput with _$FeedGetFeedGeneratorOutput {
   static const knownProps = <String>['view', 'isOnline', 'isValid'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetFeedGeneratorOutput({
     @GeneratorViewConverter() required GeneratorView view,
 

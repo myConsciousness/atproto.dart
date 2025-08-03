@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class SyncNotifyOfUpdateInput with _$SyncNotifyOfUpdateInput {
   static const knownProps = <String>['hostname'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncNotifyOfUpdateInput({
     /// Hostname of the current service (usually a PDS) that is notifying of update.
     required String hostname,

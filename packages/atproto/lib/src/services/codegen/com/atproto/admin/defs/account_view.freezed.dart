@@ -231,8 +231,8 @@ return $default(_that.$type,_that.did,_that.handle,_that.email,_that.relatedReco
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AccountView implements AccountView {
   const _AccountView({this.$type = 'com.atproto.admin.defs#accountView', required this.did, required this.handle, this.email, final  List<Map<String, dynamic>>? relatedRecords, required this.indexedAt, @InviteCodeConverter() this.invitedBy, @InviteCodeConverter() final  List<InviteCode>? invites, this.invitesDisabled, this.emailConfirmedAt, this.inviteNote, this.deactivatedAt, @ThreatSignatureConverter() final  List<ThreatSignature>? threatSignatures, final  Map<String, dynamic>? $unknown}): _relatedRecords = relatedRecords,_invites = invites,_threatSignatures = threatSignatures,_$unknown = $unknown;
   factory _AccountView.fromJson(Map<String, dynamic> json) => _$AccountViewFromJson(json);

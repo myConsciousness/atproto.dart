@@ -25,6 +25,7 @@ part 'chat_preference.g.dart';
 abstract class ChatPreference with _$ChatPreference {
   static const knownProps = <String>['include', 'push'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ChatPreference({
     @Default('app.bsky.notification.defs#chatPreference') String $type,
     @ChatPreferenceIncludeConverter() required ChatPreferenceInclude include,

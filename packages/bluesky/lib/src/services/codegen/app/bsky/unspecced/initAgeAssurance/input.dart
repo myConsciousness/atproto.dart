@@ -23,6 +23,7 @@ abstract class UnspeccedInitAgeAssuranceInput
     with _$UnspeccedInitAgeAssuranceInput {
   static const knownProps = <String>['email', 'language', 'countryCode'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedInitAgeAssuranceInput({
     /// The user's email address to receive assurance instructions.
     required String email,

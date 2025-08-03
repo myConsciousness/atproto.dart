@@ -33,11 +33,11 @@ _ServiceConfig _$ServiceConfigFromJson(Map json) =>
 Map<String, dynamic> _$ServiceConfigToJson(_ServiceConfig instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'url': _$JsonConverterToJson<String, AtUri>(
+      'url': ?_$JsonConverterToJson<String, AtUri>(
         instance.url,
         const AtUriConverter().toJson,
       ),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

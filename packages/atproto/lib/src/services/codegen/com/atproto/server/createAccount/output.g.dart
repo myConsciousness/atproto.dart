@@ -34,6 +34,6 @@ Map<String, dynamic> _$ServerCreateAccountOutputToJson(
   'refreshJwt': instance.refreshJwt,
   'handle': instance.handle,
   'did': instance.did,
-  'didDoc': instance.didDoc,
-  r'$unknown': instance.$unknown,
+  'didDoc': ?instance.didDoc,
+  r'$unknown': ?instance.$unknown,
 };

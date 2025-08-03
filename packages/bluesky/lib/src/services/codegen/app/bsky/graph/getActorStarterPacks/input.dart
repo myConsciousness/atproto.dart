@@ -23,6 +23,7 @@ abstract class GraphGetActorStarterPacksInput
     with _$GraphGetActorStarterPacksInput {
   static const knownProps = <String>['actor', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetActorStarterPacksInput({
     required String actor,
     @Default(50) int limit,

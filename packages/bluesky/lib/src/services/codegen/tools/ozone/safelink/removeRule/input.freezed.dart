@@ -222,8 +222,8 @@ return $default(_that.url,_that.pattern,_that.comment,_that.createdBy,_that.$unk
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SafelinkRemoveRuleInput implements SafelinkRemoveRuleInput {
   const _SafelinkRemoveRuleInput({required this.url, @PatternTypeConverter() required this.pattern, this.comment, this.createdBy, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SafelinkRemoveRuleInput.fromJson(Map<String, dynamic> json) => _$SafelinkRemoveRuleInputFromJson(json);

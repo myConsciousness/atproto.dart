@@ -208,8 +208,8 @@ return $default(_that.revokedVerifications,_that.failedRevocations,_that.$unknow
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _VerificationRevokeVerificationsOutput implements VerificationRevokeVerificationsOutput {
   const _VerificationRevokeVerificationsOutput({required final  List<String> revokedVerifications, @RevokeErrorConverter() required final  List<RevokeError> failedRevocations, final  Map<String, dynamic>? $unknown}): _revokedVerifications = revokedVerifications,_failedRevocations = failedRevocations,_$unknown = $unknown;
   factory _VerificationRevokeVerificationsOutput.fromJson(Map<String, dynamic> json) => _$VerificationRevokeVerificationsOutputFromJson(json);

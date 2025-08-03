@@ -33,7 +33,7 @@ Map<String, dynamic> _$ModEventAcknowledgeToJson(
   _ModEventAcknowledge instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'comment': instance.comment,
-  'acknowledgeAccountSubjects': instance.acknowledgeAccountSubjects,
-  r'$unknown': instance.$unknown,
+  'comment': ?instance.comment,
+  'acknowledgeAccountSubjects': ?instance.acknowledgeAccountSubjects,
+  r'$unknown': ?instance.$unknown,
 };

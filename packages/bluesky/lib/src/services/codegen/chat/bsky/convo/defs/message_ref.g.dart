@@ -32,5 +32,5 @@ Map<String, dynamic> _$MessageRefToJson(_MessageRef instance) =>
       'did': instance.did,
       'convoId': instance.convoId,
       'messageId': instance.messageId,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

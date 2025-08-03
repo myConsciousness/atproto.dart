@@ -31,6 +31,7 @@ abstract class CommunicationUpdateTemplateInput
     'disabled',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory CommunicationUpdateTemplateInput({
     /// ID of the template to be updated.
     required String id,

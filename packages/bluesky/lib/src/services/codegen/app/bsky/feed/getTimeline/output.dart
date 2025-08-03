@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class FeedGetTimelineOutput with _$FeedGetTimelineOutput {
   static const knownProps = <String>['cursor', 'feed'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetTimelineOutput({
     String? cursor,
     @FeedViewPostConverter() required List<FeedViewPost> feed,

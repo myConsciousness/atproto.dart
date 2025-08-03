@@ -33,5 +33,5 @@ Map<String, dynamic> _$ConvoSendMessageBatchInputToJson(
   _ConvoSendMessageBatchInput instance,
 ) => <String, dynamic>{
   'items': instance.items.map(const BatchItemConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

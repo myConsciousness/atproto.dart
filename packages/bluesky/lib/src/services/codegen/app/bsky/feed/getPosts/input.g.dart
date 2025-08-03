@@ -24,4 +24,4 @@ _FeedGetPostsInput _$FeedGetPostsInputFromJson(Map json) =>
     });
 
 Map<String, dynamic> _$FeedGetPostsInputToJson(_FeedGetPostsInput instance) =>
-    <String, dynamic>{'uris': instance.uris, r'$unknown': instance.$unknown};
+    <String, dynamic>{'uris': instance.uris, r'$unknown': ?instance.$unknown};

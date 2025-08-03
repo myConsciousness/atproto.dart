@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class GraphGetRelationshipsOutput with _$GraphGetRelationshipsOutput {
   static const knownProps = <String>['actor', 'relationships'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetRelationshipsOutput({
     String? actor,
     @UGraphGetRelationshipsRelationshipsConverter()

@@ -24,5 +24,5 @@ Map<String, dynamic> _$GraphGetStarterPackInputToJson(
   _GraphGetStarterPackInput instance,
 ) => <String, dynamic>{
   'starterPack': instance.starterPack,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

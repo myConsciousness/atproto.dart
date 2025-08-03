@@ -25,6 +25,6 @@ Map<String, dynamic> _$ModerationGetRecordInputToJson(
   _ModerationGetRecordInput instance,
 ) => <String, dynamic>{
   'uri': instance.uri,
-  'cid': instance.cid,
-  r'$unknown': instance.$unknown,
+  'cid': ?instance.cid,
+  r'$unknown': ?instance.$unknown,
 };

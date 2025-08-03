@@ -29,5 +29,5 @@ Map<String, dynamic> _$DeleteToJson(_Delete instance) => <String, dynamic>{
   r'$type': instance.$type,
   'collection': instance.collection,
   'rkey': instance.rkey,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

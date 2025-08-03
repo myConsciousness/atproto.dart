@@ -207,8 +207,8 @@ return $default(_that.identifier,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _IdentityRefreshIdentityInput implements IdentityRefreshIdentityInput {
   const _IdentityRefreshIdentityInput({required this.identifier, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _IdentityRefreshIdentityInput.fromJson(Map<String, dynamic> json) => _$IdentityRefreshIdentityInputFromJson(json);

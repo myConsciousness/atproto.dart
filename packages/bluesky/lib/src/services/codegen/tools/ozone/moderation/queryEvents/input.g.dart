@@ -105,39 +105,39 @@ _ModerationQueryEventsInput _$ModerationQueryEventsInputFromJson(
 Map<String, dynamic> _$ModerationQueryEventsInputToJson(
   _ModerationQueryEventsInput instance,
 ) => <String, dynamic>{
-  'types': instance.types,
-  'createdBy': instance.createdBy,
+  'types': ?instance.types,
+  'createdBy': ?instance.createdBy,
   'sortDirection': instance.sortDirection,
-  'createdAfter': instance.createdAfter?.toIso8601String(),
-  'createdBefore': instance.createdBefore?.toIso8601String(),
-  'subject': _$JsonConverterToJson<String, AtUri>(
+  'createdAfter': ?instance.createdAfter?.toIso8601String(),
+  'createdBefore': ?instance.createdBefore?.toIso8601String(),
+  'subject': ?_$JsonConverterToJson<String, AtUri>(
     instance.subject,
     const AtUriConverter().toJson,
   ),
-  'collections': instance.collections,
+  'collections': ?instance.collections,
   'subjectType':
-      _$JsonConverterToJson<String, ModerationQueryEventsSubjectType>(
+      ?_$JsonConverterToJson<String, ModerationQueryEventsSubjectType>(
         instance.subjectType,
         const ModerationQueryEventsSubjectTypeConverter().toJson,
       ),
   'includeAllUserRecords': instance.includeAllUserRecords,
   'limit': instance.limit,
-  'hasComment': instance.hasComment,
-  'comment': instance.comment,
-  'addedLabels': instance.addedLabels,
-  'removedLabels': instance.removedLabels,
-  'addedTags': instance.addedTags,
-  'removedTags': instance.removedTags,
-  'reportTypes': instance.reportTypes,
-  'policies': instance.policies,
-  'modTool': instance.modTool,
+  'hasComment': ?instance.hasComment,
+  'comment': ?instance.comment,
+  'addedLabels': ?instance.addedLabels,
+  'removedLabels': ?instance.removedLabels,
+  'addedTags': ?instance.addedTags,
+  'removedTags': ?instance.removedTags,
+  'reportTypes': ?instance.reportTypes,
+  'policies': ?instance.policies,
+  'modTool': ?instance.modTool,
   'ageAssuranceState':
-      _$JsonConverterToJson<String, ModerationQueryEventsAgeAssuranceState>(
+      ?_$JsonConverterToJson<String, ModerationQueryEventsAgeAssuranceState>(
         instance.ageAssuranceState,
         const ModerationQueryEventsAgeAssuranceStateConverter().toJson,
       ),
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

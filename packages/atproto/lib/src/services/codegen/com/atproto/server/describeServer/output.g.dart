@@ -49,19 +49,19 @@ _ServerDescribeServerOutput _$ServerDescribeServerOutputFromJson(Map json) =>
 Map<String, dynamic> _$ServerDescribeServerOutputToJson(
   _ServerDescribeServerOutput instance,
 ) => <String, dynamic>{
-  'inviteCodeRequired': instance.inviteCodeRequired,
-  'phoneVerificationRequired': instance.phoneVerificationRequired,
+  'inviteCodeRequired': ?instance.inviteCodeRequired,
+  'phoneVerificationRequired': ?instance.phoneVerificationRequired,
   'availableUserDomains': instance.availableUserDomains,
-  'links': _$JsonConverterToJson<Map<String, dynamic>, Links>(
+  'links': ?_$JsonConverterToJson<Map<String, dynamic>, Links>(
     instance.links,
     const LinksConverter().toJson,
   ),
-  'contact': _$JsonConverterToJson<Map<String, dynamic>, Contact>(
+  'contact': ?_$JsonConverterToJson<Map<String, dynamic>, Contact>(
     instance.contact,
     const ContactConverter().toJson,
   ),
   'did': instance.did,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

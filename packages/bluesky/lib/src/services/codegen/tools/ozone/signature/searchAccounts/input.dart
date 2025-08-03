@@ -23,6 +23,7 @@ abstract class SignatureSearchAccountsInput
     with _$SignatureSearchAccountsInput {
   static const knownProps = <String>['values', 'cursor', 'limit'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SignatureSearchAccountsInput({
     required List<String> values,
     String? cursor,

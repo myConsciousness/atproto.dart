@@ -216,8 +216,8 @@ return $default(_that.message,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoRemoveReactionOutput implements ConvoRemoveReactionOutput {
   const _ConvoRemoveReactionOutput({@MessageViewConverter() required this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoRemoveReactionOutput.fromJson(Map<String, dynamic> json) => _$ConvoRemoveReactionOutputFromJson(json);

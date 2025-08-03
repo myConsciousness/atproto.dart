@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class GraphGetListsInput with _$GraphGetListsInput {
   static const knownProps = <String>['actor', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetListsInput({
     /// The account (actor) to enumerate lists from.
     required String actor,

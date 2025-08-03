@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class FeedGetSuggestedFeedsInput with _$FeedGetSuggestedFeedsInput {
   static const knownProps = <String>['limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetSuggestedFeedsInput({
     @Default(50) int limit,
     String? cursor,

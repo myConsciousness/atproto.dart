@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class FeedGetActorLikesOutput with _$FeedGetActorLikesOutput {
   static const knownProps = <String>['cursor', 'feed'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetActorLikesOutput({
     String? cursor,
     @FeedViewPostConverter() required List<FeedViewPost> feed,

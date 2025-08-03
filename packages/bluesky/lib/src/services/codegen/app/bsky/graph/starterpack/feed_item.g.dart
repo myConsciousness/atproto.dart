@@ -27,5 +27,5 @@ _FeedItem _$FeedItemFromJson(Map json) =>
 Map<String, dynamic> _$FeedItemToJson(_FeedItem instance) => <String, dynamic>{
   r'$type': instance.$type,
   'uri': instance.uri,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

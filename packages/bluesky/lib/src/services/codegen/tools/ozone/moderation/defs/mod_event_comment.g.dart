@@ -28,7 +28,7 @@ _ModEventComment _$ModEventCommentFromJson(Map json) =>
 Map<String, dynamic> _$ModEventCommentToJson(_ModEventComment instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'comment': instance.comment,
-      'sticky': instance.sticky,
-      r'$unknown': instance.$unknown,
+      'comment': ?instance.comment,
+      'sticky': ?instance.sticky,
+      r'$unknown': ?instance.$unknown,
     };

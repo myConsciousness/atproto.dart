@@ -26,6 +26,6 @@ Map<String, dynamic> _$SetGetValuesInputToJson(_SetGetValuesInput instance) =>
     <String, dynamic>{
       'name': instance.name,
       'limit': instance.limit,
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
+      'cursor': ?instance.cursor,
+      r'$unknown': ?instance.$unknown,
     };

@@ -41,6 +41,7 @@ abstract class Preferences with _$Preferences {
     'verified',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Preferences({
     @Default('app.bsky.notification.defs#preferences') String $type,
     @ChatPreferenceConverter() required ChatPreference chat,

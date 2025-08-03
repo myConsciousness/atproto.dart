@@ -237,8 +237,8 @@ return $default(_that.$type,_that.uri,_that.cid,_that.name,_that.purpose,_that.a
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ListViewBasic implements ListViewBasic {
   const _ListViewBasic({this.$type = 'app.bsky.graph.defs#listViewBasic', required this.uri, required this.cid, required this.name, @ListPurposeConverter() required this.purpose, @AtUriConverter() this.avatar, this.listItemCount, @LabelConverter() final  List<Label>? labels, @ListViewerStateConverter() this.viewer, this.indexedAt, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
   factory _ListViewBasic.fromJson(Map<String, dynamic> json) => _$ListViewBasicFromJson(json);

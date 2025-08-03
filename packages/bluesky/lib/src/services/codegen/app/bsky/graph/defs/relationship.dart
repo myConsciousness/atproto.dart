@@ -23,6 +23,7 @@ part 'relationship.g.dart';
 abstract class Relationship with _$Relationship {
   static const knownProps = <String>['did', 'following', 'followedBy'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Relationship({
     @Default('app.bsky.graph.defs#relationship') String $type,
     required String did,

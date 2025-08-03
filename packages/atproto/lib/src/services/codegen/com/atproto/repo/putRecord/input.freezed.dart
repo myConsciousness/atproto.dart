@@ -219,8 +219,8 @@ return $default(_that.repo,_that.collection,_that.rkey,_that.validate,_that.reco
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RepoPutRecordInput implements RepoPutRecordInput {
   const _RepoPutRecordInput({required this.repo, required this.collection, required this.rkey, this.validate, required final  Map<String, dynamic> record, this.swapRecord, this.swapCommit, final  Map<String, dynamic>? $unknown}): _record = record,_$unknown = $unknown;
   factory _RepoPutRecordInput.fromJson(Map<String, dynamic> json) => _$RepoPutRecordInputFromJson(json);

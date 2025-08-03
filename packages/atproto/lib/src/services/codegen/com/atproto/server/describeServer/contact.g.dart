@@ -26,6 +26,6 @@ _Contact _$ContactFromJson(Map json) =>
 
 Map<String, dynamic> _$ContactToJson(_Contact instance) => <String, dynamic>{
   r'$type': instance.$type,
-  'email': instance.email,
-  r'$unknown': instance.$unknown,
+  'email': ?instance.email,
+  r'$unknown': ?instance.$unknown,
 };

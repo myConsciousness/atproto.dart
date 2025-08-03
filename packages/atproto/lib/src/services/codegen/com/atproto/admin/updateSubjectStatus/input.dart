@@ -27,6 +27,7 @@ abstract class AdminUpdateSubjectStatusInput
     with _$AdminUpdateSubjectStatusInput {
   static const knownProps = <String>['subject', 'takedown', 'deactivated'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdminUpdateSubjectStatusInput({
     @UAdminUpdateSubjectStatusSubjectConverter()
     required UAdminUpdateSubjectStatusSubject subject,

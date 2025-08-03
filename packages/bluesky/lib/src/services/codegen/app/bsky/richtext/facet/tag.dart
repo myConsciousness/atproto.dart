@@ -23,6 +23,7 @@ part 'tag.g.dart';
 abstract class RichtextFacetTag with _$RichtextFacetTag {
   static const knownProps = <String>['tag'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RichtextFacetTag({
     @Default('app.bsky.richtext.facet#tag') String $type,
     required String tag,

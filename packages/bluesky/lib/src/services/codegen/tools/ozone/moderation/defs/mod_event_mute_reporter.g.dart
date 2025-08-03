@@ -34,7 +34,7 @@ Map<String, dynamic> _$ModEventMuteReporterToJson(
   _ModEventMuteReporter instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'comment': instance.comment,
-  'durationInHours': instance.durationInHours,
-  r'$unknown': instance.$unknown,
+  'comment': ?instance.comment,
+  'durationInHours': ?instance.durationInHours,
+  r'$unknown': ?instance.$unknown,
 };

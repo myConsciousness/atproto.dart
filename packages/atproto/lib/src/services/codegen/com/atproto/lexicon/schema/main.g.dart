@@ -29,5 +29,5 @@ Map<String, dynamic> _$LexiconSchemaRecordToJson(
 ) => <String, dynamic>{
   r'$type': instance.$type,
   'lexicon': instance.lexicon,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

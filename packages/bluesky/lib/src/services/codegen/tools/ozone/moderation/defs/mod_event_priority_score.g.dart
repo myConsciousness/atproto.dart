@@ -31,7 +31,7 @@ Map<String, dynamic> _$ModEventPriorityScoreToJson(
   _ModEventPriorityScore instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'comment': instance.comment,
+  'comment': ?instance.comment,
   'score': instance.score,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

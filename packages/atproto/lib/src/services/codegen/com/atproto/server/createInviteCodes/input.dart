@@ -23,6 +23,7 @@ abstract class ServerCreateInviteCodesInput
     with _$ServerCreateInviteCodesInput {
   static const knownProps = <String>['codeCount', 'useCount', 'forAccounts'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerCreateInviteCodesInput({
     @Default(1) int codeCount,
     required int useCount,

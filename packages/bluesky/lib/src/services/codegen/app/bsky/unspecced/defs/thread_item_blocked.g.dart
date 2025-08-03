@@ -35,5 +35,5 @@ Map<String, dynamic> _$ThreadItemBlockedToJson(_ThreadItemBlocked instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'author': const BlockedAuthorConverter().toJson(instance.author),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

@@ -29,6 +29,7 @@ abstract class CommunicationCreateTemplateInput
     'createdBy',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory CommunicationCreateTemplateInput({
     /// Name of the template.
     required String name,

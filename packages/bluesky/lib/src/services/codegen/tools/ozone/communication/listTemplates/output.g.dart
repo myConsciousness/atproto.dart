@@ -38,5 +38,5 @@ Map<String, dynamic> _$CommunicationListTemplatesOutputToJson(
   'communicationTemplates': instance.communicationTemplates
       .map(const TemplateViewConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

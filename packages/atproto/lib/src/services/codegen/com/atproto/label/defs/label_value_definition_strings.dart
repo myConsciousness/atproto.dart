@@ -23,6 +23,7 @@ part 'label_value_definition_strings.g.dart';
 abstract class LabelValueDefinitionStrings with _$LabelValueDefinitionStrings {
   static const knownProps = <String>['lang', 'name', 'description'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LabelValueDefinitionStrings({
     @Default('com.atproto.label.defs#labelValueDefinitionStrings') String $type,
 

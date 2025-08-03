@@ -22,6 +22,7 @@ part 'image_details.g.dart';
 abstract class ImageDetails with _$ImageDetails {
   static const knownProps = <String>['width', 'height'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ImageDetails({
     @Default('tools.ozone.moderation.defs#imageDetails') String $type,
     required int width,

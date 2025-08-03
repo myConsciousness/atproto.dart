@@ -33,6 +33,7 @@ abstract class InviteCode with _$InviteCode {
     'uses',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory InviteCode({
     @Default('com.atproto.server.defs#inviteCode') String $type,
     required String code,

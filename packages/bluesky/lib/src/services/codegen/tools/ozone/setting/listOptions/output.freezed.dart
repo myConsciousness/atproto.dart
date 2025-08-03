@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.options,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SettingListOptionsOutput implements SettingListOptionsOutput {
   const _SettingListOptionsOutput({this.cursor, @OptionConverter() required final  List<Option> options, final  Map<String, dynamic>? $unknown}): _options = options,_$unknown = $unknown;
   factory _SettingListOptionsOutput.fromJson(Map<String, dynamic> json) => _$SettingListOptionsOutputFromJson(json);

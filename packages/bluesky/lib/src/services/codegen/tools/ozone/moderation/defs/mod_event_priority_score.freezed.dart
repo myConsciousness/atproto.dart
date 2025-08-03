@@ -209,8 +209,8 @@ return $default(_that.$type,_that.comment,_that.score,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModEventPriorityScore implements ModEventPriorityScore {
   const _ModEventPriorityScore({this.$type = 'tools.ozone.moderation.defs#modEventPriorityScore', this.comment, required this.score, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModEventPriorityScore.fromJson(Map<String, dynamic> json) => _$ModEventPriorityScoreFromJson(json);

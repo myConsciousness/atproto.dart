@@ -26,6 +26,7 @@ abstract class VerificationListVerificationsOutput
     with _$VerificationListVerificationsOutput {
   static const knownProps = <String>['cursor', 'verifications'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory VerificationListVerificationsOutput({
     String? cursor,
     @VerificationViewConverter() required List<VerificationView> verifications,

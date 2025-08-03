@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class SyncSubscribeReposInput with _$SyncSubscribeReposInput {
   static const knownProps = <String>['cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncSubscribeReposInput({
     /// The last known event seq number to backfill from.
     int? cursor,

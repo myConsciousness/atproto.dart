@@ -215,8 +215,8 @@ return $default(_that.$type,_that.issuer,_that.uri,_that.isValid,_that.createdAt
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _VerificationView implements VerificationView {
   const _VerificationView({this.$type = 'app.bsky.actor.defs#verificationView', required this.issuer, required this.uri, required this.isValid, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _VerificationView.fromJson(Map<String, dynamic> json) => _$VerificationViewFromJson(json);

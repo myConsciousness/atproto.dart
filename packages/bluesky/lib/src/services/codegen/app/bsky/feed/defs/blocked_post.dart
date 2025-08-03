@@ -25,6 +25,7 @@ part 'blocked_post.g.dart';
 abstract class BlockedPost with _$BlockedPost {
   static const knownProps = <String>['uri', 'blocked', 'author'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory BlockedPost({
     @Default('app.bsky.feed.defs#blockedPost') String $type,
     required String uri,

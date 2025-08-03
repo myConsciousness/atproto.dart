@@ -26,7 +26,7 @@ Map<String, dynamic> _$ServerGetServiceAuthInputToJson(
   _ServerGetServiceAuthInput instance,
 ) => <String, dynamic>{
   'aud': instance.aud,
-  'exp': instance.exp,
-  'lxm': instance.lxm,
-  r'$unknown': instance.$unknown,
+  'exp': ?instance.exp,
+  'lxm': ?instance.lxm,
+  r'$unknown': ?instance.$unknown,
 };

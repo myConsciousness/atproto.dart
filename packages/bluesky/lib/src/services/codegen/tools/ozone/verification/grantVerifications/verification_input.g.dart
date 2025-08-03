@@ -38,6 +38,6 @@ Map<String, dynamic> _$VerificationInputToJson(_VerificationInput instance) =>
       'subject': instance.subject,
       'handle': instance.handle,
       'displayName': instance.displayName,
-      'createdAt': instance.createdAt?.toIso8601String(),
-      r'$unknown': instance.$unknown,
+      'createdAt': ?instance.createdAt?.toIso8601String(),
+      r'$unknown': ?instance.$unknown,
     };

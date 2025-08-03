@@ -25,6 +25,7 @@ part 'input.g.dart';
 abstract class TeamAddMemberInput with _$TeamAddMemberInput {
   static const knownProps = <String>['did', 'role'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory TeamAddMemberInput({
     required String did,
     @TeamAddMemberRoleConverter() required TeamAddMemberRole role,

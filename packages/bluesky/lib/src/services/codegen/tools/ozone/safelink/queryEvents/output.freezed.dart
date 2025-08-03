@@ -209,8 +209,8 @@ return $default(_that.cursor,_that.events,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SafelinkQueryEventsOutput implements SafelinkQueryEventsOutput {
   const _SafelinkQueryEventsOutput({this.cursor, @EventConverter() required final  List<Event> events, final  Map<String, dynamic>? $unknown}): _events = events,_$unknown = $unknown;
   factory _SafelinkQueryEventsOutput.fromJson(Map<String, dynamic> json) => _$SafelinkQueryEventsOutputFromJson(json);

@@ -207,8 +207,8 @@ return $default(_that.root,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncGetHeadOutput implements SyncGetHeadOutput {
   const _SyncGetHeadOutput({required this.root, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncGetHeadOutput.fromJson(Map<String, dynamic> json) => _$SyncGetHeadOutputFromJson(json);

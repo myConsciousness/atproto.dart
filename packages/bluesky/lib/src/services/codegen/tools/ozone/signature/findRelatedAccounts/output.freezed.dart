@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.accounts,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SignatureFindRelatedAccountsOutput implements SignatureFindRelatedAccountsOutput {
   const _SignatureFindRelatedAccountsOutput({this.cursor, @RelatedAccountConverter() required final  List<RelatedAccount> accounts, final  Map<String, dynamic>? $unknown}): _accounts = accounts,_$unknown = $unknown;
   factory _SignatureFindRelatedAccountsOutput.fromJson(Map<String, dynamic> json) => _$SignatureFindRelatedAccountsOutputFromJson(json);

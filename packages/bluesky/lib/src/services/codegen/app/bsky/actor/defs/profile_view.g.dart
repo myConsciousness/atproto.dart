@@ -87,33 +87,33 @@ Map<String, dynamic> _$ProfileViewToJson(
   r'$type': instance.$type,
   'did': instance.did,
   'handle': instance.handle,
-  'displayName': instance.displayName,
-  'description': instance.description,
-  'avatar': _$JsonConverterToJson<String, AtUri>(
+  'displayName': ?instance.displayName,
+  'description': ?instance.description,
+  'avatar': ?_$JsonConverterToJson<String, AtUri>(
     instance.avatar,
     const AtUriConverter().toJson,
   ),
-  'associated': _$JsonConverterToJson<Map<String, dynamic>, ProfileAssociated>(
+  'associated': ?_$JsonConverterToJson<Map<String, dynamic>, ProfileAssociated>(
     instance.associated,
     const ProfileAssociatedConverter().toJson,
   ),
-  'indexedAt': instance.indexedAt?.toIso8601String(),
-  'createdAt': instance.createdAt?.toIso8601String(),
-  'viewer': _$JsonConverterToJson<Map<String, dynamic>, ViewerState>(
+  'indexedAt': ?instance.indexedAt?.toIso8601String(),
+  'createdAt': ?instance.createdAt?.toIso8601String(),
+  'viewer': ?_$JsonConverterToJson<Map<String, dynamic>, ViewerState>(
     instance.viewer,
     const ViewerStateConverter().toJson,
   ),
-  'labels': instance.labels?.map(const LabelConverter().toJson).toList(),
+  'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
   'verification':
-      _$JsonConverterToJson<Map<String, dynamic>, VerificationState>(
+      ?_$JsonConverterToJson<Map<String, dynamic>, VerificationState>(
         instance.verification,
         const VerificationStateConverter().toJson,
       ),
-  'status': _$JsonConverterToJson<Map<String, dynamic>, StatusView>(
+  'status': ?_$JsonConverterToJson<Map<String, dynamic>, StatusView>(
     instance.status,
     const StatusViewConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

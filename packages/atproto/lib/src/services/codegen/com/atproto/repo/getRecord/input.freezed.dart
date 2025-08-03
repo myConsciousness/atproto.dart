@@ -214,8 +214,8 @@ return $default(_that.repo,_that.collection,_that.rkey,_that.cid,_that.$unknown)
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RepoGetRecordInput implements RepoGetRecordInput {
   const _RepoGetRecordInput({required this.repo, required this.collection, required this.rkey, this.cid, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoGetRecordInput.fromJson(Map<String, dynamic> json) => _$RepoGetRecordInputFromJson(json);

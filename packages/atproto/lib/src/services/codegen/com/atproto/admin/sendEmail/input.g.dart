@@ -29,8 +29,8 @@ Map<String, dynamic> _$AdminSendEmailInputToJson(
 ) => <String, dynamic>{
   'recipientDid': instance.recipientDid,
   'content': instance.content,
-  'subject': instance.subject,
+  'subject': ?instance.subject,
   'senderDid': instance.senderDid,
-  'comment': instance.comment,
-  r'$unknown': instance.$unknown,
+  'comment': ?instance.comment,
+  r'$unknown': ?instance.$unknown,
 };

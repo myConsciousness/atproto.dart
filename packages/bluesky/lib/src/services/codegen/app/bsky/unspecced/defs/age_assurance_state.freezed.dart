@@ -220,8 +220,8 @@ return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.$unknown);c
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AgeAssuranceState implements AgeAssuranceState {
   const _AgeAssuranceState({this.$type = 'app.bsky.unspecced.defs#ageAssuranceState', this.lastInitiatedAt, @AgeAssuranceStateStatusConverter() required this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AgeAssuranceState.fromJson(Map<String, dynamic> json) => _$AgeAssuranceStateFromJson(json);

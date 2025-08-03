@@ -208,8 +208,8 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RichtextFacetLink implements RichtextFacetLink {
   const _RichtextFacetLink({this.$type = 'app.bsky.richtext.facet#link', @AtUriConverter() required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RichtextFacetLink.fromJson(Map<String, dynamic> json) => _$RichtextFacetLinkFromJson(json);

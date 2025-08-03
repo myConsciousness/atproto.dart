@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class ActorGetProfilesOutput with _$ActorGetProfilesOutput {
   static const knownProps = <String>['profiles'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ActorGetProfilesOutput({
     @ProfileViewDetailedConverter() required List<ProfileViewDetailed> profiles,
 

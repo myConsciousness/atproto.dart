@@ -26,6 +26,7 @@ abstract class UnspeccedGetSuggestedUsersOutput
     with _$UnspeccedGetSuggestedUsersOutput {
   static const knownProps = <String>['actors'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestedUsersOutput({
     @ProfileViewConverter() required List<ProfileView> actors,
 

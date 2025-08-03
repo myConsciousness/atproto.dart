@@ -30,5 +30,5 @@ Map<String, dynamic> _$InviteCodeUseToJson(_InviteCodeUse instance) =>
       r'$type': instance.$type,
       'usedBy': instance.usedBy,
       'usedAt': instance.usedAt.toIso8601String(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

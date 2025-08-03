@@ -48,17 +48,17 @@ Map<String, dynamic> _$PostInteractionSettingsPrefToJson(
   _PostInteractionSettingsPref instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'threadgateAllowRules': instance.threadgateAllowRules
+  'threadgateAllowRules': ?instance.threadgateAllowRules
       ?.map(
         const UPostInteractionSettingsPrefThreadgateAllowRulesConverter()
             .toJson,
       )
       .toList(),
-  'postgateEmbeddingRules': instance.postgateEmbeddingRules
+  'postgateEmbeddingRules': ?instance.postgateEmbeddingRules
       ?.map(
         const UPostInteractionSettingsPrefPostgateEmbeddingRulesConverter()
             .toJson,
       )
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

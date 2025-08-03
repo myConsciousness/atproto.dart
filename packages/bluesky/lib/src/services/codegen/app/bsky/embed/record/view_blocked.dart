@@ -25,6 +25,7 @@ part 'view_blocked.g.dart';
 abstract class EmbedRecordViewBlocked with _$EmbedRecordViewBlocked {
   static const knownProps = <String>['uri', 'blocked', 'author'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmbedRecordViewBlocked({
     @Default('app.bsky.embed.record#viewBlocked') String $type,
     required String uri,

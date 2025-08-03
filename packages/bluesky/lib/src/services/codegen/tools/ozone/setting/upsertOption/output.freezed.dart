@@ -216,8 +216,8 @@ return $default(_that.option,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SettingUpsertOptionOutput implements SettingUpsertOptionOutput {
   const _SettingUpsertOptionOutput({@OptionConverter() required this.option, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SettingUpsertOptionOutput.fromJson(Map<String, dynamic> json) => _$SettingUpsertOptionOutputFromJson(json);

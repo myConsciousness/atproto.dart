@@ -36,6 +36,7 @@ abstract class ModEventViewDetail with _$ModEventViewDetail {
     'modTool',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModEventViewDetail({
     @Default('tools.ozone.moderation.defs#modEventViewDetail') String $type,
     required int id,

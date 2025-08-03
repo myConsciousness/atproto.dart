@@ -28,5 +28,5 @@ Map<String, dynamic> _$ConvoAddReactionInputToJson(
   'convoId': instance.convoId,
   'messageId': instance.messageId,
   'value': instance.value,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

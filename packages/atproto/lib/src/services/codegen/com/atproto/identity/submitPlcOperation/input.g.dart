@@ -29,5 +29,5 @@ Map<String, dynamic> _$IdentitySubmitPlcOperationInputToJson(
   _IdentitySubmitPlcOperationInput instance,
 ) => <String, dynamic>{
   'operation': instance.operation,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

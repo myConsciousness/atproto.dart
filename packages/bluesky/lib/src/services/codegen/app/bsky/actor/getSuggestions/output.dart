@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class ActorGetSuggestionsOutput with _$ActorGetSuggestionsOutput {
   static const knownProps = <String>['cursor', 'actors', 'recId'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ActorGetSuggestionsOutput({
     String? cursor,
     @ProfileViewConverter() required List<ProfileView> actors,

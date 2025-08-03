@@ -27,6 +27,6 @@ Map<String, dynamic> _$ConvoGetMessagesInputToJson(
 ) => <String, dynamic>{
   'convoId': instance.convoId,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };

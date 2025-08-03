@@ -225,8 +225,8 @@ return $default(_that.$type,_that.item,_that.event,_that.feedContext,_that.reqId
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _Interaction implements Interaction {
   const _Interaction({this.$type = 'app.bsky.feed.defs#interaction', this.item, @InteractionEventConverter() this.event, this.feedContext, this.reqId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Interaction.fromJson(Map<String, dynamic> json) => _$InteractionFromJson(json);

@@ -211,8 +211,8 @@ return $default(_that.did,_that.collection,_that.rkey,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncGetRecordInput implements SyncGetRecordInput {
   const _SyncGetRecordInput({required this.did, required this.collection, required this.rkey, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncGetRecordInput.fromJson(Map<String, dynamic> json) => _$SyncGetRecordInputFromJson(json);

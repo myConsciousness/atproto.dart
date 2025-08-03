@@ -33,7 +33,7 @@ _GraphGetListMutesOutput _$GraphGetListMutesOutputFromJson(Map json) =>
 Map<String, dynamic> _$GraphGetListMutesOutputToJson(
   _GraphGetListMutesOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'lists': instance.lists.map(const ListViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

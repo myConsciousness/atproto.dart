@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.feed,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetFeedOutput implements FeedGetFeedOutput {
   const _FeedGetFeedOutput({this.cursor, @FeedViewPostConverter() required final  List<FeedViewPost> feed, final  Map<String, dynamic>? $unknown}): _feed = feed,_$unknown = $unknown;
   factory _FeedGetFeedOutput.fromJson(Map<String, dynamic> json) => _$FeedGetFeedOutputFromJson(json);

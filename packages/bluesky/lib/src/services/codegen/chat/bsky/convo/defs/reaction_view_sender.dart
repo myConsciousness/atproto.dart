@@ -22,6 +22,7 @@ part 'reaction_view_sender.g.dart';
 abstract class ReactionViewSender with _$ReactionViewSender {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ReactionViewSender({
     @Default('chat.bsky.convo.defs#reactionViewSender') String $type,
     required String did,

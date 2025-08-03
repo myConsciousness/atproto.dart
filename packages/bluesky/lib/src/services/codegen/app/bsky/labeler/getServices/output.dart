@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class LabelerGetServicesOutput with _$LabelerGetServicesOutput {
   static const knownProps = <String>['views'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LabelerGetServicesOutput({
     @ULabelerGetServicesViewsConverter()
     required List<ULabelerGetServicesViews> views,

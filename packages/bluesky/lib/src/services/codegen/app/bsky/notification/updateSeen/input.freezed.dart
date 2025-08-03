@@ -207,8 +207,8 @@ return $default(_that.seenAt,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _NotificationUpdateSeenInput implements NotificationUpdateSeenInput {
   const _NotificationUpdateSeenInput({required this.seenAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationUpdateSeenInput.fromJson(Map<String, dynamic> json) => _$NotificationUpdateSeenInputFromJson(json);

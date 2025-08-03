@@ -22,6 +22,7 @@ part 'activity_subscription.g.dart';
 abstract class ActivitySubscription with _$ActivitySubscription {
   static const knownProps = <String>['post', 'reply'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ActivitySubscription({
     @Default('app.bsky.notification.defs#activitySubscription') String $type,
     required bool post,

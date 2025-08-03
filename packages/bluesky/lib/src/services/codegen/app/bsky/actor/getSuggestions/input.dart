@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ActorGetSuggestionsInput with _$ActorGetSuggestionsInput {
   static const knownProps = <String>['limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ActorGetSuggestionsInput({
     @Default(50) int limit,
     String? cursor,

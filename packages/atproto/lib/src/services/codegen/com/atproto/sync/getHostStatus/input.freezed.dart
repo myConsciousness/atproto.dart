@@ -208,8 +208,8 @@ return $default(_that.hostname,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncGetHostStatusInput implements SyncGetHostStatusInput {
   const _SyncGetHostStatusInput({required this.hostname, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncGetHostStatusInput.fromJson(Map<String, dynamic> json) => _$SyncGetHostStatusInputFromJson(json);

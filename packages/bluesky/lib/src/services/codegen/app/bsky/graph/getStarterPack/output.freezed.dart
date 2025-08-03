@@ -216,8 +216,8 @@ return $default(_that.starterPack,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphGetStarterPackOutput implements GraphGetStarterPackOutput {
   const _GraphGetStarterPackOutput({@StarterPackViewConverter() required this.starterPack, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphGetStarterPackOutput.fromJson(Map<String, dynamic> json) => _$GraphGetStarterPackOutputFromJson(json);

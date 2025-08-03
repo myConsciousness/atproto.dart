@@ -26,6 +26,7 @@ part 'output.g.dart';
 abstract class AdminGetSubjectStatusOutput with _$AdminGetSubjectStatusOutput {
   static const knownProps = <String>['subject', 'takedown', 'deactivated'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdminGetSubjectStatusOutput({
     @UAdminGetSubjectStatusSubjectConverter()
     required UAdminGetSubjectStatusSubject subject,

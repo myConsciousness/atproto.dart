@@ -32,5 +32,5 @@ Map<String, dynamic> _$ActivitySubscriptionToJson(
   r'$type': instance.$type,
   'post': instance.post,
   'reply': instance.reply,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -38,6 +38,7 @@ abstract class ListViewBasic with _$ListViewBasic {
     'indexedAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ListViewBasic({
     @Default('app.bsky.graph.defs#listViewBasic') String $type,
     required String uri,

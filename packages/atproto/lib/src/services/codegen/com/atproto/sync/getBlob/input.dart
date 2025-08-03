@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class SyncGetBlobInput with _$SyncGetBlobInput {
   static const knownProps = <String>['did', 'cid'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncGetBlobInput({
     /// The DID of the account.
     required String did,

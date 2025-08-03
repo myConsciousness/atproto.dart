@@ -207,8 +207,8 @@ return $default(_that.email,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerRequestPasswordResetInput implements ServerRequestPasswordResetInput {
   const _ServerRequestPasswordResetInput({required this.email, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerRequestPasswordResetInput.fromJson(Map<String, dynamic> json) => _$ServerRequestPasswordResetInputFromJson(json);

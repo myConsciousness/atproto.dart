@@ -31,6 +31,6 @@ _Info _$InfoFromJson(Map json) =>
 Map<String, dynamic> _$InfoToJson(_Info instance) => <String, dynamic>{
   r'$type': instance.$type,
   'name': const InfoNameConverter().toJson(instance.name),
-  'message': instance.message,
-  r'$unknown': instance.$unknown,
+  'message': ?instance.message,
+  r'$unknown': ?instance.$unknown,
 };

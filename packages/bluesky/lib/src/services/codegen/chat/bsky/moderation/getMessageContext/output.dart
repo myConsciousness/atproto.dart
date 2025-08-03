@@ -26,6 +26,7 @@ abstract class ModerationGetMessageContextOutput
     with _$ModerationGetMessageContextOutput {
   static const knownProps = <String>['messages'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationGetMessageContextOutput({
     @UModerationGetMessageContextMessagesConverter()
     required List<UModerationGetMessageContextMessages> messages,

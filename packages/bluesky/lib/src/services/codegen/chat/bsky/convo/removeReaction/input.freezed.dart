@@ -209,8 +209,8 @@ return $default(_that.convoId,_that.messageId,_that.value,_that.$unknown);case _
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoRemoveReactionInput implements ConvoRemoveReactionInput {
   const _ConvoRemoveReactionInput({required this.convoId, required this.messageId, required this.value, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoRemoveReactionInput.fromJson(Map<String, dynamic> json) => _$ConvoRemoveReactionInputFromJson(json);

@@ -23,6 +23,7 @@ abstract class UnspeccedGetPopularFeedGeneratorsInput
     with _$UnspeccedGetPopularFeedGeneratorsInput {
   static const knownProps = <String>['limit', 'cursor', 'query'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetPopularFeedGeneratorsInput({
     @Default(50) int limit,
     String? cursor,

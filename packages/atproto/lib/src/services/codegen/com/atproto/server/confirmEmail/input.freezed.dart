@@ -208,8 +208,8 @@ return $default(_that.email,_that.token,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerConfirmEmailInput implements ServerConfirmEmailInput {
   const _ServerConfirmEmailInput({required this.email, required this.token, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerConfirmEmailInput.fromJson(Map<String, dynamic> json) => _$ServerConfirmEmailInputFromJson(json);

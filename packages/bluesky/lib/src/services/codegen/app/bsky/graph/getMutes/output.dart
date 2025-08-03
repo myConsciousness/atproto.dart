@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class GraphGetMutesOutput with _$GraphGetMutesOutput {
   static const knownProps = <String>['cursor', 'mutes'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetMutesOutput({
     String? cursor,
     @ProfileViewConverter() required List<ProfileView> mutes,

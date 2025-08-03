@@ -207,8 +207,8 @@ return $default(_that.preferences,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ActorGetPreferencesOutput implements ActorGetPreferencesOutput {
   const _ActorGetPreferencesOutput({@UPreferencesConverter() required final  List<UPreferences> preferences, final  Map<String, dynamic>? $unknown}): _preferences = preferences,_$unknown = $unknown;
   factory _ActorGetPreferencesOutput.fromJson(Map<String, dynamic> json) => _$ActorGetPreferencesOutputFromJson(json);

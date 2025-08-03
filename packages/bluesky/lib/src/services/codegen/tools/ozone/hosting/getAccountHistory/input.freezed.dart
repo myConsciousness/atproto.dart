@@ -210,8 +210,8 @@ return $default(_that.did,_that.events,_that.cursor,_that.limit,_that.$unknown);
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _HostingGetAccountHistoryInput implements HostingGetAccountHistoryInput {
   const _HostingGetAccountHistoryInput({required this.did, @HostingGetAccountHistoryEventsConverter() final  List<HostingGetAccountHistoryEvents>? events, this.cursor, this.limit = 50, final  Map<String, dynamic>? $unknown}): _events = events,_$unknown = $unknown;
   factory _HostingGetAccountHistoryInput.fromJson(Map<String, dynamic> json) => _$HostingGetAccountHistoryInputFromJson(json);

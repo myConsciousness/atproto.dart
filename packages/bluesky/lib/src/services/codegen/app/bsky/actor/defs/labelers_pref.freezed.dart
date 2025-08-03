@@ -208,8 +208,8 @@ return $default(_that.$type,_that.labelers,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _LabelersPref implements LabelersPref {
   const _LabelersPref({this.$type = 'app.bsky.actor.defs#labelersPref', @LabelerPrefItemConverter() required final  List<LabelerPrefItem> labelers, final  Map<String, dynamic>? $unknown}): _labelers = labelers,_$unknown = $unknown;
   factory _LabelersPref.fromJson(Map<String, dynamic> json) => _$LabelersPrefFromJson(json);

@@ -212,8 +212,8 @@ return $default(_that.$type,_that.name,_that.description,_that.setSize,_that.cre
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SetView implements SetView {
   const _SetView({this.$type = 'tools.ozone.set.defs#setView', required this.name, this.description, required this.setSize, required this.createdAt, required this.updatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SetView.fromJson(Map<String, dynamic> json) => _$SetViewFromJson(json);

@@ -222,8 +222,8 @@ return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RepoOp implements RepoOp {
   const _RepoOp({this.$type = 'com.atproto.sync.subscribeRepos#repoOp', @RepoOpActionConverter() required this.action, required this.path, required this.cid, this.prev, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoOp.fromJson(Map<String, dynamic> json) => _$RepoOpFromJson(json);

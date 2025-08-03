@@ -37,6 +37,7 @@ abstract class GraphListRecord with _$GraphListRecord {
     'createdAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphListRecord({
     @Default('app.bsky.graph.list') String $type,
 

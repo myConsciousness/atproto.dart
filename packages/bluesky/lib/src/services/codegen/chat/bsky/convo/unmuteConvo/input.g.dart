@@ -24,5 +24,5 @@ Map<String, dynamic> _$ConvoUnmuteConvoInputToJson(
   _ConvoUnmuteConvoInput instance,
 ) => <String, dynamic>{
   'convoId': instance.convoId,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -23,6 +23,7 @@ abstract class NotificationPutPreferencesInput
     with _$NotificationPutPreferencesInput {
   static const knownProps = <String>['priority'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory NotificationPutPreferencesInput({
     required bool priority,
 

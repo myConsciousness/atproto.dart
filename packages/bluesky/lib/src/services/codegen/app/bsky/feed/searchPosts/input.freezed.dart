@@ -240,8 +240,8 @@ return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedSearchPostsInput implements FeedSearchPostsInput {
   const _FeedSearchPostsInput({required this.q, @FeedSearchPostsSortConverter() this.sort, this.since, this.until, this.mentions, this.author, this.lang, this.domain, @AtUriConverter() this.url, final  List<String>? tag, this.limit = 25, this.cursor, final  Map<String, dynamic>? $unknown}): _tag = tag,_$unknown = $unknown;
   factory _FeedSearchPostsInput.fromJson(Map<String, dynamic> json) => _$FeedSearchPostsInputFromJson(json);

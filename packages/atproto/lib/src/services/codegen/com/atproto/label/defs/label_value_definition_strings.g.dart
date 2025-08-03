@@ -35,5 +35,5 @@ Map<String, dynamic> _$LabelValueDefinitionStringsToJson(
   'lang': instance.lang,
   'name': instance.name,
   'description': instance.description,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

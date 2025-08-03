@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class NotificationUpdateSeenInput with _$NotificationUpdateSeenInput {
   static const knownProps = <String>['seenAt'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory NotificationUpdateSeenInput({
     required DateTime seenAt,
 

@@ -35,5 +35,5 @@ Map<String, dynamic> _$GraphGetStarterPacksOutputToJson(
   'starterPacks': instance.starterPacks
       .map(const StarterPackViewBasicConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

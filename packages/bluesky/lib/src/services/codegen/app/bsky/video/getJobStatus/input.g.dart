@@ -22,4 +22,7 @@ _VideoGetJobStatusInput _$VideoGetJobStatusInputFromJson(Map json) =>
 
 Map<String, dynamic> _$VideoGetJobStatusInputToJson(
   _VideoGetJobStatusInput instance,
-) => <String, dynamic>{'jobId': instance.jobId, r'$unknown': instance.$unknown};
+) => <String, dynamic>{
+  'jobId': instance.jobId,
+  r'$unknown': ?instance.$unknown,
+};

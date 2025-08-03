@@ -37,6 +37,7 @@ abstract class RecordViewDetail with _$RecordViewDetail {
     'repo',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RecordViewDetail({
     @Default('tools.ozone.moderation.defs#recordViewDetail') String $type,
     required String uri,

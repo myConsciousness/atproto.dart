@@ -21,4 +21,4 @@ _SetDeleteSetInput _$SetDeleteSetInputFromJson(Map json) =>
     });
 
 Map<String, dynamic> _$SetDeleteSetInputToJson(_SetDeleteSetInput instance) =>
-    <String, dynamic>{'name': instance.name, r'$unknown': instance.$unknown};
+    <String, dynamic>{'name': instance.name, r'$unknown': ?instance.$unknown};

@@ -31,6 +31,7 @@ abstract class BskyAppStatePref with _$BskyAppStatePref {
     'nuxs',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory BskyAppStatePref({
     @Default('app.bsky.actor.defs#bskyAppStatePref') String $type,
     @BskyAppProgressGuideConverter() BskyAppProgressGuide? activeProgressGuide,

@@ -22,6 +22,7 @@ part 'generator_viewer_state.g.dart';
 abstract class GeneratorViewerState with _$GeneratorViewerState {
   static const knownProps = <String>['like'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GeneratorViewerState({
     @Default('app.bsky.feed.defs#generatorViewerState') String $type,
     String? like,

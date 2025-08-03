@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class SetGetValuesOutput with _$SetGetValuesOutput {
   static const knownProps = <String>['set', 'values', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SetGetValuesOutput({
     @SetViewConverter() required SetView set,
     required List<String> values,

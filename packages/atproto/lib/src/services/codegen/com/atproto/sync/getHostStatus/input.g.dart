@@ -24,5 +24,5 @@ Map<String, dynamic> _$SyncGetHostStatusInputToJson(
   _SyncGetHostStatusInput instance,
 ) => <String, dynamic>{
   'hostname': instance.hostname,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

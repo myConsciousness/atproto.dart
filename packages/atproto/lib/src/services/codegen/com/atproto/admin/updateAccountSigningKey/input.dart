@@ -23,6 +23,7 @@ abstract class AdminUpdateAccountSigningKeyInput
     with _$AdminUpdateAccountSigningKeyInput {
   static const knownProps = <String>['did', 'signingKey'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdminUpdateAccountSigningKeyInput({
     required String did,
 

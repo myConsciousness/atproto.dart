@@ -209,8 +209,8 @@ return $default(_that.did,_that.uri,_that.blob,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AdminGetSubjectStatusInput implements AdminGetSubjectStatusInput {
   const _AdminGetSubjectStatusInput({this.did, this.uri, this.blob, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AdminGetSubjectStatusInput.fromJson(Map<String, dynamic> json) => _$AdminGetSubjectStatusInputFromJson(json);

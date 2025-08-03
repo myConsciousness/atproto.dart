@@ -32,7 +32,7 @@ _TeamListMembersOutput _$TeamListMembersOutputFromJson(Map json) =>
 Map<String, dynamic> _$TeamListMembersOutputToJson(
   _TeamListMembersOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'members': instance.members.map(const MemberConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

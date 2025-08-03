@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class SyncGetCheckoutInput with _$SyncGetCheckoutInput {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncGetCheckoutInput({
     /// The DID of the repo.
     required String did,

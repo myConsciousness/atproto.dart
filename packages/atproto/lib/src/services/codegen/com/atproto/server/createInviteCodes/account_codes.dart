@@ -22,6 +22,7 @@ part 'account_codes.g.dart';
 abstract class AccountCodes with _$AccountCodes {
   static const knownProps = <String>['account', 'codes'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AccountCodes({
     @Default('com.atproto.server.createInviteCodes#accountCodes') String $type,
     required String account,

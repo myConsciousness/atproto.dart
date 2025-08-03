@@ -27,6 +27,7 @@ part 'main.g.dart';
 abstract class EmbedVideo with _$EmbedVideo {
   static const knownProps = <String>['video', 'captions', 'alt', 'aspectRatio'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmbedVideo({
     @Default('app.bsky.embed.video') String $type,
 

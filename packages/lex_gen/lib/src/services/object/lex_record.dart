@@ -86,6 +86,7 @@ ${_getDescription()}
 abstract class ${name}Record with _\$${name}Record {
   $knownProps
 
+  @JsonSerializable(includeIfNull: false)
   const factory ${name}Record({
     @Default('$id') String \$type,
     ${properties.toString()}

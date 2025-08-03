@@ -22,4 +22,4 @@ _IdentityResolveHandleOutput _$IdentityResolveHandleOutputFromJson(Map json) =>
 
 Map<String, dynamic> _$IdentityResolveHandleOutputToJson(
   _IdentityResolveHandleOutput instance,
-) => <String, dynamic>{'did': instance.did, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'did': instance.did, r'$unknown': ?instance.$unknown};

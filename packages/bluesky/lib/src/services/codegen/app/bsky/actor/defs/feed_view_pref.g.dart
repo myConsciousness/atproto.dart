@@ -39,10 +39,10 @@ Map<String, dynamic> _$FeedViewPrefToJson(_FeedViewPref instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'feed': instance.feed,
-      'hideReplies': instance.hideReplies,
+      'hideReplies': ?instance.hideReplies,
       'hideRepliesByUnfollowed': instance.hideRepliesByUnfollowed,
-      'hideRepliesByLikeCount': instance.hideRepliesByLikeCount,
-      'hideReposts': instance.hideReposts,
-      'hideQuotePosts': instance.hideQuotePosts,
-      r'$unknown': instance.$unknown,
+      'hideRepliesByLikeCount': ?instance.hideRepliesByLikeCount,
+      'hideReposts': ?instance.hideReposts,
+      'hideQuotePosts': ?instance.hideQuotePosts,
+      r'$unknown': ?instance.$unknown,
     };

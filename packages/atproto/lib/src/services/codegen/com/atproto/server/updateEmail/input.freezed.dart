@@ -210,8 +210,8 @@ return $default(_that.email,_that.emailAuthFactor,_that.token,_that.$unknown);ca
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerUpdateEmailInput implements ServerUpdateEmailInput {
   const _ServerUpdateEmailInput({required this.email, this.emailAuthFactor, this.token, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerUpdateEmailInput.fromJson(Map<String, dynamic> json) => _$ServerUpdateEmailInputFromJson(json);

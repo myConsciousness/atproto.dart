@@ -207,8 +207,8 @@ return $default(_that.feeds,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetSuggestedFeedsOutput implements UnspeccedGetSuggestedFeedsOutput {
   const _UnspeccedGetSuggestedFeedsOutput({@GeneratorViewConverter() required final  List<GeneratorView> feeds, final  Map<String, dynamic>? $unknown}): _feeds = feeds,_$unknown = $unknown;
   factory _UnspeccedGetSuggestedFeedsOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestedFeedsOutputFromJson(json);

@@ -30,5 +30,5 @@ Map<String, dynamic> _$ThreatSignatureToJson(_ThreatSignature instance) =>
       r'$type': instance.$type,
       'property': instance.property,
       'value': instance.value,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

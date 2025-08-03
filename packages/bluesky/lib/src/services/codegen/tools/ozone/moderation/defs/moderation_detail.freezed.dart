@@ -220,8 +220,8 @@ return $default(_that.$type,_that.subjectStatus,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationDetail implements ModerationDetail {
   const _ModerationDetail({this.$type = 'tools.ozone.moderation.defs#moderationDetail', @SubjectStatusViewConverter() this.subjectStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModerationDetail.fromJson(Map<String, dynamic> json) => _$ModerationDetailFromJson(json);

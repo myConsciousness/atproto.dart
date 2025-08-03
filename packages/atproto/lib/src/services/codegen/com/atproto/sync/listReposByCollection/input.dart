@@ -23,6 +23,7 @@ abstract class SyncListReposByCollectionInput
     with _$SyncListReposByCollectionInput {
   static const knownProps = <String>['collection', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncListReposByCollectionInput({
     required String collection,
 

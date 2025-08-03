@@ -24,6 +24,7 @@ part 'main.g.dart';
 abstract class FeedLikeRecord with _$FeedLikeRecord {
   static const knownProps = <String>['subject', 'createdAt', 'via'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedLikeRecord({
     @Default('app.bsky.feed.like') String $type,
     @RepoStrongRefConverter() required RepoStrongRef subject,

@@ -26,6 +26,7 @@ part 'image.g.dart';
 abstract class EmbedImagesImage with _$EmbedImagesImage {
   static const knownProps = <String>['image', 'alt', 'aspectRatio'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmbedImagesImage({
     @Default('app.bsky.embed.images#image') String $type,
     @BlobConverter() required Blob image,

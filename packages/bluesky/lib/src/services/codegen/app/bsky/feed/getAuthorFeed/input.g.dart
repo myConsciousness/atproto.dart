@@ -35,13 +35,13 @@ Map<String, dynamic> _$FeedGetAuthorFeedInputToJson(
 ) => <String, dynamic>{
   'actor': instance.actor,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  'filter': _$JsonConverterToJson<String, FeedGetAuthorFeedFilter>(
+  'cursor': ?instance.cursor,
+  'filter': ?_$JsonConverterToJson<String, FeedGetAuthorFeedFilter>(
     instance.filter,
     const FeedGetAuthorFeedFilterConverter().toJson,
   ),
   'includePins': instance.includePins,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

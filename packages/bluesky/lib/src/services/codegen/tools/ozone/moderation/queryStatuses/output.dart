@@ -26,6 +26,7 @@ abstract class ModerationQueryStatusesOutput
     with _$ModerationQueryStatusesOutput {
   static const knownProps = <String>['cursor', 'subjectStatuses'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationQueryStatusesOutput({
     String? cursor,
     @SubjectStatusViewConverter()

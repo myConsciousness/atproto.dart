@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class RepoGetRecordInput with _$RepoGetRecordInput {
   static const knownProps = <String>['repo', 'collection', 'rkey', 'cid'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoGetRecordInput({
     /// The handle or DID of the repo.
     required String repo,

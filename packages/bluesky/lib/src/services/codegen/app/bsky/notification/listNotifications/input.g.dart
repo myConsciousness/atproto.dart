@@ -37,10 +37,10 @@ _$NotificationListNotificationsInputFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$NotificationListNotificationsInputToJson(
   _NotificationListNotificationsInput instance,
 ) => <String, dynamic>{
-  'reasons': instance.reasons,
+  'reasons': ?instance.reasons,
   'limit': instance.limit,
-  'priority': instance.priority,
-  'cursor': instance.cursor,
-  'seenAt': instance.seenAt?.toIso8601String(),
-  r'$unknown': instance.$unknown,
+  'priority': ?instance.priority,
+  'cursor': ?instance.cursor,
+  'seenAt': ?instance.seenAt?.toIso8601String(),
+  r'$unknown': ?instance.$unknown,
 };

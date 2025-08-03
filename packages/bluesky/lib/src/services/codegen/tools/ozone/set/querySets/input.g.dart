@@ -30,9 +30,9 @@ _SetQuerySetsInput _$SetQuerySetsInputFromJson(Map json) =>
 Map<String, dynamic> _$SetQuerySetsInputToJson(_SetQuerySetsInput instance) =>
     <String, dynamic>{
       'limit': instance.limit,
-      'cursor': instance.cursor,
-      'namePrefix': instance.namePrefix,
+      'cursor': ?instance.cursor,
+      'namePrefix': ?instance.namePrefix,
       'sortBy': instance.sortBy,
       'sortDirection': instance.sortDirection,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

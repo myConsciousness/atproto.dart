@@ -47,10 +47,10 @@ Map<String, dynamic> _$FeedThreadgateRecordToJson(
 ) => <String, dynamic>{
   r'$type': instance.$type,
   'post': instance.post,
-  'allow': instance.allow
+  'allow': ?instance.allow
       ?.map(const UFeedThreadgateAllowConverter().toJson)
       .toList(),
   'createdAt': instance.createdAt.toIso8601String(),
-  'hiddenReplies': instance.hiddenReplies,
-  r'$unknown': instance.$unknown,
+  'hiddenReplies': ?instance.hiddenReplies,
+  r'$unknown': ?instance.$unknown,
 };

@@ -25,6 +25,7 @@ part 'input.g.dart';
 abstract class ConvoUpdateAllReadInput with _$ConvoUpdateAllReadInput {
   static const knownProps = <String>['status'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoUpdateAllReadInput({
     @ConvoUpdateAllReadStatusConverter() ConvoUpdateAllReadStatus? status,
 

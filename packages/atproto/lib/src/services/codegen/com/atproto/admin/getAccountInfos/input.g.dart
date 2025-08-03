@@ -25,4 +25,4 @@ _AdminGetAccountInfosInput _$AdminGetAccountInfosInputFromJson(Map json) =>
 
 Map<String, dynamic> _$AdminGetAccountInfosInputToJson(
   _AdminGetAccountInfosInput instance,
-) => <String, dynamic>{'dids': instance.dids, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'dids': instance.dids, r'$unknown': ?instance.$unknown};

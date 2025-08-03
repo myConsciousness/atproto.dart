@@ -207,8 +207,8 @@ return $default(_that.operation,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _IdentitySignPlcOperationOutput implements IdentitySignPlcOperationOutput {
   const _IdentitySignPlcOperationOutput({required final  Map<String, dynamic> operation, final  Map<String, dynamic>? $unknown}): _operation = operation,_$unknown = $unknown;
   factory _IdentitySignPlcOperationOutput.fromJson(Map<String, dynamic> json) => _$IdentitySignPlcOperationOutputFromJson(json);

@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class SyncGetRepoStatusOutput with _$SyncGetRepoStatusOutput {
   static const knownProps = <String>['did', 'active', 'status', 'rev'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncGetRepoStatusOutput({
     required String did,
     required bool active,

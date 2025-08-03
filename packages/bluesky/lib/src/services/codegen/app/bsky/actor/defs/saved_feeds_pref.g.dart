@@ -40,6 +40,6 @@ Map<String, dynamic> _$SavedFeedsPrefToJson(_SavedFeedsPref instance) =>
       r'$type': instance.$type,
       'pinned': instance.pinned,
       'saved': instance.saved,
-      'timelineIndex': instance.timelineIndex,
-      r'$unknown': instance.$unknown,
+      'timelineIndex': ?instance.timelineIndex,
+      r'$unknown': ?instance.$unknown,
     };

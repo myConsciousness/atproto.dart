@@ -66,23 +66,23 @@ Map<String, dynamic> _$SubjectViewToJson(
   r'$type': instance.$type,
   'type': const SubjectTypeConverter().toJson(instance.type),
   'subject': instance.subject,
-  'status': _$JsonConverterToJson<Map<String, dynamic>, SubjectStatusView>(
+  'status': ?_$JsonConverterToJson<Map<String, dynamic>, SubjectStatusView>(
     instance.status,
     const SubjectStatusViewConverter().toJson,
   ),
-  'repo': _$JsonConverterToJson<Map<String, dynamic>, RepoViewDetail>(
+  'repo': ?_$JsonConverterToJson<Map<String, dynamic>, RepoViewDetail>(
     instance.repo,
     const RepoViewDetailConverter().toJson,
   ),
-  'profile': _$JsonConverterToJson<Map<String, dynamic>, USubjectViewProfile>(
+  'profile': ?_$JsonConverterToJson<Map<String, dynamic>, USubjectViewProfile>(
     instance.profile,
     const USubjectViewProfileConverter().toJson,
   ),
-  'record': _$JsonConverterToJson<Map<String, dynamic>, RecordViewDetail>(
+  'record': ?_$JsonConverterToJson<Map<String, dynamic>, RecordViewDetail>(
     instance.record,
     const RecordViewDetailConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

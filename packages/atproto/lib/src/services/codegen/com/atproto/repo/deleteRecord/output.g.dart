@@ -29,11 +29,11 @@ _RepoDeleteRecordOutput _$RepoDeleteRecordOutputFromJson(Map json) =>
 Map<String, dynamic> _$RepoDeleteRecordOutputToJson(
   _RepoDeleteRecordOutput instance,
 ) => <String, dynamic>{
-  'commit': _$JsonConverterToJson<Map<String, dynamic>, CommitMeta>(
+  'commit': ?_$JsonConverterToJson<Map<String, dynamic>, CommitMeta>(
     instance.commit,
     const CommitMetaConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

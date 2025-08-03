@@ -25,6 +25,7 @@ part 'reason_repost.g.dart';
 abstract class ReasonRepost with _$ReasonRepost {
   static const knownProps = <String>['by', 'uri', 'cid', 'indexedAt'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ReasonRepost({
     @Default('app.bsky.feed.defs#reasonRepost') String $type,
     @ProfileViewBasicConverter() required ProfileViewBasic by,

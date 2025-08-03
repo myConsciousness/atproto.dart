@@ -22,6 +22,7 @@ part 'email_confirmed.g.dart';
 abstract class EmailConfirmed with _$EmailConfirmed {
   static const knownProps = <String>['email'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmailConfirmed({
     @Default('tools.ozone.hosting.getAccountHistory#emailConfirmed')
     String $type,

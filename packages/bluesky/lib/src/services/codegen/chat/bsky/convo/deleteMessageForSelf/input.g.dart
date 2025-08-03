@@ -27,5 +27,5 @@ Map<String, dynamic> _$ConvoDeleteMessageForSelfInputToJson(
 ) => <String, dynamic>{
   'convoId': instance.convoId,
   'messageId': instance.messageId,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -210,8 +210,8 @@ return $default(_that.cursor,_that.hitsTotal,_that.starterPacks,_that.$unknown);
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedSearchStarterPacksSkeletonOutput implements UnspeccedSearchStarterPacksSkeletonOutput {
   const _UnspeccedSearchStarterPacksSkeletonOutput({this.cursor, this.hitsTotal, @SkeletonSearchStarterPackConverter() required final  List<SkeletonSearchStarterPack> starterPacks, final  Map<String, dynamic>? $unknown}): _starterPacks = starterPacks,_$unknown = $unknown;
   factory _UnspeccedSearchStarterPacksSkeletonOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedSearchStarterPacksSkeletonOutputFromJson(json);

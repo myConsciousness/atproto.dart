@@ -33,5 +33,5 @@ Map<String, dynamic> _$AdminGetAccountInfosOutputToJson(
   _AdminGetAccountInfosOutput instance,
 ) => <String, dynamic>{
   'infos': instance.infos.map(const AccountViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

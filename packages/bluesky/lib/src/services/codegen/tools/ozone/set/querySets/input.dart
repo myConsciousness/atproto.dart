@@ -28,6 +28,7 @@ abstract class SetQuerySetsInput with _$SetQuerySetsInput {
     'sortDirection',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SetQuerySetsInput({
     @Default(50) int limit,
     String? cursor,

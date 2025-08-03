@@ -31,8 +31,8 @@ Map<String, dynamic> _$TrendingTopicToJson(_TrendingTopic instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'topic': instance.topic,
-      'displayName': instance.displayName,
-      'description': instance.description,
+      'displayName': ?instance.displayName,
+      'description': ?instance.description,
       'link': instance.link,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

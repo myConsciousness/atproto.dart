@@ -39,5 +39,5 @@ Map<String, dynamic> _$LabelersPrefToJson(_LabelersPref instance) =>
       'labelers': instance.labelers
           .map(const LabelerPrefItemConverter().toJson)
           .toList(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

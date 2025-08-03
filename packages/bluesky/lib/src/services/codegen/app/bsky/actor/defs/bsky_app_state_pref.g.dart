@@ -46,13 +46,13 @@ Map<String, dynamic> _$BskyAppStatePrefToJson(_BskyAppStatePref instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'activeProgressGuide':
-          _$JsonConverterToJson<Map<String, dynamic>, BskyAppProgressGuide>(
+          ?_$JsonConverterToJson<Map<String, dynamic>, BskyAppProgressGuide>(
             instance.activeProgressGuide,
             const BskyAppProgressGuideConverter().toJson,
           ),
-      'queuedNudges': instance.queuedNudges,
-      'nuxs': instance.nuxs?.map(const NuxConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
+      'queuedNudges': ?instance.queuedNudges,
+      'nuxs': ?instance.nuxs?.map(const NuxConverter().toJson).toList(),
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

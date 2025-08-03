@@ -29,6 +29,7 @@ abstract class NotificationListNotificationsInput
     'seenAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory NotificationListNotificationsInput({
     /// A reason that matches the reason property of #notification.
     List<String>? reasons,

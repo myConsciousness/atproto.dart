@@ -25,6 +25,7 @@ part 'main.g.dart';
 abstract class EmbedImages with _$EmbedImages {
   static const knownProps = <String>['images'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmbedImages({
     @Default('app.bsky.embed.images') String $type,
     @EmbedImagesImageConverter() required List<EmbedImagesImage> images,

@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.events,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationQueryEventsOutput implements ModerationQueryEventsOutput {
   const _ModerationQueryEventsOutput({this.cursor, @ModEventViewConverter() required final  List<ModEventView> events, final  Map<String, dynamic>? $unknown}): _events = events,_$unknown = $unknown;
   factory _ModerationQueryEventsOutput.fromJson(Map<String, dynamic> json) => _$ModerationQueryEventsOutputFromJson(json);

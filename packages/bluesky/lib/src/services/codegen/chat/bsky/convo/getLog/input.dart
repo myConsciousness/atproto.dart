@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ConvoGetLogInput with _$ConvoGetLogInput {
   static const knownProps = <String>['cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoGetLogInput({
     String? cursor,
 

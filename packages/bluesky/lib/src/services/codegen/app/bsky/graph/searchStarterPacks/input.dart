@@ -23,6 +23,7 @@ abstract class GraphSearchStarterPacksInput
     with _$GraphSearchStarterPacksInput {
   static const knownProps = <String>['q', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphSearchStarterPacksInput({
     /// Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
     required String q,

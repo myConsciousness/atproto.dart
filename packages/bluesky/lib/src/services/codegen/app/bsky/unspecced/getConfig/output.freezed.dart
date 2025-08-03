@@ -208,8 +208,8 @@ return $default(_that.checkEmailConfirmed,_that.liveNow,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetConfigOutput implements UnspeccedGetConfigOutput {
   const _UnspeccedGetConfigOutput({this.checkEmailConfirmed, @LiveNowConfigConverter() final  List<LiveNowConfig>? liveNow, final  Map<String, dynamic>? $unknown}): _liveNow = liveNow,_$unknown = $unknown;
   factory _UnspeccedGetConfigOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetConfigOutputFromJson(json);

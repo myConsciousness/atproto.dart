@@ -48,23 +48,23 @@ Map<String, dynamic> _$ProfileAssociatedToJson(
   _ProfileAssociated instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'lists': instance.lists,
-  'feedgens': instance.feedgens,
-  'starterPacks': instance.starterPacks,
-  'labeler': instance.labeler,
-  'chat': _$JsonConverterToJson<Map<String, dynamic>, ProfileAssociatedChat>(
+  'lists': ?instance.lists,
+  'feedgens': ?instance.feedgens,
+  'starterPacks': ?instance.starterPacks,
+  'labeler': ?instance.labeler,
+  'chat': ?_$JsonConverterToJson<Map<String, dynamic>, ProfileAssociatedChat>(
     instance.chat,
     const ProfileAssociatedChatConverter().toJson,
   ),
   'activitySubscription':
-      _$JsonConverterToJson<
+      ?_$JsonConverterToJson<
         Map<String, dynamic>,
         ProfileAssociatedActivitySubscription
       >(
         instance.activitySubscription,
         const ProfileAssociatedActivitySubscriptionConverter().toJson,
       ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

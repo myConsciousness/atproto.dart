@@ -37,6 +37,7 @@ abstract class ActorProfileRecord with _$ActorProfileRecord {
     'createdAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ActorProfileRecord({
     @Default('app.bsky.actor.profile') String $type,
     String? displayName,

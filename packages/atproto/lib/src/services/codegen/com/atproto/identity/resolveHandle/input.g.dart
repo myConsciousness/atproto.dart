@@ -24,5 +24,5 @@ Map<String, dynamic> _$IdentityResolveHandleInputToJson(
   _IdentityResolveHandleInput instance,
 ) => <String, dynamic>{
   'handle': instance.handle,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

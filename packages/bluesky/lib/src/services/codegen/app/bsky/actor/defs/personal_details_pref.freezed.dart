@@ -209,8 +209,8 @@ return $default(_that.$type,_that.birthDate,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _PersonalDetailsPref implements PersonalDetailsPref {
   const _PersonalDetailsPref({this.$type = 'app.bsky.actor.defs#personalDetailsPref', this.birthDate, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _PersonalDetailsPref.fromJson(Map<String, dynamic> json) => _$PersonalDetailsPrefFromJson(json);

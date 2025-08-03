@@ -25,6 +25,7 @@ part 'input.g.dart';
 abstract class ActorPutPreferencesInput with _$ActorPutPreferencesInput {
   static const knownProps = <String>['preferences'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ActorPutPreferencesInput({
     @UPreferencesConverter() required List<UPreferences> preferences,
 

@@ -25,6 +25,7 @@ part 'input.g.dart';
 abstract class AdminGetInviteCodesInput with _$AdminGetInviteCodesInput {
   static const knownProps = <String>['sort', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdminGetInviteCodesInput({
     @AdminGetInviteCodesSortConverter() AdminGetInviteCodesSort? sort,
     @Default(100) int limit,

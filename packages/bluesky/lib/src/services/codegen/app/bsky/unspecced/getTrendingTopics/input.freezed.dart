@@ -209,8 +209,8 @@ return $default(_that.viewer,_that.limit,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetTrendingTopicsInput implements UnspeccedGetTrendingTopicsInput {
   const _UnspeccedGetTrendingTopicsInput({this.viewer, this.limit = 10, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedGetTrendingTopicsInput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetTrendingTopicsInputFromJson(json);

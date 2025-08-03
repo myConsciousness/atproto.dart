@@ -23,6 +23,7 @@ abstract class UnspeccedGetSuggestedFeedsSkeletonInput
     with _$UnspeccedGetSuggestedFeedsSkeletonInput {
   static const knownProps = <String>['viewer', 'limit'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestedFeedsSkeletonInput({
     /// DID of the account making the request (not included for public/unauthenticated queries).
     String? viewer,

@@ -227,8 +227,8 @@ return $default(_that.cursor,_that.limit,_that.urls,_that.patternType,_that.sort
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SafelinkQueryEventsInput implements SafelinkQueryEventsInput {
   const _SafelinkQueryEventsInput({this.cursor, this.limit = 50, final  List<String>? urls, this.patternType, @SafelinkQueryEventsSortDirectionConverter() this.sortDirection, final  Map<String, dynamic>? $unknown}): _urls = urls,_$unknown = $unknown;
   factory _SafelinkQueryEventsInput.fromJson(Map<String, dynamic> json) => _$SafelinkQueryEventsInputFromJson(json);

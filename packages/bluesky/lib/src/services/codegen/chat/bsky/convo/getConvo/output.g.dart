@@ -27,5 +27,5 @@ Map<String, dynamic> _$ConvoGetConvoOutputToJson(
   _ConvoGetConvoOutput instance,
 ) => <String, dynamic>{
   'convo': const ConvoViewConverter().toJson(instance.convo),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

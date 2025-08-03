@@ -22,4 +22,4 @@ _ModerationGetRepoInput _$ModerationGetRepoInputFromJson(Map json) =>
 
 Map<String, dynamic> _$ModerationGetRepoInputToJson(
   _ModerationGetRepoInput instance,
-) => <String, dynamic>{'did': instance.did, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'did': instance.did, r'$unknown': ?instance.$unknown};

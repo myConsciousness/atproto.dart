@@ -207,8 +207,8 @@ return $default(_that.actors,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetSuggestedUsersOutput implements UnspeccedGetSuggestedUsersOutput {
   const _UnspeccedGetSuggestedUsersOutput({@ProfileViewConverter() required final  List<ProfileView> actors, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
   factory _UnspeccedGetSuggestedUsersOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestedUsersOutputFromJson(json);

@@ -207,8 +207,8 @@ return $default(_that.passwords,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerListAppPasswordsOutput implements ServerListAppPasswordsOutput {
   const _ServerListAppPasswordsOutput({@AppPasswordConverter() required final  List<AppPassword> passwords, final  Map<String, dynamic>? $unknown}): _passwords = passwords,_$unknown = $unknown;
   factory _ServerListAppPasswordsOutput.fromJson(Map<String, dynamic> json) => _$ServerListAppPasswordsOutputFromJson(json);

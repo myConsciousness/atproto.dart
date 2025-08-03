@@ -29,6 +29,7 @@ abstract class AccountStats with _$AccountStats {
     'takedownCount',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AccountStats({
     @Default('tools.ozone.moderation.defs#accountStats') String $type,
 

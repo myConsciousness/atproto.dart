@@ -229,8 +229,8 @@ return $default(_that.thread,_that.threadgate,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetPostThreadOutput implements FeedGetPostThreadOutput {
   const _FeedGetPostThreadOutput({@UFeedGetPostThreadThreadConverter() required this.thread, @ThreadgateViewConverter() this.threadgate, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetPostThreadOutput.fromJson(Map<String, dynamic> json) => _$FeedGetPostThreadOutputFromJson(json);

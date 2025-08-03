@@ -211,8 +211,8 @@ return $default(_that.$type,_that.topic,_that.displayName,_that.description,_tha
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _TrendingTopic implements TrendingTopic {
   const _TrendingTopic({this.$type = 'app.bsky.unspecced.defs#trendingTopic', required this.topic, this.displayName, this.description, required this.link, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _TrendingTopic.fromJson(Map<String, dynamic> json) => _$TrendingTopicFromJson(json);

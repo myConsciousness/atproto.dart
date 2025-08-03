@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ServerUpdateEmailInput with _$ServerUpdateEmailInput {
   static const knownProps = <String>['email', 'emailAuthFactor', 'token'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerUpdateEmailInput({
     required String email,
     bool? emailAuthFactor,

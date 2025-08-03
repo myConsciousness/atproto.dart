@@ -81,11 +81,11 @@ Map<String, dynamic> _$VerificationViewToJson(
   'handle': instance.handle,
   'displayName': instance.displayName,
   'createdAt': instance.createdAt.toIso8601String(),
-  'revokeReason': instance.revokeReason,
-  'revokedAt': instance.revokedAt?.toIso8601String(),
-  'revokedBy': instance.revokedBy,
+  'revokeReason': ?instance.revokeReason,
+  'revokedAt': ?instance.revokedAt?.toIso8601String(),
+  'revokedBy': ?instance.revokedBy,
   'subjectProfile':
-      _$JsonConverterToJson<
+      ?_$JsonConverterToJson<
         Map<String, dynamic>,
         UVerificationViewSubjectProfile
       >(
@@ -93,7 +93,7 @@ Map<String, dynamic> _$VerificationViewToJson(
         const UVerificationViewSubjectProfileConverter().toJson,
       ),
   'issuerProfile':
-      _$JsonConverterToJson<
+      ?_$JsonConverterToJson<
         Map<String, dynamic>,
         UVerificationViewIssuerProfile
       >(
@@ -101,16 +101,19 @@ Map<String, dynamic> _$VerificationViewToJson(
         const UVerificationViewIssuerProfileConverter().toJson,
       ),
   'subjectRepo':
-      _$JsonConverterToJson<Map<String, dynamic>, UVerificationViewSubjectRepo>(
+      ?_$JsonConverterToJson<
+        Map<String, dynamic>,
+        UVerificationViewSubjectRepo
+      >(
         instance.subjectRepo,
         const UVerificationViewSubjectRepoConverter().toJson,
       ),
   'issuerRepo':
-      _$JsonConverterToJson<Map<String, dynamic>, UVerificationViewIssuerRepo>(
+      ?_$JsonConverterToJson<Map<String, dynamic>, UVerificationViewIssuerRepo>(
         instance.issuerRepo,
         const UVerificationViewIssuerRepoConverter().toJson,
       ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

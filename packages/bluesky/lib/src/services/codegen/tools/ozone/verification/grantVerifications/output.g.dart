@@ -52,5 +52,5 @@ Map<String, dynamic> _$VerificationGrantVerificationsOutputToJson(
   'failedVerifications': instance.failedVerifications
       .map(const GrantErrorConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

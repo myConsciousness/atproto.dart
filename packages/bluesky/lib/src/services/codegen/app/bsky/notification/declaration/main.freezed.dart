@@ -218,8 +218,8 @@ return $default(_that.$type,_that.allowSubscriptions,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _NotificationDeclarationRecord implements NotificationDeclarationRecord {
   const _NotificationDeclarationRecord({this.$type = 'app.bsky.notification.declaration', @NotificationDeclarationAllowSubscriptionsConverter() required this.allowSubscriptions, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationDeclarationRecord.fromJson(Map<String, dynamic> json) => _$NotificationDeclarationRecordFromJson(json);

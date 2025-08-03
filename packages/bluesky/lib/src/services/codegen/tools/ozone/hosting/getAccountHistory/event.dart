@@ -25,6 +25,7 @@ part 'event.g.dart';
 abstract class Event with _$Event {
   static const knownProps = <String>['details', 'createdBy', 'createdAt'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Event({
     @Default('tools.ozone.hosting.getAccountHistory#event') String $type,
     @UEventDetailsConverter() required UEventDetails details,

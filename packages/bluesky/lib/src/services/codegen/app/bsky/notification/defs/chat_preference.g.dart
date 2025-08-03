@@ -34,5 +34,5 @@ Map<String, dynamic> _$ChatPreferenceToJson(
   r'$type': instance.$type,
   'include': const ChatPreferenceIncludeConverter().toJson(instance.include),
   'push': instance.push,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -23,6 +23,7 @@ abstract class UnspeccedSearchStarterPacksSkeletonInput
     with _$UnspeccedSearchStarterPacksSkeletonInput {
   static const knownProps = <String>['q', 'viewer', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedSearchStarterPacksSkeletonInput({
     /// Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
     required String q,

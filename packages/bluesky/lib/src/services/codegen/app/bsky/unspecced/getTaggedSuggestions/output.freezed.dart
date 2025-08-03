@@ -207,8 +207,8 @@ return $default(_that.suggestions,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetTaggedSuggestionsOutput implements UnspeccedGetTaggedSuggestionsOutput {
   const _UnspeccedGetTaggedSuggestionsOutput({@SuggestionConverter() required final  List<Suggestion> suggestions, final  Map<String, dynamic>? $unknown}): _suggestions = suggestions,_$unknown = $unknown;
   factory _UnspeccedGetTaggedSuggestionsOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetTaggedSuggestionsOutputFromJson(json);

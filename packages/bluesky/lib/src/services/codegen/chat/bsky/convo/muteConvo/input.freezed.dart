@@ -207,8 +207,8 @@ return $default(_that.convoId,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoMuteConvoInput implements ConvoMuteConvoInput {
   const _ConvoMuteConvoInput({required this.convoId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoMuteConvoInput.fromJson(Map<String, dynamic> json) => _$ConvoMuteConvoInputFromJson(json);

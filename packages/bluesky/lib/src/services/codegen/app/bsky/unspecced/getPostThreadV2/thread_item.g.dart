@@ -38,5 +38,5 @@ Map<String, dynamic> _$ThreadItemToJson(_ThreadItem instance) =>
       'uri': instance.uri,
       'depth': instance.depth,
       'value': const UThreadItemValueConverter().toJson(instance.value),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

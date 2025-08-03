@@ -30,5 +30,5 @@ Map<String, dynamic> _$UnspeccedGetSuggestedStarterPacksSkeletonOutputToJson(
   _UnspeccedGetSuggestedStarterPacksSkeletonOutput instance,
 ) => <String, dynamic>{
   'starterPacks': instance.starterPacks,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

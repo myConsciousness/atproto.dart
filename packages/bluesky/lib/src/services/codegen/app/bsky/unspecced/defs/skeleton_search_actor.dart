@@ -22,6 +22,7 @@ part 'skeleton_search_actor.g.dart';
 abstract class SkeletonSearchActor with _$SkeletonSearchActor {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SkeletonSearchActor({
     @Default('app.bsky.unspecced.defs#skeletonSearchActor') String $type,
     required String did,

@@ -237,8 +237,8 @@ return $default(_that.$type,_that.lists,_that.feedgens,_that.starterPacks,_that.
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ProfileAssociated implements ProfileAssociated {
   const _ProfileAssociated({this.$type = 'app.bsky.actor.defs#profileAssociated', this.lists, this.feedgens, this.starterPacks, this.labeler, @ProfileAssociatedChatConverter() this.chat, @ProfileAssociatedActivitySubscriptionConverter() this.activitySubscription, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ProfileAssociated.fromJson(Map<String, dynamic> json) => _$ProfileAssociatedFromJson(json);

@@ -25,4 +25,4 @@ _ModerationGetRecordsInput _$ModerationGetRecordsInputFromJson(Map json) =>
 
 Map<String, dynamic> _$ModerationGetRecordsInputToJson(
   _ModerationGetRecordsInput instance,
-) => <String, dynamic>{'uris': instance.uris, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'uris': instance.uris, r'$unknown': ?instance.$unknown};

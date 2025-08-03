@@ -37,5 +37,5 @@ Map<String, dynamic> _$VerificationViewToJson(_VerificationView instance) =>
       'uri': instance.uri,
       'isValid': instance.isValid,
       'createdAt': instance.createdAt.toIso8601String(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

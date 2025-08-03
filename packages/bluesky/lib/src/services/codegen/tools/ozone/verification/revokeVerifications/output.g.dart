@@ -44,5 +44,5 @@ Map<String, dynamic> _$VerificationRevokeVerificationsOutputToJson(
   'failedRevocations': instance.failedRevocations
       .map(const RevokeErrorConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

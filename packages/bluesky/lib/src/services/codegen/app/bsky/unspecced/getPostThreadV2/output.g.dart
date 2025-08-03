@@ -41,12 +41,12 @@ Map<String, dynamic> _$UnspeccedGetPostThreadV2OutputToJson(
   _UnspeccedGetPostThreadV2Output instance,
 ) => <String, dynamic>{
   'thread': instance.thread.map(const ThreadItemConverter().toJson).toList(),
-  'threadgate': _$JsonConverterToJson<Map<String, dynamic>, ThreadgateView>(
+  'threadgate': ?_$JsonConverterToJson<Map<String, dynamic>, ThreadgateView>(
     instance.threadgate,
     const ThreadgateViewConverter().toJson,
   ),
   'hasOtherReplies': instance.hasOtherReplies,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

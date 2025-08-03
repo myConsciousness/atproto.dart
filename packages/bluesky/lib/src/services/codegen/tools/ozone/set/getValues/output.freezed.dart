@@ -218,8 +218,8 @@ return $default(_that.set,_that.values,_that.cursor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SetGetValuesOutput implements SetGetValuesOutput {
   const _SetGetValuesOutput({@SetViewConverter() required this.set, required final  List<String> values, this.cursor, final  Map<String, dynamic>? $unknown}): _values = values,_$unknown = $unknown;
   factory _SetGetValuesOutput.fromJson(Map<String, dynamic> json) => _$SetGetValuesOutputFromJson(json);

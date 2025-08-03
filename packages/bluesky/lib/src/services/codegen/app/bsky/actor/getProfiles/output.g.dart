@@ -35,5 +35,5 @@ Map<String, dynamic> _$ActorGetProfilesOutputToJson(
   'profiles': instance.profiles
       .map(const ProfileViewDetailedConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

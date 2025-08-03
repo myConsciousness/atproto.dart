@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class ModerationGetRecordsOutput with _$ModerationGetRecordsOutput {
   static const knownProps = <String>['records'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationGetRecordsOutput({
     @UModerationGetRecordsRecordsConverter()
     required List<UModerationGetRecordsRecords> records,

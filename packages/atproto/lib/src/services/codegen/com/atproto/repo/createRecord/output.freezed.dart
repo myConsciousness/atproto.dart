@@ -234,8 +234,8 @@ return $default(_that.uri,_that.cid,_that.commit,_that.validationStatus,_that.$u
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RepoCreateRecordOutput implements RepoCreateRecordOutput {
   const _RepoCreateRecordOutput({required this.uri, required this.cid, @CommitMetaConverter() this.commit, @RepoCreateRecordValidationStatusConverter() this.validationStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoCreateRecordOutput.fromJson(Map<String, dynamic> json) => _$RepoCreateRecordOutputFromJson(json);

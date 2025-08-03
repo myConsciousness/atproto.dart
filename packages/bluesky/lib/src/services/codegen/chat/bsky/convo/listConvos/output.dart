@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class ConvoListConvosOutput with _$ConvoListConvosOutput {
   static const knownProps = <String>['cursor', 'convos'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoListConvosOutput({
     String? cursor,
     @ConvoViewConverter() required List<ConvoView> convos,

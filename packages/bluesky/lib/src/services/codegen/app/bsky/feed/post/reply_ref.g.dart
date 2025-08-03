@@ -36,5 +36,5 @@ Map<String, dynamic> _$ReplyRefToJson(_ReplyRef instance) => <String, dynamic>{
   r'$type': instance.$type,
   'root': const RepoStrongRefConverter().toJson(instance.root),
   'parent': const RepoStrongRefConverter().toJson(instance.parent),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

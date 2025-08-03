@@ -22,4 +22,7 @@ _ActorGetProfileInput _$ActorGetProfileInputFromJson(Map json) =>
 
 Map<String, dynamic> _$ActorGetProfileInputToJson(
   _ActorGetProfileInput instance,
-) => <String, dynamic>{'actor': instance.actor, r'$unknown': instance.$unknown};
+) => <String, dynamic>{
+  'actor': instance.actor,
+  r'$unknown': ?instance.$unknown,
+};

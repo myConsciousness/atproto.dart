@@ -208,8 +208,8 @@ return $default(_that.limit,_that.cursor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetSuggestedFeedsInput implements FeedGetSuggestedFeedsInput {
   const _FeedGetSuggestedFeedsInput({this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetSuggestedFeedsInput.fromJson(Map<String, dynamic> json) => _$FeedGetSuggestedFeedsInputFromJson(json);

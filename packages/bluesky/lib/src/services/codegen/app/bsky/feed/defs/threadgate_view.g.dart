@@ -46,9 +46,9 @@ Map<String, dynamic> _$ThreadgateViewToJson(
   _ThreadgateView instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'uri': instance.uri,
-  'cid': instance.cid,
-  'record': instance.record,
-  'lists': instance.lists?.map(const ListViewBasicConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  'uri': ?instance.uri,
+  'cid': ?instance.cid,
+  'record': ?instance.record,
+  'lists': ?instance.lists?.map(const ListViewBasicConverter().toJson).toList(),
+  r'$unknown': ?instance.$unknown,
 };

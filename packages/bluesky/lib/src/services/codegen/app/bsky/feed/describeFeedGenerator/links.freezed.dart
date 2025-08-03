@@ -209,8 +209,8 @@ return $default(_that.$type,_that.privacyPolicy,_that.termsOfService,_that.$unkn
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _Links implements Links {
   const _Links({this.$type = 'app.bsky.feed.describeFeedGenerator#links', this.privacyPolicy, this.termsOfService, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Links.fromJson(Map<String, dynamic> json) => _$LinksFromJson(json);

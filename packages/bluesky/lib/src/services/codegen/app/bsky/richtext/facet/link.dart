@@ -24,6 +24,7 @@ part 'link.g.dart';
 abstract class RichtextFacetLink with _$RichtextFacetLink {
   static const knownProps = <String>['uri'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RichtextFacetLink({
     @Default('app.bsky.richtext.facet#link') String $type,
     @AtUriConverter() required AtUri uri,

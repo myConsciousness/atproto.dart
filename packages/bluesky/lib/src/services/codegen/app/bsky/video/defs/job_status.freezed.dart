@@ -237,8 +237,8 @@ return $default(_that.$type,_that.jobId,_that.did,_that.state,_that.progress,_th
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _JobStatus implements JobStatus {
   const _JobStatus({this.$type = 'app.bsky.video.defs#jobStatus', required this.jobId, required this.did, @JobStatusStateConverter() required this.state, this.progress, @BlobConverter() this.blob, this.error, this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _JobStatus.fromJson(Map<String, dynamic> json) => _$JobStatusFromJson(json);

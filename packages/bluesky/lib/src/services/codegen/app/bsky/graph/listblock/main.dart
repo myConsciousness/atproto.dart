@@ -23,6 +23,7 @@ part 'main.g.dart';
 abstract class GraphListblockRecord with _$GraphListblockRecord {
   static const knownProps = <String>['subject', 'createdAt'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphListblockRecord({
     @Default('app.bsky.graph.listblock') String $type,
 

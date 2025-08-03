@@ -207,8 +207,8 @@ return $default(_that.$type,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _MentionRule implements MentionRule {
   const _MentionRule({this.$type = 'app.bsky.feed.threadgate#mentionRule', final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _MentionRule.fromJson(Map<String, dynamic> json) => _$MentionRuleFromJson(json);

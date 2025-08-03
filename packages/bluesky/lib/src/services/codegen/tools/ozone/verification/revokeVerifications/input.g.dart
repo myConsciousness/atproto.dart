@@ -32,6 +32,6 @@ Map<String, dynamic> _$VerificationRevokeVerificationsInputToJson(
   _VerificationRevokeVerificationsInput instance,
 ) => <String, dynamic>{
   'uris': instance.uris,
-  'revokeReason': instance.revokeReason,
-  r'$unknown': instance.$unknown,
+  'revokeReason': ?instance.revokeReason,
+  r'$unknown': ?instance.$unknown,
 };

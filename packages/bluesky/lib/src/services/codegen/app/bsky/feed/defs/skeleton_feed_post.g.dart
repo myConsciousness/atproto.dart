@@ -38,12 +38,12 @@ Map<String, dynamic> _$SkeletonFeedPostToJson(_SkeletonFeedPost instance) =>
       r'$type': instance.$type,
       'post': instance.post,
       'reason':
-          _$JsonConverterToJson<Map<String, dynamic>, USkeletonFeedPostReason>(
+          ?_$JsonConverterToJson<Map<String, dynamic>, USkeletonFeedPostReason>(
             instance.reason,
             const USkeletonFeedPostReasonConverter().toJson,
           ),
-      'feedContext': instance.feedContext,
-      r'$unknown': instance.$unknown,
+      'feedContext': ?instance.feedContext,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

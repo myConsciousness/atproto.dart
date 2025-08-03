@@ -39,11 +39,11 @@ _$UnspeccedGetSuggestionsSkeletonOutputFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$UnspeccedGetSuggestionsSkeletonOutputToJson(
   _UnspeccedGetSuggestionsSkeletonOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'actors': instance.actors
       .map(const SkeletonSearchActorConverter().toJson)
       .toList(),
-  'relativeToDid': instance.relativeToDid,
-  'recId': instance.recId,
-  r'$unknown': instance.$unknown,
+  'relativeToDid': ?instance.relativeToDid,
+  'recId': ?instance.recId,
+  r'$unknown': ?instance.$unknown,
 };

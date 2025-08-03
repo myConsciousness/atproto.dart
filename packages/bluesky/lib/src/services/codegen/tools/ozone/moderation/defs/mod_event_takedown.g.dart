@@ -39,9 +39,9 @@ _ModEventTakedown _$ModEventTakedownFromJson(Map json) =>
 Map<String, dynamic> _$ModEventTakedownToJson(_ModEventTakedown instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'comment': instance.comment,
-      'durationInHours': instance.durationInHours,
-      'acknowledgeAccountSubjects': instance.acknowledgeAccountSubjects,
-      'policies': instance.policies,
-      r'$unknown': instance.$unknown,
+      'comment': ?instance.comment,
+      'durationInHours': ?instance.durationInHours,
+      'acknowledgeAccountSubjects': ?instance.acknowledgeAccountSubjects,
+      'policies': ?instance.policies,
+      r'$unknown': ?instance.$unknown,
     };

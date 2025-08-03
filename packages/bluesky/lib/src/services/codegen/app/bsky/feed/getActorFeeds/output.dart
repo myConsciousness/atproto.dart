@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class FeedGetActorFeedsOutput with _$FeedGetActorFeedsOutput {
   static const knownProps = <String>['cursor', 'feeds'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetActorFeedsOutput({
     String? cursor,
     @GeneratorViewConverter() required List<GeneratorView> feeds,

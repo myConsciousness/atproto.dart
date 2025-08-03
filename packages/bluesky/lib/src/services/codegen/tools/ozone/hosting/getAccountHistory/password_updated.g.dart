@@ -26,4 +26,7 @@ _PasswordUpdated _$PasswordUpdatedFromJson(Map json) =>
     });
 
 Map<String, dynamic> _$PasswordUpdatedToJson(_PasswordUpdated instance) =>
-    <String, dynamic>{r'$type': instance.$type, r'$unknown': instance.$unknown};
+    <String, dynamic>{
+      r'$type': instance.$type,
+      r'$unknown': ?instance.$unknown,
+    };

@@ -58,18 +58,18 @@ Map<String, dynamic> _$ThreadViewPostToJson(
 ) => <String, dynamic>{
   r'$type': instance.$type,
   'post': const PostViewConverter().toJson(instance.post),
-  'parent': _$JsonConverterToJson<Map<String, dynamic>, UThreadViewPostParent>(
+  'parent': ?_$JsonConverterToJson<Map<String, dynamic>, UThreadViewPostParent>(
     instance.parent,
     const UThreadViewPostParentConverter().toJson,
   ),
-  'replies': instance.replies
+  'replies': ?instance.replies
       ?.map(const UThreadViewPostRepliesConverter().toJson)
       .toList(),
-  'threadContext': _$JsonConverterToJson<Map<String, dynamic>, ThreadContext>(
+  'threadContext': ?_$JsonConverterToJson<Map<String, dynamic>, ThreadContext>(
     instance.threadContext,
     const ThreadContextConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

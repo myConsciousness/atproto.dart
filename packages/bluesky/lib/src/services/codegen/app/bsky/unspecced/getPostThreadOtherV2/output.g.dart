@@ -37,5 +37,5 @@ Map<String, dynamic> _$UnspeccedGetPostThreadOtherV2OutputToJson(
   _UnspeccedGetPostThreadOtherV2Output instance,
 ) => <String, dynamic>{
   'thread': instance.thread.map(const ThreadItemConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -212,8 +212,8 @@ return $default(_that.$type,_that.post,_that.allow,_that.createdAt,_that.hiddenR
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedThreadgateRecord implements FeedThreadgateRecord {
   const _FeedThreadgateRecord({this.$type = 'app.bsky.feed.threadgate', required this.post, @UFeedThreadgateAllowConverter() final  List<UFeedThreadgateAllow>? allow, required this.createdAt, final  List<String>? hiddenReplies, final  Map<String, dynamic>? $unknown}): _allow = allow,_hiddenReplies = hiddenReplies,_$unknown = $unknown;
   factory _FeedThreadgateRecord.fromJson(Map<String, dynamic> json) => _$FeedThreadgateRecordFromJson(json);

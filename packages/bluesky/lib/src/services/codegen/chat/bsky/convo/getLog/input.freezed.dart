@@ -207,8 +207,8 @@ return $default(_that.cursor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoGetLogInput implements ConvoGetLogInput {
   const _ConvoGetLogInput({this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoGetLogInput.fromJson(Map<String, dynamic> json) => _$ConvoGetLogInputFromJson(json);

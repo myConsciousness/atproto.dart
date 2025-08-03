@@ -25,6 +25,7 @@ part 'saved_feed.g.dart';
 abstract class SavedFeed with _$SavedFeed {
   static const knownProps = <String>['id', 'type', 'value', 'pinned'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SavedFeed({
     @Default('app.bsky.actor.defs#savedFeed') String $type,
     required String id,

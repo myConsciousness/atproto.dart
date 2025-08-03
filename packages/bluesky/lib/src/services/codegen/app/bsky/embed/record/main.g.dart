@@ -35,5 +35,5 @@ Map<String, dynamic> _$EmbedRecordToJson(_EmbedRecord instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'record': const RepoStrongRefConverter().toJson(instance.record),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

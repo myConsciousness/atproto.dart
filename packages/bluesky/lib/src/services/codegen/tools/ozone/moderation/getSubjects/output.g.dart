@@ -35,5 +35,5 @@ Map<String, dynamic> _$ModerationGetSubjectsOutputToJson(
   'subjects': instance.subjects
       .map(const SubjectViewConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

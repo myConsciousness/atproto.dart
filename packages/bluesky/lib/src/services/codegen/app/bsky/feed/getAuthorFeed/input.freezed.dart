@@ -224,8 +224,8 @@ return $default(_that.actor,_that.limit,_that.cursor,_that.filter,_that.includeP
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetAuthorFeedInput implements FeedGetAuthorFeedInput {
   const _FeedGetAuthorFeedInput({required this.actor, this.limit = 50, this.cursor, @FeedGetAuthorFeedFilterConverter() this.filter, this.includePins = false, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetAuthorFeedInput.fromJson(Map<String, dynamic> json) => _$FeedGetAuthorFeedInputFromJson(json);

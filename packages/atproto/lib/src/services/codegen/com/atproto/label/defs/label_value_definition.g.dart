@@ -63,15 +63,15 @@ Map<String, dynamic> _$LabelValueDefinitionToJson(
   ),
   'blurs': const LabelValueDefinitionBlursConverter().toJson(instance.blurs),
   'defaultSetting':
-      _$JsonConverterToJson<String, LabelValueDefinitionDefaultSetting>(
+      ?_$JsonConverterToJson<String, LabelValueDefinitionDefaultSetting>(
         instance.defaultSetting,
         const LabelValueDefinitionDefaultSettingConverter().toJson,
       ),
-  'adultOnly': instance.adultOnly,
+  'adultOnly': ?instance.adultOnly,
   'locales': instance.locales
       .map(const LabelValueDefinitionStringsConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

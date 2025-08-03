@@ -23,6 +23,7 @@ part 'mod_event_unmute.g.dart';
 abstract class ModEventUnmute with _$ModEventUnmute {
   static const knownProps = <String>['comment'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModEventUnmute({
     @Default('tools.ozone.moderation.defs#modEventUnmute') String $type,
 

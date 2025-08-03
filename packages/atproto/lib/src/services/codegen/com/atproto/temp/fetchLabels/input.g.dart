@@ -24,7 +24,7 @@ _TempFetchLabelsInput _$TempFetchLabelsInputFromJson(Map json) =>
 Map<String, dynamic> _$TempFetchLabelsInputToJson(
   _TempFetchLabelsInput instance,
 ) => <String, dynamic>{
-  'since': instance.since,
+  'since': ?instance.since,
   'limit': instance.limit,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

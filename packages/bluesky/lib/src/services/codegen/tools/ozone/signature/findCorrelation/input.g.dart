@@ -26,4 +26,4 @@ _SignatureFindCorrelationInput _$SignatureFindCorrelationInputFromJson(
 
 Map<String, dynamic> _$SignatureFindCorrelationInputToJson(
   _SignatureFindCorrelationInput instance,
-) => <String, dynamic>{'dids': instance.dids, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'dids': instance.dids, r'$unknown': ?instance.$unknown};

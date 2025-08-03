@@ -22,4 +22,4 @@ _ConvoAcceptConvoOutput _$ConvoAcceptConvoOutputFromJson(Map json) =>
 
 Map<String, dynamic> _$ConvoAcceptConvoOutputToJson(
   _ConvoAcceptConvoOutput instance,
-) => <String, dynamic>{'rev': instance.rev, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'rev': ?instance.rev, r'$unknown': ?instance.$unknown};

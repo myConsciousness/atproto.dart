@@ -39,15 +39,15 @@ _Links _$LinksFromJson(Map json) =>
 
 Map<String, dynamic> _$LinksToJson(_Links instance) => <String, dynamic>{
   r'$type': instance.$type,
-  'privacyPolicy': _$JsonConverterToJson<String, AtUri>(
+  'privacyPolicy': ?_$JsonConverterToJson<String, AtUri>(
     instance.privacyPolicy,
     const AtUriConverter().toJson,
   ),
-  'termsOfService': _$JsonConverterToJson<String, AtUri>(
+  'termsOfService': ?_$JsonConverterToJson<String, AtUri>(
     instance.termsOfService,
     const AtUriConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

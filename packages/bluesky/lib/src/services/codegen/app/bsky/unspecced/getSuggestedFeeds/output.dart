@@ -26,6 +26,7 @@ abstract class UnspeccedGetSuggestedFeedsOutput
     with _$UnspeccedGetSuggestedFeedsOutput {
   static const knownProps = <String>['feeds'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestedFeedsOutput({
     @GeneratorViewConverter() required List<GeneratorView> feeds,
 

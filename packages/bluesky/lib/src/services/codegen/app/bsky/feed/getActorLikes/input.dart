@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class FeedGetActorLikesInput with _$FeedGetActorLikesInput {
   static const knownProps = <String>['actor', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetActorLikesInput({
     required String actor,
     @Default(50) int limit,

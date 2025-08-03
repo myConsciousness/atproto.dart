@@ -22,6 +22,7 @@ part 'suggestion.g.dart';
 abstract class Suggestion with _$Suggestion {
   static const knownProps = <String>['handle', 'method'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Suggestion({
     @Default('com.atproto.temp.checkHandleAvailability#suggestion')
     String $type,

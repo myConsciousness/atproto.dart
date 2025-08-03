@@ -209,8 +209,8 @@ return $default(_that.includeUsed,_that.createAvailable,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerGetAccountInviteCodesInput implements ServerGetAccountInviteCodesInput {
   const _ServerGetAccountInviteCodesInput({this.includeUsed = true, this.createAvailable = true, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerGetAccountInviteCodesInput.fromJson(Map<String, dynamic> json) => _$ServerGetAccountInviteCodesInputFromJson(json);

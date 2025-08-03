@@ -23,6 +23,7 @@ part 'following_rule.g.dart';
 abstract class FollowingRule with _$FollowingRule {
   static const knownProps = <String>[];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FollowingRule({
     @Default('app.bsky.feed.threadgate#followingRule') String $type,
 

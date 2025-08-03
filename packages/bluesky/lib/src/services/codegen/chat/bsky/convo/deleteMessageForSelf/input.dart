@@ -23,6 +23,7 @@ abstract class ConvoDeleteMessageForSelfInput
     with _$ConvoDeleteMessageForSelfInput {
   static const knownProps = <String>['convoId', 'messageId'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoDeleteMessageForSelfInput({
     required String convoId,
     required String messageId,

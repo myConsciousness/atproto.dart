@@ -23,6 +23,7 @@ part 'create.g.dart';
 abstract class Create with _$Create {
   static const knownProps = <String>['collection', 'rkey', 'value'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Create({
     @Default('com.atproto.repo.applyWrites#create') String $type,
     required String collection,

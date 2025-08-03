@@ -27,5 +27,5 @@ Map<String, dynamic> _$ConvoUpdateAllReadOutputToJson(
   _ConvoUpdateAllReadOutput instance,
 ) => <String, dynamic>{
   'updatedCount': instance.updatedCount,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

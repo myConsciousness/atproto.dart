@@ -220,8 +220,8 @@ return $default(_that.commit,_that.results,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RepoApplyWritesOutput implements RepoApplyWritesOutput {
   const _RepoApplyWritesOutput({@CommitMetaConverter() this.commit, @URepoApplyWritesResultsConverter() final  List<URepoApplyWritesResults>? results, final  Map<String, dynamic>? $unknown}): _results = results,_$unknown = $unknown;
   factory _RepoApplyWritesOutput.fromJson(Map<String, dynamic> json) => _$RepoApplyWritesOutputFromJson(json);

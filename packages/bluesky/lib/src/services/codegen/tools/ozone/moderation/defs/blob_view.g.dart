@@ -48,15 +48,15 @@ Map<String, dynamic> _$BlobViewToJson(_BlobView instance) => <String, dynamic>{
   'mimeType': instance.mimeType,
   'size': instance.size,
   'createdAt': instance.createdAt.toIso8601String(),
-  'details': _$JsonConverterToJson<Map<String, dynamic>, UBlobViewDetails>(
+  'details': ?_$JsonConverterToJson<Map<String, dynamic>, UBlobViewDetails>(
     instance.details,
     const UBlobViewDetailsConverter().toJson,
   ),
-  'moderation': _$JsonConverterToJson<Map<String, dynamic>, Moderation>(
+  'moderation': ?_$JsonConverterToJson<Map<String, dynamic>, Moderation>(
     instance.moderation,
     const ModerationConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

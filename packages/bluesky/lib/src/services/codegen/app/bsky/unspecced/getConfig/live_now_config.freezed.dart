@@ -209,8 +209,8 @@ return $default(_that.$type,_that.did,_that.domains,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _LiveNowConfig implements LiveNowConfig {
   const _LiveNowConfig({this.$type = 'app.bsky.unspecced.getConfig#liveNowConfig', required this.did, required final  List<String> domains, final  Map<String, dynamic>? $unknown}): _domains = domains,_$unknown = $unknown;
   factory _LiveNowConfig.fromJson(Map<String, dynamic> json) => _$LiveNowConfigFromJson(json);

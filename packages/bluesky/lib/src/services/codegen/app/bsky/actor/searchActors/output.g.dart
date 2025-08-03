@@ -33,7 +33,7 @@ _ActorSearchActorsOutput _$ActorSearchActorsOutputFromJson(Map json) =>
 Map<String, dynamic> _$ActorSearchActorsOutputToJson(
   _ActorSearchActorsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'actors': instance.actors.map(const ProfileViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

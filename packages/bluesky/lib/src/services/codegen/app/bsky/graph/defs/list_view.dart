@@ -43,6 +43,7 @@ abstract class ListView with _$ListView {
     'indexedAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ListView({
     @Default('app.bsky.graph.defs#listView') String $type,
     required String uri,

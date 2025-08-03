@@ -69,19 +69,19 @@ Map<String, dynamic> _$MessageViewToJson(_MessageView instance) =>
       'id': instance.id,
       'rev': instance.rev,
       'text': instance.text,
-      'facets': instance.facets
+      'facets': ?instance.facets
           ?.map(const RichtextFacetConverter().toJson)
           .toList(),
-      'embed': _$JsonConverterToJson<Map<String, dynamic>, UMessageViewEmbed>(
+      'embed': ?_$JsonConverterToJson<Map<String, dynamic>, UMessageViewEmbed>(
         instance.embed,
         const UMessageViewEmbedConverter().toJson,
       ),
-      'reactions': instance.reactions
+      'reactions': ?instance.reactions
           ?.map(const ReactionViewConverter().toJson)
           .toList(),
       'sender': const MessageViewSenderConverter().toJson(instance.sender),
       'sentAt': instance.sentAt.toIso8601String(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

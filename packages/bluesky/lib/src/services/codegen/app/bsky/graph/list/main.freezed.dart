@@ -249,8 +249,8 @@ return $default(_that.$type,_that.purpose,_that.name,_that.description,_that.des
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphListRecord implements GraphListRecord {
   const _GraphListRecord({this.$type = 'app.bsky.graph.list', @ListPurposeConverter() required this.purpose, required this.name, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @BlobConverter() this.avatar, @UGraphListLabelsConverter() this.labels, required this.createdAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_$unknown = $unknown;
   factory _GraphListRecord.fromJson(Map<String, dynamic> json) => _$GraphListRecordFromJson(json);

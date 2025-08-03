@@ -208,8 +208,8 @@ return $default(_that.$type,_that.items,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _HiddenPostsPref implements HiddenPostsPref {
   const _HiddenPostsPref({this.$type = 'app.bsky.actor.defs#hiddenPostsPref', required final  List<String> items, final  Map<String, dynamic>? $unknown}): _items = items,_$unknown = $unknown;
   factory _HiddenPostsPref.fromJson(Map<String, dynamic> json) => _$HiddenPostsPrefFromJson(json);

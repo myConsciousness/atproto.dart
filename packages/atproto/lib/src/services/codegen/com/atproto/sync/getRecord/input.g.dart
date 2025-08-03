@@ -27,5 +27,5 @@ Map<String, dynamic> _$SyncGetRecordInputToJson(_SyncGetRecordInput instance) =>
       'did': instance.did,
       'collection': instance.collection,
       'rkey': instance.rkey,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

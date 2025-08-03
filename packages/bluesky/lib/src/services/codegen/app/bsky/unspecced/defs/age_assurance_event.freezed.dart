@@ -232,8 +232,8 @@ return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.e
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AgeAssuranceEvent implements AgeAssuranceEvent {
   const _AgeAssuranceEvent({this.$type = 'app.bsky.unspecced.defs#ageAssuranceEvent', required this.createdAt, @AgeAssuranceEventStatusConverter() required this.status, required this.attemptId, this.email, this.initIp, this.initUa, this.completeIp, this.completeUa, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AgeAssuranceEvent.fromJson(Map<String, dynamic> json) => _$AgeAssuranceEventFromJson(json);

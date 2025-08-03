@@ -207,8 +207,8 @@ return $default(_that.dids,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationGetReposInput implements ModerationGetReposInput {
   const _ModerationGetReposInput({required final  List<String> dids, final  Map<String, dynamic>? $unknown}): _dids = dids,_$unknown = $unknown;
   factory _ModerationGetReposInput.fromJson(Map<String, dynamic> json) => _$ModerationGetReposInputFromJson(json);

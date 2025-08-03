@@ -24,6 +24,7 @@ abstract class SignatureSearchAccountsOutput
     with _$SignatureSearchAccountsOutput {
   static const knownProps = <String>['cursor', 'accounts'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SignatureSearchAccountsOutput({
     String? cursor,
     @AccountViewConverter() required List<AccountView> accounts,

@@ -32,5 +32,5 @@ Map<String, dynamic> _$TempFetchLabelsOutputToJson(
   _TempFetchLabelsOutput instance,
 ) => <String, dynamic>{
   'labels': instance.labels.map(const LabelConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

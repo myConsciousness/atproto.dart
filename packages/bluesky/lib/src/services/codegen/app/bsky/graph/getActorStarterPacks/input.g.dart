@@ -28,6 +28,6 @@ Map<String, dynamic> _$GraphGetActorStarterPacksInputToJson(
 ) => <String, dynamic>{
   'actor': instance.actor,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };

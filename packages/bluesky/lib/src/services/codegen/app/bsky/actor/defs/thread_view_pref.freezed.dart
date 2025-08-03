@@ -223,8 +223,8 @@ return $default(_that.$type,_that.sort,_that.prioritizeFollowedUsers,_that.$unkn
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ThreadViewPref implements ThreadViewPref {
   const _ThreadViewPref({this.$type = 'app.bsky.actor.defs#threadViewPref', @ThreadViewPrefSortConverter() this.sort, this.prioritizeFollowedUsers, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ThreadViewPref.fromJson(Map<String, dynamic> json) => _$ThreadViewPrefFromJson(json);

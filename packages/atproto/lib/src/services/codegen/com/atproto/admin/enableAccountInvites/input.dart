@@ -23,6 +23,7 @@ abstract class AdminEnableAccountInvitesInput
     with _$AdminEnableAccountInvitesInput {
   static const knownProps = <String>['account', 'note'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdminEnableAccountInvitesInput({
     required String account,
 

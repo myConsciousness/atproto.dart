@@ -30,5 +30,5 @@ Map<String, dynamic> _$NotFoundPostToJson(_NotFoundPost instance) =>
       r'$type': instance.$type,
       'uri': instance.uri,
       'notFound': instance.notFound,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

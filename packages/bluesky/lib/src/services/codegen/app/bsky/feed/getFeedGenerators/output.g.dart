@@ -33,5 +33,5 @@ Map<String, dynamic> _$FeedGetFeedGeneratorsOutputToJson(
   _FeedGetFeedGeneratorsOutput instance,
 ) => <String, dynamic>{
   'feeds': instance.feeds.map(const GeneratorViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

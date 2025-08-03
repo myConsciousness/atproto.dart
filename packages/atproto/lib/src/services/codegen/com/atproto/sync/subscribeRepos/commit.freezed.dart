@@ -225,8 +225,8 @@ return $default(_that.$type,_that.seq,_that.repo,_that.commit,_that.rev,_that.si
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _Commit implements Commit {
   const _Commit({this.$type = 'com.atproto.sync.subscribeRepos#commit', required this.seq, required this.repo, required this.commit, required this.rev, required this.since, required final  Map<String, dynamic> blocks, @RepoOpConverter() required final  List<RepoOp> ops, this.prevData, required this.time, final  Map<String, dynamic>? $unknown}): _blocks = blocks,_ops = ops,_$unknown = $unknown;
   factory _Commit.fromJson(Map<String, dynamic> json) => _$CommitFromJson(json);

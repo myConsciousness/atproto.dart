@@ -23,6 +23,7 @@ abstract class UnspeccedGetSuggestedUsersSkeletonOutput
     with _$UnspeccedGetSuggestedUsersSkeletonOutput {
   static const knownProps = <String>['dids'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestedUsersSkeletonOutput({
     required List<String> dids,
 

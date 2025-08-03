@@ -23,6 +23,7 @@ part 'mod_event_tag.g.dart';
 abstract class ModEventTag with _$ModEventTag {
   static const knownProps = <String>['add', 'remove', 'comment'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModEventTag({
     @Default('tools.ozone.moderation.defs#modEventTag') String $type,
     required List<String> add,

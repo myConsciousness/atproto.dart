@@ -39,5 +39,5 @@ Map<String, dynamic> _$UnspeccedGetSuggestedStarterPacksOutputToJson(
   'starterPacks': instance.starterPacks
       .map(const StarterPackViewConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

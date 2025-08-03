@@ -28,5 +28,5 @@ Map<String, dynamic> _$RepoViewNotFoundToJson(_RepoViewNotFound instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'did': instance.did,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

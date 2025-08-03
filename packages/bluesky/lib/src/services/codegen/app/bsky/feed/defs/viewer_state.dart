@@ -30,6 +30,7 @@ abstract class ViewerState with _$ViewerState {
     'pinned',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ViewerState({
     @Default('app.bsky.feed.defs#viewerState') String $type,
     String? repost,

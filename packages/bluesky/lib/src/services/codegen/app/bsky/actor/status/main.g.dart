@@ -47,13 +47,13 @@ Map<String, dynamic> _$ActorStatusRecordToJson(_ActorStatusRecord instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'status': const ActorStatusStatusConverter().toJson(instance.status),
-      'embed': _$JsonConverterToJson<Map<String, dynamic>, UActorStatusEmbed>(
+      'embed': ?_$JsonConverterToJson<Map<String, dynamic>, UActorStatusEmbed>(
         instance.embed,
         const UActorStatusEmbedConverter().toJson,
       ),
-      'durationMinutes': instance.durationMinutes,
+      'durationMinutes': ?instance.durationMinutes,
       'createdAt': instance.createdAt.toIso8601String(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

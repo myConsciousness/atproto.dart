@@ -230,8 +230,8 @@ return $default(_that.id,_that.reasonType,_that.reason,_that.subject,_that.repor
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationCreateReportOutput implements ModerationCreateReportOutput {
   const _ModerationCreateReportOutput({required this.id, @ReasonTypeConverter() required this.reasonType, this.reason, @UModerationCreateReportSubjectConverter() required this.subject, required this.reportedBy, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModerationCreateReportOutput.fromJson(Map<String, dynamic> json) => _$ModerationCreateReportOutputFromJson(json);

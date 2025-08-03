@@ -26,6 +26,7 @@ abstract class TempCheckSignupQueueOutput with _$TempCheckSignupQueueOutput {
     'estimatedTimeMs',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory TempCheckSignupQueueOutput({
     required bool activated,
     int? placeInQueue,

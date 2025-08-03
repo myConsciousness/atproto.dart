@@ -22,6 +22,7 @@ part 'live_now_config.g.dart';
 abstract class LiveNowConfig with _$LiveNowConfig {
   static const knownProps = <String>['did', 'domains'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LiveNowConfig({
     @Default('app.bsky.unspecced.getConfig#liveNowConfig') String $type,
     required String did,

@@ -28,6 +28,7 @@ abstract class UnspeccedGetSuggestionsSkeletonInput
     'relativeToDid',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestionsSkeletonInput({
     /// DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.
     String? viewer,

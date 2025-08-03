@@ -26,6 +26,7 @@ part 'input.g.dart';
 abstract class ConvoListConvosInput with _$ConvoListConvosInput {
   static const knownProps = <String>['limit', 'cursor', 'readState', 'status'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoListConvosInput({
     @Default(50) int limit,
     String? cursor,

@@ -72,31 +72,31 @@ Map<String, dynamic> _$ActorProfileRecordToJson(
   _ActorProfileRecord instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'displayName': instance.displayName,
-  'description': instance.description,
-  'avatar': _$JsonConverterToJson<Map<String, dynamic>, Blob>(
+  'displayName': ?instance.displayName,
+  'description': ?instance.description,
+  'avatar': ?_$JsonConverterToJson<Map<String, dynamic>, Blob>(
     instance.avatar,
     const BlobConverter().toJson,
   ),
-  'banner': _$JsonConverterToJson<Map<String, dynamic>, Blob>(
+  'banner': ?_$JsonConverterToJson<Map<String, dynamic>, Blob>(
     instance.banner,
     const BlobConverter().toJson,
   ),
-  'labels': _$JsonConverterToJson<Map<String, dynamic>, UActorProfileLabels>(
+  'labels': ?_$JsonConverterToJson<Map<String, dynamic>, UActorProfileLabels>(
     instance.labels,
     const UActorProfileLabelsConverter().toJson,
   ),
   'joinedViaStarterPack':
-      _$JsonConverterToJson<Map<String, dynamic>, RepoStrongRef>(
+      ?_$JsonConverterToJson<Map<String, dynamic>, RepoStrongRef>(
         instance.joinedViaStarterPack,
         const RepoStrongRefConverter().toJson,
       ),
-  'pinnedPost': _$JsonConverterToJson<Map<String, dynamic>, RepoStrongRef>(
+  'pinnedPost': ?_$JsonConverterToJson<Map<String, dynamic>, RepoStrongRef>(
     instance.pinnedPost,
     const RepoStrongRefConverter().toJson,
   ),
-  'createdAt': instance.createdAt?.toIso8601String(),
-  r'$unknown': instance.$unknown,
+  'createdAt': ?instance.createdAt?.toIso8601String(),
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class FeedGetTimelineInput with _$FeedGetTimelineInput {
   static const knownProps = <String>['algorithm', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetTimelineInput({
     /// Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism.
     String? algorithm,

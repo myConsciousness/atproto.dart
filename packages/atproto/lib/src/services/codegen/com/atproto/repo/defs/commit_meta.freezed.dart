@@ -209,8 +209,8 @@ return $default(_that.$type,_that.cid,_that.rev,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _CommitMeta implements CommitMeta {
   const _CommitMeta({this.$type = 'com.atproto.repo.defs#commitMeta', required this.cid, required this.rev, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _CommitMeta.fromJson(Map<String, dynamic> json) => _$CommitMetaFromJson(json);

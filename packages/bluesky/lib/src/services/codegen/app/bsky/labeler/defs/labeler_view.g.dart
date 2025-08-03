@@ -52,21 +52,22 @@ _LabelerView _$LabelerViewFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$LabelerViewToJson(_LabelerView instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'uri': instance.uri,
-      'cid': instance.cid,
-      'creator': const ProfileViewConverter().toJson(instance.creator),
-      'likeCount': instance.likeCount,
-      'viewer': _$JsonConverterToJson<Map<String, dynamic>, LabelerViewerState>(
-        instance.viewer,
-        const LabelerViewerStateConverter().toJson,
-      ),
-      'indexedAt': instance.indexedAt.toIso8601String(),
-      'labels': instance.labels?.map(const LabelConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$LabelerViewToJson(
+  _LabelerView instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'uri': instance.uri,
+  'cid': instance.cid,
+  'creator': const ProfileViewConverter().toJson(instance.creator),
+  'likeCount': ?instance.likeCount,
+  'viewer': ?_$JsonConverterToJson<Map<String, dynamic>, LabelerViewerState>(
+    instance.viewer,
+    const LabelerViewerStateConverter().toJson,
+  ),
+  'indexedAt': instance.indexedAt.toIso8601String(),
+  'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
+  r'$unknown': ?instance.$unknown,
+};
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

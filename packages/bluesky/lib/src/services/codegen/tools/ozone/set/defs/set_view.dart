@@ -28,6 +28,7 @@ abstract class SetView with _$SetView {
     'updatedAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SetView({
     @Default('tools.ozone.set.defs#setView') String $type,
     required String name,

@@ -23,6 +23,7 @@ part 'main.g.dart';
 abstract class GraphListitemRecord with _$GraphListitemRecord {
   static const knownProps = <String>['subject', 'list', 'createdAt'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphListitemRecord({
     @Default('app.bsky.graph.listitem') String $type,
 

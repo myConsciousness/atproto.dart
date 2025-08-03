@@ -22,6 +22,7 @@ part 'output.g.dart';
 abstract class SyncGetLatestCommitOutput with _$SyncGetLatestCommitOutput {
   static const knownProps = <String>['cid', 'rev'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncGetLatestCommitOutput({
     required String cid,
     required String rev,

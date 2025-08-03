@@ -33,6 +33,7 @@ abstract class ServerDescribeServerOutput with _$ServerDescribeServerOutput {
     'did',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerDescribeServerOutput({
     /// If true, an invite code must be supplied to create an account on this instance.
     bool? inviteCodeRequired,

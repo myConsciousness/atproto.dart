@@ -28,6 +28,7 @@ abstract class ServerCreateAccountOutput with _$ServerCreateAccountOutput {
     'didDoc',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerCreateAccountOutput({
     required String accessJwt,
     required String refreshJwt,

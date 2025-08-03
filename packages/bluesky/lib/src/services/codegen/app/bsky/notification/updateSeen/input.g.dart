@@ -24,5 +24,5 @@ Map<String, dynamic> _$NotificationUpdateSeenInputToJson(
   _NotificationUpdateSeenInput instance,
 ) => <String, dynamic>{
   'seenAt': instance.seenAt.toIso8601String(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

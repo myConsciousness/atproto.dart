@@ -22,6 +22,7 @@ part 'message_ref.g.dart';
 abstract class MessageRef with _$MessageRef {
   static const knownProps = <String>['did', 'convoId', 'messageId'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory MessageRef({
     @Default('chat.bsky.convo.defs#messageRef') String $type,
     required String did,

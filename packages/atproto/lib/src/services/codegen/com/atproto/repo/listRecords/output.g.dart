@@ -33,9 +33,9 @@ _RepoListRecordsOutput _$RepoListRecordsOutputFromJson(Map json) =>
 Map<String, dynamic> _$RepoListRecordsOutputToJson(
   _RepoListRecordsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'records': instance.records
       .map(const RepoListRecordsRecordConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

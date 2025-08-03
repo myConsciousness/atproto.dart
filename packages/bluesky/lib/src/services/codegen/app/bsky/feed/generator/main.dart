@@ -39,6 +39,7 @@ abstract class FeedGeneratorRecord with _$FeedGeneratorRecord {
     'createdAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGeneratorRecord({
     @Default('app.bsky.feed.generator') String $type,
     required String did,

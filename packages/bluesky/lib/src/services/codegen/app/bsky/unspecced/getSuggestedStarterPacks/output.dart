@@ -26,6 +26,7 @@ abstract class UnspeccedGetSuggestedStarterPacksOutput
     with _$UnspeccedGetSuggestedStarterPacksOutput {
   static const knownProps = <String>['starterPacks'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestedStarterPacksOutput({
     @StarterPackViewConverter() required List<StarterPackView> starterPacks,
 

@@ -35,5 +35,5 @@ Map<String, dynamic> _$IdentityInfoToJson(_IdentityInfo instance) =>
       'did': instance.did,
       'handle': instance.handle,
       'didDoc': instance.didDoc,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

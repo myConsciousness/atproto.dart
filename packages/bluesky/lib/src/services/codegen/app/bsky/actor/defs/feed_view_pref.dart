@@ -29,6 +29,7 @@ abstract class FeedViewPref with _$FeedViewPref {
     'hideQuotePosts',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedViewPref({
     @Default('app.bsky.actor.defs#feedViewPref') String $type,
 

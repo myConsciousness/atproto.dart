@@ -27,6 +27,6 @@ _Set _$SetFromJson(Map json) => $checkedCreate('_Set', json, ($checkedConvert) {
 Map<String, dynamic> _$SetToJson(_Set instance) => <String, dynamic>{
   r'$type': instance.$type,
   'name': instance.name,
-  'description': instance.description,
-  r'$unknown': instance.$unknown,
+  'description': ?instance.description,
+  r'$unknown': ?instance.$unknown,
 };

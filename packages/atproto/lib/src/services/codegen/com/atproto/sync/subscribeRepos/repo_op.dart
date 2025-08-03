@@ -26,6 +26,7 @@ part 'repo_op.g.dart';
 abstract class RepoOp with _$RepoOp {
   static const knownProps = <String>['action', 'path', 'cid', 'prev'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoOp({
     @Default('com.atproto.sync.subscribeRepos#repoOp') String $type,
     @RepoOpActionConverter() required RepoOpAction action,

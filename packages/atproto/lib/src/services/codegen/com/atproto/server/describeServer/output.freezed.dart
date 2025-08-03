@@ -240,8 +240,8 @@ return $default(_that.inviteCodeRequired,_that.phoneVerificationRequired,_that.a
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerDescribeServerOutput implements ServerDescribeServerOutput {
   const _ServerDescribeServerOutput({this.inviteCodeRequired, this.phoneVerificationRequired, required final  List<String> availableUserDomains, @LinksConverter() this.links, @ContactConverter() this.contact, required this.did, final  Map<String, dynamic>? $unknown}): _availableUserDomains = availableUserDomains,_$unknown = $unknown;
   factory _ServerDescribeServerOutput.fromJson(Map<String, dynamic> json) => _$ServerDescribeServerOutputFromJson(json);

@@ -45,8 +45,8 @@ Map<String, dynamic> _$LabelerPoliciesToJson(_LabelerPolicies instance) =>
       'labelValues': instance.labelValues
           .map(const LabelValueConverter().toJson)
           .toList(),
-      'labelValueDefinitions': instance.labelValueDefinitions
+      'labelValueDefinitions': ?instance.labelValueDefinitions
           ?.map(const LabelValueDefinitionConverter().toJson)
           .toList(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

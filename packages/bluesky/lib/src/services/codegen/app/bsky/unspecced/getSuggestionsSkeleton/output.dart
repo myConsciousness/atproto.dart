@@ -31,6 +31,7 @@ abstract class UnspeccedGetSuggestionsSkeletonOutput
     'recId',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestionsSkeletonOutput({
     String? cursor,
     @SkeletonSearchActorConverter() required List<SkeletonSearchActor> actors,

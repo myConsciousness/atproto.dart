@@ -212,8 +212,8 @@ return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.di
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerCreateAccountOutput implements ServerCreateAccountOutput {
   const _ServerCreateAccountOutput({required this.accessJwt, required this.refreshJwt, required this.handle, required this.did, final  Map<String, dynamic>? didDoc, final  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_$unknown = $unknown;
   factory _ServerCreateAccountOutput.fromJson(Map<String, dynamic> json) => _$ServerCreateAccountOutputFromJson(json);

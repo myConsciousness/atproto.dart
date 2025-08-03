@@ -26,6 +26,7 @@ abstract class GraphGetKnownFollowersOutput
     with _$GraphGetKnownFollowersOutput {
   static const knownProps = <String>['subject', 'cursor', 'followers'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetKnownFollowersOutput({
     @ProfileViewConverter() required ProfileView subject,
     String? cursor,

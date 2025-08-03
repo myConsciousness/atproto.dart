@@ -22,6 +22,7 @@ part 'preference.g.dart';
 abstract class Preference with _$Preference {
   static const knownProps = <String>['list', 'push'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Preference({
     @Default('app.bsky.notification.defs#preference') String $type,
     required bool list,

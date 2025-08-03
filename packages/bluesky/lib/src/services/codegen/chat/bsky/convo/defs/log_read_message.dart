@@ -25,6 +25,7 @@ part 'log_read_message.g.dart';
 abstract class LogReadMessage with _$LogReadMessage {
   static const knownProps = <String>['rev', 'convoId', 'message'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LogReadMessage({
     @Default('chat.bsky.convo.defs#logReadMessage') String $type,
     required String rev,

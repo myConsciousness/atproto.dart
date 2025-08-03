@@ -23,5 +23,5 @@ _ConvoGetConvoInput _$ConvoGetConvoInputFromJson(Map json) =>
 Map<String, dynamic> _$ConvoGetConvoInputToJson(_ConvoGetConvoInput instance) =>
     <String, dynamic>{
       'convoId': instance.convoId,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

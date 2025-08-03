@@ -209,8 +209,8 @@ return $default(_that.codeCount,_that.useCount,_that.forAccounts,_that.$unknown)
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerCreateInviteCodesInput implements ServerCreateInviteCodesInput {
   const _ServerCreateInviteCodesInput({this.codeCount = 1, required this.useCount, final  List<String>? forAccounts, final  Map<String, dynamic>? $unknown}): _forAccounts = forAccounts,_$unknown = $unknown;
   factory _ServerCreateInviteCodesInput.fromJson(Map<String, dynamic> json) => _$ServerCreateInviteCodesInputFromJson(json);

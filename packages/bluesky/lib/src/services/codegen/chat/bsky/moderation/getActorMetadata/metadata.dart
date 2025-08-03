@@ -27,6 +27,7 @@ abstract class Metadata with _$Metadata {
     'convosStarted',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Metadata({
     @Default('chat.bsky.moderation.getActorMetadata#metadata') String $type,
     required int messagesSent,

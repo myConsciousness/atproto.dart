@@ -34,5 +34,5 @@ _FeedGetPostsOutput _$FeedGetPostsOutputFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$FeedGetPostsOutputToJson(_FeedGetPostsOutput instance) =>
     <String, dynamic>{
       'posts': instance.posts.map(const PostViewConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

@@ -34,12 +34,12 @@ Map<String, dynamic> _$SyncGetRepoStatusOutputToJson(
 ) => <String, dynamic>{
   'did': instance.did,
   'active': instance.active,
-  'status': _$JsonConverterToJson<String, SyncGetRepoStatusStatus>(
+  'status': ?_$JsonConverterToJson<String, SyncGetRepoStatusStatus>(
     instance.status,
     const SyncGetRepoStatusStatusConverter().toJson,
   ),
-  'rev': instance.rev,
-  r'$unknown': instance.$unknown,
+  'rev': ?instance.rev,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class IdentityUpdateHandleInput with _$IdentityUpdateHandleInput {
   static const knownProps = <String>['handle'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory IdentityUpdateHandleInput({
     /// The new handle.
     required String handle,

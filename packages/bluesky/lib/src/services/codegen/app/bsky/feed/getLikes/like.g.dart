@@ -35,5 +35,5 @@ Map<String, dynamic> _$LikeToJson(_Like instance) => <String, dynamic>{
   'indexedAt': instance.indexedAt.toIso8601String(),
   'createdAt': instance.createdAt.toIso8601String(),
   'actor': const ProfileViewConverter().toJson(instance.actor),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

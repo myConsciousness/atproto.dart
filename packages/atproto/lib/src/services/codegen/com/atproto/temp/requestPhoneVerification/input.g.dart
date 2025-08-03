@@ -27,5 +27,5 @@ Map<String, dynamic> _$TempRequestPhoneVerificationInputToJson(
   _TempRequestPhoneVerificationInput instance,
 ) => <String, dynamic>{
   'phoneNumber': instance.phoneNumber,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

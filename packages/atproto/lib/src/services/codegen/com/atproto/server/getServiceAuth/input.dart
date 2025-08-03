@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ServerGetServiceAuthInput with _$ServerGetServiceAuthInput {
   static const knownProps = <String>['aud', 'exp', 'lxm'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerGetServiceAuthInput({
     /// The DID of the service that the token will be used to authenticate with
     required String aud,

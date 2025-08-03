@@ -26,6 +26,7 @@ part 'output.g.dart';
 abstract class FeedGetPostThreadOutput with _$FeedGetPostThreadOutput {
   static const knownProps = <String>['thread', 'threadgate'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetPostThreadOutput({
     @UFeedGetPostThreadThreadConverter()
     required UFeedGetPostThreadThread thread,

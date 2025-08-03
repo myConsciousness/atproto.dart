@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class LabelSubscribeLabelsInput with _$LabelSubscribeLabelsInput {
   static const knownProps = <String>['cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LabelSubscribeLabelsInput({
     /// The last known event seq number to backfill from.
     int? cursor,

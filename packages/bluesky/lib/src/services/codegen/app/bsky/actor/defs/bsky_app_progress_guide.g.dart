@@ -29,5 +29,5 @@ Map<String, dynamic> _$BskyAppProgressGuideToJson(
 ) => <String, dynamic>{
   r'$type': instance.$type,
   'guide': instance.guide,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

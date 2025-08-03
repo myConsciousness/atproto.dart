@@ -23,6 +23,6 @@ _LabelSubscribeLabelsInput _$LabelSubscribeLabelsInputFromJson(Map json) =>
 Map<String, dynamic> _$LabelSubscribeLabelsInputToJson(
   _LabelSubscribeLabelsInput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };

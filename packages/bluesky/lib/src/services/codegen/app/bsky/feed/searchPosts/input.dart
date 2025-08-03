@@ -39,6 +39,7 @@ abstract class FeedSearchPostsInput with _$FeedSearchPostsInput {
     'cursor',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedSearchPostsInput({
     /// Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
     required String q,

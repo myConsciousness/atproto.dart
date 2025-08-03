@@ -24,6 +24,6 @@ _SyncGetRepoInput _$SyncGetRepoInputFromJson(Map json) =>
 Map<String, dynamic> _$SyncGetRepoInputToJson(_SyncGetRepoInput instance) =>
     <String, dynamic>{
       'did': instance.did,
-      'since': instance.since,
-      r'$unknown': instance.$unknown,
+      'since': ?instance.since,
+      r'$unknown': ?instance.$unknown,
     };

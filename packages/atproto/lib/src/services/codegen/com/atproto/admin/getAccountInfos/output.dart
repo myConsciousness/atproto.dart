@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class AdminGetAccountInfosOutput with _$AdminGetAccountInfosOutput {
   static const knownProps = <String>['infos'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdminGetAccountInfosOutput({
     @AccountViewConverter() required List<AccountView> infos,
 

@@ -22,4 +22,7 @@ _ServerGetServiceAuthOutput _$ServerGetServiceAuthOutputFromJson(Map json) =>
 
 Map<String, dynamic> _$ServerGetServiceAuthOutputToJson(
   _ServerGetServiceAuthOutput instance,
-) => <String, dynamic>{'token': instance.token, r'$unknown': instance.$unknown};
+) => <String, dynamic>{
+  'token': instance.token,
+  r'$unknown': ?instance.$unknown,
+};

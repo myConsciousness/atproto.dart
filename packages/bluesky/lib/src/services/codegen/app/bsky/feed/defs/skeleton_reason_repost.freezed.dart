@@ -208,8 +208,8 @@ return $default(_that.$type,_that.repost,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SkeletonReasonRepost implements SkeletonReasonRepost {
   const _SkeletonReasonRepost({this.$type = 'app.bsky.feed.defs#skeletonReasonRepost', required this.repost, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SkeletonReasonRepost.fromJson(Map<String, dynamic> json) => _$SkeletonReasonRepostFromJson(json);

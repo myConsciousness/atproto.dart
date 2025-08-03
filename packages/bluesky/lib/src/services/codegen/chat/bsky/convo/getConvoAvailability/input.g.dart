@@ -28,5 +28,5 @@ Map<String, dynamic> _$ConvoGetConvoAvailabilityInputToJson(
   _ConvoGetConvoAvailabilityInput instance,
 ) => <String, dynamic>{
   'members': instance.members,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

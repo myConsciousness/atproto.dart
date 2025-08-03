@@ -30,7 +30,7 @@ Map<String, dynamic> _$UnspeccedGetPopularFeedGeneratorsInputToJson(
   _UnspeccedGetPopularFeedGeneratorsInput instance,
 ) => <String, dynamic>{
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  'query': instance.query,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  'query': ?instance.query,
+  r'$unknown': ?instance.$unknown,
 };

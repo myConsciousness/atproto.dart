@@ -33,7 +33,7 @@ Map<String, dynamic> _$CommunicationCreateTemplateInputToJson(
   'name': instance.name,
   'contentMarkdown': instance.contentMarkdown,
   'subject': instance.subject,
-  'lang': instance.lang,
-  'createdBy': instance.createdBy,
-  r'$unknown': instance.$unknown,
+  'lang': ?instance.lang,
+  'createdBy': ?instance.createdBy,
+  r'$unknown': ?instance.$unknown,
 };

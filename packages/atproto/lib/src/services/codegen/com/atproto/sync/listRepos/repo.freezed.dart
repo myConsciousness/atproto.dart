@@ -226,8 +226,8 @@ return $default(_that.$type,_that.did,_that.head,_that.rev,_that.active,_that.st
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _Repo implements Repo {
   const _Repo({this.$type = 'com.atproto.sync.listRepos#repo', required this.did, required this.head, required this.rev, this.active, @RepoStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Repo.fromJson(Map<String, dynamic> json) => _$RepoFromJson(json);

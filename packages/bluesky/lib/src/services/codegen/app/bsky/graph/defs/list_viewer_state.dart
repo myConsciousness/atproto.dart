@@ -22,6 +22,7 @@ part 'list_viewer_state.g.dart';
 abstract class ListViewerState with _$ListViewerState {
   static const knownProps = <String>['muted', 'blocked'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ListViewerState({
     @Default('app.bsky.graph.defs#listViewerState') String $type,
     bool? muted,

@@ -45,16 +45,16 @@ Map<String, dynamic> _$ServerCreateSessionOutputToJson(
   'refreshJwt': instance.refreshJwt,
   'handle': instance.handle,
   'did': instance.did,
-  'didDoc': instance.didDoc,
-  'email': instance.email,
-  'emailConfirmed': instance.emailConfirmed,
-  'emailAuthFactor': instance.emailAuthFactor,
-  'active': instance.active,
-  'status': _$JsonConverterToJson<String, ServerCreateSessionStatus>(
+  'didDoc': ?instance.didDoc,
+  'email': ?instance.email,
+  'emailConfirmed': ?instance.emailConfirmed,
+  'emailAuthFactor': ?instance.emailAuthFactor,
+  'active': ?instance.active,
+  'status': ?_$JsonConverterToJson<String, ServerCreateSessionStatus>(
     instance.status,
     const ServerCreateSessionStatusConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class GraphGetStarterPacksInput with _$GraphGetStarterPacksInput {
   static const knownProps = <String>['uris'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetStarterPacksInput({
     required List<String> uris,
 

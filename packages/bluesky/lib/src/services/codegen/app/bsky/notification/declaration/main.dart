@@ -27,6 +27,7 @@ abstract class NotificationDeclarationRecord
     with _$NotificationDeclarationRecord {
   static const knownProps = <String>['allowSubscriptions'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory NotificationDeclarationRecord({
     @Default('app.bsky.notification.declaration') String $type,
 

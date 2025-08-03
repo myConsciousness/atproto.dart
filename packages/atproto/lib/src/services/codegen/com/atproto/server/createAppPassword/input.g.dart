@@ -26,6 +26,6 @@ Map<String, dynamic> _$ServerCreateAppPasswordInputToJson(
   _ServerCreateAppPasswordInput instance,
 ) => <String, dynamic>{
   'name': instance.name,
-  'privileged': instance.privileged,
-  r'$unknown': instance.$unknown,
+  'privileged': ?instance.privileged,
+  r'$unknown': ?instance.$unknown,
 };

@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class SettingListOptionsOutput with _$SettingListOptionsOutput {
   static const knownProps = <String>['cursor', 'options'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SettingListOptionsOutput({
     String? cursor,
     @OptionConverter() required List<Option> options,

@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ConvoRemoveReactionInput with _$ConvoRemoveReactionInput {
   static const knownProps = <String>['convoId', 'messageId', 'value'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoRemoveReactionInput({
     required String convoId,
     required String messageId,

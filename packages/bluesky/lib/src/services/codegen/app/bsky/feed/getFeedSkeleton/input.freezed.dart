@@ -210,8 +210,8 @@ return $default(_that.feed,_that.limit,_that.cursor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetFeedSkeletonInput implements FeedGetFeedSkeletonInput {
   const _FeedGetFeedSkeletonInput({required this.feed, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetFeedSkeletonInput.fromJson(Map<String, dynamic> json) => _$FeedGetFeedSkeletonInputFromJson(json);

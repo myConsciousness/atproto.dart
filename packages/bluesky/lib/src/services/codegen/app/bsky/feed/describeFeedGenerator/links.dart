@@ -22,6 +22,7 @@ part 'links.g.dart';
 abstract class Links with _$Links {
   static const knownProps = <String>['privacyPolicy', 'termsOfService'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Links({
     @Default('app.bsky.feed.describeFeedGenerator#links') String $type,
     String? privacyPolicy,

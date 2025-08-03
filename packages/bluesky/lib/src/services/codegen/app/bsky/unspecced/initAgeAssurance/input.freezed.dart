@@ -212,8 +212,8 @@ return $default(_that.email,_that.language,_that.countryCode,_that.$unknown);cas
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedInitAgeAssuranceInput implements UnspeccedInitAgeAssuranceInput {
   const _UnspeccedInitAgeAssuranceInput({required this.email, required this.language, required this.countryCode, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedInitAgeAssuranceInput.fromJson(Map<String, dynamic> json) => _$UnspeccedInitAgeAssuranceInputFromJson(json);

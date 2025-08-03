@@ -23,6 +23,7 @@ part 'mod_event_priority_score.g.dart';
 abstract class ModEventPriorityScore with _$ModEventPriorityScore {
   static const knownProps = <String>['comment', 'score'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModEventPriorityScore({
     @Default('tools.ozone.moderation.defs#modEventPriorityScore') String $type,
     String? comment,

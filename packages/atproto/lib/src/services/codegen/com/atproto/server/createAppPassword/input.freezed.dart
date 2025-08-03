@@ -210,8 +210,8 @@ return $default(_that.name,_that.privileged,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerCreateAppPasswordInput implements ServerCreateAppPasswordInput {
   const _ServerCreateAppPasswordInput({required this.name, this.privileged, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerCreateAppPasswordInput.fromJson(Map<String, dynamic> json) => _$ServerCreateAppPasswordInputFromJson(json);

@@ -224,8 +224,8 @@ return $default(_that.limit,_that.cursor,_that.scope,_that.prefix,_that.keys,_th
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SettingListOptionsInput implements SettingListOptionsInput {
   const _SettingListOptionsInput({this.limit = 50, this.cursor, @SettingListOptionsScopeConverter() this.scope, this.prefix, final  List<String>? keys, final  Map<String, dynamic>? $unknown}): _keys = keys,_$unknown = $unknown;
   factory _SettingListOptionsInput.fromJson(Map<String, dynamic> json) => _$SettingListOptionsInputFromJson(json);

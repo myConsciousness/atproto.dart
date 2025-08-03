@@ -41,11 +41,11 @@ Map<String, dynamic> _$FeedRepostRecordToJson(_FeedRepostRecord instance) =>
       r'$type': instance.$type,
       'subject': const RepoStrongRefConverter().toJson(instance.subject),
       'createdAt': instance.createdAt.toIso8601String(),
-      'via': _$JsonConverterToJson<Map<String, dynamic>, RepoStrongRef>(
+      'via': ?_$JsonConverterToJson<Map<String, dynamic>, RepoStrongRef>(
         instance.via,
         const RepoStrongRefConverter().toJson,
       ),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

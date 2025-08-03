@@ -208,8 +208,8 @@ return $default(_that.did,_that.password,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AdminUpdateAccountPasswordInput implements AdminUpdateAccountPasswordInput {
   const _AdminUpdateAccountPasswordInput({required this.did, required this.password, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AdminUpdateAccountPasswordInput.fromJson(Map<String, dynamic> json) => _$AdminUpdateAccountPasswordInputFromJson(json);

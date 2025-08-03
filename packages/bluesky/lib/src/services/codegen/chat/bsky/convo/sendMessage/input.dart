@@ -25,6 +25,7 @@ part 'input.g.dart';
 abstract class ConvoSendMessageInput with _$ConvoSendMessageInput {
   static const knownProps = <String>['convoId', 'message'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoSendMessageInput({
     required String convoId,
     @MessageInputConverter() required MessageInput message,

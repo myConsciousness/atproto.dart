@@ -24,6 +24,6 @@ _SyncListHostsInput _$SyncListHostsInputFromJson(Map json) =>
 Map<String, dynamic> _$SyncListHostsInputToJson(_SyncListHostsInput instance) =>
     <String, dynamic>{
       'limit': instance.limit,
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
+      'cursor': ?instance.cursor,
+      r'$unknown': ?instance.$unknown,
     };

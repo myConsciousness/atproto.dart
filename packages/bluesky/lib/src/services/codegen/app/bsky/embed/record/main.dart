@@ -23,6 +23,7 @@ part 'main.g.dart';
 abstract class EmbedRecord with _$EmbedRecord {
   static const knownProps = <String>['record'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmbedRecord({
     @Default('app.bsky.embed.record') String $type,
     @RepoStrongRefConverter() required RepoStrongRef record,

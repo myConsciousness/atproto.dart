@@ -375,8 +375,8 @@ return $default(_that.chat,_that.follow,_that.like,_that.likeViaRepost,_that.men
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _NotificationPutPreferencesV2Input implements NotificationPutPreferencesV2Input {
   const _NotificationPutPreferencesV2Input({@ChatPreferenceConverter() this.chat, @FilterablePreferenceConverter() this.follow, @FilterablePreferenceConverter() this.like, @FilterablePreferenceConverter() this.likeViaRepost, @FilterablePreferenceConverter() this.mention, @FilterablePreferenceConverter() this.quote, @FilterablePreferenceConverter() this.reply, @FilterablePreferenceConverter() this.repost, @FilterablePreferenceConverter() this.repostViaRepost, @PreferenceConverter() this.starterpackJoined, @PreferenceConverter() this.subscribedPost, @PreferenceConverter() this.unverified, @PreferenceConverter() this.verified, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationPutPreferencesV2Input.fromJson(Map<String, dynamic> json) => _$NotificationPutPreferencesV2InputFromJson(json);

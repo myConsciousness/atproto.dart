@@ -23,6 +23,7 @@ part 'main.g.dart';
 abstract class GraphFollowRecord with _$GraphFollowRecord {
   static const knownProps = <String>['subject', 'createdAt'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphFollowRecord({
     @Default('app.bsky.graph.follow') String $type,
     required String subject,

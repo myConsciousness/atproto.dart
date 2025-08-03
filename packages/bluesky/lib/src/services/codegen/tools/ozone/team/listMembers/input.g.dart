@@ -30,10 +30,10 @@ _TeamListMembersInput _$TeamListMembersInputFromJson(Map json) =>
 Map<String, dynamic> _$TeamListMembersInputToJson(
   _TeamListMembersInput instance,
 ) => <String, dynamic>{
-  'q': instance.q,
-  'disabled': instance.disabled,
-  'roles': instance.roles,
+  'q': ?instance.q,
+  'disabled': ?instance.disabled,
+  'roles': ?instance.roles,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };

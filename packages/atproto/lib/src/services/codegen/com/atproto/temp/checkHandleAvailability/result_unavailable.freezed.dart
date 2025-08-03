@@ -208,8 +208,8 @@ return $default(_that.$type,_that.suggestions,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ResultUnavailable implements ResultUnavailable {
   const _ResultUnavailable({this.$type = 'com.atproto.temp.checkHandleAvailability#resultUnavailable', @SuggestionConverter() required final  List<Suggestion> suggestions, final  Map<String, dynamic>? $unknown}): _suggestions = suggestions,_$unknown = $unknown;
   factory _ResultUnavailable.fromJson(Map<String, dynamic> json) => _$ResultUnavailableFromJson(json);

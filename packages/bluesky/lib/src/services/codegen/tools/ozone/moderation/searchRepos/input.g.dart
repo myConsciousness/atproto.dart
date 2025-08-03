@@ -25,8 +25,8 @@ _ModerationSearchReposInput _$ModerationSearchReposInputFromJson(Map json) =>
 Map<String, dynamic> _$ModerationSearchReposInputToJson(
   _ModerationSearchReposInput instance,
 ) => <String, dynamic>{
-  'q': instance.q,
+  'q': ?instance.q,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };

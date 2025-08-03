@@ -32,7 +32,7 @@ _HostingGetAccountHistoryOutput _$HostingGetAccountHistoryOutputFromJson(
 Map<String, dynamic> _$HostingGetAccountHistoryOutputToJson(
   _HostingGetAccountHistoryOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'events': instance.events.map(const EventConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -33,7 +33,7 @@ _ModerationSearchReposOutput _$ModerationSearchReposOutputFromJson(Map json) =>
 Map<String, dynamic> _$ModerationSearchReposOutputToJson(
   _ModerationSearchReposOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'repos': instance.repos.map(const RepoViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

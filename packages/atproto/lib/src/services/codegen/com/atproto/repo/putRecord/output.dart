@@ -31,6 +31,7 @@ abstract class RepoPutRecordOutput with _$RepoPutRecordOutput {
     'validationStatus',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoPutRecordOutput({
     required String uri,
     required String cid,

@@ -208,8 +208,8 @@ return $default(_that.verifications,_that.failedVerifications,_that.$unknown);ca
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _VerificationGrantVerificationsOutput implements VerificationGrantVerificationsOutput {
   const _VerificationGrantVerificationsOutput({@VerificationViewConverter() required final  List<VerificationView> verifications, @GrantErrorConverter() required final  List<GrantError> failedVerifications, final  Map<String, dynamic>? $unknown}): _verifications = verifications,_failedVerifications = failedVerifications,_$unknown = $unknown;
   factory _VerificationGrantVerificationsOutput.fromJson(Map<String, dynamic> json) => _$VerificationGrantVerificationsOutputFromJson(json);

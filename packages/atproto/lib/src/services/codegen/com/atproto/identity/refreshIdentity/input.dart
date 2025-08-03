@@ -23,6 +23,7 @@ abstract class IdentityRefreshIdentityInput
     with _$IdentityRefreshIdentityInput {
   static const knownProps = <String>['identifier'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory IdentityRefreshIdentityInput({
     required String identifier,
 

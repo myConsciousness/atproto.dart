@@ -52,17 +52,17 @@ Map<String, dynamic> _$FeedViewPostToJson(
 ) => <String, dynamic>{
   r'$type': instance.$type,
   'post': const PostViewConverter().toJson(instance.post),
-  'reply': _$JsonConverterToJson<Map<String, dynamic>, ReplyRef>(
+  'reply': ?_$JsonConverterToJson<Map<String, dynamic>, ReplyRef>(
     instance.reply,
     const ReplyRefConverter().toJson,
   ),
-  'reason': _$JsonConverterToJson<Map<String, dynamic>, UFeedViewPostReason>(
+  'reason': ?_$JsonConverterToJson<Map<String, dynamic>, UFeedViewPostReason>(
     instance.reason,
     const UFeedViewPostReasonConverter().toJson,
   ),
-  'feedContext': instance.feedContext,
-  'reqId': instance.reqId,
-  r'$unknown': instance.$unknown,
+  'feedContext': ?instance.feedContext,
+  'reqId': ?instance.reqId,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -260,8 +260,8 @@ return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAft
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationQueryEventsInput implements ModerationQueryEventsInput {
   const _ModerationQueryEventsInput({final  List<String>? types, this.createdBy, this.sortDirection = 'desc', this.createdAfter, this.createdBefore, @AtUriConverter() this.subject, final  List<String>? collections, @ModerationQueryEventsSubjectTypeConverter() this.subjectType, this.includeAllUserRecords = false, this.limit = 50, this.hasComment, this.comment, final  List<String>? addedLabels, final  List<String>? removedLabels, final  List<String>? addedTags, final  List<String>? removedTags, final  List<String>? reportTypes, final  List<String>? policies, final  List<String>? modTool, @ModerationQueryEventsAgeAssuranceStateConverter() this.ageAssuranceState, this.cursor, final  Map<String, dynamic>? $unknown}): _types = types,_collections = collections,_addedLabels = addedLabels,_removedLabels = removedLabels,_addedTags = addedTags,_removedTags = removedTags,_reportTypes = reportTypes,_policies = policies,_modTool = modTool,_$unknown = $unknown;
   factory _ModerationQueryEventsInput.fromJson(Map<String, dynamic> json) => _$ModerationQueryEventsInputFromJson(json);

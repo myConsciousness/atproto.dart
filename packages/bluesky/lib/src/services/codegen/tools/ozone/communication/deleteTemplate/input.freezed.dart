@@ -207,8 +207,8 @@ return $default(_that.id,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _CommunicationDeleteTemplateInput implements CommunicationDeleteTemplateInput {
   const _CommunicationDeleteTemplateInput({required this.id, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _CommunicationDeleteTemplateInput.fromJson(Map<String, dynamic> json) => _$CommunicationDeleteTemplateInputFromJson(json);

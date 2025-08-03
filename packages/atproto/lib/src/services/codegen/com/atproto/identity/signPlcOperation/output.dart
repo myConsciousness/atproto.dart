@@ -23,6 +23,7 @@ abstract class IdentitySignPlcOperationOutput
     with _$IdentitySignPlcOperationOutput {
   static const knownProps = <String>['operation'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory IdentitySignPlcOperationOutput({
     required Map<String, dynamic> operation,
 

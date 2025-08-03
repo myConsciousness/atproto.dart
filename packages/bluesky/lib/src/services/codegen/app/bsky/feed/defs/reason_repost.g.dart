@@ -36,8 +36,8 @@ Map<String, dynamic> _$ReasonRepostToJson(_ReasonRepost instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'by': const ProfileViewBasicConverter().toJson(instance.by),
-      'uri': instance.uri,
-      'cid': instance.cid,
+      'uri': ?instance.uri,
+      'cid': ?instance.cid,
       'indexedAt': instance.indexedAt.toIso8601String(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

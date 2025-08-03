@@ -31,6 +31,6 @@ Map<String, dynamic> _$RepoBlobRefToJson(_RepoBlobRef instance) =>
       r'$type': instance.$type,
       'did': instance.did,
       'cid': instance.cid,
-      'recordUri': instance.recordUri,
-      r'$unknown': instance.$unknown,
+      'recordUri': ?instance.recordUri,
+      r'$unknown': ?instance.$unknown,
     };

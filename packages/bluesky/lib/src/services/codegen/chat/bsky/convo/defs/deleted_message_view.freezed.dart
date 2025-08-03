@@ -220,8 +220,8 @@ return $default(_that.$type,_that.id,_that.rev,_that.sender,_that.sentAt,_that.$
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _DeletedMessageView implements DeletedMessageView {
   const _DeletedMessageView({this.$type = 'chat.bsky.convo.defs#deletedMessageView', required this.id, required this.rev, @MessageViewSenderConverter() required this.sender, required this.sentAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _DeletedMessageView.fromJson(Map<String, dynamic> json) => _$DeletedMessageViewFromJson(json);

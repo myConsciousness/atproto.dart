@@ -45,11 +45,11 @@ Map<String, dynamic> _$ReplyRefToJson(_ReplyRef instance) => <String, dynamic>{
   'root': const UReplyRefRootConverter().toJson(instance.root),
   'parent': const UReplyRefParentConverter().toJson(instance.parent),
   'grandparentAuthor':
-      _$JsonConverterToJson<Map<String, dynamic>, ProfileViewBasic>(
+      ?_$JsonConverterToJson<Map<String, dynamic>, ProfileViewBasic>(
         instance.grandparentAuthor,
         const ProfileViewBasicConverter().toJson,
       ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

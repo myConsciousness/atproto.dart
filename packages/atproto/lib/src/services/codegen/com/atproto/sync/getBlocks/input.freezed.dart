@@ -209,8 +209,8 @@ return $default(_that.did,_that.cids,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncGetBlocksInput implements SyncGetBlocksInput {
   const _SyncGetBlocksInput({required this.did, required final  List<String> cids, final  Map<String, dynamic>? $unknown}): _cids = cids,_$unknown = $unknown;
   factory _SyncGetBlocksInput.fromJson(Map<String, dynamic> json) => _$SyncGetBlocksInputFromJson(json);

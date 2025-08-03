@@ -40,14 +40,14 @@ _ServerCreateAccountInput _$ServerCreateAccountInputFromJson(Map json) =>
 Map<String, dynamic> _$ServerCreateAccountInputToJson(
   _ServerCreateAccountInput instance,
 ) => <String, dynamic>{
-  'email': instance.email,
+  'email': ?instance.email,
   'handle': instance.handle,
-  'did': instance.did,
-  'inviteCode': instance.inviteCode,
-  'verificationCode': instance.verificationCode,
-  'verificationPhone': instance.verificationPhone,
-  'password': instance.password,
-  'recoveryKey': instance.recoveryKey,
-  'plcOp': instance.plcOp,
-  r'$unknown': instance.$unknown,
+  'did': ?instance.did,
+  'inviteCode': ?instance.inviteCode,
+  'verificationCode': ?instance.verificationCode,
+  'verificationPhone': ?instance.verificationPhone,
+  'password': ?instance.password,
+  'recoveryKey': ?instance.recoveryKey,
+  'plcOp': ?instance.plcOp,
+  r'$unknown': ?instance.$unknown,
 };

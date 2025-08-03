@@ -22,6 +22,7 @@ part 'reason_pin.g.dart';
 abstract class ReasonPin with _$ReasonPin {
   static const knownProps = <String>[];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ReasonPin({
     @Default('app.bsky.feed.defs#reasonPin') String $type,
 

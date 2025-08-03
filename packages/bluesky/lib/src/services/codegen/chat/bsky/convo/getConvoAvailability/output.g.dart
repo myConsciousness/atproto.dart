@@ -33,11 +33,11 @@ Map<String, dynamic> _$ConvoGetConvoAvailabilityOutputToJson(
   _ConvoGetConvoAvailabilityOutput instance,
 ) => <String, dynamic>{
   'canChat': instance.canChat,
-  'convo': _$JsonConverterToJson<Map<String, dynamic>, ConvoView>(
+  'convo': ?_$JsonConverterToJson<Map<String, dynamic>, ConvoView>(
     instance.convo,
     const ConvoViewConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

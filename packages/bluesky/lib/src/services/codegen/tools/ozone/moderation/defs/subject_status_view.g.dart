@@ -131,48 +131,48 @@ Map<String, dynamic> _$SubjectStatusViewToJson(
     instance.subject,
   ),
   'hosting':
-      _$JsonConverterToJson<Map<String, dynamic>, USubjectStatusViewHosting>(
+      ?_$JsonConverterToJson<Map<String, dynamic>, USubjectStatusViewHosting>(
         instance.hosting,
         const USubjectStatusViewHostingConverter().toJson,
       ),
-  'subjectBlobCids': instance.subjectBlobCids,
-  'subjectRepoHandle': instance.subjectRepoHandle,
+  'subjectBlobCids': ?instance.subjectBlobCids,
+  'subjectRepoHandle': ?instance.subjectRepoHandle,
   'updatedAt': instance.updatedAt.toIso8601String(),
   'createdAt': instance.createdAt.toIso8601String(),
   'reviewState': const SubjectReviewStateConverter().toJson(
     instance.reviewState,
   ),
-  'comment': instance.comment,
-  'priorityScore': instance.priorityScore,
-  'muteUntil': instance.muteUntil?.toIso8601String(),
-  'muteReportingUntil': instance.muteReportingUntil?.toIso8601String(),
-  'lastReviewedBy': instance.lastReviewedBy,
-  'lastReviewedAt': instance.lastReviewedAt?.toIso8601String(),
-  'lastReportedAt': instance.lastReportedAt?.toIso8601String(),
-  'lastAppealedAt': instance.lastAppealedAt?.toIso8601String(),
-  'takendown': instance.takendown,
-  'appealed': instance.appealed,
-  'suspendUntil': instance.suspendUntil?.toIso8601String(),
-  'tags': instance.tags,
-  'accountStats': _$JsonConverterToJson<Map<String, dynamic>, AccountStats>(
+  'comment': ?instance.comment,
+  'priorityScore': ?instance.priorityScore,
+  'muteUntil': ?instance.muteUntil?.toIso8601String(),
+  'muteReportingUntil': ?instance.muteReportingUntil?.toIso8601String(),
+  'lastReviewedBy': ?instance.lastReviewedBy,
+  'lastReviewedAt': ?instance.lastReviewedAt?.toIso8601String(),
+  'lastReportedAt': ?instance.lastReportedAt?.toIso8601String(),
+  'lastAppealedAt': ?instance.lastAppealedAt?.toIso8601String(),
+  'takendown': ?instance.takendown,
+  'appealed': ?instance.appealed,
+  'suspendUntil': ?instance.suspendUntil?.toIso8601String(),
+  'tags': ?instance.tags,
+  'accountStats': ?_$JsonConverterToJson<Map<String, dynamic>, AccountStats>(
     instance.accountStats,
     const AccountStatsConverter().toJson,
   ),
-  'recordsStats': _$JsonConverterToJson<Map<String, dynamic>, RecordsStats>(
+  'recordsStats': ?_$JsonConverterToJson<Map<String, dynamic>, RecordsStats>(
     instance.recordsStats,
     const RecordsStatsConverter().toJson,
   ),
   'ageAssuranceState':
-      _$JsonConverterToJson<String, SubjectStatusViewAgeAssuranceState>(
+      ?_$JsonConverterToJson<String, SubjectStatusViewAgeAssuranceState>(
         instance.ageAssuranceState,
         const SubjectStatusViewAgeAssuranceStateConverter().toJson,
       ),
   'ageAssuranceUpdatedBy':
-      _$JsonConverterToJson<String, SubjectStatusViewAgeAssuranceUpdatedBy>(
+      ?_$JsonConverterToJson<String, SubjectStatusViewAgeAssuranceUpdatedBy>(
         instance.ageAssuranceUpdatedBy,
         const SubjectStatusViewAgeAssuranceUpdatedByConverter().toJson,
       ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

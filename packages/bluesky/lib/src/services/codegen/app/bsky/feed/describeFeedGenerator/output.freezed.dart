@@ -221,8 +221,8 @@ return $default(_that.did,_that.feeds,_that.links,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedDescribeFeedGeneratorOutput implements FeedDescribeFeedGeneratorOutput {
   const _FeedDescribeFeedGeneratorOutput({required this.did, @FeedConverter() required final  List<Feed> feeds, @LinksConverter() this.links, final  Map<String, dynamic>? $unknown}): _feeds = feeds,_$unknown = $unknown;
   factory _FeedDescribeFeedGeneratorOutput.fromJson(Map<String, dynamic> json) => _$FeedDescribeFeedGeneratorOutputFromJson(json);

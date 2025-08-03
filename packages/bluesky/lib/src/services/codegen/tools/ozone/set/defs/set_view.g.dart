@@ -32,9 +32,9 @@ _SetView _$SetViewFromJson(Map json) => $checkedCreate('_SetView', json, (
 Map<String, dynamic> _$SetViewToJson(_SetView instance) => <String, dynamic>{
   r'$type': instance.$type,
   'name': instance.name,
-  'description': instance.description,
+  'description': ?instance.description,
   'setSize': instance.setSize,
   'createdAt': instance.createdAt.toIso8601String(),
   'updatedAt': instance.updatedAt.toIso8601String(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

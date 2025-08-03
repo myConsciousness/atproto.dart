@@ -28,6 +28,7 @@ abstract class VideoGetUploadLimitsOutput with _$VideoGetUploadLimitsOutput {
     'error',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory VideoGetUploadLimitsOutput({
     required bool canUpload,
     int? remainingDailyVideos,

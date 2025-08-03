@@ -242,8 +242,8 @@ return $default(_that.reasonType,_that.reason,_that.subject,_that.modTool,_that.
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationCreateReportInput implements ModerationCreateReportInput {
   const _ModerationCreateReportInput({@ReasonTypeConverter() required this.reasonType, this.reason, @UModerationCreateReportSubjectConverter() required this.subject, @ModToolConverter() this.modTool, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModerationCreateReportInput.fromJson(Map<String, dynamic> json) => _$ModerationCreateReportInputFromJson(json);

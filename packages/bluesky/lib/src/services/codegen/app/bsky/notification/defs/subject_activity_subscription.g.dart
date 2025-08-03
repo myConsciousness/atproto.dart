@@ -40,5 +40,5 @@ Map<String, dynamic> _$SubjectActivitySubscriptionToJson(
   'activitySubscription': const ActivitySubscriptionConverter().toJson(
     instance.activitySubscription,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

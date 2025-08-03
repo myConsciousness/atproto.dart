@@ -23,6 +23,7 @@ abstract class ServerRequestEmailUpdateOutput
     with _$ServerRequestEmailUpdateOutput {
   static const knownProps = <String>['tokenRequired'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerRequestEmailUpdateOutput({
     required bool tokenRequired,
 

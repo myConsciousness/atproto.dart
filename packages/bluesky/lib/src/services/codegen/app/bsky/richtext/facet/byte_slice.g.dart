@@ -31,5 +31,5 @@ Map<String, dynamic> _$RichtextFacetByteSliceToJson(
   r'$type': instance.$type,
   'byteStart': instance.byteStart,
   'byteEnd': instance.byteEnd,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

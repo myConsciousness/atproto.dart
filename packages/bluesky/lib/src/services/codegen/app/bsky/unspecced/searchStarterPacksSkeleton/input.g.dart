@@ -31,8 +31,8 @@ Map<String, dynamic> _$UnspeccedSearchStarterPacksSkeletonInputToJson(
   _UnspeccedSearchStarterPacksSkeletonInput instance,
 ) => <String, dynamic>{
   'q': instance.q,
-  'viewer': instance.viewer,
+  'viewer': ?instance.viewer,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };

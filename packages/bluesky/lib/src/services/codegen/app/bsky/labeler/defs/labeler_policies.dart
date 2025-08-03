@@ -23,6 +23,7 @@ part 'labeler_policies.g.dart';
 abstract class LabelerPolicies with _$LabelerPolicies {
   static const knownProps = <String>['labelValues', 'labelValueDefinitions'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LabelerPolicies({
     @Default('app.bsky.labeler.defs#labelerPolicies') String $type,
     @LabelValueConverter() required List<LabelValue> labelValues,

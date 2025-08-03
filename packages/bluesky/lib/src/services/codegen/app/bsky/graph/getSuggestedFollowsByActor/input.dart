@@ -23,6 +23,7 @@ abstract class GraphGetSuggestedFollowsByActorInput
     with _$GraphGetSuggestedFollowsByActorInput {
   static const knownProps = <String>['actor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetSuggestedFollowsByActorInput({
     required String actor,
 

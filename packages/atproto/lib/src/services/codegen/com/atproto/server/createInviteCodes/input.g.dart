@@ -31,6 +31,6 @@ Map<String, dynamic> _$ServerCreateInviteCodesInputToJson(
 ) => <String, dynamic>{
   'codeCount': instance.codeCount,
   'useCount': instance.useCount,
-  'forAccounts': instance.forAccounts,
-  r'$unknown': instance.$unknown,
+  'forAccounts': ?instance.forAccounts,
+  r'$unknown': ?instance.$unknown,
 };

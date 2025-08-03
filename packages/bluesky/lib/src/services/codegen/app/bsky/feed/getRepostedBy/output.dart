@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class FeedGetRepostedByOutput with _$FeedGetRepostedByOutput {
   static const knownProps = <String>['uri', 'cid', 'cursor', 'repostedBy'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetRepostedByOutput({
     required String uri,
     String? cid,

@@ -208,8 +208,8 @@ return $default(_that.since,_that.limit,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _TempFetchLabelsInput implements TempFetchLabelsInput {
   const _TempFetchLabelsInput({this.since, this.limit = 50, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _TempFetchLabelsInput.fromJson(Map<String, dynamic> json) => _$TempFetchLabelsInputFromJson(json);

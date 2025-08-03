@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class SyncGetRepoStatusInput with _$SyncGetRepoStatusInput {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncGetRepoStatusInput({
     /// The DID of the repo.
     required String did,

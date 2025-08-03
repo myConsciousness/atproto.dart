@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class FeedSearchPostsOutput with _$FeedSearchPostsOutput {
   static const knownProps = <String>['cursor', 'hitsTotal', 'posts'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedSearchPostsOutput({
     String? cursor,
 

@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class SetGetValuesInput with _$SetGetValuesInput {
   static const knownProps = <String>['name', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SetGetValuesInput({
     required String name,
     @Default(100) int limit,

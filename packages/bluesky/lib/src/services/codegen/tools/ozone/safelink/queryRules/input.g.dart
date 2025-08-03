@@ -43,19 +43,19 @@ _SafelinkQueryRulesInput _$SafelinkQueryRulesInputFromJson(Map json) =>
 Map<String, dynamic> _$SafelinkQueryRulesInputToJson(
   _SafelinkQueryRulesInput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'limit': instance.limit,
-  'urls': instance.urls,
-  'patternType': instance.patternType,
-  'actions': instance.actions,
-  'reason': instance.reason,
-  'createdBy': instance.createdBy,
+  'urls': ?instance.urls,
+  'patternType': ?instance.patternType,
+  'actions': ?instance.actions,
+  'reason': ?instance.reason,
+  'createdBy': ?instance.createdBy,
   'sortDirection':
-      _$JsonConverterToJson<String, SafelinkQueryRulesSortDirection>(
+      ?_$JsonConverterToJson<String, SafelinkQueryRulesSortDirection>(
         instance.sortDirection,
         const SafelinkQueryRulesSortDirectionConverter().toJson,
       ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

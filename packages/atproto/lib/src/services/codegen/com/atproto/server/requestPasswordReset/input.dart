@@ -23,6 +23,7 @@ abstract class ServerRequestPasswordResetInput
     with _$ServerRequestPasswordResetInput {
   static const knownProps = <String>['email'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerRequestPasswordResetInput({
     required String email,
 

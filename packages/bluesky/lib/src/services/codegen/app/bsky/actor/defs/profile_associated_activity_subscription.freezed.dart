@@ -217,8 +217,8 @@ return $default(_that.$type,_that.allowSubscriptions,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ProfileAssociatedActivitySubscription implements ProfileAssociatedActivitySubscription {
   const _ProfileAssociatedActivitySubscription({this.$type = 'app.bsky.actor.defs#profileAssociatedActivitySubscription', @ProfileAssociatedActivitySubscriptionAllowSubscriptionsConverter() required this.allowSubscriptions, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ProfileAssociatedActivitySubscription.fromJson(Map<String, dynamic> json) => _$ProfileAssociatedActivitySubscriptionFromJson(json);

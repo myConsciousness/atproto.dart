@@ -22,6 +22,7 @@ part 'feed_item.g.dart';
 abstract class FeedItem with _$FeedItem {
   static const knownProps = <String>['uri'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedItem({
     @Default('app.bsky.graph.starterpack#feedItem') String $type,
     required String uri,

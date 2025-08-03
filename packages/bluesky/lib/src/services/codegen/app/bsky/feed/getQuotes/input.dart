@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class FeedGetQuotesInput with _$FeedGetQuotesInput {
   static const knownProps = <String>['uri', 'cid', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetQuotesInput({
     /// Reference (AT-URI) of post record
     required String uri,

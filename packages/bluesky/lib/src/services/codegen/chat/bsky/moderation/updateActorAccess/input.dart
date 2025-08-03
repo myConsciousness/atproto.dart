@@ -23,6 +23,7 @@ abstract class ModerationUpdateActorAccessInput
     with _$ModerationUpdateActorAccessInput {
   static const knownProps = <String>['actor', 'allowAccess', 'ref'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationUpdateActorAccessInput({
     required String actor,
     required bool allowAccess,

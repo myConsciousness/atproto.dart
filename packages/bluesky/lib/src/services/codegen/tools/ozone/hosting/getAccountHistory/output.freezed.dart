@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.events,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _HostingGetAccountHistoryOutput implements HostingGetAccountHistoryOutput {
   const _HostingGetAccountHistoryOutput({this.cursor, @EventConverter() required final  List<Event> events, final  Map<String, dynamic>? $unknown}): _events = events,_$unknown = $unknown;
   factory _HostingGetAccountHistoryOutput.fromJson(Map<String, dynamic> json) => _$HostingGetAccountHistoryOutputFromJson(json);

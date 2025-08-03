@@ -26,6 +26,7 @@ part 'message_and_reaction_view.g.dart';
 abstract class MessageAndReactionView with _$MessageAndReactionView {
   static const knownProps = <String>['message', 'reaction'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory MessageAndReactionView({
     @Default('chat.bsky.convo.defs#messageAndReactionView') String $type,
     @MessageViewConverter() required MessageView message,

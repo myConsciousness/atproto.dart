@@ -47,5 +47,5 @@ Map<String, dynamic> _$ServerCheckAccountStatusOutputToJson(
   'privateStateValues': instance.privateStateValues,
   'expectedBlobs': instance.expectedBlobs,
   'importedBlobs': instance.importedBlobs,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -42,11 +42,11 @@ _$NotificationListNotificationsOutputFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$NotificationListNotificationsOutputToJson(
   _NotificationListNotificationsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'notifications': instance.notifications
       .map(const NotificationConverter().toJson)
       .toList(),
-  'priority': instance.priority,
-  'seenAt': instance.seenAt?.toIso8601String(),
-  r'$unknown': instance.$unknown,
+  'priority': ?instance.priority,
+  'seenAt': ?instance.seenAt?.toIso8601String(),
+  r'$unknown': ?instance.$unknown,
 };

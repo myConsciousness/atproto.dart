@@ -209,8 +209,8 @@ return $default(_that.$type,_that.uri,_that.notFound,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _NotFoundPost implements NotFoundPost {
   const _NotFoundPost({this.$type = 'app.bsky.feed.defs#notFoundPost', required this.uri, required this.notFound, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotFoundPost.fromJson(Map<String, dynamic> json) => _$NotFoundPostFromJson(json);

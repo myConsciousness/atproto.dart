@@ -39,5 +39,5 @@ Map<String, dynamic> _$EmbedImagesViewToJson(_EmbedImagesView instance) =>
       'images': instance.images
           .map(const EmbedImagesViewImageConverter().toJson)
           .toList(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

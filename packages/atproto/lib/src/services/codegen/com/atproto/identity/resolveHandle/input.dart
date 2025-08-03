@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class IdentityResolveHandleInput with _$IdentityResolveHandleInput {
   static const knownProps = <String>['handle'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory IdentityResolveHandleInput({
     /// The handle to resolve.
     required String handle,

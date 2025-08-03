@@ -34,5 +34,5 @@ Map<String, dynamic> _$ServerCreateInviteCodesOutputToJson(
   _ServerCreateInviteCodesOutput instance,
 ) => <String, dynamic>{
   'codes': instance.codes.map(const AccountCodesConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

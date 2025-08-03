@@ -273,8 +273,8 @@ return $default(_that.appview,_that.pds,_that.blobDivert,_that.chat,_that.viewer
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerGetConfigOutput implements ServerGetConfigOutput {
   const _ServerGetConfigOutput({@ServiceConfigConverter() this.appview, @ServiceConfigConverter() this.pds, @ServiceConfigConverter() this.blobDivert, @ServiceConfigConverter() this.chat, @ViewerConfigConverter() this.viewer, this.verifierDid, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerGetConfigOutput.fromJson(Map<String, dynamic> json) => _$ServerGetConfigOutputFromJson(json);

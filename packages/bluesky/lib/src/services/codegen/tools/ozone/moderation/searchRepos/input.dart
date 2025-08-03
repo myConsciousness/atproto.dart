@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ModerationSearchReposInput with _$ModerationSearchReposInput {
   static const knownProps = <String>['q', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationSearchReposInput({
     String? q,
     @Default(50) int limit,

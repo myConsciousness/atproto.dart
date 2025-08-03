@@ -209,8 +209,8 @@ return $default(_that.$type,_that.account,_that.codes,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AccountCodes implements AccountCodes {
   const _AccountCodes({this.$type = 'com.atproto.server.createInviteCodes#accountCodes', required this.account, required final  List<String> codes, final  Map<String, dynamic>? $unknown}): _codes = codes,_$unknown = $unknown;
   factory _AccountCodes.fromJson(Map<String, dynamic> json) => _$AccountCodesFromJson(json);

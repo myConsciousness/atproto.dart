@@ -27,6 +27,6 @@ Map<String, dynamic> _$FeedGetActorLikesInputToJson(
 ) => <String, dynamic>{
   'actor': instance.actor,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };

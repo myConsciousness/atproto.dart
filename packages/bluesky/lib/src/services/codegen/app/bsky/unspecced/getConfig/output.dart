@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class UnspeccedGetConfigOutput with _$UnspeccedGetConfigOutput {
   static const knownProps = <String>['checkEmailConfirmed', 'liveNow'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetConfigOutput({
     bool? checkEmailConfirmed,
     @LiveNowConfigConverter() List<LiveNowConfig>? liveNow,

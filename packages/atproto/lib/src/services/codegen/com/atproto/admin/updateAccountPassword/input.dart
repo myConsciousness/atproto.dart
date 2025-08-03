@@ -23,6 +23,7 @@ abstract class AdminUpdateAccountPasswordInput
     with _$AdminUpdateAccountPasswordInput {
   static const knownProps = <String>['did', 'password'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdminUpdateAccountPasswordInput({
     required String did,
     required String password,

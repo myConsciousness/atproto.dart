@@ -24,4 +24,7 @@ _FollowerRule _$FollowerRuleFromJson(Map json) =>
     });
 
 Map<String, dynamic> _$FollowerRuleToJson(_FollowerRule instance) =>
-    <String, dynamic>{r'$type': instance.$type, r'$unknown': instance.$unknown};
+    <String, dynamic>{
+      r'$type': instance.$type,
+      r'$unknown': ?instance.$unknown,
+    };

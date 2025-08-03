@@ -207,8 +207,8 @@ return $default(_that.items,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoSendMessageBatchInput implements ConvoSendMessageBatchInput {
   const _ConvoSendMessageBatchInput({@BatchItemConverter() required final  List<BatchItem> items, final  Map<String, dynamic>? $unknown}): _items = items,_$unknown = $unknown;
   factory _ConvoSendMessageBatchInput.fromJson(Map<String, dynamic> json) => _$ConvoSendMessageBatchInputFromJson(json);

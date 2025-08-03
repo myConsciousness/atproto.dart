@@ -209,8 +209,8 @@ return $default(_that.$type,_that.muted,_that.blocked,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ListViewerState implements ListViewerState {
   const _ListViewerState({this.$type = 'app.bsky.graph.defs#listViewerState', this.muted, this.blocked, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ListViewerState.fromJson(Map<String, dynamic> json) => _$ListViewerStateFromJson(json);

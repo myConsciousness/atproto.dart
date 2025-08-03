@@ -221,8 +221,8 @@ return $default(_that.sort,_that.limit,_that.cursor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AdminGetInviteCodesInput implements AdminGetInviteCodesInput {
   const _AdminGetInviteCodesInput({@AdminGetInviteCodesSortConverter() this.sort, this.limit = 100, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AdminGetInviteCodesInput.fromJson(Map<String, dynamic> json) => _$AdminGetInviteCodesInputFromJson(json);

@@ -26,6 +26,6 @@ Map<String, dynamic> _$AdminEnableAccountInvitesInputToJson(
   _AdminEnableAccountInvitesInput instance,
 ) => <String, dynamic>{
   'account': instance.account,
-  'note': instance.note,
-  r'$unknown': instance.$unknown,
+  'note': ?instance.note,
+  r'$unknown': ?instance.$unknown,
 };

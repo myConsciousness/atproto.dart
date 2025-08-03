@@ -37,5 +37,5 @@ Map<String, dynamic> _$SavedFeedsPrefV2ToJson(_SavedFeedsPrefV2 instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'items': instance.items.map(const SavedFeedConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

@@ -207,8 +207,8 @@ return $default(_that.messages,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationGetMessageContextOutput implements ModerationGetMessageContextOutput {
   const _ModerationGetMessageContextOutput({@UModerationGetMessageContextMessagesConverter() required final  List<UModerationGetMessageContextMessages> messages, final  Map<String, dynamic>? $unknown}): _messages = messages,_$unknown = $unknown;
   factory _ModerationGetMessageContextOutput.fromJson(Map<String, dynamic> json) => _$ModerationGetMessageContextOutputFromJson(json);

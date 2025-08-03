@@ -28,5 +28,5 @@ Map<String, dynamic> _$AdultContentPrefToJson(_AdultContentPref instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'enabled': instance.enabled,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

@@ -35,5 +35,5 @@ Map<String, dynamic> _$EmbedExternalViewToJson(_EmbedExternalView instance) =>
       'external': const EmbedExternalViewExternalConverter().toJson(
         instance.external,
       ),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

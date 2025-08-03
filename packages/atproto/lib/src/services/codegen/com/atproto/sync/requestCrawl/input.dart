@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class SyncRequestCrawlInput with _$SyncRequestCrawlInput {
   static const knownProps = <String>['hostname'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncRequestCrawlInput({
     /// Hostname of the current service (eg, PDS) that is requesting to be crawled.
     required String hostname,

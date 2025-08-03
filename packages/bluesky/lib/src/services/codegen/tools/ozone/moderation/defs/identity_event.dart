@@ -30,6 +30,7 @@ abstract class IdentityEvent with _$IdentityEvent {
     'timestamp',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory IdentityEvent({
     @Default('tools.ozone.moderation.defs#identityEvent') String $type,
     String? comment,

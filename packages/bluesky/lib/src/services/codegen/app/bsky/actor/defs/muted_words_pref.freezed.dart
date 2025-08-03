@@ -208,8 +208,8 @@ return $default(_that.$type,_that.items,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _MutedWordsPref implements MutedWordsPref {
   const _MutedWordsPref({this.$type = 'app.bsky.actor.defs#mutedWordsPref', @MutedWordConverter() required final  List<MutedWord> items, final  Map<String, dynamic>? $unknown}): _items = items,_$unknown = $unknown;
   factory _MutedWordsPref.fromJson(Map<String, dynamic> json) => _$MutedWordsPrefFromJson(json);

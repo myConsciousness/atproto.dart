@@ -27,6 +27,6 @@ Map<String, dynamic> _$FeedGetListFeedInputToJson(
 ) => <String, dynamic>{
   'list': instance.list,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };

@@ -23,6 +23,7 @@ part 'identity.g.dart';
 abstract class Identity with _$Identity {
   static const knownProps = <String>['seq', 'did', 'time', 'handle'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Identity({
     @Default('com.atproto.sync.subscribeRepos#identity') String $type,
     required int seq,

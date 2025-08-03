@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class AdminSearchAccountsOutput with _$AdminSearchAccountsOutput {
   static const knownProps = <String>['cursor', 'accounts'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdminSearchAccountsOutput({
     String? cursor,
     @AccountViewConverter() required List<AccountView> accounts,

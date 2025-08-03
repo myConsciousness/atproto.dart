@@ -207,8 +207,8 @@ return $default(_that.$type,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _DeleteResult implements DeleteResult {
   const _DeleteResult({this.$type = 'com.atproto.repo.applyWrites#deleteResult', final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _DeleteResult.fromJson(Map<String, dynamic> json) => _$DeleteResultFromJson(json);

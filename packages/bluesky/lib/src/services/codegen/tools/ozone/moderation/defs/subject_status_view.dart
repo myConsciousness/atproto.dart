@@ -56,6 +56,7 @@ abstract class SubjectStatusView with _$SubjectStatusView {
     'ageAssuranceUpdatedBy',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SubjectStatusView({
     @Default('tools.ozone.moderation.defs#subjectStatusView') String $type,
     required int id,

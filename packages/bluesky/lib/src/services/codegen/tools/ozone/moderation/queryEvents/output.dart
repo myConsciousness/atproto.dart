@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class ModerationQueryEventsOutput with _$ModerationQueryEventsOutput {
   static const knownProps = <String>['cursor', 'events'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationQueryEventsOutput({
     String? cursor,
     @ModEventViewConverter() required List<ModEventView> events,

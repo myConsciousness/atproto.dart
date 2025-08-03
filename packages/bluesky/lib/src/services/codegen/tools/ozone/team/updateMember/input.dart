@@ -25,6 +25,7 @@ part 'input.g.dart';
 abstract class TeamUpdateMemberInput with _$TeamUpdateMemberInput {
   static const knownProps = <String>['did', 'disabled', 'role'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory TeamUpdateMemberInput({
     required String did,
     bool? disabled,

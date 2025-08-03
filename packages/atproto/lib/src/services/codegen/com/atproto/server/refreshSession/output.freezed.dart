@@ -226,8 +226,8 @@ return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.di
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerRefreshSessionOutput implements ServerRefreshSessionOutput {
   const _ServerRefreshSessionOutput({required this.accessJwt, required this.refreshJwt, required this.handle, required this.did, final  Map<String, dynamic>? didDoc, this.active, @ServerRefreshSessionStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_$unknown = $unknown;
   factory _ServerRefreshSessionOutput.fromJson(Map<String, dynamic> json) => _$ServerRefreshSessionOutputFromJson(json);

@@ -209,8 +209,8 @@ return $default(_that.category,_that.limit,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetSuggestedUsersInput implements UnspeccedGetSuggestedUsersInput {
   const _UnspeccedGetSuggestedUsersInput({this.category, this.limit = 25, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedGetSuggestedUsersInput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestedUsersInputFromJson(json);

@@ -76,21 +76,21 @@ Map<String, dynamic> _$LabelerViewDetailedToJson(
   'cid': instance.cid,
   'creator': const ProfileViewConverter().toJson(instance.creator),
   'policies': const LabelerPoliciesConverter().toJson(instance.policies),
-  'likeCount': instance.likeCount,
-  'viewer': _$JsonConverterToJson<Map<String, dynamic>, LabelerViewerState>(
+  'likeCount': ?instance.likeCount,
+  'viewer': ?_$JsonConverterToJson<Map<String, dynamic>, LabelerViewerState>(
     instance.viewer,
     const LabelerViewerStateConverter().toJson,
   ),
   'indexedAt': instance.indexedAt.toIso8601String(),
-  'labels': instance.labels?.map(const LabelConverter().toJson).toList(),
-  'reasonTypes': instance.reasonTypes
+  'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
+  'reasonTypes': ?instance.reasonTypes
       ?.map(const ReasonTypeConverter().toJson)
       .toList(),
-  'subjectTypes': instance.subjectTypes
+  'subjectTypes': ?instance.subjectTypes
       ?.map(const SubjectTypeConverter().toJson)
       .toList(),
-  'subjectCollections': instance.subjectCollections,
-  r'$unknown': instance.$unknown,
+  'subjectCollections': ?instance.subjectCollections,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

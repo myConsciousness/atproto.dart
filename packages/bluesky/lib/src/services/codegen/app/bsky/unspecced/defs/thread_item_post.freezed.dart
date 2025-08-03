@@ -227,8 +227,8 @@ return $default(_that.$type,_that.post,_that.moreParents,_that.moreReplies,_that
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ThreadItemPost implements ThreadItemPost {
   const _ThreadItemPost({this.$type = 'app.bsky.unspecced.defs#threadItemPost', @PostViewConverter() required this.post, required this.moreParents, required this.moreReplies, required this.opThread, required this.hiddenByThreadgate, required this.mutedByViewer, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ThreadItemPost.fromJson(Map<String, dynamic> json) => _$ThreadItemPostFromJson(json);

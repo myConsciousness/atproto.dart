@@ -208,8 +208,8 @@ return $default(_that.convoId,_that.messageId,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoDeleteMessageForSelfInput implements ConvoDeleteMessageForSelfInput {
   const _ConvoDeleteMessageForSelfInput({required this.convoId, required this.messageId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoDeleteMessageForSelfInput.fromJson(Map<String, dynamic> json) => _$ConvoDeleteMessageForSelfInputFromJson(json);

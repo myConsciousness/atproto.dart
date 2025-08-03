@@ -207,8 +207,8 @@ return $default(_that.actor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphGetSuggestedFollowsByActorInput implements GraphGetSuggestedFollowsByActorInput {
   const _GraphGetSuggestedFollowsByActorInput({required this.actor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphGetSuggestedFollowsByActorInput.fromJson(Map<String, dynamic> json) => _$GraphGetSuggestedFollowsByActorInputFromJson(json);

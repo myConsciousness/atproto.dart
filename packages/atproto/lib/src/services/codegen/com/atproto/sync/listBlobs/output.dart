@@ -22,6 +22,7 @@ part 'output.g.dart';
 abstract class SyncListBlobsOutput with _$SyncListBlobsOutput {
   static const knownProps = <String>['cursor', 'cids'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncListBlobsOutput({
     String? cursor,
     required List<String> cids,

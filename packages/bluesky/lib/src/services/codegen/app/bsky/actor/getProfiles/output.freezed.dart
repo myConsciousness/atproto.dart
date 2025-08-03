@@ -207,8 +207,8 @@ return $default(_that.profiles,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ActorGetProfilesOutput implements ActorGetProfilesOutput {
   const _ActorGetProfilesOutput({@ProfileViewDetailedConverter() required final  List<ProfileViewDetailed> profiles, final  Map<String, dynamic>? $unknown}): _profiles = profiles,_$unknown = $unknown;
   factory _ActorGetProfilesOutput.fromJson(Map<String, dynamic> json) => _$ActorGetProfilesOutputFromJson(json);

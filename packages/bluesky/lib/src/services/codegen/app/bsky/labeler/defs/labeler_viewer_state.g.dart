@@ -27,6 +27,6 @@ _LabelerViewerState _$LabelerViewerStateFromJson(Map json) =>
 Map<String, dynamic> _$LabelerViewerStateToJson(_LabelerViewerState instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'like': instance.like,
-      r'$unknown': instance.$unknown,
+      'like': ?instance.like,
+      r'$unknown': ?instance.$unknown,
     };

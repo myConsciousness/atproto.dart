@@ -29,5 +29,5 @@ Map<String, dynamic> _$SetDeleteValuesInputToJson(
 ) => <String, dynamic>{
   'name': instance.name,
   'values': instance.values,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -212,8 +212,8 @@ return $default(_that.uri,_that.cid,_that.limit,_that.cursor,_that.$unknown);cas
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetQuotesInput implements FeedGetQuotesInput {
   const _FeedGetQuotesInput({required this.uri, this.cid, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetQuotesInput.fromJson(Map<String, dynamic> json) => _$FeedGetQuotesInputFromJson(json);

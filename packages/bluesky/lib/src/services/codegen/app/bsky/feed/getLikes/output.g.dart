@@ -34,8 +34,8 @@ _FeedGetLikesOutput _$FeedGetLikesOutputFromJson(Map json) =>
 Map<String, dynamic> _$FeedGetLikesOutputToJson(_FeedGetLikesOutput instance) =>
     <String, dynamic>{
       'uri': instance.uri,
-      'cid': instance.cid,
-      'cursor': instance.cursor,
+      'cid': ?instance.cid,
+      'cursor': ?instance.cursor,
       'likes': instance.likes.map(const LikeConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

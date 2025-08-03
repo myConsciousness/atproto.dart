@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class LabelQueryLabelsOutput with _$LabelQueryLabelsOutput {
   static const knownProps = <String>['cursor', 'labels'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LabelQueryLabelsOutput({
     String? cursor,
     @LabelConverter() required List<Label> labels,

@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class GraphMuteActorInput with _$GraphMuteActorInput {
   static const knownProps = <String>['actor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphMuteActorInput({
     required String actor,
 

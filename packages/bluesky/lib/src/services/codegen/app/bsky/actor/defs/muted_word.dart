@@ -33,6 +33,7 @@ abstract class MutedWord with _$MutedWord {
     'expiresAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory MutedWord({
     @Default('app.bsky.actor.defs#mutedWord') String $type,
     String? id,

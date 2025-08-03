@@ -32,7 +32,7 @@ _LabelQueryLabelsOutput _$LabelQueryLabelsOutputFromJson(Map json) =>
 Map<String, dynamic> _$LabelQueryLabelsOutputToJson(
   _LabelQueryLabelsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'labels': instance.labels.map(const LabelConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

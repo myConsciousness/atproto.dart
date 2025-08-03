@@ -25,6 +25,7 @@ part 'thread_item.g.dart';
 abstract class ThreadItem with _$ThreadItem {
   static const knownProps = <String>['uri', 'depth', 'value'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ThreadItem({
     @Default('app.bsky.unspecced.getPostThreadOtherV2#threadItem') String $type,
     required String uri,

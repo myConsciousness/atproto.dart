@@ -114,6 +114,7 @@ ${getDescription()}
 abstract class ${name}Output with _\$${name}Output {
   $knownProps
 
+  @JsonSerializable(includeIfNull: false)
   const factory ${name}Output({
     ${properties.toString()}
     Map<String, dynamic>? \$unknown,

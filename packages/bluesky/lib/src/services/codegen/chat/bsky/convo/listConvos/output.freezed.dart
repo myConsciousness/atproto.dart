@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.convos,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoListConvosOutput implements ConvoListConvosOutput {
   const _ConvoListConvosOutput({this.cursor, @ConvoViewConverter() required final  List<ConvoView> convos, final  Map<String, dynamic>? $unknown}): _convos = convos,_$unknown = $unknown;
   factory _ConvoListConvosOutput.fromJson(Map<String, dynamic> json) => _$ConvoListConvosOutputFromJson(json);

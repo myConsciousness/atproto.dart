@@ -44,5 +44,5 @@ Map<String, dynamic> _$ThreadItemPostToJson(_ThreadItemPost instance) =>
       'opThread': instance.opThread,
       'hiddenByThreadgate': instance.hiddenByThreadgate,
       'mutedByViewer': instance.mutedByViewer,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

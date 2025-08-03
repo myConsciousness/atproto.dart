@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class GraphGetFollowersOutput with _$GraphGetFollowersOutput {
   static const knownProps = <String>['subject', 'cursor', 'followers'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetFollowersOutput({
     @ProfileViewConverter() required ProfileView subject,
     String? cursor,

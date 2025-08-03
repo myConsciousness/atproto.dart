@@ -30,5 +30,5 @@ Map<String, dynamic> _$EmailConfirmedToJson(_EmailConfirmed instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'email': instance.email,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

@@ -32,6 +32,7 @@ abstract class AccountHosting with _$AccountHosting {
     'reactivatedAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AccountHosting({
     @Default('tools.ozone.moderation.defs#accountHosting') String $type,
     @AccountHostingStatusConverter() required AccountHostingStatus status,

@@ -24,4 +24,7 @@ _ReasonPin _$ReasonPinFromJson(Map json) =>
     });
 
 Map<String, dynamic> _$ReasonPinToJson(_ReasonPin instance) =>
-    <String, dynamic>{r'$type': instance.$type, r'$unknown': instance.$unknown};
+    <String, dynamic>{
+      r'$type': instance.$type,
+      r'$unknown': ?instance.$unknown,
+    };

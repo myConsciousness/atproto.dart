@@ -208,8 +208,8 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SkeletonSearchPost implements SkeletonSearchPost {
   const _SkeletonSearchPost({this.$type = 'app.bsky.unspecced.defs#skeletonSearchPost', required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SkeletonSearchPost.fromJson(Map<String, dynamic> json) => _$SkeletonSearchPostFromJson(json);

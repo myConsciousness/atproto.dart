@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class SyncListHostsInput with _$SyncListHostsInput {
   static const knownProps = <String>['limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncListHostsInput({
     @Default(200) int limit,
     String? cursor,

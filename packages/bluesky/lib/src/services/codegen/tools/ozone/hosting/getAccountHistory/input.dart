@@ -26,6 +26,7 @@ abstract class HostingGetAccountHistoryInput
     with _$HostingGetAccountHistoryInput {
   static const knownProps = <String>['did', 'events', 'cursor', 'limit'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory HostingGetAccountHistoryInput({
     required String did,
     @HostingGetAccountHistoryEventsConverter()

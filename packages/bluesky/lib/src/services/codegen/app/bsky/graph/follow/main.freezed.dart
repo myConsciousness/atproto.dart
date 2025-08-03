@@ -209,8 +209,8 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.$unknown);case _
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphFollowRecord implements GraphFollowRecord {
   const _GraphFollowRecord({this.$type = 'app.bsky.graph.follow', required this.subject, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphFollowRecord.fromJson(Map<String, dynamic> json) => _$GraphFollowRecordFromJson(json);

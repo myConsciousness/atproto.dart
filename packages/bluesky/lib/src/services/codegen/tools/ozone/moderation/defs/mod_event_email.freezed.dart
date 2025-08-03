@@ -213,8 +213,8 @@ return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModEventEmail implements ModEventEmail {
   const _ModEventEmail({this.$type = 'tools.ozone.moderation.defs#modEventEmail', required this.subjectLine, this.content, this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModEventEmail.fromJson(Map<String, dynamic> json) => _$ModEventEmailFromJson(json);

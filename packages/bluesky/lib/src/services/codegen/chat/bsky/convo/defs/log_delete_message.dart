@@ -25,6 +25,7 @@ part 'log_delete_message.g.dart';
 abstract class LogDeleteMessage with _$LogDeleteMessage {
   static const knownProps = <String>['rev', 'convoId', 'message'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LogDeleteMessage({
     @Default('chat.bsky.convo.defs#logDeleteMessage') String $type,
     required String rev,

@@ -208,8 +208,8 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RecordViewNotFound implements RecordViewNotFound {
   const _RecordViewNotFound({this.$type = 'tools.ozone.moderation.defs#recordViewNotFound', required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RecordViewNotFound.fromJson(Map<String, dynamic> json) => _$RecordViewNotFoundFromJson(json);

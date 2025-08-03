@@ -36,10 +36,10 @@ Map<String, dynamic> _$RepoApplyWritesInputToJson(
   _RepoApplyWritesInput instance,
 ) => <String, dynamic>{
   'repo': instance.repo,
-  'validate': instance.validate,
+  'validate': ?instance.validate,
   'writes': instance.writes
       .map(const URepoApplyWritesWritesConverter().toJson)
       .toList(),
-  'swapCommit': instance.swapCommit,
-  r'$unknown': instance.$unknown,
+  'swapCommit': ?instance.swapCommit,
+  r'$unknown': ?instance.$unknown,
 };

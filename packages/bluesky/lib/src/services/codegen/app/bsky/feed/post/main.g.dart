@@ -69,25 +69,25 @@ Map<String, dynamic> _$FeedPostRecordToJson(_FeedPostRecord instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'text': instance.text,
-      'facets': instance.facets
+      'facets': ?instance.facets
           ?.map(const RichtextFacetConverter().toJson)
           .toList(),
-      'reply': _$JsonConverterToJson<Map<String, dynamic>, ReplyRef>(
+      'reply': ?_$JsonConverterToJson<Map<String, dynamic>, ReplyRef>(
         instance.reply,
         const ReplyRefConverter().toJson,
       ),
-      'embed': _$JsonConverterToJson<Map<String, dynamic>, UFeedPostEmbed>(
+      'embed': ?_$JsonConverterToJson<Map<String, dynamic>, UFeedPostEmbed>(
         instance.embed,
         const UFeedPostEmbedConverter().toJson,
       ),
-      'langs': instance.langs,
-      'labels': _$JsonConverterToJson<Map<String, dynamic>, UFeedPostLabels>(
+      'langs': ?instance.langs,
+      'labels': ?_$JsonConverterToJson<Map<String, dynamic>, UFeedPostLabels>(
         instance.labels,
         const UFeedPostLabelsConverter().toJson,
       ),
-      'tags': instance.tags,
+      'tags': ?instance.tags,
       'createdAt': instance.createdAt.toIso8601String(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

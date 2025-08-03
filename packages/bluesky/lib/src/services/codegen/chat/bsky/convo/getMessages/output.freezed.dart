@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.messages,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoGetMessagesOutput implements ConvoGetMessagesOutput {
   const _ConvoGetMessagesOutput({this.cursor, @UConvoGetMessagesMessagesConverter() required final  List<UConvoGetMessagesMessages> messages, final  Map<String, dynamic>? $unknown}): _messages = messages,_$unknown = $unknown;
   factory _ConvoGetMessagesOutput.fromJson(Map<String, dynamic> json) => _$ConvoGetMessagesOutputFromJson(json);

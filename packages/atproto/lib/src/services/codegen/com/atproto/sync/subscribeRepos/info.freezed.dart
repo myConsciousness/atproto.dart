@@ -218,8 +218,8 @@ return $default(_that.$type,_that.name,_that.message,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _Info implements Info {
   const _Info({this.$type = 'com.atproto.sync.subscribeRepos#info', @InfoNameConverter() required this.name, this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Info.fromJson(Map<String, dynamic> json) => _$InfoFromJson(json);

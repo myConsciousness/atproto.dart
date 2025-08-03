@@ -207,8 +207,8 @@ return $default(_that.name,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerRevokeAppPasswordInput implements ServerRevokeAppPasswordInput {
   const _ServerRevokeAppPasswordInput({required this.name, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerRevokeAppPasswordInput.fromJson(Map<String, dynamic> json) => _$ServerRevokeAppPasswordInputFromJson(json);

@@ -212,8 +212,8 @@ return $default(_that.uri,_that.cid,_that.limit,_that.cursor,_that.$unknown);cas
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetLikesInput implements FeedGetLikesInput {
   const _FeedGetLikesInput({required this.uri, this.cid, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetLikesInput.fromJson(Map<String, dynamic> json) => _$FeedGetLikesInputFromJson(json);

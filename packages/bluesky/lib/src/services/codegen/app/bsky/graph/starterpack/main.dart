@@ -34,6 +34,7 @@ abstract class GraphStarterpackRecord with _$GraphStarterpackRecord {
     'createdAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphStarterpackRecord({
     @Default('app.bsky.graph.starterpack') String $type,
 

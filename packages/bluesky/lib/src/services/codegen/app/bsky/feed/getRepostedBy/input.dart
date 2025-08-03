@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class FeedGetRepostedByInput with _$FeedGetRepostedByInput {
   static const knownProps = <String>['uri', 'cid', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetRepostedByInput({
     /// Reference (AT-URI) of post record
     required String uri,

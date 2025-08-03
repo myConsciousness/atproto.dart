@@ -220,8 +220,8 @@ return $default(_that.canChat,_that.convo,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoGetConvoAvailabilityOutput implements ConvoGetConvoAvailabilityOutput {
   const _ConvoGetConvoAvailabilityOutput({required this.canChat, @ConvoViewConverter() this.convo, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoGetConvoAvailabilityOutput.fromJson(Map<String, dynamic> json) => _$ConvoGetConvoAvailabilityOutputFromJson(json);

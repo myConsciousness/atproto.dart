@@ -36,5 +36,5 @@ Map<String, dynamic> _$ServerListAppPasswordsOutputToJson(
   'passwords': instance.passwords
       .map(const AppPasswordConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

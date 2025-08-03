@@ -30,6 +30,7 @@ abstract class SyncGetHostStatusOutput with _$SyncGetHostStatusOutput {
     'status',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncGetHostStatusOutput({
     required String hostname,
 

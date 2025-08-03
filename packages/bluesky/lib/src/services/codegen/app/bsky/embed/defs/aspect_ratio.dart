@@ -23,6 +23,7 @@ part 'aspect_ratio.g.dart';
 abstract class AspectRatio with _$AspectRatio {
   static const knownProps = <String>['width', 'height'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AspectRatio({
     @Default('app.bsky.embed.defs#aspectRatio') String $type,
     required int width,

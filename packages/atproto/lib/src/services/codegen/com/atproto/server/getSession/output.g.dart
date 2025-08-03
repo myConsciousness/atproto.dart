@@ -41,16 +41,16 @@ Map<String, dynamic> _$ServerGetSessionOutputToJson(
 ) => <String, dynamic>{
   'handle': instance.handle,
   'did': instance.did,
-  'email': instance.email,
-  'emailConfirmed': instance.emailConfirmed,
-  'emailAuthFactor': instance.emailAuthFactor,
-  'didDoc': instance.didDoc,
-  'active': instance.active,
-  'status': _$JsonConverterToJson<String, ServerGetSessionStatus>(
+  'email': ?instance.email,
+  'emailConfirmed': ?instance.emailConfirmed,
+  'emailAuthFactor': ?instance.emailAuthFactor,
+  'didDoc': ?instance.didDoc,
+  'active': ?instance.active,
+  'status': ?_$JsonConverterToJson<String, ServerGetSessionStatus>(
     instance.status,
     const ServerGetSessionStatusConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

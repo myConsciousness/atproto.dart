@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ConvoAddReactionInput with _$ConvoAddReactionInput {
   static const knownProps = <String>['convoId', 'messageId', 'value'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoAddReactionInput({
     required String convoId,
     required String messageId,

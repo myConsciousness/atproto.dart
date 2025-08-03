@@ -32,7 +32,7 @@ Map<String, dynamic> _$TempCheckSignupQueueOutputToJson(
   _TempCheckSignupQueueOutput instance,
 ) => <String, dynamic>{
   'activated': instance.activated,
-  'placeInQueue': instance.placeInQueue,
-  'estimatedTimeMs': instance.estimatedTimeMs,
-  r'$unknown': instance.$unknown,
+  'placeInQueue': ?instance.placeInQueue,
+  'estimatedTimeMs': ?instance.estimatedTimeMs,
+  r'$unknown': ?instance.$unknown,
 };

@@ -35,6 +35,7 @@ abstract class LabelerView with _$LabelerView {
     'labels',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LabelerView({
     @Default('app.bsky.labeler.defs#labelerView') String $type,
     required String uri,

@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class GraphGetRelationshipsInput with _$GraphGetRelationshipsInput {
   static const knownProps = <String>['actor', 'others'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetRelationshipsInput({
     /// Primary account requesting relationships for.
     required String actor,

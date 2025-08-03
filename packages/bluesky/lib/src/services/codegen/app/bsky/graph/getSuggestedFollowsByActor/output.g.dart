@@ -42,6 +42,6 @@ Map<String, dynamic> _$GraphGetSuggestedFollowsByActorOutputToJson(
       .map(const ProfileViewConverter().toJson)
       .toList(),
   'isFallback': instance.isFallback,
-  'recId': instance.recId,
-  r'$unknown': instance.$unknown,
+  'recId': ?instance.recId,
+  r'$unknown': ?instance.$unknown,
 };

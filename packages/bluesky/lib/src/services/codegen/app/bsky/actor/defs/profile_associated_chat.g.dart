@@ -36,5 +36,5 @@ Map<String, dynamic> _$ProfileAssociatedChatToJson(
   'allowIncoming': const ProfileAssociatedChatAllowIncomingConverter().toJson(
     instance.allowIncoming,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

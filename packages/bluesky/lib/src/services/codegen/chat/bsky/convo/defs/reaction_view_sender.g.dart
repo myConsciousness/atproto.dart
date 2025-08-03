@@ -28,5 +28,5 @@ Map<String, dynamic> _$ReactionViewSenderToJson(_ReactionViewSender instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'did': instance.did,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

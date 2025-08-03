@@ -25,4 +25,7 @@ _NotificationGetUnreadCountOutput _$NotificationGetUnreadCountOutputFromJson(
 
 Map<String, dynamic> _$NotificationGetUnreadCountOutputToJson(
   _NotificationGetUnreadCountOutput instance,
-) => <String, dynamic>{'count': instance.count, r'$unknown': instance.$unknown};
+) => <String, dynamic>{
+  'count': instance.count,
+  r'$unknown': ?instance.$unknown,
+};

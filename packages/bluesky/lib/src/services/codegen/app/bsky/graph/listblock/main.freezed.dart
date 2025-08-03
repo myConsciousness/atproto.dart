@@ -210,8 +210,8 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.$unknown);case _
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphListblockRecord implements GraphListblockRecord {
   const _GraphListblockRecord({this.$type = 'app.bsky.graph.listblock', required this.subject, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphListblockRecord.fromJson(Map<String, dynamic> json) => _$GraphListblockRecordFromJson(json);

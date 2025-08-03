@@ -25,5 +25,5 @@ Map<String, dynamic> _$ServerReserveSigningKeyOutputToJson(
   _ServerReserveSigningKeyOutput instance,
 ) => <String, dynamic>{
   'signingKey': instance.signingKey,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

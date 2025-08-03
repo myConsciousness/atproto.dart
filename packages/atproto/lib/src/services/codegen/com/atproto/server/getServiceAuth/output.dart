@@ -22,6 +22,7 @@ part 'output.g.dart';
 abstract class ServerGetServiceAuthOutput with _$ServerGetServiceAuthOutput {
   static const knownProps = <String>['token'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerGetServiceAuthOutput({
     required String token,
 

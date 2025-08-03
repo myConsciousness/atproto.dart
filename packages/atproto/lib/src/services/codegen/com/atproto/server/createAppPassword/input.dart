@@ -23,6 +23,7 @@ abstract class ServerCreateAppPasswordInput
     with _$ServerCreateAppPasswordInput {
   static const knownProps = <String>['name', 'privileged'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerCreateAppPasswordInput({
     /// A short name for the App Password, to help distinguish them.
     required String name,

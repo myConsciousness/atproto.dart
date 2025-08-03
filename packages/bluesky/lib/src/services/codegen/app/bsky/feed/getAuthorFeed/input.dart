@@ -31,6 +31,7 @@ abstract class FeedGetAuthorFeedInput with _$FeedGetAuthorFeedInput {
     'includePins',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetAuthorFeedInput({
     required String actor,
     @Default(50) int limit,

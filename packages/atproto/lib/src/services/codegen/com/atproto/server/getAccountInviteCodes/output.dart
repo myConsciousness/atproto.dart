@@ -26,6 +26,7 @@ abstract class ServerGetAccountInviteCodesOutput
     with _$ServerGetAccountInviteCodesOutput {
   static const knownProps = <String>['codes'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerGetAccountInviteCodesOutput({
     @InviteCodeConverter() required List<InviteCode> codes,
 

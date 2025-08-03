@@ -28,5 +28,5 @@ Map<String, dynamic> _$ConvoAddReactionOutputToJson(
   _ConvoAddReactionOutput instance,
 ) => <String, dynamic>{
   'message': const MessageViewConverter().toJson(instance.message),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

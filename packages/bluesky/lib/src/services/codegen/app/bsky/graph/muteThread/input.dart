@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class GraphMuteThreadInput with _$GraphMuteThreadInput {
   static const knownProps = <String>['root'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphMuteThreadInput({
     required String root,
 

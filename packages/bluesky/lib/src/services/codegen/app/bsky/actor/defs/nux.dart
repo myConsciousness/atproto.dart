@@ -23,6 +23,7 @@ part 'nux.g.dart';
 abstract class Nux with _$Nux {
   static const knownProps = <String>['id', 'completed', 'data', 'expiresAt'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Nux({
     @Default('app.bsky.actor.defs#nux') String $type,
     required String id,

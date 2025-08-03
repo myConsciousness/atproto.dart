@@ -23,6 +23,7 @@ abstract class NotificationGetUnreadCountOutput
     with _$NotificationGetUnreadCountOutput {
   static const knownProps = <String>['count'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory NotificationGetUnreadCountOutput({
     required int count,
 

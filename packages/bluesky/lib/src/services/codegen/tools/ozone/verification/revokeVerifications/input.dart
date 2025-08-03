@@ -23,6 +23,7 @@ abstract class VerificationRevokeVerificationsInput
     with _$VerificationRevokeVerificationsInput {
   static const knownProps = <String>['uris', 'revokeReason'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory VerificationRevokeVerificationsInput({
     /// The AT-URI of the verification record to revoke.
     required List<String> uris,

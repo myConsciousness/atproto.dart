@@ -30,6 +30,7 @@ abstract class RepoPutRecordInput with _$RepoPutRecordInput {
     'swapCommit',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoPutRecordInput({
     /// The handle or DID of the repo (aka, current account).
     required String repo,

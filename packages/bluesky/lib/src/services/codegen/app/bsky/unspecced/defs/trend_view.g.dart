@@ -55,15 +55,15 @@ Map<String, dynamic> _$TrendViewToJson(_TrendView instance) =>
       'link': instance.link,
       'startedAt': instance.startedAt.toIso8601String(),
       'postCount': instance.postCount,
-      'status': _$JsonConverterToJson<String, TrendViewStatus>(
+      'status': ?_$JsonConverterToJson<String, TrendViewStatus>(
         instance.status,
         const TrendViewStatusConverter().toJson,
       ),
-      'category': instance.category,
+      'category': ?instance.category,
       'actors': instance.actors
           .map(const ProfileViewBasicConverter().toJson)
           .toList(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

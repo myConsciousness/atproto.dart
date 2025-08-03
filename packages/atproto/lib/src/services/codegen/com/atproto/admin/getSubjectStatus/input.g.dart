@@ -25,8 +25,8 @@ _AdminGetSubjectStatusInput _$AdminGetSubjectStatusInputFromJson(Map json) =>
 Map<String, dynamic> _$AdminGetSubjectStatusInputToJson(
   _AdminGetSubjectStatusInput instance,
 ) => <String, dynamic>{
-  'did': instance.did,
-  'uri': instance.uri,
-  'blob': instance.blob,
-  r'$unknown': instance.$unknown,
+  'did': ?instance.did,
+  'uri': ?instance.uri,
+  'blob': ?instance.blob,
+  r'$unknown': ?instance.$unknown,
 };

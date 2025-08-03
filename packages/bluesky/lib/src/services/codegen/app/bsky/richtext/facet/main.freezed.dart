@@ -218,8 +218,8 @@ return $default(_that.$type,_that.index,_that.features,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RichtextFacet implements RichtextFacet {
   const _RichtextFacet({this.$type = 'app.bsky.richtext.facet', @RichtextFacetByteSliceConverter() required this.index, @URichtextFacetFeaturesConverter() required final  List<URichtextFacetFeatures> features, final  Map<String, dynamic>? $unknown}): _features = features,_$unknown = $unknown;
   factory _RichtextFacet.fromJson(Map<String, dynamic> json) => _$RichtextFacetFromJson(json);

@@ -87,19 +87,19 @@ Map<String, dynamic> _$StarterPackViewToJson(
   'cid': instance.cid,
   'record': instance.record,
   'creator': const ProfileViewBasicConverter().toJson(instance.creator),
-  'list': _$JsonConverterToJson<Map<String, dynamic>, ListViewBasic>(
+  'list': ?_$JsonConverterToJson<Map<String, dynamic>, ListViewBasic>(
     instance.list,
     const ListViewBasicConverter().toJson,
   ),
-  'listItemsSample': instance.listItemsSample
+  'listItemsSample': ?instance.listItemsSample
       ?.map(const ListItemViewConverter().toJson)
       .toList(),
-  'feeds': instance.feeds?.map(const GeneratorViewConverter().toJson).toList(),
-  'joinedWeekCount': instance.joinedWeekCount,
-  'joinedAllTimeCount': instance.joinedAllTimeCount,
-  'labels': instance.labels?.map(const LabelConverter().toJson).toList(),
+  'feeds': ?instance.feeds?.map(const GeneratorViewConverter().toJson).toList(),
+  'joinedWeekCount': ?instance.joinedWeekCount,
+  'joinedAllTimeCount': ?instance.joinedAllTimeCount,
+  'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
   'indexedAt': instance.indexedAt.toIso8601String(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

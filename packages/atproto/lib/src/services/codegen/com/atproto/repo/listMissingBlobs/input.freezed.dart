@@ -208,8 +208,8 @@ return $default(_that.limit,_that.cursor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RepoListMissingBlobsInput implements RepoListMissingBlobsInput {
   const _RepoListMissingBlobsInput({this.limit = 500, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoListMissingBlobsInput.fromJson(Map<String, dynamic> json) => _$RepoListMissingBlobsInputFromJson(json);

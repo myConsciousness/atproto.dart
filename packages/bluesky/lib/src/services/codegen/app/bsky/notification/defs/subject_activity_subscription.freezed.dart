@@ -218,8 +218,8 @@ return $default(_that.$type,_that.subject,_that.activitySubscription,_that.$unkn
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SubjectActivitySubscription implements SubjectActivitySubscription {
   const _SubjectActivitySubscription({this.$type = 'app.bsky.notification.defs#subjectActivitySubscription', required this.subject, @ActivitySubscriptionConverter() required this.activitySubscription, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SubjectActivitySubscription.fromJson(Map<String, dynamic> json) => _$SubjectActivitySubscriptionFromJson(json);

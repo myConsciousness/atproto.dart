@@ -27,5 +27,5 @@ Map<String, dynamic> _$AdminUpdateAccountHandleInputToJson(
 ) => <String, dynamic>{
   'did': instance.did,
   'handle': instance.handle,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class SetAddValuesInput with _$SetAddValuesInput {
   static const knownProps = <String>['name', 'values'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SetAddValuesInput({
     /// Name of the set to add values to
     required String name,

@@ -22,6 +22,7 @@ part 'personal_details_pref.g.dart';
 abstract class PersonalDetailsPref with _$PersonalDetailsPref {
   static const knownProps = <String>['birthDate'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory PersonalDetailsPref({
     @Default('app.bsky.actor.defs#personalDetailsPref') String $type,
 

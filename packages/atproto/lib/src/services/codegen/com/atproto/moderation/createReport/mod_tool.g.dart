@@ -31,6 +31,6 @@ _ModTool _$ModToolFromJson(Map json) =>
 Map<String, dynamic> _$ModToolToJson(_ModTool instance) => <String, dynamic>{
   r'$type': instance.$type,
   'name': instance.name,
-  'meta': instance.meta,
-  r'$unknown': instance.$unknown,
+  'meta': ?instance.meta,
+  r'$unknown': ?instance.$unknown,
 };

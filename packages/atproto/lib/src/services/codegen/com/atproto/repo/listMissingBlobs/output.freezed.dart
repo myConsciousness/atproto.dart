@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.blobs,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RepoListMissingBlobsOutput implements RepoListMissingBlobsOutput {
   const _RepoListMissingBlobsOutput({this.cursor, @RecordBlobConverter() required final  List<RecordBlob> blobs, final  Map<String, dynamic>? $unknown}): _blobs = blobs,_$unknown = $unknown;
   factory _RepoListMissingBlobsOutput.fromJson(Map<String, dynamic> json) => _$RepoListMissingBlobsOutputFromJson(json);

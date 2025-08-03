@@ -26,5 +26,5 @@ Map<String, dynamic> _$ServerConfirmEmailInputToJson(
 ) => <String, dynamic>{
   'email': instance.email,
   'token': instance.token,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

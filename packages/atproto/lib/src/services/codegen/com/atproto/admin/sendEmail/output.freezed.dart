@@ -207,8 +207,8 @@ return $default(_that.sent,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AdminSendEmailOutput implements AdminSendEmailOutput {
   const _AdminSendEmailOutput({required this.sent, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AdminSendEmailOutput.fromJson(Map<String, dynamic> json) => _$AdminSendEmailOutputFromJson(json);

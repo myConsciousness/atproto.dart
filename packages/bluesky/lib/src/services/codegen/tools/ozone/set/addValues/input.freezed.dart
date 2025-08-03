@@ -209,8 +209,8 @@ return $default(_that.name,_that.values,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SetAddValuesInput implements SetAddValuesInput {
   const _SetAddValuesInput({required this.name, required final  List<String> values, final  Map<String, dynamic>? $unknown}): _values = values,_$unknown = $unknown;
   factory _SetAddValuesInput.fromJson(Map<String, dynamic> json) => _$SetAddValuesInputFromJson(json);

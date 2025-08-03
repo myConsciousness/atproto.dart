@@ -26,6 +26,7 @@ abstract class UnspeccedSearchActorsSkeletonOutput
     with _$UnspeccedSearchActorsSkeletonOutput {
   static const knownProps = <String>['cursor', 'hitsTotal', 'actors'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedSearchActorsSkeletonOutput({
     String? cursor,
 

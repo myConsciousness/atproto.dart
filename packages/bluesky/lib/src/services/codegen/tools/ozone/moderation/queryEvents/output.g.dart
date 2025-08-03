@@ -33,7 +33,7 @@ _ModerationQueryEventsOutput _$ModerationQueryEventsOutputFromJson(Map json) =>
 Map<String, dynamic> _$ModerationQueryEventsOutputToJson(
   _ModerationQueryEventsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'events': instance.events.map(const ModEventViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

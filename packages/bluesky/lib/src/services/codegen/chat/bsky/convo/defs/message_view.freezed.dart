@@ -236,8 +236,8 @@ return $default(_that.$type,_that.id,_that.rev,_that.text,_that.facets,_that.emb
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _MessageView implements MessageView {
   const _MessageView({this.$type = 'chat.bsky.convo.defs#messageView', required this.id, required this.rev, required this.text, @RichtextFacetConverter() final  List<RichtextFacet>? facets, @UMessageViewEmbedConverter() this.embed, @ReactionViewConverter() final  List<ReactionView>? reactions, @MessageViewSenderConverter() required this.sender, required this.sentAt, final  Map<String, dynamic>? $unknown}): _facets = facets,_reactions = reactions,_$unknown = $unknown;
   factory _MessageView.fromJson(Map<String, dynamic> json) => _$MessageViewFromJson(json);

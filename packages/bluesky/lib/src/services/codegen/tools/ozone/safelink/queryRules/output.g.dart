@@ -33,7 +33,7 @@ _SafelinkQueryRulesOutput _$SafelinkQueryRulesOutputFromJson(Map json) =>
 Map<String, dynamic> _$SafelinkQueryRulesOutputToJson(
   _SafelinkQueryRulesOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'rules': instance.rules.map(const UrlRuleConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

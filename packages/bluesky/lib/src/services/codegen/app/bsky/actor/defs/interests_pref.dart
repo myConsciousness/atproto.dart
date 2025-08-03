@@ -22,6 +22,7 @@ part 'interests_pref.g.dart';
 abstract class InterestsPref with _$InterestsPref {
   static const knownProps = <String>['tags'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory InterestsPref({
     @Default('app.bsky.actor.defs#interestsPref') String $type,
     required List<String> tags,

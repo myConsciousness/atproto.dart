@@ -23,6 +23,7 @@ abstract class IdentityResolveIdentityInput
     with _$IdentityResolveIdentityInput {
   static const knownProps = <String>['identifier'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory IdentityResolveIdentityInput({
     /// Handle or DID to resolve.
     required String identifier,

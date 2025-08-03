@@ -36,5 +36,5 @@ Map<String, dynamic> _$RepoListRecordsRecordToJson(
   'uri': instance.uri,
   'cid': instance.cid,
   'value': instance.value,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

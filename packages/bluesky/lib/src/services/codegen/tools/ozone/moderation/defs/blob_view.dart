@@ -33,6 +33,7 @@ abstract class BlobView with _$BlobView {
     'moderation',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory BlobView({
     @Default('tools.ozone.moderation.defs#blobView') String $type,
     required String cid,

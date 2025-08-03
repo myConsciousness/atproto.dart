@@ -207,8 +207,8 @@ return $default(_that.count,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _NotificationGetUnreadCountOutput implements NotificationGetUnreadCountOutput {
   const _NotificationGetUnreadCountOutput({required this.count, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationGetUnreadCountOutput.fromJson(Map<String, dynamic> json) => _$NotificationGetUnreadCountOutputFromJson(json);

@@ -23,6 +23,7 @@ abstract class ModerationGetReporterStatsInput
     with _$ModerationGetReporterStatsInput {
   static const knownProps = <String>['dids'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationGetReporterStatsInput({
     required List<String> dids,
 

@@ -30,7 +30,7 @@ Map<String, dynamic> _$RelationshipToJson(_Relationship instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'did': instance.did,
-      'following': instance.following,
-      'followedBy': instance.followedBy,
-      r'$unknown': instance.$unknown,
+      'following': ?instance.following,
+      'followedBy': ?instance.followedBy,
+      r'$unknown': ?instance.$unknown,
     };

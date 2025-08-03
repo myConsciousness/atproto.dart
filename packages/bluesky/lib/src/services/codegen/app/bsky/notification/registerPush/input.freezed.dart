@@ -221,8 +221,8 @@ return $default(_that.serviceDid,_that.token,_that.platform,_that.appId,_that.ag
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _NotificationRegisterPushInput implements NotificationRegisterPushInput {
   const _NotificationRegisterPushInput({required this.serviceDid, required this.token, @NotificationRegisterPushPlatformConverter() required this.platform, required this.appId, this.ageRestricted, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationRegisterPushInput.fromJson(Map<String, dynamic> json) => _$NotificationRegisterPushInputFromJson(json);

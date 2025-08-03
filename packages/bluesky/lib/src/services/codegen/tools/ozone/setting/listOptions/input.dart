@@ -31,6 +31,7 @@ abstract class SettingListOptionsInput with _$SettingListOptionsInput {
     'keys',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SettingListOptionsInput({
     @Default(50) int limit,
     String? cursor,

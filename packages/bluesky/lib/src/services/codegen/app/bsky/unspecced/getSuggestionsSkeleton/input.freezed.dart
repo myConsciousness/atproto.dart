@@ -212,8 +212,8 @@ return $default(_that.viewer,_that.limit,_that.cursor,_that.relativeToDid,_that.
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetSuggestionsSkeletonInput implements UnspeccedGetSuggestionsSkeletonInput {
   const _UnspeccedGetSuggestionsSkeletonInput({this.viewer, this.limit = 50, this.cursor, this.relativeToDid, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedGetSuggestionsSkeletonInput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestionsSkeletonInputFromJson(json);

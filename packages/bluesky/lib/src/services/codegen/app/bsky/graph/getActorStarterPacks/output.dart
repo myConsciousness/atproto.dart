@@ -26,6 +26,7 @@ abstract class GraphGetActorStarterPacksOutput
     with _$GraphGetActorStarterPacksOutput {
   static const knownProps = <String>['cursor', 'starterPacks'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetActorStarterPacksOutput({
     String? cursor,
     @StarterPackViewBasicConverter()

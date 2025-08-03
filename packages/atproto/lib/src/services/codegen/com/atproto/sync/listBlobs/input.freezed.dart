@@ -212,8 +212,8 @@ return $default(_that.did,_that.since,_that.limit,_that.cursor,_that.$unknown);c
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncListBlobsInput implements SyncListBlobsInput {
   const _SyncListBlobsInput({required this.did, this.since, this.limit = 500, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncListBlobsInput.fromJson(Map<String, dynamic> json) => _$SyncListBlobsInputFromJson(json);

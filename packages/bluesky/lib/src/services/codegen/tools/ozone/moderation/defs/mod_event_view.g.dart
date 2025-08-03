@@ -63,13 +63,13 @@ Map<String, dynamic> _$ModEventViewToJson(_ModEventView instance) =>
       'subjectBlobCids': instance.subjectBlobCids,
       'createdBy': instance.createdBy,
       'createdAt': instance.createdAt.toIso8601String(),
-      'creatorHandle': instance.creatorHandle,
-      'subjectHandle': instance.subjectHandle,
-      'modTool': _$JsonConverterToJson<Map<String, dynamic>, ModTool>(
+      'creatorHandle': ?instance.creatorHandle,
+      'subjectHandle': ?instance.subjectHandle,
+      'modTool': ?_$JsonConverterToJson<Map<String, dynamic>, ModTool>(
         instance.modTool,
         const ModToolConverter().toJson,
       ),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

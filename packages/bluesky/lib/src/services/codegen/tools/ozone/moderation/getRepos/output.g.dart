@@ -35,5 +35,5 @@ Map<String, dynamic> _$ModerationGetReposOutputToJson(
   'repos': instance.repos
       .map(const UModerationGetReposReposConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class VideoGetJobStatusInput with _$VideoGetJobStatusInput {
   static const knownProps = <String>['jobId'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory VideoGetJobStatusInput({
     required String jobId,
 

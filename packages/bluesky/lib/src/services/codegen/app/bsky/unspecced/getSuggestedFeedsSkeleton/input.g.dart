@@ -28,7 +28,7 @@ _$UnspeccedGetSuggestedFeedsSkeletonInputFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$UnspeccedGetSuggestedFeedsSkeletonInputToJson(
   _UnspeccedGetSuggestedFeedsSkeletonInput instance,
 ) => <String, dynamic>{
-  'viewer': instance.viewer,
+  'viewer': ?instance.viewer,
   'limit': instance.limit,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

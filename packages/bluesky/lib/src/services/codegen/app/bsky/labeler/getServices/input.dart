@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class LabelerGetServicesInput with _$LabelerGetServicesInput {
   static const knownProps = <String>['dids', 'detailed'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LabelerGetServicesInput({
     required List<String> dids,
     @Default(false) bool detailed,

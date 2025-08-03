@@ -29,6 +29,7 @@ abstract class VerificationRevokeVerificationsOutput
     'failedRevocations',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory VerificationRevokeVerificationsOutput({
     required List<String> revokedVerifications,
     @RevokeErrorConverter() required List<RevokeError> failedRevocations,

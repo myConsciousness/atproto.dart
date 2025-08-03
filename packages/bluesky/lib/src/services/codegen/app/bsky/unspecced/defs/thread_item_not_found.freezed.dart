@@ -207,8 +207,8 @@ return $default(_that.$type,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ThreadItemNotFound implements ThreadItemNotFound {
   const _ThreadItemNotFound({this.$type = 'app.bsky.unspecced.defs#threadItemNotFound', final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ThreadItemNotFound.fromJson(Map<String, dynamic> json) => _$ThreadItemNotFoundFromJson(json);

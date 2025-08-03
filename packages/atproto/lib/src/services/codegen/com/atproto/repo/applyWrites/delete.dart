@@ -23,6 +23,7 @@ part 'delete.g.dart';
 abstract class Delete with _$Delete {
   static const knownProps = <String>['collection', 'rkey'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Delete({
     @Default('com.atproto.repo.applyWrites#delete') String $type,
     required String collection,

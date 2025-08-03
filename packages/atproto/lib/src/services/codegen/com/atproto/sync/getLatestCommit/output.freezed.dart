@@ -208,8 +208,8 @@ return $default(_that.cid,_that.rev,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncGetLatestCommitOutput implements SyncGetLatestCommitOutput {
   const _SyncGetLatestCommitOutput({required this.cid, required this.rev, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncGetLatestCommitOutput.fromJson(Map<String, dynamic> json) => _$SyncGetLatestCommitOutputFromJson(json);

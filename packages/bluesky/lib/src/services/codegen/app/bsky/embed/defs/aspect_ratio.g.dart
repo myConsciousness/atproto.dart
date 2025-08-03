@@ -30,5 +30,5 @@ Map<String, dynamic> _$AspectRatioToJson(_AspectRatio instance) =>
       r'$type': instance.$type,
       'width': instance.width,
       'height': instance.height,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

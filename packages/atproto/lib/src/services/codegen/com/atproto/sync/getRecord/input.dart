@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class SyncGetRecordInput with _$SyncGetRecordInput {
   static const knownProps = <String>['did', 'collection', 'rkey'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncGetRecordInput({
     /// The DID of the repo.
     required String did,

@@ -227,8 +227,8 @@ return $default(_that.handle,_that.did,_that.email,_that.emailConfirmed,_that.em
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerGetSessionOutput implements ServerGetSessionOutput {
   const _ServerGetSessionOutput({required this.handle, required this.did, this.email, this.emailConfirmed, this.emailAuthFactor, final  Map<String, dynamic>? didDoc, this.active, @ServerGetSessionStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_$unknown = $unknown;
   factory _ServerGetSessionOutput.fromJson(Map<String, dynamic> json) => _$ServerGetSessionOutputFromJson(json);

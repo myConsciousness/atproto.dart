@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ServerConfirmEmailInput with _$ServerConfirmEmailInput {
   static const knownProps = <String>['email', 'token'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerConfirmEmailInput({
     required String email,
     required String token,

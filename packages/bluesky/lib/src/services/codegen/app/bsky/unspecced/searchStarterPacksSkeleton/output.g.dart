@@ -38,10 +38,10 @@ _$UnspeccedSearchStarterPacksSkeletonOutputFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$UnspeccedSearchStarterPacksSkeletonOutputToJson(
   _UnspeccedSearchStarterPacksSkeletonOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
-  'hitsTotal': instance.hitsTotal,
+  'cursor': ?instance.cursor,
+  'hitsTotal': ?instance.hitsTotal,
   'starterPacks': instance.starterPacks
       .map(const SkeletonSearchStarterPackConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

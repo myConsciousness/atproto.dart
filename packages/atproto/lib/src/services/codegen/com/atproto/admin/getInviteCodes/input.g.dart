@@ -31,13 +31,13 @@ _AdminGetInviteCodesInput _$AdminGetInviteCodesInputFromJson(Map json) =>
 Map<String, dynamic> _$AdminGetInviteCodesInputToJson(
   _AdminGetInviteCodesInput instance,
 ) => <String, dynamic>{
-  'sort': _$JsonConverterToJson<String, AdminGetInviteCodesSort>(
+  'sort': ?_$JsonConverterToJson<String, AdminGetInviteCodesSort>(
     instance.sort,
     const AdminGetInviteCodesSortConverter().toJson,
   ),
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

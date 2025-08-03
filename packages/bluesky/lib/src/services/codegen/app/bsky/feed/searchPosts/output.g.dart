@@ -34,8 +34,8 @@ _FeedSearchPostsOutput _$FeedSearchPostsOutputFromJson(Map json) =>
 Map<String, dynamic> _$FeedSearchPostsOutputToJson(
   _FeedSearchPostsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
-  'hitsTotal': instance.hitsTotal,
+  'cursor': ?instance.cursor,
+  'hitsTotal': ?instance.hitsTotal,
   'posts': instance.posts.map(const PostViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

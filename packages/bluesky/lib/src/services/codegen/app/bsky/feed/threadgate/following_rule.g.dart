@@ -24,4 +24,7 @@ _FollowingRule _$FollowingRuleFromJson(Map json) =>
     });
 
 Map<String, dynamic> _$FollowingRuleToJson(_FollowingRule instance) =>
-    <String, dynamic>{r'$type': instance.$type, r'$unknown': instance.$unknown};
+    <String, dynamic>{
+      r'$type': instance.$type,
+      r'$unknown': ?instance.$unknown,
+    };

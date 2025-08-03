@@ -22,6 +22,7 @@ part 'repo.g.dart';
 abstract class Repo with _$Repo {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Repo({
     @Default('com.atproto.sync.listReposByCollection#repo') String $type,
     required String did,

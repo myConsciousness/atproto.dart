@@ -25,6 +25,7 @@ part 'filterable_preference.g.dart';
 abstract class FilterablePreference with _$FilterablePreference {
   static const knownProps = <String>['include', 'list', 'push'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FilterablePreference({
     @Default('app.bsky.notification.defs#filterablePreference') String $type,
     @FilterablePreferenceIncludeConverter()

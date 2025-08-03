@@ -35,6 +35,6 @@ _SetQuerySetsOutput _$SetQuerySetsOutputFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$SetQuerySetsOutputToJson(_SetQuerySetsOutput instance) =>
     <String, dynamic>{
       'sets': instance.sets.map(const SetViewConverter().toJson).toList(),
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
+      'cursor': ?instance.cursor,
+      r'$unknown': ?instance.$unknown,
     };

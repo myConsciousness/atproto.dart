@@ -46,17 +46,17 @@ _MutedWord _$MutedWordFromJson(Map json) => $checkedCreate('_MutedWord', json, (
 Map<String, dynamic> _$MutedWordToJson(_MutedWord instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'id': instance.id,
+      'id': ?instance.id,
       'value': instance.value,
       'targets': instance.targets
           .map(const MutedWordTargetConverter().toJson)
           .toList(),
-      'actorTarget': _$JsonConverterToJson<String, MutedWordActorTarget>(
+      'actorTarget': ?_$JsonConverterToJson<String, MutedWordActorTarget>(
         instance.actorTarget,
         const MutedWordActorTargetConverter().toJson,
       ),
-      'expiresAt': instance.expiresAt?.toIso8601String(),
-      r'$unknown': instance.$unknown,
+      'expiresAt': ?instance.expiresAt?.toIso8601String(),
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

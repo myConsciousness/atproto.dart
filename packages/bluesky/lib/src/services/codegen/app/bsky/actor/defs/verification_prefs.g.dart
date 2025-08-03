@@ -28,5 +28,5 @@ Map<String, dynamic> _$VerificationPrefsToJson(_VerificationPrefs instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'hideBadges': instance.hideBadges,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

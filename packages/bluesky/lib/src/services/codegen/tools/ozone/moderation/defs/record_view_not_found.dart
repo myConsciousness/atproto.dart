@@ -22,6 +22,7 @@ part 'record_view_not_found.g.dart';
 abstract class RecordViewNotFound with _$RecordViewNotFound {
   static const knownProps = <String>['uri'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RecordViewNotFound({
     @Default('tools.ozone.moderation.defs#recordViewNotFound') String $type,
     required String uri,

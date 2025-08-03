@@ -41,5 +41,5 @@ Map<String, dynamic> _$ResultUnavailableToJson(_ResultUnavailable instance) =>
       'suggestions': instance.suggestions
           .map(const SuggestionConverter().toJson)
           .toList(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

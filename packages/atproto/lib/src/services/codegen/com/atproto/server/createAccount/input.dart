@@ -32,6 +32,7 @@ abstract class ServerCreateAccountInput with _$ServerCreateAccountInput {
     'plcOp',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerCreateAccountInput({
     String? email,
 

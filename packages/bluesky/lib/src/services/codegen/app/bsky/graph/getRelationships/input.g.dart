@@ -28,6 +28,6 @@ Map<String, dynamic> _$GraphGetRelationshipsInputToJson(
   _GraphGetRelationshipsInput instance,
 ) => <String, dynamic>{
   'actor': instance.actor,
-  'others': instance.others,
-  r'$unknown': instance.$unknown,
+  'others': ?instance.others,
+  r'$unknown': ?instance.$unknown,
 };

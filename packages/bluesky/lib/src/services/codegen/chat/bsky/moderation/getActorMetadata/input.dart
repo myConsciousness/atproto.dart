@@ -23,6 +23,7 @@ abstract class ModerationGetActorMetadataInput
     with _$ModerationGetActorMetadataInput {
   static const knownProps = <String>['actor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationGetActorMetadataInput({
     required String actor,
 

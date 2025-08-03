@@ -211,8 +211,8 @@ return $default(_that.convoId,_that.messageId,_that.before,_that.after,_that.$un
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationGetMessageContextInput implements ModerationGetMessageContextInput {
   const _ModerationGetMessageContextInput({this.convoId, required this.messageId, this.before = 5, this.after = 5, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModerationGetMessageContextInput.fromJson(Map<String, dynamic> json) => _$ModerationGetMessageContextInputFromJson(json);

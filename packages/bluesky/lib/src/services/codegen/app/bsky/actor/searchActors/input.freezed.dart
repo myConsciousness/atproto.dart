@@ -210,8 +210,8 @@ return $default(_that.q,_that.limit,_that.cursor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ActorSearchActorsInput implements ActorSearchActorsInput {
   const _ActorSearchActorsInput({this.q, this.limit = 25, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ActorSearchActorsInput.fromJson(Map<String, dynamic> json) => _$ActorSearchActorsInputFromJson(json);

@@ -253,8 +253,8 @@ return $default(_that.$type,_that.text,_that.facets,_that.reply,_that.embed,_tha
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedPostRecord implements FeedPostRecord {
   const _FeedPostRecord({this.$type = 'app.bsky.feed.post', required this.text, @RichtextFacetConverter() final  List<RichtextFacet>? facets, @ReplyRefConverter() this.reply, @UFeedPostEmbedConverter() this.embed, final  List<String>? langs, @UFeedPostLabelsConverter() this.labels, final  List<String>? tags, required this.createdAt, final  Map<String, dynamic>? $unknown}): _facets = facets,_langs = langs,_tags = tags,_$unknown = $unknown;
   factory _FeedPostRecord.fromJson(Map<String, dynamic> json) => _$FeedPostRecordFromJson(json);

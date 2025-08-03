@@ -208,8 +208,8 @@ return $default(_that.rev,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoAcceptConvoOutput implements ConvoAcceptConvoOutput {
   const _ConvoAcceptConvoOutput({this.rev, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoAcceptConvoOutput.fromJson(Map<String, dynamic> json) => _$ConvoAcceptConvoOutputFromJson(json);

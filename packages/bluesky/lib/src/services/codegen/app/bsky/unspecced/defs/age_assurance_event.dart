@@ -35,6 +35,7 @@ abstract class AgeAssuranceEvent with _$AgeAssuranceEvent {
     'completeUa',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AgeAssuranceEvent({
     @Default('app.bsky.unspecced.defs#ageAssuranceEvent') String $type,
 

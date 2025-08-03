@@ -22,6 +22,7 @@ part 'mod_event_acknowledge.g.dart';
 abstract class ModEventAcknowledge with _$ModEventAcknowledge {
   static const knownProps = <String>['comment', 'acknowledgeAccountSubjects'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModEventAcknowledge({
     @Default('tools.ozone.moderation.defs#modEventAcknowledge') String $type,
     String? comment,

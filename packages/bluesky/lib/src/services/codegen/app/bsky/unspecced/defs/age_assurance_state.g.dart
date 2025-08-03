@@ -35,7 +35,7 @@ Map<String, dynamic> _$AgeAssuranceStateToJson(
   _AgeAssuranceState instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'lastInitiatedAt': instance.lastInitiatedAt?.toIso8601String(),
+  'lastInitiatedAt': ?instance.lastInitiatedAt?.toIso8601String(),
   'status': const AgeAssuranceStateStatusConverter().toJson(instance.status),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

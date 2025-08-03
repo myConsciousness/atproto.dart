@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class ModerationGetSubjectsOutput with _$ModerationGetSubjectsOutput {
   static const knownProps = <String>['subjects'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationGetSubjectsOutput({
     @SubjectViewConverter() required List<SubjectView> subjects,
 

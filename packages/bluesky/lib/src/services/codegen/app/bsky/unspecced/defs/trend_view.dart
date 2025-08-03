@@ -35,6 +35,7 @@ abstract class TrendView with _$TrendView {
     'actors',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory TrendView({
     @Default('app.bsky.unspecced.defs#trendView') String $type,
     required String topic,

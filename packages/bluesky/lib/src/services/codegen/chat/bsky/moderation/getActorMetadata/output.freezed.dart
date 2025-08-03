@@ -236,8 +236,8 @@ return $default(_that.day,_that.month,_that.all,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationGetActorMetadataOutput implements ModerationGetActorMetadataOutput {
   const _ModerationGetActorMetadataOutput({@MetadataConverter() required this.day, @MetadataConverter() required this.month, @MetadataConverter() required this.all, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModerationGetActorMetadataOutput.fromJson(Map<String, dynamic> json) => _$ModerationGetActorMetadataOutputFromJson(json);

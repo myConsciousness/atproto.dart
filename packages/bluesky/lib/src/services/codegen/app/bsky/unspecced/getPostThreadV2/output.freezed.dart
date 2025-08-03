@@ -222,8 +222,8 @@ return $default(_that.thread,_that.threadgate,_that.hasOtherReplies,_that.$unkno
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetPostThreadV2Output implements UnspeccedGetPostThreadV2Output {
   const _UnspeccedGetPostThreadV2Output({@ThreadItemConverter() required final  List<ThreadItem> thread, @ThreadgateViewConverter() this.threadgate, required this.hasOtherReplies, final  Map<String, dynamic>? $unknown}): _thread = thread,_$unknown = $unknown;
   factory _UnspeccedGetPostThreadV2Output.fromJson(Map<String, dynamic> json) => _$UnspeccedGetPostThreadV2OutputFromJson(json);

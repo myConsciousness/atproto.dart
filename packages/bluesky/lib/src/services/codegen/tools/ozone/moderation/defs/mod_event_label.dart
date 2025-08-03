@@ -28,6 +28,7 @@ abstract class ModEventLabel with _$ModEventLabel {
     'durationInHours',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModEventLabel({
     @Default('tools.ozone.moderation.defs#modEventLabel') String $type,
     String? comment,

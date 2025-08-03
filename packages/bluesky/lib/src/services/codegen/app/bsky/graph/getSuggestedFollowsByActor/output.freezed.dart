@@ -211,8 +211,8 @@ return $default(_that.suggestions,_that.isFallback,_that.recId,_that.$unknown);c
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphGetSuggestedFollowsByActorOutput implements GraphGetSuggestedFollowsByActorOutput {
   const _GraphGetSuggestedFollowsByActorOutput({@ProfileViewConverter() required final  List<ProfileView> suggestions, this.isFallback = false, this.recId, final  Map<String, dynamic>? $unknown}): _suggestions = suggestions,_$unknown = $unknown;
   factory _GraphGetSuggestedFollowsByActorOutput.fromJson(Map<String, dynamic> json) => _$GraphGetSuggestedFollowsByActorOutputFromJson(json);

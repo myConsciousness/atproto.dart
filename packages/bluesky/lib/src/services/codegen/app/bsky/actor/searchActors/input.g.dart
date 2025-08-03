@@ -25,8 +25,8 @@ _ActorSearchActorsInput _$ActorSearchActorsInputFromJson(Map json) =>
 Map<String, dynamic> _$ActorSearchActorsInputToJson(
   _ActorSearchActorsInput instance,
 ) => <String, dynamic>{
-  'q': instance.q,
+  'q': ?instance.q,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };

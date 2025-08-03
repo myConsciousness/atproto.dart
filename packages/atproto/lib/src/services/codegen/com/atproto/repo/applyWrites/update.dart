@@ -23,6 +23,7 @@ part 'update.g.dart';
 abstract class Update with _$Update {
   static const knownProps = <String>['collection', 'rkey', 'value'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Update({
     @Default('com.atproto.repo.applyWrites#update') String $type,
     required String collection,

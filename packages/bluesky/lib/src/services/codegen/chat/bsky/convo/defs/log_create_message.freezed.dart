@@ -219,8 +219,8 @@ return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.$unknown
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _LogCreateMessage implements LogCreateMessage {
   const _LogCreateMessage({this.$type = 'chat.bsky.convo.defs#logCreateMessage', required this.rev, required this.convoId, @ULogCreateMessageMessageConverter() required this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _LogCreateMessage.fromJson(Map<String, dynamic> json) => _$LogCreateMessageFromJson(json);

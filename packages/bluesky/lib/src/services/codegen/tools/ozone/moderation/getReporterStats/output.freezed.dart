@@ -207,8 +207,8 @@ return $default(_that.stats,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationGetReporterStatsOutput implements ModerationGetReporterStatsOutput {
   const _ModerationGetReporterStatsOutput({@ReporterStatsConverter() required final  List<ReporterStats> stats, final  Map<String, dynamic>? $unknown}): _stats = stats,_$unknown = $unknown;
   factory _ModerationGetReporterStatsOutput.fromJson(Map<String, dynamic> json) => _$ModerationGetReporterStatsOutputFromJson(json);

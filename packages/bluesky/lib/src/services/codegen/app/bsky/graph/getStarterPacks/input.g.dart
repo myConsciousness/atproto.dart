@@ -25,4 +25,4 @@ _GraphGetStarterPacksInput _$GraphGetStarterPacksInputFromJson(Map json) =>
 
 Map<String, dynamic> _$GraphGetStarterPacksInputToJson(
   _GraphGetStarterPacksInput instance,
-) => <String, dynamic>{'uris': instance.uris, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'uris': instance.uris, r'$unknown': ?instance.$unknown};

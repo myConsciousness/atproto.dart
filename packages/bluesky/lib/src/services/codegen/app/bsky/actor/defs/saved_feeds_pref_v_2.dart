@@ -25,6 +25,7 @@ part 'saved_feeds_pref_v_2.g.dart';
 abstract class SavedFeedsPrefV2 with _$SavedFeedsPrefV2 {
   static const knownProps = <String>['items'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SavedFeedsPrefV2({
     @Default('app.bsky.actor.defs#savedFeedsPrefV2') String $type,
     @SavedFeedConverter() required List<SavedFeed> items,

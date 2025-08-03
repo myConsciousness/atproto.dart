@@ -30,7 +30,7 @@ Map<String, dynamic> _$SignatureSearchAccountsInputToJson(
   _SignatureSearchAccountsInput instance,
 ) => <String, dynamic>{
   'values': instance.values,
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'limit': instance.limit,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

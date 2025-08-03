@@ -208,8 +208,8 @@ return $default(_that.sets,_that.cursor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SetQuerySetsOutput implements SetQuerySetsOutput {
   const _SetQuerySetsOutput({@SetViewConverter() required final  List<SetView> sets, this.cursor, final  Map<String, dynamic>? $unknown}): _sets = sets,_$unknown = $unknown;
   factory _SetQuerySetsOutput.fromJson(Map<String, dynamic> json) => _$SetQuerySetsOutputFromJson(json);

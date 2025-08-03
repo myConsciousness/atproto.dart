@@ -26,8 +26,8 @@ _FeedGetQuotesInput _$FeedGetQuotesInputFromJson(Map json) =>
 Map<String, dynamic> _$FeedGetQuotesInputToJson(_FeedGetQuotesInput instance) =>
     <String, dynamic>{
       'uri': instance.uri,
-      'cid': instance.cid,
+      'cid': ?instance.cid,
       'limit': instance.limit,
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
+      'cursor': ?instance.cursor,
+      r'$unknown': ?instance.$unknown,
     };

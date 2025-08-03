@@ -37,6 +37,7 @@ abstract class SubjectView with _$SubjectView {
     'record',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SubjectView({
     @Default('tools.ozone.moderation.defs#subjectView') String $type,
     @SubjectTypeConverter() required SubjectType type,

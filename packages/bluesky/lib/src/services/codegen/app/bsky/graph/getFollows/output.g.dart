@@ -39,7 +39,7 @@ Map<String, dynamic> _$GraphGetFollowsOutputToJson(
   _GraphGetFollowsOutput instance,
 ) => <String, dynamic>{
   'subject': const ProfileViewConverter().toJson(instance.subject),
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'follows': instance.follows.map(const ProfileViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

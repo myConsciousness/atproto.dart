@@ -209,8 +209,8 @@ return $default(_that.did,_that.cursor,_that.limit,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SignatureFindRelatedAccountsInput implements SignatureFindRelatedAccountsInput {
   const _SignatureFindRelatedAccountsInput({required this.did, this.cursor, this.limit = 50, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SignatureFindRelatedAccountsInput.fromJson(Map<String, dynamic> json) => _$SignatureFindRelatedAccountsInputFromJson(json);

@@ -22,6 +22,7 @@ part 'identity_info.g.dart';
 abstract class IdentityInfo with _$IdentityInfo {
   static const knownProps = <String>['did', 'handle', 'didDoc'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory IdentityInfo({
     @Default('com.atproto.identity.defs#identityInfo') String $type,
     required String did,

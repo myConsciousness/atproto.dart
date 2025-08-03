@@ -26,6 +26,7 @@ abstract class UnspeccedGetTaggedSuggestionsOutput
     with _$UnspeccedGetTaggedSuggestionsOutput {
   static const knownProps = <String>['suggestions'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetTaggedSuggestionsOutput({
     @SuggestionConverter() required List<Suggestion> suggestions,
 

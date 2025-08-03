@@ -57,5 +57,5 @@ Map<String, dynamic> _$VerificationStateToJson(_VerificationState instance) =>
           const VerificationStateTrustedVerifierStatusConverter().toJson(
             instance.trustedVerifierStatus,
           ),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

@@ -27,5 +27,5 @@ Map<String, dynamic> _$RepoUploadBlobOutputToJson(
   _RepoUploadBlobOutput instance,
 ) => <String, dynamic>{
   'blob': const BlobConverter().toJson(instance.blob),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

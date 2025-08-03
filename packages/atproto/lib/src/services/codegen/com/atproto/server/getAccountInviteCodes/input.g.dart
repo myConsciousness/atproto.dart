@@ -32,5 +32,5 @@ Map<String, dynamic> _$ServerGetAccountInviteCodesInputToJson(
 ) => <String, dynamic>{
   'includeUsed': instance.includeUsed,
   'createAvailable': instance.createAvailable,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

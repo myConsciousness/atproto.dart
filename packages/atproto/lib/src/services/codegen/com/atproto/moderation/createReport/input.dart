@@ -32,6 +32,7 @@ abstract class ModerationCreateReportInput with _$ModerationCreateReportInput {
     'modTool',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationCreateReportInput({
     /// Indicates the broad category of violation the report is for.
     @ReasonTypeConverter() required ReasonType reasonType,

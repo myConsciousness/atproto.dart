@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.records,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RepoListRecordsOutput implements RepoListRecordsOutput {
   const _RepoListRecordsOutput({this.cursor, @RepoListRecordsRecordConverter() required final  List<RepoListRecordsRecord> records, final  Map<String, dynamic>? $unknown}): _records = records,_$unknown = $unknown;
   factory _RepoListRecordsOutput.fromJson(Map<String, dynamic> json) => _$RepoListRecordsOutputFromJson(json);

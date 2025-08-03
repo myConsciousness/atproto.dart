@@ -22,6 +22,7 @@ part 'log_leave_convo.g.dart';
 abstract class LogLeaveConvo with _$LogLeaveConvo {
   static const knownProps = <String>['rev', 'convoId'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LogLeaveConvo({
     @Default('chat.bsky.convo.defs#logLeaveConvo') String $type,
     required String rev,

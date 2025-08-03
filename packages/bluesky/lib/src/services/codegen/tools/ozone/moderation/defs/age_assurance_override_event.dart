@@ -26,6 +26,7 @@ part 'age_assurance_override_event.g.dart';
 abstract class AgeAssuranceOverrideEvent with _$AgeAssuranceOverrideEvent {
   static const knownProps = <String>['status', 'comment'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AgeAssuranceOverrideEvent({
     @Default('tools.ozone.moderation.defs#ageAssuranceOverrideEvent')
     String $type,

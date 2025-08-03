@@ -227,8 +227,8 @@ return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.start
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SkeletonTrend implements SkeletonTrend {
   const _SkeletonTrend({this.$type = 'app.bsky.unspecced.defs#skeletonTrend', required this.topic, required this.displayName, required this.link, required this.startedAt, required this.postCount, @SkeletonTrendStatusConverter() this.status, this.category, required final  List<String> dids, final  Map<String, dynamic>? $unknown}): _dids = dids,_$unknown = $unknown;
   factory _SkeletonTrend.fromJson(Map<String, dynamic> json) => _$SkeletonTrendFromJson(json);

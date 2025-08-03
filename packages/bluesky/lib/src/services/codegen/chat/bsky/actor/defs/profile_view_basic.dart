@@ -37,6 +37,7 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
     'verification',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ProfileViewBasic({
     @Default('chat.bsky.actor.defs#profileViewBasic') String $type,
     required String did,

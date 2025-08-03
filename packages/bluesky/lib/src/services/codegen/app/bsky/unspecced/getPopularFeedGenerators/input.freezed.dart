@@ -209,8 +209,8 @@ return $default(_that.limit,_that.cursor,_that.query,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetPopularFeedGeneratorsInput implements UnspeccedGetPopularFeedGeneratorsInput {
   const _UnspeccedGetPopularFeedGeneratorsInput({this.limit = 50, this.cursor, this.query, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedGetPopularFeedGeneratorsInput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetPopularFeedGeneratorsInputFromJson(json);

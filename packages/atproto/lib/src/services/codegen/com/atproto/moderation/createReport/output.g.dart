@@ -39,11 +39,11 @@ Map<String, dynamic> _$ModerationCreateReportOutputToJson(
 ) => <String, dynamic>{
   'id': instance.id,
   'reasonType': const ReasonTypeConverter().toJson(instance.reasonType),
-  'reason': instance.reason,
+  'reason': ?instance.reason,
   'subject': const UModerationCreateReportSubjectConverter().toJson(
     instance.subject,
   ),
   'reportedBy': instance.reportedBy,
   'createdAt': instance.createdAt.toIso8601String(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -41,6 +41,7 @@ abstract class LabelerViewDetailed with _$LabelerViewDetailed {
     'subjectCollections',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LabelerViewDetailed({
     @Default('app.bsky.labeler.defs#labelerViewDetailed') String $type,
     required String uri,

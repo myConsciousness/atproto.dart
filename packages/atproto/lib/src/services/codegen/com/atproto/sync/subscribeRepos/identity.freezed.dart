@@ -212,8 +212,8 @@ return $default(_that.$type,_that.seq,_that.did,_that.time,_that.handle,_that.$u
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _Identity implements Identity {
   const _Identity({this.$type = 'com.atproto.sync.subscribeRepos#identity', required this.seq, required this.did, required this.time, this.handle, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Identity.fromJson(Map<String, dynamic> json) => _$IdentityFromJson(json);

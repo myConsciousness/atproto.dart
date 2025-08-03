@@ -30,7 +30,7 @@ _Create _$CreateFromJson(Map json) => $checkedCreate('_Create', json, (
 Map<String, dynamic> _$CreateToJson(_Create instance) => <String, dynamic>{
   r'$type': instance.$type,
   'collection': instance.collection,
-  'rkey': instance.rkey,
+  'rkey': ?instance.rkey,
   'value': instance.value,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

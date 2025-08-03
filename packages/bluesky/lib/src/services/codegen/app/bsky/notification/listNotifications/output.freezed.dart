@@ -210,8 +210,8 @@ return $default(_that.cursor,_that.notifications,_that.priority,_that.seenAt,_th
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _NotificationListNotificationsOutput implements NotificationListNotificationsOutput {
   const _NotificationListNotificationsOutput({this.cursor, @NotificationConverter() required final  List<Notification> notifications, this.priority, this.seenAt, final  Map<String, dynamic>? $unknown}): _notifications = notifications,_$unknown = $unknown;
   factory _NotificationListNotificationsOutput.fromJson(Map<String, dynamic> json) => _$NotificationListNotificationsOutputFromJson(json);

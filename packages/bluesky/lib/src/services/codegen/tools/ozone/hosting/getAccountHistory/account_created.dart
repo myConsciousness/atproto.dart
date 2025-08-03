@@ -22,6 +22,7 @@ part 'account_created.g.dart';
 abstract class AccountCreated with _$AccountCreated {
   static const knownProps = <String>['email', 'handle'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AccountCreated({
     @Default('tools.ozone.hosting.getAccountHistory#accountCreated')
     String $type,

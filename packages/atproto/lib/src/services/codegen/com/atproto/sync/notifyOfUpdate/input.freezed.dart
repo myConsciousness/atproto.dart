@@ -208,8 +208,8 @@ return $default(_that.hostname,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncNotifyOfUpdateInput implements SyncNotifyOfUpdateInput {
   const _SyncNotifyOfUpdateInput({required this.hostname, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncNotifyOfUpdateInput.fromJson(Map<String, dynamic> json) => _$SyncNotifyOfUpdateInputFromJson(json);

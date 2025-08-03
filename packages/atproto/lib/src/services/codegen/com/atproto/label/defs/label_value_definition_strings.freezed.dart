@@ -213,8 +213,8 @@ return $default(_that.$type,_that.lang,_that.name,_that.description,_that.$unkno
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _LabelValueDefinitionStrings implements LabelValueDefinitionStrings {
   const _LabelValueDefinitionStrings({this.$type = 'com.atproto.label.defs#labelValueDefinitionStrings', required this.lang, required this.name, required this.description, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _LabelValueDefinitionStrings.fromJson(Map<String, dynamic> json) => _$LabelValueDefinitionStringsFromJson(json);

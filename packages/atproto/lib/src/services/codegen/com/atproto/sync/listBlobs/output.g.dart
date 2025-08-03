@@ -27,7 +27,7 @@ _SyncListBlobsOutput _$SyncListBlobsOutputFromJson(Map json) =>
 Map<String, dynamic> _$SyncListBlobsOutputToJson(
   _SyncListBlobsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'cids': instance.cids,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -23,6 +23,7 @@ part 'mod_event_divert.g.dart';
 abstract class ModEventDivert with _$ModEventDivert {
   static const knownProps = <String>['comment'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModEventDivert({
     @Default('tools.ozone.moderation.defs#modEventDivert') String $type,
     String? comment,

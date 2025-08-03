@@ -32,6 +32,7 @@ abstract class ActorStatusRecord with _$ActorStatusRecord {
     'createdAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ActorStatusRecord({
     @Default('app.bsky.actor.status') String $type,
 

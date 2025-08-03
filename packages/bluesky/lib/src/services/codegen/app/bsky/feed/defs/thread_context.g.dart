@@ -27,6 +27,6 @@ _ThreadContext _$ThreadContextFromJson(Map json) =>
 Map<String, dynamic> _$ThreadContextToJson(_ThreadContext instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'rootAuthorLike': instance.rootAuthorLike,
-      r'$unknown': instance.$unknown,
+      'rootAuthorLike': ?instance.rootAuthorLike,
+      r'$unknown': ?instance.$unknown,
     };

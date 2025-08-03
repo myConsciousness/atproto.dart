@@ -33,7 +33,7 @@ _RepoListMissingBlobsOutput _$RepoListMissingBlobsOutputFromJson(Map json) =>
 Map<String, dynamic> _$RepoListMissingBlobsOutputToJson(
   _RepoListMissingBlobsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'blobs': instance.blobs.map(const RecordBlobConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

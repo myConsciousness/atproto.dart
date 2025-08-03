@@ -208,8 +208,8 @@ return $default(_that.$type,_that.tags,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _InterestsPref implements InterestsPref {
   const _InterestsPref({this.$type = 'app.bsky.actor.defs#interestsPref', required final  List<String> tags, final  Map<String, dynamic>? $unknown}): _tags = tags,_$unknown = $unknown;
   factory _InterestsPref.fromJson(Map<String, dynamic> json) => _$InterestsPrefFromJson(json);

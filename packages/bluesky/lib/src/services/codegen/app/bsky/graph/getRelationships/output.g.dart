@@ -32,9 +32,9 @@ _GraphGetRelationshipsOutput _$GraphGetRelationshipsOutputFromJson(Map json) =>
 Map<String, dynamic> _$GraphGetRelationshipsOutputToJson(
   _GraphGetRelationshipsOutput instance,
 ) => <String, dynamic>{
-  'actor': instance.actor,
+  'actor': ?instance.actor,
   'relationships': instance.relationships
       .map(const UGraphGetRelationshipsRelationshipsConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -25,6 +25,7 @@ part 'deleted_message_view.g.dart';
 abstract class DeletedMessageView with _$DeletedMessageView {
   static const knownProps = <String>['id', 'rev', 'sender', 'sentAt'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory DeletedMessageView({
     @Default('chat.bsky.convo.defs#deletedMessageView') String $type,
     required String id,

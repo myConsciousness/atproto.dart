@@ -37,12 +37,12 @@ _ThreadViewPref _$ThreadViewPrefFromJson(Map json) =>
 Map<String, dynamic> _$ThreadViewPrefToJson(_ThreadViewPref instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'sort': _$JsonConverterToJson<String, ThreadViewPrefSort>(
+      'sort': ?_$JsonConverterToJson<String, ThreadViewPrefSort>(
         instance.sort,
         const ThreadViewPrefSortConverter().toJson,
       ),
-      'prioritizeFollowedUsers': instance.prioritizeFollowedUsers,
-      r'$unknown': instance.$unknown,
+      'prioritizeFollowedUsers': ?instance.prioritizeFollowedUsers,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -40,5 +40,5 @@ Map<String, dynamic> _$ModerationGetActorMetadataOutputToJson(
   'day': const MetadataConverter().toJson(instance.day),
   'month': const MetadataConverter().toJson(instance.month),
   'all': const MetadataConverter().toJson(instance.all),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -62,10 +62,10 @@ Map<String, dynamic> _$NotificationToJson(_Notification instance) =>
       'cid': instance.cid,
       'author': const ProfileViewConverter().toJson(instance.author),
       'reason': const NotificationReasonConverter().toJson(instance.reason),
-      'reasonSubject': instance.reasonSubject,
+      'reasonSubject': ?instance.reasonSubject,
       'record': instance.record,
       'isRead': instance.isRead,
       'indexedAt': instance.indexedAt.toIso8601String(),
-      'labels': instance.labels?.map(const LabelConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
+      'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
+      r'$unknown': ?instance.$unknown,
     };

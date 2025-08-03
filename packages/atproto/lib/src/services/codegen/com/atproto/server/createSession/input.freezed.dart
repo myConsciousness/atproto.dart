@@ -212,8 +212,8 @@ return $default(_that.identifier,_that.password,_that.authFactorToken,_that.allo
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerCreateSessionInput implements ServerCreateSessionInput {
   const _ServerCreateSessionInput({required this.identifier, required this.password, this.authFactorToken, this.allowTakendown, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerCreateSessionInput.fromJson(Map<String, dynamic> json) => _$ServerCreateSessionInputFromJson(json);

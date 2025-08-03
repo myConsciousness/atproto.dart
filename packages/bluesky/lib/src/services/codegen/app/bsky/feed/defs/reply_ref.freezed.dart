@@ -241,8 +241,8 @@ return $default(_that.$type,_that.root,_that.parent,_that.grandparentAuthor,_tha
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ReplyRef implements ReplyRef {
   const _ReplyRef({this.$type = 'app.bsky.feed.defs#replyRef', @UReplyRefRootConverter() required this.root, @UReplyRefParentConverter() required this.parent, @ProfileViewBasicConverter() this.grandparentAuthor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ReplyRef.fromJson(Map<String, dynamic> json) => _$ReplyRefFromJson(json);

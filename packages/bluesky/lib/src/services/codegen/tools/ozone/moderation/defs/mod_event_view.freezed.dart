@@ -246,8 +246,8 @@ return $default(_that.$type,_that.id,_that.event,_that.subject,_that.subjectBlob
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModEventView implements ModEventView {
   const _ModEventView({this.$type = 'tools.ozone.moderation.defs#modEventView', required this.id, @UModEventViewEventConverter() required this.event, @UModEventViewSubjectConverter() required this.subject, required final  List<String> subjectBlobCids, required this.createdBy, required this.createdAt, this.creatorHandle, this.subjectHandle, @ModToolConverter() this.modTool, final  Map<String, dynamic>? $unknown}): _subjectBlobCids = subjectBlobCids,_$unknown = $unknown;
   factory _ModEventView.fromJson(Map<String, dynamic> json) => _$ModEventViewFromJson(json);

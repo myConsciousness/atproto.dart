@@ -209,8 +209,8 @@ return $default(_that.activated,_that.placeInQueue,_that.estimatedTimeMs,_that.$
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _TempCheckSignupQueueOutput implements TempCheckSignupQueueOutput {
   const _TempCheckSignupQueueOutput({required this.activated, this.placeInQueue, this.estimatedTimeMs, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _TempCheckSignupQueueOutput.fromJson(Map<String, dynamic> json) => _$TempCheckSignupQueueOutputFromJson(json);

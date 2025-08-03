@@ -223,8 +223,8 @@ return $default(_that.$type,_that.totalReports,_that.reportedCount,_that.escalat
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RecordsStats implements RecordsStats {
   const _RecordsStats({this.$type = 'tools.ozone.moderation.defs#recordsStats', this.totalReports, this.reportedCount, this.escalatedCount, this.appealedCount, this.subjectCount, this.pendingCount, this.processedCount, this.takendownCount, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RecordsStats.fromJson(Map<String, dynamic> json) => _$RecordsStatsFromJson(json);

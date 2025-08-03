@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class FeedGetLikesOutput with _$FeedGetLikesOutput {
   static const knownProps = <String>['uri', 'cid', 'cursor', 'likes'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetLikesOutput({
     required String uri,
     String? cid,

@@ -207,8 +207,8 @@ return $default(_that.handle,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _TempAddReservedHandleInput implements TempAddReservedHandleInput {
   const _TempAddReservedHandleInput({required this.handle, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _TempAddReservedHandleInput.fromJson(Map<String, dynamic> json) => _$TempAddReservedHandleInputFromJson(json);

@@ -207,8 +207,8 @@ return $default(_that.limit,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetSuggestedFeedsInput implements UnspeccedGetSuggestedFeedsInput {
   const _UnspeccedGetSuggestedFeedsInput({this.limit = 10, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedGetSuggestedFeedsInput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestedFeedsInputFromJson(json);

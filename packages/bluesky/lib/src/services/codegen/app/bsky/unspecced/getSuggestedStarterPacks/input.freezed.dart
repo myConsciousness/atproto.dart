@@ -207,8 +207,8 @@ return $default(_that.limit,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetSuggestedStarterPacksInput implements UnspeccedGetSuggestedStarterPacksInput {
   const _UnspeccedGetSuggestedStarterPacksInput({this.limit = 10, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedGetSuggestedStarterPacksInput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestedStarterPacksInputFromJson(json);

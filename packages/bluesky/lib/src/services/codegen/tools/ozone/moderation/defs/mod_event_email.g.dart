@@ -30,7 +30,7 @@ Map<String, dynamic> _$ModEventEmailToJson(_ModEventEmail instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'subjectLine': instance.subjectLine,
-      'content': instance.content,
-      'comment': instance.comment,
-      r'$unknown': instance.$unknown,
+      'content': ?instance.content,
+      'comment': ?instance.comment,
+      r'$unknown': ?instance.$unknown,
     };

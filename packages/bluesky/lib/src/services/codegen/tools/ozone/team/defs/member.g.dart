@@ -49,16 +49,16 @@ _Member _$MemberFromJson(Map json) => $checkedCreate('_Member', json, (
 Map<String, dynamic> _$MemberToJson(_Member instance) => <String, dynamic>{
   r'$type': instance.$type,
   'did': instance.did,
-  'disabled': instance.disabled,
-  'profile': _$JsonConverterToJson<Map<String, dynamic>, ProfileViewDetailed>(
+  'disabled': ?instance.disabled,
+  'profile': ?_$JsonConverterToJson<Map<String, dynamic>, ProfileViewDetailed>(
     instance.profile,
     const ProfileViewDetailedConverter().toJson,
   ),
-  'createdAt': instance.createdAt?.toIso8601String(),
-  'updatedAt': instance.updatedAt?.toIso8601String(),
-  'lastUpdatedBy': instance.lastUpdatedBy,
+  'createdAt': ?instance.createdAt?.toIso8601String(),
+  'updatedAt': ?instance.updatedAt?.toIso8601String(),
+  'lastUpdatedBy': ?instance.lastUpdatedBy,
   'role': const MemberRoleConverter().toJson(instance.role),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

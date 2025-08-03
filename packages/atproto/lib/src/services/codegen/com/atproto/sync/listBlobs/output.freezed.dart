@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.cids,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncListBlobsOutput implements SyncListBlobsOutput {
   const _SyncListBlobsOutput({this.cursor, required final  List<String> cids, final  Map<String, dynamic>? $unknown}): _cids = cids,_$unknown = $unknown;
   factory _SyncListBlobsOutput.fromJson(Map<String, dynamic> json) => _$SyncListBlobsOutputFromJson(json);

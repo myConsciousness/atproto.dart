@@ -30,5 +30,5 @@ Map<String, dynamic> _$RepoStrongRefToJson(_RepoStrongRef instance) =>
       r'$type': instance.$type,
       'uri': instance.uri,
       'cid': instance.cid,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

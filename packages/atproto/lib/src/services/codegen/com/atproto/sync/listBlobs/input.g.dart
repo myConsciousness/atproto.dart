@@ -26,8 +26,8 @@ _SyncListBlobsInput _$SyncListBlobsInputFromJson(Map json) =>
 Map<String, dynamic> _$SyncListBlobsInputToJson(_SyncListBlobsInput instance) =>
     <String, dynamic>{
       'did': instance.did,
-      'since': instance.since,
+      'since': ?instance.since,
       'limit': instance.limit,
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
+      'cursor': ?instance.cursor,
+      r'$unknown': ?instance.$unknown,
     };

@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class AdminGetAccountInfoInput with _$AdminGetAccountInfoInput {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdminGetAccountInfoInput({
     required String did,
 

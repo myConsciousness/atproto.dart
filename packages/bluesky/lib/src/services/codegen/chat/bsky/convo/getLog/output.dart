@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class ConvoGetLogOutput with _$ConvoGetLogOutput {
   static const knownProps = <String>['cursor', 'logs'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoGetLogOutput({
     String? cursor,
     @UConvoGetLogLogsConverter() required List<UConvoGetLogLogs> logs,

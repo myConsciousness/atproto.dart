@@ -30,7 +30,7 @@ _AccountCreated _$AccountCreatedFromJson(Map json) =>
 Map<String, dynamic> _$AccountCreatedToJson(_AccountCreated instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'email': instance.email,
-      'handle': instance.handle,
-      r'$unknown': instance.$unknown,
+      'email': ?instance.email,
+      'handle': ?instance.handle,
+      r'$unknown': ?instance.$unknown,
     };

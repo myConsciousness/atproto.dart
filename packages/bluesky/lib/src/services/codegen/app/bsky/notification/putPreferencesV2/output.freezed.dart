@@ -216,8 +216,8 @@ return $default(_that.preferences,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _NotificationPutPreferencesV2Output implements NotificationPutPreferencesV2Output {
   const _NotificationPutPreferencesV2Output({@PreferencesConverter() required this.preferences, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationPutPreferencesV2Output.fromJson(Map<String, dynamic> json) => _$NotificationPutPreferencesV2OutputFromJson(json);

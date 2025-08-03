@@ -32,5 +32,5 @@ Map<String, dynamic> _$VideoDetailsToJson(_VideoDetails instance) =>
       'width': instance.width,
       'height': instance.height,
       'length': instance.length,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

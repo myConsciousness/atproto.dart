@@ -242,8 +242,8 @@ return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedSearchPostsSkeletonInput implements UnspeccedSearchPostsSkeletonInput {
   const _UnspeccedSearchPostsSkeletonInput({required this.q, @UnspeccedSearchPostsSkeletonSortConverter() this.sort, this.since, this.until, this.mentions, this.author, this.lang, this.domain, @AtUriConverter() this.url, final  List<String>? tag, this.viewer, this.limit = 25, this.cursor, final  Map<String, dynamic>? $unknown}): _tag = tag,_$unknown = $unknown;
   factory _UnspeccedSearchPostsSkeletonInput.fromJson(Map<String, dynamic> json) => _$UnspeccedSearchPostsSkeletonInputFromJson(json);

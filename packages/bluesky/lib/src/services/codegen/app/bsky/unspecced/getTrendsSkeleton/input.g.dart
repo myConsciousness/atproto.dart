@@ -26,7 +26,7 @@ _UnspeccedGetTrendsSkeletonInput _$UnspeccedGetTrendsSkeletonInputFromJson(
 Map<String, dynamic> _$UnspeccedGetTrendsSkeletonInputToJson(
   _UnspeccedGetTrendsSkeletonInput instance,
 ) => <String, dynamic>{
-  'viewer': instance.viewer,
+  'viewer': ?instance.viewer,
   'limit': instance.limit,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

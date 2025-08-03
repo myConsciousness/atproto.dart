@@ -209,8 +209,8 @@ return $default(_that.cursor,_that.rules,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SafelinkQueryRulesOutput implements SafelinkQueryRulesOutput {
   const _SafelinkQueryRulesOutput({this.cursor, @UrlRuleConverter() required final  List<UrlRule> rules, final  Map<String, dynamic>? $unknown}): _rules = rules,_$unknown = $unknown;
   factory _SafelinkQueryRulesOutput.fromJson(Map<String, dynamic> json) => _$SafelinkQueryRulesOutputFromJson(json);

@@ -210,8 +210,8 @@ return $default(_that.rotationKeys,_that.alsoKnownAs,_that.verificationMethods,_
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _IdentityGetRecommendedDidCredentialsOutput implements IdentityGetRecommendedDidCredentialsOutput {
   const _IdentityGetRecommendedDidCredentialsOutput({final  List<String>? rotationKeys, final  List<String>? alsoKnownAs, final  Map<String, dynamic>? verificationMethods, final  Map<String, dynamic>? services, final  Map<String, dynamic>? $unknown}): _rotationKeys = rotationKeys,_alsoKnownAs = alsoKnownAs,_verificationMethods = verificationMethods,_services = services,_$unknown = $unknown;
   factory _IdentityGetRecommendedDidCredentialsOutput.fromJson(Map<String, dynamic> json) => _$IdentityGetRecommendedDidCredentialsOutputFromJson(json);

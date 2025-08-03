@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class TeamDeleteMemberInput with _$TeamDeleteMemberInput {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory TeamDeleteMemberInput({
     required String did,
 

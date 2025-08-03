@@ -216,8 +216,8 @@ return $default(_that.name,_that.contentMarkdown,_that.subject,_that.lang,_that.
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _CommunicationCreateTemplateInput implements CommunicationCreateTemplateInput {
   const _CommunicationCreateTemplateInput({required this.name, required this.contentMarkdown, required this.subject, this.lang, this.createdBy, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _CommunicationCreateTemplateInput.fromJson(Map<String, dynamic> json) => _$CommunicationCreateTemplateInputFromJson(json);

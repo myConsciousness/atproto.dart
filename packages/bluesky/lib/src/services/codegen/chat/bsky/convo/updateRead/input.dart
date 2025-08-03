@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ConvoUpdateReadInput with _$ConvoUpdateReadInput {
   static const knownProps = <String>['convoId', 'messageId'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoUpdateReadInput({
     required String convoId,
     String? messageId,

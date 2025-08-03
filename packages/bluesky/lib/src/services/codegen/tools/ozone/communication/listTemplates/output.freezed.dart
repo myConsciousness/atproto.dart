@@ -207,8 +207,8 @@ return $default(_that.communicationTemplates,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _CommunicationListTemplatesOutput implements CommunicationListTemplatesOutput {
   const _CommunicationListTemplatesOutput({@TemplateViewConverter() required final  List<TemplateView> communicationTemplates, final  Map<String, dynamic>? $unknown}): _communicationTemplates = communicationTemplates,_$unknown = $unknown;
   factory _CommunicationListTemplatesOutput.fromJson(Map<String, dynamic> json) => _$CommunicationListTemplatesOutputFromJson(json);

@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class TempFetchLabelsOutput with _$TempFetchLabelsOutput {
   static const knownProps = <String>['labels'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory TempFetchLabelsOutput({
     @LabelConverter() required List<Label> labels,
 

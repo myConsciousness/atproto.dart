@@ -35,7 +35,7 @@ _GraphGetListsOutput _$GraphGetListsOutputFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$GraphGetListsOutputToJson(
   _GraphGetListsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'lists': instance.lists.map(const ListViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

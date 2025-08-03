@@ -207,8 +207,8 @@ return $default(_that.repos,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationGetReposOutput implements ModerationGetReposOutput {
   const _ModerationGetReposOutput({@UModerationGetReposReposConverter() required final  List<UModerationGetReposRepos> repos, final  Map<String, dynamic>? $unknown}): _repos = repos,_$unknown = $unknown;
   factory _ModerationGetReposOutput.fromJson(Map<String, dynamic> json) => _$ModerationGetReposOutputFromJson(json);

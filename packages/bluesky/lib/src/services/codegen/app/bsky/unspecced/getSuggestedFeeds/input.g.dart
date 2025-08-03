@@ -24,4 +24,7 @@ _UnspeccedGetSuggestedFeedsInput _$UnspeccedGetSuggestedFeedsInputFromJson(
 
 Map<String, dynamic> _$UnspeccedGetSuggestedFeedsInputToJson(
   _UnspeccedGetSuggestedFeedsInput instance,
-) => <String, dynamic>{'limit': instance.limit, r'$unknown': instance.$unknown};
+) => <String, dynamic>{
+  'limit': instance.limit,
+  r'$unknown': ?instance.$unknown,
+};

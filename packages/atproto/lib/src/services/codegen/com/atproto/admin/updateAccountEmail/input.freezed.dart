@@ -209,8 +209,8 @@ return $default(_that.account,_that.email,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AdminUpdateAccountEmailInput implements AdminUpdateAccountEmailInput {
   const _AdminUpdateAccountEmailInput({required this.account, required this.email, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AdminUpdateAccountEmailInput.fromJson(Map<String, dynamic> json) => _$AdminUpdateAccountEmailInputFromJson(json);

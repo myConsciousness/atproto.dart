@@ -292,8 +292,8 @@ return $default(_that.queueCount,_that.queueIndex,_that.queueSeed,_that.includeA
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationQueryStatusesInput implements ModerationQueryStatusesInput {
   const _ModerationQueryStatusesInput({this.queueCount, this.queueIndex, this.queueSeed, this.includeAllUserRecords, @AtUriConverter() this.subject, this.comment, this.reportedAfter, this.reportedBefore, this.reviewedAfter, this.hostingDeletedAfter, this.hostingDeletedBefore, this.hostingUpdatedAfter, this.hostingUpdatedBefore, final  List<String>? hostingStatuses, this.reviewedBefore, this.includeMuted, this.onlyMuted, this.reviewState, @AtUriConverter() final  List<AtUri>? ignoreSubjects, this.lastReviewedBy, this.sortField = 'lastReportedAt', this.sortDirection = 'desc', this.takendown, this.appealed, this.limit = 50, final  List<String>? tags, final  List<String>? excludeTags, this.cursor, final  List<String>? collections, @ModerationQueryStatusesSubjectTypeConverter() this.subjectType, this.minAccountSuspendCount, this.minReportedRecordsCount, this.minTakendownRecordsCount, this.minPriorityScore, @ModerationQueryStatusesAgeAssuranceStateConverter() this.ageAssuranceState, final  Map<String, dynamic>? $unknown}): _hostingStatuses = hostingStatuses,_ignoreSubjects = ignoreSubjects,_tags = tags,_excludeTags = excludeTags,_collections = collections,_$unknown = $unknown;
   factory _ModerationQueryStatusesInput.fromJson(Map<String, dynamic> json) => _$ModerationQueryStatusesInputFromJson(json);

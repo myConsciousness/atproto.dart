@@ -39,14 +39,14 @@ _RepoApplyWritesOutput _$RepoApplyWritesOutputFromJson(Map json) =>
 Map<String, dynamic> _$RepoApplyWritesOutputToJson(
   _RepoApplyWritesOutput instance,
 ) => <String, dynamic>{
-  'commit': _$JsonConverterToJson<Map<String, dynamic>, CommitMeta>(
+  'commit': ?_$JsonConverterToJson<Map<String, dynamic>, CommitMeta>(
     instance.commit,
     const CommitMetaConverter().toJson,
   ),
-  'results': instance.results
+  'results': ?instance.results
       ?.map(const URepoApplyWritesResultsConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

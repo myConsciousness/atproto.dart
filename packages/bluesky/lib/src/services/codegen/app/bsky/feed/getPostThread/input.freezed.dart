@@ -212,8 +212,8 @@ return $default(_that.uri,_that.depth,_that.parentHeight,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetPostThreadInput implements FeedGetPostThreadInput {
   const _FeedGetPostThreadInput({required this.uri, this.depth = 6, this.parentHeight = 80, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetPostThreadInput.fromJson(Map<String, dynamic> json) => _$FeedGetPostThreadInputFromJson(json);

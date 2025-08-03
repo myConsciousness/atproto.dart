@@ -37,6 +37,7 @@ abstract class Notification with _$Notification {
     'labels',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Notification({
     @Default('app.bsky.notification.listNotifications#notification')
     String $type,

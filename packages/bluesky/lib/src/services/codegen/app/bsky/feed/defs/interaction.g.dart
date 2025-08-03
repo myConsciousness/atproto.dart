@@ -36,14 +36,14 @@ _Interaction _$InteractionFromJson(Map json) =>
 Map<String, dynamic> _$InteractionToJson(_Interaction instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'item': instance.item,
-      'event': _$JsonConverterToJson<String, InteractionEvent>(
+      'item': ?instance.item,
+      'event': ?_$JsonConverterToJson<String, InteractionEvent>(
         instance.event,
         const InteractionEventConverter().toJson,
       ),
-      'feedContext': instance.feedContext,
-      'reqId': instance.reqId,
-      r'$unknown': instance.$unknown,
+      'feedContext': ?instance.feedContext,
+      'reqId': ?instance.reqId,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

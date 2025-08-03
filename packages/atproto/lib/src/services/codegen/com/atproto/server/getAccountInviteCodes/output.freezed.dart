@@ -207,8 +207,8 @@ return $default(_that.codes,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerGetAccountInviteCodesOutput implements ServerGetAccountInviteCodesOutput {
   const _ServerGetAccountInviteCodesOutput({@InviteCodeConverter() required final  List<InviteCode> codes, final  Map<String, dynamic>? $unknown}): _codes = codes,_$unknown = $unknown;
   factory _ServerGetAccountInviteCodesOutput.fromJson(Map<String, dynamic> json) => _$ServerGetAccountInviteCodesOutputFromJson(json);

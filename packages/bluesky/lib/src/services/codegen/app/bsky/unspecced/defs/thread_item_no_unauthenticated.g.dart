@@ -29,5 +29,5 @@ Map<String, dynamic> _$ThreadItemNoUnauthenticatedToJson(
   _ThreadItemNoUnauthenticated instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

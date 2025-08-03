@@ -242,8 +242,8 @@ return $default(_that.subject,_that.takedown,_that.deactivated,_that.$unknown);c
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AdminGetSubjectStatusOutput implements AdminGetSubjectStatusOutput {
   const _AdminGetSubjectStatusOutput({@UAdminGetSubjectStatusSubjectConverter() required this.subject, @StatusAttrConverter() this.takedown, @StatusAttrConverter() this.deactivated, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AdminGetSubjectStatusOutput.fromJson(Map<String, dynamic> json) => _$AdminGetSubjectStatusOutputFromJson(json);

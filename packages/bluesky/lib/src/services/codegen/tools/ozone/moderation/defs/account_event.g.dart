@@ -39,14 +39,14 @@ _AccountEvent _$AccountEventFromJson(Map json) =>
 Map<String, dynamic> _$AccountEventToJson(_AccountEvent instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'comment': instance.comment,
+      'comment': ?instance.comment,
       'active': instance.active,
-      'status': _$JsonConverterToJson<String, AccountEventStatus>(
+      'status': ?_$JsonConverterToJson<String, AccountEventStatus>(
         instance.status,
         const AccountEventStatusConverter().toJson,
       ),
       'timestamp': instance.timestamp.toIso8601String(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

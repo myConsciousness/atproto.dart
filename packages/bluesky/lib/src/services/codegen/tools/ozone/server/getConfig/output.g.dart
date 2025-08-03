@@ -58,28 +58,28 @@ _ServerGetConfigOutput _$ServerGetConfigOutputFromJson(Map json) =>
 Map<String, dynamic> _$ServerGetConfigOutputToJson(
   _ServerGetConfigOutput instance,
 ) => <String, dynamic>{
-  'appview': _$JsonConverterToJson<Map<String, dynamic>, ServiceConfig>(
+  'appview': ?_$JsonConverterToJson<Map<String, dynamic>, ServiceConfig>(
     instance.appview,
     const ServiceConfigConverter().toJson,
   ),
-  'pds': _$JsonConverterToJson<Map<String, dynamic>, ServiceConfig>(
+  'pds': ?_$JsonConverterToJson<Map<String, dynamic>, ServiceConfig>(
     instance.pds,
     const ServiceConfigConverter().toJson,
   ),
-  'blobDivert': _$JsonConverterToJson<Map<String, dynamic>, ServiceConfig>(
+  'blobDivert': ?_$JsonConverterToJson<Map<String, dynamic>, ServiceConfig>(
     instance.blobDivert,
     const ServiceConfigConverter().toJson,
   ),
-  'chat': _$JsonConverterToJson<Map<String, dynamic>, ServiceConfig>(
+  'chat': ?_$JsonConverterToJson<Map<String, dynamic>, ServiceConfig>(
     instance.chat,
     const ServiceConfigConverter().toJson,
   ),
-  'viewer': _$JsonConverterToJson<Map<String, dynamic>, ViewerConfig>(
+  'viewer': ?_$JsonConverterToJson<Map<String, dynamic>, ViewerConfig>(
     instance.viewer,
     const ViewerConfigConverter().toJson,
   ),
-  'verifierDid': instance.verifierDid,
-  r'$unknown': instance.$unknown,
+  'verifierDid': ?instance.verifierDid,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

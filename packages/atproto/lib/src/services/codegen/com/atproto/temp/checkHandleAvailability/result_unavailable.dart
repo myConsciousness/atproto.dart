@@ -26,6 +26,7 @@ part 'result_unavailable.g.dart';
 abstract class ResultUnavailable with _$ResultUnavailable {
   static const knownProps = <String>['suggestions'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ResultUnavailable({
     @Default('com.atproto.temp.checkHandleAvailability#resultUnavailable')
     String $type,

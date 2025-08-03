@@ -23,6 +23,7 @@ part 'main.g.dart';
 abstract class LexiconSchemaRecord with _$LexiconSchemaRecord {
   static const knownProps = <String>['lexicon'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LexiconSchemaRecord({
     @Default('com.atproto.lexicon.schema') String $type,
 

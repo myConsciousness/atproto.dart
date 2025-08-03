@@ -25,6 +25,7 @@ part 'reaction_view.g.dart';
 abstract class ReactionView with _$ReactionView {
   static const knownProps = <String>['value', 'sender', 'createdAt'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ReactionView({
     @Default('chat.bsky.convo.defs#reactionView') String $type,
     required String value,

@@ -26,6 +26,6 @@ Map<String, dynamic> _$GraphGetListInputToJson(_GraphGetListInput instance) =>
     <String, dynamic>{
       'list': instance.list,
       'limit': instance.limit,
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
+      'cursor': ?instance.cursor,
+      r'$unknown': ?instance.$unknown,
     };

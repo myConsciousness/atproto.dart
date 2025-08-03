@@ -27,5 +27,5 @@ Map<String, dynamic> _$ModerationGetSubjectsInputToJson(
   _ModerationGetSubjectsInput instance,
 ) => <String, dynamic>{
   'subjects': instance.subjects,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

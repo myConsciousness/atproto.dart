@@ -32,7 +32,7 @@ _SettingListOptionsOutput _$SettingListOptionsOutputFromJson(Map json) =>
 Map<String, dynamic> _$SettingListOptionsOutputToJson(
   _SettingListOptionsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'options': instance.options.map(const OptionConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

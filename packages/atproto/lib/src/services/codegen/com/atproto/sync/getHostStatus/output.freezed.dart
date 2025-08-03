@@ -224,8 +224,8 @@ return $default(_that.hostname,_that.seq,_that.accountCount,_that.status,_that.$
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncGetHostStatusOutput implements SyncGetHostStatusOutput {
   const _SyncGetHostStatusOutput({required this.hostname, this.seq, this.accountCount, @HostStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncGetHostStatusOutput.fromJson(Map<String, dynamic> json) => _$SyncGetHostStatusOutputFromJson(json);

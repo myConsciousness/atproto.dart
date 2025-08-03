@@ -38,10 +38,10 @@ _AccountStats _$AccountStatsFromJson(
 Map<String, dynamic> _$AccountStatsToJson(_AccountStats instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'reportCount': instance.reportCount,
-      'appealCount': instance.appealCount,
-      'suspendCount': instance.suspendCount,
-      'escalateCount': instance.escalateCount,
-      'takedownCount': instance.takedownCount,
-      r'$unknown': instance.$unknown,
+      'reportCount': ?instance.reportCount,
+      'appealCount': ?instance.appealCount,
+      'suspendCount': ?instance.suspendCount,
+      'escalateCount': ?instance.escalateCount,
+      'takedownCount': ?instance.takedownCount,
+      r'$unknown': ?instance.$unknown,
     };

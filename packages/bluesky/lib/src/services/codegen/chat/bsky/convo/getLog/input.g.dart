@@ -22,6 +22,6 @@ _ConvoGetLogInput _$ConvoGetLogInputFromJson(Map json) =>
 
 Map<String, dynamic> _$ConvoGetLogInputToJson(_ConvoGetLogInput instance) =>
     <String, dynamic>{
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
+      'cursor': ?instance.cursor,
+      r'$unknown': ?instance.$unknown,
     };

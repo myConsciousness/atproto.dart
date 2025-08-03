@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class FeedGetFeedGeneratorsInput with _$FeedGetFeedGeneratorsInput {
   static const knownProps = <String>['feeds'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetFeedGeneratorsInput({
     required List<String> feeds,
 

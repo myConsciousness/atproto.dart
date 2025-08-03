@@ -35,11 +35,11 @@ Map<String, dynamic> _$ModerationToJson(_Moderation instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'subjectStatus':
-          _$JsonConverterToJson<Map<String, dynamic>, SubjectStatusView>(
+          ?_$JsonConverterToJson<Map<String, dynamic>, SubjectStatusView>(
             instance.subjectStatus,
             const SubjectStatusViewConverter().toJson,
           ),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

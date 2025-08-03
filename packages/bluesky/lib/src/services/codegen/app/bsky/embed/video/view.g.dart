@@ -48,16 +48,16 @@ Map<String, dynamic> _$EmbedVideoViewToJson(_EmbedVideoView instance) =>
       r'$type': instance.$type,
       'cid': instance.cid,
       'playlist': const AtUriConverter().toJson(instance.playlist),
-      'thumbnail': _$JsonConverterToJson<String, AtUri>(
+      'thumbnail': ?_$JsonConverterToJson<String, AtUri>(
         instance.thumbnail,
         const AtUriConverter().toJson,
       ),
-      'alt': instance.alt,
-      'aspectRatio': _$JsonConverterToJson<Map<String, dynamic>, AspectRatio>(
+      'alt': ?instance.alt,
+      'aspectRatio': ?_$JsonConverterToJson<Map<String, dynamic>, AspectRatio>(
         instance.aspectRatio,
         const AspectRatioConverter().toJson,
       ),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -22,6 +22,7 @@ part 'output.g.dart';
 abstract class RepoGetRecordOutput with _$RepoGetRecordOutput {
   static const knownProps = <String>['uri', 'cid', 'value'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoGetRecordOutput({
     required String uri,
     String? cid,

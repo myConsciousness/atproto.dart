@@ -43,11 +43,11 @@ Map<String, dynamic> _$EmbedExternalExternalToJson(
   'uri': const AtUriConverter().toJson(instance.uri),
   'title': instance.title,
   'description': instance.description,
-  'thumb': _$JsonConverterToJson<Map<String, dynamic>, Blob>(
+  'thumb': ?_$JsonConverterToJson<Map<String, dynamic>, Blob>(
     instance.thumb,
     const BlobConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

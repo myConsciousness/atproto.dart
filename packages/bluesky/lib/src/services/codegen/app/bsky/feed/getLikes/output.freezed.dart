@@ -210,8 +210,8 @@ return $default(_that.uri,_that.cid,_that.cursor,_that.likes,_that.$unknown);cas
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetLikesOutput implements FeedGetLikesOutput {
   const _FeedGetLikesOutput({required this.uri, this.cid, this.cursor, @LikeConverter() required final  List<Like> likes, final  Map<String, dynamic>? $unknown}): _likes = likes,_$unknown = $unknown;
   factory _FeedGetLikesOutput.fromJson(Map<String, dynamic> json) => _$FeedGetLikesOutputFromJson(json);

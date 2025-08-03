@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class TeamListMembersOutput with _$TeamListMembersOutput {
   static const knownProps = <String>['cursor', 'members'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory TeamListMembersOutput({
     String? cursor,
     @MemberConverter() required List<Member> members,

@@ -30,6 +30,6 @@ Map<String, dynamic> _$ModerationUpdateActorAccessInputToJson(
 ) => <String, dynamic>{
   'actor': instance.actor,
   'allowAccess': instance.allowAccess,
-  'ref': instance.ref,
-  r'$unknown': instance.$unknown,
+  'ref': ?instance.ref,
+  r'$unknown': ?instance.$unknown,
 };

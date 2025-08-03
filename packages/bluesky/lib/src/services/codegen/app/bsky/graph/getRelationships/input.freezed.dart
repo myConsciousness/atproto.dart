@@ -209,8 +209,8 @@ return $default(_that.actor,_that.others,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphGetRelationshipsInput implements GraphGetRelationshipsInput {
   const _GraphGetRelationshipsInput({required this.actor, final  List<String>? others, final  Map<String, dynamic>? $unknown}): _others = others,_$unknown = $unknown;
   factory _GraphGetRelationshipsInput.fromJson(Map<String, dynamic> json) => _$GraphGetRelationshipsInputFromJson(json);

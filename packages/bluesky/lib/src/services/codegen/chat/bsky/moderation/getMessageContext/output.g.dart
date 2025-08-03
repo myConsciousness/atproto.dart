@@ -37,5 +37,5 @@ Map<String, dynamic> _$ModerationGetMessageContextOutputToJson(
   'messages': instance.messages
       .map(const UModerationGetMessageContextMessagesConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
