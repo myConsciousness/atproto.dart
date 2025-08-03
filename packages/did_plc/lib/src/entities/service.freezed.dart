@@ -209,7 +209,7 @@ return $default(_that.id,_that.type,_that.serviceEndpoint);case _:
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _Service implements Service {
   const _Service({required this.id, required this.type, required this.serviceEndpoint});
   factory _Service.fromJson(Map<String, dynamic> json) => _$ServiceFromJson(json);

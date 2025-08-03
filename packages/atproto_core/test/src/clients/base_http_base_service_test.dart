@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 import 'package:xrpc/http.dart';
 
 // Project imports:
-import 'package:atproto_core/src/base_http_service.dart';
+import 'package:atproto_core/src/clients/base_http_service.dart';
 
 void main() {
   group('.get', () {

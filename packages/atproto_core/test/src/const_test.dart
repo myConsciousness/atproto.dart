@@ -6,11 +6,6 @@ import 'package:xrpc/xrpc.dart';
 import 'package:atproto_core/src/const.dart';
 
 void main() {
-  test('emptyJson', () {
-    expect(emptyJson, isA<Map<String, dynamic>>());
-    expect(emptyJson.isEmpty, isTrue);
-  });
-
   test('defaultProtocol', () {
     expect(defaultProtocol, isA<Protocol>());
     expect(defaultProtocol, Protocol.https);

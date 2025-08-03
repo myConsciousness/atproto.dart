@@ -5,7 +5,6 @@
 // ignore_for_file: invalid_annotation_target
 
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'tombstone.freezed.dart';
@@ -14,7 +13,7 @@ part 'tombstone.g.dart';
 @freezed
 abstract class Tombstone with _$Tombstone {
   /// Creates an instance of [Tombstone].
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Tombstone({
     required String sig,
     @Default('plc_tombstone') String type,

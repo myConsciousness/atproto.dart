@@ -228,7 +228,7 @@ return $default(_that.uris,_that.authors,_that.reason,_that.reasonSubject,_that.
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _GroupedNotification implements GroupedNotification {
   const _GroupedNotification({@AtUriConverter() required final  List<AtUri> uris, required final  List<ProfileView> authors, required this.reason, @AtUriConverter() this.reasonSubject, required this.isRead, required final  List<Label> labels, final  Map<String, dynamic>? record, required this.indexedAt}): _uris = uris,_authors = authors,_labels = labels,_record = record;
   factory _GroupedNotification.fromJson(Map<String, dynamic> json) => _$GroupedNotificationFromJson(json);

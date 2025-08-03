@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.0.4
+
+- chore: Removed outdated processes.
+
 ## v1.0.3
 
 - chore: Update source files automatically. ([##2081](https://github.com/myConsciousness/atproto.dart/pull/#2081))

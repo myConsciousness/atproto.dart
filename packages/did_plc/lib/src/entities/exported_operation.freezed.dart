@@ -220,7 +220,7 @@ return $default(_that.did,_that.cid,_that.operation,_that.isNullified,_that.crea
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _ExportedOperation implements ExportedOperation {
   const _ExportedOperation({required this.did, required this.cid, @compatibleOpOrTombstoneConverter required this.operation, @JsonKey(name: 'nullified') required this.isNullified, required this.createdAt});
   factory _ExportedOperation.fromJson(Map<String, dynamic> json) => _$ExportedOperationFromJson(json);

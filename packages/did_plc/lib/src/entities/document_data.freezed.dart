@@ -211,7 +211,7 @@ return $default(_that.did,_that.verificationMethods,_that.rotationKeys,_that.als
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _DocumentData implements DocumentData {
   const _DocumentData({required this.did, required final  Map<String, dynamic> verificationMethods, required final  List<String> rotationKeys, required final  List<String> alsoKnownAs, required final  Map<String, dynamic> services}): _verificationMethods = verificationMethods,_rotationKeys = rotationKeys,_alsoKnownAs = alsoKnownAs,_services = services;
   factory _DocumentData.fromJson(Map<String, dynamic> json) => _$DocumentDataFromJson(json);

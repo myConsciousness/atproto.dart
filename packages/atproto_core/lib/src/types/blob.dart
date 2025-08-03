@@ -8,7 +8,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../utils/annotations.dart';
 import 'blob_ref.dart';
 
 part 'blob.freezed.dart';
@@ -18,7 +17,7 @@ part 'blob.g.dart';
 @freezed
 abstract class Blob with _$Blob {
   const factory Blob({
-    @typeKey @Default('blob') String type,
+    @Default('blob') String $type,
     required String mimeType,
     required int size,
     required BlobRef ref,

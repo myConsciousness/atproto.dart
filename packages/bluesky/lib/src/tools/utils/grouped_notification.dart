@@ -18,7 +18,7 @@ part 'grouped_notification.g.dart';
 @freezed
 abstract class GroupedNotification with _$GroupedNotification {
   /// Creates a new instance of [GroupedNotification].
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory GroupedNotification({
     /// The unique URI for the notification content.
     ///

@@ -5,7 +5,6 @@
 // ignore_for_file: invalid_annotation_target
 
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'document_data.freezed.dart';
@@ -14,7 +13,7 @@ part 'document_data.g.dart';
 @freezed
 abstract class DocumentData with _$DocumentData {
   /// Creates an instance of [DocumentData].
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory DocumentData({
     required String did,
     required Map<String, dynamic> verificationMethods,

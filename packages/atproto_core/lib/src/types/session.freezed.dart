@@ -223,7 +223,7 @@ return $default(_that.did,_that.handle,_that.email,_that.emailConfirmed,_that.em
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _Session implements Session {
   const _Session({required this.did, required this.handle, this.email, this.emailConfirmed = false, this.emailAuthFactor = false, required this.accessJwt, required this.refreshJwt, final  Map<String, dynamic>? didDoc, this.active = true, this.status}): _didDoc = didDoc;
   factory _Session.fromJson(Map<String, dynamic> json) => _$SessionFromJson(json);

@@ -209,7 +209,7 @@ return $default(_that.sig,_that.type,_that.prev);case _:
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _Tombstone implements Tombstone {
   const _Tombstone({required this.sig, this.type = 'plc_tombstone', required this.prev});
   factory _Tombstone.fromJson(Map<String, dynamic> json) => _$TombstoneFromJson(json);

@@ -5,7 +5,6 @@
 // ignore_for_file: invalid_annotation_target
 
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'service.freezed.dart';
@@ -14,7 +13,7 @@ part 'service.g.dart';
 @freezed
 abstract class Service with _$Service {
   /// Creates an instance of [Service].
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Service({
     required String id,
     required String type,

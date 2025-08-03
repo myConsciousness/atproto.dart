@@ -211,7 +211,7 @@ return $default(_that.context,_that.id,_that.alsoKnownAs,_that.verificationMetho
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _DidDocument implements DidDocument {
   const _DidDocument({@JsonKey(name: '@context') required final  List<String> context, required this.id, required final  List<String> alsoKnownAs, required final  List<VerificationMethod> verificationMethod, required final  List<Service> service}): _context = context,_alsoKnownAs = alsoKnownAs,_verificationMethod = verificationMethod,_service = service;
   factory _DidDocument.fromJson(Map<String, dynamic> json) => _$DidDocumentFromJson(json);

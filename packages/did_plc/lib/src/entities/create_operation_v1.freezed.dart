@@ -213,7 +213,7 @@ return $default(_that.sig,_that.type,_that.signingKey,_that.recoveryKey,_that.ha
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _CreateOperationV1 implements CreateOperationV1 {
   const _CreateOperationV1({required this.sig, this.type = 'create', required this.signingKey, required this.recoveryKey, required this.handle, required this.service, this.prev});
   factory _CreateOperationV1.fromJson(Map<String, dynamic> json) => _$CreateOperationV1FromJson(json);
