@@ -210,7 +210,7 @@ return $default(_that.id,_that.type,_that.controller,_that.publicKeyMultibase);c
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _VerificationMethod implements VerificationMethod {
   const _VerificationMethod({required this.id, required this.type, required this.controller, required this.publicKeyMultibase});
   factory _VerificationMethod.fromJson(Map<String, dynamic> json) => _$VerificationMethodFromJson(json);

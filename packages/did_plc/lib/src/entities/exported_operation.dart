@@ -5,7 +5,6 @@
 // ignore_for_file: invalid_annotation_target
 
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -18,7 +17,7 @@ part 'exported_operation.g.dart';
 @freezed
 abstract class ExportedOperation with _$ExportedOperation {
   /// Creates an instance of [ExportedOperation].
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ExportedOperation({
     required String did,
     required String cid,

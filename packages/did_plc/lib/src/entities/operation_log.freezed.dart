@@ -207,7 +207,7 @@ return $default(_that.log);case _:
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _OperationLog implements OperationLog {
   const _OperationLog({@compatibleOpOrTombstoneConverter required final  List<CompatibleOpOrTombstone> log}): _log = log;
   factory _OperationLog.fromJson(Map<String, dynamic> json) => _$OperationLogFromJson(json);

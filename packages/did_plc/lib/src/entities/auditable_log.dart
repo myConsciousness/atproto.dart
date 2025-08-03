@@ -1,7 +1,6 @@
 // ignore_for_file: invalid_annotation_target
 
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -13,7 +12,7 @@ part 'auditable_log.g.dart';
 @freezed
 abstract class AuditableLog with _$AuditableLog {
   /// Creates an instance of [AuditableLog].
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory AuditableLog({required List<ExportedOperation> log}) =
       _AuditableLog;
 

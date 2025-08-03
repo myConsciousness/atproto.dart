@@ -5,9 +5,6 @@
 // Package imports:
 import 'package:xrpc/xrpc.dart' as xrpc;
 
-/// The unmodifiable empty JSON.
-const emptyJson = <String, dynamic>{};
-
 /// The default HTTP protocol.
 const defaultProtocol = xrpc.Protocol.https;
 

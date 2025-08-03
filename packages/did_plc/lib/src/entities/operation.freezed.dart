@@ -213,7 +213,7 @@ return $default(_that.sig,_that.type,_that.services,_that.alsoKnownAs,_that.rota
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _Operation implements Operation {
   const _Operation({required this.sig, this.type = 'plc_operation', required final  Map<String, dynamic> services, required final  List<String> alsoKnownAs, required final  List<String> rotationKeys, required final  Map<String, dynamic> verificationMethods, this.prev}): _services = services,_alsoKnownAs = alsoKnownAs,_rotationKeys = rotationKeys,_verificationMethods = verificationMethods;
   factory _Operation.fromJson(Map<String, dynamic> json) => _$OperationFromJson(json);

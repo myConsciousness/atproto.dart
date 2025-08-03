@@ -5,7 +5,6 @@
 // ignore_for_file: invalid_annotation_target
 
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'operation.freezed.dart';
@@ -14,7 +13,7 @@ part 'operation.g.dart';
 @freezed
 abstract class Operation with _$Operation {
   /// Creates an instance of [Operation].
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Operation({
     required String sig,
     @Default('plc_operation') String type,

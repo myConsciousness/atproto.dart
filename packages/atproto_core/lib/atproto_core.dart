@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 export 'package:at_uri/at_uri.dart' show AtUri;
-export 'package:atproto_core/src/base_http_service.dart';
+export 'package:atproto_core/src/clients/base_http_service.dart';
 export 'package:atproto_core/src/car_decoder.dart';
 export 'package:atproto_core/src/utils.dart' show isValidAppPassword;
 export 'package:atproto_core/src/clients/challenge.dart';
@@ -17,7 +17,6 @@ export 'package:atproto_core/src/types/oauth_session.dart';
 export 'package:atproto_core/src/utils/ids.dart';
 export 'package:atproto_core/src/const.dart';
 export 'package:atproto_core/src/clients/retry_config.dart';
-export 'package:atproto_core/src/utils/annotations.dart';
 export 'package:atproto_core/src/utils/blob_converter.dart';
 export 'package:atproto_core/src/types/blob.dart';
 export 'package:atproto_core/src/types/blob_ref.dart';

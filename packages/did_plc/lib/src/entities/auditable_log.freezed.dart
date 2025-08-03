@@ -207,7 +207,7 @@ return $default(_that.log);case _:
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _AuditableLog implements AuditableLog {
   const _AuditableLog({required final  List<ExportedOperation> log}): _log = log;
   factory _AuditableLog.fromJson(Map<String, dynamic> json) => _$AuditableLogFromJson(json);

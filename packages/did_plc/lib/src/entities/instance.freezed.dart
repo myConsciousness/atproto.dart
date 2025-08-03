@@ -207,7 +207,7 @@ return $default(_that.version);case _:
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _Instance implements Instance {
   const _Instance({required this.version});
   factory _Instance.fromJson(Map<String, dynamic> json) => _$InstanceFromJson(json);

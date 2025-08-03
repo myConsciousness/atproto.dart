@@ -6,7 +6,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../utils/annotations.dart';
 import '../utils/jwt.dart';
 import '../utils/jwt_decoder.dart';
 
@@ -19,7 +18,7 @@ part 'session.g.dart';
 /// handle, email, and the access and refresh JSON Web Tokens (JWT).
 @freezed
 abstract class Session with _$Session {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Session({
     /// Decentralized Identifier for the user.
     required String did,

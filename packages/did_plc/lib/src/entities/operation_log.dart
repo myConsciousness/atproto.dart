@@ -1,7 +1,6 @@
 // ignore_for_file: invalid_annotation_target
 
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -14,7 +13,7 @@ part 'operation_log.g.dart';
 @freezed
 abstract class OperationLog with _$OperationLog {
   /// Creates an instance of [OperationLog].
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory OperationLog({
     @compatibleOpOrTombstoneConverter
     required List<CompatibleOpOrTombstone> log,

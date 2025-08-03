@@ -11,7 +11,7 @@ part of 'blob.dart';
 _Blob _$BlobFromJson(Map json) =>
     $checkedCreate('_Blob', json, ($checkedConvert) {
       final val = _Blob(
-        type: $checkedConvert(r'$type', (v) => v as String? ?? 'blob'),
+        $type: $checkedConvert(r'$type', (v) => v as String? ?? 'blob'),
         mimeType: $checkedConvert('mimeType', (v) => v as String),
         size: $checkedConvert('size', (v) => (v as num).toInt()),
         ref: $checkedConvert(
@@ -20,10 +20,10 @@ _Blob _$BlobFromJson(Map json) =>
         ),
       );
       return val;
-    }, fieldKeyMap: const {'type': r'$type'});
+    });
 
 Map<String, dynamic> _$BlobToJson(_Blob instance) => <String, dynamic>{
-  r'$type': instance.type,
+  r'$type': instance.$type,
   'mimeType': instance.mimeType,
   'size': instance.size,
   'ref': instance.ref.toJson(),

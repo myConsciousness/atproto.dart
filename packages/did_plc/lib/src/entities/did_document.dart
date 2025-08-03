@@ -5,7 +5,6 @@
 // ignore_for_file: invalid_annotation_target
 
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -18,7 +17,7 @@ part 'did_document.g.dart';
 @freezed
 abstract class DidDocument with _$DidDocument {
   /// Creates an instance of [DidDocument].
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory DidDocument({
     @JsonKey(name: '@context') required List<String> context,
     required String id,
