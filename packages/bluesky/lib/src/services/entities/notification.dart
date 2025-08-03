@@ -22,7 +22,7 @@ class Notification with _$Notification {
     required String cid,
     @AtUriConverter() required AtUri uri,
     required Actor author,
-    @Default(NotificationReason.unknown) required NotificationReason reason,
+    @Default(NotificationReason.unknown) NotificationReason reason,
     @AtUriConverter() AtUri? reasonSubject,
     @Default(false) bool isRead,
     Map<String, dynamic>? record,
