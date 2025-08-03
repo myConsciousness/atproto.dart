@@ -29,5 +29,5 @@ Map<String, dynamic> _$LabelerGetServicesInputToJson(
 ) => <String, dynamic>{
   'dids': instance.dids,
   'detailed': instance.detailed,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

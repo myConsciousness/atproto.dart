@@ -29,5 +29,5 @@ Map<String, dynamic> _$SkeletonReasonRepostToJson(
 ) => <String, dynamic>{
   r'$type': instance.$type,
   'repost': instance.repost,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

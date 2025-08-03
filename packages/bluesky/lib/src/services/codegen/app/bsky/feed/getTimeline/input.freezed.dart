@@ -210,8 +210,8 @@ return $default(_that.algorithm,_that.limit,_that.cursor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetTimelineInput implements FeedGetTimelineInput {
   const _FeedGetTimelineInput({this.algorithm, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetTimelineInput.fromJson(Map<String, dynamic> json) => _$FeedGetTimelineInputFromJson(json);

@@ -49,5 +49,5 @@ Map<String, dynamic> _$UnspeccedGetTrendingTopicsOutputToJson(
   'suggested': instance.suggested
       .map(const TrendingTopicConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

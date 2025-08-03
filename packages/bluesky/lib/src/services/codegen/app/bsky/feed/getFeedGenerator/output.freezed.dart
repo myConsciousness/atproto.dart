@@ -220,8 +220,8 @@ return $default(_that.view,_that.isOnline,_that.isValid,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetFeedGeneratorOutput implements FeedGetFeedGeneratorOutput {
   const _FeedGetFeedGeneratorOutput({@GeneratorViewConverter() required this.view, required this.isOnline, required this.isValid, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetFeedGeneratorOutput.fromJson(Map<String, dynamic> json) => _$FeedGetFeedGeneratorOutputFromJson(json);

@@ -30,6 +30,7 @@ abstract class RepoApplyWritesInput with _$RepoApplyWritesInput {
     'swapCommit',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoApplyWritesInput({
     /// The handle or DID of the repo (aka, current account).
     required String repo,

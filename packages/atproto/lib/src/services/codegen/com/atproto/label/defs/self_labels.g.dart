@@ -37,5 +37,5 @@ Map<String, dynamic> _$SelfLabelsToJson(_SelfLabels instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'values': instance.values.map(const SelfLabelConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

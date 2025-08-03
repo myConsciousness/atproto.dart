@@ -22,6 +22,7 @@ part 'record.g.dart';
 abstract class RepoListRecordsRecord with _$RepoListRecordsRecord {
   static const knownProps = <String>['uri', 'cid', 'value'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoListRecordsRecord({
     @Default('com.atproto.repo.listRecords#record') String $type,
     required String uri,

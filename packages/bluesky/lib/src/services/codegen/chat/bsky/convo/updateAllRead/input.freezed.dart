@@ -219,8 +219,8 @@ return $default(_that.status,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoUpdateAllReadInput implements ConvoUpdateAllReadInput {
   const _ConvoUpdateAllReadInput({@ConvoUpdateAllReadStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoUpdateAllReadInput.fromJson(Map<String, dynamic> json) => _$ConvoUpdateAllReadInputFromJson(json);

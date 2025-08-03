@@ -22,6 +22,7 @@ part 'repo_ref.g.dart';
 abstract class RepoRef with _$RepoRef {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoRef({
     @Default('com.atproto.admin.defs#repoRef') String $type,
     required String did,

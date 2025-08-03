@@ -38,5 +38,5 @@ Map<String, dynamic> _$RepoDescribeRepoOutputToJson(
   'didDoc': instance.didDoc,
   'collections': instance.collections,
   'handleIsCorrect': instance.handleIsCorrect,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -27,5 +27,5 @@ Map<String, dynamic> _$IdentityResolveDidOutputToJson(
   _IdentityResolveDidOutput instance,
 ) => <String, dynamic>{
   'didDoc': instance.didDoc,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

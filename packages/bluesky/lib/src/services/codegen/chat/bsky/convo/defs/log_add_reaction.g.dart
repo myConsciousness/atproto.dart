@@ -44,5 +44,5 @@ Map<String, dynamic> _$LogAddReactionToJson(
   'convoId': instance.convoId,
   'message': const ULogAddReactionMessageConverter().toJson(instance.message),
   'reaction': const ReactionViewConverter().toJson(instance.reaction),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

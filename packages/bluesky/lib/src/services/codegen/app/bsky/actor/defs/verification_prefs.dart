@@ -23,6 +23,7 @@ part 'verification_prefs.g.dart';
 abstract class VerificationPrefs with _$VerificationPrefs {
   static const knownProps = <String>['hideBadges'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory VerificationPrefs({
     @Default('app.bsky.actor.defs#verificationPrefs') String $type,
 

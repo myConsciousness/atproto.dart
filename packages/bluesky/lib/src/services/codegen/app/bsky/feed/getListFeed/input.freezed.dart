@@ -210,8 +210,8 @@ return $default(_that.list,_that.limit,_that.cursor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetListFeedInput implements FeedGetListFeedInput {
   const _FeedGetListFeedInput({required this.list, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetListFeedInput.fromJson(Map<String, dynamic> json) => _$FeedGetListFeedInputFromJson(json);

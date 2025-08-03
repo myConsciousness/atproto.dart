@@ -30,5 +30,5 @@ Map<String, dynamic> _$RecordBlobToJson(_RecordBlob instance) =>
       r'$type': instance.$type,
       'cid': instance.cid,
       'recordUri': instance.recordUri,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

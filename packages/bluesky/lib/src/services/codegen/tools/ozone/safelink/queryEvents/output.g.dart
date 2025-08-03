@@ -32,7 +32,7 @@ _SafelinkQueryEventsOutput _$SafelinkQueryEventsOutputFromJson(Map json) =>
 Map<String, dynamic> _$SafelinkQueryEventsOutputToJson(
   _SafelinkQueryEventsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'events': instance.events.map(const EventConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

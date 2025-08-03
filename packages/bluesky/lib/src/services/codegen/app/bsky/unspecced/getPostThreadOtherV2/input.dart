@@ -23,6 +23,7 @@ abstract class UnspeccedGetPostThreadOtherV2Input
     with _$UnspeccedGetPostThreadOtherV2Input {
   static const knownProps = <String>['anchor', 'prioritizeFollowedUsers'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetPostThreadOtherV2Input({
     /// Reference (AT-URI) to post record. This is the anchor post.
     required String anchor,

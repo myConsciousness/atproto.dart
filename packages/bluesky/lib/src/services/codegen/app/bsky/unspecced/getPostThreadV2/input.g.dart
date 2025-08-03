@@ -46,11 +46,11 @@ Map<String, dynamic> _$UnspeccedGetPostThreadV2InputToJson(
   'below': instance.below,
   'branchingFactor': instance.branchingFactor,
   'prioritizeFollowedUsers': instance.prioritizeFollowedUsers,
-  'sort': _$JsonConverterToJson<String, UnspeccedGetPostThreadV2Sort>(
+  'sort': ?_$JsonConverterToJson<String, UnspeccedGetPostThreadV2Sort>(
     instance.sort,
     const UnspeccedGetPostThreadV2SortConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

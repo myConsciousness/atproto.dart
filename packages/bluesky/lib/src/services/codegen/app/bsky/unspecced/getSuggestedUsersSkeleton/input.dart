@@ -23,6 +23,7 @@ abstract class UnspeccedGetSuggestedUsersSkeletonInput
     with _$UnspeccedGetSuggestedUsersSkeletonInput {
   static const knownProps = <String>['viewer', 'category', 'limit'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestedUsersSkeletonInput({
     /// DID of the account making the request (not included for public/unauthenticated queries).
     String? viewer,

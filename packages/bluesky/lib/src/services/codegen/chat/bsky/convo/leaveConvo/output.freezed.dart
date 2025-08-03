@@ -208,8 +208,8 @@ return $default(_that.convoId,_that.rev,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoLeaveConvoOutput implements ConvoLeaveConvoOutput {
   const _ConvoLeaveConvoOutput({required this.convoId, required this.rev, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoLeaveConvoOutput.fromJson(Map<String, dynamic> json) => _$ConvoLeaveConvoOutputFromJson(json);

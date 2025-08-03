@@ -26,6 +26,7 @@ abstract class UnspeccedGetPostThreadOtherV2Output
     with _$UnspeccedGetPostThreadOtherV2Output {
   static const knownProps = <String>['thread'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetPostThreadOtherV2Output({
     @ThreadItemConverter() required List<ThreadItem> thread,
 

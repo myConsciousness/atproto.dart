@@ -28,6 +28,6 @@ Map<String, dynamic> _$RepoGetRecordInputToJson(_RepoGetRecordInput instance) =>
       'repo': instance.repo,
       'collection': instance.collection,
       'rkey': instance.rkey,
-      'cid': instance.cid,
-      r'$unknown': instance.$unknown,
+      'cid': ?instance.cid,
+      r'$unknown': ?instance.$unknown,
     };

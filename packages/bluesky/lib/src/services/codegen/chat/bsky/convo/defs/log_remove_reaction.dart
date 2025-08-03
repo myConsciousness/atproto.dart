@@ -26,6 +26,7 @@ part 'log_remove_reaction.g.dart';
 abstract class LogRemoveReaction with _$LogRemoveReaction {
   static const knownProps = <String>['rev', 'convoId', 'message', 'reaction'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LogRemoveReaction({
     @Default('chat.bsky.convo.defs#logRemoveReaction') String $type,
     required String rev,

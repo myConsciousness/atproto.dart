@@ -33,5 +33,5 @@ Map<String, dynamic> _$SignatureFindCorrelationOutputToJson(
   _SignatureFindCorrelationOutput instance,
 ) => <String, dynamic>{
   'details': instance.details.map(const SigDetailConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

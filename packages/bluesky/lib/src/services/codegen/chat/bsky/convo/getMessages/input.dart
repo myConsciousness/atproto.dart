@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ConvoGetMessagesInput with _$ConvoGetMessagesInput {
   static const knownProps = <String>['convoId', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoGetMessagesInput({
     required String convoId,
     @Default(50) int limit,

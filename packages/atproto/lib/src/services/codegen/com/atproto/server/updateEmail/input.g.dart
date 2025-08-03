@@ -26,7 +26,7 @@ Map<String, dynamic> _$ServerUpdateEmailInputToJson(
   _ServerUpdateEmailInput instance,
 ) => <String, dynamic>{
   'email': instance.email,
-  'emailAuthFactor': instance.emailAuthFactor,
-  'token': instance.token,
-  r'$unknown': instance.$unknown,
+  'emailAuthFactor': ?instance.emailAuthFactor,
+  'token': ?instance.token,
+  r'$unknown': ?instance.$unknown,
 };

@@ -28,5 +28,5 @@ Map<String, dynamic> _$ServerDeleteAccountInputToJson(
   'did': instance.did,
   'password': instance.password,
   'token': instance.token,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -26,6 +26,7 @@ abstract class SyncListReposByCollectionOutput
     with _$SyncListReposByCollectionOutput {
   static const knownProps = <String>['cursor', 'repos'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncListReposByCollectionOutput({
     String? cursor,
     @RepoConverter() required List<Repo> repos,

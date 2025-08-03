@@ -26,6 +26,7 @@ abstract class UnspeccedGetTrendingTopicsOutput
     with _$UnspeccedGetTrendingTopicsOutput {
   static const knownProps = <String>['topics', 'suggested'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetTrendingTopicsOutput({
     @TrendingTopicConverter() required List<TrendingTopic> topics,
     @TrendingTopicConverter() required List<TrendingTopic> suggested,

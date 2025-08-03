@@ -212,8 +212,8 @@ return $default(_that.token,_that.rotationKeys,_that.alsoKnownAs,_that.verificat
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _IdentitySignPlcOperationInput implements IdentitySignPlcOperationInput {
   const _IdentitySignPlcOperationInput({this.token, final  List<String>? rotationKeys, final  List<String>? alsoKnownAs, final  Map<String, dynamic>? verificationMethods, final  Map<String, dynamic>? services, final  Map<String, dynamic>? $unknown}): _rotationKeys = rotationKeys,_alsoKnownAs = alsoKnownAs,_verificationMethods = verificationMethods,_services = services,_$unknown = $unknown;
   factory _IdentitySignPlcOperationInput.fromJson(Map<String, dynamic> json) => _$IdentitySignPlcOperationInputFromJson(json);

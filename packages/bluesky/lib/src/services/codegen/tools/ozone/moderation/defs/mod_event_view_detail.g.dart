@@ -68,11 +68,11 @@ Map<String, dynamic> _$ModEventViewDetailToJson(_ModEventViewDetail instance) =>
           .toList(),
       'createdBy': instance.createdBy,
       'createdAt': instance.createdAt.toIso8601String(),
-      'modTool': _$JsonConverterToJson<Map<String, dynamic>, ModTool>(
+      'modTool': ?_$JsonConverterToJson<Map<String, dynamic>, ModTool>(
         instance.modTool,
         const ModToolConverter().toJson,
       ),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -212,8 +212,8 @@ return $default(_that.handle,_that.email,_that.birthDate,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _TempCheckHandleAvailabilityInput implements TempCheckHandleAvailabilityInput {
   const _TempCheckHandleAvailabilityInput({required this.handle, this.email, this.birthDate, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _TempCheckHandleAvailabilityInput.fromJson(Map<String, dynamic> json) => _$TempCheckHandleAvailabilityInputFromJson(json);

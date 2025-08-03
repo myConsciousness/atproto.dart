@@ -23,6 +23,7 @@ abstract class ServerGetAccountInviteCodesInput
     with _$ServerGetAccountInviteCodesInput {
   static const knownProps = <String>['includeUsed', 'createAvailable'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerGetAccountInviteCodesInput({
     @Default(true) bool includeUsed,
 

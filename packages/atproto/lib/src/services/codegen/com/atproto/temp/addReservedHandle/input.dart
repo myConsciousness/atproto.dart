@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class TempAddReservedHandleInput with _$TempAddReservedHandleInput {
   static const knownProps = <String>['handle'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory TempAddReservedHandleInput({
     required String handle,
 

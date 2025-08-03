@@ -22,4 +22,4 @@ _ModerationGetEventInput _$ModerationGetEventInputFromJson(Map json) =>
 
 Map<String, dynamic> _$ModerationGetEventInputToJson(
   _ModerationGetEventInput instance,
-) => <String, dynamic>{'id': instance.id, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'id': instance.id, r'$unknown': ?instance.$unknown};

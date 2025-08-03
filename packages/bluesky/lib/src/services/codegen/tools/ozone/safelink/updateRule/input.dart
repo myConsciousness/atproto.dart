@@ -34,6 +34,7 @@ abstract class SafelinkUpdateRuleInput with _$SafelinkUpdateRuleInput {
     'createdBy',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SafelinkUpdateRuleInput({
     /// The URL or domain to update the rule for
     required String url,

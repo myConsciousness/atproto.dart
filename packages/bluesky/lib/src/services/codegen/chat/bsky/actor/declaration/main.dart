@@ -26,6 +26,7 @@ part 'main.g.dart';
 abstract class ActorDeclarationRecord with _$ActorDeclarationRecord {
   static const knownProps = <String>['allowIncoming'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ActorDeclarationRecord({
     @Default('chat.bsky.actor.declaration') String $type,
     @ActorDeclarationAllowIncomingConverter()

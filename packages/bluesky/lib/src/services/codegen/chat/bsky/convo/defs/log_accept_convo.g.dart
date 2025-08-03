@@ -30,5 +30,5 @@ Map<String, dynamic> _$LogAcceptConvoToJson(_LogAcceptConvo instance) =>
       r'$type': instance.$type,
       'rev': instance.rev,
       'convoId': instance.convoId,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

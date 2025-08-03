@@ -234,8 +234,8 @@ return $default(_that.$type,_that.status,_that.embed,_that.durationMinutes,_that
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ActorStatusRecord implements ActorStatusRecord {
   const _ActorStatusRecord({this.$type = 'app.bsky.actor.status', @ActorStatusStatusConverter() required this.status, @UActorStatusEmbedConverter() this.embed, this.durationMinutes, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ActorStatusRecord.fromJson(Map<String, dynamic> json) => _$ActorStatusRecordFromJson(json);

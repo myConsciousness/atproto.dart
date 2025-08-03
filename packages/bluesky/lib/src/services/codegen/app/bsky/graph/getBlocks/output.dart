@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class GraphGetBlocksOutput with _$GraphGetBlocksOutput {
   static const knownProps = <String>['cursor', 'blocks'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetBlocksOutput({
     String? cursor,
     @ProfileViewConverter() required List<ProfileView> blocks,

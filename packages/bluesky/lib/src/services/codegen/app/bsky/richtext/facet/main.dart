@@ -27,6 +27,7 @@ part 'main.g.dart';
 abstract class RichtextFacet with _$RichtextFacet {
   static const knownProps = <String>['index', 'features'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RichtextFacet({
     @Default('app.bsky.richtext.facet') String $type,
     @RichtextFacetByteSliceConverter() required RichtextFacetByteSlice index,

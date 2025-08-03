@@ -212,8 +212,8 @@ return $default(_that.$type,_that.did,_that.following,_that.followedBy,_that.$un
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _Relationship implements Relationship {
   const _Relationship({this.$type = 'app.bsky.graph.defs#relationship', required this.did, this.following, this.followedBy, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Relationship.fromJson(Map<String, dynamic> json) => _$RelationshipFromJson(json);

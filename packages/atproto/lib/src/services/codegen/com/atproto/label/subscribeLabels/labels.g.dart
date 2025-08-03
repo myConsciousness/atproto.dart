@@ -37,5 +37,5 @@ Map<String, dynamic> _$LabelsToJson(_Labels instance) => <String, dynamic>{
   r'$type': instance.$type,
   'seq': instance.seq,
   'labels': instance.labels.map(const LabelConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

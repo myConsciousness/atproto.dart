@@ -207,8 +207,8 @@ return $default(_that.actors,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ActorGetProfilesInput implements ActorGetProfilesInput {
   const _ActorGetProfilesInput({required final  List<String> actors, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
   factory _ActorGetProfilesInput.fromJson(Map<String, dynamic> json) => _$ActorGetProfilesInputFromJson(json);

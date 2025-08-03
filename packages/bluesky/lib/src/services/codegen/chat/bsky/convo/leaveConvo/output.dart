@@ -22,6 +22,7 @@ part 'output.g.dart';
 abstract class ConvoLeaveConvoOutput with _$ConvoLeaveConvoOutput {
   static const knownProps = <String>['convoId', 'rev'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoLeaveConvoOutput({
     required String convoId,
     required String rev,

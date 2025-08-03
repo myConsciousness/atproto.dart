@@ -207,8 +207,8 @@ return $default(_that.starterPacks,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetSuggestedStarterPacksOutput implements UnspeccedGetSuggestedStarterPacksOutput {
   const _UnspeccedGetSuggestedStarterPacksOutput({@StarterPackViewConverter() required final  List<StarterPackView> starterPacks, final  Map<String, dynamic>? $unknown}): _starterPacks = starterPacks,_$unknown = $unknown;
   factory _UnspeccedGetSuggestedStarterPacksOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestedStarterPacksOutputFromJson(json);

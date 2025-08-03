@@ -44,12 +44,12 @@ Map<String, dynamic> _$SettingUpsertOptionInputToJson(
   'key': instance.key,
   'scope': const SettingUpsertOptionScopeConverter().toJson(instance.scope),
   'value': instance.value,
-  'description': instance.description,
-  'managerRole': _$JsonConverterToJson<String, SettingUpsertOptionManagerRole>(
+  'description': ?instance.description,
+  'managerRole': ?_$JsonConverterToJson<String, SettingUpsertOptionManagerRole>(
     instance.managerRole,
     const SettingUpsertOptionManagerRoleConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -29,5 +29,5 @@ Map<String, dynamic> _$SkeletonSearchActorToJson(
 ) => <String, dynamic>{
   r'$type': instance.$type,
   'did': instance.did,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

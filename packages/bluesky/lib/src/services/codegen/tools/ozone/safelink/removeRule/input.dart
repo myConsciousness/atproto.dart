@@ -25,6 +25,7 @@ part 'input.g.dart';
 abstract class SafelinkRemoveRuleInput with _$SafelinkRemoveRuleInput {
   static const knownProps = <String>['url', 'pattern', 'comment', 'createdBy'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SafelinkRemoveRuleInput({
     /// The URL or domain to remove the rule for
     required String url,

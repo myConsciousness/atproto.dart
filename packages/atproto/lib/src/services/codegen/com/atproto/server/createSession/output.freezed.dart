@@ -229,8 +229,8 @@ return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.di
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerCreateSessionOutput implements ServerCreateSessionOutput {
   const _ServerCreateSessionOutput({required this.accessJwt, required this.refreshJwt, required this.handle, required this.did, final  Map<String, dynamic>? didDoc, this.email, this.emailConfirmed, this.emailAuthFactor, this.active, @ServerCreateSessionStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_$unknown = $unknown;
   factory _ServerCreateSessionOutput.fromJson(Map<String, dynamic> json) => _$ServerCreateSessionOutputFromJson(json);

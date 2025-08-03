@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class FeedGetFeedSkeletonInput with _$FeedGetFeedSkeletonInput {
   static const knownProps = <String>['feed', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetFeedSkeletonInput({
     /// Reference to feed generator record describing the specific feed being requested.
     required String feed,

@@ -218,8 +218,8 @@ return $default(_that.$type,_that.account,_that.similarities,_that.$unknown);cas
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RelatedAccount implements RelatedAccount {
   const _RelatedAccount({this.$type = 'tools.ozone.signature.findRelatedAccounts#relatedAccount', @AccountViewConverter() required this.account, @SigDetailConverter() final  List<SigDetail>? similarities, final  Map<String, dynamic>? $unknown}): _similarities = similarities,_$unknown = $unknown;
   factory _RelatedAccount.fromJson(Map<String, dynamic> json) => _$RelatedAccountFromJson(json);

@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class FeedGetFeedSkeletonOutput with _$FeedGetFeedSkeletonOutput {
   static const knownProps = <String>['cursor', 'feed', 'reqId'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetFeedSkeletonOutput({
     String? cursor,
     @SkeletonFeedPostConverter() required List<SkeletonFeedPost> feed,

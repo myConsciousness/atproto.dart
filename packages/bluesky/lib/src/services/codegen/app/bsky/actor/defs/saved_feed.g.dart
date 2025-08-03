@@ -37,5 +37,5 @@ Map<String, dynamic> _$SavedFeedToJson(_SavedFeed instance) =>
       'type': const SavedFeedTypeConverter().toJson(instance.type),
       'value': instance.value,
       'pinned': instance.pinned,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

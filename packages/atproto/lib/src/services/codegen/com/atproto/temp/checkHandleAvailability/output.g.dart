@@ -36,5 +36,5 @@ Map<String, dynamic> _$TempCheckHandleAvailabilityOutputToJson(
   'result': const UTempCheckHandleAvailabilityResultConverter().toJson(
     instance.result,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

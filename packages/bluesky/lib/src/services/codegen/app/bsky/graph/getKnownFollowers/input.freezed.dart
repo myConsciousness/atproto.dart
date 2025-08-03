@@ -209,8 +209,8 @@ return $default(_that.actor,_that.limit,_that.cursor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphGetKnownFollowersInput implements GraphGetKnownFollowersInput {
   const _GraphGetKnownFollowersInput({required this.actor, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphGetKnownFollowersInput.fromJson(Map<String, dynamic> json) => _$GraphGetKnownFollowersInputFromJson(json);

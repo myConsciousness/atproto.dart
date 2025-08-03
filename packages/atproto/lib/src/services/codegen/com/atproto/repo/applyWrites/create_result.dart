@@ -25,6 +25,7 @@ part 'create_result.g.dart';
 abstract class CreateResult with _$CreateResult {
   static const knownProps = <String>['uri', 'cid', 'validationStatus'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory CreateResult({
     @Default('com.atproto.repo.applyWrites#createResult') String $type,
     required String uri,

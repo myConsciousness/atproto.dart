@@ -22,4 +22,4 @@ _FeedGetFeedGeneratorInput _$FeedGetFeedGeneratorInputFromJson(Map json) =>
 
 Map<String, dynamic> _$FeedGetFeedGeneratorInputToJson(
   _FeedGetFeedGeneratorInput instance,
-) => <String, dynamic>{'feed': instance.feed, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'feed': instance.feed, r'$unknown': ?instance.$unknown};

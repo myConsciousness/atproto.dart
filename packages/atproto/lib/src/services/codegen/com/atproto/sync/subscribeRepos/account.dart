@@ -26,6 +26,7 @@ part 'account.g.dart';
 abstract class Account with _$Account {
   static const knownProps = <String>['seq', 'did', 'time', 'active', 'status'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Account({
     @Default('com.atproto.sync.subscribeRepos#account') String $type,
     required int seq,

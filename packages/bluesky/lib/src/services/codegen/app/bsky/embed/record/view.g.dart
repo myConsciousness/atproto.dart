@@ -33,5 +33,5 @@ Map<String, dynamic> _$EmbedRecordViewToJson(_EmbedRecordView instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'record': const UEmbedRecordViewRecordConverter().toJson(instance.record),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

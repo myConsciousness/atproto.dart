@@ -28,5 +28,5 @@ Map<String, dynamic> _$SelfLabelToJson(_SelfLabel instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'val': instance.val,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

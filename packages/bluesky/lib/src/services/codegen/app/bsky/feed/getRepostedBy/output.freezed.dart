@@ -210,8 +210,8 @@ return $default(_that.uri,_that.cid,_that.cursor,_that.repostedBy,_that.$unknown
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetRepostedByOutput implements FeedGetRepostedByOutput {
   const _FeedGetRepostedByOutput({required this.uri, this.cid, this.cursor, @ProfileViewConverter() required final  List<ProfileView> repostedBy, final  Map<String, dynamic>? $unknown}): _repostedBy = repostedBy,_$unknown = $unknown;
   factory _FeedGetRepostedByOutput.fromJson(Map<String, dynamic> json) => _$FeedGetRepostedByOutputFromJson(json);

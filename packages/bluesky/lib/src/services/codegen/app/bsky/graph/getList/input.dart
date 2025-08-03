@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class GraphGetListInput with _$GraphGetListInput {
   static const knownProps = <String>['list', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetListInput({
     /// Reference (AT-URI) of the list record to hydrate.
     required String list,

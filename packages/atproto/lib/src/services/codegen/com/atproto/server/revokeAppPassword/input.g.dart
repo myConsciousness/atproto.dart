@@ -23,4 +23,4 @@ _ServerRevokeAppPasswordInput _$ServerRevokeAppPasswordInputFromJson(
 
 Map<String, dynamic> _$ServerRevokeAppPasswordInputToJson(
   _ServerRevokeAppPasswordInput instance,
-) => <String, dynamic>{'name': instance.name, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'name': instance.name, r'$unknown': ?instance.$unknown};

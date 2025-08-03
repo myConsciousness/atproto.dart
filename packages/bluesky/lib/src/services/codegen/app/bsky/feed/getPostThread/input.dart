@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class FeedGetPostThreadInput with _$FeedGetPostThreadInput {
   static const knownProps = <String>['uri', 'depth', 'parentHeight'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetPostThreadInput({
     /// Reference (AT-URI) to post record.
     required String uri,

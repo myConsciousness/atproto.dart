@@ -219,8 +219,8 @@ return $default(_that.serviceDid,_that.token,_that.platform,_that.appId,_that.$u
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _NotificationUnregisterPushInput implements NotificationUnregisterPushInput {
   const _NotificationUnregisterPushInput({required this.serviceDid, required this.token, @NotificationUnregisterPushPlatformConverter() required this.platform, required this.appId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationUnregisterPushInput.fromJson(Map<String, dynamic> json) => _$NotificationUnregisterPushInputFromJson(json);

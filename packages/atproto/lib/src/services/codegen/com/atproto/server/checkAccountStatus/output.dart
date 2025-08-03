@@ -33,6 +33,7 @@ abstract class ServerCheckAccountStatusOutput
     'importedBlobs',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerCheckAccountStatusOutput({
     required bool activated,
     required bool validDid,

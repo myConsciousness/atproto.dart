@@ -216,8 +216,8 @@ return $default(_that.convo,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoGetConvoOutput implements ConvoGetConvoOutput {
   const _ConvoGetConvoOutput({@ConvoViewConverter() required this.convo, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoGetConvoOutput.fromJson(Map<String, dynamic> json) => _$ConvoGetConvoOutputFromJson(json);

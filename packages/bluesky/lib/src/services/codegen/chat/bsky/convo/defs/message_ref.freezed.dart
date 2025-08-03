@@ -210,8 +210,8 @@ return $default(_that.$type,_that.did,_that.convoId,_that.messageId,_that.$unkno
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _MessageRef implements MessageRef {
   const _MessageRef({this.$type = 'chat.bsky.convo.defs#messageRef', required this.did, required this.convoId, required this.messageId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _MessageRef.fromJson(Map<String, dynamic> json) => _$MessageRefFromJson(json);

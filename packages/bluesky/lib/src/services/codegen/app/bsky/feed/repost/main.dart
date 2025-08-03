@@ -24,6 +24,7 @@ part 'main.g.dart';
 abstract class FeedRepostRecord with _$FeedRepostRecord {
   static const knownProps = <String>['subject', 'createdAt', 'via'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedRepostRecord({
     @Default('app.bsky.feed.repost') String $type,
     @RepoStrongRefConverter() required RepoStrongRef subject,

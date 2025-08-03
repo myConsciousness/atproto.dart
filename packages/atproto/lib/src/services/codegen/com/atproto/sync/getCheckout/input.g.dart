@@ -22,4 +22,4 @@ _SyncGetCheckoutInput _$SyncGetCheckoutInputFromJson(Map json) =>
 
 Map<String, dynamic> _$SyncGetCheckoutInputToJson(
   _SyncGetCheckoutInput instance,
-) => <String, dynamic>{'did': instance.did, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'did': instance.did, r'$unknown': ?instance.$unknown};

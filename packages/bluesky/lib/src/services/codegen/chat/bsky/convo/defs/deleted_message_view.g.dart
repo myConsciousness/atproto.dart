@@ -39,5 +39,5 @@ Map<String, dynamic> _$DeletedMessageViewToJson(_DeletedMessageView instance) =>
       'rev': instance.rev,
       'sender': const MessageViewSenderConverter().toJson(instance.sender),
       'sentAt': instance.sentAt.toIso8601String(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

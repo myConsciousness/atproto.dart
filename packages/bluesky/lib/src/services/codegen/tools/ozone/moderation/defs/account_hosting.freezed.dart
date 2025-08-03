@@ -222,8 +222,8 @@ return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.d
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AccountHosting implements AccountHosting {
   const _AccountHosting({this.$type = 'tools.ozone.moderation.defs#accountHosting', @AccountHostingStatusConverter() required this.status, this.updatedAt, this.createdAt, this.deletedAt, this.deactivatedAt, this.reactivatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AccountHosting.fromJson(Map<String, dynamic> json) => _$AccountHostingFromJson(json);

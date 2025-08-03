@@ -208,8 +208,8 @@ return $default(_that.limit,_that.cursor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncListHostsInput implements SyncListHostsInput {
   const _SyncListHostsInput({this.limit = 200, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncListHostsInput.fromJson(Map<String, dynamic> json) => _$SyncListHostsInputFromJson(json);

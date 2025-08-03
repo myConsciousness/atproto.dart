@@ -219,8 +219,8 @@ return $default(_that.$type,_that.uri,_that.blocked,_that.author,_that.$unknown)
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _BlockedPost implements BlockedPost {
   const _BlockedPost({this.$type = 'app.bsky.feed.defs#blockedPost', required this.uri, required this.blocked, @BlockedAuthorConverter() required this.author, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _BlockedPost.fromJson(Map<String, dynamic> json) => _$BlockedPostFromJson(json);

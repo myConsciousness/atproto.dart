@@ -29,5 +29,5 @@ Map<String, dynamic> _$GraphGetStarterPackOutputToJson(
   _GraphGetStarterPackOutput instance,
 ) => <String, dynamic>{
   'starterPack': const StarterPackViewConverter().toJson(instance.starterPack),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.blocks,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphGetBlocksOutput implements GraphGetBlocksOutput {
   const _GraphGetBlocksOutput({this.cursor, @ProfileViewConverter() required final  List<ProfileView> blocks, final  Map<String, dynamic>? $unknown}): _blocks = blocks,_$unknown = $unknown;
   factory _GraphGetBlocksOutput.fromJson(Map<String, dynamic> json) => _$GraphGetBlocksOutputFromJson(json);

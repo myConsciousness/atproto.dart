@@ -41,6 +41,7 @@ abstract class UnspeccedSearchPostsSkeletonInput
     'cursor',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedSearchPostsSkeletonInput({
     /// Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
     required String q,

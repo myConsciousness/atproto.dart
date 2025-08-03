@@ -26,4 +26,7 @@ _ResultAvailable _$ResultAvailableFromJson(Map json) =>
     });
 
 Map<String, dynamic> _$ResultAvailableToJson(_ResultAvailable instance) =>
-    <String, dynamic>{r'$type': instance.$type, r'$unknown': instance.$unknown};
+    <String, dynamic>{
+      r'$type': instance.$type,
+      r'$unknown': ?instance.$unknown,
+    };

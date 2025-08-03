@@ -36,6 +36,7 @@ abstract class LabelValueDefinition with _$LabelValueDefinition {
     'locales',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LabelValueDefinition({
     @Default('com.atproto.label.defs#labelValueDefinition') String $type,
 

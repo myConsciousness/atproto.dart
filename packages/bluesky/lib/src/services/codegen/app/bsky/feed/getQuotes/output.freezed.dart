@@ -210,8 +210,8 @@ return $default(_that.uri,_that.cid,_that.cursor,_that.posts,_that.$unknown);cas
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetQuotesOutput implements FeedGetQuotesOutput {
   const _FeedGetQuotesOutput({required this.uri, this.cid, this.cursor, @PostViewConverter() required final  List<PostView> posts, final  Map<String, dynamic>? $unknown}): _posts = posts,_$unknown = $unknown;
   factory _FeedGetQuotesOutput.fromJson(Map<String, dynamic> json) => _$FeedGetQuotesOutputFromJson(json);

@@ -34,5 +34,5 @@ Map<String, dynamic> _$BatchItemToJson(_BatchItem instance) =>
       r'$type': instance.$type,
       'convoId': instance.convoId,
       'message': const MessageInputConverter().toJson(instance.message),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

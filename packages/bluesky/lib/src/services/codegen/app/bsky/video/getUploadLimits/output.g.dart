@@ -34,9 +34,9 @@ Map<String, dynamic> _$VideoGetUploadLimitsOutputToJson(
   _VideoGetUploadLimitsOutput instance,
 ) => <String, dynamic>{
   'canUpload': instance.canUpload,
-  'remainingDailyVideos': instance.remainingDailyVideos,
-  'remainingDailyBytes': instance.remainingDailyBytes,
-  'message': instance.message,
-  'error': instance.error,
-  r'$unknown': instance.$unknown,
+  'remainingDailyVideos': ?instance.remainingDailyVideos,
+  'remainingDailyBytes': ?instance.remainingDailyBytes,
+  'message': ?instance.message,
+  'error': ?instance.error,
+  r'$unknown': ?instance.$unknown,
 };

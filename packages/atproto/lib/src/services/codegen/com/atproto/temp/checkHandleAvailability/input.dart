@@ -23,6 +23,7 @@ abstract class TempCheckHandleAvailabilityInput
     with _$TempCheckHandleAvailabilityInput {
   static const knownProps = <String>['handle', 'email', 'birthDate'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory TempCheckHandleAvailabilityInput({
     /// Tentative handle. Will be checked for availability or used to build handle suggestions.
     required String handle,

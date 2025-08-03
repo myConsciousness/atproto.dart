@@ -37,6 +37,7 @@ abstract class UrlRule with _$UrlRule {
     'updatedAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UrlRule({
     @Default('tools.ozone.safelink.defs#urlRule') String $type,
 

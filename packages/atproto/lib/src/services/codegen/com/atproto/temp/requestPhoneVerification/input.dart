@@ -23,6 +23,7 @@ abstract class TempRequestPhoneVerificationInput
     with _$TempRequestPhoneVerificationInput {
   static const knownProps = <String>['phoneNumber'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory TempRequestPhoneVerificationInput({
     required String phoneNumber,
 

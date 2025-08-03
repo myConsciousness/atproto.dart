@@ -22,6 +22,7 @@ part 'skeleton_search_post.g.dart';
 abstract class SkeletonSearchPost with _$SkeletonSearchPost {
   static const knownProps = <String>['uri'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SkeletonSearchPost({
     @Default('app.bsky.unspecced.defs#skeletonSearchPost') String $type,
     required String uri,

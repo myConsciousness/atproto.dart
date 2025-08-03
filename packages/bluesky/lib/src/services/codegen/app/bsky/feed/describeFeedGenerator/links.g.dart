@@ -27,7 +27,7 @@ _Links _$LinksFromJson(Map json) =>
 
 Map<String, dynamic> _$LinksToJson(_Links instance) => <String, dynamic>{
   r'$type': instance.$type,
-  'privacyPolicy': instance.privacyPolicy,
-  'termsOfService': instance.termsOfService,
-  r'$unknown': instance.$unknown,
+  'privacyPolicy': ?instance.privacyPolicy,
+  'termsOfService': ?instance.termsOfService,
+  r'$unknown': ?instance.$unknown,
 };

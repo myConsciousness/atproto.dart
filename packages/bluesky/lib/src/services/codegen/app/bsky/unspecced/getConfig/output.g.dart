@@ -36,9 +36,9 @@ _UnspeccedGetConfigOutput _$UnspeccedGetConfigOutputFromJson(Map json) =>
 Map<String, dynamic> _$UnspeccedGetConfigOutputToJson(
   _UnspeccedGetConfigOutput instance,
 ) => <String, dynamic>{
-  'checkEmailConfirmed': instance.checkEmailConfirmed,
-  'liveNow': instance.liveNow
+  'checkEmailConfirmed': ?instance.checkEmailConfirmed,
+  'liveNow': ?instance.liveNow
       ?.map(const LiveNowConfigConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

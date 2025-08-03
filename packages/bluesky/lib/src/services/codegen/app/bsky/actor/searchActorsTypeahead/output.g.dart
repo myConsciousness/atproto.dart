@@ -38,5 +38,5 @@ Map<String, dynamic> _$ActorSearchActorsTypeaheadOutputToJson(
   'actors': instance.actors
       .map(const ProfileViewBasicConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

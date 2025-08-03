@@ -30,5 +30,5 @@ Map<String, dynamic> _$ConvoSendMessageInputToJson(
 ) => <String, dynamic>{
   'convoId': instance.convoId,
   'message': const MessageInputConverter().toJson(instance.message),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

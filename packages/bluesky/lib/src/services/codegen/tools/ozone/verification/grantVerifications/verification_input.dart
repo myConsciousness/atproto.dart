@@ -27,6 +27,7 @@ abstract class VerificationInput with _$VerificationInput {
     'createdAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory VerificationInput({
     @Default('tools.ozone.verification.grantVerifications#verificationInput')
     String $type,

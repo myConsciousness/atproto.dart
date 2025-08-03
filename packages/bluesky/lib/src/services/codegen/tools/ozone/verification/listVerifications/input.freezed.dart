@@ -220,8 +220,8 @@ return $default(_that.cursor,_that.limit,_that.createdAfter,_that.createdBefore,
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _VerificationListVerificationsInput implements VerificationListVerificationsInput {
   const _VerificationListVerificationsInput({this.cursor, this.limit = 50, this.createdAfter, this.createdBefore, final  List<String>? issuers, final  List<String>? subjects, this.sortDirection = 'desc', this.isRevoked, final  Map<String, dynamic>? $unknown}): _issuers = issuers,_subjects = subjects,_$unknown = $unknown;
   factory _VerificationListVerificationsInput.fromJson(Map<String, dynamic> json) => _$VerificationListVerificationsInputFromJson(json);

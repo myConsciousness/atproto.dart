@@ -225,8 +225,8 @@ return $default(_that.$type,_that.ver,_that.src,_that.uri,_that.cid,_that.val,_t
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _Label implements Label {
   const _Label({this.$type = 'com.atproto.label.defs#label', this.ver, required this.src, @AtUriConverter() required this.uri, this.cid, required this.val, this.neg, required this.cts, this.exp, final  Map<String, dynamic>? sig, final  Map<String, dynamic>? $unknown}): _sig = sig,_$unknown = $unknown;
   factory _Label.fromJson(Map<String, dynamic> json) => _$LabelFromJson(json);

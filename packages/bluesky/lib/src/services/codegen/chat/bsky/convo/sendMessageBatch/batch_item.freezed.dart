@@ -218,8 +218,8 @@ return $default(_that.$type,_that.convoId,_that.message,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _BatchItem implements BatchItem {
   const _BatchItem({this.$type = 'chat.bsky.convo.sendMessageBatch#batchItem', required this.convoId, @MessageInputConverter() required this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _BatchItem.fromJson(Map<String, dynamic> json) => _$BatchItemFromJson(json);

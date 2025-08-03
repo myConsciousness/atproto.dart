@@ -25,5 +25,5 @@ Map<String, dynamic> _$ServerRequestEmailUpdateOutputToJson(
   _ServerRequestEmailUpdateOutput instance,
 ) => <String, dynamic>{
   'tokenRequired': instance.tokenRequired,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

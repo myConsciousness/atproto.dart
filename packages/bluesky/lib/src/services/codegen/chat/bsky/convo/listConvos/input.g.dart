@@ -39,16 +39,16 @@ Map<String, dynamic> _$ConvoListConvosInputToJson(
   _ConvoListConvosInput instance,
 ) => <String, dynamic>{
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  'readState': _$JsonConverterToJson<String, ConvoListConvosReadState>(
+  'cursor': ?instance.cursor,
+  'readState': ?_$JsonConverterToJson<String, ConvoListConvosReadState>(
     instance.readState,
     const ConvoListConvosReadStateConverter().toJson,
   ),
-  'status': _$JsonConverterToJson<String, ConvoListConvosStatus>(
+  'status': ?_$JsonConverterToJson<String, ConvoListConvosStatus>(
     instance.status,
     const ConvoListConvosStatusConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

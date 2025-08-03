@@ -207,8 +207,8 @@ return $default(_that.$type,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RecordDeleted implements RecordDeleted {
   const _RecordDeleted({this.$type = 'app.bsky.notification.defs#recordDeleted', final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RecordDeleted.fromJson(Map<String, dynamic> json) => _$RecordDeletedFromJson(json);

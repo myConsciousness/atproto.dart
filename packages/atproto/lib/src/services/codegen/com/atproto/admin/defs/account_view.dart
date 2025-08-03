@@ -39,6 +39,7 @@ abstract class AccountView with _$AccountView {
     'threatSignatures',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AccountView({
     @Default('com.atproto.admin.defs#accountView') String $type,
     required String did,

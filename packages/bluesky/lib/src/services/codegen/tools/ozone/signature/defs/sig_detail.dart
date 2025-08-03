@@ -22,6 +22,7 @@ part 'sig_detail.g.dart';
 abstract class SigDetail with _$SigDetail {
   static const knownProps = <String>['property', 'value'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SigDetail({
     @Default('tools.ozone.signature.defs#sigDetail') String $type,
     required String property,

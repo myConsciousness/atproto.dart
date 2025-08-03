@@ -22,6 +22,7 @@ part 'handle_updated.g.dart';
 abstract class HandleUpdated with _$HandleUpdated {
   static const knownProps = <String>['handle'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory HandleUpdated({
     @Default('tools.ozone.hosting.getAccountHistory#handleUpdated')
     String $type,

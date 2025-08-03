@@ -44,8 +44,8 @@ Map<String, dynamic> _$RelatedAccountToJson(_RelatedAccount instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'account': const AccountViewConverter().toJson(instance.account),
-      'similarities': instance.similarities
+      'similarities': ?instance.similarities
           ?.map(const SigDetailConverter().toJson)
           .toList(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

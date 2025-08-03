@@ -42,5 +42,5 @@ Map<String, dynamic> _$ProfileAssociatedActivitySubscriptionToJson(
   'allowSubscriptions':
       const ProfileAssociatedActivitySubscriptionAllowSubscriptionsConverter()
           .toJson(instance.allowSubscriptions),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

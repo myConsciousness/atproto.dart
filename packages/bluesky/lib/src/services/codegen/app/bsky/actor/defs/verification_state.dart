@@ -32,6 +32,7 @@ abstract class VerificationState with _$VerificationState {
     'trustedVerifierStatus',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory VerificationState({
     @Default('app.bsky.actor.defs#verificationState') String $type,
     @VerificationViewConverter() required List<VerificationView> verifications,

@@ -22,6 +22,7 @@ part 'output.g.dart';
 abstract class IdentityResolveHandleOutput with _$IdentityResolveHandleOutput {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory IdentityResolveHandleOutput({
     required String did,
 

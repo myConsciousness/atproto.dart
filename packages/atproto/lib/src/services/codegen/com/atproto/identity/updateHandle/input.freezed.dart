@@ -208,8 +208,8 @@ return $default(_that.handle,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _IdentityUpdateHandleInput implements IdentityUpdateHandleInput {
   const _IdentityUpdateHandleInput({required this.handle, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _IdentityUpdateHandleInput.fromJson(Map<String, dynamic> json) => _$IdentityUpdateHandleInputFromJson(json);

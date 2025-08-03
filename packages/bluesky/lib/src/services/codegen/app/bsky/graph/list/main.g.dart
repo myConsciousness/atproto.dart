@@ -60,20 +60,20 @@ Map<String, dynamic> _$GraphListRecordToJson(_GraphListRecord instance) =>
       r'$type': instance.$type,
       'purpose': const ListPurposeConverter().toJson(instance.purpose),
       'name': instance.name,
-      'description': instance.description,
-      'descriptionFacets': instance.descriptionFacets
+      'description': ?instance.description,
+      'descriptionFacets': ?instance.descriptionFacets
           ?.map(const RichtextFacetConverter().toJson)
           .toList(),
-      'avatar': _$JsonConverterToJson<Map<String, dynamic>, Blob>(
+      'avatar': ?_$JsonConverterToJson<Map<String, dynamic>, Blob>(
         instance.avatar,
         const BlobConverter().toJson,
       ),
-      'labels': _$JsonConverterToJson<Map<String, dynamic>, UGraphListLabels>(
+      'labels': ?_$JsonConverterToJson<Map<String, dynamic>, UGraphListLabels>(
         instance.labels,
         const UGraphListLabelsConverter().toJson,
       ),
       'createdAt': instance.createdAt.toIso8601String(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

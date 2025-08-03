@@ -207,8 +207,8 @@ return $default(_that.trends,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetTrendsSkeletonOutput implements UnspeccedGetTrendsSkeletonOutput {
   const _UnspeccedGetTrendsSkeletonOutput({@SkeletonTrendConverter() required final  List<SkeletonTrend> trends, final  Map<String, dynamic>? $unknown}): _trends = trends,_$unknown = $unknown;
   factory _UnspeccedGetTrendsSkeletonOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetTrendsSkeletonOutputFromJson(json);

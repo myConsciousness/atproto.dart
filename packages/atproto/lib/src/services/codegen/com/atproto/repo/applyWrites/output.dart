@@ -26,6 +26,7 @@ part 'output.g.dart';
 abstract class RepoApplyWritesOutput with _$RepoApplyWritesOutput {
   static const knownProps = <String>['commit', 'results'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoApplyWritesOutput({
     @CommitMetaConverter() CommitMeta? commit,
     @URepoApplyWritesResultsConverter() List<URepoApplyWritesResults>? results,

@@ -31,5 +31,5 @@ Map<String, dynamic> _$FeedGetPostThreadInputToJson(
   'uri': instance.uri,
   'depth': instance.depth,
   'parentHeight': instance.parentHeight,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

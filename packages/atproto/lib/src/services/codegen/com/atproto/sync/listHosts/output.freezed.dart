@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.hosts,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncListHostsOutput implements SyncListHostsOutput {
   const _SyncListHostsOutput({this.cursor, @HostConverter() required final  List<Host> hosts, final  Map<String, dynamic>? $unknown}): _hosts = hosts,_$unknown = $unknown;
   factory _SyncListHostsOutput.fromJson(Map<String, dynamic> json) => _$SyncListHostsOutputFromJson(json);

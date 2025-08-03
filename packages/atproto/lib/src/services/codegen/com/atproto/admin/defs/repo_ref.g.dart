@@ -27,5 +27,5 @@ _RepoRef _$RepoRefFromJson(Map json) =>
 Map<String, dynamic> _$RepoRefToJson(_RepoRef instance) => <String, dynamic>{
   r'$type': instance.$type,
   'did': instance.did,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

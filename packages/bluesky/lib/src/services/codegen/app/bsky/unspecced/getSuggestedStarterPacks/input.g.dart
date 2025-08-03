@@ -26,4 +26,7 @@ _$UnspeccedGetSuggestedStarterPacksInputFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$UnspeccedGetSuggestedStarterPacksInputToJson(
   _UnspeccedGetSuggestedStarterPacksInput instance,
-) => <String, dynamic>{'limit': instance.limit, r'$unknown': instance.$unknown};
+) => <String, dynamic>{
+  'limit': instance.limit,
+  r'$unknown': ?instance.$unknown,
+};

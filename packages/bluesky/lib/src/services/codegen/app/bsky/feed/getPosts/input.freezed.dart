@@ -207,8 +207,8 @@ return $default(_that.uris,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetPostsInput implements FeedGetPostsInput {
   const _FeedGetPostsInput({required final  List<String> uris, final  Map<String, dynamic>? $unknown}): _uris = uris,_$unknown = $unknown;
   factory _FeedGetPostsInput.fromJson(Map<String, dynamic> json) => _$FeedGetPostsInputFromJson(json);

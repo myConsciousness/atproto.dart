@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class ActorGetPreferencesOutput with _$ActorGetPreferencesOutput {
   static const knownProps = <String>['preferences'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ActorGetPreferencesOutput({
     @UPreferencesConverter() required List<UPreferences> preferences,
 

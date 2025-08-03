@@ -34,6 +34,7 @@ abstract class Label with _$Label {
     'sig',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Label({
     @Default('com.atproto.label.defs#label') String $type,
 

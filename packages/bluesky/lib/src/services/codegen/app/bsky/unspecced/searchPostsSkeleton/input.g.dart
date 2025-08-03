@@ -54,25 +54,25 @@ Map<String, dynamic> _$UnspeccedSearchPostsSkeletonInputToJson(
   _UnspeccedSearchPostsSkeletonInput instance,
 ) => <String, dynamic>{
   'q': instance.q,
-  'sort': _$JsonConverterToJson<String, UnspeccedSearchPostsSkeletonSort>(
+  'sort': ?_$JsonConverterToJson<String, UnspeccedSearchPostsSkeletonSort>(
     instance.sort,
     const UnspeccedSearchPostsSkeletonSortConverter().toJson,
   ),
-  'since': instance.since,
-  'until': instance.until,
-  'mentions': instance.mentions,
-  'author': instance.author,
-  'lang': instance.lang,
-  'domain': instance.domain,
-  'url': _$JsonConverterToJson<String, AtUri>(
+  'since': ?instance.since,
+  'until': ?instance.until,
+  'mentions': ?instance.mentions,
+  'author': ?instance.author,
+  'lang': ?instance.lang,
+  'domain': ?instance.domain,
+  'url': ?_$JsonConverterToJson<String, AtUri>(
     instance.url,
     const AtUriConverter().toJson,
   ),
-  'tag': instance.tag,
-  'viewer': instance.viewer,
+  'tag': ?instance.tag,
+  'viewer': ?instance.viewer,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

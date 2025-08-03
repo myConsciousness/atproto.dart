@@ -91,6 +91,7 @@ ${getDescription()}
 abstract class $name with _\$$name {
   $knownProps
 
+  @JsonSerializable(includeIfNull: false)
   const factory $name({
     @Default('$id') String \$type,
     ${properties.toString()}

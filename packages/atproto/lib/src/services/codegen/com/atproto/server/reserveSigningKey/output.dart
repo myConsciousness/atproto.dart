@@ -23,6 +23,7 @@ abstract class ServerReserveSigningKeyOutput
     with _$ServerReserveSigningKeyOutput {
   static const knownProps = <String>['signingKey'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerReserveSigningKeyOutput({
     /// The public key for the reserved signing key, in did:key serialization.
     required String signingKey,

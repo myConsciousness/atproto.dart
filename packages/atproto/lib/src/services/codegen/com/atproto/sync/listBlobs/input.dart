@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class SyncListBlobsInput with _$SyncListBlobsInput {
   static const knownProps = <String>['did', 'since', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncListBlobsInput({
     /// The DID of the repo.
     required String did,

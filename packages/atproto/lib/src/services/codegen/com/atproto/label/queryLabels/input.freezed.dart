@@ -210,8 +210,8 @@ return $default(_that.uriPatterns,_that.sources,_that.limit,_that.cursor,_that.$
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _LabelQueryLabelsInput implements LabelQueryLabelsInput {
   const _LabelQueryLabelsInput({required final  List<String> uriPatterns, final  List<String>? sources, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _uriPatterns = uriPatterns,_sources = sources,_$unknown = $unknown;
   factory _LabelQueryLabelsInput.fromJson(Map<String, dynamic> json) => _$LabelQueryLabelsInputFromJson(json);

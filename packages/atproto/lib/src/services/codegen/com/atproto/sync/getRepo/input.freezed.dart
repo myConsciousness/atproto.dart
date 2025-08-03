@@ -210,8 +210,8 @@ return $default(_that.did,_that.since,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncGetRepoInput implements SyncGetRepoInput {
   const _SyncGetRepoInput({required this.did, this.since, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncGetRepoInput.fromJson(Map<String, dynamic> json) => _$SyncGetRepoInputFromJson(json);

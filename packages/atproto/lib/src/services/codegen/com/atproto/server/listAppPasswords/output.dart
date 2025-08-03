@@ -26,6 +26,7 @@ abstract class ServerListAppPasswordsOutput
     with _$ServerListAppPasswordsOutput {
   static const knownProps = <String>['passwords'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerListAppPasswordsOutput({
     @AppPasswordConverter() required List<AppPassword> passwords,
 

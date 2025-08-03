@@ -208,8 +208,8 @@ return $default(_that.convoId,_that.messageId,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoUpdateReadInput implements ConvoUpdateReadInput {
   const _ConvoUpdateReadInput({required this.convoId, this.messageId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoUpdateReadInput.fromJson(Map<String, dynamic> json) => _$ConvoUpdateReadInputFromJson(json);

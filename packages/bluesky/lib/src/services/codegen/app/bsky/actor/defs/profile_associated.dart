@@ -33,6 +33,7 @@ abstract class ProfileAssociated with _$ProfileAssociated {
     'activitySubscription',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ProfileAssociated({
     @Default('app.bsky.actor.defs#profileAssociated') String $type,
     int? lists,

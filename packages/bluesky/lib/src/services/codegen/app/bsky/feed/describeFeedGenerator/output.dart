@@ -27,6 +27,7 @@ abstract class FeedDescribeFeedGeneratorOutput
     with _$FeedDescribeFeedGeneratorOutput {
   static const knownProps = <String>['did', 'feeds', 'links'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedDescribeFeedGeneratorOutput({
     required String did,
     @FeedConverter() required List<Feed> feeds,

@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class AdminGetInviteCodesOutput with _$AdminGetInviteCodesOutput {
   static const knownProps = <String>['cursor', 'codes'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdminGetInviteCodesOutput({
     String? cursor,
     @InviteCodeConverter() required List<InviteCode> codes,

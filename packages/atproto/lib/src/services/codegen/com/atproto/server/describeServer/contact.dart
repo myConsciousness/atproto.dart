@@ -22,6 +22,7 @@ part 'contact.g.dart';
 abstract class Contact with _$Contact {
   static const knownProps = <String>['email'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Contact({
     @Default('com.atproto.server.describeServer#contact') String $type,
     String? email,

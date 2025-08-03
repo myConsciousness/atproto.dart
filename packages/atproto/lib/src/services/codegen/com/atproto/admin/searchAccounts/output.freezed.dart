@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.accounts,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AdminSearchAccountsOutput implements AdminSearchAccountsOutput {
   const _AdminSearchAccountsOutput({this.cursor, @AccountViewConverter() required final  List<AccountView> accounts, final  Map<String, dynamic>? $unknown}): _accounts = accounts,_$unknown = $unknown;
   factory _AdminSearchAccountsOutput.fromJson(Map<String, dynamic> json) => _$AdminSearchAccountsOutputFromJson(json);

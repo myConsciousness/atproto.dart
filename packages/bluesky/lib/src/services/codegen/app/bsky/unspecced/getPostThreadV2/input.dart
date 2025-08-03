@@ -33,6 +33,7 @@ abstract class UnspeccedGetPostThreadV2Input
     'sort',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetPostThreadV2Input({
     /// Reference (AT-URI) to post record. This is the anchor post, and the thread will be built around it. It can be any post in the tree, not necessarily a root post.
     required String anchor,

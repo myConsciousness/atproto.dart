@@ -23,6 +23,6 @@ _SyncSubscribeReposInput _$SyncSubscribeReposInputFromJson(Map json) =>
 Map<String, dynamic> _$SyncSubscribeReposInputToJson(
   _SyncSubscribeReposInput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };

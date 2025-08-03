@@ -23,6 +23,7 @@ abstract class SignatureFindCorrelationInput
     with _$SignatureFindCorrelationInput {
   static const knownProps = <String>['dids'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SignatureFindCorrelationInput({
     required List<String> dids,
 

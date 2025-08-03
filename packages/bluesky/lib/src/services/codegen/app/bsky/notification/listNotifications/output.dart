@@ -31,6 +31,7 @@ abstract class NotificationListNotificationsOutput
     'seenAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory NotificationListNotificationsOutput({
     String? cursor,
     @NotificationConverter() required List<Notification> notifications,

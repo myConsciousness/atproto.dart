@@ -41,5 +41,5 @@ Map<String, dynamic> _$KnownFollowersToJson(_KnownFollowers instance) =>
       'followers': instance.followers
           .map(const ProfileViewBasicConverter().toJson)
           .toList(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

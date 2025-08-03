@@ -207,8 +207,8 @@ return $default(_that.trends,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetTrendsOutput implements UnspeccedGetTrendsOutput {
   const _UnspeccedGetTrendsOutput({@TrendViewConverter() required final  List<TrendView> trends, final  Map<String, dynamic>? $unknown}): _trends = trends,_$unknown = $unknown;
   factory _UnspeccedGetTrendsOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetTrendsOutputFromJson(json);

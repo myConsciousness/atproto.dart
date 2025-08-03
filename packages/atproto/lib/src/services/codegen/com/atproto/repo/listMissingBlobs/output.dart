@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class RepoListMissingBlobsOutput with _$RepoListMissingBlobsOutput {
   static const knownProps = <String>['cursor', 'blobs'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoListMissingBlobsOutput({
     String? cursor,
     @RecordBlobConverter() required List<RecordBlob> blobs,

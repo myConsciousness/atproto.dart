@@ -36,9 +36,9 @@ _$NotificationListActivitySubscriptionsOutputFromJson(Map json) =>
 Map<String, dynamic> _$NotificationListActivitySubscriptionsOutputToJson(
   _NotificationListActivitySubscriptionsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'subscriptions': instance.subscriptions
       .map(const ProfileViewConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

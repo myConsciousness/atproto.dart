@@ -207,8 +207,8 @@ return $default(_that.did,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AdminGetAccountInfoInput implements AdminGetAccountInfoInput {
   const _AdminGetAccountInfoInput({required this.did, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AdminGetAccountInfoInput.fromJson(Map<String, dynamic> json) => _$AdminGetAccountInfoInputFromJson(json);

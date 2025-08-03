@@ -207,8 +207,8 @@ return $default(_that.tokenRequired,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerRequestEmailUpdateOutput implements ServerRequestEmailUpdateOutput {
   const _ServerRequestEmailUpdateOutput({required this.tokenRequired, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerRequestEmailUpdateOutput.fromJson(Map<String, dynamic> json) => _$ServerRequestEmailUpdateOutputFromJson(json);

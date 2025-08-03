@@ -209,8 +209,8 @@ return $default(_that.$type,_that.list,_that.push,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _Preference implements Preference {
   const _Preference({this.$type = 'app.bsky.notification.defs#preference', required this.list, required this.push, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Preference.fromJson(Map<String, dynamic> json) => _$PreferenceFromJson(json);

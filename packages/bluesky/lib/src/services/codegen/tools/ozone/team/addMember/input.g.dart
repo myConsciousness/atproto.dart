@@ -28,5 +28,5 @@ Map<String, dynamic> _$TeamAddMemberInputToJson(_TeamAddMemberInput instance) =>
     <String, dynamic>{
       'did': instance.did,
       'role': const TeamAddMemberRoleConverter().toJson(instance.role),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

@@ -22,4 +22,4 @@ _SyncGetRepoStatusInput _$SyncGetRepoStatusInputFromJson(Map json) =>
 
 Map<String, dynamic> _$SyncGetRepoStatusInputToJson(
   _SyncGetRepoStatusInput instance,
-) => <String, dynamic>{'did': instance.did, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'did': instance.did, r'$unknown': ?instance.$unknown};

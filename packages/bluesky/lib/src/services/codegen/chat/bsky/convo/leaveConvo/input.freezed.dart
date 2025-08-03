@@ -207,8 +207,8 @@ return $default(_that.convoId,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoLeaveConvoInput implements ConvoLeaveConvoInput {
   const _ConvoLeaveConvoInput({required this.convoId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoLeaveConvoInput.fromJson(Map<String, dynamic> json) => _$ConvoLeaveConvoInputFromJson(json);

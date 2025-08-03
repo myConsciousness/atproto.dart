@@ -209,8 +209,8 @@ return $default(_that.$type,_that.post,_that.reply,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ActivitySubscription implements ActivitySubscription {
   const _ActivitySubscription({this.$type = 'app.bsky.notification.defs#activitySubscription', required this.post, required this.reply, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ActivitySubscription.fromJson(Map<String, dynamic> json) => _$ActivitySubscriptionFromJson(json);

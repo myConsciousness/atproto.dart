@@ -219,8 +219,8 @@ return $default(_that.commit,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RepoDeleteRecordOutput implements RepoDeleteRecordOutput {
   const _RepoDeleteRecordOutput({@CommitMetaConverter() this.commit, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoDeleteRecordOutput.fromJson(Map<String, dynamic> json) => _$RepoDeleteRecordOutputFromJson(json);

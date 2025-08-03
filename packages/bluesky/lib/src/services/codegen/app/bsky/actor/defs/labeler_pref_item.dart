@@ -22,6 +22,7 @@ part 'labeler_pref_item.g.dart';
 abstract class LabelerPrefItem with _$LabelerPrefItem {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LabelerPrefItem({
     @Default('app.bsky.actor.defs#labelerPrefItem') String $type,
     required String did,

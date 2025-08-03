@@ -22,6 +22,7 @@ part 'skeleton_reason_pin.g.dart';
 abstract class SkeletonReasonPin with _$SkeletonReasonPin {
   static const knownProps = <String>[];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SkeletonReasonPin({
     @Default('app.bsky.feed.defs#skeletonReasonPin') String $type,
 

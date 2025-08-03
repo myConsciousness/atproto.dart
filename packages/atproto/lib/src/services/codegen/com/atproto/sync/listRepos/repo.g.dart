@@ -39,12 +39,12 @@ Map<String, dynamic> _$RepoToJson(_Repo instance) => <String, dynamic>{
   'did': instance.did,
   'head': instance.head,
   'rev': instance.rev,
-  'active': instance.active,
-  'status': _$JsonConverterToJson<String, RepoStatus>(
+  'active': ?instance.active,
+  'status': ?_$JsonConverterToJson<String, RepoStatus>(
     instance.status,
     const RepoStatusConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -33,8 +33,8 @@ Map<String, dynamic> _$LabelQueryLabelsInputToJson(
   _LabelQueryLabelsInput instance,
 ) => <String, dynamic>{
   'uriPatterns': instance.uriPatterns,
-  'sources': instance.sources,
+  'sources': ?instance.sources,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };

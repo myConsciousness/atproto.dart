@@ -27,6 +27,7 @@ abstract class TrendingTopic with _$TrendingTopic {
     'link',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory TrendingTopic({
     @Default('app.bsky.unspecced.defs#trendingTopic') String $type,
     required String topic,

@@ -37,6 +37,7 @@ abstract class Option with _$Option {
     'lastUpdatedBy',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Option({
     @Default('tools.ozone.setting.defs#option') String $type,
     required String key,

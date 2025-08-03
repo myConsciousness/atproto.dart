@@ -24,6 +24,6 @@ _SyncListReposInput _$SyncListReposInputFromJson(Map json) =>
 Map<String, dynamic> _$SyncListReposInputToJson(_SyncListReposInput instance) =>
     <String, dynamic>{
       'limit': instance.limit,
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
+      'cursor': ?instance.cursor,
+      r'$unknown': ?instance.$unknown,
     };

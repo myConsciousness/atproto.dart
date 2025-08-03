@@ -22,6 +22,7 @@ part 'thread_item_not_found.g.dart';
 abstract class ThreadItemNotFound with _$ThreadItemNotFound {
   static const knownProps = <String>[];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ThreadItemNotFound({
     @Default('app.bsky.unspecced.defs#threadItemNotFound') String $type,
 

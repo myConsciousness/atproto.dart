@@ -227,8 +227,8 @@ return $default(_that.$type,_that.record,_that.media,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _EmbedRecordWithMedia implements EmbedRecordWithMedia {
   const _EmbedRecordWithMedia({this.$type = 'app.bsky.embed.recordWithMedia', @EmbedRecordConverter() required this.record, @UEmbedRecordWithMediaMediaConverter() required this.media, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedRecordWithMedia.fromJson(Map<String, dynamic> json) => _$EmbedRecordWithMediaFromJson(json);

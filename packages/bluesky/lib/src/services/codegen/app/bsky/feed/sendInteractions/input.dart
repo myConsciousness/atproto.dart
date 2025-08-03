@@ -25,6 +25,7 @@ part 'input.g.dart';
 abstract class FeedSendInteractionsInput with _$FeedSendInteractionsInput {
   static const knownProps = <String>['interactions'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedSendInteractionsInput({
     @InteractionConverter() required List<Interaction> interactions,
 

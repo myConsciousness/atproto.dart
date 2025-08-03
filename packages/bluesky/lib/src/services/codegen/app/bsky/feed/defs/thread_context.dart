@@ -23,6 +23,7 @@ part 'thread_context.g.dart';
 abstract class ThreadContext with _$ThreadContext {
   static const knownProps = <String>['rootAuthorLike'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ThreadContext({
     @Default('app.bsky.feed.defs#threadContext') String $type,
     String? rootAuthorLike,

@@ -35,6 +35,7 @@ abstract class LabelerServiceRecord with _$LabelerServiceRecord {
     'subjectCollections',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LabelerServiceRecord({
     @Default('app.bsky.labeler.service') String $type,
     @LabelerPoliciesConverter() required LabelerPolicies policies,

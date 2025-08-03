@@ -40,10 +40,10 @@ _IdentitySignPlcOperationInput _$IdentitySignPlcOperationInputFromJson(
 Map<String, dynamic> _$IdentitySignPlcOperationInputToJson(
   _IdentitySignPlcOperationInput instance,
 ) => <String, dynamic>{
-  'token': instance.token,
-  'rotationKeys': instance.rotationKeys,
-  'alsoKnownAs': instance.alsoKnownAs,
-  'verificationMethods': instance.verificationMethods,
-  'services': instance.services,
-  r'$unknown': instance.$unknown,
+  'token': ?instance.token,
+  'rotationKeys': ?instance.rotationKeys,
+  'alsoKnownAs': ?instance.alsoKnownAs,
+  'verificationMethods': ?instance.verificationMethods,
+  'services': ?instance.services,
+  r'$unknown': ?instance.$unknown,
 };

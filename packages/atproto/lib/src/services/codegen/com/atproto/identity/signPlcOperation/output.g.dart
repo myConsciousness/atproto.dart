@@ -28,5 +28,5 @@ Map<String, dynamic> _$IdentitySignPlcOperationOutputToJson(
   _IdentitySignPlcOperationOutput instance,
 ) => <String, dynamic>{
   'operation': instance.operation,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

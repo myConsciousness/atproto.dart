@@ -215,8 +215,8 @@ return $default(_that.$type,_that.name,_that.description,_that.descriptionFacets
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphStarterpackRecord implements GraphStarterpackRecord {
   const _GraphStarterpackRecord({this.$type = 'app.bsky.graph.starterpack', required this.name, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, required this.list, @FeedItemConverter() final  List<FeedItem>? feeds, required this.createdAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_feeds = feeds,_$unknown = $unknown;
   factory _GraphStarterpackRecord.fromJson(Map<String, dynamic> json) => _$GraphStarterpackRecordFromJson(json);

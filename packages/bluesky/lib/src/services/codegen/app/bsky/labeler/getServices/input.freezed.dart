@@ -208,8 +208,8 @@ return $default(_that.dids,_that.detailed,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _LabelerGetServicesInput implements LabelerGetServicesInput {
   const _LabelerGetServicesInput({required final  List<String> dids, this.detailed = false, final  Map<String, dynamic>? $unknown}): _dids = dids,_$unknown = $unknown;
   factory _LabelerGetServicesInput.fromJson(Map<String, dynamic> json) => _$LabelerGetServicesInputFromJson(json);

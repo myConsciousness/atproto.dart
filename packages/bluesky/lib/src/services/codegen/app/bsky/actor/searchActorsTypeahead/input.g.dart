@@ -26,7 +26,7 @@ _ActorSearchActorsTypeaheadInput _$ActorSearchActorsTypeaheadInputFromJson(
 Map<String, dynamic> _$ActorSearchActorsTypeaheadInputToJson(
   _ActorSearchActorsTypeaheadInput instance,
 ) => <String, dynamic>{
-  'q': instance.q,
+  'q': ?instance.q,
   'limit': instance.limit,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

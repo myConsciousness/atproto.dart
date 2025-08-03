@@ -46,5 +46,5 @@ Map<String, dynamic> _$RichtextFacetToJson(_RichtextFacet instance) =>
       'features': instance.features
           .map(const URichtextFacetFeaturesConverter().toJson)
           .toList(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

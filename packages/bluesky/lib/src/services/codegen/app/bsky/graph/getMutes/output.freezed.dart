@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.mutes,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphGetMutesOutput implements GraphGetMutesOutput {
   const _GraphGetMutesOutput({this.cursor, @ProfileViewConverter() required final  List<ProfileView> mutes, final  Map<String, dynamic>? $unknown}): _mutes = mutes,_$unknown = $unknown;
   factory _GraphGetMutesOutput.fromJson(Map<String, dynamic> json) => _$GraphGetMutesOutputFromJson(json);

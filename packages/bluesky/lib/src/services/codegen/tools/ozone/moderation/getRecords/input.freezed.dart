@@ -207,8 +207,8 @@ return $default(_that.uris,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationGetRecordsInput implements ModerationGetRecordsInput {
   const _ModerationGetRecordsInput({required final  List<String> uris, final  Map<String, dynamic>? $unknown}): _uris = uris,_$unknown = $unknown;
   factory _ModerationGetRecordsInput.fromJson(Map<String, dynamic> json) => _$ModerationGetRecordsInputFromJson(json);

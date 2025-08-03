@@ -209,8 +209,8 @@ return $default(_that.$type,_that.comment,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModEventUnmute implements ModEventUnmute {
   const _ModEventUnmute({this.$type = 'tools.ozone.moderation.defs#modEventUnmute', this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModEventUnmute.fromJson(Map<String, dynamic> json) => _$ModEventUnmuteFromJson(json);

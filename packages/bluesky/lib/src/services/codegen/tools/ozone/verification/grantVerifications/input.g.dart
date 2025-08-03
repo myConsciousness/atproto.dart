@@ -39,5 +39,5 @@ Map<String, dynamic> _$VerificationGrantVerificationsInputToJson(
   'verifications': instance.verifications
       .map(const VerificationInputConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -224,8 +224,8 @@ return $default(_that.did,_that.active,_that.status,_that.rev,_that.$unknown);ca
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncGetRepoStatusOutput implements SyncGetRepoStatusOutput {
   const _SyncGetRepoStatusOutput({required this.did, required this.active, @SyncGetRepoStatusStatusConverter() this.status, this.rev, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncGetRepoStatusOutput.fromJson(Map<String, dynamic> json) => _$SyncGetRepoStatusOutputFromJson(json);

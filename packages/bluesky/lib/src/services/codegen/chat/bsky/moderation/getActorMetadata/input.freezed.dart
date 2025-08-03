@@ -207,8 +207,8 @@ return $default(_that.actor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationGetActorMetadataInput implements ModerationGetActorMetadataInput {
   const _ModerationGetActorMetadataInput({required this.actor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModerationGetActorMetadataInput.fromJson(Map<String, dynamic> json) => _$ModerationGetActorMetadataInputFromJson(json);

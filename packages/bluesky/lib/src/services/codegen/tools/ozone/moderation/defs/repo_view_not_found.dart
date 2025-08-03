@@ -22,6 +22,7 @@ part 'repo_view_not_found.g.dart';
 abstract class RepoViewNotFound with _$RepoViewNotFound {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoViewNotFound({
     @Default('tools.ozone.moderation.defs#repoViewNotFound') String $type,
     required String did,

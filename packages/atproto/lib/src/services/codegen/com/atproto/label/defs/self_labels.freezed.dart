@@ -208,8 +208,8 @@ return $default(_that.$type,_that.values,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SelfLabels implements SelfLabels {
   const _SelfLabels({this.$type = 'com.atproto.label.defs#selfLabels', @SelfLabelConverter() required final  List<SelfLabel> values, final  Map<String, dynamic>? $unknown}): _values = values,_$unknown = $unknown;
   factory _SelfLabels.fromJson(Map<String, dynamic> json) => _$SelfLabelsFromJson(json);

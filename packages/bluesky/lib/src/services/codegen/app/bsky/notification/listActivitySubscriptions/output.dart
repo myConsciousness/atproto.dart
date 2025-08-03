@@ -26,6 +26,7 @@ abstract class NotificationListActivitySubscriptionsOutput
     with _$NotificationListActivitySubscriptionsOutput {
   static const knownProps = <String>['cursor', 'subscriptions'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory NotificationListActivitySubscriptionsOutput({
     String? cursor,
     @ProfileViewConverter() required List<ProfileView> subscriptions,

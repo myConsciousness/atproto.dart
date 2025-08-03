@@ -31,5 +31,5 @@ Map<String, dynamic> _$RichtextFacetLinkToJson(_RichtextFacetLink instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'uri': const AtUriConverter().toJson(instance.uri),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

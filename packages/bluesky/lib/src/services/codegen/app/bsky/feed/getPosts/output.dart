@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class FeedGetPostsOutput with _$FeedGetPostsOutput {
   static const knownProps = <String>['posts'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetPostsOutput({
     @PostViewConverter() required List<PostView> posts,
 

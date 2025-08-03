@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class UnspeccedGetTrendsInput with _$UnspeccedGetTrendsInput {
   static const knownProps = <String>['limit'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetTrendsInput({
     @Default(10) int limit,
 

@@ -29,9 +29,9 @@ _ModerationGetMessageContextInput _$ModerationGetMessageContextInputFromJson(
 Map<String, dynamic> _$ModerationGetMessageContextInputToJson(
   _ModerationGetMessageContextInput instance,
 ) => <String, dynamic>{
-  'convoId': instance.convoId,
+  'convoId': ?instance.convoId,
   'messageId': instance.messageId,
   'before': instance.before,
   'after': instance.after,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

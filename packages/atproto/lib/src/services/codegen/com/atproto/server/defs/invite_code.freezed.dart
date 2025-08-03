@@ -214,8 +214,8 @@ return $default(_that.$type,_that.code,_that.available,_that.disabled,_that.forA
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _InviteCode implements InviteCode {
   const _InviteCode({this.$type = 'com.atproto.server.defs#inviteCode', required this.code, required this.available, required this.disabled, required this.forAccount, required this.createdBy, required this.createdAt, @InviteCodeUseConverter() required final  List<InviteCodeUse> uses, final  Map<String, dynamic>? $unknown}): _uses = uses,_$unknown = $unknown;
   factory _InviteCode.fromJson(Map<String, dynamic> json) => _$InviteCodeFromJson(json);

@@ -209,8 +209,8 @@ return $default(_that.$type,_that.property,_that.value,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SigDetail implements SigDetail {
   const _SigDetail({this.$type = 'tools.ozone.signature.defs#sigDetail', required this.property, required this.value, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SigDetail.fromJson(Map<String, dynamic> json) => _$SigDetailFromJson(json);

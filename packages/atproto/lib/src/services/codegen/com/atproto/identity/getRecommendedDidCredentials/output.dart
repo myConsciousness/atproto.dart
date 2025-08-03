@@ -28,6 +28,7 @@ abstract class IdentityGetRecommendedDidCredentialsOutput
     'services',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory IdentityGetRecommendedDidCredentialsOutput({
     List<String>? rotationKeys,
     List<String>? alsoKnownAs,

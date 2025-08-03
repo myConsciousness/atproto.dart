@@ -33,7 +33,7 @@ _FeedGetActorFeedsOutput _$FeedGetActorFeedsOutputFromJson(Map json) =>
 Map<String, dynamic> _$FeedGetActorFeedsOutputToJson(
   _FeedGetActorFeedsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'feeds': instance.feeds.map(const GeneratorViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

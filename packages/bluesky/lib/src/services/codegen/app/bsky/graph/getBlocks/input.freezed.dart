@@ -208,8 +208,8 @@ return $default(_that.limit,_that.cursor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphGetBlocksInput implements GraphGetBlocksInput {
   const _GraphGetBlocksInput({this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphGetBlocksInput.fromJson(Map<String, dynamic> json) => _$GraphGetBlocksInputFromJson(json);

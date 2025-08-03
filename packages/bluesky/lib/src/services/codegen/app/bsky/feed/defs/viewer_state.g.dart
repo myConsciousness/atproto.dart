@@ -35,11 +35,11 @@ _ViewerState _$ViewerStateFromJson(Map json) =>
 Map<String, dynamic> _$ViewerStateToJson(_ViewerState instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'repost': instance.repost,
-      'like': instance.like,
-      'threadMuted': instance.threadMuted,
-      'replyDisabled': instance.replyDisabled,
-      'embeddingDisabled': instance.embeddingDisabled,
-      'pinned': instance.pinned,
-      r'$unknown': instance.$unknown,
+      'repost': ?instance.repost,
+      'like': ?instance.like,
+      'threadMuted': ?instance.threadMuted,
+      'replyDisabled': ?instance.replyDisabled,
+      'embeddingDisabled': ?instance.embeddingDisabled,
+      'pinned': ?instance.pinned,
+      r'$unknown': ?instance.$unknown,
     };

@@ -208,8 +208,8 @@ return $default(_that.did,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _IdentityResolveDidInput implements IdentityResolveDidInput {
   const _IdentityResolveDidInput({required this.did, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _IdentityResolveDidInput.fromJson(Map<String, dynamic> json) => _$IdentityResolveDidInputFromJson(json);

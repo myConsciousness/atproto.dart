@@ -23,6 +23,7 @@ abstract class NotificationListActivitySubscriptionsInput
     with _$NotificationListActivitySubscriptionsInput {
   static const knownProps = <String>['limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory NotificationListActivitySubscriptionsInput({
     @Default(50) int limit,
     String? cursor,

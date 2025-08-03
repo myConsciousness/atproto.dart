@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ConvoGetConvoInput with _$ConvoGetConvoInput {
   static const knownProps = <String>['convoId'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoGetConvoInput({
     required String convoId,
 

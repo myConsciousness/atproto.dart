@@ -220,8 +220,8 @@ return $default(_that.$type,_that.id,_that.type,_that.value,_that.pinned,_that.$
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SavedFeed implements SavedFeed {
   const _SavedFeed({this.$type = 'app.bsky.actor.defs#savedFeed', required this.id, @SavedFeedTypeConverter() required this.type, required this.value, required this.pinned, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SavedFeed.fromJson(Map<String, dynamic> json) => _$SavedFeedFromJson(json);

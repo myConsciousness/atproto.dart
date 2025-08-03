@@ -37,6 +37,7 @@ abstract class ConvoView with _$ConvoView {
     'unreadCount',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoView({
     @Default('chat.bsky.convo.defs#convoView') String $type,
     required String id,

@@ -35,5 +35,5 @@ Map<String, dynamic> _$LabelerGetServicesOutputToJson(
   'views': instance.views
       .map(const ULabelerGetServicesViewsConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -26,6 +26,7 @@ part 'view_image.g.dart';
 abstract class EmbedImagesViewImage with _$EmbedImagesViewImage {
   static const knownProps = <String>['thumb', 'fullsize', 'alt', 'aspectRatio'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmbedImagesViewImage({
     @Default('app.bsky.embed.images#viewImage') String $type,
 

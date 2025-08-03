@@ -23,6 +23,7 @@ part 'mod_event_comment.g.dart';
 abstract class ModEventComment with _$ModEventComment {
   static const knownProps = <String>['comment', 'sticky'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModEventComment({
     @Default('tools.ozone.moderation.defs#modEventComment') String $type,
     String? comment,

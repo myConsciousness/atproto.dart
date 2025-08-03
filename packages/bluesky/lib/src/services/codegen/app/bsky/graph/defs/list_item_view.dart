@@ -25,6 +25,7 @@ part 'list_item_view.g.dart';
 abstract class ListItemView with _$ListItemView {
   static const knownProps = <String>['uri', 'subject'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ListItemView({
     @Default('app.bsky.graph.defs#listItemView') String $type,
     required String uri,

@@ -143,55 +143,55 @@ _ModerationQueryStatusesInput _$ModerationQueryStatusesInputFromJson(
 Map<String, dynamic> _$ModerationQueryStatusesInputToJson(
   _ModerationQueryStatusesInput instance,
 ) => <String, dynamic>{
-  'queueCount': instance.queueCount,
-  'queueIndex': instance.queueIndex,
-  'queueSeed': instance.queueSeed,
-  'includeAllUserRecords': instance.includeAllUserRecords,
-  'subject': _$JsonConverterToJson<String, AtUri>(
+  'queueCount': ?instance.queueCount,
+  'queueIndex': ?instance.queueIndex,
+  'queueSeed': ?instance.queueSeed,
+  'includeAllUserRecords': ?instance.includeAllUserRecords,
+  'subject': ?_$JsonConverterToJson<String, AtUri>(
     instance.subject,
     const AtUriConverter().toJson,
   ),
-  'comment': instance.comment,
-  'reportedAfter': instance.reportedAfter?.toIso8601String(),
-  'reportedBefore': instance.reportedBefore?.toIso8601String(),
-  'reviewedAfter': instance.reviewedAfter?.toIso8601String(),
-  'hostingDeletedAfter': instance.hostingDeletedAfter?.toIso8601String(),
-  'hostingDeletedBefore': instance.hostingDeletedBefore?.toIso8601String(),
-  'hostingUpdatedAfter': instance.hostingUpdatedAfter?.toIso8601String(),
-  'hostingUpdatedBefore': instance.hostingUpdatedBefore?.toIso8601String(),
-  'hostingStatuses': instance.hostingStatuses,
-  'reviewedBefore': instance.reviewedBefore?.toIso8601String(),
-  'includeMuted': instance.includeMuted,
-  'onlyMuted': instance.onlyMuted,
-  'reviewState': instance.reviewState,
-  'ignoreSubjects': instance.ignoreSubjects
+  'comment': ?instance.comment,
+  'reportedAfter': ?instance.reportedAfter?.toIso8601String(),
+  'reportedBefore': ?instance.reportedBefore?.toIso8601String(),
+  'reviewedAfter': ?instance.reviewedAfter?.toIso8601String(),
+  'hostingDeletedAfter': ?instance.hostingDeletedAfter?.toIso8601String(),
+  'hostingDeletedBefore': ?instance.hostingDeletedBefore?.toIso8601String(),
+  'hostingUpdatedAfter': ?instance.hostingUpdatedAfter?.toIso8601String(),
+  'hostingUpdatedBefore': ?instance.hostingUpdatedBefore?.toIso8601String(),
+  'hostingStatuses': ?instance.hostingStatuses,
+  'reviewedBefore': ?instance.reviewedBefore?.toIso8601String(),
+  'includeMuted': ?instance.includeMuted,
+  'onlyMuted': ?instance.onlyMuted,
+  'reviewState': ?instance.reviewState,
+  'ignoreSubjects': ?instance.ignoreSubjects
       ?.map(const AtUriConverter().toJson)
       .toList(),
-  'lastReviewedBy': instance.lastReviewedBy,
+  'lastReviewedBy': ?instance.lastReviewedBy,
   'sortField': instance.sortField,
   'sortDirection': instance.sortDirection,
-  'takendown': instance.takendown,
-  'appealed': instance.appealed,
+  'takendown': ?instance.takendown,
+  'appealed': ?instance.appealed,
   'limit': instance.limit,
-  'tags': instance.tags,
-  'excludeTags': instance.excludeTags,
-  'cursor': instance.cursor,
-  'collections': instance.collections,
+  'tags': ?instance.tags,
+  'excludeTags': ?instance.excludeTags,
+  'cursor': ?instance.cursor,
+  'collections': ?instance.collections,
   'subjectType':
-      _$JsonConverterToJson<String, ModerationQueryStatusesSubjectType>(
+      ?_$JsonConverterToJson<String, ModerationQueryStatusesSubjectType>(
         instance.subjectType,
         const ModerationQueryStatusesSubjectTypeConverter().toJson,
       ),
-  'minAccountSuspendCount': instance.minAccountSuspendCount,
-  'minReportedRecordsCount': instance.minReportedRecordsCount,
-  'minTakendownRecordsCount': instance.minTakendownRecordsCount,
-  'minPriorityScore': instance.minPriorityScore,
+  'minAccountSuspendCount': ?instance.minAccountSuspendCount,
+  'minReportedRecordsCount': ?instance.minReportedRecordsCount,
+  'minTakendownRecordsCount': ?instance.minTakendownRecordsCount,
+  'minPriorityScore': ?instance.minPriorityScore,
   'ageAssuranceState':
-      _$JsonConverterToJson<String, ModerationQueryStatusesAgeAssuranceState>(
+      ?_$JsonConverterToJson<String, ModerationQueryStatusesAgeAssuranceState>(
         instance.ageAssuranceState,
         const ModerationQueryStatusesAgeAssuranceStateConverter().toJson,
       ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -210,8 +210,8 @@ return $default(_that.$type,_that.name,_that.createdAt,_that.privileged,_that.$u
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AppPassword implements AppPassword {
   const _AppPassword({this.$type = 'com.atproto.server.listAppPasswords#appPassword', required this.name, required this.createdAt, this.privileged, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AppPassword.fromJson(Map<String, dynamic> json) => _$AppPasswordFromJson(json);

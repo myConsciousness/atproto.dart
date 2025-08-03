@@ -207,8 +207,8 @@ return $default(_that.list,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphUnmuteActorListInput implements GraphUnmuteActorListInput {
   const _GraphUnmuteActorListInput({required this.list, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphUnmuteActorListInput.fromJson(Map<String, dynamic> json) => _$GraphUnmuteActorListInputFromJson(json);

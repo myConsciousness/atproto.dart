@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ModerationGetRecordInput with _$ModerationGetRecordInput {
   static const knownProps = <String>['uri', 'cid'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationGetRecordInput({
     required String uri,
     String? cid,

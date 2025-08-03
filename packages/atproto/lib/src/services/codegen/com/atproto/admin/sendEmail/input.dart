@@ -28,6 +28,7 @@ abstract class AdminSendEmailInput with _$AdminSendEmailInput {
     'comment',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdminSendEmailInput({
     required String recipientDid,
     required String content,

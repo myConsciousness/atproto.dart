@@ -30,6 +30,7 @@ abstract class Host with _$Host {
     'status',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Host({
     @Default('com.atproto.sync.listHosts#host') String $type,
 

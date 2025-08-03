@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class FeedGetListFeedInput with _$FeedGetListFeedInput {
   static const knownProps = <String>['list', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetListFeedInput({
     /// Reference (AT-URI) to the list record.
     required String list,

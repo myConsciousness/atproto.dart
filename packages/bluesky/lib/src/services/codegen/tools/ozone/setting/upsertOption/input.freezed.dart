@@ -232,8 +232,8 @@ return $default(_that.key,_that.scope,_that.value,_that.description,_that.manage
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SettingUpsertOptionInput implements SettingUpsertOptionInput {
   const _SettingUpsertOptionInput({required this.key, @SettingUpsertOptionScopeConverter() required this.scope, required final  Map<String, dynamic> value, this.description, @SettingUpsertOptionManagerRoleConverter() this.managerRole, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
   factory _SettingUpsertOptionInput.fromJson(Map<String, dynamic> json) => _$SettingUpsertOptionInputFromJson(json);

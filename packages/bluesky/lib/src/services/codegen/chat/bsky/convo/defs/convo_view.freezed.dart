@@ -251,8 +251,8 @@ return $default(_that.$type,_that.id,_that.rev,_that.members,_that.lastMessage,_
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoView implements ConvoView {
   const _ConvoView({this.$type = 'chat.bsky.convo.defs#convoView', required this.id, required this.rev, @ProfileViewBasicConverter() required final  List<ProfileViewBasic> members, @UConvoViewLastMessageConverter() this.lastMessage, @UConvoViewLastReactionConverter() this.lastReaction, required this.muted, @ConvoViewStatusConverter() this.status, required this.unreadCount, final  Map<String, dynamic>? $unknown}): _members = members,_$unknown = $unknown;
   factory _ConvoView.fromJson(Map<String, dynamic> json) => _$ConvoViewFromJson(json);

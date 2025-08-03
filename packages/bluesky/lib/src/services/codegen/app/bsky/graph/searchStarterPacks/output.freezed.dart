@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.starterPacks,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphSearchStarterPacksOutput implements GraphSearchStarterPacksOutput {
   const _GraphSearchStarterPacksOutput({this.cursor, @StarterPackViewBasicConverter() required final  List<StarterPackViewBasic> starterPacks, final  Map<String, dynamic>? $unknown}): _starterPacks = starterPacks,_$unknown = $unknown;
   factory _GraphSearchStarterPacksOutput.fromJson(Map<String, dynamic> json) => _$GraphSearchStarterPacksOutputFromJson(json);

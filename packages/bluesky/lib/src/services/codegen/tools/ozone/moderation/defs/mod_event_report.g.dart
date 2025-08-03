@@ -32,8 +32,8 @@ _ModEventReport _$ModEventReportFromJson(Map json) =>
 Map<String, dynamic> _$ModEventReportToJson(_ModEventReport instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'comment': instance.comment,
-      'isReporterMuted': instance.isReporterMuted,
+      'comment': ?instance.comment,
+      'isReporterMuted': ?instance.isReporterMuted,
       'reportType': const ReasonTypeConverter().toJson(instance.reportType),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

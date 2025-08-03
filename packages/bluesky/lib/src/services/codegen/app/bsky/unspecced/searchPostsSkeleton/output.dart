@@ -26,6 +26,7 @@ abstract class UnspeccedSearchPostsSkeletonOutput
     with _$UnspeccedSearchPostsSkeletonOutput {
   static const knownProps = <String>['cursor', 'hitsTotal', 'posts'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedSearchPostsSkeletonOutput({
     String? cursor,
 

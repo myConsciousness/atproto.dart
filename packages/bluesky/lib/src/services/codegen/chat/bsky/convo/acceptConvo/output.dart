@@ -22,6 +22,7 @@ part 'output.g.dart';
 abstract class ConvoAcceptConvoOutput with _$ConvoAcceptConvoOutput {
   static const knownProps = <String>['rev'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoAcceptConvoOutput({
     /// Rev when the convo was accepted. If not present, the convo was already accepted.
     String? rev,

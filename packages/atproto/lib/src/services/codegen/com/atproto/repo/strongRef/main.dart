@@ -22,6 +22,7 @@ part 'main.g.dart';
 abstract class RepoStrongRef with _$RepoStrongRef {
   static const knownProps = <String>['uri', 'cid'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoStrongRef({
     @Default('com.atproto.repo.strongRef') String $type,
     required String uri,

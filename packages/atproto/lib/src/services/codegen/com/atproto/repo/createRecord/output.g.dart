@@ -41,16 +41,16 @@ Map<String, dynamic> _$RepoCreateRecordOutputToJson(
 ) => <String, dynamic>{
   'uri': instance.uri,
   'cid': instance.cid,
-  'commit': _$JsonConverterToJson<Map<String, dynamic>, CommitMeta>(
+  'commit': ?_$JsonConverterToJson<Map<String, dynamic>, CommitMeta>(
     instance.commit,
     const CommitMetaConverter().toJson,
   ),
   'validationStatus':
-      _$JsonConverterToJson<String, RepoCreateRecordValidationStatus>(
+      ?_$JsonConverterToJson<String, RepoCreateRecordValidationStatus>(
         instance.validationStatus,
         const RepoCreateRecordValidationStatusConverter().toJson,
       ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

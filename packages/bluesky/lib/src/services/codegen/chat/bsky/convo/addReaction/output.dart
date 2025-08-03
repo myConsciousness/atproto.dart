@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class ConvoAddReactionOutput with _$ConvoAddReactionOutput {
   static const knownProps = <String>['message'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoAddReactionOutput({
     @MessageViewConverter() required MessageView message,
 

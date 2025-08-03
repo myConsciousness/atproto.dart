@@ -37,6 +37,7 @@ abstract class MessageView with _$MessageView {
     'sentAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory MessageView({
     @Default('chat.bsky.convo.defs#messageView') String $type,
     required String id,

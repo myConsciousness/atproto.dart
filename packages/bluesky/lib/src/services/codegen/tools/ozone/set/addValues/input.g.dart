@@ -28,5 +28,5 @@ Map<String, dynamic> _$SetAddValuesInputToJson(_SetAddValuesInput instance) =>
     <String, dynamic>{
       'name': instance.name,
       'values': instance.values,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

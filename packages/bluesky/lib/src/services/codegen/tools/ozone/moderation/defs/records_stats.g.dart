@@ -50,13 +50,13 @@ _RecordsStats _$RecordsStatsFromJson(
 Map<String, dynamic> _$RecordsStatsToJson(_RecordsStats instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'totalReports': instance.totalReports,
-      'reportedCount': instance.reportedCount,
-      'escalatedCount': instance.escalatedCount,
-      'appealedCount': instance.appealedCount,
-      'subjectCount': instance.subjectCount,
-      'pendingCount': instance.pendingCount,
-      'processedCount': instance.processedCount,
-      'takendownCount': instance.takendownCount,
-      r'$unknown': instance.$unknown,
+      'totalReports': ?instance.totalReports,
+      'reportedCount': ?instance.reportedCount,
+      'escalatedCount': ?instance.escalatedCount,
+      'appealedCount': ?instance.appealedCount,
+      'subjectCount': ?instance.subjectCount,
+      'pendingCount': ?instance.pendingCount,
+      'processedCount': ?instance.processedCount,
+      'takendownCount': ?instance.takendownCount,
+      r'$unknown': ?instance.$unknown,
     };

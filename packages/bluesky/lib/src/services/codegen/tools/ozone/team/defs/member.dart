@@ -34,6 +34,7 @@ abstract class Member with _$Member {
     'role',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Member({
     @Default('tools.ozone.team.defs#member') String $type,
     required String did,

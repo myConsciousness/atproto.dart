@@ -32,6 +32,7 @@ abstract class StatusView with _$StatusView {
     'isActive',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory StatusView({
     @Default('app.bsky.actor.defs#statusView') String $type,
 

@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.verifications,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _VerificationListVerificationsOutput implements VerificationListVerificationsOutput {
   const _VerificationListVerificationsOutput({this.cursor, @VerificationViewConverter() required final  List<VerificationView> verifications, final  Map<String, dynamic>? $unknown}): _verifications = verifications,_$unknown = $unknown;
   factory _VerificationListVerificationsOutput.fromJson(Map<String, dynamic> json) => _$VerificationListVerificationsOutputFromJson(json);

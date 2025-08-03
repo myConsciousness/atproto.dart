@@ -26,6 +26,7 @@ abstract class SignatureFindRelatedAccountsOutput
     with _$SignatureFindRelatedAccountsOutput {
   static const knownProps = <String>['cursor', 'accounts'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SignatureFindRelatedAccountsOutput({
     String? cursor,
     @RelatedAccountConverter() required List<RelatedAccount> accounts,

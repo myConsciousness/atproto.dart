@@ -23,6 +23,7 @@ part 'reply_ref.g.dart';
 abstract class ReplyRef with _$ReplyRef {
   static const knownProps = <String>['root', 'parent'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ReplyRef({
     @Default('app.bsky.feed.post#replyRef') String $type,
     @RepoStrongRefConverter() required RepoStrongRef root,

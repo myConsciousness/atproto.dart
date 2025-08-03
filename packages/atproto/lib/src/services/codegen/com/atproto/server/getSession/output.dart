@@ -34,6 +34,7 @@ abstract class ServerGetSessionOutput with _$ServerGetSessionOutput {
     'status',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerGetSessionOutput({
     required String handle,
     required String did,

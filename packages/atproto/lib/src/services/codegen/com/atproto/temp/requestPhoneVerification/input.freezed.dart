@@ -207,8 +207,8 @@ return $default(_that.phoneNumber,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _TempRequestPhoneVerificationInput implements TempRequestPhoneVerificationInput {
   const _TempRequestPhoneVerificationInput({required this.phoneNumber, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _TempRequestPhoneVerificationInput.fromJson(Map<String, dynamic> json) => _$TempRequestPhoneVerificationInputFromJson(json);

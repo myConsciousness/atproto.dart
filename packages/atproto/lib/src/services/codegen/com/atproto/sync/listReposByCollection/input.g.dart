@@ -28,6 +28,6 @@ Map<String, dynamic> _$SyncListReposByCollectionInputToJson(
 ) => <String, dynamic>{
   'collection': instance.collection,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };

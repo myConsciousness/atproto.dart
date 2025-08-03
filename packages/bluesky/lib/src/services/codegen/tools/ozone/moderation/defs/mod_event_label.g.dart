@@ -39,9 +39,9 @@ _ModEventLabel _$ModEventLabelFromJson(Map json) =>
 Map<String, dynamic> _$ModEventLabelToJson(_ModEventLabel instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'comment': instance.comment,
+      'comment': ?instance.comment,
       'createLabelVals': instance.createLabelVals,
       'negateLabelVals': instance.negateLabelVals,
-      'durationInHours': instance.durationInHours,
-      r'$unknown': instance.$unknown,
+      'durationInHours': ?instance.durationInHours,
+      r'$unknown': ?instance.$unknown,
     };

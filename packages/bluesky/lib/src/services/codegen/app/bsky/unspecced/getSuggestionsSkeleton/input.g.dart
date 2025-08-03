@@ -30,9 +30,9 @@ _$UnspeccedGetSuggestionsSkeletonInputFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$UnspeccedGetSuggestionsSkeletonInputToJson(
   _UnspeccedGetSuggestionsSkeletonInput instance,
 ) => <String, dynamic>{
-  'viewer': instance.viewer,
+  'viewer': ?instance.viewer,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  'relativeToDid': instance.relativeToDid,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  'relativeToDid': ?instance.relativeToDid,
+  r'$unknown': ?instance.$unknown,
 };

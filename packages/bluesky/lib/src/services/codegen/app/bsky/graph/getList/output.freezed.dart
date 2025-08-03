@@ -218,8 +218,8 @@ return $default(_that.cursor,_that.list,_that.items,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphGetListOutput implements GraphGetListOutput {
   const _GraphGetListOutput({this.cursor, @ListViewConverter() required this.list, @ListItemViewConverter() required final  List<ListItemView> items, final  Map<String, dynamic>? $unknown}): _items = items,_$unknown = $unknown;
   factory _GraphGetListOutput.fromJson(Map<String, dynamic> json) => _$GraphGetListOutputFromJson(json);

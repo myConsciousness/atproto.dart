@@ -26,6 +26,7 @@ part 'self_labels.g.dart';
 abstract class SelfLabels with _$SelfLabels {
   static const knownProps = <String>['values'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SelfLabels({
     @Default('com.atproto.label.defs#selfLabels') String $type,
     @SelfLabelConverter() required List<SelfLabel> values,

@@ -54,17 +54,17 @@ Map<String, dynamic> _$OptionToJson(_Option instance) => <String, dynamic>{
   'key': instance.key,
   'did': instance.did,
   'value': instance.value,
-  'description': instance.description,
-  'createdAt': instance.createdAt?.toIso8601String(),
-  'updatedAt': instance.updatedAt?.toIso8601String(),
-  'managerRole': _$JsonConverterToJson<String, OptionManagerRole>(
+  'description': ?instance.description,
+  'createdAt': ?instance.createdAt?.toIso8601String(),
+  'updatedAt': ?instance.updatedAt?.toIso8601String(),
+  'managerRole': ?_$JsonConverterToJson<String, OptionManagerRole>(
     instance.managerRole,
     const OptionManagerRoleConverter().toJson,
   ),
   'scope': const OptionScopeConverter().toJson(instance.scope),
   'createdBy': instance.createdBy,
   'lastUpdatedBy': instance.lastUpdatedBy,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -118,5 +118,5 @@ Map<String, dynamic> _$PreferencesToJson(
   'subscribedPost': const PreferenceConverter().toJson(instance.subscribedPost),
   'unverified': const PreferenceConverter().toJson(instance.unverified),
   'verified': const PreferenceConverter().toJson(instance.verified),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

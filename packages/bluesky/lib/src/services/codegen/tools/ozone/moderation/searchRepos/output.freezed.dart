@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.repos,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationSearchReposOutput implements ModerationSearchReposOutput {
   const _ModerationSearchReposOutput({this.cursor, @RepoViewConverter() required final  List<RepoView> repos, final  Map<String, dynamic>? $unknown}): _repos = repos,_$unknown = $unknown;
   factory _ModerationSearchReposOutput.fromJson(Map<String, dynamic> json) => _$ModerationSearchReposOutputFromJson(json);

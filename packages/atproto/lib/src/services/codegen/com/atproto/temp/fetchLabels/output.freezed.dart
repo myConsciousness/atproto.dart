@@ -207,8 +207,8 @@ return $default(_that.labels,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _TempFetchLabelsOutput implements TempFetchLabelsOutput {
   const _TempFetchLabelsOutput({@LabelConverter() required final  List<Label> labels, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
   factory _TempFetchLabelsOutput.fromJson(Map<String, dynamic> json) => _$TempFetchLabelsOutputFromJson(json);

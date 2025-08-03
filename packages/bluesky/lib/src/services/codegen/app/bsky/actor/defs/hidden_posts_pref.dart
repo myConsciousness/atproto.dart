@@ -22,6 +22,7 @@ part 'hidden_posts_pref.g.dart';
 abstract class HiddenPostsPref with _$HiddenPostsPref {
   static const knownProps = <String>['items'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory HiddenPostsPref({
     @Default('app.bsky.actor.defs#hiddenPostsPref') String $type,
     required List<String> items,

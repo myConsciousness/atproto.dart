@@ -22,6 +22,7 @@ part 'output.g.dart';
 abstract class SyncGetHeadOutput with _$SyncGetHeadOutput {
   static const knownProps = <String>['root'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncGetHeadOutput({
     required String root,
 

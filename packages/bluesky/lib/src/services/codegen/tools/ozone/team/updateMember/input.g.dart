@@ -32,12 +32,12 @@ Map<String, dynamic> _$TeamUpdateMemberInputToJson(
   _TeamUpdateMemberInput instance,
 ) => <String, dynamic>{
   'did': instance.did,
-  'disabled': instance.disabled,
-  'role': _$JsonConverterToJson<String, TeamUpdateMemberRole>(
+  'disabled': ?instance.disabled,
+  'role': ?_$JsonConverterToJson<String, TeamUpdateMemberRole>(
     instance.role,
     const TeamUpdateMemberRoleConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -23,6 +23,7 @@ part 'disable_rule.g.dart';
 abstract class DisableRule with _$DisableRule {
   static const knownProps = <String>[];
 
+  @JsonSerializable(includeIfNull: false)
   const factory DisableRule({
     @Default('app.bsky.feed.postgate#disableRule') String $type,
 

@@ -31,6 +31,7 @@ abstract class FeedPostgateRecord with _$FeedPostgateRecord {
     'embeddingRules',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedPostgateRecord({
     @Default('app.bsky.feed.postgate') String $type,
     required DateTime createdAt,

@@ -26,6 +26,7 @@ abstract class ProfileAssociatedActivitySubscription
     with _$ProfileAssociatedActivitySubscription {
   static const knownProps = <String>['allowSubscriptions'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ProfileAssociatedActivitySubscription({
     @Default('app.bsky.actor.defs#profileAssociatedActivitySubscription')
     String $type,

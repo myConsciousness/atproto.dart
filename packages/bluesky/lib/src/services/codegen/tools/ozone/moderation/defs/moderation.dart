@@ -25,6 +25,7 @@ part 'moderation.g.dart';
 abstract class Moderation with _$Moderation {
   static const knownProps = <String>['subjectStatus'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Moderation({
     @Default('tools.ozone.moderation.defs#moderation') String $type,
     @SubjectStatusViewConverter() SubjectStatusView? subjectStatus,

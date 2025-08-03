@@ -59,19 +59,19 @@ Map<String, dynamic> _$LabelerServiceRecordToJson(
 ) => <String, dynamic>{
   r'$type': instance.$type,
   'policies': const LabelerPoliciesConverter().toJson(instance.policies),
-  'labels': _$JsonConverterToJson<Map<String, dynamic>, ULabelerServiceLabels>(
+  'labels': ?_$JsonConverterToJson<Map<String, dynamic>, ULabelerServiceLabels>(
     instance.labels,
     const ULabelerServiceLabelsConverter().toJson,
   ),
   'createdAt': instance.createdAt.toIso8601String(),
-  'reasonTypes': instance.reasonTypes
+  'reasonTypes': ?instance.reasonTypes
       ?.map(const ReasonTypeConverter().toJson)
       .toList(),
-  'subjectTypes': instance.subjectTypes
+  'subjectTypes': ?instance.subjectTypes
       ?.map(const SubjectTypeConverter().toJson)
       .toList(),
-  'subjectCollections': instance.subjectCollections,
-  r'$unknown': instance.$unknown,
+  'subjectCollections': ?instance.subjectCollections,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

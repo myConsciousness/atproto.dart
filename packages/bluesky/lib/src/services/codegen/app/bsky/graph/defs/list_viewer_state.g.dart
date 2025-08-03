@@ -28,7 +28,7 @@ _ListViewerState _$ListViewerStateFromJson(Map json) =>
 Map<String, dynamic> _$ListViewerStateToJson(_ListViewerState instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'muted': instance.muted,
-      'blocked': instance.blocked,
-      r'$unknown': instance.$unknown,
+      'muted': ?instance.muted,
+      'blocked': ?instance.blocked,
+      r'$unknown': ?instance.$unknown,
     };

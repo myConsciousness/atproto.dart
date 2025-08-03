@@ -22,4 +22,4 @@ _GraphUnmuteThreadInput _$GraphUnmuteThreadInputFromJson(Map json) =>
 
 Map<String, dynamic> _$GraphUnmuteThreadInputToJson(
   _GraphUnmuteThreadInput instance,
-) => <String, dynamic>{'root': instance.root, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'root': instance.root, r'$unknown': ?instance.$unknown};

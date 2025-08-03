@@ -22,6 +22,7 @@ part 'message_view_sender.g.dart';
 abstract class MessageViewSender with _$MessageViewSender {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory MessageViewSender({
     @Default('chat.bsky.convo.defs#messageViewSender') String $type,
     required String did,

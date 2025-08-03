@@ -30,5 +30,5 @@ Map<String, dynamic> _$LogUnmuteConvoToJson(_LogUnmuteConvo instance) =>
       r'$type': instance.$type,
       'rev': instance.rev,
       'convoId': instance.convoId,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

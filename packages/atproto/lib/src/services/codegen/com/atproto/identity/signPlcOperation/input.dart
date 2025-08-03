@@ -29,6 +29,7 @@ abstract class IdentitySignPlcOperationInput
     'services',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory IdentitySignPlcOperationInput({
     /// A token received through com.atproto.identity.requestPlcOperationSignature
     String? token,

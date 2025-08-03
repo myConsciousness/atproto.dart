@@ -75,25 +75,25 @@ Map<String, dynamic> _$PostViewToJson(_PostView instance) => <String, dynamic>{
   'cid': instance.cid,
   'author': const ProfileViewBasicConverter().toJson(instance.author),
   'record': instance.record,
-  'embed': _$JsonConverterToJson<Map<String, dynamic>, UPostViewEmbed>(
+  'embed': ?_$JsonConverterToJson<Map<String, dynamic>, UPostViewEmbed>(
     instance.embed,
     const UPostViewEmbedConverter().toJson,
   ),
-  'replyCount': instance.replyCount,
-  'repostCount': instance.repostCount,
-  'likeCount': instance.likeCount,
-  'quoteCount': instance.quoteCount,
+  'replyCount': ?instance.replyCount,
+  'repostCount': ?instance.repostCount,
+  'likeCount': ?instance.likeCount,
+  'quoteCount': ?instance.quoteCount,
   'indexedAt': instance.indexedAt.toIso8601String(),
-  'viewer': _$JsonConverterToJson<Map<String, dynamic>, ViewerState>(
+  'viewer': ?_$JsonConverterToJson<Map<String, dynamic>, ViewerState>(
     instance.viewer,
     const ViewerStateConverter().toJson,
   ),
-  'labels': instance.labels?.map(const LabelConverter().toJson).toList(),
-  'threadgate': _$JsonConverterToJson<Map<String, dynamic>, ThreadgateView>(
+  'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
+  'threadgate': ?_$JsonConverterToJson<Map<String, dynamic>, ThreadgateView>(
     instance.threadgate,
     const ThreadgateViewConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

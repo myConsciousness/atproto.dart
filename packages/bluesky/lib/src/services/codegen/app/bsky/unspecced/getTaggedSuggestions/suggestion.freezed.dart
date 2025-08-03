@@ -219,8 +219,8 @@ return $default(_that.$type,_that.tag,_that.subjectType,_that.subject,_that.$unk
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _Suggestion implements Suggestion {
   const _Suggestion({this.$type = 'app.bsky.unspecced.getTaggedSuggestions#suggestion', required this.tag, @SuggestionSubjectTypeConverter() required this.subjectType, @AtUriConverter() required this.subject, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Suggestion.fromJson(Map<String, dynamic> json) => _$SuggestionFromJson(json);

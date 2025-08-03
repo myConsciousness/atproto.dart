@@ -210,8 +210,8 @@ return $default(_that.cursor,_that.hitsTotal,_that.actors,_that.$unknown);case _
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedSearchActorsSkeletonOutput implements UnspeccedSearchActorsSkeletonOutput {
   const _UnspeccedSearchActorsSkeletonOutput({this.cursor, this.hitsTotal, @SkeletonSearchActorConverter() required final  List<SkeletonSearchActor> actors, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
   factory _UnspeccedSearchActorsSkeletonOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedSearchActorsSkeletonOutputFromJson(json);

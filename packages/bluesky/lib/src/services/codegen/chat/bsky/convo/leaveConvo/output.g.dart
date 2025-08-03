@@ -26,5 +26,5 @@ Map<String, dynamic> _$ConvoLeaveConvoOutputToJson(
 ) => <String, dynamic>{
   'convoId': instance.convoId,
   'rev': instance.rev,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

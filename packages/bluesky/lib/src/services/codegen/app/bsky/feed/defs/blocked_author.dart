@@ -25,6 +25,7 @@ part 'blocked_author.g.dart';
 abstract class BlockedAuthor with _$BlockedAuthor {
   static const knownProps = <String>['did', 'viewer'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory BlockedAuthor({
     @Default('app.bsky.feed.defs#blockedAuthor') String $type,
     required String did,

@@ -121,6 +121,7 @@ ${getDescription()}
 abstract class $typeName with _\$$typeName {
   $knownProps
 
+  @JsonSerializable(includeIfNull: false)
   const factory $typeName({
     ${properties.toString()}
     Map<String, dynamic>? \$unknown,

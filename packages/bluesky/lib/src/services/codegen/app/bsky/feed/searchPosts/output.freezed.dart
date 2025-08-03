@@ -210,8 +210,8 @@ return $default(_that.cursor,_that.hitsTotal,_that.posts,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedSearchPostsOutput implements FeedSearchPostsOutput {
   const _FeedSearchPostsOutput({this.cursor, this.hitsTotal, @PostViewConverter() required final  List<PostView> posts, final  Map<String, dynamic>? $unknown}): _posts = posts,_$unknown = $unknown;
   factory _FeedSearchPostsOutput.fromJson(Map<String, dynamic> json) => _$FeedSearchPostsOutputFromJson(json);

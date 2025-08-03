@@ -220,8 +220,8 @@ return $default(_that.$type,_that.by,_that.uri,_that.cid,_that.indexedAt,_that.$
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ReasonRepost implements ReasonRepost {
   const _ReasonRepost({this.$type = 'app.bsky.feed.defs#reasonRepost', @ProfileViewBasicConverter() required this.by, this.uri, this.cid, required this.indexedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ReasonRepost.fromJson(Map<String, dynamic> json) => _$ReasonRepostFromJson(json);

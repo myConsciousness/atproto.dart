@@ -337,8 +337,8 @@ return $default(_that.$type,_that.chat,_that.follow,_that.like,_that.likeViaRepo
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _Preferences implements Preferences {
   const _Preferences({this.$type = 'app.bsky.notification.defs#preferences', @ChatPreferenceConverter() required this.chat, @FilterablePreferenceConverter() required this.follow, @FilterablePreferenceConverter() required this.like, @FilterablePreferenceConverter() required this.likeViaRepost, @FilterablePreferenceConverter() required this.mention, @FilterablePreferenceConverter() required this.quote, @FilterablePreferenceConverter() required this.reply, @FilterablePreferenceConverter() required this.repost, @FilterablePreferenceConverter() required this.repostViaRepost, @PreferenceConverter() required this.starterpackJoined, @PreferenceConverter() required this.subscribedPost, @PreferenceConverter() required this.unverified, @PreferenceConverter() required this.verified, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Preferences.fromJson(Map<String, dynamic> json) => _$PreferencesFromJson(json);

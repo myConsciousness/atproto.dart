@@ -218,8 +218,8 @@ return $default(_that.handle,_that.result,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _TempCheckHandleAvailabilityOutput implements TempCheckHandleAvailabilityOutput {
   const _TempCheckHandleAvailabilityOutput({required this.handle, @UTempCheckHandleAvailabilityResultConverter() required this.result, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _TempCheckHandleAvailabilityOutput.fromJson(Map<String, dynamic> json) => _$TempCheckHandleAvailabilityOutputFromJson(json);

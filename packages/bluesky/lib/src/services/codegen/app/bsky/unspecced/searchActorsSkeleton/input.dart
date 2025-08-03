@@ -29,6 +29,7 @@ abstract class UnspeccedSearchActorsSkeletonInput
     'cursor',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedSearchActorsSkeletonInput({
     /// Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended. For typeahead search, only simple term match is supported, not full syntax.
     required String q,

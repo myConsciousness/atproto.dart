@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.feeds,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetSuggestedFeedsOutput implements FeedGetSuggestedFeedsOutput {
   const _FeedGetSuggestedFeedsOutput({this.cursor, @GeneratorViewConverter() required final  List<GeneratorView> feeds, final  Map<String, dynamic>? $unknown}): _feeds = feeds,_$unknown = $unknown;
   factory _FeedGetSuggestedFeedsOutput.fromJson(Map<String, dynamic> json) => _$FeedGetSuggestedFeedsOutputFromJson(json);

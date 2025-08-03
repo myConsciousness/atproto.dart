@@ -45,14 +45,14 @@ Map<String, dynamic> _$JobStatusToJson(_JobStatus instance) =>
       'jobId': instance.jobId,
       'did': instance.did,
       'state': const JobStatusStateConverter().toJson(instance.state),
-      'progress': instance.progress,
-      'blob': _$JsonConverterToJson<Map<String, dynamic>, Blob>(
+      'progress': ?instance.progress,
+      'blob': ?_$JsonConverterToJson<Map<String, dynamic>, Blob>(
         instance.blob,
         const BlobConverter().toJson,
       ),
-      'error': instance.error,
-      'message': instance.message,
-      r'$unknown': instance.$unknown,
+      'error': ?instance.error,
+      'message': ?instance.message,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

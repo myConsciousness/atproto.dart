@@ -34,9 +34,9 @@ _ModerationQueryStatusesOutput _$ModerationQueryStatusesOutputFromJson(
 Map<String, dynamic> _$ModerationQueryStatusesOutputToJson(
   _ModerationQueryStatusesOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'subjectStatuses': instance.subjectStatuses
       .map(const SubjectStatusViewConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

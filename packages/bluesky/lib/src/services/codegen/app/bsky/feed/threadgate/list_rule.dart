@@ -23,6 +23,7 @@ part 'list_rule.g.dart';
 abstract class ListRule with _$ListRule {
   static const knownProps = <String>['list'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ListRule({
     @Default('app.bsky.feed.threadgate#listRule') String $type,
     required String list,

@@ -22,6 +22,7 @@ part 'skeleton_search_starter_pack.g.dart';
 abstract class SkeletonSearchStarterPack with _$SkeletonSearchStarterPack {
   static const knownProps = <String>['uri'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SkeletonSearchStarterPack({
     @Default('app.bsky.unspecced.defs#skeletonSearchStarterPack') String $type,
     required String uri,

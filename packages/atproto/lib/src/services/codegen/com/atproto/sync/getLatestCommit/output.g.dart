@@ -26,5 +26,5 @@ Map<String, dynamic> _$SyncGetLatestCommitOutputToJson(
 ) => <String, dynamic>{
   'cid': instance.cid,
   'rev': instance.rev,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

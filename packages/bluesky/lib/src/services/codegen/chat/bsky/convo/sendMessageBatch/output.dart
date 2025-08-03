@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class ConvoSendMessageBatchOutput with _$ConvoSendMessageBatchOutput {
   static const knownProps = <String>['items'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoSendMessageBatchOutput({
     @MessageViewConverter() required List<MessageView> items,
 

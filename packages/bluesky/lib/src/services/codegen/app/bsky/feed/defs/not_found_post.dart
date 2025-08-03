@@ -22,6 +22,7 @@ part 'not_found_post.g.dart';
 abstract class NotFoundPost with _$NotFoundPost {
   static const knownProps = <String>['uri', 'notFound'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory NotFoundPost({
     @Default('app.bsky.feed.defs#notFoundPost') String $type,
     required String uri,

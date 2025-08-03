@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class SyncGetHostStatusInput with _$SyncGetHostStatusInput {
   static const knownProps = <String>['hostname'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncGetHostStatusInput({
     /// Hostname of the host (eg, PDS or relay) being queried.
     required String hostname,

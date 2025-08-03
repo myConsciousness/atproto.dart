@@ -27,5 +27,5 @@ Map<String, dynamic> _$AdminUpdateAccountEmailInputToJson(
 ) => <String, dynamic>{
   'account': instance.account,
   'email': instance.email,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

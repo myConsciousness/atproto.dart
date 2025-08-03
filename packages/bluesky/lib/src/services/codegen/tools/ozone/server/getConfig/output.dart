@@ -33,6 +33,7 @@ abstract class ServerGetConfigOutput with _$ServerGetConfigOutput {
     'verifierDid',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerGetConfigOutput({
     @ServiceConfigConverter() ServiceConfig? appview,
     @ServiceConfigConverter() ServiceConfig? pds,

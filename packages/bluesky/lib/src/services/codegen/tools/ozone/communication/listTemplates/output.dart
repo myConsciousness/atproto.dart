@@ -26,6 +26,7 @@ abstract class CommunicationListTemplatesOutput
     with _$CommunicationListTemplatesOutput {
   static const knownProps = <String>['communicationTemplates'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory CommunicationListTemplatesOutput({
     @TemplateViewConverter() required List<TemplateView> communicationTemplates,
 

@@ -32,6 +32,7 @@ abstract class ReporterStats with _$ReporterStats {
     'labeledRecordCount',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ReporterStats({
     @Default('tools.ozone.moderation.defs#reporterStats') String $type,
     required String did,

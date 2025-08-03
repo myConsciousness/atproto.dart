@@ -22,4 +22,4 @@ _SyncGetLatestCommitInput _$SyncGetLatestCommitInputFromJson(Map json) =>
 
 Map<String, dynamic> _$SyncGetLatestCommitInputToJson(
   _SyncGetLatestCommitInput instance,
-) => <String, dynamic>{'did': instance.did, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'did': instance.did, r'$unknown': ?instance.$unknown};

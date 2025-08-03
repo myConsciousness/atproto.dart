@@ -253,8 +253,8 @@ return $default(_that.$type,_that.did,_that.displayName,_that.description,_that.
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGeneratorRecord implements FeedGeneratorRecord {
   const _FeedGeneratorRecord({this.$type = 'app.bsky.feed.generator', required this.did, required this.displayName, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @BlobConverter() this.avatar, this.acceptsInteractions, @UFeedGeneratorLabelsConverter() this.labels, @FeedGeneratorContentModeConverter() this.contentMode, required this.createdAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_$unknown = $unknown;
   factory _FeedGeneratorRecord.fromJson(Map<String, dynamic> json) => _$FeedGeneratorRecordFromJson(json);

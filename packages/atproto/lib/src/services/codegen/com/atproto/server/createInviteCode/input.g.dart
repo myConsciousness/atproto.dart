@@ -25,6 +25,6 @@ Map<String, dynamic> _$ServerCreateInviteCodeInputToJson(
   _ServerCreateInviteCodeInput instance,
 ) => <String, dynamic>{
   'useCount': instance.useCount,
-  'forAccount': instance.forAccount,
-  r'$unknown': instance.$unknown,
+  'forAccount': ?instance.forAccount,
+  r'$unknown': ?instance.$unknown,
 };

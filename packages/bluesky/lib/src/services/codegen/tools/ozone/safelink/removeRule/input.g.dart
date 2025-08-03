@@ -31,7 +31,7 @@ Map<String, dynamic> _$SafelinkRemoveRuleInputToJson(
 ) => <String, dynamic>{
   'url': instance.url,
   'pattern': const PatternTypeConverter().toJson(instance.pattern),
-  'comment': instance.comment,
-  'createdBy': instance.createdBy,
-  r'$unknown': instance.$unknown,
+  'comment': ?instance.comment,
+  'createdBy': ?instance.createdBy,
+  r'$unknown': ?instance.$unknown,
 };

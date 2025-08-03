@@ -208,8 +208,8 @@ return $default(_that.repo,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RepoDescribeRepoInput implements RepoDescribeRepoInput {
   const _RepoDescribeRepoInput({required this.repo, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoDescribeRepoInput.fromJson(Map<String, dynamic> json) => _$RepoDescribeRepoInputFromJson(json);

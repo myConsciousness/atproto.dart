@@ -25,6 +25,7 @@ part 'like.g.dart';
 abstract class Like with _$Like {
   static const knownProps = <String>['indexedAt', 'createdAt', 'actor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Like({
     @Default('app.bsky.feed.getLikes#like') String $type,
     required DateTime indexedAt,

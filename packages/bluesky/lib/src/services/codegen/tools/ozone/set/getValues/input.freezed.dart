@@ -209,8 +209,8 @@ return $default(_that.name,_that.limit,_that.cursor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SetGetValuesInput implements SetGetValuesInput {
   const _SetGetValuesInput({required this.name, this.limit = 100, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SetGetValuesInput.fromJson(Map<String, dynamic> json) => _$SetGetValuesInputFromJson(json);

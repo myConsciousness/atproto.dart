@@ -26,6 +26,7 @@ part 'main.g.dart';
 abstract class EmbedExternal with _$EmbedExternal {
   static const knownProps = <String>['external'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmbedExternal({
     @Default('app.bsky.embed.external') String $type,
     @EmbedExternalExternalConverter() required EmbedExternalExternal external,

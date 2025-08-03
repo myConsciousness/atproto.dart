@@ -26,6 +26,7 @@ abstract class ActorSearchActorsTypeaheadOutput
     with _$ActorSearchActorsTypeaheadOutput {
   static const knownProps = <String>['actors'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ActorSearchActorsTypeaheadOutput({
     @ProfileViewBasicConverter() required List<ProfileViewBasic> actors,
 

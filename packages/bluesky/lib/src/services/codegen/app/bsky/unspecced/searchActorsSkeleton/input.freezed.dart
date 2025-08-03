@@ -215,8 +215,8 @@ return $default(_that.q,_that.viewer,_that.typeahead,_that.limit,_that.cursor,_t
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedSearchActorsSkeletonInput implements UnspeccedSearchActorsSkeletonInput {
   const _UnspeccedSearchActorsSkeletonInput({required this.q, this.viewer, this.typeahead, this.limit = 25, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedSearchActorsSkeletonInput.fromJson(Map<String, dynamic> json) => _$UnspeccedSearchActorsSkeletonInputFromJson(json);

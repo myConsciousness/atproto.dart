@@ -33,7 +33,7 @@ _GraphGetListBlocksOutput _$GraphGetListBlocksOutputFromJson(Map json) =>
 Map<String, dynamic> _$GraphGetListBlocksOutputToJson(
   _GraphGetListBlocksOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'lists': instance.lists.map(const ListViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

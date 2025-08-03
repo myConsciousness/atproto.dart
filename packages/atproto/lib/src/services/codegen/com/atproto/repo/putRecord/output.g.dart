@@ -40,16 +40,16 @@ Map<String, dynamic> _$RepoPutRecordOutputToJson(
 ) => <String, dynamic>{
   'uri': instance.uri,
   'cid': instance.cid,
-  'commit': _$JsonConverterToJson<Map<String, dynamic>, CommitMeta>(
+  'commit': ?_$JsonConverterToJson<Map<String, dynamic>, CommitMeta>(
     instance.commit,
     const CommitMetaConverter().toJson,
   ),
   'validationStatus':
-      _$JsonConverterToJson<String, RepoPutRecordValidationStatus>(
+      ?_$JsonConverterToJson<String, RepoPutRecordValidationStatus>(
         instance.validationStatus,
         const RepoPutRecordValidationStatusConverter().toJson,
       ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

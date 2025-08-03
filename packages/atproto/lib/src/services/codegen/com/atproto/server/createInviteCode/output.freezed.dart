@@ -207,8 +207,8 @@ return $default(_that.code,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerCreateInviteCodeOutput implements ServerCreateInviteCodeOutput {
   const _ServerCreateInviteCodeOutput({required this.code, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerCreateInviteCodeOutput.fromJson(Map<String, dynamic> json) => _$ServerCreateInviteCodeOutputFromJson(json);

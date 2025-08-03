@@ -35,9 +35,9 @@ _GraphGetActorStarterPacksOutput _$GraphGetActorStarterPacksOutputFromJson(
 Map<String, dynamic> _$GraphGetActorStarterPacksOutputToJson(
   _GraphGetActorStarterPacksOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'starterPacks': instance.starterPacks
       .map(const StarterPackViewBasicConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

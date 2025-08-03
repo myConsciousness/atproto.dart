@@ -88,27 +88,27 @@ Map<String, dynamic> _$GeneratorViewToJson(
   'did': instance.did,
   'creator': const ProfileViewConverter().toJson(instance.creator),
   'displayName': instance.displayName,
-  'description': instance.description,
-  'descriptionFacets': instance.descriptionFacets
+  'description': ?instance.description,
+  'descriptionFacets': ?instance.descriptionFacets
       ?.map(const RichtextFacetConverter().toJson)
       .toList(),
-  'avatar': _$JsonConverterToJson<String, AtUri>(
+  'avatar': ?_$JsonConverterToJson<String, AtUri>(
     instance.avatar,
     const AtUriConverter().toJson,
   ),
-  'likeCount': instance.likeCount,
-  'acceptsInteractions': instance.acceptsInteractions,
-  'labels': instance.labels?.map(const LabelConverter().toJson).toList(),
-  'viewer': _$JsonConverterToJson<Map<String, dynamic>, GeneratorViewerState>(
+  'likeCount': ?instance.likeCount,
+  'acceptsInteractions': ?instance.acceptsInteractions,
+  'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
+  'viewer': ?_$JsonConverterToJson<Map<String, dynamic>, GeneratorViewerState>(
     instance.viewer,
     const GeneratorViewerStateConverter().toJson,
   ),
-  'contentMode': _$JsonConverterToJson<String, GeneratorViewContentMode>(
+  'contentMode': ?_$JsonConverterToJson<String, GeneratorViewContentMode>(
     instance.contentMode,
     const GeneratorViewContentModeConverter().toJson,
   ),
   'indexedAt': instance.indexedAt.toIso8601String(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -37,14 +37,14 @@ Map<String, dynamic> _$SettingListOptionsInputToJson(
   _SettingListOptionsInput instance,
 ) => <String, dynamic>{
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  'scope': _$JsonConverterToJson<String, SettingListOptionsScope>(
+  'cursor': ?instance.cursor,
+  'scope': ?_$JsonConverterToJson<String, SettingListOptionsScope>(
     instance.scope,
     const SettingListOptionsScopeConverter().toJson,
   ),
-  'prefix': instance.prefix,
-  'keys': instance.keys,
-  r'$unknown': instance.$unknown,
+  'prefix': ?instance.prefix,
+  'keys': ?instance.keys,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

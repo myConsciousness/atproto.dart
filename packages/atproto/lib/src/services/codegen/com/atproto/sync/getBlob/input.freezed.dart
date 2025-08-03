@@ -210,8 +210,8 @@ return $default(_that.did,_that.cid,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncGetBlobInput implements SyncGetBlobInput {
   const _SyncGetBlobInput({required this.did, required this.cid, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncGetBlobInput.fromJson(Map<String, dynamic> json) => _$SyncGetBlobInputFromJson(json);

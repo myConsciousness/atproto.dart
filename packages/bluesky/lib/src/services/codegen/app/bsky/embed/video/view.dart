@@ -32,6 +32,7 @@ abstract class EmbedVideoView with _$EmbedVideoView {
     'aspectRatio',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmbedVideoView({
     @Default('app.bsky.embed.video#view') String $type,
     required String cid,

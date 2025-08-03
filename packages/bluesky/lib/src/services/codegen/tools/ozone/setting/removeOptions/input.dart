@@ -25,6 +25,7 @@ part 'input.g.dart';
 abstract class SettingRemoveOptionsInput with _$SettingRemoveOptionsInput {
   static const knownProps = <String>['keys', 'scope'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SettingRemoveOptionsInput({
     required List<String> keys,
     @SettingRemoveOptionsScopeConverter()

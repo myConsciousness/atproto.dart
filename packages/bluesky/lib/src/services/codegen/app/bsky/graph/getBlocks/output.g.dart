@@ -33,7 +33,7 @@ _GraphGetBlocksOutput _$GraphGetBlocksOutputFromJson(Map json) =>
 Map<String, dynamic> _$GraphGetBlocksOutputToJson(
   _GraphGetBlocksOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'blocks': instance.blocks.map(const ProfileViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

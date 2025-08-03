@@ -30,7 +30,7 @@ Map<String, dynamic> _$RepoDeleteRecordInputToJson(
   'repo': instance.repo,
   'collection': instance.collection,
   'rkey': instance.rkey,
-  'swapRecord': instance.swapRecord,
-  'swapCommit': instance.swapCommit,
-  r'$unknown': instance.$unknown,
+  'swapRecord': ?instance.swapRecord,
+  'swapCommit': ?instance.swapCommit,
+  r'$unknown': ?instance.$unknown,
 };

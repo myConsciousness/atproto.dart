@@ -33,7 +33,7 @@ _FeedGetTimelineOutput _$FeedGetTimelineOutputFromJson(Map json) =>
 Map<String, dynamic> _$FeedGetTimelineOutputToJson(
   _FeedGetTimelineOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'feed': instance.feed.map(const FeedViewPostConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

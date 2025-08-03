@@ -51,6 +51,7 @@ abstract class ProfileViewDetailed with _$ProfileViewDetailed {
     'status',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ProfileViewDetailed({
     @Default('app.bsky.actor.defs#profileViewDetailed') String $type,
     required String did,

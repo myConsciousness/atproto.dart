@@ -229,8 +229,8 @@ return $default(_that.subject,_that.takedown,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AdminUpdateSubjectStatusOutput implements AdminUpdateSubjectStatusOutput {
   const _AdminUpdateSubjectStatusOutput({@UAdminUpdateSubjectStatusSubjectConverter() required this.subject, @StatusAttrConverter() this.takedown, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AdminUpdateSubjectStatusOutput.fromJson(Map<String, dynamic> json) => _$AdminUpdateSubjectStatusOutputFromJson(json);

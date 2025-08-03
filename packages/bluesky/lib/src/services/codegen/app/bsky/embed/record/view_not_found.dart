@@ -22,6 +22,7 @@ part 'view_not_found.g.dart';
 abstract class EmbedRecordViewNotFound with _$EmbedRecordViewNotFound {
   static const knownProps = <String>['uri', 'notFound'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmbedRecordViewNotFound({
     @Default('app.bsky.embed.record#viewNotFound') String $type,
     required String uri,

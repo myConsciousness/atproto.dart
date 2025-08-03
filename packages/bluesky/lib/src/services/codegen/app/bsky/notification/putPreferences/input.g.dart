@@ -26,5 +26,5 @@ Map<String, dynamic> _$NotificationPutPreferencesInputToJson(
   _NotificationPutPreferencesInput instance,
 ) => <String, dynamic>{
   'priority': instance.priority,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

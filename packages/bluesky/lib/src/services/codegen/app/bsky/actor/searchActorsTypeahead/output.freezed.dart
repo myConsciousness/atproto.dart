@@ -207,8 +207,8 @@ return $default(_that.actors,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ActorSearchActorsTypeaheadOutput implements ActorSearchActorsTypeaheadOutput {
   const _ActorSearchActorsTypeaheadOutput({@ProfileViewBasicConverter() required final  List<ProfileViewBasic> actors, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
   factory _ActorSearchActorsTypeaheadOutput.fromJson(Map<String, dynamic> json) => _$ActorSearchActorsTypeaheadOutputFromJson(json);

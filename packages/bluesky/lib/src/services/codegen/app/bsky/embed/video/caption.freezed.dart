@@ -218,8 +218,8 @@ return $default(_that.$type,_that.lang,_that.file,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _EmbedVideoCaption implements EmbedVideoCaption {
   const _EmbedVideoCaption({this.$type = 'app.bsky.embed.video#caption', required this.lang, @BlobConverter() required this.file, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedVideoCaption.fromJson(Map<String, dynamic> json) => _$EmbedVideoCaptionFromJson(json);

@@ -23,6 +23,7 @@ abstract class AdminUpdateAccountHandleInput
     with _$AdminUpdateAccountHandleInput {
   static const knownProps = <String>['did', 'handle'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdminUpdateAccountHandleInput({
     required String did,
     required String handle,

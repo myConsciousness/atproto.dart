@@ -43,6 +43,7 @@ abstract class RepoViewDetail with _$RepoViewDetail {
     'threatSignatures',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoViewDetail({
     @Default('tools.ozone.moderation.defs#repoViewDetail') String $type,
     required String did,

@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ServerCreateInviteCodeInput with _$ServerCreateInviteCodeInput {
   static const knownProps = <String>['useCount', 'forAccount'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerCreateInviteCodeInput({
     required int useCount,
     String? forAccount,

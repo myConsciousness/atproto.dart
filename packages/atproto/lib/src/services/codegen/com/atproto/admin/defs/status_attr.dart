@@ -22,6 +22,7 @@ part 'status_attr.g.dart';
 abstract class StatusAttr with _$StatusAttr {
   static const knownProps = <String>['applied', 'ref'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory StatusAttr({
     @Default('com.atproto.admin.defs#statusAttr') String $type,
     required bool applied,

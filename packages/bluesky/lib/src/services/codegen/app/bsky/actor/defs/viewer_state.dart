@@ -38,6 +38,7 @@ abstract class ViewerState with _$ViewerState {
     'activitySubscription',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ViewerState({
     @Default('app.bsky.actor.defs#viewerState') String $type,
     bool? muted,

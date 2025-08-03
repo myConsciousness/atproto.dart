@@ -232,8 +232,8 @@ return $default(_that.cursor,_that.limit,_that.urls,_that.patternType,_that.acti
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SafelinkQueryRulesInput implements SafelinkQueryRulesInput {
   const _SafelinkQueryRulesInput({this.cursor, this.limit = 50, final  List<String>? urls, this.patternType, final  List<String>? actions, this.reason, this.createdBy, @SafelinkQueryRulesSortDirectionConverter() this.sortDirection, final  Map<String, dynamic>? $unknown}): _urls = urls,_actions = actions,_$unknown = $unknown;
   factory _SafelinkQueryRulesInput.fromJson(Map<String, dynamic> json) => _$SafelinkQueryRulesInputFromJson(json);

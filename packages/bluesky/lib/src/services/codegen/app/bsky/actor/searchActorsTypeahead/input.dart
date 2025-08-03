@@ -23,6 +23,7 @@ abstract class ActorSearchActorsTypeaheadInput
     with _$ActorSearchActorsTypeaheadInput {
   static const knownProps = <String>['q', 'limit'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ActorSearchActorsTypeaheadInput({
     /// Search query prefix; not a full query string.
     String? q,

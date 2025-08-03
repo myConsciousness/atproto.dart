@@ -33,5 +33,5 @@ Map<String, dynamic> _$UnspeccedGetPostThreadOtherV2InputToJson(
 ) => <String, dynamic>{
   'anchor': instance.anchor,
   'prioritizeFollowedUsers': instance.prioritizeFollowedUsers,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

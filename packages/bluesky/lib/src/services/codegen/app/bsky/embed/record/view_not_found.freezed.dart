@@ -209,8 +209,8 @@ return $default(_that.$type,_that.uri,_that.notFound,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _EmbedRecordViewNotFound implements EmbedRecordViewNotFound {
   const _EmbedRecordViewNotFound({this.$type = 'app.bsky.embed.record#viewNotFound', required this.uri, required this.notFound, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedRecordViewNotFound.fromJson(Map<String, dynamic> json) => _$EmbedRecordViewNotFoundFromJson(json);

@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class FeedGetQuotesOutput with _$FeedGetQuotesOutput {
   static const knownProps = <String>['uri', 'cid', 'cursor', 'posts'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetQuotesOutput({
     required String uri,
     String? cid,

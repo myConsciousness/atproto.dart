@@ -29,5 +29,5 @@ Map<String, dynamic> _$AdminUpdateAccountSigningKeyInputToJson(
 ) => <String, dynamic>{
   'did': instance.did,
   'signingKey': instance.signingKey,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

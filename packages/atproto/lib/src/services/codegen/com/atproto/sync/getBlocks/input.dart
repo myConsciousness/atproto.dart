@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class SyncGetBlocksInput with _$SyncGetBlocksInput {
   static const knownProps = <String>['did', 'cids'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncGetBlocksInput({
     /// The DID of the repo.
     required String did,

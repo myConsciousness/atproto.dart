@@ -25,6 +25,7 @@ part 'input.g.dart';
 abstract class ConvoSendMessageBatchInput with _$ConvoSendMessageBatchInput {
   static const knownProps = <String>['items'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoSendMessageBatchInput({
     @BatchItemConverter() required List<BatchItem> items,
 

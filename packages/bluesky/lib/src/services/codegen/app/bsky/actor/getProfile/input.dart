@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ActorGetProfileInput with _$ActorGetProfileInput {
   static const knownProps = <String>['actor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ActorGetProfileInput({
     /// Handle or DID of account to fetch profile of.
     required String actor,

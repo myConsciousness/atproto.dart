@@ -23,6 +23,7 @@ abstract class CommunicationDeleteTemplateInput
     with _$CommunicationDeleteTemplateInput {
   static const knownProps = <String>['id'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory CommunicationDeleteTemplateInput({
     required String id,
 

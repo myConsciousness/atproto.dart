@@ -31,6 +31,7 @@ abstract class FeedThreadgateRecord with _$FeedThreadgateRecord {
     'hiddenReplies',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedThreadgateRecord({
     @Default('app.bsky.feed.threadgate') String $type,
 

@@ -36,5 +36,5 @@ Map<String, dynamic> _$UnspeccedGetSuggestedUsersOutputToJson(
   _UnspeccedGetSuggestedUsersOutput instance,
 ) => <String, dynamic>{
   'actors': instance.actors.map(const ProfileViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

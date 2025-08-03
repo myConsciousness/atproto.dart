@@ -226,8 +226,8 @@ return $default(_that.$type,_that.seq,_that.did,_that.time,_that.active,_that.st
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _Account implements Account {
   const _Account({this.$type = 'com.atproto.sync.subscribeRepos#account', required this.seq, required this.did, required this.time, required this.active, @AccountStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Account.fromJson(Map<String, dynamic> json) => _$AccountFromJson(json);

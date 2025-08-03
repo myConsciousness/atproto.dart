@@ -68,18 +68,18 @@ Map<String, dynamic> _$ListViewBasicToJson(_ListViewBasic instance) =>
       'cid': instance.cid,
       'name': instance.name,
       'purpose': const ListPurposeConverter().toJson(instance.purpose),
-      'avatar': _$JsonConverterToJson<String, AtUri>(
+      'avatar': ?_$JsonConverterToJson<String, AtUri>(
         instance.avatar,
         const AtUriConverter().toJson,
       ),
-      'listItemCount': instance.listItemCount,
-      'labels': instance.labels?.map(const LabelConverter().toJson).toList(),
-      'viewer': _$JsonConverterToJson<Map<String, dynamic>, ListViewerState>(
+      'listItemCount': ?instance.listItemCount,
+      'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
+      'viewer': ?_$JsonConverterToJson<Map<String, dynamic>, ListViewerState>(
         instance.viewer,
         const ListViewerStateConverter().toJson,
       ),
-      'indexedAt': instance.indexedAt?.toIso8601String(),
-      r'$unknown': instance.$unknown,
+      'indexedAt': ?instance.indexedAt?.toIso8601String(),
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

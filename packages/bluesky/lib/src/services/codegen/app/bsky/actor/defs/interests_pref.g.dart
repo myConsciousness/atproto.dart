@@ -31,5 +31,5 @@ Map<String, dynamic> _$InterestsPrefToJson(_InterestsPref instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'tags': instance.tags,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

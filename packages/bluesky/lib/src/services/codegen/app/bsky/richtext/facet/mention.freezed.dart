@@ -208,8 +208,8 @@ return $default(_that.$type,_that.did,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RichtextFacetMention implements RichtextFacetMention {
   const _RichtextFacetMention({this.$type = 'app.bsky.richtext.facet#mention', required this.did, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RichtextFacetMention.fromJson(Map<String, dynamic> json) => _$RichtextFacetMentionFromJson(json);

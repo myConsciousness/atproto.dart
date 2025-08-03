@@ -27,6 +27,7 @@ abstract class LabelQueryLabelsInput with _$LabelQueryLabelsInput {
     'cursor',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LabelQueryLabelsInput({
     required List<String> uriPatterns,
     List<String>? sources,

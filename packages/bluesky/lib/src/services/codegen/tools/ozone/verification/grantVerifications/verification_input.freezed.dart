@@ -215,8 +215,8 @@ return $default(_that.$type,_that.subject,_that.handle,_that.displayName,_that.c
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _VerificationInput implements VerificationInput {
   const _VerificationInput({this.$type = 'tools.ozone.verification.grantVerifications#verificationInput', required this.subject, required this.handle, required this.displayName, this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _VerificationInput.fromJson(Map<String, dynamic> json) => _$VerificationInputFromJson(json);

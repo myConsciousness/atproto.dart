@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class IdentityResolveDidInput with _$IdentityResolveDidInput {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory IdentityResolveDidInput({
     /// DID to resolve.
     required String did,

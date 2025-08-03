@@ -213,8 +213,8 @@ return $default(_that.q,_that.viewer,_that.limit,_that.cursor,_that.$unknown);ca
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedSearchStarterPacksSkeletonInput implements UnspeccedSearchStarterPacksSkeletonInput {
   const _UnspeccedSearchStarterPacksSkeletonInput({required this.q, this.viewer, this.limit = 25, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedSearchStarterPacksSkeletonInput.fromJson(Map<String, dynamic> json) => _$UnspeccedSearchStarterPacksSkeletonInputFromJson(json);

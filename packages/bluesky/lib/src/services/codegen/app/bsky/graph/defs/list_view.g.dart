@@ -80,22 +80,22 @@ Map<String, dynamic> _$ListViewToJson(_ListView instance) => <String, dynamic>{
   'creator': const ProfileViewConverter().toJson(instance.creator),
   'name': instance.name,
   'purpose': const ListPurposeConverter().toJson(instance.purpose),
-  'description': instance.description,
-  'descriptionFacets': instance.descriptionFacets
+  'description': ?instance.description,
+  'descriptionFacets': ?instance.descriptionFacets
       ?.map(const RichtextFacetConverter().toJson)
       .toList(),
-  'avatar': _$JsonConverterToJson<String, AtUri>(
+  'avatar': ?_$JsonConverterToJson<String, AtUri>(
     instance.avatar,
     const AtUriConverter().toJson,
   ),
-  'listItemCount': instance.listItemCount,
-  'labels': instance.labels?.map(const LabelConverter().toJson).toList(),
-  'viewer': _$JsonConverterToJson<Map<String, dynamic>, ListViewerState>(
+  'listItemCount': ?instance.listItemCount,
+  'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
+  'viewer': ?_$JsonConverterToJson<Map<String, dynamic>, ListViewerState>(
     instance.viewer,
     const ListViewerStateConverter().toJson,
   ),
   'indexedAt': instance.indexedAt.toIso8601String(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -207,8 +207,8 @@ return $default(_that.uris,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphGetStarterPacksInput implements GraphGetStarterPacksInput {
   const _GraphGetStarterPacksInput({required final  List<String> uris, final  Map<String, dynamic>? $unknown}): _uris = uris,_$unknown = $unknown;
   factory _GraphGetStarterPacksInput.fromJson(Map<String, dynamic> json) => _$GraphGetStarterPacksInputFromJson(json);

@@ -217,8 +217,8 @@ return $default(_that.$type,_that.external,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _EmbedExternalView implements EmbedExternalView {
   const _EmbedExternalView({this.$type = 'app.bsky.embed.external#view', @EmbedExternalViewExternalConverter() required this.external, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedExternalView.fromJson(Map<String, dynamic> json) => _$EmbedExternalViewFromJson(json);

@@ -25,6 +25,7 @@ part 'profile_associated_chat.g.dart';
 abstract class ProfileAssociatedChat with _$ProfileAssociatedChat {
   static const knownProps = <String>['allowIncoming'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ProfileAssociatedChat({
     @Default('app.bsky.actor.defs#profileAssociatedChat') String $type,
     @ProfileAssociatedChatAllowIncomingConverter()

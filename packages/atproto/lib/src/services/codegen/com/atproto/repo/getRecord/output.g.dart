@@ -29,7 +29,7 @@ Map<String, dynamic> _$RepoGetRecordOutputToJson(
   _RepoGetRecordOutput instance,
 ) => <String, dynamic>{
   'uri': instance.uri,
-  'cid': instance.cid,
+  'cid': ?instance.cid,
   'value': instance.value,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

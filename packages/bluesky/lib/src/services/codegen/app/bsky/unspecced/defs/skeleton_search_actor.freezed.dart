@@ -208,8 +208,8 @@ return $default(_that.$type,_that.did,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SkeletonSearchActor implements SkeletonSearchActor {
   const _SkeletonSearchActor({this.$type = 'app.bsky.unspecced.defs#skeletonSearchActor', required this.did, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SkeletonSearchActor.fromJson(Map<String, dynamic> json) => _$SkeletonSearchActorFromJson(json);

@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class FeedGetLikesInput with _$FeedGetLikesInput {
   static const knownProps = <String>['uri', 'cid', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetLikesInput({
     /// AT-URI of the subject (eg, a post record).
     required String uri,

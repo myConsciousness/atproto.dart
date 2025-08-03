@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.subscriptions,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _NotificationListActivitySubscriptionsOutput implements NotificationListActivitySubscriptionsOutput {
   const _NotificationListActivitySubscriptionsOutput({this.cursor, @ProfileViewConverter() required final  List<ProfileView> subscriptions, final  Map<String, dynamic>? $unknown}): _subscriptions = subscriptions,_$unknown = $unknown;
   factory _NotificationListActivitySubscriptionsOutput.fromJson(Map<String, dynamic> json) => _$NotificationListActivitySubscriptionsOutputFromJson(json);

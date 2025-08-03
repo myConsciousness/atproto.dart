@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class ActorSearchActorsOutput with _$ActorSearchActorsOutput {
   static const knownProps = <String>['cursor', 'actors'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ActorSearchActorsOutput({
     String? cursor,
     @ProfileViewConverter() required List<ProfileView> actors,

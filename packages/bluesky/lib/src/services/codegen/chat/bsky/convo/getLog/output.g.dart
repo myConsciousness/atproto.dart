@@ -33,7 +33,7 @@ _ConvoGetLogOutput _$ConvoGetLogOutputFromJson(Map json) =>
 Map<String, dynamic> _$ConvoGetLogOutputToJson(
   _ConvoGetLogOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'logs': instance.logs.map(const UConvoGetLogLogsConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

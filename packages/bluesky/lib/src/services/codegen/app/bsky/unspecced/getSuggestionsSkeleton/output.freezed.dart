@@ -212,8 +212,8 @@ return $default(_that.cursor,_that.actors,_that.relativeToDid,_that.recId,_that.
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetSuggestionsSkeletonOutput implements UnspeccedGetSuggestionsSkeletonOutput {
   const _UnspeccedGetSuggestionsSkeletonOutput({this.cursor, @SkeletonSearchActorConverter() required final  List<SkeletonSearchActor> actors, this.relativeToDid, this.recId, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
   factory _UnspeccedGetSuggestionsSkeletonOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestionsSkeletonOutputFromJson(json);

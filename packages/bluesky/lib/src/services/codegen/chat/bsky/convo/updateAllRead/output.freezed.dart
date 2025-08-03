@@ -208,8 +208,8 @@ return $default(_that.updatedCount,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoUpdateAllReadOutput implements ConvoUpdateAllReadOutput {
   const _ConvoUpdateAllReadOutput({required this.updatedCount, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoUpdateAllReadOutput.fromJson(Map<String, dynamic> json) => _$ConvoUpdateAllReadOutputFromJson(json);

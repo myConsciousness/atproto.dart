@@ -23,6 +23,7 @@ part 'result_available.g.dart';
 abstract class ResultAvailable with _$ResultAvailable {
   static const knownProps = <String>[];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ResultAvailable({
     @Default('com.atproto.temp.checkHandleAvailability#resultAvailable')
     String $type,

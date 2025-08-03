@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class SyncGetHeadInput with _$SyncGetHeadInput {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncGetHeadInput({
     /// The DID of the repo.
     required String did,

@@ -210,8 +210,8 @@ return $default(_that.cursor,_that.actors,_that.recId,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ActorGetSuggestionsOutput implements ActorGetSuggestionsOutput {
   const _ActorGetSuggestionsOutput({this.cursor, @ProfileViewConverter() required final  List<ProfileView> actors, this.recId, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
   factory _ActorGetSuggestionsOutput.fromJson(Map<String, dynamic> json) => _$ActorGetSuggestionsOutputFromJson(json);

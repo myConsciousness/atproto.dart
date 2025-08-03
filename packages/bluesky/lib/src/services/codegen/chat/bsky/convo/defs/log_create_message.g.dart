@@ -38,5 +38,5 @@ Map<String, dynamic> _$LogCreateMessageToJson(
   'rev': instance.rev,
   'convoId': instance.convoId,
   'message': const ULogCreateMessageMessageConverter().toJson(instance.message),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

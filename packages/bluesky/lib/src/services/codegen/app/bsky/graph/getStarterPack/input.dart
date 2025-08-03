@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class GraphGetStarterPackInput with _$GraphGetStarterPackInput {
   static const knownProps = <String>['starterPack'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetStarterPackInput({
     /// Reference (AT-URI) of the starter pack record.
     required String starterPack,

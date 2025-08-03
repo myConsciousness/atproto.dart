@@ -218,8 +218,8 @@ return $default(_that.subject,_that.cursor,_that.followers,_that.$unknown);case 
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphGetKnownFollowersOutput implements GraphGetKnownFollowersOutput {
   const _GraphGetKnownFollowersOutput({@ProfileViewConverter() required this.subject, this.cursor, @ProfileViewConverter() required final  List<ProfileView> followers, final  Map<String, dynamic>? $unknown}): _followers = followers,_$unknown = $unknown;
   factory _GraphGetKnownFollowersOutput.fromJson(Map<String, dynamic> json) => _$GraphGetKnownFollowersOutputFromJson(json);

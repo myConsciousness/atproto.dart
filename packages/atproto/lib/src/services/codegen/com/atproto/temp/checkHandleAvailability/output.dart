@@ -26,6 +26,7 @@ abstract class TempCheckHandleAvailabilityOutput
     with _$TempCheckHandleAvailabilityOutput {
   static const knownProps = <String>['handle', 'result'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory TempCheckHandleAvailabilityOutput({
     /// Echo of the input handle.
     required String handle,

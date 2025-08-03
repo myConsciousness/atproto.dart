@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class RepoListRecordsOutput with _$RepoListRecordsOutput {
   static const knownProps = <String>['cursor', 'records'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoListRecordsOutput({
     String? cursor,
     @RepoListRecordsRecordConverter()

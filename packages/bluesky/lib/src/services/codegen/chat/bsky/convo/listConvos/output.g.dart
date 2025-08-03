@@ -33,7 +33,7 @@ _ConvoListConvosOutput _$ConvoListConvosOutputFromJson(Map json) =>
 Map<String, dynamic> _$ConvoListConvosOutputToJson(
   _ConvoListConvosOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'convos': instance.convos.map(const ConvoViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -27,8 +27,8 @@ Map<String, dynamic> _$FeedGetRepostedByInputToJson(
   _FeedGetRepostedByInput instance,
 ) => <String, dynamic>{
   'uri': instance.uri,
-  'cid': instance.cid,
+  'cid': ?instance.cid,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };

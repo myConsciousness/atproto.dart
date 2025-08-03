@@ -234,8 +234,8 @@ return $default(_that.limit,_that.cursor,_that.readState,_that.status,_that.$unk
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoListConvosInput implements ConvoListConvosInput {
   const _ConvoListConvosInput({this.limit = 50, this.cursor, @ConvoListConvosReadStateConverter() this.readState, @ConvoListConvosStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoListConvosInput.fromJson(Map<String, dynamic> json) => _$ConvoListConvosInputFromJson(json);

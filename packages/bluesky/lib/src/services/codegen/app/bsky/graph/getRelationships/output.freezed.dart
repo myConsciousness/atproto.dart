@@ -208,8 +208,8 @@ return $default(_that.actor,_that.relationships,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphGetRelationshipsOutput implements GraphGetRelationshipsOutput {
   const _GraphGetRelationshipsOutput({this.actor, @UGraphGetRelationshipsRelationshipsConverter() required final  List<UGraphGetRelationshipsRelationships> relationships, final  Map<String, dynamic>? $unknown}): _relationships = relationships,_$unknown = $unknown;
   factory _GraphGetRelationshipsOutput.fromJson(Map<String, dynamic> json) => _$GraphGetRelationshipsOutputFromJson(json);

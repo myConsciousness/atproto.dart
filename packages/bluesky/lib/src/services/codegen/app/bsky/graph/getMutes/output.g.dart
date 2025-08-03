@@ -33,7 +33,7 @@ _GraphGetMutesOutput _$GraphGetMutesOutputFromJson(Map json) =>
 Map<String, dynamic> _$GraphGetMutesOutputToJson(
   _GraphGetMutesOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'mutes': instance.mutes.map(const ProfileViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

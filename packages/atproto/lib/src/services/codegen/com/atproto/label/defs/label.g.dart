@@ -43,14 +43,14 @@ _Label _$LabelFromJson(Map json) =>
 
 Map<String, dynamic> _$LabelToJson(_Label instance) => <String, dynamic>{
   r'$type': instance.$type,
-  'ver': instance.ver,
+  'ver': ?instance.ver,
   'src': instance.src,
   'uri': const AtUriConverter().toJson(instance.uri),
-  'cid': instance.cid,
+  'cid': ?instance.cid,
   'val': instance.val,
-  'neg': instance.neg,
+  'neg': ?instance.neg,
   'cts': instance.cts.toIso8601String(),
-  'exp': instance.exp?.toIso8601String(),
-  'sig': instance.sig,
-  r'$unknown': instance.$unknown,
+  'exp': ?instance.exp?.toIso8601String(),
+  'sig': ?instance.sig,
+  r'$unknown': ?instance.$unknown,
 };

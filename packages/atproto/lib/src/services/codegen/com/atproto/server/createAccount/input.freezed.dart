@@ -219,8 +219,8 @@ return $default(_that.email,_that.handle,_that.did,_that.inviteCode,_that.verifi
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerCreateAccountInput implements ServerCreateAccountInput {
   const _ServerCreateAccountInput({this.email, required this.handle, this.did, this.inviteCode, this.verificationCode, this.verificationPhone, this.password, this.recoveryKey, final  Map<String, dynamic>? plcOp, final  Map<String, dynamic>? $unknown}): _plcOp = plcOp,_$unknown = $unknown;
   factory _ServerCreateAccountInput.fromJson(Map<String, dynamic> json) => _$ServerCreateAccountInputFromJson(json);

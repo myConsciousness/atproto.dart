@@ -37,6 +37,6 @@ Map<String, dynamic> _$ModEventTagToJson(_ModEventTag instance) =>
       r'$type': instance.$type,
       'add': instance.add,
       'remove': instance.remove,
-      'comment': instance.comment,
-      r'$unknown': instance.$unknown,
+      'comment': ?instance.comment,
+      r'$unknown': ?instance.$unknown,
     };

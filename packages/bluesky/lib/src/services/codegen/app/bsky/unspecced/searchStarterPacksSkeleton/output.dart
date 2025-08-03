@@ -26,6 +26,7 @@ abstract class UnspeccedSearchStarterPacksSkeletonOutput
     with _$UnspeccedSearchStarterPacksSkeletonOutput {
   static const knownProps = <String>['cursor', 'hitsTotal', 'starterPacks'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedSearchStarterPacksSkeletonOutput({
     String? cursor,
 

@@ -23,6 +23,7 @@ abstract class ServerRevokeAppPasswordInput
     with _$ServerRevokeAppPasswordInput {
   static const knownProps = <String>['name'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerRevokeAppPasswordInput({
     required String name,
 

@@ -22,6 +22,7 @@ part 'log_mute_convo.g.dart';
 abstract class LogMuteConvo with _$LogMuteConvo {
   static const knownProps = <String>['rev', 'convoId'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LogMuteConvo({
     @Default('chat.bsky.convo.defs#logMuteConvo') String $type,
     required String rev,

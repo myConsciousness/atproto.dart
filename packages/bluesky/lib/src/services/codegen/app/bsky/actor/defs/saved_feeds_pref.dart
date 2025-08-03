@@ -22,6 +22,7 @@ part 'saved_feeds_pref.g.dart';
 abstract class SavedFeedsPref with _$SavedFeedsPref {
   static const knownProps = <String>['pinned', 'saved', 'timelineIndex'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SavedFeedsPref({
     @Default('app.bsky.actor.defs#savedFeedsPref') String $type,
     required List<String> pinned,

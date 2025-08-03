@@ -36,5 +36,5 @@ Map<String, dynamic> _$ModerationGetReporterStatsOutputToJson(
   _ModerationGetReporterStatsOutput instance,
 ) => <String, dynamic>{
   'stats': instance.stats.map(const ReporterStatsConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

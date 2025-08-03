@@ -49,10 +49,10 @@ Map<String, dynamic> _$CommitToJson(_Commit instance) => <String, dynamic>{
   'repo': instance.repo,
   'commit': instance.commit,
   'rev': instance.rev,
-  'since': instance.since,
+  'since': ?instance.since,
   'blocks': instance.blocks,
   'ops': instance.ops.map(const RepoOpConverter().toJson).toList(),
-  'prevData': instance.prevData,
+  'prevData': ?instance.prevData,
   'time': instance.time.toIso8601String(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

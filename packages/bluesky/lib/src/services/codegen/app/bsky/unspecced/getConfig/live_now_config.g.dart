@@ -33,5 +33,5 @@ Map<String, dynamic> _$LiveNowConfigToJson(_LiveNowConfig instance) =>
       r'$type': instance.$type,
       'did': instance.did,
       'domains': instance.domains,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

@@ -23,6 +23,7 @@ part 'revoke_error.g.dart';
 abstract class RevokeError with _$RevokeError {
   static const knownProps = <String>['uri', 'error'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RevokeError({
     @Default('tools.ozone.verification.revokeVerifications#revokeError')
     String $type,

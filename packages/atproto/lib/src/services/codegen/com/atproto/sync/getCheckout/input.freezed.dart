@@ -208,8 +208,8 @@ return $default(_that.did,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncGetCheckoutInput implements SyncGetCheckoutInput {
   const _SyncGetCheckoutInput({required this.did, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncGetCheckoutInput.fromJson(Map<String, dynamic> json) => _$SyncGetCheckoutInputFromJson(json);

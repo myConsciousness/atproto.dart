@@ -52,12 +52,12 @@ Map<String, dynamic> _$GraphStarterpackRecordToJson(
 ) => <String, dynamic>{
   r'$type': instance.$type,
   'name': instance.name,
-  'description': instance.description,
-  'descriptionFacets': instance.descriptionFacets
+  'description': ?instance.description,
+  'descriptionFacets': ?instance.descriptionFacets
       ?.map(const RichtextFacetConverter().toJson)
       .toList(),
   'list': instance.list,
-  'feeds': instance.feeds?.map(const FeedItemConverter().toJson).toList(),
+  'feeds': ?instance.feeds?.map(const FeedItemConverter().toJson).toList(),
   'createdAt': instance.createdAt.toIso8601String(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

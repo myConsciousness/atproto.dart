@@ -211,8 +211,8 @@ return $default(_that.$type,_that.uri,_that.cid,_that.record,_that.lists,_that.$
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ThreadgateView implements ThreadgateView {
   const _ThreadgateView({this.$type = 'app.bsky.feed.defs#threadgateView', this.uri, this.cid, final  Map<String, dynamic>? record, @ListViewBasicConverter() final  List<ListViewBasic>? lists, final  Map<String, dynamic>? $unknown}): _record = record,_lists = lists,_$unknown = $unknown;
   factory _ThreadgateView.fromJson(Map<String, dynamic> json) => _$ThreadgateViewFromJson(json);

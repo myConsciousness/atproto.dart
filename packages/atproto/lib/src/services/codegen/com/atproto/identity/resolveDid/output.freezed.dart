@@ -207,8 +207,8 @@ return $default(_that.didDoc,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _IdentityResolveDidOutput implements IdentityResolveDidOutput {
   const _IdentityResolveDidOutput({required final  Map<String, dynamic> didDoc, final  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_$unknown = $unknown;
   factory _IdentityResolveDidOutput.fromJson(Map<String, dynamic> json) => _$IdentityResolveDidOutputFromJson(json);

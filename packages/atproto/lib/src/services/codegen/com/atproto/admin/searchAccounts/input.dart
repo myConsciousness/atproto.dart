@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class AdminSearchAccountsInput with _$AdminSearchAccountsInput {
   static const knownProps = <String>['email', 'cursor', 'limit'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdminSearchAccountsInput({
     String? email,
     String? cursor,

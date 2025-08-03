@@ -207,8 +207,8 @@ return $default(_that.id,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationGetEventInput implements ModerationGetEventInput {
   const _ModerationGetEventInput({required this.id, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModerationGetEventInput.fromJson(Map<String, dynamic> json) => _$ModerationGetEventInputFromJson(json);

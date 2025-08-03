@@ -219,8 +219,8 @@ return $default(_that.id,_that.name,_that.lang,_that.contentMarkdown,_that.subje
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _CommunicationUpdateTemplateInput implements CommunicationUpdateTemplateInput {
   const _CommunicationUpdateTemplateInput({required this.id, this.name, this.lang, this.contentMarkdown, this.subject, this.updatedBy, this.disabled, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _CommunicationUpdateTemplateInput.fromJson(Map<String, dynamic> json) => _$CommunicationUpdateTemplateInputFromJson(json);

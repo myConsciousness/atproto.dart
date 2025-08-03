@@ -209,8 +209,8 @@ return $default(_that.$type,_that.lexicon,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _LexiconSchemaRecord implements LexiconSchemaRecord {
   const _LexiconSchemaRecord({this.$type = 'com.atproto.lexicon.schema', required this.lexicon, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _LexiconSchemaRecord.fromJson(Map<String, dynamic> json) => _$LexiconSchemaRecordFromJson(json);

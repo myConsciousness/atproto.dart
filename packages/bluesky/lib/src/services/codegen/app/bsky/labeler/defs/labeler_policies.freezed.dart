@@ -209,8 +209,8 @@ return $default(_that.$type,_that.labelValues,_that.labelValueDefinitions,_that.
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _LabelerPolicies implements LabelerPolicies {
   const _LabelerPolicies({this.$type = 'app.bsky.labeler.defs#labelerPolicies', @LabelValueConverter() required final  List<LabelValue> labelValues, @LabelValueDefinitionConverter() final  List<LabelValueDefinition>? labelValueDefinitions, final  Map<String, dynamic>? $unknown}): _labelValues = labelValues,_labelValueDefinitions = labelValueDefinitions,_$unknown = $unknown;
   factory _LabelerPolicies.fromJson(Map<String, dynamic> json) => _$LabelerPoliciesFromJson(json);

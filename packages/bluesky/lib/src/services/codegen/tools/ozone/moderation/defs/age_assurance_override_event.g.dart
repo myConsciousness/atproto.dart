@@ -40,5 +40,5 @@ Map<String, dynamic> _$AgeAssuranceOverrideEventToJson(
     instance.status,
   ),
   'comment': instance.comment,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

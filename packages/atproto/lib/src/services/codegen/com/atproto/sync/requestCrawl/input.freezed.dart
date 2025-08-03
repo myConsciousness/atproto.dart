@@ -208,8 +208,8 @@ return $default(_that.hostname,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncRequestCrawlInput implements SyncRequestCrawlInput {
   const _SyncRequestCrawlInput({required this.hostname, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncRequestCrawlInput.fromJson(Map<String, dynamic> json) => _$SyncRequestCrawlInputFromJson(json);

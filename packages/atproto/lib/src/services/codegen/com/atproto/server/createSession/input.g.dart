@@ -31,7 +31,7 @@ Map<String, dynamic> _$ServerCreateSessionInputToJson(
 ) => <String, dynamic>{
   'identifier': instance.identifier,
   'password': instance.password,
-  'authFactorToken': instance.authFactorToken,
-  'allowTakendown': instance.allowTakendown,
-  r'$unknown': instance.$unknown,
+  'authFactorToken': ?instance.authFactorToken,
+  'allowTakendown': ?instance.allowTakendown,
+  r'$unknown': ?instance.$unknown,
 };

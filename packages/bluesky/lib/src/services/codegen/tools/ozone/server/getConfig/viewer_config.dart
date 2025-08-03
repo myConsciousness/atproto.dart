@@ -25,6 +25,7 @@ part 'viewer_config.g.dart';
 abstract class ViewerConfig with _$ViewerConfig {
   static const knownProps = <String>['role'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ViewerConfig({
     @Default('tools.ozone.server.getConfig#viewerConfig') String $type,
     @ViewerConfigRoleConverter() ViewerConfigRole? role,

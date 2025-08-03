@@ -22,4 +22,4 @@ _IdentityResolveDidInput _$IdentityResolveDidInputFromJson(Map json) =>
 
 Map<String, dynamic> _$IdentityResolveDidInputToJson(
   _IdentityResolveDidInput instance,
-) => <String, dynamic>{'did': instance.did, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'did': instance.did, r'$unknown': ?instance.$unknown};

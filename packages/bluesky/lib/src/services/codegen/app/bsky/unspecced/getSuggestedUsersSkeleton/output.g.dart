@@ -29,4 +29,4 @@ _$UnspeccedGetSuggestedUsersSkeletonOutputFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$UnspeccedGetSuggestedUsersSkeletonOutputToJson(
   _UnspeccedGetSuggestedUsersSkeletonOutput instance,
-) => <String, dynamic>{'dids': instance.dids, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'dids': instance.dids, r'$unknown': ?instance.$unknown};

@@ -35,5 +35,5 @@ Map<String, dynamic> _$ActorPutPreferencesInputToJson(
   'preferences': instance.preferences
       .map(const UPreferencesConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

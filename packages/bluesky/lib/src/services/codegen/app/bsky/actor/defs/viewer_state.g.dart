@@ -64,29 +64,30 @@ Map<String, dynamic> _$ViewerStateToJson(
   _ViewerState instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'muted': instance.muted,
-  'mutedByList': _$JsonConverterToJson<Map<String, dynamic>, ListViewBasic>(
+  'muted': ?instance.muted,
+  'mutedByList': ?_$JsonConverterToJson<Map<String, dynamic>, ListViewBasic>(
     instance.mutedByList,
     const ListViewBasicConverter().toJson,
   ),
-  'blockedBy': instance.blockedBy,
-  'blocking': instance.blocking,
-  'blockingByList': _$JsonConverterToJson<Map<String, dynamic>, ListViewBasic>(
+  'blockedBy': ?instance.blockedBy,
+  'blocking': ?instance.blocking,
+  'blockingByList': ?_$JsonConverterToJson<Map<String, dynamic>, ListViewBasic>(
     instance.blockingByList,
     const ListViewBasicConverter().toJson,
   ),
-  'following': instance.following,
-  'followedBy': instance.followedBy,
-  'knownFollowers': _$JsonConverterToJson<Map<String, dynamic>, KnownFollowers>(
-    instance.knownFollowers,
-    const KnownFollowersConverter().toJson,
-  ),
+  'following': ?instance.following,
+  'followedBy': ?instance.followedBy,
+  'knownFollowers':
+      ?_$JsonConverterToJson<Map<String, dynamic>, KnownFollowers>(
+        instance.knownFollowers,
+        const KnownFollowersConverter().toJson,
+      ),
   'activitySubscription':
-      _$JsonConverterToJson<Map<String, dynamic>, ActivitySubscription>(
+      ?_$JsonConverterToJson<Map<String, dynamic>, ActivitySubscription>(
         instance.activitySubscription,
         const ActivitySubscriptionConverter().toJson,
       ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

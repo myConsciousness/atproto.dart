@@ -23,6 +23,7 @@ abstract class UnspeccedGetTrendsSkeletonInput
     with _$UnspeccedGetTrendsSkeletonInput {
   static const knownProps = <String>['viewer', 'limit'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetTrendsSkeletonInput({
     /// DID of the account making the request (not included for public/unauthenticated queries).
     String? viewer,

@@ -41,11 +41,11 @@ Map<String, dynamic> _$FeedDescribeFeedGeneratorOutputToJson(
 ) => <String, dynamic>{
   'did': instance.did,
   'feeds': instance.feeds.map(const FeedConverter().toJson).toList(),
-  'links': _$JsonConverterToJson<Map<String, dynamic>, Links>(
+  'links': ?_$JsonConverterToJson<Map<String, dynamic>, Links>(
     instance.links,
     const LinksConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

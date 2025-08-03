@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class FeedGetSuggestedFeedsOutput with _$FeedGetSuggestedFeedsOutput {
   static const knownProps = <String>['cursor', 'feeds'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedGetSuggestedFeedsOutput({
     String? cursor,
     @GeneratorViewConverter() required List<GeneratorView> feeds,

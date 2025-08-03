@@ -209,8 +209,8 @@ return $default(_that.viewer,_that.limit,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetTrendsSkeletonInput implements UnspeccedGetTrendsSkeletonInput {
   const _UnspeccedGetTrendsSkeletonInput({this.viewer, this.limit = 10, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedGetTrendsSkeletonInput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetTrendsSkeletonInputFromJson(json);

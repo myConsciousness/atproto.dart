@@ -23,6 +23,7 @@ abstract class UnspeccedGetSuggestedFeedsSkeletonOutput
     with _$UnspeccedGetSuggestedFeedsSkeletonOutput {
   static const knownProps = <String>['feeds'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestedFeedsSkeletonOutput({
     required List<String> feeds,
 

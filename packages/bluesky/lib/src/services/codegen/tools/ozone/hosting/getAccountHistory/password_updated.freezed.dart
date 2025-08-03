@@ -207,8 +207,8 @@ return $default(_that.$type,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _PasswordUpdated implements PasswordUpdated {
   const _PasswordUpdated({this.$type = 'tools.ozone.hosting.getAccountHistory#passwordUpdated', final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _PasswordUpdated.fromJson(Map<String, dynamic> json) => _$PasswordUpdatedFromJson(json);

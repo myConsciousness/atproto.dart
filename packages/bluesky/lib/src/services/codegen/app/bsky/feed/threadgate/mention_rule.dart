@@ -23,6 +23,7 @@ part 'mention_rule.g.dart';
 abstract class MentionRule with _$MentionRule {
   static const knownProps = <String>[];
 
+  @JsonSerializable(includeIfNull: false)
   const factory MentionRule({
     @Default('app.bsky.feed.threadgate#mentionRule') String $type,
 

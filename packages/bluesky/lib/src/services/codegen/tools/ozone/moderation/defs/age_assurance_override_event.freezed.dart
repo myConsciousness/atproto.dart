@@ -220,8 +220,8 @@ return $default(_that.$type,_that.status,_that.comment,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AgeAssuranceOverrideEvent implements AgeAssuranceOverrideEvent {
   const _AgeAssuranceOverrideEvent({this.$type = 'tools.ozone.moderation.defs#ageAssuranceOverrideEvent', @AgeAssuranceOverrideEventStatusConverter() required this.status, required this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AgeAssuranceOverrideEvent.fromJson(Map<String, dynamic> json) => _$AgeAssuranceOverrideEventFromJson(json);

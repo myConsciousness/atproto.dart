@@ -36,6 +36,7 @@ abstract class ServerCreateSessionOutput with _$ServerCreateSessionOutput {
     'status',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerCreateSessionOutput({
     required String accessJwt,
     required String refreshJwt,

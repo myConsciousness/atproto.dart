@@ -68,5 +68,5 @@ Map<String, dynamic> _$ReporterStatsToJson(_ReporterStats instance) =>
       'takendownRecordCount': instance.takendownRecordCount,
       'labeledAccountCount': instance.labeledAccountCount,
       'labeledRecordCount': instance.labeledRecordCount,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

@@ -33,6 +33,7 @@ abstract class FeedViewPost with _$FeedViewPost {
     'reqId',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedViewPost({
     @Default('app.bsky.feed.defs#feedViewPost') String $type,
     @PostViewConverter() required PostView post,

@@ -26,6 +26,7 @@ part 'subject_activity_subscription.g.dart';
 abstract class SubjectActivitySubscription with _$SubjectActivitySubscription {
   static const knownProps = <String>['subject', 'activitySubscription'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SubjectActivitySubscription({
     @Default('app.bsky.notification.defs#subjectActivitySubscription')
     String $type,

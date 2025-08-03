@@ -34,8 +34,8 @@ _ActorGetSuggestionsOutput _$ActorGetSuggestionsOutputFromJson(Map json) =>
 Map<String, dynamic> _$ActorGetSuggestionsOutputToJson(
   _ActorGetSuggestionsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'actors': instance.actors.map(const ProfileViewConverter().toJson).toList(),
-  'recId': instance.recId,
-  r'$unknown': instance.$unknown,
+  'recId': ?instance.recId,
+  r'$unknown': ?instance.$unknown,
 };

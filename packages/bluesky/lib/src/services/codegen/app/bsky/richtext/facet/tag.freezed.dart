@@ -208,8 +208,8 @@ return $default(_that.$type,_that.tag,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RichtextFacetTag implements RichtextFacetTag {
   const _RichtextFacetTag({this.$type = 'app.bsky.richtext.facet#tag', required this.tag, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RichtextFacetTag.fromJson(Map<String, dynamic> json) => _$RichtextFacetTagFromJson(json);

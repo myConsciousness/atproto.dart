@@ -207,8 +207,8 @@ return $default(_that.interactions,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedSendInteractionsInput implements FeedSendInteractionsInput {
   const _FeedSendInteractionsInput({@InteractionConverter() required final  List<Interaction> interactions, final  Map<String, dynamic>? $unknown}): _interactions = interactions,_$unknown = $unknown;
   factory _FeedSendInteractionsInput.fromJson(Map<String, dynamic> json) => _$FeedSendInteractionsInputFromJson(json);

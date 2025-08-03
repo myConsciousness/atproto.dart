@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class GraphUnmuteActorInput with _$GraphUnmuteActorInput {
   static const knownProps = <String>['actor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphUnmuteActorInput({
     required String actor,
 

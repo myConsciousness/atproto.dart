@@ -31,5 +31,5 @@ Map<String, dynamic> _$SkeletonSearchStarterPackToJson(
 ) => <String, dynamic>{
   r'$type': instance.$type,
   'uri': instance.uri,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

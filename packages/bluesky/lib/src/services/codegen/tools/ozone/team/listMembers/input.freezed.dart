@@ -211,8 +211,8 @@ return $default(_that.q,_that.disabled,_that.roles,_that.limit,_that.cursor,_tha
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _TeamListMembersInput implements TeamListMembersInput {
   const _TeamListMembersInput({this.q, this.disabled, final  List<String>? roles, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _roles = roles,_$unknown = $unknown;
   factory _TeamListMembersInput.fromJson(Map<String, dynamic> json) => _$TeamListMembersInputFromJson(json);

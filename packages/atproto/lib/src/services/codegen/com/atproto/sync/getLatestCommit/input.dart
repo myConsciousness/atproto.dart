@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class SyncGetLatestCommitInput with _$SyncGetLatestCommitInput {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SyncGetLatestCommitInput({
     /// The DID of the repo.
     required String did,

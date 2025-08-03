@@ -23,6 +23,7 @@ part 'mod_event_mute_reporter.g.dart';
 abstract class ModEventMuteReporter with _$ModEventMuteReporter {
   static const knownProps = <String>['comment', 'durationInHours'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModEventMuteReporter({
     @Default('tools.ozone.moderation.defs#modEventMuteReporter') String $type,
     String? comment,

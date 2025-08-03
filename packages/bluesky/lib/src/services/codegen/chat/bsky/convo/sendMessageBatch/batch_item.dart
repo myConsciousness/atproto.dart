@@ -25,6 +25,7 @@ part 'batch_item.g.dart';
 abstract class BatchItem with _$BatchItem {
   static const knownProps = <String>['convoId', 'message'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory BatchItem({
     @Default('chat.bsky.convo.sendMessageBatch#batchItem') String $type,
     required String convoId,

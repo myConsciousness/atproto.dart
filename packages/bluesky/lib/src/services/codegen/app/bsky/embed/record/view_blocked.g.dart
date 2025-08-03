@@ -38,5 +38,5 @@ Map<String, dynamic> _$EmbedRecordViewBlockedToJson(
   'uri': instance.uri,
   'blocked': instance.blocked,
   'author': const BlockedAuthorConverter().toJson(instance.author),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

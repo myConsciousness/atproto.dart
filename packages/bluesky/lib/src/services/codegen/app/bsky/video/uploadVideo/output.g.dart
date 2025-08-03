@@ -27,5 +27,5 @@ Map<String, dynamic> _$VideoUploadVideoOutputToJson(
   _VideoUploadVideoOutput instance,
 ) => <String, dynamic>{
   'jobStatus': const JobStatusConverter().toJson(instance.jobStatus),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

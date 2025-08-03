@@ -49,6 +49,7 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
     'cursor',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationQueryEventsInput({
     List<String>? types,
     String? createdBy,

@@ -207,8 +207,8 @@ return $default(_that.infos,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AdminGetAccountInfosOutput implements AdminGetAccountInfosOutput {
   const _AdminGetAccountInfosOutput({@AccountViewConverter() required final  List<AccountView> infos, final  Map<String, dynamic>? $unknown}): _infos = infos,_$unknown = $unknown;
   factory _AdminGetAccountInfosOutput.fromJson(Map<String, dynamic> json) => _$AdminGetAccountInfosOutputFromJson(json);

@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class GraphGetStarterPackOutput with _$GraphGetStarterPackOutput {
   static const knownProps = <String>['starterPack'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetStarterPackOutput({
     @StarterPackViewConverter() required StarterPackView starterPack,
 

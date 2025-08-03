@@ -32,6 +32,6 @@ Map<String, dynamic> _$SetGetValuesOutputToJson(_SetGetValuesOutput instance) =>
     <String, dynamic>{
       'set': const SetViewConverter().toJson(instance.set),
       'values': instance.values,
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
+      'cursor': ?instance.cursor,
+      r'$unknown': ?instance.$unknown,
     };

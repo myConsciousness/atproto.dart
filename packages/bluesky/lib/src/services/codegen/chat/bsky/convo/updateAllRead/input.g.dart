@@ -29,11 +29,11 @@ _ConvoUpdateAllReadInput _$ConvoUpdateAllReadInputFromJson(Map json) =>
 Map<String, dynamic> _$ConvoUpdateAllReadInputToJson(
   _ConvoUpdateAllReadInput instance,
 ) => <String, dynamic>{
-  'status': _$JsonConverterToJson<String, ConvoUpdateAllReadStatus>(
+  'status': ?_$JsonConverterToJson<String, ConvoUpdateAllReadStatus>(
     instance.status,
     const ConvoUpdateAllReadStatusConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

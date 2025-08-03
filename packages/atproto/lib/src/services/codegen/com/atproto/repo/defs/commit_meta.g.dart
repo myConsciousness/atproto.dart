@@ -30,5 +30,5 @@ Map<String, dynamic> _$CommitMetaToJson(_CommitMeta instance) =>
       r'$type': instance.$type,
       'cid': instance.cid,
       'rev': instance.rev,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

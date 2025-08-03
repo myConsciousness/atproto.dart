@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.feed,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetActorLikesOutput implements FeedGetActorLikesOutput {
   const _FeedGetActorLikesOutput({this.cursor, @FeedViewPostConverter() required final  List<FeedViewPost> feed, final  Map<String, dynamic>? $unknown}): _feed = feed,_$unknown = $unknown;
   factory _FeedGetActorLikesOutput.fromJson(Map<String, dynamic> json) => _$FeedGetActorLikesOutputFromJson(json);

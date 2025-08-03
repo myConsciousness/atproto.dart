@@ -21,4 +21,4 @@ _SyncGetHeadInput _$SyncGetHeadInputFromJson(Map json) =>
     });
 
 Map<String, dynamic> _$SyncGetHeadInputToJson(_SyncGetHeadInput instance) =>
-    <String, dynamic>{'did': instance.did, r'$unknown': instance.$unknown};
+    <String, dynamic>{'did': instance.did, r'$unknown': ?instance.$unknown};

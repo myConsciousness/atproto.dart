@@ -36,10 +36,10 @@ Map<String, dynamic> _$FeedGetRepostedByOutputToJson(
   _FeedGetRepostedByOutput instance,
 ) => <String, dynamic>{
   'uri': instance.uri,
-  'cid': instance.cid,
-  'cursor': instance.cursor,
+  'cid': ?instance.cid,
+  'cursor': ?instance.cursor,
   'repostedBy': instance.repostedBy
       .map(const ProfileViewConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

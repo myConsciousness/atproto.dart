@@ -26,7 +26,7 @@ _UnspeccedGetTrendingTopicsInput _$UnspeccedGetTrendingTopicsInputFromJson(
 Map<String, dynamic> _$UnspeccedGetTrendingTopicsInputToJson(
   _UnspeccedGetTrendingTopicsInput instance,
 ) => <String, dynamic>{
-  'viewer': instance.viewer,
+  'viewer': ?instance.viewer,
   'limit': instance.limit,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -22,4 +22,4 @@ _RepoDescribeRepoInput _$RepoDescribeRepoInputFromJson(Map json) =>
 
 Map<String, dynamic> _$RepoDescribeRepoInputToJson(
   _RepoDescribeRepoInput instance,
-) => <String, dynamic>{'repo': instance.repo, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'repo': instance.repo, r'$unknown': ?instance.$unknown};

@@ -210,8 +210,8 @@ return $default(_that.$type,_that.comment,_that.acknowledgeAccountSubjects,_that
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModEventAcknowledge implements ModEventAcknowledge {
   const _ModEventAcknowledge({this.$type = 'tools.ozone.moderation.defs#modEventAcknowledge', this.comment, this.acknowledgeAccountSubjects, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModEventAcknowledge.fromJson(Map<String, dynamic> json) => _$ModEventAcknowledgeFromJson(json);

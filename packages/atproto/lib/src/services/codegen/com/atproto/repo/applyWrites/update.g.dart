@@ -32,5 +32,5 @@ Map<String, dynamic> _$UpdateToJson(_Update instance) => <String, dynamic>{
   'collection': instance.collection,
   'rkey': instance.rkey,
   'value': instance.value,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

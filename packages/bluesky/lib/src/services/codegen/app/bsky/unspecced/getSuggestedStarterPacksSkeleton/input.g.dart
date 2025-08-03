@@ -27,7 +27,7 @@ _$UnspeccedGetSuggestedStarterPacksSkeletonInputFromJson(Map json) =>
 Map<String, dynamic> _$UnspeccedGetSuggestedStarterPacksSkeletonInputToJson(
   _UnspeccedGetSuggestedStarterPacksSkeletonInput instance,
 ) => <String, dynamic>{
-  'viewer': instance.viewer,
+  'viewer': ?instance.viewer,
   'limit': instance.limit,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

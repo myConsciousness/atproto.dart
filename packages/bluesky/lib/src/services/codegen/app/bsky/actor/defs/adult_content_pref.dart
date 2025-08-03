@@ -22,6 +22,7 @@ part 'adult_content_pref.g.dart';
 abstract class AdultContentPref with _$AdultContentPref {
   static const knownProps = <String>['enabled'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdultContentPref({
     @Default('app.bsky.actor.defs#adultContentPref') String $type,
     @Default(false) bool enabled,

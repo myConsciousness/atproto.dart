@@ -22,6 +22,7 @@ part 'record_deleted.g.dart';
 abstract class RecordDeleted with _$RecordDeleted {
   static const knownProps = <String>[];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RecordDeleted({
     @Default('app.bsky.notification.defs#recordDeleted') String $type,
 

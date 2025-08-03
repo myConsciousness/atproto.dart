@@ -22,6 +22,7 @@ part 'email_updated.g.dart';
 abstract class EmailUpdated with _$EmailUpdated {
   static const knownProps = <String>['email'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmailUpdated({
     @Default('tools.ozone.hosting.getAccountHistory#emailUpdated') String $type,
     required String email,

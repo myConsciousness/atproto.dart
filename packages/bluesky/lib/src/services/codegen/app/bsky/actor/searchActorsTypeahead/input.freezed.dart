@@ -209,8 +209,8 @@ return $default(_that.q,_that.limit,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ActorSearchActorsTypeaheadInput implements ActorSearchActorsTypeaheadInput {
   const _ActorSearchActorsTypeaheadInput({this.q, this.limit = 10, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ActorSearchActorsTypeaheadInput.fromJson(Map<String, dynamic> json) => _$ActorSearchActorsTypeaheadInputFromJson(json);

@@ -216,8 +216,8 @@ return $default(_that.blob,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RepoUploadBlobOutput implements RepoUploadBlobOutput {
   const _RepoUploadBlobOutput({@BlobConverter() required this.blob, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoUploadBlobOutput.fromJson(Map<String, dynamic> json) => _$RepoUploadBlobOutputFromJson(json);

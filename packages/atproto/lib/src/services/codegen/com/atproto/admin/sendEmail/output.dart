@@ -22,6 +22,7 @@ part 'output.g.dart';
 abstract class AdminSendEmailOutput with _$AdminSendEmailOutput {
   static const knownProps = <String>['sent'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdminSendEmailOutput({
     required bool sent,
 

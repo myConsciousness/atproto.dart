@@ -229,8 +229,8 @@ return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.reaction
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _LogRemoveReaction implements LogRemoveReaction {
   const _LogRemoveReaction({this.$type = 'chat.bsky.convo.defs#logRemoveReaction', required this.rev, required this.convoId, @ULogRemoveReactionMessageConverter() required this.message, @ReactionViewConverter() required this.reaction, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _LogRemoveReaction.fromJson(Map<String, dynamic> json) => _$LogRemoveReactionFromJson(json);

@@ -207,8 +207,8 @@ return $default(_that.subjects,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationGetSubjectsInput implements ModerationGetSubjectsInput {
   const _ModerationGetSubjectsInput({required final  List<String> subjects, final  Map<String, dynamic>? $unknown}): _subjects = subjects,_$unknown = $unknown;
   factory _ModerationGetSubjectsInput.fromJson(Map<String, dynamic> json) => _$ModerationGetSubjectsInputFromJson(json);

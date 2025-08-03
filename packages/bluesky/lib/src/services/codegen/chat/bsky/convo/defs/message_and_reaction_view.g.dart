@@ -39,5 +39,5 @@ Map<String, dynamic> _$MessageAndReactionViewToJson(
   r'$type': instance.$type,
   'message': const MessageViewConverter().toJson(instance.message),
   'reaction': const ReactionViewConverter().toJson(instance.reaction),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

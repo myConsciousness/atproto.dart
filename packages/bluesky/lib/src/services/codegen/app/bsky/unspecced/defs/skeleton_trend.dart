@@ -34,6 +34,7 @@ abstract class SkeletonTrend with _$SkeletonTrend {
     'dids',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SkeletonTrend({
     @Default('app.bsky.unspecced.defs#skeletonTrend') String $type,
     required String topic,

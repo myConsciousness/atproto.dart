@@ -208,8 +208,8 @@ return $default(_that.$type,_that.guide,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _BskyAppProgressGuide implements BskyAppProgressGuide {
   const _BskyAppProgressGuide({this.$type = 'app.bsky.actor.defs#bskyAppProgressGuide', required this.guide, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _BskyAppProgressGuide.fromJson(Map<String, dynamic> json) => _$BskyAppProgressGuideFromJson(json);

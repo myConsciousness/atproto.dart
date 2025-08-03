@@ -212,8 +212,8 @@ return $default(_that.aud,_that.exp,_that.lxm,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerGetServiceAuthInput implements ServerGetServiceAuthInput {
   const _ServerGetServiceAuthInput({required this.aud, this.exp, this.lxm, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerGetServiceAuthInput.fromJson(Map<String, dynamic> json) => _$ServerGetServiceAuthInputFromJson(json);

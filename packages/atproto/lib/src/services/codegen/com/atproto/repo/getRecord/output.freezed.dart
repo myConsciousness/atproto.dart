@@ -209,8 +209,8 @@ return $default(_that.uri,_that.cid,_that.value,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RepoGetRecordOutput implements RepoGetRecordOutput {
   const _RepoGetRecordOutput({required this.uri, this.cid, required final  Map<String, dynamic> value, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
   factory _RepoGetRecordOutput.fromJson(Map<String, dynamic> json) => _$RepoGetRecordOutputFromJson(json);

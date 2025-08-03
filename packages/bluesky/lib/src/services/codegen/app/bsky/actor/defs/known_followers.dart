@@ -26,6 +26,7 @@ part 'known_followers.g.dart';
 abstract class KnownFollowers with _$KnownFollowers {
   static const knownProps = <String>['count', 'followers'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory KnownFollowers({
     @Default('app.bsky.actor.defs#knownFollowers') String $type,
     required int count,

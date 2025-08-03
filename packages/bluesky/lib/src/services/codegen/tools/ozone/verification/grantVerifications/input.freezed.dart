@@ -207,8 +207,8 @@ return $default(_that.verifications,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _VerificationGrantVerificationsInput implements VerificationGrantVerificationsInput {
   const _VerificationGrantVerificationsInput({@VerificationInputConverter() required final  List<VerificationInput> verifications, final  Map<String, dynamic>? $unknown}): _verifications = verifications,_$unknown = $unknown;
   factory _VerificationGrantVerificationsInput.fromJson(Map<String, dynamic> json) => _$VerificationGrantVerificationsInputFromJson(json);

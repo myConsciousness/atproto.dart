@@ -26,6 +26,7 @@ abstract class UnspeccedGetPopularFeedGeneratorsOutput
     with _$UnspeccedGetPopularFeedGeneratorsOutput {
   static const knownProps = <String>['cursor', 'feeds'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetPopularFeedGeneratorsOutput({
     String? cursor,
     @GeneratorViewConverter() required List<GeneratorView> feeds,

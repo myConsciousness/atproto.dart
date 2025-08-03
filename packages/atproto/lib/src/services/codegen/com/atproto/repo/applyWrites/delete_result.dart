@@ -22,6 +22,7 @@ part 'delete_result.g.dart';
 abstract class DeleteResult with _$DeleteResult {
   static const knownProps = <String>[];
 
+  @JsonSerializable(includeIfNull: false)
   const factory DeleteResult({
     @Default('com.atproto.repo.applyWrites#deleteResult') String $type,
 

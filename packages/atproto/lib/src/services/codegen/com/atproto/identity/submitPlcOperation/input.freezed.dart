@@ -207,8 +207,8 @@ return $default(_that.operation,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _IdentitySubmitPlcOperationInput implements IdentitySubmitPlcOperationInput {
   const _IdentitySubmitPlcOperationInput({required final  Map<String, dynamic> operation, final  Map<String, dynamic>? $unknown}): _operation = operation,_$unknown = $unknown;
   factory _IdentitySubmitPlcOperationInput.fromJson(Map<String, dynamic> json) => _$IdentitySubmitPlcOperationInputFromJson(json);

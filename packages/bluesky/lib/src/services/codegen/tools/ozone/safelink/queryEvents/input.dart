@@ -31,6 +31,7 @@ abstract class SafelinkQueryEventsInput with _$SafelinkQueryEventsInput {
     'sortDirection',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SafelinkQueryEventsInput({
     /// Cursor for pagination
     String? cursor,

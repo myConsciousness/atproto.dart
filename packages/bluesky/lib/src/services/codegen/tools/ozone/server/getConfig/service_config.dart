@@ -23,6 +23,7 @@ part 'service_config.g.dart';
 abstract class ServiceConfig with _$ServiceConfig {
   static const knownProps = <String>['url'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServiceConfig({
     @Default('tools.ozone.server.getConfig#serviceConfig') String $type,
     @AtUriConverter() AtUri? url,

@@ -22,4 +22,4 @@ _TeamDeleteMemberInput _$TeamDeleteMemberInputFromJson(Map json) =>
 
 Map<String, dynamic> _$TeamDeleteMemberInputToJson(
   _TeamDeleteMemberInput instance,
-) => <String, dynamic>{'did': instance.did, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'did': instance.did, r'$unknown': ?instance.$unknown};

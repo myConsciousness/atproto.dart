@@ -24,4 +24,7 @@ _ServerRequestPasswordResetInput _$ServerRequestPasswordResetInputFromJson(
 
 Map<String, dynamic> _$ServerRequestPasswordResetInputToJson(
   _ServerRequestPasswordResetInput instance,
-) => <String, dynamic>{'email': instance.email, r'$unknown': instance.$unknown};
+) => <String, dynamic>{
+  'email': instance.email,
+  r'$unknown': ?instance.$unknown,
+};

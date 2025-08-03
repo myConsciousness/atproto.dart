@@ -32,6 +32,7 @@ abstract class TemplateView with _$TemplateView {
     'updatedAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory TemplateView({
     @Default('tools.ozone.communication.defs#templateView') String $type,
     required String id,

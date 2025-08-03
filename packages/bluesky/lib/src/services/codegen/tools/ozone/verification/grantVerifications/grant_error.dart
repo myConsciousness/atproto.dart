@@ -23,6 +23,7 @@ part 'grant_error.g.dart';
 abstract class GrantError with _$GrantError {
   static const knownProps = <String>['error', 'subject'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GrantError({
     @Default('tools.ozone.verification.grantVerifications#grantError')
     String $type,

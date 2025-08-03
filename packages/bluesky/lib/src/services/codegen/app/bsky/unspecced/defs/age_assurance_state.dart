@@ -26,6 +26,7 @@ part 'age_assurance_state.g.dart';
 abstract class AgeAssuranceState with _$AgeAssuranceState {
   static const knownProps = <String>['lastInitiatedAt', 'status'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AgeAssuranceState({
     @Default('app.bsky.unspecced.defs#ageAssuranceState') String $type,
 

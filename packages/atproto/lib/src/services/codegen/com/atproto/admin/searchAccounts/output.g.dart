@@ -33,9 +33,9 @@ _AdminSearchAccountsOutput _$AdminSearchAccountsOutputFromJson(Map json) =>
 Map<String, dynamic> _$AdminSearchAccountsOutputToJson(
   _AdminSearchAccountsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'accounts': instance.accounts
       .map(const AccountViewConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

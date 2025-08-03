@@ -22,6 +22,7 @@ part 'log_accept_convo.g.dart';
 abstract class LogAcceptConvo with _$LogAcceptConvo {
   static const knownProps = <String>['rev', 'convoId'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LogAcceptConvo({
     @Default('chat.bsky.convo.defs#logAcceptConvo') String $type,
     required String rev,

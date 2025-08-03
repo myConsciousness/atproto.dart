@@ -27,4 +27,4 @@ _ModerationGetReporterStatsInput _$ModerationGetReporterStatsInputFromJson(
 
 Map<String, dynamic> _$ModerationGetReporterStatsInputToJson(
   _ModerationGetReporterStatsInput instance,
-) => <String, dynamic>{'dids': instance.dids, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'dids': instance.dids, r'$unknown': ?instance.$unknown};

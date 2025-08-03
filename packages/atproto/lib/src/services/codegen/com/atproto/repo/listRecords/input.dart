@@ -28,6 +28,7 @@ abstract class RepoListRecordsInput with _$RepoListRecordsInput {
     'reverse',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoListRecordsInput({
     /// The handle or DID of the repo.
     required String repo,

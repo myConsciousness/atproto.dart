@@ -221,8 +221,8 @@ return $default(_that.$type,_that.did,_that.viewer,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _BlockedAuthor implements BlockedAuthor {
   const _BlockedAuthor({this.$type = 'app.bsky.feed.defs#blockedAuthor', required this.did, @ViewerStateConverter() this.viewer, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _BlockedAuthor.fromJson(Map<String, dynamic> json) => _$BlockedAuthorFromJson(json);

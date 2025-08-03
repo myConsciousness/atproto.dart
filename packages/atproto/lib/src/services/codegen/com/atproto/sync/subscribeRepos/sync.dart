@@ -23,6 +23,7 @@ part 'sync.g.dart';
 abstract class Sync with _$Sync {
   static const knownProps = <String>['seq', 'did', 'blocks', 'rev', 'time'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Sync({
     @Default('com.atproto.sync.subscribeRepos#sync') String $type,
 

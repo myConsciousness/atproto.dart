@@ -28,5 +28,5 @@ Map<String, dynamic> _$RichtextFacetTagToJson(_RichtextFacetTag instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'tag': instance.tag,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

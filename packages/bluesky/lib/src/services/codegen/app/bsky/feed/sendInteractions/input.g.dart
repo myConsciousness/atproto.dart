@@ -35,5 +35,5 @@ Map<String, dynamic> _$FeedSendInteractionsInputToJson(
   'interactions': instance.interactions
       .map(const InteractionConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

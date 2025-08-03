@@ -210,8 +210,8 @@ return $default(_that.list,_that.limit,_that.cursor,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphGetListInput implements GraphGetListInput {
   const _GraphGetListInput({required this.list, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphGetListInput.fromJson(Map<String, dynamic> json) => _$GraphGetListInputFromJson(json);

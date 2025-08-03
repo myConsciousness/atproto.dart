@@ -26,4 +26,7 @@ _$GraphGetSuggestedFollowsByActorInputFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$GraphGetSuggestedFollowsByActorInputToJson(
   _GraphGetSuggestedFollowsByActorInput instance,
-) => <String, dynamic>{'actor': instance.actor, r'$unknown': instance.$unknown};
+) => <String, dynamic>{
+  'actor': instance.actor,
+  r'$unknown': ?instance.$unknown,
+};

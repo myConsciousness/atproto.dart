@@ -210,8 +210,8 @@ return $default(_that.anchor,_that.prioritizeFollowedUsers,_that.$unknown);case 
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetPostThreadOtherV2Input implements UnspeccedGetPostThreadOtherV2Input {
   const _UnspeccedGetPostThreadOtherV2Input({required this.anchor, this.prioritizeFollowedUsers = false, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedGetPostThreadOtherV2Input.fromJson(Map<String, dynamic> json) => _$UnspeccedGetPostThreadOtherV2InputFromJson(json);

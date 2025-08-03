@@ -23,6 +23,7 @@ abstract class UnspeccedGetSuggestedStarterPacksSkeletonOutput
     with _$UnspeccedGetSuggestedStarterPacksSkeletonOutput {
   static const knownProps = <String>['starterPacks'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestedStarterPacksSkeletonOutput({
     required List<String> starterPacks,
 

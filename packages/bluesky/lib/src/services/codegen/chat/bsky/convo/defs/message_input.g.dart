@@ -49,14 +49,14 @@ Map<String, dynamic> _$MessageInputToJson(_MessageInput instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'text': instance.text,
-      'facets': instance.facets
+      'facets': ?instance.facets
           ?.map(const RichtextFacetConverter().toJson)
           .toList(),
-      'embed': _$JsonConverterToJson<Map<String, dynamic>, UMessageInputEmbed>(
+      'embed': ?_$JsonConverterToJson<Map<String, dynamic>, UMessageInputEmbed>(
         instance.embed,
         const UMessageInputEmbedConverter().toJson,
       ),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -31,6 +31,6 @@ Map<String, dynamic> _$PersonalDetailsPrefToJson(
   _PersonalDetailsPref instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'birthDate': instance.birthDate?.toIso8601String(),
-  r'$unknown': instance.$unknown,
+  'birthDate': ?instance.birthDate?.toIso8601String(),
+  r'$unknown': ?instance.$unknown,
 };

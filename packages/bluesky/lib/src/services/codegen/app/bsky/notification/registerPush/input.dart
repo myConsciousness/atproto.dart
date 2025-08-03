@@ -32,6 +32,7 @@ abstract class NotificationRegisterPushInput
     'ageRestricted',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory NotificationRegisterPushInput({
     required String serviceDid,
     required String token,

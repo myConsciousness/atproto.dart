@@ -25,6 +25,7 @@ part 'interaction.g.dart';
 abstract class Interaction with _$Interaction {
   static const knownProps = <String>['item', 'event', 'feedContext', 'reqId'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Interaction({
     @Default('app.bsky.feed.defs#interaction') String $type,
     String? item,

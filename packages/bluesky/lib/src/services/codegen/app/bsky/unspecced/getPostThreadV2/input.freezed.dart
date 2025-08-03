@@ -230,8 +230,8 @@ return $default(_that.anchor,_that.above,_that.below,_that.branchingFactor,_that
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetPostThreadV2Input implements UnspeccedGetPostThreadV2Input {
   const _UnspeccedGetPostThreadV2Input({required this.anchor, this.above = true, this.below = 6, this.branchingFactor = 10, this.prioritizeFollowedUsers = false, @UnspeccedGetPostThreadV2SortConverter() this.sort, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedGetPostThreadV2Input.fromJson(Map<String, dynamic> json) => _$UnspeccedGetPostThreadV2InputFromJson(json);

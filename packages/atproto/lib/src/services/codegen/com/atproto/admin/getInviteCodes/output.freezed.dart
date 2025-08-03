@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.codes,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AdminGetInviteCodesOutput implements AdminGetInviteCodesOutput {
   const _AdminGetInviteCodesOutput({this.cursor, @InviteCodeConverter() required final  List<InviteCode> codes, final  Map<String, dynamic>? $unknown}): _codes = codes,_$unknown = $unknown;
   factory _AdminGetInviteCodesOutput.fromJson(Map<String, dynamic> json) => _$AdminGetInviteCodesOutputFromJson(json);

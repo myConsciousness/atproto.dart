@@ -30,5 +30,5 @@ Map<String, dynamic> _$NotFoundActorToJson(_NotFoundActor instance) =>
       r'$type': instance.$type,
       'actor': instance.actor,
       'notFound': instance.notFound,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

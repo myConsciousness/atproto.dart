@@ -28,5 +28,5 @@ Map<String, dynamic> _$SyncGetBlocksInputToJson(_SyncGetBlocksInput instance) =>
     <String, dynamic>{
       'did': instance.did,
       'cids': instance.cids,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

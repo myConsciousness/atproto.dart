@@ -49,13 +49,13 @@ _$VerificationListVerificationsInputFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$VerificationListVerificationsInputToJson(
   _VerificationListVerificationsInput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'limit': instance.limit,
-  'createdAfter': instance.createdAfter?.toIso8601String(),
-  'createdBefore': instance.createdBefore?.toIso8601String(),
-  'issuers': instance.issuers,
-  'subjects': instance.subjects,
+  'createdAfter': ?instance.createdAfter?.toIso8601String(),
+  'createdBefore': ?instance.createdBefore?.toIso8601String(),
+  'issuers': ?instance.issuers,
+  'subjects': ?instance.subjects,
   'sortDirection': instance.sortDirection,
-  'isRevoked': instance.isRevoked,
-  r'$unknown': instance.$unknown,
+  'isRevoked': ?instance.isRevoked,
+  r'$unknown': ?instance.$unknown,
 };

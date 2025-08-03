@@ -29,5 +29,5 @@ Map<String, dynamic> _$UnspeccedInitAgeAssuranceInputToJson(
   'email': instance.email,
   'language': instance.language,
   'countryCode': instance.countryCode,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

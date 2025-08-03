@@ -26,6 +26,7 @@ abstract class GraphGetSuggestedFollowsByActorOutput
     with _$GraphGetSuggestedFollowsByActorOutput {
   static const knownProps = <String>['suggestions', 'isFallback', 'recId'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetSuggestedFollowsByActorOutput({
     @ProfileViewConverter() required List<ProfileView> suggestions,
 

@@ -23,4 +23,4 @@ _ServerReserveSigningKeyInput _$ServerReserveSigningKeyInputFromJson(
 
 Map<String, dynamic> _$ServerReserveSigningKeyInputToJson(
   _ServerReserveSigningKeyInput instance,
-) => <String, dynamic>{'did': instance.did, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'did': ?instance.did, r'$unknown': ?instance.$unknown};

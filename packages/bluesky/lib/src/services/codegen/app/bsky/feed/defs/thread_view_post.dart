@@ -33,6 +33,7 @@ abstract class ThreadViewPost with _$ThreadViewPost {
     'threadContext',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ThreadViewPost({
     @Default('app.bsky.feed.defs#threadViewPost') String $type,
     @PostViewConverter() required PostView post,

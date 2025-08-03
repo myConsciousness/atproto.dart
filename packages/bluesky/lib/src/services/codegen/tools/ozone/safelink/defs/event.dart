@@ -39,6 +39,7 @@ abstract class Event with _$Event {
     'comment',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Event({
     @Default('tools.ozone.safelink.defs#event') String $type,
 

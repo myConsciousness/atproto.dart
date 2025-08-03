@@ -37,10 +37,10 @@ Map<String, dynamic> _$HostingGetAccountHistoryInputToJson(
   _HostingGetAccountHistoryInput instance,
 ) => <String, dynamic>{
   'did': instance.did,
-  'events': instance.events
+  'events': ?instance.events
       ?.map(const HostingGetAccountHistoryEventsConverter().toJson)
       .toList(),
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'limit': instance.limit,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

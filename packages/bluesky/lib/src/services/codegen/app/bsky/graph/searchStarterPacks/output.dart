@@ -26,6 +26,7 @@ abstract class GraphSearchStarterPacksOutput
     with _$GraphSearchStarterPacksOutput {
   static const knownProps = <String>['cursor', 'starterPacks'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphSearchStarterPacksOutput({
     String? cursor,
     @StarterPackViewBasicConverter()

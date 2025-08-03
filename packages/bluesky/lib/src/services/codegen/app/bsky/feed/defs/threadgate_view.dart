@@ -25,6 +25,7 @@ part 'threadgate_view.g.dart';
 abstract class ThreadgateView with _$ThreadgateView {
   static const knownProps = <String>['uri', 'cid', 'record', 'lists'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ThreadgateView({
     @Default('app.bsky.feed.defs#threadgateView') String $type,
     String? uri,

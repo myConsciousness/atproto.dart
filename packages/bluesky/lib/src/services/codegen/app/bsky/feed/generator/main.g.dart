@@ -70,25 +70,25 @@ Map<String, dynamic> _$FeedGeneratorRecordToJson(
   r'$type': instance.$type,
   'did': instance.did,
   'displayName': instance.displayName,
-  'description': instance.description,
-  'descriptionFacets': instance.descriptionFacets
+  'description': ?instance.description,
+  'descriptionFacets': ?instance.descriptionFacets
       ?.map(const RichtextFacetConverter().toJson)
       .toList(),
-  'avatar': _$JsonConverterToJson<Map<String, dynamic>, Blob>(
+  'avatar': ?_$JsonConverterToJson<Map<String, dynamic>, Blob>(
     instance.avatar,
     const BlobConverter().toJson,
   ),
-  'acceptsInteractions': instance.acceptsInteractions,
-  'labels': _$JsonConverterToJson<Map<String, dynamic>, UFeedGeneratorLabels>(
+  'acceptsInteractions': ?instance.acceptsInteractions,
+  'labels': ?_$JsonConverterToJson<Map<String, dynamic>, UFeedGeneratorLabels>(
     instance.labels,
     const UFeedGeneratorLabelsConverter().toJson,
   ),
-  'contentMode': _$JsonConverterToJson<String, FeedGeneratorContentMode>(
+  'contentMode': ?_$JsonConverterToJson<String, FeedGeneratorContentMode>(
     instance.contentMode,
     const FeedGeneratorContentModeConverter().toJson,
   ),
   'createdAt': instance.createdAt.toIso8601String(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

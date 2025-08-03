@@ -23,6 +23,7 @@ part 'links.g.dart';
 abstract class Links with _$Links {
   static const knownProps = <String>['privacyPolicy', 'termsOfService'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Links({
     @Default('com.atproto.server.describeServer#links') String $type,
     @AtUriConverter() AtUri? privacyPolicy,

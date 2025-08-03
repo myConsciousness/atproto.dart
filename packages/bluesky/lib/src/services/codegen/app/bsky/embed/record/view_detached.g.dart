@@ -31,5 +31,5 @@ Map<String, dynamic> _$EmbedRecordViewDetachedToJson(
   r'$type': instance.$type,
   'uri': instance.uri,
   'detached': instance.detached,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -34,9 +34,9 @@ _SignatureSearchAccountsOutput _$SignatureSearchAccountsOutputFromJson(
 Map<String, dynamic> _$SignatureSearchAccountsOutputToJson(
   _SignatureSearchAccountsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'accounts': instance.accounts
       .map(const AccountViewConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -34,5 +34,5 @@ Map<String, dynamic> _$EmbedExternalToJson(
 ) => <String, dynamic>{
   r'$type': instance.$type,
   'external': const EmbedExternalExternalConverter().toJson(instance.external),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

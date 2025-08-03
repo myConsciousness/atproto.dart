@@ -36,5 +36,5 @@ Map<String, dynamic> _$UnspeccedGetTrendsSkeletonOutputToJson(
   _UnspeccedGetTrendsSkeletonOutput instance,
 ) => <String, dynamic>{
   'trends': instance.trends.map(const SkeletonTrendConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

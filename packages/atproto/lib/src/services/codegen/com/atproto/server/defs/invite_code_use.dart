@@ -22,6 +22,7 @@ part 'invite_code_use.g.dart';
 abstract class InviteCodeUse with _$InviteCodeUse {
   static const knownProps = <String>['usedBy', 'usedAt'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory InviteCodeUse({
     @Default('com.atproto.server.defs#inviteCodeUse') String $type,
     required String usedBy,

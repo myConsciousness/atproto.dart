@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class VideoUploadVideoOutput with _$VideoUploadVideoOutput {
   static const knownProps = <String>['jobStatus'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory VideoUploadVideoOutput({
     @JobStatusConverter() required JobStatus jobStatus,
 

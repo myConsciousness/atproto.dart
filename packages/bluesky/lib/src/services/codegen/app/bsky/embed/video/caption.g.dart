@@ -33,5 +33,5 @@ Map<String, dynamic> _$EmbedVideoCaptionToJson(_EmbedVideoCaption instance) =>
       r'$type': instance.$type,
       'lang': instance.lang,
       'file': const BlobConverter().toJson(instance.file),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

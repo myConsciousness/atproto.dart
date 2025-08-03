@@ -22,6 +22,7 @@ part 'thread_item_no_unauthenticated.g.dart';
 abstract class ThreadItemNoUnauthenticated with _$ThreadItemNoUnauthenticated {
   static const knownProps = <String>[];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ThreadItemNoUnauthenticated({
     @Default('app.bsky.unspecced.defs#threadItemNoUnauthenticated')
     String $type,

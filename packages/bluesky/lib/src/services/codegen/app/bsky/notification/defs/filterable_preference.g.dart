@@ -41,5 +41,5 @@ Map<String, dynamic> _$FilterablePreferenceToJson(
   ),
   'list': instance.list,
   'push': instance.push,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

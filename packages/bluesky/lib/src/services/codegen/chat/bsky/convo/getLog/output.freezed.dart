@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.logs,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoGetLogOutput implements ConvoGetLogOutput {
   const _ConvoGetLogOutput({this.cursor, @UConvoGetLogLogsConverter() required final  List<UConvoGetLogLogs> logs, final  Map<String, dynamic>? $unknown}): _logs = logs,_$unknown = $unknown;
   factory _ConvoGetLogOutput.fromJson(Map<String, dynamic> json) => _$ConvoGetLogOutputFromJson(json);

@@ -23,6 +23,7 @@ abstract class SignatureFindRelatedAccountsInput
     with _$SignatureFindRelatedAccountsInput {
   static const knownProps = <String>['did', 'cursor', 'limit'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SignatureFindRelatedAccountsInput({
     required String did,
     String? cursor,

@@ -23,6 +23,7 @@ abstract class UnspeccedGetSuggestedFeedsInput
     with _$UnspeccedGetSuggestedFeedsInput {
   static const knownProps = <String>['limit'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestedFeedsInput({
     @Default(10) int limit,
 

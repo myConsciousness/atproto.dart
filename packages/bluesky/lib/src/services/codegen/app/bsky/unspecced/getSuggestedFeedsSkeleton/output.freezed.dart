@@ -207,8 +207,8 @@ return $default(_that.feeds,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetSuggestedFeedsSkeletonOutput implements UnspeccedGetSuggestedFeedsSkeletonOutput {
   const _UnspeccedGetSuggestedFeedsSkeletonOutput({required final  List<String> feeds, final  Map<String, dynamic>? $unknown}): _feeds = feeds,_$unknown = $unknown;
   factory _UnspeccedGetSuggestedFeedsSkeletonOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestedFeedsSkeletonOutputFromJson(json);

@@ -33,10 +33,10 @@ _ContentLabelPref _$ContentLabelPrefFromJson(Map json) =>
 Map<String, dynamic> _$ContentLabelPrefToJson(_ContentLabelPref instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'labelerDid': instance.labelerDid,
+      'labelerDid': ?instance.labelerDid,
       'label': instance.label,
       'visibility': const ContentLabelPrefVisibilityConverter().toJson(
         instance.visibility,
       ),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

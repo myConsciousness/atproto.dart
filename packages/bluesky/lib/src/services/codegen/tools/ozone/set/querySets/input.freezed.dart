@@ -212,8 +212,8 @@ return $default(_that.limit,_that.cursor,_that.namePrefix,_that.sortBy,_that.sor
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SetQuerySetsInput implements SetQuerySetsInput {
   const _SetQuerySetsInput({this.limit = 50, this.cursor, this.namePrefix, this.sortBy = 'name', this.sortDirection = 'asc', final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SetQuerySetsInput.fromJson(Map<String, dynamic> json) => _$SetQuerySetsInputFromJson(json);

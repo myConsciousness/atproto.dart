@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class ModerationSearchReposOutput with _$ModerationSearchReposOutput {
   static const knownProps = <String>['cursor', 'repos'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationSearchReposOutput({
     String? cursor,
     @RepoViewConverter() required List<RepoView> repos,

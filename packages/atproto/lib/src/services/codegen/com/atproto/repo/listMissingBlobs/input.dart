@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class RepoListMissingBlobsInput with _$RepoListMissingBlobsInput {
   static const knownProps = <String>['limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoListMissingBlobsInput({
     @Default(500) int limit,
     String? cursor,

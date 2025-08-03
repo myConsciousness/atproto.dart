@@ -216,8 +216,8 @@ return $default(_that.repo,_that.collection,_that.rkey,_that.swapRecord,_that.sw
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RepoDeleteRecordInput implements RepoDeleteRecordInput {
   const _RepoDeleteRecordInput({required this.repo, required this.collection, required this.rkey, this.swapRecord, this.swapCommit, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoDeleteRecordInput.fromJson(Map<String, dynamic> json) => _$RepoDeleteRecordInputFromJson(json);

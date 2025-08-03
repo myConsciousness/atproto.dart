@@ -220,8 +220,8 @@ return $default(_that.$type,_that.role,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ViewerConfig implements ViewerConfig {
   const _ViewerConfig({this.$type = 'tools.ozone.server.getConfig#viewerConfig', @ViewerConfigRoleConverter() this.role, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ViewerConfig.fromJson(Map<String, dynamic> json) => _$ViewerConfigFromJson(json);

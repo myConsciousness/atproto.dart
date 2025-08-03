@@ -27,6 +27,7 @@ abstract class AppPassword with _$AppPassword {
     'privileged',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AppPassword({
     @Default('com.atproto.server.createAppPassword#appPassword') String $type,
     required String name,

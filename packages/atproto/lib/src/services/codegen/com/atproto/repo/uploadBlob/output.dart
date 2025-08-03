@@ -23,6 +23,7 @@ part 'output.g.dart';
 abstract class RepoUploadBlobOutput with _$RepoUploadBlobOutput {
   static const knownProps = <String>['blob'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoUploadBlobOutput({
     @BlobConverter() required Blob blob,
 

@@ -210,8 +210,8 @@ return $default(_that.cursor,_that.feed,_that.reqId,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetFeedSkeletonOutput implements FeedGetFeedSkeletonOutput {
   const _FeedGetFeedSkeletonOutput({this.cursor, @SkeletonFeedPostConverter() required final  List<SkeletonFeedPost> feed, this.reqId, final  Map<String, dynamic>? $unknown}): _feed = feed,_$unknown = $unknown;
   factory _FeedGetFeedSkeletonOutput.fromJson(Map<String, dynamic> json) => _$FeedGetFeedSkeletonOutputFromJson(json);

@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class RepoDescribeRepoInput with _$RepoDescribeRepoInput {
   static const knownProps = <String>['repo'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoDescribeRepoInput({
     /// The handle or DID of the repo.
     required String repo,

@@ -32,5 +32,5 @@ Map<String, dynamic> _$RevokeErrorToJson(_RevokeError instance) =>
       r'$type': instance.$type,
       'uri': instance.uri,
       'error': instance.error,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

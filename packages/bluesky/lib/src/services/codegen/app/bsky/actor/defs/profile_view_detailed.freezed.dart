@@ -297,8 +297,8 @@ return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.descr
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ProfileViewDetailed implements ProfileViewDetailed {
   const _ProfileViewDetailed({this.$type = 'app.bsky.actor.defs#profileViewDetailed', required this.did, required this.handle, this.displayName, this.description, @AtUriConverter() this.avatar, @AtUriConverter() this.banner, this.followersCount, this.followsCount, this.postsCount, @ProfileAssociatedConverter() this.associated, @StarterPackViewBasicConverter() this.joinedViaStarterPack, this.indexedAt, this.createdAt, @ViewerStateConverter() this.viewer, @LabelConverter() final  List<Label>? labels, @RepoStrongRefConverter() this.pinnedPost, @VerificationStateConverter() this.verification, @StatusViewConverter() this.status, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
   factory _ProfileViewDetailed.fromJson(Map<String, dynamic> json) => _$ProfileViewDetailedFromJson(json);

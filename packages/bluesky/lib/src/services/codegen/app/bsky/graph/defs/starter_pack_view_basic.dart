@@ -36,6 +36,7 @@ abstract class StarterPackViewBasic with _$StarterPackViewBasic {
     'indexedAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory StarterPackViewBasic({
     @Default('app.bsky.graph.defs#starterPackViewBasic') String $type,
     required String uri,

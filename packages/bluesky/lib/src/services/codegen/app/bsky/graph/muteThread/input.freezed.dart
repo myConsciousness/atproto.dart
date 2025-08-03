@@ -207,8 +207,8 @@ return $default(_that.root,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _GraphMuteThreadInput implements GraphMuteThreadInput {
   const _GraphMuteThreadInput({required this.root, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphMuteThreadInput.fromJson(Map<String, dynamic> json) => _$GraphMuteThreadInputFromJson(json);

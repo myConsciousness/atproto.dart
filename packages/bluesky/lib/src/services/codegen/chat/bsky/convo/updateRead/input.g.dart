@@ -25,6 +25,6 @@ Map<String, dynamic> _$ConvoUpdateReadInputToJson(
   _ConvoUpdateReadInput instance,
 ) => <String, dynamic>{
   'convoId': instance.convoId,
-  'messageId': instance.messageId,
-  r'$unknown': instance.$unknown,
+  'messageId': ?instance.messageId,
+  r'$unknown': ?instance.$unknown,
 };

@@ -26,7 +26,7 @@ _UnspeccedGetSuggestedUsersInput _$UnspeccedGetSuggestedUsersInputFromJson(
 Map<String, dynamic> _$UnspeccedGetSuggestedUsersInputToJson(
   _UnspeccedGetSuggestedUsersInput instance,
 ) => <String, dynamic>{
-  'category': instance.category,
+  'category': ?instance.category,
   'limit': instance.limit,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

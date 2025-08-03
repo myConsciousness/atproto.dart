@@ -209,8 +209,8 @@ return $default(_that.$type,_that.rev,_that.convoId,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _LogMuteConvo implements LogMuteConvo {
   const _LogMuteConvo({this.$type = 'chat.bsky.convo.defs#logMuteConvo', required this.rev, required this.convoId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _LogMuteConvo.fromJson(Map<String, dynamic> json) => _$LogMuteConvoFromJson(json);

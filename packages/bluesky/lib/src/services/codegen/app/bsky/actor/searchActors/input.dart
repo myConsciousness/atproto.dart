@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ActorSearchActorsInput with _$ActorSearchActorsInput {
   static const knownProps = <String>['q', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ActorSearchActorsInput({
     /// Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
     String? q,

@@ -208,8 +208,8 @@ return $default(_that.priority,_that.seenAt,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _NotificationGetUnreadCountInput implements NotificationGetUnreadCountInput {
   const _NotificationGetUnreadCountInput({this.priority, this.seenAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationGetUnreadCountInput.fromJson(Map<String, dynamic> json) => _$NotificationGetUnreadCountInputFromJson(json);

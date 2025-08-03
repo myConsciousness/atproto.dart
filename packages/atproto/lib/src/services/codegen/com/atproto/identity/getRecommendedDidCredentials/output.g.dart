@@ -41,9 +41,9 @@ _$IdentityGetRecommendedDidCredentialsOutputFromJson(Map json) =>
 Map<String, dynamic> _$IdentityGetRecommendedDidCredentialsOutputToJson(
   _IdentityGetRecommendedDidCredentialsOutput instance,
 ) => <String, dynamic>{
-  'rotationKeys': instance.rotationKeys,
-  'alsoKnownAs': instance.alsoKnownAs,
-  'verificationMethods': instance.verificationMethods,
-  'services': instance.services,
-  r'$unknown': instance.$unknown,
+  'rotationKeys': ?instance.rotationKeys,
+  'alsoKnownAs': ?instance.alsoKnownAs,
+  'verificationMethods': ?instance.verificationMethods,
+  'services': ?instance.services,
+  r'$unknown': ?instance.$unknown,
 };

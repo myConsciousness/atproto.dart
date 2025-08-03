@@ -23,6 +23,7 @@ abstract class UnspeccedGetSuggestedStarterPacksInput
     with _$UnspeccedGetSuggestedStarterPacksInput {
   static const knownProps = <String>['limit'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestedStarterPacksInput({
     @Default(10) int limit,
 

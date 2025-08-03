@@ -35,11 +35,11 @@ Map<String, dynamic> _$BlockedAuthorToJson(_BlockedAuthor instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'did': instance.did,
-      'viewer': _$JsonConverterToJson<Map<String, dynamic>, ViewerState>(
+      'viewer': ?_$JsonConverterToJson<Map<String, dynamic>, ViewerState>(
         instance.viewer,
         const ViewerStateConverter().toJson,
       ),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

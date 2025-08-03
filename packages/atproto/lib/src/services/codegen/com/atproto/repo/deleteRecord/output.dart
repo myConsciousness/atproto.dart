@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class RepoDeleteRecordOutput with _$RepoDeleteRecordOutput {
   static const knownProps = <String>['commit'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoDeleteRecordOutput({
     @CommitMetaConverter() CommitMeta? commit,
 

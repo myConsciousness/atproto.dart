@@ -21,4 +21,4 @@ _SyncGetHeadOutput _$SyncGetHeadOutputFromJson(Map json) =>
     });
 
 Map<String, dynamic> _$SyncGetHeadOutputToJson(_SyncGetHeadOutput instance) =>
-    <String, dynamic>{'root': instance.root, r'$unknown': instance.$unknown};
+    <String, dynamic>{'root': instance.root, r'$unknown': ?instance.$unknown};

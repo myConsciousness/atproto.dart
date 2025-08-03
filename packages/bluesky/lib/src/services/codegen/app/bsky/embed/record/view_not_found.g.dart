@@ -31,5 +31,5 @@ Map<String, dynamic> _$EmbedRecordViewNotFoundToJson(
   r'$type': instance.$type,
   'uri': instance.uri,
   'notFound': instance.notFound,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

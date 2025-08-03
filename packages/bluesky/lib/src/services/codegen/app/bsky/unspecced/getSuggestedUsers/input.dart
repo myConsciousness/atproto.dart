@@ -23,6 +23,7 @@ abstract class UnspeccedGetSuggestedUsersInput
     with _$UnspeccedGetSuggestedUsersInput {
   static const knownProps = <String>['category', 'limit'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestedUsersInput({
     /// Category of users to get suggestions for.
     String? category,

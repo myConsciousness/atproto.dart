@@ -32,6 +32,7 @@ abstract class VerificationListVerificationsInput
     'isRevoked',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory VerificationListVerificationsInput({
     /// Pagination cursor
     String? cursor,

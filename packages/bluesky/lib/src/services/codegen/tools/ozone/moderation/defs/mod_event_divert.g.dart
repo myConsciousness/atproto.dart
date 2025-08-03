@@ -27,6 +27,6 @@ _ModEventDivert _$ModEventDivertFromJson(Map json) =>
 Map<String, dynamic> _$ModEventDivertToJson(_ModEventDivert instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'comment': instance.comment,
-      r'$unknown': instance.$unknown,
+      'comment': ?instance.comment,
+      r'$unknown': ?instance.$unknown,
     };

@@ -40,5 +40,5 @@ Map<String, dynamic> _$EmbedRecordWithMediaToJson(
   r'$type': instance.$type,
   'record': const EmbedRecordConverter().toJson(instance.record),
   'media': const UEmbedRecordWithMediaMediaConverter().toJson(instance.media),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

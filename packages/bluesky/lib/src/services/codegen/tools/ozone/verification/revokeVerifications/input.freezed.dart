@@ -210,8 +210,8 @@ return $default(_that.uris,_that.revokeReason,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _VerificationRevokeVerificationsInput implements VerificationRevokeVerificationsInput {
   const _VerificationRevokeVerificationsInput({required final  List<String> uris, this.revokeReason, final  Map<String, dynamic>? $unknown}): _uris = uris,_$unknown = $unknown;
   factory _VerificationRevokeVerificationsInput.fromJson(Map<String, dynamic> json) => _$VerificationRevokeVerificationsInputFromJson(json);

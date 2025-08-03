@@ -37,5 +37,5 @@ Map<String, dynamic> _$NotificationDeclarationRecordToJson(
       const NotificationDeclarationAllowSubscriptionsConverter().toJson(
         instance.allowSubscriptions,
       ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

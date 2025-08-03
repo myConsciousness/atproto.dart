@@ -248,8 +248,8 @@ return $default(_that.$type,_that.identifier,_that.severity,_that.blurs,_that.de
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _LabelValueDefinition implements LabelValueDefinition {
   const _LabelValueDefinition({this.$type = 'com.atproto.label.defs#labelValueDefinition', required this.identifier, @LabelValueDefinitionSeverityConverter() required this.severity, @LabelValueDefinitionBlursConverter() required this.blurs, @LabelValueDefinitionDefaultSettingConverter() this.defaultSetting, this.adultOnly, @LabelValueDefinitionStringsConverter() required final  List<LabelValueDefinitionStrings> locales, final  Map<String, dynamic>? $unknown}): _locales = locales,_$unknown = $unknown;
   factory _LabelValueDefinition.fromJson(Map<String, dynamic> json) => _$LabelValueDefinitionFromJson(json);

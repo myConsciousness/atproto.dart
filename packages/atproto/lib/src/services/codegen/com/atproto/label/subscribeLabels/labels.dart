@@ -25,6 +25,7 @@ part 'labels.g.dart';
 abstract class Labels with _$Labels {
   static const knownProps = <String>['seq', 'labels'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Labels({
     @Default('com.atproto.label.subscribeLabels#labels') String $type,
     required int seq,

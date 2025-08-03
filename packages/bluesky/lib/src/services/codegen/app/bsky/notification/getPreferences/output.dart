@@ -26,6 +26,7 @@ abstract class NotificationGetPreferencesOutput
     with _$NotificationGetPreferencesOutput {
   static const knownProps = <String>['preferences'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory NotificationGetPreferencesOutput({
     @PreferencesConverter() required Preferences preferences,
 

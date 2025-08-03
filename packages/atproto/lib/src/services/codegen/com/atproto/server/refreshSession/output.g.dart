@@ -42,13 +42,13 @@ Map<String, dynamic> _$ServerRefreshSessionOutputToJson(
   'refreshJwt': instance.refreshJwt,
   'handle': instance.handle,
   'did': instance.did,
-  'didDoc': instance.didDoc,
-  'active': instance.active,
-  'status': _$JsonConverterToJson<String, ServerRefreshSessionStatus>(
+  'didDoc': ?instance.didDoc,
+  'active': ?instance.active,
+  'status': ?_$JsonConverterToJson<String, ServerRefreshSessionStatus>(
     instance.status,
     const ServerRefreshSessionStatusConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class ConvoUpdateReadOutput with _$ConvoUpdateReadOutput {
   static const knownProps = <String>['convo'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoUpdateReadOutput({
     @ConvoViewConverter() required ConvoView convo,
 

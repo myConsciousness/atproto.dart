@@ -28,5 +28,5 @@ Map<String, dynamic> _$SkeletonSearchPostToJson(_SkeletonSearchPost instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'uri': instance.uri,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

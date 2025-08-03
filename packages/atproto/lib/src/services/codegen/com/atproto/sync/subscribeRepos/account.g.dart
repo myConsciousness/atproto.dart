@@ -40,11 +40,11 @@ Map<String, dynamic> _$AccountToJson(_Account instance) => <String, dynamic>{
   'did': instance.did,
   'time': instance.time.toIso8601String(),
   'active': instance.active,
-  'status': _$JsonConverterToJson<String, AccountStatus>(
+  'status': ?_$JsonConverterToJson<String, AccountStatus>(
     instance.status,
     const AccountStatusConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

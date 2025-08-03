@@ -23,6 +23,7 @@ part 'byte_slice.g.dart';
 abstract class RichtextFacetByteSlice with _$RichtextFacetByteSlice {
   static const knownProps = <String>['byteStart', 'byteEnd'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RichtextFacetByteSlice({
     @Default('app.bsky.richtext.facet#byteSlice') String $type,
     required int byteStart,

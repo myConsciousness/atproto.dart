@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.actors,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ActorSearchActorsOutput implements ActorSearchActorsOutput {
   const _ActorSearchActorsOutput({this.cursor, @ProfileViewConverter() required final  List<ProfileView> actors, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
   factory _ActorSearchActorsOutput.fromJson(Map<String, dynamic> json) => _$ActorSearchActorsOutputFromJson(json);

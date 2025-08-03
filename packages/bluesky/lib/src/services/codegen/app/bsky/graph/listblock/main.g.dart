@@ -34,5 +34,5 @@ Map<String, dynamic> _$GraphListblockRecordToJson(
   r'$type': instance.$type,
   'subject': instance.subject,
   'createdAt': instance.createdAt.toIso8601String(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

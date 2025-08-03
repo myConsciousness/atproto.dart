@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ConvoUnmuteConvoInput with _$ConvoUnmuteConvoInput {
   static const knownProps = <String>['convoId'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoUnmuteConvoInput({
     required String convoId,
 

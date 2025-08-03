@@ -33,5 +33,5 @@ Map<String, dynamic> _$SettingRemoveOptionsInputToJson(
 ) => <String, dynamic>{
   'keys': instance.keys,
   'scope': const SettingRemoveOptionsScopeConverter().toJson(instance.scope),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

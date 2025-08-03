@@ -234,8 +234,8 @@ return $default(_that.uri,_that.cid,_that.commit,_that.validationStatus,_that.$u
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RepoPutRecordOutput implements RepoPutRecordOutput {
   const _RepoPutRecordOutput({required this.uri, required this.cid, @CommitMetaConverter() this.commit, @RepoPutRecordValidationStatusConverter() this.validationStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoPutRecordOutput.fromJson(Map<String, dynamic> json) => _$RepoPutRecordOutputFromJson(json);

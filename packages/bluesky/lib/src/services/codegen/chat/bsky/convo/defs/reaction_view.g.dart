@@ -40,5 +40,5 @@ Map<String, dynamic> _$ReactionViewToJson(_ReactionView instance) =>
       'value': instance.value,
       'sender': const ReactionViewSenderConverter().toJson(instance.sender),
       'createdAt': instance.createdAt.toIso8601String(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

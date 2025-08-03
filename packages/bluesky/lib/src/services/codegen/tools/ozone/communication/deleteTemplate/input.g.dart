@@ -25,4 +25,4 @@ _CommunicationDeleteTemplateInput _$CommunicationDeleteTemplateInputFromJson(
 
 Map<String, dynamic> _$CommunicationDeleteTemplateInputToJson(
   _CommunicationDeleteTemplateInput instance,
-) => <String, dynamic>{'id': instance.id, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'id': instance.id, r'$unknown': ?instance.$unknown};

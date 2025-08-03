@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class ConvoGetMessagesOutput with _$ConvoGetMessagesOutput {
   static const knownProps = <String>['cursor', 'messages'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoGetMessagesOutput({
     String? cursor,
     @UConvoGetMessagesMessagesConverter()

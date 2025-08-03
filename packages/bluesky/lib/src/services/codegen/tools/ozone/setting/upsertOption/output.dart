@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class SettingUpsertOptionOutput with _$SettingUpsertOptionOutput {
   static const knownProps = <String>['option'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SettingUpsertOptionOutput({
     @OptionConverter() required Option option,
 

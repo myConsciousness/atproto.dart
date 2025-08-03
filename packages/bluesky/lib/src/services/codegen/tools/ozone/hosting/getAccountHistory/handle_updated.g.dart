@@ -30,5 +30,5 @@ Map<String, dynamic> _$HandleUpdatedToJson(_HandleUpdated instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'handle': instance.handle,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

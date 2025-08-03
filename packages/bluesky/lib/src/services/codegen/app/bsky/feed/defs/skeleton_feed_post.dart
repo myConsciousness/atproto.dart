@@ -25,6 +25,7 @@ part 'skeleton_feed_post.g.dart';
 abstract class SkeletonFeedPost with _$SkeletonFeedPost {
   static const knownProps = <String>['post', 'reason', 'feedContext'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SkeletonFeedPost({
     @Default('app.bsky.feed.defs#skeletonFeedPost') String $type,
     required String post,

@@ -30,6 +30,6 @@ Map<String, dynamic> _$ModEventResolveAppealToJson(
   _ModEventResolveAppeal instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'comment': instance.comment,
-  r'$unknown': instance.$unknown,
+  'comment': ?instance.comment,
+  r'$unknown': ?instance.$unknown,
 };

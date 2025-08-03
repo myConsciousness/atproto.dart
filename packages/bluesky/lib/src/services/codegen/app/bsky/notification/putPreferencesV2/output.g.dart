@@ -31,5 +31,5 @@ Map<String, dynamic> _$NotificationPutPreferencesV2OutputToJson(
   _NotificationPutPreferencesV2Output instance,
 ) => <String, dynamic>{
   'preferences': const PreferencesConverter().toJson(instance.preferences),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

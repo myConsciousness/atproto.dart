@@ -50,24 +50,24 @@ Map<String, dynamic> _$FeedSearchPostsInputToJson(
   _FeedSearchPostsInput instance,
 ) => <String, dynamic>{
   'q': instance.q,
-  'sort': _$JsonConverterToJson<String, FeedSearchPostsSort>(
+  'sort': ?_$JsonConverterToJson<String, FeedSearchPostsSort>(
     instance.sort,
     const FeedSearchPostsSortConverter().toJson,
   ),
-  'since': instance.since,
-  'until': instance.until,
-  'mentions': instance.mentions,
-  'author': instance.author,
-  'lang': instance.lang,
-  'domain': instance.domain,
-  'url': _$JsonConverterToJson<String, AtUri>(
+  'since': ?instance.since,
+  'until': ?instance.until,
+  'mentions': ?instance.mentions,
+  'author': ?instance.author,
+  'lang': ?instance.lang,
+  'domain': ?instance.domain,
+  'url': ?_$JsonConverterToJson<String, AtUri>(
     instance.url,
     const AtUriConverter().toJson,
   ),
-  'tag': instance.tag,
+  'tag': ?instance.tag,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

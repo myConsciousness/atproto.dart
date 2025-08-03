@@ -43,6 +43,7 @@ abstract class PostView with _$PostView {
     'threadgate',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory PostView({
     @Default('app.bsky.feed.defs#postView') String $type,
     required String uri,

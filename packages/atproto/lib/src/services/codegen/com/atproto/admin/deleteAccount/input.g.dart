@@ -22,4 +22,4 @@ _AdminDeleteAccountInput _$AdminDeleteAccountInputFromJson(Map json) =>
 
 Map<String, dynamic> _$AdminDeleteAccountInputToJson(
   _AdminDeleteAccountInput instance,
-) => <String, dynamic>{'did': instance.did, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'did': instance.did, r'$unknown': ?instance.$unknown};

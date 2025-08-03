@@ -23,6 +23,7 @@ abstract class ConvoGetConvoAvailabilityInput
     with _$ConvoGetConvoAvailabilityInput {
   static const knownProps = <String>['members'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoGetConvoAvailabilityInput({
     required List<String> members,
 

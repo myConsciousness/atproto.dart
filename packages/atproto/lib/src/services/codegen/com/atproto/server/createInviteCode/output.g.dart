@@ -23,4 +23,4 @@ _ServerCreateInviteCodeOutput _$ServerCreateInviteCodeOutputFromJson(
 
 Map<String, dynamic> _$ServerCreateInviteCodeOutputToJson(
   _ServerCreateInviteCodeOutput instance,
-) => <String, dynamic>{'code': instance.code, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'code': instance.code, r'$unknown': ?instance.$unknown};

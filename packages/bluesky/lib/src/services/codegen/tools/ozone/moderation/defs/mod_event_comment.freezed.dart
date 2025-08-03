@@ -210,8 +210,8 @@ return $default(_that.$type,_that.comment,_that.sticky,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModEventComment implements ModEventComment {
   const _ModEventComment({this.$type = 'tools.ozone.moderation.defs#modEventComment', this.comment, this.sticky, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModEventComment.fromJson(Map<String, dynamic> json) => _$ModEventCommentFromJson(json);

@@ -212,8 +212,8 @@ return $default(_that.recipientDid,_that.content,_that.subject,_that.senderDid,_
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AdminSendEmailInput implements AdminSendEmailInput {
   const _AdminSendEmailInput({required this.recipientDid, required this.content, this.subject, required this.senderDid, this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AdminSendEmailInput.fromJson(Map<String, dynamic> json) => _$AdminSendEmailInputFromJson(json);

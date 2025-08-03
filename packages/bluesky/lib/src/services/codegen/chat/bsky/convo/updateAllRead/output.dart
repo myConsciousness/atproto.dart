@@ -22,6 +22,7 @@ part 'output.g.dart';
 abstract class ConvoUpdateAllReadOutput with _$ConvoUpdateAllReadOutput {
   static const knownProps = <String>['updatedCount'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoUpdateAllReadOutput({
     /// The count of updated convos.
     required int updatedCount,

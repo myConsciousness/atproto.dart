@@ -227,8 +227,8 @@ return $default(_that.$type,_that.id,_that.value,_that.targets,_that.actorTarget
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _MutedWord implements MutedWord {
   const _MutedWord({this.$type = 'app.bsky.actor.defs#mutedWord', this.id, required this.value, @MutedWordTargetConverter() required final  List<MutedWordTarget> targets, @MutedWordActorTargetConverter() this.actorTarget, this.expiresAt, final  Map<String, dynamic>? $unknown}): _targets = targets,_$unknown = $unknown;
   factory _MutedWord.fromJson(Map<String, dynamic> json) => _$MutedWordFromJson(json);

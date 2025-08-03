@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class GraphGetListMutesOutput with _$GraphGetListMutesOutput {
   static const knownProps = <String>['cursor', 'lists'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetListMutesOutput({
     String? cursor,
     @ListViewConverter() required List<ListView> lists,

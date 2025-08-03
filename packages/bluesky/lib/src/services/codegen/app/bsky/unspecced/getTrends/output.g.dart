@@ -33,5 +33,5 @@ Map<String, dynamic> _$UnspeccedGetTrendsOutputToJson(
   _UnspeccedGetTrendsOutput instance,
 ) => <String, dynamic>{
   'trends': instance.trends.map(const TrendViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

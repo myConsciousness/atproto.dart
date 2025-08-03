@@ -26,6 +26,7 @@ part 'view.g.dart';
 abstract class EmbedRecordWithMediaView with _$EmbedRecordWithMediaView {
   static const knownProps = <String>['record', 'media'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmbedRecordWithMediaView({
     @Default('app.bsky.embed.recordWithMedia#view') String $type,
     @EmbedRecordViewConverter() required EmbedRecordView record,

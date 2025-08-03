@@ -34,6 +34,7 @@ abstract class ModerationEmitEventInput with _$ModerationEmitEventInput {
     'externalId',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationEmitEventInput({
     @UModerationEmitEventEventConverter()
     required UModerationEmitEventEvent event,

@@ -42,6 +42,7 @@ abstract class NotificationPutPreferencesV2Input
     'verified',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory NotificationPutPreferencesV2Input({
     @ChatPreferenceConverter() ChatPreference? chat,
     @FilterablePreferenceConverter() FilterablePreference? follow,

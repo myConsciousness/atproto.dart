@@ -49,15 +49,15 @@ Map<String, dynamic> _$EmbedVideoToJson(_EmbedVideo instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'video': const BlobConverter().toJson(instance.video),
-      'captions': instance.captions
+      'captions': ?instance.captions
           ?.map(const EmbedVideoCaptionConverter().toJson)
           .toList(),
-      'alt': instance.alt,
-      'aspectRatio': _$JsonConverterToJson<Map<String, dynamic>, AspectRatio>(
+      'alt': ?instance.alt,
+      'aspectRatio': ?_$JsonConverterToJson<Map<String, dynamic>, AspectRatio>(
         instance.aspectRatio,
         const AspectRatioConverter().toJson,
       ),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

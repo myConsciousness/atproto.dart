@@ -22,6 +22,7 @@ part 'record_blob.g.dart';
 abstract class RecordBlob with _$RecordBlob {
   static const knownProps = <String>['cid', 'recordUri'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RecordBlob({
     @Default('com.atproto.repo.listMissingBlobs#recordBlob') String $type,
     required String cid,

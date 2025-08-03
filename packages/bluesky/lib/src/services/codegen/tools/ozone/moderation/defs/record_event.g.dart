@@ -36,9 +36,9 @@ _RecordEvent _$RecordEventFromJson(Map json) =>
 Map<String, dynamic> _$RecordEventToJson(_RecordEvent instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'comment': instance.comment,
+      'comment': ?instance.comment,
       'op': const RecordEventOpConverter().toJson(instance.op),
-      'cid': instance.cid,
+      'cid': ?instance.cid,
       'timestamp': instance.timestamp.toIso8601String(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

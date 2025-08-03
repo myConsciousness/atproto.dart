@@ -25,6 +25,7 @@ part 'view.g.dart';
 abstract class EmbedExternalView with _$EmbedExternalView {
   static const knownProps = <String>['external'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmbedExternalView({
     @Default('app.bsky.embed.external#view') String $type,
     @EmbedExternalViewExternalConverter()

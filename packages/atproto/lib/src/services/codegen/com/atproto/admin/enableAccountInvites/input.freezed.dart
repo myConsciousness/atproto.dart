@@ -209,8 +209,8 @@ return $default(_that.account,_that.note,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AdminEnableAccountInvitesInput implements AdminEnableAccountInvitesInput {
   const _AdminEnableAccountInvitesInput({required this.account, this.note, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AdminEnableAccountInvitesInput.fromJson(Map<String, dynamic> json) => _$AdminEnableAccountInvitesInputFromJson(json);

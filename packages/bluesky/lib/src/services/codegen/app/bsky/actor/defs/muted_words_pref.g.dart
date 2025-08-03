@@ -37,5 +37,5 @@ Map<String, dynamic> _$MutedWordsPrefToJson(_MutedWordsPref instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'items': instance.items.map(const MutedWordConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

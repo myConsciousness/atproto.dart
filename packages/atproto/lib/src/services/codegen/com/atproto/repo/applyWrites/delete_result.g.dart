@@ -24,4 +24,7 @@ _DeleteResult _$DeleteResultFromJson(Map json) =>
     });
 
 Map<String, dynamic> _$DeleteResultToJson(_DeleteResult instance) =>
-    <String, dynamic>{r'$type': instance.$type, r'$unknown': instance.$unknown};
+    <String, dynamic>{
+      r'$type': instance.$type,
+      r'$unknown': ?instance.$unknown,
+    };

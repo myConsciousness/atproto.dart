@@ -26,6 +26,7 @@ abstract class HostingGetAccountHistoryOutput
     with _$HostingGetAccountHistoryOutput {
   static const knownProps = <String>['cursor', 'events'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory HostingGetAccountHistoryOutput({
     String? cursor,
     @EventConverter() required List<Event> events,

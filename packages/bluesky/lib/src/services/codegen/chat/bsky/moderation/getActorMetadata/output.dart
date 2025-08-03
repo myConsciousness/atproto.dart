@@ -26,6 +26,7 @@ abstract class ModerationGetActorMetadataOutput
     with _$ModerationGetActorMetadataOutput {
   static const knownProps = <String>['day', 'month', 'all'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationGetActorMetadataOutput({
     @MetadataConverter() required Metadata day,
     @MetadataConverter() required Metadata month,

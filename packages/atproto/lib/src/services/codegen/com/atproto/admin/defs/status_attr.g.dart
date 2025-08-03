@@ -29,6 +29,6 @@ Map<String, dynamic> _$StatusAttrToJson(_StatusAttr instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'applied': instance.applied,
-      'ref': instance.ref,
-      r'$unknown': instance.$unknown,
+      'ref': ?instance.ref,
+      r'$unknown': ?instance.$unknown,
     };

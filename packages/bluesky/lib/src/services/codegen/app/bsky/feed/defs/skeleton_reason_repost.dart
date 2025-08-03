@@ -22,6 +22,7 @@ part 'skeleton_reason_repost.g.dart';
 abstract class SkeletonReasonRepost with _$SkeletonReasonRepost {
   static const knownProps = <String>['repost'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SkeletonReasonRepost({
     @Default('app.bsky.feed.defs#skeletonReasonRepost') String $type,
     required String repost,

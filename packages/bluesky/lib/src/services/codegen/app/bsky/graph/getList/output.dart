@@ -26,6 +26,7 @@ part 'output.g.dart';
 abstract class GraphGetListOutput with _$GraphGetListOutput {
   static const knownProps = <String>['cursor', 'list', 'items'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetListOutput({
     String? cursor,
     @ListViewConverter() required ListView list,

@@ -23,6 +23,7 @@ abstract class ServerCreateInviteCodeOutput
     with _$ServerCreateInviteCodeOutput {
   static const knownProps = <String>['code'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerCreateInviteCodeOutput({
     required String code,
 

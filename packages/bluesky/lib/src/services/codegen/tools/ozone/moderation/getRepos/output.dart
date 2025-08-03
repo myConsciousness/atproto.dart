@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class ModerationGetReposOutput with _$ModerationGetReposOutput {
   static const knownProps = <String>['repos'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationGetReposOutput({
     @UModerationGetReposReposConverter()
     required List<UModerationGetReposRepos> repos,

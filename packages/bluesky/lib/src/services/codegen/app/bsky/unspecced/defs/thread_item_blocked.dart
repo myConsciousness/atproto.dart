@@ -25,6 +25,7 @@ part 'thread_item_blocked.g.dart';
 abstract class ThreadItemBlocked with _$ThreadItemBlocked {
   static const knownProps = <String>['author'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ThreadItemBlocked({
     @Default('app.bsky.unspecced.defs#threadItemBlocked') String $type,
     @BlockedAuthorConverter() required BlockedAuthor author,

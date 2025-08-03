@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class AdminDeleteAccountInput with _$AdminDeleteAccountInput {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdminDeleteAccountInput({
     required String did,
 

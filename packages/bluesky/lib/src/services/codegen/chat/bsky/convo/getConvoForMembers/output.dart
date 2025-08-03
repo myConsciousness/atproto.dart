@@ -26,6 +26,7 @@ abstract class ConvoGetConvoForMembersOutput
     with _$ConvoGetConvoForMembersOutput {
   static const knownProps = <String>['convo'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ConvoGetConvoForMembersOutput({
     @ConvoViewConverter() required ConvoView convo,
 

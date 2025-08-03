@@ -37,5 +37,5 @@ Map<String, dynamic> _$MetadataToJson(_Metadata instance) => <String, dynamic>{
   'messagesReceived': instance.messagesReceived,
   'convos': instance.convos,
   'convosStarted': instance.convosStarted,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

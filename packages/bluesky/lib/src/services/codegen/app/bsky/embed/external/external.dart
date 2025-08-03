@@ -23,6 +23,7 @@ part 'external.g.dart';
 abstract class EmbedExternalExternal with _$EmbedExternalExternal {
   static const knownProps = <String>['uri', 'title', 'description', 'thumb'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmbedExternalExternal({
     @Default('app.bsky.embed.external#external') String $type,
     @AtUriConverter() required AtUri uri,

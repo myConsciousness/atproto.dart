@@ -26,6 +26,7 @@ part 'message_input.g.dart';
 abstract class MessageInput with _$MessageInput {
   static const knownProps = <String>['text', 'facets', 'embed'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory MessageInput({
     @Default('chat.bsky.convo.defs#messageInput') String $type,
     required String text,

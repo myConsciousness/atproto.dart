@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ModerationGetEventInput with _$ModerationGetEventInput {
   static const knownProps = <String>['id'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationGetEventInput({
     required int id,
 

@@ -41,7 +41,7 @@ Map<String, dynamic> _$SafelinkAddRuleInputToJson(
   'pattern': const PatternTypeConverter().toJson(instance.pattern),
   'action': const ActionTypeConverter().toJson(instance.action),
   'reason': const ReasonTypeConverter().toJson(instance.reason),
-  'comment': instance.comment,
-  'createdBy': instance.createdBy,
-  r'$unknown': instance.$unknown,
+  'comment': ?instance.comment,
+  'createdBy': ?instance.createdBy,
+  r'$unknown': ?instance.$unknown,
 };

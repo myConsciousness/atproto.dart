@@ -22,4 +22,4 @@ _AdminSendEmailOutput _$AdminSendEmailOutputFromJson(Map json) =>
 
 Map<String, dynamic> _$AdminSendEmailOutputToJson(
   _AdminSendEmailOutput instance,
-) => <String, dynamic>{'sent': instance.sent, r'$unknown': instance.$unknown};
+) => <String, dynamic>{'sent': instance.sent, r'$unknown': ?instance.$unknown};

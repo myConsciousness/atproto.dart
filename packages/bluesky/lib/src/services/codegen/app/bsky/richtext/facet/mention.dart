@@ -23,6 +23,7 @@ part 'mention.g.dart';
 abstract class RichtextFacetMention with _$RichtextFacetMention {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RichtextFacetMention({
     @Default('app.bsky.richtext.facet#mention') String $type,
     required String did,

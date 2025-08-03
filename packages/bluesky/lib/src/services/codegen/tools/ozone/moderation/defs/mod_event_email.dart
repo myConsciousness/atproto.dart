@@ -23,6 +23,7 @@ part 'mod_event_email.g.dart';
 abstract class ModEventEmail with _$ModEventEmail {
   static const knownProps = <String>['subjectLine', 'content', 'comment'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModEventEmail({
     @Default('tools.ozone.moderation.defs#modEventEmail') String $type,
 

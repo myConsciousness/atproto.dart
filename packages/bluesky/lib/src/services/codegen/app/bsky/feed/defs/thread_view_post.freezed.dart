@@ -244,8 +244,8 @@ return $default(_that.$type,_that.post,_that.parent,_that.replies,_that.threadCo
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ThreadViewPost implements ThreadViewPost {
   const _ThreadViewPost({this.$type = 'app.bsky.feed.defs#threadViewPost', @PostViewConverter() required this.post, @UThreadViewPostParentConverter() this.parent, @UThreadViewPostRepliesConverter() final  List<UThreadViewPostReplies>? replies, @ThreadContextConverter() this.threadContext, final  Map<String, dynamic>? $unknown}): _replies = replies,_$unknown = $unknown;
   factory _ThreadViewPost.fromJson(Map<String, dynamic> json) => _$ThreadViewPostFromJson(json);

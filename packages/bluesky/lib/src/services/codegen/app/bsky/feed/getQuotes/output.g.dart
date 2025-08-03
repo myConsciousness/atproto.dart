@@ -38,8 +38,8 @@ Map<String, dynamic> _$FeedGetQuotesOutputToJson(
   _FeedGetQuotesOutput instance,
 ) => <String, dynamic>{
   'uri': instance.uri,
-  'cid': instance.cid,
-  'cursor': instance.cursor,
+  'cid': ?instance.cid,
+  'cursor': ?instance.cursor,
   'posts': instance.posts.map(const PostViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

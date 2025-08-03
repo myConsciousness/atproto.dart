@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ModerationGetRepoInput with _$ModerationGetRepoInput {
   static const knownProps = <String>['did'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationGetRepoInput({
     required String did,
 

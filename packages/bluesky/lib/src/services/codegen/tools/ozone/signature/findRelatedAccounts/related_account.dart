@@ -26,6 +26,7 @@ part 'related_account.g.dart';
 abstract class RelatedAccount with _$RelatedAccount {
   static const knownProps = <String>['account', 'similarities'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RelatedAccount({
     @Default('tools.ozone.signature.findRelatedAccounts#relatedAccount')
     String $type,

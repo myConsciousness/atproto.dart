@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class SafelinkQueryRulesOutput with _$SafelinkQueryRulesOutput {
   static const knownProps = <String>['cursor', 'rules'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SafelinkQueryRulesOutput({
     /// Next cursor for pagination. Only present if there are more results.
     String? cursor,

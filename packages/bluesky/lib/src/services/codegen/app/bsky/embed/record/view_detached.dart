@@ -22,6 +22,7 @@ part 'view_detached.g.dart';
 abstract class EmbedRecordViewDetached with _$EmbedRecordViewDetached {
   static const knownProps = <String>['uri', 'detached'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmbedRecordViewDetached({
     @Default('app.bsky.embed.record#viewDetached') String $type,
     required String uri,

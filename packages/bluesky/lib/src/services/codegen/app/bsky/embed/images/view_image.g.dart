@@ -46,11 +46,11 @@ Map<String, dynamic> _$EmbedImagesViewImageToJson(
   'thumb': const AtUriConverter().toJson(instance.thumb),
   'fullsize': const AtUriConverter().toJson(instance.fullsize),
   'alt': instance.alt,
-  'aspectRatio': _$JsonConverterToJson<Map<String, dynamic>, AspectRatio>(
+  'aspectRatio': ?_$JsonConverterToJson<Map<String, dynamic>, AspectRatio>(
     instance.aspectRatio,
     const AspectRatioConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -28,6 +28,6 @@ Map<String, dynamic> _$GeneratorViewerStateToJson(
   _GeneratorViewerState instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'like': instance.like,
-  r'$unknown': instance.$unknown,
+  'like': ?instance.like,
+  r'$unknown': ?instance.$unknown,
 };

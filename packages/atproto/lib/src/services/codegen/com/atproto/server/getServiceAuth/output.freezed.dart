@@ -207,8 +207,8 @@ return $default(_that.token,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ServerGetServiceAuthOutput implements ServerGetServiceAuthOutput {
   const _ServerGetServiceAuthOutput({required this.token, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerGetServiceAuthOutput.fromJson(Map<String, dynamic> json) => _$ServerGetServiceAuthOutputFromJson(json);

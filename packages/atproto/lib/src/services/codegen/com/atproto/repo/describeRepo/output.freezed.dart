@@ -212,8 +212,8 @@ return $default(_that.handle,_that.did,_that.didDoc,_that.collections,_that.hand
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _RepoDescribeRepoOutput implements RepoDescribeRepoOutput {
   const _RepoDescribeRepoOutput({required this.handle, required this.did, required final  Map<String, dynamic> didDoc, required final  List<String> collections, required this.handleIsCorrect, final  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_collections = collections,_$unknown = $unknown;
   factory _RepoDescribeRepoOutput.fromJson(Map<String, dynamic> json) => _$RepoDescribeRepoOutputFromJson(json);

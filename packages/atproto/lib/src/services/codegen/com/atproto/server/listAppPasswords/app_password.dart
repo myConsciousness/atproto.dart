@@ -22,6 +22,7 @@ part 'app_password.g.dart';
 abstract class AppPassword with _$AppPassword {
   static const knownProps = <String>['name', 'createdAt', 'privileged'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AppPassword({
     @Default('com.atproto.server.listAppPasswords#appPassword') String $type,
     required String name,

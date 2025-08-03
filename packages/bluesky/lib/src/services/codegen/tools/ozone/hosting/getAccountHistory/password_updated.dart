@@ -22,6 +22,7 @@ part 'password_updated.g.dart';
 abstract class PasswordUpdated with _$PasswordUpdated {
   static const knownProps = <String>[];
 
+  @JsonSerializable(includeIfNull: false)
   const factory PasswordUpdated({
     @Default('tools.ozone.hosting.getAccountHistory#passwordUpdated')
     String $type,

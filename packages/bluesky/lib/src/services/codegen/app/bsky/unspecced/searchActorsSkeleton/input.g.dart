@@ -32,9 +32,9 @@ Map<String, dynamic> _$UnspeccedSearchActorsSkeletonInputToJson(
   _UnspeccedSearchActorsSkeletonInput instance,
 ) => <String, dynamic>{
   'q': instance.q,
-  'viewer': instance.viewer,
-  'typeahead': instance.typeahead,
+  'viewer': ?instance.viewer,
+  'typeahead': ?instance.typeahead,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };

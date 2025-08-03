@@ -208,8 +208,8 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _Feed implements Feed {
   const _Feed({this.$type = 'app.bsky.feed.describeFeedGenerator#feed', required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Feed.fromJson(Map<String, dynamic> json) => _$FeedFromJson(json);

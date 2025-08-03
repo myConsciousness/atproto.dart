@@ -208,8 +208,8 @@ return $default(_that.name,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SetDeleteSetInput implements SetDeleteSetInput {
   const _SetDeleteSetInput({required this.name, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SetDeleteSetInput.fromJson(Map<String, dynamic> json) => _$SetDeleteSetInputFromJson(json);

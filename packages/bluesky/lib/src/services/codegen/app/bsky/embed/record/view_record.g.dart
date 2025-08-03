@@ -63,14 +63,14 @@ Map<String, dynamic> _$EmbedRecordViewRecordToJson(
   'cid': instance.cid,
   'author': const ProfileViewBasicConverter().toJson(instance.author),
   'value': instance.value,
-  'labels': instance.labels?.map(const LabelConverter().toJson).toList(),
-  'replyCount': instance.replyCount,
-  'repostCount': instance.repostCount,
-  'likeCount': instance.likeCount,
-  'quoteCount': instance.quoteCount,
-  'embeds': instance.embeds
+  'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
+  'replyCount': ?instance.replyCount,
+  'repostCount': ?instance.repostCount,
+  'likeCount': ?instance.likeCount,
+  'quoteCount': ?instance.quoteCount,
+  'embeds': ?instance.embeds
       ?.map(const UEmbedRecordViewRecordEmbedsConverter().toJson)
       .toList(),
   'indexedAt': instance.indexedAt.toIso8601String(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

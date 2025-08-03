@@ -36,6 +36,7 @@ abstract class Commit with _$Commit {
     'time',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Commit({
     @Default('com.atproto.sync.subscribeRepos#commit') String $type,
 

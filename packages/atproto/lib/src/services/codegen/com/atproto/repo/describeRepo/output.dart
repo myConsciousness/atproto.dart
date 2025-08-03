@@ -28,6 +28,7 @@ abstract class RepoDescribeRepoOutput with _$RepoDescribeRepoOutput {
     'handleIsCorrect',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoDescribeRepoOutput({
     required String handle,
     required String did,

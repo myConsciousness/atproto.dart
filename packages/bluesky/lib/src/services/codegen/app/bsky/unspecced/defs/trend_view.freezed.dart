@@ -227,8 +227,8 @@ return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.start
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _TrendView implements TrendView {
   const _TrendView({this.$type = 'app.bsky.unspecced.defs#trendView', required this.topic, required this.displayName, required this.link, required this.startedAt, required this.postCount, @TrendViewStatusConverter() this.status, this.category, @ProfileViewBasicConverter() required final  List<ProfileViewBasic> actors, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
   factory _TrendView.fromJson(Map<String, dynamic> json) => _$TrendViewFromJson(json);

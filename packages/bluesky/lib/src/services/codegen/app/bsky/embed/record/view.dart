@@ -25,6 +25,7 @@ part 'view.g.dart';
 abstract class EmbedRecordView with _$EmbedRecordView {
   static const knownProps = <String>['record'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmbedRecordView({
     @Default('app.bsky.embed.record#view') String $type,
     @UEmbedRecordViewRecordConverter() required UEmbedRecordViewRecord record,

@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class GraphGetMutesInput with _$GraphGetMutesInput {
   static const knownProps = <String>['limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetMutesInput({
     @Default(50) int limit,
     String? cursor,

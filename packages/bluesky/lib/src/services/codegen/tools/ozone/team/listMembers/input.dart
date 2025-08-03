@@ -28,6 +28,7 @@ abstract class TeamListMembersInput with _$TeamListMembersInput {
     'cursor',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory TeamListMembersInput({
     String? q,
     bool? disabled,

@@ -25,6 +25,7 @@ part 'output.g.dart';
 abstract class UnspeccedGetTrendsOutput with _$UnspeccedGetTrendsOutput {
   static const knownProps = <String>['trends'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetTrendsOutput({
     @TrendViewConverter() required List<TrendView> trends,
 

@@ -25,6 +25,7 @@ part 'thread_view_pref.g.dart';
 abstract class ThreadViewPref with _$ThreadViewPref {
   static const knownProps = <String>['sort', 'prioritizeFollowedUsers'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ThreadViewPref({
     @Default('app.bsky.actor.defs#threadViewPref') String $type,
 

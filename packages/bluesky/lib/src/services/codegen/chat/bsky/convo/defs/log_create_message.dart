@@ -25,6 +25,7 @@ part 'log_create_message.g.dart';
 abstract class LogCreateMessage with _$LogCreateMessage {
   static const knownProps = <String>['rev', 'convoId', 'message'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LogCreateMessage({
     @Default('chat.bsky.convo.defs#logCreateMessage') String $type,
     required String rev,

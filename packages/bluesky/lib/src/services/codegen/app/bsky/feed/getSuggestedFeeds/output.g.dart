@@ -33,7 +33,7 @@ _FeedGetSuggestedFeedsOutput _$FeedGetSuggestedFeedsOutputFromJson(Map json) =>
 Map<String, dynamic> _$FeedGetSuggestedFeedsOutputToJson(
   _FeedGetSuggestedFeedsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'feeds': instance.feeds.map(const GeneratorViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

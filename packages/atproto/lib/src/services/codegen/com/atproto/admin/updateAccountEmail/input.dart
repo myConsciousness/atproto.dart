@@ -23,6 +23,7 @@ abstract class AdminUpdateAccountEmailInput
     with _$AdminUpdateAccountEmailInput {
   static const knownProps = <String>['account', 'email'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory AdminUpdateAccountEmailInput({
     /// The handle or DID of the repo.
     required String account,

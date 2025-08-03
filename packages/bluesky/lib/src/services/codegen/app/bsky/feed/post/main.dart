@@ -38,6 +38,7 @@ abstract class FeedPostRecord with _$FeedPostRecord {
     'createdAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory FeedPostRecord({
     @Default('app.bsky.feed.post') String $type,
 

@@ -23,6 +23,7 @@ abstract class ModerationGetMessageContextInput
     with _$ModerationGetMessageContextInput {
   static const knownProps = <String>['convoId', 'messageId', 'before', 'after'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationGetMessageContextInput({
     /// Conversation that the message is from. NOTE: this field will eventually be required.
     String? convoId,

@@ -26,6 +26,7 @@ abstract class UnspeccedGetTrendsSkeletonOutput
     with _$UnspeccedGetTrendsSkeletonOutput {
   static const knownProps = <String>['trends'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetTrendsSkeletonOutput({
     @SkeletonTrendConverter() required List<SkeletonTrend> trends,
 

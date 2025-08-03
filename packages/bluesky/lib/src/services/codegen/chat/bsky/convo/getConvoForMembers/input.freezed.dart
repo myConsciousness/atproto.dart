@@ -207,8 +207,8 @@ return $default(_that.members,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ConvoGetConvoForMembersInput implements ConvoGetConvoForMembersInput {
   const _ConvoGetConvoForMembersInput({required final  List<String> members, final  Map<String, dynamic>? $unknown}): _members = members,_$unknown = $unknown;
   factory _ConvoGetConvoForMembersInput.fromJson(Map<String, dynamic> json) => _$ConvoGetConvoForMembersInputFromJson(json);

@@ -209,8 +209,8 @@ return $default(_that.$type,_that.actor,_that.notFound,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _NotFoundActor implements NotFoundActor {
   const _NotFoundActor({this.$type = 'app.bsky.graph.defs#notFoundActor', required this.actor, required this.notFound, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotFoundActor.fromJson(Map<String, dynamic> json) => _$NotFoundActorFromJson(json);

@@ -34,6 +34,7 @@ abstract class JobStatus with _$JobStatus {
     'message',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory JobStatus({
     @Default('app.bsky.video.defs#jobStatus') String $type,
     required String jobId,

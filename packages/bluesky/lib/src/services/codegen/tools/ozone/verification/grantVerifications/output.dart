@@ -27,6 +27,7 @@ abstract class VerificationGrantVerificationsOutput
     with _$VerificationGrantVerificationsOutput {
   static const knownProps = <String>['verifications', 'failedVerifications'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory VerificationGrantVerificationsOutput({
     @VerificationViewConverter() required List<VerificationView> verifications,
     @GrantErrorConverter() required List<GrantError> failedVerifications,

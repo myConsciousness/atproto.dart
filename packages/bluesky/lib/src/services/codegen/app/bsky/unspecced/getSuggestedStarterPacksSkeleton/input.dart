@@ -23,6 +23,7 @@ abstract class UnspeccedGetSuggestedStarterPacksSkeletonInput
     with _$UnspeccedGetSuggestedStarterPacksSkeletonInput {
   static const knownProps = <String>['viewer', 'limit'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestedStarterPacksSkeletonInput({
     /// DID of the account making the request (not included for public/unauthenticated queries).
     String? viewer,

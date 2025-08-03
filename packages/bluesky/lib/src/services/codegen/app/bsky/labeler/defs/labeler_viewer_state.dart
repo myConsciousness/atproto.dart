@@ -22,6 +22,7 @@ part 'labeler_viewer_state.g.dart';
 abstract class LabelerViewerState with _$LabelerViewerState {
   static const knownProps = <String>['like'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LabelerViewerState({
     @Default('app.bsky.labeler.defs#labelerViewerState') String $type,
     String? like,

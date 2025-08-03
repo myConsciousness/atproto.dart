@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class TempFetchLabelsInput with _$TempFetchLabelsInput {
   static const knownProps = <String>['since', 'limit'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory TempFetchLabelsInput({
     int? since,
     @Default(50) int limit,

@@ -26,6 +26,7 @@ part 'suggestion.g.dart';
 abstract class Suggestion with _$Suggestion {
   static const knownProps = <String>['tag', 'subjectType', 'subject'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory Suggestion({
     @Default('app.bsky.unspecced.getTaggedSuggestions#suggestion') String $type,
     required String tag,

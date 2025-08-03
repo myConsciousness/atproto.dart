@@ -26,5 +26,5 @@ Map<String, dynamic> _$ServerResetPasswordInputToJson(
 ) => <String, dynamic>{
   'token': instance.token,
   'password': instance.password,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

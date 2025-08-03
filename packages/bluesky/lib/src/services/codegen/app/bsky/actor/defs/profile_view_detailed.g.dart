@@ -113,49 +113,49 @@ Map<String, dynamic> _$ProfileViewDetailedToJson(
   r'$type': instance.$type,
   'did': instance.did,
   'handle': instance.handle,
-  'displayName': instance.displayName,
-  'description': instance.description,
-  'avatar': _$JsonConverterToJson<String, AtUri>(
+  'displayName': ?instance.displayName,
+  'description': ?instance.description,
+  'avatar': ?_$JsonConverterToJson<String, AtUri>(
     instance.avatar,
     const AtUriConverter().toJson,
   ),
-  'banner': _$JsonConverterToJson<String, AtUri>(
+  'banner': ?_$JsonConverterToJson<String, AtUri>(
     instance.banner,
     const AtUriConverter().toJson,
   ),
-  'followersCount': instance.followersCount,
-  'followsCount': instance.followsCount,
-  'postsCount': instance.postsCount,
-  'associated': _$JsonConverterToJson<Map<String, dynamic>, ProfileAssociated>(
+  'followersCount': ?instance.followersCount,
+  'followsCount': ?instance.followsCount,
+  'postsCount': ?instance.postsCount,
+  'associated': ?_$JsonConverterToJson<Map<String, dynamic>, ProfileAssociated>(
     instance.associated,
     const ProfileAssociatedConverter().toJson,
   ),
   'joinedViaStarterPack':
-      _$JsonConverterToJson<Map<String, dynamic>, StarterPackViewBasic>(
+      ?_$JsonConverterToJson<Map<String, dynamic>, StarterPackViewBasic>(
         instance.joinedViaStarterPack,
         const StarterPackViewBasicConverter().toJson,
       ),
-  'indexedAt': instance.indexedAt?.toIso8601String(),
-  'createdAt': instance.createdAt?.toIso8601String(),
-  'viewer': _$JsonConverterToJson<Map<String, dynamic>, ViewerState>(
+  'indexedAt': ?instance.indexedAt?.toIso8601String(),
+  'createdAt': ?instance.createdAt?.toIso8601String(),
+  'viewer': ?_$JsonConverterToJson<Map<String, dynamic>, ViewerState>(
     instance.viewer,
     const ViewerStateConverter().toJson,
   ),
-  'labels': instance.labels?.map(const LabelConverter().toJson).toList(),
-  'pinnedPost': _$JsonConverterToJson<Map<String, dynamic>, RepoStrongRef>(
+  'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
+  'pinnedPost': ?_$JsonConverterToJson<Map<String, dynamic>, RepoStrongRef>(
     instance.pinnedPost,
     const RepoStrongRefConverter().toJson,
   ),
   'verification':
-      _$JsonConverterToJson<Map<String, dynamic>, VerificationState>(
+      ?_$JsonConverterToJson<Map<String, dynamic>, VerificationState>(
         instance.verification,
         const VerificationStateConverter().toJson,
       ),
-  'status': _$JsonConverterToJson<Map<String, dynamic>, StatusView>(
+  'status': ?_$JsonConverterToJson<Map<String, dynamic>, StatusView>(
     instance.status,
     const StatusViewConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

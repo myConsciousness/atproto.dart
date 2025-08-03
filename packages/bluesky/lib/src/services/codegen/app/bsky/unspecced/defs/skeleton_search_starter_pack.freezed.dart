@@ -208,8 +208,8 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SkeletonSearchStarterPack implements SkeletonSearchStarterPack {
   const _SkeletonSearchStarterPack({this.$type = 'app.bsky.unspecced.defs#skeletonSearchStarterPack', required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SkeletonSearchStarterPack.fromJson(Map<String, dynamic> json) => _$SkeletonSearchStarterPackFromJson(json);

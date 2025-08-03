@@ -36,5 +36,5 @@ Map<String, dynamic> _$UnspeccedGetSuggestedFeedsOutputToJson(
   _UnspeccedGetSuggestedFeedsOutput instance,
 ) => <String, dynamic>{
   'feeds': instance.feeds.map(const GeneratorViewConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

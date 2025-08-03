@@ -26,6 +26,7 @@ part 'log_add_reaction.g.dart';
 abstract class LogAddReaction with _$LogAddReaction {
   static const knownProps = <String>['rev', 'convoId', 'message', 'reaction'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory LogAddReaction({
     @Default('chat.bsky.convo.defs#logAddReaction') String $type,
     required String rev,

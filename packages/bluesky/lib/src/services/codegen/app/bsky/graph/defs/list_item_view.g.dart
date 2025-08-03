@@ -34,5 +34,5 @@ Map<String, dynamic> _$ListItemViewToJson(_ListItemView instance) =>
       r'$type': instance.$type,
       'uri': instance.uri,
       'subject': const ProfileViewConverter().toJson(instance.subject),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

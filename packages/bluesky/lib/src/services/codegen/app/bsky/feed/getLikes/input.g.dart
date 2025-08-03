@@ -26,8 +26,8 @@ _FeedGetLikesInput _$FeedGetLikesInputFromJson(Map json) =>
 Map<String, dynamic> _$FeedGetLikesInputToJson(_FeedGetLikesInput instance) =>
     <String, dynamic>{
       'uri': instance.uri,
-      'cid': instance.cid,
+      'cid': ?instance.cid,
       'limit': instance.limit,
-      'cursor': instance.cursor,
-      r'$unknown': instance.$unknown,
+      'cursor': ?instance.cursor,
+      r'$unknown': ?instance.$unknown,
     };

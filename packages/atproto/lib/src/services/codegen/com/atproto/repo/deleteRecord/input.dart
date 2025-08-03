@@ -28,6 +28,7 @@ abstract class RepoDeleteRecordInput with _$RepoDeleteRecordInput {
     'swapCommit',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoDeleteRecordInput({
     /// The handle or DID of the repo (aka, current account).
     required String repo,

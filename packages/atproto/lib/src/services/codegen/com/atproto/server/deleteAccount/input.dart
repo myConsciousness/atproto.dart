@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ServerDeleteAccountInput with _$ServerDeleteAccountInput {
   static const knownProps = <String>['did', 'password', 'token'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ServerDeleteAccountInput({
     required String did,
     required String password,

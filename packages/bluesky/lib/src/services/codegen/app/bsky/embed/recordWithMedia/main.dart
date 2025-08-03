@@ -26,6 +26,7 @@ part 'main.g.dart';
 abstract class EmbedRecordWithMedia with _$EmbedRecordWithMedia {
   static const knownProps = <String>['record', 'media'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmbedRecordWithMedia({
     @Default('app.bsky.embed.recordWithMedia') String $type,
     @EmbedRecordConverter() required EmbedRecord record,

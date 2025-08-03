@@ -210,8 +210,8 @@ return $default(_that.collection,_that.limit,_that.cursor,_that.$unknown);case _
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncListReposByCollectionInput implements SyncListReposByCollectionInput {
   const _SyncListReposByCollectionInput({required this.collection, this.limit = 500, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncListReposByCollectionInput.fromJson(Map<String, dynamic> json) => _$SyncListReposByCollectionInputFromJson(json);

@@ -55,6 +55,6 @@ Map<String, dynamic> _$EventToJson(_Event instance) => <String, dynamic>{
   'reason': const ReasonTypeConverter().toJson(instance.reason),
   'createdBy': instance.createdBy,
   'createdAt': instance.createdAt.toIso8601String(),
-  'comment': instance.comment,
-  r'$unknown': instance.$unknown,
+  'comment': ?instance.comment,
+  r'$unknown': ?instance.$unknown,
 };

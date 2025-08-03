@@ -36,13 +36,13 @@ Map<String, dynamic> _$SyncGetHostStatusOutputToJson(
   _SyncGetHostStatusOutput instance,
 ) => <String, dynamic>{
   'hostname': instance.hostname,
-  'seq': instance.seq,
-  'accountCount': instance.accountCount,
-  'status': _$JsonConverterToJson<String, HostStatus>(
+  'seq': ?instance.seq,
+  'accountCount': ?instance.accountCount,
+  'status': ?_$JsonConverterToJson<String, HostStatus>(
     instance.status,
     const HostStatusConverter().toJson,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

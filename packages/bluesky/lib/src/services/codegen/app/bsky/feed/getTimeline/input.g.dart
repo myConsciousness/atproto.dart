@@ -25,8 +25,8 @@ _FeedGetTimelineInput _$FeedGetTimelineInputFromJson(Map json) =>
 Map<String, dynamic> _$FeedGetTimelineInputToJson(
   _FeedGetTimelineInput instance,
 ) => <String, dynamic>{
-  'algorithm': instance.algorithm,
+  'algorithm': ?instance.algorithm,
   'limit': instance.limit,
-  'cursor': instance.cursor,
-  r'$unknown': instance.$unknown,
+  'cursor': ?instance.cursor,
+  r'$unknown': ?instance.$unknown,
 };

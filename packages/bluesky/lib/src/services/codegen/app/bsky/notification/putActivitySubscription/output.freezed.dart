@@ -220,8 +220,8 @@ return $default(_that.subject,_that.activitySubscription,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _NotificationPutActivitySubscriptionOutput implements NotificationPutActivitySubscriptionOutput {
   const _NotificationPutActivitySubscriptionOutput({required this.subject, @ActivitySubscriptionConverter() this.activitySubscription, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationPutActivitySubscriptionOutput.fromJson(Map<String, dynamic> json) => _$NotificationPutActivitySubscriptionOutputFromJson(json);

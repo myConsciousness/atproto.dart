@@ -40,15 +40,15 @@ _IdentityEvent _$IdentityEventFromJson(Map json) =>
 Map<String, dynamic> _$IdentityEventToJson(_IdentityEvent instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'comment': instance.comment,
-      'handle': instance.handle,
-      'pdsHost': _$JsonConverterToJson<String, AtUri>(
+      'comment': ?instance.comment,
+      'handle': ?instance.handle,
+      'pdsHost': ?_$JsonConverterToJson<String, AtUri>(
         instance.pdsHost,
         const AtUriConverter().toJson,
       ),
-      'tombstone': instance.tombstone,
+      'tombstone': ?instance.tombstone,
       'timestamp': instance.timestamp.toIso8601String(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

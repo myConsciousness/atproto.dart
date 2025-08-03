@@ -210,8 +210,8 @@ return $default(_that.$type,_that.handle,_that.method,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _Suggestion implements Suggestion {
   const _Suggestion({this.$type = 'com.atproto.temp.checkHandleAvailability#suggestion', required this.handle, required this.method, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Suggestion.fromJson(Map<String, dynamic> json) => _$SuggestionFromJson(json);

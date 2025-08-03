@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.repos,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncListReposByCollectionOutput implements SyncListReposByCollectionOutput {
   const _SyncListReposByCollectionOutput({this.cursor, @RepoConverter() required final  List<Repo> repos, final  Map<String, dynamic>? $unknown}): _repos = repos,_$unknown = $unknown;
   factory _SyncListReposByCollectionOutput.fromJson(Map<String, dynamic> json) => _$SyncListReposByCollectionOutputFromJson(json);

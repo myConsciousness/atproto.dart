@@ -208,8 +208,8 @@ return $default(_that.codes,_that.accounts,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AdminDisableInviteCodesInput implements AdminDisableInviteCodesInput {
   const _AdminDisableInviteCodesInput({final  List<String>? codes, final  List<String>? accounts, final  Map<String, dynamic>? $unknown}): _codes = codes,_accounts = accounts,_$unknown = $unknown;
   factory _AdminDisableInviteCodesInput.fromJson(Map<String, dynamic> json) => _$AdminDisableInviteCodesInputFromJson(json);

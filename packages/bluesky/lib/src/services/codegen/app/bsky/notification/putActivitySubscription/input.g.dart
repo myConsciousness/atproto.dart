@@ -37,5 +37,5 @@ Map<String, dynamic> _$NotificationPutActivitySubscriptionInputToJson(
   'activitySubscription': const ActivitySubscriptionConverter().toJson(
     instance.activitySubscription,
   ),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

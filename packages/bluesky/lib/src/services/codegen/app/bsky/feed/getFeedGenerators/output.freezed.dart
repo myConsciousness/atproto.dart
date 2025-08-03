@@ -207,8 +207,8 @@ return $default(_that.feeds,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetFeedGeneratorsOutput implements FeedGetFeedGeneratorsOutput {
   const _FeedGetFeedGeneratorsOutput({@GeneratorViewConverter() required final  List<GeneratorView> feeds, final  Map<String, dynamic>? $unknown}): _feeds = feeds,_$unknown = $unknown;
   factory _FeedGetFeedGeneratorsOutput.fromJson(Map<String, dynamic> json) => _$FeedGetFeedGeneratorsOutputFromJson(json);

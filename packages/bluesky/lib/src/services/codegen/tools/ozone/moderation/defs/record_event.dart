@@ -26,6 +26,7 @@ part 'record_event.g.dart';
 abstract class RecordEvent with _$RecordEvent {
   static const knownProps = <String>['comment', 'op', 'cid', 'timestamp'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RecordEvent({
     @Default('tools.ozone.moderation.defs#recordEvent') String $type,
     String? comment,

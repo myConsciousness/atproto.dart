@@ -211,8 +211,8 @@ return $default(_that.$type,_that.did,_that.handle,_that.didDoc,_that.$unknown);
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _IdentityInfo implements IdentityInfo {
   const _IdentityInfo({this.$type = 'com.atproto.identity.defs#identityInfo', required this.did, required this.handle, required final  Map<String, dynamic> didDoc, final  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_$unknown = $unknown;
   factory _IdentityInfo.fromJson(Map<String, dynamic> json) => _$IdentityInfoFromJson(json);

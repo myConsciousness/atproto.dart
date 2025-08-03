@@ -25,8 +25,8 @@ _AdminSearchAccountsInput _$AdminSearchAccountsInputFromJson(Map json) =>
 Map<String, dynamic> _$AdminSearchAccountsInputToJson(
   _AdminSearchAccountsInput instance,
 ) => <String, dynamic>{
-  'email': instance.email,
-  'cursor': instance.cursor,
+  'email': ?instance.email,
+  'cursor': ?instance.cursor,
   'limit': instance.limit,
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

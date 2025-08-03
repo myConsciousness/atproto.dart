@@ -22,6 +22,7 @@ part 'mod_event_escalate.g.dart';
 abstract class ModEventEscalate with _$ModEventEscalate {
   static const knownProps = <String>['comment'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModEventEscalate({
     @Default('tools.ozone.moderation.defs#modEventEscalate') String $type,
     String? comment,

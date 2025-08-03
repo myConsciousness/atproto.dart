@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.labels,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _LabelQueryLabelsOutput implements LabelQueryLabelsOutput {
   const _LabelQueryLabelsOutput({this.cursor, @LabelConverter() required final  List<Label> labels, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
   factory _LabelQueryLabelsOutput.fromJson(Map<String, dynamic> json) => _$LabelQueryLabelsOutputFromJson(json);

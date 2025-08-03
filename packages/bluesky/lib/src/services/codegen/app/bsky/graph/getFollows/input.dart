@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class GraphGetFollowsInput with _$GraphGetFollowsInput {
   static const knownProps = <String>['actor', 'limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetFollowsInput({
     required String actor,
     @Default(50) int limit,

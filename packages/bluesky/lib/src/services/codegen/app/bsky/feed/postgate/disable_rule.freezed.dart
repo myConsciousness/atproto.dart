@@ -207,8 +207,8 @@ return $default(_that.$type,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _DisableRule implements DisableRule {
   const _DisableRule({this.$type = 'app.bsky.feed.postgate#disableRule', final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _DisableRule.fromJson(Map<String, dynamic> json) => _$DisableRuleFromJson(json);

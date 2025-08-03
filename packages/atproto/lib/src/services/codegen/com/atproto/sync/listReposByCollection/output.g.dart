@@ -32,7 +32,7 @@ _SyncListReposByCollectionOutput _$SyncListReposByCollectionOutputFromJson(
 Map<String, dynamic> _$SyncListReposByCollectionOutputToJson(
   _SyncListReposByCollectionOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'repos': instance.repos.map(const RepoConverter().toJson).toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

@@ -26,6 +26,7 @@ abstract class ModerationGetReporterStatsOutput
     with _$ModerationGetReporterStatsOutput {
   static const knownProps = <String>['stats'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationGetReporterStatsOutput({
     @ReporterStatsConverter() required List<ReporterStats> stats,
 

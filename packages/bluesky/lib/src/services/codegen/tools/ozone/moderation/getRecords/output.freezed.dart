@@ -207,8 +207,8 @@ return $default(_that.records,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationGetRecordsOutput implements ModerationGetRecordsOutput {
   const _ModerationGetRecordsOutput({@UModerationGetRecordsRecordsConverter() required final  List<UModerationGetRecordsRecords> records, final  Map<String, dynamic>? $unknown}): _records = records,_$unknown = $unknown;
   factory _ModerationGetRecordsOutput.fromJson(Map<String, dynamic> json) => _$ModerationGetRecordsOutputFromJson(json);

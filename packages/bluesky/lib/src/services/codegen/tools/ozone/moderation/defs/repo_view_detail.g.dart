@@ -89,24 +89,26 @@ Map<String, dynamic> _$RepoViewDetailToJson(
   r'$type': instance.$type,
   'did': instance.did,
   'handle': instance.handle,
-  'email': instance.email,
+  'email': ?instance.email,
   'relatedRecords': instance.relatedRecords,
   'indexedAt': instance.indexedAt.toIso8601String(),
   'moderation': const ModerationDetailConverter().toJson(instance.moderation),
-  'labels': instance.labels?.map(const LabelConverter().toJson).toList(),
-  'invitedBy': _$JsonConverterToJson<Map<String, dynamic>, InviteCode>(
+  'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
+  'invitedBy': ?_$JsonConverterToJson<Map<String, dynamic>, InviteCode>(
     instance.invitedBy,
     const InviteCodeConverter().toJson,
   ),
-  'invites': instance.invites?.map(const InviteCodeConverter().toJson).toList(),
-  'invitesDisabled': instance.invitesDisabled,
-  'inviteNote': instance.inviteNote,
-  'emailConfirmedAt': instance.emailConfirmedAt?.toIso8601String(),
-  'deactivatedAt': instance.deactivatedAt?.toIso8601String(),
-  'threatSignatures': instance.threatSignatures
+  'invites': ?instance.invites
+      ?.map(const InviteCodeConverter().toJson)
+      .toList(),
+  'invitesDisabled': ?instance.invitesDisabled,
+  'inviteNote': ?instance.inviteNote,
+  'emailConfirmedAt': ?instance.emailConfirmedAt?.toIso8601String(),
+  'deactivatedAt': ?instance.deactivatedAt?.toIso8601String(),
+  'threatSignatures': ?instance.threatSignatures
       ?.map(const ThreatSignatureConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

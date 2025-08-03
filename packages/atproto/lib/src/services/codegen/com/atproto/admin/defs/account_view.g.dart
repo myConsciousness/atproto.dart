@@ -70,29 +70,30 @@ _AccountView _$AccountViewFromJson(
   return val;
 });
 
-Map<String, dynamic> _$AccountViewToJson(
-  _AccountView instance,
-) => <String, dynamic>{
-  r'$type': instance.$type,
-  'did': instance.did,
-  'handle': instance.handle,
-  'email': instance.email,
-  'relatedRecords': instance.relatedRecords,
-  'indexedAt': instance.indexedAt.toIso8601String(),
-  'invitedBy': _$JsonConverterToJson<Map<String, dynamic>, InviteCode>(
-    instance.invitedBy,
-    const InviteCodeConverter().toJson,
-  ),
-  'invites': instance.invites?.map(const InviteCodeConverter().toJson).toList(),
-  'invitesDisabled': instance.invitesDisabled,
-  'emailConfirmedAt': instance.emailConfirmedAt?.toIso8601String(),
-  'inviteNote': instance.inviteNote,
-  'deactivatedAt': instance.deactivatedAt?.toIso8601String(),
-  'threatSignatures': instance.threatSignatures
-      ?.map(const ThreatSignatureConverter().toJson)
-      .toList(),
-  r'$unknown': instance.$unknown,
-};
+Map<String, dynamic> _$AccountViewToJson(_AccountView instance) =>
+    <String, dynamic>{
+      r'$type': instance.$type,
+      'did': instance.did,
+      'handle': instance.handle,
+      'email': ?instance.email,
+      'relatedRecords': ?instance.relatedRecords,
+      'indexedAt': instance.indexedAt.toIso8601String(),
+      'invitedBy': ?_$JsonConverterToJson<Map<String, dynamic>, InviteCode>(
+        instance.invitedBy,
+        const InviteCodeConverter().toJson,
+      ),
+      'invites': ?instance.invites
+          ?.map(const InviteCodeConverter().toJson)
+          .toList(),
+      'invitesDisabled': ?instance.invitesDisabled,
+      'emailConfirmedAt': ?instance.emailConfirmedAt?.toIso8601String(),
+      'inviteNote': ?instance.inviteNote,
+      'deactivatedAt': ?instance.deactivatedAt?.toIso8601String(),
+      'threatSignatures': ?instance.threatSignatures
+          ?.map(const ThreatSignatureConverter().toJson)
+          .toList(),
+      r'$unknown': ?instance.$unknown,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

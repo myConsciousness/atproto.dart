@@ -207,8 +207,8 @@ return $default(_that.details,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SignatureFindCorrelationOutput implements SignatureFindCorrelationOutput {
   const _SignatureFindCorrelationOutput({@SigDetailConverter() required final  List<SigDetail> details, final  Map<String, dynamic>? $unknown}): _details = details,_$unknown = $unknown;
   factory _SignatureFindCorrelationOutput.fromJson(Map<String, dynamic> json) => _$SignatureFindCorrelationOutputFromJson(json);

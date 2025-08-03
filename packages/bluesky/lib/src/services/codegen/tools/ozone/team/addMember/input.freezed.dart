@@ -217,8 +217,8 @@ return $default(_that.did,_that.role,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _TeamAddMemberInput implements TeamAddMemberInput {
   const _TeamAddMemberInput({required this.did, @TeamAddMemberRoleConverter() required this.role, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _TeamAddMemberInput.fromJson(Map<String, dynamic> json) => _$TeamAddMemberInputFromJson(json);

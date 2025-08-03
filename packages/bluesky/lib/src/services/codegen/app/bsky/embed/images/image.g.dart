@@ -40,11 +40,11 @@ Map<String, dynamic> _$EmbedImagesImageToJson(_EmbedImagesImage instance) =>
       r'$type': instance.$type,
       'image': const BlobConverter().toJson(instance.image),
       'alt': instance.alt,
-      'aspectRatio': _$JsonConverterToJson<Map<String, dynamic>, AspectRatio>(
+      'aspectRatio': ?_$JsonConverterToJson<Map<String, dynamic>, AspectRatio>(
         instance.aspectRatio,
         const AspectRatioConverter().toJson,
       ),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -22,6 +22,7 @@ part 'video_details.g.dart';
 abstract class VideoDetails with _$VideoDetails {
   static const knownProps = <String>['width', 'height', 'length'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory VideoDetails({
     @Default('tools.ozone.moderation.defs#videoDetails') String $type,
     required int width,

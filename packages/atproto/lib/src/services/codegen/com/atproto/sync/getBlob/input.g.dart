@@ -25,5 +25,5 @@ Map<String, dynamic> _$SyncGetBlobInputToJson(_SyncGetBlobInput instance) =>
     <String, dynamic>{
       'did': instance.did,
       'cid': instance.cid,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

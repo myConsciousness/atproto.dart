@@ -26,6 +26,7 @@ abstract class NotificationPutActivitySubscriptionOutput
     with _$NotificationPutActivitySubscriptionOutput {
   static const knownProps = <String>['subject', 'activitySubscription'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory NotificationPutActivitySubscriptionOutput({
     required String subject,
     @ActivitySubscriptionConverter() ActivitySubscription? activitySubscription,

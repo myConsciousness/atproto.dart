@@ -27,5 +27,5 @@ Map<String, dynamic> _$SettingUpsertOptionOutputToJson(
   _SettingUpsertOptionOutput instance,
 ) => <String, dynamic>{
   'option': const OptionConverter().toJson(instance.option),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

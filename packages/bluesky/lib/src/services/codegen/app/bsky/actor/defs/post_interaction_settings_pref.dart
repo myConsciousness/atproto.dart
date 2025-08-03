@@ -30,6 +30,7 @@ abstract class PostInteractionSettingsPref with _$PostInteractionSettingsPref {
     'postgateEmbeddingRules',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory PostInteractionSettingsPref({
     @Default('app.bsky.actor.defs#postInteractionSettingsPref') String $type,
     @UPostInteractionSettingsPrefThreadgateAllowRulesConverter()

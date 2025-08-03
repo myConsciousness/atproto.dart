@@ -209,8 +209,8 @@ return $default(_that.actor,_that.allowAccess,_that.ref,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationUpdateActorAccessInput implements ModerationUpdateActorAccessInput {
   const _ModerationUpdateActorAccessInput({required this.actor, required this.allowAccess, this.ref, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModerationUpdateActorAccessInput.fromJson(Map<String, dynamic> json) => _$ModerationUpdateActorAccessInputFromJson(json);

@@ -35,7 +35,7 @@ _FeedGetFeedOutput _$FeedGetFeedOutputFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$FeedGetFeedOutputToJson(_FeedGetFeedOutput instance) =>
     <String, dynamic>{
-      'cursor': instance.cursor,
+      'cursor': ?instance.cursor,
       'feed': instance.feed.map(const FeedViewPostConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

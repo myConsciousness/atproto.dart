@@ -28,6 +28,7 @@ abstract class ModEventTakedown with _$ModEventTakedown {
     'policies',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModEventTakedown({
     @Default('tools.ozone.moderation.defs#modEventTakedown') String $type,
     String? comment,

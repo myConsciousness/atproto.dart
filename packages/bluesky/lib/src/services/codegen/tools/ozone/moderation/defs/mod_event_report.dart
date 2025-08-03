@@ -28,6 +28,7 @@ abstract class ModEventReport with _$ModEventReport {
     'reportType',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModEventReport({
     @Default('tools.ozone.moderation.defs#modEventReport') String $type,
     String? comment,

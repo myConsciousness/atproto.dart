@@ -38,11 +38,11 @@ Map<String, dynamic> _$UpdateResultToJson(_UpdateResult instance) =>
       'uri': instance.uri,
       'cid': instance.cid,
       'validationStatus':
-          _$JsonConverterToJson<String, UpdateResultValidationStatus>(
+          ?_$JsonConverterToJson<String, UpdateResultValidationStatus>(
             instance.validationStatus,
             const UpdateResultValidationStatusConverter().toJson,
           ),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

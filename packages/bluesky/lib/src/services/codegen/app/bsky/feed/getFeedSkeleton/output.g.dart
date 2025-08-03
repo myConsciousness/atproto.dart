@@ -34,8 +34,8 @@ _FeedGetFeedSkeletonOutput _$FeedGetFeedSkeletonOutputFromJson(Map json) =>
 Map<String, dynamic> _$FeedGetFeedSkeletonOutputToJson(
   _FeedGetFeedSkeletonOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'feed': instance.feed.map(const SkeletonFeedPostConverter().toJson).toList(),
-  'reqId': instance.reqId,
-  r'$unknown': instance.$unknown,
+  'reqId': ?instance.reqId,
+  r'$unknown': ?instance.$unknown,
 };

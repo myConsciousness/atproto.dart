@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.subjectStatuses,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationQueryStatusesOutput implements ModerationQueryStatusesOutput {
   const _ModerationQueryStatusesOutput({this.cursor, @SubjectStatusViewConverter() required final  List<SubjectStatusView> subjectStatuses, final  Map<String, dynamic>? $unknown}): _subjectStatuses = subjectStatuses,_$unknown = $unknown;
   factory _ModerationQueryStatusesOutput.fromJson(Map<String, dynamic> json) => _$ModerationQueryStatusesOutputFromJson(json);

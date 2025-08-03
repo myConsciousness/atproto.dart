@@ -208,8 +208,8 @@ return $default(_that.cursor,_that.members,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _TeamListMembersOutput implements TeamListMembersOutput {
   const _TeamListMembersOutput({this.cursor, @MemberConverter() required final  List<Member> members, final  Map<String, dynamic>? $unknown}): _members = members,_$unknown = $unknown;
   factory _TeamListMembersOutput.fromJson(Map<String, dynamic> json) => _$TeamListMembersOutputFromJson(json);

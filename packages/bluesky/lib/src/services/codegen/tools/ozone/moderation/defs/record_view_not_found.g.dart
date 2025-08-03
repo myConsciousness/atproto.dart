@@ -29,5 +29,5 @@ Map<String, dynamic> _$RecordViewNotFoundToJson(_RecordViewNotFound instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'uri': instance.uri,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

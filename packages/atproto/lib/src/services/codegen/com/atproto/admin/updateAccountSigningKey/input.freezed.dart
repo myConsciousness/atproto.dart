@@ -209,8 +209,8 @@ return $default(_that.did,_that.signingKey,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AdminUpdateAccountSigningKeyInput implements AdminUpdateAccountSigningKeyInput {
   const _AdminUpdateAccountSigningKeyInput({required this.did, required this.signingKey, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AdminUpdateAccountSigningKeyInput.fromJson(Map<String, dynamic> json) => _$AdminUpdateAccountSigningKeyInputFromJson(json);

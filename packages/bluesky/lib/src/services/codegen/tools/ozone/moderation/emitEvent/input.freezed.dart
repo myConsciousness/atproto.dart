@@ -243,8 +243,8 @@ return $default(_that.event,_that.subject,_that.subjectBlobCids,_that.createdBy,
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ModerationEmitEventInput implements ModerationEmitEventInput {
   const _ModerationEmitEventInput({@UModerationEmitEventEventConverter() required this.event, @UModerationEmitEventSubjectConverter() required this.subject, final  List<String>? subjectBlobCids, required this.createdBy, @ModToolConverter() this.modTool, this.externalId, final  Map<String, dynamic>? $unknown}): _subjectBlobCids = subjectBlobCids,_$unknown = $unknown;
   factory _ModerationEmitEventInput.fromJson(Map<String, dynamic> json) => _$ModerationEmitEventInputFromJson(json);

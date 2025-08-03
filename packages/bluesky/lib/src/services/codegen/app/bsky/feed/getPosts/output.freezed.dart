@@ -207,8 +207,8 @@ return $default(_that.posts,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _FeedGetPostsOutput implements FeedGetPostsOutput {
   const _FeedGetPostsOutput({@PostViewConverter() required final  List<PostView> posts, final  Map<String, dynamic>? $unknown}): _posts = posts,_$unknown = $unknown;
   factory _FeedGetPostsOutput.fromJson(Map<String, dynamic> json) => _$FeedGetPostsOutputFromJson(json);

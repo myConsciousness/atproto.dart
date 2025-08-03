@@ -32,6 +32,7 @@ abstract class SettingUpsertOptionInput with _$SettingUpsertOptionInput {
     'managerRole',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory SettingUpsertOptionInput({
     required String key,
     @SettingUpsertOptionScopeConverter()

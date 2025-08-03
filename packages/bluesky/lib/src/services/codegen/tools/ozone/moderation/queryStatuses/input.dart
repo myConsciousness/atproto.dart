@@ -64,6 +64,7 @@ abstract class ModerationQueryStatusesInput
     'ageAssuranceState',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationQueryStatusesInput({
     /// Number of queues being used by moderators. Subjects will be split among all queues.
     int? queueCount,

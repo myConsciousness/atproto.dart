@@ -32,5 +32,5 @@ Map<String, dynamic> _$GrantErrorToJson(_GrantError instance) =>
       r'$type': instance.$type,
       'error': instance.error,
       'subject': instance.subject,
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

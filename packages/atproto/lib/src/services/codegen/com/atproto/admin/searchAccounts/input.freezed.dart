@@ -209,8 +209,8 @@ return $default(_that.email,_that.cursor,_that.limit,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _AdminSearchAccountsInput implements AdminSearchAccountsInput {
   const _AdminSearchAccountsInput({this.email, this.cursor, this.limit = 50, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AdminSearchAccountsInput.fromJson(Map<String, dynamic> json) => _$AdminSearchAccountsInputFromJson(json);

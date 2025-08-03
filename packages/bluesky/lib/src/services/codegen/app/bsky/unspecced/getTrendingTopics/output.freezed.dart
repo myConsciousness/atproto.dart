@@ -208,8 +208,8 @@ return $default(_that.topics,_that.suggested,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _UnspeccedGetTrendingTopicsOutput implements UnspeccedGetTrendingTopicsOutput {
   const _UnspeccedGetTrendingTopicsOutput({@TrendingTopicConverter() required final  List<TrendingTopic> topics, @TrendingTopicConverter() required final  List<TrendingTopic> suggested, final  Map<String, dynamic>? $unknown}): _topics = topics,_suggested = suggested,_$unknown = $unknown;
   factory _UnspeccedGetTrendingTopicsOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetTrendingTopicsOutputFromJson(json);

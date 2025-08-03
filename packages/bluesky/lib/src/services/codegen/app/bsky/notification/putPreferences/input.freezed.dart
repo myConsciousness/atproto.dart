@@ -207,8 +207,8 @@ return $default(_that.priority,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _NotificationPutPreferencesInput implements NotificationPutPreferencesInput {
   const _NotificationPutPreferencesInput({required this.priority, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationPutPreferencesInput.fromJson(Map<String, dynamic> json) => _$NotificationPutPreferencesInputFromJson(json);

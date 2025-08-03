@@ -50,5 +50,5 @@ Map<String, dynamic> _$RecordViewToJson(_RecordView instance) =>
       'indexedAt': instance.indexedAt.toIso8601String(),
       'moderation': const ModerationConverter().toJson(instance.moderation),
       'repo': const RepoViewConverter().toJson(instance.repo),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

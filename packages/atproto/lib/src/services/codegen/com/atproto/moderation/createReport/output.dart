@@ -34,6 +34,7 @@ abstract class ModerationCreateReportOutput
     'createdAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationCreateReportOutput({
     required int id,
     @ReasonTypeConverter() required ReasonType reasonType,

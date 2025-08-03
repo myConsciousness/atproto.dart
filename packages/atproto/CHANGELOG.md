@@ -3,6 +3,7 @@
 ## v1.0.4
 
 - chore: Removed outdated processes.
+- fix: Use `@JsonSerializable(includeIfNull: false)` for lex gen objects.
 
 ## v1.0.3
 

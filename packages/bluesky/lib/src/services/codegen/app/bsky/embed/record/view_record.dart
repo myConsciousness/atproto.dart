@@ -39,6 +39,7 @@ abstract class EmbedRecordViewRecord with _$EmbedRecordViewRecord {
     'indexedAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory EmbedRecordViewRecord({
     @Default('app.bsky.embed.record#viewRecord') String $type,
     required String uri,

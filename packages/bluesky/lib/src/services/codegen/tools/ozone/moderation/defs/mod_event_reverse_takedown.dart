@@ -23,6 +23,7 @@ part 'mod_event_reverse_takedown.g.dart';
 abstract class ModEventReverseTakedown with _$ModEventReverseTakedown {
   static const knownProps = <String>['comment'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModEventReverseTakedown({
     @Default('tools.ozone.moderation.defs#modEventReverseTakedown')
     String $type,

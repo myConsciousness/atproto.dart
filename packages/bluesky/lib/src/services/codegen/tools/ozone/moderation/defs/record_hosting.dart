@@ -30,6 +30,7 @@ abstract class RecordHosting with _$RecordHosting {
     'deletedAt',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RecordHosting({
     @Default('tools.ozone.moderation.defs#recordHosting') String $type,
     @RecordHostingStatusConverter() required RecordHostingStatus status,

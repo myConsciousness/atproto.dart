@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class GraphGetBlocksInput with _$GraphGetBlocksInput {
   static const knownProps = <String>['limit', 'cursor'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory GraphGetBlocksInput({
     @Default(50) int limit,
     String? cursor,

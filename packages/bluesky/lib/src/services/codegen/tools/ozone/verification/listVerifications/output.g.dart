@@ -37,9 +37,9 @@ _$VerificationListVerificationsOutputFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$VerificationListVerificationsOutputToJson(
   _VerificationListVerificationsOutput instance,
 ) => <String, dynamic>{
-  'cursor': instance.cursor,
+  'cursor': ?instance.cursor,
   'verifications': instance.verifications
       .map(const VerificationViewConverter().toJson)
       .toList(),
-  r'$unknown': instance.$unknown,
+  r'$unknown': ?instance.$unknown,
 };

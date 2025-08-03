@@ -31,6 +31,7 @@ abstract class NotificationUnregisterPushInput
     'appId',
   ];
 
+  @JsonSerializable(includeIfNull: false)
   const factory NotificationUnregisterPushInput({
     required String serviceDid,
     required String token,

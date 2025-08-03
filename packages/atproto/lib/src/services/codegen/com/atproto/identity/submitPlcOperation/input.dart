@@ -23,6 +23,7 @@ abstract class IdentitySubmitPlcOperationInput
     with _$IdentitySubmitPlcOperationInput {
   static const knownProps = <String>['operation'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory IdentitySubmitPlcOperationInput({
     required Map<String, dynamic> operation,
 

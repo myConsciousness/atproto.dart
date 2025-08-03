@@ -212,8 +212,8 @@ return $default(_that.reasons,_that.limit,_that.priority,_that.cursor,_that.seen
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _NotificationListNotificationsInput implements NotificationListNotificationsInput {
   const _NotificationListNotificationsInput({final  List<String>? reasons, this.limit = 50, this.priority, this.cursor, this.seenAt, final  Map<String, dynamic>? $unknown}): _reasons = reasons,_$unknown = $unknown;
   factory _NotificationListNotificationsInput.fromJson(Map<String, dynamic> json) => _$NotificationListNotificationsInputFromJson(json);

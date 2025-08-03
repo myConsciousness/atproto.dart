@@ -47,9 +47,9 @@ Map<String, dynamic> _$FeedPostgateRecordToJson(_FeedPostgateRecord instance) =>
       r'$type': instance.$type,
       'createdAt': instance.createdAt.toIso8601String(),
       'post': instance.post,
-      'detachedEmbeddingUris': instance.detachedEmbeddingUris,
-      'embeddingRules': instance.embeddingRules
+      'detachedEmbeddingUris': ?instance.detachedEmbeddingUris,
+      'embeddingRules': ?instance.embeddingRules
           ?.map(const UFeedPostgateEmbeddingRulesConverter().toJson)
           .toList(),
-      r'$unknown': instance.$unknown,
+      r'$unknown': ?instance.$unknown,
     };

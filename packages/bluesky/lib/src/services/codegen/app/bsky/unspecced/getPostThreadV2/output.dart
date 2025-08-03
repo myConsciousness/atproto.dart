@@ -27,6 +27,7 @@ abstract class UnspeccedGetPostThreadV2Output
     with _$UnspeccedGetPostThreadV2Output {
   static const knownProps = <String>['thread', 'threadgate', 'hasOtherReplies'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetPostThreadV2Output({
     @ThreadItemConverter() required List<ThreadItem> thread,
     @ThreadgateViewConverter() ThreadgateView? threadgate,

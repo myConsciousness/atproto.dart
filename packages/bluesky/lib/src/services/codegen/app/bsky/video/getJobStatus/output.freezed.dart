@@ -216,8 +216,8 @@ return $default(_that.jobStatus,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _VideoGetJobStatusOutput implements VideoGetJobStatusOutput {
   const _VideoGetJobStatusOutput({@JobStatusConverter() required this.jobStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _VideoGetJobStatusOutput.fromJson(Map<String, dynamic> json) => _$VideoGetJobStatusOutputFromJson(json);

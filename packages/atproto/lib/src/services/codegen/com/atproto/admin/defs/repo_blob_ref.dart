@@ -22,6 +22,7 @@ part 'repo_blob_ref.g.dart';
 abstract class RepoBlobRef with _$RepoBlobRef {
   static const knownProps = <String>['did', 'cid', 'recordUri'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory RepoBlobRef({
     @Default('com.atproto.admin.defs#repoBlobRef') String $type,
     required String did,

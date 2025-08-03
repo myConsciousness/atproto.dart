@@ -217,8 +217,8 @@ return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _ProfileAssociatedChat implements ProfileAssociatedChat {
   const _ProfileAssociatedChat({this.$type = 'app.bsky.actor.defs#profileAssociatedChat', @ProfileAssociatedChatAllowIncomingConverter() required this.allowIncoming, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ProfileAssociatedChat.fromJson(Map<String, dynamic> json) => _$ProfileAssociatedChatFromJson(json);

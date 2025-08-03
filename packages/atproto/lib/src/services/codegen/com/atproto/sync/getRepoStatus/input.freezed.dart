@@ -208,8 +208,8 @@ return $default(_that.did,_that.$unknown);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SyncGetRepoStatusInput implements SyncGetRepoStatusInput {
   const _SyncGetRepoStatusInput({required this.did, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncGetRepoStatusInput.fromJson(Map<String, dynamic> json) => _$SyncGetRepoStatusInputFromJson(json);

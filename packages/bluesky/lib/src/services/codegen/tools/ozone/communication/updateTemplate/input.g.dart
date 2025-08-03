@@ -33,11 +33,11 @@ Map<String, dynamic> _$CommunicationUpdateTemplateInputToJson(
   _CommunicationUpdateTemplateInput instance,
 ) => <String, dynamic>{
   'id': instance.id,
-  'name': instance.name,
-  'lang': instance.lang,
-  'contentMarkdown': instance.contentMarkdown,
-  'subject': instance.subject,
-  'updatedBy': instance.updatedBy,
-  'disabled': instance.disabled,
-  r'$unknown': instance.$unknown,
+  'name': ?instance.name,
+  'lang': ?instance.lang,
+  'contentMarkdown': ?instance.contentMarkdown,
+  'subject': ?instance.subject,
+  'updatedBy': ?instance.updatedBy,
+  'disabled': ?instance.disabled,
+  r'$unknown': ?instance.$unknown,
 };

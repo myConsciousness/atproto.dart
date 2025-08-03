@@ -22,6 +22,7 @@ part 'commit_meta.g.dart';
 abstract class CommitMeta with _$CommitMeta {
   static const knownProps = <String>['cid', 'rev'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory CommitMeta({
     @Default('com.atproto.repo.defs#commitMeta') String $type,
     required String cid,

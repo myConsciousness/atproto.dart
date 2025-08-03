@@ -33,9 +33,9 @@ Map<String, dynamic> _$RepoCreateRecordInputToJson(
 ) => <String, dynamic>{
   'repo': instance.repo,
   'collection': instance.collection,
-  'rkey': instance.rkey,
-  'validate': instance.validate,
+  'rkey': ?instance.rkey,
+  'validate': ?instance.validate,
   'record': instance.record,
-  'swapCommit': instance.swapCommit,
-  r'$unknown': instance.$unknown,
+  'swapCommit': ?instance.swapCommit,
+  r'$unknown': ?instance.$unknown,
 };

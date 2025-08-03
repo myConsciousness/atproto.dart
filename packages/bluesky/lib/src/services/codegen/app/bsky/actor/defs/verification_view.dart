@@ -23,6 +23,7 @@ part 'verification_view.g.dart';
 abstract class VerificationView with _$VerificationView {
   static const knownProps = <String>['issuer', 'uri', 'isValid', 'createdAt'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory VerificationView({
     @Default('app.bsky.actor.defs#verificationView') String $type,
 

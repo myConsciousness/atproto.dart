@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ModerationGetSubjectsInput with _$ModerationGetSubjectsInput {
   static const knownProps = <String>['subjects'];
 
+  @JsonSerializable(includeIfNull: false)
   const factory ModerationGetSubjectsInput({
     required List<String> subjects,
 

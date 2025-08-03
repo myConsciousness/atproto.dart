@@ -242,8 +242,8 @@ return $default(_that.url,_that.pattern,_that.action,_that.reason,_that.comment,
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _SafelinkAddRuleInput implements SafelinkAddRuleInput {
   const _SafelinkAddRuleInput({required this.url, @PatternTypeConverter() required this.pattern, @ActionTypeConverter() required this.action, @ReasonTypeConverter() required this.reason, this.comment, this.createdBy, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SafelinkAddRuleInput.fromJson(Map<String, dynamic> json) => _$SafelinkAddRuleInputFromJson(json);

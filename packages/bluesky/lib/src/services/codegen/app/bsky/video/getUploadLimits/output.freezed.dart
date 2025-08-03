@@ -211,8 +211,8 @@ return $default(_that.canUpload,_that.remainingDailyVideos,_that.remainingDailyB
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(includeIfNull: false)
 class _VideoGetUploadLimitsOutput implements VideoGetUploadLimitsOutput {
   const _VideoGetUploadLimitsOutput({required this.canUpload, this.remainingDailyVideos, this.remainingDailyBytes, this.message, this.error, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _VideoGetUploadLimitsOutput.fromJson(Map<String, dynamic> json) => _$VideoGetUploadLimitsOutputFromJson(json);
