@@ -73,3 +73,24 @@ enum NotificationReason {
   /// Returns true if this reason is not [starterpackJoined], otherwise false.
   bool get isNotStarterpackJoined => !isStarterpackJoined;
 }
+
+/// Custom JSON converter for [NotificationReason] that handles unknown values.
+class NotificationReasonConverter
+    implements JsonConverter<NotificationReason, String> {
+  const NotificationReasonConverter();
+
+  @override
+  NotificationReason fromJson(String json) {
+    try {
+      return NotificationReason.values.firstWhere(
+        (reason) => reason.value == json,
+      );
+    } catch (e) {
+      // Return unknown for any unrecognized values
+      return NotificationReason.unknown;
+    }
+  }
+
+  @override
+  String toJson(NotificationReason reason) => reason.value;
+}

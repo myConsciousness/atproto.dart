@@ -20,9 +20,9 @@ _$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
           reason: $checkedConvert(
               'reason',
-              (v) =>
-                  $enumDecodeNullable(_$NotificationReasonEnumMap, v) ??
-                  NotificationReason.unknown),
+              (v) => v == null
+                  ? NotificationReason.unknown
+                  : const NotificationReasonConverter().fromJson(v as String)),
           reasonSubject: $checkedConvert(
               'reasonSubject',
               (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -51,7 +51,7 @@ Map<String, dynamic> _$$NotificationImplToJson(_$NotificationImpl instance) =>
       'cid': instance.cid,
       'uri': const AtUriConverter().toJson(instance.uri),
       'author': instance.author.toJson(),
-      'reason': _$NotificationReasonEnumMap[instance.reason]!,
+      'reason': const NotificationReasonConverter().toJson(instance.reason),
       if (_$JsonConverterToJson<String, AtUri>(
               instance.reasonSubject, const AtUriConverter().toJson)
           case final value?)
@@ -62,22 +62,6 @@ Map<String, dynamic> _$$NotificationImplToJson(_$NotificationImpl instance) =>
         'labels': value,
       'indexedAt': instance.indexedAt.toIso8601String(),
     };
-
-const _$NotificationReasonEnumMap = {
-  NotificationReason.like: 'like',
-  NotificationReason.repost: 'repost',
-  NotificationReason.follow: 'follow',
-  NotificationReason.mention: 'mention',
-  NotificationReason.reply: 'reply',
-  NotificationReason.quote: 'quote',
-  NotificationReason.starterpackJoined: 'starterpackJoined',
-  NotificationReason.verified: 'verified',
-  NotificationReason.unverified: 'unverified',
-  NotificationReason.likeViaRepost: 'likeViaRepost',
-  NotificationReason.repostViaRepost: 'repostViaRepost',
-  NotificationReason.subscribedPost: 'subscribedPost',
-  NotificationReason.unknown: 'unknown',
-};
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

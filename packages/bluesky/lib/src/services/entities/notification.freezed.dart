@@ -24,6 +24,7 @@ mixin _$Notification {
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   Actor get author => throw _privateConstructorUsedError;
+  @NotificationReasonConverter()
   NotificationReason get reason => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri? get reasonSubject => throw _privateConstructorUsedError;
@@ -52,7 +53,7 @@ abstract class $NotificationCopyWith<$Res> {
       {String cid,
       @AtUriConverter() AtUri uri,
       Actor author,
-      NotificationReason reason,
+      @NotificationReasonConverter() NotificationReason reason,
       @AtUriConverter() AtUri? reasonSubject,
       bool isRead,
       Map<String, dynamic>? record,
@@ -150,7 +151,7 @@ abstract class _$$NotificationImplCopyWith<$Res>
       {String cid,
       @AtUriConverter() AtUri uri,
       Actor author,
-      NotificationReason reason,
+      @NotificationReasonConverter() NotificationReason reason,
       @AtUriConverter() AtUri? reasonSubject,
       bool isRead,
       Map<String, dynamic>? record,
@@ -233,7 +234,7 @@ class _$NotificationImpl implements _Notification {
       {required this.cid,
       @AtUriConverter() required this.uri,
       required this.author,
-      this.reason = NotificationReason.unknown,
+      @NotificationReasonConverter() this.reason = NotificationReason.unknown,
       @AtUriConverter() this.reasonSubject,
       this.isRead = false,
       final Map<String, dynamic>? record,
@@ -254,6 +255,7 @@ class _$NotificationImpl implements _Notification {
   final Actor author;
   @override
   @JsonKey()
+  @NotificationReasonConverter()
   final NotificationReason reason;
   @override
   @AtUriConverter()
@@ -342,7 +344,7 @@ abstract class _Notification implements Notification {
       {required final String cid,
       @AtUriConverter() required final AtUri uri,
       required final Actor author,
-      final NotificationReason reason,
+      @NotificationReasonConverter() final NotificationReason reason,
       @AtUriConverter() final AtUri? reasonSubject,
       final bool isRead,
       final Map<String, dynamic>? record,
@@ -360,6 +362,7 @@ abstract class _Notification implements Notification {
   @override
   Actor get author;
   @override
+  @NotificationReasonConverter()
   NotificationReason get reason;
   @override
   @AtUriConverter()
