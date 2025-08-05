@@ -51,7 +51,22 @@ import 'richtext/facet/main.dart';
 final class GraphService {
   final z.ServiceContext _ctx;
 
-  GraphService(this._ctx);
+  final GraphFollowRecordAccessor _follow;
+  final GraphStarterpackRecordAccessor _starterpack;
+  final GraphListblockRecordAccessor _listblock;
+  final GraphListitemRecordAccessor _listitem;
+  final GraphListRecordAccessor _list;
+  final GraphVerificationRecordAccessor _verification;
+  final GraphBlockRecordAccessor _block;
+
+  GraphService(this._ctx)
+    : _follow = GraphFollowRecordAccessor(_ctx),
+      _starterpack = GraphStarterpackRecordAccessor(_ctx),
+      _listblock = GraphListblockRecordAccessor(_ctx),
+      _listitem = GraphListitemRecordAccessor(_ctx),
+      _list = GraphListRecordAccessor(_ctx),
+      _verification = GraphVerificationRecordAccessor(_ctx),
+      _block = GraphBlockRecordAccessor(_ctx);
 
   /// Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
   Future<XRPCResponse<EmptyData>> muteActorList({
@@ -65,7 +80,7 @@ final class GraphService {
   );
 
   /// Record declaring a social 'follow' relationship of another account. Duplicate follows will be ignored by the AppView.
-  GraphFollowRecordAccessor get follow => GraphFollowRecordAccessor(_ctx);
+  GraphFollowRecordAccessor get follow => _follow;
 
   /// Unmutes the specified account. Requires auth.
   Future<XRPCResponse<EmptyData>> unmuteActor({
@@ -79,12 +94,10 @@ final class GraphService {
   );
 
   /// Record defining a starter pack of actors and feeds for new users.
-  GraphStarterpackRecordAccessor get starterpack =>
-      GraphStarterpackRecordAccessor(_ctx);
+  GraphStarterpackRecordAccessor get starterpack => _starterpack;
 
   /// Record representing a block relationship against an entire an entire list of accounts (actors).
-  GraphListblockRecordAccessor get listblock =>
-      GraphListblockRecordAccessor(_ctx);
+  GraphListblockRecordAccessor get listblock => _listblock;
 
   /// Enumerates which accounts the requesting account is currently blocking. Requires auth.
   Future<XRPCResponse<GraphGetBlocksOutput>> getBlocks({
@@ -200,10 +213,10 @@ final class GraphService {
   );
 
   /// Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.
-  GraphListitemRecordAccessor get listitem => GraphListitemRecordAccessor(_ctx);
+  GraphListitemRecordAccessor get listitem => _listitem;
 
   /// Record representing a list of accounts (actors). Scope includes both moderation-oriented lists and curration-oriented lists.
-  GraphListRecordAccessor get list => GraphListRecordAccessor(_ctx);
+  GraphListRecordAccessor get list => _list;
 
   /// Unmutes the specified list of accounts. Requires auth.
   Future<XRPCResponse<EmptyData>> unmuteActorList({
@@ -307,8 +320,7 @@ final class GraphService {
   );
 
   /// Record declaring a verification relationship between two accounts. Verifications are only considered valid by an app if issued by an account the app considers trusted.
-  GraphVerificationRecordAccessor get verification =>
-      GraphVerificationRecordAccessor(_ctx);
+  GraphVerificationRecordAccessor get verification => _verification;
 
   /// Enumerates accounts which follow a specified account (actor).
   Future<XRPCResponse<GraphGetFollowersOutput>> getFollowers({
@@ -397,7 +409,7 @@ final class GraphService {
   );
 
   /// Record declaring a 'block' relationship against another account. NOTE: blocks are public in Bluesky; see blog posts for details.
-  GraphBlockRecordAccessor get block => GraphBlockRecordAccessor(_ctx);
+  GraphBlockRecordAccessor get block => _block;
 
   /// Get views for a list of starter packs.
   Future<XRPCResponse<GraphGetStarterPacksOutput>> getStarterPacks({

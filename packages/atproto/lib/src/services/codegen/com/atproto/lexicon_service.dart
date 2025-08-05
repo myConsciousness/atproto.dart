@@ -27,10 +27,12 @@ import '../../../service_context.dart' as z;
 final class LexiconService {
   final z.ServiceContext _ctx;
 
-  LexiconService(this._ctx);
+  final LexiconSchemaRecordAccessor _schema;
+
+  LexiconService(this._ctx) : _schema = LexiconSchemaRecordAccessor(_ctx);
 
   /// Representation of Lexicon schemas themselves, when published as atproto records. Note that the schema language is not defined in Lexicon; this meta schema currently only includes a single version field ('lexicon'). See the atproto specifications for description of the other expected top-level fields ('id', 'defs', etc).
-  LexiconSchemaRecordAccessor get schema => LexiconSchemaRecordAccessor(_ctx);
+  LexiconSchemaRecordAccessor get schema => _schema;
 }
 
 final class LexiconSchemaRecordAccessor {

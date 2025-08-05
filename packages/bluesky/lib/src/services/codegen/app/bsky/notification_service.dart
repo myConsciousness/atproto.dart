@@ -41,7 +41,10 @@ import 'notification/unregisterPush/main_platform.dart';
 final class NotificationService {
   final z.ServiceContext _ctx;
 
-  NotificationService(this._ctx);
+  final NotificationDeclarationRecordAccessor _declaration;
+
+  NotificationService(this._ctx)
+    : _declaration = NotificationDeclarationRecordAccessor(_ctx);
 
   /// Count the number of unread notifications for the requesting account. Requires auth.
   Future<XRPCResponse<NotificationGetUnreadCountOutput>> getUnreadCount({
@@ -83,8 +86,7 @@ final class NotificationService {
   );
 
   /// A declaration of the user's choices related to notifications that can be produced by them.
-  NotificationDeclarationRecordAccessor get declaration =>
-      NotificationDeclarationRecordAccessor(_ctx);
+  NotificationDeclarationRecordAccessor get declaration => _declaration;
 
   /// Puts an activity subscription entry. The key should be omitted for creation and provided for updates. Requires auth.
   Future<XRPCResponse<NotificationPutActivitySubscriptionOutput>>

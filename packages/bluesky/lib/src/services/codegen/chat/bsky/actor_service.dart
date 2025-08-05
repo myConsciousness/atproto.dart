@@ -32,11 +32,12 @@ import 'actor/declaration/main_allow_incoming.dart';
 final class ActorService {
   final z.ServiceContext _ctx;
 
-  ActorService(this._ctx);
+  final ActorDeclarationRecordAccessor _declaration;
+
+  ActorService(this._ctx) : _declaration = ActorDeclarationRecordAccessor(_ctx);
 
   /// A declaration of a Bluesky chat account.
-  ActorDeclarationRecordAccessor get declaration =>
-      ActorDeclarationRecordAccessor(_ctx);
+  ActorDeclarationRecordAccessor get declaration => _declaration;
   Future<XRPCResponse<EmptyData>> deleteAccount({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,

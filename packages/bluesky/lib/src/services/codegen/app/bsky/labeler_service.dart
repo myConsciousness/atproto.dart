@@ -32,11 +32,12 @@ import 'labeler/service/union_main_labels.dart';
 final class LabelerService {
   final z.ServiceContext _ctx;
 
-  LabelerService(this._ctx);
+  final LabelerServiceRecordAccessor _service;
+
+  LabelerService(this._ctx) : _service = LabelerServiceRecordAccessor(_ctx);
 
   /// A declaration of the existence of labeler service.
-  LabelerServiceRecordAccessor get service =>
-      LabelerServiceRecordAccessor(_ctx);
+  LabelerServiceRecordAccessor get service => _service;
 
   /// Get information about a list of labeler services.
   Future<XRPCResponse<LabelerGetServicesOutput>> getServices({

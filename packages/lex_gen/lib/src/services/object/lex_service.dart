@@ -39,7 +39,7 @@ final class LexService {
     return false;
   }
 
-  String getPackagePaths() {
+  String _getPackagePaths() {
     final importPaths = <String>[];
     for (final api in apis) {
       final parameters = api.inputType == null
@@ -122,12 +122,13 @@ final class LexService {
 
   String format() {
     final apis = this.apis.map((e) => e.format()).join();
-    final packagePaths = getPackagePaths();
+    final packagePaths = _getPackagePaths();
 
-    final serviceId = '${lexiconId.toString()}.*';
-
-    final recordAccessors = _getRecordAccessors(
-      this.apis.where((e) => e.isRecord).toList(),
+    final recordApis = this.apis.where((e) => e.isRecord).toList();
+    final recordAccessors = _getRecordAccessors(recordApis);
+    final recordAccessorsFields = _getRecordAccessorsFields(recordApis);
+    final recordAccessorsConstructor = _getRecordAccessorsConstructor(
+      recordApis,
     );
 
     return '''$kHeaderHint
@@ -151,11 +152,15 @@ import '../../../service_context.dart' as z;
 
 $kHeader
 
-/// `$serviceId`
+/// `${lexiconId.toString()}.*`
 final class ${name}Service {
   final z.ServiceContext _ctx;
 
-  ${name}Service(this._ctx);
+  $recordAccessorsFields
+
+  ${name}Service(this._ctx)
+    $recordAccessorsConstructor
+  ;
 
   $apis
 }
@@ -311,6 +316,32 @@ $recordAccessors
     }
 
     return buffer.toString();
+  }
+
+  String _getRecordAccessorsFields(final List<LexApi> recordApis) {
+    if (recordApis.isEmpty) return '';
+
+    final buffer = StringBuffer();
+    for (final api in recordApis) {
+      final name = rule.getRecordTypeName(api.lexiconId);
+
+      buffer.writeln('final ${name}RecordAccessor _${api.name};');
+    }
+
+    return buffer.toString();
+  }
+
+  String _getRecordAccessorsConstructor(final List<LexApi> recordApis) {
+    if (recordApis.isEmpty) return '';
+
+    final buffer = <String>[];
+    for (final api in recordApis) {
+      final name = rule.getRecordTypeName(api.lexiconId);
+
+      buffer.add('_${api.name} = ${name}RecordAccessor(_ctx)');
+    }
+
+    return ':${buffer.join(',')}';
   }
 }
 
@@ -474,9 +505,7 @@ final class LexApi {
     }
 
     final name = rule.getRecordTypeName(lexiconId);
-    buffer.writeln(
-      '${name}RecordAccessor get ${this.name} => ${name}RecordAccessor(_ctx);',
-    );
+    buffer.writeln('${name}RecordAccessor get ${this.name} => _${this.name};');
 
     return buffer.toString();
   }

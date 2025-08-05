@@ -57,7 +57,20 @@ import 'richtext/facet/main.dart';
 final class FeedService {
   final z.ServiceContext _ctx;
 
-  FeedService(this._ctx);
+  final FeedRepostRecordAccessor _repost;
+  final FeedLikeRecordAccessor _like;
+  final FeedThreadgateRecordAccessor _threadgate;
+  final FeedGeneratorRecordAccessor _generator;
+  final FeedPostRecordAccessor _post;
+  final FeedPostgateRecordAccessor _postgate;
+
+  FeedService(this._ctx)
+    : _repost = FeedRepostRecordAccessor(_ctx),
+      _like = FeedLikeRecordAccessor(_ctx),
+      _threadgate = FeedThreadgateRecordAccessor(_ctx),
+      _generator = FeedGeneratorRecordAccessor(_ctx),
+      _post = FeedPostRecordAccessor(_ctx),
+      _postgate = FeedPostgateRecordAccessor(_ctx);
 
   /// Get a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.
   Future<XRPCResponse<FeedGetFeedSkeletonOutput>> getFeedSkeleton({
@@ -135,7 +148,7 @@ final class FeedService {
   );
 
   /// Record representing a 'repost' of an existing Bluesky post.
-  FeedRepostRecordAccessor get repost => FeedRepostRecordAccessor(_ctx);
+  FeedRepostRecordAccessor get repost => _repost;
 
   /// Get a list of quotes for a given post.
   Future<XRPCResponse<FeedGetQuotesOutput>> getQuotes({
@@ -176,7 +189,7 @@ final class FeedService {
   );
 
   /// Record declaring a 'like' of a piece of subject content.
-  FeedLikeRecordAccessor get like => FeedLikeRecordAccessor(_ctx);
+  FeedLikeRecordAccessor get like => _like;
 
   /// Get a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.
   Future<XRPCResponse<FeedGetListFeedOutput>> getListFeed({
@@ -262,12 +275,10 @@ final class FeedService {
   );
 
   /// Record defining interaction gating rules for a thread (aka, reply controls). The record key (rkey) of the threadgate record must match the record key of the thread's root post, and that record must be in the same repository.
-  FeedThreadgateRecordAccessor get threadgate =>
-      FeedThreadgateRecordAccessor(_ctx);
+  FeedThreadgateRecordAccessor get threadgate => _threadgate;
 
   /// Record declaring of the existence of a feed generator, and containing metadata about it. The record can exist in any repository.
-  FeedGeneratorRecordAccessor get generator =>
-      FeedGeneratorRecordAccessor(_ctx);
+  FeedGeneratorRecordAccessor get generator => _generator;
 
   /// Get a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed.
   Future<XRPCResponse<FeedGetTimelineOutput>> getTimeline({
@@ -351,7 +362,7 @@ final class FeedService {
   );
 
   /// Record containing a Bluesky post.
-  FeedPostRecordAccessor get post => FeedPostRecordAccessor(_ctx);
+  FeedPostRecordAccessor get post => _post;
 
   /// Get posts in a thread. Does not require auth, but additional metadata and filtering will be applied for authed requests.
   Future<XRPCResponse<FeedGetPostThreadOutput>> getPostThread({
@@ -373,7 +384,7 @@ final class FeedService {
   );
 
   /// Record defining interaction rules for a post. The record key (rkey) of the postgate record must match the record key of the post, and that record must be in the same repository.
-  FeedPostgateRecordAccessor get postgate => FeedPostgateRecordAccessor(_ctx);
+  FeedPostgateRecordAccessor get postgate => _postgate;
 
   /// Get a list of posts liked by an actor. Requires auth, actor must be the requesting account.
   Future<XRPCResponse<FeedGetActorLikesOutput>> getActorLikes({

@@ -39,7 +39,12 @@ import 'actor/status/union_main_embed.dart';
 final class ActorService {
   final z.ServiceContext _ctx;
 
-  ActorService(this._ctx);
+  final ActorProfileRecordAccessor _profile;
+  final ActorStatusRecordAccessor _status;
+
+  ActorService(this._ctx)
+    : _profile = ActorProfileRecordAccessor(_ctx),
+      _status = ActorStatusRecordAccessor(_ctx);
 
   /// Find actor suggestions for a prefix search term. Expected use is for auto-completion during text field entry. Does not require auth.
   Future<XRPCResponse<ActorSearchActorsTypeaheadOutput>> searchActorsTypeahead({
@@ -73,7 +78,7 @@ final class ActorService {
   );
 
   /// A declaration of a Bluesky account profile.
-  ActorProfileRecordAccessor get profile => ActorProfileRecordAccessor(_ctx);
+  ActorProfileRecordAccessor get profile => _profile;
 
   /// Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.
   Future<XRPCResponse<ActorGetPreferencesOutput>> getPreferences({
@@ -137,7 +142,7 @@ final class ActorService {
   );
 
   /// A declaration of a Bluesky account status.
-  ActorStatusRecordAccessor get status => ActorStatusRecordAccessor(_ctx);
+  ActorStatusRecordAccessor get status => _status;
 
   /// Set the private preferences attached to the account.
   Future<XRPCResponse<EmptyData>> putPreferences({
