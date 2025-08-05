@@ -11,9 +11,6 @@
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import './main_purposes.dart';
-
 part 'input.freezed.dart';
 part 'input.g.dart';
 
@@ -22,41 +19,47 @@ part 'input.g.dart';
 // **************************************************************************
 
 @freezed
-abstract class GraphGetListsInput with _$GraphGetListsInput {
-  static const knownProps = <String>['actor', 'limit', 'cursor', 'purposes'];
+abstract class GraphGetStarterPacksWithMembershipInput
+    with _$GraphGetStarterPacksWithMembershipInput {
+  static const knownProps = <String>['actor', 'limit', 'cursor'];
 
   @JsonSerializable(includeIfNull: false)
-  const factory GraphGetListsInput({
-    /// The account (actor) to enumerate lists from.
+  const factory GraphGetStarterPacksWithMembershipInput({
+    /// The account (actor) to check for membership.
     required String actor,
     @Default(50) int limit,
     String? cursor,
-    @GraphGetListsPurposesConverter() List<GraphGetListsPurposes>? purposes,
 
     Map<String, dynamic>? $unknown,
-  }) = _GraphGetListsInput;
+  }) = _GraphGetStarterPacksWithMembershipInput;
 
-  factory GraphGetListsInput.fromJson(Map<String, Object?> json) =>
-      _$GraphGetListsInputFromJson(json);
+  factory GraphGetStarterPacksWithMembershipInput.fromJson(
+    Map<String, Object?> json,
+  ) => _$GraphGetStarterPacksWithMembershipInputFromJson(json);
 }
 
-extension GraphGetListsInputExtension on GraphGetListsInput {
+extension GraphGetStarterPacksWithMembershipInputExtension
+    on GraphGetStarterPacksWithMembershipInput {
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }
 
-final class GraphGetListsInputConverter
-    extends JsonConverter<GraphGetListsInput, Map<String, dynamic>> {
-  const GraphGetListsInputConverter();
+final class GraphGetStarterPacksWithMembershipInputConverter
+    extends
+        JsonConverter<
+          GraphGetStarterPacksWithMembershipInput,
+          Map<String, dynamic>
+        > {
+  const GraphGetStarterPacksWithMembershipInputConverter();
 
   @override
-  GraphGetListsInput fromJson(Map<String, dynamic> json) {
-    return GraphGetListsInput.fromJson(
-      translate(json, GraphGetListsInput.knownProps),
+  GraphGetStarterPacksWithMembershipInput fromJson(Map<String, dynamic> json) {
+    return GraphGetStarterPacksWithMembershipInput.fromJson(
+      translate(json, GraphGetStarterPacksWithMembershipInput.knownProps),
     );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphGetListsInput object) =>
+  Map<String, dynamic> toJson(GraphGetStarterPacksWithMembershipInput object) =>
       untranslate(object.toJson());
 }

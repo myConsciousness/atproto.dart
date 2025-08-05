@@ -11,6 +11,6 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/codegen/app/bsky/graph/getLists/input.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/graph/getLists/main_purposes.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/graph/getLists/output.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/graph/getStarterPacksWithMembership/input.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/graph/getStarterPacksWithMembership/output.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/graph/getStarterPacksWithMembership/starter_pack_with_membership.dart';

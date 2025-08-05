@@ -12,51 +12,53 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import './main_purposes.dart';
+import './list_with_membership.dart';
 
-part 'input.freezed.dart';
-part 'input.g.dart';
+part 'output.freezed.dart';
+part 'output.g.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
 @freezed
-abstract class GraphGetListsInput with _$GraphGetListsInput {
-  static const knownProps = <String>['actor', 'limit', 'cursor', 'purposes'];
+abstract class GraphGetListsWithMembershipOutput
+    with _$GraphGetListsWithMembershipOutput {
+  static const knownProps = <String>['cursor', 'listsWithMembership'];
 
   @JsonSerializable(includeIfNull: false)
-  const factory GraphGetListsInput({
-    /// The account (actor) to enumerate lists from.
-    required String actor,
-    @Default(50) int limit,
+  const factory GraphGetListsWithMembershipOutput({
     String? cursor,
-    @GraphGetListsPurposesConverter() List<GraphGetListsPurposes>? purposes,
+    @ListWithMembershipConverter()
+    required List<ListWithMembership> listsWithMembership,
 
     Map<String, dynamic>? $unknown,
-  }) = _GraphGetListsInput;
+  }) = _GraphGetListsWithMembershipOutput;
 
-  factory GraphGetListsInput.fromJson(Map<String, Object?> json) =>
-      _$GraphGetListsInputFromJson(json);
+  factory GraphGetListsWithMembershipOutput.fromJson(
+    Map<String, Object?> json,
+  ) => _$GraphGetListsWithMembershipOutputFromJson(json);
 }
 
-extension GraphGetListsInputExtension on GraphGetListsInput {
+extension GraphGetListsWithMembershipOutputExtension
+    on GraphGetListsWithMembershipOutput {
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }
 
-final class GraphGetListsInputConverter
-    extends JsonConverter<GraphGetListsInput, Map<String, dynamic>> {
-  const GraphGetListsInputConverter();
+final class GraphGetListsWithMembershipOutputConverter
+    extends
+        JsonConverter<GraphGetListsWithMembershipOutput, Map<String, dynamic>> {
+  const GraphGetListsWithMembershipOutputConverter();
 
   @override
-  GraphGetListsInput fromJson(Map<String, dynamic> json) {
-    return GraphGetListsInput.fromJson(
-      translate(json, GraphGetListsInput.knownProps),
+  GraphGetListsWithMembershipOutput fromJson(Map<String, dynamic> json) {
+    return GraphGetListsWithMembershipOutput.fromJson(
+      translate(json, GraphGetListsWithMembershipOutput.knownProps),
     );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphGetListsInput object) =>
+  Map<String, dynamic> toJson(GraphGetListsWithMembershipOutput object) =>
       untranslate(object.toJson());
 }

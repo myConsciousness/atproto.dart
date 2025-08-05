@@ -14,42 +14,36 @@ import '../../../../query_command.dart';
 // LexGenerator
 // **************************************************************************
 
-final class GetListsCommand extends QueryCommand {
-  GetListsCommand() {
+final class GetStarterPacksWithMembershipCommand extends QueryCommand {
+  GetStarterPacksWithMembershipCommand() {
     argParser
       ..addOption(
         "actor",
-        help: r"The account (actor) to enumerate lists from.",
+        help: r"The account (actor) to check for membership.",
         mandatory: true,
       )
       ..addOption("limit", defaultsTo: "50")
-      ..addOption("cursor")
-      ..addMultiOption(
-        "purposes",
-        help:
-            r"Optional filter by list purpose. If not specified, all supported types are returned.",
-      );
+      ..addOption("cursor");
   }
 
   @override
-  final String name = "get-lists";
+  final String name = "get-starter-packs-with-membership";
 
   @override
   final String description =
-      r"Enumerates the lists created by a specified account (actor).";
+      r"Enumerates the starter packs created by the session user, and includes membership information about `actor` in those starter packs. Requires auth.";
 
   @override
   final String invocation =
-      "bsky app-bsky-graph get-lists [actor] [limit] [cursor] [purposes]";
+      "bsky app-bsky-graph get-starter-packs-with-membership [actor] [limit] [cursor]";
 
   @override
-  String get methodId => "app.bsky.graph.getLists";
+  String get methodId => "app.bsky.graph.getStarterPacksWithMembership";
 
   @override
   Map<String, dynamic>? get parameters => {
     "actor": argResults!["actor"],
     "limit": argResults!["limit"],
     if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    if (argResults!["purposes"] != null) "purposes": argResults!["purposes"],
   };
 }

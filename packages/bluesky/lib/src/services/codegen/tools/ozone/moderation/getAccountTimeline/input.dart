@@ -11,9 +11,6 @@
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// Project imports:
-import './main_purposes.dart';
-
 part 'input.freezed.dart';
 part 'input.g.dart';
 
@@ -22,41 +19,35 @@ part 'input.g.dart';
 // **************************************************************************
 
 @freezed
-abstract class GraphGetListsInput with _$GraphGetListsInput {
-  static const knownProps = <String>['actor', 'limit', 'cursor', 'purposes'];
+abstract class ModerationGetAccountTimelineInput
+    with _$ModerationGetAccountTimelineInput {
+  static const knownProps = <String>['did'];
 
   @JsonSerializable(includeIfNull: false)
-  const factory GraphGetListsInput({
-    /// The account (actor) to enumerate lists from.
-    required String actor,
-    @Default(50) int limit,
-    String? cursor,
-    @GraphGetListsPurposesConverter() List<GraphGetListsPurposes>? purposes,
+  const factory ModerationGetAccountTimelineInput({
+    required String did,
 
     Map<String, dynamic>? $unknown,
-  }) = _GraphGetListsInput;
+  }) = _ModerationGetAccountTimelineInput;
 
-  factory GraphGetListsInput.fromJson(Map<String, Object?> json) =>
-      _$GraphGetListsInputFromJson(json);
+  factory ModerationGetAccountTimelineInput.fromJson(
+    Map<String, Object?> json,
+  ) => _$ModerationGetAccountTimelineInputFromJson(json);
 }
 
-extension GraphGetListsInputExtension on GraphGetListsInput {
-  bool get hasCursor => cursor != null;
-  bool get hasNotCursor => !hasCursor;
-}
-
-final class GraphGetListsInputConverter
-    extends JsonConverter<GraphGetListsInput, Map<String, dynamic>> {
-  const GraphGetListsInputConverter();
+final class ModerationGetAccountTimelineInputConverter
+    extends
+        JsonConverter<ModerationGetAccountTimelineInput, Map<String, dynamic>> {
+  const ModerationGetAccountTimelineInputConverter();
 
   @override
-  GraphGetListsInput fromJson(Map<String, dynamic> json) {
-    return GraphGetListsInput.fromJson(
-      translate(json, GraphGetListsInput.knownProps),
+  ModerationGetAccountTimelineInput fromJson(Map<String, dynamic> json) {
+    return ModerationGetAccountTimelineInput.fromJson(
+      translate(json, ModerationGetAccountTimelineInput.knownProps),
     );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphGetListsInput object) =>
+  Map<String, dynamic> toJson(ModerationGetAccountTimelineInput object) =>
       untranslate(object.toJson());
 }
