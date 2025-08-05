@@ -24,9 +24,10 @@ import 'label/queryLabels/output.dart';
 
 /// `com.atproto.label.*`
 final class LabelService {
-  LabelService(this._ctx);
-
+  // ignore: unused_field
   final z.ServiceContext _ctx;
+
+  LabelService(this._ctx);
 
   /// Subscribe to stream of labels (and negations). Public endpoint implemented by mod services. Uses same sequencing scheme as repo event stream.
   Future<XRPCResponse<Subscription<Uint8List>>> subscribeLabels({

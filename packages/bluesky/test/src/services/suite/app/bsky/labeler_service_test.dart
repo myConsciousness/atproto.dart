@@ -15,7 +15,7 @@ void main() {
   );
 
   testLabeler<RepoCreateRecordOutput>(
-    (m, s) => s.service(
+    (m, s) => s.service.create(
       policies: LabelerPolicies(
         labelValues: const [LabelValue.knownValue(data: KnownLabelValue.hide)],
       ),

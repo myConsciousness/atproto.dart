@@ -26,9 +26,10 @@ import 'video/uploadVideo/output.dart';
 
 /// `app.bsky.video.*`
 final class VideoService {
-  VideoService(this._ctx);
-
+  // ignore: unused_field
   final z.ServiceContext _ctx;
+
+  VideoService(this._ctx);
 
   /// Upload a video to be processed then stored on the PDS.
   Future<XRPCResponse<VideoUploadVideoOutput>> uploadVideo({

@@ -22,9 +22,10 @@ import 'communication/listTemplates/output.dart';
 
 /// `tools.ozone.communication.*`
 final class CommunicationService {
-  CommunicationService(this._ctx);
-
+  // ignore: unused_field
   final z.ServiceContext _ctx;
+
+  CommunicationService(this._ctx);
 
   /// Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.
   Future<XRPCResponse<TemplateView>> updateTemplate({

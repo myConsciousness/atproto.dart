@@ -23,9 +23,10 @@ import 'temp/fetchLabels/output.dart';
 
 /// `com.atproto.temp.*`
 final class TempService {
-  TempService(this._ctx);
-
+  // ignore: unused_field
   final z.ServiceContext _ctx;
+
+  TempService(this._ctx);
 
   /// Checks whether the provided handle is available. If the handle is not available, available suggestions will be returned. Optional inputs will be used to generate suggestions.
   Future<XRPCResponse<TempCheckHandleAvailabilityOutput>>

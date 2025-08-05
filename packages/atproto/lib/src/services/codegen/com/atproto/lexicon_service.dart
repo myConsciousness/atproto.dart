@@ -12,6 +12,10 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import 'package:atproto/com_atproto_repo_createrecord.dart';
+import 'package:atproto/com_atproto_repo_deleterecord.dart';
+import 'package:atproto/com_atproto_repo_getrecord.dart';
+import 'package:atproto/com_atproto_repo_listrecords.dart';
+import 'package:atproto/com_atproto_repo_putrecord.dart';
 import '../../../../ids.g.dart' as ids;
 import '../../../service_context.dart' as z;
 
@@ -21,20 +25,104 @@ import '../../../service_context.dart' as z;
 
 /// `com.atproto.lexicon.*`
 final class LexiconService {
-  LexiconService(this._ctx);
-
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
+  final LexiconSchemaRecordAccessor _schema;
+
+  LexiconService(this._ctx) : _schema = LexiconSchemaRecordAccessor(_ctx);
+
   /// Representation of Lexicon schemas themselves, when published as atproto records. Note that the schema language is not defined in Lexicon; this meta schema currently only includes a single version field ('lexicon'). See the atproto specifications for description of the other expected top-level fields ('id', 'defs', etc).
-  Future<XRPCResponse<RepoCreateRecordOutput>> schema({
+  LexiconSchemaRecordAccessor get schema => _schema;
+}
+
+final class LexiconSchemaRecordAccessor {
+  final z.ServiceContext _ctx;
+
+  const LexiconSchemaRecordAccessor(this._ctx);
+
+  Future<XRPCResponse<RepoGetRecordOutput>> get({
+    required String repo,
+    required String rkey,
+    String? cid,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.repo.getRecord(
+    repo: repo,
+    collection: ids.comAtprotoLexiconSchema,
+    rkey: rkey,
+    cid: cid,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoListRecordsOutput>> list({
+    required String repo,
+    int? limit,
+    String? cursor,
+    bool? reverse,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.repo.listRecords(
+    repo: repo,
+    collection: ids.comAtprotoLexiconSchema,
+    limit: limit,
+    cursor: cursor,
+    reverse: reverse,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoCreateRecordOutput>> create({
     required int lexicon,
-    String? $rey,
+    String? rkey,
+    bool? validate,
+    String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.repo.createRecord(
     repo: _ctx.$repo,
     collection: ids.comAtprotoLexiconSchema,
-    rkey: $rey,
+    rkey: rkey,
+    validate: validate,
     record: {...?$unknown, 'lexicon': lexicon},
+    swapCommit: swapCommit,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoPutRecordOutput>> put({
+    required int lexicon,
+    required String rkey,
+    bool? validate,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.repo.putRecord(
+    repo: _ctx.$repo,
+    collection: ids.comAtprotoLexiconSchema,
+    rkey: rkey,
+    validate: validate,
+    record: {...?$unknown, 'lexicon': lexicon},
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
+    required String rkey,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.repo.deleteRecord(
+    repo: _ctx.$repo,
+    collection: ids.comAtprotoLexiconSchema,
+    rkey: rkey,
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }

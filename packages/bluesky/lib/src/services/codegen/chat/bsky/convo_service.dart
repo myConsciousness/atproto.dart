@@ -42,9 +42,10 @@ import 'convo/updateRead/output.dart';
 
 /// `chat.bsky.convo.*`
 final class ConvoService {
-  ConvoService(this._ctx);
-
+  // ignore: unused_field
   final z.ServiceContext _ctx;
+
+  ConvoService(this._ctx);
 
   Future<XRPCResponse<ConvoUpdateAllReadOutput>> updateAllRead({
     ConvoUpdateAllReadStatus? status,

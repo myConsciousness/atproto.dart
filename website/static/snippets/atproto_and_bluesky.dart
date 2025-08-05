@@ -33,7 +33,7 @@ Future<void> main(List<String> args) async {
     final text = record.text.toLowerCase();
 
     if (text.contains('bluesky')) {
-      await bsky.feed.like(
+      await bsky.feed.like.create(
         subject: RepoStrongRef(cid: feed.post.cid, uri: feed.post.uri),
       );
     }

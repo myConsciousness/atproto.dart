@@ -22,9 +22,10 @@ import 'moderation/getMessageContext/output.dart';
 
 /// `chat.bsky.moderation.*`
 final class ModerationService {
-  ModerationService(this._ctx);
-
+  // ignore: unused_field
   final z.ServiceContext _ctx;
+
+  ModerationService(this._ctx);
 
   Future<XRPCResponse<ModerationGetActorMetadataOutput>> getActorMetadata({
     required String actor,

@@ -22,9 +22,10 @@ import 'hosting/getAccountHistory/output.dart';
 
 /// `tools.ozone.hosting.*`
 final class HostingService {
-  HostingService(this._ctx);
-
+  // ignore: unused_field
   final z.ServiceContext _ctx;
+
+  HostingService(this._ctx);
 
   /// Get account history, e.g. log of updated email addresses or other identity information.
   Future<XRPCResponse<HostingGetAccountHistoryOutput>> getAccountHistory({

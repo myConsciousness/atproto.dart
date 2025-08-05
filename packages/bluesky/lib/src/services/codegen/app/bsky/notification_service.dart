@@ -9,6 +9,10 @@
 
 // Package imports:
 import 'package:atproto/com_atproto_repo_createrecord.dart';
+import 'package:atproto/com_atproto_repo_deleterecord.dart';
+import 'package:atproto/com_atproto_repo_getrecord.dart';
+import 'package:atproto/com_atproto_repo_listrecords.dart';
+import 'package:atproto/com_atproto_repo_putrecord.dart';
 import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
@@ -35,9 +39,13 @@ import 'notification/unregisterPush/main_platform.dart';
 
 /// `app.bsky.notification.*`
 final class NotificationService {
-  NotificationService(this._ctx);
-
+  // ignore: unused_field
   final z.ServiceContext _ctx;
+
+  final NotificationDeclarationRecordAccessor _declaration;
+
+  NotificationService(this._ctx)
+    : _declaration = NotificationDeclarationRecordAccessor(_ctx);
 
   /// Count the number of unread notifications for the requesting account. Requires auth.
   Future<XRPCResponse<NotificationGetUnreadCountOutput>> getUnreadCount({
@@ -79,17 +87,7 @@ final class NotificationService {
   );
 
   /// A declaration of the user's choices related to notifications that can be produced by them.
-  Future<XRPCResponse<RepoCreateRecordOutput>> declaration({
-    required NotificationDeclarationAllowSubscriptions allowSubscriptions,
-    String? $rey,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
-    collection: ids.appBskyNotificationDeclaration,
-    rkey: $rey,
-    record: {...?$unknown, 'allowSubscriptions': allowSubscriptions.toJson()},
-  );
+  NotificationDeclarationRecordAccessor get declaration => _declaration;
 
   /// Puts an activity subscription entry. The key should be omitted for creation and provided for updates. Requires auth.
   Future<XRPCResponse<NotificationPutActivitySubscriptionOutput>>
@@ -241,5 +239,96 @@ final class NotificationService {
       if (verified != null) 'verified': verified.toJson(),
     },
     to: const NotificationPutPreferencesV2OutputConverter().fromJson,
+  );
+}
+
+final class NotificationDeclarationRecordAccessor {
+  final z.ServiceContext _ctx;
+
+  const NotificationDeclarationRecordAccessor(this._ctx);
+
+  Future<XRPCResponse<RepoGetRecordOutput>> get({
+    required String repo,
+    String rkey = 'self',
+    String? cid,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.repo.getRecord(
+    repo: repo,
+    collection: ids.appBskyNotificationDeclaration,
+    rkey: rkey,
+    cid: cid,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoListRecordsOutput>> list({
+    required String repo,
+    int? limit,
+    String? cursor,
+    bool? reverse,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.repo.listRecords(
+    repo: repo,
+    collection: ids.appBskyNotificationDeclaration,
+    limit: limit,
+    cursor: cursor,
+    reverse: reverse,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoCreateRecordOutput>> create({
+    required NotificationDeclarationAllowSubscriptions allowSubscriptions,
+    String rkey = 'self',
+    bool? validate,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.repo.createRecord(
+    repo: _ctx.$repo,
+    collection: ids.appBskyNotificationDeclaration,
+    rkey: rkey,
+    validate: validate,
+    record: {...?$unknown, 'allowSubscriptions': allowSubscriptions.toJson()},
+    swapCommit: swapCommit,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoPutRecordOutput>> put({
+    required NotificationDeclarationAllowSubscriptions allowSubscriptions,
+    String rkey = 'self',
+    bool? validate,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.repo.putRecord(
+    repo: _ctx.$repo,
+    collection: ids.appBskyNotificationDeclaration,
+    rkey: rkey,
+    validate: validate,
+    record: {...?$unknown, 'allowSubscriptions': allowSubscriptions.toJson()},
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
+    String rkey = 'self',
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.repo.deleteRecord(
+    repo: _ctx.$repo,
+    collection: ids.appBskyNotificationDeclaration,
+    rkey: rkey,
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }

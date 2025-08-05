@@ -39,7 +39,7 @@ final class LexService {
     return false;
   }
 
-  String getPackagePaths() {
+  String _getPackagePaths() {
     final importPaths = <String>[];
     for (final api in apis) {
       final parameters = api.inputType == null
@@ -122,13 +122,24 @@ final class LexService {
 
   String format() {
     final apis = this.apis.map((e) => e.format()).join();
-    final packagePaths = getPackagePaths();
+    final packagePaths = _getPackagePaths();
 
-    final serviceId = '${lexiconId.toString()}.*';
+    final recordApis = this.apis.where((e) => e.isRecord).toList();
+    final recordAccessors = _getRecordAccessors(recordApis);
+    final recordAccessorsFields = _getRecordAccessorsFields(recordApis);
+    final recordAccessorsConstructor = _getRecordAccessorsConstructor(
+      recordApis,
+    );
 
     return '''$kHeaderHint
 
 import 'package:atproto_core/atproto_core.dart';
+
+import 'package:atproto/com_atproto_repo_createrecord.dart';
+import 'package:atproto/com_atproto_repo_deleterecord.dart';
+import 'package:atproto/com_atproto_repo_getrecord.dart';
+import 'package:atproto/com_atproto_repo_listrecords.dart';
+import 'package:atproto/com_atproto_repo_putrecord.dart';
 
 $packagePaths
 
@@ -141,15 +152,197 @@ import '../../../service_context.dart' as z;
 
 $kHeader
 
-/// `$serviceId`
+/// `${lexiconId.toString()}.*`
 final class ${name}Service {
-  ${name}Service(this._ctx);
-
+  // ignore: unused_field
   final z.ServiceContext _ctx;
+
+  $recordAccessorsFields
+
+  ${name}Service(this._ctx)
+    $recordAccessorsConstructor
+  ;
 
   $apis
 }
+
+$recordAccessors
 ''';
+  }
+
+  String _getRecordAccessors(final List<LexApi> recordApis) {
+    if (recordApis.isEmpty) return '';
+
+    final buffer = StringBuffer();
+
+    for (final api in recordApis) {
+      final name = rule.getRecordTypeName(api.lexiconId);
+      final id = rule.getNamespaceIdForApi(api.lexiconId);
+
+      final parameters = api.inputType == null
+          ? const <LexParameter>[]
+          : api.inputType!
+                .getProperties()
+                .map((e) => e.toLexParameter())
+                .toList();
+
+      buffer.writeln('final class ${name}RecordAccessor {');
+      buffer.writeln('  final z.ServiceContext _ctx;');
+      buffer.writeln();
+      buffer.writeln('  const ${name}RecordAccessor(this._ctx);');
+      buffer.writeln();
+      buffer.writeln('  Future<XRPCResponse<RepoGetRecordOutput>> get({');
+      buffer.writeln('    required String repo,');
+      if (api.rkey?.startsWith('literal') ?? false) {
+        final key = api.rkey!.split('literal:').last;
+        buffer.writeln("    String rkey = '$key',");
+      } else {
+        buffer.writeln('    required String rkey,');
+      }
+      buffer.writeln('    String? cid,');
+      buffer.writeln('    Map<String, String>? \$headers,');
+      buffer.writeln('    Map<String, String>? \$unknown,');
+      buffer.writeln('  }) async => await _ctx.repo.getRecord(');
+      buffer.writeln('    repo: repo,');
+      buffer.writeln('    collection: ids.$id,');
+      buffer.writeln('    rkey: rkey,');
+      buffer.writeln('    cid: cid,');
+      buffer.writeln('    \$headers: \$headers,');
+      buffer.writeln('    \$unknown: \$unknown,');
+      buffer.writeln('  );');
+      buffer.writeln();
+      buffer.writeln('  Future<XRPCResponse<RepoListRecordsOutput>> list({');
+      buffer.writeln('    required String repo,');
+      buffer.writeln('    int? limit,');
+      buffer.writeln('    String? cursor,');
+      buffer.writeln('    bool? reverse,');
+      buffer.writeln('    Map<String, String>? \$headers,');
+      buffer.writeln('    Map<String, String>? \$unknown,');
+      buffer.writeln('  }) async => await _ctx.repo.listRecords(');
+      buffer.writeln('    repo: repo,');
+      buffer.writeln('    collection: ids.$id,');
+      buffer.writeln('    limit: limit,');
+      buffer.writeln('    cursor: cursor,');
+      buffer.writeln('    reverse: reverse,');
+      buffer.writeln('    \$headers: \$headers,');
+      buffer.writeln('    \$unknown: \$unknown,');
+      buffer.writeln('  );');
+      buffer.writeln();
+      buffer.writeln('  Future<XRPCResponse<RepoCreateRecordOutput>> create({');
+      for (final parameter in parameters) {
+        buffer.writeln(
+          parameter.getParams(ignoreRequired: parameter.name == 'createdAt'),
+        );
+      }
+      if (api.rkey?.startsWith('literal') ?? false) {
+        final key = api.rkey!.split('literal:').last;
+        buffer.writeln("    String rkey = '$key',");
+      } else {
+        buffer.writeln('    String? rkey,');
+      }
+      buffer.writeln('    bool? validate,');
+      buffer.writeln('    String? swapCommit,');
+      buffer.writeln('    Map<String, String>? \$headers,');
+      buffer.writeln('    Map<String, String>? \$unknown,');
+      buffer.writeln('  }) async => await _ctx.repo.createRecord(');
+      buffer.writeln('    repo: _ctx.\$repo,');
+      buffer.writeln('    collection: ids.$id,');
+      buffer.writeln('    rkey: rkey,');
+      buffer.writeln('    validate: validate,');
+      buffer.writeln('    record: {');
+      buffer.writeln('      ...?\$unknown,');
+      for (final parameter in parameters) {
+        buffer.writeln(parameter.getParamsRecord());
+      }
+      buffer.writeln('    },');
+      buffer.writeln('    swapCommit: swapCommit,');
+      buffer.writeln('    \$headers: \$headers,');
+      buffer.writeln('  );');
+      buffer.writeln();
+      buffer.writeln('  Future<XRPCResponse<RepoPutRecordOutput>> put({');
+      for (final parameter in parameters) {
+        buffer.writeln(
+          parameter.getParams(ignoreRequired: parameter.name == 'createdAt'),
+        );
+      }
+      if (api.rkey?.startsWith('literal') ?? false) {
+        final key = api.rkey!.split('literal:').last;
+        buffer.writeln("    String rkey = '$key',");
+      } else {
+        buffer.writeln('    required String rkey,');
+      }
+      buffer.writeln('    bool? validate,');
+      buffer.writeln('    String? swapRecord,');
+      buffer.writeln('    String? swapCommit,');
+      buffer.writeln('    Map<String, String>? \$headers,');
+      buffer.writeln('    Map<String, String>? \$unknown,');
+      buffer.writeln('  }) async => await _ctx.repo.putRecord(');
+      buffer.writeln('    repo: _ctx.\$repo,');
+      buffer.writeln('    collection: ids.$id,');
+      buffer.writeln('    rkey: rkey,');
+      buffer.writeln('    validate: validate,');
+      buffer.writeln('    record: {');
+      buffer.writeln('      ...?\$unknown,');
+      for (final parameter in parameters) {
+        buffer.writeln(parameter.getParamsRecord());
+      }
+      buffer.writeln('    },');
+      buffer.writeln('    swapRecord: swapRecord,');
+      buffer.writeln('    swapCommit: swapCommit,');
+      buffer.writeln('    \$headers: \$headers,');
+      buffer.writeln('    \$unknown: \$unknown,');
+      buffer.writeln('  );');
+      buffer.writeln('');
+      buffer.writeln('  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({');
+      if (api.rkey?.startsWith('literal') ?? false) {
+        final key = api.rkey!.split('literal:').last;
+        buffer.writeln("    String rkey = '$key',");
+      } else {
+        buffer.writeln('    required String rkey,');
+      }
+      buffer.writeln('    String? swapRecord,');
+      buffer.writeln('    String? swapCommit,');
+      buffer.writeln('    Map<String, String>? \$headers,');
+      buffer.writeln('    Map<String, String>? \$unknown,');
+      buffer.writeln('  }) async => await _ctx.repo.deleteRecord(');
+      buffer.writeln('    repo: _ctx.\$repo,');
+      buffer.writeln('    collection: ids.$id,');
+      buffer.writeln('    rkey: rkey,');
+      buffer.writeln('    swapRecord: swapRecord,');
+      buffer.writeln('    swapCommit: swapCommit,');
+      buffer.writeln('    \$headers: \$headers,');
+      buffer.writeln('    \$unknown: \$unknown,');
+      buffer.writeln('  );');
+      buffer.writeln('}');
+    }
+
+    return buffer.toString();
+  }
+
+  String _getRecordAccessorsFields(final List<LexApi> recordApis) {
+    if (recordApis.isEmpty) return '';
+
+    final buffer = StringBuffer();
+    for (final api in recordApis) {
+      final name = rule.getRecordTypeName(api.lexiconId);
+
+      buffer.writeln('final ${name}RecordAccessor _${api.name};');
+    }
+
+    return buffer.toString();
+  }
+
+  String _getRecordAccessorsConstructor(final List<LexApi> recordApis) {
+    if (recordApis.isEmpty) return '';
+
+    final buffer = <String>[];
+    for (final api in recordApis) {
+      final name = rule.getRecordTypeName(api.lexiconId);
+
+      buffer.add('_${api.name} = ${name}RecordAccessor(_ctx)');
+    }
+
+    return ':${buffer.join(',')}';
   }
 }
 
@@ -160,6 +353,8 @@ final class LexApi {
   final String? description;
   final LexType? inputType;
   final LexType? returnType;
+
+  final String? rkey;
 
   final bool isQuery;
   final bool isProcedure;
@@ -172,6 +367,7 @@ final class LexApi {
     this.description,
     this.inputType,
     this.returnType,
+    this.rkey,
     this.isQuery = false,
     this.isProcedure = false,
     this.isSubscription = false,
@@ -304,33 +500,13 @@ final class LexApi {
   }
 
   String _getRecordApi(List<LexParameter> parameters) {
-    final ns = rule.getNamespaceIdForApi(lexiconId);
-
     final buffer = StringBuffer();
     if (description != null) {
       buffer.writeln('/// $description');
     }
-    buffer.writeln('Future<XRPCResponse<RepoCreateRecordOutput>> $name({');
-    for (final parameter in parameters) {
-      buffer.writeln(
-        parameter.getParams(ignoreRequired: parameter.name == 'createdAt'),
-      );
-    }
-    buffer.writeln('  String? \$rey,');
-    buffer.writeln('  Map<String, String>? \$headers,');
-    buffer.writeln('  Map<String, String>? \$unknown,');
-    buffer.writeln('}) async =>');
-    buffer.writeln('  await _ctx.repo.createRecord(');
-    buffer.writeln('    repo: _ctx.\$repo,');
-    buffer.writeln('    collection: ids.$ns,');
-    buffer.writeln('    rkey: \$rey,');
-    buffer.writeln('    record: {');
-    buffer.writeln('      ...?\$unknown,');
-    for (final parameter in parameters) {
-      buffer.writeln(parameter.getParamsRecord());
-    }
-    buffer.writeln('    },');
-    buffer.writeln('  );');
+
+    final name = rule.getRecordTypeName(lexiconId);
+    buffer.writeln('${name}RecordAccessor get ${this.name} => _${this.name};');
 
     return buffer.toString();
   }

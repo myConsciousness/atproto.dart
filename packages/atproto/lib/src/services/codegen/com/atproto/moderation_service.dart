@@ -24,9 +24,10 @@ import 'moderation/defs/reason_type.dart';
 
 /// `com.atproto.moderation.*`
 final class ModerationService {
-  ModerationService(this._ctx);
-
+  // ignore: unused_field
   final z.ServiceContext _ctx;
+
+  ModerationService(this._ctx);
 
   /// Submit a moderation report regarding an atproto account or record. Implemented by moderation services (with PDS proxying), and requires auth.
   Future<XRPCResponse<ModerationCreateReportOutput>> createReport({

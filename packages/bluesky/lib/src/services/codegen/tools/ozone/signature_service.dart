@@ -23,9 +23,10 @@ import 'signature/searchAccounts/output.dart';
 
 /// `tools.ozone.signature.*`
 final class SignatureService {
-  SignatureService(this._ctx);
-
+  // ignore: unused_field
   final z.ServiceContext _ctx;
+
+  SignatureService(this._ctx);
 
   /// Find all correlated threat signatures between 2 or more accounts.
   Future<XRPCResponse<SignatureFindCorrelationOutput>> findCorrelation({

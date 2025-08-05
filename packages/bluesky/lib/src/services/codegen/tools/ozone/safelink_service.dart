@@ -28,9 +28,10 @@ import 'safelink/queryRules/output.dart';
 
 /// `tools.ozone.safelink.*`
 final class SafelinkService {
-  SafelinkService(this._ctx);
-
+  // ignore: unused_field
   final z.ServiceContext _ctx;
+
+  SafelinkService(this._ctx);
 
   /// Add a new URL safety rule
   Future<XRPCResponse<Event>> addRule({

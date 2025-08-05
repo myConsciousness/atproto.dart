@@ -41,9 +41,10 @@ import 'unspecced/searchStarterPacksSkeleton/output.dart';
 
 /// `app.bsky.unspecced.*`
 final class UnspeccedService {
-  UnspeccedService(this._ctx);
-
+  // ignore: unused_field
   final z.ServiceContext _ctx;
+
+  UnspeccedService(this._ctx);
 
   /// Get a list of suggested users
   Future<XRPCResponse<UnspeccedGetSuggestedUsersOutput>> getSuggestedUsers({

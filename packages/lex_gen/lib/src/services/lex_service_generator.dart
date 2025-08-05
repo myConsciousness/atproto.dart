@@ -64,6 +64,7 @@ final class _LexServiceGenerator {
             description: _getApiDescription(api),
             inputType: inputType,
             returnType: returnType,
+            rkey: api is LexRecord ? api.key : null,
             isQuery: _isQuery(doc),
             isProcedure: _isProcedure(doc),
             isSubscription: _isSubscription(doc),
