@@ -41,6 +41,7 @@ import 'unspecced/searchStarterPacksSkeleton/output.dart';
 
 /// `app.bsky.unspecced.*`
 final class UnspeccedService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   UnspeccedService(this._ctx);

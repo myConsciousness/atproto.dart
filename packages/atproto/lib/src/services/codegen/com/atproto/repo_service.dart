@@ -38,6 +38,7 @@ import 'repo/uploadBlob/output.dart';
 
 /// `com.atproto.repo.*`
 final class RepoService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   RepoService(this._ctx);

@@ -25,6 +25,7 @@ import 'identity/signPlcOperation/output.dart';
 
 /// `com.atproto.identity.*`
 final class IdentityService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   IdentityService(this._ctx);

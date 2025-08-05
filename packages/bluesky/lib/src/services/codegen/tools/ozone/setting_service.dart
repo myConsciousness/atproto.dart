@@ -26,6 +26,7 @@ import 'setting/upsertOption/output.dart';
 
 /// `tools.ozone.setting.*`
 final class SettingService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   SettingService(this._ctx);

@@ -23,6 +23,7 @@ import 'set/querySets/output.dart';
 
 /// `tools.ozone.set.*`
 final class SetService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   SetService(this._ctx);

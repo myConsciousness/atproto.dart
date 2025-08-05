@@ -26,6 +26,7 @@ import 'video/uploadVideo/output.dart';
 
 /// `app.bsky.video.*`
 final class VideoService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   VideoService(this._ctx);

@@ -39,6 +39,7 @@ import 'notification/unregisterPush/main_platform.dart';
 
 /// `app.bsky.notification.*`
 final class NotificationService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   final NotificationDeclarationRecordAccessor _declaration;

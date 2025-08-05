@@ -24,6 +24,7 @@ import 'label/queryLabels/output.dart';
 
 /// `com.atproto.label.*`
 final class LabelService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   LabelService(this._ctx);

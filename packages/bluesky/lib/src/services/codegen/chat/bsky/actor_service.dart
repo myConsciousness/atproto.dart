@@ -30,6 +30,7 @@ import 'actor/declaration/main_allow_incoming.dart';
 
 /// `chat.bsky.actor.*`
 final class ActorService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   final ActorDeclarationRecordAccessor _declaration;

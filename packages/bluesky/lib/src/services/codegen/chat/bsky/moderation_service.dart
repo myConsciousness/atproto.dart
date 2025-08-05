@@ -22,6 +22,7 @@ import 'moderation/getMessageContext/output.dart';
 
 /// `chat.bsky.moderation.*`
 final class ModerationService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   ModerationService(this._ctx);

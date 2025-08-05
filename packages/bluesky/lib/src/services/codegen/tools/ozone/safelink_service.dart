@@ -28,6 +28,7 @@ import 'safelink/queryRules/output.dart';
 
 /// `tools.ozone.safelink.*`
 final class SafelinkService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   SafelinkService(this._ctx);

@@ -55,6 +55,7 @@ import 'richtext/facet/main.dart';
 
 /// `app.bsky.feed.*`
 final class FeedService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   final FeedRepostRecordAccessor _repost;

@@ -31,6 +31,7 @@ import 'sync/listReposByCollection/output.dart';
 
 /// `com.atproto.sync.*`
 final class SyncService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   SyncService(this._ctx);

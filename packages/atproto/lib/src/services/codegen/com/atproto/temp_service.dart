@@ -23,6 +23,7 @@ import 'temp/fetchLabels/output.dart';
 
 /// `com.atproto.temp.*`
 final class TempService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   TempService(this._ctx);

@@ -30,6 +30,7 @@ import 'labeler/service/union_main_labels.dart';
 
 /// `app.bsky.labeler.*`
 final class LabelerService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   final LabelerServiceRecordAccessor _service;

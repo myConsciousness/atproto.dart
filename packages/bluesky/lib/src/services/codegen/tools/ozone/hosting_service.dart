@@ -22,6 +22,7 @@ import 'hosting/getAccountHistory/output.dart';
 
 /// `tools.ozone.hosting.*`
 final class HostingService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   HostingService(this._ctx);

@@ -39,6 +39,7 @@ import 'moderation/searchRepos/output.dart';
 
 /// `tools.ozone.moderation.*`
 final class ModerationService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   ModerationService(this._ctx);

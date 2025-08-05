@@ -154,6 +154,7 @@ $kHeader
 
 /// `${lexiconId.toString()}.*`
 final class ${name}Service {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   $recordAccessorsFields

@@ -23,6 +23,7 @@ import 'signature/searchAccounts/output.dart';
 
 /// `tools.ozone.signature.*`
 final class SignatureService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   SignatureService(this._ctx);

@@ -24,6 +24,7 @@ import 'verification/revokeVerifications/output.dart';
 
 /// `tools.ozone.verification.*`
 final class VerificationService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   VerificationService(this._ctx);

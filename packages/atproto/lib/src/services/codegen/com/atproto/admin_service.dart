@@ -30,6 +30,7 @@ import 'admin/updateSubjectStatus/union_main_subject.dart';
 
 /// `com.atproto.admin.*`
 final class AdminService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   AdminService(this._ctx);

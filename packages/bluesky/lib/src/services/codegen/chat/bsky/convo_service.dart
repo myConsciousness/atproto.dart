@@ -42,6 +42,7 @@ import 'convo/updateRead/output.dart';
 
 /// `chat.bsky.convo.*`
 final class ConvoService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   ConvoService(this._ctx);

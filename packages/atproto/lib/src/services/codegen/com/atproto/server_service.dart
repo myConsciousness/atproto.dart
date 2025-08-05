@@ -34,6 +34,7 @@ import 'server/reserveSigningKey/output.dart';
 
 /// `com.atproto.server.*`
 final class ServerService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   ServerService(this._ctx);

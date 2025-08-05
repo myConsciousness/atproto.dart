@@ -37,6 +37,7 @@ import 'actor/status/union_main_embed.dart';
 
 /// `app.bsky.actor.*`
 final class ActorService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   final ActorProfileRecordAccessor _profile;

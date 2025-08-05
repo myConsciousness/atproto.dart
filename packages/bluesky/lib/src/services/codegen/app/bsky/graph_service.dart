@@ -49,6 +49,7 @@ import 'richtext/facet/main.dart';
 
 /// `app.bsky.graph.*`
 final class GraphService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   final GraphFollowRecordAccessor _follow;

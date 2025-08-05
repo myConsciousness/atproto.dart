@@ -25,6 +25,7 @@ import '../../../service_context.dart' as z;
 
 /// `com.atproto.lexicon.*`
 final class LexiconService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   final LexiconSchemaRecordAccessor _schema;

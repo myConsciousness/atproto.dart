@@ -24,6 +24,7 @@ import 'moderation/defs/reason_type.dart';
 
 /// `com.atproto.moderation.*`
 final class ModerationService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   ModerationService(this._ctx);

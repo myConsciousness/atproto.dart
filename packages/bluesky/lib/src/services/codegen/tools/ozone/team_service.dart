@@ -24,6 +24,7 @@ import 'team/updateMember/main_role.dart';
 
 /// `tools.ozone.team.*`
 final class TeamService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   TeamService(this._ctx);

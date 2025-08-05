@@ -22,6 +22,7 @@ import 'communication/listTemplates/output.dart';
 
 /// `tools.ozone.communication.*`
 final class CommunicationService {
+  // ignore: unused_field
   final z.ServiceContext _ctx;
 
   CommunicationService(this._ctx);
