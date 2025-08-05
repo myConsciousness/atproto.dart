@@ -39,9 +39,9 @@ import 'moderation/searchRepos/output.dart';
 
 /// `tools.ozone.moderation.*`
 final class ModerationService {
-  ModerationService(this._ctx);
-
   final z.ServiceContext _ctx;
+
+  ModerationService(this._ctx);
 
   /// Get timeline of all available events of an account. This includes moderation events, account history and did history.
   Future<XRPCResponse<ModerationGetAccountTimelineOutput>> getAccountTimeline({

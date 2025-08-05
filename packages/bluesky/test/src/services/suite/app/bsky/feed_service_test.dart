@@ -26,7 +26,7 @@ import 'service_suite.dart';
 
 void main() {
   testFeed<RepoCreateRecordOutput>(
-    (m, s) => s.repost(
+    (m, s) => s.repost.create(
       subject: RepoStrongRef(uri: m.uri.toString(), cid: 'test'),
     ),
     id: appBskyFeedPost,
@@ -38,7 +38,7 @@ void main() {
   );
 
   testFeed<RepoCreateRecordOutput>(
-    (m, s) => s.like(
+    (m, s) => s.like.create(
       subject: RepoStrongRef(uri: m.uri.toString(), cid: 'test'),
     ),
     id: appBskyFeedPost,
@@ -85,7 +85,7 @@ void main() {
   );
 
   testFeed<RepoCreateRecordOutput>(
-    (m, s) => s.generator(did: m.did, displayName: m.displayName),
+    (m, s) => s.generator.create(did: m.did, displayName: m.displayName),
     id: appBskyFeedGenerator,
   );
 
@@ -120,7 +120,7 @@ void main() {
   );
 
   testFeed<RepoCreateRecordOutput>(
-    (m, s) => s.threadgate(post: m.uri.toString()),
+    (m, s) => s.threadgate.create(post: m.uri.toString()),
     id: appBskyFeedThreadgate,
   );
 

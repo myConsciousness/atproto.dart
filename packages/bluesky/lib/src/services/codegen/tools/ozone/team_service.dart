@@ -24,9 +24,9 @@ import 'team/updateMember/main_role.dart';
 
 /// `tools.ozone.team.*`
 final class TeamService {
-  TeamService(this._ctx);
-
   final z.ServiceContext _ctx;
+
+  TeamService(this._ctx);
 
   /// Add a member to the ozone team. Requires admin role.
   Future<XRPCResponse<Member>> addMember({

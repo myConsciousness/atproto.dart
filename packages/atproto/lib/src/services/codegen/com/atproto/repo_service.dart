@@ -14,6 +14,11 @@ import 'dart:typed_data';
 import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
+import 'package:atproto/com_atproto_repo_createrecord.dart';
+import 'package:atproto/com_atproto_repo_deleterecord.dart';
+import 'package:atproto/com_atproto_repo_getrecord.dart';
+import 'package:atproto/com_atproto_repo_listrecords.dart';
+import 'package:atproto/com_atproto_repo_putrecord.dart';
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
 import 'repo/applyWrites/output.dart';
@@ -33,9 +38,9 @@ import 'repo/uploadBlob/output.dart';
 
 /// `com.atproto.repo.*`
 final class RepoService {
-  RepoService(this._ctx);
-
   final z.ServiceContext _ctx;
+
+  RepoService(this._ctx);
 
   /// Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.
   Future<XRPCResponse<EmptyData>> importRepo({

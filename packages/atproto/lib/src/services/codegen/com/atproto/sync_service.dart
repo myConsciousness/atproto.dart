@@ -31,9 +31,9 @@ import 'sync/listReposByCollection/output.dart';
 
 /// `com.atproto.sync.*`
 final class SyncService {
-  SyncService(this._ctx);
-
   final z.ServiceContext _ctx;
+
+  SyncService(this._ctx);
 
   /// Request a service to persistently crawl hosted repos. Expected use is new PDS instances declaring their existence to Relays. Does not require auth.
   Future<XRPCResponse<EmptyData>> requestCrawl({

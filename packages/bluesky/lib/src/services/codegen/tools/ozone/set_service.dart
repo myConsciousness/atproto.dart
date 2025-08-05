@@ -23,9 +23,9 @@ import 'set/querySets/output.dart';
 
 /// `tools.ozone.set.*`
 final class SetService {
-  SetService(this._ctx);
-
   final z.ServiceContext _ctx;
+
+  SetService(this._ctx);
 
   /// Query available sets
   Future<XRPCResponse<SetQuerySetsOutput>> querySets({

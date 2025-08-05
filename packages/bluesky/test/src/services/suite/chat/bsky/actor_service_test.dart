@@ -9,7 +9,7 @@ import 'service_suite.dart';
 
 void main() {
   testActor<RepoCreateRecordOutput>(
-    (m, s) => s.declaration(
+    (m, s) => s.declaration.create(
       allowIncoming: const ActorDeclarationAllowIncoming.knownValue(
         data: KnownActorDeclarationAllowIncoming.following,
       ),

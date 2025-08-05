@@ -13,5 +13,5 @@ Future<void> main(List<String> args) async {
 
   final bsky = Bluesky.fromSession(session.data);
 
-  final strongRef = await bsky.feed.post(text: 'Hello, Bluesky!');
+  final strongRef = await bsky.feed.post.create(text: 'Hello, Bluesky!');
 }

@@ -28,9 +28,9 @@ import 'safelink/queryRules/output.dart';
 
 /// `tools.ozone.safelink.*`
 final class SafelinkService {
-  SafelinkService(this._ctx);
-
   final z.ServiceContext _ctx;
+
+  SafelinkService(this._ctx);
 
   /// Add a new URL safety rule
   Future<XRPCResponse<Event>> addRule({

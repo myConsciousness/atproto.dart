@@ -21,9 +21,9 @@ import 'server/getConfig/output.dart';
 
 /// `tools.ozone.server.*`
 final class ServerService {
-  ServerService(this._ctx);
-
   final z.ServiceContext _ctx;
+
+  ServerService(this._ctx);
 
   /// Get details about ozone's server configuration.
   Future<XRPCResponse<ServerGetConfigOutput>> getConfig({

@@ -24,9 +24,9 @@ import 'verification/revokeVerifications/output.dart';
 
 /// `tools.ozone.verification.*`
 final class VerificationService {
-  VerificationService(this._ctx);
-
   final z.ServiceContext _ctx;
+
+  VerificationService(this._ctx);
 
   /// Revoke previously granted verifications in batches of up to 100.
   Future<XRPCResponse<VerificationRevokeVerificationsOutput>>

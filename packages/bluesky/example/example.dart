@@ -89,7 +89,7 @@ Future<void> main() async {
     );
 
     //! Let's post cool stuff!
-    await bsky.feed.post(
+    bsky.feed.post.create(
       text: 'Hello, Bluesky!',
       embed: UFeedPostEmbed.embedVideo(
         data: EmbedVideo(video: uploadedVideo.data.jobStatus.blob!),

@@ -26,9 +26,9 @@ import 'setting/upsertOption/output.dart';
 
 /// `tools.ozone.setting.*`
 final class SettingService {
-  SettingService(this._ctx);
-
   final z.ServiceContext _ctx;
+
+  SettingService(this._ctx);
 
   /// List settings with optional filtering
   Future<XRPCResponse<SettingListOptionsOutput>> listOptions({

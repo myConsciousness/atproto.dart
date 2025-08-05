@@ -19,7 +19,7 @@ import 'service_suite.dart';
 
 void main() {
   testGraph<RepoCreateRecordOutput>(
-    (m, s) => s.follow(subject: m.actor),
+    (m, s) => s.follow.create(subject: m.actor),
     id: appBskyGraphFollow,
   );
 
@@ -54,12 +54,12 @@ void main() {
   );
 
   testGraph<RepoCreateRecordOutput>(
-    (m, s) => s.block(subject: m.did),
+    (m, s) => s.block.create(subject: m.did),
     id: appBskyGraphBlock,
   );
 
   testGraph<RepoCreateRecordOutput>(
-    (m, s) => s.list(
+    (m, s) => s.list.create(
       purpose: ListPurpose.knownValue(data: KnownListPurpose.curatelist),
       name: m.name,
     ),
@@ -82,7 +82,7 @@ void main() {
   );
 
   testGraph<RepoCreateRecordOutput>(
-    (m, s) => s.listitem(subject: m.did, list: m.uri.toString()),
+    (m, s) => s.listitem.create(subject: m.did, list: m.uri.toString()),
     id: appBskyGraphListitem,
   );
 
@@ -107,7 +107,7 @@ void main() {
   );
 
   testGraph<RepoCreateRecordOutput>(
-    (m, s) => s.listblock(subject: m.uri.toString()),
+    (m, s) => s.listblock.create(subject: m.uri.toString()),
     id: appBskyGraphListblock,
   );
 

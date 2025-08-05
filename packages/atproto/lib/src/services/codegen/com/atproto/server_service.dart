@@ -34,9 +34,9 @@ import 'server/reserveSigningKey/output.dart';
 
 /// `com.atproto.server.*`
 final class ServerService {
-  ServerService(this._ctx);
-
   final z.ServiceContext _ctx;
+
+  ServerService(this._ctx);
 
   /// Get information about the current auth session. Requires auth.
   Future<XRPCResponse<ServerGetSessionOutput>> getSession({

@@ -1,5 +1,5 @@
 // Package imports:
-import 'package:atproto/com_atproto_repo_createrecord.dart';
+import 'package:atproto/com_atproto_repo_putrecord.dart';
 import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
@@ -38,8 +38,8 @@ void main() {
     id: appBskyActorSearchActorsTypeahead,
   );
 
-  testActor<RepoCreateRecordOutput>(
-    (m, s) => s.profile(),
+  testActor<RepoPutRecordOutput>(
+    (m, s) => s.profile.put(),
     id: appBskyActorProfile,
   );
 

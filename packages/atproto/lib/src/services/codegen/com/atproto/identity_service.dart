@@ -25,9 +25,9 @@ import 'identity/signPlcOperation/output.dart';
 
 /// `com.atproto.identity.*`
 final class IdentityService {
-  IdentityService(this._ctx);
-
   final z.ServiceContext _ctx;
+
+  IdentityService(this._ctx);
 
   /// Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry
   Future<XRPCResponse<EmptyData>> submitPlcOperation({

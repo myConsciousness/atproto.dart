@@ -23,7 +23,7 @@ Future<void> main(List<String> args) async {
 
   final facets = await text.entities.toFacets();
 
-  final strongRef = await bsky.feed.post(
+  final strongRef = await bsky.feed.post.create(
     text: text.value,
     facets: facets.map(RichtextFacet.fromJson).toList(),
   );

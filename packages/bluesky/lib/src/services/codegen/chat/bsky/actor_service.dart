@@ -12,6 +12,10 @@ import 'dart:typed_data';
 
 // Package imports:
 import 'package:atproto/com_atproto_repo_createrecord.dart';
+import 'package:atproto/com_atproto_repo_deleterecord.dart';
+import 'package:atproto/com_atproto_repo_getrecord.dart';
+import 'package:atproto/com_atproto_repo_listrecords.dart';
+import 'package:atproto/com_atproto_repo_putrecord.dart';
 import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
@@ -26,22 +30,13 @@ import 'actor/declaration/main_allow_incoming.dart';
 
 /// `chat.bsky.actor.*`
 final class ActorService {
-  ActorService(this._ctx);
-
   final z.ServiceContext _ctx;
 
+  ActorService(this._ctx);
+
   /// A declaration of a Bluesky chat account.
-  Future<XRPCResponse<RepoCreateRecordOutput>> declaration({
-    required ActorDeclarationAllowIncoming allowIncoming,
-    String? $rey,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
-    collection: ids.chatBskyActorDeclaration,
-    rkey: $rey,
-    record: {...?$unknown, 'allowIncoming': allowIncoming.toJson()},
-  );
+  ActorDeclarationRecordAccessor get declaration =>
+      ActorDeclarationRecordAccessor(_ctx);
   Future<XRPCResponse<EmptyData>> deleteAccount({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -57,5 +52,96 @@ final class ActorService {
     ns.chatBskyActorExportAccountData,
     headers: $headers,
     parameters: {...?$unknown},
+  );
+}
+
+final class ActorDeclarationRecordAccessor {
+  final z.ServiceContext _ctx;
+
+  const ActorDeclarationRecordAccessor(this._ctx);
+
+  Future<XRPCResponse<RepoGetRecordOutput>> get({
+    required String repo,
+    String rkey = 'self',
+    String? cid,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.repo.getRecord(
+    repo: repo,
+    collection: ids.chatBskyActorDeclaration,
+    rkey: rkey,
+    cid: cid,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoListRecordsOutput>> list({
+    required String repo,
+    int? limit,
+    String? cursor,
+    bool? reverse,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.repo.listRecords(
+    repo: repo,
+    collection: ids.chatBskyActorDeclaration,
+    limit: limit,
+    cursor: cursor,
+    reverse: reverse,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoCreateRecordOutput>> create({
+    required ActorDeclarationAllowIncoming allowIncoming,
+    String rkey = 'self',
+    bool? validate,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.repo.createRecord(
+    repo: _ctx.$repo,
+    collection: ids.chatBskyActorDeclaration,
+    rkey: rkey,
+    validate: validate,
+    record: {...?$unknown, 'allowIncoming': allowIncoming.toJson()},
+    swapCommit: swapCommit,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoPutRecordOutput>> put({
+    required ActorDeclarationAllowIncoming allowIncoming,
+    String rkey = 'self',
+    bool? validate,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.repo.putRecord(
+    repo: _ctx.$repo,
+    collection: ids.chatBskyActorDeclaration,
+    rkey: rkey,
+    validate: validate,
+    record: {...?$unknown, 'allowIncoming': allowIncoming.toJson()},
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
+    String rkey = 'self',
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.repo.deleteRecord(
+    repo: _ctx.$repo,
+    collection: ids.chatBskyActorDeclaration,
+    rkey: rkey,
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }

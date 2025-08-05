@@ -30,9 +30,9 @@ import 'admin/updateSubjectStatus/union_main_subject.dart';
 
 /// `com.atproto.admin.*`
 final class AdminService {
-  AdminService(this._ctx);
-
   final z.ServiceContext _ctx;
+
+  AdminService(this._ctx);
 
   /// Update the service-specific admin status of a subject (account, record, or blob).
   Future<XRPCResponse<AdminUpdateSubjectStatusOutput>> updateSubjectStatus({
