@@ -7,10 +7,32 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
+// Project imports:
+import '../../../../query_command.dart';
+
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/codegen/app/bsky/graph/getLists/input.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/graph/getLists/main_purposes.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/graph/getLists/output.dart';
+final class GetAccountTimelineCommand extends QueryCommand {
+  GetAccountTimelineCommand() {
+    argParser..addOption("did", mandatory: true);
+  }
+
+  @override
+  final String name = "get-account-timeline";
+
+  @override
+  final String description =
+      r"Get timeline of all available events of an account. This includes moderation events, account history and did history.";
+
+  @override
+  final String invocation =
+      "bsky tools-ozone-moderation get-account-timeline [did]";
+
+  @override
+  String get methodId => "tools.ozone.moderation.getAccountTimeline";
+
+  @override
+  Map<String, dynamic>? get parameters => {"did": argResults!["did"]};
+}

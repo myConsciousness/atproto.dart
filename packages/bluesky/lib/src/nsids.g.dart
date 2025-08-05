@@ -257,6 +257,16 @@ const appBskyGraphGetListMutes = NSID(ids.appBskyGraphGetListMutes);
 /// `app.bsky.graph.getLists`
 const appBskyGraphGetLists = NSID(ids.appBskyGraphGetLists);
 
+/// `app.bsky.graph.getListsWithMembership`
+const appBskyGraphGetListsWithMembership = NSID(
+  ids.appBskyGraphGetListsWithMembership,
+);
+
+/// `app.bsky.graph.getListsWithMembership#listWithMembership`
+const appBskyGraphGetListsWithMembershipListWithMembership = NSID(
+  ids.appBskyGraphGetListsWithMembershipListWithMembership,
+);
+
 /// `app.bsky.graph.getMutes`
 const appBskyGraphGetMutes = NSID(ids.appBskyGraphGetMutes);
 
@@ -268,6 +278,16 @@ const appBskyGraphGetStarterPack = NSID(ids.appBskyGraphGetStarterPack);
 
 /// `app.bsky.graph.getStarterPacks`
 const appBskyGraphGetStarterPacks = NSID(ids.appBskyGraphGetStarterPacks);
+
+/// `app.bsky.graph.getStarterPacksWithMembership`
+const appBskyGraphGetStarterPacksWithMembership = NSID(
+  ids.appBskyGraphGetStarterPacksWithMembership,
+);
+
+/// `app.bsky.graph.getStarterPacksWithMembership#starterPackWithMembership`
+const appBskyGraphGetStarterPacksWithMembershipStarterPackWithMembership = NSID(
+  ids.appBskyGraphGetStarterPacksWithMembershipStarterPackWithMembership,
+);
 
 /// `app.bsky.graph.getSuggestedFollowsByActor`
 const appBskyGraphGetSuggestedFollowsByActor = NSID(
@@ -665,6 +685,21 @@ const toolsOzoneHostingGetAccountHistoryPasswordUpdated = NSID(
 
 /// `tools.ozone.moderation.emitEvent`
 const toolsOzoneModerationEmitEvent = NSID(ids.toolsOzoneModerationEmitEvent);
+
+/// `tools.ozone.moderation.getAccountTimeline`
+const toolsOzoneModerationGetAccountTimeline = NSID(
+  ids.toolsOzoneModerationGetAccountTimeline,
+);
+
+/// `tools.ozone.moderation.getAccountTimeline#timelineItem`
+const toolsOzoneModerationGetAccountTimelineTimelineItem = NSID(
+  ids.toolsOzoneModerationGetAccountTimelineTimelineItem,
+);
+
+/// `tools.ozone.moderation.getAccountTimeline#timelineItemSummary`
+const toolsOzoneModerationGetAccountTimelineTimelineItemSummary = NSID(
+  ids.toolsOzoneModerationGetAccountTimelineTimelineItemSummary,
+);
 
 /// `tools.ozone.moderation.getEvent`
 const toolsOzoneModerationGetEvent = NSID(ids.toolsOzoneModerationGetEvent);

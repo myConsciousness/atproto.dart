@@ -16,6 +16,7 @@ Enumerates the lists created by a specified account (actor).
 | **actor** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | The account (actor) to enumerate lists from. |
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
+| **purposes** | array | modlist<br/>curatelist | ❌ | - |
 
 ### Output
 

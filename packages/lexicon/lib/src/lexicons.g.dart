@@ -7403,6 +7403,70 @@ const appBskyGraphGetRelationships = <String, dynamic>{
   },
 };
 
+/// `app.bsky.graph.getListsWithMembership`
+const appBskyGraphGetListsWithMembership = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getListsWithMembership",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Enumerates the lists created by the session user, and includes membership information about `actor` in those lists. Only supports curation and moderation lists (no reference lists, used in starter packs). Requires auth.",
+      "parameters": {
+        "type": "params",
+        "required": ["actor"],
+        "properties": {
+          "actor": {
+            "type": "string",
+            "format": "at-identifier",
+            "description": "The account (actor) to check for membership.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+          "purposes": {
+            "type": "array",
+            "description":
+                "Optional filter by list purpose. If not specified, all supported types are returned.",
+            "items": {
+              "type": "string",
+              "knownValues": ["modlist", "curatelist"],
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["listsWithMembership"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "listsWithMembership": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#listWithMembership"},
+            },
+          },
+        },
+      },
+    },
+    "listWithMembership": {
+      "type": "object",
+      "description":
+          "A list and an optional list item indicating membership of a target user to that list.",
+      "required": ["list"],
+      "properties": {
+        "list": {"type": "ref", "ref": "app.bsky.graph.defs#listView"},
+        "listItem": {"type": "ref", "ref": "app.bsky.graph.defs#listItemView"},
+      },
+    },
+  },
+};
+
 /// `app.bsky.graph.getKnownFollowers`
 const appBskyGraphGetKnownFollowers = <String, dynamic>{
   "lexicon": 1,
@@ -7650,6 +7714,64 @@ const appBskyGraphMuteActor = <String, dynamic>{
   },
 };
 
+/// `app.bsky.graph.getStarterPacksWithMembership`
+const appBskyGraphGetStarterPacksWithMembership = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getStarterPacksWithMembership",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Enumerates the starter packs created by the session user, and includes membership information about `actor` in those starter packs. Requires auth.",
+      "parameters": {
+        "type": "params",
+        "required": ["actor"],
+        "properties": {
+          "actor": {
+            "type": "string",
+            "format": "at-identifier",
+            "description": "The account (actor) to check for membership.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPacksWithMembership"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "starterPacksWithMembership": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#starterPackWithMembership"},
+            },
+          },
+        },
+      },
+    },
+    "starterPackWithMembership": {
+      "type": "object",
+      "description":
+          "A starter pack and an optional list item indicating membership of a target user to that starter pack.",
+      "required": ["starterPack"],
+      "properties": {
+        "starterPack": {
+          "type": "ref",
+          "ref": "app.bsky.graph.defs#starterPackView",
+        },
+        "listItem": {"type": "ref", "ref": "app.bsky.graph.defs#listItemView"},
+      },
+    },
+  },
+};
+
 /// `app.bsky.graph.block`
 const appBskyGraphBlock = <String, dynamic>{
   "lexicon": 1,
@@ -7740,6 +7862,15 @@ const appBskyGraphGetLists = <String, dynamic>{
             "maximum": 100,
           },
           "cursor": {"type": "string"},
+          "purposes": {
+            "type": "array",
+            "description":
+                "Optional filter by list purpose. If not specified, all supported types are returned.",
+            "items": {
+              "type": "string",
+              "knownValues": ["modlist", "curatelist"],
+            },
+          },
         },
       },
       "output": {
@@ -13256,6 +13387,112 @@ const toolsOzoneModerationDefs = <String, dynamic>{
         },
       },
     },
+    "timelineEventPlcCreate": {
+      "type": "token",
+      "description":
+          "Moderation event timeline event for a PLC create operation",
+    },
+    "timelineEventPlcOperation": {
+      "type": "token",
+      "description":
+          "Moderation event timeline event for generic PLC operation",
+    },
+    "timelineEventPlcTombstone": {
+      "type": "token",
+      "description":
+          "Moderation event timeline event for a PLC tombstone operation",
+    },
+  },
+};
+
+/// `tools.ozone.moderation.getAccountTimeline`
+const toolsOzoneModerationGetAccountTimeline = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.moderation.getAccountTimeline",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get timeline of all available events of an account. This includes moderation events, account history and did history.",
+      "parameters": {
+        "type": "params",
+        "required": ["did"],
+        "properties": {
+          "did": {"type": "string", "format": "did"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["timeline"],
+          "properties": {
+            "timeline": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#timelineItem"},
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "RepoNotFound"},
+      ],
+    },
+    "timelineItem": {
+      "type": "object",
+      "required": ["day", "summary"],
+      "properties": {
+        "day": {"type": "string"},
+        "summary": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#timelineItemSummary"},
+        },
+      },
+    },
+    "timelineItemSummary": {
+      "type": "object",
+      "required": ["eventSubjectType", "eventType", "count"],
+      "properties": {
+        "eventSubjectType": {
+          "type": "string",
+          "knownValues": ["account", "record", "chat"],
+        },
+        "eventType": {
+          "type": "string",
+          "knownValues": [
+            "tools.ozone.moderation.defs#modEventTakedown",
+            "tools.ozone.moderation.defs#modEventReverseTakedown",
+            "tools.ozone.moderation.defs#modEventComment",
+            "tools.ozone.moderation.defs#modEventReport",
+            "tools.ozone.moderation.defs#modEventLabel",
+            "tools.ozone.moderation.defs#modEventAcknowledge",
+            "tools.ozone.moderation.defs#modEventEscalate",
+            "tools.ozone.moderation.defs#modEventMute",
+            "tools.ozone.moderation.defs#modEventUnmute",
+            "tools.ozone.moderation.defs#modEventMuteReporter",
+            "tools.ozone.moderation.defs#modEventUnmuteReporter",
+            "tools.ozone.moderation.defs#modEventEmail",
+            "tools.ozone.moderation.defs#modEventResolveAppeal",
+            "tools.ozone.moderation.defs#modEventDivert",
+            "tools.ozone.moderation.defs#modEventTag",
+            "tools.ozone.moderation.defs#accountEvent",
+            "tools.ozone.moderation.defs#identityEvent",
+            "tools.ozone.moderation.defs#recordEvent",
+            "tools.ozone.moderation.defs#modEventPriorityScore",
+            "tools.ozone.moderation.defs#ageAssuranceEvent",
+            "tools.ozone.moderation.defs#ageAssuranceOverrideEvent",
+            "tools.ozone.moderation.defs#timelineEventPlcCreate",
+            "tools.ozone.moderation.defs#timelineEventPlcOperation",
+            "tools.ozone.moderation.defs#timelineEventPlcTombstone",
+            "tools.ozone.hosting.getAccountHistory#accountCreated",
+            "tools.ozone.hosting.getAccountHistory#emailConfirmed",
+            "tools.ozone.hosting.getAccountHistory#passwordUpdated",
+            "tools.ozone.hosting.getAccountHistory#handleUpdated",
+          ],
+        },
+        "count": {"type": "integer"},
+      },
+    },
   },
 };
 
@@ -15196,12 +15433,14 @@ const lexicons = <Map<String, dynamic>>[
   appBskyGraphGetStarterPack,
   appBskyGraphGetActorStarterPacks,
   appBskyGraphGetRelationships,
+  appBskyGraphGetListsWithMembership,
   appBskyGraphGetKnownFollowers,
   appBskyGraphVerification,
   appBskyGraphGetFollowers,
   appBskyGraphGetFollows,
   appBskyGraphGetListBlocks,
   appBskyGraphMuteActor,
+  appBskyGraphGetStarterPacksWithMembership,
   appBskyGraphBlock,
   appBskyGraphGetStarterPacks,
   appBskyGraphGetLists,
@@ -15289,6 +15528,7 @@ const lexicons = <Map<String, dynamic>>[
   toolsOzoneSignatureSearchAccounts,
   toolsOzoneSignatureFindRelatedAccounts,
   toolsOzoneModerationDefs,
+  toolsOzoneModerationGetAccountTimeline,
   toolsOzoneModerationQueryEvents,
   toolsOzoneModerationSearchRepos,
   toolsOzoneModerationEmitEvent,

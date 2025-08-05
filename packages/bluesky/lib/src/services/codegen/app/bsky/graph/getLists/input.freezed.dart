@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$GraphGetListsInput {
 
 /// The account (actor) to enumerate lists from.
- String get actor; int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
+ String get actor; int get limit; String? get cursor;@GraphGetListsPurposesConverter() List<GraphGetListsPurposes>? get purposes; Map<String, dynamic>? get $unknown;
 /// Create a copy of GraphGetListsInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $GraphGetListsInputCopyWith<GraphGetListsInput> get copyWith => _$GraphGetListsI
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GraphGetListsInput&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GraphGetListsInput&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.purposes, purposes)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,actor,limit,cursor,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,actor,limit,cursor,const DeepCollectionEquality().hash(purposes),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'GraphGetListsInput(actor: $actor, limit: $limit, cursor: $cursor, \$unknown: ${$unknown})';
+  return 'GraphGetListsInput(actor: $actor, limit: $limit, cursor: $cursor, purposes: $purposes, \$unknown: ${$unknown})';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $GraphGetListsInputCopyWith<$Res>  {
   factory $GraphGetListsInputCopyWith(GraphGetListsInput value, $Res Function(GraphGetListsInput) _then) = _$GraphGetListsInputCopyWithImpl;
 @useResult
 $Res call({
- String actor, int limit, String? cursor, Map<String, dynamic>? $unknown
+ String actor, int limit, String? cursor,@GraphGetListsPurposesConverter() List<GraphGetListsPurposes>? purposes, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,12 +66,13 @@ class _$GraphGetListsInputCopyWithImpl<$Res>
 
 /// Create a copy of GraphGetListsInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? actor = null,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? actor = null,Object? limit = null,Object? cursor = freezed,Object? purposes = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 actor: null == actor ? _self.actor : actor // ignore: cast_nullable_to_non_nullable
 as String,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,purposes: freezed == purposes ? _self.purposes : purposes // ignore: cast_nullable_to_non_nullable
+as List<GraphGetListsPurposes>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -157,10 +158,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String actor,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String actor,  int limit,  String? cursor, @GraphGetListsPurposesConverter()  List<GraphGetListsPurposes>? purposes,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GraphGetListsInput() when $default != null:
-return $default(_that.actor,_that.limit,_that.cursor,_that.$unknown);case _:
+return $default(_that.actor,_that.limit,_that.cursor,_that.purposes,_that.$unknown);case _:
   return orElse();
 
 }
@@ -178,10 +179,10 @@ return $default(_that.actor,_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String actor,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String actor,  int limit,  String? cursor, @GraphGetListsPurposesConverter()  List<GraphGetListsPurposes>? purposes,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GraphGetListsInput():
-return $default(_that.actor,_that.limit,_that.cursor,_that.$unknown);case _:
+return $default(_that.actor,_that.limit,_that.cursor,_that.purposes,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -198,10 +199,10 @@ return $default(_that.actor,_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String actor,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String actor,  int limit,  String? cursor, @GraphGetListsPurposesConverter()  List<GraphGetListsPurposes>? purposes,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GraphGetListsInput() when $default != null:
-return $default(_that.actor,_that.limit,_that.cursor,_that.$unknown);case _:
+return $default(_that.actor,_that.limit,_that.cursor,_that.purposes,_that.$unknown);case _:
   return null;
 
 }
@@ -213,13 +214,22 @@ return $default(_that.actor,_that.limit,_that.cursor,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _GraphGetListsInput implements GraphGetListsInput {
-  const _GraphGetListsInput({required this.actor, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GraphGetListsInput({required this.actor, this.limit = 50, this.cursor, @GraphGetListsPurposesConverter() final  List<GraphGetListsPurposes>? purposes, final  Map<String, dynamic>? $unknown}): _purposes = purposes,_$unknown = $unknown;
   factory _GraphGetListsInput.fromJson(Map<String, dynamic> json) => _$GraphGetListsInputFromJson(json);
 
 /// The account (actor) to enumerate lists from.
 @override final  String actor;
 @override@JsonKey() final  int limit;
 @override final  String? cursor;
+ final  List<GraphGetListsPurposes>? _purposes;
+@override@GraphGetListsPurposesConverter() List<GraphGetListsPurposes>? get purposes {
+  final value = _purposes;
+  if (value == null) return null;
+  if (_purposes is EqualUnmodifiableListView) return _purposes;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
+}
+
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -243,16 +253,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GraphGetListsInput&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GraphGetListsInput&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._purposes, _purposes)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,actor,limit,cursor,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,actor,limit,cursor,const DeepCollectionEquality().hash(_purposes),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'GraphGetListsInput(actor: $actor, limit: $limit, cursor: $cursor, \$unknown: ${$unknown})';
+  return 'GraphGetListsInput(actor: $actor, limit: $limit, cursor: $cursor, purposes: $purposes, \$unknown: ${$unknown})';
 }
 
 
@@ -263,7 +273,7 @@ abstract mixin class _$GraphGetListsInputCopyWith<$Res> implements $GraphGetList
   factory _$GraphGetListsInputCopyWith(_GraphGetListsInput value, $Res Function(_GraphGetListsInput) _then) = __$GraphGetListsInputCopyWithImpl;
 @override @useResult
 $Res call({
- String actor, int limit, String? cursor, Map<String, dynamic>? $unknown
+ String actor, int limit, String? cursor,@GraphGetListsPurposesConverter() List<GraphGetListsPurposes>? purposes, Map<String, dynamic>? $unknown
 });
 
 
@@ -280,12 +290,13 @@ class __$GraphGetListsInputCopyWithImpl<$Res>
 
 /// Create a copy of GraphGetListsInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? actor = null,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? actor = null,Object? limit = null,Object? cursor = freezed,Object? purposes = freezed,Object? $unknown = freezed,}) {
   return _then(_GraphGetListsInput(
 actor: null == actor ? _self.actor : actor // ignore: cast_nullable_to_non_nullable
 as String,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,purposes: freezed == purposes ? _self._purposes : purposes // ignore: cast_nullable_to_non_nullable
+as List<GraphGetListsPurposes>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

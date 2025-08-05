@@ -14,12 +14,12 @@ import '../../../../query_command.dart';
 // LexGenerator
 // **************************************************************************
 
-final class GetListsCommand extends QueryCommand {
-  GetListsCommand() {
+final class GetListsWithMembershipCommand extends QueryCommand {
+  GetListsWithMembershipCommand() {
     argParser
       ..addOption(
         "actor",
-        help: r"The account (actor) to enumerate lists from.",
+        help: r"The account (actor) to check for membership.",
         mandatory: true,
       )
       ..addOption("limit", defaultsTo: "50")
@@ -32,18 +32,18 @@ final class GetListsCommand extends QueryCommand {
   }
 
   @override
-  final String name = "get-lists";
+  final String name = "get-lists-with-membership";
 
   @override
   final String description =
-      r"Enumerates the lists created by a specified account (actor).";
+      r"Enumerates the lists created by the session user, and includes membership information about `actor` in those lists. Only supports curation and moderation lists (no reference lists, used in starter packs). Requires auth.";
 
   @override
   final String invocation =
-      "bsky app-bsky-graph get-lists [actor] [limit] [cursor] [purposes]";
+      "bsky app-bsky-graph get-lists-with-membership [actor] [limit] [cursor] [purposes]";
 
   @override
-  String get methodId => "app.bsky.graph.getLists";
+  String get methodId => "app.bsky.graph.getListsWithMembership";
 
   @override
   Map<String, dynamic>? get parameters => {

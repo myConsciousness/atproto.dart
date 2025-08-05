@@ -12,6 +12,7 @@ import 'package:args/command_runner.dart';
 
 // Project imports:
 import 'moderation/emit_event.dart';
+import 'moderation/get_account_timeline.dart';
 import 'moderation/get_event.dart';
 import 'moderation/get_record.dart';
 import 'moderation/get_records.dart';
@@ -29,6 +30,7 @@ import 'moderation/search_repos.dart';
 
 final class ToolsOzoneModerationCommand extends Command<void> {
   ToolsOzoneModerationCommand() {
+    addSubcommand(GetAccountTimelineCommand());
     addSubcommand(QueryEventsCommand());
     addSubcommand(SearchReposCommand());
     addSubcommand(EmitEventCommand());

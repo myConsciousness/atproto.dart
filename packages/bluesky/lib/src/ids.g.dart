@@ -494,6 +494,14 @@ const appBskyGraphGetListMutes = 'app.bsky.graph.getListMutes';
 /// `app.bsky.graph.getLists`
 const appBskyGraphGetLists = 'app.bsky.graph.getLists';
 
+/// `app.bsky.graph.getListsWithMembership`
+const appBskyGraphGetListsWithMembership =
+    'app.bsky.graph.getListsWithMembership';
+
+/// `app.bsky.graph.getListsWithMembership#listWithMembership`
+const appBskyGraphGetListsWithMembershipListWithMembership =
+    'app.bsky.graph.getListsWithMembership#listWithMembership';
+
 /// `app.bsky.graph.getMutes`
 const appBskyGraphGetMutes = 'app.bsky.graph.getMutes';
 
@@ -505,6 +513,14 @@ const appBskyGraphGetStarterPack = 'app.bsky.graph.getStarterPack';
 
 /// `app.bsky.graph.getStarterPacks`
 const appBskyGraphGetStarterPacks = 'app.bsky.graph.getStarterPacks';
+
+/// `app.bsky.graph.getStarterPacksWithMembership`
+const appBskyGraphGetStarterPacksWithMembership =
+    'app.bsky.graph.getStarterPacksWithMembership';
+
+/// `app.bsky.graph.getStarterPacksWithMembership#starterPackWithMembership`
+const appBskyGraphGetStarterPacksWithMembershipStarterPackWithMembership =
+    'app.bsky.graph.getStarterPacksWithMembership#starterPackWithMembership';
 
 /// `app.bsky.graph.getSuggestedFollowsByActor`
 const appBskyGraphGetSuggestedFollowsByActor =
@@ -1212,12 +1228,36 @@ const toolsOzoneModerationDefsSubjectStatusView =
 const toolsOzoneModerationDefsSubjectView =
     'tools.ozone.moderation.defs#subjectView';
 
+/// `tools.ozone.moderation.defs#timelineEventPlcCreate`
+const toolsOzoneModerationDefsTimelineEventPlcCreate =
+    'tools.ozone.moderation.defs#timelineEventPlcCreate';
+
+/// `tools.ozone.moderation.defs#timelineEventPlcOperation`
+const toolsOzoneModerationDefsTimelineEventPlcOperation =
+    'tools.ozone.moderation.defs#timelineEventPlcOperation';
+
+/// `tools.ozone.moderation.defs#timelineEventPlcTombstone`
+const toolsOzoneModerationDefsTimelineEventPlcTombstone =
+    'tools.ozone.moderation.defs#timelineEventPlcTombstone';
+
 /// `tools.ozone.moderation.defs#videoDetails`
 const toolsOzoneModerationDefsVideoDetails =
     'tools.ozone.moderation.defs#videoDetails';
 
 /// `tools.ozone.moderation.emitEvent`
 const toolsOzoneModerationEmitEvent = 'tools.ozone.moderation.emitEvent';
+
+/// `tools.ozone.moderation.getAccountTimeline`
+const toolsOzoneModerationGetAccountTimeline =
+    'tools.ozone.moderation.getAccountTimeline';
+
+/// `tools.ozone.moderation.getAccountTimeline#timelineItem`
+const toolsOzoneModerationGetAccountTimelineTimelineItem =
+    'tools.ozone.moderation.getAccountTimeline#timelineItem';
+
+/// `tools.ozone.moderation.getAccountTimeline#timelineItemSummary`
+const toolsOzoneModerationGetAccountTimelineTimelineItemSummary =
+    'tools.ozone.moderation.getAccountTimeline#timelineItemSummary';
 
 /// `tools.ozone.moderation.getEvent`
 const toolsOzoneModerationGetEvent = 'tools.ozone.moderation.getEvent';

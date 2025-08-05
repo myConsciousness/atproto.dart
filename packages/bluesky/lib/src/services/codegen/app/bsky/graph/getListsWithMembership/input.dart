@@ -22,41 +22,46 @@ part 'input.g.dart';
 // **************************************************************************
 
 @freezed
-abstract class GraphGetListsInput with _$GraphGetListsInput {
+abstract class GraphGetListsWithMembershipInput
+    with _$GraphGetListsWithMembershipInput {
   static const knownProps = <String>['actor', 'limit', 'cursor', 'purposes'];
 
   @JsonSerializable(includeIfNull: false)
-  const factory GraphGetListsInput({
-    /// The account (actor) to enumerate lists from.
+  const factory GraphGetListsWithMembershipInput({
+    /// The account (actor) to check for membership.
     required String actor,
     @Default(50) int limit,
     String? cursor,
-    @GraphGetListsPurposesConverter() List<GraphGetListsPurposes>? purposes,
+    @GraphGetListsWithMembershipPurposesConverter()
+    List<GraphGetListsWithMembershipPurposes>? purposes,
 
     Map<String, dynamic>? $unknown,
-  }) = _GraphGetListsInput;
+  }) = _GraphGetListsWithMembershipInput;
 
-  factory GraphGetListsInput.fromJson(Map<String, Object?> json) =>
-      _$GraphGetListsInputFromJson(json);
+  factory GraphGetListsWithMembershipInput.fromJson(
+    Map<String, Object?> json,
+  ) => _$GraphGetListsWithMembershipInputFromJson(json);
 }
 
-extension GraphGetListsInputExtension on GraphGetListsInput {
+extension GraphGetListsWithMembershipInputExtension
+    on GraphGetListsWithMembershipInput {
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }
 
-final class GraphGetListsInputConverter
-    extends JsonConverter<GraphGetListsInput, Map<String, dynamic>> {
-  const GraphGetListsInputConverter();
+final class GraphGetListsWithMembershipInputConverter
+    extends
+        JsonConverter<GraphGetListsWithMembershipInput, Map<String, dynamic>> {
+  const GraphGetListsWithMembershipInputConverter();
 
   @override
-  GraphGetListsInput fromJson(Map<String, dynamic> json) {
-    return GraphGetListsInput.fromJson(
-      translate(json, GraphGetListsInput.knownProps),
+  GraphGetListsWithMembershipInput fromJson(Map<String, dynamic> json) {
+    return GraphGetListsWithMembershipInput.fromJson(
+      translate(json, GraphGetListsWithMembershipInput.knownProps),
     );
   }
 
   @override
-  Map<String, dynamic> toJson(GraphGetListsInput object) =>
+  Map<String, dynamic> toJson(GraphGetListsWithMembershipInput object) =>
       untranslate(object.toJson());
 }

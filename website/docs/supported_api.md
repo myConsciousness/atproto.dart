@@ -213,12 +213,14 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.graph.getStarterPack](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getStarterPack.html)** | [Reference](lexicons/app/bsky/graph/getStarterPack.md) | ❌ |
 | **[app.bsky.graph.getActorStarterPacks](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getActorStarterPacks.html)** | [Reference](lexicons/app/bsky/graph/getActorStarterPacks.md) | ✅ |
 | **[app.bsky.graph.getRelationships](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getRelationships.html)** | [Reference](lexicons/app/bsky/graph/getRelationships.md) | ❌ |
+| **[app.bsky.graph.getListsWithMembership](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getListsWithMembership.html)** | [Reference](lexicons/app/bsky/graph/getListsWithMembership.md) | ✅ |
 | **[app.bsky.graph.getKnownFollowers](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getKnownFollowers.html)** | [Reference](lexicons/app/bsky/graph/getKnownFollowers.md) | ✅ |
 | **[app.bsky.graph.verification](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/verification.html)** | [Reference](lexicons/app/bsky/graph/verification.md) | ❌ |
 | **[app.bsky.graph.getFollowers](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getFollowers.html)** | [Reference](lexicons/app/bsky/graph/getFollowers.md) | ✅ |
 | **[app.bsky.graph.getFollows](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getFollows.html)** | [Reference](lexicons/app/bsky/graph/getFollows.md) | ✅ |
 | **[app.bsky.graph.getListBlocks](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getListBlocks.html)** | [Reference](lexicons/app/bsky/graph/getListBlocks.md) | ✅ |
 | **[app.bsky.graph.muteActor](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/muteActor.html)** | [Reference](lexicons/app/bsky/graph/muteActor.md) | ❌ |
+| **[app.bsky.graph.getStarterPacksWithMembership](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getStarterPacksWithMembership.html)** | [Reference](lexicons/app/bsky/graph/getStarterPacksWithMembership.md) | ✅ |
 | **[app.bsky.graph.block](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/block.html)** | [Reference](lexicons/app/bsky/graph/block.md) | ❌ |
 | **[app.bsky.graph.getStarterPacks](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getStarterPacks.html)** | [Reference](lexicons/app/bsky/graph/getStarterPacks.md) | ❌ |
 | **[app.bsky.graph.getLists](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getLists.html)** | [Reference](lexicons/app/bsky/graph/getLists.md) | ✅ |

@@ -472,3 +472,15 @@ Moderation tool information for tracing the source of the action
 | --- | --- | --- | :---: | --- |
 | **name** | string | - | ✅ | Name/identifier of the source (e.g., 'automod', 'ozone/workspace') |
 | **meta** | unknown | - | ❌ | Additional arbitrary metadata about the source |
+
+## #timelineEventPlcCreate
+
+**TOKEN**: Moderation event timeline event for a PLC create operation
+
+## #timelineEventPlcOperation
+
+**TOKEN**: Moderation event timeline event for generic PLC operation
+
+## #timelineEventPlcTombstone
+
+**TOKEN**: Moderation event timeline event for a PLC tombstone operation

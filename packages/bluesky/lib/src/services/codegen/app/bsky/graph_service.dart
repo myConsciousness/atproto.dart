@@ -24,11 +24,15 @@ import 'graph/getKnownFollowers/output.dart';
 import 'graph/getList/output.dart';
 import 'graph/getListBlocks/output.dart';
 import 'graph/getListMutes/output.dart';
+import 'graph/getLists/main_purposes.dart';
 import 'graph/getLists/output.dart';
+import 'graph/getListsWithMembership/main_purposes.dart';
+import 'graph/getListsWithMembership/output.dart';
 import 'graph/getMutes/output.dart';
 import 'graph/getRelationships/output.dart';
 import 'graph/getStarterPack/output.dart';
 import 'graph/getStarterPacks/output.dart';
+import 'graph/getStarterPacksWithMembership/output.dart';
 import 'graph/getSuggestedFollowsByActor/output.dart';
 import 'graph/list/union_main_labels.dart';
 import 'graph/searchStarterPacks/output.dart';
@@ -351,6 +355,29 @@ final class GraphService {
     to: const GraphGetRelationshipsOutputConverter().fromJson,
   );
 
+  /// Enumerates the lists created by the session user, and includes membership information about `actor` in those lists. Only supports curation and moderation lists (no reference lists, used in starter packs). Requires auth.
+  Future<XRPCResponse<GraphGetListsWithMembershipOutput>>
+  getListsWithMembership({
+    required String actor,
+    int? limit,
+    String? cursor,
+    List<GraphGetListsWithMembershipPurposes>? purposes,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.get(
+    ns.appBskyGraphGetListsWithMembership,
+    headers: $headers,
+    parameters: {
+      ...?$unknown,
+      'actor': actor,
+      if (limit != null) 'limit': limit,
+      if (cursor != null) 'cursor': cursor,
+      if (purposes != null)
+        'purposes': purposes.map((e) => e.toJson()).toList(),
+    },
+    to: const GraphGetListsWithMembershipOutputConverter().fromJson,
+  );
+
   /// Enumerates accounts which follow a specified account (actor) and are followed by the viewer.
   Future<XRPCResponse<GraphGetKnownFollowersOutput>> getKnownFollowers({
     required String actor,
@@ -458,6 +485,26 @@ final class GraphService {
     body: {...?$unknown, 'actor': actor},
   );
 
+  /// Enumerates the starter packs created by the session user, and includes membership information about `actor` in those starter packs. Requires auth.
+  Future<XRPCResponse<GraphGetStarterPacksWithMembershipOutput>>
+  getStarterPacksWithMembership({
+    required String actor,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.get(
+    ns.appBskyGraphGetStarterPacksWithMembership,
+    headers: $headers,
+    parameters: {
+      ...?$unknown,
+      'actor': actor,
+      if (limit != null) 'limit': limit,
+      if (cursor != null) 'cursor': cursor,
+    },
+    to: const GraphGetStarterPacksWithMembershipOutputConverter().fromJson,
+  );
+
   /// Record declaring a 'block' relationship against another account. NOTE: blocks are public in Bluesky; see blog posts for details.
   Future<XRPCResponse<RepoCreateRecordOutput>> block({
     required String subject,
@@ -493,6 +540,7 @@ final class GraphService {
     required String actor,
     int? limit,
     String? cursor,
+    List<GraphGetListsPurposes>? purposes,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await _ctx.get(
@@ -503,6 +551,8 @@ final class GraphService {
       'actor': actor,
       if (limit != null) 'limit': limit,
       if (cursor != null) 'cursor': cursor,
+      if (purposes != null)
+        'purposes': purposes.map((e) => e.toJson()).toList(),
     },
     to: const GraphGetListsOutputConverter().fromJson,
   );

@@ -20,6 +20,7 @@ import 'moderation/defs/record_view_detail.dart';
 import 'moderation/defs/repo_view_detail.dart';
 import 'moderation/emitEvent/union_main_event.dart';
 import 'moderation/emitEvent/union_main_subject.dart';
+import 'moderation/getAccountTimeline/output.dart';
 import 'moderation/getRecords/output.dart';
 import 'moderation/getReporterStats/output.dart';
 import 'moderation/getRepos/output.dart';
@@ -41,6 +42,18 @@ final class ModerationService {
   ModerationService(this._ctx);
 
   final z.ServiceContext _ctx;
+
+  /// Get timeline of all available events of an account. This includes moderation events, account history and did history.
+  Future<XRPCResponse<ModerationGetAccountTimelineOutput>> getAccountTimeline({
+    required String did,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await _ctx.get(
+    ns.toolsOzoneModerationGetAccountTimeline,
+    headers: $headers,
+    parameters: {...?$unknown, 'did': did},
+    to: const ModerationGetAccountTimelineOutputConverter().fromJson,
+  );
 
   /// List moderation events related to a subject.
   Future<XRPCResponse<ModerationQueryEventsOutput>> queryEvents({
