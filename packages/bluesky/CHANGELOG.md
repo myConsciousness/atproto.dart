@@ -4,6 +4,8 @@
 
 - chore: Removed outdated processes.
 - fix: Use `@JsonSerializable(includeIfNull: false)` for lex gen objects.
+- Add accessors that are useful when using records.
+  - supports `get`, `list`, `create`, `put` and `delete` operations for each record.
 
 ## v1.0.3
 
