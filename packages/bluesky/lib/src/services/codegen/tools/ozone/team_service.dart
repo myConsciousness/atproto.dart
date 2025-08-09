@@ -25,10 +25,10 @@ import 'team/updateMember/main_role.dart';
 Future<XRPCResponse<Member>> toolsOzoneTeamAddMember({
   required String did,
   required TeamAddMemberRole role,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneTeamAddMember,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'did': did, 'role': role.toJson()},
@@ -42,10 +42,10 @@ Future<XRPCResponse<TeamListMembersOutput>> toolsOzoneTeamListMembers({
   List<String>? roles,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneTeamListMembers,
   headers: $headers,
   parameters: {
@@ -64,10 +64,10 @@ Future<XRPCResponse<Member>> toolsOzoneTeamUpdateMember({
   required String did,
   bool? disabled,
   TeamUpdateMemberRole? role,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneTeamUpdateMember,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -82,10 +82,10 @@ Future<XRPCResponse<Member>> toolsOzoneTeamUpdateMember({
 /// Delete a member from ozone team. Requires admin role.
 Future<XRPCResponse<EmptyData>> toolsOzoneTeamDeleteMember({
   required String did,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneTeamDeleteMember,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'did': did},

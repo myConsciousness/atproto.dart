@@ -40,10 +40,10 @@ import 'package:atproto/com_atproto_services.dart'
 Future<XRPCResponse<LabelerGetServicesOutput>> appBskyLabelerGetServices({
   required List<String> dids,
   bool? detailed,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyLabelerGetServices,
   headers: $headers,
   parameters: {

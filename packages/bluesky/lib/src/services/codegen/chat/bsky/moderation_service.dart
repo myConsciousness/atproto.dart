@@ -22,10 +22,10 @@ import 'moderation/getMessageContext/output.dart';
 Future<XRPCResponse<ModerationGetActorMetadataOutput>>
 chatBskyModerationGetActorMetadata({
   required String actor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.chatBskyModerationGetActorMetadata,
   headers: $headers,
   parameters: {...?$unknown, 'actor': actor},
@@ -35,10 +35,10 @@ Future<XRPCResponse<EmptyData>> chatBskyModerationUpdateActorAccess({
   required String actor,
   required bool allowAccess,
   String? ref,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.chatBskyModerationUpdateActorAccess,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -54,10 +54,10 @@ chatBskyModerationGetMessageContext({
   required String messageId,
   int? before,
   int? after,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.chatBskyModerationGetMessageContext,
   headers: $headers,
   parameters: {

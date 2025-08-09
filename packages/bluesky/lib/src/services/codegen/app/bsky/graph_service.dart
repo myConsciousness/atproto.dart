@@ -58,10 +58,10 @@ import 'package:atproto/com_atproto_services.dart'
 /// Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphMuteActorList({
   required String list,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.appBskyGraphMuteActorList,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'list': list},
@@ -70,10 +70,10 @@ Future<XRPCResponse<EmptyData>> appBskyGraphMuteActorList({
 /// Unmutes the specified account. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteActor({
   required String actor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.appBskyGraphUnmuteActor,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'actor': actor},
@@ -83,10 +83,10 @@ Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteActor({
 Future<XRPCResponse<GraphGetBlocksOutput>> appBskyGraphGetBlocks({
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyGraphGetBlocks,
   headers: $headers,
   parameters: {
@@ -103,10 +103,10 @@ appBskyGraphSearchStarterPacks({
   required String q,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyGraphSearchStarterPacks,
   headers: $headers,
   parameters: {
@@ -122,10 +122,10 @@ appBskyGraphSearchStarterPacks({
 Future<XRPCResponse<GraphGetMutesOutput>> appBskyGraphGetMutes({
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyGraphGetMutes,
   headers: $headers,
   parameters: {
@@ -140,10 +140,10 @@ Future<XRPCResponse<GraphGetMutesOutput>> appBskyGraphGetMutes({
 Future<XRPCResponse<GraphGetSuggestedFollowsByActorOutput>>
 appBskyGraphGetSuggestedFollowsByActor({
   required String actor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyGraphGetSuggestedFollowsByActor,
   headers: $headers,
   parameters: {...?$unknown, 'actor': actor},
@@ -154,10 +154,10 @@ appBskyGraphGetSuggestedFollowsByActor({
 Future<XRPCResponse<GraphGetListMutesOutput>> appBskyGraphGetListMutes({
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyGraphGetListMutes,
   headers: $headers,
   parameters: {
@@ -173,10 +173,10 @@ Future<XRPCResponse<GraphGetListOutput>> appBskyGraphGetList({
   required String list,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyGraphGetList,
   headers: $headers,
   parameters: {
@@ -191,10 +191,10 @@ Future<XRPCResponse<GraphGetListOutput>> appBskyGraphGetList({
 /// Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphMuteThread({
   required String root,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.appBskyGraphMuteThread,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'root': root},
@@ -203,10 +203,10 @@ Future<XRPCResponse<EmptyData>> appBskyGraphMuteThread({
 /// Unmutes the specified list of accounts. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteActorList({
   required String list,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.appBskyGraphUnmuteActorList,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'list': list},
@@ -215,10 +215,10 @@ Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteActorList({
 /// Gets a view of a starter pack.
 Future<XRPCResponse<GraphGetStarterPackOutput>> appBskyGraphGetStarterPack({
   required String starterPack,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyGraphGetStarterPack,
   headers: $headers,
   parameters: {...?$unknown, 'starterPack': starterPack},
@@ -231,10 +231,10 @@ appBskyGraphGetActorStarterPacks({
   required String actor,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyGraphGetActorStarterPacks,
   headers: $headers,
   parameters: {
@@ -250,10 +250,10 @@ appBskyGraphGetActorStarterPacks({
 Future<XRPCResponse<GraphGetRelationshipsOutput>> appBskyGraphGetRelationships({
   required String actor,
   List<String>? others,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyGraphGetRelationships,
   headers: $headers,
   parameters: {
@@ -271,10 +271,10 @@ appBskyGraphGetListsWithMembership({
   int? limit,
   String? cursor,
   List<GraphGetListsWithMembershipPurposes>? purposes,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyGraphGetListsWithMembership,
   headers: $headers,
   parameters: {
@@ -293,10 +293,10 @@ appBskyGraphGetKnownFollowers({
   required String actor,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyGraphGetKnownFollowers,
   headers: $headers,
   parameters: {
@@ -313,10 +313,10 @@ Future<XRPCResponse<GraphGetFollowersOutput>> appBskyGraphGetFollowers({
   required String actor,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyGraphGetFollowers,
   headers: $headers,
   parameters: {
@@ -333,10 +333,10 @@ Future<XRPCResponse<GraphGetFollowsOutput>> appBskyGraphGetFollows({
   required String actor,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyGraphGetFollows,
   headers: $headers,
   parameters: {
@@ -352,10 +352,10 @@ Future<XRPCResponse<GraphGetFollowsOutput>> appBskyGraphGetFollows({
 Future<XRPCResponse<GraphGetListBlocksOutput>> appBskyGraphGetListBlocks({
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyGraphGetListBlocks,
   headers: $headers,
   parameters: {
@@ -369,10 +369,10 @@ Future<XRPCResponse<GraphGetListBlocksOutput>> appBskyGraphGetListBlocks({
 /// Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphMuteActor({
   required String actor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.appBskyGraphMuteActor,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'actor': actor},
@@ -384,10 +384,10 @@ appBskyGraphGetStarterPacksWithMembership({
   required String actor,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyGraphGetStarterPacksWithMembership,
   headers: $headers,
   parameters: {
@@ -402,10 +402,10 @@ appBskyGraphGetStarterPacksWithMembership({
 /// Get views for a list of starter packs.
 Future<XRPCResponse<GraphGetStarterPacksOutput>> appBskyGraphGetStarterPacks({
   required List<String> uris,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyGraphGetStarterPacks,
   headers: $headers,
   parameters: {...?$unknown, 'uris': uris},
@@ -418,10 +418,10 @@ Future<XRPCResponse<GraphGetListsOutput>> appBskyGraphGetLists({
   int? limit,
   String? cursor,
   List<GraphGetListsPurposes>? purposes,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyGraphGetLists,
   headers: $headers,
   parameters: {
@@ -437,10 +437,10 @@ Future<XRPCResponse<GraphGetListsOutput>> appBskyGraphGetLists({
 /// Unmutes the specified thread. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteThread({
   required String root,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.appBskyGraphUnmuteThread,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'root': root},

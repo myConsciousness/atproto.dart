@@ -38,10 +38,10 @@ import 'repo/uploadBlob/output.dart';
 /// Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.
 Future<XRPCResponse<EmptyData>> comAtprotoRepoImportRepo({
   required Uint8List bytes,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $parameters,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.comAtprotoRepoImportRepo,
   headers: {'Content-type': 'application/vnd.ipld.car', ...?$headers},
   parameters: $parameters,
@@ -56,10 +56,10 @@ Future<XRPCResponse<RepoCreateRecordOutput>> comAtprotoRepoCreateRecord({
   bool? validate,
   required Map<String, dynamic> record,
   String? swapCommit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.comAtprotoRepoCreateRecord,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -81,10 +81,10 @@ Future<XRPCResponse<RepoListRecordsOutput>> comAtprotoRepoListRecords({
   int? limit,
   String? cursor,
   bool? reverse,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoRepoListRecords,
   headers: $headers,
   parameters: {
@@ -101,10 +101,10 @@ Future<XRPCResponse<RepoListRecordsOutput>> comAtprotoRepoListRecords({
 /// Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
 Future<XRPCResponse<RepoUploadBlobOutput>> comAtprotoRepoUploadBlob({
   required Uint8List bytes,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $parameters,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.comAtprotoRepoUploadBlob,
   headers: {'Content-type': '*/*', ...?$headers},
   parameters: $parameters,
@@ -119,10 +119,10 @@ Future<XRPCResponse<RepoDeleteRecordOutput>> comAtprotoRepoDeleteRecord({
   required String rkey,
   String? swapRecord,
   String? swapCommit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.comAtprotoRepoDeleteRecord,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -145,10 +145,10 @@ Future<XRPCResponse<RepoPutRecordOutput>> comAtprotoRepoPutRecord({
   required Map<String, dynamic> record,
   String? swapRecord,
   String? swapCommit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.comAtprotoRepoPutRecord,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -167,10 +167,10 @@ Future<XRPCResponse<RepoPutRecordOutput>> comAtprotoRepoPutRecord({
 /// Get information about an account and repository, including the list of collections. Does not require auth.
 Future<XRPCResponse<RepoDescribeRepoOutput>> comAtprotoRepoDescribeRepo({
   required String repo,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoRepoDescribeRepo,
   headers: $headers,
   parameters: {...?$unknown, 'repo': repo},
@@ -183,10 +183,10 @@ Future<XRPCResponse<RepoGetRecordOutput>> comAtprotoRepoGetRecord({
   required String collection,
   required String rkey,
   String? cid,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoRepoGetRecord,
   headers: $headers,
   parameters: {
@@ -205,10 +205,10 @@ Future<XRPCResponse<RepoApplyWritesOutput>> comAtprotoRepoApplyWrites({
   bool? validate,
   required List<URepoApplyWritesWrites> writes,
   String? swapCommit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.comAtprotoRepoApplyWrites,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -226,10 +226,10 @@ Future<XRPCResponse<RepoListMissingBlobsOutput>>
 comAtprotoRepoListMissingBlobs({
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoRepoListMissingBlobs,
   headers: $headers,
   parameters: {

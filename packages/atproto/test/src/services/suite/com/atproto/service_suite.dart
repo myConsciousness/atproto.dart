@@ -10,7 +10,6 @@ import 'package:atproto/src/services/codegen/com/atproto/repo_service.dart';
 import 'package:atproto/src/services/codegen/com/atproto/server_service.dart';
 import 'package:atproto/src/services/codegen/com/atproto/sync_service.dart';
 import 'package:atproto/src/services/codegen/com/atproto/temp_service.dart';
-import 'package:atproto/src/services/service_context.dart';
 
 const _runner = _ServiceRunner();
 
@@ -96,72 +95,51 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
   }
 
   IdentityService _getIdentityService(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   ) => IdentityService(
-    ServiceContext(
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
+    core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 
   LabelService _getLabelService(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   ) => LabelService(
-    ServiceContext(
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
+    core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 
   ModerationService _getModerationService(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   ) => ModerationService(
-    ServiceContext(
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
+    core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 
   RepoService _getRepoService(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   ) => RepoService(
-    ServiceContext(
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
+    core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 
   ServerService _getServerService(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   ) => ServerService(
-    ServiceContext(
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
+    core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 
   SyncService _getSyncService(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   ) => SyncService(
-    ServiceContext(
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
+    core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 
   TempService _getTempService(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   ) => TempService(
-    ServiceContext(
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
+    core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 }

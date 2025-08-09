@@ -41,10 +41,10 @@ import 'convo/updateRead/output.dart';
 
 Future<XRPCResponse<ConvoUpdateAllReadOutput>> chatBskyConvoUpdateAllRead({
   ConvoUpdateAllReadStatus? status,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.chatBskyConvoUpdateAllRead,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, if (status != null) 'status': status.toJson()},
@@ -52,10 +52,10 @@ Future<XRPCResponse<ConvoUpdateAllReadOutput>> chatBskyConvoUpdateAllRead({
 );
 Future<XRPCResponse<ConvoUnmuteConvoOutput>> chatBskyConvoUnmuteConvo({
   required String convoId,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.chatBskyConvoUnmuteConvo,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'convoId': convoId},
@@ -64,10 +64,10 @@ Future<XRPCResponse<ConvoUnmuteConvoOutput>> chatBskyConvoUnmuteConvo({
 Future<XRPCResponse<DeletedMessageView>> chatBskyConvoDeleteMessageForSelf({
   required String convoId,
   required String messageId,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.chatBskyConvoDeleteMessageForSelf,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'convoId': convoId, 'messageId': messageId},
@@ -76,10 +76,10 @@ Future<XRPCResponse<DeletedMessageView>> chatBskyConvoDeleteMessageForSelf({
 Future<XRPCResponse<MessageView>> chatBskyConvoSendMessage({
   required String convoId,
   required MessageInput message,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.chatBskyConvoSendMessage,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'convoId': convoId, 'message': message.toJson()},
@@ -89,10 +89,10 @@ Future<XRPCResponse<ConvoGetMessagesOutput>> chatBskyConvoGetMessages({
   required String convoId,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.chatBskyConvoGetMessages,
   headers: $headers,
   parameters: {
@@ -105,10 +105,10 @@ Future<XRPCResponse<ConvoGetMessagesOutput>> chatBskyConvoGetMessages({
 );
 Future<XRPCResponse<ConvoLeaveConvoOutput>> chatBskyConvoLeaveConvo({
   required String convoId,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.chatBskyConvoLeaveConvo,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'convoId': convoId},
@@ -120,10 +120,10 @@ Future<XRPCResponse<ConvoAddReactionOutput>> chatBskyConvoAddReaction({
   required String convoId,
   required String messageId,
   required String value,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.chatBskyConvoAddReaction,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -137,10 +137,10 @@ Future<XRPCResponse<ConvoAddReactionOutput>> chatBskyConvoAddReaction({
 Future<XRPCResponse<ConvoSendMessageBatchOutput>>
 chatBskyConvoSendMessageBatch({
   required List<BatchItem> items,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.chatBskyConvoSendMessageBatch,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'items': items.map((e) => e.toJson()).toList()},
@@ -152,10 +152,10 @@ Future<XRPCResponse<ConvoRemoveReactionOutput>> chatBskyConvoRemoveReaction({
   required String convoId,
   required String messageId,
   required String value,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.chatBskyConvoRemoveReaction,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -169,10 +169,10 @@ Future<XRPCResponse<ConvoRemoveReactionOutput>> chatBskyConvoRemoveReaction({
 Future<XRPCResponse<ConvoGetConvoForMembersOutput>>
 chatBskyConvoGetConvoForMembers({
   required List<String> members,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.chatBskyConvoGetConvoForMembers,
   headers: $headers,
   parameters: {...?$unknown, 'members': members},
@@ -180,10 +180,10 @@ chatBskyConvoGetConvoForMembers({
 );
 Future<XRPCResponse<ConvoMuteConvoOutput>> chatBskyConvoMuteConvo({
   required String convoId,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.chatBskyConvoMuteConvo,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'convoId': convoId},
@@ -191,10 +191,10 @@ Future<XRPCResponse<ConvoMuteConvoOutput>> chatBskyConvoMuteConvo({
 );
 Future<XRPCResponse<ConvoAcceptConvoOutput>> chatBskyConvoAcceptConvo({
   required String convoId,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.chatBskyConvoAcceptConvo,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'convoId': convoId},
@@ -205,10 +205,10 @@ Future<XRPCResponse<ConvoListConvosOutput>> chatBskyConvoListConvos({
   String? cursor,
   ConvoListConvosReadState? readState,
   ConvoListConvosStatus? status,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.chatBskyConvoListConvos,
   headers: $headers,
   parameters: {
@@ -225,10 +225,10 @@ Future<XRPCResponse<ConvoListConvosOutput>> chatBskyConvoListConvos({
 Future<XRPCResponse<ConvoGetConvoAvailabilityOutput>>
 chatBskyConvoGetConvoAvailability({
   required List<String> members,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.chatBskyConvoGetConvoAvailability,
   headers: $headers,
   parameters: {...?$unknown, 'members': members},
@@ -236,10 +236,10 @@ chatBskyConvoGetConvoAvailability({
 );
 Future<XRPCResponse<ConvoGetLogOutput>> chatBskyConvoGetLog({
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.chatBskyConvoGetLog,
   headers: $headers,
   parameters: {...?$unknown, if (cursor != null) 'cursor': cursor},
@@ -247,10 +247,10 @@ Future<XRPCResponse<ConvoGetLogOutput>> chatBskyConvoGetLog({
 );
 Future<XRPCResponse<ConvoGetConvoOutput>> chatBskyConvoGetConvo({
   required String convoId,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.chatBskyConvoGetConvo,
   headers: $headers,
   parameters: {...?$unknown, 'convoId': convoId},
@@ -259,10 +259,10 @@ Future<XRPCResponse<ConvoGetConvoOutput>> chatBskyConvoGetConvo({
 Future<XRPCResponse<ConvoUpdateReadOutput>> chatBskyConvoUpdateRead({
   required String convoId,
   String? messageId,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.chatBskyConvoUpdateRead,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {

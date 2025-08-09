@@ -33,10 +33,10 @@ Future<XRPCResponse<Event>> toolsOzoneSafelinkAddRule({
   required ReasonType reason,
   String? comment,
   String? createdBy,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneSafelinkAddRule,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -57,10 +57,10 @@ Future<XRPCResponse<Event>> toolsOzoneSafelinkRemoveRule({
   required PatternType pattern,
   String? comment,
   String? createdBy,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneSafelinkRemoveRule,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -80,10 +80,10 @@ Future<XRPCResponse<SafelinkQueryEventsOutput>> toolsOzoneSafelinkQueryEvents({
   List<String>? urls,
   String? patternType,
   SafelinkQueryEventsSortDirection? sortDirection,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneSafelinkQueryEvents,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -105,10 +105,10 @@ Future<XRPCResponse<Event>> toolsOzoneSafelinkUpdateRule({
   required ReasonType reason,
   String? comment,
   String? createdBy,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneSafelinkUpdateRule,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -133,10 +133,10 @@ Future<XRPCResponse<SafelinkQueryRulesOutput>> toolsOzoneSafelinkQueryRules({
   String? reason,
   String? createdBy,
   SafelinkQueryRulesSortDirection? sortDirection,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneSafelinkQueryRules,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {

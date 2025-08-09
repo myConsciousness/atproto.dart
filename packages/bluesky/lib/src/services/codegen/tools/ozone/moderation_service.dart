@@ -41,10 +41,10 @@ import 'moderation/searchRepos/output.dart';
 Future<XRPCResponse<ModerationGetAccountTimelineOutput>>
 toolsOzoneModerationGetAccountTimeline({
   required String did,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneModerationGetAccountTimeline,
   headers: $headers,
   parameters: {...?$unknown, 'did': did},
@@ -75,10 +75,10 @@ toolsOzoneModerationQueryEvents({
   List<String>? modTool,
   ModerationQueryEventsAgeAssuranceState? ageAssuranceState,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneModerationQueryEvents,
   headers: $headers,
   parameters: {
@@ -117,10 +117,10 @@ toolsOzoneModerationSearchRepos({
   String? q,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneModerationSearchRepos,
   headers: $headers,
   parameters: {
@@ -141,10 +141,10 @@ Future<XRPCResponse<ModEventView>> toolsOzoneModerationEmitEvent({
   required String createdBy,
   ModTool? modTool,
   String? externalId,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneModerationEmitEvent,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -163,10 +163,10 @@ Future<XRPCResponse<ModEventView>> toolsOzoneModerationEmitEvent({
 Future<XRPCResponse<ModerationGetRecordsOutput>>
 toolsOzoneModerationGetRecords({
   required List<String> uris,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneModerationGetRecords,
   headers: $headers,
   parameters: {...?$unknown, 'uris': uris},
@@ -176,10 +176,10 @@ toolsOzoneModerationGetRecords({
 /// Get details about a moderation event.
 Future<XRPCResponse<ModEventViewDetail>> toolsOzoneModerationGetEvent({
   required int id,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneModerationGetEvent,
   headers: $headers,
   parameters: {...?$unknown, 'id': id},
@@ -190,10 +190,10 @@ Future<XRPCResponse<ModEventViewDetail>> toolsOzoneModerationGetEvent({
 Future<XRPCResponse<ModerationGetReporterStatsOutput>>
 toolsOzoneModerationGetReporterStats({
   required List<String> dids,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneModerationGetReporterStats,
   headers: $headers,
   parameters: {...?$unknown, 'dids': dids},
@@ -238,10 +238,10 @@ toolsOzoneModerationQueryStatuses({
   int? minTakendownRecordsCount,
   int? minPriorityScore,
   ModerationQueryStatusesAgeAssuranceState? ageAssuranceState,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneModerationQueryStatuses,
   headers: $headers,
   parameters: {
@@ -297,10 +297,10 @@ toolsOzoneModerationQueryStatuses({
 /// Get details about some repositories.
 Future<XRPCResponse<ModerationGetReposOutput>> toolsOzoneModerationGetRepos({
   required List<String> dids,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneModerationGetRepos,
   headers: $headers,
   parameters: {...?$unknown, 'dids': dids},
@@ -311,10 +311,10 @@ Future<XRPCResponse<ModerationGetReposOutput>> toolsOzoneModerationGetRepos({
 Future<XRPCResponse<RecordViewDetail>> toolsOzoneModerationGetRecord({
   required String uri,
   String? cid,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneModerationGetRecord,
   headers: $headers,
   parameters: {...?$unknown, 'uri': uri, if (cid != null) 'cid': cid},
@@ -325,10 +325,10 @@ Future<XRPCResponse<RecordViewDetail>> toolsOzoneModerationGetRecord({
 Future<XRPCResponse<ModerationGetSubjectsOutput>>
 toolsOzoneModerationGetSubjects({
   required List<String> subjects,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneModerationGetSubjects,
   headers: $headers,
   parameters: {...?$unknown, 'subjects': subjects},
@@ -338,10 +338,10 @@ toolsOzoneModerationGetSubjects({
 /// Get details about a repository.
 Future<XRPCResponse<RepoViewDetail>> toolsOzoneModerationGetRepo({
   required String did,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneModerationGetRepo,
   headers: $headers,
   parameters: {...?$unknown, 'did': did},

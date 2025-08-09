@@ -26,10 +26,10 @@ toolsOzoneHostingGetAccountHistory({
   List<HostingGetAccountHistoryEvents>? events,
   String? cursor,
   int? limit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneHostingGetAccountHistory,
   headers: $headers,
   parameters: {

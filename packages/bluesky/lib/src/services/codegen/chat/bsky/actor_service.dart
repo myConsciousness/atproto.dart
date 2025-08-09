@@ -36,19 +36,19 @@ import 'package:atproto/com_atproto_services.dart'
 // **************************************************************************
 
 Future<XRPCResponse<EmptyData>> chatBskyActorDeleteAccount({
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.chatBskyActorDeleteAccount,
   headers: {...?$headers},
   body: {...?$unknown},
 );
 Future<XRPCResponse<Uint8List>> chatBskyActorExportAccountData({
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.chatBskyActorExportAccountData,
   headers: $headers,
   parameters: {...?$unknown},

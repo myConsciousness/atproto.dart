@@ -27,8 +27,8 @@ sealed class BlueskyChat {
     final String? relayService,
     final Duration? timeout,
     final core.RetryConfig? retryConfig,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   }) => _BlueskyChat(
     core.ServiceContext(
       headers: {...?headers, ..._kBskyChatProxyHeaders},
@@ -38,8 +38,8 @@ sealed class BlueskyChat {
       session: session,
       timeout: timeout,
       retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
+      getClient: getClient,
+      postClient: postClient,
     ),
     atp.ATProto.fromSession(
       headers: {...?headers, ..._kBskyChatProxyHeaders},
@@ -49,8 +49,8 @@ sealed class BlueskyChat {
       relayService: relayService,
       timeout: timeout,
       retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
+      getClient: getClient,
+      postClient: postClient,
     ),
   );
 
@@ -63,8 +63,8 @@ sealed class BlueskyChat {
     final String? relayService,
     final Duration? timeout,
     final core.RetryConfig? retryConfig,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   }) => _BlueskyChat(
     core.ServiceContext(
       headers: {...?headers, ..._kBskyChatProxyHeaders},
@@ -74,8 +74,8 @@ sealed class BlueskyChat {
       oAuthSession: session,
       timeout: timeout,
       retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
+      getClient: getClient,
+      postClient: postClient,
     ),
     atp.ATProto.fromOAuthSession(
       headers: {...?headers, ..._kBskyChatProxyHeaders},
@@ -85,8 +85,8 @@ sealed class BlueskyChat {
       relayService: relayService,
       timeout: timeout,
       retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
+      getClient: getClient,
+      postClient: postClient,
     ),
   );
 

@@ -26,8 +26,8 @@ sealed class ATProto {
     final String? relayService,
     final Duration? timeout,
     final core.RetryConfig? retryConfig,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   }) => _ATProto(
     core.ServiceContext(
       headers: headers,
@@ -37,8 +37,8 @@ sealed class ATProto {
       session: session,
       timeout: timeout,
       retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
+      getClient: getClient,
+      postClient: postClient,
     ),
   );
 
@@ -51,8 +51,8 @@ sealed class ATProto {
     final String? relayService,
     final Duration? timeout,
     final core.RetryConfig? retryConfig,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   }) => _ATProto(
     core.ServiceContext(
       headers: headers,
@@ -62,8 +62,8 @@ sealed class ATProto {
       oAuthSession: session,
       timeout: timeout,
       retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
+      getClient: getClient,
+      postClient: postClient,
     ),
   );
 
@@ -75,8 +75,8 @@ sealed class ATProto {
     final String? relayService,
     final Duration? timeout,
     final core.RetryConfig? retryConfig,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   }) => _ATProto(
     core.ServiceContext(
       headers: headers,
@@ -85,8 +85,8 @@ sealed class ATProto {
       relayService: relayService,
       timeout: timeout,
       retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
+      getClient: getClient,
+      postClient: postClient,
     ),
   );
 

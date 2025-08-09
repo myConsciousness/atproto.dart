@@ -24,10 +24,10 @@ import 'signature/searchAccounts/output.dart';
 Future<XRPCResponse<SignatureFindCorrelationOutput>>
 toolsOzoneSignatureFindCorrelation({
   required List<String> dids,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneSignatureFindCorrelation,
   headers: $headers,
   parameters: {...?$unknown, 'dids': dids},
@@ -40,10 +40,10 @@ toolsOzoneSignatureSearchAccounts({
   required List<String> values,
   String? cursor,
   int? limit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneSignatureSearchAccounts,
   headers: $headers,
   parameters: {
@@ -61,10 +61,10 @@ toolsOzoneSignatureFindRelatedAccounts({
   required String did,
   String? cursor,
   int? limit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneSignatureFindRelatedAccounts,
   headers: $headers,
   parameters: {

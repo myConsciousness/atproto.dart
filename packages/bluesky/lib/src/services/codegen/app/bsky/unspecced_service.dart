@@ -43,10 +43,10 @@ Future<XRPCResponse<UnspeccedGetSuggestedUsersOutput>>
 appBskyUnspeccedGetSuggestedUsers({
   String? category,
   int? limit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedGetSuggestedUsers,
   headers: $headers,
   parameters: {
@@ -62,10 +62,10 @@ Future<XRPCResponse<AgeAssuranceState>> appBskyUnspeccedInitAgeAssurance({
   required String email,
   required String language,
   required String countryCode,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.appBskyUnspeccedInitAgeAssurance,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -79,10 +79,10 @@ Future<XRPCResponse<AgeAssuranceState>> appBskyUnspeccedInitAgeAssurance({
 
 /// Get miscellaneous runtime configuration.
 Future<XRPCResponse<UnspeccedGetConfigOutput>> appBskyUnspeccedGetConfig({
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedGetConfig,
   headers: $headers,
   parameters: {...?$unknown},
@@ -96,10 +96,10 @@ appBskyUnspeccedSearchStarterPacksSkeleton({
   String? viewer,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedSearchStarterPacksSkeleton,
   headers: $headers,
   parameters: {
@@ -115,10 +115,10 @@ appBskyUnspeccedSearchStarterPacksSkeleton({
 /// Get the current trends on the network
 Future<XRPCResponse<UnspeccedGetTrendsOutput>> appBskyUnspeccedGetTrends({
   int? limit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedGetTrends,
   headers: $headers,
   parameters: {...?$unknown, if (limit != null) 'limit': limit},
@@ -128,10 +128,10 @@ Future<XRPCResponse<UnspeccedGetTrendsOutput>> appBskyUnspeccedGetTrends({
 /// Get a list of suggestions (feeds and users) tagged with categories
 Future<XRPCResponse<UnspeccedGetTaggedSuggestionsOutput>>
 appBskyUnspeccedGetTaggedSuggestions({
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedGetTaggedSuggestions,
   headers: $headers,
   parameters: {...?$unknown},
@@ -147,10 +147,10 @@ appBskyUnspeccedGetPostThreadV2({
   int? branchingFactor,
   bool? prioritizeFollowedUsers,
   UnspeccedGetPostThreadV2Sort? sort,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedGetPostThreadV2,
   headers: $headers,
   parameters: {
@@ -168,10 +168,10 @@ appBskyUnspeccedGetPostThreadV2({
 
 /// Returns the current state of the age assurance process for an account. This is used to check if the user has completed age assurance or if further action is required.
 Future<XRPCResponse<AgeAssuranceState>> appBskyUnspeccedGetAgeAssuranceState({
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedGetAgeAssuranceState,
   headers: $headers,
   parameters: {...?$unknown},
@@ -182,10 +182,10 @@ Future<XRPCResponse<AgeAssuranceState>> appBskyUnspeccedGetAgeAssuranceState({
 Future<XRPCResponse<UnspeccedGetSuggestedStarterPacksOutput>>
 appBskyUnspeccedGetSuggestedStarterPacks({
   int? limit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedGetSuggestedStarterPacks,
   headers: $headers,
   parameters: {...?$unknown, if (limit != null) 'limit': limit},
@@ -197,10 +197,10 @@ Future<XRPCResponse<UnspeccedGetPostThreadOtherV2Output>>
 appBskyUnspeccedGetPostThreadOtherV2({
   required String anchor,
   bool? prioritizeFollowedUsers,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedGetPostThreadOtherV2,
   headers: $headers,
   parameters: {
@@ -216,10 +216,10 @@ appBskyUnspeccedGetPostThreadOtherV2({
 Future<XRPCResponse<UnspeccedGetSuggestedFeedsOutput>>
 appBskyUnspeccedGetSuggestedFeeds({
   int? limit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedGetSuggestedFeeds,
   headers: $headers,
   parameters: {...?$unknown, if (limit != null) 'limit': limit},
@@ -233,10 +233,10 @@ appBskyUnspeccedGetSuggestionsSkeleton({
   int? limit,
   String? cursor,
   String? relativeToDid,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedGetSuggestionsSkeleton,
   headers: $headers,
   parameters: {
@@ -254,10 +254,10 @@ Future<XRPCResponse<UnspeccedGetTrendsSkeletonOutput>>
 appBskyUnspeccedGetTrendsSkeleton({
   String? viewer,
   int? limit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedGetTrendsSkeleton,
   headers: $headers,
   parameters: {
@@ -273,10 +273,10 @@ Future<XRPCResponse<UnspeccedGetSuggestedStarterPacksSkeletonOutput>>
 appBskyUnspeccedGetSuggestedStarterPacksSkeleton({
   String? viewer,
   int? limit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedGetSuggestedStarterPacksSkeleton,
   headers: $headers,
   parameters: {
@@ -292,10 +292,10 @@ Future<XRPCResponse<UnspeccedGetSuggestedFeedsSkeletonOutput>>
 appBskyUnspeccedGetSuggestedFeedsSkeleton({
   String? viewer,
   int? limit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedGetSuggestedFeedsSkeleton,
   headers: $headers,
   parameters: {
@@ -312,10 +312,10 @@ appBskyUnspeccedGetPopularFeedGenerators({
   int? limit,
   String? cursor,
   String? query,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedGetPopularFeedGenerators,
   headers: $headers,
   parameters: {
@@ -332,10 +332,10 @@ Future<XRPCResponse<UnspeccedGetTrendingTopicsOutput>>
 appBskyUnspeccedGetTrendingTopics({
   String? viewer,
   int? limit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedGetTrendingTopics,
   headers: $headers,
   parameters: {
@@ -354,10 +354,10 @@ appBskyUnspeccedSearchActorsSkeleton({
   bool? typeahead,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedSearchActorsSkeleton,
   headers: $headers,
   parameters: {
@@ -387,10 +387,10 @@ appBskyUnspeccedSearchPostsSkeleton({
   String? viewer,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedSearchPostsSkeleton,
   headers: $headers,
   parameters: {
@@ -418,10 +418,10 @@ appBskyUnspeccedGetSuggestedUsersSkeleton({
   String? viewer,
   String? category,
   int? limit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyUnspeccedGetSuggestedUsersSkeleton,
   headers: $headers,
   parameters: {

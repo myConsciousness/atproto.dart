@@ -27,8 +27,8 @@ sealed class Bluesky {
     final String? relayService,
     final Duration? timeout,
     final core.RetryConfig? retryConfig,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   }) => _Bluesky(
     core.ServiceContext(
       headers: headers,
@@ -38,8 +38,8 @@ sealed class Bluesky {
       session: session,
       timeout: timeout,
       retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
+      getClient: getClient,
+      postClient: postClient,
     ),
     atp.ATProto.fromSession(
       headers: headers,
@@ -49,8 +49,8 @@ sealed class Bluesky {
       relayService: relayService,
       timeout: timeout,
       retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
+      getClient: getClient,
+      postClient: postClient,
     ),
   );
 
@@ -63,8 +63,8 @@ sealed class Bluesky {
     final String? relayService,
     final Duration? timeout,
     final core.RetryConfig? retryConfig,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   }) => _Bluesky(
     core.ServiceContext(
       headers: headers,
@@ -74,8 +74,8 @@ sealed class Bluesky {
       oAuthSession: session,
       timeout: timeout,
       retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
+      getClient: getClient,
+      postClient: postClient,
     ),
     atp.ATProto.fromOAuthSession(
       headers: headers,
@@ -85,8 +85,8 @@ sealed class Bluesky {
       relayService: relayService,
       timeout: timeout,
       retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
+      getClient: getClient,
+      postClient: postClient,
     ),
   );
 
@@ -98,8 +98,8 @@ sealed class Bluesky {
     final String? relayService,
     final Duration? timeout,
     final core.RetryConfig? retryConfig,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   }) => _Bluesky(
     core.ServiceContext(
       headers: headers,
@@ -108,8 +108,8 @@ sealed class Bluesky {
       relayService: relayService,
       timeout: timeout,
       retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
+      getClient: getClient,
+      postClient: postClient,
     ),
     atp.ATProto.anonymous(
       headers: headers,
@@ -118,8 +118,8 @@ sealed class Bluesky {
       relayService: relayService,
       timeout: timeout,
       retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
+      getClient: getClient,
+      postClient: postClient,
     ),
   );
 

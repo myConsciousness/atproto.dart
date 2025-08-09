@@ -27,10 +27,10 @@ comAtprotoTempCheckHandleAvailability({
   required String handle,
   String? email,
   DateTime? birthDate,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoTempCheckHandleAvailability,
   headers: $headers,
   parameters: {
@@ -45,10 +45,10 @@ comAtprotoTempCheckHandleAvailability({
 /// Request a verification code to be sent to the supplied phone number
 Future<XRPCResponse<EmptyData>> comAtprotoTempRequestPhoneVerification({
   required String phoneNumber,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.comAtprotoTempRequestPhoneVerification,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'phoneNumber': phoneNumber},
@@ -57,10 +57,10 @@ Future<XRPCResponse<EmptyData>> comAtprotoTempRequestPhoneVerification({
 /// Check accounts location in signup queue.
 Future<XRPCResponse<TempCheckSignupQueueOutput>>
 comAtprotoTempCheckSignupQueue({
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoTempCheckSignupQueue,
   headers: $headers,
   parameters: {...?$unknown},
@@ -71,10 +71,10 @@ comAtprotoTempCheckSignupQueue({
 Future<XRPCResponse<TempFetchLabelsOutput>> comAtprotoTempFetchLabels({
   int? since,
   int? limit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoTempFetchLabels,
   headers: $headers,
   parameters: {
@@ -88,10 +88,10 @@ Future<XRPCResponse<TempFetchLabelsOutput>> comAtprotoTempFetchLabels({
 /// Add a handle to the set of reserved handles.
 Future<XRPCResponse<EmptyData>> comAtprotoTempAddReservedHandle({
   required String handle,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.comAtprotoTempAddReservedHandle,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'handle': handle},

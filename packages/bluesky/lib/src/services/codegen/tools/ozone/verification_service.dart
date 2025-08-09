@@ -27,10 +27,10 @@ Future<XRPCResponse<VerificationRevokeVerificationsOutput>>
 toolsOzoneVerificationRevokeVerifications({
   required List<String> uris,
   String? revokeReason,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneVerificationRevokeVerifications,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -45,10 +45,10 @@ toolsOzoneVerificationRevokeVerifications({
 Future<XRPCResponse<VerificationGrantVerificationsOutput>>
 toolsOzoneVerificationGrantVerifications({
   required List<VerificationInput> verifications,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneVerificationGrantVerifications,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -69,10 +69,10 @@ toolsOzoneVerificationListVerifications({
   List<String>? subjects,
   String? sortDirection,
   bool? isRevoked,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneVerificationListVerifications,
   headers: $headers,
   parameters: {

@@ -24,8 +24,8 @@ import 'label/queryLabels/output.dart';
 /// Subscribe to stream of labels (and negations). Public endpoint implemented by mod services. Uses same sequencing scheme as repo event stream.
 Future<XRPCResponse<Subscription<Uint8List>>> comAtprotoLabelSubscribeLabels({
   int? cursor,
-  ServiceContext? $ctx,
-}) async => await $ctx!.stream(
+  required ServiceContext $ctx,
+}) async => await $ctx.stream(
   ns.comAtprotoLabelSubscribeLabels,
   parameters: {if (cursor != null) 'cursor': cursor},
 );
@@ -36,10 +36,10 @@ Future<XRPCResponse<LabelQueryLabelsOutput>> comAtprotoLabelQueryLabels({
   List<String>? sources,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoLabelQueryLabels,
   headers: $headers,
   parameters: {

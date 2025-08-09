@@ -28,10 +28,10 @@ comAtprotoModerationCreateReport({
   String? reason,
   required UModerationCreateReportSubject subject,
   ModTool? modTool,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.comAtprotoModerationCreateReport,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {

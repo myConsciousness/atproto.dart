@@ -20,10 +20,10 @@ import 'server/getConfig/output.dart';
 
 /// Get details about ozone's server configuration.
 Future<XRPCResponse<ServerGetConfigOutput>> toolsOzoneServerGetConfig({
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneServerGetConfig,
   headers: $headers,
   parameters: {...?$unknown},

@@ -31,10 +31,10 @@ import 'sync/listReposByCollection/output.dart';
 /// Request a service to persistently crawl hosted repos. Expected use is new PDS instances declaring their existence to Relays. Does not require auth.
 Future<XRPCResponse<EmptyData>> comAtprotoSyncRequestCrawl({
   required String hostname,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.comAtprotoSyncRequestCrawl,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'hostname': hostname},
@@ -46,10 +46,10 @@ comAtprotoSyncListReposByCollection({
   required String collection,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoSyncListReposByCollection,
   headers: $headers,
   parameters: {
@@ -65,10 +65,10 @@ comAtprotoSyncListReposByCollection({
 Future<XRPCResponse<Uint8List>> comAtprotoSyncGetBlocks({
   required String did,
   required List<String> cids,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoSyncGetBlocks,
   headers: $headers,
   parameters: {...?$unknown, 'did': did, 'cids': cids},
@@ -78,10 +78,10 @@ Future<XRPCResponse<Uint8List>> comAtprotoSyncGetBlocks({
 Future<XRPCResponse<Uint8List>> comAtprotoSyncGetBlob({
   required String did,
   required String cid,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoSyncGetBlob,
   headers: $headers,
   parameters: {...?$unknown, 'did': did, 'cid': cid},
@@ -90,10 +90,10 @@ Future<XRPCResponse<Uint8List>> comAtprotoSyncGetBlob({
 /// Get the current commit CID & revision of the specified repo. Does not require auth.
 Future<XRPCResponse<SyncGetLatestCommitOutput>> comAtprotoSyncGetLatestCommit({
   required String did,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoSyncGetLatestCommit,
   headers: $headers,
   parameters: {...?$unknown, 'did': did},
@@ -104,10 +104,10 @@ Future<XRPCResponse<SyncGetLatestCommitOutput>> comAtprotoSyncGetLatestCommit({
 Future<XRPCResponse<SyncListHostsOutput>> comAtprotoSyncListHosts({
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoSyncListHosts,
   headers: $headers,
   parameters: {
@@ -121,10 +121,10 @@ Future<XRPCResponse<SyncListHostsOutput>> comAtprotoSyncListHosts({
 /// Returns information about a specified upstream host, as consumed by the server. Implemented by relays.
 Future<XRPCResponse<SyncGetHostStatusOutput>> comAtprotoSyncGetHostStatus({
   required String hostname,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoSyncGetHostStatus,
   headers: $headers,
   parameters: {...?$unknown, 'hostname': hostname},
@@ -134,10 +134,10 @@ Future<XRPCResponse<SyncGetHostStatusOutput>> comAtprotoSyncGetHostStatus({
 /// DEPRECATED - please use com.atproto.sync.getLatestCommit instead
 Future<XRPCResponse<SyncGetHeadOutput>> comAtprotoSyncGetHead({
   required String did,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoSyncGetHead,
   headers: $headers,
   parameters: {...?$unknown, 'did': did},
@@ -147,10 +147,10 @@ Future<XRPCResponse<SyncGetHeadOutput>> comAtprotoSyncGetHead({
 /// DEPRECATED - please use com.atproto.sync.getRepo instead
 Future<XRPCResponse<Uint8List>> comAtprotoSyncGetCheckout({
   required String did,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoSyncGetCheckout,
   headers: $headers,
   parameters: {...?$unknown, 'did': did},
@@ -160,10 +160,10 @@ Future<XRPCResponse<Uint8List>> comAtprotoSyncGetCheckout({
 Future<XRPCResponse<SyncListReposOutput>> comAtprotoSyncListRepos({
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoSyncListRepos,
   headers: $headers,
   parameters: {
@@ -179,10 +179,10 @@ Future<XRPCResponse<Uint8List>> comAtprotoSyncGetRecord({
   required String did,
   required String collection,
   required String rkey,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoSyncGetRecord,
   headers: $headers,
   parameters: {
@@ -196,8 +196,8 @@ Future<XRPCResponse<Uint8List>> comAtprotoSyncGetRecord({
 /// Repository event stream, aka Firehose endpoint. Outputs repo commits with diff data, and identity update events, for all repositories on the current server. See the atproto specifications for details around stream sequencing, repo versioning, CAR diff format, and more. Public and does not require auth; implemented by PDS and Relay.
 Future<XRPCResponse<Subscription<Uint8List>>> comAtprotoSyncSubscribeRepos({
   int? cursor,
-  ServiceContext? $ctx,
-}) async => await $ctx!.stream(
+  required ServiceContext $ctx,
+}) async => await $ctx.stream(
   ns.comAtprotoSyncSubscribeRepos,
   parameters: {if (cursor != null) 'cursor': cursor},
 );
@@ -208,10 +208,10 @@ Future<XRPCResponse<SyncListBlobsOutput>> comAtprotoSyncListBlobs({
   String? since,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoSyncListBlobs,
   headers: $headers,
   parameters: {
@@ -227,10 +227,10 @@ Future<XRPCResponse<SyncListBlobsOutput>> comAtprotoSyncListBlobs({
 /// Get the hosting status for a repository, on this server. Expected to be implemented by PDS and Relay.
 Future<XRPCResponse<SyncGetRepoStatusOutput>> comAtprotoSyncGetRepoStatus({
   required String did,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoSyncGetRepoStatus,
   headers: $headers,
   parameters: {...?$unknown, 'did': did},
@@ -240,10 +240,10 @@ Future<XRPCResponse<SyncGetRepoStatusOutput>> comAtprotoSyncGetRepoStatus({
 /// Notify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay. DEPRECATED: just use com.atproto.sync.requestCrawl
 Future<XRPCResponse<EmptyData>> comAtprotoSyncNotifyOfUpdate({
   required String hostname,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.comAtprotoSyncNotifyOfUpdate,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'hostname': hostname},
@@ -253,10 +253,10 @@ Future<XRPCResponse<EmptyData>> comAtprotoSyncNotifyOfUpdate({
 Future<XRPCResponse<Uint8List>> comAtprotoSyncGetRepo({
   required String did,
   String? since,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.comAtprotoSyncGetRepo,
   headers: $headers,
   parameters: {...?$unknown, 'did': did, if (since != null) 'since': since},

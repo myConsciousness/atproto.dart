@@ -50,10 +50,10 @@ Future<XRPCResponse<NotificationGetUnreadCountOutput>>
 appBskyNotificationGetUnreadCount({
   bool? priority,
   DateTime? seenAt,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyNotificationGetUnreadCount,
   headers: $headers,
   parameters: {
@@ -71,10 +71,10 @@ Future<XRPCResponse<EmptyData>> appBskyNotificationRegisterPush({
   required NotificationRegisterPushPlatform platform,
   required String appId,
   bool? ageRestricted,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.appBskyNotificationRegisterPush,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -92,10 +92,10 @@ Future<XRPCResponse<NotificationPutActivitySubscriptionOutput>>
 appBskyNotificationPutActivitySubscription({
   required String subject,
   required ActivitySubscription activitySubscription,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.appBskyNotificationPutActivitySubscription,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -109,10 +109,10 @@ appBskyNotificationPutActivitySubscription({
 /// Notify server that the requesting account has seen notifications. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyNotificationUpdateSeen({
   required DateTime seenAt,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.appBskyNotificationUpdateSeen,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'seenAt': iso8601(seenAt)},
@@ -124,10 +124,10 @@ Future<XRPCResponse<EmptyData>> appBskyNotificationUnregisterPush({
   required String token,
   required NotificationUnregisterPushPlatform platform,
   required String appId,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.appBskyNotificationUnregisterPush,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -142,10 +142,10 @@ Future<XRPCResponse<EmptyData>> appBskyNotificationUnregisterPush({
 /// Get notification-related preferences for an account. Requires auth.
 Future<XRPCResponse<NotificationGetPreferencesOutput>>
 appBskyNotificationGetPreferences({
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyNotificationGetPreferences,
   headers: $headers,
   parameters: {...?$unknown},
@@ -160,10 +160,10 @@ appBskyNotificationListNotifications({
   bool? priority,
   String? cursor,
   DateTime? seenAt,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyNotificationListNotifications,
   headers: $headers,
   parameters: {
@@ -182,10 +182,10 @@ Future<XRPCResponse<NotificationListActivitySubscriptionsOutput>>
 appBskyNotificationListActivitySubscriptions({
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyNotificationListActivitySubscriptions,
   headers: $headers,
   parameters: {
@@ -199,10 +199,10 @@ appBskyNotificationListActivitySubscriptions({
 /// Set notification-related preferences for an account. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyNotificationPutPreferences({
   required bool priority,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.appBskyNotificationPutPreferences,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'priority': priority},
@@ -224,10 +224,10 @@ appBskyNotificationPutPreferencesV2({
   Preference? subscribedPost,
   Preference? unverified,
   Preference? verified,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.appBskyNotificationPutPreferencesV2,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {

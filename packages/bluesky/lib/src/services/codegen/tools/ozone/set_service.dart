@@ -27,10 +27,10 @@ Future<XRPCResponse<SetQuerySetsOutput>> toolsOzoneSetQuerySets({
   String? namePrefix,
   String? sortBy,
   String? sortDirection,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneSetQuerySets,
   headers: $headers,
   parameters: {
@@ -47,10 +47,10 @@ Future<XRPCResponse<SetQuerySetsOutput>> toolsOzoneSetQuerySets({
 /// Delete an entire set. Attempting to delete a set that does not exist will result in an error.
 Future<XRPCResponse<EmptyData>> toolsOzoneSetDeleteSet({
   required String name,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneSetDeleteSet,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'name': name},
@@ -61,10 +61,10 @@ Future<XRPCResponse<SetGetValuesOutput>> toolsOzoneSetGetValues({
   required String name,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneSetGetValues,
   headers: $headers,
   parameters: {
@@ -80,10 +80,10 @@ Future<XRPCResponse<SetGetValuesOutput>> toolsOzoneSetGetValues({
 Future<XRPCResponse<EmptyData>> toolsOzoneSetAddValues({
   required String name,
   required List<String> values,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneSetAddValues,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'name': name, 'values': values},
@@ -93,10 +93,10 @@ Future<XRPCResponse<EmptyData>> toolsOzoneSetAddValues({
 Future<XRPCResponse<EmptyData>> toolsOzoneSetDeleteValues({
   required String name,
   required List<String> values,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneSetDeleteValues,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'name': name, 'values': values},
@@ -106,10 +106,10 @@ Future<XRPCResponse<EmptyData>> toolsOzoneSetDeleteValues({
 Future<XRPCResponse<SetView>> toolsOzoneSetUpsertSet({
   required String name,
   String? description,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneSetUpsertSet,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {

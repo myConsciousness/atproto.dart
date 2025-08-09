@@ -49,10 +49,10 @@ appBskyActorSearchActorsTypeahead({
   String? term,
   String? q,
   int? limit,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyActorSearchActorsTypeahead,
   headers: $headers,
   parameters: {
@@ -67,10 +67,10 @@ appBskyActorSearchActorsTypeahead({
 /// Get detailed profile views of multiple actors.
 Future<XRPCResponse<ActorGetProfilesOutput>> appBskyActorGetProfiles({
   required List<String> actors,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyActorGetProfiles,
   headers: $headers,
   parameters: {...?$unknown, 'actors': actors},
@@ -79,10 +79,10 @@ Future<XRPCResponse<ActorGetProfilesOutput>> appBskyActorGetProfiles({
 
 /// Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.
 Future<XRPCResponse<ActorGetPreferencesOutput>> appBskyActorGetPreferences({
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyActorGetPreferences,
   headers: $headers,
   parameters: {...?$unknown},
@@ -93,10 +93,10 @@ Future<XRPCResponse<ActorGetPreferencesOutput>> appBskyActorGetPreferences({
 Future<XRPCResponse<ActorGetSuggestionsOutput>> appBskyActorGetSuggestions({
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyActorGetSuggestions,
   headers: $headers,
   parameters: {
@@ -113,10 +113,10 @@ Future<XRPCResponse<ActorSearchActorsOutput>> appBskyActorSearchActors({
   String? q,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyActorSearchActors,
   headers: $headers,
   parameters: {
@@ -132,10 +132,10 @@ Future<XRPCResponse<ActorSearchActorsOutput>> appBskyActorSearchActors({
 /// Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
 Future<XRPCResponse<ProfileViewDetailed>> appBskyActorGetProfile({
   required String actor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyActorGetProfile,
   headers: $headers,
   parameters: {...?$unknown, 'actor': actor},
@@ -145,10 +145,10 @@ Future<XRPCResponse<ProfileViewDetailed>> appBskyActorGetProfile({
 /// Set the private preferences attached to the account.
 Future<XRPCResponse<EmptyData>> appBskyActorPutPreferences({
   required List<UPreferences> preferences,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.appBskyActorPutPreferences,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {

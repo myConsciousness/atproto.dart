@@ -436,11 +436,11 @@ final class LexApi {
     for (final parameter in parameters) {
       buffer.writeln(parameter.getParams());
     }
-    buffer.writeln('  ServiceContext? \$ctx,');
+    buffer.writeln('  required ServiceContext \$ctx,');
     buffer.writeln('  Map<String, String>? \$headers,');
     buffer.writeln('  Map<String, String>? \$unknown,');
     buffer.writeln('}) async =>');
-    buffer.writeln('  await \$ctx!.get(');
+    buffer.writeln('  await \$ctx.get(');
     buffer.writeln('    ns.$ns,');
     buffer.writeln('    headers: \$headers,');
     buffer.writeln('    parameters: {');
@@ -497,7 +497,7 @@ final class LexApi {
     if (inputType?.isBytes() ?? false) {
       buffer.writeln('Future<XRPCResponse<$returnType>> $ns({');
       buffer.writeln('  required Uint8List bytes,');
-      buffer.writeln('  ServiceContext? \$ctx,');
+      buffer.writeln('  required ServiceContext \$ctx,');
       buffer.writeln('  Map<String, String>? \$headers,');
       buffer.writeln('  Map<String, String>? \$parameters,');
     } else {
@@ -505,12 +505,12 @@ final class LexApi {
       for (final parameter in parameters) {
         buffer.writeln(parameter.getParams());
       }
-      buffer.writeln('  ServiceContext? \$ctx,');
+      buffer.writeln('  required ServiceContext \$ctx,');
       buffer.writeln('  Map<String, String>? \$headers,');
       buffer.writeln('  Map<String, String>? \$unknown,');
     }
     buffer.writeln('}) async =>');
-    buffer.writeln('  await \$ctx!.post(');
+    buffer.writeln('  await \$ctx.post(');
     buffer.writeln('    ns.$ns,');
     buffer.writeln('    headers: {');
     if (inputType != null) {
@@ -592,9 +592,9 @@ final class LexApi {
     for (final parameter in parameters) {
       buffer.writeln(parameter.getParams());
     }
-    buffer.writeln('  ServiceContext? \$ctx,');
+    buffer.writeln('  required ServiceContext \$ctx,');
     buffer.writeln('}) async =>');
-    buffer.writeln('  await \$ctx!.stream(');
+    buffer.writeln('  await \$ctx.stream(');
     buffer.writeln('    ns.$ns,');
     buffer.writeln('    parameters: {');
     for (final parameter in parameters) {

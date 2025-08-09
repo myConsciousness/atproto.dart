@@ -1,5 +1,4 @@
 // Package imports:
-import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 
@@ -10,7 +9,6 @@ import 'package:bluesky/src/services/codegen/app/bsky/graph_service.dart';
 import 'package:bluesky/src/services/codegen/app/bsky/labeler_service.dart';
 import 'package:bluesky/src/services/codegen/app/bsky/notification_service.dart';
 import 'package:bluesky/src/services/codegen/app/bsky/unspecced_service.dart';
-import 'package:bluesky/src/services/service_context.dart';
 
 const _runner = _ServiceRunner();
 
@@ -90,79 +88,45 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     throw UnsupportedError('Unsupported Service: $S');
   }
 
-  atp.ATProto _getAtproto(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  ) => atp.ATProto.fromSession(
-    session,
-    service: service,
-    mockedGetClient: mockedGetClient,
-    mockedPostClient: mockedPostClient,
-  );
-
   ActorService _getActorService(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   ) => ActorService(
-    ServiceContext(
-      atproto: _getAtproto(mockedGetClient, mockedPostClient),
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
+    core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 
   FeedService _getFeedService(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   ) => FeedService(
-    ServiceContext(
-      atproto: _getAtproto(mockedGetClient, mockedPostClient),
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
+    core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 
   GraphService _getGraphService(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   ) => GraphService(
-    ServiceContext(
-      atproto: _getAtproto(mockedGetClient, mockedPostClient),
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
+    core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 
   NotificationService _getNotificationService(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   ) => NotificationService(
-    ServiceContext(
-      atproto: _getAtproto(mockedGetClient, mockedPostClient),
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
+    core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 
   UnspeccedService _getUnspeccedService(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   ) => UnspeccedService(
-    ServiceContext(
-      atproto: _getAtproto(mockedGetClient, mockedPostClient),
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
+    core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 
   LabelerService _getLabelerService(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   ) => LabelerService(
-    ServiceContext(
-      atproto: _getAtproto(mockedGetClient, mockedPostClient),
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
+    core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 }

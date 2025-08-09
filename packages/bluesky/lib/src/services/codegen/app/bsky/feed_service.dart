@@ -66,10 +66,10 @@ Future<XRPCResponse<FeedGetFeedSkeletonOutput>> appBskyFeedGetFeedSkeleton({
   required String feed,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyFeedGetFeedSkeleton,
   headers: $headers,
   parameters: {
@@ -84,10 +84,10 @@ Future<XRPCResponse<FeedGetFeedSkeletonOutput>> appBskyFeedGetFeedSkeleton({
 /// Get information about a feed generator. Implemented by AppView.
 Future<XRPCResponse<FeedGetFeedGeneratorOutput>> appBskyFeedGetFeedGenerator({
   required String feed,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyFeedGetFeedGenerator,
   headers: $headers,
   parameters: {...?$unknown, 'feed': feed},
@@ -100,10 +100,10 @@ Future<XRPCResponse<FeedGetRepostedByOutput>> appBskyFeedGetRepostedBy({
   String? cid,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyFeedGetRepostedBy,
   headers: $headers,
   parameters: {
@@ -123,10 +123,10 @@ Future<XRPCResponse<FeedGetAuthorFeedOutput>> appBskyFeedGetAuthorFeed({
   String? cursor,
   FeedGetAuthorFeedFilter? filter,
   bool? includePins,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyFeedGetAuthorFeed,
   headers: $headers,
   parameters: {
@@ -146,10 +146,10 @@ Future<XRPCResponse<FeedGetQuotesOutput>> appBskyFeedGetQuotes({
   String? cid,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyFeedGetQuotes,
   headers: $headers,
   parameters: {
@@ -166,10 +166,10 @@ Future<XRPCResponse<FeedGetQuotesOutput>> appBskyFeedGetQuotes({
 Future<XRPCResponse<FeedGetSuggestedFeedsOutput>> appBskyFeedGetSuggestedFeeds({
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyFeedGetSuggestedFeeds,
   headers: $headers,
   parameters: {
@@ -185,10 +185,10 @@ Future<XRPCResponse<FeedGetListFeedOutput>> appBskyFeedGetListFeed({
   required String list,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyFeedGetListFeed,
   headers: $headers,
   parameters: {
@@ -203,10 +203,10 @@ Future<XRPCResponse<FeedGetListFeedOutput>> appBskyFeedGetListFeed({
 /// Get information about a list of feed generators.
 Future<XRPCResponse<FeedGetFeedGeneratorsOutput>> appBskyFeedGetFeedGenerators({
   required List<String> feeds,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyFeedGetFeedGenerators,
   headers: $headers,
   parameters: {...?$unknown, 'feeds': feeds},
@@ -219,10 +219,10 @@ Future<XRPCResponse<FeedGetLikesOutput>> appBskyFeedGetLikes({
   String? cid,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyFeedGetLikes,
   headers: $headers,
   parameters: {
@@ -238,10 +238,10 @@ Future<XRPCResponse<FeedGetLikesOutput>> appBskyFeedGetLikes({
 /// Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.
 Future<XRPCResponse<FeedGetPostsOutput>> appBskyFeedGetPosts({
   required List<String> uris,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyFeedGetPosts,
   headers: $headers,
   parameters: {...?$unknown, 'uris': uris},
@@ -253,10 +253,10 @@ Future<XRPCResponse<FeedGetFeedOutput>> appBskyFeedGetFeed({
   required String feed,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyFeedGetFeed,
   headers: $headers,
   parameters: {
@@ -273,10 +273,10 @@ Future<XRPCResponse<FeedGetTimelineOutput>> appBskyFeedGetTimeline({
   String? algorithm,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyFeedGetTimeline,
   headers: $headers,
   parameters: {
@@ -302,10 +302,10 @@ Future<XRPCResponse<FeedSearchPostsOutput>> appBskyFeedSearchPosts({
   List<String>? tag,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyFeedSearchPosts,
   headers: $headers,
   parameters: {
@@ -329,10 +329,10 @@ Future<XRPCResponse<FeedSearchPostsOutput>> appBskyFeedSearchPosts({
 /// Send information about interactions with feed items back to the feed generator that served them.
 Future<XRPCResponse<EmptyData>> appBskyFeedSendInteractions({
   required List<Interaction> interactions,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.appBskyFeedSendInteractions,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -344,10 +344,10 @@ Future<XRPCResponse<EmptyData>> appBskyFeedSendInteractions({
 /// Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).
 Future<XRPCResponse<FeedDescribeFeedGeneratorOutput>>
 appBskyFeedDescribeFeedGenerator({
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyFeedDescribeFeedGenerator,
   headers: $headers,
   parameters: {...?$unknown},
@@ -359,10 +359,10 @@ Future<XRPCResponse<FeedGetPostThreadOutput>> appBskyFeedGetPostThread({
   required String uri,
   int? depth,
   int? parentHeight,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyFeedGetPostThread,
   headers: $headers,
   parameters: {
@@ -379,10 +379,10 @@ Future<XRPCResponse<FeedGetActorLikesOutput>> appBskyFeedGetActorLikes({
   required String actor,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyFeedGetActorLikes,
   headers: $headers,
   parameters: {
@@ -399,10 +399,10 @@ Future<XRPCResponse<FeedGetActorFeedsOutput>> appBskyFeedGetActorFeeds({
   required String actor,
   int? limit,
   String? cursor,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.appBskyFeedGetActorFeeds,
   headers: $headers,
   parameters: {

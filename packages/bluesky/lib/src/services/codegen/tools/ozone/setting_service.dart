@@ -30,10 +30,10 @@ Future<XRPCResponse<SettingListOptionsOutput>> toolsOzoneSettingListOptions({
   SettingListOptionsScope? scope,
   String? prefix,
   List<String>? keys,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneSettingListOptions,
   headers: $headers,
   parameters: {
@@ -54,10 +54,10 @@ Future<XRPCResponse<SettingUpsertOptionOutput>> toolsOzoneSettingUpsertOption({
   required Map<String, dynamic> value,
   String? description,
   SettingUpsertOptionManagerRole? managerRole,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneSettingUpsertOption,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -75,10 +75,10 @@ Future<XRPCResponse<SettingUpsertOptionOutput>> toolsOzoneSettingUpsertOption({
 Future<XRPCResponse<EmptyData>> toolsOzoneSettingRemoveOptions({
   required List<String> keys,
   required SettingRemoveOptionsScope scope,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneSettingRemoveOptions,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'keys': keys, 'scope': scope.toJson()},

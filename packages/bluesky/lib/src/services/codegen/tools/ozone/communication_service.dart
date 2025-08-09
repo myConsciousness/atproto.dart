@@ -28,10 +28,10 @@ Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationUpdateTemplate({
   String? subject,
   String? updatedBy,
   bool? disabled,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneCommunicationUpdateTemplate,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -50,10 +50,10 @@ Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationUpdateTemplate({
 /// Delete a communication template.
 Future<XRPCResponse<EmptyData>> toolsOzoneCommunicationDeleteTemplate({
   required String id,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneCommunicationDeleteTemplate,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'id': id},
@@ -66,10 +66,10 @@ Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationCreateTemplate({
   required String subject,
   String? lang,
   String? createdBy,
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.post(
+}) async => await $ctx.post(
   ns.toolsOzoneCommunicationCreateTemplate,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -86,10 +86,10 @@ Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationCreateTemplate({
 /// Get list of all communication templates.
 Future<XRPCResponse<CommunicationListTemplatesOutput>>
 toolsOzoneCommunicationListTemplates({
-  ServiceContext? $ctx,
+  required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx!.get(
+}) async => await $ctx.get(
   ns.toolsOzoneCommunicationListTemplates,
   headers: $headers,
   parameters: {...?$unknown},
