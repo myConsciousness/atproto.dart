@@ -1,5 +1,10 @@
 # Release Note
 
+## v1.0.5
+
+- Add service functions. Endpoints can be easily called as functions like `appBskyFeedGetTime`
+- Expose `ServiceContext` from `core` library.
+
 ## v1.0.4
 
 - chore: Removed outdated processes.
