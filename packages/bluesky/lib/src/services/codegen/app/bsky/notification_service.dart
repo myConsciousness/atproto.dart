@@ -19,7 +19,6 @@ import 'package:atproto_core/internals.dart' show iso8601;
 // Project imports:
 import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'notification/declaration/main_allow_subscriptions.dart';
 import 'notification/defs/activity_subscription.dart';
 import 'notification/defs/chat_preference.dart';
@@ -34,6 +33,14 @@ import 'notification/putPreferencesV2/output.dart';
 import 'notification/registerPush/main_platform.dart';
 import 'notification/unregisterPush/main_platform.dart';
 
+import 'package:atproto/com_atproto_services.dart'
+    show
+        comAtprotoRepoGetRecord,
+        comAtprotoRepoListRecords,
+        comAtprotoRepoCreateRecord,
+        comAtprotoRepoPutRecord,
+        comAtprotoRepoDeleteRecord;
+
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
@@ -43,7 +50,7 @@ Future<XRPCResponse<NotificationGetUnreadCountOutput>>
 appBskyNotificationGetUnreadCount({
   bool? priority,
   DateTime? seenAt,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -64,7 +71,7 @@ Future<XRPCResponse<EmptyData>> appBskyNotificationRegisterPush({
   required NotificationRegisterPushPlatform platform,
   required String appId,
   bool? ageRestricted,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -85,7 +92,7 @@ Future<XRPCResponse<NotificationPutActivitySubscriptionOutput>>
 appBskyNotificationPutActivitySubscription({
   required String subject,
   required ActivitySubscription activitySubscription,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -102,7 +109,7 @@ appBskyNotificationPutActivitySubscription({
 /// Notify server that the requesting account has seen notifications. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyNotificationUpdateSeen({
   required DateTime seenAt,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -117,7 +124,7 @@ Future<XRPCResponse<EmptyData>> appBskyNotificationUnregisterPush({
   required String token,
   required NotificationUnregisterPushPlatform platform,
   required String appId,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -135,7 +142,7 @@ Future<XRPCResponse<EmptyData>> appBskyNotificationUnregisterPush({
 /// Get notification-related preferences for an account. Requires auth.
 Future<XRPCResponse<NotificationGetPreferencesOutput>>
 appBskyNotificationGetPreferences({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -153,7 +160,7 @@ appBskyNotificationListNotifications({
   bool? priority,
   String? cursor,
   DateTime? seenAt,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -175,7 +182,7 @@ Future<XRPCResponse<NotificationListActivitySubscriptionsOutput>>
 appBskyNotificationListActivitySubscriptions({
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -192,7 +199,7 @@ appBskyNotificationListActivitySubscriptions({
 /// Set notification-related preferences for an account. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyNotificationPutPreferences({
   required bool priority,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -217,7 +224,7 @@ appBskyNotificationPutPreferencesV2({
   Preference? subscribedPost,
   Preference? unverified,
   Preference? verified,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -246,7 +253,7 @@ appBskyNotificationPutPreferencesV2({
 /// `app.bsky.notification.*`
 final class NotificationService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   final NotificationDeclarationRecordAccessor _declaration;
 
@@ -430,7 +437,7 @@ final class NotificationService {
 }
 
 final class NotificationDeclarationRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const NotificationDeclarationRecordAccessor(this._ctx);
 
@@ -440,11 +447,12 @@ final class NotificationDeclarationRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyNotificationDeclaration,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -456,12 +464,13 @@ final class NotificationDeclarationRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyNotificationDeclaration,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -473,13 +482,14 @@ final class NotificationDeclarationRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyNotificationDeclaration,
     rkey: rkey,
     validate: validate,
     record: {...?$unknown, 'allowSubscriptions': allowSubscriptions.toJson()},
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -491,16 +501,16 @@ final class NotificationDeclarationRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyNotificationDeclaration,
     rkey: rkey,
     validate: validate,
     record: {...?$unknown, 'allowSubscriptions': allowSubscriptions.toJson()},
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -509,13 +519,13 @@ final class NotificationDeclarationRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyNotificationDeclaration,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }

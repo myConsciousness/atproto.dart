@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'server/getConfig/output.dart';
 
 // **************************************************************************
@@ -21,7 +20,7 @@ import 'server/getConfig/output.dart';
 
 /// Get details about ozone's server configuration.
 Future<XRPCResponse<ServerGetConfigOutput>> toolsOzoneServerGetConfig({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -34,7 +33,7 @@ Future<XRPCResponse<ServerGetConfigOutput>> toolsOzoneServerGetConfig({
 /// `tools.ozone.server.*`
 final class ServerService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   ServerService(this._ctx);
 

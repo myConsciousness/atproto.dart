@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'communication/defs/template_view.dart';
 import 'communication/listTemplates/output.dart';
 
@@ -29,7 +28,7 @@ Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationUpdateTemplate({
   String? subject,
   String? updatedBy,
   bool? disabled,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -51,7 +50,7 @@ Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationUpdateTemplate({
 /// Delete a communication template.
 Future<XRPCResponse<EmptyData>> toolsOzoneCommunicationDeleteTemplate({
   required String id,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -67,7 +66,7 @@ Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationCreateTemplate({
   required String subject,
   String? lang,
   String? createdBy,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -87,7 +86,7 @@ Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationCreateTemplate({
 /// Get list of all communication templates.
 Future<XRPCResponse<CommunicationListTemplatesOutput>>
 toolsOzoneCommunicationListTemplates({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -100,7 +99,7 @@ toolsOzoneCommunicationListTemplates({
 /// `tools.ozone.communication.*`
 final class CommunicationService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   CommunicationService(this._ctx);
 

@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'team/addMember/main_role.dart';
 import 'team/defs/member.dart';
 import 'team/listMembers/output.dart';
@@ -26,7 +25,7 @@ import 'team/updateMember/main_role.dart';
 Future<XRPCResponse<Member>> toolsOzoneTeamAddMember({
   required String did,
   required TeamAddMemberRole role,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -43,7 +42,7 @@ Future<XRPCResponse<TeamListMembersOutput>> toolsOzoneTeamListMembers({
   List<String>? roles,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -65,7 +64,7 @@ Future<XRPCResponse<Member>> toolsOzoneTeamUpdateMember({
   required String did,
   bool? disabled,
   TeamUpdateMemberRole? role,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -83,7 +82,7 @@ Future<XRPCResponse<Member>> toolsOzoneTeamUpdateMember({
 /// Delete a member from ozone team. Requires admin role.
 Future<XRPCResponse<EmptyData>> toolsOzoneTeamDeleteMember({
   required String did,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -95,7 +94,7 @@ Future<XRPCResponse<EmptyData>> toolsOzoneTeamDeleteMember({
 /// `tools.ozone.team.*`
 final class TeamService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   TeamService(this._ctx);
 

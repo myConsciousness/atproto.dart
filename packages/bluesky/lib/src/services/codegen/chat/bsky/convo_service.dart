@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'convo/acceptConvo/output.dart';
 import 'convo/addReaction/output.dart';
 import 'convo/defs/deleted_message_view.dart';
@@ -42,7 +41,7 @@ import 'convo/updateRead/output.dart';
 
 Future<XRPCResponse<ConvoUpdateAllReadOutput>> chatBskyConvoUpdateAllRead({
   ConvoUpdateAllReadStatus? status,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -53,7 +52,7 @@ Future<XRPCResponse<ConvoUpdateAllReadOutput>> chatBskyConvoUpdateAllRead({
 );
 Future<XRPCResponse<ConvoUnmuteConvoOutput>> chatBskyConvoUnmuteConvo({
   required String convoId,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -65,7 +64,7 @@ Future<XRPCResponse<ConvoUnmuteConvoOutput>> chatBskyConvoUnmuteConvo({
 Future<XRPCResponse<DeletedMessageView>> chatBskyConvoDeleteMessageForSelf({
   required String convoId,
   required String messageId,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -77,7 +76,7 @@ Future<XRPCResponse<DeletedMessageView>> chatBskyConvoDeleteMessageForSelf({
 Future<XRPCResponse<MessageView>> chatBskyConvoSendMessage({
   required String convoId,
   required MessageInput message,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -90,7 +89,7 @@ Future<XRPCResponse<ConvoGetMessagesOutput>> chatBskyConvoGetMessages({
   required String convoId,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -106,7 +105,7 @@ Future<XRPCResponse<ConvoGetMessagesOutput>> chatBskyConvoGetMessages({
 );
 Future<XRPCResponse<ConvoLeaveConvoOutput>> chatBskyConvoLeaveConvo({
   required String convoId,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -121,7 +120,7 @@ Future<XRPCResponse<ConvoAddReactionOutput>> chatBskyConvoAddReaction({
   required String convoId,
   required String messageId,
   required String value,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -138,7 +137,7 @@ Future<XRPCResponse<ConvoAddReactionOutput>> chatBskyConvoAddReaction({
 Future<XRPCResponse<ConvoSendMessageBatchOutput>>
 chatBskyConvoSendMessageBatch({
   required List<BatchItem> items,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -153,7 +152,7 @@ Future<XRPCResponse<ConvoRemoveReactionOutput>> chatBskyConvoRemoveReaction({
   required String convoId,
   required String messageId,
   required String value,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -170,7 +169,7 @@ Future<XRPCResponse<ConvoRemoveReactionOutput>> chatBskyConvoRemoveReaction({
 Future<XRPCResponse<ConvoGetConvoForMembersOutput>>
 chatBskyConvoGetConvoForMembers({
   required List<String> members,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -181,7 +180,7 @@ chatBskyConvoGetConvoForMembers({
 );
 Future<XRPCResponse<ConvoMuteConvoOutput>> chatBskyConvoMuteConvo({
   required String convoId,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -192,7 +191,7 @@ Future<XRPCResponse<ConvoMuteConvoOutput>> chatBskyConvoMuteConvo({
 );
 Future<XRPCResponse<ConvoAcceptConvoOutput>> chatBskyConvoAcceptConvo({
   required String convoId,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -206,7 +205,7 @@ Future<XRPCResponse<ConvoListConvosOutput>> chatBskyConvoListConvos({
   String? cursor,
   ConvoListConvosReadState? readState,
   ConvoListConvosStatus? status,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -226,7 +225,7 @@ Future<XRPCResponse<ConvoListConvosOutput>> chatBskyConvoListConvos({
 Future<XRPCResponse<ConvoGetConvoAvailabilityOutput>>
 chatBskyConvoGetConvoAvailability({
   required List<String> members,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -237,7 +236,7 @@ chatBskyConvoGetConvoAvailability({
 );
 Future<XRPCResponse<ConvoGetLogOutput>> chatBskyConvoGetLog({
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -248,7 +247,7 @@ Future<XRPCResponse<ConvoGetLogOutput>> chatBskyConvoGetLog({
 );
 Future<XRPCResponse<ConvoGetConvoOutput>> chatBskyConvoGetConvo({
   required String convoId,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -260,7 +259,7 @@ Future<XRPCResponse<ConvoGetConvoOutput>> chatBskyConvoGetConvo({
 Future<XRPCResponse<ConvoUpdateReadOutput>> chatBskyConvoUpdateRead({
   required String convoId,
   String? messageId,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -277,7 +276,7 @@ Future<XRPCResponse<ConvoUpdateReadOutput>> chatBskyConvoUpdateRead({
 /// `chat.bsky.convo.*`
 final class ConvoService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   ConvoService(this._ctx);
 

@@ -15,7 +15,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'label/queryLabels/output.dart';
 
 // **************************************************************************
@@ -25,7 +24,7 @@ import 'label/queryLabels/output.dart';
 /// Subscribe to stream of labels (and negations). Public endpoint implemented by mod services. Uses same sequencing scheme as repo event stream.
 Future<XRPCResponse<Subscription<Uint8List>>> comAtprotoLabelSubscribeLabels({
   int? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
 }) async => await $ctx!.stream(
   ns.comAtprotoLabelSubscribeLabels,
   parameters: {if (cursor != null) 'cursor': cursor},
@@ -37,7 +36,7 @@ Future<XRPCResponse<LabelQueryLabelsOutput>> comAtprotoLabelQueryLabels({
   List<String>? sources,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -56,7 +55,7 @@ Future<XRPCResponse<LabelQueryLabelsOutput>> comAtprotoLabelQueryLabels({
 /// `com.atproto.label.*`
 final class LabelService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   LabelService(this._ctx);
 

@@ -20,7 +20,6 @@ import 'package:atproto/com_atproto_repo_getrecord.dart';
 import 'package:atproto/com_atproto_repo_listrecords.dart';
 import 'package:atproto/com_atproto_repo_putrecord.dart';
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'repo/applyWrites/output.dart';
 import 'repo/applyWrites/union_main_writes.dart';
 import 'repo/createRecord/output.dart';
@@ -39,7 +38,7 @@ import 'repo/uploadBlob/output.dart';
 /// Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.
 Future<XRPCResponse<EmptyData>> comAtprotoRepoImportRepo({
   required Uint8List bytes,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $parameters,
 }) async => await $ctx!.post(
@@ -57,7 +56,7 @@ Future<XRPCResponse<RepoCreateRecordOutput>> comAtprotoRepoCreateRecord({
   bool? validate,
   required Map<String, dynamic> record,
   String? swapCommit,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -82,7 +81,7 @@ Future<XRPCResponse<RepoListRecordsOutput>> comAtprotoRepoListRecords({
   int? limit,
   String? cursor,
   bool? reverse,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -102,7 +101,7 @@ Future<XRPCResponse<RepoListRecordsOutput>> comAtprotoRepoListRecords({
 /// Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
 Future<XRPCResponse<RepoUploadBlobOutput>> comAtprotoRepoUploadBlob({
   required Uint8List bytes,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $parameters,
 }) async => await $ctx!.post(
@@ -120,7 +119,7 @@ Future<XRPCResponse<RepoDeleteRecordOutput>> comAtprotoRepoDeleteRecord({
   required String rkey,
   String? swapRecord,
   String? swapCommit,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -146,7 +145,7 @@ Future<XRPCResponse<RepoPutRecordOutput>> comAtprotoRepoPutRecord({
   required Map<String, dynamic> record,
   String? swapRecord,
   String? swapCommit,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -168,7 +167,7 @@ Future<XRPCResponse<RepoPutRecordOutput>> comAtprotoRepoPutRecord({
 /// Get information about an account and repository, including the list of collections. Does not require auth.
 Future<XRPCResponse<RepoDescribeRepoOutput>> comAtprotoRepoDescribeRepo({
   required String repo,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -184,7 +183,7 @@ Future<XRPCResponse<RepoGetRecordOutput>> comAtprotoRepoGetRecord({
   required String collection,
   required String rkey,
   String? cid,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -206,7 +205,7 @@ Future<XRPCResponse<RepoApplyWritesOutput>> comAtprotoRepoApplyWrites({
   bool? validate,
   required List<URepoApplyWritesWrites> writes,
   String? swapCommit,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -227,7 +226,7 @@ Future<XRPCResponse<RepoListMissingBlobsOutput>>
 comAtprotoRepoListMissingBlobs({
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -244,7 +243,7 @@ comAtprotoRepoListMissingBlobs({
 /// `com.atproto.repo.*`
 final class RepoService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   RepoService(this._ctx);
 

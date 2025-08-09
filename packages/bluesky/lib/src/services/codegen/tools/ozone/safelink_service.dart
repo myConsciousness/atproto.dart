@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'safelink/defs/action_type.dart';
 import 'safelink/defs/event.dart';
 import 'safelink/defs/pattern_type.dart';
@@ -34,7 +33,7 @@ Future<XRPCResponse<Event>> toolsOzoneSafelinkAddRule({
   required ReasonType reason,
   String? comment,
   String? createdBy,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -58,7 +57,7 @@ Future<XRPCResponse<Event>> toolsOzoneSafelinkRemoveRule({
   required PatternType pattern,
   String? comment,
   String? createdBy,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -81,7 +80,7 @@ Future<XRPCResponse<SafelinkQueryEventsOutput>> toolsOzoneSafelinkQueryEvents({
   List<String>? urls,
   String? patternType,
   SafelinkQueryEventsSortDirection? sortDirection,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -106,7 +105,7 @@ Future<XRPCResponse<Event>> toolsOzoneSafelinkUpdateRule({
   required ReasonType reason,
   String? comment,
   String? createdBy,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -134,7 +133,7 @@ Future<XRPCResponse<SafelinkQueryRulesOutput>> toolsOzoneSafelinkQueryRules({
   String? reason,
   String? createdBy,
   SafelinkQueryRulesSortDirection? sortDirection,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -157,7 +156,7 @@ Future<XRPCResponse<SafelinkQueryRulesOutput>> toolsOzoneSafelinkQueryRules({
 /// `tools.ozone.safelink.*`
 final class SafelinkService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   SafelinkService(this._ctx);
 

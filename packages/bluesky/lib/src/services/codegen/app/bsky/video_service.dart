@@ -15,7 +15,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'video/getJobStatus/output.dart';
 import 'video/getUploadLimits/output.dart';
 import 'video/uploadVideo/output.dart';
@@ -27,7 +26,7 @@ import 'video/uploadVideo/output.dart';
 /// Upload a video to be processed then stored on the PDS.
 Future<XRPCResponse<VideoUploadVideoOutput>> appBskyVideoUploadVideo({
   required Uint8List bytes,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $parameters,
 }) async => await $ctx!.post(
@@ -41,7 +40,7 @@ Future<XRPCResponse<VideoUploadVideoOutput>> appBskyVideoUploadVideo({
 /// Get status details for a video processing job.
 Future<XRPCResponse<VideoGetJobStatusOutput>> appBskyVideoGetJobStatus({
   required String jobId,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -53,7 +52,7 @@ Future<XRPCResponse<VideoGetJobStatusOutput>> appBskyVideoGetJobStatus({
 
 /// Get video upload limits for the authenticated user.
 Future<XRPCResponse<VideoGetUploadLimitsOutput>> appBskyVideoGetUploadLimits({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -66,7 +65,7 @@ Future<XRPCResponse<VideoGetUploadLimitsOutput>> appBskyVideoGetUploadLimits({
 /// `app.bsky.video.*`
 final class VideoService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   VideoService(this._ctx);
 

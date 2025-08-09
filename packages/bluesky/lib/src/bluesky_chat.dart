@@ -11,7 +11,6 @@ import 'package:atproto_core/atproto_oauth.dart' as oauth;
 import 'services/codegen/chat/bsky/actor_service.dart';
 import 'services/codegen/chat/bsky/convo_service.dart';
 import 'services/codegen/chat/bsky/moderation_service.dart';
-import 'services/service_context.dart';
 
 const _kBskyChatProxyHeaders = <String, String>{
   'atproto-proxy': 'did:web:api.bsky.chat#bsky_chat',
@@ -31,23 +30,23 @@ sealed class BlueskyChat {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) => _BlueskyChat(
-    ServiceContext(
-      atproto: atp.ATProto.fromSession(
-        headers: {...?headers, ..._kBskyChatProxyHeaders},
-        session,
-        protocol: protocol,
-        service: service,
-        relayService: relayService,
-        timeout: timeout,
-        retryConfig: retryConfig,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      ),
+    core.ServiceContext(
       headers: {...?headers, ..._kBskyChatProxyHeaders},
       protocol: protocol,
       service: service,
       relayService: relayService,
       session: session,
+      timeout: timeout,
+      retryConfig: retryConfig,
+      mockedGetClient: mockedGetClient,
+      mockedPostClient: mockedPostClient,
+    ),
+    atp.ATProto.fromSession(
+      headers: {...?headers, ..._kBskyChatProxyHeaders},
+      session,
+      protocol: protocol,
+      service: service,
+      relayService: relayService,
       timeout: timeout,
       retryConfig: retryConfig,
       mockedGetClient: mockedGetClient,
@@ -67,23 +66,23 @@ sealed class BlueskyChat {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) => _BlueskyChat(
-    ServiceContext(
-      atproto: atp.ATProto.fromOAuthSession(
-        headers: {...?headers, ..._kBskyChatProxyHeaders},
-        session,
-        protocol: protocol,
-        service: service,
-        relayService: relayService,
-        timeout: timeout,
-        retryConfig: retryConfig,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      ),
+    core.ServiceContext(
       headers: {...?headers, ..._kBskyChatProxyHeaders},
       protocol: protocol,
       service: service,
       relayService: relayService,
       oAuthSession: session,
+      timeout: timeout,
+      retryConfig: retryConfig,
+      mockedGetClient: mockedGetClient,
+      mockedPostClient: mockedPostClient,
+    ),
+    atp.ATProto.fromOAuthSession(
+      headers: {...?headers, ..._kBskyChatProxyHeaders},
+      session,
+      protocol: protocol,
+      service: service,
+      relayService: relayService,
       timeout: timeout,
       retryConfig: retryConfig,
       mockedGetClient: mockedGetClient,
@@ -125,13 +124,13 @@ sealed class BlueskyChat {
 }
 
 final class _BlueskyChat implements BlueskyChat {
-  _BlueskyChat(final ServiceContext ctx)
+  _BlueskyChat(final core.ServiceContext ctx, this.atproto)
     : actor = ActorService(ctx),
       convo = ConvoService(ctx),
       moderation = ModerationService(ctx),
       _ctx = ctx;
 
-  final ServiceContext _ctx;
+  final core.ServiceContext _ctx;
 
   @override
   Map<String, String> get headers => _ctx.headers;
@@ -146,7 +145,7 @@ final class _BlueskyChat implements BlueskyChat {
   String get relayService => _ctx.relayService;
 
   @override
-  atp.ATProto get atproto => _ctx.atproto;
+  final atp.ATProto atproto;
 
   @override
   final ActorService actor;

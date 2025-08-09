@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'identity/defs/identity_info.dart';
 import 'identity/getRecommendedDidCredentials/output.dart';
 import 'identity/resolveDid/output.dart';
@@ -26,7 +25,7 @@ import 'identity/signPlcOperation/output.dart';
 /// Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry
 Future<XRPCResponse<EmptyData>> comAtprotoIdentitySubmitPlcOperation({
   required Map<String, dynamic> operation,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -38,7 +37,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoIdentitySubmitPlcOperation({
 /// Resolves DID to DID document. Does not bi-directionally verify handle.
 Future<XRPCResponse<IdentityResolveDidOutput>> comAtprotoIdentityResolveDid({
   required String did,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -51,7 +50,7 @@ Future<XRPCResponse<IdentityResolveDidOutput>> comAtprotoIdentityResolveDid({
 /// Request that the server re-resolve an identity (DID and handle). The server may ignore this request, or require authentication, depending on the role, implementation, and policy of the server.
 Future<XRPCResponse<IdentityInfo>> comAtprotoIdentityRefreshIdentity({
   required String identifier,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -64,7 +63,7 @@ Future<XRPCResponse<IdentityInfo>> comAtprotoIdentityRefreshIdentity({
 /// Resolves an identity (DID or Handle) to a full identity (DID document and verified handle).
 Future<XRPCResponse<IdentityInfo>> comAtprotoIdentityResolveIdentity({
   required String identifier,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -77,7 +76,7 @@ Future<XRPCResponse<IdentityInfo>> comAtprotoIdentityResolveIdentity({
 /// Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.
 Future<XRPCResponse<EmptyData>> comAtprotoIdentityUpdateHandle({
   required String handle,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -90,7 +89,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoIdentityUpdateHandle({
 Future<XRPCResponse<IdentityResolveHandleOutput>>
 comAtprotoIdentityResolveHandle({
   required String handle,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -102,7 +101,7 @@ comAtprotoIdentityResolveHandle({
 
 /// Request an email with a code to in order to request a signed PLC operation. Requires Auth.
 Future<XRPCResponse<EmptyData>> comAtprotoIdentityRequestPlcOperationSignature({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -119,7 +118,7 @@ comAtprotoIdentitySignPlcOperation({
   List<String>? alsoKnownAs,
   Map<String, dynamic>? verificationMethods,
   Map<String, dynamic>? services,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -139,7 +138,7 @@ comAtprotoIdentitySignPlcOperation({
 /// Describe the credentials that should be included in the DID doc of an account that is migrating to this service.
 Future<XRPCResponse<IdentityGetRecommendedDidCredentialsOutput>>
 comAtprotoIdentityGetRecommendedDidCredentials({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -152,7 +151,7 @@ comAtprotoIdentityGetRecommendedDidCredentials({
 /// `com.atproto.identity.*`
 final class IdentityService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   IdentityService(this._ctx);
 

@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'hosting/getAccountHistory/main_events.dart';
 import 'hosting/getAccountHistory/output.dart';
 
@@ -27,7 +26,7 @@ toolsOzoneHostingGetAccountHistory({
   List<HostingGetAccountHistoryEvents>? events,
   String? cursor,
   int? limit,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -46,7 +45,7 @@ toolsOzoneHostingGetAccountHistory({
 /// `tools.ozone.hosting.*`
 final class HostingService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   HostingService(this._ctx);
 

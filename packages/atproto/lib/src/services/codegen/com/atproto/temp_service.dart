@@ -13,7 +13,6 @@ import 'package:atproto_core/internals.dart' show iso8601;
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'temp/checkHandleAvailability/output.dart';
 import 'temp/checkSignupQueue/output.dart';
 import 'temp/fetchLabels/output.dart';
@@ -28,7 +27,7 @@ comAtprotoTempCheckHandleAvailability({
   required String handle,
   String? email,
   DateTime? birthDate,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -46,7 +45,7 @@ comAtprotoTempCheckHandleAvailability({
 /// Request a verification code to be sent to the supplied phone number
 Future<XRPCResponse<EmptyData>> comAtprotoTempRequestPhoneVerification({
   required String phoneNumber,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -58,7 +57,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoTempRequestPhoneVerification({
 /// Check accounts location in signup queue.
 Future<XRPCResponse<TempCheckSignupQueueOutput>>
 comAtprotoTempCheckSignupQueue({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -72,7 +71,7 @@ comAtprotoTempCheckSignupQueue({
 Future<XRPCResponse<TempFetchLabelsOutput>> comAtprotoTempFetchLabels({
   int? since,
   int? limit,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -89,7 +88,7 @@ Future<XRPCResponse<TempFetchLabelsOutput>> comAtprotoTempFetchLabels({
 /// Add a handle to the set of reserved handles.
 Future<XRPCResponse<EmptyData>> comAtprotoTempAddReservedHandle({
   required String handle,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -101,7 +100,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoTempAddReservedHandle({
 /// `com.atproto.temp.*`
 final class TempService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   TempService(this._ctx);
 

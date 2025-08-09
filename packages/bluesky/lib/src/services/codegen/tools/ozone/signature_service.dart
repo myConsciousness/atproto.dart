@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'signature/findCorrelation/output.dart';
 import 'signature/findRelatedAccounts/output.dart';
 import 'signature/searchAccounts/output.dart';
@@ -25,7 +24,7 @@ import 'signature/searchAccounts/output.dart';
 Future<XRPCResponse<SignatureFindCorrelationOutput>>
 toolsOzoneSignatureFindCorrelation({
   required List<String> dids,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -41,7 +40,7 @@ toolsOzoneSignatureSearchAccounts({
   required List<String> values,
   String? cursor,
   int? limit,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -62,7 +61,7 @@ toolsOzoneSignatureFindRelatedAccounts({
   required String did,
   String? cursor,
   int? limit,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -80,7 +79,7 @@ toolsOzoneSignatureFindRelatedAccounts({
 /// `tools.ozone.signature.*`
 final class SignatureService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   SignatureService(this._ctx);
 

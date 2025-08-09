@@ -20,7 +20,6 @@ import 'package:atproto_core/internals.dart' show iso8601;
 // Project imports:
 import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'actor/defs/profile_view_detailed.dart';
 import 'actor/defs/union_preferences.dart';
 import 'actor/getPreferences/output.dart';
@@ -32,6 +31,14 @@ import 'actor/searchActorsTypeahead/output.dart';
 import 'actor/status/main_status.dart';
 import 'actor/status/union_main_embed.dart';
 
+import 'package:atproto/com_atproto_services.dart'
+    show
+        comAtprotoRepoGetRecord,
+        comAtprotoRepoListRecords,
+        comAtprotoRepoCreateRecord,
+        comAtprotoRepoPutRecord,
+        comAtprotoRepoDeleteRecord;
+
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
@@ -42,7 +49,7 @@ appBskyActorSearchActorsTypeahead({
   String? term,
   String? q,
   int? limit,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -60,7 +67,7 @@ appBskyActorSearchActorsTypeahead({
 /// Get detailed profile views of multiple actors.
 Future<XRPCResponse<ActorGetProfilesOutput>> appBskyActorGetProfiles({
   required List<String> actors,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -72,7 +79,7 @@ Future<XRPCResponse<ActorGetProfilesOutput>> appBskyActorGetProfiles({
 
 /// Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.
 Future<XRPCResponse<ActorGetPreferencesOutput>> appBskyActorGetPreferences({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -86,7 +93,7 @@ Future<XRPCResponse<ActorGetPreferencesOutput>> appBskyActorGetPreferences({
 Future<XRPCResponse<ActorGetSuggestionsOutput>> appBskyActorGetSuggestions({
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -106,7 +113,7 @@ Future<XRPCResponse<ActorSearchActorsOutput>> appBskyActorSearchActors({
   String? q,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -125,7 +132,7 @@ Future<XRPCResponse<ActorSearchActorsOutput>> appBskyActorSearchActors({
 /// Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
 Future<XRPCResponse<ProfileViewDetailed>> appBskyActorGetProfile({
   required String actor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -138,7 +145,7 @@ Future<XRPCResponse<ProfileViewDetailed>> appBskyActorGetProfile({
 /// Set the private preferences attached to the account.
 Future<XRPCResponse<EmptyData>> appBskyActorPutPreferences({
   required List<UPreferences> preferences,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -153,7 +160,7 @@ Future<XRPCResponse<EmptyData>> appBskyActorPutPreferences({
 /// `app.bsky.actor.*`
 final class ActorService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   final ActorProfileRecordAccessor _profile;
   final ActorStatusRecordAccessor _status;
@@ -264,7 +271,7 @@ final class ActorService {
 }
 
 final class ActorProfileRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const ActorProfileRecordAccessor(this._ctx);
 
@@ -274,11 +281,12 @@ final class ActorProfileRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyActorProfile,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -290,12 +298,13 @@ final class ActorProfileRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyActorProfile,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -314,8 +323,8 @@ final class ActorProfileRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyActorProfile,
     rkey: rkey,
     validate: validate,
@@ -332,6 +341,7 @@ final class ActorProfileRecordAccessor {
       if (createdAt != null) 'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -350,8 +360,8 @@ final class ActorProfileRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyActorProfile,
     rkey: rkey,
     validate: validate,
@@ -369,8 +379,8 @@ final class ActorProfileRecordAccessor {
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -379,19 +389,19 @@ final class ActorProfileRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyActorProfile,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }
 
 final class ActorStatusRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const ActorStatusRecordAccessor(this._ctx);
 
@@ -401,11 +411,12 @@ final class ActorStatusRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyActorStatus,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -417,12 +428,13 @@ final class ActorStatusRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyActorStatus,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -437,8 +449,8 @@ final class ActorStatusRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyActorStatus,
     rkey: rkey,
     validate: validate,
@@ -450,6 +462,7 @@ final class ActorStatusRecordAccessor {
       'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -464,8 +477,8 @@ final class ActorStatusRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyActorStatus,
     rkey: rkey,
     validate: validate,
@@ -478,8 +491,8 @@ final class ActorStatusRecordAccessor {
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -488,13 +501,13 @@ final class ActorStatusRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyActorStatus,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }

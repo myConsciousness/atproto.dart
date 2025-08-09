@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'setting/listOptions/main_scope.dart';
 import 'setting/listOptions/output.dart';
 import 'setting/removeOptions/main_scope.dart';
@@ -31,7 +30,7 @@ Future<XRPCResponse<SettingListOptionsOutput>> toolsOzoneSettingListOptions({
   SettingListOptionsScope? scope,
   String? prefix,
   List<String>? keys,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -55,7 +54,7 @@ Future<XRPCResponse<SettingUpsertOptionOutput>> toolsOzoneSettingUpsertOption({
   required Map<String, dynamic> value,
   String? description,
   SettingUpsertOptionManagerRole? managerRole,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -76,7 +75,7 @@ Future<XRPCResponse<SettingUpsertOptionOutput>> toolsOzoneSettingUpsertOption({
 Future<XRPCResponse<EmptyData>> toolsOzoneSettingRemoveOptions({
   required List<String> keys,
   required SettingRemoveOptionsScope scope,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -88,7 +87,7 @@ Future<XRPCResponse<EmptyData>> toolsOzoneSettingRemoveOptions({
 /// `tools.ozone.setting.*`
 final class SettingService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   SettingService(this._ctx);
 

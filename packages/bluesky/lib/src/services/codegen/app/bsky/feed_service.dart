@@ -20,7 +20,6 @@ import 'package:atproto_core/internals.dart' show iso8601;
 // Project imports:
 import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'feed/defs/interaction.dart';
 import 'feed/describeFeedGenerator/output.dart';
 import 'feed/generator/main_content_mode.dart';
@@ -50,6 +49,14 @@ import 'feed/searchPosts/output.dart';
 import 'feed/threadgate/union_main_allow.dart';
 import 'richtext/facet/main.dart';
 
+import 'package:atproto/com_atproto_services.dart'
+    show
+        comAtprotoRepoGetRecord,
+        comAtprotoRepoListRecords,
+        comAtprotoRepoCreateRecord,
+        comAtprotoRepoPutRecord,
+        comAtprotoRepoDeleteRecord;
+
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
@@ -59,7 +66,7 @@ Future<XRPCResponse<FeedGetFeedSkeletonOutput>> appBskyFeedGetFeedSkeleton({
   required String feed,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -77,7 +84,7 @@ Future<XRPCResponse<FeedGetFeedSkeletonOutput>> appBskyFeedGetFeedSkeleton({
 /// Get information about a feed generator. Implemented by AppView.
 Future<XRPCResponse<FeedGetFeedGeneratorOutput>> appBskyFeedGetFeedGenerator({
   required String feed,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -93,7 +100,7 @@ Future<XRPCResponse<FeedGetRepostedByOutput>> appBskyFeedGetRepostedBy({
   String? cid,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -116,7 +123,7 @@ Future<XRPCResponse<FeedGetAuthorFeedOutput>> appBskyFeedGetAuthorFeed({
   String? cursor,
   FeedGetAuthorFeedFilter? filter,
   bool? includePins,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -139,7 +146,7 @@ Future<XRPCResponse<FeedGetQuotesOutput>> appBskyFeedGetQuotes({
   String? cid,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -159,7 +166,7 @@ Future<XRPCResponse<FeedGetQuotesOutput>> appBskyFeedGetQuotes({
 Future<XRPCResponse<FeedGetSuggestedFeedsOutput>> appBskyFeedGetSuggestedFeeds({
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -178,7 +185,7 @@ Future<XRPCResponse<FeedGetListFeedOutput>> appBskyFeedGetListFeed({
   required String list,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -196,7 +203,7 @@ Future<XRPCResponse<FeedGetListFeedOutput>> appBskyFeedGetListFeed({
 /// Get information about a list of feed generators.
 Future<XRPCResponse<FeedGetFeedGeneratorsOutput>> appBskyFeedGetFeedGenerators({
   required List<String> feeds,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -212,7 +219,7 @@ Future<XRPCResponse<FeedGetLikesOutput>> appBskyFeedGetLikes({
   String? cid,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -231,7 +238,7 @@ Future<XRPCResponse<FeedGetLikesOutput>> appBskyFeedGetLikes({
 /// Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.
 Future<XRPCResponse<FeedGetPostsOutput>> appBskyFeedGetPosts({
   required List<String> uris,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -246,7 +253,7 @@ Future<XRPCResponse<FeedGetFeedOutput>> appBskyFeedGetFeed({
   required String feed,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -266,7 +273,7 @@ Future<XRPCResponse<FeedGetTimelineOutput>> appBskyFeedGetTimeline({
   String? algorithm,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -295,7 +302,7 @@ Future<XRPCResponse<FeedSearchPostsOutput>> appBskyFeedSearchPosts({
   List<String>? tag,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -322,7 +329,7 @@ Future<XRPCResponse<FeedSearchPostsOutput>> appBskyFeedSearchPosts({
 /// Send information about interactions with feed items back to the feed generator that served them.
 Future<XRPCResponse<EmptyData>> appBskyFeedSendInteractions({
   required List<Interaction> interactions,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -337,7 +344,7 @@ Future<XRPCResponse<EmptyData>> appBskyFeedSendInteractions({
 /// Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).
 Future<XRPCResponse<FeedDescribeFeedGeneratorOutput>>
 appBskyFeedDescribeFeedGenerator({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -352,7 +359,7 @@ Future<XRPCResponse<FeedGetPostThreadOutput>> appBskyFeedGetPostThread({
   required String uri,
   int? depth,
   int? parentHeight,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -372,7 +379,7 @@ Future<XRPCResponse<FeedGetActorLikesOutput>> appBskyFeedGetActorLikes({
   required String actor,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -392,7 +399,7 @@ Future<XRPCResponse<FeedGetActorFeedsOutput>> appBskyFeedGetActorFeeds({
   required String actor,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -410,7 +417,7 @@ Future<XRPCResponse<FeedGetActorFeedsOutput>> appBskyFeedGetActorFeeds({
 /// `app.bsky.feed.*`
 final class FeedService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   final FeedRepostRecordAccessor _repost;
   final FeedLikeRecordAccessor _like;
@@ -739,7 +746,7 @@ final class FeedService {
 }
 
 final class FeedRepostRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const FeedRepostRecordAccessor(this._ctx);
 
@@ -749,11 +756,12 @@ final class FeedRepostRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyFeedRepost,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -765,12 +773,13 @@ final class FeedRepostRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyFeedRepost,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -784,8 +793,8 @@ final class FeedRepostRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedRepost,
     rkey: rkey,
     validate: validate,
@@ -796,6 +805,7 @@ final class FeedRepostRecordAccessor {
       if (via != null) 'via': via.toJson(),
     },
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -809,8 +819,8 @@ final class FeedRepostRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedRepost,
     rkey: rkey,
     validate: validate,
@@ -822,8 +832,8 @@ final class FeedRepostRecordAccessor {
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -832,19 +842,19 @@ final class FeedRepostRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedRepost,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }
 
 final class FeedLikeRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const FeedLikeRecordAccessor(this._ctx);
 
@@ -854,11 +864,12 @@ final class FeedLikeRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyFeedLike,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -870,12 +881,13 @@ final class FeedLikeRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyFeedLike,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -889,8 +901,8 @@ final class FeedLikeRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedLike,
     rkey: rkey,
     validate: validate,
@@ -901,6 +913,7 @@ final class FeedLikeRecordAccessor {
       if (via != null) 'via': via.toJson(),
     },
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -914,8 +927,8 @@ final class FeedLikeRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedLike,
     rkey: rkey,
     validate: validate,
@@ -927,8 +940,8 @@ final class FeedLikeRecordAccessor {
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -937,19 +950,19 @@ final class FeedLikeRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedLike,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }
 
 final class FeedThreadgateRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const FeedThreadgateRecordAccessor(this._ctx);
 
@@ -959,11 +972,12 @@ final class FeedThreadgateRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyFeedThreadgate,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -975,12 +989,13 @@ final class FeedThreadgateRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyFeedThreadgate,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -995,8 +1010,8 @@ final class FeedThreadgateRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedThreadgate,
     rkey: rkey,
     validate: validate,
@@ -1008,6 +1023,7 @@ final class FeedThreadgateRecordAccessor {
       if (hiddenReplies != null) 'hiddenReplies': hiddenReplies,
     },
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -1022,8 +1038,8 @@ final class FeedThreadgateRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedThreadgate,
     rkey: rkey,
     validate: validate,
@@ -1036,8 +1052,8 @@ final class FeedThreadgateRecordAccessor {
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -1046,19 +1062,19 @@ final class FeedThreadgateRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedThreadgate,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }
 
 final class FeedGeneratorRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const FeedGeneratorRecordAccessor(this._ctx);
 
@@ -1068,11 +1084,12 @@ final class FeedGeneratorRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyFeedGenerator,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1084,12 +1101,13 @@ final class FeedGeneratorRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyFeedGenerator,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1109,8 +1127,8 @@ final class FeedGeneratorRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedGenerator,
     rkey: rkey,
     validate: validate,
@@ -1129,6 +1147,7 @@ final class FeedGeneratorRecordAccessor {
       'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -1148,8 +1167,8 @@ final class FeedGeneratorRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedGenerator,
     rkey: rkey,
     validate: validate,
@@ -1169,8 +1188,8 @@ final class FeedGeneratorRecordAccessor {
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -1179,19 +1198,19 @@ final class FeedGeneratorRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedGenerator,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }
 
 final class FeedPostRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const FeedPostRecordAccessor(this._ctx);
 
@@ -1201,11 +1220,12 @@ final class FeedPostRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyFeedPost,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1217,12 +1237,13 @@ final class FeedPostRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyFeedPost,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1241,8 +1262,8 @@ final class FeedPostRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedPost,
     rkey: rkey,
     validate: validate,
@@ -1258,6 +1279,7 @@ final class FeedPostRecordAccessor {
       'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -1276,8 +1298,8 @@ final class FeedPostRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedPost,
     rkey: rkey,
     validate: validate,
@@ -1294,8 +1316,8 @@ final class FeedPostRecordAccessor {
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -1304,19 +1326,19 @@ final class FeedPostRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedPost,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }
 
 final class FeedPostgateRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const FeedPostgateRecordAccessor(this._ctx);
 
@@ -1326,11 +1348,12 @@ final class FeedPostgateRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyFeedPostgate,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1342,12 +1365,13 @@ final class FeedPostgateRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyFeedPostgate,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1362,8 +1386,8 @@ final class FeedPostgateRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedPostgate,
     rkey: rkey,
     validate: validate,
@@ -1377,6 +1401,7 @@ final class FeedPostgateRecordAccessor {
         'embeddingRules': embeddingRules.map((e) => e.toJson()).toList(),
     },
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -1391,8 +1416,8 @@ final class FeedPostgateRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedPostgate,
     rkey: rkey,
     validate: validate,
@@ -1407,8 +1432,8 @@ final class FeedPostgateRecordAccessor {
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -1417,13 +1442,13 @@ final class FeedPostgateRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyFeedPostgate,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }

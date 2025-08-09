@@ -17,7 +17,14 @@ import 'package:atproto/com_atproto_repo_getrecord.dart';
 import 'package:atproto/com_atproto_repo_listrecords.dart';
 import 'package:atproto/com_atproto_repo_putrecord.dart';
 import '../../../../ids.g.dart' as ids;
-import '../../../service_context.dart' as z;
+
+import 'package:atproto/com_atproto_services.dart'
+    show
+        comAtprotoRepoGetRecord,
+        comAtprotoRepoListRecords,
+        comAtprotoRepoCreateRecord,
+        comAtprotoRepoPutRecord,
+        comAtprotoRepoDeleteRecord;
 
 // **************************************************************************
 // LexGenerator
@@ -26,7 +33,7 @@ import '../../../service_context.dart' as z;
 /// `com.atproto.lexicon.*`
 final class LexiconService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   final LexiconSchemaRecordAccessor _schema;
 
@@ -37,7 +44,7 @@ final class LexiconService {
 }
 
 final class LexiconSchemaRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const LexiconSchemaRecordAccessor(this._ctx);
 
@@ -47,11 +54,12 @@ final class LexiconSchemaRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.comAtprotoLexiconSchema,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -63,12 +71,13 @@ final class LexiconSchemaRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.comAtprotoLexiconSchema,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -80,13 +89,14 @@ final class LexiconSchemaRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.comAtprotoLexiconSchema,
     rkey: rkey,
     validate: validate,
     record: {...?$unknown, 'lexicon': lexicon},
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -98,16 +108,16 @@ final class LexiconSchemaRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.comAtprotoLexiconSchema,
     rkey: rkey,
     validate: validate,
     record: {...?$unknown, 'lexicon': lexicon},
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -116,13 +126,13 @@ final class LexiconSchemaRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.comAtprotoLexiconSchema,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }

@@ -20,10 +20,17 @@ import 'package:atproto_core/internals.dart' show iso8601;
 // Project imports:
 import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'labeler/defs/labeler_policies.dart';
 import 'labeler/getServices/output.dart';
 import 'labeler/service/union_main_labels.dart';
+
+import 'package:atproto/com_atproto_services.dart'
+    show
+        comAtprotoRepoGetRecord,
+        comAtprotoRepoListRecords,
+        comAtprotoRepoCreateRecord,
+        comAtprotoRepoPutRecord,
+        comAtprotoRepoDeleteRecord;
 
 // **************************************************************************
 // LexGenerator
@@ -33,7 +40,7 @@ import 'labeler/service/union_main_labels.dart';
 Future<XRPCResponse<LabelerGetServicesOutput>> appBskyLabelerGetServices({
   required List<String> dids,
   bool? detailed,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -50,7 +57,7 @@ Future<XRPCResponse<LabelerGetServicesOutput>> appBskyLabelerGetServices({
 /// `app.bsky.labeler.*`
 final class LabelerService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   final LabelerServiceRecordAccessor _service;
 
@@ -75,7 +82,7 @@ final class LabelerService {
 }
 
 final class LabelerServiceRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const LabelerServiceRecordAccessor(this._ctx);
 
@@ -85,11 +92,12 @@ final class LabelerServiceRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyLabelerService,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -101,12 +109,13 @@ final class LabelerServiceRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyLabelerService,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -123,8 +132,8 @@ final class LabelerServiceRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyLabelerService,
     rkey: rkey,
     validate: validate,
@@ -140,6 +149,7 @@ final class LabelerServiceRecordAccessor {
       if (subjectCollections != null) 'subjectCollections': subjectCollections,
     },
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -156,8 +166,8 @@ final class LabelerServiceRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyLabelerService,
     rkey: rkey,
     validate: validate,
@@ -174,8 +184,8 @@ final class LabelerServiceRecordAccessor {
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -184,13 +194,13 @@ final class LabelerServiceRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyLabelerService,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }

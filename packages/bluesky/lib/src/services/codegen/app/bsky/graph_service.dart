@@ -19,7 +19,6 @@ import 'package:atproto_core/internals.dart' show iso8601;
 // Project imports:
 import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'graph/defs/list_purpose.dart';
 import 'graph/getActorStarterPacks/output.dart';
 import 'graph/getBlocks/output.dart';
@@ -44,6 +43,14 @@ import 'graph/searchStarterPacks/output.dart';
 import 'graph/starterpack/feed_item.dart';
 import 'richtext/facet/main.dart';
 
+import 'package:atproto/com_atproto_services.dart'
+    show
+        comAtprotoRepoGetRecord,
+        comAtprotoRepoListRecords,
+        comAtprotoRepoCreateRecord,
+        comAtprotoRepoPutRecord,
+        comAtprotoRepoDeleteRecord;
+
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
@@ -51,7 +58,7 @@ import 'richtext/facet/main.dart';
 /// Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphMuteActorList({
   required String list,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -63,7 +70,7 @@ Future<XRPCResponse<EmptyData>> appBskyGraphMuteActorList({
 /// Unmutes the specified account. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteActor({
   required String actor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -76,7 +83,7 @@ Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteActor({
 Future<XRPCResponse<GraphGetBlocksOutput>> appBskyGraphGetBlocks({
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -96,7 +103,7 @@ appBskyGraphSearchStarterPacks({
   required String q,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -115,7 +122,7 @@ appBskyGraphSearchStarterPacks({
 Future<XRPCResponse<GraphGetMutesOutput>> appBskyGraphGetMutes({
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -133,7 +140,7 @@ Future<XRPCResponse<GraphGetMutesOutput>> appBskyGraphGetMutes({
 Future<XRPCResponse<GraphGetSuggestedFollowsByActorOutput>>
 appBskyGraphGetSuggestedFollowsByActor({
   required String actor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -147,7 +154,7 @@ appBskyGraphGetSuggestedFollowsByActor({
 Future<XRPCResponse<GraphGetListMutesOutput>> appBskyGraphGetListMutes({
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -166,7 +173,7 @@ Future<XRPCResponse<GraphGetListOutput>> appBskyGraphGetList({
   required String list,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -184,7 +191,7 @@ Future<XRPCResponse<GraphGetListOutput>> appBskyGraphGetList({
 /// Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphMuteThread({
   required String root,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -196,7 +203,7 @@ Future<XRPCResponse<EmptyData>> appBskyGraphMuteThread({
 /// Unmutes the specified list of accounts. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteActorList({
   required String list,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -208,7 +215,7 @@ Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteActorList({
 /// Gets a view of a starter pack.
 Future<XRPCResponse<GraphGetStarterPackOutput>> appBskyGraphGetStarterPack({
   required String starterPack,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -224,7 +231,7 @@ appBskyGraphGetActorStarterPacks({
   required String actor,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -243,7 +250,7 @@ appBskyGraphGetActorStarterPacks({
 Future<XRPCResponse<GraphGetRelationshipsOutput>> appBskyGraphGetRelationships({
   required String actor,
   List<String>? others,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -264,7 +271,7 @@ appBskyGraphGetListsWithMembership({
   int? limit,
   String? cursor,
   List<GraphGetListsWithMembershipPurposes>? purposes,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -286,7 +293,7 @@ appBskyGraphGetKnownFollowers({
   required String actor,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -306,7 +313,7 @@ Future<XRPCResponse<GraphGetFollowersOutput>> appBskyGraphGetFollowers({
   required String actor,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -326,7 +333,7 @@ Future<XRPCResponse<GraphGetFollowsOutput>> appBskyGraphGetFollows({
   required String actor,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -345,7 +352,7 @@ Future<XRPCResponse<GraphGetFollowsOutput>> appBskyGraphGetFollows({
 Future<XRPCResponse<GraphGetListBlocksOutput>> appBskyGraphGetListBlocks({
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -362,7 +369,7 @@ Future<XRPCResponse<GraphGetListBlocksOutput>> appBskyGraphGetListBlocks({
 /// Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphMuteActor({
   required String actor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -377,7 +384,7 @@ appBskyGraphGetStarterPacksWithMembership({
   required String actor,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -395,7 +402,7 @@ appBskyGraphGetStarterPacksWithMembership({
 /// Get views for a list of starter packs.
 Future<XRPCResponse<GraphGetStarterPacksOutput>> appBskyGraphGetStarterPacks({
   required List<String> uris,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -411,7 +418,7 @@ Future<XRPCResponse<GraphGetListsOutput>> appBskyGraphGetLists({
   int? limit,
   String? cursor,
   List<GraphGetListsPurposes>? purposes,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -430,7 +437,7 @@ Future<XRPCResponse<GraphGetListsOutput>> appBskyGraphGetLists({
 /// Unmutes the specified thread. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteThread({
   required String root,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -442,7 +449,7 @@ Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteThread({
 /// `app.bsky.graph.*`
 final class GraphService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   final GraphFollowRecordAccessor _follow;
   final GraphStarterpackRecordAccessor _starterpack;
@@ -813,7 +820,7 @@ final class GraphService {
 }
 
 final class GraphFollowRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const GraphFollowRecordAccessor(this._ctx);
 
@@ -823,11 +830,12 @@ final class GraphFollowRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyGraphFollow,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -839,12 +847,13 @@ final class GraphFollowRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyGraphFollow,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -857,13 +866,14 @@ final class GraphFollowRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphFollow,
     rkey: rkey,
     validate: validate,
     record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -876,16 +886,16 @@ final class GraphFollowRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphFollow,
     rkey: rkey,
     validate: validate,
     record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -894,19 +904,19 @@ final class GraphFollowRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphFollow,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }
 
 final class GraphStarterpackRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const GraphStarterpackRecordAccessor(this._ctx);
 
@@ -916,11 +926,12 @@ final class GraphStarterpackRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyGraphStarterpack,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -932,12 +943,13 @@ final class GraphStarterpackRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyGraphStarterpack,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -954,8 +966,8 @@ final class GraphStarterpackRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphStarterpack,
     rkey: rkey,
     validate: validate,
@@ -970,6 +982,7 @@ final class GraphStarterpackRecordAccessor {
       'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -986,8 +999,8 @@ final class GraphStarterpackRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphStarterpack,
     rkey: rkey,
     validate: validate,
@@ -1003,8 +1016,8 @@ final class GraphStarterpackRecordAccessor {
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -1013,19 +1026,19 @@ final class GraphStarterpackRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphStarterpack,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }
 
 final class GraphListblockRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const GraphListblockRecordAccessor(this._ctx);
 
@@ -1035,11 +1048,12 @@ final class GraphListblockRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyGraphListblock,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1051,12 +1065,13 @@ final class GraphListblockRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyGraphListblock,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1069,13 +1084,14 @@ final class GraphListblockRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphListblock,
     rkey: rkey,
     validate: validate,
     record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -1088,16 +1104,16 @@ final class GraphListblockRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphListblock,
     rkey: rkey,
     validate: validate,
     record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -1106,19 +1122,19 @@ final class GraphListblockRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphListblock,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }
 
 final class GraphListitemRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const GraphListitemRecordAccessor(this._ctx);
 
@@ -1128,11 +1144,12 @@ final class GraphListitemRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyGraphListitem,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1144,12 +1161,13 @@ final class GraphListitemRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyGraphListitem,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1163,8 +1181,8 @@ final class GraphListitemRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphListitem,
     rkey: rkey,
     validate: validate,
@@ -1175,6 +1193,7 @@ final class GraphListitemRecordAccessor {
       'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -1188,8 +1207,8 @@ final class GraphListitemRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphListitem,
     rkey: rkey,
     validate: validate,
@@ -1201,8 +1220,8 @@ final class GraphListitemRecordAccessor {
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -1211,19 +1230,19 @@ final class GraphListitemRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphListitem,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }
 
 final class GraphListRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const GraphListRecordAccessor(this._ctx);
 
@@ -1233,11 +1252,12 @@ final class GraphListRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyGraphList,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1249,12 +1269,13 @@ final class GraphListRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyGraphList,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1272,8 +1293,8 @@ final class GraphListRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphList,
     rkey: rkey,
     validate: validate,
@@ -1289,6 +1310,7 @@ final class GraphListRecordAccessor {
       'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -1306,8 +1328,8 @@ final class GraphListRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphList,
     rkey: rkey,
     validate: validate,
@@ -1324,8 +1346,8 @@ final class GraphListRecordAccessor {
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -1334,19 +1356,19 @@ final class GraphListRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphList,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }
 
 final class GraphVerificationRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const GraphVerificationRecordAccessor(this._ctx);
 
@@ -1356,11 +1378,12 @@ final class GraphVerificationRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyGraphVerification,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1372,12 +1395,13 @@ final class GraphVerificationRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyGraphVerification,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1392,8 +1416,8 @@ final class GraphVerificationRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphVerification,
     rkey: rkey,
     validate: validate,
@@ -1405,6 +1429,7 @@ final class GraphVerificationRecordAccessor {
       'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -1419,8 +1444,8 @@ final class GraphVerificationRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphVerification,
     rkey: rkey,
     validate: validate,
@@ -1433,8 +1458,8 @@ final class GraphVerificationRecordAccessor {
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -1443,19 +1468,19 @@ final class GraphVerificationRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphVerification,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }
 
 final class GraphBlockRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const GraphBlockRecordAccessor(this._ctx);
 
@@ -1465,11 +1490,12 @@ final class GraphBlockRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyGraphBlock,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1481,12 +1507,13 @@ final class GraphBlockRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyGraphBlock,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1499,13 +1526,14 @@ final class GraphBlockRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphBlock,
     rkey: rkey,
     validate: validate,
     record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -1518,16 +1546,16 @@ final class GraphBlockRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphBlock,
     rkey: rkey,
     validate: validate,
     record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -1536,13 +1564,13 @@ final class GraphBlockRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyGraphBlock,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }

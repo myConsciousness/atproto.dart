@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'admin/defs/account_view.dart';
 import 'admin/defs/status_attr.dart';
 import 'admin/getAccountInfos/output.dart';
@@ -34,7 +33,7 @@ comAtprotoAdminUpdateSubjectStatus({
   required UAdminUpdateSubjectStatusSubject subject,
   StatusAttr? takedown,
   StatusAttr? deactivated,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -56,7 +55,7 @@ Future<XRPCResponse<AdminSendEmailOutput>> comAtprotoAdminSendEmail({
   String? subject,
   required String senderDid,
   String? comment,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -77,7 +76,7 @@ Future<XRPCResponse<AdminSendEmailOutput>> comAtprotoAdminSendEmail({
 Future<XRPCResponse<EmptyData>> comAtprotoAdminDisableInviteCodes({
   List<String>? codes,
   List<String>? accounts,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -94,7 +93,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoAdminDisableInviteCodes({
 Future<XRPCResponse<EmptyData>> comAtprotoAdminUpdateAccountPassword({
   required String did,
   required String password,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -107,7 +106,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoAdminUpdateAccountPassword({
 Future<XRPCResponse<EmptyData>> comAtprotoAdminDisableAccountInvites({
   required String account,
   String? note,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -121,7 +120,7 @@ Future<XRPCResponse<AdminSearchAccountsOutput>> comAtprotoAdminSearchAccounts({
   String? email,
   String? cursor,
   int? limit,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -139,7 +138,7 @@ Future<XRPCResponse<AdminSearchAccountsOutput>> comAtprotoAdminSearchAccounts({
 /// Delete a user account as an administrator.
 Future<XRPCResponse<EmptyData>> comAtprotoAdminDeleteAccount({
   required String did,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -152,7 +151,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoAdminDeleteAccount({
 Future<XRPCResponse<AdminGetAccountInfosOutput>>
 comAtprotoAdminGetAccountInfos({
   required List<String> dids,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -168,7 +167,7 @@ comAtprotoAdminGetSubjectStatus({
   String? did,
   String? uri,
   String? blob,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -186,7 +185,7 @@ comAtprotoAdminGetSubjectStatus({
 /// Get details about an account.
 Future<XRPCResponse<AccountView>> comAtprotoAdminGetAccountInfo({
   required String did,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -200,7 +199,7 @@ Future<XRPCResponse<AccountView>> comAtprotoAdminGetAccountInfo({
 Future<XRPCResponse<EmptyData>> comAtprotoAdminUpdateAccountEmail({
   required String account,
   required String email,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -213,7 +212,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoAdminUpdateAccountEmail({
 Future<XRPCResponse<EmptyData>> comAtprotoAdminUpdateAccountSigningKey({
   required String did,
   required String signingKey,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -227,7 +226,7 @@ Future<XRPCResponse<AdminGetInviteCodesOutput>> comAtprotoAdminGetInviteCodes({
   AdminGetInviteCodesSort? sort,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -246,7 +245,7 @@ Future<XRPCResponse<AdminGetInviteCodesOutput>> comAtprotoAdminGetInviteCodes({
 Future<XRPCResponse<EmptyData>> comAtprotoAdminUpdateAccountHandle({
   required String did,
   required String handle,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -259,7 +258,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoAdminUpdateAccountHandle({
 Future<XRPCResponse<EmptyData>> comAtprotoAdminEnableAccountInvites({
   required String account,
   String? note,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -271,7 +270,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoAdminEnableAccountInvites({
 /// `com.atproto.admin.*`
 final class AdminService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   AdminService(this._ctx);
 

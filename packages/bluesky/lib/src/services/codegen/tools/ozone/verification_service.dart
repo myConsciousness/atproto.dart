@@ -13,7 +13,6 @@ import 'package:atproto_core/internals.dart' show iso8601;
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'verification/grantVerifications/output.dart';
 import 'verification/grantVerifications/verification_input.dart';
 import 'verification/listVerifications/output.dart';
@@ -28,7 +27,7 @@ Future<XRPCResponse<VerificationRevokeVerificationsOutput>>
 toolsOzoneVerificationRevokeVerifications({
   required List<String> uris,
   String? revokeReason,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -46,7 +45,7 @@ toolsOzoneVerificationRevokeVerifications({
 Future<XRPCResponse<VerificationGrantVerificationsOutput>>
 toolsOzoneVerificationGrantVerifications({
   required List<VerificationInput> verifications,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -70,7 +69,7 @@ toolsOzoneVerificationListVerifications({
   List<String>? subjects,
   String? sortDirection,
   bool? isRevoked,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -93,7 +92,7 @@ toolsOzoneVerificationListVerifications({
 /// `tools.ozone.verification.*`
 final class VerificationService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   VerificationService(this._ctx);
 

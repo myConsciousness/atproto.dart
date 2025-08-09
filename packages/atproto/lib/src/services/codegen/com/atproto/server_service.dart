@@ -13,7 +13,6 @@ import 'package:atproto_core/internals.dart' show iso8601;
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'server/checkAccountStatus/output.dart';
 import 'server/createAccount/output.dart';
 import 'server/createAppPassword/app_password.dart';
@@ -35,7 +34,7 @@ import 'server/reserveSigningKey/output.dart';
 
 /// Get information about the current auth session. Requires auth.
 Future<XRPCResponse<ServerGetSessionOutput>> comAtprotoServerGetSession({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -48,7 +47,7 @@ Future<XRPCResponse<ServerGetSessionOutput>> comAtprotoServerGetSession({
 /// Request a token in order to update email.
 Future<XRPCResponse<ServerRequestEmailUpdateOutput>>
 comAtprotoServerRequestEmailUpdate({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -61,7 +60,7 @@ comAtprotoServerRequestEmailUpdate({
 /// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
 Future<XRPCResponse<ServerRefreshSessionOutput>>
 comAtprotoServerRefreshSession({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -73,7 +72,7 @@ comAtprotoServerRefreshSession({
 
 /// Delete the current session. Requires auth.
 Future<XRPCResponse<EmptyData>> comAtprotoServerDeleteSession({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -86,7 +85,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoServerDeleteSession({
 Future<XRPCResponse<AppPassword>> comAtprotoServerCreateAppPassword({
   required String name,
   bool? privileged,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -106,7 +105,7 @@ comAtprotoServerCreateInviteCodes({
   required int codeCount,
   required int useCount,
   List<String>? forAccounts,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -126,7 +125,7 @@ Future<XRPCResponse<ServerCreateInviteCodeOutput>>
 comAtprotoServerCreateInviteCode({
   required int useCount,
   String? forAccount,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -143,7 +142,7 @@ comAtprotoServerCreateInviteCode({
 /// Returns the status of an account, especially as pertaining to import or recovery. Can be called many times over the course of an account migration. Requires auth and can only be called pertaining to oneself.
 Future<XRPCResponse<ServerCheckAccountStatusOutput>>
 comAtprotoServerCheckAccountStatus({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -159,7 +158,7 @@ Future<XRPCResponse<ServerCreateSessionOutput>> comAtprotoServerCreateSession({
   required String password,
   String? authFactorToken,
   bool? allowTakendown,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -178,7 +177,7 @@ Future<XRPCResponse<ServerCreateSessionOutput>> comAtprotoServerCreateSession({
 /// Deactivates a currently active account. Stops serving of repo, and future writes to repo until reactivated. Used to finalize account migration with the old host after the account has been activated on the new host.
 Future<XRPCResponse<EmptyData>> comAtprotoServerDeactivateAccount({
   DateTime? deleteAfter,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -196,7 +195,7 @@ comAtprotoServerGetServiceAuth({
   required String aud,
   int? exp,
   String? lxm,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -215,7 +214,7 @@ comAtprotoServerGetServiceAuth({
 Future<XRPCResponse<EmptyData>> comAtprotoServerResetPassword({
   required String token,
   required String password,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -227,7 +226,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoServerResetPassword({
 /// Initiate a user account password reset via email.
 Future<XRPCResponse<EmptyData>> comAtprotoServerRequestPasswordReset({
   required String email,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -241,7 +240,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoServerDeleteAccount({
   required String did,
   required String password,
   required String token,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -253,7 +252,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoServerDeleteAccount({
 /// List all App Passwords.
 Future<XRPCResponse<ServerListAppPasswordsOutput>>
 comAtprotoServerListAppPasswords({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -267,7 +266,7 @@ comAtprotoServerListAppPasswords({
 Future<XRPCResponse<EmptyData>> comAtprotoServerConfirmEmail({
   required String email,
   required String token,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -287,7 +286,7 @@ Future<XRPCResponse<ServerCreateAccountOutput>> comAtprotoServerCreateAccount({
   String? password,
   String? recoveryKey,
   Map<String, dynamic>? plcOp,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -310,7 +309,7 @@ Future<XRPCResponse<ServerCreateAccountOutput>> comAtprotoServerCreateAccount({
 
 /// Initiate a user account deletion via email.
 Future<XRPCResponse<EmptyData>> comAtprotoServerRequestAccountDelete({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -322,7 +321,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoServerRequestAccountDelete({
 /// Revoke an App Password by name.
 Future<XRPCResponse<EmptyData>> comAtprotoServerRevokeAppPassword({
   required String name,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -336,7 +335,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoServerUpdateEmail({
   required String email,
   bool? emailAuthFactor,
   String? token,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -354,7 +353,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoServerUpdateEmail({
 Future<XRPCResponse<ServerReserveSigningKeyOutput>>
 comAtprotoServerReserveSigningKey({
   String? did,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -366,7 +365,7 @@ comAtprotoServerReserveSigningKey({
 
 /// Request an email with a code to confirm ownership of email.
 Future<XRPCResponse<EmptyData>> comAtprotoServerRequestEmailConfirmation({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -377,7 +376,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoServerRequestEmailConfirmation({
 
 /// Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.
 Future<XRPCResponse<EmptyData>> comAtprotoServerActivateAccount({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -389,7 +388,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoServerActivateAccount({
 /// Describes the server's account creation requirements and capabilities. Implemented by PDS.
 Future<XRPCResponse<ServerDescribeServerOutput>>
 comAtprotoServerDescribeServer({
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -404,7 +403,7 @@ Future<XRPCResponse<ServerGetAccountInviteCodesOutput>>
 comAtprotoServerGetAccountInviteCodes({
   bool? includeUsed,
   bool? createAvailable,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -421,7 +420,7 @@ comAtprotoServerGetAccountInviteCodes({
 /// `com.atproto.server.*`
 final class ServerService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   ServerService(this._ctx);
 

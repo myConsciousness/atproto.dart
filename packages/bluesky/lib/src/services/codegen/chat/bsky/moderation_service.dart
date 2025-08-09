@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'moderation/getActorMetadata/output.dart';
 import 'moderation/getMessageContext/output.dart';
 
@@ -23,7 +22,7 @@ import 'moderation/getMessageContext/output.dart';
 Future<XRPCResponse<ModerationGetActorMetadataOutput>>
 chatBskyModerationGetActorMetadata({
   required String actor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -36,7 +35,7 @@ Future<XRPCResponse<EmptyData>> chatBskyModerationUpdateActorAccess({
   required String actor,
   required bool allowAccess,
   String? ref,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -55,7 +54,7 @@ chatBskyModerationGetMessageContext({
   required String messageId,
   int? before,
   int? after,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -74,7 +73,7 @@ chatBskyModerationGetMessageContext({
 /// `chat.bsky.moderation.*`
 final class ModerationService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   ModerationService(this._ctx);
 

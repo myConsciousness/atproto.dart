@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'moderation/createReport/mod_tool.dart';
 import 'moderation/createReport/output.dart';
 import 'moderation/createReport/union_main_subject.dart';
@@ -29,7 +28,7 @@ comAtprotoModerationCreateReport({
   String? reason,
   required UModerationCreateReportSubject subject,
   ModTool? modTool,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -48,7 +47,7 @@ comAtprotoModerationCreateReport({
 /// `com.atproto.moderation.*`
 final class ModerationService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   ModerationService(this._ctx);
 

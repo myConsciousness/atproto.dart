@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'set/defs/set_view.dart';
 import 'set/getValues/output.dart';
 import 'set/querySets/output.dart';
@@ -28,7 +27,7 @@ Future<XRPCResponse<SetQuerySetsOutput>> toolsOzoneSetQuerySets({
   String? namePrefix,
   String? sortBy,
   String? sortDirection,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -48,7 +47,7 @@ Future<XRPCResponse<SetQuerySetsOutput>> toolsOzoneSetQuerySets({
 /// Delete an entire set. Attempting to delete a set that does not exist will result in an error.
 Future<XRPCResponse<EmptyData>> toolsOzoneSetDeleteSet({
   required String name,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -62,7 +61,7 @@ Future<XRPCResponse<SetGetValuesOutput>> toolsOzoneSetGetValues({
   required String name,
   int? limit,
   String? cursor,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.get(
@@ -81,7 +80,7 @@ Future<XRPCResponse<SetGetValuesOutput>> toolsOzoneSetGetValues({
 Future<XRPCResponse<EmptyData>> toolsOzoneSetAddValues({
   required String name,
   required List<String> values,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -94,7 +93,7 @@ Future<XRPCResponse<EmptyData>> toolsOzoneSetAddValues({
 Future<XRPCResponse<EmptyData>> toolsOzoneSetDeleteValues({
   required String name,
   required List<String> values,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -107,7 +106,7 @@ Future<XRPCResponse<EmptyData>> toolsOzoneSetDeleteValues({
 Future<XRPCResponse<SetView>> toolsOzoneSetUpsertSet({
   required String name,
   String? description,
-  z.ServiceContext? $ctx,
+  ServiceContext? $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx!.post(
@@ -124,7 +123,7 @@ Future<XRPCResponse<SetView>> toolsOzoneSetUpsertSet({
 /// `tools.ozone.set.*`
 final class SetService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   SetService(this._ctx);
 

@@ -73,6 +73,8 @@ base class ServiceContext {
 
   Map<String, String> get headers => _headers ?? const {};
 
+  String get repo => session?.did ?? oAuthSession?.sub ?? '';
+
   Future<xrpc.XRPCResponse<T>> get<T>(
     final xrpc.NSID methodId, {
     final String? service,
