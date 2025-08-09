@@ -21,17 +21,39 @@ import 'package:atproto_core/atproto_core.dart';
 // Project imports:
 import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'actor/declaration/main_allow_incoming.dart';
+
+import 'package:atproto/com_atproto_services.dart'
+    show
+        comAtprotoRepoGetRecord,
+        comAtprotoRepoListRecords,
+        comAtprotoRepoCreateRecord,
+        comAtprotoRepoPutRecord,
+        comAtprotoRepoDeleteRecord;
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
+Future<XRPCResponse<EmptyData>> chatBskyActorDeleteAccount({
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+}) async =>
+    await $ctx.post(ns.chatBskyActorDeleteAccount, headers: {...?$headers});
+Future<XRPCResponse<Uint8List>> chatBskyActorExportAccountData({
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.chatBskyActorExportAccountData,
+  headers: $headers,
+  parameters: {...?$unknown},
+);
+
 /// `chat.bsky.actor.*`
 final class ActorService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   final ActorDeclarationRecordAccessor _declaration;
 
@@ -41,24 +63,19 @@ final class ActorService {
   ActorDeclarationRecordAccessor get declaration => _declaration;
   Future<XRPCResponse<EmptyData>> deleteAccount({
     Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.chatBskyActorDeleteAccount,
-    headers: {...?$headers},
-    body: {...?$unknown},
-  );
+  }) async => await chatBskyActorDeleteAccount($ctx: _ctx, $headers: $headers);
   Future<XRPCResponse<Uint8List>> exportAccountData({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.chatBskyActorExportAccountData,
-    headers: $headers,
-    parameters: {...?$unknown},
+  }) async => await chatBskyActorExportAccountData(
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }
 
 final class ActorDeclarationRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const ActorDeclarationRecordAccessor(this._ctx);
 
@@ -68,11 +85,12 @@ final class ActorDeclarationRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.chatBskyActorDeclaration,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -84,12 +102,13 @@ final class ActorDeclarationRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.chatBskyActorDeclaration,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -101,13 +120,14 @@ final class ActorDeclarationRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.chatBskyActorDeclaration,
     rkey: rkey,
     validate: validate,
     record: {...?$unknown, 'allowIncoming': allowIncoming.toJson()},
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -119,16 +139,16 @@ final class ActorDeclarationRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.chatBskyActorDeclaration,
     rkey: rkey,
     validate: validate,
     record: {...?$unknown, 'allowIncoming': allowIncoming.toJson()},
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -137,13 +157,13 @@ final class ActorDeclarationRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.chatBskyActorDeclaration,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }

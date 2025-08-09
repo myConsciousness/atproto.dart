@@ -1,5 +1,4 @@
 // Package imports:
-import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 
@@ -7,7 +6,6 @@ import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:bluesky/src/services/codegen/chat/bsky/actor_service.dart';
 import 'package:bluesky/src/services/codegen/chat/bsky/convo_service.dart';
 import 'package:bluesky/src/services/codegen/chat/bsky/moderation_service.dart';
-import 'package:bluesky/src/services/service_context.dart';
 
 const _runner = _ServiceRunner();
 
@@ -48,46 +46,24 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     throw UnsupportedError('Unsupported Service: $S');
   }
 
-  atp.ATProto _getAtproto(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  ) => atp.ATProto.fromSession(
-    session,
-    service: service,
-    mockedGetClient: mockedGetClient,
-    mockedPostClient: mockedPostClient,
-  );
-
   ActorService _getActorService(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   ) => ActorService(
-    ServiceContext(
-      atproto: _getAtproto(mockedGetClient, mockedPostClient),
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
+    core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 
   ConvoService _getConvoService(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   ) => ConvoService(
-    ServiceContext(
-      atproto: _getAtproto(mockedGetClient, mockedPostClient),
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
+    core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 
   ModerationService _getModerationService(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   ) => ModerationService(
-    ServiceContext(
-      atproto: _getAtproto(mockedGetClient, mockedPostClient),
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
-    ),
+    core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 }

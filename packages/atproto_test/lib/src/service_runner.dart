@@ -24,12 +24,9 @@ abstract class ServiceRunner {
   );
 
   core.ServiceContext getClientContext(
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  ) => core.ServiceContext(
-    mockedGetClient: mockedGetClient,
-    mockedPostClient: mockedPostClient,
-  );
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
+  ) => core.ServiceContext(getClient: getClient, postClient: postClient);
 
   S getServiceImpl<S>([
     final core.GetClient? getClient,

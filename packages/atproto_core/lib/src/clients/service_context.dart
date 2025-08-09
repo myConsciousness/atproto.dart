@@ -27,8 +27,8 @@ base class ServiceContext {
     this.oAuthSession,
     Duration? timeout,
     RetryConfig? retryConfig,
-    final xrpc.GetClient? mockedGetClient,
-    final xrpc.PostClient? mockedPostClient,
+    final xrpc.GetClient? getClient,
+    final xrpc.PostClient? postClient,
   }) : _headers = headers,
        _protocol = protocol ?? defaultProtocol,
        service =
@@ -39,8 +39,8 @@ base class ServiceContext {
        relayService = relayService ?? defaultRelayService,
        _challenge = Challenge(RetryPolicy(retryConfig)),
        _timeout = timeout ?? defaultTimeout,
-       _mockedGetClient = mockedGetClient,
-       _mockedPostClient = mockedPostClient;
+       _getClient = getClient,
+       _postClient = postClient;
 
   /// The global headers without auth header.
   final Map<String, String>? _headers;
@@ -68,10 +68,12 @@ base class ServiceContext {
   /// The communication protocol.
   final xrpc.Protocol _protocol;
 
-  final xrpc.GetClient? _mockedGetClient;
-  final xrpc.PostClient? _mockedPostClient;
+  final xrpc.GetClient? _getClient;
+  final xrpc.PostClient? _postClient;
 
   Map<String, String> get headers => _headers ?? const {};
+
+  String get repo => session?.did ?? oAuthSession?.sub ?? '';
 
   Future<xrpc.XRPCResponse<T>> get<T>(
     final xrpc.NSID methodId, {
@@ -92,7 +94,7 @@ base class ServiceContext {
       adaptor: adaptor,
       timeout: _timeout,
       headerBuilder: _buildAuthHeader,
-      getClient: client ?? _mockedGetClient,
+      getClient: client ?? _getClient,
     ),
     onUpdateDpopNonce: _onUpdateDpopNonce,
   );
@@ -116,7 +118,7 @@ base class ServiceContext {
       to: to,
       timeout: _timeout,
       headerBuilder: _buildAuthHeader,
-      postClient: client ?? _mockedPostClient,
+      postClient: client ?? _postClient,
     ),
     onUpdateDpopNonce: _onUpdateDpopNonce,
   );
@@ -173,8 +175,4 @@ base class ServiceContext {
       oAuthSession?.$dPoPNonce = headers['dpop-nonce']!;
     }
   }
-
-  /// Returns the [dateTime] in UTC time zone and ISO8601 format.
-  String toUtcIso8601String(final DateTime? dateTime) =>
-      (dateTime ?? DateTime.now()).toUtc().toIso8601String();
 }

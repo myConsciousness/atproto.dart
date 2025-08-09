@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'hosting/getAccountHistory/main_events.dart';
 import 'hosting/getAccountHistory/output.dart';
 
@@ -20,10 +19,33 @@ import 'hosting/getAccountHistory/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Get account history, e.g. log of updated email addresses or other identity information.
+Future<XRPCResponse<HostingGetAccountHistoryOutput>>
+toolsOzoneHostingGetAccountHistory({
+  required String did,
+  List<HostingGetAccountHistoryEvents>? events,
+  String? cursor,
+  int? limit,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneHostingGetAccountHistory,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'did': did,
+    if (events != null) 'events': events.map((e) => e.toJson()).toList(),
+    if (cursor != null) 'cursor': cursor,
+    if (limit != null) 'limit': limit,
+  },
+  to: const HostingGetAccountHistoryOutputConverter().fromJson,
+);
+
 /// `tools.ozone.hosting.*`
 final class HostingService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   HostingService(this._ctx);
 
@@ -35,16 +57,13 @@ final class HostingService {
     int? limit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.toolsOzoneHostingGetAccountHistory,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'did': did,
-      if (events != null) 'events': events.map((e) => e.toJson()).toList(),
-      if (cursor != null) 'cursor': cursor,
-      if (limit != null) 'limit': limit,
-    },
-    to: const HostingGetAccountHistoryOutputConverter().fromJson,
+  }) async => await toolsOzoneHostingGetAccountHistory(
+    did: did,
+    events: events,
+    cursor: cursor,
+    limit: limit,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }

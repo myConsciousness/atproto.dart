@@ -6,42 +6,49 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:
-import '../nsids.g.dart' as ns;
+import 'codegen/com/atproto/server_service.dart'
+    show
+        comAtprotoServerCreateSession,
+        comAtprotoServerRefreshSession,
+        comAtprotoServerDeleteSession;
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createSession
 Future<core.XRPCResponse<core.Session>> createSession({
-  core.Protocol? protocol,
-  String? service,
   required String identifier,
   required String password,
   String? authFactorToken,
+  String? service,
   core.RetryConfig? retryConfig,
   final core.PostClient? client,
-}) async =>
-    await _Sessions(
-      protocol: protocol,
+}) async => _toSessionResponse(
+  await comAtprotoServerCreateSession(
+    identifier: identifier,
+    password: password,
+    authFactorToken: authFactorToken,
+    $ctx: core.ServiceContext(
       service: service,
       retryConfig: retryConfig,
-      client: client,
-    ).createSession(
-      identifier: identifier,
-      password: password,
-      authFactorToken: authFactorToken,
-    );
+      postClient: client,
+    ),
+  ),
+);
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/refreshSession
 Future<core.XRPCResponse<core.Session>> refreshSession({
-  core.Protocol? protocol,
-  String? service,
   required String refreshJwt,
+  String? service,
   core.RetryConfig? retryConfig,
   final core.PostClient? client,
-}) async => await _Sessions(
-  protocol: protocol,
-  service: service,
-  retryConfig: retryConfig,
-  client: client,
-).refreshSession(refreshJwt: refreshJwt);
+}) async => _toSessionResponse(
+  await comAtprotoServerRefreshSession(
+    $headers: {'Authorization': 'Bearer $refreshJwt'},
+    $ctx: core.ServiceContext(
+      service: service,
+      retryConfig: retryConfig,
+      postClient: client,
+    ),
+  ),
+);
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/deleteSession
 Future<core.XRPCResponse<core.EmptyData>> deleteSession({
@@ -50,56 +57,21 @@ Future<core.XRPCResponse<core.EmptyData>> deleteSession({
   required String refreshJwt,
   core.RetryConfig? retryConfig,
   final core.PostClient? client,
-}) async => await _Sessions(
-  protocol: protocol,
-  service: service,
-  retryConfig: retryConfig,
-  client: client,
-).deleteSession(refreshJwt: refreshJwt);
+}) async => await comAtprotoServerDeleteSession(
+  $headers: {'Authorization': 'Bearer $refreshJwt'},
+  $ctx: core.ServiceContext(
+    service: service,
+    retryConfig: retryConfig,
+    postClient: client,
+  ),
+);
 
-final class _Sessions {
-  /// Returns the new instance of [_Sessions].
-  _Sessions({
-    core.Protocol? protocol,
-    String? service,
-    core.RetryConfig? retryConfig,
-    core.PostClient? client,
-  }) : _ctx = core.ServiceContext(
-         protocol: protocol,
-         service: service,
-         timeout: core.defaultTimeout,
-         retryConfig: retryConfig,
-         mockedPostClient: client,
-       );
-
-  final core.ServiceContext _ctx;
-
-  Future<core.XRPCResponse<core.Session>> createSession({
-    required String identifier,
-    required String password,
-    String? authFactorToken,
-  }) async => await _ctx.post(
-    ns.comAtprotoServerCreateSession,
-    body: {
-      'identifier': identifier,
-      'password': password,
-      'authFactorToken': authFactorToken,
-    },
-    to: core.Session.fromJson,
-  );
-
-  Future<core.XRPCResponse<core.Session>> refreshSession({
-    required String refreshJwt,
-  }) async => await _ctx.post(
-    ns.comAtprotoServerRefreshSession,
-    headers: {'Authorization': 'Bearer $refreshJwt'},
-    to: core.Session.fromJson,
-  );
-
-  Future<core.XRPCResponse<core.EmptyData>> deleteSession({
-    required String refreshJwt,
-  }) async => await _ctx.post(
-    ns.comAtprotoServerDeleteSession,
-    headers: {'Authorization': 'Bearer $refreshJwt'},
-  );
-}
+core.XRPCResponse<core.Session> _toSessionResponse(
+  final core.XRPCResponse response,
+) => core.XRPCResponse(
+  headers: response.headers,
+  status: response.status,
+  request: response.request,
+  rateLimit: response.rateLimit,
+  data: core.Session.fromJson(response.data.toJson()),
+);

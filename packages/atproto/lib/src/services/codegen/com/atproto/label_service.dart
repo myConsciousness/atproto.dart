@@ -15,27 +15,54 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'label/queryLabels/output.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
+/// Subscribe to stream of labels (and negations). Public endpoint implemented by mod services. Uses same sequencing scheme as repo event stream.
+Future<XRPCResponse<Subscription<Uint8List>>> comAtprotoLabelSubscribeLabels({
+  int? cursor,
+  required ServiceContext $ctx,
+}) async => await $ctx.stream(
+  ns.comAtprotoLabelSubscribeLabels,
+  parameters: {if (cursor != null) 'cursor': cursor},
+);
+
+/// Find labels relevant to the provided AT-URI patterns. Public endpoint for moderation services, though may return different or additional results with auth.
+Future<XRPCResponse<LabelQueryLabelsOutput>> comAtprotoLabelQueryLabels({
+  required List<String> uriPatterns,
+  List<String>? sources,
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.comAtprotoLabelQueryLabels,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'uriPatterns': uriPatterns,
+    if (sources != null) 'sources': sources,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const LabelQueryLabelsOutputConverter().fromJson,
+);
+
 /// `com.atproto.label.*`
 final class LabelService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   LabelService(this._ctx);
 
   /// Subscribe to stream of labels (and negations). Public endpoint implemented by mod services. Uses same sequencing scheme as repo event stream.
   Future<XRPCResponse<Subscription<Uint8List>>> subscribeLabels({
     int? cursor,
-  }) async => await _ctx.stream(
-    ns.comAtprotoLabelSubscribeLabels,
-    parameters: {if (cursor != null) 'cursor': cursor},
-  );
+  }) async => await comAtprotoLabelSubscribeLabels(cursor: cursor, $ctx: _ctx);
 
   /// Find labels relevant to the provided AT-URI patterns. Public endpoint for moderation services, though may return different or additional results with auth.
   Future<XRPCResponse<LabelQueryLabelsOutput>> queryLabels({
@@ -45,16 +72,13 @@ final class LabelService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.comAtprotoLabelQueryLabels,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'uriPatterns': uriPatterns,
-      if (sources != null) 'sources': sources,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const LabelQueryLabelsOutputConverter().fromJson,
+  }) async => await comAtprotoLabelQueryLabels(
+    uriPatterns: uriPatterns,
+    sources: sources,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }

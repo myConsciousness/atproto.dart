@@ -12,17 +12,28 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'server/getConfig/output.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
+/// Get details about ozone's server configuration.
+Future<XRPCResponse<ServerGetConfigOutput>> toolsOzoneServerGetConfig({
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneServerGetConfig,
+  headers: $headers,
+  parameters: {...?$unknown},
+  to: const ServerGetConfigOutputConverter().fromJson,
+);
+
 /// `tools.ozone.server.*`
 final class ServerService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   ServerService(this._ctx);
 
@@ -30,10 +41,9 @@ final class ServerService {
   Future<XRPCResponse<ServerGetConfigOutput>> getConfig({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.toolsOzoneServerGetConfig,
-    headers: $headers,
-    parameters: {...?$unknown},
-    to: const ServerGetConfigOutputConverter().fromJson,
+  }) async => await toolsOzoneServerGetConfig(
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }

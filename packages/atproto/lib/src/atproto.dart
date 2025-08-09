@@ -14,7 +14,6 @@ import 'services/codegen/com/atproto/repo_service.dart';
 import 'services/codegen/com/atproto/server_service.dart';
 import 'services/codegen/com/atproto/sync_service.dart';
 import 'services/codegen/com/atproto/temp_service.dart';
-import 'services/service_context.dart';
 
 /// Provides `com.atproto.*` services.
 sealed class ATProto {
@@ -27,10 +26,10 @@ sealed class ATProto {
     final String? relayService,
     final Duration? timeout,
     final core.RetryConfig? retryConfig,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   }) => _ATProto(
-    ServiceContext(
+    core.ServiceContext(
       headers: headers,
       protocol: protocol,
       service: service,
@@ -38,8 +37,8 @@ sealed class ATProto {
       session: session,
       timeout: timeout,
       retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
+      getClient: getClient,
+      postClient: postClient,
     ),
   );
 
@@ -52,10 +51,10 @@ sealed class ATProto {
     final String? relayService,
     final Duration? timeout,
     final core.RetryConfig? retryConfig,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   }) => _ATProto(
-    ServiceContext(
+    core.ServiceContext(
       headers: headers,
       protocol: protocol,
       service: service,
@@ -63,8 +62,8 @@ sealed class ATProto {
       oAuthSession: session,
       timeout: timeout,
       retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
+      getClient: getClient,
+      postClient: postClient,
     ),
   );
 
@@ -76,18 +75,18 @@ sealed class ATProto {
     final String? relayService,
     final Duration? timeout,
     final core.RetryConfig? retryConfig,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
   }) => _ATProto(
-    ServiceContext(
+    core.ServiceContext(
       headers: headers,
       protocol: protocol,
       service: service,
       relayService: relayService,
       timeout: timeout,
       retryConfig: retryConfig,
-      mockedGetClient: mockedGetClient,
-      mockedPostClient: mockedPostClient,
+      getClient: getClient,
+      postClient: postClient,
     ),
   );
 
@@ -187,7 +186,7 @@ sealed class ATProto {
 }
 
 final class _ATProto implements ATProto {
-  _ATProto(final ServiceContext ctx)
+  _ATProto(final core.ServiceContext ctx)
     : server = ServerService(ctx),
       identity = IdentityService(ctx),
       repo = RepoService(ctx),
@@ -195,9 +194,7 @@ final class _ATProto implements ATProto {
       sync = SyncService(ctx),
       label = LabelService(ctx),
       temp = TempService(ctx),
-      _ctx = ctx {
-    ctx.setRepo(repo);
-  }
+      _ctx = ctx;
 
   @override
   Map<String, String> get headers => _ctx.headers;

@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'moderation/createReport/mod_tool.dart';
 import 'moderation/createReport/output.dart';
 import 'moderation/createReport/union_main_subject.dart';
@@ -22,10 +21,33 @@ import 'moderation/defs/reason_type.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Submit a moderation report regarding an atproto account or record. Implemented by moderation services (with PDS proxying), and requires auth.
+Future<XRPCResponse<ModerationCreateReportOutput>>
+comAtprotoModerationCreateReport({
+  required ReasonType reasonType,
+  String? reason,
+  required UModerationCreateReportSubject subject,
+  ModTool? modTool,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.comAtprotoModerationCreateReport,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'reasonType': reasonType.toJson(),
+    if (reason != null) 'reason': reason,
+    'subject': subject.toJson(),
+    if (modTool != null) 'modTool': modTool.toJson(),
+  },
+  to: const ModerationCreateReportOutputConverter().fromJson,
+);
+
 /// `com.atproto.moderation.*`
 final class ModerationService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   ModerationService(this._ctx);
 
@@ -37,16 +59,13 @@ final class ModerationService {
     ModTool? modTool,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.comAtprotoModerationCreateReport,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      ...?$unknown,
-      'reasonType': reasonType.toJson(),
-      if (reason != null) 'reason': reason,
-      'subject': subject.toJson(),
-      if (modTool != null) 'modTool': modTool.toJson(),
-    },
-    to: const ModerationCreateReportOutputConverter().fromJson,
+  }) async => await comAtprotoModerationCreateReport(
+    reasonType: reasonType,
+    reason: reason,
+    subject: subject,
+    modTool: modTool,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }

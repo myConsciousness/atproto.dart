@@ -15,11 +15,11 @@ import 'package:atproto/com_atproto_repo_listrecords.dart';
 import 'package:atproto/com_atproto_repo_putrecord.dart';
 import 'package:atproto/com_atproto_repo_strongref.dart';
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/internals.dart' show iso8601;
 
 // Project imports:
 import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'actor/defs/profile_view_detailed.dart';
 import 'actor/defs/union_preferences.dart';
 import 'actor/getPreferences/output.dart';
@@ -31,14 +31,136 @@ import 'actor/searchActorsTypeahead/output.dart';
 import 'actor/status/main_status.dart';
 import 'actor/status/union_main_embed.dart';
 
+import 'package:atproto/com_atproto_services.dart'
+    show
+        comAtprotoRepoGetRecord,
+        comAtprotoRepoListRecords,
+        comAtprotoRepoCreateRecord,
+        comAtprotoRepoPutRecord,
+        comAtprotoRepoDeleteRecord;
+
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
+/// Find actor suggestions for a prefix search term. Expected use is for auto-completion during text field entry. Does not require auth.
+Future<XRPCResponse<ActorSearchActorsTypeaheadOutput>>
+appBskyActorSearchActorsTypeahead({
+  String? term,
+  String? q,
+  int? limit,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyActorSearchActorsTypeahead,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (term != null) 'term': term,
+    if (q != null) 'q': q,
+    if (limit != null) 'limit': limit,
+  },
+  to: const ActorSearchActorsTypeaheadOutputConverter().fromJson,
+);
+
+/// Get detailed profile views of multiple actors.
+Future<XRPCResponse<ActorGetProfilesOutput>> appBskyActorGetProfiles({
+  required List<String> actors,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyActorGetProfiles,
+  headers: $headers,
+  parameters: {...?$unknown, 'actors': actors},
+  to: const ActorGetProfilesOutputConverter().fromJson,
+);
+
+/// Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.
+Future<XRPCResponse<ActorGetPreferencesOutput>> appBskyActorGetPreferences({
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyActorGetPreferences,
+  headers: $headers,
+  parameters: {...?$unknown},
+  to: const ActorGetPreferencesOutputConverter().fromJson,
+);
+
+/// Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.
+Future<XRPCResponse<ActorGetSuggestionsOutput>> appBskyActorGetSuggestions({
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyActorGetSuggestions,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const ActorGetSuggestionsOutputConverter().fromJson,
+);
+
+/// Find actors (profiles) matching search criteria. Does not require auth.
+Future<XRPCResponse<ActorSearchActorsOutput>> appBskyActorSearchActors({
+  String? term,
+  String? q,
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyActorSearchActors,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (term != null) 'term': term,
+    if (q != null) 'q': q,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const ActorSearchActorsOutputConverter().fromJson,
+);
+
+/// Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
+Future<XRPCResponse<ProfileViewDetailed>> appBskyActorGetProfile({
+  required String actor,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyActorGetProfile,
+  headers: $headers,
+  parameters: {...?$unknown, 'actor': actor},
+  to: const ProfileViewDetailedConverter().fromJson,
+);
+
+/// Set the private preferences attached to the account.
+Future<XRPCResponse<EmptyData>> appBskyActorPutPreferences({
+  required List<UPreferences> preferences,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.appBskyActorPutPreferences,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'preferences': preferences.map((e) => e.toJson()).toList(),
+  },
+);
+
 /// `app.bsky.actor.*`
 final class ActorService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   final ActorProfileRecordAccessor _profile;
   final ActorStatusRecordAccessor _status;
@@ -54,16 +176,13 @@ final class ActorService {
     int? limit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyActorSearchActorsTypeahead,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      if (term != null) 'term': term,
-      if (q != null) 'q': q,
-      if (limit != null) 'limit': limit,
-    },
-    to: const ActorSearchActorsTypeaheadOutputConverter().fromJson,
+  }) async => await appBskyActorSearchActorsTypeahead(
+    term: term,
+    q: q,
+    limit: limit,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get detailed profile views of multiple actors.
@@ -71,11 +190,11 @@ final class ActorService {
     required List<String> actors,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyActorGetProfiles,
-    headers: $headers,
-    parameters: {...?$unknown, 'actors': actors},
-    to: const ActorGetProfilesOutputConverter().fromJson,
+  }) async => await appBskyActorGetProfiles(
+    actors: actors,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// A declaration of a Bluesky account profile.
@@ -85,11 +204,10 @@ final class ActorService {
   Future<XRPCResponse<ActorGetPreferencesOutput>> getPreferences({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyActorGetPreferences,
-    headers: $headers,
-    parameters: {...?$unknown},
-    to: const ActorGetPreferencesOutputConverter().fromJson,
+  }) async => await appBskyActorGetPreferences(
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.
@@ -98,15 +216,12 @@ final class ActorService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyActorGetSuggestions,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const ActorGetSuggestionsOutputConverter().fromJson,
+  }) async => await appBskyActorGetSuggestions(
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Find actors (profiles) matching search criteria. Does not require auth.
@@ -117,17 +232,14 @@ final class ActorService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyActorSearchActors,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      if (term != null) 'term': term,
-      if (q != null) 'q': q,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const ActorSearchActorsOutputConverter().fromJson,
+  }) async => await appBskyActorSearchActors(
+    term: term,
+    q: q,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
@@ -135,11 +247,11 @@ final class ActorService {
     required String actor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyActorGetProfile,
-    headers: $headers,
-    parameters: {...?$unknown, 'actor': actor},
-    to: const ProfileViewDetailedConverter().fromJson,
+  }) async => await appBskyActorGetProfile(
+    actor: actor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// A declaration of a Bluesky account status.
@@ -150,18 +262,16 @@ final class ActorService {
     required List<UPreferences> preferences,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.appBskyActorPutPreferences,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      ...?$unknown,
-      'preferences': preferences.map((e) => e.toJson()).toList(),
-    },
+  }) async => await appBskyActorPutPreferences(
+    preferences: preferences,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }
 
 final class ActorProfileRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const ActorProfileRecordAccessor(this._ctx);
 
@@ -171,11 +281,12 @@ final class ActorProfileRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyActorProfile,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -187,12 +298,13 @@ final class ActorProfileRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyActorProfile,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -211,8 +323,8 @@ final class ActorProfileRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyActorProfile,
     rkey: rkey,
     validate: validate,
@@ -226,9 +338,10 @@ final class ActorProfileRecordAccessor {
       if (joinedViaStarterPack != null)
         'joinedViaStarterPack': joinedViaStarterPack.toJson(),
       if (pinnedPost != null) 'pinnedPost': pinnedPost.toJson(),
-      if (createdAt != null) 'createdAt': _ctx.toUtcIso8601String(createdAt),
+      if (createdAt != null) 'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -247,8 +360,8 @@ final class ActorProfileRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyActorProfile,
     rkey: rkey,
     validate: validate,
@@ -262,12 +375,12 @@ final class ActorProfileRecordAccessor {
       if (joinedViaStarterPack != null)
         'joinedViaStarterPack': joinedViaStarterPack.toJson(),
       if (pinnedPost != null) 'pinnedPost': pinnedPost.toJson(),
-      if (createdAt != null) 'createdAt': _ctx.toUtcIso8601String(createdAt),
+      if (createdAt != null) 'createdAt': iso8601(createdAt),
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -276,19 +389,19 @@ final class ActorProfileRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyActorProfile,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }
 
 final class ActorStatusRecordAccessor {
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   const ActorStatusRecordAccessor(this._ctx);
 
@@ -298,11 +411,12 @@ final class ActorStatusRecordAccessor {
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.getRecord(
+  }) async => await comAtprotoRepoGetRecord(
     repo: repo,
     collection: ids.appBskyActorStatus,
     rkey: rkey,
     cid: cid,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -314,12 +428,13 @@ final class ActorStatusRecordAccessor {
     bool? reverse,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.listRecords(
+  }) async => await comAtprotoRepoListRecords(
     repo: repo,
     collection: ids.appBskyActorStatus,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
+    $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -334,8 +449,8 @@ final class ActorStatusRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.createRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyActorStatus,
     rkey: rkey,
     validate: validate,
@@ -344,9 +459,10 @@ final class ActorStatusRecordAccessor {
       'status': status.toJson(),
       if (embed != null) 'embed': embed.toJson(),
       if (durationMinutes != null) 'durationMinutes': durationMinutes,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
   );
 
@@ -361,8 +477,8 @@ final class ActorStatusRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.putRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyActorStatus,
     rkey: rkey,
     validate: validate,
@@ -371,12 +487,12 @@ final class ActorStatusRecordAccessor {
       'status': status.toJson(),
       if (embed != null) 'embed': embed.toJson(),
       if (durationMinutes != null) 'durationMinutes': durationMinutes,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
@@ -385,13 +501,13 @@ final class ActorStatusRecordAccessor {
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.repo.deleteRecord(
-    repo: _ctx.$repo,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
     collection: ids.appBskyActorStatus,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
+    $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }

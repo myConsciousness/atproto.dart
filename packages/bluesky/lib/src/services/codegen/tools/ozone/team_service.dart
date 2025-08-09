@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart' as z;
 import 'team/addMember/main_role.dart';
 import 'team/defs/member.dart';
 import 'team/listMembers/output.dart';
@@ -22,10 +21,80 @@ import 'team/updateMember/main_role.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Add a member to the ozone team. Requires admin role.
+Future<XRPCResponse<Member>> toolsOzoneTeamAddMember({
+  required String did,
+  required TeamAddMemberRole role,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneTeamAddMember,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'did': did, 'role': role.toJson()},
+  to: const MemberConverter().fromJson,
+);
+
+/// List all members with access to the ozone service.
+Future<XRPCResponse<TeamListMembersOutput>> toolsOzoneTeamListMembers({
+  String? q,
+  bool? disabled,
+  List<String>? roles,
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneTeamListMembers,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (q != null) 'q': q,
+    if (disabled != null) 'disabled': disabled,
+    if (roles != null) 'roles': roles,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const TeamListMembersOutputConverter().fromJson,
+);
+
+/// Update a member in the ozone service. Requires admin role.
+Future<XRPCResponse<Member>> toolsOzoneTeamUpdateMember({
+  required String did,
+  bool? disabled,
+  TeamUpdateMemberRole? role,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneTeamUpdateMember,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'did': did,
+    if (disabled != null) 'disabled': disabled,
+    if (role != null) 'role': role.toJson(),
+  },
+  to: const MemberConverter().fromJson,
+);
+
+/// Delete a member from ozone team. Requires admin role.
+Future<XRPCResponse<EmptyData>> toolsOzoneTeamDeleteMember({
+  required String did,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneTeamDeleteMember,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'did': did},
+);
+
 /// `tools.ozone.team.*`
 final class TeamService {
   // ignore: unused_field
-  final z.ServiceContext _ctx;
+  final ServiceContext _ctx;
 
   TeamService(this._ctx);
 
@@ -35,11 +104,12 @@ final class TeamService {
     required TeamAddMemberRole role,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneTeamAddMember,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'did': did, 'role': role.toJson()},
-    to: const MemberConverter().fromJson,
+  }) async => await toolsOzoneTeamAddMember(
+    did: did,
+    role: role,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// List all members with access to the ozone service.
@@ -51,18 +121,15 @@ final class TeamService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.toolsOzoneTeamListMembers,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      if (q != null) 'q': q,
-      if (disabled != null) 'disabled': disabled,
-      if (roles != null) 'roles': roles,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const TeamListMembersOutputConverter().fromJson,
+  }) async => await toolsOzoneTeamListMembers(
+    q: q,
+    disabled: disabled,
+    roles: roles,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Update a member in the ozone service. Requires admin role.
@@ -72,16 +139,13 @@ final class TeamService {
     TeamUpdateMemberRole? role,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneTeamUpdateMember,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      ...?$unknown,
-      'did': did,
-      if (disabled != null) 'disabled': disabled,
-      if (role != null) 'role': role.toJson(),
-    },
-    to: const MemberConverter().fromJson,
+  }) async => await toolsOzoneTeamUpdateMember(
+    did: did,
+    disabled: disabled,
+    role: role,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Delete a member from ozone team. Requires admin role.
@@ -89,9 +153,10 @@ final class TeamService {
     required String did,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneTeamDeleteMember,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'did': did},
+  }) async => await toolsOzoneTeamDeleteMember(
+    did: did,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }

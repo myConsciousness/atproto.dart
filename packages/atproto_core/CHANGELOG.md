@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.0.4
+
+- chore: optimized structures.
+
 ## v1.0.3
 
 - chore: Removed outdated processes.
