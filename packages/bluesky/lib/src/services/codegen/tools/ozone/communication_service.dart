@@ -20,6 +20,83 @@ import 'communication/listTemplates/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.
+Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationUpdateTemplate({
+  required String id,
+  String? name,
+  String? lang,
+  String? contentMarkdown,
+  String? subject,
+  String? updatedBy,
+  bool? disabled,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.toolsOzoneCommunicationUpdateTemplate,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'id': id,
+    if (name != null) 'name': name,
+    if (lang != null) 'lang': lang,
+    if (contentMarkdown != null) 'contentMarkdown': contentMarkdown,
+    if (subject != null) 'subject': subject,
+    if (updatedBy != null) 'updatedBy': updatedBy,
+    if (disabled != null) 'disabled': disabled,
+  },
+  to: const TemplateViewConverter().fromJson,
+);
+
+/// Delete a communication template.
+Future<XRPCResponse<EmptyData>> toolsOzoneCommunicationDeleteTemplate({
+  required String id,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.toolsOzoneCommunicationDeleteTemplate,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'id': id},
+);
+
+/// Administrative action to create a new, re-usable communication (email for now) template.
+Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationCreateTemplate({
+  required String name,
+  required String contentMarkdown,
+  required String subject,
+  String? lang,
+  String? createdBy,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.toolsOzoneCommunicationCreateTemplate,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'name': name,
+    'contentMarkdown': contentMarkdown,
+    'subject': subject,
+    if (lang != null) 'lang': lang,
+    if (createdBy != null) 'createdBy': createdBy,
+  },
+  to: const TemplateViewConverter().fromJson,
+);
+
+/// Get list of all communication templates.
+Future<XRPCResponse<CommunicationListTemplatesOutput>>
+toolsOzoneCommunicationListTemplates({
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.toolsOzoneCommunicationListTemplates,
+  headers: $headers,
+  parameters: {...?$unknown},
+  to: const CommunicationListTemplatesOutputConverter().fromJson,
+);
+
 /// `tools.ozone.communication.*`
 final class CommunicationService {
   // ignore: unused_field
@@ -38,20 +115,17 @@ final class CommunicationService {
     bool? disabled,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneCommunicationUpdateTemplate,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      ...?$unknown,
-      'id': id,
-      if (name != null) 'name': name,
-      if (lang != null) 'lang': lang,
-      if (contentMarkdown != null) 'contentMarkdown': contentMarkdown,
-      if (subject != null) 'subject': subject,
-      if (updatedBy != null) 'updatedBy': updatedBy,
-      if (disabled != null) 'disabled': disabled,
-    },
-    to: const TemplateViewConverter().fromJson,
+  }) async => await toolsOzoneCommunicationUpdateTemplate(
+    id: id,
+    name: name,
+    lang: lang,
+    contentMarkdown: contentMarkdown,
+    subject: subject,
+    updatedBy: updatedBy,
+    disabled: disabled,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Delete a communication template.
@@ -59,10 +133,11 @@ final class CommunicationService {
     required String id,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneCommunicationDeleteTemplate,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'id': id},
+  }) async => await toolsOzoneCommunicationDeleteTemplate(
+    id: id,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Administrative action to create a new, re-usable communication (email for now) template.
@@ -74,28 +149,24 @@ final class CommunicationService {
     String? createdBy,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneCommunicationCreateTemplate,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      ...?$unknown,
-      'name': name,
-      'contentMarkdown': contentMarkdown,
-      'subject': subject,
-      if (lang != null) 'lang': lang,
-      if (createdBy != null) 'createdBy': createdBy,
-    },
-    to: const TemplateViewConverter().fromJson,
+  }) async => await toolsOzoneCommunicationCreateTemplate(
+    name: name,
+    contentMarkdown: contentMarkdown,
+    subject: subject,
+    lang: lang,
+    createdBy: createdBy,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get list of all communication templates.
   Future<XRPCResponse<CommunicationListTemplatesOutput>> listTemplates({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.toolsOzoneCommunicationListTemplates,
-    headers: $headers,
-    parameters: {...?$unknown},
-    to: const CommunicationListTemplatesOutputConverter().fromJson,
+  }) async => await toolsOzoneCommunicationListTemplates(
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }

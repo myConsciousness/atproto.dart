@@ -28,6 +28,24 @@ import 'labeler/service/union_main_labels.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Get information about a list of labeler services.
+Future<XRPCResponse<LabelerGetServicesOutput>> appBskyLabelerGetServices({
+  required List<String> dids,
+  bool? detailed,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyLabelerGetServices,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'dids': dids,
+    if (detailed != null) 'detailed': detailed,
+  },
+  to: const LabelerGetServicesOutputConverter().fromJson,
+);
+
 /// `app.bsky.labeler.*`
 final class LabelerService {
   // ignore: unused_field
@@ -46,15 +64,12 @@ final class LabelerService {
     bool? detailed,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyLabelerGetServices,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'dids': dids,
-      if (detailed != null) 'detailed': detailed,
-    },
-    to: const LabelerGetServicesOutputConverter().fromJson,
+  }) async => await appBskyLabelerGetServices(
+    dids: dids,
+    detailed: detailed,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }
 

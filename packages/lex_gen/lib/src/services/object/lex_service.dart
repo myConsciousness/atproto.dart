@@ -121,10 +121,12 @@ final class LexService {
   }
 
   String format() {
-    final apis = this.apis.map((e) => e.format()).join();
     final packagePaths = _getPackagePaths();
 
-    final recordApis = this.apis.where((e) => e.isRecord).toList();
+    final functions = apis.map((e) => e.toFunction()).join();
+    final methods = apis.map((e) => e.toMethod()).join();
+
+    final recordApis = apis.where((e) => e.isRecord).toList();
     final recordAccessors = _getRecordAccessors(recordApis);
     final recordAccessorsFields = _getRecordAccessorsFields(recordApis);
     final recordAccessorsConstructor = _getRecordAccessorsConstructor(
@@ -152,6 +154,8 @@ import '../../../service_context.dart' as z;
 
 $kHeader
 
+$functions
+
 /// `${lexiconId.toString()}.*`
 final class ${name}Service {
   // ignore: unused_field
@@ -163,7 +167,7 @@ final class ${name}Service {
     $recordAccessorsConstructor
   ;
 
-  $apis
+  $methods
 }
 
 $recordAccessors
@@ -374,25 +378,43 @@ final class LexApi {
     this.isRecord = false,
   });
 
-  String format() {
+  String toFunction() {
     final parameters = inputType == null
         ? const <LexParameter>[]
         : inputType!.getProperties().map((e) => e.toLexParameter()).toList();
 
     if (isQuery) {
-      return _getQueryApi(parameters);
+      return _getQueryFunction(parameters);
     } else if (isProcedure) {
-      return _getProcedureApi(parameters);
+      return _getProcedureFunction(parameters);
     } else if (isSubscription) {
-      return _getSubscriptionApi(parameters);
+      return _getSubscriptionFunction(parameters);
     } else if (isRecord) {
-      return _getRecordApi(parameters);
+      return '';
     }
 
     throw UnsupportedError('Unsupported API format');
   }
 
-  String _getQueryApi(final List<LexParameter> parameters) {
+  String toMethod() {
+    final parameters = inputType == null
+        ? const <LexParameter>[]
+        : inputType!.getProperties().map((e) => e.toLexParameter()).toList();
+
+    if (isQuery) {
+      return _getQueryMethod(parameters);
+    } else if (isProcedure) {
+      return _getProcedureMethod(parameters);
+    } else if (isSubscription) {
+      return _getSubscriptionMethod(parameters);
+    } else if (isRecord) {
+      return _getRecordMethod(parameters);
+    }
+
+    throw UnsupportedError('Unsupported API format');
+  }
+
+  String _getQueryFunction(final List<LexParameter> parameters) {
     final ns = rule.getNamespaceIdForApi(lexiconId);
     final returnType = _getReturnType();
 
@@ -400,14 +422,15 @@ final class LexApi {
     if (description != null) {
       buffer.writeln('/// $description');
     }
-    buffer.writeln('Future<XRPCResponse<$returnType>> $name({');
+    buffer.writeln('Future<XRPCResponse<$returnType>> $ns({');
     for (final parameter in parameters) {
       buffer.writeln(parameter.getParams());
     }
+    buffer.writeln('  z.ServiceContext? \$ctx,');
     buffer.writeln('  Map<String, String>? \$headers,');
     buffer.writeln('  Map<String, String>? \$unknown,');
     buffer.writeln('}) async =>');
-    buffer.writeln('  await _ctx.get(');
+    buffer.writeln('  await \$ctx!.get(');
     buffer.writeln('    ns.$ns,');
     buffer.writeln('    headers: \$headers,');
     buffer.writeln('    parameters: {');
@@ -424,7 +447,35 @@ final class LexApi {
     return buffer.toString();
   }
 
-  String _getProcedureApi(List<LexParameter> parameters) {
+  String _getQueryMethod(final List<LexParameter> parameters) {
+    final ns = rule.getNamespaceIdForApi(lexiconId);
+    final returnType = _getReturnType();
+
+    final buffer = StringBuffer();
+    if (description != null) {
+      buffer.writeln('/// $description');
+    }
+    buffer.writeln('Future<XRPCResponse<$returnType>> $name({');
+    for (final parameter in parameters) {
+      buffer.writeln(parameter.getParams());
+    }
+    buffer.writeln('  Map<String, String>? \$headers,');
+    buffer.writeln('  Map<String, String>? \$unknown,');
+    buffer.writeln('}) async =>');
+    buffer.writeln('  await $ns(');
+    for (final parameter in parameters) {
+      final paramName = parameter.name;
+      buffer.writeln('  $paramName: $paramName,');
+    }
+    buffer.writeln('    \$ctx: _ctx,');
+    buffer.writeln('    \$headers: \$headers,');
+    buffer.writeln('    \$unknown: \$unknown,');
+    buffer.writeln('  );');
+
+    return buffer.toString();
+  }
+
+  String _getProcedureFunction(List<LexParameter> parameters) {
     final ns = rule.getNamespaceIdForApi(lexiconId);
     final returnType = _getReturnType();
 
@@ -434,20 +485,22 @@ final class LexApi {
     }
 
     if (inputType?.isBytes() ?? false) {
-      buffer.writeln('Future<XRPCResponse<$returnType>> $name({');
+      buffer.writeln('Future<XRPCResponse<$returnType>> $ns({');
       buffer.writeln('  required Uint8List bytes,');
+      buffer.writeln('  z.ServiceContext? \$ctx,');
       buffer.writeln('  Map<String, String>? \$headers,');
       buffer.writeln('  Map<String, String>? \$parameters,');
     } else {
-      buffer.writeln('Future<XRPCResponse<$returnType>> $name({');
+      buffer.writeln('Future<XRPCResponse<$returnType>> $ns({');
       for (final parameter in parameters) {
         buffer.writeln(parameter.getParams());
       }
+      buffer.writeln('  z.ServiceContext? \$ctx,');
       buffer.writeln('  Map<String, String>? \$headers,');
       buffer.writeln('  Map<String, String>? \$unknown,');
     }
     buffer.writeln('}) async =>');
-    buffer.writeln('  await _ctx.post(');
+    buffer.writeln('  await \$ctx!.post(');
     buffer.writeln('    ns.$ns,');
     buffer.writeln('    headers: {');
     if (inputType != null) {
@@ -475,19 +528,63 @@ final class LexApi {
     return buffer.toString();
   }
 
-  String _getSubscriptionApi(List<LexParameter> parameters) {
+  String _getProcedureMethod(List<LexParameter> parameters) {
+    final ns = rule.getNamespaceIdForApi(lexiconId);
+    final returnType = _getReturnType();
+
+    final buffer = StringBuffer();
+    if (description != null) {
+      buffer.writeln('/// $description');
+    }
+
+    if (inputType?.isBytes() ?? false) {
+      buffer.writeln('Future<XRPCResponse<$returnType>> $name({');
+      buffer.writeln('  required Uint8List bytes,');
+      buffer.writeln('  Map<String, String>? \$headers,');
+      buffer.writeln('  Map<String, String>? \$parameters,');
+    } else {
+      buffer.writeln('Future<XRPCResponse<$returnType>> $name({');
+      for (final parameter in parameters) {
+        buffer.writeln(parameter.getParams());
+      }
+      buffer.writeln('  Map<String, String>? \$headers,');
+      buffer.writeln('  Map<String, String>? \$unknown,');
+    }
+    buffer.writeln('}) async =>');
+    buffer.writeln('  await $ns(');
+    if (inputType?.isBytes() ?? false) {
+      buffer.writeln('     bytes: bytes,');
+      buffer.writeln('     \$parameters: \$parameters,');
+      buffer.writeln('     \$ctx: _ctx,');
+      buffer.writeln('     \$headers: \$headers,');
+    } else {
+      for (final parameter in parameters) {
+        final paramName = parameter.name;
+        buffer.writeln('  $paramName: $paramName,');
+      }
+      buffer.writeln('     \$ctx: _ctx,');
+      buffer.writeln('     \$headers: \$headers,');
+      buffer.writeln('     \$unknown: \$unknown,');
+    }
+    buffer.writeln('  );');
+
+    return buffer.toString();
+  }
+
+  String _getSubscriptionFunction(List<LexParameter> parameters) {
     final ns = rule.getNamespaceIdForApi(lexiconId);
 
     final buffer = StringBuffer();
     if (description != null) {
       buffer.writeln('/// $description');
     }
-    buffer.writeln('Future<XRPCResponse<Subscription<Uint8List>>> $name({');
+    buffer.writeln('Future<XRPCResponse<Subscription<Uint8List>>> $ns({');
     for (final parameter in parameters) {
       buffer.writeln(parameter.getParams());
     }
+    buffer.writeln('  z.ServiceContext? \$ctx,');
     buffer.writeln('}) async =>');
-    buffer.writeln('  await _ctx.stream(');
+    buffer.writeln('  await \$ctx!.stream(');
     buffer.writeln('    ns.$ns,');
     buffer.writeln('    parameters: {');
     for (final parameter in parameters) {
@@ -499,7 +596,30 @@ final class LexApi {
     return buffer.toString();
   }
 
-  String _getRecordApi(List<LexParameter> parameters) {
+  String _getSubscriptionMethod(List<LexParameter> parameters) {
+    final ns = rule.getNamespaceIdForApi(lexiconId);
+
+    final buffer = StringBuffer();
+    if (description != null) {
+      buffer.writeln('/// $description');
+    }
+    buffer.writeln('Future<XRPCResponse<Subscription<Uint8List>>> $name({');
+    for (final parameter in parameters) {
+      buffer.writeln(parameter.getParams());
+    }
+    buffer.writeln('}) async =>');
+    buffer.writeln('  await $ns(');
+    for (final parameter in parameters) {
+      final paramName = parameter.name;
+      buffer.writeln('   $paramName: $paramName,');
+    }
+    buffer.writeln('     \$ctx: _ctx,');
+    buffer.writeln('  );');
+
+    return buffer.toString();
+  }
+
+  String _getRecordMethod(List<LexParameter> parameters) {
     final buffer = StringBuffer();
     if (description != null) {
       buffer.writeln('/// $description');

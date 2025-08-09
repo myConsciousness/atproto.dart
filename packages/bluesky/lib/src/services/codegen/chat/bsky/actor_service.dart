@@ -28,6 +28,25 @@ import 'actor/declaration/main_allow_incoming.dart';
 // LexGenerator
 // **************************************************************************
 
+Future<XRPCResponse<EmptyData>> chatBskyActorDeleteAccount({
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.chatBskyActorDeleteAccount,
+  headers: {...?$headers},
+  body: {...?$unknown},
+);
+Future<XRPCResponse<Uint8List>> chatBskyActorExportAccountData({
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.chatBskyActorExportAccountData,
+  headers: $headers,
+  parameters: {...?$unknown},
+);
+
 /// `chat.bsky.actor.*`
 final class ActorService {
   // ignore: unused_field
@@ -42,18 +61,18 @@ final class ActorService {
   Future<XRPCResponse<EmptyData>> deleteAccount({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.chatBskyActorDeleteAccount,
-    headers: {...?$headers},
-    body: {...?$unknown},
+  }) async => await chatBskyActorDeleteAccount(
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
   Future<XRPCResponse<Uint8List>> exportAccountData({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.chatBskyActorExportAccountData,
-    headers: $headers,
-    parameters: {...?$unknown},
+  }) async => await chatBskyActorExportAccountData(
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }
 

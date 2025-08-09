@@ -7,10 +7,19 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
+// Dart imports:
+import 'dart:typed_data';
+
 // Package imports:
+import 'package:atproto/com_atproto_repo_createrecord.dart';
+import 'package:atproto/com_atproto_repo_deleterecord.dart';
+import 'package:atproto/com_atproto_repo_getrecord.dart';
+import 'package:atproto/com_atproto_repo_listrecords.dart';
+import 'package:atproto/com_atproto_repo_putrecord.dart';
 import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
+import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
 import 'verification/grantVerifications/output.dart';
@@ -21,6 +30,75 @@ import 'verification/revokeVerifications/output.dart';
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
+
+/// Revoke previously granted verifications in batches of up to 100.
+Future<XRPCResponse<VerificationRevokeVerificationsOutput>>
+toolsOzoneVerificationRevokeVerifications({
+  required List<String> uris,
+  String? revokeReason,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.toolsOzoneVerificationRevokeVerifications,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'uris': uris,
+    if (revokeReason != null) 'revokeReason': revokeReason,
+  },
+  to: const VerificationRevokeVerificationsOutputConverter().fromJson,
+);
+
+/// Grant verifications to multiple subjects. Allows batch processing of up to 100 verifications at once.
+Future<XRPCResponse<VerificationGrantVerificationsOutput>>
+toolsOzoneVerificationGrantVerifications({
+  required List<VerificationInput> verifications,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.toolsOzoneVerificationGrantVerifications,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'verifications': verifications.map((e) => e.toJson()).toList(),
+  },
+  to: const VerificationGrantVerificationsOutputConverter().fromJson,
+);
+
+/// List verifications
+Future<XRPCResponse<VerificationListVerificationsOutput>>
+toolsOzoneVerificationListVerifications({
+  String? cursor,
+  int? limit,
+  DateTime? createdAfter,
+  DateTime? createdBefore,
+  List<String>? issuers,
+  List<String>? subjects,
+  String? sortDirection,
+  bool? isRevoked,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.toolsOzoneVerificationListVerifications,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (cursor != null) 'cursor': cursor,
+    if (limit != null) 'limit': limit,
+    if (createdAfter != null)
+      'createdAfter': _ctx.toUtcIso8601String(createdAfter),
+    if (createdBefore != null)
+      'createdBefore': _ctx.toUtcIso8601String(createdBefore),
+    if (issuers != null) 'issuers': issuers,
+    if (subjects != null) 'subjects': subjects,
+    if (sortDirection != null) 'sortDirection': sortDirection,
+    if (isRevoked != null) 'isRevoked': isRevoked,
+  },
+  to: const VerificationListVerificationsOutputConverter().fromJson,
+);
 
 /// `tools.ozone.verification.*`
 final class VerificationService {
@@ -36,15 +114,12 @@ final class VerificationService {
     String? revokeReason,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneVerificationRevokeVerifications,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      ...?$unknown,
-      'uris': uris,
-      if (revokeReason != null) 'revokeReason': revokeReason,
-    },
-    to: const VerificationRevokeVerificationsOutputConverter().fromJson,
+  }) async => await toolsOzoneVerificationRevokeVerifications(
+    uris: uris,
+    revokeReason: revokeReason,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Grant verifications to multiple subjects. Allows batch processing of up to 100 verifications at once.
@@ -53,14 +128,11 @@ final class VerificationService {
     required List<VerificationInput> verifications,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneVerificationGrantVerifications,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      ...?$unknown,
-      'verifications': verifications.map((e) => e.toJson()).toList(),
-    },
-    to: const VerificationGrantVerificationsOutputConverter().fromJson,
+  }) async => await toolsOzoneVerificationGrantVerifications(
+    verifications: verifications,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// List verifications
@@ -75,22 +147,17 @@ final class VerificationService {
     bool? isRevoked,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.toolsOzoneVerificationListVerifications,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      if (cursor != null) 'cursor': cursor,
-      if (limit != null) 'limit': limit,
-      if (createdAfter != null)
-        'createdAfter': _ctx.toUtcIso8601String(createdAfter),
-      if (createdBefore != null)
-        'createdBefore': _ctx.toUtcIso8601String(createdBefore),
-      if (issuers != null) 'issuers': issuers,
-      if (subjects != null) 'subjects': subjects,
-      if (sortDirection != null) 'sortDirection': sortDirection,
-      if (isRevoked != null) 'isRevoked': isRevoked,
-    },
-    to: const VerificationListVerificationsOutputConverter().fromJson,
+  }) async => await toolsOzoneVerificationListVerifications(
+    cursor: cursor,
+    limit: limit,
+    createdAfter: createdAfter,
+    createdBefore: createdBefore,
+    issuers: issuers,
+    subjects: subjects,
+    sortDirection: sortDirection,
+    isRevoked: isRevoked,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }

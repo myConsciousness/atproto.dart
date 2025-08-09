@@ -26,6 +26,134 @@ import 'safelink/queryRules/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Add a new URL safety rule
+Future<XRPCResponse<Event>> toolsOzoneSafelinkAddRule({
+  required String url,
+  required PatternType pattern,
+  required ActionType action,
+  required ReasonType reason,
+  String? comment,
+  String? createdBy,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.toolsOzoneSafelinkAddRule,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'url': url,
+    'pattern': pattern.toJson(),
+    'action': action.toJson(),
+    'reason': reason.toJson(),
+    if (comment != null) 'comment': comment,
+    if (createdBy != null) 'createdBy': createdBy,
+  },
+  to: const EventConverter().fromJson,
+);
+
+/// Remove an existing URL safety rule
+Future<XRPCResponse<Event>> toolsOzoneSafelinkRemoveRule({
+  required String url,
+  required PatternType pattern,
+  String? comment,
+  String? createdBy,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.toolsOzoneSafelinkRemoveRule,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'url': url,
+    'pattern': pattern.toJson(),
+    if (comment != null) 'comment': comment,
+    if (createdBy != null) 'createdBy': createdBy,
+  },
+  to: const EventConverter().fromJson,
+);
+
+/// Query URL safety audit events
+Future<XRPCResponse<SafelinkQueryEventsOutput>> toolsOzoneSafelinkQueryEvents({
+  String? cursor,
+  int? limit,
+  List<String>? urls,
+  String? patternType,
+  SafelinkQueryEventsSortDirection? sortDirection,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.toolsOzoneSafelinkQueryEvents,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    if (cursor != null) 'cursor': cursor,
+    if (limit != null) 'limit': limit,
+    if (urls != null) 'urls': urls,
+    if (patternType != null) 'patternType': patternType,
+    if (sortDirection != null) 'sortDirection': sortDirection.toJson(),
+  },
+  to: const SafelinkQueryEventsOutputConverter().fromJson,
+);
+
+/// Update an existing URL safety rule
+Future<XRPCResponse<Event>> toolsOzoneSafelinkUpdateRule({
+  required String url,
+  required PatternType pattern,
+  required ActionType action,
+  required ReasonType reason,
+  String? comment,
+  String? createdBy,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.toolsOzoneSafelinkUpdateRule,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'url': url,
+    'pattern': pattern.toJson(),
+    'action': action.toJson(),
+    'reason': reason.toJson(),
+    if (comment != null) 'comment': comment,
+    if (createdBy != null) 'createdBy': createdBy,
+  },
+  to: const EventConverter().fromJson,
+);
+
+/// Query URL safety rules
+Future<XRPCResponse<SafelinkQueryRulesOutput>> toolsOzoneSafelinkQueryRules({
+  String? cursor,
+  int? limit,
+  List<String>? urls,
+  String? patternType,
+  List<String>? actions,
+  String? reason,
+  String? createdBy,
+  SafelinkQueryRulesSortDirection? sortDirection,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.toolsOzoneSafelinkQueryRules,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    if (cursor != null) 'cursor': cursor,
+    if (limit != null) 'limit': limit,
+    if (urls != null) 'urls': urls,
+    if (patternType != null) 'patternType': patternType,
+    if (actions != null) 'actions': actions,
+    if (reason != null) 'reason': reason,
+    if (createdBy != null) 'createdBy': createdBy,
+    if (sortDirection != null) 'sortDirection': sortDirection.toJson(),
+  },
+  to: const SafelinkQueryRulesOutputConverter().fromJson,
+);
+
 /// `tools.ozone.safelink.*`
 final class SafelinkService {
   // ignore: unused_field
@@ -43,19 +171,16 @@ final class SafelinkService {
     String? createdBy,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneSafelinkAddRule,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      ...?$unknown,
-      'url': url,
-      'pattern': pattern.toJson(),
-      'action': action.toJson(),
-      'reason': reason.toJson(),
-      if (comment != null) 'comment': comment,
-      if (createdBy != null) 'createdBy': createdBy,
-    },
-    to: const EventConverter().fromJson,
+  }) async => await toolsOzoneSafelinkAddRule(
+    url: url,
+    pattern: pattern,
+    action: action,
+    reason: reason,
+    comment: comment,
+    createdBy: createdBy,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Remove an existing URL safety rule
@@ -66,17 +191,14 @@ final class SafelinkService {
     String? createdBy,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneSafelinkRemoveRule,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      ...?$unknown,
-      'url': url,
-      'pattern': pattern.toJson(),
-      if (comment != null) 'comment': comment,
-      if (createdBy != null) 'createdBy': createdBy,
-    },
-    to: const EventConverter().fromJson,
+  }) async => await toolsOzoneSafelinkRemoveRule(
+    url: url,
+    pattern: pattern,
+    comment: comment,
+    createdBy: createdBy,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Query URL safety audit events
@@ -88,18 +210,15 @@ final class SafelinkService {
     SafelinkQueryEventsSortDirection? sortDirection,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneSafelinkQueryEvents,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      ...?$unknown,
-      if (cursor != null) 'cursor': cursor,
-      if (limit != null) 'limit': limit,
-      if (urls != null) 'urls': urls,
-      if (patternType != null) 'patternType': patternType,
-      if (sortDirection != null) 'sortDirection': sortDirection.toJson(),
-    },
-    to: const SafelinkQueryEventsOutputConverter().fromJson,
+  }) async => await toolsOzoneSafelinkQueryEvents(
+    cursor: cursor,
+    limit: limit,
+    urls: urls,
+    patternType: patternType,
+    sortDirection: sortDirection,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Update an existing URL safety rule
@@ -112,19 +231,16 @@ final class SafelinkService {
     String? createdBy,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneSafelinkUpdateRule,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      ...?$unknown,
-      'url': url,
-      'pattern': pattern.toJson(),
-      'action': action.toJson(),
-      'reason': reason.toJson(),
-      if (comment != null) 'comment': comment,
-      if (createdBy != null) 'createdBy': createdBy,
-    },
-    to: const EventConverter().fromJson,
+  }) async => await toolsOzoneSafelinkUpdateRule(
+    url: url,
+    pattern: pattern,
+    action: action,
+    reason: reason,
+    comment: comment,
+    createdBy: createdBy,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Query URL safety rules
@@ -139,20 +255,17 @@ final class SafelinkService {
     SafelinkQueryRulesSortDirection? sortDirection,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.toolsOzoneSafelinkQueryRules,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      ...?$unknown,
-      if (cursor != null) 'cursor': cursor,
-      if (limit != null) 'limit': limit,
-      if (urls != null) 'urls': urls,
-      if (patternType != null) 'patternType': patternType,
-      if (actions != null) 'actions': actions,
-      if (reason != null) 'reason': reason,
-      if (createdBy != null) 'createdBy': createdBy,
-      if (sortDirection != null) 'sortDirection': sortDirection.toJson(),
-    },
-    to: const SafelinkQueryRulesOutputConverter().fromJson,
+  }) async => await toolsOzoneSafelinkQueryRules(
+    cursor: cursor,
+    limit: limit,
+    urls: urls,
+    patternType: patternType,
+    actions: actions,
+    reason: reason,
+    createdBy: createdBy,
+    sortDirection: sortDirection,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }

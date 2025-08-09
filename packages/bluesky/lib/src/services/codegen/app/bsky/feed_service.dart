@@ -53,6 +53,359 @@ import 'richtext/facet/main.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Get a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.
+Future<XRPCResponse<FeedGetFeedSkeletonOutput>> appBskyFeedGetFeedSkeleton({
+  required String feed,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyFeedGetFeedSkeleton,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'feed': feed,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const FeedGetFeedSkeletonOutputConverter().fromJson,
+);
+
+/// Get information about a feed generator. Implemented by AppView.
+Future<XRPCResponse<FeedGetFeedGeneratorOutput>> appBskyFeedGetFeedGenerator({
+  required String feed,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyFeedGetFeedGenerator,
+  headers: $headers,
+  parameters: {...?$unknown, 'feed': feed},
+  to: const FeedGetFeedGeneratorOutputConverter().fromJson,
+);
+
+/// Get a list of reposts for a given post.
+Future<XRPCResponse<FeedGetRepostedByOutput>> appBskyFeedGetRepostedBy({
+  required String uri,
+  String? cid,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyFeedGetRepostedBy,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'uri': uri,
+    if (cid != null) 'cid': cid,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const FeedGetRepostedByOutputConverter().fromJson,
+);
+
+/// Get a view of an actor's 'author feed' (post and reposts by the author). Does not require auth.
+Future<XRPCResponse<FeedGetAuthorFeedOutput>> appBskyFeedGetAuthorFeed({
+  required String actor,
+  int? limit,
+  String? cursor,
+  FeedGetAuthorFeedFilter? filter,
+  bool? includePins,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyFeedGetAuthorFeed,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'actor': actor,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+    if (filter != null) 'filter': filter.toJson(),
+    if (includePins != null) 'includePins': includePins,
+  },
+  to: const FeedGetAuthorFeedOutputConverter().fromJson,
+);
+
+/// Get a list of quotes for a given post.
+Future<XRPCResponse<FeedGetQuotesOutput>> appBskyFeedGetQuotes({
+  required String uri,
+  String? cid,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyFeedGetQuotes,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'uri': uri,
+    if (cid != null) 'cid': cid,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const FeedGetQuotesOutputConverter().fromJson,
+);
+
+/// Get a list of suggested feeds (feed generators) for the requesting account.
+Future<XRPCResponse<FeedGetSuggestedFeedsOutput>> appBskyFeedGetSuggestedFeeds({
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyFeedGetSuggestedFeeds,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const FeedGetSuggestedFeedsOutputConverter().fromJson,
+);
+
+/// Get a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.
+Future<XRPCResponse<FeedGetListFeedOutput>> appBskyFeedGetListFeed({
+  required String list,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyFeedGetListFeed,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'list': list,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const FeedGetListFeedOutputConverter().fromJson,
+);
+
+/// Get information about a list of feed generators.
+Future<XRPCResponse<FeedGetFeedGeneratorsOutput>> appBskyFeedGetFeedGenerators({
+  required List<String> feeds,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyFeedGetFeedGenerators,
+  headers: $headers,
+  parameters: {...?$unknown, 'feeds': feeds},
+  to: const FeedGetFeedGeneratorsOutputConverter().fromJson,
+);
+
+/// Get like records which reference a subject (by AT-URI and CID).
+Future<XRPCResponse<FeedGetLikesOutput>> appBskyFeedGetLikes({
+  required String uri,
+  String? cid,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyFeedGetLikes,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'uri': uri,
+    if (cid != null) 'cid': cid,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const FeedGetLikesOutputConverter().fromJson,
+);
+
+/// Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.
+Future<XRPCResponse<FeedGetPostsOutput>> appBskyFeedGetPosts({
+  required List<String> uris,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyFeedGetPosts,
+  headers: $headers,
+  parameters: {...?$unknown, 'uris': uris},
+  to: const FeedGetPostsOutputConverter().fromJson,
+);
+
+/// Get a hydrated feed from an actor's selected feed generator. Implemented by App View.
+Future<XRPCResponse<FeedGetFeedOutput>> appBskyFeedGetFeed({
+  required String feed,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyFeedGetFeed,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'feed': feed,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const FeedGetFeedOutputConverter().fromJson,
+);
+
+/// Get a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed.
+Future<XRPCResponse<FeedGetTimelineOutput>> appBskyFeedGetTimeline({
+  String? algorithm,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyFeedGetTimeline,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (algorithm != null) 'algorithm': algorithm,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const FeedGetTimelineOutputConverter().fromJson,
+);
+
+/// Find posts matching search criteria, returning views of those posts. Note that this API endpoint may require authentication (eg, not public) for some service providers and implementations.
+Future<XRPCResponse<FeedSearchPostsOutput>> appBskyFeedSearchPosts({
+  required String q,
+  FeedSearchPostsSort? sort,
+  String? since,
+  String? until,
+  String? mentions,
+  String? author,
+  String? lang,
+  String? domain,
+  AtUri? url,
+  List<String>? tag,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyFeedSearchPosts,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'q': q,
+    if (sort != null) 'sort': sort.toJson(),
+    if (since != null) 'since': since,
+    if (until != null) 'until': until,
+    if (mentions != null) 'mentions': mentions,
+    if (author != null) 'author': author,
+    if (lang != null) 'lang': lang,
+    if (domain != null) 'domain': domain,
+    if (url != null) 'url': url,
+    if (tag != null) 'tag': tag,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const FeedSearchPostsOutputConverter().fromJson,
+);
+
+/// Send information about interactions with feed items back to the feed generator that served them.
+Future<XRPCResponse<EmptyData>> appBskyFeedSendInteractions({
+  required List<Interaction> interactions,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.appBskyFeedSendInteractions,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'interactions': interactions.map((e) => e.toJson()).toList(),
+  },
+);
+
+/// Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).
+Future<XRPCResponse<FeedDescribeFeedGeneratorOutput>>
+appBskyFeedDescribeFeedGenerator({
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyFeedDescribeFeedGenerator,
+  headers: $headers,
+  parameters: {...?$unknown},
+  to: const FeedDescribeFeedGeneratorOutputConverter().fromJson,
+);
+
+/// Get posts in a thread. Does not require auth, but additional metadata and filtering will be applied for authed requests.
+Future<XRPCResponse<FeedGetPostThreadOutput>> appBskyFeedGetPostThread({
+  required String uri,
+  int? depth,
+  int? parentHeight,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyFeedGetPostThread,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'uri': uri,
+    if (depth != null) 'depth': depth,
+    if (parentHeight != null) 'parentHeight': parentHeight,
+  },
+  to: const FeedGetPostThreadOutputConverter().fromJson,
+);
+
+/// Get a list of posts liked by an actor. Requires auth, actor must be the requesting account.
+Future<XRPCResponse<FeedGetActorLikesOutput>> appBskyFeedGetActorLikes({
+  required String actor,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyFeedGetActorLikes,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'actor': actor,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const FeedGetActorLikesOutputConverter().fromJson,
+);
+
+/// Get a list of feeds (feed generator records) created by the actor (in the actor's repo).
+Future<XRPCResponse<FeedGetActorFeedsOutput>> appBskyFeedGetActorFeeds({
+  required String actor,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyFeedGetActorFeeds,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'actor': actor,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const FeedGetActorFeedsOutputConverter().fromJson,
+);
+
 /// `app.bsky.feed.*`
 final class FeedService {
   // ignore: unused_field
@@ -80,16 +433,13 @@ final class FeedService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyFeedGetFeedSkeleton,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'feed': feed,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const FeedGetFeedSkeletonOutputConverter().fromJson,
+  }) async => await appBskyFeedGetFeedSkeleton(
+    feed: feed,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get information about a feed generator. Implemented by AppView.
@@ -97,11 +447,11 @@ final class FeedService {
     required String feed,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyFeedGetFeedGenerator,
-    headers: $headers,
-    parameters: {...?$unknown, 'feed': feed},
-    to: const FeedGetFeedGeneratorOutputConverter().fromJson,
+  }) async => await appBskyFeedGetFeedGenerator(
+    feed: feed,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get a list of reposts for a given post.
@@ -112,17 +462,14 @@ final class FeedService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyFeedGetRepostedBy,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'uri': uri,
-      if (cid != null) 'cid': cid,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const FeedGetRepostedByOutputConverter().fromJson,
+  }) async => await appBskyFeedGetRepostedBy(
+    uri: uri,
+    cid: cid,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get a view of an actor's 'author feed' (post and reposts by the author). Does not require auth.
@@ -134,18 +481,15 @@ final class FeedService {
     bool? includePins,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyFeedGetAuthorFeed,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'actor': actor,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-      if (filter != null) 'filter': filter.toJson(),
-      if (includePins != null) 'includePins': includePins,
-    },
-    to: const FeedGetAuthorFeedOutputConverter().fromJson,
+  }) async => await appBskyFeedGetAuthorFeed(
+    actor: actor,
+    limit: limit,
+    cursor: cursor,
+    filter: filter,
+    includePins: includePins,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Record representing a 'repost' of an existing Bluesky post.
@@ -159,17 +503,14 @@ final class FeedService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyFeedGetQuotes,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'uri': uri,
-      if (cid != null) 'cid': cid,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const FeedGetQuotesOutputConverter().fromJson,
+  }) async => await appBskyFeedGetQuotes(
+    uri: uri,
+    cid: cid,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get a list of suggested feeds (feed generators) for the requesting account.
@@ -178,15 +519,12 @@ final class FeedService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyFeedGetSuggestedFeeds,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const FeedGetSuggestedFeedsOutputConverter().fromJson,
+  }) async => await appBskyFeedGetSuggestedFeeds(
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Record declaring a 'like' of a piece of subject content.
@@ -199,16 +537,13 @@ final class FeedService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyFeedGetListFeed,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'list': list,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const FeedGetListFeedOutputConverter().fromJson,
+  }) async => await appBskyFeedGetListFeed(
+    list: list,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get information about a list of feed generators.
@@ -216,11 +551,11 @@ final class FeedService {
     required List<String> feeds,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyFeedGetFeedGenerators,
-    headers: $headers,
-    parameters: {...?$unknown, 'feeds': feeds},
-    to: const FeedGetFeedGeneratorsOutputConverter().fromJson,
+  }) async => await appBskyFeedGetFeedGenerators(
+    feeds: feeds,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get like records which reference a subject (by AT-URI and CID).
@@ -231,17 +566,14 @@ final class FeedService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyFeedGetLikes,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'uri': uri,
-      if (cid != null) 'cid': cid,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const FeedGetLikesOutputConverter().fromJson,
+  }) async => await appBskyFeedGetLikes(
+    uri: uri,
+    cid: cid,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.
@@ -249,11 +581,11 @@ final class FeedService {
     required List<String> uris,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyFeedGetPosts,
-    headers: $headers,
-    parameters: {...?$unknown, 'uris': uris},
-    to: const FeedGetPostsOutputConverter().fromJson,
+  }) async => await appBskyFeedGetPosts(
+    uris: uris,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get a hydrated feed from an actor's selected feed generator. Implemented by App View.
@@ -263,16 +595,13 @@ final class FeedService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyFeedGetFeed,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'feed': feed,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const FeedGetFeedOutputConverter().fromJson,
+  }) async => await appBskyFeedGetFeed(
+    feed: feed,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Record defining interaction gating rules for a thread (aka, reply controls). The record key (rkey) of the threadgate record must match the record key of the thread's root post, and that record must be in the same repository.
@@ -288,16 +617,13 @@ final class FeedService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyFeedGetTimeline,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      if (algorithm != null) 'algorithm': algorithm,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const FeedGetTimelineOutputConverter().fromJson,
+  }) async => await appBskyFeedGetTimeline(
+    algorithm: algorithm,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Find posts matching search criteria, returning views of those posts. Note that this API endpoint may require authentication (eg, not public) for some service providers and implementations.
@@ -316,25 +642,22 @@ final class FeedService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyFeedSearchPosts,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'q': q,
-      if (sort != null) 'sort': sort.toJson(),
-      if (since != null) 'since': since,
-      if (until != null) 'until': until,
-      if (mentions != null) 'mentions': mentions,
-      if (author != null) 'author': author,
-      if (lang != null) 'lang': lang,
-      if (domain != null) 'domain': domain,
-      if (url != null) 'url': url,
-      if (tag != null) 'tag': tag,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const FeedSearchPostsOutputConverter().fromJson,
+  }) async => await appBskyFeedSearchPosts(
+    q: q,
+    sort: sort,
+    since: since,
+    until: until,
+    mentions: mentions,
+    author: author,
+    lang: lang,
+    domain: domain,
+    url: url,
+    tag: tag,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Send information about interactions with feed items back to the feed generator that served them.
@@ -342,24 +665,21 @@ final class FeedService {
     required List<Interaction> interactions,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.appBskyFeedSendInteractions,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      ...?$unknown,
-      'interactions': interactions.map((e) => e.toJson()).toList(),
-    },
+  }) async => await appBskyFeedSendInteractions(
+    interactions: interactions,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).
   Future<XRPCResponse<FeedDescribeFeedGeneratorOutput>> describeFeedGenerator({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyFeedDescribeFeedGenerator,
-    headers: $headers,
-    parameters: {...?$unknown},
-    to: const FeedDescribeFeedGeneratorOutputConverter().fromJson,
+  }) async => await appBskyFeedDescribeFeedGenerator(
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Record containing a Bluesky post.
@@ -372,16 +692,13 @@ final class FeedService {
     int? parentHeight,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyFeedGetPostThread,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'uri': uri,
-      if (depth != null) 'depth': depth,
-      if (parentHeight != null) 'parentHeight': parentHeight,
-    },
-    to: const FeedGetPostThreadOutputConverter().fromJson,
+  }) async => await appBskyFeedGetPostThread(
+    uri: uri,
+    depth: depth,
+    parentHeight: parentHeight,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Record defining interaction rules for a post. The record key (rkey) of the postgate record must match the record key of the post, and that record must be in the same repository.
@@ -394,16 +711,13 @@ final class FeedService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyFeedGetActorLikes,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'actor': actor,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const FeedGetActorLikesOutputConverter().fromJson,
+  }) async => await appBskyFeedGetActorLikes(
+    actor: actor,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get a list of feeds (feed generator records) created by the actor (in the actor's repo).
@@ -413,16 +727,13 @@ final class FeedService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyFeedGetActorFeeds,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'actor': actor,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const FeedGetActorFeedsOutputConverter().fromJson,
+  }) async => await appBskyFeedGetActorFeeds(
+    actor: actor,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }
 

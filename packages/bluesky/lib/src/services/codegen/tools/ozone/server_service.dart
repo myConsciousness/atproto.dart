@@ -19,6 +19,18 @@ import 'server/getConfig/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Get details about ozone's server configuration.
+Future<XRPCResponse<ServerGetConfigOutput>> toolsOzoneServerGetConfig({
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.toolsOzoneServerGetConfig,
+  headers: $headers,
+  parameters: {...?$unknown},
+  to: const ServerGetConfigOutputConverter().fromJson,
+);
+
 /// `tools.ozone.server.*`
 final class ServerService {
   // ignore: unused_field
@@ -30,10 +42,9 @@ final class ServerService {
   Future<XRPCResponse<ServerGetConfigOutput>> getConfig({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.toolsOzoneServerGetConfig,
-    headers: $headers,
-    parameters: {...?$unknown},
-    to: const ServerGetConfigOutputConverter().fromJson,
+  }) async => await toolsOzoneServerGetConfig(
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }

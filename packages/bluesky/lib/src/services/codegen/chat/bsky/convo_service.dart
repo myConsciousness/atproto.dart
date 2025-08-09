@@ -40,6 +40,240 @@ import 'convo/updateRead/output.dart';
 // LexGenerator
 // **************************************************************************
 
+Future<XRPCResponse<ConvoUpdateAllReadOutput>> chatBskyConvoUpdateAllRead({
+  ConvoUpdateAllReadStatus? status,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.chatBskyConvoUpdateAllRead,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, if (status != null) 'status': status.toJson()},
+  to: const ConvoUpdateAllReadOutputConverter().fromJson,
+);
+Future<XRPCResponse<ConvoUnmuteConvoOutput>> chatBskyConvoUnmuteConvo({
+  required String convoId,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.chatBskyConvoUnmuteConvo,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'convoId': convoId},
+  to: const ConvoUnmuteConvoOutputConverter().fromJson,
+);
+Future<XRPCResponse<DeletedMessageView>> chatBskyConvoDeleteMessageForSelf({
+  required String convoId,
+  required String messageId,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.chatBskyConvoDeleteMessageForSelf,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'convoId': convoId, 'messageId': messageId},
+  to: const DeletedMessageViewConverter().fromJson,
+);
+Future<XRPCResponse<MessageView>> chatBskyConvoSendMessage({
+  required String convoId,
+  required MessageInput message,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.chatBskyConvoSendMessage,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'convoId': convoId, 'message': message.toJson()},
+  to: const MessageViewConverter().fromJson,
+);
+Future<XRPCResponse<ConvoGetMessagesOutput>> chatBskyConvoGetMessages({
+  required String convoId,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.chatBskyConvoGetMessages,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'convoId': convoId,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const ConvoGetMessagesOutputConverter().fromJson,
+);
+Future<XRPCResponse<ConvoLeaveConvoOutput>> chatBskyConvoLeaveConvo({
+  required String convoId,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.chatBskyConvoLeaveConvo,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'convoId': convoId},
+  to: const ConvoLeaveConvoOutputConverter().fromJson,
+);
+
+/// Adds an emoji reaction to a message. Requires authentication. It is idempotent, so multiple calls from the same user with the same emoji result in a single reaction.
+Future<XRPCResponse<ConvoAddReactionOutput>> chatBskyConvoAddReaction({
+  required String convoId,
+  required String messageId,
+  required String value,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.chatBskyConvoAddReaction,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'convoId': convoId,
+    'messageId': messageId,
+    'value': value,
+  },
+  to: const ConvoAddReactionOutputConverter().fromJson,
+);
+Future<XRPCResponse<ConvoSendMessageBatchOutput>>
+chatBskyConvoSendMessageBatch({
+  required List<BatchItem> items,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.chatBskyConvoSendMessageBatch,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'items': items.map((e) => e.toJson()).toList()},
+  to: const ConvoSendMessageBatchOutputConverter().fromJson,
+);
+
+/// Removes an emoji reaction from a message. Requires authentication. It is idempotent, so multiple calls from the same user with the same emoji result in that reaction not being present, even if it already wasn't.
+Future<XRPCResponse<ConvoRemoveReactionOutput>> chatBskyConvoRemoveReaction({
+  required String convoId,
+  required String messageId,
+  required String value,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.chatBskyConvoRemoveReaction,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'convoId': convoId,
+    'messageId': messageId,
+    'value': value,
+  },
+  to: const ConvoRemoveReactionOutputConverter().fromJson,
+);
+Future<XRPCResponse<ConvoGetConvoForMembersOutput>>
+chatBskyConvoGetConvoForMembers({
+  required List<String> members,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.chatBskyConvoGetConvoForMembers,
+  headers: $headers,
+  parameters: {...?$unknown, 'members': members},
+  to: const ConvoGetConvoForMembersOutputConverter().fromJson,
+);
+Future<XRPCResponse<ConvoMuteConvoOutput>> chatBskyConvoMuteConvo({
+  required String convoId,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.chatBskyConvoMuteConvo,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'convoId': convoId},
+  to: const ConvoMuteConvoOutputConverter().fromJson,
+);
+Future<XRPCResponse<ConvoAcceptConvoOutput>> chatBskyConvoAcceptConvo({
+  required String convoId,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.chatBskyConvoAcceptConvo,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'convoId': convoId},
+  to: const ConvoAcceptConvoOutputConverter().fromJson,
+);
+Future<XRPCResponse<ConvoListConvosOutput>> chatBskyConvoListConvos({
+  int? limit,
+  String? cursor,
+  ConvoListConvosReadState? readState,
+  ConvoListConvosStatus? status,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.chatBskyConvoListConvos,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+    if (readState != null) 'readState': readState.toJson(),
+    if (status != null) 'status': status.toJson(),
+  },
+  to: const ConvoListConvosOutputConverter().fromJson,
+);
+
+/// Get whether the requester and the other members can chat. If an existing convo is found for these members, it is returned.
+Future<XRPCResponse<ConvoGetConvoAvailabilityOutput>>
+chatBskyConvoGetConvoAvailability({
+  required List<String> members,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.chatBskyConvoGetConvoAvailability,
+  headers: $headers,
+  parameters: {...?$unknown, 'members': members},
+  to: const ConvoGetConvoAvailabilityOutputConverter().fromJson,
+);
+Future<XRPCResponse<ConvoGetLogOutput>> chatBskyConvoGetLog({
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.chatBskyConvoGetLog,
+  headers: $headers,
+  parameters: {...?$unknown, if (cursor != null) 'cursor': cursor},
+  to: const ConvoGetLogOutputConverter().fromJson,
+);
+Future<XRPCResponse<ConvoGetConvoOutput>> chatBskyConvoGetConvo({
+  required String convoId,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.chatBskyConvoGetConvo,
+  headers: $headers,
+  parameters: {...?$unknown, 'convoId': convoId},
+  to: const ConvoGetConvoOutputConverter().fromJson,
+);
+Future<XRPCResponse<ConvoUpdateReadOutput>> chatBskyConvoUpdateRead({
+  required String convoId,
+  String? messageId,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.chatBskyConvoUpdateRead,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'convoId': convoId,
+    if (messageId != null) 'messageId': messageId,
+  },
+  to: const ConvoUpdateReadOutputConverter().fromJson,
+);
+
 /// `chat.bsky.convo.*`
 final class ConvoService {
   // ignore: unused_field
@@ -51,43 +285,45 @@ final class ConvoService {
     ConvoUpdateAllReadStatus? status,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.chatBskyConvoUpdateAllRead,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, if (status != null) 'status': status.toJson()},
-    to: const ConvoUpdateAllReadOutputConverter().fromJson,
+  }) async => await chatBskyConvoUpdateAllRead(
+    status: status,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
   Future<XRPCResponse<ConvoUnmuteConvoOutput>> unmuteConvo({
     required String convoId,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.chatBskyConvoUnmuteConvo,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'convoId': convoId},
-    to: const ConvoUnmuteConvoOutputConverter().fromJson,
+  }) async => await chatBskyConvoUnmuteConvo(
+    convoId: convoId,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
   Future<XRPCResponse<DeletedMessageView>> deleteMessageForSelf({
     required String convoId,
     required String messageId,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.chatBskyConvoDeleteMessageForSelf,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'convoId': convoId, 'messageId': messageId},
-    to: const DeletedMessageViewConverter().fromJson,
+  }) async => await chatBskyConvoDeleteMessageForSelf(
+    convoId: convoId,
+    messageId: messageId,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
   Future<XRPCResponse<MessageView>> sendMessage({
     required String convoId,
     required MessageInput message,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.chatBskyConvoSendMessage,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'convoId': convoId, 'message': message.toJson()},
-    to: const MessageViewConverter().fromJson,
+  }) async => await chatBskyConvoSendMessage(
+    convoId: convoId,
+    message: message,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
   Future<XRPCResponse<ConvoGetMessagesOutput>> getMessages({
     required String convoId,
@@ -95,26 +331,23 @@ final class ConvoService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.chatBskyConvoGetMessages,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'convoId': convoId,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const ConvoGetMessagesOutputConverter().fromJson,
+  }) async => await chatBskyConvoGetMessages(
+    convoId: convoId,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
   Future<XRPCResponse<ConvoLeaveConvoOutput>> leaveConvo({
     required String convoId,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.chatBskyConvoLeaveConvo,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'convoId': convoId},
-    to: const ConvoLeaveConvoOutputConverter().fromJson,
+  }) async => await chatBskyConvoLeaveConvo(
+    convoId: convoId,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Adds an emoji reaction to a message. Requires authentication. It is idempotent, so multiple calls from the same user with the same emoji result in a single reaction.
@@ -124,26 +357,23 @@ final class ConvoService {
     required String value,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.chatBskyConvoAddReaction,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      ...?$unknown,
-      'convoId': convoId,
-      'messageId': messageId,
-      'value': value,
-    },
-    to: const ConvoAddReactionOutputConverter().fromJson,
+  }) async => await chatBskyConvoAddReaction(
+    convoId: convoId,
+    messageId: messageId,
+    value: value,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
   Future<XRPCResponse<ConvoSendMessageBatchOutput>> sendMessageBatch({
     required List<BatchItem> items,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.chatBskyConvoSendMessageBatch,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'items': items.map((e) => e.toJson()).toList()},
-    to: const ConvoSendMessageBatchOutputConverter().fromJson,
+  }) async => await chatBskyConvoSendMessageBatch(
+    items: items,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Removes an emoji reaction from a message. Requires authentication. It is idempotent, so multiple calls from the same user with the same emoji result in that reaction not being present, even if it already wasn't.
@@ -153,46 +383,43 @@ final class ConvoService {
     required String value,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.chatBskyConvoRemoveReaction,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      ...?$unknown,
-      'convoId': convoId,
-      'messageId': messageId,
-      'value': value,
-    },
-    to: const ConvoRemoveReactionOutputConverter().fromJson,
+  }) async => await chatBskyConvoRemoveReaction(
+    convoId: convoId,
+    messageId: messageId,
+    value: value,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
   Future<XRPCResponse<ConvoGetConvoForMembersOutput>> getConvoForMembers({
     required List<String> members,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.chatBskyConvoGetConvoForMembers,
-    headers: $headers,
-    parameters: {...?$unknown, 'members': members},
-    to: const ConvoGetConvoForMembersOutputConverter().fromJson,
+  }) async => await chatBskyConvoGetConvoForMembers(
+    members: members,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
   Future<XRPCResponse<ConvoMuteConvoOutput>> muteConvo({
     required String convoId,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.chatBskyConvoMuteConvo,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'convoId': convoId},
-    to: const ConvoMuteConvoOutputConverter().fromJson,
+  }) async => await chatBskyConvoMuteConvo(
+    convoId: convoId,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
   Future<XRPCResponse<ConvoAcceptConvoOutput>> acceptConvo({
     required String convoId,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.chatBskyConvoAcceptConvo,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'convoId': convoId},
-    to: const ConvoAcceptConvoOutputConverter().fromJson,
+  }) async => await chatBskyConvoAcceptConvo(
+    convoId: convoId,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
   Future<XRPCResponse<ConvoListConvosOutput>> listConvos({
     int? limit,
@@ -201,17 +428,14 @@ final class ConvoService {
     ConvoListConvosStatus? status,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.chatBskyConvoListConvos,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-      if (readState != null) 'readState': readState.toJson(),
-      if (status != null) 'status': status.toJson(),
-    },
-    to: const ConvoListConvosOutputConverter().fromJson,
+  }) async => await chatBskyConvoListConvos(
+    limit: limit,
+    cursor: cursor,
+    readState: readState,
+    status: status,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get whether the requester and the other members can chat. If an existing convo is found for these members, it is returned.
@@ -219,45 +443,42 @@ final class ConvoService {
     required List<String> members,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.chatBskyConvoGetConvoAvailability,
-    headers: $headers,
-    parameters: {...?$unknown, 'members': members},
-    to: const ConvoGetConvoAvailabilityOutputConverter().fromJson,
+  }) async => await chatBskyConvoGetConvoAvailability(
+    members: members,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
   Future<XRPCResponse<ConvoGetLogOutput>> getLog({
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.chatBskyConvoGetLog,
-    headers: $headers,
-    parameters: {...?$unknown, if (cursor != null) 'cursor': cursor},
-    to: const ConvoGetLogOutputConverter().fromJson,
+  }) async => await chatBskyConvoGetLog(
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
   Future<XRPCResponse<ConvoGetConvoOutput>> getConvo({
     required String convoId,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.chatBskyConvoGetConvo,
-    headers: $headers,
-    parameters: {...?$unknown, 'convoId': convoId},
-    to: const ConvoGetConvoOutputConverter().fromJson,
+  }) async => await chatBskyConvoGetConvo(
+    convoId: convoId,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
   Future<XRPCResponse<ConvoUpdateReadOutput>> updateRead({
     required String convoId,
     String? messageId,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.chatBskyConvoUpdateRead,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      ...?$unknown,
-      'convoId': convoId,
-      if (messageId != null) 'messageId': messageId,
-    },
-    to: const ConvoUpdateReadOutputConverter().fromJson,
+  }) async => await chatBskyConvoUpdateRead(
+    convoId: convoId,
+    messageId: messageId,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }

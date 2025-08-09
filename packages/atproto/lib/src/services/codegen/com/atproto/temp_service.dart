@@ -7,10 +7,19 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
+// Dart imports:
+import 'dart:typed_data';
+
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
+import 'package:atproto/com_atproto_repo_createrecord.dart';
+import 'package:atproto/com_atproto_repo_deleterecord.dart';
+import 'package:atproto/com_atproto_repo_getrecord.dart';
+import 'package:atproto/com_atproto_repo_listrecords.dart';
+import 'package:atproto/com_atproto_repo_putrecord.dart';
+import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
 import 'temp/checkHandleAvailability/output.dart';
@@ -20,6 +29,82 @@ import 'temp/fetchLabels/output.dart';
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
+
+/// Checks whether the provided handle is available. If the handle is not available, available suggestions will be returned. Optional inputs will be used to generate suggestions.
+Future<XRPCResponse<TempCheckHandleAvailabilityOutput>>
+comAtprotoTempCheckHandleAvailability({
+  required String handle,
+  String? email,
+  DateTime? birthDate,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.comAtprotoTempCheckHandleAvailability,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'handle': handle,
+    if (email != null) 'email': email,
+    if (birthDate != null) 'birthDate': _ctx.toUtcIso8601String(birthDate),
+  },
+  to: const TempCheckHandleAvailabilityOutputConverter().fromJson,
+);
+
+/// Request a verification code to be sent to the supplied phone number
+Future<XRPCResponse<EmptyData>> comAtprotoTempRequestPhoneVerification({
+  required String phoneNumber,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.comAtprotoTempRequestPhoneVerification,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'phoneNumber': phoneNumber},
+);
+
+/// Check accounts location in signup queue.
+Future<XRPCResponse<TempCheckSignupQueueOutput>>
+comAtprotoTempCheckSignupQueue({
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.comAtprotoTempCheckSignupQueue,
+  headers: $headers,
+  parameters: {...?$unknown},
+  to: const TempCheckSignupQueueOutputConverter().fromJson,
+);
+
+/// DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.
+Future<XRPCResponse<TempFetchLabelsOutput>> comAtprotoTempFetchLabels({
+  int? since,
+  int? limit,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.comAtprotoTempFetchLabels,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (since != null) 'since': since,
+    if (limit != null) 'limit': limit,
+  },
+  to: const TempFetchLabelsOutputConverter().fromJson,
+);
+
+/// Add a handle to the set of reserved handles.
+Future<XRPCResponse<EmptyData>> comAtprotoTempAddReservedHandle({
+  required String handle,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.comAtprotoTempAddReservedHandle,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'handle': handle},
+);
 
 /// `com.atproto.temp.*`
 final class TempService {
@@ -36,16 +121,13 @@ final class TempService {
     DateTime? birthDate,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.comAtprotoTempCheckHandleAvailability,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'handle': handle,
-      if (email != null) 'email': email,
-      if (birthDate != null) 'birthDate': _ctx.toUtcIso8601String(birthDate),
-    },
-    to: const TempCheckHandleAvailabilityOutputConverter().fromJson,
+  }) async => await comAtprotoTempCheckHandleAvailability(
+    handle: handle,
+    email: email,
+    birthDate: birthDate,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Request a verification code to be sent to the supplied phone number
@@ -53,21 +135,21 @@ final class TempService {
     required String phoneNumber,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.comAtprotoTempRequestPhoneVerification,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'phoneNumber': phoneNumber},
+  }) async => await comAtprotoTempRequestPhoneVerification(
+    phoneNumber: phoneNumber,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Check accounts location in signup queue.
   Future<XRPCResponse<TempCheckSignupQueueOutput>> checkSignupQueue({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.comAtprotoTempCheckSignupQueue,
-    headers: $headers,
-    parameters: {...?$unknown},
-    to: const TempCheckSignupQueueOutputConverter().fromJson,
+  }) async => await comAtprotoTempCheckSignupQueue(
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.
@@ -76,15 +158,12 @@ final class TempService {
     int? limit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.comAtprotoTempFetchLabels,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      if (since != null) 'since': since,
-      if (limit != null) 'limit': limit,
-    },
-    to: const TempFetchLabelsOutputConverter().fromJson,
+  }) async => await comAtprotoTempFetchLabels(
+    since: since,
+    limit: limit,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Add a handle to the set of reserved handles.
@@ -92,9 +171,10 @@ final class TempService {
     required String handle,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.comAtprotoTempAddReservedHandle,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'handle': handle},
+  }) async => await comAtprotoTempAddReservedHandle(
+    handle: handle,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }

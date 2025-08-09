@@ -47,6 +47,397 @@ import 'richtext/facet/main.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
+Future<XRPCResponse<EmptyData>> appBskyGraphMuteActorList({
+  required String list,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.appBskyGraphMuteActorList,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'list': list},
+);
+
+/// Unmutes the specified account. Requires auth.
+Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteActor({
+  required String actor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.appBskyGraphUnmuteActor,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'actor': actor},
+);
+
+/// Enumerates which accounts the requesting account is currently blocking. Requires auth.
+Future<XRPCResponse<GraphGetBlocksOutput>> appBskyGraphGetBlocks({
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyGraphGetBlocks,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphGetBlocksOutputConverter().fromJson,
+);
+
+/// Find starter packs matching search criteria. Does not require auth.
+Future<XRPCResponse<GraphSearchStarterPacksOutput>>
+appBskyGraphSearchStarterPacks({
+  required String q,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyGraphSearchStarterPacks,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'q': q,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphSearchStarterPacksOutputConverter().fromJson,
+);
+
+/// Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.
+Future<XRPCResponse<GraphGetMutesOutput>> appBskyGraphGetMutes({
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyGraphGetMutes,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphGetMutesOutputConverter().fromJson,
+);
+
+/// Enumerates follows similar to a given account (actor). Expected use is to recommend additional accounts immediately after following one account.
+Future<XRPCResponse<GraphGetSuggestedFollowsByActorOutput>>
+appBskyGraphGetSuggestedFollowsByActor({
+  required String actor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyGraphGetSuggestedFollowsByActor,
+  headers: $headers,
+  parameters: {...?$unknown, 'actor': actor},
+  to: const GraphGetSuggestedFollowsByActorOutputConverter().fromJson,
+);
+
+/// Enumerates mod lists that the requesting account (actor) currently has muted. Requires auth.
+Future<XRPCResponse<GraphGetListMutesOutput>> appBskyGraphGetListMutes({
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyGraphGetListMutes,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphGetListMutesOutputConverter().fromJson,
+);
+
+/// Gets a 'view' (with additional context) of a specified list.
+Future<XRPCResponse<GraphGetListOutput>> appBskyGraphGetList({
+  required String list,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyGraphGetList,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'list': list,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphGetListOutputConverter().fromJson,
+);
+
+/// Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.
+Future<XRPCResponse<EmptyData>> appBskyGraphMuteThread({
+  required String root,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.appBskyGraphMuteThread,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'root': root},
+);
+
+/// Unmutes the specified list of accounts. Requires auth.
+Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteActorList({
+  required String list,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.appBskyGraphUnmuteActorList,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'list': list},
+);
+
+/// Gets a view of a starter pack.
+Future<XRPCResponse<GraphGetStarterPackOutput>> appBskyGraphGetStarterPack({
+  required String starterPack,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyGraphGetStarterPack,
+  headers: $headers,
+  parameters: {...?$unknown, 'starterPack': starterPack},
+  to: const GraphGetStarterPackOutputConverter().fromJson,
+);
+
+/// Get a list of starter packs created by the actor.
+Future<XRPCResponse<GraphGetActorStarterPacksOutput>>
+appBskyGraphGetActorStarterPacks({
+  required String actor,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyGraphGetActorStarterPacks,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'actor': actor,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphGetActorStarterPacksOutputConverter().fromJson,
+);
+
+/// Enumerates public relationships between one account, and a list of other accounts. Does not require auth.
+Future<XRPCResponse<GraphGetRelationshipsOutput>> appBskyGraphGetRelationships({
+  required String actor,
+  List<String>? others,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyGraphGetRelationships,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'actor': actor,
+    if (others != null) 'others': others,
+  },
+  to: const GraphGetRelationshipsOutputConverter().fromJson,
+);
+
+/// Enumerates the lists created by the session user, and includes membership information about `actor` in those lists. Only supports curation and moderation lists (no reference lists, used in starter packs). Requires auth.
+Future<XRPCResponse<GraphGetListsWithMembershipOutput>>
+appBskyGraphGetListsWithMembership({
+  required String actor,
+  int? limit,
+  String? cursor,
+  List<GraphGetListsWithMembershipPurposes>? purposes,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyGraphGetListsWithMembership,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'actor': actor,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+    if (purposes != null) 'purposes': purposes.map((e) => e.toJson()).toList(),
+  },
+  to: const GraphGetListsWithMembershipOutputConverter().fromJson,
+);
+
+/// Enumerates accounts which follow a specified account (actor) and are followed by the viewer.
+Future<XRPCResponse<GraphGetKnownFollowersOutput>>
+appBskyGraphGetKnownFollowers({
+  required String actor,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyGraphGetKnownFollowers,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'actor': actor,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphGetKnownFollowersOutputConverter().fromJson,
+);
+
+/// Enumerates accounts which follow a specified account (actor).
+Future<XRPCResponse<GraphGetFollowersOutput>> appBskyGraphGetFollowers({
+  required String actor,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyGraphGetFollowers,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'actor': actor,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphGetFollowersOutputConverter().fromJson,
+);
+
+/// Enumerates accounts which a specified account (actor) follows.
+Future<XRPCResponse<GraphGetFollowsOutput>> appBskyGraphGetFollows({
+  required String actor,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyGraphGetFollows,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'actor': actor,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphGetFollowsOutputConverter().fromJson,
+);
+
+/// Get mod lists that the requesting account (actor) is blocking. Requires auth.
+Future<XRPCResponse<GraphGetListBlocksOutput>> appBskyGraphGetListBlocks({
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyGraphGetListBlocks,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphGetListBlocksOutputConverter().fromJson,
+);
+
+/// Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
+Future<XRPCResponse<EmptyData>> appBskyGraphMuteActor({
+  required String actor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.appBskyGraphMuteActor,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'actor': actor},
+);
+
+/// Enumerates the starter packs created by the session user, and includes membership information about `actor` in those starter packs. Requires auth.
+Future<XRPCResponse<GraphGetStarterPacksWithMembershipOutput>>
+appBskyGraphGetStarterPacksWithMembership({
+  required String actor,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyGraphGetStarterPacksWithMembership,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'actor': actor,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphGetStarterPacksWithMembershipOutputConverter().fromJson,
+);
+
+/// Get views for a list of starter packs.
+Future<XRPCResponse<GraphGetStarterPacksOutput>> appBskyGraphGetStarterPacks({
+  required List<String> uris,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyGraphGetStarterPacks,
+  headers: $headers,
+  parameters: {...?$unknown, 'uris': uris},
+  to: const GraphGetStarterPacksOutputConverter().fromJson,
+);
+
+/// Enumerates the lists created by a specified account (actor).
+Future<XRPCResponse<GraphGetListsOutput>> appBskyGraphGetLists({
+  required String actor,
+  int? limit,
+  String? cursor,
+  List<GraphGetListsPurposes>? purposes,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyGraphGetLists,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'actor': actor,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+    if (purposes != null) 'purposes': purposes.map((e) => e.toJson()).toList(),
+  },
+  to: const GraphGetListsOutputConverter().fromJson,
+);
+
+/// Unmutes the specified thread. Requires auth.
+Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteThread({
+  required String root,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.appBskyGraphUnmuteThread,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'root': root},
+);
+
 /// `app.bsky.graph.*`
 final class GraphService {
   // ignore: unused_field
@@ -74,10 +465,11 @@ final class GraphService {
     required String list,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.appBskyGraphMuteActorList,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'list': list},
+  }) async => await appBskyGraphMuteActorList(
+    list: list,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Record declaring a social 'follow' relationship of another account. Duplicate follows will be ignored by the AppView.
@@ -88,10 +480,11 @@ final class GraphService {
     required String actor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.appBskyGraphUnmuteActor,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'actor': actor},
+  }) async => await appBskyGraphUnmuteActor(
+    actor: actor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Record defining a starter pack of actors and feeds for new users.
@@ -106,15 +499,12 @@ final class GraphService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyGraphGetBlocks,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const GraphGetBlocksOutputConverter().fromJson,
+  }) async => await appBskyGraphGetBlocks(
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Find starter packs matching search criteria. Does not require auth.
@@ -124,16 +514,13 @@ final class GraphService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyGraphSearchStarterPacks,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'q': q,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const GraphSearchStarterPacksOutputConverter().fromJson,
+  }) async => await appBskyGraphSearchStarterPacks(
+    q: q,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.
@@ -142,15 +529,12 @@ final class GraphService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyGraphGetMutes,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const GraphGetMutesOutputConverter().fromJson,
+  }) async => await appBskyGraphGetMutes(
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Enumerates follows similar to a given account (actor). Expected use is to recommend additional accounts immediately after following one account.
@@ -159,11 +543,11 @@ final class GraphService {
     required String actor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyGraphGetSuggestedFollowsByActor,
-    headers: $headers,
-    parameters: {...?$unknown, 'actor': actor},
-    to: const GraphGetSuggestedFollowsByActorOutputConverter().fromJson,
+  }) async => await appBskyGraphGetSuggestedFollowsByActor(
+    actor: actor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Enumerates mod lists that the requesting account (actor) currently has muted. Requires auth.
@@ -172,15 +556,12 @@ final class GraphService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyGraphGetListMutes,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const GraphGetListMutesOutputConverter().fromJson,
+  }) async => await appBskyGraphGetListMutes(
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Gets a 'view' (with additional context) of a specified list.
@@ -190,16 +571,13 @@ final class GraphService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyGraphGetList,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'list': list,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const GraphGetListOutputConverter().fromJson,
+  }) async => await appBskyGraphGetList(
+    list: list,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.
@@ -207,10 +585,11 @@ final class GraphService {
     required String root,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.appBskyGraphMuteThread,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'root': root},
+  }) async => await appBskyGraphMuteThread(
+    root: root,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.
@@ -224,10 +603,11 @@ final class GraphService {
     required String list,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.appBskyGraphUnmuteActorList,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'list': list},
+  }) async => await appBskyGraphUnmuteActorList(
+    list: list,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Gets a view of a starter pack.
@@ -235,11 +615,11 @@ final class GraphService {
     required String starterPack,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyGraphGetStarterPack,
-    headers: $headers,
-    parameters: {...?$unknown, 'starterPack': starterPack},
-    to: const GraphGetStarterPackOutputConverter().fromJson,
+  }) async => await appBskyGraphGetStarterPack(
+    starterPack: starterPack,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get a list of starter packs created by the actor.
@@ -249,16 +629,13 @@ final class GraphService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyGraphGetActorStarterPacks,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'actor': actor,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const GraphGetActorStarterPacksOutputConverter().fromJson,
+  }) async => await appBskyGraphGetActorStarterPacks(
+    actor: actor,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Enumerates public relationships between one account, and a list of other accounts. Does not require auth.
@@ -267,15 +644,12 @@ final class GraphService {
     List<String>? others,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyGraphGetRelationships,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'actor': actor,
-      if (others != null) 'others': others,
-    },
-    to: const GraphGetRelationshipsOutputConverter().fromJson,
+  }) async => await appBskyGraphGetRelationships(
+    actor: actor,
+    others: others,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Enumerates the lists created by the session user, and includes membership information about `actor` in those lists. Only supports curation and moderation lists (no reference lists, used in starter packs). Requires auth.
@@ -287,18 +661,14 @@ final class GraphService {
     List<GraphGetListsWithMembershipPurposes>? purposes,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyGraphGetListsWithMembership,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'actor': actor,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-      if (purposes != null)
-        'purposes': purposes.map((e) => e.toJson()).toList(),
-    },
-    to: const GraphGetListsWithMembershipOutputConverter().fromJson,
+  }) async => await appBskyGraphGetListsWithMembership(
+    actor: actor,
+    limit: limit,
+    cursor: cursor,
+    purposes: purposes,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Enumerates accounts which follow a specified account (actor) and are followed by the viewer.
@@ -308,16 +678,13 @@ final class GraphService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyGraphGetKnownFollowers,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'actor': actor,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const GraphGetKnownFollowersOutputConverter().fromJson,
+  }) async => await appBskyGraphGetKnownFollowers(
+    actor: actor,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Record declaring a verification relationship between two accounts. Verifications are only considered valid by an app if issued by an account the app considers trusted.
@@ -330,16 +697,13 @@ final class GraphService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyGraphGetFollowers,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'actor': actor,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const GraphGetFollowersOutputConverter().fromJson,
+  }) async => await appBskyGraphGetFollowers(
+    actor: actor,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Enumerates accounts which a specified account (actor) follows.
@@ -349,16 +713,13 @@ final class GraphService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyGraphGetFollows,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'actor': actor,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const GraphGetFollowsOutputConverter().fromJson,
+  }) async => await appBskyGraphGetFollows(
+    actor: actor,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get mod lists that the requesting account (actor) is blocking. Requires auth.
@@ -367,15 +728,12 @@ final class GraphService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyGraphGetListBlocks,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const GraphGetListBlocksOutputConverter().fromJson,
+  }) async => await appBskyGraphGetListBlocks(
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
@@ -383,10 +741,11 @@ final class GraphService {
     required String actor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.appBskyGraphMuteActor,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'actor': actor},
+  }) async => await appBskyGraphMuteActor(
+    actor: actor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Enumerates the starter packs created by the session user, and includes membership information about `actor` in those starter packs. Requires auth.
@@ -397,16 +756,13 @@ final class GraphService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyGraphGetStarterPacksWithMembership,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'actor': actor,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const GraphGetStarterPacksWithMembershipOutputConverter().fromJson,
+  }) async => await appBskyGraphGetStarterPacksWithMembership(
+    actor: actor,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Record declaring a 'block' relationship against another account. NOTE: blocks are public in Bluesky; see blog posts for details.
@@ -417,11 +773,11 @@ final class GraphService {
     required List<String> uris,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyGraphGetStarterPacks,
-    headers: $headers,
-    parameters: {...?$unknown, 'uris': uris},
-    to: const GraphGetStarterPacksOutputConverter().fromJson,
+  }) async => await appBskyGraphGetStarterPacks(
+    uris: uris,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Enumerates the lists created by a specified account (actor).
@@ -432,18 +788,14 @@ final class GraphService {
     List<GraphGetListsPurposes>? purposes,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyGraphGetLists,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      'actor': actor,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-      if (purposes != null)
-        'purposes': purposes.map((e) => e.toJson()).toList(),
-    },
-    to: const GraphGetListsOutputConverter().fromJson,
+  }) async => await appBskyGraphGetLists(
+    actor: actor,
+    limit: limit,
+    cursor: cursor,
+    purposes: purposes,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Unmutes the specified thread. Requires auth.
@@ -451,10 +803,11 @@ final class GraphService {
     required String root,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.appBskyGraphUnmuteThread,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {...?$unknown, 'root': root},
+  }) async => await appBskyGraphUnmuteThread(
+    root: root,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }
 

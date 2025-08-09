@@ -35,6 +35,120 @@ import 'actor/status/union_main_embed.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Find actor suggestions for a prefix search term. Expected use is for auto-completion during text field entry. Does not require auth.
+Future<XRPCResponse<ActorSearchActorsTypeaheadOutput>>
+appBskyActorSearchActorsTypeahead({
+  String? term,
+  String? q,
+  int? limit,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyActorSearchActorsTypeahead,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (term != null) 'term': term,
+    if (q != null) 'q': q,
+    if (limit != null) 'limit': limit,
+  },
+  to: const ActorSearchActorsTypeaheadOutputConverter().fromJson,
+);
+
+/// Get detailed profile views of multiple actors.
+Future<XRPCResponse<ActorGetProfilesOutput>> appBskyActorGetProfiles({
+  required List<String> actors,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyActorGetProfiles,
+  headers: $headers,
+  parameters: {...?$unknown, 'actors': actors},
+  to: const ActorGetProfilesOutputConverter().fromJson,
+);
+
+/// Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.
+Future<XRPCResponse<ActorGetPreferencesOutput>> appBskyActorGetPreferences({
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyActorGetPreferences,
+  headers: $headers,
+  parameters: {...?$unknown},
+  to: const ActorGetPreferencesOutputConverter().fromJson,
+);
+
+/// Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.
+Future<XRPCResponse<ActorGetSuggestionsOutput>> appBskyActorGetSuggestions({
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyActorGetSuggestions,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const ActorGetSuggestionsOutputConverter().fromJson,
+);
+
+/// Find actors (profiles) matching search criteria. Does not require auth.
+Future<XRPCResponse<ActorSearchActorsOutput>> appBskyActorSearchActors({
+  String? term,
+  String? q,
+  int? limit,
+  String? cursor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyActorSearchActors,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (term != null) 'term': term,
+    if (q != null) 'q': q,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const ActorSearchActorsOutputConverter().fromJson,
+);
+
+/// Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
+Future<XRPCResponse<ProfileViewDetailed>> appBskyActorGetProfile({
+  required String actor,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.get(
+  ns.appBskyActorGetProfile,
+  headers: $headers,
+  parameters: {...?$unknown, 'actor': actor},
+  to: const ProfileViewDetailedConverter().fromJson,
+);
+
+/// Set the private preferences attached to the account.
+Future<XRPCResponse<EmptyData>> appBskyActorPutPreferences({
+  required List<UPreferences> preferences,
+  z.ServiceContext? $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx!.post(
+  ns.appBskyActorPutPreferences,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'preferences': preferences.map((e) => e.toJson()).toList(),
+  },
+);
+
 /// `app.bsky.actor.*`
 final class ActorService {
   // ignore: unused_field
@@ -54,16 +168,13 @@ final class ActorService {
     int? limit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyActorSearchActorsTypeahead,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      if (term != null) 'term': term,
-      if (q != null) 'q': q,
-      if (limit != null) 'limit': limit,
-    },
-    to: const ActorSearchActorsTypeaheadOutputConverter().fromJson,
+  }) async => await appBskyActorSearchActorsTypeahead(
+    term: term,
+    q: q,
+    limit: limit,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get detailed profile views of multiple actors.
@@ -71,11 +182,11 @@ final class ActorService {
     required List<String> actors,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyActorGetProfiles,
-    headers: $headers,
-    parameters: {...?$unknown, 'actors': actors},
-    to: const ActorGetProfilesOutputConverter().fromJson,
+  }) async => await appBskyActorGetProfiles(
+    actors: actors,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// A declaration of a Bluesky account profile.
@@ -85,11 +196,10 @@ final class ActorService {
   Future<XRPCResponse<ActorGetPreferencesOutput>> getPreferences({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyActorGetPreferences,
-    headers: $headers,
-    parameters: {...?$unknown},
-    to: const ActorGetPreferencesOutputConverter().fromJson,
+  }) async => await appBskyActorGetPreferences(
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.
@@ -98,15 +208,12 @@ final class ActorService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyActorGetSuggestions,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const ActorGetSuggestionsOutputConverter().fromJson,
+  }) async => await appBskyActorGetSuggestions(
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Find actors (profiles) matching search criteria. Does not require auth.
@@ -117,17 +224,14 @@ final class ActorService {
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyActorSearchActors,
-    headers: $headers,
-    parameters: {
-      ...?$unknown,
-      if (term != null) 'term': term,
-      if (q != null) 'q': q,
-      if (limit != null) 'limit': limit,
-      if (cursor != null) 'cursor': cursor,
-    },
-    to: const ActorSearchActorsOutputConverter().fromJson,
+  }) async => await appBskyActorSearchActors(
+    term: term,
+    q: q,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
@@ -135,11 +239,11 @@ final class ActorService {
     required String actor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.get(
-    ns.appBskyActorGetProfile,
-    headers: $headers,
-    parameters: {...?$unknown, 'actor': actor},
-    to: const ProfileViewDetailedConverter().fromJson,
+  }) async => await appBskyActorGetProfile(
+    actor: actor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// A declaration of a Bluesky account status.
@@ -150,13 +254,11 @@ final class ActorService {
     required List<UPreferences> preferences,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await _ctx.post(
-    ns.appBskyActorPutPreferences,
-    headers: {'Content-type': 'application/json', ...?$headers},
-    body: {
-      ...?$unknown,
-      'preferences': preferences.map((e) => e.toJson()).toList(),
-    },
+  }) async => await appBskyActorPutPreferences(
+    preferences: preferences,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
   );
 }
 
