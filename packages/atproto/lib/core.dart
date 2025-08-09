@@ -4,6 +4,7 @@
 
 export 'package:atproto_core/atproto_core.dart'
     show
+        ServiceContext,
         XRPCResponse,
         XRPCRequest,
         XRPCError,
