@@ -49,11 +49,9 @@ Future<XRPCResponse<ServerRequestEmailUpdateOutput>>
 comAtprotoServerRequestEmailUpdate({
   required ServiceContext $ctx,
   Map<String, String>? $headers,
-  Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.comAtprotoServerRequestEmailUpdate,
   headers: {...?$headers},
-  body: {...?$unknown},
   to: const ServerRequestEmailUpdateOutputConverter().fromJson,
 );
 
@@ -62,11 +60,9 @@ Future<XRPCResponse<ServerRefreshSessionOutput>>
 comAtprotoServerRefreshSession({
   required ServiceContext $ctx,
   Map<String, String>? $headers,
-  Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.comAtprotoServerRefreshSession,
   headers: {...?$headers},
-  body: {...?$unknown},
   to: const ServerRefreshSessionOutputConverter().fromJson,
 );
 
@@ -74,12 +70,8 @@ comAtprotoServerRefreshSession({
 Future<XRPCResponse<EmptyData>> comAtprotoServerDeleteSession({
   required ServiceContext $ctx,
   Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.comAtprotoServerDeleteSession,
-  headers: {...?$headers},
-  body: {...?$unknown},
-);
+}) async =>
+    await $ctx.post(ns.comAtprotoServerDeleteSession, headers: {...?$headers});
 
 /// Create an App Password.
 Future<XRPCResponse<AppPassword>> comAtprotoServerCreateAppPassword({
@@ -311,11 +303,9 @@ Future<XRPCResponse<ServerCreateAccountOutput>> comAtprotoServerCreateAccount({
 Future<XRPCResponse<EmptyData>> comAtprotoServerRequestAccountDelete({
   required ServiceContext $ctx,
   Map<String, String>? $headers,
-  Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.comAtprotoServerRequestAccountDelete,
   headers: {...?$headers},
-  body: {...?$unknown},
 );
 
 /// Revoke an App Password by name.
@@ -367,22 +357,18 @@ comAtprotoServerReserveSigningKey({
 Future<XRPCResponse<EmptyData>> comAtprotoServerRequestEmailConfirmation({
   required ServiceContext $ctx,
   Map<String, String>? $headers,
-  Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.comAtprotoServerRequestEmailConfirmation,
   headers: {...?$headers},
-  body: {...?$unknown},
 );
 
 /// Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.
 Future<XRPCResponse<EmptyData>> comAtprotoServerActivateAccount({
   required ServiceContext $ctx,
   Map<String, String>? $headers,
-  Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.comAtprotoServerActivateAccount,
   headers: {...?$headers},
-  body: {...?$unknown},
 );
 
 /// Describes the server's account creation requirements and capabilities. Implemented by PDS.
@@ -437,32 +423,20 @@ final class ServerService {
   /// Request a token in order to update email.
   Future<XRPCResponse<ServerRequestEmailUpdateOutput>> requestEmailUpdate({
     Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoServerRequestEmailUpdate(
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
+  }) async =>
+      await comAtprotoServerRequestEmailUpdate($ctx: _ctx, $headers: $headers);
 
   /// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
   Future<XRPCResponse<ServerRefreshSessionOutput>> refreshSession({
     Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoServerRefreshSession(
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
+  }) async =>
+      await comAtprotoServerRefreshSession($ctx: _ctx, $headers: $headers);
 
   /// Delete the current session. Requires auth.
   Future<XRPCResponse<EmptyData>> deleteSession({
     Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoServerDeleteSession(
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
+  }) async =>
+      await comAtprotoServerDeleteSession($ctx: _ctx, $headers: $headers);
 
   /// Create an App Password.
   Future<XRPCResponse<AppPassword>> createAppPassword({
@@ -661,11 +635,9 @@ final class ServerService {
   /// Initiate a user account deletion via email.
   Future<XRPCResponse<EmptyData>> requestAccountDelete({
     Map<String, String>? $headers,
-    Map<String, String>? $unknown,
   }) async => await comAtprotoServerRequestAccountDelete(
     $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   /// Revoke an App Password by name.
@@ -711,22 +683,16 @@ final class ServerService {
   /// Request an email with a code to confirm ownership of email.
   Future<XRPCResponse<EmptyData>> requestEmailConfirmation({
     Map<String, String>? $headers,
-    Map<String, String>? $unknown,
   }) async => await comAtprotoServerRequestEmailConfirmation(
     $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   /// Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.
   Future<XRPCResponse<EmptyData>> activateAccount({
     Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoServerActivateAccount(
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
+  }) async =>
+      await comAtprotoServerActivateAccount($ctx: _ctx, $headers: $headers);
 
   /// Describes the server's account creation requirements and capabilities. Implemented by PDS.
   Future<XRPCResponse<ServerDescribeServerOutput>> describeServer({

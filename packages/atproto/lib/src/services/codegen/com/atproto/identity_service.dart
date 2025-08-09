@@ -103,11 +103,9 @@ comAtprotoIdentityResolveHandle({
 Future<XRPCResponse<EmptyData>> comAtprotoIdentityRequestPlcOperationSignature({
   required ServiceContext $ctx,
   Map<String, String>? $headers,
-  Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.comAtprotoIdentityRequestPlcOperationSignature,
   headers: {...?$headers},
-  body: {...?$unknown},
 );
 
 /// Signs a PLC operation to update some value(s) in the requesting DID's document.
@@ -230,11 +228,9 @@ final class IdentityService {
   /// Request an email with a code to in order to request a signed PLC operation. Requires Auth.
   Future<XRPCResponse<EmptyData>> requestPlcOperationSignature({
     Map<String, String>? $headers,
-    Map<String, String>? $unknown,
   }) async => await comAtprotoIdentityRequestPlcOperationSignature(
     $ctx: _ctx,
     $headers: $headers,
-    $unknown: $unknown,
   );
 
   /// Signs a PLC operation to update some value(s) in the requesting DID's document.

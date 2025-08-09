@@ -38,12 +38,8 @@ import 'package:atproto/com_atproto_services.dart'
 Future<XRPCResponse<EmptyData>> chatBskyActorDeleteAccount({
   required ServiceContext $ctx,
   Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.chatBskyActorDeleteAccount,
-  headers: {...?$headers},
-  body: {...?$unknown},
-);
+}) async =>
+    await $ctx.post(ns.chatBskyActorDeleteAccount, headers: {...?$headers});
 Future<XRPCResponse<Uint8List>> chatBskyActorExportAccountData({
   required ServiceContext $ctx,
   Map<String, String>? $headers,
@@ -67,12 +63,7 @@ final class ActorService {
   ActorDeclarationRecordAccessor get declaration => _declaration;
   Future<XRPCResponse<EmptyData>> deleteAccount({
     Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await chatBskyActorDeleteAccount(
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
+  }) async => await chatBskyActorDeleteAccount($ctx: _ctx, $headers: $headers);
   Future<XRPCResponse<Uint8List>> exportAccountData({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,

@@ -507,7 +507,9 @@ final class LexApi {
       }
       buffer.writeln('  required ServiceContext \$ctx,');
       buffer.writeln('  Map<String, String>? \$headers,');
-      buffer.writeln('  Map<String, String>? \$unknown,');
+      if (parameters.isNotEmpty) {
+        buffer.writeln('  Map<String, String>? \$unknown,');
+      }
     }
     buffer.writeln('}) async =>');
     buffer.writeln('  await \$ctx.post(');
@@ -522,12 +524,14 @@ final class LexApi {
       buffer.writeln('    parameters: \$parameters,');
       buffer.writeln('    body: bytes,');
     } else {
-      buffer.writeln('    body: {');
-      buffer.writeln('      ...?\$unknown,');
-      for (final parameter in parameters) {
-        buffer.writeln(parameter.getParamsRecord());
+      if (parameters.isNotEmpty) {
+        buffer.writeln('    body: {');
+        buffer.writeln('      ...?\$unknown,');
+        for (final parameter in parameters) {
+          buffer.writeln(parameter.getParamsRecord());
+        }
+        buffer.writeln('    },');
       }
-      buffer.writeln('    },');
     }
 
     if (this.returnType != null) {
@@ -558,7 +562,9 @@ final class LexApi {
         buffer.writeln(parameter.getParams());
       }
       buffer.writeln('  Map<String, String>? \$headers,');
-      buffer.writeln('  Map<String, String>? \$unknown,');
+      if (parameters.isNotEmpty) {
+        buffer.writeln('  Map<String, String>? \$unknown,');
+      }
     }
     buffer.writeln('}) async =>');
     buffer.writeln('  await $ns(');
@@ -574,7 +580,9 @@ final class LexApi {
       }
       buffer.writeln('     \$ctx: _ctx,');
       buffer.writeln('     \$headers: \$headers,');
-      buffer.writeln('     \$unknown: \$unknown,');
+      if (parameters.isNotEmpty) {
+        buffer.writeln('     \$unknown: \$unknown,');
+      }
     }
     buffer.writeln('  );');
 

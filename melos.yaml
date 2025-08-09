@@ -31,8 +31,8 @@ scripts:
 
   fmt:
     run: |
-      melos exec -c 20 -- dart format .
       melos exec --depends-on="import_sorter" -c 20 -- dart run import_sorter:main
+      melos exec -c 20 -- dart format .
     description: Run `dart format` and `dart run import_sorter:main` in all packages.
 
   build:
