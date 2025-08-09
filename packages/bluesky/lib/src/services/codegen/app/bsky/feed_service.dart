@@ -15,6 +15,7 @@ import 'package:atproto/com_atproto_repo_listrecords.dart';
 import 'package:atproto/com_atproto_repo_putrecord.dart';
 import 'package:atproto/com_atproto_repo_strongref.dart';
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/internals.dart' show iso8601;
 
 // Project imports:
 import '../../../../ids.g.dart' as ids;
@@ -791,7 +792,7 @@ final class FeedRepostRecordAccessor {
     record: {
       ...?$unknown,
       'subject': subject.toJson(),
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
       if (via != null) 'via': via.toJson(),
     },
     swapCommit: swapCommit,
@@ -816,7 +817,7 @@ final class FeedRepostRecordAccessor {
     record: {
       ...?$unknown,
       'subject': subject.toJson(),
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
       if (via != null) 'via': via.toJson(),
     },
     swapRecord: swapRecord,
@@ -896,7 +897,7 @@ final class FeedLikeRecordAccessor {
     record: {
       ...?$unknown,
       'subject': subject.toJson(),
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
       if (via != null) 'via': via.toJson(),
     },
     swapCommit: swapCommit,
@@ -921,7 +922,7 @@ final class FeedLikeRecordAccessor {
     record: {
       ...?$unknown,
       'subject': subject.toJson(),
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
       if (via != null) 'via': via.toJson(),
     },
     swapRecord: swapRecord,
@@ -1003,7 +1004,7 @@ final class FeedThreadgateRecordAccessor {
       ...?$unknown,
       'post': post,
       if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
       if (hiddenReplies != null) 'hiddenReplies': hiddenReplies,
     },
     swapCommit: swapCommit,
@@ -1030,7 +1031,7 @@ final class FeedThreadgateRecordAccessor {
       ...?$unknown,
       'post': post,
       if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
       if (hiddenReplies != null) 'hiddenReplies': hiddenReplies,
     },
     swapRecord: swapRecord,
@@ -1125,7 +1126,7 @@ final class FeedGeneratorRecordAccessor {
         'acceptsInteractions': acceptsInteractions,
       if (labels != null) 'labels': labels.toJson(),
       if (contentMode != null) 'contentMode': contentMode.toJson(),
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
     $headers: $headers,
@@ -1164,7 +1165,7 @@ final class FeedGeneratorRecordAccessor {
         'acceptsInteractions': acceptsInteractions,
       if (labels != null) 'labels': labels.toJson(),
       if (contentMode != null) 'contentMode': contentMode.toJson(),
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
@@ -1254,7 +1255,7 @@ final class FeedPostRecordAccessor {
       if (langs != null) 'langs': langs,
       if (labels != null) 'labels': labels.toJson(),
       if (tags != null) 'tags': tags,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
     $headers: $headers,
@@ -1289,7 +1290,7 @@ final class FeedPostRecordAccessor {
       if (langs != null) 'langs': langs,
       if (labels != null) 'labels': labels.toJson(),
       if (tags != null) 'tags': tags,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
@@ -1368,7 +1369,7 @@ final class FeedPostgateRecordAccessor {
     validate: validate,
     record: {
       ...?$unknown,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
       'post': post,
       if (detachedEmbeddingUris != null)
         'detachedEmbeddingUris': detachedEmbeddingUris,
@@ -1397,7 +1398,7 @@ final class FeedPostgateRecordAccessor {
     validate: validate,
     record: {
       ...?$unknown,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
       'post': post,
       if (detachedEmbeddingUris != null)
         'detachedEmbeddingUris': detachedEmbeddingUris,

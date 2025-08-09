@@ -7,17 +7,14 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-// Dart imports:
-import 'dart:typed_data';
-
 // Package imports:
-import 'package:atproto/com_atproto_repo_createrecord.dart';
 import 'package:atproto/com_atproto_repo_createrecord.dart';
 import 'package:atproto/com_atproto_repo_deleterecord.dart';
 import 'package:atproto/com_atproto_repo_getrecord.dart';
 import 'package:atproto/com_atproto_repo_listrecords.dart';
 import 'package:atproto/com_atproto_repo_putrecord.dart';
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/internals.dart' show iso8601;
 
 // Project imports:
 import '../../../../ids.g.dart' as ids;
@@ -55,7 +52,7 @@ appBskyNotificationGetUnreadCount({
   parameters: {
     ...?$unknown,
     if (priority != null) 'priority': priority,
-    if (seenAt != null) 'seenAt': _ctx.toUtcIso8601String(seenAt),
+    if (seenAt != null) 'seenAt': iso8601(seenAt),
   },
   to: const NotificationGetUnreadCountOutputConverter().fromJson,
 );
@@ -111,7 +108,7 @@ Future<XRPCResponse<EmptyData>> appBskyNotificationUpdateSeen({
 }) async => await $ctx!.post(
   ns.appBskyNotificationUpdateSeen,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'seenAt': _ctx.toUtcIso8601String(seenAt)},
+  body: {...?$unknown, 'seenAt': iso8601(seenAt)},
 );
 
 /// The inverse of registerPush - inform a specified service that push notifications should no longer be sent to the given token for the requesting account. Requires auth.
@@ -168,7 +165,7 @@ appBskyNotificationListNotifications({
     if (limit != null) 'limit': limit,
     if (priority != null) 'priority': priority,
     if (cursor != null) 'cursor': cursor,
-    if (seenAt != null) 'seenAt': _ctx.toUtcIso8601String(seenAt),
+    if (seenAt != null) 'seenAt': iso8601(seenAt),
   },
   to: const NotificationListNotificationsOutputConverter().fromJson,
 );

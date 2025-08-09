@@ -15,6 +15,7 @@ import 'package:atproto/com_atproto_repo_getrecord.dart';
 import 'package:atproto/com_atproto_repo_listrecords.dart';
 import 'package:atproto/com_atproto_repo_putrecord.dart';
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/internals.dart' show iso8601;
 
 // Project imports:
 import '../../../../ids.g.dart' as ids;
@@ -131,7 +132,7 @@ final class LabelerServiceRecordAccessor {
       ...?$unknown,
       'policies': policies.toJson(),
       if (labels != null) 'labels': labels.toJson(),
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
       if (reasonTypes != null)
         'reasonTypes': reasonTypes.map((e) => e.toJson()).toList(),
       if (subjectTypes != null)
@@ -164,7 +165,7 @@ final class LabelerServiceRecordAccessor {
       ...?$unknown,
       'policies': policies.toJson(),
       if (labels != null) 'labels': labels.toJson(),
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
       if (reasonTypes != null)
         'reasonTypes': reasonTypes.map((e) => e.toJson()).toList(),
       if (subjectTypes != null)

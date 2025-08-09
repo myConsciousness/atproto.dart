@@ -14,6 +14,7 @@ import 'package:atproto/com_atproto_repo_getrecord.dart';
 import 'package:atproto/com_atproto_repo_listrecords.dart';
 import 'package:atproto/com_atproto_repo_putrecord.dart';
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/internals.dart' show iso8601;
 
 // Project imports:
 import '../../../../ids.g.dart' as ids;
@@ -861,11 +862,7 @@ final class GraphFollowRecordAccessor {
     collection: ids.appBskyGraphFollow,
     rkey: rkey,
     validate: validate,
-    record: {
-      ...?$unknown,
-      'subject': subject,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
-    },
+    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
     swapCommit: swapCommit,
     $headers: $headers,
   );
@@ -884,11 +881,7 @@ final class GraphFollowRecordAccessor {
     collection: ids.appBskyGraphFollow,
     rkey: rkey,
     validate: validate,
-    record: {
-      ...?$unknown,
-      'subject': subject,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
-    },
+    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
     swapRecord: swapRecord,
     swapCommit: swapCommit,
     $headers: $headers,
@@ -974,7 +967,7 @@ final class GraphStarterpackRecordAccessor {
         'descriptionFacets': descriptionFacets.map((e) => e.toJson()).toList(),
       'list': list,
       if (feeds != null) 'feeds': feeds.map((e) => e.toJson()).toList(),
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
     $headers: $headers,
@@ -1006,7 +999,7 @@ final class GraphStarterpackRecordAccessor {
         'descriptionFacets': descriptionFacets.map((e) => e.toJson()).toList(),
       'list': list,
       if (feeds != null) 'feeds': feeds.map((e) => e.toJson()).toList(),
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
@@ -1081,11 +1074,7 @@ final class GraphListblockRecordAccessor {
     collection: ids.appBskyGraphListblock,
     rkey: rkey,
     validate: validate,
-    record: {
-      ...?$unknown,
-      'subject': subject,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
-    },
+    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
     swapCommit: swapCommit,
     $headers: $headers,
   );
@@ -1104,11 +1093,7 @@ final class GraphListblockRecordAccessor {
     collection: ids.appBskyGraphListblock,
     rkey: rkey,
     validate: validate,
-    record: {
-      ...?$unknown,
-      'subject': subject,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
-    },
+    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
     swapRecord: swapRecord,
     swapCommit: swapCommit,
     $headers: $headers,
@@ -1187,7 +1172,7 @@ final class GraphListitemRecordAccessor {
       ...?$unknown,
       'subject': subject,
       'list': list,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
     $headers: $headers,
@@ -1212,7 +1197,7 @@ final class GraphListitemRecordAccessor {
       ...?$unknown,
       'subject': subject,
       'list': list,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
@@ -1301,7 +1286,7 @@ final class GraphListRecordAccessor {
         'descriptionFacets': descriptionFacets.map((e) => e.toJson()).toList(),
       if (avatar != null) 'avatar': avatar,
       if (labels != null) 'labels': labels.toJson(),
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
     $headers: $headers,
@@ -1335,7 +1320,7 @@ final class GraphListRecordAccessor {
         'descriptionFacets': descriptionFacets.map((e) => e.toJson()).toList(),
       if (avatar != null) 'avatar': avatar,
       if (labels != null) 'labels': labels.toJson(),
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
@@ -1417,7 +1402,7 @@ final class GraphVerificationRecordAccessor {
       'subject': subject,
       'handle': handle,
       'displayName': displayName,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
     $headers: $headers,
@@ -1444,7 +1429,7 @@ final class GraphVerificationRecordAccessor {
       'subject': subject,
       'handle': handle,
       'displayName': displayName,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
@@ -1519,11 +1504,7 @@ final class GraphBlockRecordAccessor {
     collection: ids.appBskyGraphBlock,
     rkey: rkey,
     validate: validate,
-    record: {
-      ...?$unknown,
-      'subject': subject,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
-    },
+    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
     swapCommit: swapCommit,
     $headers: $headers,
   );
@@ -1542,11 +1523,7 @@ final class GraphBlockRecordAccessor {
     collection: ids.appBskyGraphBlock,
     rkey: rkey,
     validate: validate,
-    record: {
-      ...?$unknown,
-      'subject': subject,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
-    },
+    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
     swapRecord: swapRecord,
     swapCommit: swapCommit,
     $headers: $headers,

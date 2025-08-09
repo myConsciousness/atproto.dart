@@ -136,6 +136,7 @@ final class LexService {
     return '''$kHeaderHint
 
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/internals.dart' show iso8601;
 
 import 'package:atproto/com_atproto_repo_createrecord.dart';
 import 'package:atproto/com_atproto_repo_deleterecord.dart';

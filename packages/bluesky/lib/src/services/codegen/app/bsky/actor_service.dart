@@ -15,6 +15,7 @@ import 'package:atproto/com_atproto_repo_listrecords.dart';
 import 'package:atproto/com_atproto_repo_putrecord.dart';
 import 'package:atproto/com_atproto_repo_strongref.dart';
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/internals.dart' show iso8601;
 
 // Project imports:
 import '../../../../ids.g.dart' as ids;
@@ -328,7 +329,7 @@ final class ActorProfileRecordAccessor {
       if (joinedViaStarterPack != null)
         'joinedViaStarterPack': joinedViaStarterPack.toJson(),
       if (pinnedPost != null) 'pinnedPost': pinnedPost.toJson(),
-      if (createdAt != null) 'createdAt': _ctx.toUtcIso8601String(createdAt),
+      if (createdAt != null) 'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
     $headers: $headers,
@@ -364,7 +365,7 @@ final class ActorProfileRecordAccessor {
       if (joinedViaStarterPack != null)
         'joinedViaStarterPack': joinedViaStarterPack.toJson(),
       if (pinnedPost != null) 'pinnedPost': pinnedPost.toJson(),
-      if (createdAt != null) 'createdAt': _ctx.toUtcIso8601String(createdAt),
+      if (createdAt != null) 'createdAt': iso8601(createdAt),
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
@@ -446,7 +447,7 @@ final class ActorStatusRecordAccessor {
       'status': status.toJson(),
       if (embed != null) 'embed': embed.toJson(),
       if (durationMinutes != null) 'durationMinutes': durationMinutes,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
     $headers: $headers,
@@ -473,7 +474,7 @@ final class ActorStatusRecordAccessor {
       'status': status.toJson(),
       if (embed != null) 'embed': embed.toJson(),
       if (durationMinutes != null) 'durationMinutes': durationMinutes,
-      'createdAt': _ctx.toUtcIso8601String(createdAt),
+      'createdAt': iso8601(createdAt),
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,

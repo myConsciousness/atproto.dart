@@ -7,19 +7,11 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-// Dart imports:
-import 'dart:typed_data';
-
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/internals.dart' show iso8601;
 
 // Project imports:
-import 'package:atproto/com_atproto_repo_createrecord.dart';
-import 'package:atproto/com_atproto_repo_deleterecord.dart';
-import 'package:atproto/com_atproto_repo_getrecord.dart';
-import 'package:atproto/com_atproto_repo_listrecords.dart';
-import 'package:atproto/com_atproto_repo_putrecord.dart';
-import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
 import 'server/checkAccountStatus/output.dart';
@@ -194,8 +186,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoServerDeactivateAccount({
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
     ...?$unknown,
-    if (deleteAfter != null)
-      'deleteAfter': _ctx.toUtcIso8601String(deleteAfter),
+    if (deleteAfter != null) 'deleteAfter': iso8601(deleteAfter),
   },
 );
 

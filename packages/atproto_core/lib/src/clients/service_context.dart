@@ -173,8 +173,4 @@ base class ServiceContext {
       oAuthSession?.$dPoPNonce = headers['dpop-nonce']!;
     }
   }
-
-  /// Returns the [dateTime] in UTC time zone and ISO8601 format.
-  String toUtcIso8601String(final DateTime? dateTime) =>
-      (dateTime ?? DateTime.now()).toUtc().toIso8601String();
 }

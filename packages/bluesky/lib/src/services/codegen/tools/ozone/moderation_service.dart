@@ -7,19 +7,11 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-// Dart imports:
-import 'dart:typed_data';
-
 // Package imports:
-import 'package:atproto/com_atproto_repo_createrecord.dart';
-import 'package:atproto/com_atproto_repo_deleterecord.dart';
-import 'package:atproto/com_atproto_repo_getrecord.dart';
-import 'package:atproto/com_atproto_repo_listrecords.dart';
-import 'package:atproto/com_atproto_repo_putrecord.dart';
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/internals.dart' show iso8601;
 
 // Project imports:
-import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
 import 'moderation/defs/mod_event_view.dart';
@@ -95,10 +87,8 @@ toolsOzoneModerationQueryEvents({
     if (types != null) 'types': types,
     if (createdBy != null) 'createdBy': createdBy,
     if (sortDirection != null) 'sortDirection': sortDirection,
-    if (createdAfter != null)
-      'createdAfter': _ctx.toUtcIso8601String(createdAfter),
-    if (createdBefore != null)
-      'createdBefore': _ctx.toUtcIso8601String(createdBefore),
+    if (createdAfter != null) 'createdAfter': iso8601(createdAfter),
+    if (createdBefore != null) 'createdBefore': iso8601(createdBefore),
     if (subject != null) 'subject': subject,
     if (collections != null) 'collections': collections,
     if (subjectType != null) 'subjectType': subjectType.toJson(),
@@ -264,23 +254,19 @@ toolsOzoneModerationQueryStatuses({
       'includeAllUserRecords': includeAllUserRecords,
     if (subject != null) 'subject': subject,
     if (comment != null) 'comment': comment,
-    if (reportedAfter != null)
-      'reportedAfter': _ctx.toUtcIso8601String(reportedAfter),
-    if (reportedBefore != null)
-      'reportedBefore': _ctx.toUtcIso8601String(reportedBefore),
-    if (reviewedAfter != null)
-      'reviewedAfter': _ctx.toUtcIso8601String(reviewedAfter),
+    if (reportedAfter != null) 'reportedAfter': iso8601(reportedAfter),
+    if (reportedBefore != null) 'reportedBefore': iso8601(reportedBefore),
+    if (reviewedAfter != null) 'reviewedAfter': iso8601(reviewedAfter),
     if (hostingDeletedAfter != null)
-      'hostingDeletedAfter': _ctx.toUtcIso8601String(hostingDeletedAfter),
+      'hostingDeletedAfter': iso8601(hostingDeletedAfter),
     if (hostingDeletedBefore != null)
-      'hostingDeletedBefore': _ctx.toUtcIso8601String(hostingDeletedBefore),
+      'hostingDeletedBefore': iso8601(hostingDeletedBefore),
     if (hostingUpdatedAfter != null)
-      'hostingUpdatedAfter': _ctx.toUtcIso8601String(hostingUpdatedAfter),
+      'hostingUpdatedAfter': iso8601(hostingUpdatedAfter),
     if (hostingUpdatedBefore != null)
-      'hostingUpdatedBefore': _ctx.toUtcIso8601String(hostingUpdatedBefore),
+      'hostingUpdatedBefore': iso8601(hostingUpdatedBefore),
     if (hostingStatuses != null) 'hostingStatuses': hostingStatuses,
-    if (reviewedBefore != null)
-      'reviewedBefore': _ctx.toUtcIso8601String(reviewedBefore),
+    if (reviewedBefore != null) 'reviewedBefore': iso8601(reviewedBefore),
     if (includeMuted != null) 'includeMuted': includeMuted,
     if (onlyMuted != null) 'onlyMuted': onlyMuted,
     if (reviewState != null) 'reviewState': reviewState,
