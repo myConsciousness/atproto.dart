@@ -6,7 +6,11 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:
-import '../../com_atproto_services.dart';
+import 'codegen/com/atproto/server_service.dart'
+    show
+        comAtprotoServerCreateSession,
+        comAtprotoServerRefreshSession,
+        comAtprotoServerDeleteSession;
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createSession
 Future<core.XRPCResponse<core.Session>> createSession({
