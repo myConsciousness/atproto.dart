@@ -6,7 +6,7 @@
 import 'dart:convert';
 
 // Project imports:
-import 'jwt.dart';
+import '../types/jwt.dart';
 
 /// Returns the decoded [Jwt] based on [jwt].
 Jwt decodeJwt(final String jwt) {
