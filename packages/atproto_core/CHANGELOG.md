@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.0.6
+
+- fix: Drop `universal_io` for WASM compatibility.
+
 ## v1.0.5
 
 - chore: fix `WARNING: The annotation 'JsonSerializable.new' can only be used on classes.`.

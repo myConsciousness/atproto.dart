@@ -6,7 +6,6 @@
 import 'dart:async';
 
 // Package imports:
-import 'package:universal_io/io.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // Project imports:
@@ -32,16 +31,6 @@ final class Challenge {
       }
 
       return response;
-    } on SocketException {
-      if (_retryPolicy.shouldRetry(retryCount)) {
-        return await _retry(
-          action,
-          retryCount: ++retryCount,
-          onUpdateDpopNonce: onUpdateDpopNonce,
-        );
-      }
-
-      rethrow;
     } on TimeoutException {
       if (_retryPolicy.shouldRetry(retryCount)) {
         return await _retry(
@@ -54,19 +43,6 @@ final class Challenge {
       rethrow;
     } on xrpc.InternalServerErrorException {
       if (_retryPolicy.shouldRetry(retryCount)) {
-        return await _retry(
-          action,
-          retryCount: ++retryCount,
-          onUpdateDpopNonce: onUpdateDpopNonce,
-        );
-      }
-
-      rethrow;
-    } on xrpc.UnauthorizedException catch (e) {
-      if (e.response.data.error == 'use_dpop_nonce' &&
-          onUpdateDpopNonce != null) {
-        onUpdateDpopNonce(e.response.headers);
-
         return await _retry(
           action,
           retryCount: ++retryCount,
