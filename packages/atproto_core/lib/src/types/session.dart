@@ -2,12 +2,14 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// ignore_for_file: invalid_annotation_target
+
 // Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../utils/jwt.dart';
 import '../utils/jwt_decoder.dart';
+import 'jwt.dart';
 
 part 'session.freezed.dart';
 part 'session.g.dart';

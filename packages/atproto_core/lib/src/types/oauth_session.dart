@@ -6,8 +6,8 @@
 import 'package:atproto_oauth/atproto_oauth.dart';
 
 // Project imports:
-import '../utils/jwt.dart';
 import '../utils/jwt_decoder.dart';
+import 'jwt.dart';
 
 /// Returns new [OAuthSession] based on parameters.
 OAuthSession restoreOAuthSession({

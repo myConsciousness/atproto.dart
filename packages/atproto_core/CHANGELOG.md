@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.0.5
+
+- chore: fix `WARNING: The annotation 'JsonSerializable.new' can only be used on classes.`.
+
 ## v1.0.4
 
 - chore: optimized structures.

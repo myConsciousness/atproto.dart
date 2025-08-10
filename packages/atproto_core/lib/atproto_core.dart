@@ -10,7 +10,7 @@ export 'package:atproto_core/src/clients/challenge.dart';
 export 'package:atproto_core/src/clients/service_context.dart';
 export 'package:atproto_core/src/clients/jitter.dart';
 export 'package:atproto_core/src/clients/retry_event.dart';
-export 'package:atproto_core/src/utils/jwt.dart';
+export 'package:atproto_core/src/types/jwt.dart';
 export 'package:atproto_core/src/utils/jwt_decoder.dart' show decodeJwt;
 export 'package:atproto_core/src/types/session.dart';
 export 'package:atproto_core/src/types/oauth_session.dart';

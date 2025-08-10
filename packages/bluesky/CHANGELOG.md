@@ -1,5 +1,10 @@
 # Release Note
 
+## v1.0.6
+
+- chore: fix `WARNING: The annotation 'JsonSerializable.new' can only be used on classes.`.
+- chore: fix `Links in README.md should be well formed Unable to parse 1 image link.`.
+
 ## v1.0.5
 
 - Add service functions. Endpoints can be easily called as functions like `appBskyFeedGetTime`
