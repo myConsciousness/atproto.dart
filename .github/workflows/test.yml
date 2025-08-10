@@ -62,9 +62,3 @@ jobs:
               ${{github.workspace}}/.github/scripts/coverage.sh
             fi
           fi
-
-      - name: Upload coverage to codecov
-        run: |
-          if test -d "test"; then
-            curl -s https://codecov.io/bash | bash
-          fi

@@ -121,7 +121,7 @@ Future<XRPCResponse<SetView>> toolsOzoneSetUpsertSet({
 );
 
 /// `tools.ozone.set.*`
-final class SetService {
+base class SetService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

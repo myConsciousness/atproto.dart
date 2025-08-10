@@ -164,7 +164,7 @@ $kHeader
 $functions
 
 /// `${lexiconId.toString()}.*`
-final class ${name}Service {
+base class ${name}Service {
   // ignore: unused_field
   final ServiceContext _ctx;
 

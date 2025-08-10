@@ -434,7 +434,7 @@ appBskyUnspeccedGetSuggestedUsersSkeleton({
 );
 
 /// `app.bsky.unspecced.*`
-final class UnspeccedService {
+base class UnspeccedService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

@@ -90,7 +90,7 @@ toolsOzoneVerificationListVerifications({
 );
 
 /// `tools.ozone.verification.*`
-final class VerificationService {
+base class VerificationService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

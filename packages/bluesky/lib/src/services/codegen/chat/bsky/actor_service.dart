@@ -51,7 +51,7 @@ Future<XRPCResponse<Uint8List>> chatBskyActorExportAccountData({
 );
 
 /// `chat.bsky.actor.*`
-final class ActorService {
+base class ActorService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

@@ -404,7 +404,7 @@ comAtprotoServerGetAccountInviteCodes({
 );
 
 /// `com.atproto.server.*`
-final class ServerService {
+base class ServerService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

@@ -97,7 +97,7 @@ toolsOzoneCommunicationListTemplates({
 );
 
 /// `tools.ozone.communication.*`
-final class CommunicationService {
+base class CommunicationService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

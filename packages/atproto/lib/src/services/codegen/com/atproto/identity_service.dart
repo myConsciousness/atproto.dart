@@ -147,7 +147,7 @@ comAtprotoIdentityGetRecommendedDidCredentials({
 );
 
 /// `com.atproto.identity.*`
-final class IdentityService {
+base class IdentityService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

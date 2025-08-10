@@ -45,7 +45,7 @@ comAtprotoModerationCreateReport({
 );
 
 /// `com.atproto.moderation.*`
-final class ModerationService {
+base class ModerationService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

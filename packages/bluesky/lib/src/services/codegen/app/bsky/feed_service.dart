@@ -415,7 +415,7 @@ Future<XRPCResponse<FeedGetActorFeedsOutput>> appBskyFeedGetActorFeeds({
 );
 
 /// `app.bsky.feed.*`
-final class FeedService {
+base class FeedService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

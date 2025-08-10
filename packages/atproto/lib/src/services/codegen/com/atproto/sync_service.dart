@@ -263,7 +263,7 @@ Future<XRPCResponse<Uint8List>> comAtprotoSyncGetRepo({
 );
 
 /// `com.atproto.sync.*`
-final class SyncService {
+base class SyncService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

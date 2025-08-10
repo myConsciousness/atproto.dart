@@ -274,7 +274,7 @@ Future<XRPCResponse<ConvoUpdateReadOutput>> chatBskyConvoUpdateRead({
 );
 
 /// `chat.bsky.convo.*`
-final class ConvoService {
+base class ConvoService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

@@ -85,7 +85,7 @@ Future<XRPCResponse<EmptyData>> toolsOzoneSettingRemoveOptions({
 );
 
 /// `tools.ozone.setting.*`
-final class SettingService {
+base class SettingService {
   // ignore: unused_field
   final ServiceContext _ctx;
 
