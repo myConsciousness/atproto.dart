@@ -154,7 +154,7 @@ Future<XRPCResponse<SafelinkQueryRulesOutput>> toolsOzoneSafelinkQueryRules({
 );
 
 /// `tools.ozone.safelink.*`
-final class SafelinkService {
+base class SafelinkService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

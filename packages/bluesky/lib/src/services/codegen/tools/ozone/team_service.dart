@@ -92,7 +92,7 @@ Future<XRPCResponse<EmptyData>> toolsOzoneTeamDeleteMember({
 );
 
 /// `tools.ozone.team.*`
-final class TeamService {
+base class TeamService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

@@ -55,7 +55,7 @@ Future<XRPCResponse<LabelerGetServicesOutput>> appBskyLabelerGetServices({
 );
 
 /// `app.bsky.labeler.*`
-final class LabelerService {
+base class LabelerService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

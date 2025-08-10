@@ -53,7 +53,7 @@ Future<XRPCResponse<LabelQueryLabelsOutput>> comAtprotoLabelQueryLabels({
 );
 
 /// `com.atproto.label.*`
-final class LabelService {
+base class LabelService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

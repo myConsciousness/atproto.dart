@@ -241,7 +241,7 @@ comAtprotoRepoListMissingBlobs({
 );
 
 /// `com.atproto.repo.*`
-final class RepoService {
+base class RepoService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

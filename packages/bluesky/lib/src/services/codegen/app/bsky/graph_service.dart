@@ -447,7 +447,7 @@ Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteThread({
 );
 
 /// `app.bsky.graph.*`
-final class GraphService {
+base class GraphService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

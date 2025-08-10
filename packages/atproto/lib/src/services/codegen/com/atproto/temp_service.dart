@@ -98,7 +98,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoTempAddReservedHandle({
 );
 
 /// `com.atproto.temp.*`
-final class TempService {
+base class TempService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

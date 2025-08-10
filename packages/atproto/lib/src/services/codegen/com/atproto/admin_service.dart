@@ -268,7 +268,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoAdminEnableAccountInvites({
 );
 
 /// `com.atproto.admin.*`
-final class AdminService {
+base class AdminService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

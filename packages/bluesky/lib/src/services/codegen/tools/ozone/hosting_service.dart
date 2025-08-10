@@ -43,7 +43,7 @@ toolsOzoneHostingGetAccountHistory({
 );
 
 /// `tools.ozone.hosting.*`
-final class HostingService {
+base class HostingService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

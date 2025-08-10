@@ -77,7 +77,7 @@ toolsOzoneSignatureFindRelatedAccounts({
 );
 
 /// `tools.ozone.signature.*`
-final class SignatureService {
+base class SignatureService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

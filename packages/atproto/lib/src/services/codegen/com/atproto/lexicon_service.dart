@@ -31,7 +31,7 @@ import 'package:atproto/com_atproto_services.dart'
 // **************************************************************************
 
 /// `com.atproto.lexicon.*`
-final class LexiconService {
+base class LexiconService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

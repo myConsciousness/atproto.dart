@@ -63,7 +63,7 @@ Future<XRPCResponse<VideoGetUploadLimitsOutput>> appBskyVideoGetUploadLimits({
 );
 
 /// `app.bsky.video.*`
-final class VideoService {
+base class VideoService {
   // ignore: unused_field
   final ServiceContext _ctx;
 

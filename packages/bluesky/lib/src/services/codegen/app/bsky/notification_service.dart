@@ -251,7 +251,7 @@ appBskyNotificationPutPreferencesV2({
 );
 
 /// `app.bsky.notification.*`
-final class NotificationService {
+base class NotificationService {
   // ignore: unused_field
   final ServiceContext _ctx;
 
