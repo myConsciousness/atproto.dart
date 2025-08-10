@@ -14,8 +14,6 @@ import 'utils.dart' as utils;
 const _tableHeader = '| Method | Docs | Paging (cursor) |';
 const _tableDivider = '| --- | --- | :---: |';
 
-const _functions = ['createSession', 'refreshSession', 'deleteSession'];
-
 void main(List<String> args) {
   final matrix = StringBuffer()
     ..writeln('---')
@@ -44,7 +42,7 @@ void main(List<String> args) {
     'bluesky': [
       _only(services, authority: 'app.bsky'),
       _only(services, authority: 'chat.bsky'),
-      // _only(services, authority: 'tools.ozone')
+      _only(services, authority: 'tools.ozone'),
     ],
   }.forEach((package, services) {
     matrix
@@ -84,15 +82,9 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
           final method = lexiconId.split('.').last;
 
           matrix.writeln();
-          if (_isFunction(method)) {
-            matrix.write(
-              '| **[${lexiconDoc.id}](${_getFunctionLink(package, method)})** | ',
-            );
-          } else {
-            matrix.write(
-              '| **[${lexiconDoc.id}](${_getMethodLink(authority, package, service, method)})** | ',
-            );
-          }
+          matrix.write(
+            '| **[${lexiconDoc.id}](${_getMethodLink(authority, package, service, method)})** | ',
+          );
 
           final referencePath = lexiconDoc.id.toString().replaceAll('.', '/');
           matrix.write('[Reference](lexicons/$referencePath.md) | ');
@@ -109,30 +101,17 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
   File('website/docs/supported_api.md').writeAsStringSync(matrix.toString());
 }
 
-bool _isFunction(final String method) => _functions.contains(method);
-
-String _getFunctionLink(final String package, final String function) =>
-    'https://pub.dev/documentation/$package/latest/$package/$function.html';
-
 String _getMethodLink(
   final String authority,
   final String package,
   final String service,
   final String method,
 ) {
-  return 'https://pub.dev/documentation/$package/latest/${_getExposedPackageName(authority)}/${service}Service/$method.html';
+  return 'https://pub.dev/documentation/$package/latest/${_getExposedPackageName(authority)}_services/${service}Service/$method.html';
 }
 
 String _getExposedPackageName(final String authority) {
-  if (authority.startsWith('app.bsky.')) {
-    return 'bluesky';
-  } else if (authority.startsWith('chat.bsky.')) {
-    return 'bluesky_chat';
-  } else if (authority.startsWith('tools.ozone.')) {
-    return 'ozone';
-  }
-
-  return 'atproto';
+  return authority.split('.').sublist(0, 2).join('_');
 }
 
 String _toServiceName(final String authority) {
