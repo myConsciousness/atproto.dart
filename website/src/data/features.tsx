@@ -88,7 +88,6 @@ export const features: IFeatureProps[] = [
           bluesky: <a href={"https://pub.dev/packages/bluesky"}><strong>bluesky</strong></a>,
           br: <br></br>,
           do_retry: <strong>automatically retry</strong>,
-          SocketException: <strong><code>SocketException</code></strong>,
           TimeoutException: <strong><code>TimeoutException</code></strong>,
           server_error_status: <strong><code>5xx</code></strong>,
           retry_algo: <a href={"https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/"}><strong>Exponential Backoff with Jitter</strong></a>,
@@ -96,7 +95,7 @@ export const features: IFeatureProps[] = [
       >
         {`Handle network instability gracefully with automatic retry logic built into {atproto} and {bluesky}.
         Our packages intelligently detect and recover from temporary failures without manual intervention.{br}{br}
-        Network interruptions like {SocketException} and {TimeoutException} are handled transparently,
+        Network interruptions like {TimeoutException} are handled transparently,
         along with server errors returning {server_error_status} status codes. Your app stays responsive
         even when the network doesn't cooperate.{br}{br}
         The retry mechanism implements industry-standard {retry_algo}, balancing quick recovery

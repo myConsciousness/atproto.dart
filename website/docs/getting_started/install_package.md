@@ -90,11 +90,10 @@ dev_dependencies:
 Verify the package is working by creating a simple test file:
 
 ```dart title="lib/test_import.dart"
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/bluesky.dart';
 
 void main() {
   print('atproto.dart packages imported successfully!');
-  print('Bluesky package version: ${bsky.version}');
 }
 ```
 
