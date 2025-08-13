@@ -4,32 +4,65 @@ title: bluesky
 description: API wrapper for Bluesky things.
 ---
 
-# bluesky [![pub package](https://img.shields.io/pub/v/bluesky.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky) [![Dart SDK Version](https://badgen.net/pub/sdk-version/bluesky)](https://pub.dev/packages/bluesky/)
+# bluesky [![pub package](https://img.shields.io/pub/v/bluesky.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/bluesky) [![Dart SDK Version](https://badgen.net/pub/sdk-version/bluesky)](https://pub.dev/packages/bluesky/)
 
-**[bluesky](https://pub.dev/packages/bluesky)** is a wrapper library that supports the endpoints defined in Lexicon for [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky).
+**bluesky** is a comprehensive wrapper library supporting all endpoints defined in [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky) and [`chat.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/chat/bsky) Lexicons.
 
-**All endpoints of the Bluesky API are supported**. In addition, **[bluesky](https://pub.dev/packages/bluesky)** is built on **[atproto](https://pub.dev/packages/atproto)**, so all features provided by **[atproto](https://pub.dev/packages/atproto)** are built in.
+This package includes complete Bluesky API support, including the latest chat features, plus all core AT Protocol functionality from the **[atproto](./atproto.md)** package. It's your one-stop solution for Bluesky application development.
 
-- **[GitHub](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky)**
+- **[GitHub Repository](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky)**
+- **[API Documentation](https://pub.dev/documentation/bluesky/latest/)**
+- **[Package Homepage](https://atprotodart.com)**
 
-:::info
+:::info **Package Selection Guide**
+**Use bluesky for:**
+- Bluesky application development
+- Social features (feeds, posts, likes, follows, chat)
+- `app.bsky.*` and `chat.bsky.*` endpoints
+- Complete AT Protocol + Bluesky functionality
+
+**Use [atproto](./atproto.md) for:**
+- Multi-service AT Protocol applications
+- Core protocol functionality only (`com.atproto.*` endpoints)
+- Infrastructure tools and minimal dependencies
+
+💡 **Note:** This package includes all atproto functionality—you don't need both.
+:::
+
+:::tip
 If you are having trouble implementing **RichText** in the Bluesky API, check out **[bluesky_text](./bluesky_text.md)**!
 :::
 
 ## Features ⭐
 
 - ✅ **Zero Dependency**
-- ✅ Supports **Powerful Built-In Retry** using **[Exponential BackOff And Jitter](https://aws.amazon.com/jp/blogs/architecture/exponential-backoff-and-jitter/)**
+- ✅ Supports **Powerful Built-In Retry** using **[Exponential BackOff And Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/)**
 - ✅ Supports **[All Endpoints](https://atprotodart.com/docs/supported_api#bluesky)** for [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky) and [`chat.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/chat/bsky)
+- ✅ **Complete Chat API Support** with conversation management and messaging
+- ✅ **Advanced Feed Operations** including posts, likes, reposts, and timeline management
+- ✅ **Comprehensive Social Graph** with follows, blocks, mutes, and lists
+- ✅ **Rich Notification System** with real-time updates and preferences
+- ✅ **Video Upload Support** with status tracking and limits management
 - ✅ **Well Documented** and **Well Tested**
-- ✅ Supports **Powerful Firehose API**
-- ✅ Supports **Powerful Moderation API**
-- ✅ Supports **OAuth DPoP**
+- ✅ Supports **Powerful Firehose API** for real-time data streaming
+- ✅ Supports **Comprehensive Moderation API** with labeling and reporting
+- ✅ Supports **OAuth DPoP** for secure authentication
 - ✅ **100% Null Safety**
-- ✅ **Built In [atproto](https://pub.dev/packages/atproto) Features**
+- ✅ **Built In [atproto](./atproto.md) Features**
 
 :::tip
 See **[API Supported Matrix](../supported_api.md#bluesky)** for a list of endpoints supported by **[bluesky](https://pub.dev/packages/bluesky)**.
+:::
+
+:::info **Building for Multiple AT Protocol Services?**
+If you're building applications that need to work with multiple AT Protocol services (not just Bluesky), consider using **[atproto](./atproto.md)** for core functionality:
+
+- **Service Agnostic**: Works with any AT Protocol service, not just Bluesky
+- **Minimal Footprint**: Smaller dependency with only core AT Protocol features
+- **Infrastructure Tools**: Perfect for building bridges, crawlers, or multi-service apps
+- **Core Protocol**: Direct access to `com.atproto.*` endpoints without Bluesky-specific abstractions
+
+However, if you're building specifically for Bluesky, this package provides everything you need in one convenient library.
 :::
 
 ## Getting Started 💪
@@ -68,6 +101,19 @@ Just by writing following one-line import, you can use all endpoints provided by
 import 'package:bluesky/bluesky.dart';
 ```
 
+For chat functionality, you can also import the chat-specific library:
+
+```dart
+import 'package:bluesky/bluesky_chat.dart';
+```
+
+Or import both for full functionality:
+
+```dart
+import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/bluesky_chat.dart' as chat;
+```
+
 ### Instantiate **Bluesky**
 
 You need to use **[Bluesky](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky-class.html)** object to access most of the features supported by **[bluesky](https://pub.dev/packages/bluesky)**. And there are two ways to instantiate an **[Bluesky](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky-class.html)** object.
@@ -87,21 +133,20 @@ Your credentials will be sent safely and securely to the ATP server when you exe
 You then do not need to be particularly aware of the contents of the retrieved Session object, just pass it to the `.fromSession` constructor of **[Bluesky](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky-class.html)** to safely and securely create an instance of the **[Bluesky](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky-class.html)** object.
 
 ```dart title="Require Auth"
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/atproto.dart';
+import 'package:bluesky/bluesky.dart';
 
 Future<void> main() async {
   // Let's authenticate here.
-  final session = await bsky.createSession(
-      identifier: 'YOUR_HANDLE_OR_EMAIL', // Like "shinyakato.dev"
-      password: 'YOUR_PASSWORD',
+  final session = await createSession(
+    identifier: 'YOUR_HANDLE_OR_EMAIL', // Like "shinyakato.dev"
+    password: 'YOUR_PASSWORD',
   );
 
   print(session);
 
   // Just pass created session data.
-  final bluesky = bsky.Bluesky.fromSession(
-      session.data,
-  );
+  final bsky = Bluesky.fromSession(session.data);
 }
 ```
 
@@ -112,7 +157,7 @@ import 'package:bluesky/bluesky.dart';
 
 Future<void> main() async {
   // Just call anonymous constructor.
-  final bluesky = Bluesky.anonymous();
+  final bsky = Bluesky.anonymous();
 }
 ```
 
@@ -136,11 +181,13 @@ See **[Session Management](#session-management)** for more details about authent
 | **[feed](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/feed.html)**                 | [FeedService](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService-class.html)                 | [`app.bsky.feed.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/feed)                   |
 | **[notification](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/notification.html)** | [NotificationService](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService-class.html) | [`app.bsky.notification.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/notification)   |
 | **[graph](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/graph.html)**               | [GraphService](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService-class.html)               | [`app.bsky.graph.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/graph)                 |
-| **[labeler](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/labeler.html)**           | [LabelerService](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService-class.html)             | [`app.bsky.labeler.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/labeler)             |
-| **[video](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/video.html)**               | [VideoService](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService-class.html)               | [`app.bsky.video.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/video)                 |
+| **[labeler](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/labeler.html)**           | [LabelerService](https://pub.dev/documentation/bluesky/latest/bluesky/LabelerService-class.html)             | [`app.bsky.labeler.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/labeler)             |
+| **[video](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/video.html)**               | [VideoService](https://pub.dev/documentation/bluesky/latest/bluesky/VideoService-class.html)               | [`app.bsky.video.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/video)                 |
 | **[unspecced](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/unspecced.html)**       | [UnspeccedService](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService-class.html)       | [`app.bsky.unspecced.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/unspecced)         |
 
-Also chat features:
+### Chat Services
+
+For chat functionality, **[bluesky](https://pub.dev/packages/bluesky)** provides a separate **[BlueskyChat](https://pub.dev/documentation/bluesky/latest/bluesky_chat/BlueskyChat-class.html)** class with the following services:
 
 | Property                                                                                                | Class                                                                                                       | Lexicon                                                                                                       |
 | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -148,23 +195,43 @@ Also chat features:
 | **[convo](https://pub.dev/documentation/bluesky/latest/bluesky_chat/BlueskyChat/convo.html)**           | [ConvoService](https://pub.dev/documentation/bluesky/latest/bluesky_chat/ConvoService-class.html)           | [`chat.bsky.convo.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/chat/bsky/convo)           |
 | **[moderation](https://pub.dev/documentation/bluesky/latest/bluesky_chat/BlueskyChat/moderation.html)** | [ModerationService](https://pub.dev/documentation/bluesky/latest/bluesky_chat/ModerationService-class.html) | [`chat.bsky.moderation.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/chat/bsky/moderation) |
 
+To use chat services, create a **[BlueskyChat](https://pub.dev/documentation/bluesky/latest/bluesky_chat/BlueskyChat-class.html)** instance:
+
+```dart
+import 'package:bluesky/atproto.dart';
+import 'package:bluesky/bluesky_chat.dart' as chat;
+
+Future<void> main() async {
+  final session = await createSession(
+    identifier: 'YOUR_HANDLE_OR_EMAIL',
+    password: 'YOUR_PASSWORD',
+  );
+
+  // Create BlueskyChat instance for chat functionality
+  final bskyChat = chat.BlueskyChat.fromSession(session.data);
+
+  // Access chat services
+  final conversations = await bskyChat.convo.listConvos();
+  print(conversations);
+}
+```
+
 Once an instance of the **[Bluesky](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky-class.html)** object has been created, service endpoints can be used by accessing the `property` corresponding to each service as follows.
 
 ```dart
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/atproto.dart';
+import 'package:bluesky/bluesky.dart';
 
 Future<void> main() async {
-  final session = await bsky.createSession(
+  final session = await createSession(
     identifier: 'YOUR_HANDLE_OR_EMAIL',
     password: 'YOUR_PASSWORD',
   );
 
   // Just pass created session data.
-  final bluesky = bsky.Bluesky.fromSession(
-    session.data,
-  );
+  final bsky = Bluesky.fromSession(session.data);
 
-  final timeline = await bluesky.feed.getTimeline();
+  final timeline = await bsky.feed.getTimeline();
 
   print(timeline);
 }
@@ -181,32 +248,270 @@ Okay then, let's try some endpoints!
 The following example first authenticates the user against `bsky.social`, sends the post to Bluesky, and then deletes it using a reference to the created record.
 
 ```dart
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/atproto.dart';
+import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/core.dart';
 
 Future<void> main() async {
-  final session = await bsky.createSession(
+  final session = await createSession(
     identifier: 'YOUR_HANDLE_OR_EMAIL',
     password: 'YOUR_PASSWORD',
   );
 
   // Just pass created session data.
-  final bluesky = bsky.Bluesky.fromSession(
-    session.data,
-  );
+  final bsky = Bluesky.fromSession(session.data);
 
   // Create a record to specific service like Bluesky.
-  final strongRef = await bluesky.feed.post(
-    text: 'Hello, Bluesky!',
-  );
+  final strongRef = await bsky.feed.post.create(text: 'Hello, Bluesky!');
 
   // And delete it.
-  await bluesky.repo.deleteRecord(uri: strongRef.data.uri);
+  final uri = AtUri(strongRef.data.uri);
+  await bsky.feed.post.delete(rkey: uri.rkey);
 }
 ```
 
 :::tip
-See **[API Support Matrix](../supported_api.md#blueskyo)** for all supported endpoints.
+See **[API Support Matrix](../supported_api.md#bluesky)** for all supported endpoints.
 :::
+
+### Feed Operations
+
+**[bluesky](https://pub.dev/packages/bluesky)** provides comprehensive support for all feed-related operations. Here are some common examples:
+
+#### Creating Posts
+
+```dart
+import 'dart:io';
+import 'dart:typed_data';
+
+import 'package:bluesky/app_bsky_embed_external.dart';
+import 'package:bluesky/app_bsky_embed_images.dart';
+import 'package:bluesky/app_bsky_feed_post.dart';
+import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/core.dart';
+
+Future<void> main() async {
+  final bsky = Bluesky.fromSession(await _session);
+
+  // Simple text post
+  final post = await bsky.feed.post.create(text: 'Hello, Bluesky! 🦋');
+  print('Posted: ${post.data.uri}');
+
+  // Upload images
+  final image = File('./cool_image.jpg').readAsBytesSync();
+  final blob = await bsky.atproto.repo.uploadBlob(bytes: image);
+
+  // Post with images
+  final imagePost = await bsky.feed.post.create(
+    text: 'Check out this image!',
+    embed: UFeedPostEmbed.embedImages(
+      data: EmbedImages(
+        images: [EmbedImagesImage(image: blob.data.blob, alt: 'Cool image!')],
+      ),
+    ),
+  );
+
+  // Post with external link
+  final linkPost = await bsky.feed.post.create(
+    text: 'Interesting article',
+    embed: UFeedPostEmbed.embedExternal(
+      data: EmbedExternal(
+        external: EmbedExternalExternal(
+          uri: AtUri('https://example.com'),
+          title: 'Article Title',
+          description: 'Article description',
+        ),
+      ),
+    ),
+  );
+}
+```
+
+#### Timeline and Feed Management
+
+```dart
+// Get user timeline
+final timeline = await bsky.feed.getTimeline(limit: 50);
+for (final post in timeline.data.feed) {
+  print('${post.post.author.displayName}: ${post.post.record}');
+}
+
+// Get author feed
+final authorFeed = await bsky.feed.getAuthorFeed(
+  actor: 'shinyakato.dev',
+  limit: 20,
+);
+
+// Get post thread
+final thread = await bsky.feed.getPostThread(
+  uri: 'at://did:plc:example/app.bsky.feed.post/example',
+);
+```
+
+#### Interactions (Likes, Reposts, Replies)
+
+```dart
+// Like a post
+final like = await bsky.feed.like.create(
+  subject: RepoStrongRef(uri: uri, cid: cid),
+);
+
+// Repost
+final repost = await bsky.feed.repost.create(
+  subject: RepoStrongRef(uri: uri, cid: cid),
+);
+
+// Reply to a post
+final reply = await bsky.feed.post.create(
+  text: 'Great post!',
+  reply: ReplyRef(
+    root: RepoStrongRef(uri: originalPostUri, cid: originalPostCid),
+    parent: RepoStrongRef(uri: originalPostUri, cid: originalPostCid),
+  ),
+);
+
+// Get post likes
+final likes = await bsky.feed.getLikes(uri: postUri);
+for (final like in likes.data.likes) {
+  print('Liked by: ${like.actor.displayName}');
+}
+
+// Get reposts
+final reposts = await bsky.feed.getRepostedBy(uri: postUri);
+```
+
+### Chat Features
+
+**[bluesky](https://pub.dev/packages/bluesky)** provides full support for Bluesky's chat functionality through the **[BlueskyChat](https://pub.dev/documentation/bluesky/latest/bluesky_chat/BlueskyChat-class.html)** class.
+
+#### Setting Up Chat
+
+```dart
+import 'package:bluesky/atproto.dart';
+import 'package:bluesky/bluesky_chat.dart';
+
+Future<void> main() async {
+  final session = await createSession(
+    identifier: 'YOUR_HANDLE_OR_EMAIL',
+    password: 'YOUR_PASSWORD',
+  );
+
+  final chat = BlueskyChat.fromSession(session.data);
+}
+```
+
+#### Conversation Management
+
+```dart
+// List all conversations
+final conversations = await chat.convo.listConvos(limit: 50);
+for (final convo in conversations.data.convos) {
+  print(
+    'Conversation with: ${convo.members.map((m) => m.displayName).join(', ')}',
+  );
+  print('Last message: ${convo.lastMessage ?? 'No messages'}');
+}
+
+// Get a specific conversation
+final convo = await chat.convo.getConvo(convoId: 'convo-id');
+
+// Get conversation for specific members
+final memberConvo = await chat.convo.getConvoForMembers(
+  members: ['did:plc:example1', 'did:plc:example2'],
+);
+
+// Accept a conversation request
+await chat.convo.acceptConvo(convoId: 'convo-id');
+
+// Leave a conversation
+await chat.convo.leaveConvo(convoId: 'convo-id');
+
+// Mute/unmute conversations
+await chat.convo.muteConvo(convoId: 'convo-id');
+await chat.convo.unmuteConvo(convoId: 'convo-id');
+```
+
+#### Message Management
+
+```dart
+// Send a message
+final message = await chat.convo.sendMessage(
+  convoId: 'convo-id',
+  message: MessageInput(text: 'Hello! How are you doing?'),
+);
+
+// Send multiple messages in batch
+await chat.convo.sendMessageBatch(
+  items: [
+    BatchItem(
+      convoId: 'convo-id-1',
+      message: MessageInput(text: 'Message 1'),
+    ),
+    BatchItem(
+      convoId: 'convo-id-2',
+      message: MessageInput(text: 'Message 2'),
+    ),
+  ],
+);
+
+// Get messages from a conversation
+final messages = await chat.convo.getMessages(convoId: 'convo-id', limit: 50);
+
+for (final message in messages.data.messages) {
+  print('$message');
+}
+
+// Mark messages as read
+await chat.convo.updateRead(convoId: 'convo-id', messageId: 'message-id');
+
+// Mark all conversations as read
+await chat.convo.updateAllRead();
+
+// Delete message for self
+await chat.convo.deleteMessageForSelf(
+  convoId: 'convo-id',
+  messageId: 'message-id',
+);
+```
+
+#### Message Reactions
+
+```dart
+// Add reaction to a message
+await chat.convo.addReaction(
+  convoId: 'convo-id',
+  messageId: 'message-id',
+  value: '👍',
+);
+
+// Remove reaction from a message
+await chat.convo.removeReaction(
+  convoId: 'convo-id',
+  messageId: 'message-id',
+  value: '👍',
+);
+```
+
+#### Chat Moderation
+
+```dart
+// Get actor metadata for moderation
+final actorMeta = await chat.moderation.getActorMetadata(
+  actor: 'did:plc:example',
+);
+
+// Update actor access (for moderators)
+await chat.moderation.updateActorAccess(
+  actor: 'did:plc:example',
+  allowAccess: true,
+);
+
+// Get message context for moderation
+final messageContext = await chat.moderation.getMessageContext(
+  convoId: 'convo-id',
+  messageId: 'message-id',
+);
+```
 
 ## More Tips 🏄
 
@@ -218,10 +523,10 @@ Okay, the most important factor here is **_how to create a session_**.
 First, use the `.createSession` function to create the most primitive session as follows.
 
 ```dart
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/atproto.dart';
 
 Future<void> main() async {
-  final session = await bsky.createSession(
+  final session = await createSession(
     identifier: 'HANDLE_OR_EMAIL', // Like shinyakato.dev
     password: 'PASSWORD', // App Password is recommended
   );
@@ -233,10 +538,11 @@ Future<void> main() async {
 Then you can create **[Bluesky](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky-class.html)** object from authenticated session.
 
 ```dart
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/atproto.dart';
+import 'package:bluesky/bluesky.dart';
 
 Future<void> main() async {
-  final session = await bsky.createSession(
+  final session = await createSession(
     identifier: 'HANDLE_OR_EMAIL', // Like shinyakato.dev
     password: 'PASSWORD', // App Password is recommended
   );
@@ -244,10 +550,12 @@ Future<void> main() async {
   print(session);
 
   // You can create Bluesky object from authenticated session.
-  final bluesky = bsky.Bluesky.fromSession(session.data);
+  final bsky = Bluesky.fromSession(session.data);
 
   // Do something with bluesky
-  final did = await bluesky.identity.resolveHandle(handle: session.data.handle);
+  final did = await bsky.atproto.identity.resolveHandle(
+    handle: session.data.handle,
+  );
 }
 ```
 
@@ -264,11 +572,11 @@ Given the above reason, a possible use case is for the application to determine 
 With **[bluesky](https://pub.dev/packages/bluesky)**, you can easily determine if a password is in App Password format by using the `.isValidAppPassword` function.
 
 ```dart
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/core.dart' as core;
 
 Future<void> main() async {
-  bsky.isValidAppPassword('xxxx-xxxx-xxxx-xxxx'); // => true
-  bsky.isValidAppPassword('xxxxxxxxxxxxxxxxxxx'); // => false
+  core.isValidAppPassword('xxxx-xxxx-xxxx-xxxx'); // => true
+  core.isValidAppPassword('xxxxxxxxxxxxxxxxxxx'); // => false
 }
 ```
 
@@ -279,10 +587,11 @@ The endpoints provided by **[bluesky](https://pub.dev/packages/bluesky)** always
 You can specify any `service` as follows.
 
 ```dart
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/atproto.dart';
+import 'package:bluesky/bluesky.dart';
 
 Future<void> main() async {
-  final session = await bsky.createSession(
+  final session = await createSession(
     // Add this.
     service: 'boobee.blue',
 
@@ -290,7 +599,7 @@ Future<void> main() async {
     password: 'YOUR_PASSWORD',
   );
 
-  final bluesky = bsky.Bluesky.fromSession(
+  final bsky = Bluesky.fromSession(
     session.data,
 
     // Add this, or resolve dynamically based on session.
@@ -309,10 +618,10 @@ For example, if you have the following code:
 import 'package:bluesky/bluesky.dart';
 
 Future<void> main() async {
-  final bluesky = Bluesky.anonymous();
+  final bsky = Bluesky.anonymous();
 
   // Just find the DID of `shinyakato.dev`
-  final did = await bluesky.identity.resolveHandle(
+  final did = await bsky.atproto.identity.resolveHandle(
     handle: 'shinyakato.dev',
   );
 }
@@ -366,12 +675,12 @@ The main purpose of setting a rate limit for the API is to prevent excessive req
 Rate limits in the AT Protocol are defined in a common specification for the protocol and are set and you can easily access this information as follows.
 
 ```dart
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/bluesky.dart';
 
 Future<void> main() async {
-  final bluesky = bsky.Bluesky.fromSession(await _session);
+  final bsky = Bluesky.fromSession(await _session);
 
-  final response = await bluesky.feed.getTimeline();
+  final response = await bsky.feed.getTimeline();
 
   // This is rate limit!
   print(response.rateLimit);
@@ -446,6 +755,60 @@ Since AT Protocol's Lexicon supports the Union type, there are several endpoints
 
 See, for example, **[Firehose API](#firehose-api)** in the next section.
 
+#### Advanced Union Type Handling
+
+```dart
+import 'package:bluesky/app_bsky_feed_defs.dart';
+
+// Example: Handling different embed types in posts
+void handlePostEmbed(UPostViewEmbed? embed) {
+  embed?.when(
+    embedImagesView: (images) {
+      print('Post has ${images.images.length} images');
+      for (final image in images.images) {
+        print('Image: ${image.alt} - ${image.thumb}');
+      }
+    },
+    embedExternalView: (external) {
+      print('External link: ${external.external.title}');
+      print('URL: ${external.external.uri}');
+    },
+    embedRecordView: (record) {
+      print('Quoted post: ${record.record}');
+    },
+    embedRecordWithMediaView: (recordWithMedia) {
+      print('Quote post with media');
+    },
+    embedVideoView: (video) {
+      print('Video: ${video.playlist}');
+      print('Alt text: ${video.alt}');
+    },
+    unknown: (data) {
+      print('Unknown embed type: ${data.runtimeType}');
+      // Handle future embed types gracefully
+    },
+  );
+}
+
+// Pattern matching approach (Dart 3+)
+void handlePostEmbedWithPatternMatching(UPostViewEmbed? embed) {
+  switch (embed) {
+    case UPostViewEmbedEmbedImagesView():
+      print('Images embed with ${embed.data.images.length} images');
+    case UPostViewEmbedEmbedExternalView():
+      print('External link: ${embed.data.external.title}');
+    case UPostViewEmbedEmbedRecordView():
+      print('Record embed: ${embed.data.record}');
+    case UPostViewEmbedEmbedRecordWithMediaView():
+      print('Record with media embed');
+    case UPostViewEmbedEmbedVideoView():
+      print('Video embed: ${embed.data.alt}');
+    default:
+      print('Unknown or unsupported embed type');
+  }
+}
+```
+
 :::info
 All Union types provided by **[bluesky](https://pub.dev/packages/bluesky)** always have the property **`unknown`**. This is because Union types not supported by **[bluesky](https://pub.dev/packages/bluesky)** **cannot be converted** to specific model objects when returned from a particular endpoint.
 
@@ -460,21 +823,25 @@ And all union objects have defined class names prefixed with **_`U`_**.
 So, if you want the Firehose API to handle only `Commit` and `Handle` events, you can use the **`USubscribedRepoCommit`** and **`USubscribedRepoHandle`** objects for pattern matching as follows.
 
 ```dart
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/com_atproto_sync_subscriberepos.dart';
+import 'package:bluesky/firehose.dart';
 
 Future<void> main() async {
-  final bluesky = bsky.Bluesky.anonymous();
+  final bsky = Bluesky.anonymous();
 
-  final subscription = await bluesky.sync.subscribeRepos();
+  final subscription = await bsky.atproto.sync.subscribeRepos();
 
   await for (final event in subscription.data.stream) {
+    final repos = const SyncSubscribeReposAdaptor().execute(event);
+
     // No need to use `.when` method.
-    switch (event) {
+    switch (repos) {
       // Specify an union object prefixed with `U` as the case.
-      case bsky.USubscribedRepoCommit():
-        print(event.data.ops);
-      case bsky.USubscribedRepoHandle():
-        print(event.data.handle);
+      case USyncSubscribeReposMessageCommit():
+        print(repos.data.ops);
+      case USyncSubscribeReposMessageIdentity():
+        print(repos.data.handle);
     }
   }
 }
@@ -485,37 +852,42 @@ Future<void> main() async {
 
 **[bluesky](https://pub.dev/packages/bluesky)** makes it easy to work with the powerful **`Firehose API`**.
 
-The **`Firehose API`** in AT Protocol allows you to get all events that occur on a specific service, such as `bsky.social`, **_in real time_**. This powerful and long-lived API can be used to calculate statistics using real-time data, develop interesting interactive BOTs, etc.
+The **`Firehose API`** in AT Protocol allows you to get all events that occur on a specific service, such as `bsky.network`, **_in real time_**. This powerful and long-lived API can be used to calculate statistics using real-time data, develop interesting interactive BOTs, etc.
 
-Using **[bluesky](https://pub.dev/packages/bluesky)** to access the `Firehose API` is very simple, just execute the **[subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepos.html)** method provided by the **[SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)** as shown in the following example. Also, user authentication is not required to access the `Firehose API`.
+Using **[bluesky](https://pub.dev/packages/bluesky)** to access the `Firehose API` is very simple, just execute the **[subscribeRepos](https://pub.dev/documentation/atproto/latest/com_atproto_services/SyncService/subscribeRepos.html)** method provided by the **[SyncService](https://pub.dev/documentation/atproto/latest/com_atproto_services/SyncService-class.html)** as shown in the following example. Also, user authentication is not required to access the `Firehose API`.
 
 ```dart
 import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/com_atproto_sync_subscriberepos.dart';
+import 'package:bluesky/firehose.dart';
 
 Future<void> main() async {
   // Authentication is not required.
-  final bluesky = Bluesky.anonymous();
+  final bsky = Bluesky.anonymous();
 
-  final subscription = await bluesky.sync.subscribeRepos();
+  final subscription = await bsky.atproto.sync.subscribeRepos();
 
   // Get events in real time.
   await for (final event in subscription.data.stream) {
-    event.when(
+    final repos = const SyncSubscribeReposAdaptor().execute(event);
+
+    repos.when(
       // Occurs when account committed records, such as Post and Like in Bluesky.
       commit: (data) {
         // A single commit may contain multiple records.
         for (final op in data.ops) {
-          switch (op.action) {
-            case RepoAction.create:
-            case RepoAction.update:
-              // Created/Updated AT URI and specific record.
-              print(op.uri);
-              print(op.record);
+          if (op.action.isUnknown) continue;
+
+          switch (op.action.knownValue!) {
+            case KnownRepoOpAction.create:
+            case KnownRepoOpAction.update:
+              // Created/Updated operation.
+              print(op);
 
               break;
-            case RepoAction.delete:
-              // Deleted AT URI.
-              print(op.uri);
+            case KnownRepoOpAction.delete:
+              // Deleted operation.
+              print(op);
 
               break;
           }
@@ -523,14 +895,14 @@ Future<void> main() async {
       },
 
       // Occurs when account changed handle.
-      handle: (data) {
+      identity: (data) {
         // Updated handle.
         print(data.handle);
         print(data.did);
       },
 
-      migrate: print,
-      tombstone: print,
+      account: print,
+      sync: print,
       info: print,
       unknown: print,
     );
@@ -538,43 +910,47 @@ Future<void> main() async {
 }
 ```
 
-The above example may seem a bit difficult, but the **[SubscribedRepo](https://pub.dev/documentation/atproto/latest/atproto/SubscribedRepo-class.html)** that can be retrieved in real-time from the Stream is of type **[Union](#union-types)**, so `.when(...)` method can be used to easily handle each event.
+The above example may seem a bit difficult, but the **[USyncSubscribeReposMessage](https://pub.dev/documentation/atproto/latest/com_atproto_sync_subscriberepos/USyncSubscribeReposMessage-class.html)** that can be retrieved in real-time from the Stream is of type **[Union](#union-types)**, so `.when(...)` method can be used to easily handle each event.
 
-In addition, **[bluesky](https://pub.dev/packages/bluesky)** can easily filter and retrieve only specific commit data from the `Firehose API` by using **[RepoCommitAdaptor](https://pub.dev/documentation/bluesky/latest/bluesky/RepoCommitAdaptor-class.html)**.
+In addition, **[bluesky](https://pub.dev/packages/bluesky)** can easily filter and retrieve only specific commit data from the `Firehose API` by using **[RepoCommitHandler](https://pub.dev/documentation/bluesky/latest/firehose/RepoCommitHandler-class.html)**.
 
 ```dart
 import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/com_atproto_sync_subscriberepos.dart';
+import 'package:bluesky/firehose.dart';
 
 Future<void> main() async {
   // Authentication is not required.
-  final bluesky = Bluesky.anonymous();
+  final bsky = Bluesky.anonymous();
 
-  final subscription = await bluesky.sync.subscribeRepos();
+  final subscription = await bsky.atproto.sync.subscribeRepos();
 
-  // Use `RepoCommitAdaptor`.
-  final repoCommitAdaptor = RepoCommitAdaptor(
+  // Use `RepoCommitHandler`.
+  final handler = RepoCommitHandler(
     // Occurs only when post record is created.
-    onCreatePost: (data) {
+    onCreateFeedPost: (data) {
       print(data.uri);
       print(data.record);
     },
     // Occurs only when profile record is updated.
-    onUpdateProfile: (data) {
+    onUpdateActorProfile: (data) {
       print(data.uri);
       print(data.record);
     },
     // Occurs only when follow record is deleted.
-    onDeleteFollow: (data) {
+    onDeleteGraphFollow: (data) {
       print(data.uri);
     },
   );
 
   await for (final event in subscription.data.stream) {
-    event.when(
-      commit: repoCommitAdaptor.execute, // Execute like this.
-      handle: print,
-      migrate: print,
-      tombstone: print,
+    final repos = const SyncSubscribeReposAdaptor().execute(event);
+
+    repos.when(
+      commit: handler.execute, // Execute like this.
+      identity: print,
+      account: print,
+      sync: print,
       info: print,
       unknown: print,
     );
@@ -582,9 +958,85 @@ Future<void> main() async {
 }
 ```
 
-:::info
-For more details about `Firehose API`,  you can check **[this article](https://dev.to/shinyakato/easily-use-firehose-api-on-bluesky-social-with-dart-and-flutter-mdk)**.
-:::
+#### Advanced Firehose Usage
+
+```dart
+import 'package:bluesky/app_bsky_feed_post.dart';
+import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/com_atproto_repo_strongref.dart';
+import 'package:bluesky/com_atproto_sync_subscriberepos.dart';
+import 'package:bluesky/firehose.dart';
+
+/// Mention Bot
+Future<void> main() async {
+  // Authentication is not required.
+  final bsky = Bluesky.anonymous();
+
+  // Create a sophisticated bot that responds to mentions
+  final mentionBot = RepoCommitHandler(
+    onCreateFeedPost: (data) async {
+      final post = data.record;
+      final text = post.text.toLowerCase();
+
+      // Check if the bot is mentioned
+      if (text.contains('@mybot.bsky.social')) {
+        // Extract the mention and respond
+        final response = await generateResponse(text);
+
+        await bsky.feed.post.create(
+          text: response,
+          reply: ReplyRef(
+            root: RepoStrongRef(uri: data.uri.toString(), cid: data.cid!),
+            parent: RepoStrongRef(uri: data.uri.toString(), cid: data.cid!),
+          ),
+        );
+      }
+    },
+  );
+
+  final subscription = await bsky.atproto.sync.subscribeRepos();
+
+  await for (final event in subscription.data.stream) {
+    final repos = const SyncSubscribeReposAdaptor().execute(event);
+
+    repos.whenOrNull(commit: mentionBot.execute);
+  }
+}
+```
+
+```dart
+import 'package:bluesky/com_atproto_sync_subscriberepos.dart';
+import 'package:bluesky/firehose.dart';
+
+// Real-time analytics example
+class FirehoseAnalytics {
+  int postCount = 0;
+  int likeCount = 0;
+  final Map<String, int> languageStats = {};
+
+  void process(Commit data) {
+    RepoCommitHandler(
+      onCreateFeedPost: (data) {
+        postCount++;
+        final post = data.record;
+        final langs = post.langs ?? ['unknown'];
+        for (final lang in langs) {
+          languageStats[lang] = (languageStats[lang] ?? 0) + 1;
+        }
+      },
+      onCreateFeedLike: (data) {
+        likeCount++;
+      },
+    ).execute(data);
+
+    // Print stats every 1000 posts
+    if (postCount % 1000 == 0) {
+      print('Posts: $postCount, Likes: $likeCount');
+      print('Top languages: ${languageStats.entries.take(5).toList()}');
+    }
+  }
+}
+```
 
 ### Timeout Duration
 
@@ -607,13 +1059,13 @@ Future<void> main() async {
 
 ### Advanced Built-In Retry
 
-**[bluesky](https://pub.dev/packages/bluesky)** has **an advanced retry feature** using the **[Exponential BackOff And Jitter](https://aws.amazon.com/jp/blogs/architecture/exponential-backoff-and-jitter/)** algorithm.
+**[bluesky](https://pub.dev/packages/bluesky)** has **an advanced retry feature** using the **[Exponential BackOff And Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/)** algorithm.
 
 The reason why retry processing is so important in API communication is because the nature of the process of communicating with external servers means that there is **_always_** the possibility of temporary errors, such as network failures. In the event of a network failure, rather than throwing an exception and terminating the process, waiting for a while and retrying the process will often work.
 
 And the algorithm is also important when retrying. This is because if the retry algorithm is simply one that waits and retries every fixed period of time, multiple retry requests will be sent to the server simultaneously before the temporary network failure is resolved. This condition will cause the server, which is temporarily out of shape, to generate even more heat.
 
-The **[Exponential BackOff And Jitter](https://aws.amazon.com/jp/blogs/architecture/exponential-backoff-and-jitter/)** used by **[bluesky](https://pub.dev/packages/bluesky)** solves this problem. **[bluesky](https://pub.dev/packages/bluesky)** uses a sophisticated algorithm with random numbers to distribute the load on the server while improving the probability of success on retries.
+The **[Exponential BackOff And Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/)** used by **[bluesky](https://pub.dev/packages/bluesky)** solves this problem. **[bluesky](https://pub.dev/packages/bluesky)** uses a sophisticated algorithm with random numbers to distribute the load on the server while improving the probability of success on retries.
 
 :::note
 `Jitter` means random number.
@@ -623,21 +1075,19 @@ You can use this retry features as follows.
 
 ```dart
 import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/core.dart' as core;
 
 Future<void> main() async {
-  final bluesky = Bluesky.anonymous(
+  final bsky = Bluesky.anonymous(
     // Add this.
-    retryConfig: RetryConfig(
+    retryConfig: core.RetryConfig(
       // Required.
       // You can set count of attempts.
       maxAttempts: 3,
 
       // Optional.
       // Jitter can be specified as you want.
-      jitter: Jitter(
-        maxInSeconds: 10,
-        minInSeconds: 5,
-      ),
+      jitter: core.Jitter(maxInSeconds: 10, minInSeconds: 5),
 
       // Optional.
       // You can define the events that occur when Retry is executed.
@@ -653,8 +1103,54 @@ Future<void> main() async {
 **Then it retries:**
 
 - When the status code of the response returned from ATP server is **`5xx`**
-- When the network is temporarily lost and a **`SocketException`** is thrown
+- When the network is temporarily lost
 - When communication times out temporarily and a **`TimeoutException`** is thrown
+
+#### Advanced Error Handling and Retry Patterns
+
+```dart
+import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/core.dart' as core;
+
+Future<void> main() async {
+  final maxAttempts = 5;
+
+  final bluesky = Bluesky.fromSession(
+    session,
+    retryConfig: core.RetryConfig(
+      maxAttempts: maxAttempts,
+      jitter: core.Jitter(minInSeconds: 1, maxInSeconds: 30),
+      onExecute: (event) {
+        print('Retry attempt ${event.retryCount}/$maxAttempts');
+        print('Waiting ${event.intervalInSeconds}s before retry...');
+      },
+    ),
+  );
+
+  try {
+    // This will automatically retry on transient failures
+    final timeline = await bluesky.feed.getTimeline();
+    print('Successfully retrieved ${timeline.data.feed.length} posts');
+  } on core.RateLimitExceededException catch (e) {
+    // Handle rate limiting specifically
+    print('Rate limit exceeded. Reset at: ${e.response.rateLimit.resetAt}');
+    await e.response.rateLimit.waitUntilReset();
+
+    // Retry after rate limit reset
+    final timeline = await bluesky.feed.getTimeline();
+  } on core.UnauthorizedException catch (e) {
+    // Handle authentication errors
+    print('Authentication failed: ${e.response}');
+    // Refresh session or re-authenticate
+  } on core.XRPCException catch (e) {
+    // Handle other API errors
+    print('API error: ${e.response}');
+  } catch (e) {
+    // Handle unexpected errors
+    print('Unexpected error: $e');
+  }
+}
+```
 
 ### Lexicon/Object IDs
 
@@ -693,16 +1189,16 @@ For more details about design of pagination and `cursor` in the AT Protocol, [se
 **[bluesky](https://pub.dev/packages/bluesky)** also follows the common design of AT Protocol and allows paging by using `cursor`. It can be easily implemented as in the following example.
 
 ```dart
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/bluesky.dart';
 
 Future<void> main() async {
-  final bluesky = bsky.Bluesky.fromSession(await _session);
+  final bsky = Bluesky.fromSession(await _session);
 
   // Pagination is performed on a per-cursor basis.
   String? nextCursor;
 
   do {
-    final actors = await bluesky.actor.searchActors(
+    final actors = await bsky.actor.searchActors(
       term: 'alf',
       cursor: nextCursor, // If null, it is ignored.
     );
@@ -726,7 +1222,7 @@ This example is a very simple implementation, but it allows us to see pagination
 Whenever a method corresponding to a pagination-available endpoint is executed, the `cursor` is always present in the root of the response data, like `actors.data.cursor` above.
 If the next page does not exist, `cursor` is basically `null`.
 
-### Unspecced Inputs
+### Unknown Inputs
 
 When using a POST endpoint with services other than AT Protocol or Bluesky Social, basically only expected inputs are allowed.
 For example, the input `via` in addition to `text` is not allowed for an endpoint where only the input `text` is expected.
@@ -740,24 +1236,19 @@ For example, in the above example, if the `text` input is defined by Lexicon to 
 If a structure or type different from the properties defined in Lexicon is detected, an `InvalidRequestException` is always thrown.
 :::
 
-To include such unspecced inputs in a request using **[bluesky](https://pub.dev/packages/bluesky)**, implement with `unspecced` parameter as follows.
+To set unknown inputs in a request using **[bluesky](https://pub.dev/packages/bluesky)**, implement with `$unknown` parameter as follows.
 
-```dart title="Post with Place Information"
-import 'package:bluesky/bluesky.dart' as bsky;
+```dart title="Post with Via parameter"
+import 'package:bluesky/bluesky.dart';
 
 Future<void> main() async {
-  final bluesky = bsky.Bluesky.fromSession(await _session);
+  final bsky = Bluesky.fromSession(await _session);
 
-  final ref = await bluesky.feed.post(
+  final ref = await bsky.feed.post.create(
     text: 'This is where I post from',
 
-    // Use this parameter.
-    unspecced: {
-      r'$place': {
-        'latitude': 40.730610,
-        'longitude': -73.935242,
-      }
-    },
+    // Use `$unknown` parameter.
+    $unknown: {r'$via': 'atproto.dart'},
   );
 
   print(ref);
@@ -771,10 +1262,7 @@ Executing this code will register a following record.
   "text": "This is where I post from",
   "$type": "app.bsky.feed.post",
   "createdAt": "2023-08-10T02:27:19.682542Z",
-  "$place": {
-    "latitude": 40.73061,
-    "longitude": -73.935242
-  }
+  "$via": "atproto.dart"
 }
 ```
 
@@ -785,90 +1273,200 @@ As in the example above, any object of any structure can be registered as a reco
 
 However, as you register your own properties, **you should consider the possibility that they will be added to the official Lexicon in the future**.
 If an official Lexicon property added in the future has the same name as a property you have registered, there is a possibility of name conflicts and system downtime for an unspecified number of clients.
-For example, if you registered `place` property and it's added to the official Lexicon in the future as a `place` with the same name, the client may not be able to process the data correctly due to structural inconsistencies.
+For example, if you registered `via` property and it's added to the official Lexicon in the future as a `via` with the same name, the client may not be able to process the data correctly due to structural inconsistencies.
 
-So, **_make sure that the unique properties you register from the `unspecced` parameter are unique_**.
+So, **_make sure that the unique properties you register from the `$unknown` parameter are unique_**.
 To make the name of a property unique, the following methods are possible.
 
-- Prefix symbols such a `$` (e.g. `$place`)
-- Prefix with the domain name you own (e.g. `dev.shinyakato.place`)
+- Prefix symbols such a `$` (e.g. `$via`)
+- Prefix with the domain name you own (e.g. `dev.shinyakato.via`)
 :::
 
 ### Moderation API
 
+**[bluesky](https://pub.dev/packages/bluesky)** provides comprehensive moderation capabilities for content filtering, labeling, and reporting.
+
+#### Content Moderation
+
 ```dart
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/bluesky.dart' ;
 import 'package:bluesky/moderation.dart' as mod;
 
 Future<void> main() async {
   final bsky = Bluesky.fromSession(await _session);
 
   // First get the user's moderation prefs and their label definitions
-  // =
-
   final preferences = await bsky.actor.getPreferences();
   final moderationPrefs = preferences.data.getModerationPrefs();
   final labelDefs = await bsky.labeler.getLabelDefinitions(moderationPrefs);
 
-  final moderationOpts = ModerationOpts(
+  final moderationOpts = mod.ModerationOpts(
     userDid: bsky.session?.did,
     prefs: moderationPrefs,
     labelDefs: labelDefs,
   );
 
-  // We call the appropriate moderation function for the content
-  // =
-
-  final postMod = moderatePost(
-    ModerationSubjectPost.postView(data: post),
+  // Moderate different types of content
+  final postMod = mod.moderatePost(
+    mod.ModerationSubjectPost.postView(data: post),
     moderationOpts,
   );
 
-  // We then use the output to decide how to affect rendering
-  // =
+  final profileMod = mod.moderateProfile(
+    mod.ModerationSubjectProfile.profileView(data: profile),
+    moderationOpts,
+  );
 
-  final contentList = postMod.getUI(ModerationBehaviorContext.contentList);
-  final contentView = postMod.getUI(ModerationBehaviorContext.contentView);
-  final contentMedia = postMod.getUI(ModerationBehaviorContext.contentMedia);
+  // Use moderation results to control rendering
+  final contentList = postMod.getUI(mod.ModerationBehaviorContext.contentList);
+  final contentView = postMod.getUI(mod.ModerationBehaviorContext.contentView);
+  final contentMedia = postMod.getUI(mod.ModerationBehaviorContext.contentMedia,
+  );
 
-  // in feeds
+  // Apply moderation decisions
   if (contentList.filter) {
-    // don't include in feeds
+    // Don't include in feeds
+    return;
   }
 
   if (contentList.blur) {
-    // render the whole object behind a cover
-    if (contentList.noOverride) {
-      // do not allow the cover the be removed
-    }
+    // Render behind a content warning
+    showContentWarning(
+      content: post,
+      canOverride: !contentList.noOverride,
+      warning: contentList.alert ? 'Content may be sensitive' : '',
+    );
   }
 
   if (contentList.alert || contentList.inform) {
-    // render warnings on the post
-  }
-
-  // viewed directly
-  if (contentView.filter) {
-    // don't include in feeds
-  }
-
-  if (contentView.blur) {
-    // render the whole object behind a cover
-    if (contentView.noOverride) {
-      // do not allow the cover the be removed
-    }
-  }
-
-  if (contentView.alert || contentView.inform) {
-    // render warnings on the post
-  }
-
-  // post embeds in all contexts
-  if (contentMedia.blur) {
-    // render the whole object behind a cover
-    if (contentMedia.noOverride) {
-      // do not allow the cover the be removed
-    }
+    // Show warning labels
+    showModerationWarning(
+      contentList.alert || contentList.inform,
+    );
   }
 }
 ```
+
+#### Reporting Content
+
+```dart
+// Report a user account
+final report = await bsky.atproto.moderation.createReport(
+  reasonType: ReasonType.knownValue(
+    data: KnownReasonType.reasonSpam,
+  ), // or KnownReasonType.reasonViolation, etc.
+  subject: UModerationCreateReportSubject.repoRef(
+    data: RepoRef(did: 'did:plc:example'),
+  ),
+  reason: 'This post contains spam content',
+);
+
+// Report a post
+final accountReport = await bsky.atproto.moderation.createReport(
+  reasonType: ReasonType.knownValue(data: KnownReasonType.reasonViolation),
+  subject: UModerationCreateReportSubject.repoStrongRef(
+    data: RepoStrongRef(uri: post.uri, cid: post.cid),
+  ),
+  reason: 'This account is engaging in harassment',
+);
+```
+
+#### Working with Labels
+
+```dart
+// Get labeler services
+final labelerServices = await bsky.labeler.getServices(
+  dids: ['did:plc:labeler-example'],
+  detailed: true,
+);
+
+// Query labels for content
+final labels = await bsky.atproto.label.queryLabels(
+  uriPatterns: ['at://did:plc:example/app.bsky.feed.post/*'],
+  sources: ['did:plc:labeler-example'],
+);
+
+for (final label in labels.data.labels) {
+  print('Label: ${label.val} on ${label.uri}');
+  print('Created by: ${label.src}');
+  print('Created at: ${label.cts}');
+}
+```
+
+#### Custom Moderation Workflows
+
+```dart
+import 'package:atproto/com_atproto_admin_defs.dart';
+import 'package:atproto/com_atproto_moderation_defs.dart';
+import 'package:bluesky/app_bsky_actor_defs.dart';
+import 'package:bluesky/app_bsky_feed_defs.dart';
+import 'package:bluesky/app_bsky_graph_getrelationships.dart';
+import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/com_atproto_moderation_createreport.dart';
+import 'package:bluesky/src/services/codegen/app/bsky/feed/post/main.dart';
+
+// Create custom moderation logic
+class CustomModerationService {
+  final Bluesky bsky;
+  final Set<String> blockedKeywords;
+
+  CustomModerationService(this.bsky, this.blockedKeywords);
+
+  Future<bool> shouldFilterPost(PostView post) async {
+    // Check for blocked keywords
+    final postRecord = FeedPostRecord.fromJson(post.record);
+
+    final text = postRecord.text.toLowerCase();
+    if (blockedKeywords.any((keyword) => text.contains(keyword))) {
+      return true;
+    }
+
+    // Check user's block/mute status
+    final authorDid = post.author.did;
+    final relationship = await bsky.graph.getRelationships(
+      actor: bsky.session!.did,
+      others: [authorDid],
+    );
+
+    final rel = relationship.data.relationships.first;
+
+    switch (rel) {
+      case UGraphGetRelationshipsRelationshipsRelationship():
+        final actor = await bsky.actor.getProfile(actor: rel.data.did);
+
+        return (actor.data.viewer?.hasBlocking ?? false) ||
+            (actor.data.viewer?.isBlockedBy ?? false);
+      default:
+        return false;
+    }
+  }
+
+  Future<void> reportAndBlock(String did, String reason) async {
+    // Report the user
+    await bsky.atproto.moderation.createReport(
+      reasonType: ReasonType.knownValue(data: KnownReasonType.reasonViolation),
+      subject: UModerationCreateReportSubject.repoRef(data: RepoRef(did: did)),
+      reason: reason,
+    );
+
+    // Block the user
+    await bsky.graph.block.create(subject: did);
+  }
+}
+```
+
+## Related Packages
+
+### Core AT Protocol
+
+If you need only core AT Protocol functionality without Bluesky-specific features:
+- **[atproto](./atproto.md)** - Minimal AT Protocol client for infrastructure tools and multi-service applications
+
+### Text Processing
+
+For advanced text processing and rich text features:
+- **[bluesky_text](./bluesky_text.md)** - Rich text analysis, facet generation, and entity extraction
+
+### Package Overview
+
+See the **[Package Overview](./overview.md)** for a complete list of all available packages and their relationships.

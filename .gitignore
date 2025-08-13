@@ -135,3 +135,6 @@ app.*.symbols
 !.vscode/settings.json
 
 coverage.lcov
+
+# Kiro IDE
+.kiro

@@ -5,89 +5,261 @@
 </p>
 
 <p align="center">
-  <b>The Most Famous & Powerful Dart/Flutter Library for Bluesky Social 🦋</b>
+  <b>Complete Bluesky Social client library for Dart and Flutter</b>
 </p>
 
 <!-- TOC -->
-
 - [1. Guide 🌎](#1-guide-)
   - [1.1. Features ⭐](#11-features-)
   - [1.2. Getting Started 💪](#12-getting-started-)
+    - [1.2.1. Install Library](#121-install-library)
+    - [1.2.2. Import](#122-import)
+    - [1.2.3. Implementation](#123-implementation)
   - [1.3. Supported Endpoints 👀](#13-supported-endpoints-)
   - [1.4. More Tips 🏄](#14-more-tips-)
-
 <!-- /TOC -->
 
 # 1. Guide 🌎
 
-This library provides **the most productive way** to use the **_AT Protocol API_** and **_Bluesky API_** in Dart/Flutter apps.
+The `bluesky` package provides a comprehensive client library specifically designed for Bluesky Social, built on top of the AT Protocol. It combines full AT Protocol functionality with Bluesky-specific features, offering the most complete solution for building Bluesky applications.
 
-The library is **cross-platform** and is **already used in many applications**. See **[official showcase](https://atprotodart.com/showcase)** for more details.
+This package extends the `atproto` package with Bluesky-specific services including social feeds, notifications, user profiles, and chat functionality. It provides high-level abstractions for common Bluesky operations while maintaining access to all underlying AT Protocol features.
+
+Use this package when building applications specifically for Bluesky Social. For general AT Protocol development or other AT Protocol services, consider using the `atproto` package directly. The `bluesky` package includes everything from `atproto` plus Bluesky-specific enhancements.
 
 - **[More Documents](https://atprotodart.com/docs/packages/bluesky)**
 
 ## 1.1. Features ⭐
 
-- ✅ **Zero Dependency**
-- ✅ Supports **Powerful Built-In Retry** using **[Exponential BackOff And Jitter](https://aws.amazon.com/jp/blogs/architecture/exponential-backoff-and-jitter/)**
-- ✅ Supports **[All Endpoints](https://atprotodart.com/docs/supported_api#bluesky)** for [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky) and [`chat.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/chat/bsky)
-- ✅ **Well Documented** and **Well Tested**
-- ✅ Supports **Powerful Firehose API**
-- ✅ Supports **Powerful Moderation API**
-- ✅ Supports **OAuth DPoP**
-- ✅ **100% Null Safety**
-- ✅ **Built In [atproto](https://pub.dev/packages/atproto) Features**
+- **Complete Bluesky API Coverage** - Full support for `app.bsky.*` and `chat.bsky.*` endpoints  
+- **Social Feed Management** - Timeline, posts, likes, reposts, and feed algorithms  
+- **User Profiles & Social Graph** - Profile management, follows, blocks, and mutes  
+- **Real-time Notifications** - Push notifications and notification management  
+- **Chat & Messaging** - Direct messages and conversation management  
+- **Content Moderation** - Advanced moderation tools and content filtering  
+- **Media Support** - Image, video, and blob upload with processing  
+- **Built-in AT Protocol** - Includes all `atproto` package functionality  
+- **Advanced Authentication** - Session management and OAuth DPoP support  
+- **Cross-platform Ready** - Works with Dart, Flutter, and server applications
 
 ## 1.2. Getting Started 💪
 
-See **[example](https://github.com/myConsciousness/atproto.dart/blob/main/packages/bluesky/example/example.dart)** or **[official documents](https://atprotodart.com/docs/packages/bluesky)** from following links.
+### 1.2.1. Install Library
 
-- **[Install](https://atprotodart.com/docs/packages/bluesky/#install)**
-- **[Import](https://atprotodart.com/docs/packages/bluesky/#import)**
-- **[Instantiate `Bluesky`](https://atprotodart.com/docs/packages/bluesky/#instantiate-bluesky)**
-- **[Supported Services](https://atprotodart.com/docs/packages/bluesky/#supported-services)**
-- **[Let's Implement](https://atprotodart.com/docs/packages/bluesky/#lets-implement)**
+**With Dart:**
+
+```bash
+dart pub add bluesky
+```
+
+**Or With Flutter:**
+
+```bash
+flutter pub add bluesky
+```
+
+### 1.2.2. Import
+
+```dart
+import 'package:bluesky/bluesky.dart';
+```
+
+### 1.2.3. Implementation
+
+#### Basic Authentication and Setup
+
+```dart
+import 'package:bluesky/atproto.dart';
+import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/core.dart';
+
+Future<void> main(List<String> args) async {
+  // Create a session with your Bluesky credentials
+  final session = await createSession(
+    service: 'bsky.social',
+    identifier: 'your.handle.bsky.social',
+    password: 'your-app-password',
+  );
+
+  // Initialize the Bluesky client
+  final bsky = Bluesky.fromSession(
+    session.data,
+    retryConfig: RetryConfig(
+      maxAttempts: 3,
+      jitter: Jitter(minInSeconds: 1, maxInSeconds: 3),
+    ),
+  );
+}
+```
+
+#### Social Feed Operations
+
+```dart
+import 'dart:io';
+
+import 'package:bluesky/app_bsky_embed_images.dart';
+import 'package:bluesky/app_bsky_feed_post.dart';
+import 'package:bluesky/atproto.dart';
+import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/com_atproto_repo_strongref.dart';
+
+Future<void> main(List<String> args) async {
+  // Create a session with your Bluesky credentials
+  final session = await createSession(
+    service: 'bsky.social',
+    identifier: 'your.handle.bsky.social',
+    password: 'your-app-password',
+  );
+
+  // Initialize the Bluesky client
+  final bsky = Bluesky.fromSession(session.data);
+
+  // Get your home timeline
+  final timeline = await bsky.feed.getTimeline(limit: 50);
+
+  // Create a post
+  await bsky.feed.post.create(text: 'Hello Bluesky!');
+
+  // Create a post with media
+  final image = File('./cool_path.jpg').readAsBytesSync();
+  final imageBlob = await bsky.atproto.repo.uploadBlob(bytes: image);
+
+  final post = await bsky.feed.post.create(
+    text: 'Check out this image!',
+    embed: UFeedPostEmbed.embedImages(
+      data: EmbedImages(
+        images: [EmbedImagesImage(image: imageBlob.data.blob, alt: 'My image')],
+      ),
+    ),
+  );
+
+  // Like a post
+  await bsky.feed.like.create(
+    subject: RepoStrongRef(uri: post.data.uri, cid: post.data.cid),
+  );
+}
+```
+
+#### User Profiles and Social Graph
+
+```dart
+import 'package:bluesky/app_bsky_actor_defs.dart';
+import 'package:bluesky/atproto.dart';
+import 'package:bluesky/bluesky.dart';
+
+Future<void> main(List<String> args) async {
+  // Create a session with your Bluesky credentials
+  final session = await createSession(
+    service: 'bsky.social',
+    identifier: 'your.handle.bsky.social',
+    password: 'your-app-password',
+  );
+
+  // Initialize the Bluesky client
+  final bsky = Bluesky.fromSession(session.data);
+
+  // Get user profile
+  final profile = await bsky.actor.getProfile(actor: 'user.bsky.social');
+
+  // Follow a user
+  await bsky.graph.follow.create(subject: 'did:plc:example123');
+
+  // Get followers
+  final followers = await bsky.graph.getFollowers(
+    actor: 'user.bsky.social',
+    limit: 100,
+  );
+
+  // Update your profile
+  await bsky.actor.putPreferences(
+    preferences: [
+      UPreferences.adultContentPref(data: AdultContentPref(enabled: false)),
+    ],
+  );
+}
+```
+
+#### Chat and Messaging
+
+```dart
+import 'package:bluesky/atproto.dart';
+import 'package:bluesky/bluesky_chat.dart';
+import 'package:bluesky/chat_bsky_convo_defs.dart';
+
+Future<void> main(List<String> args) async {
+  // Create a session with your Bluesky credentials
+  final session = await createSession(
+    service: 'bsky.social',
+    identifier: 'your.handle.bsky.social',
+    password: 'your-app-password',
+  );
+
+  // Initialize chat client
+  final chat = BlueskyChat.fromSession(session.data);
+
+  // List conversations
+  final conversations = await chat.convo.listConvos();
+
+  // Send a message
+  await chat.convo.sendMessage(
+    convoId: 'conversation-id',
+    message: MessageInput(text: 'Hello there!'),
+  );
+}
+```
 
 ## 1.3. Supported Endpoints 👀
 
-See **[official documents](https://atprotodart.com/docs/supported_api)** from following links.
+The `bluesky` package provides comprehensive coverage of both AT Protocol and Bluesky-specific services:
 
-- **[com.atproto.*](https://atprotodart.com/docs/supported_api#atproto)**
-  - **[com.atproto.server.*](https://atprotodart.com/docs/supported_api/#comatprotoserver)**
-  - **[com.atproto.identity.*](https://atprotodart.com/docs/supported_api/#comatprotoidentity)**
-  - **[com.atproto.repo.*](https://atprotodart.com/docs/supported_api/#comatprotorepo)**
-  - **[com.atproto.moderation.*](https://atprotodart.com/docs/supported_api/#comatprotomoderation)**
-  - **[com.atproto.sync.*](https://atprotodart.com/docs/supported_api/#comatprotosync)**
-  - **[com.atproto.label.*](https://atprotodart.com/docs/supported_api/#comatprotolabel)**
-- **[app.bsky.*](https://atprotodart.com/docs/supported_api#bluesky)**
-  - **[app.bsky.actor.*](https://atprotodart.com/docs/supported_api/#appbskyactor)**
-  - **[app.bsky.feed.*](https://atprotodart.com/docs/supported_api/#appbskyfeed)**
-  - **[app.bsky.notification.*](https://atprotodart.com/docs/supported_api/#appbskynotification)**
-  - **[app.bsky.graph.*](https://atprotodart.com/docs/supported_api/#appbskygraph)**
-  - **[app.bsky.unspecced.*](https://atprotodart.com/docs/supported_api/#appbskyunspecced)**
-  - **[app.bsky.labeler.*](https://atprotodart.com/docs/supported_api/#appbskylabeler)**
-  - **[app.bsky.video.*](https://atprotodart.com/docs/supported_api/#appbskyvideo)**
-- **[chat.bsky.*](https://atprotodart.com/docs/supported_api#bluesky)**
-  - **[chat.bsky.*](https://atprotodart.com/docs/supported_api#bluesky)**
-  - **[chat.bsky.actor.*](https://atprotodart.com/docs/supported_api/#chatbskyactor)**
-  - **[chat.bsky.convo.*](https://atprotodart.com/docs/supported_api/#chatbskyconvo)**
-  - **[chat.bsky.moderation.*](https://atprotodart.com/docs/supported_api/#chatbskymoderation)**
+### Bluesky Social Services (`app.bsky.*`)
+
+#### Actor Service (`app.bsky.actor.*`)
+- **Profile Management** - Get and update user profiles, preferences, and settings
+- **Search** - Search for users and actors across the network
+
+#### Feed Service (`app.bsky.feed.*`)
+- **Timeline Operations** - Home timeline, author feeds, and custom algorithms
+- **Post Management** - Create, delete, and interact with posts
+- **Social Interactions** - Likes, reposts, and post threading
+- **Feed Generators** - Custom feed algorithms and discovery
+
+#### Graph Service (`app.bsky.graph.*`)
+- **Social Connections** - Follow, unfollow, block, and mute operations
+- **Relationship Queries** - Get followers, following, and relationship status
+- **List Management** - Create and manage user lists
+
+#### Notification Service (`app.bsky.notification.*`)
+- **Notification Management** - List, mark read, and manage notifications
+- **Push Notifications** - Register and manage push notification preferences
+
+#### Video Service (`app.bsky.video.*`)
+- **Video Upload** - Upload and process video content
+- **Video Management** - Manage video assets and metadata
+
+#### Labeler Service (`app.bsky.labeler.*`)
+- **Content Labeling** - Apply and manage content labels
+- **Moderation Integration** - Work with moderation services
+
+### Chat Services (`chat.bsky.*`)
+
+#### Conversation Service (`chat.bsky.convo.*`)
+- **Message Management** - Send, receive, and manage messages
+- **Conversation Operations** - Create, list, and manage conversations
+- **Chat Moderation** - Report and moderate chat content
+
+### AT Protocol Services (Inherited from `atproto`)
+
+All AT Protocol services from the `atproto` package are included:
+- **Server Service** - Session and account management
+- **Identity Service** - Handle and DID operations  
+- **Repository Service** - Record and data management
+- **Sync Service** - Real-time data synchronization
+- **Moderation Service** - Content reporting and moderation
+- **Label Service** - Content labeling and metadata
+
+**[Complete API Reference](https://atprotodart.com/docs/supported_api)**
 
 ## 1.4. More Tips 🏄
 
-See **[official documents](https://atprotodart.com/docs/packages/bluesky)** from following links.
-
-- **[Session Management](https://atprotodart.com/docs/packages/bluesky#session-management)**
-- **[App Password](https://atprotodart.com/docs/packages/bluesky#app-password)**
-- **[Other Than `bsky.social`](https://atprotodart.com/docs/packages/bluesky#other-than-bskysocial)**
-- **[De/Serialize](https://atprotodart.com/docs/packages/bluesky#deserialize)**
-- **[Thrown Exceptions](https://atprotodart.com/docs/packages/bluesky/#thrown-exceptions)**
-- **[Rate Limits](https://atprotodart.com/docs/packages/bluesky/#rate-limits)**
-- **[Union Types](https://atprotodart.com/docs/packages/bluesky/#union-types)**
-- **[Firehose API](https://atprotodart.com/docs/packages/bluesky/#firehose-api)**
-- **[Timeout Duration](https://atprotodart.com/docs/packages/bluesky/#timeout-duration)**
-- **[Advanced Built-In Retry](https://atprotodart.com/docs/packages/bluesky/#advanced-built-in-retry)**
-- **[Lexicon/Object IDs](https://atprotodart.com/docs/packages/bluesky/#lexiconobject-ids)**
-- **[Pagination](https://atprotodart.com/docs/packages/bluesky/#pagination)**
-- **[Unspecced Inputs](https://atprotodart.com/docs/packages/bluesky/#unspecced-inputs)**
-- **[Moderation API](https://atprotodart.com/docs/packages/bluesky/#moderation-api)**
+- **[Guide](https://atprotodart.com/docs/packages/bluesky/)**

@@ -28,50 +28,17 @@ import 'sync/listReposByCollection/output.dart';
 // LexGenerator
 // **************************************************************************
 
-/// Request a service to persistently crawl hosted repos. Expected use is new PDS instances declaring their existence to Relays. Does not require auth.
-Future<XRPCResponse<EmptyData>> comAtprotoSyncRequestCrawl({
-  required String hostname,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.comAtprotoSyncRequestCrawl,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'hostname': hostname},
-);
-
-/// Enumerates all the DIDs which have records with the given collection NSID.
-Future<XRPCResponse<SyncListReposByCollectionOutput>>
-comAtprotoSyncListReposByCollection({
-  required String collection,
-  int? limit,
-  String? cursor,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.comAtprotoSyncListReposByCollection,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    'collection': collection,
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
-  },
-  to: const SyncListReposByCollectionOutputConverter().fromJson,
-);
-
-/// Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.
-Future<XRPCResponse<Uint8List>> comAtprotoSyncGetBlocks({
+/// DEPRECATED - please use com.atproto.sync.getLatestCommit instead
+Future<XRPCResponse<SyncGetHeadOutput>> comAtprotoSyncGetHead({
   required String did,
-  required List<String> cids,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.comAtprotoSyncGetBlocks,
+  ns.comAtprotoSyncGetHead,
   headers: $headers,
-  parameters: {...?$unknown, 'did': did, 'cids': cids},
+  parameters: {...?$unknown, 'did': did},
+  to: const SyncGetHeadOutputConverter().fromJson,
 );
 
 /// Get a blob associated with a given account. Returns the full blob as originally uploaded. Does not require auth; implemented by PDS.
@@ -87,119 +54,41 @@ Future<XRPCResponse<Uint8List>> comAtprotoSyncGetBlob({
   parameters: {...?$unknown, 'did': did, 'cid': cid},
 );
 
-/// Get the current commit CID & revision of the specified repo. Does not require auth.
-Future<XRPCResponse<SyncGetLatestCommitOutput>> comAtprotoSyncGetLatestCommit({
+/// Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.
+Future<XRPCResponse<Uint8List>> comAtprotoSyncGetRepo({
   required String did,
+  String? since,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.comAtprotoSyncGetLatestCommit,
+  ns.comAtprotoSyncGetRepo,
   headers: $headers,
-  parameters: {...?$unknown, 'did': did},
-  to: const SyncGetLatestCommitOutputConverter().fromJson,
+  parameters: {...?$unknown, 'did': did, if (since != null) 'since': since},
 );
 
-/// Enumerates upstream hosts (eg, PDS or relay instances) that this service consumes from. Implemented by relays.
-Future<XRPCResponse<SyncListHostsOutput>> comAtprotoSyncListHosts({
-  int? limit,
-  String? cursor,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.comAtprotoSyncListHosts,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
-  },
-  to: const SyncListHostsOutputConverter().fromJson,
-);
-
-/// Returns information about a specified upstream host, as consumed by the server. Implemented by relays.
-Future<XRPCResponse<SyncGetHostStatusOutput>> comAtprotoSyncGetHostStatus({
+/// Notify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay. DEPRECATED: just use com.atproto.sync.requestCrawl
+Future<XRPCResponse<EmptyData>> comAtprotoSyncNotifyOfUpdate({
   required String hostname,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.comAtprotoSyncGetHostStatus,
-  headers: $headers,
-  parameters: {...?$unknown, 'hostname': hostname},
-  to: const SyncGetHostStatusOutputConverter().fromJson,
+}) async => await $ctx.post(
+  ns.comAtprotoSyncNotifyOfUpdate,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'hostname': hostname},
 );
 
-/// DEPRECATED - please use com.atproto.sync.getLatestCommit instead
-Future<XRPCResponse<SyncGetHeadOutput>> comAtprotoSyncGetHead({
-  required String did,
+/// Request a service to persistently crawl hosted repos. Expected use is new PDS instances declaring their existence to Relays. Does not require auth.
+Future<XRPCResponse<EmptyData>> comAtprotoSyncRequestCrawl({
+  required String hostname,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.comAtprotoSyncGetHead,
-  headers: $headers,
-  parameters: {...?$unknown, 'did': did},
-  to: const SyncGetHeadOutputConverter().fromJson,
-);
-
-/// DEPRECATED - please use com.atproto.sync.getRepo instead
-Future<XRPCResponse<Uint8List>> comAtprotoSyncGetCheckout({
-  required String did,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.comAtprotoSyncGetCheckout,
-  headers: $headers,
-  parameters: {...?$unknown, 'did': did},
-);
-
-/// Enumerates all the DID, rev, and commit CID for all repos hosted by this service. Does not require auth; implemented by PDS and Relay.
-Future<XRPCResponse<SyncListReposOutput>> comAtprotoSyncListRepos({
-  int? limit,
-  String? cursor,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.comAtprotoSyncListRepos,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
-  },
-  to: const SyncListReposOutputConverter().fromJson,
-);
-
-/// Get data blocks needed to prove the existence or non-existence of record in the current version of repo. Does not require auth.
-Future<XRPCResponse<Uint8List>> comAtprotoSyncGetRecord({
-  required String did,
-  required String collection,
-  required String rkey,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.comAtprotoSyncGetRecord,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    'did': did,
-    'collection': collection,
-    'rkey': rkey,
-  },
-);
-
-/// Repository event stream, aka Firehose endpoint. Outputs repo commits with diff data, and identity update events, for all repositories on the current server. See the atproto specifications for details around stream sequencing, repo versioning, CAR diff format, and more. Public and does not require auth; implemented by PDS and Relay.
-Future<XRPCResponse<Subscription<Uint8List>>> comAtprotoSyncSubscribeRepos({
-  int? cursor,
-  required ServiceContext $ctx,
-}) async => await $ctx.stream(
-  ns.comAtprotoSyncSubscribeRepos,
-  parameters: {if (cursor != null) 'cursor': cursor},
+}) async => await $ctx.post(
+  ns.comAtprotoSyncRequestCrawl,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'hostname': hostname},
 );
 
 /// List blob CIDs for an account, since some repo revision. Does not require auth; implemented by PDS.
@@ -224,6 +113,28 @@ Future<XRPCResponse<SyncListBlobsOutput>> comAtprotoSyncListBlobs({
   to: const SyncListBlobsOutputConverter().fromJson,
 );
 
+/// Get the current commit CID & revision of the specified repo. Does not require auth.
+Future<XRPCResponse<SyncGetLatestCommitOutput>> comAtprotoSyncGetLatestCommit({
+  required String did,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.comAtprotoSyncGetLatestCommit,
+  headers: $headers,
+  parameters: {...?$unknown, 'did': did},
+  to: const SyncGetLatestCommitOutputConverter().fromJson,
+);
+
+/// Repository event stream, aka Firehose endpoint. Outputs repo commits with diff data, and identity update events, for all repositories on the current server. See the atproto specifications for details around stream sequencing, repo versioning, CAR diff format, and more. Public and does not require auth; implemented by PDS and Relay.
+Future<XRPCResponse<Subscription<Uint8List>>> comAtprotoSyncSubscribeRepos({
+  int? cursor,
+  required ServiceContext $ctx,
+}) async => await $ctx.stream(
+  ns.comAtprotoSyncSubscribeRepos,
+  parameters: {if (cursor != null) 'cursor': cursor},
+);
+
 /// Get the hosting status for a repository, on this server. Expected to be implemented by PDS and Relay.
 Future<XRPCResponse<SyncGetRepoStatusOutput>> comAtprotoSyncGetRepoStatus({
   required String did,
@@ -237,29 +148,118 @@ Future<XRPCResponse<SyncGetRepoStatusOutput>> comAtprotoSyncGetRepoStatus({
   to: const SyncGetRepoStatusOutputConverter().fromJson,
 );
 
-/// Notify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay. DEPRECATED: just use com.atproto.sync.requestCrawl
-Future<XRPCResponse<EmptyData>> comAtprotoSyncNotifyOfUpdate({
-  required String hostname,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.comAtprotoSyncNotifyOfUpdate,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'hostname': hostname},
-);
-
-/// Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.
-Future<XRPCResponse<Uint8List>> comAtprotoSyncGetRepo({
+/// Get data blocks needed to prove the existence or non-existence of record in the current version of repo. Does not require auth.
+Future<XRPCResponse<Uint8List>> comAtprotoSyncGetRecord({
   required String did,
-  String? since,
+  required String collection,
+  required String rkey,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.comAtprotoSyncGetRepo,
+  ns.comAtprotoSyncGetRecord,
   headers: $headers,
-  parameters: {...?$unknown, 'did': did, if (since != null) 'since': since},
+  parameters: {
+    ...?$unknown,
+    'did': did,
+    'collection': collection,
+    'rkey': rkey,
+  },
+);
+
+/// Enumerates upstream hosts (eg, PDS or relay instances) that this service consumes from. Implemented by relays.
+Future<XRPCResponse<SyncListHostsOutput>> comAtprotoSyncListHosts({
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.comAtprotoSyncListHosts,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const SyncListHostsOutputConverter().fromJson,
+);
+
+/// Enumerates all the DID, rev, and commit CID for all repos hosted by this service. Does not require auth; implemented by PDS and Relay.
+Future<XRPCResponse<SyncListReposOutput>> comAtprotoSyncListRepos({
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.comAtprotoSyncListRepos,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const SyncListReposOutputConverter().fromJson,
+);
+
+/// Returns information about a specified upstream host, as consumed by the server. Implemented by relays.
+Future<XRPCResponse<SyncGetHostStatusOutput>> comAtprotoSyncGetHostStatus({
+  required String hostname,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.comAtprotoSyncGetHostStatus,
+  headers: $headers,
+  parameters: {...?$unknown, 'hostname': hostname},
+  to: const SyncGetHostStatusOutputConverter().fromJson,
+);
+
+/// Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.
+Future<XRPCResponse<Uint8List>> comAtprotoSyncGetBlocks({
+  required String did,
+  required List<String> cids,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.comAtprotoSyncGetBlocks,
+  headers: $headers,
+  parameters: {...?$unknown, 'did': did, 'cids': cids},
+);
+
+/// Enumerates all the DIDs which have records with the given collection NSID.
+Future<XRPCResponse<SyncListReposByCollectionOutput>>
+comAtprotoSyncListReposByCollection({
+  required String collection,
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.comAtprotoSyncListReposByCollection,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'collection': collection,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const SyncListReposByCollectionOutputConverter().fromJson,
+);
+
+/// DEPRECATED - please use com.atproto.sync.getRepo instead
+Future<XRPCResponse<Uint8List>> comAtprotoSyncGetCheckout({
+  required String did,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.comAtprotoSyncGetCheckout,
+  headers: $headers,
+  parameters: {...?$unknown, 'did': did},
 );
 
 /// `com.atproto.sync.*`
@@ -269,43 +269,13 @@ base class SyncService {
 
   SyncService(this._ctx);
 
-  /// Request a service to persistently crawl hosted repos. Expected use is new PDS instances declaring their existence to Relays. Does not require auth.
-  Future<XRPCResponse<EmptyData>> requestCrawl({
-    required String hostname,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoSyncRequestCrawl(
-    hostname: hostname,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Enumerates all the DIDs which have records with the given collection NSID.
-  Future<XRPCResponse<SyncListReposByCollectionOutput>> listReposByCollection({
-    required String collection,
-    int? limit,
-    String? cursor,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoSyncListReposByCollection(
-    collection: collection,
-    limit: limit,
-    cursor: cursor,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.
-  Future<XRPCResponse<Uint8List>> getBlocks({
+  /// DEPRECATED - please use com.atproto.sync.getLatestCommit instead
+  Future<XRPCResponse<SyncGetHeadOutput>> getHead({
     required String did,
-    required List<String> cids,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoSyncGetBlocks(
+  }) async => await comAtprotoSyncGetHead(
     did: did,
-    cids: cids,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
@@ -325,6 +295,62 @@ base class SyncService {
     $unknown: $unknown,
   );
 
+  /// Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.
+  Future<XRPCResponse<Uint8List>> getRepo({
+    required String did,
+    String? since,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoSyncGetRepo(
+    did: did,
+    since: since,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Notify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay. DEPRECATED: just use com.atproto.sync.requestCrawl
+  Future<XRPCResponse<EmptyData>> notifyOfUpdate({
+    required String hostname,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoSyncNotifyOfUpdate(
+    hostname: hostname,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Request a service to persistently crawl hosted repos. Expected use is new PDS instances declaring their existence to Relays. Does not require auth.
+  Future<XRPCResponse<EmptyData>> requestCrawl({
+    required String hostname,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoSyncRequestCrawl(
+    hostname: hostname,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// List blob CIDs for an account, since some repo revision. Does not require auth; implemented by PDS.
+  Future<XRPCResponse<SyncListBlobsOutput>> listBlobs({
+    required String did,
+    String? since,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoSyncListBlobs(
+    did: did,
+    since: since,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
   /// Get the current commit CID & revision of the specified repo. Does not require auth.
   Future<XRPCResponse<SyncGetLatestCommitOutput>> getLatestCommit({
     required String did,
@@ -337,65 +363,18 @@ base class SyncService {
     $unknown: $unknown,
   );
 
-  /// Enumerates upstream hosts (eg, PDS or relay instances) that this service consumes from. Implemented by relays.
-  Future<XRPCResponse<SyncListHostsOutput>> listHosts({
-    int? limit,
-    String? cursor,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoSyncListHosts(
-    limit: limit,
-    cursor: cursor,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
+  /// Repository event stream, aka Firehose endpoint. Outputs repo commits with diff data, and identity update events, for all repositories on the current server. See the atproto specifications for details around stream sequencing, repo versioning, CAR diff format, and more. Public and does not require auth; implemented by PDS and Relay.
+  Future<XRPCResponse<Subscription<Uint8List>>> subscribeRepos({
+    int? cursor,
+  }) async => await comAtprotoSyncSubscribeRepos(cursor: cursor, $ctx: _ctx);
 
-  /// Returns information about a specified upstream host, as consumed by the server. Implemented by relays.
-  Future<XRPCResponse<SyncGetHostStatusOutput>> getHostStatus({
-    required String hostname,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoSyncGetHostStatus(
-    hostname: hostname,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// DEPRECATED - please use com.atproto.sync.getLatestCommit instead
-  Future<XRPCResponse<SyncGetHeadOutput>> getHead({
+  /// Get the hosting status for a repository, on this server. Expected to be implemented by PDS and Relay.
+  Future<XRPCResponse<SyncGetRepoStatusOutput>> getRepoStatus({
     required String did,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoSyncGetHead(
+  }) async => await comAtprotoSyncGetRepoStatus(
     did: did,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// DEPRECATED - please use com.atproto.sync.getRepo instead
-  Future<XRPCResponse<Uint8List>> getCheckout({
-    required String did,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoSyncGetCheckout(
-    did: did,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Enumerates all the DID, rev, and commit CID for all repos hosted by this service. Does not require auth; implemented by PDS and Relay.
-  Future<XRPCResponse<SyncListReposOutput>> listRepos({
-    int? limit,
-    String? cursor,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoSyncListRepos(
-    limit: limit,
-    cursor: cursor,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
@@ -417,22 +396,13 @@ base class SyncService {
     $unknown: $unknown,
   );
 
-  /// Repository event stream, aka Firehose endpoint. Outputs repo commits with diff data, and identity update events, for all repositories on the current server. See the atproto specifications for details around stream sequencing, repo versioning, CAR diff format, and more. Public and does not require auth; implemented by PDS and Relay.
-  Future<XRPCResponse<Subscription<Uint8List>>> subscribeRepos({
-    int? cursor,
-  }) async => await comAtprotoSyncSubscribeRepos(cursor: cursor, $ctx: _ctx);
-
-  /// List blob CIDs for an account, since some repo revision. Does not require auth; implemented by PDS.
-  Future<XRPCResponse<SyncListBlobsOutput>> listBlobs({
-    required String did,
-    String? since,
+  /// Enumerates upstream hosts (eg, PDS or relay instances) that this service consumes from. Implemented by relays.
+  Future<XRPCResponse<SyncListHostsOutput>> listHosts({
     int? limit,
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoSyncListBlobs(
-    did: did,
-    since: since,
+  }) async => await comAtprotoSyncListHosts(
     limit: limit,
     cursor: cursor,
     $ctx: _ctx,
@@ -440,39 +410,69 @@ base class SyncService {
     $unknown: $unknown,
   );
 
-  /// Get the hosting status for a repository, on this server. Expected to be implemented by PDS and Relay.
-  Future<XRPCResponse<SyncGetRepoStatusOutput>> getRepoStatus({
-    required String did,
+  /// Enumerates all the DID, rev, and commit CID for all repos hosted by this service. Does not require auth; implemented by PDS and Relay.
+  Future<XRPCResponse<SyncListReposOutput>> listRepos({
+    int? limit,
+    String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoSyncGetRepoStatus(
-    did: did,
+  }) async => await comAtprotoSyncListRepos(
+    limit: limit,
+    cursor: cursor,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
 
-  /// Notify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay. DEPRECATED: just use com.atproto.sync.requestCrawl
-  Future<XRPCResponse<EmptyData>> notifyOfUpdate({
+  /// Returns information about a specified upstream host, as consumed by the server. Implemented by relays.
+  Future<XRPCResponse<SyncGetHostStatusOutput>> getHostStatus({
     required String hostname,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoSyncNotifyOfUpdate(
+  }) async => await comAtprotoSyncGetHostStatus(
     hostname: hostname,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
 
-  /// Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.
-  Future<XRPCResponse<Uint8List>> getRepo({
+  /// Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.
+  Future<XRPCResponse<Uint8List>> getBlocks({
     required String did,
-    String? since,
+    required List<String> cids,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoSyncGetRepo(
+  }) async => await comAtprotoSyncGetBlocks(
     did: did,
-    since: since,
+    cids: cids,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Enumerates all the DIDs which have records with the given collection NSID.
+  Future<XRPCResponse<SyncListReposByCollectionOutput>> listReposByCollection({
+    required String collection,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoSyncListReposByCollection(
+    collection: collection,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// DEPRECATED - please use com.atproto.sync.getRepo instead
+  Future<XRPCResponse<Uint8List>> getCheckout({
+    required String did,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoSyncGetCheckout(
+    did: did,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,

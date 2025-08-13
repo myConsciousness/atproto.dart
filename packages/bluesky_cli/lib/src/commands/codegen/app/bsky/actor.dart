@@ -28,14 +28,14 @@ import 'actor/status.dart';
 final class AppBskyActorCommand extends Command<void> {
   AppBskyActorCommand() {
     addSubcommand(SearchActorsTypeaheadCommand());
-    addSubcommand(GetProfilesCommand());
-    addSubcommand(ProfileCommand());
-    addSubcommand(GetPreferencesCommand());
+    addSubcommand(PutPreferencesCommand());
+    addSubcommand(GetProfileCommand());
     addSubcommand(GetSuggestionsCommand());
     addSubcommand(SearchActorsCommand());
-    addSubcommand(GetProfileCommand());
+    addSubcommand(GetProfilesCommand());
     addSubcommand(StatusCommand());
-    addSubcommand(PutPreferencesCommand());
+    addSubcommand(GetPreferencesCommand());
+    addSubcommand(ProfileCommand());
   }
 
   @override

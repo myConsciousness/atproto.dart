@@ -1,0 +1,94 @@
+name: Content Validation
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'website/**'
+      - '.github/workflows/content-validation.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'website/**'
+      - '.github/workflows/content-validation.yml'
+
+jobs:
+  validate-content:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: website/package-lock.json
+        
+    - name: Install dependencies
+      run: |
+        cd website
+        npm ci
+        
+    - name: Run content validation
+      run: |
+        cd website
+        npm run test-content-report
+        
+    - name: Upload validation report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: content-validation-report
+        path: website/validation-report.json
+        retention-days: 30
+        
+    - name: Comment PR with validation results
+      if: github.event_name == 'pull_request' && failure()
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          const path = require('path');
+          
+          try {
+            const reportPath = path.join('website', 'validation-report.json');
+            if (fs.existsSync(reportPath)) {
+              const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+              
+              let comment = '## 📝 Content Validation Results\n\n';
+              comment += `**Duration:** ${(report.duration / 1000).toFixed(1)}s\n`;
+              comment += `**Tests:** ${report.summary.passedTests}/${report.summary.totalTests} passed\n\n`;
+              
+              if (report.summary.failedTests > 0) {
+                comment += '### ❌ Failed Tests\n\n';
+                
+                Object.entries(report.results).forEach(([key, result]) => {
+                  if (result && !result.success) {
+                    const testName = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                    comment += `- **${testName}:** ${result.summary}\n`;
+                    if (result.error) {
+                      comment += `  - Error: ${result.error}\n`;
+                    }
+                  }
+                });
+                
+                comment += '\n### 🔧 Common Fixes\n\n';
+                comment += '- Remove repetitive phrases like "atproto.dart provides"\n';
+                comment += '- Fix broken internal links\n';
+                comment += '- Simplify overly complex sentences\n';
+                comment += '- Update component tests if content changed\n';
+              }
+              
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: comment
+              });
+            }
+          } catch (error) {
+            console.error('Failed to post comment:', error);
+          }
