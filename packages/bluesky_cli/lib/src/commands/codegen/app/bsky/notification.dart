@@ -29,17 +29,17 @@ import 'notification/update_seen.dart';
 
 final class AppBskyNotificationCommand extends Command<void> {
   AppBskyNotificationCommand() {
-    addSubcommand(GetUnreadCountCommand());
     addSubcommand(RegisterPushCommand());
-    addSubcommand(DeclarationCommand());
+    addSubcommand(PutPreferencesCommand());
     addSubcommand(PutActivitySubscriptionCommand());
+    addSubcommand(DeclarationCommand());
+    addSubcommand(PutPreferencesV2Command());
     addSubcommand(UpdateSeenCommand());
+    addSubcommand(ListActivitySubscriptionsCommand());
     addSubcommand(UnregisterPushCommand());
     addSubcommand(GetPreferencesCommand());
     addSubcommand(ListNotificationsCommand());
-    addSubcommand(ListActivitySubscriptionsCommand());
-    addSubcommand(PutPreferencesCommand());
-    addSubcommand(PutPreferencesV2Command());
+    addSubcommand(GetUnreadCountCommand());
   }
 
   @override

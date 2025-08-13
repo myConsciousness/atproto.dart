@@ -10,8 +10,8 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={siteConfig.tagline}
-      description="Powerful suite of AT Protocol and Bluesky-related packages for Dart/Flutter"
+      title="AT Protocol SDK for Flutter & Dart"
+      description="Production-ready AT Protocol SDK for Flutter & Dart developers. Build decentralized social apps with type-safe APIs, comprehensive Bluesky integration, and battle-tested reliability."
     >
       <Banner />
 

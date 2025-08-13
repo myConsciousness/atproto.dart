@@ -1,0 +1,15 @@
+{
+  "loggingConfig": {
+    "level": "debug",
+    "includeTimestamp": true,
+    "includeLocation": true,
+    "logFile": ".dart_tool/logs/bin_scripts.log"
+  },
+  "networkConfig": {
+    "maxRetries": 5,
+    "initialDelayMs": 500,
+    "timeoutMs": 60000
+  },
+  "maxParallelOperations": 2,
+  "enableCaching": false
+}

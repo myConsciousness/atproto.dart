@@ -1,0 +1,16 @@
+{
+  "loggingConfig": {
+    "level": "warning",
+    "includeTimestamp": true,
+    "includeLocation": false
+  },
+  "networkConfig": {
+    "maxRetries": 3,
+    "initialDelayMs": 2000,
+    "backoffMultiplier": 2.5,
+    "timeoutMs": 45000,
+    "maxConcurrentConnections": 15
+  },
+  "maxParallelOperations": 8,
+  "enableCaching": true
+}

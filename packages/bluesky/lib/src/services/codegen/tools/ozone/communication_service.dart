@@ -47,18 +47,6 @@ Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationUpdateTemplate({
   to: const TemplateViewConverter().fromJson,
 );
 
-/// Delete a communication template.
-Future<XRPCResponse<EmptyData>> toolsOzoneCommunicationDeleteTemplate({
-  required String id,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.toolsOzoneCommunicationDeleteTemplate,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'id': id},
-);
-
 /// Administrative action to create a new, re-usable communication (email for now) template.
 Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationCreateTemplate({
   required String name,
@@ -96,6 +84,18 @@ toolsOzoneCommunicationListTemplates({
   to: const CommunicationListTemplatesOutputConverter().fromJson,
 );
 
+/// Delete a communication template.
+Future<XRPCResponse<EmptyData>> toolsOzoneCommunicationDeleteTemplate({
+  required String id,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneCommunicationDeleteTemplate,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'id': id},
+);
+
 /// `tools.ozone.communication.*`
 base class CommunicationService {
   // ignore: unused_field
@@ -127,18 +127,6 @@ base class CommunicationService {
     $unknown: $unknown,
   );
 
-  /// Delete a communication template.
-  Future<XRPCResponse<EmptyData>> deleteTemplate({
-    required String id,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneCommunicationDeleteTemplate(
-    id: id,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
   /// Administrative action to create a new, re-usable communication (email for now) template.
   Future<XRPCResponse<TemplateView>> createTemplate({
     required String name,
@@ -164,6 +152,18 @@ base class CommunicationService {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await toolsOzoneCommunicationListTemplates(
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Delete a communication template.
+  Future<XRPCResponse<EmptyData>> deleteTemplate({
+    required String id,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneCommunicationDeleteTemplate(
+    id: id,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,

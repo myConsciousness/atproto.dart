@@ -14,16 +14,21 @@ export const Banner: React.FC = () => {
       <div className="banner__content">
         <h1 className="banner__headline">
           <Translate id="home.tagline">
-            AT Protocol and Bluesky Things for Dart/Flutter
+            Production-Ready AT Protocol SDK for Flutter & Dart
           </Translate>
         </h1>
+        <p className="banner__subtitle">
+          <Translate id="home.subtitle">
+            Build decentralized social apps with type-safe APIs, comprehensive Bluesky integration, and battle-tested reliability.
+          </Translate>
+        </p>
 
         <div className="banner__ctaWrapper">
-          <Link className="banner__cta" to={useBaseUrl("/docs/intro")}>
-            <Translate id="home.get_started">Get Started</Translate>
+          <Link className="banner__cta banner__cta--primary" to={useBaseUrl("/docs/intro")}>
+            <Translate id="home.start_building">Start Building</Translate>
           </Link>
-          <Link className="banner__cta" to={useBaseUrl("showcase")}>
-            <Translate id="home.get_started">See Showcase</Translate>
+          <Link className="banner__cta banner__cta--secondary" to={useBaseUrl("showcase")}>
+            <Translate id="home.view_examples">View Live Examples</Translate>
           </Link>
           {/* <span className="banner__indexCtasGitHubButtonWrapper">
             <iframe
@@ -40,7 +45,7 @@ export const Banner: React.FC = () => {
         <CodeSnippet
           title={translate({
             id: "home.post_to_bluesky",
-            message: "Say Hello!",
+            message: "Post to Bluesky in 3 Steps",
           })}
           snippet={SnippetPostToBluesky}
         ></CodeSnippet>

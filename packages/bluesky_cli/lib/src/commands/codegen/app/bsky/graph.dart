@@ -48,36 +48,36 @@ import 'graph/verification.dart';
 
 final class AppBskyGraphCommand extends Command<void> {
   AppBskyGraphCommand() {
-    addSubcommand(MuteActorListCommand());
-    addSubcommand(FollowCommand());
-    addSubcommand(UnmuteActorCommand());
-    addSubcommand(StarterpackCommand());
-    addSubcommand(ListblockCommand());
-    addSubcommand(GetBlocksCommand());
-    addSubcommand(SearchStarterPacksCommand());
-    addSubcommand(GetMutesCommand());
+    addSubcommand(GetStarterPacksCommand());
     addSubcommand(GetSuggestedFollowsByActorCommand());
-    addSubcommand(GetListMutesCommand());
-    addSubcommand(GetListCommand());
+    addSubcommand(BlockCommand());
+    addSubcommand(GetStarterPacksWithMembershipCommand());
+    addSubcommand(FollowCommand());
+    addSubcommand(GetListsWithMembershipCommand());
+    addSubcommand(UnmuteActorListCommand());
+    addSubcommand(GetListBlocksCommand());
+    addSubcommand(ListblockCommand());
+    addSubcommand(GetStarterPackCommand());
+    addSubcommand(StarterpackCommand());
+    addSubcommand(MuteActorListCommand());
     addSubcommand(MuteThreadCommand());
+    addSubcommand(SearchStarterPacksCommand());
+    addSubcommand(GetActorStarterPacksCommand());
+    addSubcommand(GetListsCommand());
+    addSubcommand(GetFollowersCommand());
+    addSubcommand(UnmuteThreadCommand());
+    addSubcommand(MuteActorCommand());
+    addSubcommand(GetMutesCommand());
     addSubcommand(ListitemCommand());
     addSubcommand(ListCommand());
-    addSubcommand(UnmuteActorListCommand());
-    addSubcommand(GetStarterPackCommand());
-    addSubcommand(GetActorStarterPacksCommand());
-    addSubcommand(GetRelationshipsCommand());
-    addSubcommand(GetListsWithMembershipCommand());
     addSubcommand(GetKnownFollowersCommand());
     addSubcommand(VerificationCommand());
-    addSubcommand(GetFollowersCommand());
+    addSubcommand(GetListMutesCommand());
     addSubcommand(GetFollowsCommand());
-    addSubcommand(GetListBlocksCommand());
-    addSubcommand(MuteActorCommand());
-    addSubcommand(GetStarterPacksWithMembershipCommand());
-    addSubcommand(BlockCommand());
-    addSubcommand(GetStarterPacksCommand());
-    addSubcommand(GetListsCommand());
-    addSubcommand(UnmuteThreadCommand());
+    addSubcommand(GetBlocksCommand());
+    addSubcommand(GetRelationshipsCommand());
+    addSubcommand(UnmuteActorCommand());
+    addSubcommand(GetListCommand());
   }
 
   @override

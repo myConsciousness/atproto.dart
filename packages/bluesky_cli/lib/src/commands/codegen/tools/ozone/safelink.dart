@@ -25,8 +25,8 @@ final class ToolsOzoneSafelinkCommand extends Command<void> {
   ToolsOzoneSafelinkCommand() {
     addSubcommand(AddRuleCommand());
     addSubcommand(RemoveRuleCommand());
-    addSubcommand(QueryEventsCommand());
     addSubcommand(UpdateRuleCommand());
+    addSubcommand(QueryEventsCommand());
     addSubcommand(QueryRulesCommand());
   }
 

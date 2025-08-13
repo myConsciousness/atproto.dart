@@ -21,20 +21,6 @@ import 'team/updateMember/main_role.dart';
 // LexGenerator
 // **************************************************************************
 
-/// Add a member to the ozone team. Requires admin role.
-Future<XRPCResponse<Member>> toolsOzoneTeamAddMember({
-  required String did,
-  required TeamAddMemberRole role,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.toolsOzoneTeamAddMember,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'did': did, 'role': role.toJson()},
-  to: const MemberConverter().fromJson,
-);
-
 /// List all members with access to the ozone service.
 Future<XRPCResponse<TeamListMembersOutput>> toolsOzoneTeamListMembers({
   String? q,
@@ -59,6 +45,18 @@ Future<XRPCResponse<TeamListMembersOutput>> toolsOzoneTeamListMembers({
   to: const TeamListMembersOutputConverter().fromJson,
 );
 
+/// Delete a member from ozone team. Requires admin role.
+Future<XRPCResponse<EmptyData>> toolsOzoneTeamDeleteMember({
+  required String did,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneTeamDeleteMember,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'did': did},
+);
+
 /// Update a member in the ozone service. Requires admin role.
 Future<XRPCResponse<Member>> toolsOzoneTeamUpdateMember({
   required String did,
@@ -79,16 +77,18 @@ Future<XRPCResponse<Member>> toolsOzoneTeamUpdateMember({
   to: const MemberConverter().fromJson,
 );
 
-/// Delete a member from ozone team. Requires admin role.
-Future<XRPCResponse<EmptyData>> toolsOzoneTeamDeleteMember({
+/// Add a member to the ozone team. Requires admin role.
+Future<XRPCResponse<Member>> toolsOzoneTeamAddMember({
   required String did,
+  required TeamAddMemberRole role,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
-  ns.toolsOzoneTeamDeleteMember,
+  ns.toolsOzoneTeamAddMember,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'did': did},
+  body: {...?$unknown, 'did': did, 'role': role.toJson()},
+  to: const MemberConverter().fromJson,
 );
 
 /// `tools.ozone.team.*`
@@ -97,20 +97,6 @@ base class TeamService {
   final ServiceContext _ctx;
 
   TeamService(this._ctx);
-
-  /// Add a member to the ozone team. Requires admin role.
-  Future<XRPCResponse<Member>> addMember({
-    required String did,
-    required TeamAddMemberRole role,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneTeamAddMember(
-    did: did,
-    role: role,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
 
   /// List all members with access to the ozone service.
   Future<XRPCResponse<TeamListMembersOutput>> listMembers({
@@ -132,6 +118,18 @@ base class TeamService {
     $unknown: $unknown,
   );
 
+  /// Delete a member from ozone team. Requires admin role.
+  Future<XRPCResponse<EmptyData>> deleteMember({
+    required String did,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneTeamDeleteMember(
+    did: did,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
   /// Update a member in the ozone service. Requires admin role.
   Future<XRPCResponse<Member>> updateMember({
     required String did,
@@ -148,13 +146,15 @@ base class TeamService {
     $unknown: $unknown,
   );
 
-  /// Delete a member from ozone team. Requires admin role.
-  Future<XRPCResponse<EmptyData>> deleteMember({
+  /// Add a member to the ozone team. Requires admin role.
+  Future<XRPCResponse<Member>> addMember({
     required String did,
+    required TeamAddMemberRole role,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await toolsOzoneTeamDeleteMember(
+  }) async => await toolsOzoneTeamAddMember(
     did: did,
+    role: role,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,

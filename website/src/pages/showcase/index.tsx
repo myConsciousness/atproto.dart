@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useState, useMemo, useEffect} from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import clsx from 'clsx';
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
-import Translate, {translate} from '@docusaurus/Translate';
-import {useHistory, useLocation} from '@docusaurus/router';
-import {usePluralForm} from '@docusaurus/theme-common';
+import Translate, { translate } from '@docusaurus/Translate';
+import { useHistory, useLocation } from '@docusaurus/router';
+import { usePluralForm } from '@docusaurus/theme-common';
 
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
@@ -34,9 +34,9 @@ import ShowcaseTooltip from './_components/ShowcaseTooltip';
 
 import styles from './styles.module.css';
 
-const TITLE = translate({message: 'Showcase using atproto.dart'});
+const TITLE = translate({ message: 'Showcase using atproto.dart' });
 const DESCRIPTION = translate({
-  message: 'List of works people are building with atproto.dart, sorted alphabetically by app name',
+  message: 'Discover real-world Flutter & Dart apps built with atproto.dart - from social media clients to decentralized tools using AT Protocol',
 });
 const SUBMIT_URL = 'https://github.com/myConsciousness/atproto.dart/blob/a17972b592c59e1391a80cb354f6658ce28e1373/website/src/data/users.tsx#L53';
 
@@ -46,12 +46,12 @@ type UserState = {
 };
 
 function restoreUserState(userState: UserState | null) {
-  const {scrollTopPosition, focusedElementId} = userState ?? {
+  const { scrollTopPosition, focusedElementId } = userState ?? {
     scrollTopPosition: 0,
     focusedElementId: undefined,
   };
   document.getElementById(focusedElementId)?.focus();
-  window.scrollTo({top: scrollTopPosition});
+  window.scrollTo({ top: scrollTopPosition });
 }
 
 export function prepareUserState(): UserState | undefined {
@@ -133,7 +133,7 @@ function ShowcaseHeader() {
 }
 
 function useSiteCountPlural() {
-  const {selectMessage} = usePluralForm();
+  const { selectMessage } = usePluralForm();
   return (sitesCount: number) =>
     selectMessage(
       sitesCount,
@@ -144,7 +144,7 @@ function useSiteCountPlural() {
             'Pluralized label for the number of sites found on the showcase. Use as much plural forms (separated by "|") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)',
           message: '1 site|{sitesCount} sites',
         },
-        {sitesCount},
+        { sitesCount },
       ),
     );
 }
@@ -165,7 +165,7 @@ function ShowcaseFilters() {
       </div>
       <ul className={clsx('clean-list', styles.checkboxList)}>
         {TagList.map((tag, i) => {
-          const {label, description, color} = Tags[tag];
+          const { label, description, color } = Tags[tag];
           const id = `showcase_checkbox_id_${tag}`;
 
           return (
@@ -179,15 +179,15 @@ function ShowcaseFilters() {
                   id={id}
                   label={label}
                   icon={
-                      <span
-                        style={{
-                          backgroundColor: color,
-                          width: 10,
-                          height: 10,
-                          borderRadius: '50%',
-                          marginLeft: 8,
-                        }}
-                      />
+                    <span
+                      style={{
+                        backgroundColor: color,
+                        width: 10,
+                        height: 10,
+                        borderRadius: '50%',
+                        marginLeft: 8,
+                      }}
+                    />
                   }
                 />
               </ShowcaseTooltip>

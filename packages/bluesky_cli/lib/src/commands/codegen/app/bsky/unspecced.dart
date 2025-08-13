@@ -38,26 +38,26 @@ import 'unspecced/search_starter_packs_skeleton.dart';
 
 final class AppBskyUnspeccedCommand extends Command<void> {
   AppBskyUnspeccedCommand() {
-    addSubcommand(GetSuggestedUsersCommand());
-    addSubcommand(InitAgeAssuranceCommand());
-    addSubcommand(GetConfigCommand());
-    addSubcommand(SearchStarterPacksSkeletonCommand());
-    addSubcommand(GetTrendsCommand());
-    addSubcommand(GetTaggedSuggestionsCommand());
-    addSubcommand(GetPostThreadV2Command());
-    addSubcommand(GetAgeAssuranceStateCommand());
-    addSubcommand(GetSuggestedStarterPacksCommand());
-    addSubcommand(GetPostThreadOtherV2Command());
-    addSubcommand(GetSuggestedFeedsCommand());
-    addSubcommand(GetSuggestionsSkeletonCommand());
-    addSubcommand(GetTrendsSkeletonCommand());
-    addSubcommand(GetSuggestedStarterPacksSkeletonCommand());
     addSubcommand(GetSuggestedFeedsSkeletonCommand());
-    addSubcommand(GetPopularFeedGeneratorsCommand());
-    addSubcommand(GetTrendingTopicsCommand());
-    addSubcommand(SearchActorsSkeletonCommand());
-    addSubcommand(SearchPostsSkeletonCommand());
+    addSubcommand(SearchStarterPacksSkeletonCommand());
+    addSubcommand(GetSuggestedUsersCommand());
+    addSubcommand(GetPostThreadOtherV2Command());
+    addSubcommand(GetSuggestedStarterPacksCommand());
+    addSubcommand(GetSuggestedStarterPacksSkeletonCommand());
     addSubcommand(GetSuggestedUsersSkeletonCommand());
+    addSubcommand(GetPostThreadV2Command());
+    addSubcommand(GetTrendsCommand());
+    addSubcommand(SearchActorsSkeletonCommand());
+    addSubcommand(GetSuggestionsSkeletonCommand());
+    addSubcommand(SearchPostsSkeletonCommand());
+    addSubcommand(GetAgeAssuranceStateCommand());
+    addSubcommand(GetPopularFeedGeneratorsCommand());
+    addSubcommand(InitAgeAssuranceCommand());
+    addSubcommand(GetTrendingTopicsCommand());
+    addSubcommand(GetTaggedSuggestionsCommand());
+    addSubcommand(GetSuggestedFeedsCommand());
+    addSubcommand(GetTrendsSkeletonCommand());
+    addSubcommand(GetConfigCommand());
   }
 
   @override

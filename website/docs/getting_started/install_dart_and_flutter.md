@@ -1,60 +1,91 @@
 ---
 sidebar_position: 1
-description: First step to use Dart and Flutter 🎯
+description: Set up your development environment for AT Protocol apps
 ---
 
 # Install Dart/Flutter
 
-**[atproto.dart](https://github.com/myConsciousness/atproto.dart)** is built in the **[Dart](https://dart.dev)**. The packages provided by **[atproto.dart](https://github.com/myConsciousness/atproto.dart)** can then be incorporated into **[Flutter](https://flutter.dev)** apps.
+atproto.dart requires **Dart 3.8+** or **Flutter 3.32+** to take advantage of modern language features like null safety and pattern matching. If you're building mobile, web, or desktop apps, Flutter provides the complete toolkit. For server-side applications or command-line tools, Dart alone is sufficient.
 
-So, to use **[atproto.dart](https://github.com/myConsciousness/atproto.dart)** packages, you need to have **[Dart](https://dart.dev)** and **[Flutter](https://flutter.dev)** installed on your machine anyway.
+## Prerequisites
 
-## What Is Dart/Flutter?
+Before installing atproto.dart packages, ensure you have either:
+- **Dart 3.8+** for server-side or CLI applications
+- **Flutter 3.32+** for cross-platform app development
 
-Dart is **developed by Google** and is an **object-oriented language** with a syntax very **similar to C and Java**. Dart also has a lot of **modern syntax that is very similar to TypeScript**, due to the way it has been developed as AltJS. And **100% Null Safety** is now guaranteed with **[Dart3](https://medium.com/p/53f065a10635)**.
+## Quick Setup
 
-And Dart has recently begun to attract attention because of the release of the **Flutter** framework. Flutter is a **cross-platform framework** that uses Dart to write programs. With Flutter, you can develop apps that run on Android OS and iOS at once **by simply building a single code written in Dart**, and recently web and desktop apps are also supported.
+### Option 1: Install Flutter (Recommended)
 
-So, Dart and Flutter are highly touted as languages and frameworks that can dramatically improve development productivity. By combining Dart or Flutter with the packages from **[atproto.dart](https://github.com/myConsciousness/atproto.dart)**, you will be able to very productively develop AT Protocol and Bluesky related apps.
+Flutter includes Dart and provides the most comprehensive development experience:
 
-By the way, this is **_Dash_**. This is the mascot for the Dart language and the Flutter framework.
-
-![Dash](https://docs.flutter.dev/assets/images/dash/Dash.png)
-
-## Let's Install Dart/Flutter 🎯
-
-Dart and Flutter can be installed very easily using **[Homebrew](https://formulae.brew.sh/cask/flutter)**.
-
-Simply run the following command on the terminal to install the latest versions of Dart and Flutter on your machine.
-
+**macOS/Linux:**
 ```bash
 brew install --cask flutter
 ```
 
-This installation will take a bit of time, but enjoy feeling like a hacker for a while. Once the installation is complete, let's make sure that Dart and Flutter are indeed active on your machine!
+**Windows:**
+Download the Flutter SDK from [flutter.dev](https://flutter.dev/docs/get-started/install) and follow the installation guide.
 
-Run `flutter --version` like:
+### Option 2: Install Dart Only
+
+For server-side or CLI applications:
+
+**macOS/Linux:**
+```bash
+brew tap dart-lang/dart
+brew install dart
+```
+
+**Windows:**
+Download from [dart.dev](https://dart.dev/get-dart) or use Chocolatey:
+```bash
+choco install dart-sdk
+```
+
+## Verify Installation
+
+After installation, verify everything is working correctly:
 
 ```bash
 flutter --version
 ```
 
-And the installation was successful if the Dart and Flutter version is output like:
-
+You should see output similar to:
 ```bash
-Flutter 3.10.5 • channel stable • https://github.com/flutter/flutter.git
-Framework • revision 796c8ef792 (4 days ago) • 2023-06-13 15:51:02 -0700
-Engine • revision 45f6e00911
-Tools • Dart 3.0.5 • DevTools 2.23.1
+Flutter 3.32.8 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision edada7c56e (3 weeks ago) • 2025-07-25 14:08:03 +0000
+Engine • revision ef0cd00091 (3 weeks ago) • 2025-07-24 12:23:50 -0700
+Tools • Dart 3.8.1 • DevTools 2.45.1
 ```
 
-You can now develop Dart and Flutter apps on your machine. And of course, **[atproto.dart](https://github.com/myConsciousness/atproto.dart)** packages are also available!
+For Dart-only installations:
+```bash
+dart --version
+```
 
-If you would like to learn more about developing apps with Dart and Flutter, please refer to the following official documentation.
+You should see output similar to:
 
-- https://dart.dev/guides
-- https://docs.flutter.dev
+```bash
+Dart SDK version: 3.8.1 (stable) (Wed May 28 00:47:25 2025 -0700) on "macos_arm64"
+```
 
-We also recommend the following **[Effective Dart](https://dart.dev/effective-dart)** if you are interested in Google's recommended documentation for writing better Dart programs.
+## IDE Setup (Optional)
 
-- https://dart.dev/effective-dart
+For the best development experience, configure your IDE:
+
+- **VS Code**: Install the [Dart](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code) and [Flutter](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter) extensions
+- **IntelliJ/Android Studio**: Install the Dart and Flutter plugins
+- **Vim/Neovim**: Use the [dart-vim-plugin](https://github.com/dart-lang/dart-vim-plugin)
+
+## Next Steps
+
+With Dart/Flutter installed, you're ready to:
+1. [Install atproto.dart packages](./install_package.md)
+2. Build your first AT Protocol application
+
+## Additional Resources
+
+- [Dart Language Tour](https://dart.dev/language) - Learn Dart fundamentals
+- [Flutter Documentation](https://docs.flutter.dev) - Complete Flutter guide
+- [Effective Dart](https://dart.dev/effective-dart) - Best practices and style guide

@@ -4,73 +4,57 @@ import styles from "./styles.module.css";
 
 const FeatureList = [
   {
-    title: "Trusted Complete Suite for AT Protocol and Bluesky",
+    title: "Build Faster with Production-Ready Components",
     Svg: require("@site/static/img/developer.svg").default,
     description: (
       <>
-        The packages provided by <code>atproto.dart</code> are{" "}
-        <strong>
-          used in many Dart and Flutter applications and have a proven track
-          record of stability
-        </strong>
-        . <code>atproto.dart</code> <strong>maximizes the productivity</strong>{" "}
-        of your AT Protocol and Bluesky-related Flutter app development with
-        API-related packages such as <code>atproto</code> and{" "}
-        <code>bluesky</code>, and <code>bluesky_text</code> which supports
-        powerful Bluesky text analysis.
+        Skip the boilerplate and focus on your app's unique features. Our{" "}
+        <strong>battle-tested packages</strong> power many Flutter applications
+        in production, giving you{" "}
+        <strong>reliable AT Protocol and Bluesky integration</strong> from day
+        one. Get comprehensive API coverage with <code>atproto</code>,{" "}
+        <code>bluesky</code>, and <code>bluesky_text</code> for advanced text
+        processing.
       </>
     ),
   },
   {
-    title: "100% Sound Null Safety",
+    title: "Write Confident Code with Complete Type Safety",
     Svg: require("@site/static/img/null_safety.svg").default,
     description: (
       <>
-        All packages provided by <code>atproto.dart</code> are{" "}
-        <strong>100% Null Safe</strong>. This is ensured by the robust Dart
-        language specification. This means that the package provided by{" "}
-        <code>atproto.dart</code>{" "}
-        <strong>
-          will never raise null-related exceptions during program execution
-        </strong>
-        , such as the well-known <code>NullPointerException</code>.
+        Eliminate runtime crashes before they happen. Every package is{" "}
+        <strong>100% null safe</strong>, leveraging Dart's robust type system
+        to catch errors at compile time. Your app{" "}
+        <strong>will never crash from null pointer exceptions</strong>, giving
+        you confidence in production deployments.
       </>
     ),
   },
   {
-    title: "Seamless Integration with Flutter App",
+    title: "Integrate Effortlessly into Your Flutter Workflow",
     Svg: require("@site/static/img/seamless.svg").default,
     description: (
       <>
-        All packages provided by <code>atproto.dart</code> are designed in the
-        Dart language and follow the common commitments of the Dart and Flutter
-        worlds, allowing for{" "}
-        <strong>easy and seamless integration into Flutter apps</strong>. The{" "}
-        <code>atproto.dart</code> packages allow you to implement the
-        functionality of services as you wish,{" "}
-        <strong>
-          even if you are not familiar with the core AT Protocol and Bluesky
-          things
-        </strong>
-        .
+        Start building immediately with Flutter-native design patterns. Our
+        packages follow Dart conventions you already know, enabling{" "}
+        <strong>seamless integration without learning curves</strong>. Build
+        powerful AT Protocol features{" "}
+        <strong>even without deep protocol knowledge</strong> – we handle the
+        complexity for you.
       </>
     ),
   },
   {
-    title: "Robust Safety and Stability",
+    title: "Deploy with Confidence Using Proven Stability",
     Svg: require("@site/static/img/secure.svg").default,
     description: (
       <>
-        All packages provided by <code>atproto.dart</code> are{" "}
-        <strong>very well tested and very stable</strong>. All packages in{" "}
-        <code>atproto.dart</code> are released after passing scenario tests that
-        take into account various cases from numerous unit tests.{" "}
-        <code>atproto.dart</code>{" "}
-        <strong>
-          always delivers consistent and high-quality solutions to your
-          application
-        </strong>
-        .
+        Ship reliable apps backed by comprehensive testing. Every release
+        passes extensive unit and integration tests covering real-world
+        scenarios. Our packages{" "}
+        <strong>deliver consistent, high-quality performance</strong> that your
+        users can depend on.
       </>
     ),
   },

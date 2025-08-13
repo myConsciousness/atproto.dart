@@ -17,8 +17,10 @@
     height: 100%;
     background: var(--ifm-color-emphasis-100) url('https://atprotodart.com/img/banner.png') no-repeat center top;
     z-index: -1;
-    filter: blur(20px); /* Adjust blur strength */
-    opacity: 0.2; /* Adjust transparency */
+    filter: blur(20px);
+    /* Adjust blur strength */
+    opacity: 0.2;
+    /* Adjust transparency */
   }
 
   @include min-width(lg) {
@@ -44,7 +46,7 @@
       margin-top: -64px;
     }
 
-    > img {
+    >img {
       width: 26px;
       margin-right: 16px;
     }
@@ -52,6 +54,15 @@
 
   &__headline {
     font-size: 48px;
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--ifm-color-emphasis-700);
+    margin-bottom: 2rem;
+    max-width: 600px;
   }
 
   &__ctaWrapper {
@@ -64,15 +75,34 @@
     margin-right: 15px;
     padding: 12px 40px;
     border-radius: 8px;
-    background-color: var(--ifm-color-primary);
-    color: white;
     font-size: 18px;
     font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
 
-    &:hover {
-      background-color: var(--ifm-color-primary-dark);
+    &--primary {
+      background-color: var(--ifm-color-primary);
       color: white;
-      text-decoration: none;
+
+      &:hover {
+        background-color: var(--ifm-color-primary-dark);
+        color: white;
+        text-decoration: none;
+        transform: translateY(-1px);
+      }
+    }
+
+    &--secondary {
+      background-color: transparent;
+      color: var(--ifm-color-primary);
+      border: 2px solid var(--ifm-color-primary);
+
+      &:hover {
+        background-color: var(--ifm-color-primary);
+        color: white;
+        text-decoration: none;
+        transform: translateY(-1px);
+      }
     }
   }
 

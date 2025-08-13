@@ -37,25 +37,25 @@ import 'server/update_email.dart';
 
 final class ComAtprotoServerCommand extends Command<void> {
   ComAtprotoServerCommand() {
-    addSubcommand(GetSessionCommand());
-    addSubcommand(CreateAppPasswordCommand());
-    addSubcommand(CreateInviteCodesCommand());
-    addSubcommand(CreateInviteCodeCommand());
-    addSubcommand(CheckAccountStatusCommand());
-    addSubcommand(CreateSessionCommand());
-    addSubcommand(DeactivateAccountCommand());
-    addSubcommand(GetServiceAuthCommand());
-    addSubcommand(ResetPasswordCommand());
-    addSubcommand(RequestPasswordResetCommand());
-    addSubcommand(DeleteAccountCommand());
-    addSubcommand(ListAppPasswordsCommand());
-    addSubcommand(ConfirmEmailCommand());
-    addSubcommand(CreateAccountCommand());
-    addSubcommand(RevokeAppPasswordCommand());
-    addSubcommand(UpdateEmailCommand());
     addSubcommand(ReserveSigningKeyCommand());
-    addSubcommand(DescribeServerCommand());
+    addSubcommand(GetServiceAuthCommand());
     addSubcommand(GetAccountInviteCodesCommand());
+    addSubcommand(CreateSessionCommand());
+    addSubcommand(ListAppPasswordsCommand());
+    addSubcommand(CreateInviteCodesCommand());
+    addSubcommand(RevokeAppPasswordCommand());
+    addSubcommand(CreateAppPasswordCommand());
+    addSubcommand(DescribeServerCommand());
+    addSubcommand(ConfirmEmailCommand());
+    addSubcommand(GetSessionCommand());
+    addSubcommand(DeactivateAccountCommand());
+    addSubcommand(UpdateEmailCommand());
+    addSubcommand(ResetPasswordCommand());
+    addSubcommand(CheckAccountStatusCommand());
+    addSubcommand(RequestPasswordResetCommand());
+    addSubcommand(CreateAccountCommand());
+    addSubcommand(DeleteAccountCommand());
+    addSubcommand(CreateInviteCodeCommand());
   }
 
   @override

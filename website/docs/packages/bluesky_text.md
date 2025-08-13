@@ -4,19 +4,16 @@ title: bluesky_text
 description: Utility for Bluesky's RichText.
 ---
 
-# bluesky_text [![pub package](https://img.shields.io/pub/v/bluesky_text.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_text) [![Dart SDK Version](https://badgen.net/pub/sdk-version/bluesky_text)](https://pub.dev/packages/bluesky_text/)
+# bluesky_text [![pub package](https://img.shields.io/pub/v/bluesky_text.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/bluesky_text) [![Dart SDK Version](https://badgen.net/pub/sdk-version/bluesky_text)](https://pub.dev/packages/bluesky_text/)
 
-**[bluesky_text](https://pub.dartlang.org/packages/bluesky_text)** is a package that elegantly resolves `RichText` called `Facet` in Bluesky API.
+**bluesky_text** provides elegant rich text processing for Bluesky's `Facet` system, automatically extracting entities like handles (@) and links (http|https) from text and generating API-compliant facets.
 
-This package automatically extracts basic entities from text, such as `handles (@)` and `links (http|https)`, and generates facets that conform to the Bluesky API specification.
-
-In **[bluesky_text](https://pub.dartlang.org/packages/bluesky_text)**, text elements are counted as **Unicode Grapheme Clusters**.
-In other words, multibyte characters includes emojis are also counted as a single character.
+Text processing uses **Unicode Grapheme Clusters**, ensuring multibyte characters and emojis are counted as single characters, matching Bluesky's text handling behavior.
 
 - **[GitHub](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_text)**
 
 :::info
-If you use this package with Bluesky API, see **[bluesky](./bluesky.md)**.
+For complete Bluesky API integration, see **[bluesky](./bluesky.md)**.
 :::
 
 ## Features ⭐
@@ -63,7 +60,7 @@ flutter pub get
 
 ### Import
 
-Just by writing following one-line import, you can use all the features provided by **[bluesky_text](https://pub.dev/packages/bluesky_text)**.
+Import the package to access all text processing features:
 
 ```dart
 import 'package:bluesky_text/bluesky_text.dart';
@@ -71,7 +68,7 @@ import 'package:bluesky_text/bluesky_text.dart';
 
 ### Instantiate **BlueskyText**
 
-All you have to do with the **[bluesky_text](https://pub.dev/packages/bluesky_text)** is pass any text to the **[BlueskyText](https://pub.dev/documentation/bluesky_text/latest/bluesky_text/BlueskyText-class.html)** object.
+Create a **[BlueskyText](https://pub.dev/documentation/bluesky_text/latest/bluesky_text/BlueskyText-class.html)** object by passing your text for processing:
 
 ```dart
 import 'package:bluesky_text/bluesky_text.dart';
@@ -173,7 +170,7 @@ And check following table.
 :::
 
 :::caution
-The current specification defines **_300 characters_** as the maximum number of characters for **[bluesky_text](https://pub.dartlang.org/packages/bluesky_text)**, which is the text limit defined in the Lexicon of **[app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)**.
+The current specification defines **_300 characters_** as the maximum number of characters for **[bluesky_text](https://pub.dev/packages/bluesky_text)**, which is the text limit defined in the Lexicon of **[app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)**.
 This means that you must check to see if the text you pass to the `BlueskyText` object exceeds the maximum number of characters and **[Split Text](#split-text)** if necessary.
 
 You can check if the string passed to the `BlueskyText` object exceeds the maximum number of characters with `isLengthLimitExceeded` or `isNotLengthLimitExceeded` as follows.

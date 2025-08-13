@@ -45,25 +45,6 @@ import 'package:atproto/com_atproto_services.dart'
 // LexGenerator
 // **************************************************************************
 
-/// Count the number of unread notifications for the requesting account. Requires auth.
-Future<XRPCResponse<NotificationGetUnreadCountOutput>>
-appBskyNotificationGetUnreadCount({
-  bool? priority,
-  DateTime? seenAt,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyNotificationGetUnreadCount,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    if (priority != null) 'priority': priority,
-    if (seenAt != null) 'seenAt': iso8601(seenAt),
-  },
-  to: const NotificationGetUnreadCountOutputConverter().fromJson,
-);
-
 /// Register to receive push notifications, via a specified service, for the requesting account. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyNotificationRegisterPush({
   required String serviceDid,
@@ -87,6 +68,18 @@ Future<XRPCResponse<EmptyData>> appBskyNotificationRegisterPush({
   },
 );
 
+/// Set notification-related preferences for an account. Requires auth.
+Future<XRPCResponse<EmptyData>> appBskyNotificationPutPreferences({
+  required bool priority,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.appBskyNotificationPutPreferences,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'priority': priority},
+);
+
 /// Puts an activity subscription entry. The key should be omitted for creation and provided for updates. Requires auth.
 Future<XRPCResponse<NotificationPutActivitySubscriptionOutput>>
 appBskyNotificationPutActivitySubscription({
@@ -106,6 +99,48 @@ appBskyNotificationPutActivitySubscription({
   to: const NotificationPutActivitySubscriptionOutputConverter().fromJson,
 );
 
+/// Set notification-related preferences for an account. Requires auth.
+Future<XRPCResponse<NotificationPutPreferencesV2Output>>
+appBskyNotificationPutPreferencesV2({
+  ChatPreference? chat,
+  FilterablePreference? follow,
+  FilterablePreference? like,
+  FilterablePreference? likeViaRepost,
+  FilterablePreference? mention,
+  FilterablePreference? quote,
+  FilterablePreference? reply,
+  FilterablePreference? repost,
+  FilterablePreference? repostViaRepost,
+  Preference? starterpackJoined,
+  Preference? subscribedPost,
+  Preference? unverified,
+  Preference? verified,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.appBskyNotificationPutPreferencesV2,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    if (chat != null) 'chat': chat.toJson(),
+    if (follow != null) 'follow': follow.toJson(),
+    if (like != null) 'like': like.toJson(),
+    if (likeViaRepost != null) 'likeViaRepost': likeViaRepost.toJson(),
+    if (mention != null) 'mention': mention.toJson(),
+    if (quote != null) 'quote': quote.toJson(),
+    if (reply != null) 'reply': reply.toJson(),
+    if (repost != null) 'repost': repost.toJson(),
+    if (repostViaRepost != null) 'repostViaRepost': repostViaRepost.toJson(),
+    if (starterpackJoined != null)
+      'starterpackJoined': starterpackJoined.toJson(),
+    if (subscribedPost != null) 'subscribedPost': subscribedPost.toJson(),
+    if (unverified != null) 'unverified': unverified.toJson(),
+    if (verified != null) 'verified': verified.toJson(),
+  },
+  to: const NotificationPutPreferencesV2OutputConverter().fromJson,
+);
+
 /// Notify server that the requesting account has seen notifications. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyNotificationUpdateSeen({
   required DateTime seenAt,
@@ -116,6 +151,25 @@ Future<XRPCResponse<EmptyData>> appBskyNotificationUpdateSeen({
   ns.appBskyNotificationUpdateSeen,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'seenAt': iso8601(seenAt)},
+);
+
+/// Enumerate all accounts to which the requesting account is subscribed to receive notifications for. Requires auth.
+Future<XRPCResponse<NotificationListActivitySubscriptionsOutput>>
+appBskyNotificationListActivitySubscriptions({
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyNotificationListActivitySubscriptions,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const NotificationListActivitySubscriptionsOutputConverter().fromJson,
 );
 
 /// The inverse of registerPush - inform a specified service that push notifications should no longer be sent to the given token for the requesting account. Requires auth.
@@ -177,77 +231,23 @@ appBskyNotificationListNotifications({
   to: const NotificationListNotificationsOutputConverter().fromJson,
 );
 
-/// Enumerate all accounts to which the requesting account is subscribed to receive notifications for. Requires auth.
-Future<XRPCResponse<NotificationListActivitySubscriptionsOutput>>
-appBskyNotificationListActivitySubscriptions({
-  int? limit,
-  String? cursor,
+/// Count the number of unread notifications for the requesting account. Requires auth.
+Future<XRPCResponse<NotificationGetUnreadCountOutput>>
+appBskyNotificationGetUnreadCount({
+  bool? priority,
+  DateTime? seenAt,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.appBskyNotificationListActivitySubscriptions,
+  ns.appBskyNotificationGetUnreadCount,
   headers: $headers,
   parameters: {
     ...?$unknown,
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
+    if (priority != null) 'priority': priority,
+    if (seenAt != null) 'seenAt': iso8601(seenAt),
   },
-  to: const NotificationListActivitySubscriptionsOutputConverter().fromJson,
-);
-
-/// Set notification-related preferences for an account. Requires auth.
-Future<XRPCResponse<EmptyData>> appBskyNotificationPutPreferences({
-  required bool priority,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.appBskyNotificationPutPreferences,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'priority': priority},
-);
-
-/// Set notification-related preferences for an account. Requires auth.
-Future<XRPCResponse<NotificationPutPreferencesV2Output>>
-appBskyNotificationPutPreferencesV2({
-  ChatPreference? chat,
-  FilterablePreference? follow,
-  FilterablePreference? like,
-  FilterablePreference? likeViaRepost,
-  FilterablePreference? mention,
-  FilterablePreference? quote,
-  FilterablePreference? reply,
-  FilterablePreference? repost,
-  FilterablePreference? repostViaRepost,
-  Preference? starterpackJoined,
-  Preference? subscribedPost,
-  Preference? unverified,
-  Preference? verified,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.appBskyNotificationPutPreferencesV2,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {
-    ...?$unknown,
-    if (chat != null) 'chat': chat.toJson(),
-    if (follow != null) 'follow': follow.toJson(),
-    if (like != null) 'like': like.toJson(),
-    if (likeViaRepost != null) 'likeViaRepost': likeViaRepost.toJson(),
-    if (mention != null) 'mention': mention.toJson(),
-    if (quote != null) 'quote': quote.toJson(),
-    if (reply != null) 'reply': reply.toJson(),
-    if (repost != null) 'repost': repost.toJson(),
-    if (repostViaRepost != null) 'repostViaRepost': repostViaRepost.toJson(),
-    if (starterpackJoined != null)
-      'starterpackJoined': starterpackJoined.toJson(),
-    if (subscribedPost != null) 'subscribedPost': subscribedPost.toJson(),
-    if (unverified != null) 'unverified': unverified.toJson(),
-    if (verified != null) 'verified': verified.toJson(),
-  },
-  to: const NotificationPutPreferencesV2OutputConverter().fromJson,
+  to: const NotificationGetUnreadCountOutputConverter().fromJson,
 );
 
 /// `app.bsky.notification.*`
@@ -259,20 +259,6 @@ base class NotificationService {
 
   NotificationService(this._ctx)
     : _declaration = NotificationDeclarationRecordAccessor(_ctx);
-
-  /// Count the number of unread notifications for the requesting account. Requires auth.
-  Future<XRPCResponse<NotificationGetUnreadCountOutput>> getUnreadCount({
-    bool? priority,
-    DateTime? seenAt,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyNotificationGetUnreadCount(
-    priority: priority,
-    seenAt: seenAt,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
 
   /// Register to receive push notifications, via a specified service, for the requesting account. Requires auth.
   Future<XRPCResponse<EmptyData>> registerPush({
@@ -294,8 +280,17 @@ base class NotificationService {
     $unknown: $unknown,
   );
 
-  /// A declaration of the user's choices related to notifications that can be produced by them.
-  NotificationDeclarationRecordAccessor get declaration => _declaration;
+  /// Set notification-related preferences for an account. Requires auth.
+  Future<XRPCResponse<EmptyData>> putPreferences({
+    required bool priority,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyNotificationPutPreferences(
+    priority: priority,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
 
   /// Puts an activity subscription entry. The key should be omitted for creation and provided for updates. Requires auth.
   Future<XRPCResponse<NotificationPutActivitySubscriptionOutput>>
@@ -312,6 +307,45 @@ base class NotificationService {
     $unknown: $unknown,
   );
 
+  /// A declaration of the user's choices related to notifications that can be produced by them.
+  NotificationDeclarationRecordAccessor get declaration => _declaration;
+
+  /// Set notification-related preferences for an account. Requires auth.
+  Future<XRPCResponse<NotificationPutPreferencesV2Output>> putPreferencesV2({
+    ChatPreference? chat,
+    FilterablePreference? follow,
+    FilterablePreference? like,
+    FilterablePreference? likeViaRepost,
+    FilterablePreference? mention,
+    FilterablePreference? quote,
+    FilterablePreference? reply,
+    FilterablePreference? repost,
+    FilterablePreference? repostViaRepost,
+    Preference? starterpackJoined,
+    Preference? subscribedPost,
+    Preference? unverified,
+    Preference? verified,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyNotificationPutPreferencesV2(
+    chat: chat,
+    follow: follow,
+    like: like,
+    likeViaRepost: likeViaRepost,
+    mention: mention,
+    quote: quote,
+    reply: reply,
+    repost: repost,
+    repostViaRepost: repostViaRepost,
+    starterpackJoined: starterpackJoined,
+    subscribedPost: subscribedPost,
+    unverified: unverified,
+    verified: verified,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
   /// Notify server that the requesting account has seen notifications. Requires auth.
   Future<XRPCResponse<EmptyData>> updateSeen({
     required DateTime seenAt,
@@ -319,6 +353,21 @@ base class NotificationService {
     Map<String, String>? $unknown,
   }) async => await appBskyNotificationUpdateSeen(
     seenAt: seenAt,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Enumerate all accounts to which the requesting account is subscribed to receive notifications for. Requires auth.
+  Future<XRPCResponse<NotificationListActivitySubscriptionsOutput>>
+  listActivitySubscriptions({
+    int? limit,
+    String? cursor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyNotificationListActivitySubscriptions(
+    limit: limit,
+    cursor: cursor,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
@@ -372,64 +421,15 @@ base class NotificationService {
     $unknown: $unknown,
   );
 
-  /// Enumerate all accounts to which the requesting account is subscribed to receive notifications for. Requires auth.
-  Future<XRPCResponse<NotificationListActivitySubscriptionsOutput>>
-  listActivitySubscriptions({
-    int? limit,
-    String? cursor,
+  /// Count the number of unread notifications for the requesting account. Requires auth.
+  Future<XRPCResponse<NotificationGetUnreadCountOutput>> getUnreadCount({
+    bool? priority,
+    DateTime? seenAt,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyNotificationListActivitySubscriptions(
-    limit: limit,
-    cursor: cursor,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Set notification-related preferences for an account. Requires auth.
-  Future<XRPCResponse<EmptyData>> putPreferences({
-    required bool priority,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyNotificationPutPreferences(
+  }) async => await appBskyNotificationGetUnreadCount(
     priority: priority,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Set notification-related preferences for an account. Requires auth.
-  Future<XRPCResponse<NotificationPutPreferencesV2Output>> putPreferencesV2({
-    ChatPreference? chat,
-    FilterablePreference? follow,
-    FilterablePreference? like,
-    FilterablePreference? likeViaRepost,
-    FilterablePreference? mention,
-    FilterablePreference? quote,
-    FilterablePreference? reply,
-    FilterablePreference? repost,
-    FilterablePreference? repostViaRepost,
-    Preference? starterpackJoined,
-    Preference? subscribedPost,
-    Preference? unverified,
-    Preference? verified,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyNotificationPutPreferencesV2(
-    chat: chat,
-    follow: follow,
-    like: like,
-    likeViaRepost: likeViaRepost,
-    mention: mention,
-    quote: quote,
-    reply: reply,
-    repost: repost,
-    repostViaRepost: repostViaRepost,
-    starterpackJoined: starterpackJoined,
-    subscribedPost: subscribedPost,
-    unverified: unverified,
-    verified: verified,
+    seenAt: seenAt,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
