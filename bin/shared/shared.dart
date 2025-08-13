@@ -8,7 +8,6 @@ library;
 export 'base_script.dart';
 export 'config.dart';
 export 'config_loader.dart';
-export 'enhanced_error_handling.dart';
 export 'error_handler.dart';
 export 'file_manager.dart';
 export 'logger.dart';
