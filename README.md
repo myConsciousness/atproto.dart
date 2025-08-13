@@ -153,7 +153,6 @@ void main() async {
 
 **Next Steps:**
 - [Complete Bluesky Guide](https://atprotodart.com/docs/packages/bluesky) - Authentication, posting, feeds, profiles
-- [Flutter Example App](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky/example) - Full mobile app implementation
 - [Supported Bluesky APIs](https://atprotodart.com/docs/supported_api#bluesky) - All available endpoints
 
 ### 3.2. Building AT Protocol Services
@@ -207,7 +206,6 @@ void main() async {
 
 **Next Steps:**
 - [AT Protocol Guide](https://atprotodart.com/docs/packages/atproto) - Repository operations, Firehose, authentication
-- [Bot Examples](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto/example) - Automated posting and monitoring
 - [Firehose Processing](https://atprotodart.com/docs/packages/atproto#firehose) - Real-time data stream handling
 
 ## 4. Project Development Setup 🛠️
@@ -216,7 +214,7 @@ Contributing to atproto.dart or setting up the development environment? This pro
 
 ### 4.1. Prerequisites
 
-- **Dart SDK**: Version 3.0.0 or higher ([Install Dart](https://dart.dev/get-dart))
+- **Dart SDK**: Version 3.8.0 or higher ([Install Dart](https://dart.dev/get-dart))
 - **Git**: For cloning and version control
 - **IDE**: VS Code, IntelliJ, or any Dart-compatible editor
 
@@ -253,7 +251,7 @@ The `melos setup` command handles everything: installing dependencies, running c
 **Setup Issues:**
 - **"melos command not found"**: Ensure `~/.pub-cache/bin` is in your PATH, or run `dart pub global activate melos`
 - **Build failures**: Try `melos clean` followed by `melos setup` to reset the environment
-- **Version conflicts**: Ensure you're using Dart 3.0.0+ with `dart --version`
+- **Version conflicts**: Ensure you're using Dart 3.8.0+ with `dart --version`
 
 **Development Issues:**
 - **Import errors**: Run `melos build` to regenerate code
