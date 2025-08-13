@@ -128,24 +128,25 @@ dart pub add bluesky
 ```
 
 ```dart
+import 'package:atproto/atproto.dart';
 import 'package:bluesky/bluesky.dart';
 
 void main() async {
   // Create authenticated session
-  final bluesky = Bluesky.fromSession(
-    await createSession(
-      identifier: 'your-handle.bsky.social',
-      password: 'your-password',
-    ),
+  final session = await createSession(
+    identifier: 'your-handle.bsky.social',
+    password: 'your-password',
   );
 
+  final bsky = Bluesky.fromSession(session.data);
+
   // Post to Bluesky
-  await bluesky.feed.post(text: 'Hello from atproto.dart! 🦋');
+  await bsky.feed.post.create(text: 'Hello from atproto.dart!');
 
   // Get your timeline
-  final timeline = await bluesky.feed.getTimeline();
+  final timeline = await bsky.feed.getTimeline();
   for (final post in timeline.data.feed) {
-    print('${post.post.author.displayName}: ${post.post.record.text}');
+    print('${post.post.author.displayName}: ${post.post.record}');
   }
 }
 ```
@@ -165,29 +166,41 @@ dart pub add atproto
 
 ```dart
 import 'package:atproto/atproto.dart';
+import 'package:atproto/firehose.dart';
+
+import 'package:atproto/com_atproto_sync_subscriberepos.dart';
 
 void main() async {
-  // Connect to any AT Protocol service
-  final atproto = ATProto.fromSession(
-    await createSession(
-      service: 'https://bsky.social',
-      identifier: 'your-handle.bsky.social', 
-      password: 'your-password',
-    ),
+  final session = await createSession(
+    service: 'https://bsky.social',
+    identifier: 'your-handle.bsky.social',
+    password: 'your-password',
   );
+
+  // Connect to any AT Protocol service
+  final atproto = ATProto.fromSession(session.data);
 
   // Create a record
   await atproto.repo.createRecord(
     repo: 'your-did',
     collection: 'app.bsky.feed.post',
-    record: {'text': 'Hello AT Protocol!', 'createdAt': DateTime.now().toIso8601String()},
+    record: {
+      'text': 'Hello AT Protocol!',
+      'createdAt': DateTime.now().toIso8601String(),
+    },
   );
 
+  final subscription = await atproto.sync.subscribeRepos();
+
   // Listen to the Firehose for real-time updates
-  await for (final event in atproto.sync.subscribeRepos()) {
-    if (event.isCommit) {
-      print('New commit: ${event.commit.repo}');
-    }
+  await for (final event in subscription.data.stream) {
+    final repos = const SyncSubscribeReposAdaptor().execute(event);
+
+    repos.whenOrNull(
+      commit: (data) {
+        print('New commit: ${data.repo}');
+      },
+    );
   }
 }
 ```
@@ -196,44 +209,6 @@ void main() async {
 - [AT Protocol Guide](https://atprotodart.com/docs/packages/atproto) - Repository operations, Firehose, authentication
 - [Bot Examples](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto/example) - Automated posting and monitoring
 - [Firehose Processing](https://atprotodart.com/docs/packages/atproto#firehose) - Real-time data stream handling
-
-### 3.3. Working with AT Protocol Primitives
-
-For advanced use cases requiring low-level AT Protocol components.
-
-```bash
-dart pub add at_uri nsid xrpc
-```
-
-```dart
-import 'package:at_uri/at_uri.dart';
-import 'package:nsid/nsid.dart';
-import 'package:xrpc/xrpc.dart';
-
-void main() async {
-  // Parse AT Protocol identifiers
-  final uri = AtUri.parse('at://did:plc:example/app.bsky.feed.post/abc123');
-  print('Repository: ${uri.repo}');
-  print('Collection: ${uri.collection}');
-  print('Record Key: ${uri.rkey}');
-
-  // Validate method identifiers
-  final nsid = Nsid.parse('com.atproto.repo.createRecord');
-  print('Authority: ${nsid.authority}'); // com.atproto
-  print('Method: ${nsid.name}');         // createRecord
-
-  // Make XRPC calls with automatic retry
-  final client = XRPCClient(service: 'https://bsky.social');
-  final response = await client.call(
-    nsid: Nsid.parse('com.atproto.server.describeServer'),
-  );
-}
-```
-
-**Next Steps:**
-- [AT Protocol Specification](https://atproto.com/specs/atp) - Protocol fundamentals
-- [Individual Package Docs](#21-core-libraries) - Detailed API references
-- [Custom Service Integration](https://atprotodart.com/docs/getting_started/custom-services) - Connect to any AT Protocol service
 
 ## 4. Project Development Setup 🛠️
 
