@@ -251,7 +251,7 @@ The `melos setup` command handles everything: installing dependencies, running c
 **Setup Issues:**
 - **"melos command not found"**: Ensure `~/.pub-cache/bin` is in your PATH, or run `dart pub global activate melos`
 - **Build failures**: Try `melos clean` followed by `melos setup` to reset the environment
-- **Version conflicts**: Ensure you're using Dart 3.0.0+ with `dart --version`
+- **Version conflicts**: Ensure you're using Dart 3.8.0+ with `dart --version`
 
 **Development Issues:**
 - **Import errors**: Run `melos build` to regenerate code
