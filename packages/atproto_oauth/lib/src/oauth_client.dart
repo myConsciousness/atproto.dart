@@ -125,7 +125,7 @@ final class OAuthClient {
   /// Returns:
   /// - [Uri]: The authorization URL where the user should be redirected to
   ///   complete authentication
-  Future<(Uri, OAuthContext)> authorize(final String identity) async {
+  Future<(Uri, OAuthContext)> authorize(final String? identity) async {
     final codeVerifier = random(46);
     final codeChallenge = hashS256(codeVerifier);
     final state = random(64);
@@ -135,7 +135,7 @@ final class OAuthClient {
       body: {
         'client_id': metadata.clientId,
         'redirect_uri': metadata.redirectUris.firstOrNull,
-        'login_hint': identity,
+        if (identity != null && identity.isNotEmpty) 'login_hint': identity,
         'state': state,
         'code_challenge': codeChallenge,
         'code_challenge_method': 'S256',
