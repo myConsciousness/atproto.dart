@@ -30,17 +30,17 @@ import 'moderation/search_repos.dart';
 
 final class ToolsOzoneModerationCommand extends Command<void> {
   ToolsOzoneModerationCommand() {
-    addSubcommand(GetReporterStatsCommand());
-    addSubcommand(QueryStatusesCommand());
-    addSubcommand(GetRepoCommand());
     addSubcommand(GetSubjectsCommand());
-    addSubcommand(GetRecordsCommand());
-    addSubcommand(GetEventCommand());
     addSubcommand(QueryEventsCommand());
+    addSubcommand(GetAccountTimelineCommand());
     addSubcommand(GetRecordCommand());
+    addSubcommand(GetEventCommand());
+    addSubcommand(GetRecordsCommand());
     addSubcommand(EmitEventCommand());
     addSubcommand(SearchReposCommand());
-    addSubcommand(GetAccountTimelineCommand());
+    addSubcommand(GetRepoCommand());
+    addSubcommand(QueryStatusesCommand());
+    addSubcommand(GetReporterStatsCommand());
     addSubcommand(GetReposCommand());
   }
 

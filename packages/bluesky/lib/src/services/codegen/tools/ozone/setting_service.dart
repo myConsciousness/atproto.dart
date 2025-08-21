@@ -23,30 +23,6 @@ import 'setting/upsertOption/output.dart';
 // LexGenerator
 // **************************************************************************
 
-/// List settings with optional filtering
-Future<XRPCResponse<SettingListOptionsOutput>> toolsOzoneSettingListOptions({
-  int? limit,
-  String? cursor,
-  SettingListOptionsScope? scope,
-  String? prefix,
-  List<String>? keys,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.toolsOzoneSettingListOptions,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
-    if (scope != null) 'scope': scope.toJson(),
-    if (prefix != null) 'prefix': prefix,
-    if (keys != null) 'keys': keys,
-  },
-  to: const SettingListOptionsOutputConverter().fromJson,
-);
-
 /// Delete settings by key
 Future<XRPCResponse<EmptyData>> toolsOzoneSettingRemoveOptions({
   required List<String> keys,
@@ -84,32 +60,36 @@ Future<XRPCResponse<SettingUpsertOptionOutput>> toolsOzoneSettingUpsertOption({
   to: const SettingUpsertOptionOutputConverter().fromJson,
 );
 
+/// List settings with optional filtering
+Future<XRPCResponse<SettingListOptionsOutput>> toolsOzoneSettingListOptions({
+  int? limit,
+  String? cursor,
+  SettingListOptionsScope? scope,
+  String? prefix,
+  List<String>? keys,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneSettingListOptions,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+    if (scope != null) 'scope': scope.toJson(),
+    if (prefix != null) 'prefix': prefix,
+    if (keys != null) 'keys': keys,
+  },
+  to: const SettingListOptionsOutputConverter().fromJson,
+);
+
 /// `tools.ozone.setting.*`
 base class SettingService {
   // ignore: unused_field
   final ServiceContext _ctx;
 
   SettingService(this._ctx);
-
-  /// List settings with optional filtering
-  Future<XRPCResponse<SettingListOptionsOutput>> listOptions({
-    int? limit,
-    String? cursor,
-    SettingListOptionsScope? scope,
-    String? prefix,
-    List<String>? keys,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneSettingListOptions(
-    limit: limit,
-    cursor: cursor,
-    scope: scope,
-    prefix: prefix,
-    keys: keys,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
 
   /// Delete settings by key
   Future<XRPCResponse<EmptyData>> removeOptions({
@@ -140,6 +120,26 @@ base class SettingService {
     value: value,
     description: description,
     managerRole: managerRole,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// List settings with optional filtering
+  Future<XRPCResponse<SettingListOptionsOutput>> listOptions({
+    int? limit,
+    String? cursor,
+    SettingListOptionsScope? scope,
+    String? prefix,
+    List<String>? keys,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneSettingListOptions(
+    limit: limit,
+    cursor: cursor,
+    scope: scope,
+    prefix: prefix,
+    keys: keys,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,

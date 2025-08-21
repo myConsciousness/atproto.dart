@@ -21,16 +21,34 @@ import 'temp/fetchLabels/output.dart';
 // LexGenerator
 // **************************************************************************
 
-/// Add a handle to the set of reserved handles.
-Future<XRPCResponse<EmptyData>> comAtprotoTempAddReservedHandle({
-  required String handle,
+/// DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.
+Future<XRPCResponse<TempFetchLabelsOutput>> comAtprotoTempFetchLabels({
+  int? since,
+  int? limit,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.comAtprotoTempFetchLabels,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (since != null) 'since': since,
+    if (limit != null) 'limit': limit,
+  },
+  to: const TempFetchLabelsOutputConverter().fromJson,
+);
+
+/// Request a verification code to be sent to the supplied phone number
+Future<XRPCResponse<EmptyData>> comAtprotoTempRequestPhoneVerification({
+  required String phoneNumber,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
-  ns.comAtprotoTempAddReservedHandle,
+  ns.comAtprotoTempRequestPhoneVerification,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'handle': handle},
+  body: {...?$unknown, 'phoneNumber': phoneNumber},
 );
 
 /// Check accounts location in signup queue.
@@ -67,34 +85,16 @@ comAtprotoTempCheckHandleAvailability({
   to: const TempCheckHandleAvailabilityOutputConverter().fromJson,
 );
 
-/// Request a verification code to be sent to the supplied phone number
-Future<XRPCResponse<EmptyData>> comAtprotoTempRequestPhoneVerification({
-  required String phoneNumber,
+/// Add a handle to the set of reserved handles.
+Future<XRPCResponse<EmptyData>> comAtprotoTempAddReservedHandle({
+  required String handle,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
-  ns.comAtprotoTempRequestPhoneVerification,
+  ns.comAtprotoTempAddReservedHandle,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'phoneNumber': phoneNumber},
-);
-
-/// DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.
-Future<XRPCResponse<TempFetchLabelsOutput>> comAtprotoTempFetchLabels({
-  int? since,
-  int? limit,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.comAtprotoTempFetchLabels,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    if (since != null) 'since': since,
-    if (limit != null) 'limit': limit,
-  },
-  to: const TempFetchLabelsOutputConverter().fromJson,
+  body: {...?$unknown, 'handle': handle},
 );
 
 /// `com.atproto.temp.*`
@@ -104,13 +104,27 @@ base class TempService {
 
   TempService(this._ctx);
 
-  /// Add a handle to the set of reserved handles.
-  Future<XRPCResponse<EmptyData>> addReservedHandle({
-    required String handle,
+  /// DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.
+  Future<XRPCResponse<TempFetchLabelsOutput>> fetchLabels({
+    int? since,
+    int? limit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoTempAddReservedHandle(
-    handle: handle,
+  }) async => await comAtprotoTempFetchLabels(
+    since: since,
+    limit: limit,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Request a verification code to be sent to the supplied phone number
+  Future<XRPCResponse<EmptyData>> requestPhoneVerification({
+    required String phoneNumber,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoTempRequestPhoneVerification(
+    phoneNumber: phoneNumber,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
@@ -143,27 +157,13 @@ base class TempService {
     $unknown: $unknown,
   );
 
-  /// Request a verification code to be sent to the supplied phone number
-  Future<XRPCResponse<EmptyData>> requestPhoneVerification({
-    required String phoneNumber,
+  /// Add a handle to the set of reserved handles.
+  Future<XRPCResponse<EmptyData>> addReservedHandle({
+    required String handle,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoTempRequestPhoneVerification(
-    phoneNumber: phoneNumber,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.
-  Future<XRPCResponse<TempFetchLabelsOutput>> fetchLabels({
-    int? since,
-    int? limit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoTempFetchLabels(
-    since: since,
-    limit: limit,
+  }) async => await comAtprotoTempAddReservedHandle(
+    handle: handle,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,

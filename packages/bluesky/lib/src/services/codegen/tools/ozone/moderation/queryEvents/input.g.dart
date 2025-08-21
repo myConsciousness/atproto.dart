@@ -82,6 +82,7 @@ _ModerationQueryEventsInput _$ModerationQueryEventsInputFromJson(
       'modTool',
       (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
     ),
+    batchId: $checkedConvert('batchId', (v) => v as String?),
     ageAssuranceState: $checkedConvert(
       'ageAssuranceState',
       (v) =>
@@ -131,6 +132,7 @@ Map<String, dynamic> _$ModerationQueryEventsInputToJson(
   'reportTypes': ?instance.reportTypes,
   'policies': ?instance.policies,
   'modTool': ?instance.modTool,
+  'batchId': ?instance.batchId,
   'ageAssuranceState':
       ?_$JsonConverterToJson<String, ModerationQueryEventsAgeAssuranceState>(
         instance.ageAssuranceState,

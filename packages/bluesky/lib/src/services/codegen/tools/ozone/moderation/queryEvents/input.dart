@@ -45,6 +45,7 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
     'reportTypes',
     'policies',
     'modTool',
+    'batchId',
     'ageAssuranceState',
     'cursor',
   ];
@@ -88,6 +89,9 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
     List<String>? policies,
     List<String>? modTool,
 
+    /// If specified, only events where the batchId matches the given value are returned
+    String? batchId,
+
     /// If specified, only events where the age assurance state matches the given value are returned
     @ModerationQueryEventsAgeAssuranceStateConverter()
     ModerationQueryEventsAgeAssuranceState? ageAssuranceState,
@@ -114,6 +118,8 @@ extension ModerationQueryEventsInputExtension on ModerationQueryEventsInput {
   bool get isIncludeAllUserRecords => includeAllUserRecords;
   bool get isNotIncludeAllUserRecords => !isIncludeAllUserRecords;
   bool get hasNotComment => !(hasComment ?? false);
+  bool get hasBatchId => batchId != null;
+  bool get hasNotBatchId => !hasBatchId;
   bool get hasAgeAssuranceState => ageAssuranceState != null;
   bool get hasNotAgeAssuranceState => !hasAgeAssuranceState;
   bool get hasCursor => cursor != null;

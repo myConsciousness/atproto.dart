@@ -22,9 +22,9 @@ import 'team/update_member.dart';
 
 final class ToolsOzoneTeamCommand extends Command<void> {
   ToolsOzoneTeamCommand() {
-    addSubcommand(ListMembersCommand());
-    addSubcommand(DeleteMemberCommand());
     addSubcommand(UpdateMemberCommand());
+    addSubcommand(DeleteMemberCommand());
+    addSubcommand(ListMembersCommand());
     addSubcommand(AddMemberCommand());
   }
 
