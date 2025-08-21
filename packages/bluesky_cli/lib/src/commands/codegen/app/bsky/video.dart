@@ -20,8 +20,8 @@ import 'video/get_upload_limits.dart';
 
 final class AppBskyVideoCommand extends Command<void> {
   AppBskyVideoCommand() {
-    addSubcommand(GetJobStatusCommand());
     addSubcommand(GetUploadLimitsCommand());
+    addSubcommand(GetJobStatusCommand());
   }
 
   @override

@@ -21,6 +21,38 @@ import 'team/updateMember/main_role.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Update a member in the ozone service. Requires admin role.
+Future<XRPCResponse<Member>> toolsOzoneTeamUpdateMember({
+  required String did,
+  bool? disabled,
+  TeamUpdateMemberRole? role,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneTeamUpdateMember,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'did': did,
+    if (disabled != null) 'disabled': disabled,
+    if (role != null) 'role': role.toJson(),
+  },
+  to: const MemberConverter().fromJson,
+);
+
+/// Delete a member from ozone team. Requires admin role.
+Future<XRPCResponse<EmptyData>> toolsOzoneTeamDeleteMember({
+  required String did,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneTeamDeleteMember,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'did': did},
+);
+
 /// List all members with access to the ozone service.
 Future<XRPCResponse<TeamListMembersOutput>> toolsOzoneTeamListMembers({
   String? q,
@@ -45,38 +77,6 @@ Future<XRPCResponse<TeamListMembersOutput>> toolsOzoneTeamListMembers({
   to: const TeamListMembersOutputConverter().fromJson,
 );
 
-/// Delete a member from ozone team. Requires admin role.
-Future<XRPCResponse<EmptyData>> toolsOzoneTeamDeleteMember({
-  required String did,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.toolsOzoneTeamDeleteMember,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'did': did},
-);
-
-/// Update a member in the ozone service. Requires admin role.
-Future<XRPCResponse<Member>> toolsOzoneTeamUpdateMember({
-  required String did,
-  bool? disabled,
-  TeamUpdateMemberRole? role,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.toolsOzoneTeamUpdateMember,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {
-    ...?$unknown,
-    'did': did,
-    if (disabled != null) 'disabled': disabled,
-    if (role != null) 'role': role.toJson(),
-  },
-  to: const MemberConverter().fromJson,
-);
-
 /// Add a member to the ozone team. Requires admin role.
 Future<XRPCResponse<Member>> toolsOzoneTeamAddMember({
   required String did,
@@ -98,21 +98,17 @@ base class TeamService {
 
   TeamService(this._ctx);
 
-  /// List all members with access to the ozone service.
-  Future<XRPCResponse<TeamListMembersOutput>> listMembers({
-    String? q,
+  /// Update a member in the ozone service. Requires admin role.
+  Future<XRPCResponse<Member>> updateMember({
+    required String did,
     bool? disabled,
-    List<String>? roles,
-    int? limit,
-    String? cursor,
+    TeamUpdateMemberRole? role,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await toolsOzoneTeamListMembers(
-    q: q,
+  }) async => await toolsOzoneTeamUpdateMember(
+    did: did,
     disabled: disabled,
-    roles: roles,
-    limit: limit,
-    cursor: cursor,
+    role: role,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
@@ -130,17 +126,21 @@ base class TeamService {
     $unknown: $unknown,
   );
 
-  /// Update a member in the ozone service. Requires admin role.
-  Future<XRPCResponse<Member>> updateMember({
-    required String did,
+  /// List all members with access to the ozone service.
+  Future<XRPCResponse<TeamListMembersOutput>> listMembers({
+    String? q,
     bool? disabled,
-    TeamUpdateMemberRole? role,
+    List<String>? roles,
+    int? limit,
+    String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await toolsOzoneTeamUpdateMember(
-    did: did,
+  }) async => await toolsOzoneTeamListMembers(
+    q: q,
     disabled: disabled,
-    role: role,
+    roles: roles,
+    limit: limit,
+    cursor: cursor,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,

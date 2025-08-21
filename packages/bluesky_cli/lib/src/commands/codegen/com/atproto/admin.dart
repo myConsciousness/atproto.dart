@@ -33,21 +33,21 @@ import 'admin/update_subject_status.dart';
 
 final class ComAtprotoAdminCommand extends Command<void> {
   ComAtprotoAdminCommand() {
-    addSubcommand(UpdateAccountEmailCommand());
-    addSubcommand(GetAccountInfoCommand());
-    addSubcommand(GetSubjectStatusCommand());
-    addSubcommand(SearchAccountsCommand());
-    addSubcommand(UpdateAccountPasswordCommand());
-    addSubcommand(UpdateAccountHandleCommand());
+    addSubcommand(GetAccountInfosCommand());
+    addSubcommand(DisableInviteCodesCommand());
     addSubcommand(GetInviteCodesCommand());
     addSubcommand(UpdateAccountSigningKeyCommand());
-    addSubcommand(EnableAccountInvitesCommand());
+    addSubcommand(UpdateAccountPasswordCommand());
     addSubcommand(DisableAccountInvitesCommand());
-    addSubcommand(DisableInviteCodesCommand());
+    addSubcommand(GetAccountInfoCommand());
+    addSubcommand(UpdateAccountHandleCommand());
+    addSubcommand(SearchAccountsCommand());
     addSubcommand(UpdateSubjectStatusCommand());
     addSubcommand(SendEmailCommand());
-    addSubcommand(GetAccountInfosCommand());
+    addSubcommand(UpdateAccountEmailCommand());
     addSubcommand(DeleteAccountCommand());
+    addSubcommand(EnableAccountInvitesCommand());
+    addSubcommand(GetSubjectStatusCommand());
   }
 
   @override

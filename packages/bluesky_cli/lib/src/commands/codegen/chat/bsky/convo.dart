@@ -35,23 +35,23 @@ import 'convo/update_read.dart';
 
 final class ChatBskyConvoCommand extends Command<void> {
   ChatBskyConvoCommand() {
-    addSubcommand(ListConvosCommand());
-    addSubcommand(UnmuteConvoCommand());
-    addSubcommand(GetConvoAvailabilityCommand());
-    addSubcommand(GetLogCommand());
     addSubcommand(SendMessageCommand());
-    addSubcommand(LeaveConvoCommand());
     addSubcommand(AddReactionCommand());
-    addSubcommand(AcceptConvoCommand());
-    addSubcommand(MuteConvoCommand());
     addSubcommand(DeleteMessageForSelfCommand());
-    addSubcommand(RemoveReactionCommand());
-    addSubcommand(UpdateReadCommand());
-    addSubcommand(UpdateAllReadCommand());
-    addSubcommand(GetConvoCommand());
+    addSubcommand(MuteConvoCommand());
+    addSubcommand(LeaveConvoCommand());
     addSubcommand(GetMessagesCommand());
-    addSubcommand(GetConvoForMembersCommand());
     addSubcommand(SendMessageBatchCommand());
+    addSubcommand(GetLogCommand());
+    addSubcommand(UpdateReadCommand());
+    addSubcommand(GetConvoAvailabilityCommand());
+    addSubcommand(ListConvosCommand());
+    addSubcommand(GetConvoCommand());
+    addSubcommand(UnmuteConvoCommand());
+    addSubcommand(GetConvoForMembersCommand());
+    addSubcommand(AcceptConvoCommand());
+    addSubcommand(RemoveReactionCommand());
+    addSubcommand(UpdateAllReadCommand());
   }
 
   @override

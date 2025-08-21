@@ -92,6 +92,11 @@ final class QueryEventsCommand extends QueryCommand {
             r"If specified, only events where the modTool name matches any of the given values are returned",
       )
       ..addOption(
+        "batchId",
+        help:
+            r"If specified, only events where the batchId matches the given value are returned",
+      )
+      ..addOption(
         "ageAssuranceState",
         help:
             r"If specified, only events where the age assurance state matches the given value are returned",
@@ -107,7 +112,7 @@ final class QueryEventsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-moderation query-events [types] [createdBy] [sortDirection] [createdAfter] [createdBefore] [subject] [collections] [subjectType] [includeAllUserRecords] [limit] [hasComment] [comment] [addedLabels] [removedLabels] [addedTags] [removedTags] [reportTypes] [policies] [modTool] [ageAssuranceState] [cursor]";
+      "bsky tools-ozone-moderation query-events [types] [createdBy] [sortDirection] [createdAfter] [createdBefore] [subject] [collections] [subjectType] [includeAllUserRecords] [limit] [hasComment] [comment] [addedLabels] [removedLabels] [addedTags] [removedTags] [reportTypes] [policies] [modTool] [batchId] [ageAssuranceState] [cursor]";
 
   @override
   String get methodId => "tools.ozone.moderation.queryEvents";
@@ -142,6 +147,7 @@ final class QueryEventsCommand extends QueryCommand {
       "reportTypes": argResults!["reportTypes"],
     if (argResults!["policies"] != null) "policies": argResults!["policies"],
     if (argResults!["modTool"] != null) "modTool": argResults!["modTool"],
+    if (argResults!["batchId"] != null) "batchId": argResults!["batchId"],
     if (argResults!["ageAssuranceState"] != null)
       "ageAssuranceState": argResults!["ageAssuranceState"],
     if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],

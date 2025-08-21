@@ -23,11 +23,11 @@ import 'temp/request_phone_verification.dart';
 
 final class ComAtprotoTempCommand extends Command<void> {
   ComAtprotoTempCommand() {
-    addSubcommand(AddReservedHandleCommand());
+    addSubcommand(FetchLabelsCommand());
+    addSubcommand(RequestPhoneVerificationCommand());
     addSubcommand(CheckSignupQueueCommand());
     addSubcommand(CheckHandleAvailabilityCommand());
-    addSubcommand(RequestPhoneVerificationCommand());
-    addSubcommand(FetchLabelsCommand());
+    addSubcommand(AddReservedHandleCommand());
   }
 
   @override
