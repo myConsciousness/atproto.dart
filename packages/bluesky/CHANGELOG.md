@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.0.8
+
+- chore: Sync Lexicon Data. ([#2100](https://github.com/myConsciousness/atproto.dart/pull/2100))
+
 ## v1.0.7
 
 - fix: Drop `universal_io` for WASM compatibility.
