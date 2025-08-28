@@ -26,13 +26,13 @@ import 'repo/put_record.dart';
 
 final class ComAtprotoRepoCommand extends Command<void> {
   ComAtprotoRepoCommand() {
-    addSubcommand(CreateRecordCommand());
-    addSubcommand(DeleteRecordCommand());
-    addSubcommand(PutRecordCommand());
     addSubcommand(GetRecordCommand());
-    addSubcommand(ListRecordsCommand());
     addSubcommand(ApplyWritesCommand());
+    addSubcommand(CreateRecordCommand());
+    addSubcommand(PutRecordCommand());
     addSubcommand(ListMissingBlobsCommand());
+    addSubcommand(ListRecordsCommand());
+    addSubcommand(DeleteRecordCommand());
     addSubcommand(DescribeRepoCommand());
   }
 

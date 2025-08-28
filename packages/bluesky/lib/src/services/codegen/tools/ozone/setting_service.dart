@@ -23,19 +23,6 @@ import 'setting/upsertOption/output.dart';
 // LexGenerator
 // **************************************************************************
 
-/// Delete settings by key
-Future<XRPCResponse<EmptyData>> toolsOzoneSettingRemoveOptions({
-  required List<String> keys,
-  required SettingRemoveOptionsScope scope,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.toolsOzoneSettingRemoveOptions,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'keys': keys, 'scope': scope.toJson()},
-);
-
 /// Create or update setting option
 Future<XRPCResponse<SettingUpsertOptionOutput>> toolsOzoneSettingUpsertOption({
   required String key,
@@ -84,26 +71,25 @@ Future<XRPCResponse<SettingListOptionsOutput>> toolsOzoneSettingListOptions({
   to: const SettingListOptionsOutputConverter().fromJson,
 );
 
+/// Delete settings by key
+Future<XRPCResponse<EmptyData>> toolsOzoneSettingRemoveOptions({
+  required List<String> keys,
+  required SettingRemoveOptionsScope scope,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneSettingRemoveOptions,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'keys': keys, 'scope': scope.toJson()},
+);
+
 /// `tools.ozone.setting.*`
 base class SettingService {
   // ignore: unused_field
   final ServiceContext _ctx;
 
   SettingService(this._ctx);
-
-  /// Delete settings by key
-  Future<XRPCResponse<EmptyData>> removeOptions({
-    required List<String> keys,
-    required SettingRemoveOptionsScope scope,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneSettingRemoveOptions(
-    keys: keys,
-    scope: scope,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
 
   /// Create or update setting option
   Future<XRPCResponse<SettingUpsertOptionOutput>> upsertOption({
@@ -140,6 +126,20 @@ base class SettingService {
     scope: scope,
     prefix: prefix,
     keys: keys,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Delete settings by key
+  Future<XRPCResponse<EmptyData>> removeOptions({
+    required List<String> keys,
+    required SettingRemoveOptionsScope scope,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneSettingRemoveOptions(
+    keys: keys,
+    scope: scope,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,

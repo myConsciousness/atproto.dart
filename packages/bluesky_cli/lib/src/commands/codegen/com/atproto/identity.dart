@@ -28,11 +28,11 @@ final class ComAtprotoIdentityCommand extends Command<void> {
   ComAtprotoIdentityCommand() {
     addSubcommand(SignPlcOperationCommand());
     addSubcommand(UpdateHandleCommand());
+    addSubcommand(ResolveIdentityCommand());
+    addSubcommand(ResolveDidCommand());
+    addSubcommand(RefreshIdentityCommand());
     addSubcommand(ResolveHandleCommand());
     addSubcommand(GetRecommendedDidCredentialsCommand());
-    addSubcommand(RefreshIdentityCommand());
-    addSubcommand(ResolveDidCommand());
-    addSubcommand(ResolveIdentityCommand());
     addSubcommand(SubmitPlcOperationCommand());
   }
 

@@ -38,26 +38,26 @@ import 'unspecced/search_starter_packs_skeleton.dart';
 
 final class AppBskyUnspeccedCommand extends Command<void> {
   AppBskyUnspeccedCommand() {
-    addSubcommand(GetSuggestionsSkeletonCommand());
-    addSubcommand(GetPostThreadV2Command());
     addSubcommand(GetSuggestedStarterPacksCommand());
-    addSubcommand(GetTaggedSuggestionsCommand());
-    addSubcommand(GetSuggestedUsersSkeletonCommand());
-    addSubcommand(SearchPostsSkeletonCommand());
-    addSubcommand(GetSuggestedUsersCommand());
-    addSubcommand(GetTrendsSkeletonCommand());
+    addSubcommand(SearchActorsSkeletonCommand());
+    addSubcommand(GetTrendsCommand());
     addSubcommand(GetSuggestedFeedsCommand());
     addSubcommand(SearchStarterPacksSkeletonCommand());
-    addSubcommand(GetTrendsCommand());
-    addSubcommand(InitAgeAssuranceCommand());
-    addSubcommand(GetSuggestedStarterPacksSkeletonCommand());
-    addSubcommand(GetPopularFeedGeneratorsCommand());
-    addSubcommand(GetAgeAssuranceStateCommand());
     addSubcommand(GetPostThreadOtherV2Command());
-    addSubcommand(GetTrendingTopicsCommand());
+    addSubcommand(SearchPostsSkeletonCommand());
+    addSubcommand(GetSuggestedStarterPacksSkeletonCommand());
+    addSubcommand(InitAgeAssuranceCommand());
+    addSubcommand(GetPostThreadV2Command());
+    addSubcommand(GetSuggestedUsersCommand());
+    addSubcommand(GetTaggedSuggestionsCommand());
+    addSubcommand(GetPopularFeedGeneratorsCommand());
     addSubcommand(GetSuggestedFeedsSkeletonCommand());
+    addSubcommand(GetAgeAssuranceStateCommand());
     addSubcommand(GetConfigCommand());
-    addSubcommand(SearchActorsSkeletonCommand());
+    addSubcommand(GetSuggestedUsersSkeletonCommand());
+    addSubcommand(GetSuggestionsSkeletonCommand());
+    addSubcommand(GetTrendsSkeletonCommand());
+    addSubcommand(GetTrendingTopicsCommand());
   }
 
   @override

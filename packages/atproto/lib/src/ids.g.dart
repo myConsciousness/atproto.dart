@@ -502,3 +502,7 @@ const comAtprotoTempFetchLabels = 'com.atproto.temp.fetchLabels';
 /// `com.atproto.temp.requestPhoneVerification`
 const comAtprotoTempRequestPhoneVerification =
     'com.atproto.temp.requestPhoneVerification';
+
+/// `com.atproto.temp.revokeAccountCredentials`
+const comAtprotoTempRevokeAccountCredentials =
+    'com.atproto.temp.revokeAccountCredentials';

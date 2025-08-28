@@ -472,3 +472,8 @@ const comAtprotoTempFetchLabels = NSID(ids.comAtprotoTempFetchLabels);
 const comAtprotoTempRequestPhoneVerification = NSID(
   ids.comAtprotoTempRequestPhoneVerification,
 );
+
+/// `com.atproto.temp.revokeAccountCredentials`
+const comAtprotoTempRevokeAccountCredentials = NSID(
+  ids.comAtprotoTempRevokeAccountCredentials,
+);
